@@ -151,7 +151,7 @@ public:
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HoldPrx::_iceI_putOnHold, seconds, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HoldPrx::_iceI_putOnHold, seconds, context);
     }
 
     /// \cond INTERNAL
@@ -176,7 +176,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HoldPrx::_iceI_waitForHold, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HoldPrx::_iceI_waitForHold, context);
     }
 
     /// \cond INTERNAL
@@ -202,7 +202,7 @@ public:
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HoldPrx::_iceI_setOneway, value, expected, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HoldPrx::_iceI_setOneway, value, expected, context);
     }
 
     /// \cond INTERNAL
@@ -228,7 +228,7 @@ public:
              ::std::function<void(bool)> sent = nullptr,
              const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::HoldPrx::_iceI_set, value, delay, context);
+        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::HoldPrx::_iceI_set, value, delay, context);
     }
 
     /// \cond INTERNAL
@@ -253,7 +253,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HoldPrx::_iceI_shutdown, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HoldPrx::_iceI_shutdown, context);
     }
 
     /// \cond INTERNAL

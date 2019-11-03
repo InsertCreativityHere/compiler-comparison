@@ -242,7 +242,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceLocatorDiscovery::LookupReplyPrx::_iceI_foundLocator, prx, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceLocatorDiscovery::LookupReplyPrx::_iceI_foundLocator, prx, context);
     }
 
     /// \cond INTERNAL
@@ -328,7 +328,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceLocatorDiscovery::LookupPrx::_iceI_findLocator, instanceName, reply, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceLocatorDiscovery::LookupPrx::_iceI_findLocator, instanceName, reply, context);
     }
 
     /// \cond INTERNAL

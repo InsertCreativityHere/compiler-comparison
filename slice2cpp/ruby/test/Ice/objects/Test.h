@@ -1554,7 +1554,7 @@ public:
             ::std::function<void(bool)> sent = nullptr,
             const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::AbstractBasePrx::_iceI_op, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::AbstractBasePrx::_iceI_op, context);
     }
 
     /// \cond INTERNAL
@@ -1639,7 +1639,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
     }
 
     /// \cond INTERNAL
@@ -1664,7 +1664,7 @@ public:
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Test::B>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getB1, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Test::B>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getB1, context);
     }
 
     /// \cond INTERNAL
@@ -1689,7 +1689,7 @@ public:
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Test::B>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getB2, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Test::B>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getB2, context);
     }
 
     /// \cond INTERNAL
@@ -1714,7 +1714,7 @@ public:
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Test::C>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getC, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Test::C>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getC, context);
     }
 
     /// \cond INTERNAL
@@ -1739,7 +1739,7 @@ public:
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Test::D>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getD, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Test::D>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getD, context);
     }
 
     /// \cond INTERNAL
@@ -1764,7 +1764,7 @@ public:
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Test::E>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getE, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Test::E>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getE, context);
     }
 
     /// \cond INTERNAL
@@ -1789,7 +1789,7 @@ public:
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Test::F>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getF, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Test::F>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getF, context);
     }
 
     /// \cond INTERNAL
@@ -1815,7 +1815,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_setRecursive, p, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_setRecursive, p, context);
     }
 
     /// \cond INTERNAL
@@ -1840,7 +1840,7 @@ public:
                                     ::std::function<void(bool)> sent = nullptr,
                                     const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_supportsClassGraphDepthMax, context);
+        return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_supportsClassGraphDepthMax, context);
     }
 
     /// \cond INTERNAL
@@ -1866,7 +1866,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_setCycle, r, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_setCycle, r, context);
     }
 
     /// \cond INTERNAL
@@ -1891,7 +1891,7 @@ public:
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_acceptsClassCycles, context);
+        return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_acceptsClassCycles, context);
     }
 
     /// \cond INTERNAL
@@ -1916,7 +1916,7 @@ public:
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Test::B>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getMB, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Test::B>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getMB, context);
     }
 
     /// \cond INTERNAL
@@ -1941,7 +1941,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Test::B>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getAMDMB, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Test::B>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getAMDMB, context);
     }
 
     /// \cond INTERNAL
@@ -1974,7 +1974,7 @@ public:
         {
             response(::std::move(_result.b1), ::std::move(_result.b2), ::std::move(_result.theC), ::std::move(_result.theD));
         };
-        return _makeLamdaOutgoing<Initial::GetAllResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getAll, context);
+        return _makeLambdaOutgoing<Initial::GetAllResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getAll, context);
     }
 
     /// \cond INTERNAL
@@ -1999,7 +1999,7 @@ public:
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Ice::Value>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getH, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::Value>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getH, context);
     }
 
     /// \cond INTERNAL
@@ -2024,7 +2024,7 @@ public:
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Ice::Value>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getI, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::Value>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getI, context);
     }
 
     /// \cond INTERNAL
@@ -2049,7 +2049,7 @@ public:
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Ice::Value>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getJ, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::Value>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getJ, context);
     }
 
     /// \cond INTERNAL
@@ -2074,7 +2074,7 @@ public:
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Test::K>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getK, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Test::K>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getK, context);
     }
 
     /// \cond INTERNAL
@@ -2106,7 +2106,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.v2));
         };
-        return _makeLamdaOutgoing<Initial::OpValueResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opValue, v1, context);
+        return _makeLambdaOutgoing<Initial::OpValueResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opValue, v1, context);
     }
 
     /// \cond INTERNAL
@@ -2138,7 +2138,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.v2));
         };
-        return _makeLamdaOutgoing<Initial::OpValueSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opValueSeq, v1, context);
+        return _makeLambdaOutgoing<Initial::OpValueSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opValueSeq, v1, context);
     }
 
     /// \cond INTERNAL
@@ -2170,7 +2170,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.v2));
         };
-        return _makeLamdaOutgoing<Initial::OpValueMapResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opValueMap, v1, context);
+        return _makeLambdaOutgoing<Initial::OpValueMapResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opValueMap, v1, context);
     }
 
     /// \cond INTERNAL
@@ -2196,7 +2196,7 @@ public:
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Test::D1>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getD1, d1, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Test::D1>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getD1, d1, context);
     }
 
     /// \cond INTERNAL
@@ -2221,7 +2221,7 @@ public:
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwEDerived, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwEDerived, context);
     }
 
     /// \cond INTERNAL
@@ -2247,7 +2247,7 @@ public:
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_setG, theG, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_setG, theG, context);
     }
 
     /// \cond INTERNAL
@@ -2273,7 +2273,7 @@ public:
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_setI, theI, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_setI, theI, context);
     }
 
     /// \cond INTERNAL
@@ -2305,7 +2305,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<Initial::OpBaseSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opBaseSeq, inSeq, context);
+        return _makeLambdaOutgoing<Initial::OpBaseSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opBaseSeq, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -2330,7 +2330,7 @@ public:
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Test::Compact>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getCompact, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Test::Compact>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getCompact, context);
     }
 
     /// \cond INTERNAL
@@ -2362,7 +2362,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.v2));
         };
-        return _makeLamdaOutgoing<Initial::OpMResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opM, v1, context);
+        return _makeLambdaOutgoing<Initial::OpMResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opM, v1, context);
     }
 
     /// \cond INTERNAL
@@ -2394,7 +2394,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.f12));
         };
-        return _makeLamdaOutgoing<Initial::OpF1Result>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opF1, f11, context);
+        return _makeLambdaOutgoing<Initial::OpF1Result>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opF1, f11, context);
     }
 
     /// \cond INTERNAL
@@ -2426,7 +2426,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.f22));
         };
-        return _makeLamdaOutgoing<Initial::OpF2Result>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opF2, f21, context);
+        return _makeLambdaOutgoing<Initial::OpF2Result>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opF2, f21, context);
     }
 
     /// \cond INTERNAL
@@ -2458,7 +2458,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.f32));
         };
-        return _makeLamdaOutgoing<Initial::OpF3Result>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opF3, f31, context);
+        return _makeLambdaOutgoing<Initial::OpF3Result>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opF3, f31, context);
     }
 
     /// \cond INTERNAL
@@ -2483,7 +2483,7 @@ public:
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_hasF3, context);
+        return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_hasF3, context);
     }
 
     /// \cond INTERNAL
@@ -2509,7 +2509,7 @@ public:
              ::std::function<void(bool)> sent = nullptr,
              const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Test::N>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opN, p1, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Test::N>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opN, p1, context);
     }
 
     /// \cond INTERNAL

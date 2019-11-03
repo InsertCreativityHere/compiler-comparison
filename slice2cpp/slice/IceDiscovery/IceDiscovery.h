@@ -259,7 +259,7 @@ public:
                          ::std::function<void(bool)> sent = nullptr,
                          const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceDiscovery::LookupReplyPrx::_iceI_foundObjectById, id, prx, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceDiscovery::LookupReplyPrx::_iceI_foundObjectById, id, prx, context);
     }
 
     /// \cond INTERNAL
@@ -317,7 +317,7 @@ public:
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceDiscovery::LookupReplyPrx::_iceI_foundAdapterById, id, prx, isReplicaGroup, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceDiscovery::LookupReplyPrx::_iceI_foundAdapterById, id, prx, isReplicaGroup, context);
     }
 
     /// \cond INTERNAL
@@ -400,7 +400,7 @@ public:
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceDiscovery::LookupPrx::_iceI_findObjectById, domainId, id, reply, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceDiscovery::LookupPrx::_iceI_findObjectById, domainId, id, reply, context);
     }
 
     /// \cond INTERNAL
@@ -458,7 +458,7 @@ public:
                          ::std::function<void(bool)> sent = nullptr,
                          const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceDiscovery::LookupPrx::_iceI_findAdapterById, domainId, id, reply, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceDiscovery::LookupPrx::_iceI_findAdapterById, domainId, id, reply, context);
     }
 
     /// \cond INTERNAL

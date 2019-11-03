@@ -198,7 +198,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const Context& context = noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::ProcessPrx::_iceI_shutdown, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::ProcessPrx::_iceI_shutdown, context);
     }
 
     /// \cond INTERNAL
@@ -247,7 +247,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const Context& context = noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::ProcessPrx::_iceI_writeMessage, message, fd, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::ProcessPrx::_iceI_writeMessage, message, fd, context);
     }
 
     /// \cond INTERNAL

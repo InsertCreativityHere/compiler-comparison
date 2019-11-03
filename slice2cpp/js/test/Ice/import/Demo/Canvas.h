@@ -201,7 +201,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Demo::gx::CanvasPrx::_iceI_paintSquare, square, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Demo::gx::CanvasPrx::_iceI_paintSquare, square, context);
     }
 
     /// \cond INTERNAL
@@ -227,7 +227,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Demo::gx::CanvasPrx::_iceI_paintCircle, circle, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Demo::gx::CanvasPrx::_iceI_paintCircle, circle, context);
     }
 
     /// \cond INTERNAL
@@ -272,7 +272,7 @@ public:
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Demo::gx::SessionPrx::_iceI_destroySession, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Demo::gx::SessionPrx::_iceI_destroySession, context);
     }
 
     /// \cond INTERNAL

@@ -257,7 +257,7 @@ public:
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_ping, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_ping, context);
     }
 
     /// \cond INTERNAL
@@ -282,7 +282,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_getCount, context);
+        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_getCount, context);
     }
 
     /// \cond INTERNAL
@@ -307,7 +307,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_datagram, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_datagram, context);
     }
 
     /// \cond INTERNAL
@@ -332,7 +332,7 @@ public:
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_getDatagramCount, context);
+        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_getDatagramCount, context);
     }
 
     /// \cond INTERNAL
@@ -377,7 +377,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_callCallback, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_callCallback, context);
     }
 
     /// \cond INTERNAL
@@ -402,7 +402,7 @@ public:
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getCallbackCount, context);
+        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getCallbackCount, context);
     }
 
     /// \cond INTERNAL
@@ -428,7 +428,7 @@ public:
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_incCounter, expected, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_incCounter, expected, context);
     }
 
     /// \cond INTERNAL
@@ -454,7 +454,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_waitCounter, value, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_waitCounter, value, context);
     }
 
     /// \cond INTERNAL
@@ -479,7 +479,7 @@ public:
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getConnectionCount, context);
+        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getConnectionCount, context);
     }
 
     /// \cond INTERNAL
@@ -504,7 +504,7 @@ public:
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getConnectionInfo, context);
+        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getConnectionInfo, context);
     }
 
     /// \cond INTERNAL
@@ -530,7 +530,7 @@ public:
                          ::std::function<void(bool)> sent = nullptr,
                          const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_closeConnection, force, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_closeConnection, force, context);
     }
 
     /// \cond INTERNAL
@@ -555,7 +555,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_datagram, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_datagram, context);
     }
 
     /// \cond INTERNAL
@@ -580,7 +580,7 @@ public:
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getDatagramCount, context);
+        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getDatagramCount, context);
     }
 
     /// \cond INTERNAL
@@ -605,7 +605,7 @@ public:
                               ::std::function<void(bool)> sent = nullptr,
                               const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_callDatagramCallback, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_callDatagramCallback, context);
     }
 
     /// \cond INTERNAL
@@ -630,7 +630,7 @@ public:
                                   ::std::function<void(bool)> sent = nullptr,
                                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getCallbackDatagramCount, context);
+        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getCallbackDatagramCount, context);
     }
 
     /// \cond INTERNAL
@@ -655,7 +655,7 @@ public:
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getHeartbeatCount, context);
+        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getHeartbeatCount, context);
     }
 
     /// \cond INTERNAL
@@ -680,7 +680,7 @@ public:
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_enableHeartbeats, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_enableHeartbeats, context);
     }
 
     /// \cond INTERNAL
@@ -705,7 +705,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
     }
 
     /// \cond INTERNAL

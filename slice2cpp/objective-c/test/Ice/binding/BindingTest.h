@@ -237,7 +237,7 @@ public:
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getAdapterName, context);
+        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getAdapterName, context);
     }
 
     /// \cond INTERNAL
@@ -282,7 +282,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Test::TestIntfPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_getTestIntf, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Test::TestIntfPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_getTestIntf, context);
     }
 
     /// \cond INTERNAL
@@ -307,7 +307,7 @@ public:
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_deactivate, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_deactivate, context);
     }
 
     /// \cond INTERNAL
@@ -353,7 +353,7 @@ public:
                              ::std::function<void(bool)> sent = nullptr,
                              const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Test::RemoteObjectAdapterPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter, name, endpoints, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Test::RemoteObjectAdapterPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter, name, endpoints, context);
     }
 
     /// \cond INTERNAL
@@ -379,7 +379,7 @@ public:
                                  ::std::function<void(bool)> sent = nullptr,
                                  const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_deactivateObjectAdapter, adapter, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_deactivateObjectAdapter, adapter, context);
     }
 
     /// \cond INTERNAL
@@ -404,7 +404,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_shutdown, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_shutdown, context);
     }
 
     /// \cond INTERNAL

@@ -301,7 +301,7 @@ public:
         {
             response(::std::move(_result.returnValue), _result.hasRoutingTable);
         };
-        return _makeLamdaOutgoing<Router::GetClientProxyResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_getClientProxy, context);
+        return _makeLambdaOutgoing<Router::GetClientProxyResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_getClientProxy, context);
     }
 
     /// \cond INTERNAL
@@ -347,7 +347,7 @@ public:
                         ::std::function<void(bool)> sent = nullptr,
                         const Context& context = noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_getServerProxy, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_getServerProxy, context);
     }
 
     /// \cond INTERNAL
@@ -394,7 +394,7 @@ public:
                     ::std::function<void(bool)> sent = nullptr,
                     const Context& context = noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Ice::ObjectProxySeq>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_addProxies, proxies, context);
+        return _makeLambdaOutgoing<::Ice::ObjectProxySeq>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_addProxies, proxies, context);
     }
 
     /// \cond INTERNAL
@@ -468,7 +468,7 @@ public:
                    ::std::function<void(bool)> sent = nullptr,
                    const Context& context = noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Ice::RouterPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RouterFinderPrx::_iceI_getRouter, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::RouterPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RouterFinderPrx::_iceI_getRouter, context);
     }
 
     /// \cond INTERNAL

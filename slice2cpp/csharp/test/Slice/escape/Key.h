@@ -720,7 +720,7 @@ public:
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &abstract::casePrx::_iceI_catch, checked, context);
+        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &abstract::casePrx::_iceI_catch, checked, context);
     }
 
     /// \cond INTERNAL
@@ -765,7 +765,7 @@ public:
                  ::std::function<void(bool)> sent = nullptr,
                  const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &abstract::decimalPrx::_iceI_default, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &abstract::decimalPrx::_iceI_default, context);
     }
 
     /// \cond INTERNAL
@@ -831,7 +831,7 @@ public:
              ::std::function<void(bool)> sent = nullptr,
              const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<Ice::optional<::abstract::_cpp_break>>(std::move(response), std::move(ex), std::move(sent), this, &abstract::optionalParamsPrx::_iceI_for, _cpp_goto, _cpp_if, internal, _cpp_namespace, null, context);
+        return _makeLambdaOutgoing<Ice::optional<::abstract::_cpp_break>>(std::move(response), std::move(ex), std::move(sent), this, &abstract::optionalParamsPrx::_iceI_for, _cpp_goto, _cpp_if, internal, _cpp_namespace, null, context);
     }
 
     /// \cond INTERNAL
@@ -857,7 +857,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<Ice::optional<::abstract::_cpp_break>>(std::move(response), std::move(ex), std::move(sent), this, &abstract::optionalParamsPrx::_iceI_continue, _cpp_goto, _cpp_if, internal, _cpp_namespace, null, context);
+        return _makeLambdaOutgoing<Ice::optional<::abstract::_cpp_break>>(std::move(response), std::move(ex), std::move(sent), this, &abstract::optionalParamsPrx::_iceI_continue, _cpp_goto, _cpp_if, internal, _cpp_namespace, null, context);
     }
 
     /// \cond INTERNAL
@@ -892,7 +892,7 @@ public:
         {
             response(::std::move(_result.returnValue), _result._cpp_goto, ::std::move(_result._cpp_if), ::std::move(_result.internal), ::std::move(_result._cpp_namespace), ::std::move(_result.null));
         };
-        return _makeLamdaOutgoing<optionalParams::InResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &abstract::optionalParamsPrx::_iceI_in, context);
+        return _makeLambdaOutgoing<optionalParams::InResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &abstract::optionalParamsPrx::_iceI_in, context);
     }
 
     /// \cond INTERNAL
@@ -927,7 +927,7 @@ public:
         {
             response(::std::move(_result.returnValue), _result._cpp_goto, ::std::move(_result._cpp_if), ::std::move(_result.internal), ::std::move(_result._cpp_namespace), ::std::move(_result.null));
         };
-        return _makeLamdaOutgoing<optionalParams::ForeachResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &abstract::optionalParamsPrx::_iceI_foreach, context);
+        return _makeLambdaOutgoing<optionalParams::ForeachResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &abstract::optionalParamsPrx::_iceI_foreach, context);
     }
 
     /// \cond INTERNAL
@@ -975,7 +975,7 @@ public:
             ::std::function<void(bool)> sent = nullptr,
             const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &abstract::System::TestPrx::_iceI_op, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &abstract::System::TestPrx::_iceI_op, context);
     }
 
     /// \cond INTERNAL
@@ -1027,7 +1027,7 @@ public:
             ::std::function<void(bool)> sent = nullptr,
             const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &System::TestPrx::_iceI_op, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &System::TestPrx::_iceI_op, context);
     }
 
     /// \cond INTERNAL

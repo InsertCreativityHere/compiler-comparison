@@ -222,7 +222,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const Context& context = noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_getProperty, key, context);
+        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_getProperty, key, context);
     }
 
     /// \cond INTERNAL
@@ -272,7 +272,7 @@ public:
                                 ::std::function<void(bool)> sent = nullptr,
                                 const Context& context = noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Ice::PropertyDict>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_getPropertiesForPrefix, prefix, context);
+        return _makeLambdaOutgoing<::Ice::PropertyDict>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_getPropertiesForPrefix, prefix, context);
     }
 
     /// \cond INTERNAL
@@ -333,7 +333,7 @@ public:
                        ::std::function<void(bool)> sent = nullptr,
                        const Context& context = noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_setProperties, newProperties, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_setProperties, newProperties, context);
     }
 
     /// \cond INTERNAL

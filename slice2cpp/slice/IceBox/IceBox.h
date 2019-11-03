@@ -496,7 +496,7 @@ public:
                          ::std::function<void(bool)> sent = nullptr,
                          const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceObserverPrx::_iceI_servicesStarted, services, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceObserverPrx::_iceI_servicesStarted, services, context);
     }
 
     /// \cond INTERNAL
@@ -542,7 +542,7 @@ public:
                          ::std::function<void(bool)> sent = nullptr,
                          const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceObserverPrx::_iceI_servicesStopped, services, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceObserverPrx::_iceI_servicesStopped, services, context);
     }
 
     /// \cond INTERNAL
@@ -610,7 +610,7 @@ public:
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Ice::SliceChecksumDict>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_getSliceChecksums, context);
+        return _makeLambdaOutgoing<::Ice::SliceChecksumDict>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_getSliceChecksums, context);
     }
 
     /// \cond INTERNAL
@@ -658,7 +658,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_startService, service, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_startService, service, context);
     }
 
     /// \cond INTERNAL
@@ -706,7 +706,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_stopService, service, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_stopService, service, context);
     }
 
     /// \cond INTERNAL
@@ -752,7 +752,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_addObserver, observer, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_addObserver, observer, context);
     }
 
     /// \cond INTERNAL
@@ -794,7 +794,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_shutdown, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_shutdown, context);
     }
 
     /// \cond INTERNAL

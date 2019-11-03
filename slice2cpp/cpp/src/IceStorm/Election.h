@@ -648,7 +648,7 @@ public:
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_init, llu, content, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_init, llu, content, context);
     }
 
     /// \cond INTERNAL
@@ -699,7 +699,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_createTopic, llu, name, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_createTopic, llu, name, context);
     }
 
     /// \cond INTERNAL
@@ -750,7 +750,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_destroyTopic, llu, name, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_destroyTopic, llu, name, context);
     }
 
     /// \cond INTERNAL
@@ -804,7 +804,7 @@ public:
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_addSubscriber, llu, topic, record, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_addSubscriber, llu, topic, record, context);
     }
 
     /// \cond INTERNAL
@@ -855,7 +855,7 @@ public:
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_removeSubscriber, llu, topic, subscribers, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_removeSubscriber, llu, topic, subscribers, context);
     }
 
     /// \cond INTERNAL
@@ -928,7 +928,7 @@ public:
         {
             response(::std::move(_result.llu), ::std::move(_result.content));
         };
-        return _makeLamdaOutgoing<TopicManagerSync::GetContentResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceStormElection::TopicManagerSyncPrx::_iceI_getContent, context);
+        return _makeLambdaOutgoing<TopicManagerSync::GetContentResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceStormElection::TopicManagerSyncPrx::_iceI_getContent, context);
     }
 
     /// \cond INTERNAL
@@ -1003,7 +1003,7 @@ public:
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_invitation, j, gn, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_invitation, j, gn, context);
     }
 
     /// \cond INTERNAL
@@ -1067,7 +1067,7 @@ public:
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_ready, j, gn, coordinator, max, generation, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_ready, j, gn, coordinator, max, generation, context);
     }
 
     /// \cond INTERNAL
@@ -1137,7 +1137,7 @@ public:
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_accept, j, gn, forwardedInvites, observer, llu, max, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_accept, j, gn, forwardedInvites, observer, llu, max, context);
     }
 
     /// \cond INTERNAL
@@ -1180,7 +1180,7 @@ public:
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_areYouCoordinator, context);
+        return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_areYouCoordinator, context);
     }
 
     /// \cond INTERNAL
@@ -1233,7 +1233,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_areYouThere, gn, j, context);
+        return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_areYouThere, gn, j, context);
     }
 
     /// \cond INTERNAL
@@ -1276,7 +1276,7 @@ public:
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_sync, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_sync, context);
     }
 
     /// \cond INTERNAL
@@ -1320,7 +1320,7 @@ public:
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::IceStormElection::NodeInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_nodes, context);
+        return _makeLambdaOutgoing<::IceStormElection::NodeInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_nodes, context);
     }
 
     /// \cond INTERNAL
@@ -1363,7 +1363,7 @@ public:
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::IceStormElection::QueryInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_query, context);
+        return _makeLambdaOutgoing<::IceStormElection::QueryInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_query, context);
     }
 
     /// \cond INTERNAL

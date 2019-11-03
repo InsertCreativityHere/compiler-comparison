@@ -230,7 +230,7 @@ public:
              ::std::function<void(bool)> sent = nullptr,
              const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_add, x, y, context);
+        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_add, x, y, context);
     }
 
     /// \cond INTERNAL
@@ -256,7 +256,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_addWithRetry, x, y, context);
+        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_addWithRetry, x, y, context);
     }
 
     /// \cond INTERNAL
@@ -282,7 +282,7 @@ public:
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_badAdd, x, y, context);
+        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_badAdd, x, y, context);
     }
 
     /// \cond INTERNAL
@@ -308,7 +308,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_notExistAdd, x, y, context);
+        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_notExistAdd, x, y, context);
     }
 
     /// \cond INTERNAL
@@ -334,7 +334,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_badSystemAdd, x, y, context);
+        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_badSystemAdd, x, y, context);
     }
 
     /// \cond INTERNAL

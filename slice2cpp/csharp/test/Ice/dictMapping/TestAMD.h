@@ -272,7 +272,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
     }
 
     /// \cond INTERNAL
@@ -304,7 +304,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.o));
         };
-        return _makeLamdaOutgoing<MyClass::OpNVResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNV, i, context);
+        return _makeLambdaOutgoing<MyClass::OpNVResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNV, i, context);
     }
 
     /// \cond INTERNAL
@@ -336,7 +336,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.o));
         };
-        return _makeLamdaOutgoing<MyClass::OpNRResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNR, i, context);
+        return _makeLambdaOutgoing<MyClass::OpNRResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNR, i, context);
     }
 
     /// \cond INTERNAL
@@ -368,7 +368,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.o));
         };
-        return _makeLamdaOutgoing<MyClass::OpNDVResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDV, i, context);
+        return _makeLambdaOutgoing<MyClass::OpNDVResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDV, i, context);
     }
 
     /// \cond INTERNAL
@@ -400,7 +400,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.o));
         };
-        return _makeLamdaOutgoing<MyClass::OpNDRResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDR, i, context);
+        return _makeLambdaOutgoing<MyClass::OpNDRResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDR, i, context);
     }
 
     /// \cond INTERNAL
@@ -432,7 +432,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.o));
         };
-        return _makeLamdaOutgoing<MyClass::OpNDAISResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDAIS, i, context);
+        return _makeLambdaOutgoing<MyClass::OpNDAISResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDAIS, i, context);
     }
 
     /// \cond INTERNAL
@@ -464,7 +464,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.o));
         };
-        return _makeLamdaOutgoing<MyClass::OpNDGISResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDGIS, i, context);
+        return _makeLambdaOutgoing<MyClass::OpNDGISResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDGIS, i, context);
     }
 
     /// \cond INTERNAL
@@ -496,7 +496,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.o));
         };
-        return _makeLamdaOutgoing<MyClass::OpNDASSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDASS, i, context);
+        return _makeLambdaOutgoing<MyClass::OpNDASSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDASS, i, context);
     }
 
     /// \cond INTERNAL
@@ -528,7 +528,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.o));
         };
-        return _makeLamdaOutgoing<MyClass::OpNDGSSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDGSS, i, context);
+        return _makeLambdaOutgoing<MyClass::OpNDGSSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDGSS, i, context);
     }
 
     /// \cond INTERNAL

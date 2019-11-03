@@ -280,7 +280,7 @@ public:
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackendPrx::_iceI_check, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackendPrx::_iceI_check, context);
     }
 
     /// \cond INTERNAL
@@ -305,7 +305,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackendPrx::_iceI_shutdown, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackendPrx::_iceI_shutdown, context);
     }
 
     /// \cond INTERNAL
@@ -358,7 +358,7 @@ public:
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Test::TestToken>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestControllerPrx::_iceI_step, currentSession, currentState, context);
+        return _makeLambdaOutgoing<::Test::TestToken>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestControllerPrx::_iceI_step, currentSession, currentState, context);
     }
 
     /// \cond INTERNAL
@@ -383,7 +383,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestControllerPrx::_iceI_shutdown, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestControllerPrx::_iceI_shutdown, context);
     }
 
     /// \cond INTERNAL
@@ -428,7 +428,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestSessionPrx::_iceI_shutdown, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestSessionPrx::_iceI_shutdown, context);
     }
 
     /// \cond INTERNAL

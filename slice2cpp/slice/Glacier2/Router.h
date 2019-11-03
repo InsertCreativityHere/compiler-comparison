@@ -344,7 +344,7 @@ public:
                               ::std::function<void(bool)> sent = nullptr,
                               const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_getCategoryForClient, context);
+        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_getCategoryForClient, context);
     }
 
     /// \cond INTERNAL
@@ -439,7 +439,7 @@ public:
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Glacier2::SessionPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_createSession, userId, password, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Glacier2::SessionPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_createSession, userId, password, context);
     }
 
     /// \cond INTERNAL
@@ -529,7 +529,7 @@ public:
                                            ::std::function<void(bool)> sent = nullptr,
                                            const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Glacier2::SessionPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_createSessionFromSecureConnection, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Glacier2::SessionPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_createSessionFromSecureConnection, context);
     }
 
     /// \cond INTERNAL
@@ -573,7 +573,7 @@ public:
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_refreshSession, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_refreshSession, context);
     }
 
     /// \cond INTERNAL
@@ -617,7 +617,7 @@ public:
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_destroySession, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_destroySession, context);
     }
 
     /// \cond INTERNAL
@@ -663,7 +663,7 @@ public:
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<long long int>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_getSessionTimeout, context);
+        return _makeLambdaOutgoing<long long int>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_getSessionTimeout, context);
     }
 
     /// \cond INTERNAL
@@ -718,7 +718,7 @@ public:
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_getACMTimeout, context);
+        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Glacier2::RouterPrx::_iceI_getACMTimeout, context);
     }
 
     /// \cond INTERNAL

@@ -308,7 +308,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
     }
 
     /// \cond INTERNAL
@@ -340,7 +340,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.o));
         };
-        return _makeLamdaOutgoing<MyClass::OpSerialSmallJavaResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSerialSmallJava, i, context);
+        return _makeLambdaOutgoing<MyClass::OpSerialSmallJavaResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSerialSmallJava, i, context);
     }
 
     /// \cond INTERNAL
@@ -372,7 +372,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.o));
         };
-        return _makeLamdaOutgoing<MyClass::OpSerialLargeJavaResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSerialLargeJava, i, context);
+        return _makeLambdaOutgoing<MyClass::OpSerialLargeJavaResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSerialLargeJava, i, context);
     }
 
     /// \cond INTERNAL
@@ -404,7 +404,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.o));
         };
-        return _makeLamdaOutgoing<MyClass::OpSerialStructJavaResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSerialStructJava, i, context);
+        return _makeLambdaOutgoing<MyClass::OpSerialStructJavaResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSerialStructJava, i, context);
     }
 
     /// \cond INTERNAL

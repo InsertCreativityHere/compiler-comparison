@@ -906,7 +906,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.disabledViews));
         };
-        return _makeLamdaOutgoing<MetricsAdmin::GetMetricsViewNamesResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsViewNames, context);
+        return _makeLambdaOutgoing<MetricsAdmin::GetMetricsViewNamesResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsViewNames, context);
     }
 
     /// \cond INTERNAL
@@ -954,7 +954,7 @@ public:
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_enableMetricsView, name, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_enableMetricsView, name, context);
     }
 
     /// \cond INTERNAL
@@ -1002,7 +1002,7 @@ public:
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_disableMetricsView, name, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_disableMetricsView, name, context);
     }
 
     /// \cond INTERNAL
@@ -1071,7 +1071,7 @@ public:
         {
             response(::std::move(_result.returnValue), _result.timestamp);
         };
-        return _makeLamdaOutgoing<MetricsAdmin::GetMetricsViewResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsView, view, context);
+        return _makeLambdaOutgoing<MetricsAdmin::GetMetricsViewResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsView, view, context);
     }
 
     /// \cond INTERNAL
@@ -1123,7 +1123,7 @@ public:
                                ::std::function<void(bool)> sent = nullptr,
                                const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::IceMX::MetricsFailuresSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMapMetricsFailures, view, map, context);
+        return _makeLambdaOutgoing<::IceMX::MetricsFailuresSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMapMetricsFailures, view, map, context);
     }
 
     /// \cond INTERNAL
@@ -1178,7 +1178,7 @@ public:
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::IceMX::MetricsFailures>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsFailures, view, map, id, context);
+        return _makeLambdaOutgoing<::IceMX::MetricsFailures>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsFailures, view, map, id, context);
     }
 
     /// \cond INTERNAL

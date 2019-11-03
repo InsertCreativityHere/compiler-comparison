@@ -415,7 +415,7 @@ public:
               ::std::function<void(bool)> sent = nullptr,
               const Context& context = noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RemoteLoggerPrx::_iceI_init, prefix, logMessages, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RemoteLoggerPrx::_iceI_init, prefix, logMessages, context);
     }
 
     /// \cond INTERNAL
@@ -461,7 +461,7 @@ public:
              ::std::function<void(bool)> sent = nullptr,
              const Context& context = noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RemoteLoggerPrx::_iceI_log, message, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RemoteLoggerPrx::_iceI_log, message, context);
     }
 
     /// \cond INTERNAL
@@ -558,7 +558,7 @@ public:
                             ::std::function<void(bool)> sent = nullptr,
                             const Context& context = noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LoggerAdminPrx::_iceI_attachRemoteLogger, prx, messageTypes, traceCategories, messageMax, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LoggerAdminPrx::_iceI_attachRemoteLogger, prx, messageTypes, traceCategories, messageMax, context);
     }
 
     /// \cond INTERNAL
@@ -605,7 +605,7 @@ public:
                             ::std::function<void(bool)> sent = nullptr,
                             const Context& context = noExplicitContext)
     {
-        return _makeLamdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LoggerAdminPrx::_iceI_detachRemoteLogger, prx, context);
+        return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LoggerAdminPrx::_iceI_detachRemoteLogger, prx, context);
     }
 
     /// \cond INTERNAL
@@ -677,7 +677,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.prefix));
         };
-        return _makeLamdaOutgoing<LoggerAdmin::GetLogResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Ice::LoggerAdminPrx::_iceI_getLog, messageTypes, traceCategories, messageMax, context);
+        return _makeLambdaOutgoing<LoggerAdmin::GetLogResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Ice::LoggerAdminPrx::_iceI_getLog, messageTypes, traceCategories, messageMax, context);
     }
 
     /// \cond INTERNAL

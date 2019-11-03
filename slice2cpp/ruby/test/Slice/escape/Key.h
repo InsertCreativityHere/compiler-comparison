@@ -374,7 +374,7 @@ public:
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &BEGIN::breakPrx::_iceI_case, clone, def, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &BEGIN::breakPrx::_iceI_case, clone, def, context);
     }
 
     /// \cond INTERNAL
@@ -399,7 +399,7 @@ public:
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &BEGIN::breakPrx::_iceI_to_a, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &BEGIN::breakPrx::_iceI_to_a, context);
     }
 
     /// \cond INTERNAL
@@ -424,7 +424,7 @@ public:
                                ::std::function<void(bool)> sent = nullptr,
                                const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &BEGIN::breakPrx::_iceI_instance_variable_set, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &BEGIN::breakPrx::_iceI_instance_variable_set, context);
     }
 
     /// \cond INTERNAL
@@ -449,7 +449,7 @@ public:
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &BEGIN::breakPrx::_iceI_instance_variables, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &BEGIN::breakPrx::_iceI_instance_variables, context);
     }
 
     /// \cond INTERNAL

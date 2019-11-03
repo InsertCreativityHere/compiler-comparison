@@ -413,7 +413,7 @@ public:
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::IcePatch2::FileInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IcePatch2::FileServerPrx::_iceI_getFileInfoSeq, partition, context);
+        return _makeLambdaOutgoing<::IcePatch2::FileInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IcePatch2::FileServerPrx::_iceI_getFileInfoSeq, partition, context);
     }
 
     /// \cond INTERNAL
@@ -462,7 +462,7 @@ public:
                              ::std::function<void(bool)> sent = nullptr,
                              const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::IcePatch2::LargeFileInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IcePatch2::FileServerPrx::_iceI_getLargeFileInfoSeq, partition, context);
+        return _makeLambdaOutgoing<::IcePatch2::LargeFileInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IcePatch2::FileServerPrx::_iceI_getLargeFileInfoSeq, partition, context);
     }
 
     /// \cond INTERNAL
@@ -509,7 +509,7 @@ public:
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::IcePatch2::ByteSeqSeq>(std::move(response), std::move(ex), std::move(sent), this, &IcePatch2::FileServerPrx::_iceI_getChecksumSeq, context);
+        return _makeLambdaOutgoing<::IcePatch2::ByteSeqSeq>(std::move(response), std::move(ex), std::move(sent), this, &IcePatch2::FileServerPrx::_iceI_getChecksumSeq, context);
     }
 
     /// \cond INTERNAL
@@ -555,7 +555,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Ice::ByteSeq>(std::move(response), std::move(ex), std::move(sent), this, &IcePatch2::FileServerPrx::_iceI_getChecksum, context);
+        return _makeLambdaOutgoing<::Ice::ByteSeq>(std::move(response), std::move(ex), std::move(sent), this, &IcePatch2::FileServerPrx::_iceI_getChecksum, context);
     }
 
     /// \cond INTERNAL

@@ -2228,7 +2228,7 @@ public:
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_addApplication, descriptor, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_addApplication, descriptor, context);
     }
 
     /// \cond INTERNAL
@@ -2287,7 +2287,7 @@ public:
                          ::std::function<void(bool)> sent = nullptr,
                          const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_syncApplication, descriptor, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_syncApplication, descriptor, context);
     }
 
     /// \cond INTERNAL
@@ -2343,7 +2343,7 @@ public:
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_updateApplication, descriptor, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_updateApplication, descriptor, context);
     }
 
     /// \cond INTERNAL
@@ -2411,7 +2411,7 @@ public:
                                        ::std::function<void(bool)> sent = nullptr,
                                        const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_syncApplicationWithoutRestart, descriptor, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_syncApplicationWithoutRestart, descriptor, context);
     }
 
     /// \cond INTERNAL
@@ -2476,7 +2476,7 @@ public:
                                          ::std::function<void(bool)> sent = nullptr,
                                          const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_updateApplicationWithoutRestart, descriptor, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_updateApplicationWithoutRestart, descriptor, context);
     }
 
     /// \cond INTERNAL
@@ -2528,7 +2528,7 @@ public:
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_removeApplication, name, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_removeApplication, name, context);
     }
 
     /// \cond INTERNAL
@@ -2593,7 +2593,7 @@ public:
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_instantiateServer, application, node, desc, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_instantiateServer, application, node, desc, context);
     }
 
     /// \cond INTERNAL
@@ -2648,7 +2648,7 @@ public:
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_patchApplication, name, shutdown, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_patchApplication, name, shutdown, context);
     }
 
     /// \cond INTERNAL
@@ -2697,7 +2697,7 @@ public:
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::IceGrid::ApplicationInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getApplicationInfo, name, context);
+        return _makeLambdaOutgoing<::IceGrid::ApplicationInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getApplicationInfo, name, context);
     }
 
     /// \cond INTERNAL
@@ -2742,7 +2742,7 @@ public:
                                          ::std::function<void(bool)> sent = nullptr,
                                          const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::IceGrid::ApplicationDescriptor>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getDefaultApplicationDescriptor, context);
+        return _makeLambdaOutgoing<::IceGrid::ApplicationDescriptor>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getDefaultApplicationDescriptor, context);
     }
 
     /// \cond INTERNAL
@@ -2785,7 +2785,7 @@ public:
                                 ::std::function<void(bool)> sent = nullptr,
                                 const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllApplicationNames, context);
+        return _makeLambdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllApplicationNames, context);
     }
 
     /// \cond INTERNAL
@@ -2833,7 +2833,7 @@ public:
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::IceGrid::ServerInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerInfo, id, context);
+        return _makeLambdaOutgoing<::IceGrid::ServerInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerInfo, id, context);
     }
 
     /// \cond INTERNAL
@@ -2885,7 +2885,7 @@ public:
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::IceGrid::ServerState>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerState, id, context);
+        return _makeLambdaOutgoing<::IceGrid::ServerState>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerState, id, context);
     }
 
     /// \cond INTERNAL
@@ -2940,7 +2940,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerPid, id, context);
+        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerPid, id, context);
     }
 
     /// \cond INTERNAL
@@ -2989,7 +2989,7 @@ public:
                                 ::std::function<void(bool)> sent = nullptr,
                                 const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerAdminCategory, context);
+        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerAdminCategory, context);
     }
 
     /// \cond INTERNAL
@@ -3041,7 +3041,7 @@ public:
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerAdmin, id, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerAdmin, id, context);
     }
 
     /// \cond INTERNAL
@@ -3104,7 +3104,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_enableServer, id, enabled, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_enableServer, id, enabled, context);
     }
 
     /// \cond INTERNAL
@@ -3157,7 +3157,7 @@ public:
                          ::std::function<void(bool)> sent = nullptr,
                          const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_isServerEnabled, id, context);
+        return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_isServerEnabled, id, context);
     }
 
     /// \cond INTERNAL
@@ -3211,7 +3211,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_startServer, id, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_startServer, id, context);
     }
 
     /// \cond INTERNAL
@@ -3265,7 +3265,7 @@ public:
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_stopServer, id, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_stopServer, id, context);
     }
 
     /// \cond INTERNAL
@@ -3324,7 +3324,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_patchServer, id, shutdown, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_patchServer, id, shutdown, context);
     }
 
     /// \cond INTERNAL
@@ -3381,7 +3381,7 @@ public:
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_sendSignal, id, signal, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_sendSignal, id, signal, context);
     }
 
     /// \cond INTERNAL
@@ -3424,7 +3424,7 @@ public:
                          ::std::function<void(bool)> sent = nullptr,
                          const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllServerIds, context);
+        return _makeLambdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllServerIds, context);
     }
 
     /// \cond INTERNAL
@@ -3480,7 +3480,7 @@ public:
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::IceGrid::AdapterInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAdapterInfo, id, context);
+        return _makeLambdaOutgoing<::IceGrid::AdapterInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAdapterInfo, id, context);
     }
 
     /// \cond INTERNAL
@@ -3529,7 +3529,7 @@ public:
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_removeAdapter, id, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_removeAdapter, id, context);
     }
 
     /// \cond INTERNAL
@@ -3572,7 +3572,7 @@ public:
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllAdapterIds, context);
+        return _makeLambdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllAdapterIds, context);
     }
 
     /// \cond INTERNAL
@@ -3629,7 +3629,7 @@ public:
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_addObject, obj, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_addObject, obj, context);
     }
 
     /// \cond INTERNAL
@@ -3689,7 +3689,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_updateObject, obj, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_updateObject, obj, context);
     }
 
     /// \cond INTERNAL
@@ -3744,7 +3744,7 @@ public:
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_addObjectWithType, obj, type, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_addObjectWithType, obj, type, context);
     }
 
     /// \cond INTERNAL
@@ -3807,7 +3807,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_removeObject, id, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_removeObject, id, context);
     }
 
     /// \cond INTERNAL
@@ -3856,7 +3856,7 @@ public:
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::IceGrid::ObjectInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getObjectInfo, id, context);
+        return _makeLambdaOutgoing<::IceGrid::ObjectInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getObjectInfo, id, context);
     }
 
     /// \cond INTERNAL
@@ -3906,7 +3906,7 @@ public:
                               ::std::function<void(bool)> sent = nullptr,
                               const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::IceGrid::ObjectInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getObjectInfosByType, type, context);
+        return _makeLambdaOutgoing<::IceGrid::ObjectInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getObjectInfosByType, type, context);
     }
 
     /// \cond INTERNAL
@@ -3963,7 +3963,7 @@ public:
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::IceGrid::ObjectInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllObjectInfos, expr, context);
+        return _makeLambdaOutgoing<::IceGrid::ObjectInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllObjectInfos, expr, context);
     }
 
     /// \cond INTERNAL
@@ -4011,7 +4011,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_pingNode, name, context);
+        return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_pingNode, name, context);
     }
 
     /// \cond INTERNAL
@@ -4061,7 +4061,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::IceGrid::LoadInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeLoad, name, context);
+        return _makeLambdaOutgoing<::IceGrid::LoadInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeLoad, name, context);
     }
 
     /// \cond INTERNAL
@@ -4111,7 +4111,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::IceGrid::NodeInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeInfo, name, context);
+        return _makeLambdaOutgoing<::IceGrid::NodeInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeInfo, name, context);
     }
 
     /// \cond INTERNAL
@@ -4161,7 +4161,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeAdmin, name, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeAdmin, name, context);
     }
 
     /// \cond INTERNAL
@@ -4230,7 +4230,7 @@ public:
                                      ::std::function<void(bool)> sent = nullptr,
                                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeProcessorSocketCount, name, context);
+        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeProcessorSocketCount, name, context);
     }
 
     /// \cond INTERNAL
@@ -4279,7 +4279,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_shutdownNode, name, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_shutdownNode, name, context);
     }
 
     /// \cond INTERNAL
@@ -4329,7 +4329,7 @@ public:
                          ::std::function<void(bool)> sent = nullptr,
                          const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeHostname, name, context);
+        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeHostname, name, context);
     }
 
     /// \cond INTERNAL
@@ -4372,7 +4372,7 @@ public:
                          ::std::function<void(bool)> sent = nullptr,
                          const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllNodeNames, context);
+        return _makeLambdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllNodeNames, context);
     }
 
     /// \cond INTERNAL
@@ -4420,7 +4420,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_pingRegistry, name, context);
+        return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_pingRegistry, name, context);
     }
 
     /// \cond INTERNAL
@@ -4470,7 +4470,7 @@ public:
                          ::std::function<void(bool)> sent = nullptr,
                          const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::IceGrid::RegistryInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getRegistryInfo, name, context);
+        return _makeLambdaOutgoing<::IceGrid::RegistryInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getRegistryInfo, name, context);
     }
 
     /// \cond INTERNAL
@@ -4518,7 +4518,7 @@ public:
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getRegistryAdmin, name, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getRegistryAdmin, name, context);
     }
 
     /// \cond INTERNAL
@@ -4567,7 +4567,7 @@ public:
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_shutdownRegistry, name, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_shutdownRegistry, name, context);
     }
 
     /// \cond INTERNAL
@@ -4610,7 +4610,7 @@ public:
                              ::std::function<void(bool)> sent = nullptr,
                              const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllRegistryNames, context);
+        return _makeLambdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllRegistryNames, context);
     }
 
     /// \cond INTERNAL
@@ -4652,7 +4652,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_shutdown, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_shutdown, context);
     }
 
     /// \cond INTERNAL
@@ -4695,7 +4695,7 @@ public:
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Ice::SliceChecksumDict>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getSliceChecksums, context);
+        return _makeLambdaOutgoing<::Ice::SliceChecksumDict>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getSliceChecksums, context);
     }
 
     /// \cond INTERNAL
@@ -4785,7 +4785,7 @@ public:
         {
             response(_result.returnValue, ::std::move(_result.lines));
         };
-        return _makeLamdaOutgoing<FileIterator::ReadResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceGrid::FileIteratorPrx::_iceI_read, size, context);
+        return _makeLambdaOutgoing<FileIterator::ReadResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceGrid::FileIteratorPrx::_iceI_read, size, context);
     }
 
     /// \cond INTERNAL
@@ -4827,7 +4827,7 @@ public:
                  ::std::function<void(bool)> sent = nullptr,
                  const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::FileIteratorPrx::_iceI_destroy, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::FileIteratorPrx::_iceI_destroy, context);
     }
 
     /// \cond INTERNAL
@@ -4901,7 +4901,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::RegistryObserverPrx::_iceI_registryInit, registries, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::RegistryObserverPrx::_iceI_registryInit, registries, context);
     }
 
     /// \cond INTERNAL
@@ -4950,7 +4950,7 @@ public:
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::RegistryObserverPrx::_iceI_registryUp, node, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::RegistryObserverPrx::_iceI_registryUp, node, context);
     }
 
     /// \cond INTERNAL
@@ -4999,7 +4999,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::RegistryObserverPrx::_iceI_registryDown, name, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::RegistryObserverPrx::_iceI_registryDown, name, context);
     }
 
     /// \cond INTERNAL
@@ -5074,7 +5074,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_nodeInit, nodes, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_nodeInit, nodes, context);
     }
 
     /// \cond INTERNAL
@@ -5123,7 +5123,7 @@ public:
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_nodeUp, node, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_nodeUp, node, context);
     }
 
     /// \cond INTERNAL
@@ -5172,7 +5172,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_nodeDown, name, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_nodeDown, name, context);
     }
 
     /// \cond INTERNAL
@@ -5224,7 +5224,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_updateServer, node, updatedInfo, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_updateServer, node, updatedInfo, context);
     }
 
     /// \cond INTERNAL
@@ -5276,7 +5276,7 @@ public:
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_updateAdapter, node, updatedInfo, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_updateAdapter, node, updatedInfo, context);
     }
 
     /// \cond INTERNAL
@@ -5363,7 +5363,7 @@ public:
                          ::std::function<void(bool)> sent = nullptr,
                          const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ApplicationObserverPrx::_iceI_applicationInit, serial, applications, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ApplicationObserverPrx::_iceI_applicationInit, serial, applications, context);
     }
 
     /// \cond INTERNAL
@@ -5415,7 +5415,7 @@ public:
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ApplicationObserverPrx::_iceI_applicationAdded, serial, desc, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ApplicationObserverPrx::_iceI_applicationAdded, serial, desc, context);
     }
 
     /// \cond INTERNAL
@@ -5467,7 +5467,7 @@ public:
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ApplicationObserverPrx::_iceI_applicationRemoved, serial, name, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ApplicationObserverPrx::_iceI_applicationRemoved, serial, name, context);
     }
 
     /// \cond INTERNAL
@@ -5519,7 +5519,7 @@ public:
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ApplicationObserverPrx::_iceI_applicationUpdated, serial, desc, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ApplicationObserverPrx::_iceI_applicationUpdated, serial, desc, context);
     }
 
     /// \cond INTERNAL
@@ -5596,7 +5596,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdapterObserverPrx::_iceI_adapterInit, adpts, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdapterObserverPrx::_iceI_adapterInit, adpts, context);
     }
 
     /// \cond INTERNAL
@@ -5645,7 +5645,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdapterObserverPrx::_iceI_adapterAdded, info, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdapterObserverPrx::_iceI_adapterAdded, info, context);
     }
 
     /// \cond INTERNAL
@@ -5694,7 +5694,7 @@ public:
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdapterObserverPrx::_iceI_adapterUpdated, info, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdapterObserverPrx::_iceI_adapterUpdated, info, context);
     }
 
     /// \cond INTERNAL
@@ -5743,7 +5743,7 @@ public:
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdapterObserverPrx::_iceI_adapterRemoved, id, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdapterObserverPrx::_iceI_adapterRemoved, id, context);
     }
 
     /// \cond INTERNAL
@@ -5819,7 +5819,7 @@ public:
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ObjectObserverPrx::_iceI_objectInit, objects, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ObjectObserverPrx::_iceI_objectInit, objects, context);
     }
 
     /// \cond INTERNAL
@@ -5868,7 +5868,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ObjectObserverPrx::_iceI_objectAdded, info, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ObjectObserverPrx::_iceI_objectAdded, info, context);
     }
 
     /// \cond INTERNAL
@@ -5917,7 +5917,7 @@ public:
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ObjectObserverPrx::_iceI_objectUpdated, info, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ObjectObserverPrx::_iceI_objectUpdated, info, context);
     }
 
     /// \cond INTERNAL
@@ -5966,7 +5966,7 @@ public:
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ObjectObserverPrx::_iceI_objectRemoved, id, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ObjectObserverPrx::_iceI_objectRemoved, id, context);
     }
 
     /// \cond INTERNAL
@@ -6042,7 +6042,7 @@ public:
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_keepAlive, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_keepAlive, context);
     }
 
     /// \cond INTERNAL
@@ -6088,7 +6088,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::IceGrid::AdminPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_getAdmin, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::IceGrid::AdminPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_getAdmin, context);
     }
 
     /// \cond INTERNAL
@@ -6141,7 +6141,7 @@ public:
                                   ::std::function<void(bool)> sent = nullptr,
                                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_getAdminCallbackTemplate, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_getAdminCallbackTemplate, context);
     }
 
     /// \cond INTERNAL
@@ -6207,7 +6207,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_setObservers, registryObs, nodeObs, appObs, adptObs, objObs, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_setObservers, registryObs, nodeObs, appObs, adptObs, objObs, context);
     }
 
     /// \cond INTERNAL
@@ -6279,7 +6279,7 @@ public:
                                 ::std::function<void(bool)> sent = nullptr,
                                 const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_setObserversByIdentity, registryObs, nodeObs, appObs, adptObs, objObs, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_setObserversByIdentity, registryObs, nodeObs, appObs, adptObs, objObs, context);
     }
 
     /// \cond INTERNAL
@@ -6325,7 +6325,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_startUpdate, context);
+        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_startUpdate, context);
     }
 
     /// \cond INTERNAL
@@ -6369,7 +6369,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_finishUpdate, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_finishUpdate, context);
     }
 
     /// \cond INTERNAL
@@ -6412,7 +6412,7 @@ public:
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_getReplicaName, context);
+        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_getReplicaName, context);
     }
 
     /// \cond INTERNAL
@@ -6488,7 +6488,7 @@ public:
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openServerLog, id, path, count, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openServerLog, id, path, count, context);
     }
 
     /// \cond INTERNAL
@@ -6555,7 +6555,7 @@ public:
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openServerStdErr, id, count, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openServerStdErr, id, count, context);
     }
 
     /// \cond INTERNAL
@@ -6622,7 +6622,7 @@ public:
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openServerStdOut, id, count, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openServerStdOut, id, count, context);
     }
 
     /// \cond INTERNAL
@@ -6686,7 +6686,7 @@ public:
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openNodeStdErr, name, count, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openNodeStdErr, name, count, context);
     }
 
     /// \cond INTERNAL
@@ -6750,7 +6750,7 @@ public:
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openNodeStdOut, name, count, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openNodeStdOut, name, count, context);
     }
 
     /// \cond INTERNAL
@@ -6815,7 +6815,7 @@ public:
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openRegistryStdErr, name, count, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openRegistryStdErr, name, count, context);
     }
 
     /// \cond INTERNAL
@@ -6880,7 +6880,7 @@ public:
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openRegistryStdOut, name, count, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::IceGrid::FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openRegistryStdOut, name, count, context);
     }
 
     /// \cond INTERNAL

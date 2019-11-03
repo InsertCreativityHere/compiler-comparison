@@ -353,7 +353,7 @@ public:
                  ::std::function<void(bool)> sent = nullptr,
                  const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_context, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_context, context);
     }
 
     /// \cond INTERNAL
@@ -378,7 +378,7 @@ public:
                  ::std::function<void(bool)> sent = nullptr,
                  const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_current, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_current, context);
     }
 
     /// \cond INTERNAL
@@ -403,7 +403,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_response, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_response, context);
     }
 
     /// \cond INTERNAL
@@ -428,7 +428,7 @@ public:
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_upCast, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_upCast, context);
     }
 
     /// \cond INTERNAL
@@ -453,7 +453,7 @@ public:
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_typeId, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_typeId, context);
     }
 
     /// \cond INTERNAL
@@ -478,7 +478,7 @@ public:
              ::std::function<void(bool)> sent = nullptr,
              const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_del, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_del, context);
     }
 
     /// \cond INTERNAL
@@ -503,7 +503,7 @@ public:
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_cookie, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_cookie, context);
     }
 
     /// \cond INTERNAL
@@ -528,7 +528,7 @@ public:
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_sync, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_sync, context);
     }
 
     /// \cond INTERNAL
@@ -553,7 +553,7 @@ public:
              ::std::function<void(bool)> sent = nullptr,
              const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_inS, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_inS, context);
     }
 
     /// \cond INTERNAL
@@ -578,7 +578,7 @@ public:
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_istr, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_istr, context);
     }
 
     /// \cond INTERNAL
@@ -604,7 +604,7 @@ public:
             ::std::function<void(bool)> sent_ = nullptr,
             const ::Ice::Context& context_ = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response_), std::move(ex_), std::move(sent_), this, &Clash::IntfPrx::_iceI_op, context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy, context_);
+        return _makeLambdaOutgoing<void>(std::move(response_), std::move(ex_), std::move(sent_), this, &Clash::IntfPrx::_iceI_op, context, current, response, ex, sent, cookie, sync, result, istr, ostr, proxy, context_);
     }
 
     /// \cond INTERNAL
@@ -644,7 +644,7 @@ public:
         {
             response(::std::move(_result.context), ::std::move(_result.current), ::std::move(_result.response), ::std::move(_result.ex), ::std::move(_result.sent), ::std::move(_result.cookie), ::std::move(_result.sync), ::std::move(_result.result), ::std::move(_result.istr), ::std::move(_result.ostr), ::std::move(_result.proxy));
         };
-        return _makeLamdaOutgoing<Intf::OpOutResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_opOut, context_);
+        return _makeLambdaOutgoing<Intf::OpOutResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_opOut, context_);
     }
 
     /// \cond INTERNAL

@@ -172,7 +172,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::User::UserInfo>>(std::move(response), std::move(ex), std::move(sent), this, &User::RegistryPrx::_iceI_getUserInfo, id, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::User::UserInfo>>(std::move(response), std::move(ex), std::move(sent), this, &User::RegistryPrx::_iceI_getUserInfo, id, context);
     }
 
     /// \cond INTERNAL

@@ -388,7 +388,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.s2));
         };
-        return _makeLamdaOutgoing<WstringClass::OpStringResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test1::WstringClassPrx::_iceI_opString, s1, context);
+        return _makeLambdaOutgoing<WstringClass::OpStringResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test1::WstringClassPrx::_iceI_opString, s1, context);
     }
 
     /// \cond INTERNAL
@@ -420,7 +420,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.s2));
         };
-        return _makeLamdaOutgoing<WstringClass::OpStructResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test1::WstringClassPrx::_iceI_opStruct, s1, context);
+        return _makeLambdaOutgoing<WstringClass::OpStructResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test1::WstringClassPrx::_iceI_opStruct, s1, context);
     }
 
     /// \cond INTERNAL
@@ -446,7 +446,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test1::WstringClassPrx::_iceI_throwExcept, reason, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test1::WstringClassPrx::_iceI_throwExcept, reason, context);
     }
 
     /// \cond INTERNAL
@@ -503,7 +503,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.s2));
         };
-        return _makeLamdaOutgoing<WstringClass::OpStringResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test2::WstringClassPrx::_iceI_opString, s1, context);
+        return _makeLambdaOutgoing<WstringClass::OpStringResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test2::WstringClassPrx::_iceI_opString, s1, context);
     }
 
     /// \cond INTERNAL
@@ -535,7 +535,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.s2));
         };
-        return _makeLamdaOutgoing<WstringClass::OpStructResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test2::WstringClassPrx::_iceI_opStruct, s1, context);
+        return _makeLambdaOutgoing<WstringClass::OpStructResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test2::WstringClassPrx::_iceI_opStruct, s1, context);
     }
 
     /// \cond INTERNAL
@@ -561,7 +561,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test2::WstringClassPrx::_iceI_throwExcept, reason, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test2::WstringClassPrx::_iceI_throwExcept, reason, context);
     }
 
     /// \cond INTERNAL

@@ -1611,7 +1611,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
     }
 
     /// \cond INTERNAL
@@ -1636,7 +1636,7 @@ public:
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_supportsCompress, context);
+        return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_supportsCompress, context);
     }
 
     /// \cond INTERNAL
@@ -1661,7 +1661,7 @@ public:
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opVoid, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opVoid, context);
     }
 
     /// \cond INTERNAL
@@ -1693,7 +1693,7 @@ public:
         {
             response(_result.returnValue, _result.p3);
         };
-        return _makeLamdaOutgoing<MyClass::OpByteResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByte, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpByteResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByte, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -1725,7 +1725,7 @@ public:
         {
             response(_result.returnValue, _result.p3);
         };
-        return _makeLamdaOutgoing<MyClass::OpBoolResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opBool, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpBoolResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opBool, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -1759,7 +1759,7 @@ public:
         {
             response(_result.returnValue, _result.p4, _result.p5, _result.p6);
         };
-        return _makeLamdaOutgoing<MyClass::OpShortIntLongResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortIntLong, p1, p2, p3, context);
+        return _makeLambdaOutgoing<MyClass::OpShortIntLongResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortIntLong, p1, p2, p3, context);
     }
 
     /// \cond INTERNAL
@@ -1792,7 +1792,7 @@ public:
         {
             response(_result.returnValue, _result.p3, _result.p4);
         };
-        return _makeLamdaOutgoing<MyClass::OpFloatDoubleResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opFloatDouble, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpFloatDoubleResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opFloatDouble, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -1824,7 +1824,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpStringResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opString, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpStringResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opString, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -1856,7 +1856,7 @@ public:
         {
             response(_result.returnValue, _result.p2);
         };
-        return _makeLamdaOutgoing<MyClass::OpMyEnumResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyEnum, p1, context);
+        return _makeLambdaOutgoing<MyClass::OpMyEnumResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyEnum, p1, context);
     }
 
     /// \cond INTERNAL
@@ -1889,7 +1889,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p2), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpMyClassResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyClass, p1, context);
+        return _makeLambdaOutgoing<MyClass::OpMyClassResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyClass, p1, context);
     }
 
     /// \cond INTERNAL
@@ -1921,7 +1921,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpStructResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStruct, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpStructResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStruct, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -1953,7 +1953,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpByteSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteS, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpByteSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteS, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -1985,7 +1985,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpBoolSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opBoolS, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpBoolSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opBoolS, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2019,7 +2019,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p4), ::std::move(_result.p5), ::std::move(_result.p6));
         };
-        return _makeLamdaOutgoing<MyClass::OpShortIntLongSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortIntLongS, p1, p2, p3, context);
+        return _makeLambdaOutgoing<MyClass::OpShortIntLongSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortIntLongS, p1, p2, p3, context);
     }
 
     /// \cond INTERNAL
@@ -2052,7 +2052,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3), ::std::move(_result.p4));
         };
-        return _makeLamdaOutgoing<MyClass::OpFloatDoubleSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opFloatDoubleS, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpFloatDoubleSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opFloatDoubleS, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2084,7 +2084,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpStringSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringS, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpStringSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringS, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2116,7 +2116,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpByteSSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteSS, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpByteSSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteSS, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2148,7 +2148,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpBoolSSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opBoolSS, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpBoolSSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opBoolSS, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2182,7 +2182,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p4), ::std::move(_result.p5), ::std::move(_result.p6));
         };
-        return _makeLamdaOutgoing<MyClass::OpShortIntLongSSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortIntLongSS, p1, p2, p3, context);
+        return _makeLambdaOutgoing<MyClass::OpShortIntLongSSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortIntLongSS, p1, p2, p3, context);
     }
 
     /// \cond INTERNAL
@@ -2215,7 +2215,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3), ::std::move(_result.p4));
         };
-        return _makeLamdaOutgoing<MyClass::OpFloatDoubleSSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opFloatDoubleSS, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpFloatDoubleSSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opFloatDoubleSS, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2247,7 +2247,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpStringSSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringSS, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpStringSSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringSS, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2279,7 +2279,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpStringSSSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringSSS, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpStringSSSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringSSS, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2311,7 +2311,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpByteBoolDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteBoolD, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpByteBoolDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteBoolD, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2343,7 +2343,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpShortIntDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortIntD, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpShortIntDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortIntD, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2375,7 +2375,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpLongFloatDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLongFloatD, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpLongFloatDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLongFloatD, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2407,7 +2407,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpStringStringDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringStringD, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpStringStringDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringStringD, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2439,7 +2439,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpStringMyEnumDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringMyEnumD, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpStringMyEnumDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringMyEnumD, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2471,7 +2471,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpMyEnumStringDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyEnumStringD, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpMyEnumStringDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyEnumStringD, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2503,7 +2503,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpMyStructMyEnumDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyStructMyEnumD, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpMyStructMyEnumDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyStructMyEnumD, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2535,7 +2535,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpByteBoolDSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteBoolDS, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpByteBoolDSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteBoolDS, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2567,7 +2567,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpShortIntDSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortIntDS, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpShortIntDSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortIntDS, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2599,7 +2599,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpLongFloatDSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLongFloatDS, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpLongFloatDSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLongFloatDS, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2631,7 +2631,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpStringStringDSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringStringDS, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpStringStringDSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringStringDS, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2663,7 +2663,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpStringMyEnumDSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringMyEnumDS, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpStringMyEnumDSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringMyEnumDS, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2695,7 +2695,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpMyEnumStringDSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyEnumStringDS, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpMyEnumStringDSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyEnumStringDS, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2727,7 +2727,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpMyStructMyEnumDSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyStructMyEnumDS, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpMyStructMyEnumDSResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyStructMyEnumDS, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2759,7 +2759,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpByteByteSDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteByteSD, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpByteByteSDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteByteSD, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2791,7 +2791,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpBoolBoolSDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opBoolBoolSD, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpBoolBoolSDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opBoolBoolSD, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2823,7 +2823,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpShortShortSDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortShortSD, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpShortShortSDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortShortSD, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2855,7 +2855,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpIntIntSDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opIntIntSD, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpIntIntSDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opIntIntSD, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2887,7 +2887,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpLongLongSDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLongLongSD, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpLongLongSDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLongLongSD, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2919,7 +2919,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpStringFloatSDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringFloatSD, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpStringFloatSDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringFloatSD, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2951,7 +2951,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpStringDoubleSDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringDoubleSD, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpStringDoubleSDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringDoubleSD, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -2983,7 +2983,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpStringStringSDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringStringSD, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpStringStringSDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringStringSD, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -3015,7 +3015,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p3));
         };
-        return _makeLamdaOutgoing<MyClass::OpMyEnumMyEnumSDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyEnumMyEnumSD, p1, p2, context);
+        return _makeLambdaOutgoing<MyClass::OpMyEnumMyEnumSDResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyEnumMyEnumSD, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -3041,7 +3041,7 @@ public:
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Test::IntS>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opIntS, s, context);
+        return _makeLambdaOutgoing<::Test::IntS>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opIntS, s, context);
     }
 
     /// \cond INTERNAL
@@ -3067,7 +3067,7 @@ public:
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteSOneway, s, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteSOneway, s, context);
     }
 
     /// \cond INTERNAL
@@ -3092,7 +3092,7 @@ public:
                                 ::std::function<void(bool)> sent = nullptr,
                                 const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteSOnewayCallCount, context);
+        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteSOnewayCallCount, context);
     }
 
     /// \cond INTERNAL
@@ -3117,7 +3117,7 @@ public:
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Ice::Context>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opContext, context);
+        return _makeLambdaOutgoing<::Ice::Context>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opContext, context);
     }
 
     /// \cond INTERNAL
@@ -3143,7 +3143,7 @@ public:
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opDoubleMarshaling, p1, p2, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opDoubleMarshaling, p1, p2, context);
     }
 
     /// \cond INTERNAL
@@ -3168,7 +3168,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opIdempotent, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opIdempotent, context);
     }
 
     /// \cond INTERNAL
@@ -3193,7 +3193,7 @@ public:
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNonmutating, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNonmutating, context);
     }
 
     /// \cond INTERNAL
@@ -3219,7 +3219,7 @@ public:
                  ::std::function<void(bool)> sent = nullptr,
                  const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Ice::Byte>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByte1, opByte1, context);
+        return _makeLambdaOutgoing<::Ice::Byte>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByte1, opByte1, context);
     }
 
     /// \cond INTERNAL
@@ -3245,7 +3245,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<short>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShort1, opShort1, context);
+        return _makeLambdaOutgoing<short>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShort1, opShort1, context);
     }
 
     /// \cond INTERNAL
@@ -3271,7 +3271,7 @@ public:
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opInt1, opInt1, context);
+        return _makeLambdaOutgoing<int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opInt1, opInt1, context);
     }
 
     /// \cond INTERNAL
@@ -3297,7 +3297,7 @@ public:
                  ::std::function<void(bool)> sent = nullptr,
                  const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<long long int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLong1, opLong1, context);
+        return _makeLambdaOutgoing<long long int>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLong1, opLong1, context);
     }
 
     /// \cond INTERNAL
@@ -3323,7 +3323,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<float>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opFloat1, opFloat1, context);
+        return _makeLambdaOutgoing<float>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opFloat1, opFloat1, context);
     }
 
     /// \cond INTERNAL
@@ -3349,7 +3349,7 @@ public:
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<double>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opDouble1, opDouble1, context);
+        return _makeLambdaOutgoing<double>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opDouble1, opDouble1, context);
     }
 
     /// \cond INTERNAL
@@ -3375,7 +3375,7 @@ public:
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opString1, opString1, context);
+        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opString1, opString1, context);
     }
 
     /// \cond INTERNAL
@@ -3401,7 +3401,7 @@ public:
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Test::StringS>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringS1, opStringS1, context);
+        return _makeLambdaOutgoing<::Test::StringS>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringS1, opStringS1, context);
     }
 
     /// \cond INTERNAL
@@ -3427,7 +3427,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Test::ByteBoolD>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteBoolD1, opByteBoolD1, context);
+        return _makeLambdaOutgoing<::Test::ByteBoolD>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteBoolD1, opByteBoolD1, context);
     }
 
     /// \cond INTERNAL
@@ -3453,7 +3453,7 @@ public:
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Test::StringS>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringS2, stringS, context);
+        return _makeLambdaOutgoing<::Test::StringS>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringS2, stringS, context);
     }
 
     /// \cond INTERNAL
@@ -3479,7 +3479,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Test::ByteBoolD>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteBoolD2, byteBoolD, context);
+        return _makeLambdaOutgoing<::Test::ByteBoolD>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteBoolD2, byteBoolD, context);
     }
 
     /// \cond INTERNAL
@@ -3504,7 +3504,7 @@ public:
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Test::StringS>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringLiterals, context);
+        return _makeLambdaOutgoing<::Test::StringS>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringLiterals, context);
     }
 
     /// \cond INTERNAL
@@ -3529,7 +3529,7 @@ public:
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Test::Structure>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMStruct1, context);
+        return _makeLambdaOutgoing<::Test::Structure>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMStruct1, context);
     }
 
     /// \cond INTERNAL
@@ -3561,7 +3561,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p2));
         };
-        return _makeLamdaOutgoing<MyClass::OpMStruct2Result>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMStruct2, p1, context);
+        return _makeLambdaOutgoing<MyClass::OpMStruct2Result>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMStruct2, p1, context);
     }
 
     /// \cond INTERNAL
@@ -3586,7 +3586,7 @@ public:
                  ::std::function<void(bool)> sent = nullptr,
                  const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Test::StringS>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMSeq1, context);
+        return _makeLambdaOutgoing<::Test::StringS>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMSeq1, context);
     }
 
     /// \cond INTERNAL
@@ -3618,7 +3618,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p2));
         };
-        return _makeLamdaOutgoing<MyClass::OpMSeq2Result>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMSeq2, p1, context);
+        return _makeLambdaOutgoing<MyClass::OpMSeq2Result>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMSeq2, p1, context);
     }
 
     /// \cond INTERNAL
@@ -3643,7 +3643,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Test::StringStringD>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMDict1, context);
+        return _makeLambdaOutgoing<::Test::StringStringD>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMDict1, context);
     }
 
     /// \cond INTERNAL
@@ -3675,7 +3675,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.p2));
         };
-        return _makeLamdaOutgoing<MyClass::OpMDict2Result>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMDict2, p1, context);
+        return _makeLambdaOutgoing<MyClass::OpMDict2Result>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMDict2, p1, context);
     }
 
     /// \cond INTERNAL
@@ -3720,7 +3720,7 @@ public:
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyDerivedClassPrx::_iceI_opDerived, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyDerivedClassPrx::_iceI_opDerived, context);
     }
 
     /// \cond INTERNAL
@@ -3746,7 +3746,7 @@ public:
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Test::MyClass1>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyDerivedClassPrx::_iceI_opMyClass1, opMyClass1, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Test::MyClass1>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyDerivedClassPrx::_iceI_opMyClass1, opMyClass1, context);
     }
 
     /// \cond INTERNAL
@@ -3772,7 +3772,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Test::MyStruct1>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyDerivedClassPrx::_iceI_opMyStruct1, opMyStruct1, context);
+        return _makeLambdaOutgoing<::Test::MyStruct1>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyDerivedClassPrx::_iceI_opMyStruct1, opMyStruct1, context);
     }
 
     /// \cond INTERNAL
@@ -3851,7 +3851,7 @@ public:
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &M::IntfPrx::_iceI_opIntf, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &M::IntfPrx::_iceI_opIntf, context);
     }
 
     /// \cond INTERNAL
@@ -3896,7 +3896,7 @@ public:
              ::std::function<void(bool)> sent = nullptr,
              const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &M::BPrx::_iceI_opB, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &M::BPrx::_iceI_opB, context);
     }
 
     /// \cond INTERNAL

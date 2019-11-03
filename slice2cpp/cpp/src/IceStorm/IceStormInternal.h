@@ -408,7 +408,7 @@ public:
                  ::std::function<void(bool)> sent = nullptr,
                  const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicLinkPrx::_iceI_forward, events, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicLinkPrx::_iceI_forward, events, context);
     }
 
     /// \cond INTERNAL
@@ -475,7 +475,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::IceStorm::TopicLinkPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicInternalPrx::_iceI_getLinkProxy, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::IceStorm::TopicLinkPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicInternalPrx::_iceI_getLinkProxy, context);
     }
 
     /// \cond INTERNAL
@@ -522,7 +522,7 @@ public:
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicInternalPrx::_iceI_reap, id, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicInternalPrx::_iceI_reap, id, context);
     }
 
     /// \cond INTERNAL
@@ -590,7 +590,7 @@ public:
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::IceStormElection::NodePrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicManagerInternalPrx::_iceI_getReplicaNode, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::IceStormElection::NodePrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicManagerInternalPrx::_iceI_getReplicaNode, context);
     }
 
     /// \cond INTERNAL

@@ -356,7 +356,7 @@ public:
         {
             response(_result.returnValue, ::std::move(_result.reason));
         };
-        return _makeLamdaOutgoing<PermissionsVerifier::CheckPermissionsResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions, userId, password, context);
+        return _makeLambdaOutgoing<PermissionsVerifier::CheckPermissionsResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions, userId, password, context);
     }
 
     /// \cond INTERNAL
@@ -442,7 +442,7 @@ public:
         {
             response(_result.returnValue, ::std::move(_result.reason));
         };
-        return _makeLamdaOutgoing<SSLPermissionsVerifier::AuthorizeResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize, info, context);
+        return _makeLambdaOutgoing<SSLPermissionsVerifier::AuthorizeResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize, info, context);
     }
 
     /// \cond INTERNAL

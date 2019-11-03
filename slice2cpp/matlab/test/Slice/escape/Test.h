@@ -522,7 +522,7 @@ public:
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_events, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_events, context);
     }
 
     /// \cond INTERNAL
@@ -547,7 +547,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_function, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_function, context);
     }
 
     /// \cond INTERNAL
@@ -572,7 +572,7 @@ public:
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_delete, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_delete, context);
     }
 
     /// \cond INTERNAL
@@ -597,7 +597,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_checkedCast, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_checkedCast, context);
     }
 
     /// \cond INTERNAL

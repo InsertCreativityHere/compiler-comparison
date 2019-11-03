@@ -565,7 +565,7 @@ public:
                         ::std::function<void(bool)> sent = nullptr,
                         const Context& context = noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorPrx::_iceI_findObjectById, id, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorPrx::_iceI_findObjectById, id, context);
     }
 
     /// \cond INTERNAL
@@ -617,7 +617,7 @@ public:
                          ::std::function<void(bool)> sent = nullptr,
                          const Context& context = noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorPrx::_iceI_findAdapterById, id, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorPrx::_iceI_findAdapterById, id, context);
     }
 
     /// \cond INTERNAL
@@ -660,7 +660,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const Context& context = noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Ice::LocatorRegistryPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorPrx::_iceI_getRegistry, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::LocatorRegistryPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorPrx::_iceI_getRegistry, context);
     }
 
     /// \cond INTERNAL
@@ -751,7 +751,7 @@ public:
                                ::std::function<void(bool)> sent = nullptr,
                                const Context& context = noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorRegistryPrx::_iceI_setAdapterDirectProxy, id, proxy, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorRegistryPrx::_iceI_setAdapterDirectProxy, id, proxy, context);
     }
 
     /// \cond INTERNAL
@@ -818,7 +818,7 @@ public:
                                          ::std::function<void(bool)> sent = nullptr,
                                          const Context& context = noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy, adapterId, replicaGroupId, p, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy, adapterId, replicaGroupId, p, context);
     }
 
     /// \cond INTERNAL
@@ -869,7 +869,7 @@ public:
                                ::std::function<void(bool)> sent = nullptr,
                                const Context& context = noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorRegistryPrx::_iceI_setServerProcessProxy, id, proxy, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorRegistryPrx::_iceI_setServerProcessProxy, id, proxy, context);
     }
 
     /// \cond INTERNAL
@@ -943,7 +943,7 @@ public:
                     ::std::function<void(bool)> sent = nullptr,
                     const Context& context = noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Ice::LocatorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorFinderPrx::_iceI_getLocator, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::LocatorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorFinderPrx::_iceI_getLocator, context);
     }
 
     /// \cond INTERNAL

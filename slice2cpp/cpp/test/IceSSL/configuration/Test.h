@@ -203,7 +203,7 @@ public:
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerPrx::_iceI_noCert, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerPrx::_iceI_noCert, context);
     }
 
     /// \cond INTERNAL
@@ -229,7 +229,7 @@ public:
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerPrx::_iceI_checkCert, subjectDN, issuerDN, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerPrx::_iceI_checkCert, subjectDN, issuerDN, context);
     }
 
     /// \cond INTERNAL
@@ -255,7 +255,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerPrx::_iceI_checkCipher, cipher, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerPrx::_iceI_checkCipher, cipher, context);
     }
 
     /// \cond INTERNAL
@@ -301,7 +301,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Test::ServerPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerFactoryPrx::_iceI_createServer, props, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Test::ServerPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerFactoryPrx::_iceI_createServer, props, context);
     }
 
     /// \cond INTERNAL
@@ -327,7 +327,7 @@ public:
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerFactoryPrx::_iceI_destroyServer, srv, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerFactoryPrx::_iceI_destroyServer, srv, context);
     }
 
     /// \cond INTERNAL
@@ -352,7 +352,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerFactoryPrx::_iceI_shutdown, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerFactoryPrx::_iceI_shutdown, context);
     }
 
     /// \cond INTERNAL

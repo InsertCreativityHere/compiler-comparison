@@ -808,7 +808,7 @@ public:
                  ::std::function<void(bool)> sent = nullptr,
                  const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_getName, context);
+        return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_getName, context);
     }
 
     /// \cond INTERNAL
@@ -863,7 +863,7 @@ public:
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_getPublisher, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_getPublisher, context);
     }
 
     /// \cond INTERNAL
@@ -915,7 +915,7 @@ public:
                                    ::std::function<void(bool)> sent = nullptr,
                                    const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_getNonReplicatedPublisher, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_getNonReplicatedPublisher, context);
     }
 
     /// \cond INTERNAL
@@ -979,7 +979,7 @@ public:
                                   ::std::function<void(bool)> sent = nullptr,
                                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_subscribeAndGetPublisher, theQoS, subscriber, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_subscribeAndGetPublisher, theQoS, subscriber, context);
     }
 
     /// \cond INTERNAL
@@ -1028,7 +1028,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_unsubscribe, subscriber, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_unsubscribe, subscriber, context);
     }
 
     /// \cond INTERNAL
@@ -1082,7 +1082,7 @@ public:
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_link, linkTo, cost, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_link, linkTo, cost, context);
     }
 
     /// \cond INTERNAL
@@ -1129,7 +1129,7 @@ public:
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_unlink, linkTo, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_unlink, linkTo, context);
     }
 
     /// \cond INTERNAL
@@ -1172,7 +1172,7 @@ public:
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::IceStorm::LinkInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_getLinkInfoSeq, context);
+        return _makeLambdaOutgoing<::IceStorm::LinkInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_getLinkInfoSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1215,7 +1215,7 @@ public:
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Ice::IdentitySeq>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_getSubscribers, context);
+        return _makeLambdaOutgoing<::Ice::IdentitySeq>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_getSubscribers, context);
     }
 
     /// \cond INTERNAL
@@ -1257,7 +1257,7 @@ public:
                  ::std::function<void(bool)> sent = nullptr,
                  const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_destroy, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_destroy, context);
     }
 
     /// \cond INTERNAL
@@ -1331,7 +1331,7 @@ public:
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::IceStorm::TopicPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicManagerPrx::_iceI_create, name, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::IceStorm::TopicPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicManagerPrx::_iceI_create, name, context);
     }
 
     /// \cond INTERNAL
@@ -1379,7 +1379,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::IceStorm::TopicPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicManagerPrx::_iceI_retrieve, name, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::IceStorm::TopicPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicManagerPrx::_iceI_retrieve, name, context);
     }
 
     /// \cond INTERNAL
@@ -1422,7 +1422,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::IceStorm::TopicDict>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicManagerPrx::_iceI_retrieveAll, context);
+        return _makeLambdaOutgoing<::IceStorm::TopicDict>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicManagerPrx::_iceI_retrieveAll, context);
     }
 
     /// \cond INTERNAL
@@ -1465,7 +1465,7 @@ public:
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Ice::SliceChecksumDict>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicManagerPrx::_iceI_getSliceChecksums, context);
+        return _makeLambdaOutgoing<::Ice::SliceChecksumDict>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicManagerPrx::_iceI_getSliceChecksums, context);
     }
 
     /// \cond INTERNAL
@@ -1538,7 +1538,7 @@ public:
                          ::std::function<void(bool)> sent = nullptr,
                          const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::std::shared_ptr<::IceStorm::TopicManagerPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::FinderPrx::_iceI_getTopicManager, context);
+        return _makeLambdaOutgoing<::std::shared_ptr<::IceStorm::TopicManagerPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::FinderPrx::_iceI_getTopicManager, context);
     }
 
     /// \cond INTERNAL

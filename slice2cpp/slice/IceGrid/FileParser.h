@@ -248,7 +248,7 @@ public:
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::IceGrid::ApplicationDescriptor>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::FileParserPrx::_iceI_parse, xmlFile, adminProxy, context);
+        return _makeLambdaOutgoing<::IceGrid::ApplicationDescriptor>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::FileParserPrx::_iceI_parse, xmlFile, adminProxy, context);
     }
 
     /// \cond INTERNAL

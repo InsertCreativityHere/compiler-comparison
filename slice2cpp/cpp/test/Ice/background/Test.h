@@ -247,7 +247,7 @@ public:
             ::std::function<void(bool)> sent = nullptr,
             const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundPrx::_iceI_op, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundPrx::_iceI_op, context);
     }
 
     /// \cond INTERNAL
@@ -273,7 +273,7 @@ public:
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundPrx::_iceI_opWithPayload, seq, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundPrx::_iceI_opWithPayload, seq, context);
     }
 
     /// \cond INTERNAL
@@ -298,7 +298,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundPrx::_iceI_shutdown, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundPrx::_iceI_shutdown, context);
     }
 
     /// \cond INTERNAL
@@ -344,7 +344,7 @@ public:
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_pauseCall, call, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_pauseCall, call, context);
     }
 
     /// \cond INTERNAL
@@ -370,7 +370,7 @@ public:
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_resumeCall, call, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_resumeCall, call, context);
     }
 
     /// \cond INTERNAL
@@ -395,7 +395,7 @@ public:
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_holdAdapter, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_holdAdapter, context);
     }
 
     /// \cond INTERNAL
@@ -420,7 +420,7 @@ public:
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_resumeAdapter, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_resumeAdapter, context);
     }
 
     /// \cond INTERNAL
@@ -446,7 +446,7 @@ public:
                                    ::std::function<void(bool)> sent = nullptr,
                                    const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_initializeSocketOperation, status, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_initializeSocketOperation, status, context);
     }
 
     /// \cond INTERNAL
@@ -472,7 +472,7 @@ public:
                              ::std::function<void(bool)> sent = nullptr,
                              const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_initializeException, enable, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_initializeException, enable, context);
     }
 
     /// \cond INTERNAL
@@ -498,7 +498,7 @@ public:
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_readReady, enable, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_readReady, enable, context);
     }
 
     /// \cond INTERNAL
@@ -524,7 +524,7 @@ public:
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_readException, enable, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_readException, enable, context);
     }
 
     /// \cond INTERNAL
@@ -550,7 +550,7 @@ public:
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_writeReady, enable, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_writeReady, enable, context);
     }
 
     /// \cond INTERNAL
@@ -576,7 +576,7 @@ public:
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_writeException, enable, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_writeException, enable, context);
     }
 
     /// \cond INTERNAL
@@ -602,7 +602,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_buffered, enable, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_buffered, enable, context);
     }
 
     /// \cond INTERNAL

@@ -1003,7 +1003,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpDoubleArrayResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDoubleArray, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpDoubleArrayResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDoubleArray, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1035,7 +1035,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpBoolArrayResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolArray, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpBoolArrayResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolArray, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1092,7 +1092,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpVariableArrayResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVariableArray, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpVariableArrayResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVariableArray, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1124,7 +1124,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpBoolRangeResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolRange, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpBoolRangeResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolRange, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1156,7 +1156,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpByteRangeResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteRange, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpByteRangeResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteRange, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1188,7 +1188,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpVariableRangeResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVariableRange, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpVariableRangeResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVariableRange, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1220,7 +1220,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpByteRangeTypeResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteRangeType, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpByteRangeTypeResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteRangeType, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1252,7 +1252,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpVariableRangeTypeResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVariableRangeType, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpVariableRangeTypeResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVariableRangeType, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1284,7 +1284,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpBoolSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolSeq, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpBoolSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolSeq, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1316,7 +1316,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpBoolListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolList, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpBoolListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolList, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1348,7 +1348,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpByteSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteSeq, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpByteSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteSeq, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1380,7 +1380,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpByteListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteList, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpByteListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteList, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1412,7 +1412,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpMyByteSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opMyByteSeq, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpMyByteSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opMyByteSeq, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1469,7 +1469,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpStringSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringSeq, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpStringSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringSeq, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1501,7 +1501,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpStringListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringList, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpStringListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringList, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1533,7 +1533,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpFixedSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opFixedSeq, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpFixedSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opFixedSeq, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1565,7 +1565,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpFixedListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opFixedList, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpFixedListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opFixedList, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1597,7 +1597,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpVariableSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVariableSeq, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpVariableSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVariableSeq, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1629,7 +1629,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpVariableListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVariableList, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpVariableListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVariableList, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1661,7 +1661,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpStringStringDictSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringStringDictSeq, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpStringStringDictSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringStringDictSeq, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1693,7 +1693,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpStringStringDictListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringStringDictList, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpStringStringDictListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringStringDictList, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1725,7 +1725,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpESeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opESeq, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpESeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opESeq, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1757,7 +1757,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpEListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opEList, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpEListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opEList, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1789,7 +1789,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpDPrxSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDPrxSeq, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpDPrxSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDPrxSeq, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1821,7 +1821,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpDPrxListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDPrxList, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpDPrxListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDPrxList, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1853,7 +1853,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpCSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opCSeq, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpCSeqResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opCSeq, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1885,7 +1885,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpCListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opCList, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpCListResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opCList, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1918,7 +1918,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outS), ::std::move(_result.outSeq));
         };
-        return _makeLamdaOutgoing<TestIntf::OpClassStructResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opClassStruct, inS, inSeq, context);
+        return _makeLambdaOutgoing<TestIntf::OpClassStructResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opClassStruct, inS, inSeq, context);
     }
 
     /// \cond INTERNAL
@@ -1967,7 +1967,7 @@ public:
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Test::ByteSeq>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOutRangeByteSeq, org, context);
+        return _makeLambdaOutgoing<::Test::ByteSeq>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOutRangeByteSeq, org, context);
     }
 
     /// \cond INTERNAL
@@ -1999,7 +1999,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.odict));
         };
-        return _makeLamdaOutgoing<TestIntf::OpIntStringDictResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opIntStringDict, idict, context);
+        return _makeLambdaOutgoing<TestIntf::OpIntStringDictResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opIntStringDict, idict, context);
     }
 
     /// \cond INTERNAL
@@ -2031,7 +2031,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.odict));
         };
-        return _makeLamdaOutgoing<TestIntf::OpVarDictResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVarDict, idict, context);
+        return _makeLambdaOutgoing<TestIntf::OpVarDictResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVarDict, idict, context);
     }
 
     /// \cond INTERNAL
@@ -2088,7 +2088,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outS));
         };
-        return _makeLamdaOutgoing<TestIntf::OpShortBufferResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opShortBuffer, inS, context);
+        return _makeLambdaOutgoing<TestIntf::OpShortBufferResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opShortBuffer, inS, context);
     }
 
     /// \cond INTERNAL
@@ -2120,7 +2120,7 @@ public:
         {
             response(::std::move(_result.returnValue), ::std::move(_result.outS));
         };
-        return _makeLamdaOutgoing<TestIntf::OpBoolBufferResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolBuffer, inS, context);
+        return _makeLambdaOutgoing<TestIntf::OpBoolBufferResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolBuffer, inS, context);
     }
 
     /// \cond INTERNAL
@@ -2146,7 +2146,7 @@ public:
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<::Test::BufferStruct>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBufferStruct, s, context);
+        return _makeLambdaOutgoing<::Test::BufferStruct>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBufferStruct, s, context);
     }
 
     /// \cond INTERNAL
@@ -2171,7 +2171,7 @@ public:
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLamdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
     }
 
     /// \cond INTERNAL
