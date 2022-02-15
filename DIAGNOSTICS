@@ -1,0 +1,17 @@
+
+!!!!!!!!!!!!!!!!!!!!!!!
+!!!! BUILD FAILURE !!!!
+!!!!!!!!!!!!!!!!!!!!!!!
+Traceback (most recent call last):
+  File "/Users/austin/Code/zeroc/ice/../compiler-comparer/compiler-comparer.py", line 428, in <module>
+    build(compilers, projPath, pythonPath);
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/austin/Code/zeroc/ice/../compiler-comparer/compiler-comparer.py", line 115, in build
+    runCommand(args, "make ...", checked=True, capture=False);
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/austin/Code/zeroc/ice/../compiler-comparer/compiler-comparer.py", line 50, in runCommand
+    result = subprocess.run(args, check=checked, env=ENVIRONMENT, stdout=OUTPUT_TO);
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.5/Frameworks/Python.framework/Versions/3.12/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['make', '-j', '-C', '/Users/austin/Code/zeroc/ice/cpp', 'slice2cpp', 'slice2cs', 'slice2java', 'slice2js', 'slice2matlab', 'slice2php', 'slice2py', 'slice2rb', 'slice2swift']' returned non-zero exit status 2.
