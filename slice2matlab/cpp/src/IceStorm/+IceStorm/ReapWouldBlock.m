@@ -1,0 +1,29 @@
+% ReapWouldBlock   Summary of ReapWouldBlock
+%
+% Thrown if the reap call would block.
+
+% Copyright (c) ZeroC, Inc. All rights reserved.
+% Generated from IceStormInternal.ice by slice2matlab version 3.7.9
+
+classdef ReapWouldBlock < Ice.UserException
+    methods
+        function obj = ReapWouldBlock(ice_exid, ice_exmsg)
+            if nargin == 0 || isempty(ice_exid)
+                ice_exid = 'IceStorm:ReapWouldBlock';
+            end
+            if nargin < 2 || isempty(ice_exmsg)
+                ice_exmsg = 'IceStorm.ReapWouldBlock';
+            end
+            obj = obj@Ice.UserException(ice_exid, ice_exmsg);
+        end
+        function id = ice_id(~)
+            id = '::IceStorm::ReapWouldBlock';
+        end
+    end
+    methods(Access=protected)
+        function obj = iceReadImpl(obj, is)
+            is.startSlice();
+            is.endSlice();
+        end
+    end
+end

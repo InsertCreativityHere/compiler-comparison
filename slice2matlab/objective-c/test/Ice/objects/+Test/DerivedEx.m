@@ -1,0 +1,31 @@
+% DerivedEx   Summary of DerivedEx
+
+% Copyright (c) ZeroC, Inc. All rights reserved.
+% Generated from ObjectsDerivedEx.ice by slice2matlab version 3.7.9
+
+classdef DerivedEx < Test.BaseEx
+    methods
+        function obj = DerivedEx(ice_exid, ice_exmsg, reason)
+            if nargin <= 2
+                reason = '';
+            end
+            if nargin == 0 || isempty(ice_exid)
+                ice_exid = 'Test:DerivedEx';
+            end
+            if nargin < 2 || isempty(ice_exmsg)
+                ice_exmsg = 'Test.DerivedEx';
+            end
+            obj = obj@Test.BaseEx(ice_exid, ice_exmsg, reason);
+        end
+        function id = ice_id(~)
+            id = '::Test::DerivedEx';
+        end
+    end
+    methods(Access=protected)
+        function obj = iceReadImpl(obj, is)
+            is.startSlice();
+            is.endSlice();
+            obj = iceReadImpl@Test.BaseEx(obj, is);
+        end
+    end
+end
