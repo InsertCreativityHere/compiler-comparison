@@ -6,7 +6,7 @@
 % See also Ice.ObjectAdapter, Ice.ObjectAdapter.addServantLocator, Ice.ObjectAdapter.findServantLocator
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from ServantLocator.ice by slice2matlab version 3.7.9
+% Generated from ServantLocator.ice by slice2matlab version 3.7.10
 
 classdef (Abstract) ServantLocator < handle
     methods(Abstract)

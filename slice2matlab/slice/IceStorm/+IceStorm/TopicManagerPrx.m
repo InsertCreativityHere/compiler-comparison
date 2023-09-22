@@ -17,7 +17,7 @@
 % See also IceStorm.Topic
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from IceStorm.ice by slice2matlab version 3.7.9
+% Generated from IceStorm.ice by slice2matlab version 3.7.10
 
 classdef TopicManagerPrx < Ice.ObjectPrx
     methods

@@ -7,7 +7,7 @@
 %   lockUserId - The id of the user holding the lock (if any).
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Exception.ice by slice2matlab version 3.7.9
+% Generated from Exception.ice by slice2matlab version 3.7.10
 
 classdef AccessDeniedException < Ice.UserException
     properties

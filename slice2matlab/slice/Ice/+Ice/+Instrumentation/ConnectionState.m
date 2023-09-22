@@ -10,7 +10,7 @@
 %   ConnectionStateClosed - The connection is closed and waits for potential dispatch to be finished before being destroyed and detached from the observer.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Instrumentation.ice by slice2matlab version 3.7.9
+% Generated from Instrumentation.ice by slice2matlab version 3.7.10
 
 classdef ConnectionState < uint8
     enumeration

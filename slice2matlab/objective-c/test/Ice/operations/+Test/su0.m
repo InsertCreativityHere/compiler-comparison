@@ -1,7 +1,7 @@
 % su0   Summary of su0
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from OperationsTest.ice by slice2matlab version 3.7.9
+% Generated from OperationsTest.ice by slice2matlab version 3.7.10
 
 classdef su0
     properties(Constant)

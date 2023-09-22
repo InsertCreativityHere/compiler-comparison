@@ -1,7 +1,7 @@
 % MyException   Summary of MyException
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from InvokeTest.ice by slice2matlab version 3.7.9
+% Generated from InvokeTest.ice by slice2matlab version 3.7.10
 
 classdef MyException < Ice.UserException
     methods

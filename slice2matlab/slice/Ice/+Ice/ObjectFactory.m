@@ -7,7 +7,7 @@
 % Deprecated: ObjectFactory has been deprecated, use ValueFactory instead.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from ObjectFactory.ice by slice2matlab version 3.7.9
+% Generated from ObjectFactory.ice by slice2matlab version 3.7.10
 
 classdef (Abstract) ObjectFactory < handle
     methods(Abstract)

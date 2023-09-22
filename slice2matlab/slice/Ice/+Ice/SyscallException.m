@@ -9,7 +9,7 @@
 %   error - The error number describing the system exception.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from LocalException.ice by slice2matlab version 3.7.9
+% Generated from LocalException.ice by slice2matlab version 3.7.10
 
 classdef SyscallException < Ice.LocalException
     properties

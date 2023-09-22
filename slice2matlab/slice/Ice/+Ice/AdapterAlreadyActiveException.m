@@ -4,7 +4,7 @@
 % an adapter that is already active.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Locator.ice by slice2matlab version 3.7.9
+% Generated from Locator.ice by slice2matlab version 3.7.10
 
 classdef AdapterAlreadyActiveException < Ice.UserException
     methods

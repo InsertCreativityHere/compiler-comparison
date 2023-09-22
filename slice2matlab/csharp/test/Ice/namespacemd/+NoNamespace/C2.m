@@ -4,7 +4,7 @@
 %   l
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from NoNamespace.ice by slice2matlab version 3.7.9
+% Generated from NoNamespace.ice by slice2matlab version 3.7.10
 
 classdef C2 < NoNamespace.C1
     properties

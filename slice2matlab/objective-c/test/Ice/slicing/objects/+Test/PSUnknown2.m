@@ -4,7 +4,7 @@
 %   pb
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from SlicingObjectsTestServer.ice by slice2matlab version 3.7.9
+% Generated from SlicingObjectsTestServer.ice by slice2matlab version 3.7.10
 
 classdef PSUnknown2 < Test.Preserved
     properties

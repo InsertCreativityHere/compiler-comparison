@@ -1,7 +1,7 @@
 % ShortConst1   Summary of ShortConst1
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from EnumTest.ice by slice2matlab version 3.7.9
+% Generated from EnumTest.ice by slice2matlab version 3.7.10
 
 classdef ShortConst1
     properties(Constant)

@@ -6,7 +6,7 @@
 %   reason - The reason why the object couldn't be allocated.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Exception.ice by slice2matlab version 3.7.9
+% Generated from Exception.ice by slice2matlab version 3.7.10
 
 classdef AllocationException < Ice.UserException
     properties

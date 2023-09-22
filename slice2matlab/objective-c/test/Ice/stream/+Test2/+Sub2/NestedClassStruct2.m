@@ -4,7 +4,7 @@
 %   i
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from StreamTest.ice by slice2matlab version 3.7.9
+% Generated from StreamTest.ice by slice2matlab version 3.7.10
 
 classdef NestedClassStruct2
     properties

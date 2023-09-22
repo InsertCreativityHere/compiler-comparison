@@ -6,7 +6,7 @@
 % application-name\[.category\[.sub-category]].name.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Properties.ice by slice2matlab version 3.7.9
+% Generated from Properties.ice by slice2matlab version 3.7.10
 
 classdef (Abstract) Properties < handle
     methods(Abstract)

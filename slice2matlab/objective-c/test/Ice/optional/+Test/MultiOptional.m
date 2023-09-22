@@ -33,7 +33,7 @@
 %   ser
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from OptionalTest.ice by slice2matlab version 3.7.9
+% Generated from OptionalTest.ice by slice2matlab version 3.7.10
 
 classdef MultiOptional < Ice.Value
     properties

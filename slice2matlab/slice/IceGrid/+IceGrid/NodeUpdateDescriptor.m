@@ -16,7 +16,7 @@
 %   loadFactor - The updated load factor of the node (or null if the load factor was not updated).
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Descriptor.ice by slice2matlab version 3.7.9
+% Generated from Descriptor.ice by slice2matlab version 3.7.10
 
 classdef NodeUpdateDescriptor
     properties

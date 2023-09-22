@@ -1,6 +1,6 @@
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from RemoteLogger.ice by slice2matlab version 3.7.9
+% Generated from RemoteLogger.ice by slice2matlab version 3.7.10
 
 classdef LogMessageSeq
     methods(Static)

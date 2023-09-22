@@ -9,7 +9,7 @@
 % filter and return the filtered set of proxies.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from PluginFacade.ice by slice2matlab version 3.7.9
+% Generated from PluginFacade.ice by slice2matlab version 3.7.10
 
 classdef (Abstract) TypeFilter < handle
     methods(Abstract)

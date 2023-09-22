@@ -20,7 +20,7 @@
 % See also Glacier2.Session
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Session.ice by slice2matlab version 3.7.9
+% Generated from Session.ice by slice2matlab version 3.7.10
 
 classdef SessionControlPrx < Ice.ObjectPrx
     methods

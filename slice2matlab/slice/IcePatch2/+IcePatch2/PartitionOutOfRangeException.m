@@ -3,7 +3,7 @@
 % A partition argument was not in the range 0-255.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from FileServer.ice by slice2matlab version 3.7.9
+% Generated from FileServer.ice by slice2matlab version 3.7.10
 
 classdef PartitionOutOfRangeException < Ice.UserException
     methods

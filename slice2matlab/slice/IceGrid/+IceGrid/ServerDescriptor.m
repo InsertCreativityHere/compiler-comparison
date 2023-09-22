@@ -18,7 +18,7 @@
 %   user - The user account used to run the server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Descriptor.ice by slice2matlab version 3.7.9
+% Generated from Descriptor.ice by slice2matlab version 3.7.10
 
 classdef ServerDescriptor < IceGrid.CommunicatorDescriptor
     properties

@@ -1,7 +1,7 @@
 % TestIntfException   Summary of TestIntfException
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from AMITest.ice by slice2matlab version 3.7.9
+% Generated from AMITest.ice by slice2matlab version 3.7.10
 
 classdef TestIntfException < Ice.UserException
     methods

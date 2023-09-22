@@ -13,7 +13,7 @@
 %   id - The ID (or name) of the object that is registered already.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from LocalException.ice by slice2matlab version 3.7.9
+% Generated from LocalException.ice by slice2matlab version 3.7.10
 
 classdef AlreadyRegisteredException < Ice.LocalException
     properties

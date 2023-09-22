@@ -3,7 +3,7 @@
 % This exception is raised if an adapter cannot be found.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Locator.ice by slice2matlab version 3.7.9
+% Generated from Locator.ice by slice2matlab version 3.7.10
 
 classdef AdapterNotFoundException < Ice.UserException
     methods

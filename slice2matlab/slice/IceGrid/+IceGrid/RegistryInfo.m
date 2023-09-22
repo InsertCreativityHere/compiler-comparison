@@ -7,7 +7,7 @@
 %   hostname - The network name of the host running this registry (as defined in uname()).
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Admin.ice by slice2matlab version 3.7.9
+% Generated from Admin.ice by slice2matlab version 3.7.10
 
 classdef RegistryInfo
     properties

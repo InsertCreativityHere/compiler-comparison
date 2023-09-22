@@ -10,7 +10,7 @@
 % See also Ice.Communicator, Ice.ServantLocator
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from ObjectAdapter.ice by slice2matlab version 3.7.9
+% Generated from ObjectAdapter.ice by slice2matlab version 3.7.10
 
 classdef (Abstract) ObjectAdapter < handle
     methods(Abstract)

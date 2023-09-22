@@ -6,7 +6,7 @@
 %   nReplicas - The number of replicas that will be used to gather the endpoints of a replica group.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Descriptor.ice by slice2matlab version 3.7.9
+% Generated from Descriptor.ice by slice2matlab version 3.7.10
 
 classdef LoadBalancingPolicy < Ice.Value
     properties

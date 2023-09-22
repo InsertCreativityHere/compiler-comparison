@@ -6,7 +6,7 @@
 %   reason - The reason for the failure.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from LocalException.ice by slice2matlab version 3.7.9
+% Generated from LocalException.ice by slice2matlab version 3.7.10
 
 classdef InitializationException < Ice.LocalException
     properties

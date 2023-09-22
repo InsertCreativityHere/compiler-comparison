@@ -23,7 +23,7 @@
 % with java.lang.Object replaced by string and null replaced by the empty-string.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from ImplicitContext.ice by slice2matlab version 3.7.9
+% Generated from ImplicitContext.ice by slice2matlab version 3.7.10
 
 classdef (Abstract) ImplicitContext < handle
     methods(Abstract)

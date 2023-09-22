@@ -3,7 +3,7 @@
 % This exception is raised if an out-of-bounds condition occurs during unmarshaling.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from LocalException.ice by slice2matlab version 3.7.9
+% Generated from LocalException.ice by slice2matlab version 3.7.10
 
 classdef UnmarshalOutOfBoundsException < Ice.MarshalException
     methods

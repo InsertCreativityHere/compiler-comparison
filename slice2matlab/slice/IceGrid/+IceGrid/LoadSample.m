@@ -8,7 +8,7 @@
 %   LoadSample15 - Sample every fifteen minutes.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Registry.ice by slice2matlab version 3.7.9
+% Generated from Registry.ice by slice2matlab version 3.7.10
 
 classdef LoadSample < uint8
     enumeration

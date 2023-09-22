@@ -6,7 +6,7 @@
 % See also Glacier2.Router.destroySession
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Router.ice by slice2matlab version 3.7.9
+% Generated from Router.ice by slice2matlab version 3.7.10
 
 classdef SessionNotExistException < Ice.UserException
     methods

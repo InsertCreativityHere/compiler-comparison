@@ -10,7 +10,7 @@
 %   Compat - Characters with ordinal values greater than 127 are encoded as a sequence of UTF-8 bytes using octal escapes.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Communicator.ice by slice2matlab version 3.7.9
+% Generated from Communicator.ice by slice2matlab version 3.7.10
 
 classdef ToStringMode < uint8
     enumeration

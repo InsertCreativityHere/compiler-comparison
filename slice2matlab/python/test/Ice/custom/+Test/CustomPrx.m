@@ -55,7 +55,7 @@
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Test.ice by slice2matlab version 3.7.9
+% Generated from Test.ice by slice2matlab version 3.7.10
 
 classdef CustomPrx < Ice.ObjectPrx
     methods

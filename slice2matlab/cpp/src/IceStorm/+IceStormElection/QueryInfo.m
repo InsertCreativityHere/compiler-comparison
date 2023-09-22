@@ -10,7 +10,7 @@
 %   max - The highest priority node that this node has seen.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Election.ice by slice2matlab version 3.7.9
+% Generated from Election.ice by slice2matlab version 3.7.10
 
 classdef QueryInfo
     properties

@@ -1,7 +1,7 @@
 % RetryException   Summary of RetryException
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from InterceptorTest.ice by slice2matlab version 3.7.9
+% Generated from InterceptorTest.ice by slice2matlab version 3.7.10
 
 classdef RetryException < Ice.LocalException
     methods

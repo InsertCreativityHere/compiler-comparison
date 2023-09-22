@@ -15,7 +15,7 @@
 %   ienum12
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from EnumTest.ice by slice2matlab version 3.7.9
+% Generated from EnumTest.ice by slice2matlab version 3.7.10
 
 classdef IntEnum < int32
     enumeration

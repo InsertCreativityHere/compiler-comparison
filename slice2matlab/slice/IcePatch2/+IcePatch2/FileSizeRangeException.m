@@ -4,7 +4,7 @@
 % larger than 2.1 GB. Use the "large" versions of the operations instead.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from FileServer.ice by slice2matlab version 3.7.9
+% Generated from FileServer.ice by slice2matlab version 3.7.10
 
 classdef FileSizeRangeException < IcePatch2.FileAccessException
     methods

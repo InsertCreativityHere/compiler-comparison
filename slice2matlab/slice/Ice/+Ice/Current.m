@@ -17,7 +17,7 @@
 %   encoding - The encoding version used to encode the input and output parameters.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Current.ice by slice2matlab version 3.7.9
+% Generated from Current.ice by slice2matlab version 3.7.10
 
 classdef Current
     properties

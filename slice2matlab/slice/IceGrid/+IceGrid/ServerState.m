@@ -12,7 +12,7 @@
 %   Destroyed - The server is destroyed.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Admin.ice by slice2matlab version 3.7.9
+% Generated from Admin.ice by slice2matlab version 3.7.10
 
 classdef ServerState < uint8
     enumeration

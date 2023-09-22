@@ -4,7 +4,7 @@
 %   next
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from ServerPrivate.ice by slice2matlab version 3.7.9
+% Generated from ServerPrivate.ice by slice2matlab version 3.7.10
 
 classdef PNode < Ice.Value
     properties

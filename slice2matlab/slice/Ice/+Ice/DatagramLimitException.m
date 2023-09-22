@@ -6,7 +6,7 @@
 % size, or exceeds the maximum payload size of a UDP packet (65507 bytes).
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from LocalException.ice by slice2matlab version 3.7.9
+% Generated from LocalException.ice by slice2matlab version 3.7.10
 
 classdef DatagramLimitException < Ice.ProtocolException
     methods

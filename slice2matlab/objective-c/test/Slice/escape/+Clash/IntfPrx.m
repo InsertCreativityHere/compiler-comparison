@@ -33,7 +33,7 @@
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Clash.ice by slice2matlab version 3.7.9
+% Generated from Clash.ice by slice2matlab version 3.7.10
 
 classdef IntfPrx < Ice.ObjectPrx
     methods

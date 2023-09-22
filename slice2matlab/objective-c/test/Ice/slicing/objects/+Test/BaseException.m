@@ -5,7 +5,7 @@
 %   pb
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from SlicingObjectsTestClient.ice by slice2matlab version 3.7.9
+% Generated from SlicingObjectsTestClient.ice by slice2matlab version 3.7.10
 
 classdef BaseException < Ice.UserException
     properties

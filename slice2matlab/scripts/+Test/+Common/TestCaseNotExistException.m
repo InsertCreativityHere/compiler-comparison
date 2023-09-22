@@ -4,7 +4,7 @@
 %   reason
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Controller.ice by slice2matlab version 3.7.9
+% Generated from Controller.ice by slice2matlab version 3.7.10
 
 classdef TestCaseNotExistException < Ice.UserException
     properties

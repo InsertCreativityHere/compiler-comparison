@@ -9,7 +9,7 @@
 %   clone
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Clash.ice by slice2matlab version 3.7.9
+% Generated from Clash.ice by slice2matlab version 3.7.10
 
 classdef St
     properties

@@ -4,7 +4,7 @@
 % already-stopped service.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from IceBox.ice by slice2matlab version 3.7.9
+% Generated from IceBox.ice by slice2matlab version 3.7.10
 
 classdef AlreadyStoppedException < Ice.UserException
     methods

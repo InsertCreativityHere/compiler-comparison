@@ -1,7 +1,7 @@
 % Class1   Summary of Class1
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from File1.ice by slice2matlab version 3.7.9
+% Generated from File1.ice by slice2matlab version 3.7.10
 
 classdef Class1 < Ice.Value
     methods

@@ -1,7 +1,7 @@
 % ArgumentException   Summary of ArgumentException
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Core.ice by slice2matlab version 3.7.9
+% Generated from Core.ice by slice2matlab version 3.7.10
 
 classdef ArgumentException < Ice.UserException
     methods

@@ -13,7 +13,7 @@
 % \v      vertical tab    byte 0x0b in ASCII encoding
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Test.ice by slice2matlab version 3.7.9
+% Generated from Test.ice by slice2matlab version 3.7.10
 
 classdef ss0
     properties(Constant)

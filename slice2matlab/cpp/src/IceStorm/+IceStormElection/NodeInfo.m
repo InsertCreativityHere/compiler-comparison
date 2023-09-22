@@ -7,7 +7,7 @@
 %   n - The node proxy.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Election.ice by slice2matlab version 3.7.9
+% Generated from Election.ice by slice2matlab version 3.7.10
 
 classdef NodeInfo
     properties

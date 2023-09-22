@@ -1,7 +1,7 @@
 % Derived1   Summary of Derived1
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from CTypes.ice by slice2matlab version 3.7.9
+% Generated from CTypes.ice by slice2matlab version 3.7.10
 
 classdef Derived1 < Test.Compact1
     methods

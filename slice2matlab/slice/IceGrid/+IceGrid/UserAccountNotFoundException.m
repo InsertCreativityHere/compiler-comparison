@@ -4,7 +4,7 @@
 % identifier can't be found.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from UserAccountMapper.ice by slice2matlab version 3.7.9
+% Generated from UserAccountMapper.ice by slice2matlab version 3.7.10
 
 classdef UserAccountNotFoundException < Ice.UserException
     methods

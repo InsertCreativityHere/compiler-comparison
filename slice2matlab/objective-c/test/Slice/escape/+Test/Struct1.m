@@ -5,7 +5,7 @@
 %   retainCount
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Inherit.ice by slice2matlab version 3.7.9
+% Generated from Inherit.ice by slice2matlab version 3.7.10
 
 classdef Struct1
     properties
