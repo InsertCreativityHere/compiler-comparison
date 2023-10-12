@@ -1697,6 +1697,7 @@ namespace Test
             return true;
         }
 
+        #if !NET8_0_OR_GREATER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
         {
@@ -1707,6 +1708,7 @@ namespace Test
 
             base.GetObjectData(info, context);
         }
+        #endif
 
         #endregion
 
@@ -1918,6 +1920,7 @@ namespace Test
             return true;
         }
 
+        #if !NET8_0_OR_GREATER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
         {
@@ -1928,6 +1931,7 @@ namespace Test
 
             base.GetObjectData(info, context);
         }
+        #endif
 
         #endregion
 
@@ -2118,6 +2122,7 @@ namespace Test
             return true;
         }
 
+        #if !NET8_0_OR_GREATER
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
         {
@@ -2126,6 +2131,7 @@ namespace Test
 
             base.GetObjectData(info, context);
         }
+        #endif
 
         #endregion
 
