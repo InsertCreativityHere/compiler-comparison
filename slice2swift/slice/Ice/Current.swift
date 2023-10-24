@@ -105,7 +105,7 @@ public enum OperationMode: Swift.UInt8 {
     /// Nonmutating is deprecated; Use the
     /// idempotent keyword instead. For C++, to retain the mapping
     /// of nonmutating operations to C++ const
-    /// member functions, use the \["cpp:const"] metadata
+    /// member functions, use the ["cpp:const"] metadata
     /// directive.
     case `Nonmutating` = 1
     /// Idempotent Operations that use the Slice idempotent keyword can modify

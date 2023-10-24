@@ -29,7 +29,7 @@ classdef OperationMode < uint8
         % Nonmutating is deprecated; Use the
         % idempotent keyword instead. For C++, to retain the mapping
         % of nonmutating operations to C++ const
-        % member functions, use the \["cpp:const"] metadata
+        % member functions, use the ["cpp:const"] metadata
         % directive.
         Nonmutating (1)
         % Operations that use the Slice idempotent keyword can modify

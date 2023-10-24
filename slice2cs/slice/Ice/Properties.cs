@@ -121,7 +121,7 @@ namespace Ice
         /// whitespace and commas if they are enclosed in single or double
         /// quotes. If quotes are mismatched, an empty list is returned.
         /// Within single quotes or double quotes, you can escape the
-        /// quote in question with \, e.g. O'Reilly can be written as
+        /// quote in question with a backslash, e.g. O'Reilly can be written as
         /// O'Reilly, "O'Reilly" or 'O\'Reilly'.
         ///
         /// </summary>
@@ -144,7 +144,7 @@ namespace Ice
         /// whitespace and commas if they are enclosed in single or double
         /// quotes. If quotes are mismatched, the default list is returned.
         /// Within single quotes or double quotes, you can escape the
-        /// quote in question with \, e.g. O'Reilly can be written as
+        /// quote in question with a backslash, e.g. O'Reilly can be written as
         /// O'Reilly, "O'Reilly" or 'O\'Reilly'.
         ///
         /// </summary>

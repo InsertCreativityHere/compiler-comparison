@@ -73,7 +73,7 @@ namespace Ice
  * A property set used to configure Ice and Ice applications.
  * Properties are key/value pairs, with both keys and values
  * being strings. By convention, property keys should have the form
- * <em>application-name</em>\[.<em>category</em>\[.<em>sub-category</em>]].<em>name</em>.
+ * <em>application-name</em>[.<em>category</em>[.<em>sub-category</em>]].<em>name</em>.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) Properties
@@ -130,7 +130,7 @@ public:
      * whitespace and commas if they are enclosed in single or double
      * quotes. If quotes are mismatched, an empty list is returned.
      * Within single quotes or double quotes, you can escape the
-     * quote in question with \, e.g. O'Reilly can be written as
+     * quote in question with a backslash, e.g. O'Reilly can be written as
      * O'Reilly, "O'Reilly" or 'O\'Reilly'.
      * @param key The property key.
      * @return The property value interpreted as a list of strings.
@@ -145,7 +145,7 @@ public:
      * whitespace and commas if they are enclosed in single or double
      * quotes. If quotes are mismatched, the default list is returned.
      * Within single quotes or double quotes, you can escape the
-     * quote in question with \, e.g. O'Reilly can be written as
+     * quote in question with a backslash, e.g. O'Reilly can be written as
      * O'Reilly, "O'Reilly" or 'O\'Reilly'.
      * @param key The property key.
      * @param value The default value to use if the property is not set.
@@ -269,7 +269,7 @@ namespace Ice
  * A property set used to configure Ice and Ice applications.
  * Properties are key/value pairs, with both keys and values
  * being strings. By convention, property keys should have the form
- * <em>application-name</em>\[.<em>category</em>\[.<em>sub-category</em>]].<em>name</em>.
+ * <em>application-name</em>[.<em>category</em>[.<em>sub-category</em>]].<em>name</em>.
  * \headerfile Ice/Ice.h
  */
 class ICE_API Properties : public virtual LocalObject
@@ -334,7 +334,7 @@ public:
      * whitespace and commas if they are enclosed in single or double
      * quotes. If quotes are mismatched, an empty list is returned.
      * Within single quotes or double quotes, you can escape the
-     * quote in question with \, e.g. O'Reilly can be written as
+     * quote in question with a backslash, e.g. O'Reilly can be written as
      * O'Reilly, "O'Reilly" or 'O\'Reilly'.
      * @param key The property key.
      * @return The property value interpreted as a list of strings.
@@ -349,7 +349,7 @@ public:
      * whitespace and commas if they are enclosed in single or double
      * quotes. If quotes are mismatched, the default list is returned.
      * Within single quotes or double quotes, you can escape the
-     * quote in question with \, e.g. O'Reilly can be written as
+     * quote in question with a backslash, e.g. O'Reilly can be written as
      * O'Reilly, "O'Reilly" or 'O\'Reilly'.
      * @param key The property key.
      * @param value The default value to use if the property is not set.

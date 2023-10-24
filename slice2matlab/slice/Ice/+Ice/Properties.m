@@ -3,7 +3,7 @@
 % A property set used to configure Ice and Ice applications.
 % Properties are key/value pairs, with both keys and values
 % being strings. By convention, property keys should have the form
-% application-name\[.category\[.sub-category]].name.
+% application-name[.category[.sub-category]].name.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Properties.ice by slice2matlab version 3.7.10

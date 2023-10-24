@@ -31,7 +31,7 @@ if 'Properties' not in _M_Ice.__dict__:
         A property set used to configure Ice and Ice applications.
         Properties are key/value pairs, with both keys and values
         being strings. By convention, property keys should have the form
-        application-name\[.category\[.sub-category]].name.
+        application-name[.category[.sub-category]].name.
         """
         def __init__(self):
             if Ice.getType(self) == _M_Ice.Properties:
@@ -87,7 +87,7 @@ if 'Properties' not in _M_Ice.__dict__:
             whitespace and commas if they are enclosed in single or double
             quotes. If quotes are mismatched, an empty list is returned.
             Within single quotes or double quotes, you can escape the
-            quote in question with \, e.g. O'Reilly can be written as
+            quote in question with a backslash, e.g. O'Reilly can be written as
             O'Reilly, "O'Reilly" or 'O\'Reilly'.
             Arguments:
             key -- The property key.
@@ -103,7 +103,7 @@ if 'Properties' not in _M_Ice.__dict__:
             whitespace and commas if they are enclosed in single or double
             quotes. If quotes are mismatched, the default list is returned.
             Within single quotes or double quotes, you can escape the
-            quote in question with \, e.g. O'Reilly can be written as
+            quote in question with a backslash, e.g. O'Reilly can be written as
             O'Reilly, "O'Reilly" or 'O\'Reilly'.
             Arguments:
             key -- The property key.
