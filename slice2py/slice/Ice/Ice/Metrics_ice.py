@@ -293,7 +293,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
 
         """
         Get the metrics objects for the given metrics view. This
-        returns a dictionnary of metric maps for each metrics class
+        returns a dictionary of metric maps for each metrics class
         configured with the view. The timestamp allows the client to
         compute averages which are not dependent of the invocation
         latency for this operation.
@@ -311,7 +311,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
 
         """
         Get the metrics objects for the given metrics view. This
-        returns a dictionnary of metric maps for each metrics class
+        returns a dictionary of metric maps for each metrics class
         configured with the view. The timestamp allows the client to
         compute averages which are not dependent of the invocation
         latency for this operation.
@@ -325,7 +325,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
 
         """
         Get the metrics objects for the given metrics view. This
-        returns a dictionnary of metric maps for each metrics class
+        returns a dictionary of metric maps for each metrics class
         configured with the view. The timestamp allows the client to
         compute averages which are not dependent of the invocation
         latency for this operation.
@@ -342,7 +342,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
 
         """
         Get the metrics objects for the given metrics view. This
-        returns a dictionnary of metric maps for each metrics class
+        returns a dictionary of metric maps for each metrics class
         configured with the view. The timestamp allows the client to
         compute averages which are not dependent of the invocation
         latency for this operation.
@@ -526,7 +526,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
         def getMetricsView(self, view, current=None):
             """
             Get the metrics objects for the given metrics view. This
-            returns a dictionnary of metric maps for each metrics class
+            returns a dictionary of metric maps for each metrics class
             configured with the view. The timestamp allows the client to
             compute averages which are not dependent of the invocation
             latency for this operation.

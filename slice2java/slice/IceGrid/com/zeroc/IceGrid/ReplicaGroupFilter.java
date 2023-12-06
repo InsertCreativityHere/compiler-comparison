@@ -26,7 +26,7 @@ package com.zeroc.IceGrid;
 public interface ReplicaGroupFilter
 {
     /**
-     * Filter the the given set of adapters.
+     * Filter the given set of adapters.
      * @param replicaGroupId The replica group ID.
      * @param adapterIds The adpater IDs to filter.
      * @param con The connection from the Ice client which is

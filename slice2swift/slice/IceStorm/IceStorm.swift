@@ -1628,7 +1628,7 @@ public extension TopicManagerPrx {
     }
 }
 
-/// This inferface is advertised by the IceStorm service through the
+/// This interface is advertised by the IceStorm service through the
 /// Ice object with the identity `IceStorm/Finder'. This allows clients
 /// to retrieve the topic manager with just the endpoint information of
 /// the IceStorm service.
@@ -1713,7 +1713,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// This inferface is advertised by the IceStorm service through the
+/// This interface is advertised by the IceStorm service through the
 /// Ice object with the identity `IceStorm/Finder'. This allows clients
 /// to retrieve the topic manager with just the endpoint information of
 /// the IceStorm service.
@@ -2030,7 +2030,7 @@ public struct FinderDisp: Ice.Disp {
     }
 }
 
-/// This inferface is advertised by the IceStorm service through the
+/// This interface is advertised by the IceStorm service through the
 /// Ice object with the identity `IceStorm/Finder'. This allows clients
 /// to retrieve the topic manager with just the endpoint information of
 /// the IceStorm service.
@@ -2235,7 +2235,7 @@ public extension TopicManager {
     }
 }
 
-/// This inferface is advertised by the IceStorm service through the
+/// This interface is advertised by the IceStorm service through the
 /// Ice object with the identity `IceStorm/Finder'. This allows clients
 /// to retrieve the topic manager with just the endpoint information of
 /// the IceStorm service.

@@ -23,7 +23,7 @@ import Ice
 /// of this method can use the provided context and connection to
 /// filter and return the filtered set of adapters.
 public protocol ReplicaGroupFilter:  Swift.AnyObject {
-    /// Filter the the given set of adapters.
+    /// Filter the given set of adapters.
     ///
     /// - parameter replicaGroupId: `Swift.String` The replica group ID.
     ///
@@ -47,7 +47,7 @@ public protocol ReplicaGroupFilter:  Swift.AnyObject {
 /// of this method can use the provided context and connection to
 /// filter and return the filtered set of proxies.
 public protocol TypeFilter:  Swift.AnyObject {
-    /// Filter the the given set of proxies.
+    /// Filter the given set of proxies.
     ///
     /// - parameter type: `Swift.String` The type.
     ///

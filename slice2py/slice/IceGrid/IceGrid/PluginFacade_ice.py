@@ -48,7 +48,7 @@ if 'ReplicaGroupFilter' not in _M_IceGrid.__dict__:
 
         def filter(self, replicaGroupId, adapterIds, con, ctx):
             """
-            Filter the the given set of adapters.
+            Filter the given set of adapters.
             Arguments:
             replicaGroupId -- The replica group ID.
             adapterIds -- The adpater IDs to filter.
@@ -86,7 +86,7 @@ if 'TypeFilter' not in _M_IceGrid.__dict__:
 
         def filter(self, type, proxies, con, ctx):
             """
-            Filter the the given set of proxies.
+            Filter the given set of proxies.
             Arguments:
             type -- The type.
             proxies -- The proxies to filter.

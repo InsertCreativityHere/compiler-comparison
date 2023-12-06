@@ -292,7 +292,7 @@ public extension RouterPrx {
     }
 }
 
-/// This inferface should be implemented by services implementing the
+/// This interface should be implemented by services implementing the
 /// Ice::Router interface. It should be advertised through an Ice
 /// object with the identity `Ice/RouterFinder'. This allows clients to
 /// retrieve the router proxy with just the endpoint information of the
@@ -378,7 +378,7 @@ public extension InputStream {
     }
 }
 
-/// This inferface should be implemented by services implementing the
+/// This interface should be implemented by services implementing the
 /// Ice::Router interface. It should be advertised through an Ice
 /// object with the identity `Ice/RouterFinder'. This allows clients to
 /// retrieve the router proxy with just the endpoint information of the
@@ -537,7 +537,7 @@ public struct RouterFinderDisp: Disp {
     }
 }
 
-/// This inferface should be implemented by services implementing the
+/// This interface should be implemented by services implementing the
 /// Ice::Router interface. It should be advertised through an Ice
 /// object with the identity `Ice/RouterFinder'. This allows clients to
 /// retrieve the router proxy with just the endpoint information of the
@@ -599,7 +599,7 @@ public extension Router {
     }
 }
 
-/// This inferface should be implemented by services implementing the
+/// This interface should be implemented by services implementing the
 /// Ice::Router interface. It should be advertised through an Ice
 /// object with the identity `Ice/RouterFinder'. This allows clients to
 /// retrieve the router proxy with just the endpoint information of the

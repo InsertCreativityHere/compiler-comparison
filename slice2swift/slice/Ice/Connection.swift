@@ -374,8 +374,8 @@ public protocol ConnectionInfo:  Swift.AnyObject {
 /// An application can implement this interface to receive notifications when
 /// a connection closes.
 ///
-/// This method is called by the the connection when the connection
-/// is closed. If the callback needs more information about the closure,
+/// This method is called by the connection when the connection is
+/// closed. If the callback needs more information about the closure,
 /// it can call Connection.throwException.
 ///
 /// - parameter _: `Connection?` The connection that closed.
@@ -384,7 +384,7 @@ public typealias CloseCallback = (Connection?) -> Swift.Void
 /// An application can implement this interface to receive notifications when
 /// a connection receives a heartbeat message.
 ///
-/// This method is called by the the connection when a heartbeat is
+/// This method is called by the connection when a heartbeat is
 /// received from the peer.
 ///
 /// - parameter _: `Connection?` The connection on which a heartbeat was received.

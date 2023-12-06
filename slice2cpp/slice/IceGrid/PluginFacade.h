@@ -93,7 +93,7 @@ public:
     ICE_MEMBER(ICEGRID_API) virtual ~ReplicaGroupFilter();
 
     /**
-     * Filter the the given set of adapters.
+     * Filter the given set of adapters.
      * @param replicaGroupId The replica group ID.
      * @param adapterIds The adpater IDs to filter.
      * @param con The connection from the Ice client which is
@@ -122,7 +122,7 @@ public:
     ICE_MEMBER(ICEGRID_API) virtual ~TypeFilter();
 
     /**
-     * Filter the the given set of proxies.
+     * Filter the given set of proxies.
      * @param type The type.
      * @param proxies The proxies to filter.
      * @param con The connection from the Ice client which is
@@ -376,7 +376,7 @@ public:
 #endif
 
     /**
-     * Filter the the given set of adapters.
+     * Filter the given set of adapters.
      * @param replicaGroupId The replica group ID.
      * @param adapterIds The adpater IDs to filter.
      * @param con The connection from the Ice client which is
@@ -425,7 +425,7 @@ public:
 #endif
 
     /**
-     * Filter the the given set of proxies.
+     * Filter the given set of proxies.
      * @param type The type.
      * @param proxies The proxies to filter.
      * @param con The connection from the Ice client which is

@@ -110,8 +110,8 @@ if 'CloseCallback' not in _M_Ice.__dict__:
 
         def closed(self, con):
             """
-            This method is called by the the connection when the connection
-            is closed. If the callback needs more information about the closure,
+            This method is called by the connection when the connection is
+            closed. If the callback needs more information about the closure,
             it can call Connection#throwException.
             Arguments:
             con -- The connection that closed.
@@ -142,7 +142,7 @@ if 'HeartbeatCallback' not in _M_Ice.__dict__:
 
         def heartbeat(self, con):
             """
-            This method is called by the the connection when a heartbeat is
+            This method is called by the connection when a heartbeat is
             received from the peer.
             Arguments:
             con -- The connection on which a heartbeat was received.

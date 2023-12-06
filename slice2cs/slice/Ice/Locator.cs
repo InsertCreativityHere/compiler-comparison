@@ -1166,7 +1166,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This inferface should be implemented by services implementing the
+    /// This interface should be implemented by services implementing the
     /// Ice::Locator interface.
     /// It should be advertised through an Ice
     /// object with the identity `Ice/LocatorFinder'. This allows clients
@@ -1357,7 +1357,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This inferface should be implemented by services implementing the
+    /// This interface should be implemented by services implementing the
     /// Ice::Locator interface.
     /// It should be advertised through an Ice
     /// object with the identity `Ice/LocatorFinder'. This allows clients

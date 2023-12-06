@@ -16,7 +16,7 @@
 import Foundation
 import PromiseKit
 
-/// A dictionnary of strings to integers.
+/// A dictionary of strings to integers.
 public typealias MXStringIntDict = [Swift.String: Swift.Int32]
 
 /// Helper class to read and write `MXStringIntDict` dictionary values from
@@ -758,7 +758,7 @@ public extension MXMetricsAdminPrx {
     }
 
     /// Get the metrics objects for the given metrics view. This
-    /// returns a dictionnary of metric maps for each metrics class
+    /// returns a dictionary of metric maps for each metrics class
     /// configured with the view. The timestamp allows the client to
     /// compute averages which are not dependent of the invocation
     /// latency for this operation.
@@ -802,7 +802,7 @@ public extension MXMetricsAdminPrx {
     }
 
     /// Get the metrics objects for the given metrics view. This
-    /// returns a dictionnary of metric maps for each metrics class
+    /// returns a dictionary of metric maps for each metrics class
     /// configured with the view. The timestamp allows the client to
     /// compute averages which are not dependent of the invocation
     /// latency for this operation.
@@ -1592,7 +1592,7 @@ public protocol MXMetricsAdmin {
     func disableMetricsView(name: Swift.String, current: Current) throws
 
     /// Get the metrics objects for the given metrics view. This
-    /// returns a dictionnary of metric maps for each metrics class
+    /// returns a dictionary of metric maps for each metrics class
     /// configured with the view. The timestamp allows the client to
     /// compute averages which are not dependent of the invocation
     /// latency for this operation.

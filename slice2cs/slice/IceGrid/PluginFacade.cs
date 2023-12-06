@@ -37,7 +37,7 @@ namespace IceGrid
 
 
         /// <summary>
-        /// Filter the the given set of adapters.
+        /// Filter the given set of adapters.
         /// </summary>
         /// <param name="replicaGroupId">The replica group ID.
         ///
@@ -78,7 +78,7 @@ namespace IceGrid
 
 
         /// <summary>
-        /// Filter the the given set of proxies.
+        /// Filter the given set of proxies.
         /// </summary>
         /// <param name="type">The type.
         ///

@@ -27,7 +27,7 @@ package com.zeroc.IceGrid;
 public interface TypeFilter
 {
     /**
-     * Filter the the given set of proxies.
+     * Filter the given set of proxies.
      * @param type The type.
      * @param proxies The proxies to filter.
      * @param con The connection from the Ice client which is

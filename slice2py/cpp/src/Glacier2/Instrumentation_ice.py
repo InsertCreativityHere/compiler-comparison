@@ -103,7 +103,7 @@ if 'ObserverUpdater' not in _M_Glacier2.Instrumentation.__dict__:
             """
             Update the router sessions.
             When called, this method goes through all the sessions and for
-            each sesssion RouterObserver::getSessionObserver is
+            each session RouterObserver::getSessionObserver is
             called. The implementation of getSessionObserver has the
             possibility to return an updated observer if necessary.
             """

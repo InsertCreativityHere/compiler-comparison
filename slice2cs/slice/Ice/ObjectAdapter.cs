@@ -629,7 +629,7 @@ namespace Ice
         /// <summary>
         /// Get the Ice locator used by this object adapter.
         /// </summary>
-        /// <returns> The locator used by this object adapter, or null if no locator is
+        /// <returns>The locator used by this object adapter, or null if no locator is
         /// used by this object adapter.
         ///
         /// </returns>
