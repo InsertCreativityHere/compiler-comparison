@@ -1551,7 +1551,6 @@ public:
      * @param envs The server environment variables.
      * @param logs The path of the server logs.
      * @param adapters The indirect object adapters.
-     * @param dbEnvs The database environments.
      * @param properties The configuration files of the server.
      * @param services IceBox service names
      */
@@ -1667,9 +1666,6 @@ public:
      * The indirect object adapters.
      */
     ::IceGrid::InternalAdapterDescriptorSeq adapters;
-    /**
-     * The database environments.
-     */
     ::IceGrid::InternalDbEnvDescriptorSeq dbEnvs;
     /**
      * The configuration files of the server.
@@ -11426,7 +11422,6 @@ public:
      * @param envs The server environment variables.
      * @param logs The path of the server logs.
      * @param adapters The indirect object adapters.
-     * @param dbEnvs The database environments.
      * @param properties The configuration files of the server.
      * @param services IceBox service names
      */
@@ -11584,9 +11579,6 @@ public:
      * The indirect object adapters.
      */
     ::IceGrid::InternalAdapterDescriptorSeq adapters;
-    /**
-     * The database environments.
-     */
     ::IceGrid::InternalDbEnvDescriptorSeq dbEnvs;
     /**
      * The configuration files of the server.

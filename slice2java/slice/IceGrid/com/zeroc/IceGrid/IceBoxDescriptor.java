@@ -25,9 +25,9 @@ public class IceBoxDescriptor extends ServerDescriptor
         super();
     }
 
-    public IceBoxDescriptor(java.util.List<AdapterDescriptor> adapters, PropertySetDescriptor propertySet, java.util.List<DbEnvDescriptor> dbEnvs, String[] logs, String description, String id, String exe, String iceVersion, String pwd, java.util.List<java.lang.String> options, java.util.List<java.lang.String> envs, String activation, String activationTimeout, String deactivationTimeout, boolean applicationDistrib, DistributionDescriptor distrib, boolean allocatable, String user, java.util.List<ServiceInstanceDescriptor> services)
+    public IceBoxDescriptor(java.util.List<AdapterDescriptor> adapters, PropertySetDescriptor propertySet, String[] logs, String description, String id, String exe, String iceVersion, String pwd, java.util.List<java.lang.String> options, java.util.List<java.lang.String> envs, String activation, String activationTimeout, String deactivationTimeout, boolean applicationDistrib, DistributionDescriptor distrib, boolean allocatable, String user, java.util.List<ServiceInstanceDescriptor> services)
     {
-        super(adapters, propertySet, dbEnvs, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user);
+        super(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user);
         this.services = services;
     }
 

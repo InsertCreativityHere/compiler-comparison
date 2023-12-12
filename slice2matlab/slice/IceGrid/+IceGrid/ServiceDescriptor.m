@@ -17,20 +17,19 @@ classdef ServiceDescriptor < IceGrid.CommunicatorDescriptor
         entry char
     end
     methods
-        function obj = ServiceDescriptor(adapters, propertySet, dbEnvs, logs, description, name, entry)
+        function obj = ServiceDescriptor(adapters, propertySet, logs, description, name, entry)
             if nargin == 0
                 adapters = [];
                 propertySet = IceGrid.PropertySetDescriptor();
-                dbEnvs = [];
                 logs = [];
                 description = '';
                 name = '';
                 entry = '';
-                v = { adapters, propertySet, dbEnvs, logs, description };
+                v = { adapters, propertySet, logs, description };
             elseif eq(adapters, IceInternal.NoInit.Instance)
-                v = { IceInternal.NoInit.Instance, [], [], [], [] };
+                v = { IceInternal.NoInit.Instance, [], [], [] };
             else
-                v = { adapters, propertySet, dbEnvs, logs, description };
+                v = { adapters, propertySet, logs, description };
             end;
             obj = obj@IceGrid.CommunicatorDescriptor(v{:});
             if ne(adapters, IceInternal.NoInit.Instance)

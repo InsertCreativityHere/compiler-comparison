@@ -5,7 +5,6 @@
 % CommunicatorDescriptor Properties:
 %   adapters - The object adapters.
 %   propertySet - The property set.
-%   dbEnvs - The database environments.
 %   logs - The path of each log file.
 %   description - A description of this descriptor.
 
@@ -18,25 +17,21 @@ classdef CommunicatorDescriptor < Ice.Value
         adapters
         % propertySet - The property set.
         propertySet IceGrid.PropertySetDescriptor
-        % dbEnvs - The database environments.
-        dbEnvs
         % logs - The path of each log file.
         logs
         % description - A description of this descriptor.
         description char
     end
     methods
-        function obj = CommunicatorDescriptor(adapters, propertySet, dbEnvs, logs, description)
+        function obj = CommunicatorDescriptor(adapters, propertySet, logs, description)
             if nargin == 0
                 obj.adapters = [];
                 obj.propertySet = IceGrid.PropertySetDescriptor();
-                obj.dbEnvs = [];
                 obj.logs = [];
                 obj.description = '';
             elseif ne(adapters, IceInternal.NoInit.Instance)
                 obj.adapters = adapters;
                 obj.propertySet = propertySet;
-                obj.dbEnvs = dbEnvs;
                 obj.logs = logs;
                 obj.description = description;
             end;
@@ -50,7 +45,6 @@ classdef CommunicatorDescriptor < Ice.Value
             os.startSlice('::IceGrid::CommunicatorDescriptor', -1, true);
             IceGrid.AdapterDescriptorSeq.write(os, obj.adapters);
             IceGrid.PropertySetDescriptor.ice_write(os, obj.propertySet);
-            IceGrid.DbEnvDescriptorSeq.write(os, obj.dbEnvs);
             os.writeStringSeq(obj.logs);
             os.writeString(obj.description);
             os.endSlice();
@@ -59,7 +53,6 @@ classdef CommunicatorDescriptor < Ice.Value
             is.startSlice();
             obj.adapters = IceGrid.AdapterDescriptorSeq.read(is);
             obj.propertySet = IceGrid.PropertySetDescriptor.ice_read(is);
-            obj.dbEnvs = IceGrid.DbEnvDescriptorSeq.read(is);
             obj.logs = is.readStringSeq();
             obj.description = is.readString();
             is.endSlice();

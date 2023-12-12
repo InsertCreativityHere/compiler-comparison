@@ -34,9 +34,9 @@ public class ServerDescriptor extends CommunicatorDescriptor
         this.user = "";
     }
 
-    public ServerDescriptor(java.util.List<AdapterDescriptor> adapters, PropertySetDescriptor propertySet, java.util.List<DbEnvDescriptor> dbEnvs, String[] logs, String description, String id, String exe, String iceVersion, String pwd, java.util.List<java.lang.String> options, java.util.List<java.lang.String> envs, String activation, String activationTimeout, String deactivationTimeout, boolean applicationDistrib, DistributionDescriptor distrib, boolean allocatable, String user)
+    public ServerDescriptor(java.util.List<AdapterDescriptor> adapters, PropertySetDescriptor propertySet, String[] logs, String description, String id, String exe, String iceVersion, String pwd, java.util.List<java.lang.String> options, java.util.List<java.lang.String> envs, String activation, String activationTimeout, String deactivationTimeout, boolean applicationDistrib, DistributionDescriptor distrib, boolean allocatable, String user)
     {
-        super(adapters, propertySet, dbEnvs, logs, description);
+        super(adapters, propertySet, logs, description);
         this.id = id;
         this.exe = exe;
         this.iceVersion = iceVersion;

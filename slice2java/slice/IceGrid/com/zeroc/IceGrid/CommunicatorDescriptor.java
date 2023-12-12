@@ -26,11 +26,10 @@ public class CommunicatorDescriptor extends com.zeroc.Ice.Value
         this.description = "";
     }
 
-    public CommunicatorDescriptor(java.util.List<AdapterDescriptor> adapters, PropertySetDescriptor propertySet, java.util.List<DbEnvDescriptor> dbEnvs, String[] logs, String description)
+    public CommunicatorDescriptor(java.util.List<AdapterDescriptor> adapters, PropertySetDescriptor propertySet, String[] logs, String description)
     {
         this.adapters = adapters;
         this.propertySet = propertySet;
-        this.dbEnvs = dbEnvs;
         this.logs = logs;
         this.description = description;
     }
@@ -44,11 +43,6 @@ public class CommunicatorDescriptor extends com.zeroc.Ice.Value
      * The property set.
      **/
     public PropertySetDescriptor propertySet;
-
-    /**
-     * The database environments.
-     **/
-    public java.util.List<DbEnvDescriptor> dbEnvs;
 
     /**
      * The path of each log file.
@@ -77,7 +71,7 @@ public class CommunicatorDescriptor extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -4782864045032029569L;
+    public static final long serialVersionUID = 250143124471503472L;
 
     /** @hidden */
     @Override
@@ -86,7 +80,6 @@ public class CommunicatorDescriptor extends com.zeroc.Ice.Value
         ostr_.startSlice(ice_staticId(), -1, true);
         AdapterDescriptorSeqHelper.write(ostr_, adapters);
         PropertySetDescriptor.ice_write(ostr_, propertySet);
-        DbEnvDescriptorSeqHelper.write(ostr_, dbEnvs);
         ostr_.writeStringSeq(logs);
         ostr_.writeString(description);
         ostr_.endSlice();
@@ -99,7 +92,6 @@ public class CommunicatorDescriptor extends com.zeroc.Ice.Value
         istr_.startSlice();
         adapters = AdapterDescriptorSeqHelper.read(istr_);
         propertySet = PropertySetDescriptor.ice_read(istr_);
-        dbEnvs = DbEnvDescriptorSeqHelper.read(istr_);
         logs = istr_.readStringSeq();
         description = istr_.readString();
         istr_.endSlice();

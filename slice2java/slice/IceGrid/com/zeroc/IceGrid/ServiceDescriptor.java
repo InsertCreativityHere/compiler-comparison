@@ -27,9 +27,9 @@ public class ServiceDescriptor extends CommunicatorDescriptor
         this.entry = "";
     }
 
-    public ServiceDescriptor(java.util.List<AdapterDescriptor> adapters, PropertySetDescriptor propertySet, java.util.List<DbEnvDescriptor> dbEnvs, String[] logs, String description, String name, String entry)
+    public ServiceDescriptor(java.util.List<AdapterDescriptor> adapters, PropertySetDescriptor propertySet, String[] logs, String description, String name, String entry)
     {
-        super(adapters, propertySet, dbEnvs, logs, description);
+        super(adapters, propertySet, logs, description);
         this.name = name;
         this.entry = entry;
     }

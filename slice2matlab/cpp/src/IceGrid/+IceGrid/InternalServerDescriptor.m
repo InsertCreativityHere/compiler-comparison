@@ -19,7 +19,7 @@
 %   envs - The server environment variables.
 %   logs - The path of the server logs.
 %   adapters - The indirect object adapters.
-%   dbEnvs - The database environments.
+%   dbEnvs
 %   properties_ - The configuration files of the server.
 %   services - IceBox service names
 
@@ -64,7 +64,6 @@ classdef InternalServerDescriptor < Ice.Value
         logs
         % adapters - The indirect object adapters.
         adapters
-        % dbEnvs - The database environments.
         dbEnvs
         % properties_ - The configuration files of the server.
         properties_ containers.Map

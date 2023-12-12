@@ -170,9 +170,6 @@ public class InternalServerDescriptor extends com.zeroc.Ice.Value
      **/
     public InternalAdapterDescriptor[] adapters;
 
-    /**
-     * The database environments.
-     **/
     public InternalDbEnvDescriptor[] dbEnvs;
 
     /**

@@ -58,11 +58,10 @@ classdef ServerDescriptor < IceGrid.CommunicatorDescriptor
         user char
     end
     methods
-        function obj = ServerDescriptor(adapters, propertySet, dbEnvs, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user)
+        function obj = ServerDescriptor(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user)
             if nargin == 0
                 adapters = [];
                 propertySet = IceGrid.PropertySetDescriptor();
-                dbEnvs = [];
                 logs = [];
                 description = '';
                 id = '';
@@ -78,11 +77,11 @@ classdef ServerDescriptor < IceGrid.CommunicatorDescriptor
                 distrib = IceGrid.DistributionDescriptor();
                 allocatable = false;
                 user = '';
-                v = { adapters, propertySet, dbEnvs, logs, description };
+                v = { adapters, propertySet, logs, description };
             elseif eq(adapters, IceInternal.NoInit.Instance)
-                v = { IceInternal.NoInit.Instance, [], [], [], [] };
+                v = { IceInternal.NoInit.Instance, [], [], [] };
             else
-                v = { adapters, propertySet, dbEnvs, logs, description };
+                v = { adapters, propertySet, logs, description };
             end;
             obj = obj@IceGrid.CommunicatorDescriptor(v{:});
             if ne(adapters, IceInternal.NoInit.Instance)

@@ -216,59 +216,13 @@ namespace IceGrid
 
 namespace IceGrid
 {
-    global $IceGrid__t_DbEnvDescriptor;
-    class DbEnvDescriptor
-    {
-        public function __construct($name='', $description='', $dbHome='', $properties=null)
-        {
-            $this->name = $name;
-            $this->description = $description;
-            $this->dbHome = $dbHome;
-            $this->properties = $properties;
-        }
-
-        public function __toString(): string
-        {
-            global $IceGrid__t_DbEnvDescriptor;
-            return IcePHP_stringify($this, $IceGrid__t_DbEnvDescriptor);
-        }
-
-        public $name;
-        public $description;
-        public $dbHome;
-        public $properties;
-    }
-
-    global $IcePHP__t_string;
-    global $IceGrid__t_PropertyDescriptorSeq;
-    $IceGrid__t_DbEnvDescriptor = IcePHP_defineStruct('::IceGrid::DbEnvDescriptor', '\\IceGrid\\DbEnvDescriptor', array(
-        array('name', $IcePHP__t_string),
-        array('description', $IcePHP__t_string),
-        array('dbHome', $IcePHP__t_string),
-        array('properties', $IceGrid__t_PropertyDescriptorSeq)));
-}
-
-namespace IceGrid
-{
-    global $IceGrid__t_DbEnvDescriptorSeq;
-
-    if(!isset($IceGrid__t_DbEnvDescriptorSeq))
-    {
-        global $IceGrid__t_DbEnvDescriptor;
-        $IceGrid__t_DbEnvDescriptorSeq = IcePHP_defineSequence('::IceGrid::DbEnvDescriptorSeq', $IceGrid__t_DbEnvDescriptor);
-    }
-}
-
-namespace IceGrid
-{
     global $IceGrid__t_CommunicatorDescriptor;
     class CommunicatorDescriptor extends \Ice\Value
     {
-        public function __construct($adapters=null, $propertySet=null, $dbEnvs=null, $logs=null, $description='')
+        public function __construct($adapters=null, $propertySet=null, $logs=null, $description='')
         {
             $this->adapters = $adapters;
             $this->propertySet = is_null($propertySet) ? new \IceGrid\PropertySetDescriptor : $propertySet;
-            $this->dbEnvs = $dbEnvs;
             $this->logs = $logs;
             $this->description = $description;
         }
@@ -291,7 +245,6 @@ namespace IceGrid
 
         public $adapters;
         public $propertySet;
-        public $dbEnvs;
         public $logs;
         public $description;
     }
@@ -299,13 +252,11 @@ namespace IceGrid
     global $Ice__t_Value;
     global $IceGrid__t_AdapterDescriptorSeq;
     global $IceGrid__t_PropertySetDescriptor;
-    global $IceGrid__t_DbEnvDescriptorSeq;
     global $Ice__t_StringSeq;
     global $IcePHP__t_string;
     $IceGrid__t_CommunicatorDescriptor = IcePHP_defineClass('::IceGrid::CommunicatorDescriptor', '\\IceGrid\\CommunicatorDescriptor', -1, false, false, $Ice__t_Value, array(
         array('adapters', $IceGrid__t_AdapterDescriptorSeq, false, 0),
         array('propertySet', $IceGrid__t_PropertySetDescriptor, false, 0),
-        array('dbEnvs', $IceGrid__t_DbEnvDescriptorSeq, false, 0),
         array('logs', $Ice__t_StringSeq, false, 0),
         array('description', $IcePHP__t_string, false, 0)));
 }
@@ -343,9 +294,9 @@ namespace IceGrid
     global $IceGrid__t_ServerDescriptor;
     class ServerDescriptor extends \IceGrid\CommunicatorDescriptor
     {
-        public function __construct($adapters=null, $propertySet=null, $dbEnvs=null, $logs=null, $description='', $id='', $exe='', $iceVersion='', $pwd='', $options=null, $envs=null, $activation='', $activationTimeout='', $deactivationTimeout='', $applicationDistrib=false, $distrib=null, $allocatable=false, $user='')
+        public function __construct($adapters=null, $propertySet=null, $logs=null, $description='', $id='', $exe='', $iceVersion='', $pwd='', $options=null, $envs=null, $activation='', $activationTimeout='', $deactivationTimeout='', $applicationDistrib=false, $distrib=null, $allocatable=false, $user='')
         {
-            parent::__construct($adapters, $propertySet, $dbEnvs, $logs, $description);
+            parent::__construct($adapters, $propertySet, $logs, $description);
             $this->id = $id;
             $this->exe = $exe;
             $this->iceVersion = $iceVersion;
@@ -429,9 +380,9 @@ namespace IceGrid
     global $IceGrid__t_ServiceDescriptor;
     class ServiceDescriptor extends \IceGrid\CommunicatorDescriptor
     {
-        public function __construct($adapters=null, $propertySet=null, $dbEnvs=null, $logs=null, $description='', $name='', $entry='')
+        public function __construct($adapters=null, $propertySet=null, $logs=null, $description='', $name='', $entry='')
         {
-            parent::__construct($adapters, $propertySet, $dbEnvs, $logs, $description);
+            parent::__construct($adapters, $propertySet, $logs, $description);
             $this->name = $name;
             $this->entry = $entry;
         }
@@ -617,9 +568,9 @@ namespace IceGrid
     global $IceGrid__t_IceBoxDescriptor;
     class IceBoxDescriptor extends \IceGrid\ServerDescriptor
     {
-        public function __construct($adapters=null, $propertySet=null, $dbEnvs=null, $logs=null, $description='', $id='', $exe='', $iceVersion='', $pwd='', $options=null, $envs=null, $activation='', $activationTimeout='', $deactivationTimeout='', $applicationDistrib=false, $distrib=null, $allocatable=false, $user='', $services=null)
+        public function __construct($adapters=null, $propertySet=null, $logs=null, $description='', $id='', $exe='', $iceVersion='', $pwd='', $options=null, $envs=null, $activation='', $activationTimeout='', $deactivationTimeout='', $applicationDistrib=false, $distrib=null, $allocatable=false, $user='', $services=null)
         {
-            parent::__construct($adapters, $propertySet, $dbEnvs, $logs, $description, $id, $exe, $iceVersion, $pwd, $options, $envs, $activation, $activationTimeout, $deactivationTimeout, $applicationDistrib, $distrib, $allocatable, $user);
+            parent::__construct($adapters, $propertySet, $logs, $description, $id, $exe, $iceVersion, $pwd, $options, $envs, $activation, $activationTimeout, $deactivationTimeout, $applicationDistrib, $distrib, $allocatable, $user);
             $this->services = $services;
         }
 

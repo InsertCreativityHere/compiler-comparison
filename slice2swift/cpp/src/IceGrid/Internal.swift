@@ -5190,7 +5190,6 @@ open class InternalServerDescriptor: Ice.Value {
     public var logs: Ice.StringSeq = Ice.StringSeq()
     /// The indirect object adapters.
     public var adapters: InternalAdapterDescriptorSeq = InternalAdapterDescriptorSeq()
-    /// The database environments.
     public var dbEnvs: InternalDbEnvDescriptorSeq = InternalDbEnvDescriptorSeq()
     /// The configuration files of the server.
     public var properties: PropertyDescriptorSeqDict = PropertyDescriptorSeqDict()

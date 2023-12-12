@@ -212,68 +212,20 @@ module ::IceGrid
         T_AdapterDescriptorSeq = ::Ice::__defineSequence('::IceGrid::AdapterDescriptorSeq', ::IceGrid::T_AdapterDescriptor)
     end
 
-    if not defined?(::IceGrid::DbEnvDescriptor)
-        class DbEnvDescriptor
-            include ::Ice::Inspect_mixin
-            def initialize(name='', description='', dbHome='', properties=nil)
-                @name = name
-                @description = description
-                @dbHome = dbHome
-                @properties = properties
-            end
-
-            def hash
-                _h = 0
-                _h = 5 * _h + @name.hash
-                _h = 5 * _h + @description.hash
-                _h = 5 * _h + @dbHome.hash
-                _h = 5 * _h + @properties.hash
-                _h % 0x7fffffff
-            end
-
-            def ==(other)
-                return false if !other.is_a? ::IceGrid::DbEnvDescriptor or
-                    @name != other.name or
-                    @description != other.description or
-                    @dbHome != other.dbHome or
-                    @properties != other.properties
-                true
-            end
-
-            def eql?(other)
-                return other.class == self.class && other == self
-            end
-
-            attr_accessor :name, :description, :dbHome, :properties
-        end
-
-        T_DbEnvDescriptor = ::Ice::__defineStruct('::IceGrid::DbEnvDescriptor', DbEnvDescriptor, [
-            ["name", ::Ice::T_string],
-            ["description", ::Ice::T_string],
-            ["dbHome", ::Ice::T_string],
-            ["properties", ::IceGrid::T_PropertyDescriptorSeq]
-        ])
-    end
-
-    if not defined?(::IceGrid::T_DbEnvDescriptorSeq)
-        T_DbEnvDescriptorSeq = ::Ice::__defineSequence('::IceGrid::DbEnvDescriptorSeq', ::IceGrid::T_DbEnvDescriptor)
-    end
-
     if not defined?(::IceGrid::CommunicatorDescriptor_Mixin)
 
         module ::IceGrid::CommunicatorDescriptor_Mixin
         end
         class CommunicatorDescriptor < ::Ice::Value
 
-            def initialize(adapters=nil, propertySet=::IceGrid::PropertySetDescriptor.new, dbEnvs=nil, logs=nil, description='')
+            def initialize(adapters=nil, propertySet=::IceGrid::PropertySetDescriptor.new, logs=nil, description='')
                 @adapters = adapters
                 @propertySet = propertySet
-                @dbEnvs = dbEnvs
                 @logs = logs
                 @description = description
             end
 
-            attr_accessor :adapters, :propertySet, :dbEnvs, :logs, :description
+            attr_accessor :adapters, :propertySet, :logs, :description
         end
 
         if not defined?(::IceGrid::T_CommunicatorDescriptor)
@@ -283,7 +235,6 @@ module ::IceGrid
         T_CommunicatorDescriptor.defineClass(CommunicatorDescriptor, -1, false, false, nil, [
             ['adapters', ::IceGrid::T_AdapterDescriptorSeq, false, 0],
             ['propertySet', ::IceGrid::T_PropertySetDescriptor, false, 0],
-            ['dbEnvs', ::IceGrid::T_DbEnvDescriptorSeq, false, 0],
             ['logs', ::Ice::T_StringSeq, false, 0],
             ['description', ::Ice::T_string, false, 0]
         ])
@@ -330,8 +281,8 @@ module ::IceGrid
         end
         class ServerDescriptor < ::IceGrid::CommunicatorDescriptor
 
-            def initialize(adapters=nil, propertySet=::IceGrid::PropertySetDescriptor.new, dbEnvs=nil, logs=nil, description='', id='', exe='', iceVersion='', pwd='', options=nil, envs=nil, activation='', activationTimeout='', deactivationTimeout='', applicationDistrib=false, distrib=::IceGrid::DistributionDescriptor.new, allocatable=false, user='')
-                super(adapters, propertySet, dbEnvs, logs, description)
+            def initialize(adapters=nil, propertySet=::IceGrid::PropertySetDescriptor.new, logs=nil, description='', id='', exe='', iceVersion='', pwd='', options=nil, envs=nil, activation='', activationTimeout='', deactivationTimeout='', applicationDistrib=false, distrib=::IceGrid::DistributionDescriptor.new, allocatable=false, user='')
+                super(adapters, propertySet, logs, description)
                 @id = id
                 @exe = exe
                 @iceVersion = iceVersion
@@ -381,8 +332,8 @@ module ::IceGrid
         end
         class ServiceDescriptor < ::IceGrid::CommunicatorDescriptor
 
-            def initialize(adapters=nil, propertySet=::IceGrid::PropertySetDescriptor.new, dbEnvs=nil, logs=nil, description='', name='', entry='')
-                super(adapters, propertySet, dbEnvs, logs, description)
+            def initialize(adapters=nil, propertySet=::IceGrid::PropertySetDescriptor.new, logs=nil, description='', name='', entry='')
+                super(adapters, propertySet, logs, description)
                 @name = name
                 @entry = entry
             end
@@ -547,8 +498,8 @@ module ::IceGrid
         end
         class IceBoxDescriptor < ::IceGrid::ServerDescriptor
 
-            def initialize(adapters=nil, propertySet=::IceGrid::PropertySetDescriptor.new, dbEnvs=nil, logs=nil, description='', id='', exe='', iceVersion='', pwd='', options=nil, envs=nil, activation='', activationTimeout='', deactivationTimeout='', applicationDistrib=false, distrib=::IceGrid::DistributionDescriptor.new, allocatable=false, user='', services=nil)
-                super(adapters, propertySet, dbEnvs, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user)
+            def initialize(adapters=nil, propertySet=::IceGrid::PropertySetDescriptor.new, logs=nil, description='', id='', exe='', iceVersion='', pwd='', options=nil, envs=nil, activation='', activationTimeout='', deactivationTimeout='', applicationDistrib=false, distrib=::IceGrid::DistributionDescriptor.new, allocatable=false, user='', services=nil)
+                super(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user)
                 @services = services
             end
 

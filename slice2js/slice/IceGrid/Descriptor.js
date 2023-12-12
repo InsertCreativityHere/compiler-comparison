@@ -200,46 +200,6 @@ Slice.defineStruct(IceGrid.AdapterDescriptor, true, true);
 
 Slice.defineSequence(IceGrid, "AdapterDescriptorSeqHelper", "IceGrid.AdapterDescriptor", false);
 
-/**
- * A Freeze database environment descriptor.
- *
- **/
-IceGrid.DbEnvDescriptor = class
-{
-    constructor(name = "", description = "", dbHome = "", properties = null)
-    {
-        this.name = name;
-        this.description = description;
-        this.dbHome = dbHome;
-        this.properties = properties;
-    }
-
-    _write(ostr)
-    {
-        ostr.writeString(this.name);
-        ostr.writeString(this.description);
-        ostr.writeString(this.dbHome);
-        IceGrid.PropertyDescriptorSeqHelper.write(ostr, this.properties);
-    }
-
-    _read(istr)
-    {
-        this.name = istr.readString();
-        this.description = istr.readString();
-        this.dbHome = istr.readString();
-        this.properties = IceGrid.PropertyDescriptorSeqHelper.read(istr);
-    }
-
-    static get minWireSize()
-    {
-        return  4;
-    }
-};
-
-Slice.defineStruct(IceGrid.DbEnvDescriptor, true, true);
-
-Slice.defineSequence(IceGrid, "DbEnvDescriptorSeqHelper", "IceGrid.DbEnvDescriptor", false);
-
 const iceC_IceGrid_CommunicatorDescriptor_ids = [
     "::Ice::Object",
     "::IceGrid::CommunicatorDescriptor"
@@ -251,12 +211,11 @@ const iceC_IceGrid_CommunicatorDescriptor_ids = [
  **/
 IceGrid.CommunicatorDescriptor = class extends Ice.Value
 {
-    constructor(adapters = null, propertySet = new IceGrid.PropertySetDescriptor(), dbEnvs = null, logs = null, description = "")
+    constructor(adapters = null, propertySet = new IceGrid.PropertySetDescriptor(), logs = null, description = "")
     {
         super();
         this.adapters = adapters;
         this.propertySet = propertySet;
-        this.dbEnvs = dbEnvs;
         this.logs = logs;
         this.description = description;
     }
@@ -265,7 +224,6 @@ IceGrid.CommunicatorDescriptor = class extends Ice.Value
     {
         IceGrid.AdapterDescriptorSeqHelper.write(ostr, this.adapters);
         IceGrid.PropertySetDescriptor.write(ostr, this.propertySet);
-        IceGrid.DbEnvDescriptorSeqHelper.write(ostr, this.dbEnvs);
         Ice.StringSeqHelper.write(ostr, this.logs);
         ostr.writeString(this.description);
     }
@@ -274,7 +232,6 @@ IceGrid.CommunicatorDescriptor = class extends Ice.Value
     {
         this.adapters = IceGrid.AdapterDescriptorSeqHelper.read(istr);
         this.propertySet = IceGrid.PropertySetDescriptor.read(istr, this.propertySet);
-        this.dbEnvs = IceGrid.DbEnvDescriptorSeqHelper.read(istr);
         this.logs = Ice.StringSeqHelper.read(istr);
         this.description = istr.readString();
     }
@@ -327,9 +284,9 @@ const iceC_IceGrid_ServerDescriptor_ids = [
  **/
 IceGrid.ServerDescriptor = class extends IceGrid.CommunicatorDescriptor
 {
-    constructor(adapters, propertySet, dbEnvs, logs, description, id = "", exe = "", iceVersion = "", pwd = "", options = null, envs = null, activation = "", activationTimeout = "", deactivationTimeout = "", applicationDistrib = false, distrib = new IceGrid.DistributionDescriptor(), allocatable = false, user = "")
+    constructor(adapters, propertySet, logs, description, id = "", exe = "", iceVersion = "", pwd = "", options = null, envs = null, activation = "", activationTimeout = "", deactivationTimeout = "", applicationDistrib = false, distrib = new IceGrid.DistributionDescriptor(), allocatable = false, user = "")
     {
-        super(adapters, propertySet, dbEnvs, logs, description);
+        super(adapters, propertySet, logs, description);
         this.id = id;
         this.exe = exe;
         this.iceVersion = iceVersion;
@@ -396,9 +353,9 @@ const iceC_IceGrid_ServiceDescriptor_ids = [
  **/
 IceGrid.ServiceDescriptor = class extends IceGrid.CommunicatorDescriptor
 {
-    constructor(adapters, propertySet, dbEnvs, logs, description, name = "", entry = "")
+    constructor(adapters, propertySet, logs, description, name = "", entry = "")
     {
-        super(adapters, propertySet, dbEnvs, logs, description);
+        super(adapters, propertySet, logs, description);
         this.name = name;
         this.entry = entry;
     }
@@ -550,9 +507,9 @@ const iceC_IceGrid_IceBoxDescriptor_ids = [
  **/
 IceGrid.IceBoxDescriptor = class extends IceGrid.ServerDescriptor
 {
-    constructor(adapters, propertySet, dbEnvs, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user, services = null)
+    constructor(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user, services = null)
     {
-        super(adapters, propertySet, dbEnvs, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user);
+        super(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user);
         this.services = services;
     }
 

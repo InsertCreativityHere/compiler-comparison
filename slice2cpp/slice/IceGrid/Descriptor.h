@@ -246,47 +246,6 @@ struct AdapterDescriptor
 using AdapterDescriptorSeq = ::std::vector<AdapterDescriptor>;
 
 /**
- * A Freeze database environment descriptor.
- * \headerfile IceGrid/IceGrid.h
- */
-struct DbEnvDescriptor
-{
-    /**
-     * The name of the database environment.
-     */
-    ::std::string name;
-    /**
-     * The description of this database environment.
-     */
-    ::std::string description;
-    /**
-     * The home of the database environment (i.e., the directory where
-     * the database files will be stored). If empty, the node will
-     * provide a default database directory, otherwise the directory
-     * must exist.
-     */
-    ::std::string dbHome;
-    /**
-     * The configuration properties of the database environment.
-     */
-    ::IceGrid::PropertyDescriptorSeq properties;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::IceGrid::PropertyDescriptorSeq&> ice_tuple() const
-    {
-        return std::tie(name, description, dbHome, properties);
-    }
-};
-
-/**
- * A sequence of database environment descriptors.
- */
-using DbEnvDescriptorSeq = ::std::vector<DbEnvDescriptor>;
-
-/**
  * A distribution descriptor defines an IcePatch2 server and the
  * directories to retrieve from the patch server.
  * \headerfile IceGrid/IceGrid.h
@@ -761,14 +720,12 @@ public:
      * One-shot constructor to initialize all data members.
      * @param adapters The object adapters.
      * @param propertySet The property set.
-     * @param dbEnvs The database environments.
      * @param logs The path of each log file.
      * @param description A description of this descriptor.
      */
-    CommunicatorDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::IceGrid::DbEnvDescriptorSeq& dbEnvs, const ::Ice::StringSeq& logs, const ::std::string& description) :
+    CommunicatorDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::Ice::StringSeq& logs, const ::std::string& description) :
         adapters(adapters),
         propertySet(propertySet),
-        dbEnvs(dbEnvs),
         logs(logs),
         description(description)
     {
@@ -778,9 +735,9 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::IceGrid::DbEnvDescriptorSeq&, const ::Ice::StringSeq&, const ::std::string&> ice_tuple() const
+    std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::Ice::StringSeq&, const ::std::string&> ice_tuple() const
     {
-        return std::tie(adapters, propertySet, dbEnvs, logs, description);
+        return std::tie(adapters, propertySet, logs, description);
     }
 
     /**
@@ -797,10 +754,6 @@ public:
      * The property set.
      */
     ::IceGrid::PropertySetDescriptor propertySet;
-    /**
-     * The database environments.
-     */
-    ::IceGrid::DbEnvDescriptorSeq dbEnvs;
     /**
      * The path of each log file.
      */
@@ -836,7 +789,6 @@ public:
      * One-shot constructor to initialize all data members.
      * @param adapters The object adapters.
      * @param propertySet The property set.
-     * @param dbEnvs The database environments.
      * @param logs The path of each log file.
      * @param description A description of this descriptor.
      * @param id The server id.
@@ -853,8 +805,8 @@ public:
      * @param allocatable Specifies if the server is allocatable.
      * @param user The user account used to run the server.
      */
-    ServerDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::IceGrid::DbEnvDescriptorSeq& dbEnvs, const ::Ice::StringSeq& logs, const ::std::string& description, const ::std::string& id, const ::std::string& exe, const ::std::string& iceVersion, const ::std::string& pwd, const ::Ice::StringSeq& options, const ::Ice::StringSeq& envs, const ::std::string& activation, const ::std::string& activationTimeout, const ::std::string& deactivationTimeout, bool applicationDistrib, const ::IceGrid::DistributionDescriptor& distrib, bool allocatable, const ::std::string& user) :
-        Ice::ValueHelper<ServerDescriptor, CommunicatorDescriptor>(adapters, propertySet, dbEnvs, logs, description),
+    ServerDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::Ice::StringSeq& logs, const ::std::string& description, const ::std::string& id, const ::std::string& exe, const ::std::string& iceVersion, const ::std::string& pwd, const ::Ice::StringSeq& options, const ::Ice::StringSeq& envs, const ::std::string& activation, const ::std::string& activationTimeout, const ::std::string& deactivationTimeout, bool applicationDistrib, const ::IceGrid::DistributionDescriptor& distrib, bool allocatable, const ::std::string& user) :
+        Ice::ValueHelper<ServerDescriptor, CommunicatorDescriptor>(adapters, propertySet, logs, description),
         id(id),
         exe(exe),
         iceVersion(iceVersion),
@@ -875,9 +827,9 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::IceGrid::DbEnvDescriptorSeq&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const ::IceGrid::DistributionDescriptor&, const bool&, const ::std::string&> ice_tuple() const
+    std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const ::IceGrid::DistributionDescriptor&, const bool&, const ::std::string&> ice_tuple() const
     {
-        return std::tie(adapters, propertySet, dbEnvs, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user);
+        return std::tie(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user);
     }
 
     /**
@@ -969,14 +921,13 @@ public:
      * One-shot constructor to initialize all data members.
      * @param adapters The object adapters.
      * @param propertySet The property set.
-     * @param dbEnvs The database environments.
      * @param logs The path of each log file.
      * @param description A description of this descriptor.
      * @param name The service name.
      * @param entry The entry point of the IceBox service.
      */
-    ServiceDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::IceGrid::DbEnvDescriptorSeq& dbEnvs, const ::Ice::StringSeq& logs, const ::std::string& description, const ::std::string& name, const ::std::string& entry) :
-        Ice::ValueHelper<ServiceDescriptor, CommunicatorDescriptor>(adapters, propertySet, dbEnvs, logs, description),
+    ServiceDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::Ice::StringSeq& logs, const ::std::string& description, const ::std::string& name, const ::std::string& entry) :
+        Ice::ValueHelper<ServiceDescriptor, CommunicatorDescriptor>(adapters, propertySet, logs, description),
         name(name),
         entry(entry)
     {
@@ -986,9 +937,9 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::IceGrid::DbEnvDescriptorSeq&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
+    std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
-        return std::tie(adapters, propertySet, dbEnvs, logs, description, name, entry);
+        return std::tie(adapters, propertySet, logs, description, name, entry);
     }
 
     /**
@@ -1028,7 +979,6 @@ public:
      * One-shot constructor to initialize all data members.
      * @param adapters The object adapters.
      * @param propertySet The property set.
-     * @param dbEnvs The database environments.
      * @param logs The path of each log file.
      * @param description A description of this descriptor.
      * @param id The server id.
@@ -1046,8 +996,8 @@ public:
      * @param user The user account used to run the server.
      * @param services The service instances.
      */
-    IceBoxDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::IceGrid::DbEnvDescriptorSeq& dbEnvs, const ::Ice::StringSeq& logs, const ::std::string& description, const ::std::string& id, const ::std::string& exe, const ::std::string& iceVersion, const ::std::string& pwd, const ::Ice::StringSeq& options, const ::Ice::StringSeq& envs, const ::std::string& activation, const ::std::string& activationTimeout, const ::std::string& deactivationTimeout, bool applicationDistrib, const ::IceGrid::DistributionDescriptor& distrib, bool allocatable, const ::std::string& user, const ::IceGrid::ServiceInstanceDescriptorSeq& services) :
-        Ice::ValueHelper<IceBoxDescriptor, ServerDescriptor>(adapters, propertySet, dbEnvs, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user),
+    IceBoxDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::Ice::StringSeq& logs, const ::std::string& description, const ::std::string& id, const ::std::string& exe, const ::std::string& iceVersion, const ::std::string& pwd, const ::Ice::StringSeq& options, const ::Ice::StringSeq& envs, const ::std::string& activation, const ::std::string& activationTimeout, const ::std::string& deactivationTimeout, bool applicationDistrib, const ::IceGrid::DistributionDescriptor& distrib, bool allocatable, const ::std::string& user, const ::IceGrid::ServiceInstanceDescriptorSeq& services) :
+        Ice::ValueHelper<IceBoxDescriptor, ServerDescriptor>(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user),
         services(services)
     {
     }
@@ -1056,9 +1006,9 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::IceGrid::DbEnvDescriptorSeq&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const ::IceGrid::DistributionDescriptor&, const bool&, const ::std::string&, const ::IceGrid::ServiceInstanceDescriptorSeq&> ice_tuple() const
+    std::tuple<const ::IceGrid::AdapterDescriptorSeq&, const ::IceGrid::PropertySetDescriptor&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const ::IceGrid::DistributionDescriptor&, const bool&, const ::std::string&, const ::IceGrid::ServiceInstanceDescriptorSeq&> ice_tuple() const
     {
-        return std::tie(adapters, propertySet, dbEnvs, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user, services);
+        return std::tie(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user, services);
     }
 
     /**
@@ -1472,29 +1422,12 @@ struct StreamReader<::IceGrid::AdapterDescriptor, S>
     }
 };
 
-template<>
-struct StreamableTraits<::IceGrid::DbEnvDescriptor>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 4;
-    static const bool fixedLength = false;
-};
-
-template<typename S>
-struct StreamReader<::IceGrid::DbEnvDescriptor, S>
-{
-    static void read(S* istr, ::IceGrid::DbEnvDescriptor& v)
-    {
-        istr->readAll(v.name, v.description, v.dbHome, v.properties);
-    }
-};
-
 template<typename S>
 struct StreamReader<::IceGrid::CommunicatorDescriptor, S>
 {
     static void read(S* istr, ::IceGrid::CommunicatorDescriptor& v)
     {
-        istr->readAll(v.adapters, v.propertySet, v.dbEnvs, v.logs, v.description);
+        istr->readAll(v.adapters, v.propertySet, v.logs, v.description);
     }
 };
 
@@ -2498,121 +2431,6 @@ struct AdapterDescriptor
 typedef ::std::vector<AdapterDescriptor> AdapterDescriptorSeq;
 
 /**
- * A Freeze database environment descriptor.
- * \headerfile IceGrid/IceGrid.h
- */
-struct DbEnvDescriptor
-{
-    /**
-     * The name of the database environment.
-     */
-    ::std::string name;
-    /**
-     * The description of this database environment.
-     */
-    ::std::string description;
-    /**
-     * The home of the database environment (i.e., the directory where
-     * the database files will be stored). If empty, the node will
-     * provide a default database directory, otherwise the directory
-     * must exist.
-     */
-    ::std::string dbHome;
-    /**
-     * The configuration properties of the database environment.
-     */
-    ::IceGrid::PropertyDescriptorSeq properties;
-
-    bool operator==(const DbEnvDescriptor& rhs_) const
-    {
-        if(this == &rhs_)
-        {
-            return true;
-        }
-        if(name != rhs_.name)
-        {
-            return false;
-        }
-        if(description != rhs_.description)
-        {
-            return false;
-        }
-        if(dbHome != rhs_.dbHome)
-        {
-            return false;
-        }
-        if(properties != rhs_.properties)
-        {
-            return false;
-        }
-        return true;
-    }
-
-    bool operator<(const DbEnvDescriptor& rhs_) const
-    {
-        if(this == &rhs_)
-        {
-            return false;
-        }
-        if(name < rhs_.name)
-        {
-            return true;
-        }
-        else if(rhs_.name < name)
-        {
-            return false;
-        }
-        if(description < rhs_.description)
-        {
-            return true;
-        }
-        else if(rhs_.description < description)
-        {
-            return false;
-        }
-        if(dbHome < rhs_.dbHome)
-        {
-            return true;
-        }
-        else if(rhs_.dbHome < dbHome)
-        {
-            return false;
-        }
-        if(properties < rhs_.properties)
-        {
-            return true;
-        }
-        else if(rhs_.properties < properties)
-        {
-            return false;
-        }
-        return false;
-    }
-
-    bool operator!=(const DbEnvDescriptor& rhs_) const
-    {
-        return !operator==(rhs_);
-    }
-    bool operator<=(const DbEnvDescriptor& rhs_) const
-    {
-        return operator<(rhs_) || operator==(rhs_);
-    }
-    bool operator>(const DbEnvDescriptor& rhs_) const
-    {
-        return !operator<(rhs_) && !operator==(rhs_);
-    }
-    bool operator>=(const DbEnvDescriptor& rhs_) const
-    {
-        return !operator<(rhs_);
-    }
-};
-
-/**
- * A sequence of database environment descriptors.
- */
-typedef ::std::vector<DbEnvDescriptor> DbEnvDescriptorSeq;
-
-/**
  * A distribution descriptor defines an IcePatch2 server and the
  * directories to retrieve from the patch server.
  * \headerfile IceGrid/IceGrid.h
@@ -3343,14 +3161,12 @@ public:
      * One-shot constructor to initialize all data members.
      * @param adapters The object adapters.
      * @param propertySet The property set.
-     * @param dbEnvs The database environments.
      * @param logs The path of each log file.
      * @param description A description of this descriptor.
      */
-    CommunicatorDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::IceGrid::DbEnvDescriptorSeq& dbEnvs, const ::Ice::StringSeq& logs, const ::std::string& description) :
+    CommunicatorDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::Ice::StringSeq& logs, const ::std::string& description) :
         adapters(adapters),
         propertySet(propertySet),
-        dbEnvs(dbEnvs),
         logs(logs),
         description(description)
     {
@@ -3419,10 +3235,6 @@ public:
      */
     ::IceGrid::PropertySetDescriptor propertySet;
     /**
-     * The database environments.
-     */
-    ::IceGrid::DbEnvDescriptorSeq dbEnvs;
-    /**
      * The path of each log file.
      */
     ::Ice::StringSeq logs;
@@ -3468,7 +3280,6 @@ public:
      * One-shot constructor to initialize all data members.
      * @param adapters The object adapters.
      * @param propertySet The property set.
-     * @param dbEnvs The database environments.
      * @param logs The path of each log file.
      * @param description A description of this descriptor.
      * @param id The server id.
@@ -3485,8 +3296,8 @@ public:
      * @param allocatable Specifies if the server is allocatable.
      * @param user The user account used to run the server.
      */
-    ServerDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::IceGrid::DbEnvDescriptorSeq& dbEnvs, const ::Ice::StringSeq& logs, const ::std::string& description, const ::std::string& id, const ::std::string& exe, const ::std::string& iceVersion, const ::std::string& pwd, const ::Ice::StringSeq& options, const ::Ice::StringSeq& envs, const ::std::string& activation, const ::std::string& activationTimeout, const ::std::string& deactivationTimeout, bool applicationDistrib, const ::IceGrid::DistributionDescriptor& distrib, bool allocatable, const ::std::string& user) :
-        ::IceGrid::CommunicatorDescriptor(adapters, propertySet, dbEnvs, logs, description),
+    ServerDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::Ice::StringSeq& logs, const ::std::string& description, const ::std::string& id, const ::std::string& exe, const ::std::string& iceVersion, const ::std::string& pwd, const ::Ice::StringSeq& options, const ::Ice::StringSeq& envs, const ::std::string& activation, const ::std::string& activationTimeout, const ::std::string& deactivationTimeout, bool applicationDistrib, const ::IceGrid::DistributionDescriptor& distrib, bool allocatable, const ::std::string& user) :
+        ::IceGrid::CommunicatorDescriptor(adapters, propertySet, logs, description),
         id(id),
         exe(exe),
         iceVersion(iceVersion),
@@ -3655,14 +3466,13 @@ public:
      * One-shot constructor to initialize all data members.
      * @param adapters The object adapters.
      * @param propertySet The property set.
-     * @param dbEnvs The database environments.
      * @param logs The path of each log file.
      * @param description A description of this descriptor.
      * @param name The service name.
      * @param entry The entry point of the IceBox service.
      */
-    ServiceDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::IceGrid::DbEnvDescriptorSeq& dbEnvs, const ::Ice::StringSeq& logs, const ::std::string& description, const ::std::string& name, const ::std::string& entry) :
-        ::IceGrid::CommunicatorDescriptor(adapters, propertySet, dbEnvs, logs, description),
+    ServiceDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::Ice::StringSeq& logs, const ::std::string& description, const ::std::string& name, const ::std::string& entry) :
+        ::IceGrid::CommunicatorDescriptor(adapters, propertySet, logs, description),
         name(name),
         entry(entry)
     {
@@ -3768,7 +3578,6 @@ public:
      * One-shot constructor to initialize all data members.
      * @param adapters The object adapters.
      * @param propertySet The property set.
-     * @param dbEnvs The database environments.
      * @param logs The path of each log file.
      * @param description A description of this descriptor.
      * @param id The server id.
@@ -3786,8 +3595,8 @@ public:
      * @param user The user account used to run the server.
      * @param services The service instances.
      */
-    IceBoxDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::IceGrid::DbEnvDescriptorSeq& dbEnvs, const ::Ice::StringSeq& logs, const ::std::string& description, const ::std::string& id, const ::std::string& exe, const ::std::string& iceVersion, const ::std::string& pwd, const ::Ice::StringSeq& options, const ::Ice::StringSeq& envs, const ::std::string& activation, const ::std::string& activationTimeout, const ::std::string& deactivationTimeout, bool applicationDistrib, const ::IceGrid::DistributionDescriptor& distrib, bool allocatable, const ::std::string& user, const ::IceGrid::ServiceInstanceDescriptorSeq& services) :
-        ::IceGrid::ServerDescriptor(adapters, propertySet, dbEnvs, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user),
+    IceBoxDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::Ice::StringSeq& logs, const ::std::string& description, const ::std::string& id, const ::std::string& exe, const ::std::string& iceVersion, const ::std::string& pwd, const ::Ice::StringSeq& options, const ::Ice::StringSeq& envs, const ::std::string& activation, const ::std::string& activationTimeout, const ::std::string& deactivationTimeout, bool applicationDistrib, const ::IceGrid::DistributionDescriptor& distrib, bool allocatable, const ::std::string& user, const ::IceGrid::ServiceInstanceDescriptorSeq& services) :
+        ::IceGrid::ServerDescriptor(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user),
         services(services)
     {
     }
@@ -4696,38 +4505,6 @@ struct StreamReader< ::IceGrid::AdapterDescriptor, S>
     }
 };
 
-template<>
-struct StreamableTraits< ::IceGrid::DbEnvDescriptor>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 4;
-    static const bool fixedLength = false;
-};
-
-template<typename S>
-struct StreamWriter< ::IceGrid::DbEnvDescriptor, S>
-{
-    static void write(S* ostr, const ::IceGrid::DbEnvDescriptor& v)
-    {
-        ostr->write(v.name);
-        ostr->write(v.description);
-        ostr->write(v.dbHome);
-        ostr->write(v.properties);
-    }
-};
-
-template<typename S>
-struct StreamReader< ::IceGrid::DbEnvDescriptor, S>
-{
-    static void read(S* istr, ::IceGrid::DbEnvDescriptor& v)
-    {
-        istr->read(v.name);
-        istr->read(v.description);
-        istr->read(v.dbHome);
-        istr->read(v.properties);
-    }
-};
-
 template<typename S>
 struct StreamWriter< ::IceGrid::CommunicatorDescriptor, S>
 {
@@ -4735,7 +4512,6 @@ struct StreamWriter< ::IceGrid::CommunicatorDescriptor, S>
     {
         ostr->write(v.adapters);
         ostr->write(v.propertySet);
-        ostr->write(v.dbEnvs);
         ostr->write(v.logs);
         ostr->write(v.description);
     }
@@ -4748,7 +4524,6 @@ struct StreamReader< ::IceGrid::CommunicatorDescriptor, S>
     {
         istr->read(v.adapters);
         istr->read(v.propertySet);
-        istr->read(v.dbEnvs);
         istr->read(v.logs);
         istr->read(v.description);
     }

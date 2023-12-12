@@ -866,223 +866,6 @@ namespace IceGrid
         #endregion
     }
 
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
-    public partial class DbEnvDescriptor : global::System.ICloneable
-    {
-        #region Slice data members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public string name;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public string description;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public string dbHome;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public PropertyDescriptor[] properties;
-
-        #endregion
-
-        partial void ice_initialize();
-
-        #region Constructors
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public DbEnvDescriptor()
-        {
-            this.name = "";
-            this.description = "";
-            this.dbHome = "";
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public DbEnvDescriptor(string name, string description, string dbHome, PropertyDescriptor[] properties)
-        {
-            this.name = name;
-            this.description = description;
-            this.dbHome = dbHome;
-            this.properties = properties;
-            ice_initialize();
-        }
-
-        #endregion
-
-        #region ICloneable members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
-
-        #endregion
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceGrid::DbEnvDescriptor");
-            global::IceInternal.HashUtil.hashAdd(ref h_, name);
-            global::IceInternal.HashUtil.hashAdd(ref h_, description);
-            global::IceInternal.HashUtil.hashAdd(ref h_, dbHome);
-            global::IceInternal.HashUtil.hashAdd(ref h_, properties);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            if(other == null)
-            {
-                return false;
-            }
-            if(GetType() != other.GetType())
-            {
-                return false;
-            }
-            DbEnvDescriptor o = (DbEnvDescriptor)other;
-            if(this.name == null)
-            {
-                if(o.name != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.name.Equals(o.name))
-                {
-                    return false;
-                }
-            }
-            if(this.description == null)
-            {
-                if(o.description != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.description.Equals(o.description))
-                {
-                    return false;
-                }
-            }
-            if(this.dbHome == null)
-            {
-                if(o.dbHome != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.dbHome.Equals(o.dbHome))
-                {
-                    return false;
-                }
-            }
-            if(this.properties == null)
-            {
-                if(o.properties != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!IceUtilInternal.Arrays.Equals(this.properties, o.properties))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(DbEnvDescriptor lhs, DbEnvDescriptor rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(DbEnvDescriptor lhs, DbEnvDescriptor rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
-
-        #region Marshaling support
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
-        {
-            ostr.writeString(this.name);
-            ostr.writeString(this.description);
-            ostr.writeString(this.dbHome);
-            PropertyDescriptorSeqHelper.write(ostr, this.properties);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.name = istr.readString();
-            this.description = istr.readString();
-            this.dbHome = istr.readString();
-            this.properties = PropertyDescriptorSeqHelper.read(istr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static void ice_write(global::Ice.OutputStream ostr, DbEnvDescriptor v)
-        {
-            if(v == null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static DbEnvDescriptor ice_read(global::Ice.InputStream istr)
-        {
-            var v = new DbEnvDescriptor();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly DbEnvDescriptor _nullMarshalValue = new DbEnvDescriptor();
-
-        #endregion
-    }
-
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
@@ -1106,9 +889,6 @@ namespace IceGrid
         public PropertySetDescriptor propertySet;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public DbEnvDescriptor[] dbEnvs;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         public string[] logs;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1129,11 +909,10 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public CommunicatorDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, DbEnvDescriptor[] dbEnvs, string[] logs, string description)
+        public CommunicatorDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs, string description)
         {
             this.adapters = adapters;
             this.propertySet = propertySet;
-            this.dbEnvs = dbEnvs;
             this.logs = logs;
             this.description = description;
             ice_initialize();
@@ -1162,7 +941,6 @@ namespace IceGrid
             ostr_.startSlice(ice_staticId(), -1, true);
             AdapterDescriptorSeqHelper.write(ostr_, adapters);
             PropertySetDescriptor.ice_write(ostr_, propertySet);
-            DbEnvDescriptorSeqHelper.write(ostr_, dbEnvs);
             global::Ice.StringSeqHelper.write(ostr_, logs);
             ostr_.writeString(description);
             ostr_.endSlice();
@@ -1174,7 +952,6 @@ namespace IceGrid
             istr_.startSlice();
             adapters = AdapterDescriptorSeqHelper.read(istr_);
             propertySet = PropertySetDescriptor.ice_read(istr_);
-            dbEnvs = DbEnvDescriptorSeqHelper.read(istr_);
             logs = global::Ice.StringSeqHelper.read(istr_);
             description = istr_.readString();
             istr_.endSlice();
@@ -1433,7 +1210,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public ServerDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, DbEnvDescriptor[] dbEnvs, string[] logs, string description, string id, string exe, string iceVersion, string pwd, string[] options, string[] envs, string activation, string activationTimeout, string deactivationTimeout, bool applicationDistrib, DistributionDescriptor distrib, bool allocatable, string user) : base(adapters, propertySet, dbEnvs, logs, description)
+        public ServerDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs, string description, string id, string exe, string iceVersion, string pwd, string[] options, string[] envs, string activation, string activationTimeout, string deactivationTimeout, bool applicationDistrib, DistributionDescriptor distrib, bool allocatable, string user) : base(adapters, propertySet, logs, description)
         {
             this.id = id;
             this.exe = exe;
@@ -1550,7 +1327,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public ServiceDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, DbEnvDescriptor[] dbEnvs, string[] logs, string description, string name, string entry) : base(adapters, propertySet, dbEnvs, logs, description)
+        public ServiceDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs, string description, string name, string entry) : base(adapters, propertySet, logs, description)
         {
             this.name = name;
             this.entry = entry;
@@ -2254,7 +2031,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public IceBoxDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, DbEnvDescriptor[] dbEnvs, string[] logs, string description, string id, string exe, string iceVersion, string pwd, string[] options, string[] envs, string activation, string activationTimeout, string deactivationTimeout, bool applicationDistrib, DistributionDescriptor distrib, bool allocatable, string user, ServiceInstanceDescriptor[] services) : base(adapters, propertySet, dbEnvs, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user)
+        public IceBoxDescriptor(AdapterDescriptor[] adapters, PropertySetDescriptor propertySet, string[] logs, string description, string id, string exe, string iceVersion, string pwd, string[] options, string[] envs, string activation, string activationTimeout, string deactivationTimeout, bool applicationDistrib, DistributionDescriptor distrib, bool allocatable, string user, ServiceInstanceDescriptor[] services) : base(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user)
         {
             this.services = services;
             ice_initialize();
@@ -4601,41 +4378,6 @@ namespace IceGrid
                 for(int ix = 0; ix < szx; ++ix)
                 {
                     v[ix] = new AdapterDescriptor();
-                    v[ix].ice_readMembers(istr);
-                }
-            }
-            return v;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    public sealed class DbEnvDescriptorSeqHelper
-    {
-        public static void write(global::Ice.OutputStream ostr, DbEnvDescriptor[] v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    (v[ix] == null ? new DbEnvDescriptor() : v[ix]).ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static DbEnvDescriptor[] read(global::Ice.InputStream istr)
-        {
-            DbEnvDescriptor[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(4);
-                v = new DbEnvDescriptor[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = new DbEnvDescriptor();
                     v[ix].ice_readMembers(istr);
                 }
             }

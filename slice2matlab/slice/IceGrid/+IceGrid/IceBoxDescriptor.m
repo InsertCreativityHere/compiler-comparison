@@ -14,11 +14,10 @@ classdef IceBoxDescriptor < IceGrid.ServerDescriptor
         services
     end
     methods
-        function obj = IceBoxDescriptor(adapters, propertySet, dbEnvs, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user, services)
+        function obj = IceBoxDescriptor(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user, services)
             if nargin == 0
                 adapters = [];
                 propertySet = IceGrid.PropertySetDescriptor();
-                dbEnvs = [];
                 logs = [];
                 description = '';
                 id = '';
@@ -35,11 +34,11 @@ classdef IceBoxDescriptor < IceGrid.ServerDescriptor
                 allocatable = false;
                 user = '';
                 services = [];
-                v = { adapters, propertySet, dbEnvs, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user };
+                v = { adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user };
             elseif eq(adapters, IceInternal.NoInit.Instance)
-                v = { IceInternal.NoInit.Instance, [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [] };
+                v = { IceInternal.NoInit.Instance, [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [] };
             else
-                v = { adapters, propertySet, dbEnvs, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user };
+                v = { adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user };
             end;
             obj = obj@IceGrid.ServerDescriptor(v{:});
             if ne(adapters, IceInternal.NoInit.Instance)

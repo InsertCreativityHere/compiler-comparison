@@ -668,153 +668,6 @@ public struct AdapterDescriptorSeqHelper {
     }
 }
 
-/// A Freeze database environment descriptor.
-public struct DbEnvDescriptor: Swift.Hashable {
-    /// The name of the database environment.
-    public var name: Swift.String = ""
-    /// The description of this database environment.
-    public var description: Swift.String = ""
-    /// The home of the database environment (i.e., the directory where
-    /// the database files will be stored). If empty, the node will
-    /// provide a default database directory, otherwise the directory
-    /// must exist.
-    public var dbHome: Swift.String = ""
-    /// The configuration properties of the database environment.
-    public var properties: PropertyDescriptorSeq = PropertyDescriptorSeq()
-
-    public init() {}
-
-    public init(name: Swift.String, description: Swift.String, dbHome: Swift.String, properties: PropertyDescriptorSeq) {
-        self.name = name
-        self.description = description
-        self.dbHome = dbHome
-        self.properties = properties
-    }
-}
-
-/// An `Ice.InputStream` extension to read `DbEnvDescriptor` structured values from the stream.
-public extension Ice.InputStream {
-    /// Read a `DbEnvDescriptor` structured value from the stream.
-    ///
-    /// - returns: `DbEnvDescriptor` - The structured value read from the stream.
-    func read() throws -> DbEnvDescriptor {
-        var v = DbEnvDescriptor()
-        v.name = try self.read()
-        v.description = try self.read()
-        v.dbHome = try self.read()
-        v.properties = try PropertyDescriptorSeqHelper.read(from: self)
-        return v
-    }
-
-    /// Read an optional `DbEnvDescriptor?` structured value from the stream.
-    ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `DbEnvDescriptor?` - The structured value read from the stream.
-    func read(tag: Swift.Int32) throws -> DbEnvDescriptor? {
-        guard try readOptional(tag: tag, expectedFormat: .FSize) else {
-            return nil
-        }
-        try skip(4)
-        return try read() as DbEnvDescriptor
-    }
-}
-
-/// An `Ice.OutputStream` extension to write `DbEnvDescriptor` structured values from the stream.
-public extension Ice.OutputStream {
-    /// Write a `DbEnvDescriptor` structured value to the stream.
-    ///
-    /// - parameter _: `DbEnvDescriptor` - The value to write to the stream.
-    func write(_ v: DbEnvDescriptor) {
-        self.write(v.name)
-        self.write(v.description)
-        self.write(v.dbHome)
-        PropertyDescriptorSeqHelper.write(to: self, value: v.properties)
-    }
-
-    /// Write an optional `DbEnvDescriptor?` structured value to the stream.
-    ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `DbEnvDescriptor?` - The value to write to the stream.
-    func write(tag: Swift.Int32, value: DbEnvDescriptor?) {
-        if let v = value {
-            if writeOptional(tag: tag, format: .FSize) {
-                let pos = startSize()
-                write(v)
-                endSize(position: pos)
-            }
-        }
-    }
-}
-
-/// A sequence of database environment descriptors.
-public typealias DbEnvDescriptorSeq = [DbEnvDescriptor]
-
-/// Helper class to read and write `DbEnvDescriptorSeq` sequence values from
-/// `Ice.InputStream` and `Ice.OutputStream`.
-public struct DbEnvDescriptorSeqHelper {
-    /// Read a `DbEnvDescriptorSeq` sequence from the stream.
-    ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
-    ///
-    /// - returns: `DbEnvDescriptorSeq` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream) throws -> DbEnvDescriptorSeq {
-        let sz = try istr.readAndCheckSeqSize(minSize: 4)
-        var v = DbEnvDescriptorSeq()
-        v.reserveCapacity(sz)
-        for _ in 0 ..< sz {
-            let j: DbEnvDescriptor = try istr.read()
-            v.append(j)
-        }
-        return v
-    }
-    /// Read an optional `DbEnvDescriptorSeq?` sequence from the stream.
-    ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
-    ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `DbEnvDescriptorSeq` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> DbEnvDescriptorSeq? {
-        guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
-            return nil
-        }
-        try istr.skip(4)
-        return try read(from: istr)
-    }
-
-    /// Wite a `DbEnvDescriptorSeq` sequence to the stream.
-    ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `DbEnvDescriptorSeq` - The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream, value v: DbEnvDescriptorSeq) {
-        ostr.write(size: v.count)
-        for item in v {
-            ostr.write(item)
-        }
-    }
-
-    /// Wite an optional `DbEnvDescriptorSeq?` sequence to the stream.
-    ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `DbEnvDescriptorSeq` The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: DbEnvDescriptorSeq?) {
-        guard let val = v else {
-            return
-        }
-        if ostr.writeOptional(tag: tag, format: .FSize) {
-            let pos = ostr.startSize()
-            write(to: ostr, value: val)
-            ostr.endSize(position: pos)
-        }
-    }
-}
-
 /// Traits for Slice class `CommunicatorDescriptor`.
 public struct CommunicatorDescriptorTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::CommunicatorDescriptor"]
@@ -2321,8 +2174,6 @@ open class CommunicatorDescriptor: Ice.Value {
     public var adapters: AdapterDescriptorSeq = AdapterDescriptorSeq()
     /// The property set.
     public var propertySet: PropertySetDescriptor = PropertySetDescriptor()
-    /// The database environments.
-    public var dbEnvs: DbEnvDescriptorSeq = DbEnvDescriptorSeq()
     /// The path of each log file.
     public var logs: Ice.StringSeq = Ice.StringSeq()
     /// A description of this descriptor.
@@ -2330,10 +2181,9 @@ open class CommunicatorDescriptor: Ice.Value {
 
     public required init() {}
 
-    public init(adapters: AdapterDescriptorSeq, propertySet: PropertySetDescriptor, dbEnvs: DbEnvDescriptorSeq, logs: Ice.StringSeq, description: Swift.String) {
+    public init(adapters: AdapterDescriptorSeq, propertySet: PropertySetDescriptor, logs: Ice.StringSeq, description: Swift.String) {
         self.adapters = adapters
         self.propertySet = propertySet
-        self.dbEnvs = dbEnvs
         self.logs = logs
         self.description = description
     }
@@ -2356,7 +2206,6 @@ open class CommunicatorDescriptor: Ice.Value {
         _ = try istr.startSlice()
         self.adapters = try AdapterDescriptorSeqHelper.read(from: istr)
         self.propertySet = try istr.read()
-        self.dbEnvs = try DbEnvDescriptorSeqHelper.read(from: istr)
         self.logs = try istr.read()
         self.description = try istr.read()
         try istr.endSlice()
@@ -2366,7 +2215,6 @@ open class CommunicatorDescriptor: Ice.Value {
         ostr.startSlice(typeId: CommunicatorDescriptorTraits.staticId, compactId: -1, last: true)
         AdapterDescriptorSeqHelper.write(to: ostr, value: self.adapters)
         ostr.write(self.propertySet)
-        DbEnvDescriptorSeqHelper.write(to: ostr, value: self.dbEnvs)
         ostr.write(self.logs)
         ostr.write(self.description)
         ostr.endSlice()
@@ -2427,7 +2275,7 @@ open class ServerDescriptor: CommunicatorDescriptor {
         super.init()
     }
 
-    public init(adapters: AdapterDescriptorSeq, propertySet: PropertySetDescriptor, dbEnvs: DbEnvDescriptorSeq, logs: Ice.StringSeq, description: Swift.String, id: Swift.String, exe: Swift.String, iceVersion: Swift.String, pwd: Swift.String, options: Ice.StringSeq, envs: Ice.StringSeq, activation: Swift.String, activationTimeout: Swift.String, deactivationTimeout: Swift.String, applicationDistrib: Swift.Bool, distrib: DistributionDescriptor, allocatable: Swift.Bool, user: Swift.String) {
+    public init(adapters: AdapterDescriptorSeq, propertySet: PropertySetDescriptor, logs: Ice.StringSeq, description: Swift.String, id: Swift.String, exe: Swift.String, iceVersion: Swift.String, pwd: Swift.String, options: Ice.StringSeq, envs: Ice.StringSeq, activation: Swift.String, activationTimeout: Swift.String, deactivationTimeout: Swift.String, applicationDistrib: Swift.Bool, distrib: DistributionDescriptor, allocatable: Swift.Bool, user: Swift.String) {
         self.id = id
         self.exe = exe
         self.iceVersion = iceVersion
@@ -2441,7 +2289,7 @@ open class ServerDescriptor: CommunicatorDescriptor {
         self.distrib = distrib
         self.allocatable = allocatable
         self.user = user
-        super.init(adapters: adapters, propertySet: propertySet, dbEnvs: dbEnvs, logs: logs, description: description)
+        super.init(adapters: adapters, propertySet: propertySet, logs: logs, description: description)
     }
 
     /// Returns the Slice type ID of the most-derived interface supported by this object.
@@ -2521,10 +2369,10 @@ open class ServiceDescriptor: CommunicatorDescriptor {
         super.init()
     }
 
-    public init(adapters: AdapterDescriptorSeq, propertySet: PropertySetDescriptor, dbEnvs: DbEnvDescriptorSeq, logs: Ice.StringSeq, description: Swift.String, name: Swift.String, entry: Swift.String) {
+    public init(adapters: AdapterDescriptorSeq, propertySet: PropertySetDescriptor, logs: Ice.StringSeq, description: Swift.String, name: Swift.String, entry: Swift.String) {
         self.name = name
         self.entry = entry
-        super.init(adapters: adapters, propertySet: propertySet, dbEnvs: dbEnvs, logs: logs, description: description)
+        super.init(adapters: adapters, propertySet: propertySet, logs: logs, description: description)
     }
 
     /// Returns the Slice type ID of the most-derived interface supported by this object.
@@ -2580,9 +2428,9 @@ open class IceBoxDescriptor: ServerDescriptor {
         super.init()
     }
 
-    public init(adapters: AdapterDescriptorSeq, propertySet: PropertySetDescriptor, dbEnvs: DbEnvDescriptorSeq, logs: Ice.StringSeq, description: Swift.String, id: Swift.String, exe: Swift.String, iceVersion: Swift.String, pwd: Swift.String, options: Ice.StringSeq, envs: Ice.StringSeq, activation: Swift.String, activationTimeout: Swift.String, deactivationTimeout: Swift.String, applicationDistrib: Swift.Bool, distrib: DistributionDescriptor, allocatable: Swift.Bool, user: Swift.String, services: ServiceInstanceDescriptorSeq) {
+    public init(adapters: AdapterDescriptorSeq, propertySet: PropertySetDescriptor, logs: Ice.StringSeq, description: Swift.String, id: Swift.String, exe: Swift.String, iceVersion: Swift.String, pwd: Swift.String, options: Ice.StringSeq, envs: Ice.StringSeq, activation: Swift.String, activationTimeout: Swift.String, deactivationTimeout: Swift.String, applicationDistrib: Swift.Bool, distrib: DistributionDescriptor, allocatable: Swift.Bool, user: Swift.String, services: ServiceInstanceDescriptorSeq) {
         self.services = services
-        super.init(adapters: adapters, propertySet: propertySet, dbEnvs: dbEnvs, logs: logs, description: description, id: id, exe: exe, iceVersion: iceVersion, pwd: pwd, options: options, envs: envs, activation: activation, activationTimeout: activationTimeout, deactivationTimeout: deactivationTimeout, applicationDistrib: applicationDistrib, distrib: distrib, allocatable: allocatable, user: user)
+        super.init(adapters: adapters, propertySet: propertySet, logs: logs, description: description, id: id, exe: exe, iceVersion: iceVersion, pwd: pwd, options: options, envs: envs, activation: activation, activationTimeout: activationTimeout, deactivationTimeout: deactivationTimeout, applicationDistrib: applicationDistrib, distrib: distrib, allocatable: allocatable, user: user)
     }
 
     /// Returns the Slice type ID of the most-derived interface supported by this object.

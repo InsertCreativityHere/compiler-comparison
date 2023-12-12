@@ -547,136 +547,6 @@ if 'AdapterDescriptor' not in _M_IceGrid.__dict__:
 if '_t_AdapterDescriptorSeq' not in _M_IceGrid.__dict__:
     _M_IceGrid._t_AdapterDescriptorSeq = IcePy.defineSequence('::IceGrid::AdapterDescriptorSeq', (), _M_IceGrid._t_AdapterDescriptor)
 
-if 'DbEnvDescriptor' not in _M_IceGrid.__dict__:
-    _M_IceGrid.DbEnvDescriptor = Ice.createTempClass()
-    class DbEnvDescriptor(object):
-        """
-        A Freeze database environment descriptor.
-        Members:
-        name -- The name of the database environment.
-        description -- The description of this database environment.
-        dbHome -- The home of the database environment (i.e., the directory where
-        the database files will be stored). If empty, the node will
-        provide a default database directory, otherwise the directory
-        must exist.
-        properties -- The configuration properties of the database environment.
-        """
-        def __init__(self, name='', description='', dbHome='', properties=None):
-            self.name = name
-            self.description = description
-            self.dbHome = dbHome
-            self.properties = properties
-
-        def __hash__(self):
-            _h = 0
-            _h = 5 * _h + Ice.getHash(self.name)
-            _h = 5 * _h + Ice.getHash(self.description)
-            _h = 5 * _h + Ice.getHash(self.dbHome)
-            if self.properties:
-                for _i0 in self.properties:
-                    _h = 5 * _h + Ice.getHash(_i0)
-            return _h % 0x7fffffff
-
-        def __compare(self, other):
-            if other is None:
-                return 1
-            elif not isinstance(other, _M_IceGrid.DbEnvDescriptor):
-                return NotImplemented
-            else:
-                if self.name is None or other.name is None:
-                    if self.name != other.name:
-                        return (-1 if self.name is None else 1)
-                else:
-                    if self.name < other.name:
-                        return -1
-                    elif self.name > other.name:
-                        return 1
-                if self.description is None or other.description is None:
-                    if self.description != other.description:
-                        return (-1 if self.description is None else 1)
-                else:
-                    if self.description < other.description:
-                        return -1
-                    elif self.description > other.description:
-                        return 1
-                if self.dbHome is None or other.dbHome is None:
-                    if self.dbHome != other.dbHome:
-                        return (-1 if self.dbHome is None else 1)
-                else:
-                    if self.dbHome < other.dbHome:
-                        return -1
-                    elif self.dbHome > other.dbHome:
-                        return 1
-                if self.properties is None or other.properties is None:
-                    if self.properties != other.properties:
-                        return (-1 if self.properties is None else 1)
-                else:
-                    if self.properties < other.properties:
-                        return -1
-                    elif self.properties > other.properties:
-                        return 1
-                return 0
-
-        def __lt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r < 0
-
-        def __le__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r <= 0
-
-        def __gt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r > 0
-
-        def __ge__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r >= 0
-
-        def __eq__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r == 0
-
-        def __ne__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r != 0
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_IceGrid._t_DbEnvDescriptor)
-
-        __repr__ = __str__
-
-    _M_IceGrid._t_DbEnvDescriptor = IcePy.defineStruct('::IceGrid::DbEnvDescriptor', DbEnvDescriptor, (), (
-        ('name', (), IcePy._t_string),
-        ('description', (), IcePy._t_string),
-        ('dbHome', (), IcePy._t_string),
-        ('properties', (), _M_IceGrid._t_PropertyDescriptorSeq)
-    ))
-
-    _M_IceGrid.DbEnvDescriptor = DbEnvDescriptor
-    del DbEnvDescriptor
-
-if '_t_DbEnvDescriptorSeq' not in _M_IceGrid.__dict__:
-    _M_IceGrid._t_DbEnvDescriptorSeq = IcePy.defineSequence('::IceGrid::DbEnvDescriptorSeq', (), _M_IceGrid._t_DbEnvDescriptor)
-
 if 'CommunicatorDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.CommunicatorDescriptor = Ice.createTempClass()
     class CommunicatorDescriptor(Ice.Value):
@@ -685,17 +555,15 @@ if 'CommunicatorDescriptor' not in _M_IceGrid.__dict__:
         Members:
         adapters -- The object adapters.
         propertySet -- The property set.
-        dbEnvs -- The database environments.
         logs -- The path of each log file.
         description -- A description of this descriptor.
         """
-        def __init__(self, adapters=None, propertySet=Ice._struct_marker, dbEnvs=None, logs=None, description=''):
+        def __init__(self, adapters=None, propertySet=Ice._struct_marker, logs=None, description=''):
             self.adapters = adapters
             if propertySet is Ice._struct_marker:
                 self.propertySet = _M_IceGrid.PropertySetDescriptor()
             else:
                 self.propertySet = propertySet
-            self.dbEnvs = dbEnvs
             self.logs = logs
             self.description = description
 
@@ -714,7 +582,6 @@ if 'CommunicatorDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid._t_CommunicatorDescriptor = IcePy.defineValue('::IceGrid::CommunicatorDescriptor', CommunicatorDescriptor, -1, (), False, False, None, (
         ('adapters', (), _M_IceGrid._t_AdapterDescriptorSeq, False, 0),
         ('propertySet', (), _M_IceGrid._t_PropertySetDescriptor, False, 0),
-        ('dbEnvs', (), _M_IceGrid._t_DbEnvDescriptorSeq, False, 0),
         ('logs', (), _M_Ice._t_StringSeq, False, 0),
         ('description', (), IcePy._t_string, False, 0)
     ))
@@ -852,8 +719,8 @@ if 'ServerDescriptor' not in _M_IceGrid.__dict__:
         allocatable -- Specifies if the server is allocatable.
         user -- The user account used to run the server.
         """
-        def __init__(self, adapters=None, propertySet=Ice._struct_marker, dbEnvs=None, logs=None, description='', id='', exe='', iceVersion='', pwd='', options=None, envs=None, activation='', activationTimeout='', deactivationTimeout='', applicationDistrib=False, distrib=Ice._struct_marker, allocatable=False, user=''):
-            _M_IceGrid.CommunicatorDescriptor.__init__(self, adapters, propertySet, dbEnvs, logs, description)
+        def __init__(self, adapters=None, propertySet=Ice._struct_marker, logs=None, description='', id='', exe='', iceVersion='', pwd='', options=None, envs=None, activation='', activationTimeout='', deactivationTimeout='', applicationDistrib=False, distrib=Ice._struct_marker, allocatable=False, user=''):
+            _M_IceGrid.CommunicatorDescriptor.__init__(self, adapters, propertySet, logs, description)
             self.id = id
             self.exe = exe
             self.iceVersion = iceVersion
@@ -915,8 +782,8 @@ if 'ServiceDescriptor' not in _M_IceGrid.__dict__:
         name -- The service name.
         entry -- The entry point of the IceBox service.
         """
-        def __init__(self, adapters=None, propertySet=Ice._struct_marker, dbEnvs=None, logs=None, description='', name='', entry=''):
-            _M_IceGrid.CommunicatorDescriptor.__init__(self, adapters, propertySet, dbEnvs, logs, description)
+        def __init__(self, adapters=None, propertySet=Ice._struct_marker, logs=None, description='', name='', entry=''):
+            _M_IceGrid.CommunicatorDescriptor.__init__(self, adapters, propertySet, logs, description)
             self.name = name
             self.entry = entry
 
@@ -1117,8 +984,8 @@ if 'IceBoxDescriptor' not in _M_IceGrid.__dict__:
         Members:
         services -- The service instances.
         """
-        def __init__(self, adapters=None, propertySet=Ice._struct_marker, dbEnvs=None, logs=None, description='', id='', exe='', iceVersion='', pwd='', options=None, envs=None, activation='', activationTimeout='', deactivationTimeout='', applicationDistrib=False, distrib=Ice._struct_marker, allocatable=False, user='', services=None):
-            _M_IceGrid.ServerDescriptor.__init__(self, adapters, propertySet, dbEnvs, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user)
+        def __init__(self, adapters=None, propertySet=Ice._struct_marker, logs=None, description='', id='', exe='', iceVersion='', pwd='', options=None, envs=None, activation='', activationTimeout='', deactivationTimeout='', applicationDistrib=False, distrib=Ice._struct_marker, allocatable=False, user='', services=None):
+            _M_IceGrid.ServerDescriptor.__init__(self, adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user)
             self.services = services
 
         def ice_id(self):
