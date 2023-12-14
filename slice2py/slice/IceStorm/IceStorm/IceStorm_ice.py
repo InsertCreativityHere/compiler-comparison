@@ -17,7 +17,6 @@
 from sys import version_info as _version_info_
 import Ice, IcePy
 import Ice.Identity_ice
-import Ice.SliceChecksumDict_ice
 import IceStorm.Metrics_ice
 
 # Included module Ice
@@ -1022,44 +1021,6 @@ if 'TopicManagerPrx' not in _M_IceStorm.__dict__:
         def end_retrieveAll(self, _r):
             return _M_IceStorm.TopicManager._op_retrieveAll.end(self, _r)
 
-        """
-        Returns the checksums for the IceStorm Slice definitions.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A dictionary mapping Slice type ids to their checksums.
-        """
-        def getSliceChecksums(self, context=None):
-            return _M_IceStorm.TopicManager._op_getSliceChecksums.invoke(self, ((), context))
-
-        """
-        Returns the checksums for the IceStorm Slice definitions.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
-        def getSliceChecksumsAsync(self, context=None):
-            return _M_IceStorm.TopicManager._op_getSliceChecksums.invokeAsync(self, ((), context))
-
-        """
-        Returns the checksums for the IceStorm Slice definitions.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_getSliceChecksums(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceStorm.TopicManager._op_getSliceChecksums.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-        Returns the checksums for the IceStorm Slice definitions.
-        Arguments:
-        Returns: A dictionary mapping Slice type ids to their checksums.
-        """
-        def end_getSliceChecksums(self, _r):
-            return _M_IceStorm.TopicManager._op_getSliceChecksums.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_IceStorm.TopicManagerPrx.ice_checkedCast(proxy, '::IceStorm::TopicManager', facetOrContext, context)
@@ -1122,15 +1083,6 @@ if 'TopicManagerPrx' not in _M_IceStorm.__dict__:
             """
             raise NotImplementedError("servant method 'retrieveAll' not implemented")
 
-        def getSliceChecksums(self, current=None):
-            """
-            Returns the checksums for the IceStorm Slice definitions.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            """
-            raise NotImplementedError("servant method 'getSliceChecksums' not implemented")
-
         def __str__(self):
             return IcePy.stringify(self, _M_IceStorm._t_TopicManagerDisp)
 
@@ -1142,7 +1094,6 @@ if 'TopicManagerPrx' not in _M_IceStorm.__dict__:
     TopicManager._op_create = IcePy.Operation('create', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_IceStorm._t_TopicPrx, False, 0), (_M_IceStorm._t_TopicExists,))
     TopicManager._op_retrieve = IcePy.Operation('retrieve', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_IceStorm._t_TopicPrx, False, 0), (_M_IceStorm._t_NoSuchTopic,))
     TopicManager._op_retrieveAll = IcePy.Operation('retrieveAll', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_IceStorm._t_TopicDict, False, 0), ())
-    TopicManager._op_getSliceChecksums = IcePy.Operation('getSliceChecksums', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_Ice._t_SliceChecksumDict, False, 0), ())
 
     _M_IceStorm.TopicManager = TopicManager
     del TopicManager

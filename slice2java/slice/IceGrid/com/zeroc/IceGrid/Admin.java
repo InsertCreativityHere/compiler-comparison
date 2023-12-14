@@ -680,13 +680,6 @@ public interface Admin extends com.zeroc.Ice.Object
      **/
     void shutdown(com.zeroc.Ice.Current current);
 
-    /**
-     * Returns the checksums for the IceGrid Slice definitions.
-     * @param current The Current object for the invocation.
-     * @return A dictionary mapping Slice type ids to their checksums.
-     **/
-    java.util.Map<java.lang.String, java.lang.String> getSliceChecksums(com.zeroc.Ice.Current current);
-
     /** @hidden */
     static final String[] _iceIds =
     {
@@ -1705,24 +1698,6 @@ public interface Admin extends com.zeroc.Ice.Object
         return inS.setResult(inS.writeEmptyParams());
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getSliceChecksums(Admin obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        inS.readEmptyParams();
-        java.util.Map<java.lang.String, java.lang.String> ret = obj.getSliceChecksums(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        com.zeroc.Ice.SliceChecksumDictHelper.write(ostr, ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
     /** @hidden */
     final static String[] _iceOps =
     {
@@ -1753,7 +1728,6 @@ public interface Admin extends com.zeroc.Ice.Object
         "getServerInfo",
         "getServerPid",
         "getServerState",
-        "getSliceChecksums",
         "ice_id",
         "ice_ids",
         "ice_isA",
@@ -1903,101 +1877,97 @@ public interface Admin extends com.zeroc.Ice.Object
             }
             case 27:
             {
-                return _iceD_getSliceChecksums(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
             }
             case 28:
             {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
             }
             case 29:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
             }
             case 30:
             {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
             }
             case 31:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+                return _iceD_instantiateServer(this, in, current);
             }
             case 32:
             {
-                return _iceD_instantiateServer(this, in, current);
+                return _iceD_isServerEnabled(this, in, current);
             }
             case 33:
             {
-                return _iceD_isServerEnabled(this, in, current);
+                return _iceD_patchApplication(this, in, current);
             }
             case 34:
             {
-                return _iceD_patchApplication(this, in, current);
+                return _iceD_patchServer(this, in, current);
             }
             case 35:
             {
-                return _iceD_patchServer(this, in, current);
+                return _iceD_pingNode(this, in, current);
             }
             case 36:
             {
-                return _iceD_pingNode(this, in, current);
+                return _iceD_pingRegistry(this, in, current);
             }
             case 37:
             {
-                return _iceD_pingRegistry(this, in, current);
+                return _iceD_removeAdapter(this, in, current);
             }
             case 38:
             {
-                return _iceD_removeAdapter(this, in, current);
+                return _iceD_removeApplication(this, in, current);
             }
             case 39:
             {
-                return _iceD_removeApplication(this, in, current);
+                return _iceD_removeObject(this, in, current);
             }
             case 40:
             {
-                return _iceD_removeObject(this, in, current);
+                return _iceD_sendSignal(this, in, current);
             }
             case 41:
             {
-                return _iceD_sendSignal(this, in, current);
+                return _iceD_shutdown(this, in, current);
             }
             case 42:
             {
-                return _iceD_shutdown(this, in, current);
+                return _iceD_shutdownNode(this, in, current);
             }
             case 43:
             {
-                return _iceD_shutdownNode(this, in, current);
+                return _iceD_shutdownRegistry(this, in, current);
             }
             case 44:
             {
-                return _iceD_shutdownRegistry(this, in, current);
+                return _iceD_startServer(this, in, current);
             }
             case 45:
             {
-                return _iceD_startServer(this, in, current);
+                return _iceD_stopServer(this, in, current);
             }
             case 46:
             {
-                return _iceD_stopServer(this, in, current);
+                return _iceD_syncApplication(this, in, current);
             }
             case 47:
             {
-                return _iceD_syncApplication(this, in, current);
+                return _iceD_syncApplicationWithoutRestart(this, in, current);
             }
             case 48:
             {
-                return _iceD_syncApplicationWithoutRestart(this, in, current);
+                return _iceD_updateApplication(this, in, current);
             }
             case 49:
             {
-                return _iceD_updateApplication(this, in, current);
-            }
-            case 50:
-            {
                 return _iceD_updateApplicationWithoutRestart(this, in, current);
             }
-            case 51:
+            case 50:
             {
                 return _iceD_updateObject(this, in, current);
             }

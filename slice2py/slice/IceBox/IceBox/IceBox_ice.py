@@ -19,7 +19,6 @@ import Ice, IcePy
 import Ice.BuiltinSequences_ice
 import Ice.CommunicatorF_ice
 import Ice.PropertiesF_ice
-import Ice.SliceChecksumDict_ice
 
 # Included module Ice
 _M_Ice = Ice.openModule('Ice')
@@ -330,44 +329,6 @@ if 'ServiceManagerPrx' not in _M_IceBox.__dict__:
     class ServiceManagerPrx(Ice.ObjectPrx):
 
         """
-        Returns the checksums for the IceBox Slice definitions.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A dictionary mapping Slice type ids to their checksums.
-        """
-        def getSliceChecksums(self, context=None):
-            return _M_IceBox.ServiceManager._op_getSliceChecksums.invoke(self, ((), context))
-
-        """
-        Returns the checksums for the IceBox Slice definitions.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
-        def getSliceChecksumsAsync(self, context=None):
-            return _M_IceBox.ServiceManager._op_getSliceChecksums.invokeAsync(self, ((), context))
-
-        """
-        Returns the checksums for the IceBox Slice definitions.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_getSliceChecksums(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceBox.ServiceManager._op_getSliceChecksums.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-        Returns the checksums for the IceBox Slice definitions.
-        Arguments:
-        Returns: A dictionary mapping Slice type ids to their checksums.
-        """
-        def end_getSliceChecksums(self, _r):
-            return _M_IceBox.ServiceManager._op_getSliceChecksums.end(self, _r)
-
-        """
         Start an individual service.
         Arguments:
         service -- The service name.
@@ -564,15 +525,6 @@ if 'ServiceManagerPrx' not in _M_IceBox.__dict__:
         def ice_staticId():
             return '::IceBox::ServiceManager'
 
-        def getSliceChecksums(self, current=None):
-            """
-            Returns the checksums for the IceBox Slice definitions.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            """
-            raise NotImplementedError("servant method 'getSliceChecksums' not implemented")
-
         def startService(self, service, current=None):
             """
             Start an individual service.
@@ -626,7 +578,6 @@ if 'ServiceManagerPrx' not in _M_IceBox.__dict__:
     _M_IceBox._t_ServiceManagerDisp = IcePy.defineClass('::IceBox::ServiceManager', ServiceManager, (), None, ())
     ServiceManager._ice_type = _M_IceBox._t_ServiceManagerDisp
 
-    ServiceManager._op_getSliceChecksums = IcePy.Operation('getSliceChecksums', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_Ice._t_SliceChecksumDict, False, 0), ())
     ServiceManager._op_startService = IcePy.Operation('startService', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, (_M_IceBox._t_AlreadyStartedException, _M_IceBox._t_NoSuchServiceException))
     ServiceManager._op_stopService = IcePy.Operation('stopService', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, (_M_IceBox._t_AlreadyStoppedException, _M_IceBox._t_NoSuchServiceException))
     ServiceManager._op_addObserver = IcePy.Operation('addObserver', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_IceBox._t_ServiceObserverPrx, False, 0),), (), None, ())

@@ -356,10 +356,6 @@ public extension ServiceObserverPrx {
 ///
 /// ServiceManagerPrx Methods:
 ///
-///  - getSliceChecksums: Returns the checksums for the IceBox Slice definitions.
-///
-///  - getSliceChecksumsAsync: Returns the checksums for the IceBox Slice definitions.
-///
 ///  - startService: Start an individual service.
 ///
 ///  - startServiceAsync: Start an individual service.
@@ -454,10 +450,6 @@ public extension Ice.InputStream {
 ///
 /// ServiceManagerPrx Methods:
 ///
-///  - getSliceChecksums: Returns the checksums for the IceBox Slice definitions.
-///
-///  - getSliceChecksumsAsync: Returns the checksums for the IceBox Slice definitions.
-///
 ///  - startService: Start an individual service.
 ///
 ///  - startServiceAsync: Start an individual service.
@@ -474,47 +466,6 @@ public extension Ice.InputStream {
 ///
 ///  - shutdownAsync: Shut down all services.
 public extension ServiceManagerPrx {
-    /// Returns the checksums for the IceBox Slice definitions.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.SliceChecksumDict` - A dictionary mapping Slice type ids to their checksums.
-    func getSliceChecksums(context: Ice.Context? = nil) throws -> Ice.SliceChecksumDict {
-        return try _impl._invoke(operation: "getSliceChecksums",
-                                 mode: .Nonmutating,
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.SliceChecksumDict = try Ice.SliceChecksumDictHelper.read(from: istr)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Returns the checksums for the IceBox Slice definitions.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<Ice.SliceChecksumDict>` - The result of the operation
-    func getSliceChecksumsAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.SliceChecksumDict> {
-        return _impl._invokeAsync(operation: "getSliceChecksums",
-                                  mode: .Nonmutating,
-                                  read: { istr in
-                                      let iceP_returnValue: Ice.SliceChecksumDict = try Ice.SliceChecksumDictHelper.read(from: istr)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
     /// Start an individual service.
     ///
     /// - parameter _: `Swift.String` The service name.
@@ -782,8 +733,6 @@ public struct ServiceManagerDisp: Ice.Disp {
         switch current.operation {
         case "addObserver":
             return try servant._iceD_addObserver(incoming: request, current: current)
-        case "getSliceChecksums":
-            return try servant._iceD_getSliceChecksums(incoming: request, current: current)
         case "ice_id":
             return try (servant as? Object ?? ServiceManagerDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
         case "ice_ids":
@@ -806,13 +755,6 @@ public struct ServiceManagerDisp: Ice.Disp {
 
 /// Administers a set of Service instances.
 public protocol ServiceManager {
-    /// Returns the checksums for the IceBox Slice definitions.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Ice.SliceChecksumDict` - A dictionary mapping Slice type ids to their checksums.
-    func getSliceChecksums(current: Ice.Current) throws -> Ice.SliceChecksumDict
-
     /// Start an individual service.
     ///
     /// - parameter service: `Swift.String` The service name.
@@ -888,8 +830,6 @@ public extension ServiceObserver {
 ///
 /// ServiceManager Methods:
 ///
-///  - getSliceChecksums: Returns the checksums for the IceBox Slice definitions.
-///
 ///  - startService: Start an individual service.
 ///
 ///  - stopService: Stop an individual service.
@@ -898,16 +838,6 @@ public extension ServiceObserver {
 ///
 ///  - shutdown: Shut down all services.
 public extension ServiceManager {
-    func _iceD_getSliceChecksums(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        let iceP_returnValue = try self.getSliceChecksums(current: current)
-
-        return inS.setResult{ ostr in
-            Ice.SliceChecksumDictHelper.write(to: ostr, value: iceP_returnValue)
-        }
-    }
-
     func _iceD_startService(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         let iceP_service: Swift.String = try inS.read { istr in
             let iceP_service: Swift.String = try istr.read()

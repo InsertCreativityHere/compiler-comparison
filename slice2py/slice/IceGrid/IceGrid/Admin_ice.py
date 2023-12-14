@@ -19,7 +19,6 @@ import Ice, IcePy
 import Ice.Identity_ice
 import Ice.BuiltinSequences_ice
 import Ice.Properties_ice
-import Ice.SliceChecksumDict_ice
 import Glacier2.Session_ice
 import IceGrid.Exception_ice
 import IceGrid.Descriptor_ice
@@ -3011,44 +3010,6 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
         def end_shutdown(self, _r):
             return _M_IceGrid.Admin._op_shutdown.end(self, _r)
 
-        """
-        Returns the checksums for the IceGrid Slice definitions.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A dictionary mapping Slice type ids to their checksums.
-        """
-        def getSliceChecksums(self, context=None):
-            return _M_IceGrid.Admin._op_getSliceChecksums.invoke(self, ((), context))
-
-        """
-        Returns the checksums for the IceGrid Slice definitions.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
-        def getSliceChecksumsAsync(self, context=None):
-            return _M_IceGrid.Admin._op_getSliceChecksums.invokeAsync(self, ((), context))
-
-        """
-        Returns the checksums for the IceGrid Slice definitions.
-        Arguments:
-        _response -- The asynchronous response callback.
-        _ex -- The asynchronous exception callback.
-        _sent -- The asynchronous sent callback.
-        context -- The request context for the invocation.
-        Returns: An asynchronous result object for the invocation.
-        """
-        def begin_getSliceChecksums(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_IceGrid.Admin._op_getSliceChecksums.begin(self, ((), _response, _ex, _sent, context))
-
-        """
-        Returns the checksums for the IceGrid Slice definitions.
-        Arguments:
-        Returns: A dictionary mapping Slice type ids to their checksums.
-        """
-        def end_getSliceChecksums(self, _r):
-            return _M_IceGrid.Admin._op_getSliceChecksums.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_IceGrid.AdminPrx.ice_checkedCast(proxy, '::IceGrid::Admin', facetOrContext, context)
@@ -3708,15 +3669,6 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             """
             raise NotImplementedError("servant method 'shutdown' not implemented")
 
-        def getSliceChecksums(self, current=None):
-            """
-            Returns the checksums for the IceGrid Slice definitions.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            """
-            raise NotImplementedError("servant method 'getSliceChecksums' not implemented")
-
         def __str__(self):
             return IcePy.stringify(self, _M_IceGrid._t_AdminDisp)
 
@@ -3772,7 +3724,6 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
     Admin._op_shutdownRegistry = IcePy.Operation('shutdownRegistry', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0),), (), None, (_M_IceGrid._t_RegistryNotExistException, _M_IceGrid._t_RegistryUnreachableException))
     Admin._op_getAllRegistryNames = IcePy.Operation('getAllRegistryNames', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_Ice._t_StringSeq, False, 0), ())
     Admin._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    Admin._op_getSliceChecksums = IcePy.Operation('getSliceChecksums', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_Ice._t_SliceChecksumDict, False, 0), ())
 
     _M_IceGrid.Admin = Admin
     del Admin

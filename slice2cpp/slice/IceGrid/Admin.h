@@ -38,7 +38,6 @@
 #include <Ice/Identity.h>
 #include <Ice/BuiltinSequences.h>
 #include <Ice/Properties.h>
-#include <Ice/SliceChecksumDict.h>
 #include <Glacier2/Session.h>
 #include <Exception.h>
 #include <Descriptor.h>
@@ -1307,16 +1306,6 @@ public:
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Returns the checksums for the IceGrid Slice definitions.
-     * @param current The Current object for the invocation.
-     * @return A dictionary mapping Slice type ids to their checksums.
-     */
-    virtual ::Ice::SliceChecksumDict getSliceChecksums(const ::Ice::Current& current) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_getSliceChecksums(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
 
     /// \cond INTERNAL
@@ -4657,49 +4646,6 @@ public:
 
     /// \cond INTERNAL
     ICE_MEMBER(ICEGRID_API) void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Returns the checksums for the IceGrid Slice definitions.
-     * @param context The Context map to send with the invocation.
-     * @return A dictionary mapping Slice type ids to their checksums.
-     */
-    ::Ice::SliceChecksumDict getSliceChecksums(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::Ice::SliceChecksumDict>(true, this, &AdminPrx::_iceI_getSliceChecksums, context).get();
-    }
-
-    /**
-     * Returns the checksums for the IceGrid Slice definitions.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getSliceChecksumsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::Ice::SliceChecksumDict>>().get_future())
-    {
-        return _makePromiseOutgoing<::Ice::SliceChecksumDict, P>(false, this, &AdminPrx::_iceI_getSliceChecksums, context);
-    }
-
-    /**
-     * Returns the checksums for the IceGrid Slice definitions.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getSliceChecksumsAsync(::std::function<void(::Ice::SliceChecksumDict)> response,
-                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                           ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::Ice::SliceChecksumDict>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getSliceChecksums, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICEGRID_API) void _iceI_getSliceChecksums(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::SliceChecksumDict>>&, const ::Ice::Context&);
     /// \endcond
 
     /**
@@ -8592,14 +8538,6 @@ typedef ::IceUtil::Handle< Callback_Admin_getAllRegistryNames_Base> Callback_Adm
  */
 class Callback_Admin_shutdown_Base : public virtual ::IceInternal::CallbackBase { };
 typedef ::IceUtil::Handle< Callback_Admin_shutdown_Base> Callback_Admin_shutdownPtr;
-
-/**
- * Base class for asynchronous callback wrapper classes used for calls to
- * IceProxy::IceGrid::Admin::begin_getSliceChecksums.
- * Create a wrapper instance by calling ::IceGrid::newCallback_Admin_getSliceChecksums.
- */
-class Callback_Admin_getSliceChecksums_Base : public virtual ::IceInternal::CallbackBase { };
-typedef ::IceUtil::Handle< Callback_Admin_getSliceChecksums_Base> Callback_Admin_getSliceChecksumsPtr;
 
 /**
  * Base class for asynchronous callback wrapper classes used for calls to
@@ -13453,85 +13391,6 @@ private:
 public:
 
     /**
-     * Returns the checksums for the IceGrid Slice definitions.
-     * @param context The Context map to send with the invocation.
-     * @return A dictionary mapping Slice type ids to their checksums.
-     */
-    ICE_MEMBER(ICEGRID_API) ::Ice::SliceChecksumDict getSliceChecksums(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return end_getSliceChecksums(_iceI_begin_getSliceChecksums(context, ::IceInternal::dummyCallback, 0, true));
-    }
-
-    /**
-     * Returns the checksums for the IceGrid Slice definitions.
-     * @param context The Context map to send with the invocation.
-     * @return The asynchronous result object for the invocation.
-     */
-    ::Ice::AsyncResultPtr begin_getSliceChecksums(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _iceI_begin_getSliceChecksums(context, ::IceInternal::dummyCallback, 0);
-    }
-
-    /**
-     * Returns the checksums for the IceGrid Slice definitions.
-     * @param cb Asynchronous callback object.
-     * @param cookie User-defined data to associate with the invocation.
-     * @return The asynchronous result object for the invocation.
-     */
-    ::Ice::AsyncResultPtr begin_getSliceChecksums(const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_getSliceChecksums(::Ice::noExplicitContext, cb, cookie);
-    }
-
-    /**
-     * Returns the checksums for the IceGrid Slice definitions.
-     * @param context The Context map to send with the invocation.
-     * @param cb Asynchronous callback object.
-     * @param cookie User-defined data to associate with the invocation.
-     * @return The asynchronous result object for the invocation.
-     */
-    ::Ice::AsyncResultPtr begin_getSliceChecksums(const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_getSliceChecksums(context, cb, cookie);
-    }
-
-    /**
-     * Returns the checksums for the IceGrid Slice definitions.
-     * @param cb Asynchronous callback object.
-     * @param cookie User-defined data to associate with the invocation.
-     * @return The asynchronous result object for the invocation.
-     */
-    ::Ice::AsyncResultPtr begin_getSliceChecksums(const ::IceGrid::Callback_Admin_getSliceChecksumsPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_getSliceChecksums(::Ice::noExplicitContext, cb, cookie);
-    }
-
-    /**
-     * Returns the checksums for the IceGrid Slice definitions.
-     * @param context The Context map to send with the invocation.
-     * @param cb Asynchronous callback object.
-     * @param cookie User-defined data to associate with the invocation.
-     * @return The asynchronous result object for the invocation.
-     */
-    ::Ice::AsyncResultPtr begin_getSliceChecksums(const ::Ice::Context& context, const ::IceGrid::Callback_Admin_getSliceChecksumsPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_getSliceChecksums(context, cb, cookie);
-    }
-
-    /**
-     * Completes an invocation of begin_getSliceChecksums.
-     * @param result The asynchronous result object for the invocation.
-     * @return A dictionary mapping Slice type ids to their checksums.
-     */
-    ICE_MEMBER(ICEGRID_API) ::Ice::SliceChecksumDict end_getSliceChecksums(const ::Ice::AsyncResultPtr& result);
-
-private:
-
-    ICE_MEMBER(ICEGRID_API) ::Ice::AsyncResultPtr _iceI_begin_getSliceChecksums(const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
-
-public:
-
-    /**
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
@@ -18116,16 +17975,6 @@ public:
     virtual void shutdown(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Returns the checksums for the IceGrid Slice definitions.
-     * @param current The Current object for the invocation.
-     * @return A dictionary mapping Slice type ids to their checksums.
-     */
-    virtual ::Ice::SliceChecksumDict getSliceChecksums(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_getSliceChecksums(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
 
     /// \cond INTERNAL
@@ -27741,158 +27590,6 @@ template<class T, typename CT> Callback_Admin_shutdownPtr
 newCallback_Admin_shutdown(T* instance, void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Admin_shutdown<T, CT>(instance, 0, excb, sentcb);
-}
-
-/**
- * Type-safe asynchronous callback wrapper class used for calls to
- * IceProxy::IceGrid::Admin::begin_getSliceChecksums.
- * Create a wrapper instance by calling ::IceGrid::newCallback_Admin_getSliceChecksums.
- */
-template<class T>
-class CallbackNC_Admin_getSliceChecksums : public Callback_Admin_getSliceChecksums_Base, public ::IceInternal::TwowayCallbackNC<T>
-{
-public:
-
-    typedef IceUtil::Handle<T> TPtr;
-
-    typedef void (T::*Exception)(const ::Ice::Exception&);
-    typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const ::Ice::SliceChecksumDict&);
-
-    CallbackNC_Admin_getSliceChecksums(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
-        : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
-    {
-    }
-
-    /// \cond INTERNAL
-    virtual void completed(const ::Ice::AsyncResultPtr& result) const
-    {
-        AdminPrx proxy = AdminPrx::uncheckedCast(result->getProxy());
-        ::Ice::SliceChecksumDict ret;
-        try
-        {
-            ret = proxy->end_getSliceChecksums(result);
-        }
-        catch(const ::Ice::Exception& ex)
-        {
-            ::IceInternal::CallbackNC<T>::exception(result, ex);
-            return;
-        }
-        if(_response)
-        {
-            (::IceInternal::CallbackNC<T>::_callback.get()->*_response)(ret);
-        }
-    }
-    /// \endcond
-
-private:
-
-    Response _response;
-};
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::IceGrid::Admin::begin_getSliceChecksums.
- */
-template<class T> Callback_Admin_getSliceChecksumsPtr
-newCallback_Admin_getSliceChecksums(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::Ice::SliceChecksumDict&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
-{
-    return new CallbackNC_Admin_getSliceChecksums<T>(instance, cb, excb, sentcb);
-}
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::IceGrid::Admin::begin_getSliceChecksums.
- */
-template<class T> Callback_Admin_getSliceChecksumsPtr
-newCallback_Admin_getSliceChecksums(T* instance, void (T::*cb)(const ::Ice::SliceChecksumDict&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
-{
-    return new CallbackNC_Admin_getSliceChecksums<T>(instance, cb, excb, sentcb);
-}
-
-/**
- * Type-safe asynchronous callback wrapper class with cookie support used for calls to
- * IceProxy::IceGrid::Admin::begin_getSliceChecksums.
- * Create a wrapper instance by calling ::IceGrid::newCallback_Admin_getSliceChecksums.
- */
-template<class T, typename CT>
-class Callback_Admin_getSliceChecksums : public Callback_Admin_getSliceChecksums_Base, public ::IceInternal::TwowayCallback<T, CT>
-{
-public:
-
-    typedef IceUtil::Handle<T> TPtr;
-
-    typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
-    typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const ::Ice::SliceChecksumDict&, const CT&);
-
-    Callback_Admin_getSliceChecksums(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
-        : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
-    {
-    }
-
-    /// \cond INTERNAL
-    virtual void completed(const ::Ice::AsyncResultPtr& result) const
-    {
-        AdminPrx proxy = AdminPrx::uncheckedCast(result->getProxy());
-        ::Ice::SliceChecksumDict ret;
-        try
-        {
-            ret = proxy->end_getSliceChecksums(result);
-        }
-        catch(const ::Ice::Exception& ex)
-        {
-            ::IceInternal::Callback<T, CT>::exception(result, ex);
-            return;
-        }
-        if(_response)
-        {
-            (::IceInternal::Callback<T, CT>::_callback.get()->*_response)(ret, CT::dynamicCast(result->getCookie()));
-        }
-    }
-    /// \endcond
-
-private:
-
-    Response _response;
-};
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * Use this overload when your callback methods receive a cookie value.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::IceGrid::Admin::begin_getSliceChecksums.
- */
-template<class T, typename CT> Callback_Admin_getSliceChecksumsPtr
-newCallback_Admin_getSliceChecksums(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::Ice::SliceChecksumDict&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
-{
-    return new Callback_Admin_getSliceChecksums<T, CT>(instance, cb, excb, sentcb);
-}
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * Use this overload when your callback methods receive a cookie value.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::IceGrid::Admin::begin_getSliceChecksums.
- */
-template<class T, typename CT> Callback_Admin_getSliceChecksumsPtr
-newCallback_Admin_getSliceChecksums(T* instance, void (T::*cb)(const ::Ice::SliceChecksumDict&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
-{
-    return new Callback_Admin_getSliceChecksums<T, CT>(instance, cb, excb, sentcb);
 }
 
 /**

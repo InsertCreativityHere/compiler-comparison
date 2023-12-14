@@ -1435,9 +1435,6 @@ namespace IceStorm
     public delegate void Callback_TopicManager_retrieveAll(global::System.Collections.Generic.Dictionary<string, TopicPrx> ret);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    public delegate void Callback_TopicManager_getSliceChecksums(global::System.Collections.Generic.Dictionary<string, string> ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public delegate void Callback_Finder_getTopicManager(TopicManagerPrx ret);
 }
 
@@ -2283,54 +2280,6 @@ namespace IceStorm
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>A dictionary of string, topic proxy pairs.</returns>
         global::System.Collections.Generic.Dictionary<string, TopicPrx> end_retrieveAll(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
-        /// Returns the checksums for the IceStorm Slice definitions.
-        /// </summary>
-        /// <returns>A dictionary mapping Slice type ids to their checksums.</returns>
-        /// <param name="context">The Context map to send with the invocation.</param>
-
-        global::System.Collections.Generic.Dictionary<string, string> getSliceChecksums(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Returns the checksums for the IceStorm Slice definitions.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getSliceChecksumsAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Returns the checksums for the IceStorm Slice definitions.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_TopicManager_getSliceChecksums> begin_getSliceChecksums(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Returns the checksums for the IceStorm Slice definitions.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getSliceChecksums(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Returns the checksums for the IceStorm Slice definitions.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getSliceChecksums(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Returns the checksums for the IceStorm Slice definitions.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A dictionary mapping Slice type ids to their checksums.</returns>
-        global::System.Collections.Generic.Dictionary<string, string> end_getSliceChecksums(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -2603,15 +2552,6 @@ namespace IceStorm
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         global::System.Collections.Generic.Dictionary<string, TopicPrx> retrieveAll(global::Ice.Current current = null);
-
-        /// <summary>
-        /// Returns the checksums for the IceStorm Slice definitions.
-        /// </summary>
-        /// <returns>A dictionary mapping Slice type ids to their checksums.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        global::System.Collections.Generic.Dictionary<string, string> getSliceChecksums(global::Ice.Current current = null);
     }
 
     /// <summary>
@@ -3823,18 +3763,6 @@ namespace IceStorm
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, string> getSliceChecksums(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                return _iceI_getSliceChecksumsAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
         #endregion
 
         #region Async Task operations
@@ -3971,38 +3899,6 @@ namespace IceStorm
                 });
         }
 
-        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getSliceChecksumsAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_getSliceChecksumsAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> _iceI_getSliceChecksumsAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_getSliceChecksums_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<string, string>>(progress, cancel);
-            _iceI_getSliceChecksums(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _getSliceChecksums_name = "getSliceChecksums";
-
-        private void _iceI_getSliceChecksums(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<global::System.Collections.Generic.Dictionary<string, string>>(completed);
-            outAsync.invoke(
-                _getSliceChecksums_name,
-                global::Ice.OperationMode.Nonmutating,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                read: (global::Ice.InputStream istr) =>
-                {
-                    global::System.Collections.Generic.Dictionary<string, string> ret;
-                    ret = global::Ice.SliceChecksumDictHelper.read(istr);
-                    return ret;
-                });
-        }
-
         #endregion
 
         #region Asynchronous operations
@@ -4118,44 +4014,6 @@ namespace IceStorm
                 },
                 this, _retrieveAll_name, cookie, completedCallback);
             _iceI_retrieveAll(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_TopicManager_getSliceChecksums> begin_getSliceChecksums(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getSliceChecksums(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getSliceChecksums(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getSliceChecksums(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getSliceChecksums(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getSliceChecksums(context, callback, cookie, false);
-        }
-
-        public global::System.Collections.Generic.Dictionary<string, string> end_getSliceChecksums(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getSliceChecksums_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<global::System.Collections.Generic.Dictionary<string, string>>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_TopicManager_getSliceChecksums> begin_getSliceChecksums(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getSliceChecksums_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_TopicManager_getSliceChecksums, global::System.Collections.Generic.Dictionary<string, string>>(
-                (Callback_TopicManager_getSliceChecksums cb, global::System.Collections.Generic.Dictionary<string, string> ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getSliceChecksums_name, cookie, completedCallback);
-            _iceI_getSliceChecksums(context, synchronous, completed);
             return completed;
         }
 
@@ -4853,8 +4711,6 @@ namespace IceStorm
 
         public abstract global::System.Collections.Generic.Dictionary<string, TopicPrx> retrieveAll(global::Ice.Current current = null);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, string> getSliceChecksums(global::Ice.Current current = null);
-
         #endregion
 
         #region Slice type-related members
@@ -4934,23 +4790,9 @@ namespace IceStorm
             return inS.setResult(ostr);
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getSliceChecksums(TopicManager obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
-            inS.readEmptyParams();
-            var ret = obj.getSliceChecksums(current);
-            var ostr = inS.startWriteParams();
-            global::Ice.SliceChecksumDictHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
         private static readonly string[] _all =
         {
             "create",
-            "getSliceChecksums",
             "ice_id",
             "ice_ids",
             "ice_isA",
@@ -4976,29 +4818,25 @@ namespace IceStorm
                 }
                 case 1:
                 {
-                    return iceD_getSliceChecksums(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
                 }
                 case 2:
                 {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
                 }
                 case 3:
                 {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
                 }
                 case 4:
                 {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
                 }
                 case 5:
                 {
-                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-                case 6:
-                {
                     return iceD_retrieve(this, inS, current);
                 }
-                case 7:
+                case 6:
                 {
                     return iceD_retrieveAll(this, inS, current);
                 }

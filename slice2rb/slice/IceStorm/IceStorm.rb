@@ -16,7 +16,6 @@
 
 require 'Ice'
 require 'Ice/Identity.rb'
-require 'Ice/SliceChecksumDict.rb'
 require 'Metrics.rb'
 
 module ::IceStorm
@@ -276,10 +275,6 @@ module ::IceStorm
             def retrieveAll(context=nil)
                 TopicManagerPrx_mixin::OP_retrieveAll.invoke(self, [], context)
             end
-
-            def getSliceChecksums(context=nil)
-                TopicManagerPrx_mixin::OP_getSliceChecksums.invoke(self, [], context)
-            end
         end
 
         class TopicManagerPrx < ::Ice::ObjectPrx
@@ -299,7 +294,6 @@ module ::IceStorm
         TopicManagerPrx_mixin::OP_create = ::Ice::__defineOperation('create', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], [::IceStorm::T_TopicPrx, false, 0], [::IceStorm::T_TopicExists])
         TopicManagerPrx_mixin::OP_retrieve = ::Ice::__defineOperation('retrieve', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::IceStorm::T_TopicPrx, false, 0], [::IceStorm::T_NoSuchTopic])
         TopicManagerPrx_mixin::OP_retrieveAll = ::Ice::__defineOperation('retrieveAll', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::IceStorm::T_TopicDict, false, 0], [])
-        TopicManagerPrx_mixin::OP_getSliceChecksums = ::Ice::__defineOperation('getSliceChecksums', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_SliceChecksumDict, false, 0], [])
     end
 
     if not defined?(::IceStorm::Finder_Mixin)

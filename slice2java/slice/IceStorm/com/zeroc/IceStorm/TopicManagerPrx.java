@@ -246,61 +246,6 @@ public interface TopicManagerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Returns the checksums for the IceStorm Slice definitions.
-     * @return A dictionary mapping Slice type ids to their checksums.
-     **/
-    default java.util.Map<java.lang.String, java.lang.String> getSliceChecksums()
-    {
-        return getSliceChecksums(com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    /**
-     * Returns the checksums for the IceStorm Slice definitions.
-     * @param context The Context map to send with the invocation.
-     * @return A dictionary mapping Slice type ids to their checksums.
-     **/
-    default java.util.Map<java.lang.String, java.lang.String> getSliceChecksums(java.util.Map<String, String> context)
-    {
-        return _iceI_getSliceChecksumsAsync(context, true).waitForResponse();
-    }
-
-    /**
-     * Returns the checksums for the IceStorm Slice definitions.
-     * @return A dictionary mapping Slice type ids to their checksums.
-     **/
-    default java.util.concurrent.CompletableFuture<java.util.Map<java.lang.String, java.lang.String>> getSliceChecksumsAsync()
-    {
-        return _iceI_getSliceChecksumsAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    /**
-     * Returns the checksums for the IceStorm Slice definitions.
-     * @param context The Context map to send with the invocation.
-     * @return A dictionary mapping Slice type ids to their checksums.
-     **/
-    default java.util.concurrent.CompletableFuture<java.util.Map<java.lang.String, java.lang.String>> getSliceChecksumsAsync(java.util.Map<String, String> context)
-    {
-        return _iceI_getSliceChecksumsAsync(context, false);
-    }
-
-    /**
-     * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.util.Map<java.lang.String, java.lang.String>> _iceI_getSliceChecksumsAsync(java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<java.util.Map<java.lang.String, java.lang.String>> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getSliceChecksums", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
-        f.invoke(true, context, null, null, istr -> {
-                     java.util.Map<java.lang.String, java.lang.String> ret;
-                     ret = com.zeroc.Ice.SliceChecksumDictHelper.read(istr);
-                     return ret;
-                 });
-        return f;
-    }
-
-    /**
      * Contacts the remote server to verify that the object implements this type.
      * Raises a local exception if a communication error occurs.
      * @param obj The untyped proxy.

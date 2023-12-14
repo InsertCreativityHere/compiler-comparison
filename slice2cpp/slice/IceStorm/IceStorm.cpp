@@ -106,7 +106,6 @@ const ::std::string iceC_IceStorm_TopicManager_ids[2] =
 const ::std::string iceC_IceStorm_TopicManager_ops[] =
 {
     "create",
-    "getSliceChecksums",
     "ice_id",
     "ice_ids",
     "ice_isA",
@@ -117,7 +116,6 @@ const ::std::string iceC_IceStorm_TopicManager_ops[] =
 const ::std::string iceC_IceStorm_TopicManager_create_name = "create";
 const ::std::string iceC_IceStorm_TopicManager_retrieve_name = "retrieve";
 const ::std::string iceC_IceStorm_TopicManager_retrieveAll_name = "retrieveAll";
-const ::std::string iceC_IceStorm_TopicManager_getSliceChecksums_name = "getSliceChecksums";
 
 const ::std::string iceC_IceStorm_Finder_ids[2] =
 {
@@ -536,23 +534,9 @@ IceStorm::TopicManager::_iceD_retrieveAll(::IceInternal::Incoming& inS, const ::
 
 /// \cond INTERNAL
 bool
-IceStorm::TopicManager::_iceD_getSliceChecksums(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
-{
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::Ice::SliceChecksumDict ret = this->getSliceChecksums(current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
 IceStorm::TopicManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceStorm_TopicManager_ops, iceC_IceStorm_TopicManager_ops + 8, current.operation);
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceStorm_TopicManager_ops, iceC_IceStorm_TopicManager_ops + 7, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -566,29 +550,25 @@ IceStorm::TopicManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::C
         }
         case 1:
         {
-            return _iceD_getSliceChecksums(in, current);
+            return _iceD_ice_id(in, current);
         }
         case 2:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_ids(in, current);
         }
         case 3:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_isA(in, current);
         }
         case 4:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_ping(in, current);
         }
         case 5:
         {
-            return _iceD_ice_ping(in, current);
-        }
-        case 6:
-        {
             return _iceD_retrieve(in, current);
         }
-        case 7:
+        case 6:
         {
             return _iceD_retrieveAll(in, current);
         }
@@ -928,17 +908,6 @@ IceStorm::TopicManagerPrx::_iceI_retrieveAll(const ::std::shared_ptr<::IceIntern
 /// \endcond
 
 /// \cond INTERNAL
-void
-IceStorm::TopicManagerPrx::_iceI_getSliceChecksums(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::SliceChecksumDict>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_IceStorm_TopicManager_getSliceChecksums_name);
-    outAsync->invoke(iceC_IceStorm_TopicManager_getSliceChecksums_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
 ::std::shared_ptr<::Ice::ObjectPrx>
 IceStorm::TopicManagerPrx::_newInstance() const
 {
@@ -1011,8 +980,6 @@ const ::std::string iceC_IceStorm_TopicManager_create_name = "create";
 const ::std::string iceC_IceStorm_TopicManager_retrieve_name = "retrieve";
 
 const ::std::string iceC_IceStorm_TopicManager_retrieveAll_name = "retrieveAll";
-
-const ::std::string iceC_IceStorm_TopicManager_getSliceChecksums_name = "getSliceChecksums";
 
 const ::std::string iceC_IceStorm_Finder_getTopicManager_name = "getTopicManager";
 
@@ -1999,46 +1966,6 @@ IceProxy::IceStorm::TopicManager::end_retrieveAll(const ::Ice::AsyncResultPtr& r
     return ret;
 }
 
-::Ice::AsyncResultPtr
-IceProxy::IceStorm::TopicManager::_iceI_begin_getSliceChecksums(const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    _checkTwowayOnly(iceC_IceStorm_TopicManager_getSliceChecksums_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_IceStorm_TopicManager_getSliceChecksums_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_IceStorm_TopicManager_getSliceChecksums_name, ::Ice::Nonmutating, context);
-        result->writeEmptyParams();
-        result->invoke(iceC_IceStorm_TopicManager_getSliceChecksums_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-::Ice::SliceChecksumDict
-IceProxy::IceStorm::TopicManager::end_getSliceChecksums(const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_IceStorm_TopicManager_getSliceChecksums_name);
-    ::Ice::SliceChecksumDict ret;
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(ret);
-    result->_endReadParams();
-    return ret;
-}
-
 /// \cond INTERNAL
 ::IceProxy::Ice::Object*
 IceProxy::IceStorm::TopicManager::_newInstance() const
@@ -2548,26 +2475,11 @@ IceStorm::TopicManager::_iceD_retrieveAll(::IceInternal::Incoming& inS, const ::
 }
 /// \endcond
 
-/// \cond INTERNAL
-bool
-IceStorm::TopicManager::_iceD_getSliceChecksums(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
-{
-    _iceCheckMode(::Ice::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::Ice::SliceChecksumDict ret = this->getSliceChecksums(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_IceStorm_TopicManager_all[] =
 {
     "create",
-    "getSliceChecksums",
     "ice_id",
     "ice_ids",
     "ice_isA",
@@ -2582,7 +2494,7 @@ const ::std::string iceC_IceStorm_TopicManager_all[] =
 bool
 IceStorm::TopicManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceStorm_TopicManager_all, iceC_IceStorm_TopicManager_all + 8, current.operation);
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceStorm_TopicManager_all, iceC_IceStorm_TopicManager_all + 7, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -2596,29 +2508,25 @@ IceStorm::TopicManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::C
         }
         case 1:
         {
-            return _iceD_getSliceChecksums(in, current);
+            return _iceD_ice_id(in, current);
         }
         case 2:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_ids(in, current);
         }
         case 3:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_isA(in, current);
         }
         case 4:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_ping(in, current);
         }
         case 5:
         {
-            return _iceD_ice_ping(in, current);
-        }
-        case 6:
-        {
             return _iceD_retrieve(in, current);
         }
-        case 7:
+        case 6:
         {
             return _iceD_retrieveAll(in, current);
         }

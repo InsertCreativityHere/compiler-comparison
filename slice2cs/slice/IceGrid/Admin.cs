@@ -2566,9 +2566,6 @@ namespace IceGrid
     public delegate void Callback_Admin_shutdown();
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    public delegate void Callback_Admin_getSliceChecksums(global::System.Collections.Generic.Dictionary<string, string> ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public delegate void Callback_FileIterator_read(bool ret, string[] lines);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -6138,54 +6135,6 @@ namespace IceGrid
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_shutdown(global::Ice.AsyncResult asyncResult);
-
-        /// <summary>
-        /// Returns the checksums for the IceGrid Slice definitions.
-        /// </summary>
-        /// <returns>A dictionary mapping Slice type ids to their checksums.</returns>
-        /// <param name="context">The Context map to send with the invocation.</param>
-
-        global::System.Collections.Generic.Dictionary<string, string> getSliceChecksums(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Returns the checksums for the IceGrid Slice definitions.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getSliceChecksumsAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Returns the checksums for the IceGrid Slice definitions.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult<Callback_Admin_getSliceChecksums> begin_getSliceChecksums(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Returns the checksums for the IceGrid Slice definitions.
-        /// </summary>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getSliceChecksums(global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Returns the checksums for the IceGrid Slice definitions.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
-        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
-        /// <returns>An asynchronous result object.</returns>
-        global::Ice.AsyncResult begin_getSliceChecksums(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-        /// <summary>
-        /// Returns the checksums for the IceGrid Slice definitions.
-        /// </summary>
-        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A dictionary mapping Slice type ids to their checksums.</returns>
-        global::System.Collections.Generic.Dictionary<string, string> end_getSliceChecksums(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
@@ -9931,15 +9880,6 @@ namespace IceGrid
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         void shutdown(global::Ice.Current current = null);
-
-        /// <summary>
-        /// Returns the checksums for the IceGrid Slice definitions.
-        /// </summary>
-        /// <returns>A dictionary mapping Slice type ids to their checksums.</returns>
-        /// <param name="current">The Current object for the invocation.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        global::System.Collections.Generic.Dictionary<string, string> getSliceChecksums(global::Ice.Current current = null);
     }
 
     /// <summary>
@@ -11388,18 +11328,6 @@ namespace IceGrid
             try
             {
                 _iceI_shutdownAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
-        public global::System.Collections.Generic.Dictionary<string, string> getSliceChecksums(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                return _iceI_getSliceChecksumsAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch(global::System.AggregateException ex_)
             {
@@ -13687,38 +13615,6 @@ namespace IceGrid
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getSliceChecksumsAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_getSliceChecksumsAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> _iceI_getSliceChecksumsAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_getSliceChecksums_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<string, string>>(progress, cancel);
-            _iceI_getSliceChecksums(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _getSliceChecksums_name = "getSliceChecksums";
-
-        private void _iceI_getSliceChecksums(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<global::System.Collections.Generic.Dictionary<string, string>>(completed);
-            outAsync.invoke(
-                _getSliceChecksums_name,
-                global::Ice.OperationMode.Nonmutating,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                read: (global::Ice.InputStream istr) =>
-                {
-                    global::System.Collections.Generic.Dictionary<string, string> ret;
-                    ret = global::Ice.SliceChecksumDictHelper.read(istr);
-                    return ret;
-                });
-        }
-
         #endregion
 
         #region Asynchronous operations
@@ -15484,44 +15380,6 @@ namespace IceGrid
                 },
                 this, _shutdown_name, cookie, completedCallback);
             _iceI_shutdown(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_Admin_getSliceChecksums> begin_getSliceChecksums(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getSliceChecksums(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getSliceChecksums(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getSliceChecksums(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getSliceChecksums(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getSliceChecksums(context, callback, cookie, false);
-        }
-
-        public global::System.Collections.Generic.Dictionary<string, string> end_getSliceChecksums(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getSliceChecksums_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<global::System.Collections.Generic.Dictionary<string, string>>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_Admin_getSliceChecksums> begin_getSliceChecksums(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getSliceChecksums_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Admin_getSliceChecksums, global::System.Collections.Generic.Dictionary<string, string>>(
-                (Callback_Admin_getSliceChecksums cb, global::System.Collections.Generic.Dictionary<string, string> ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getSliceChecksums_name, cookie, completedCallback);
-            _iceI_getSliceChecksums(context, synchronous, completed);
             return completed;
         }
 
@@ -20313,8 +20171,6 @@ namespace IceGrid
 
         public abstract void shutdown(global::Ice.Current current = null);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, string> getSliceChecksums(global::Ice.Current current = null);
-
         #endregion
 
         #region Slice type-related members
@@ -21040,19 +20896,6 @@ namespace IceGrid
             return inS.setResult(inS.writeEmptyParams());
         }
 
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getSliceChecksums(Admin obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
-            inS.readEmptyParams();
-            var ret = obj.getSliceChecksums(current);
-            var ostr = inS.startWriteParams();
-            global::Ice.SliceChecksumDictHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
         private static readonly string[] _all =
         {
             "addApplication",
@@ -21082,7 +20925,6 @@ namespace IceGrid
             "getServerInfo",
             "getServerPid",
             "getServerState",
-            "getSliceChecksums",
             "ice_id",
             "ice_ids",
             "ice_isA",
@@ -21230,101 +21072,97 @@ namespace IceGrid
                 }
                 case 27:
                 {
-                    return iceD_getSliceChecksums(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
                 }
                 case 28:
                 {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
                 }
                 case 29:
                 {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
                 }
                 case 30:
                 {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
                 }
                 case 31:
                 {
-                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
+                    return iceD_instantiateServer(this, inS, current);
                 }
                 case 32:
                 {
-                    return iceD_instantiateServer(this, inS, current);
+                    return iceD_isServerEnabled(this, inS, current);
                 }
                 case 33:
                 {
-                    return iceD_isServerEnabled(this, inS, current);
+                    return iceD_patchApplication(this, inS, current);
                 }
                 case 34:
                 {
-                    return iceD_patchApplication(this, inS, current);
+                    return iceD_patchServer(this, inS, current);
                 }
                 case 35:
                 {
-                    return iceD_patchServer(this, inS, current);
+                    return iceD_pingNode(this, inS, current);
                 }
                 case 36:
                 {
-                    return iceD_pingNode(this, inS, current);
+                    return iceD_pingRegistry(this, inS, current);
                 }
                 case 37:
                 {
-                    return iceD_pingRegistry(this, inS, current);
+                    return iceD_removeAdapter(this, inS, current);
                 }
                 case 38:
                 {
-                    return iceD_removeAdapter(this, inS, current);
+                    return iceD_removeApplication(this, inS, current);
                 }
                 case 39:
                 {
-                    return iceD_removeApplication(this, inS, current);
+                    return iceD_removeObject(this, inS, current);
                 }
                 case 40:
                 {
-                    return iceD_removeObject(this, inS, current);
+                    return iceD_sendSignal(this, inS, current);
                 }
                 case 41:
                 {
-                    return iceD_sendSignal(this, inS, current);
+                    return iceD_shutdown(this, inS, current);
                 }
                 case 42:
                 {
-                    return iceD_shutdown(this, inS, current);
+                    return iceD_shutdownNode(this, inS, current);
                 }
                 case 43:
                 {
-                    return iceD_shutdownNode(this, inS, current);
+                    return iceD_shutdownRegistry(this, inS, current);
                 }
                 case 44:
                 {
-                    return iceD_shutdownRegistry(this, inS, current);
+                    return iceD_startServer(this, inS, current);
                 }
                 case 45:
                 {
-                    return iceD_startServer(this, inS, current);
+                    return iceD_stopServer(this, inS, current);
                 }
                 case 46:
                 {
-                    return iceD_stopServer(this, inS, current);
+                    return iceD_syncApplication(this, inS, current);
                 }
                 case 47:
                 {
-                    return iceD_syncApplication(this, inS, current);
+                    return iceD_syncApplicationWithoutRestart(this, inS, current);
                 }
                 case 48:
                 {
-                    return iceD_syncApplicationWithoutRestart(this, inS, current);
+                    return iceD_updateApplication(this, inS, current);
                 }
                 case 49:
                 {
-                    return iceD_updateApplication(this, inS, current);
-                }
-                case 50:
-                {
                     return iceD_updateApplicationWithoutRestart(this, inS, current);
                 }
-                case 51:
+                case 50:
                 {
                     return iceD_updateObject(this, inS, current);
                 }

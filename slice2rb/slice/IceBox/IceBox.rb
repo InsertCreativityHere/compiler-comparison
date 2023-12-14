@@ -18,7 +18,6 @@ require 'Ice'
 require 'Ice/BuiltinSequences.rb'
 require 'Ice/CommunicatorF.rb'
 require 'Ice/PropertiesF.rb'
-require 'Ice/SliceChecksumDict.rb'
 
 module ::IceBox
 
@@ -120,10 +119,6 @@ module ::IceBox
         end
         module ServiceManagerPrx_mixin
 
-            def getSliceChecksums(context=nil)
-                ServiceManagerPrx_mixin::OP_getSliceChecksums.invoke(self, [], context)
-            end
-
             def startService(service, context=nil)
                 ServiceManagerPrx_mixin::OP_startService.invoke(self, [service], context)
             end
@@ -155,7 +150,6 @@ module ::IceBox
 
         T_ServiceManagerPrx.defineProxy(ServiceManagerPrx, nil, [])
 
-        ServiceManagerPrx_mixin::OP_getSliceChecksums = ::Ice::__defineOperation('getSliceChecksums', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_SliceChecksumDict, false, 0], [])
         ServiceManagerPrx_mixin::OP_startService = ::Ice::__defineOperation('startService', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceBox::T_AlreadyStartedException, ::IceBox::T_NoSuchServiceException])
         ServiceManagerPrx_mixin::OP_stopService = ::Ice::__defineOperation('stopService', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceBox::T_AlreadyStoppedException, ::IceBox::T_NoSuchServiceException])
         ServiceManagerPrx_mixin::OP_addObserver = ::Ice::__defineOperation('addObserver', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceBox::T_ServiceObserverPrx, false, 0]], [], nil, [])

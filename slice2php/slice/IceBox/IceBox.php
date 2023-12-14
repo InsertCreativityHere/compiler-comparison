@@ -20,7 +20,6 @@ namespace
     require_once 'Ice/BuiltinSequences.php';
     require_once 'Ice/CommunicatorF.php';
     require_once 'Ice/PropertiesF.php';
-    require_once 'Ice/SliceChecksumDict.php';
 }
 
 namespace IceBox
@@ -194,10 +193,8 @@ namespace IceBox
     global $Ice__t_ObjectPrx;
     $IceBox__t_ServiceManagerPrx = IcePHP_defineProxy('::IceBox::ServiceManager', $Ice__t_ObjectPrx, null);
 
-    global $Ice__t_SliceChecksumDict;
     global $IcePHP__t_string;
     global $IceBox__t_ServiceObserverPrx;
-    IcePHP_defineOperation($IceBox__t_ServiceManagerPrx, 'getSliceChecksums', 2, 1, 0, null, null, array($Ice__t_SliceChecksumDict), null);
     IcePHP_defineOperation($IceBox__t_ServiceManagerPrx, 'startService', 0, 0, 0, array(array($IcePHP__t_string)), null, null, array($IceBox__t_AlreadyStartedException, $IceBox__t_NoSuchServiceException));
     IcePHP_defineOperation($IceBox__t_ServiceManagerPrx, 'stopService', 0, 0, 0, array(array($IcePHP__t_string)), null, null, array($IceBox__t_AlreadyStoppedException, $IceBox__t_NoSuchServiceException));
     IcePHP_defineOperation($IceBox__t_ServiceManagerPrx, 'addObserver', 0, 0, 0, array(array($IceBox__t_ServiceObserverPrx)), null, null, null);

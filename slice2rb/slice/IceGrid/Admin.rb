@@ -18,7 +18,6 @@ require 'Ice'
 require 'Ice/Identity.rb'
 require 'Ice/BuiltinSequences.rb'
 require 'Ice/Properties.rb'
-require 'Ice/SliceChecksumDict.rb'
 require 'Glacier2/Session.rb'
 require 'Exception.rb'
 require 'Descriptor.rb'
@@ -648,10 +647,6 @@ module ::IceGrid
             def shutdown(context=nil)
                 AdminPrx_mixin::OP_shutdown.invoke(self, [], context)
             end
-
-            def getSliceChecksums(context=nil)
-                AdminPrx_mixin::OP_getSliceChecksums.invoke(self, [], context)
-            end
         end
 
         class AdminPrx < ::Ice::ObjectPrx
@@ -715,7 +710,6 @@ module ::IceGrid
         AdminPrx_mixin::OP_shutdownRegistry = ::Ice::__defineOperation('shutdownRegistry', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceGrid::T_RegistryNotExistException, ::IceGrid::T_RegistryUnreachableException])
         AdminPrx_mixin::OP_getAllRegistryNames = ::Ice::__defineOperation('getAllRegistryNames', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_StringSeq, false, 0], [])
         AdminPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        AdminPrx_mixin::OP_getSliceChecksums = ::Ice::__defineOperation('getSliceChecksums', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_SliceChecksumDict, false, 0], [])
     end
 
     if not defined?(::IceGrid::FileIterator_Mixin)

@@ -103,7 +103,6 @@ const ::std::string iceC_IceStorm_TopicManagerInternal_ops[] =
 {
     "create",
     "getReplicaNode",
-    "getSliceChecksums",
     "ice_id",
     "ice_ids",
     "ice_isA",
@@ -400,7 +399,7 @@ IceStorm::TopicManagerInternal::_iceD_getReplicaNode(::IceInternal::Incoming& in
 bool
 IceStorm::TopicManagerInternal::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceStorm_TopicManagerInternal_ops, iceC_IceStorm_TopicManagerInternal_ops + 9, current.operation);
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceStorm_TopicManagerInternal_ops, iceC_IceStorm_TopicManagerInternal_ops + 8, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -418,29 +417,25 @@ IceStorm::TopicManagerInternal::_iceDispatch(::IceInternal::Incoming& in, const 
         }
         case 2:
         {
-            return _iceD_getSliceChecksums(in, current);
+            return _iceD_ice_id(in, current);
         }
         case 3:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_ids(in, current);
         }
         case 4:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_isA(in, current);
         }
         case 5:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_ping(in, current);
         }
         case 6:
         {
-            return _iceD_ice_ping(in, current);
-        }
-        case 7:
-        {
             return _iceD_retrieve(in, current);
         }
-        case 8:
+        case 7:
         {
             return _iceD_retrieveAll(in, current);
         }
@@ -1344,7 +1339,6 @@ const ::std::string iceC_IceStorm_TopicManagerInternal_all[] =
 {
     "create",
     "getReplicaNode",
-    "getSliceChecksums",
     "ice_id",
     "ice_ids",
     "ice_isA",
@@ -1359,7 +1353,7 @@ const ::std::string iceC_IceStorm_TopicManagerInternal_all[] =
 bool
 IceStorm::TopicManagerInternal::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceStorm_TopicManagerInternal_all, iceC_IceStorm_TopicManagerInternal_all + 9, current.operation);
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceStorm_TopicManagerInternal_all, iceC_IceStorm_TopicManagerInternal_all + 8, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -1377,29 +1371,25 @@ IceStorm::TopicManagerInternal::_iceDispatch(::IceInternal::Incoming& in, const 
         }
         case 2:
         {
-            return _iceD_getSliceChecksums(in, current);
+            return _iceD_ice_id(in, current);
         }
         case 3:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_ids(in, current);
         }
         case 4:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_isA(in, current);
         }
         case 5:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_ping(in, current);
         }
         case 6:
         {
-            return _iceD_ice_ping(in, current);
-        }
-        case 7:
-        {
             return _iceD_retrieve(in, current);
         }
-        case 8:
+        case 7:
         {
             return _iceD_retrieveAll(in, current);
         }

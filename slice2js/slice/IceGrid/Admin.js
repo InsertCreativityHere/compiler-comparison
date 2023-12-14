@@ -33,7 +33,6 @@ require("../Ice/StreamHelpers");
 require("../Ice/Identity");
 require("../Ice/BuiltinSequences");
 require("../Ice/Properties");
-require("../Ice/SliceChecksumDict");
 const Ice = _ModuleRegistry.module("Ice");
 
 require("../Exception");
@@ -605,8 +604,7 @@ Slice.defineOperations(IceGrid.Admin, IceGrid.AdminPrx, iceC_IceGrid_Admin_ids, 
         IceGrid.RegistryUnreachableException
     ], , ],
     "getAllRegistryNames": [, 2, 2, , ["Ice.StringSeqHelper"], , , , , ],
-    "shutdown": [, , , , , , , , , ],
-    "getSliceChecksums": [, 2, 1, , ["Ice.SliceChecksumDictHelper"], , , , , ]
+    "shutdown": [, , , , , , , , , ]
 });
 
 const iceC_IceGrid_FileIterator_ids = [

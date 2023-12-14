@@ -9,8 +9,6 @@
 %   retrieveAsync - Retrieve a topic by name.
 %   retrieveAll - Retrieve all topics managed by this topic manager.
 %   retrieveAllAsync - Retrieve all topics managed by this topic manager.
-%   getSliceChecksums - Returns the checksums for the IceStorm Slice definitions.
-%   getSliceChecksumsAsync - Returns the checksums for the IceStorm Slice definitions.
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 %
@@ -137,35 +135,6 @@ classdef TopicManagerPrx < Ice.ObjectPrx
                 varargout{1} = result;
             end
             r_ = obj.iceInvokeAsync('retrieveAll', 1, true, [], 1, @unmarshal, {}, varargin{:});
-        end
-        function result = getSliceChecksums(obj, varargin)
-            % getSliceChecksums   Returns the checksums for the IceStorm Slice definitions.
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (containers.Map) - A dictionary mapping Slice type ids to their checksums.
-            
-            is_ = obj.iceInvoke('getSliceChecksums', 1, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = Ice.SliceChecksumDict.read(is_);
-            is_.endEncapsulation();
-        end
-        function r_ = getSliceChecksumsAsync(obj, varargin)
-            % getSliceChecksumsAsync   Returns the checksums for the IceStorm Slice definitions.
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = Ice.SliceChecksumDict.read(is_);
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('getSliceChecksums', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
     end
     methods(Static)

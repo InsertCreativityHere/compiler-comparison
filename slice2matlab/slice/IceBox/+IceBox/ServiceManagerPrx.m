@@ -3,8 +3,6 @@
 % Administers a set of Service instances.
 %
 % ServiceManagerPrx Methods:
-%   getSliceChecksums - Returns the checksums for the IceBox Slice definitions.
-%   getSliceChecksumsAsync - Returns the checksums for the IceBox Slice definitions.
 %   startService - Start an individual service.
 %   startServiceAsync - Start an individual service.
 %   stopService - Stop an individual service.
@@ -23,35 +21,6 @@
 
 classdef ServiceManagerPrx < Ice.ObjectPrx
     methods
-        function result = getSliceChecksums(obj, varargin)
-            % getSliceChecksums   Returns the checksums for the IceBox Slice definitions.
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (containers.Map) - A dictionary mapping Slice type ids to their checksums.
-            
-            is_ = obj.iceInvoke('getSliceChecksums', 1, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = Ice.SliceChecksumDict.read(is_);
-            is_.endEncapsulation();
-        end
-        function r_ = getSliceChecksumsAsync(obj, varargin)
-            % getSliceChecksumsAsync   Returns the checksums for the IceBox Slice definitions.
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = Ice.SliceChecksumDict.read(is_);
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('getSliceChecksums', 1, true, [], 1, @unmarshal, {}, varargin{:});
-        end
         function startService(obj, service, varargin)
             % startService   Start an individual service.
             %

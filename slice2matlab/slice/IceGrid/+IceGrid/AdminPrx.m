@@ -100,8 +100,6 @@
 %   getAllRegistryNamesAsync - Get all the IceGrid registries currently registered.
 %   shutdown - Shut down the IceGrid registry.
 %   shutdownAsync - Shut down the IceGrid registry.
-%   getSliceChecksums - Returns the checksums for the IceGrid Slice definitions.
-%   getSliceChecksumsAsync - Returns the checksums for the IceGrid Slice definitions.
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
@@ -2170,35 +2168,6 @@ classdef AdminPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
             r_ = obj.iceInvokeAsync('shutdown', 0, false, [], 0, [], {}, varargin{:});
-        end
-        function result = getSliceChecksums(obj, varargin)
-            % getSliceChecksums   Returns the checksums for the IceGrid Slice definitions.
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (containers.Map) - A dictionary mapping Slice type ids to their checksums.
-            
-            is_ = obj.iceInvoke('getSliceChecksums', 1, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = Ice.SliceChecksumDict.read(is_);
-            is_.endEncapsulation();
-        end
-        function r_ = getSliceChecksumsAsync(obj, varargin)
-            % getSliceChecksumsAsync   Returns the checksums for the IceGrid Slice definitions.
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = Ice.SliceChecksumDict.read(is_);
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('getSliceChecksums', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
     end
     methods(Static)

@@ -82,7 +82,6 @@ const ::std::string iceC_IceBox_ServiceManager_ids[2] =
 const ::std::string iceC_IceBox_ServiceManager_ops[] =
 {
     "addObserver",
-    "getSliceChecksums",
     "ice_id",
     "ice_ids",
     "ice_isA",
@@ -91,7 +90,6 @@ const ::std::string iceC_IceBox_ServiceManager_ops[] =
     "startService",
     "stopService"
 };
-const ::std::string iceC_IceBox_ServiceManager_getSliceChecksums_name = "getSliceChecksums";
 const ::std::string iceC_IceBox_ServiceManager_startService_name = "startService";
 const ::std::string iceC_IceBox_ServiceManager_stopService_name = "stopService";
 const ::std::string iceC_IceBox_ServiceManager_addObserver_name = "addObserver";
@@ -274,20 +272,6 @@ IceBox::ServiceManager::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceBox::ServiceManager::_iceD_getSliceChecksums(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
-{
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::Ice::SliceChecksumDict ret = this->getSliceChecksums(current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
 IceBox::ServiceManager::_iceD_startService(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
@@ -347,7 +331,7 @@ IceBox::ServiceManager::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice
 bool
 IceBox::ServiceManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceBox_ServiceManager_ops, iceC_IceBox_ServiceManager_ops + 9, current.operation);
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceBox_ServiceManager_ops, iceC_IceBox_ServiceManager_ops + 8, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -361,33 +345,29 @@ IceBox::ServiceManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::C
         }
         case 1:
         {
-            return _iceD_getSliceChecksums(in, current);
+            return _iceD_ice_id(in, current);
         }
         case 2:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_ids(in, current);
         }
         case 3:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_isA(in, current);
         }
         case 4:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_ping(in, current);
         }
         case 5:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_shutdown(in, current);
         }
         case 6:
         {
-            return _iceD_shutdown(in, current);
-        }
-        case 7:
-        {
             return _iceD_startService(in, current);
         }
-        case 8:
+        case 7:
         {
             return _iceD_stopService(in, current);
         }
@@ -439,17 +419,6 @@ IceBox::ServiceObserverPrx::ice_staticId()
 {
     return ServiceObserver::ice_staticId();
 }
-
-/// \cond INTERNAL
-void
-IceBox::ServiceManagerPrx::_iceI_getSliceChecksums(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::SliceChecksumDict>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_IceBox_ServiceManager_getSliceChecksums_name);
-    outAsync->invoke(iceC_IceBox_ServiceManager_getSliceChecksums_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
 
 /// \cond INTERNAL
 void
@@ -558,8 +527,6 @@ namespace
 const ::std::string iceC_IceBox_ServiceObserver_servicesStarted_name = "servicesStarted";
 
 const ::std::string iceC_IceBox_ServiceObserver_servicesStopped_name = "servicesStopped";
-
-const ::std::string iceC_IceBox_ServiceManager_getSliceChecksums_name = "getSliceChecksums";
 
 const ::std::string iceC_IceBox_ServiceManager_startService_name = "startService";
 
@@ -872,46 +839,6 @@ void
     }
 }
 /// \endcond
-
-::Ice::AsyncResultPtr
-IceProxy::IceBox::ServiceManager::_iceI_begin_getSliceChecksums(const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    _checkTwowayOnly(iceC_IceBox_ServiceManager_getSliceChecksums_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_IceBox_ServiceManager_getSliceChecksums_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_IceBox_ServiceManager_getSliceChecksums_name, ::Ice::Nonmutating, context);
-        result->writeEmptyParams();
-        result->invoke(iceC_IceBox_ServiceManager_getSliceChecksums_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-::Ice::SliceChecksumDict
-IceProxy::IceBox::ServiceManager::end_getSliceChecksums(const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_IceBox_ServiceManager_getSliceChecksums_name);
-    ::Ice::SliceChecksumDict ret;
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(ret);
-    result->_endReadParams();
-    return ret;
-}
 
 ::Ice::AsyncResultPtr
 IceProxy::IceBox::ServiceManager::_iceI_begin_startService(const ::std::string& iceP_service, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
@@ -1292,20 +1219,6 @@ IceBox::ServiceManager::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceBox::ServiceManager::_iceD_getSliceChecksums(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
-{
-    _iceCheckMode(::Ice::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::Ice::SliceChecksumDict ret = this->getSliceChecksums(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
 IceBox::ServiceManager::_iceD_startService(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::Normal, current.mode);
@@ -1366,7 +1279,6 @@ namespace
 const ::std::string iceC_IceBox_ServiceManager_all[] =
 {
     "addObserver",
-    "getSliceChecksums",
     "ice_id",
     "ice_ids",
     "ice_isA",
@@ -1382,7 +1294,7 @@ const ::std::string iceC_IceBox_ServiceManager_all[] =
 bool
 IceBox::ServiceManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceBox_ServiceManager_all, iceC_IceBox_ServiceManager_all + 9, current.operation);
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceBox_ServiceManager_all, iceC_IceBox_ServiceManager_all + 8, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -1396,33 +1308,29 @@ IceBox::ServiceManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::C
         }
         case 1:
         {
-            return _iceD_getSliceChecksums(in, current);
+            return _iceD_ice_id(in, current);
         }
         case 2:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_ids(in, current);
         }
         case 3:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_isA(in, current);
         }
         case 4:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_ping(in, current);
         }
         case 5:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_shutdown(in, current);
         }
         case 6:
         {
-            return _iceD_shutdown(in, current);
-        }
-        case 7:
-        {
             return _iceD_startService(in, current);
         }
-        case 8:
+        case 7:
         {
             return _iceD_stopService(in, current);
         }

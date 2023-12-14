@@ -20,7 +20,6 @@ namespace
     require_once 'Ice/Identity.php';
     require_once 'Ice/BuiltinSequences.php';
     require_once 'Ice/Properties.php';
-    require_once 'Ice/SliceChecksumDict.php';
     require_once 'Glacier2/Session.php';
     require_once 'Exception.php';
     require_once 'Descriptor.php';
@@ -428,7 +427,6 @@ namespace IceGrid
     global $IceGrid__t_LoadInfo;
     global $IceGrid__t_NodeInfo;
     global $IceGrid__t_RegistryInfo;
-    global $Ice__t_SliceChecksumDict;
     IcePHP_defineOperation($IceGrid__t_AdminPrx, 'addApplication', 0, 0, 0, array(array($IceGrid__t_ApplicationDescriptor)), null, null, array($IceGrid__t_AccessDeniedException, $IceGrid__t_DeploymentException));
     IcePHP_defineOperation($IceGrid__t_AdminPrx, 'syncApplication', 0, 0, 0, array(array($IceGrid__t_ApplicationDescriptor)), null, null, array($IceGrid__t_AccessDeniedException, $IceGrid__t_DeploymentException, $IceGrid__t_ApplicationNotExistException));
     IcePHP_defineOperation($IceGrid__t_AdminPrx, 'updateApplication', 0, 0, 0, array(array($IceGrid__t_ApplicationUpdateDescriptor)), null, null, array($IceGrid__t_AccessDeniedException, $IceGrid__t_DeploymentException, $IceGrid__t_ApplicationNotExistException));
@@ -476,7 +474,6 @@ namespace IceGrid
     IcePHP_defineOperation($IceGrid__t_AdminPrx, 'shutdownRegistry', 2, 2, 0, array(array($IcePHP__t_string)), null, null, array($IceGrid__t_RegistryNotExistException, $IceGrid__t_RegistryUnreachableException));
     IcePHP_defineOperation($IceGrid__t_AdminPrx, 'getAllRegistryNames', 2, 2, 0, null, null, array($Ice__t_StringSeq), null);
     IcePHP_defineOperation($IceGrid__t_AdminPrx, 'shutdown', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($IceGrid__t_AdminPrx, 'getSliceChecksums', 2, 1, 0, null, null, array($Ice__t_SliceChecksumDict), null);
 }
 
 namespace IceGrid

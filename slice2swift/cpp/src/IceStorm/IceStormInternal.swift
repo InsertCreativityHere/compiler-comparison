@@ -826,8 +826,6 @@ public struct TopicManagerInternalDisp: Ice.Disp {
             return try servant._iceD_create(incoming: request, current: current)
         case "getReplicaNode":
             return try servant._iceD_getReplicaNode(incoming: request, current: current)
-        case "getSliceChecksums":
-            return try servant._iceD_getSliceChecksums(incoming: request, current: current)
         case "ice_id":
             return try (servant as? Object ?? TopicManagerInternalDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
         case "ice_ids":

@@ -86,7 +86,6 @@ const ::std::string iceC_IceGrid_Admin_ops[] =
     "getServerInfo",
     "getServerPid",
     "getServerState",
-    "getSliceChecksums",
     "ice_id",
     "ice_ids",
     "ice_isA",
@@ -159,7 +158,6 @@ const ::std::string iceC_IceGrid_Admin_getRegistryAdmin_name = "getRegistryAdmin
 const ::std::string iceC_IceGrid_Admin_shutdownRegistry_name = "shutdownRegistry";
 const ::std::string iceC_IceGrid_Admin_getAllRegistryNames_name = "getAllRegistryNames";
 const ::std::string iceC_IceGrid_Admin_shutdown_name = "shutdown";
-const ::std::string iceC_IceGrid_Admin_getSliceChecksums_name = "getSliceChecksums";
 
 const ::std::string iceC_IceGrid_FileIterator_ids[2] =
 {
@@ -1105,23 +1103,9 @@ IceGrid::Admin::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Curren
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getSliceChecksums(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
-{
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::Ice::SliceChecksumDict ret = this->getSliceChecksums(current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
 IceGrid::Admin::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceGrid_Admin_ops, iceC_IceGrid_Admin_ops + 52, current.operation);
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceGrid_Admin_ops, iceC_IceGrid_Admin_ops + 51, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -1239,101 +1223,97 @@ IceGrid::Admin::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
         }
         case 27:
         {
-            return _iceD_getSliceChecksums(in, current);
+            return _iceD_ice_id(in, current);
         }
         case 28:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_ids(in, current);
         }
         case 29:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_isA(in, current);
         }
         case 30:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_ping(in, current);
         }
         case 31:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_instantiateServer(in, current);
         }
         case 32:
         {
-            return _iceD_instantiateServer(in, current);
+            return _iceD_isServerEnabled(in, current);
         }
         case 33:
         {
-            return _iceD_isServerEnabled(in, current);
+            return _iceD_patchApplication(in, current);
         }
         case 34:
         {
-            return _iceD_patchApplication(in, current);
+            return _iceD_patchServer(in, current);
         }
         case 35:
         {
-            return _iceD_patchServer(in, current);
+            return _iceD_pingNode(in, current);
         }
         case 36:
         {
-            return _iceD_pingNode(in, current);
+            return _iceD_pingRegistry(in, current);
         }
         case 37:
         {
-            return _iceD_pingRegistry(in, current);
+            return _iceD_removeAdapter(in, current);
         }
         case 38:
         {
-            return _iceD_removeAdapter(in, current);
+            return _iceD_removeApplication(in, current);
         }
         case 39:
         {
-            return _iceD_removeApplication(in, current);
+            return _iceD_removeObject(in, current);
         }
         case 40:
         {
-            return _iceD_removeObject(in, current);
+            return _iceD_sendSignal(in, current);
         }
         case 41:
         {
-            return _iceD_sendSignal(in, current);
+            return _iceD_shutdown(in, current);
         }
         case 42:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdownNode(in, current);
         }
         case 43:
         {
-            return _iceD_shutdownNode(in, current);
+            return _iceD_shutdownRegistry(in, current);
         }
         case 44:
         {
-            return _iceD_shutdownRegistry(in, current);
+            return _iceD_startServer(in, current);
         }
         case 45:
         {
-            return _iceD_startServer(in, current);
+            return _iceD_stopServer(in, current);
         }
         case 46:
         {
-            return _iceD_stopServer(in, current);
+            return _iceD_syncApplication(in, current);
         }
         case 47:
         {
-            return _iceD_syncApplication(in, current);
+            return _iceD_syncApplicationWithoutRestart(in, current);
         }
         case 48:
         {
-            return _iceD_syncApplicationWithoutRestart(in, current);
+            return _iceD_updateApplication(in, current);
         }
         case 49:
         {
-            return _iceD_updateApplication(in, current);
-        }
-        case 50:
-        {
             return _iceD_updateApplicationWithoutRestart(in, current);
         }
-        case 51:
+        case 50:
         {
             return _iceD_updateObject(in, current);
         }
@@ -3866,17 +3846,6 @@ IceGrid::AdminPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 /// \endcond
 
 /// \cond INTERNAL
-void
-IceGrid::AdminPrx::_iceI_getSliceChecksums(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::SliceChecksumDict>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_IceGrid_Admin_getSliceChecksums_name);
-    outAsync->invoke(iceC_IceGrid_Admin_getSliceChecksums_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
 ::std::shared_ptr<::Ice::ObjectPrx>
 IceGrid::AdminPrx::_newInstance() const
 {
@@ -4798,8 +4767,6 @@ const ::std::string iceC_IceGrid_Admin_shutdownRegistry_name = "shutdownRegistry
 const ::std::string iceC_IceGrid_Admin_getAllRegistryNames_name = "getAllRegistryNames";
 
 const ::std::string iceC_IceGrid_Admin_shutdown_name = "shutdown";
-
-const ::std::string iceC_IceGrid_Admin_getSliceChecksums_name = "getSliceChecksums";
 
 const ::std::string iceC_IceGrid_FileIterator_read_name = "read";
 
@@ -7193,46 +7160,6 @@ IceProxy::IceGrid::Admin::end_shutdown(const ::Ice::AsyncResultPtr& result)
     _end(result, iceC_IceGrid_Admin_shutdown_name);
 }
 
-::Ice::AsyncResultPtr
-IceProxy::IceGrid::Admin::_iceI_begin_getSliceChecksums(const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    _checkTwowayOnly(iceC_IceGrid_Admin_getSliceChecksums_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_IceGrid_Admin_getSliceChecksums_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_IceGrid_Admin_getSliceChecksums_name, ::Ice::Nonmutating, context);
-        result->writeEmptyParams();
-        result->invoke(iceC_IceGrid_Admin_getSliceChecksums_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-::Ice::SliceChecksumDict
-IceProxy::IceGrid::Admin::end_getSliceChecksums(const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_IceGrid_Admin_getSliceChecksums_name);
-    ::Ice::SliceChecksumDict ret;
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(ret);
-    result->_endReadParams();
-    return ret;
-}
-
 /// \cond INTERNAL
 ::IceProxy::Ice::Object*
 IceProxy::IceGrid::Admin::_newInstance() const
@@ -9604,20 +9531,6 @@ IceGrid::Admin::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Curren
 }
 /// \endcond
 
-/// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getSliceChecksums(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
-{
-    _iceCheckMode(::Ice::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::Ice::SliceChecksumDict ret = this->getSliceChecksums(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_IceGrid_Admin_all[] =
@@ -9649,7 +9562,6 @@ const ::std::string iceC_IceGrid_Admin_all[] =
     "getServerInfo",
     "getServerPid",
     "getServerState",
-    "getSliceChecksums",
     "ice_id",
     "ice_ids",
     "ice_isA",
@@ -9682,7 +9594,7 @@ const ::std::string iceC_IceGrid_Admin_all[] =
 bool
 IceGrid::Admin::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceGrid_Admin_all, iceC_IceGrid_Admin_all + 52, current.operation);
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceGrid_Admin_all, iceC_IceGrid_Admin_all + 51, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -9800,101 +9712,97 @@ IceGrid::Admin::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
         }
         case 27:
         {
-            return _iceD_getSliceChecksums(in, current);
+            return _iceD_ice_id(in, current);
         }
         case 28:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_ids(in, current);
         }
         case 29:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_isA(in, current);
         }
         case 30:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_ping(in, current);
         }
         case 31:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_instantiateServer(in, current);
         }
         case 32:
         {
-            return _iceD_instantiateServer(in, current);
+            return _iceD_isServerEnabled(in, current);
         }
         case 33:
         {
-            return _iceD_isServerEnabled(in, current);
+            return _iceD_patchApplication(in, current);
         }
         case 34:
         {
-            return _iceD_patchApplication(in, current);
+            return _iceD_patchServer(in, current);
         }
         case 35:
         {
-            return _iceD_patchServer(in, current);
+            return _iceD_pingNode(in, current);
         }
         case 36:
         {
-            return _iceD_pingNode(in, current);
+            return _iceD_pingRegistry(in, current);
         }
         case 37:
         {
-            return _iceD_pingRegistry(in, current);
+            return _iceD_removeAdapter(in, current);
         }
         case 38:
         {
-            return _iceD_removeAdapter(in, current);
+            return _iceD_removeApplication(in, current);
         }
         case 39:
         {
-            return _iceD_removeApplication(in, current);
+            return _iceD_removeObject(in, current);
         }
         case 40:
         {
-            return _iceD_removeObject(in, current);
+            return _iceD_sendSignal(in, current);
         }
         case 41:
         {
-            return _iceD_sendSignal(in, current);
+            return _iceD_shutdown(in, current);
         }
         case 42:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdownNode(in, current);
         }
         case 43:
         {
-            return _iceD_shutdownNode(in, current);
+            return _iceD_shutdownRegistry(in, current);
         }
         case 44:
         {
-            return _iceD_shutdownRegistry(in, current);
+            return _iceD_startServer(in, current);
         }
         case 45:
         {
-            return _iceD_startServer(in, current);
+            return _iceD_stopServer(in, current);
         }
         case 46:
         {
-            return _iceD_stopServer(in, current);
+            return _iceD_syncApplication(in, current);
         }
         case 47:
         {
-            return _iceD_syncApplication(in, current);
+            return _iceD_syncApplicationWithoutRestart(in, current);
         }
         case 48:
         {
-            return _iceD_syncApplicationWithoutRestart(in, current);
+            return _iceD_updateApplication(in, current);
         }
         case 49:
         {
-            return _iceD_updateApplication(in, current);
-        }
-        case 50:
-        {
             return _iceD_updateApplicationWithoutRestart(in, current);
         }
-        case 51:
+        case 50:
         {
             return _iceD_updateObject(in, current);
         }

@@ -6,7 +6,6 @@ Ice.updateModule("Ice")
 
 # Modules:
 import Ice.ObjectAdapter_ice
-import Ice.SliceChecksumDict_ice
 import Ice.ImplicitContextF_ice
 import Ice.Logger_ice
 import Ice.Connection_ice

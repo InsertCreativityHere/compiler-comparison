@@ -34,7 +34,6 @@
 #include <Ice/Optional.h>
 #include <Ice/ExceptionHelpers.h>
 #include <Ice/Identity.h>
-#include <Ice/SliceChecksumDict.h>
 #include <Metrics.h>
 #include <IceUtil/UndefSysMacros.h>
 #include <IceStorm/Config.h>
@@ -680,16 +679,6 @@ public:
     virtual TopicDict retrieveAll(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_retrieveAll(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /**
-     * Returns the checksums for the IceStorm Slice definitions.
-     * @param current The Current object for the invocation.
-     * @return A dictionary mapping Slice type ids to their checksums.
-     */
-    virtual ::Ice::SliceChecksumDict getSliceChecksums(const ::Ice::Current& current) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_getSliceChecksums(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
 
     /// \cond INTERNAL
@@ -1427,49 +1416,6 @@ public:
 
     /// \cond INTERNAL
     ICE_MEMBER(ICESTORM_API) void _iceI_retrieveAll(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::IceStorm::TopicDict>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Returns the checksums for the IceStorm Slice definitions.
-     * @param context The Context map to send with the invocation.
-     * @return A dictionary mapping Slice type ids to their checksums.
-     */
-    ::Ice::SliceChecksumDict getSliceChecksums(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<::Ice::SliceChecksumDict>(true, this, &TopicManagerPrx::_iceI_getSliceChecksums, context).get();
-    }
-
-    /**
-     * Returns the checksums for the IceStorm Slice definitions.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    template<template<typename> class P = ::std::promise>
-    auto getSliceChecksumsAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<::Ice::SliceChecksumDict>>().get_future())
-    {
-        return _makePromiseOutgoing<::Ice::SliceChecksumDict, P>(false, this, &TopicManagerPrx::_iceI_getSliceChecksums, context);
-    }
-
-    /**
-     * Returns the checksums for the IceStorm Slice definitions.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    getSliceChecksumsAsync(::std::function<void(::Ice::SliceChecksumDict)> response,
-                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                           ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<::Ice::SliceChecksumDict>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicManagerPrx::_iceI_getSliceChecksums, context);
-    }
-
-    /// \cond INTERNAL
-    ICE_MEMBER(ICESTORM_API) void _iceI_getSliceChecksums(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::SliceChecksumDict>>&, const ::Ice::Context&);
     /// \endcond
 
     /**
@@ -2223,14 +2169,6 @@ typedef ::IceUtil::Handle< Callback_TopicManager_retrieve_Base> Callback_TopicMa
  */
 class Callback_TopicManager_retrieveAll_Base : public virtual ::IceInternal::CallbackBase { };
 typedef ::IceUtil::Handle< Callback_TopicManager_retrieveAll_Base> Callback_TopicManager_retrieveAllPtr;
-
-/**
- * Base class for asynchronous callback wrapper classes used for calls to
- * IceProxy::IceStorm::TopicManager::begin_getSliceChecksums.
- * Create a wrapper instance by calling ::IceStorm::newCallback_TopicManager_getSliceChecksums.
- */
-class Callback_TopicManager_getSliceChecksums_Base : public virtual ::IceInternal::CallbackBase { };
-typedef ::IceUtil::Handle< Callback_TopicManager_getSliceChecksums_Base> Callback_TopicManager_getSliceChecksumsPtr;
 
 /**
  * Base class for asynchronous callback wrapper classes used for calls to
@@ -3437,85 +3375,6 @@ private:
 public:
 
     /**
-     * Returns the checksums for the IceStorm Slice definitions.
-     * @param context The Context map to send with the invocation.
-     * @return A dictionary mapping Slice type ids to their checksums.
-     */
-    ICE_MEMBER(ICESTORM_API) ::Ice::SliceChecksumDict getSliceChecksums(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return end_getSliceChecksums(_iceI_begin_getSliceChecksums(context, ::IceInternal::dummyCallback, 0, true));
-    }
-
-    /**
-     * Returns the checksums for the IceStorm Slice definitions.
-     * @param context The Context map to send with the invocation.
-     * @return The asynchronous result object for the invocation.
-     */
-    ::Ice::AsyncResultPtr begin_getSliceChecksums(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _iceI_begin_getSliceChecksums(context, ::IceInternal::dummyCallback, 0);
-    }
-
-    /**
-     * Returns the checksums for the IceStorm Slice definitions.
-     * @param cb Asynchronous callback object.
-     * @param cookie User-defined data to associate with the invocation.
-     * @return The asynchronous result object for the invocation.
-     */
-    ::Ice::AsyncResultPtr begin_getSliceChecksums(const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_getSliceChecksums(::Ice::noExplicitContext, cb, cookie);
-    }
-
-    /**
-     * Returns the checksums for the IceStorm Slice definitions.
-     * @param context The Context map to send with the invocation.
-     * @param cb Asynchronous callback object.
-     * @param cookie User-defined data to associate with the invocation.
-     * @return The asynchronous result object for the invocation.
-     */
-    ::Ice::AsyncResultPtr begin_getSliceChecksums(const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_getSliceChecksums(context, cb, cookie);
-    }
-
-    /**
-     * Returns the checksums for the IceStorm Slice definitions.
-     * @param cb Asynchronous callback object.
-     * @param cookie User-defined data to associate with the invocation.
-     * @return The asynchronous result object for the invocation.
-     */
-    ::Ice::AsyncResultPtr begin_getSliceChecksums(const ::IceStorm::Callback_TopicManager_getSliceChecksumsPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_getSliceChecksums(::Ice::noExplicitContext, cb, cookie);
-    }
-
-    /**
-     * Returns the checksums for the IceStorm Slice definitions.
-     * @param context The Context map to send with the invocation.
-     * @param cb Asynchronous callback object.
-     * @param cookie User-defined data to associate with the invocation.
-     * @return The asynchronous result object for the invocation.
-     */
-    ::Ice::AsyncResultPtr begin_getSliceChecksums(const ::Ice::Context& context, const ::IceStorm::Callback_TopicManager_getSliceChecksumsPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_getSliceChecksums(context, cb, cookie);
-    }
-
-    /**
-     * Completes an invocation of begin_getSliceChecksums.
-     * @param result The asynchronous result object for the invocation.
-     * @return A dictionary mapping Slice type ids to their checksums.
-     */
-    ICE_MEMBER(ICESTORM_API) ::Ice::SliceChecksumDict end_getSliceChecksums(const ::Ice::AsyncResultPtr& result);
-
-private:
-
-    ICE_MEMBER(ICESTORM_API) ::Ice::AsyncResultPtr _iceI_begin_getSliceChecksums(const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
-
-public:
-
-    /**
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
@@ -3914,16 +3773,6 @@ public:
     virtual TopicDict retrieveAll(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
     /// \cond INTERNAL
     bool _iceD_retrieveAll(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /**
-     * Returns the checksums for the IceStorm Slice definitions.
-     * @param current The Current object for the invocation.
-     * @return A dictionary mapping Slice type ids to their checksums.
-     */
-    virtual ::Ice::SliceChecksumDict getSliceChecksums(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_getSliceChecksums(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
 
     /// \cond INTERNAL
@@ -6313,158 +6162,6 @@ template<class T, typename CT> Callback_TopicManager_retrieveAllPtr
 newCallback_TopicManager_retrieveAll(T* instance, void (T::*cb)(const TopicDict&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TopicManager_retrieveAll<T, CT>(instance, cb, excb, sentcb);
-}
-
-/**
- * Type-safe asynchronous callback wrapper class used for calls to
- * IceProxy::IceStorm::TopicManager::begin_getSliceChecksums.
- * Create a wrapper instance by calling ::IceStorm::newCallback_TopicManager_getSliceChecksums.
- */
-template<class T>
-class CallbackNC_TopicManager_getSliceChecksums : public Callback_TopicManager_getSliceChecksums_Base, public ::IceInternal::TwowayCallbackNC<T>
-{
-public:
-
-    typedef IceUtil::Handle<T> TPtr;
-
-    typedef void (T::*Exception)(const ::Ice::Exception&);
-    typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const ::Ice::SliceChecksumDict&);
-
-    CallbackNC_TopicManager_getSliceChecksums(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
-        : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
-    {
-    }
-
-    /// \cond INTERNAL
-    virtual void completed(const ::Ice::AsyncResultPtr& result) const
-    {
-        TopicManagerPrx proxy = TopicManagerPrx::uncheckedCast(result->getProxy());
-        ::Ice::SliceChecksumDict ret;
-        try
-        {
-            ret = proxy->end_getSliceChecksums(result);
-        }
-        catch(const ::Ice::Exception& ex)
-        {
-            ::IceInternal::CallbackNC<T>::exception(result, ex);
-            return;
-        }
-        if(_response)
-        {
-            (::IceInternal::CallbackNC<T>::_callback.get()->*_response)(ret);
-        }
-    }
-    /// \endcond
-
-private:
-
-    Response _response;
-};
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::IceStorm::TopicManager::begin_getSliceChecksums.
- */
-template<class T> Callback_TopicManager_getSliceChecksumsPtr
-newCallback_TopicManager_getSliceChecksums(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::Ice::SliceChecksumDict&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
-{
-    return new CallbackNC_TopicManager_getSliceChecksums<T>(instance, cb, excb, sentcb);
-}
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::IceStorm::TopicManager::begin_getSliceChecksums.
- */
-template<class T> Callback_TopicManager_getSliceChecksumsPtr
-newCallback_TopicManager_getSliceChecksums(T* instance, void (T::*cb)(const ::Ice::SliceChecksumDict&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
-{
-    return new CallbackNC_TopicManager_getSliceChecksums<T>(instance, cb, excb, sentcb);
-}
-
-/**
- * Type-safe asynchronous callback wrapper class with cookie support used for calls to
- * IceProxy::IceStorm::TopicManager::begin_getSliceChecksums.
- * Create a wrapper instance by calling ::IceStorm::newCallback_TopicManager_getSliceChecksums.
- */
-template<class T, typename CT>
-class Callback_TopicManager_getSliceChecksums : public Callback_TopicManager_getSliceChecksums_Base, public ::IceInternal::TwowayCallback<T, CT>
-{
-public:
-
-    typedef IceUtil::Handle<T> TPtr;
-
-    typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
-    typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const ::Ice::SliceChecksumDict&, const CT&);
-
-    Callback_TopicManager_getSliceChecksums(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
-        : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
-    {
-    }
-
-    /// \cond INTERNAL
-    virtual void completed(const ::Ice::AsyncResultPtr& result) const
-    {
-        TopicManagerPrx proxy = TopicManagerPrx::uncheckedCast(result->getProxy());
-        ::Ice::SliceChecksumDict ret;
-        try
-        {
-            ret = proxy->end_getSliceChecksums(result);
-        }
-        catch(const ::Ice::Exception& ex)
-        {
-            ::IceInternal::Callback<T, CT>::exception(result, ex);
-            return;
-        }
-        if(_response)
-        {
-            (::IceInternal::Callback<T, CT>::_callback.get()->*_response)(ret, CT::dynamicCast(result->getCookie()));
-        }
-    }
-    /// \endcond
-
-private:
-
-    Response _response;
-};
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * Use this overload when your callback methods receive a cookie value.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::IceStorm::TopicManager::begin_getSliceChecksums.
- */
-template<class T, typename CT> Callback_TopicManager_getSliceChecksumsPtr
-newCallback_TopicManager_getSliceChecksums(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::Ice::SliceChecksumDict&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
-{
-    return new Callback_TopicManager_getSliceChecksums<T, CT>(instance, cb, excb, sentcb);
-}
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * Use this overload when your callback methods receive a cookie value.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::IceStorm::TopicManager::begin_getSliceChecksums.
- */
-template<class T, typename CT> Callback_TopicManager_getSliceChecksumsPtr
-newCallback_TopicManager_getSliceChecksums(T* instance, void (T::*cb)(const ::Ice::SliceChecksumDict&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
-{
-    return new Callback_TopicManager_getSliceChecksums<T, CT>(instance, cb, excb, sentcb);
 }
 
 /**

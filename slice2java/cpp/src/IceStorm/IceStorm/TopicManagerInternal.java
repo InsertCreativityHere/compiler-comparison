@@ -78,7 +78,6 @@ public interface TopicManagerInternal extends com.zeroc.IceStorm.TopicManager
     {
         "create",
         "getReplicaNode",
-        "getSliceChecksums",
         "ice_id",
         "ice_ids",
         "ice_isA",
@@ -110,29 +109,25 @@ public interface TopicManagerInternal extends com.zeroc.IceStorm.TopicManager
             }
             case 2:
             {
-                return com.zeroc.IceStorm.TopicManager._iceD_getSliceChecksums(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
             }
             case 3:
             {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
             }
             case 4:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
             }
             case 5:
             {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
             }
             case 6:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
-            }
-            case 7:
-            {
                 return com.zeroc.IceStorm.TopicManager._iceD_retrieve(this, in, current);
             }
-            case 8:
+            case 7:
             {
                 return com.zeroc.IceStorm.TopicManager._iceD_retrieveAll(this, in, current);
             }

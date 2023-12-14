@@ -1721,10 +1721,6 @@ public struct AdminSessionTraits: Ice.SliceTraits {
 ///  - shutdown: Shut down the IceGrid registry.
 ///
 ///  - shutdownAsync: Shut down the IceGrid registry.
-///
-///  - getSliceChecksums: Returns the checksums for the IceGrid Slice definitions.
-///
-///  - getSliceChecksumsAsync: Returns the checksums for the IceGrid Slice definitions.
 public protocol AdminPrx: Ice.ObjectPrx {}
 
 private final class AdminPrxI: Ice.ObjectPrxI, AdminPrx {
@@ -1994,10 +1990,6 @@ public extension Ice.InputStream {
 ///  - shutdown: Shut down the IceGrid registry.
 ///
 ///  - shutdownAsync: Shut down the IceGrid registry.
-///
-///  - getSliceChecksums: Returns the checksums for the IceGrid Slice definitions.
-///
-///  - getSliceChecksumsAsync: Returns the checksums for the IceGrid Slice definitions.
 public extension AdminPrx {
     /// Add an application to IceGrid.
     ///
@@ -5309,47 +5301,6 @@ public extension AdminPrx {
                                   sentFlags: sentFlags,
                                   sent: sent)
     }
-
-    /// Returns the checksums for the IceGrid Slice definitions.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.SliceChecksumDict` - A dictionary mapping Slice type ids to their checksums.
-    func getSliceChecksums(context: Ice.Context? = nil) throws -> Ice.SliceChecksumDict {
-        return try _impl._invoke(operation: "getSliceChecksums",
-                                 mode: .Nonmutating,
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.SliceChecksumDict = try Ice.SliceChecksumDictHelper.read(from: istr)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Returns the checksums for the IceGrid Slice definitions.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<Ice.SliceChecksumDict>` - The result of the operation
-    func getSliceChecksumsAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.SliceChecksumDict> {
-        return _impl._invokeAsync(operation: "getSliceChecksums",
-                                  mode: .Nonmutating,
-                                  read: { istr in
-                                      let iceP_returnValue: Ice.SliceChecksumDict = try Ice.SliceChecksumDictHelper.read(from: istr)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
 }
 
 /// This interface provides access to IceGrid log file contents.
@@ -8498,8 +8449,6 @@ public struct AdminDisp: Ice.Disp {
             return try servant._iceD_getServerPid(incoming: request, current: current)
         case "getServerState":
             return try servant._iceD_getServerState(incoming: request, current: current)
-        case "getSliceChecksums":
-            return try servant._iceD_getSliceChecksums(incoming: request, current: current)
         case "ice_id":
             return try (servant as? Object ?? AdminDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
         case "ice_ids":
@@ -9272,13 +9221,6 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) throws
-
-    /// Returns the checksums for the IceGrid Slice definitions.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Ice.SliceChecksumDict` - A dictionary mapping Slice type ids to their checksums.
-    func getSliceChecksums(current: Ice.Current) throws -> Ice.SliceChecksumDict
 }
 
 
@@ -10169,8 +10111,6 @@ public protocol AdminSession: Glacier2.Session {
 ///  - getAllRegistryNames: Get all the IceGrid registries currently registered.
 ///
 ///  - shutdown: Shut down the IceGrid registry.
-///
-///  - getSliceChecksums: Returns the checksums for the IceGrid Slice definitions.
 public extension Admin {
     func _iceD_addApplication(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         let iceP_descriptor: ApplicationDescriptor = try inS.read { istr in
@@ -10722,16 +10662,6 @@ public extension Admin {
         try self.shutdown(current: current)
 
         return inS.setResult()
-    }
-
-    func _iceD_getSliceChecksums(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        let iceP_returnValue = try self.getSliceChecksums(current: current)
-
-        return inS.setResult{ ostr in
-            Ice.SliceChecksumDictHelper.write(to: ostr, value: iceP_returnValue)
-        }
     }
 }
 

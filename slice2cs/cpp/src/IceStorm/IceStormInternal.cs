@@ -2324,18 +2324,6 @@ namespace IceStorm
             }
         }
 
-        public global::System.Collections.Generic.Dictionary<string, string> getSliceChecksums(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                return _iceI_getSliceChecksumsAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
         public global::IceStormElection.NodePrx getReplicaNode(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
@@ -2480,38 +2468,6 @@ namespace IceStorm
                 {
                     global::System.Collections.Generic.Dictionary<string, TopicPrx> ret;
                     ret = TopicDictHelper.read(istr);
-                    return ret;
-                });
-        }
-
-        public global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getSliceChecksumsAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_getSliceChecksumsAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> _iceI_getSliceChecksumsAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_getSliceChecksums_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<global::System.Collections.Generic.Dictionary<string, string>>(progress, cancel);
-            _iceI_getSliceChecksums(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _getSliceChecksums_name = "getSliceChecksums";
-
-        private void _iceI_getSliceChecksums(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<global::System.Collections.Generic.Dictionary<string, string>>(completed);
-            outAsync.invoke(
-                _getSliceChecksums_name,
-                global::Ice.OperationMode.Nonmutating,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                read: (global::Ice.InputStream istr) =>
-                {
-                    global::System.Collections.Generic.Dictionary<string, string> ret;
-                    ret = global::Ice.SliceChecksumDictHelper.read(istr);
                     return ret;
                 });
         }
@@ -2663,44 +2619,6 @@ namespace IceStorm
                 },
                 this, _retrieveAll_name, cookie, completedCallback);
             _iceI_retrieveAll(context, synchronous, completed);
-            return completed;
-        }
-
-        public global::Ice.AsyncResult<Callback_TopicManager_getSliceChecksums> begin_getSliceChecksums(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            return begin_getSliceChecksums(context, null, null, false);
-        }
-
-        public global::Ice.AsyncResult begin_getSliceChecksums(global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getSliceChecksums(new global::Ice.OptionalContext(), callback, cookie, false);
-        }
-
-        public global::Ice.AsyncResult begin_getSliceChecksums(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-        {
-            return begin_getSliceChecksums(context, callback, cookie, false);
-        }
-
-        public global::System.Collections.Generic.Dictionary<string, string> end_getSliceChecksums(global::Ice.AsyncResult asyncResult)
-        {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _getSliceChecksums_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<global::System.Collections.Generic.Dictionary<string, string>>)resultI_.OutgoingAsync;
-            return outgoing_.getResult(resultI_.wait());
-        }
-
-        private global::Ice.AsyncResult<Callback_TopicManager_getSliceChecksums> begin_getSliceChecksums(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-        {
-            iceCheckAsyncTwowayOnly(_getSliceChecksums_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_TopicManager_getSliceChecksums, global::System.Collections.Generic.Dictionary<string, string>>(
-                (Callback_TopicManager_getSliceChecksums cb, global::System.Collections.Generic.Dictionary<string, string> ret) =>
-                {
-                    if(cb != null)
-                    {
-                        cb.Invoke(ret);
-                    }
-                },
-                this, _getSliceChecksums_name, cookie, completedCallback);
-            _iceI_getSliceChecksums(context, synchronous, completed);
             return completed;
         }
 
@@ -3206,8 +3124,6 @@ namespace IceStorm
 
         public abstract TopicPrx create(string name, global::Ice.Current current = null);
 
-        public abstract global::System.Collections.Generic.Dictionary<string, string> getSliceChecksums(global::Ice.Current current = null);
-
         public abstract TopicPrx retrieve(string name, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<string, TopicPrx> retrieveAll(global::Ice.Current current = null);
@@ -3264,7 +3180,6 @@ namespace IceStorm
         {
             "create",
             "getReplicaNode",
-            "getSliceChecksums",
             "ice_id",
             "ice_ids",
             "ice_isA",
@@ -3294,29 +3209,25 @@ namespace IceStorm
                 }
                 case 2:
                 {
-                    return TopicManagerDisp_.iceD_getSliceChecksums(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
                 }
                 case 3:
                 {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
                 }
                 case 4:
                 {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
                 }
                 case 5:
                 {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
                 }
                 case 6:
                 {
-                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-                case 7:
-                {
                     return TopicManagerDisp_.iceD_retrieve(this, inS, current);
                 }
-                case 8:
+                case 7:
                 {
                     return TopicManagerDisp_.iceD_retrieveAll(this, inS, current);
                 }

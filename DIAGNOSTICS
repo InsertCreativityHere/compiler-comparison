@@ -1,19 +1,4 @@
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:190: warning: classes with operations are deprecated
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:204: warning: classes implementing interfaces are deprecated
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:223: warning: classes with operations are deprecated
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:190: warning: classes with operations are deprecated
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:204: warning: classes implementing interfaces are deprecated
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:223: warning: classes with operations are deprecated
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:190: warning: classes with operations are deprecated
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:204: warning: classes implementing interfaces are deprecated
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:223: warning: classes with operations are deprecated
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:190: warning: classes with operations are deprecated
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:204: warning: classes implementing interfaces are deprecated
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:223: warning: classes with operations are deprecated
 /Users/austin/Code/zeroc/ice/cpp/bin/slice2js: error:include/IceUtil/Handle.h:41: ::IceUtil::NullHandleException
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:190: warning: classes with operations are deprecated
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:204: warning: classes implementing interfaces are deprecated
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:223: warning: classes with operations are deprecated
 /Users/austin/Code/zeroc/ice/slice/IceBT/EndpointInfo.ice:40: `Ice::EndpointInfo' has been declared but not defined
 /Users/austin/Code/zeroc/ice/slice/IceBT/ConnectionInfo.ice:35: `Ice::ConnectionInfo' is not defined
 /Users/austin/Code/zeroc/ice/slice/IceIAP/EndpointInfo.ice:34: `Ice::EndpointInfo' has been declared but not defined
@@ -22,9 +7,6 @@
 /Users/austin/Code/zeroc/ice/slice/IceSSL/ConnectionInfo.ice:38: `Ice::ConnectionInfo' is not defined
 /Users/austin/Code/zeroc/ice/python/test/Ice/objects/Test.ice:194: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/python/test/Ice/operations/Test.ice:71: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:190: warning: classes with operations are deprecated
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:204: warning: classes implementing interfaces are deprecated
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:223: warning: classes with operations are deprecated
 /Users/austin/Code/zeroc/ice/js/test/typescript/Ice/objects/Test.ice:194: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/js/test/typescript/Ice/operations/Test.ice:72: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/js/test/Ice/objects/Test.ice:198: warning: dictionary key type not supported in PHP
@@ -67,12 +49,6 @@
 /Users/austin/Code/zeroc/ice/objective-c/test/Ice/operations/OperationsTest.ice:72: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/ruby/test/Ice/objects/Test.ice:164: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/ruby/test/Ice/operations/Test.ice:71: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:190: warning: classes with operations are deprecated
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:204: warning: classes implementing interfaces are deprecated
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:223: warning: classes with operations are deprecated
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:190: warning: classes with operations are deprecated
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:204: warning: classes implementing interfaces are deprecated
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:223: warning: classes with operations are deprecated
 /Users/austin/Code/zeroc/ice/python/test/Ice/packagemd/Package.ice:32: invalid module mapping:
  Slice module `::Test3' should be map to Swift module `Test2'
 /Users/austin/Code/zeroc/ice/python/test/Ice/packagemd/Package.ice:32: invalid module mapping:
@@ -81,9 +57,6 @@
  Slice module `::Inner' should be map to Swift module `Test'
 /Users/austin/Code/zeroc/ice/python/test/Ice/operations/Test.ice:353: invalid module mapping:
  Slice module `::Test2' should be map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:190: warning: classes with operations are deprecated
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:204: warning: classes implementing interfaces are deprecated
-/Users/austin/Code/zeroc/ice/python/test/Ice/checksum/STypes.ice:223: warning: classes with operations are deprecated
 /Users/austin/Code/zeroc/ice/js/test/Slice/escape/Key.ice:142: invalid module mapping:
  Slice module `::System' should be map to Swift module `await'
 /Users/austin/Code/zeroc/ice/js/test/typescript/Ice/scope/Test.ice:149: invalid module mapping:

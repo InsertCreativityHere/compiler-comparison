@@ -1307,10 +1307,6 @@ public extension TopicPrx {
 ///  - retrieveAll: Retrieve all topics managed by this topic manager.
 ///
 ///  - retrieveAllAsync: Retrieve all topics managed by this topic manager.
-///
-///  - getSliceChecksums: Returns the checksums for the IceStorm Slice definitions.
-///
-///  - getSliceChecksumsAsync: Returns the checksums for the IceStorm Slice definitions.
 public protocol TopicManagerPrx: Ice.ObjectPrx {}
 
 private final class TopicManagerPrxI: Ice.ObjectPrxI, TopicManagerPrx {
@@ -1401,10 +1397,6 @@ public extension Ice.InputStream {
 ///  - retrieveAll: Retrieve all topics managed by this topic manager.
 ///
 ///  - retrieveAllAsync: Retrieve all topics managed by this topic manager.
-///
-///  - getSliceChecksums: Returns the checksums for the IceStorm Slice definitions.
-///
-///  - getSliceChecksumsAsync: Returns the checksums for the IceStorm Slice definitions.
 public extension TopicManagerPrx {
     /// Create a new topic. The topic name must be unique.
     ///
@@ -1578,47 +1570,6 @@ public extension TopicManagerPrx {
                                   mode: .Nonmutating,
                                   read: { istr in
                                       let iceP_returnValue: TopicDict = try TopicDictHelper.read(from: istr)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    /// Returns the checksums for the IceStorm Slice definitions.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.SliceChecksumDict` - A dictionary mapping Slice type ids to their checksums.
-    func getSliceChecksums(context: Ice.Context? = nil) throws -> Ice.SliceChecksumDict {
-        return try _impl._invoke(operation: "getSliceChecksums",
-                                 mode: .Nonmutating,
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.SliceChecksumDict = try Ice.SliceChecksumDictHelper.read(from: istr)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    /// Returns the checksums for the IceStorm Slice definitions.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<Ice.SliceChecksumDict>` - The result of the operation
-    func getSliceChecksumsAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.SliceChecksumDict> {
-        return _impl._invokeAsync(operation: "getSliceChecksums",
-                                  mode: .Nonmutating,
-                                  read: { istr in
-                                      let iceP_returnValue: Ice.SliceChecksumDict = try Ice.SliceChecksumDictHelper.read(from: istr)
                                       return iceP_returnValue
                                   },
                                   context: context,
@@ -1937,8 +1888,6 @@ public struct TopicManagerDisp: Ice.Disp {
         switch current.operation {
         case "create":
             return try servant._iceD_create(incoming: request, current: current)
-        case "getSliceChecksums":
-            return try servant._iceD_getSliceChecksums(incoming: request, current: current)
         case "ice_id":
             return try (servant as? Object ?? TopicManagerDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
         case "ice_ids":
@@ -1992,13 +1941,6 @@ public protocol TopicManager {
     ///
     /// - returns: `TopicDict` - A dictionary of string, topic proxy pairs.
     func retrieveAll(current: Ice.Current) throws -> TopicDict
-
-    /// Returns the checksums for the IceStorm Slice definitions.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Ice.SliceChecksumDict` - A dictionary mapping Slice type ids to their checksums.
-    func getSliceChecksums(current: Ice.Current) throws -> Ice.SliceChecksumDict
 }
 
 
@@ -2185,8 +2127,6 @@ public extension Topic {
 ///  - retrieve: Retrieve a topic by name.
 ///
 ///  - retrieveAll: Retrieve all topics managed by this topic manager.
-///
-///  - getSliceChecksums: Returns the checksums for the IceStorm Slice definitions.
 public extension TopicManager {
     func _iceD_create(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         let iceP_name: Swift.String = try inS.read { istr in
@@ -2221,16 +2161,6 @@ public extension TopicManager {
 
         return inS.setResult{ ostr in
             TopicDictHelper.write(to: ostr, value: iceP_returnValue)
-        }
-    }
-
-    func _iceD_getSliceChecksums(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        let iceP_returnValue = try self.getSliceChecksums(current: current)
-
-        return inS.setResult{ ostr in
-            Ice.SliceChecksumDictHelper.write(to: ostr, value: iceP_returnValue)
         }
     }
 }

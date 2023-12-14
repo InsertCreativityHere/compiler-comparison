@@ -31,7 +31,6 @@ require("../Ice/StreamHelpers");
 require("../Ice/BuiltinSequences");
 require("../Ice/CommunicatorF");
 require("../Ice/PropertiesF");
-require("../Ice/SliceChecksumDict");
 const Ice = _ModuleRegistry.module("Ice");
 
 const Slice = Ice.Slice;
@@ -198,7 +197,6 @@ IceBox.ServiceManagerPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(IceBox.ServiceManager, IceBox.ServiceManagerPrx, iceC_IceBox_ServiceManager_ids, 1,
 {
-    "getSliceChecksums": [, 2, 1, , ["Ice.SliceChecksumDictHelper"], , , , , ],
     "startService": [, , , , , [[7]], ,
     [
         IceBox.AlreadyStartedException,

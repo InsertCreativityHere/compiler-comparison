@@ -30,7 +30,6 @@ require("../Ice/HashUtil");
 require("../Ice/ArrayUtil");
 require("../Ice/StreamHelpers");
 require("../Ice/Identity");
-require("../Ice/SliceChecksumDict");
 const Ice = _ModuleRegistry.module("Ice");
 
 const IceMX = require("../Metrics").IceMX;
@@ -418,8 +417,7 @@ Slice.defineOperations(IceStorm.TopicManager, IceStorm.TopicManagerPrx, iceC_Ice
     [
         IceStorm.NoSuchTopic
     ], , ],
-    "retrieveAll": [, 2, 1, , ["IceStorm.TopicDictHelper"], , , , , ],
-    "getSliceChecksums": [, 2, 1, , ["Ice.SliceChecksumDictHelper"], , , , , ]
+    "retrieveAll": [, 2, 1, , ["IceStorm.TopicDictHelper"], , , , , ]
 });
 
 const iceC_IceStorm_Finder_ids = [
