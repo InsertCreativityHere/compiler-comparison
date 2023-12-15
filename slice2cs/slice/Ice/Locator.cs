@@ -64,53 +64,6 @@ namespace Ice
             return "::Ice::AdapterNotFoundException";
         }
 
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::AdapterNotFoundException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            AdapterNotFoundException o = other as AdapterNotFoundException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(AdapterNotFoundException lhs, AdapterNotFoundException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(AdapterNotFoundException lhs, AdapterNotFoundException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
-
         #region Marshaling support
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -174,53 +127,6 @@ namespace Ice
         {
             return "::Ice::InvalidReplicaGroupIdException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::InvalidReplicaGroupIdException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            InvalidReplicaGroupIdException o = other as InvalidReplicaGroupIdException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(InvalidReplicaGroupIdException lhs, InvalidReplicaGroupIdException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(InvalidReplicaGroupIdException lhs, InvalidReplicaGroupIdException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
 
         #region Marshaling support
 
@@ -286,53 +192,6 @@ namespace Ice
             return "::Ice::AdapterAlreadyActiveException";
         }
 
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::AdapterAlreadyActiveException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            AdapterAlreadyActiveException o = other as AdapterAlreadyActiveException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(AdapterAlreadyActiveException lhs, AdapterAlreadyActiveException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(AdapterAlreadyActiveException lhs, AdapterAlreadyActiveException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
-
         #region Marshaling support
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -396,53 +255,6 @@ namespace Ice
             return "::Ice::ObjectNotFoundException";
         }
 
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::ObjectNotFoundException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            ObjectNotFoundException o = other as ObjectNotFoundException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(ObjectNotFoundException lhs, ObjectNotFoundException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(ObjectNotFoundException lhs, ObjectNotFoundException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
-
         #region Marshaling support
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -505,53 +317,6 @@ namespace Ice
         {
             return "::Ice::ServerNotFoundException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::ServerNotFoundException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            ServerNotFoundException o = other as ServerNotFoundException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(ServerNotFoundException lhs, ServerNotFoundException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(ServerNotFoundException lhs, ServerNotFoundException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
 
         #region Marshaling support
 

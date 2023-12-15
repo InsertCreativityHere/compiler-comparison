@@ -70,57 +70,6 @@ namespace Test
             return "::Test::ExtendedPermissionDeniedException";
         }
 
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::ExtendedPermissionDeniedException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            ExtendedPermissionDeniedException o = other as ExtendedPermissionDeniedException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(ExtendedPermissionDeniedException lhs, ExtendedPermissionDeniedException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(ExtendedPermissionDeniedException lhs, ExtendedPermissionDeniedException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
-
         #region Marshaling support
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]

@@ -101,78 +101,6 @@ namespace IceBox
         {
             return "::IceBox::FailureException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceBox::FailureException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, reason);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            FailureException o = other as FailureException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.reason == null)
-            {
-                if(o.reason != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.reason.Equals(o.reason))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("reason", this.reason == null ? "" : this.reason);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(FailureException lhs, FailureException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(FailureException lhs, FailureException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -219,53 +147,6 @@ namespace IceBox
         {
             return "::IceBox::AlreadyStartedException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceBox::AlreadyStartedException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            AlreadyStartedException o = other as AlreadyStartedException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(AlreadyStartedException lhs, AlreadyStartedException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(AlreadyStartedException lhs, AlreadyStartedException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
 
         #region Marshaling support
 
@@ -331,53 +212,6 @@ namespace IceBox
             return "::IceBox::AlreadyStoppedException";
         }
 
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceBox::AlreadyStoppedException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            AlreadyStoppedException o = other as AlreadyStoppedException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(AlreadyStoppedException lhs, AlreadyStoppedException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(AlreadyStoppedException lhs, AlreadyStoppedException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
-
         #region Marshaling support
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -441,53 +275,6 @@ namespace IceBox
         {
             return "::IceBox::NoSuchServiceException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceBox::NoSuchServiceException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            NoSuchServiceException o = other as NoSuchServiceException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(NoSuchServiceException lhs, NoSuchServiceException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(NoSuchServiceException lhs, NoSuchServiceException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
 
         #region Marshaling support
 

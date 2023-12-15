@@ -60,53 +60,6 @@ namespace Core
             return "::Core::ArgumentException";
         }
 
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Core::ArgumentException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            ArgumentException o = other as ArgumentException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(ArgumentException lhs, ArgumentException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(ArgumentException lhs, ArgumentException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
-
         #region Marshaling support
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]

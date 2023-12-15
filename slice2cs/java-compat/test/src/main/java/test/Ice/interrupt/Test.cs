@@ -60,53 +60,6 @@ namespace Test
             return "::Test::InterruptedException";
         }
 
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::InterruptedException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            InterruptedException o = other as InterruptedException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(InterruptedException lhs, InterruptedException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(InterruptedException lhs, InterruptedException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
-
         #region Marshaling support
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -180,53 +133,6 @@ namespace Test
         {
             return "::Test::CannotInterruptException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::CannotInterruptException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            CannotInterruptException o = other as CannotInterruptException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(CannotInterruptException lhs, CannotInterruptException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(CannotInterruptException lhs, CannotInterruptException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
 
         #region Marshaling support
 

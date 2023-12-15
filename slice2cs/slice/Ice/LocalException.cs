@@ -97,78 +97,6 @@ namespace Ice
         {
             return "::Ice::InitializationException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::InitializationException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, reason);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            InitializationException o = other as InitializationException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.reason == null)
-            {
-                if(o.reason != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.reason.Equals(o.reason))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("reason", this.reason == null ? "" : this.reason);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(InitializationException lhs, InitializationException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(InitializationException lhs, InitializationException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -249,78 +177,6 @@ namespace Ice
         {
             return "::Ice::PluginInitializationException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::PluginInitializationException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, reason);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            PluginInitializationException o = other as PluginInitializationException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.reason == null)
-            {
-                if(o.reason != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.reason.Equals(o.reason))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("reason", this.reason == null ? "" : this.reason);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(PluginInitializationException lhs, PluginInitializationException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(PluginInitializationException lhs, PluginInitializationException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -371,53 +227,6 @@ namespace Ice
         {
             return "::Ice::CollocationOptimizationException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::CollocationOptimizationException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            CollocationOptimizationException o = other as CollocationOptimizationException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(CollocationOptimizationException lhs, CollocationOptimizationException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(CollocationOptimizationException lhs, CollocationOptimizationException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -508,94 +317,6 @@ namespace Ice
         {
             return "::Ice::AlreadyRegisteredException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::AlreadyRegisteredException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, kindOfObject);
-            global::IceInternal.HashUtil.hashAdd(ref h_, id);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            AlreadyRegisteredException o = other as AlreadyRegisteredException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.kindOfObject == null)
-            {
-                if(o.kindOfObject != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.kindOfObject.Equals(o.kindOfObject))
-                {
-                    return false;
-                }
-            }
-            if(this.id == null)
-            {
-                if(o.id != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.id.Equals(o.id))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("kindOfObject", this.kindOfObject == null ? "" : this.kindOfObject);
-            info.AddValue("id", this.id == null ? "" : this.id);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(AlreadyRegisteredException lhs, AlreadyRegisteredException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(AlreadyRegisteredException lhs, AlreadyRegisteredException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -689,94 +410,6 @@ namespace Ice
         {
             return "::Ice::NotRegisteredException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::NotRegisteredException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, kindOfObject);
-            global::IceInternal.HashUtil.hashAdd(ref h_, id);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            NotRegisteredException o = other as NotRegisteredException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.kindOfObject == null)
-            {
-                if(o.kindOfObject != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.kindOfObject.Equals(o.kindOfObject))
-                {
-                    return false;
-                }
-            }
-            if(this.id == null)
-            {
-                if(o.id != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.id.Equals(o.id))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("kindOfObject", this.kindOfObject == null ? "" : this.kindOfObject);
-            info.AddValue("id", this.id == null ? "" : this.id);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(NotRegisteredException lhs, NotRegisteredException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(NotRegisteredException lhs, NotRegisteredException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -860,78 +493,6 @@ namespace Ice
         {
             return "::Ice::TwowayOnlyException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::TwowayOnlyException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, operation);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            TwowayOnlyException o = other as TwowayOnlyException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.operation == null)
-            {
-                if(o.operation != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.operation.Equals(o.operation))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("operation", this.operation == null ? "" : this.operation);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(TwowayOnlyException lhs, TwowayOnlyException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(TwowayOnlyException lhs, TwowayOnlyException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -982,53 +543,6 @@ namespace Ice
         {
             return "::Ice::CloneNotImplementedException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::CloneNotImplementedException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            CloneNotImplementedException o = other as CloneNotImplementedException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(CloneNotImplementedException lhs, CloneNotImplementedException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(CloneNotImplementedException lhs, CloneNotImplementedException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -1113,78 +627,6 @@ namespace Ice
         {
             return "::Ice::UnknownException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::UnknownException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, unknown);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            UnknownException o = other as UnknownException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.unknown == null)
-            {
-                if(o.unknown != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.unknown.Equals(o.unknown))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("unknown", this.unknown == null ? "" : this.unknown);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(UnknownException lhs, UnknownException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(UnknownException lhs, UnknownException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -1247,57 +689,6 @@ namespace Ice
         {
             return "::Ice::UnknownLocalException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::UnknownLocalException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            UnknownLocalException o = other as UnknownLocalException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(UnknownLocalException lhs, UnknownLocalException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(UnknownLocalException lhs, UnknownLocalException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -1362,57 +753,6 @@ namespace Ice
         {
             return "::Ice::UnknownUserException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::UnknownUserException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            UnknownUserException o = other as UnknownUserException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(UnknownUserException lhs, UnknownUserException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(UnknownUserException lhs, UnknownUserException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -1459,53 +799,6 @@ namespace Ice
         {
             return "::Ice::VersionMismatchException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::VersionMismatchException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            VersionMismatchException o = other as VersionMismatchException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(VersionMismatchException lhs, VersionMismatchException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(VersionMismatchException lhs, VersionMismatchException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -1551,53 +844,6 @@ namespace Ice
         {
             return "::Ice::CommunicatorDestroyedException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::CommunicatorDestroyedException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            CommunicatorDestroyedException o = other as CommunicatorDestroyedException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(CommunicatorDestroyedException lhs, CommunicatorDestroyedException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(CommunicatorDestroyedException lhs, CommunicatorDestroyedException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -1678,78 +924,6 @@ namespace Ice
         {
             return "::Ice::ObjectAdapterDeactivatedException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::ObjectAdapterDeactivatedException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, name);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            ObjectAdapterDeactivatedException o = other as ObjectAdapterDeactivatedException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.name == null)
-            {
-                if(o.name != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.name.Equals(o.name))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("name", this.name == null ? "" : this.name);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(ObjectAdapterDeactivatedException lhs, ObjectAdapterDeactivatedException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(ObjectAdapterDeactivatedException lhs, ObjectAdapterDeactivatedException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -1831,78 +1005,6 @@ namespace Ice
         {
             return "::Ice::ObjectAdapterIdInUseException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::ObjectAdapterIdInUseException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, id);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            ObjectAdapterIdInUseException o = other as ObjectAdapterIdInUseException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.id == null)
-            {
-                if(o.id != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.id.Equals(o.id))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("id", this.id == null ? "" : this.id);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(ObjectAdapterIdInUseException lhs, ObjectAdapterIdInUseException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(ObjectAdapterIdInUseException lhs, ObjectAdapterIdInUseException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -1982,78 +1084,6 @@ namespace Ice
         {
             return "::Ice::NoEndpointException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::NoEndpointException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, proxy);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            NoEndpointException o = other as NoEndpointException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.proxy == null)
-            {
-                if(o.proxy != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.proxy.Equals(o.proxy))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("proxy", this.proxy == null ? "" : this.proxy);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(NoEndpointException lhs, NoEndpointException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(NoEndpointException lhs, NoEndpointException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -2134,78 +1164,6 @@ namespace Ice
         {
             return "::Ice::EndpointParseException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::EndpointParseException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, str);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            EndpointParseException o = other as EndpointParseException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.str == null)
-            {
-                if(o.str != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.str.Equals(o.str))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("str", this.str == null ? "" : this.str);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(EndpointParseException lhs, EndpointParseException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(EndpointParseException lhs, EndpointParseException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -2286,78 +1244,6 @@ namespace Ice
         {
             return "::Ice::EndpointSelectionTypeParseException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::EndpointSelectionTypeParseException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, str);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            EndpointSelectionTypeParseException o = other as EndpointSelectionTypeParseException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.str == null)
-            {
-                if(o.str != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.str.Equals(o.str))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("str", this.str == null ? "" : this.str);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(EndpointSelectionTypeParseException lhs, EndpointSelectionTypeParseException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(EndpointSelectionTypeParseException lhs, EndpointSelectionTypeParseException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -2438,78 +1324,6 @@ namespace Ice
         {
             return "::Ice::VersionParseException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::VersionParseException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, str);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            VersionParseException o = other as VersionParseException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.str == null)
-            {
-                if(o.str != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.str.Equals(o.str))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("str", this.str == null ? "" : this.str);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(VersionParseException lhs, VersionParseException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(VersionParseException lhs, VersionParseException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -2590,78 +1404,6 @@ namespace Ice
         {
             return "::Ice::IdentityParseException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::IdentityParseException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, str);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            IdentityParseException o = other as IdentityParseException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.str == null)
-            {
-                if(o.str != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.str.Equals(o.str))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("str", this.str == null ? "" : this.str);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(IdentityParseException lhs, IdentityParseException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(IdentityParseException lhs, IdentityParseException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -2742,78 +1484,6 @@ namespace Ice
         {
             return "::Ice::ProxyParseException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::ProxyParseException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, str);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            ProxyParseException o = other as ProxyParseException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.str == null)
-            {
-                if(o.str != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.str.Equals(o.str))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("str", this.str == null ? "" : this.str);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(ProxyParseException lhs, ProxyParseException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(ProxyParseException lhs, ProxyParseException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -2893,78 +1563,6 @@ namespace Ice
         {
             return "::Ice::IllegalIdentityException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::IllegalIdentityException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, id);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            IllegalIdentityException o = other as IllegalIdentityException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.id == null)
-            {
-                if(o.id != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.id.Equals(o.id))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("id", this.id, typeof(Identity));
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(IllegalIdentityException lhs, IllegalIdentityException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(IllegalIdentityException lhs, IllegalIdentityException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -3045,78 +1643,6 @@ namespace Ice
         {
             return "::Ice::IllegalServantException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::IllegalServantException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, reason);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            IllegalServantException o = other as IllegalServantException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.reason == null)
-            {
-                if(o.reason != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.reason.Equals(o.reason))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("reason", this.reason == null ? "" : this.reason);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(IllegalServantException lhs, IllegalServantException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(IllegalServantException lhs, IllegalServantException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -3212,110 +1738,6 @@ namespace Ice
         {
             return "::Ice::RequestFailedException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::RequestFailedException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, id);
-            global::IceInternal.HashUtil.hashAdd(ref h_, facet);
-            global::IceInternal.HashUtil.hashAdd(ref h_, operation);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            RequestFailedException o = other as RequestFailedException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.id == null)
-            {
-                if(o.id != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.id.Equals(o.id))
-                {
-                    return false;
-                }
-            }
-            if(this.facet == null)
-            {
-                if(o.facet != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.facet.Equals(o.facet))
-                {
-                    return false;
-                }
-            }
-            if(this.operation == null)
-            {
-                if(o.operation != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.operation.Equals(o.operation))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("id", this.id, typeof(Identity));
-            info.AddValue("facet", this.facet == null ? "" : this.facet);
-            info.AddValue("operation", this.operation == null ? "" : this.operation);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(RequestFailedException lhs, RequestFailedException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(RequestFailedException lhs, RequestFailedException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -3372,57 +1794,6 @@ namespace Ice
         {
             return "::Ice::ObjectNotExistException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::ObjectNotExistException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            ObjectNotExistException o = other as ObjectNotExistException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(ObjectNotExistException lhs, ObjectNotExistException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(ObjectNotExistException lhs, ObjectNotExistException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -3479,57 +1850,6 @@ namespace Ice
         {
             return "::Ice::FacetNotExistException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::FacetNotExistException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            FacetNotExistException o = other as FacetNotExistException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(FacetNotExistException lhs, FacetNotExistException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(FacetNotExistException lhs, FacetNotExistException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -3588,57 +1908,6 @@ namespace Ice
         {
             return "::Ice::OperationNotExistException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::OperationNotExistException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            OperationNotExistException o = other as OperationNotExistException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(OperationNotExistException lhs, OperationNotExistException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(OperationNotExistException lhs, OperationNotExistException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -3722,68 +1991,6 @@ namespace Ice
         {
             return "::Ice::SyscallException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::SyscallException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, error);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            SyscallException o = other as SyscallException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!this.error.Equals(o.error))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("error", this.error);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(SyscallException lhs, SyscallException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(SyscallException lhs, SyscallException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -3839,57 +2046,6 @@ namespace Ice
         {
             return "::Ice::SocketException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::SocketException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            SocketException o = other as SocketException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(SocketException lhs, SocketException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(SocketException lhs, SocketException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -3969,82 +2125,6 @@ namespace Ice
         {
             return "::Ice::CFNetworkException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::CFNetworkException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, domain);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            CFNetworkException o = other as CFNetworkException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            if(this.domain == null)
-            {
-                if(o.domain != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.domain.Equals(o.domain))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("domain", this.domain == null ? "" : this.domain);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(CFNetworkException lhs, CFNetworkException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(CFNetworkException lhs, CFNetworkException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -4124,82 +2204,6 @@ namespace Ice
         {
             return "::Ice::FileException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::FileException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, path);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            FileException o = other as FileException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            if(this.path == null)
-            {
-                if(o.path != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.path.Equals(o.path))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("path", this.path == null ? "" : this.path);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(FileException lhs, FileException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(FileException lhs, FileException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -4255,57 +2259,6 @@ namespace Ice
         {
             return "::Ice::ConnectFailedException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::ConnectFailedException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            ConnectFailedException o = other as ConnectFailedException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(ConnectFailedException lhs, ConnectFailedException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(ConnectFailedException lhs, ConnectFailedException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -4362,57 +2315,6 @@ namespace Ice
         {
             return "::Ice::ConnectionRefusedException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::ConnectionRefusedException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            ConnectionRefusedException o = other as ConnectionRefusedException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(ConnectionRefusedException lhs, ConnectionRefusedException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(ConnectionRefusedException lhs, ConnectionRefusedException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -4468,57 +2370,6 @@ namespace Ice
         {
             return "::Ice::ConnectionLostException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::ConnectionLostException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            ConnectionLostException o = other as ConnectionLostException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(ConnectionLostException lhs, ConnectionLostException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(ConnectionLostException lhs, ConnectionLostException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -4606,84 +2457,6 @@ namespace Ice
         {
             return "::Ice::DNSException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::DNSException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, error);
-            global::IceInternal.HashUtil.hashAdd(ref h_, host);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            DNSException o = other as DNSException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!this.error.Equals(o.error))
-            {
-                return false;
-            }
-            if(this.host == null)
-            {
-                if(o.host != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.host.Equals(o.host))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("error", this.error);
-            info.AddValue("host", this.host == null ? "" : this.host);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(DNSException lhs, DNSException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(DNSException lhs, DNSException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -4729,53 +2502,6 @@ namespace Ice
         {
             return "::Ice::OperationInterruptedException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::OperationInterruptedException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            OperationInterruptedException o = other as OperationInterruptedException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(OperationInterruptedException lhs, OperationInterruptedException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(OperationInterruptedException lhs, OperationInterruptedException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -4821,53 +2547,6 @@ namespace Ice
         {
             return "::Ice::TimeoutException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::TimeoutException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            TimeoutException o = other as TimeoutException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(TimeoutException lhs, TimeoutException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(TimeoutException lhs, TimeoutException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -4913,57 +2592,6 @@ namespace Ice
         {
             return "::Ice::ConnectTimeoutException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::ConnectTimeoutException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            ConnectTimeoutException o = other as ConnectTimeoutException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(ConnectTimeoutException lhs, ConnectTimeoutException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(ConnectTimeoutException lhs, ConnectTimeoutException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -5009,57 +2637,6 @@ namespace Ice
         {
             return "::Ice::CloseTimeoutException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::CloseTimeoutException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            CloseTimeoutException o = other as CloseTimeoutException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(CloseTimeoutException lhs, CloseTimeoutException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(CloseTimeoutException lhs, CloseTimeoutException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -5106,57 +2683,6 @@ namespace Ice
         {
             return "::Ice::ConnectionTimeoutException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::ConnectionTimeoutException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            ConnectionTimeoutException o = other as ConnectionTimeoutException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(ConnectionTimeoutException lhs, ConnectionTimeoutException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(ConnectionTimeoutException lhs, ConnectionTimeoutException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -5203,57 +2729,6 @@ namespace Ice
         {
             return "::Ice::InvocationTimeoutException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::InvocationTimeoutException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            InvocationTimeoutException o = other as InvocationTimeoutException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(InvocationTimeoutException lhs, InvocationTimeoutException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(InvocationTimeoutException lhs, InvocationTimeoutException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -5300,53 +2775,6 @@ namespace Ice
         {
             return "::Ice::InvocationCanceledException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::InvocationCanceledException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            InvocationCanceledException o = other as InvocationCanceledException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(InvocationCanceledException lhs, InvocationCanceledException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(InvocationCanceledException lhs, InvocationCanceledException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -5427,78 +2855,6 @@ namespace Ice
         {
             return "::Ice::ProtocolException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::ProtocolException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, reason);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            ProtocolException o = other as ProtocolException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.reason == null)
-            {
-                if(o.reason != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.reason.Equals(o.reason))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("reason", this.reason == null ? "" : this.reason);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(ProtocolException lhs, ProtocolException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(ProtocolException lhs, ProtocolException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -5571,82 +2927,6 @@ namespace Ice
         {
             return "::Ice::BadMagicException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::BadMagicException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, badMagic);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            BadMagicException o = other as BadMagicException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            if(this.badMagic == null)
-            {
-                if(o.badMagic != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!IceUtilInternal.Arrays.Equals(this.badMagic, o.badMagic))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("badMagic", this.badMagic, typeof(byte[]));
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(BadMagicException lhs, BadMagicException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(BadMagicException lhs, BadMagicException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -5732,78 +3012,6 @@ namespace Ice
         {
             return "::Ice::UnsupportedProtocolException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::UnsupportedProtocolException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, bad);
-            global::IceInternal.HashUtil.hashAdd(ref h_, supported);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            UnsupportedProtocolException o = other as UnsupportedProtocolException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            if(!this.bad.Equals(o.bad))
-            {
-                return false;
-            }
-            if(!this.supported.Equals(o.supported))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("bad", this.bad, typeof(ProtocolVersion));
-            info.AddValue("supported", this.supported, typeof(ProtocolVersion));
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(UnsupportedProtocolException lhs, UnsupportedProtocolException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(UnsupportedProtocolException lhs, UnsupportedProtocolException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -5889,78 +3097,6 @@ namespace Ice
         {
             return "::Ice::UnsupportedEncodingException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::UnsupportedEncodingException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, bad);
-            global::IceInternal.HashUtil.hashAdd(ref h_, supported);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            UnsupportedEncodingException o = other as UnsupportedEncodingException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            if(!this.bad.Equals(o.bad))
-            {
-                return false;
-            }
-            if(!this.supported.Equals(o.supported))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("bad", this.bad, typeof(EncodingVersion));
-            info.AddValue("supported", this.supported, typeof(EncodingVersion));
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(UnsupportedEncodingException lhs, UnsupportedEncodingException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(UnsupportedEncodingException lhs, UnsupportedEncodingException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -6016,57 +3152,6 @@ namespace Ice
         {
             return "::Ice::UnknownMessageException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::UnknownMessageException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            UnknownMessageException o = other as UnknownMessageException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(UnknownMessageException lhs, UnknownMessageException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(UnknownMessageException lhs, UnknownMessageException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -6123,57 +3208,6 @@ namespace Ice
         {
             return "::Ice::ConnectionNotValidatedException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::ConnectionNotValidatedException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            ConnectionNotValidatedException o = other as ConnectionNotValidatedException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(ConnectionNotValidatedException lhs, ConnectionNotValidatedException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(ConnectionNotValidatedException lhs, ConnectionNotValidatedException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -6230,57 +3264,6 @@ namespace Ice
         {
             return "::Ice::UnknownRequestIdException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::UnknownRequestIdException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            UnknownRequestIdException o = other as UnknownRequestIdException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(UnknownRequestIdException lhs, UnknownRequestIdException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(UnknownRequestIdException lhs, UnknownRequestIdException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -6336,57 +3319,6 @@ namespace Ice
         {
             return "::Ice::UnknownReplyStatusException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::UnknownReplyStatusException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            UnknownReplyStatusException o = other as UnknownReplyStatusException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(UnknownReplyStatusException lhs, UnknownReplyStatusException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(UnknownReplyStatusException lhs, UnknownReplyStatusException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -6450,57 +3382,6 @@ namespace Ice
         {
             return "::Ice::CloseConnectionException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::CloseConnectionException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            CloseConnectionException o = other as CloseConnectionException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(CloseConnectionException lhs, CloseConnectionException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(CloseConnectionException lhs, CloseConnectionException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -6580,68 +3461,6 @@ namespace Ice
         {
             return "::Ice::ConnectionManuallyClosedException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::ConnectionManuallyClosedException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, graceful);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            ConnectionManuallyClosedException o = other as ConnectionManuallyClosedException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!this.graceful.Equals(o.graceful))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("graceful", this.graceful);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(ConnectionManuallyClosedException lhs, ConnectionManuallyClosedException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(ConnectionManuallyClosedException lhs, ConnectionManuallyClosedException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -6698,57 +3517,6 @@ namespace Ice
         {
             return "::Ice::IllegalMessageSizeException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::IllegalMessageSizeException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            IllegalMessageSizeException o = other as IllegalMessageSizeException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(IllegalMessageSizeException lhs, IllegalMessageSizeException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(IllegalMessageSizeException lhs, IllegalMessageSizeException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -6804,57 +3572,6 @@ namespace Ice
         {
             return "::Ice::CompressionException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::CompressionException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            CompressionException o = other as CompressionException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(CompressionException lhs, CompressionException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(CompressionException lhs, CompressionException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -6912,57 +3629,6 @@ namespace Ice
         {
             return "::Ice::DatagramLimitException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::DatagramLimitException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            DatagramLimitException o = other as DatagramLimitException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(DatagramLimitException lhs, DatagramLimitException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(DatagramLimitException lhs, DatagramLimitException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -7018,57 +3684,6 @@ namespace Ice
         {
             return "::Ice::MarshalException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::MarshalException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            MarshalException o = other as MarshalException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(MarshalException lhs, MarshalException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(MarshalException lhs, MarshalException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -7124,57 +3739,6 @@ namespace Ice
         {
             return "::Ice::ProxyUnmarshalException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::ProxyUnmarshalException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            ProxyUnmarshalException o = other as ProxyUnmarshalException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(ProxyUnmarshalException lhs, ProxyUnmarshalException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(ProxyUnmarshalException lhs, ProxyUnmarshalException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -7230,57 +3794,6 @@ namespace Ice
         {
             return "::Ice::UnmarshalOutOfBoundsException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::UnmarshalOutOfBoundsException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            UnmarshalOutOfBoundsException o = other as UnmarshalOutOfBoundsException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(UnmarshalOutOfBoundsException lhs, UnmarshalOutOfBoundsException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(UnmarshalOutOfBoundsException lhs, UnmarshalOutOfBoundsException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -7361,82 +3874,6 @@ namespace Ice
         {
             return "::Ice::NoValueFactoryException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::NoValueFactoryException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, type);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            NoValueFactoryException o = other as NoValueFactoryException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            if(this.type == null)
-            {
-                if(o.type != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.type.Equals(o.type))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("type", this.type == null ? "" : this.type);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(NoValueFactoryException lhs, NoValueFactoryException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(NoValueFactoryException lhs, NoValueFactoryException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -7528,98 +3965,6 @@ namespace Ice
         {
             return "::Ice::UnexpectedObjectException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::UnexpectedObjectException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, type);
-            global::IceInternal.HashUtil.hashAdd(ref h_, expectedType);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            UnexpectedObjectException o = other as UnexpectedObjectException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            if(this.type == null)
-            {
-                if(o.type != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.type.Equals(o.type))
-                {
-                    return false;
-                }
-            }
-            if(this.expectedType == null)
-            {
-                if(o.expectedType != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.expectedType.Equals(o.expectedType))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("type", this.type == null ? "" : this.type);
-            info.AddValue("expectedType", this.expectedType == null ? "" : this.expectedType);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(UnexpectedObjectException lhs, UnexpectedObjectException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(UnexpectedObjectException lhs, UnexpectedObjectException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -7677,57 +4022,6 @@ namespace Ice
         {
             return "::Ice::MemoryLimitException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::MemoryLimitException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            MemoryLimitException o = other as MemoryLimitException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(MemoryLimitException lhs, MemoryLimitException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(MemoryLimitException lhs, MemoryLimitException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -7784,57 +4078,6 @@ namespace Ice
         {
             return "::Ice::StringConversionException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::StringConversionException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            StringConversionException o = other as StringConversionException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(StringConversionException lhs, StringConversionException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(StringConversionException lhs, StringConversionException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -7890,57 +4133,6 @@ namespace Ice
         {
             return "::Ice::EncapsulationException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::EncapsulationException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            EncapsulationException o = other as EncapsulationException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(EncapsulationException lhs, EncapsulationException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(EncapsulationException lhs, EncapsulationException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -8023,78 +4215,6 @@ namespace Ice
         {
             return "::Ice::FeatureNotSupportedException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::FeatureNotSupportedException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, unsupportedFeature);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            FeatureNotSupportedException o = other as FeatureNotSupportedException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.unsupportedFeature == null)
-            {
-                if(o.unsupportedFeature != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.unsupportedFeature.Equals(o.unsupportedFeature))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("unsupportedFeature", this.unsupportedFeature == null ? "" : this.unsupportedFeature);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(FeatureNotSupportedException lhs, FeatureNotSupportedException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(FeatureNotSupportedException lhs, FeatureNotSupportedException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -8175,78 +4295,6 @@ namespace Ice
         {
             return "::Ice::SecurityException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::SecurityException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, reason);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            SecurityException o = other as SecurityException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.reason == null)
-            {
-                if(o.reason != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.reason.Equals(o.reason))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("reason", this.reason == null ? "" : this.reason);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(SecurityException lhs, SecurityException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(SecurityException lhs, SecurityException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -8293,53 +4341,6 @@ namespace Ice
         {
             return "::Ice::FixedProxyException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::FixedProxyException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            FixedProxyException o = other as FixedProxyException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(FixedProxyException lhs, FixedProxyException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(FixedProxyException lhs, FixedProxyException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     /// <summary>
@@ -8386,52 +4387,5 @@ namespace Ice
         {
             return "::Ice::ResponseSentException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Ice::ResponseSentException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            ResponseSentException o = other as ResponseSentException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(ResponseSentException lhs, ResponseSentException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(ResponseSentException lhs, ResponseSentException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 }

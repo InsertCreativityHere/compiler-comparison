@@ -64,53 +64,6 @@ namespace IcePatch2
             return "::IcePatch2::PartitionOutOfRangeException";
         }
 
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IcePatch2::PartitionOutOfRangeException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            PartitionOutOfRangeException o = other as PartitionOutOfRangeException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(PartitionOutOfRangeException lhs, PartitionOutOfRangeException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(PartitionOutOfRangeException lhs, PartitionOutOfRangeException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
-
         #region Marshaling support
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -208,78 +161,6 @@ namespace IcePatch2
             return "::IcePatch2::FileAccessException";
         }
 
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IcePatch2::FileAccessException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, reason);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            FileAccessException o = other as FileAccessException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.reason == null)
-            {
-                if(o.reason != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.reason.Equals(o.reason))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("reason", this.reason == null ? "" : this.reason);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(FileAccessException lhs, FileAccessException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(FileAccessException lhs, FileAccessException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
-
         #region Marshaling support
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -356,57 +237,6 @@ namespace IcePatch2
         {
             return "::IcePatch2::FileSizeRangeException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = base.GetHashCode();
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IcePatch2::FileSizeRangeException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            FileSizeRangeException o = other as FileSizeRangeException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!base.Equals(other))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(FileSizeRangeException lhs, FileSizeRangeException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(FileSizeRangeException lhs, FileSizeRangeException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
 
         #region Marshaling support
 

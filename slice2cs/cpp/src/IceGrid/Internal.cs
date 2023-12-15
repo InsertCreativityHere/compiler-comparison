@@ -59,53 +59,6 @@ namespace IceGrid
         {
             return "::IceGrid::SynchronizationException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceGrid::SynchronizationException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            SynchronizationException o = other as SynchronizationException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(SynchronizationException lhs, SynchronizationException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(SynchronizationException lhs, SynchronizationException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -610,53 +563,6 @@ namespace IceGrid
             return "::IceGrid::AdapterActiveException";
         }
 
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceGrid::AdapterActiveException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            AdapterActiveException o = other as AdapterActiveException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(AdapterActiveException lhs, AdapterActiveException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(AdapterActiveException lhs, AdapterActiveException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
-
         #region Marshaling support
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -748,68 +654,6 @@ namespace IceGrid
         {
             return "::IceGrid::AdapterNotActiveException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceGrid::AdapterNotActiveException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, activatable);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            AdapterNotActiveException o = other as AdapterNotActiveException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(!this.activatable.Equals(o.activatable))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("activatable", this.activatable);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(AdapterNotActiveException lhs, AdapterNotActiveException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(AdapterNotActiveException lhs, AdapterNotActiveException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
 
         #region Marshaling support
 
@@ -925,78 +769,6 @@ namespace IceGrid
         {
             return "::IceGrid::AdapterExistsException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceGrid::AdapterExistsException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, id);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            AdapterExistsException o = other as AdapterExistsException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.id == null)
-            {
-                if(o.id != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.id.Equals(o.id))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("id", this.id == null ? "" : this.id);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(AdapterExistsException lhs, AdapterExistsException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(AdapterExistsException lhs, AdapterExistsException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
 
         #region Marshaling support
 
@@ -1139,53 +911,6 @@ namespace IceGrid
             return "::IceGrid::NodeActiveException";
         }
 
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceGrid::NodeActiveException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            NodeActiveException o = other as NodeActiveException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(NodeActiveException lhs, NodeActiveException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(NodeActiveException lhs, NodeActiveException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
-
         #region Marshaling support
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1264,53 +989,6 @@ namespace IceGrid
         {
             return "::IceGrid::ReplicaActiveException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::IceGrid::ReplicaActiveException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            ReplicaActiveException o = other as ReplicaActiveException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(ReplicaActiveException lhs, ReplicaActiveException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(ReplicaActiveException lhs, ReplicaActiveException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
 
         #region Marshaling support
 

@@ -94,78 +94,6 @@ namespace Test
             return "::Test::InvalidInputException";
         }
 
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::InvalidInputException");
-            global::IceInternal.HashUtil.hashAdd(ref h_, reason);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            InvalidInputException o = other as InvalidInputException;
-            if(o == null)
-            {
-                return false;
-            }
-            if(this.reason == null)
-            {
-                if(o.reason != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!this.reason.Equals(o.reason))
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        #if !NET8_0_OR_GREATER
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override void GetObjectData(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context)
-        {
-            info.AddValue("reason", this.reason == null ? "" : this.reason);
-
-            base.GetObjectData(info, context);
-        }
-        #endif
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(InvalidInputException lhs, InvalidInputException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(InvalidInputException lhs, InvalidInputException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
-
         #region Marshaling support
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -226,53 +154,6 @@ namespace Test
         {
             return "::Test::RetryException";
         }
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::RetryException");
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public override bool Equals(object other)
-        {
-            if(other == null)
-            {
-                return false;
-            }
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            RetryException o = other as RetryException;
-            if(o == null)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator==(RetryException lhs, RetryException rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static bool operator!=(RetryException lhs, RetryException rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
     }
 
     [global::System.Runtime.InteropServices.ComVisible(false)]

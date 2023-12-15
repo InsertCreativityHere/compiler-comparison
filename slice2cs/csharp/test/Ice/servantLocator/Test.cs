@@ -62,53 +62,6 @@ namespace Ice.servantLocator
                 return "::Test::TestIntfUserException";
             }
 
-            #region Object members
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public override int GetHashCode()
-            {
-                int h_ = 5381;
-                global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::TestIntfUserException");
-                return h_;
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public override bool Equals(object other)
-            {
-                if(other == null)
-                {
-                    return false;
-                }
-                if(object.ReferenceEquals(this, other))
-                {
-                    return true;
-                }
-                TestIntfUserException o = other as TestIntfUserException;
-                if(o == null)
-                {
-                    return false;
-                }
-                return true;
-            }
-
-            #endregion
-
-            #region Comparison members
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public static bool operator==(TestIntfUserException lhs, TestIntfUserException rhs)
-            {
-                return Equals(lhs, rhs);
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public static bool operator!=(TestIntfUserException lhs, TestIntfUserException rhs)
-            {
-                return !Equals(lhs, rhs);
-            }
-
-            #endregion
-
             #region Marshaling support
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -167,53 +120,6 @@ namespace Ice.servantLocator
             {
                 return "::Test::TestImpossibleException";
             }
-
-            #region Object members
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public override int GetHashCode()
-            {
-                int h_ = 5381;
-                global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::TestImpossibleException");
-                return h_;
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public override bool Equals(object other)
-            {
-                if(other == null)
-                {
-                    return false;
-                }
-                if(object.ReferenceEquals(this, other))
-                {
-                    return true;
-                }
-                TestImpossibleException o = other as TestImpossibleException;
-                if(o == null)
-                {
-                    return false;
-                }
-                return true;
-            }
-
-            #endregion
-
-            #region Comparison members
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public static bool operator==(TestImpossibleException lhs, TestImpossibleException rhs)
-            {
-                return Equals(lhs, rhs);
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public static bool operator!=(TestImpossibleException lhs, TestImpossibleException rhs)
-            {
-                return !Equals(lhs, rhs);
-            }
-
-            #endregion
 
             #region Marshaling support
 
