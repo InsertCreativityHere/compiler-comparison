@@ -30,7 +30,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial struct @Fixed
     {
         #region Slice data members
@@ -138,7 +137,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial class Variable : global::System.ICloneable
     {
         #region Slice data members
@@ -358,7 +356,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial class C : global::Ice.Value
     {
         partial void ice_initialize();
@@ -430,7 +427,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial struct ClassOtherStruct
     {
         #region Slice data members
@@ -538,7 +534,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial class ClassStruct : global::System.ICloneable
     {
         #region Slice data members
@@ -713,7 +708,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial class DictClass : global::Ice.Value
     {
         #region Slice data members
@@ -786,7 +780,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial class BufferStruct : global::System.ICloneable
     {
         #region Slice data members
@@ -3518,14 +3511,9 @@ namespace Test
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class DPrxHelper : global::Ice.ObjectPrxHelperBase, DPrx
     {
         public DPrxHelper()
-        {
-        }
-
-        public DPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 
@@ -4158,14 +4146,9 @@ namespace Test
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class TestIntfPrxHelper : global::Ice.ObjectPrxHelperBase, TestIntfPrx
     {
         public TestIntfPrxHelper()
-        {
-        }
-
-        public TestIntfPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 

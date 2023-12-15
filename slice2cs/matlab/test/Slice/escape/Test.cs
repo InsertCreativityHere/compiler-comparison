@@ -86,7 +86,6 @@ namespace classdef
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class bitor : global::System.ICloneable
         {
             #region Slice data members
@@ -265,7 +264,6 @@ namespace classdef
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class logical : global::Ice.Value
         {
             #region Slice data members
@@ -354,7 +352,6 @@ namespace classdef
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class xor : logical
         {
             #region Slice data members
@@ -431,7 +428,6 @@ namespace classdef
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class @try : global::Ice.Value
         {
             #region Slice data members
@@ -513,7 +509,6 @@ namespace classdef
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class properties : @try
         {
             #region Slice data members
@@ -599,7 +594,6 @@ namespace classdef
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032")]
-        [global::System.Serializable]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
@@ -656,17 +650,6 @@ namespace classdef
             public persistent(global::System.Exception ex) : base(ex)
             {
                 _initDM();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public persistent(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
-            {
-                this.identifier = info.GetString("identifier");
-                this.ice_message_ = info.GetString("ice_message_");
-                this.stack = info.GetString("stack");
-                this.cause = info.GetString("cause");
-                this.type = info.GetString("type");
-                this.end = (logical)info.GetValue("end", typeof(logical));
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -739,7 +722,6 @@ namespace classdef
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032")]
-        [global::System.Serializable]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
@@ -777,12 +759,6 @@ namespace classdef
             public global(global::System.Exception ex) : base(ex)
             {
                 _initDM();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public global(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
-            {
-                this.enumeration = info.GetInt32("enumeration");
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1034,14 +1010,9 @@ namespace classdef
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        [global::System.Serializable]
         public sealed class elseifPrxHelper : global::Ice.ObjectPrxHelperBase, elseifPrx
         {
             public elseifPrxHelper()
-            {
-            }
-
-            public elseifPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 

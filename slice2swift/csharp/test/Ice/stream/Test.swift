@@ -2580,8 +2580,6 @@ public struct SortedStringStringDHelper {
     }
 }
 
-public typealias SerialSmall = Foundation.Data
-
 /// Traits for Slice class `MyClass`.
 public struct MyClassTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MyClass"]
@@ -2808,11 +2806,10 @@ open class MyClass: Ice.Value {
     public var seq9: MyEnumS = MyEnumS()
     public var seq10: MyClassS = MyClassS()
     public var d: StringMyClassD = StringMyClassD()
-    public var ss: SerialSmall = SerialSmall()
 
     public required init() {}
 
-    public init(c: MyClass?, o: Ice.Value?, s: SmallStruct, seq1: Ice.BoolSeq, seq2: Ice.ByteSeq, seq3: Ice.ShortSeq, seq4: Ice.IntSeq, seq5: Ice.LongSeq, seq6: Ice.FloatSeq, seq7: Ice.DoubleSeq, seq8: Ice.StringSeq, seq9: MyEnumS, seq10: MyClassS, d: StringMyClassD, ss: SerialSmall) {
+    public init(c: MyClass?, o: Ice.Value?, s: SmallStruct, seq1: Ice.BoolSeq, seq2: Ice.ByteSeq, seq3: Ice.ShortSeq, seq4: Ice.IntSeq, seq5: Ice.LongSeq, seq6: Ice.FloatSeq, seq7: Ice.DoubleSeq, seq8: Ice.StringSeq, seq9: MyEnumS, seq10: MyClassS, d: StringMyClassD) {
         self.c = c
         self.o = o
         self.s = s
@@ -2827,7 +2824,6 @@ open class MyClass: Ice.Value {
         self.seq9 = seq9
         self.seq10 = seq10
         self.d = d
-        self.ss = ss
     }
 
     /// Returns the Slice type ID of the most-derived interface supported by this object.
@@ -2860,7 +2856,6 @@ open class MyClass: Ice.Value {
         self.seq9 = try MyEnumSHelper.read(from: istr)
         self.seq10 = try MyClassSHelper.read(from: istr)
         self.d = try StringMyClassDHelper.read(from: istr)
-        self.ss = try istr.read()
         try istr.endSlice()
     }
 
@@ -2880,7 +2875,6 @@ open class MyClass: Ice.Value {
         MyEnumSHelper.write(to: ostr, value: self.seq9)
         MyClassSHelper.write(to: ostr, value: self.seq10)
         StringMyClassDHelper.write(to: ostr, value: self.d)
-        ostr.write(self.ss)
         ostr.endSlice()
     }
 }

@@ -523,15 +523,6 @@ if '_t_CustomIntSS' not in _M_Test.__dict__:
 if '_t_CustomCVSS' not in _M_Test.__dict__:
     _M_Test._t_CustomCVSS = IcePy.defineSequence('::Test::CustomCVSS', (), _M_Test._t_CustomCVS)
 
-if '_t_SerialSmall' not in _M_Test.__dict__:
-    _M_Test._t_SerialSmall = IcePy.defineSequence('::Test::SerialSmall', (), IcePy._t_byte)
-
-if '_t_SerialLarge' not in _M_Test.__dict__:
-    _M_Test._t_SerialLarge = IcePy.defineSequence('::Test::SerialLarge', (), IcePy._t_byte)
-
-if '_t_SerialStruct' not in _M_Test.__dict__:
-    _M_Test._t_SerialStruct = IcePy.defineSequence('::Test::SerialStruct', (), IcePy._t_byte)
-
 _M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', Ice.Value, -1, (), False, True, None, ())
 
 if 'MyClassPrx' not in _M_Test.__dict__:
@@ -1450,42 +1441,6 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def end_opCustomCVSS(self, _r):
             return _M_Test.MyClass._op_opCustomCVSS.end(self, _r)
 
-        def opSerialSmallCSharp(self, i, context=None):
-            return _M_Test.MyClass._op_opSerialSmallCSharp.invoke(self, ((i, ), context))
-
-        def opSerialSmallCSharpAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opSerialSmallCSharp.invokeAsync(self, ((i, ), context))
-
-        def begin_opSerialSmallCSharp(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opSerialSmallCSharp.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opSerialSmallCSharp(self, _r):
-            return _M_Test.MyClass._op_opSerialSmallCSharp.end(self, _r)
-
-        def opSerialLargeCSharp(self, i, context=None):
-            return _M_Test.MyClass._op_opSerialLargeCSharp.invoke(self, ((i, ), context))
-
-        def opSerialLargeCSharpAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opSerialLargeCSharp.invokeAsync(self, ((i, ), context))
-
-        def begin_opSerialLargeCSharp(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opSerialLargeCSharp.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opSerialLargeCSharp(self, _r):
-            return _M_Test.MyClass._op_opSerialLargeCSharp.end(self, _r)
-
-        def opSerialStructCSharp(self, i, context=None):
-            return _M_Test.MyClass._op_opSerialStructCSharp.invoke(self, ((i, ), context))
-
-        def opSerialStructCSharpAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opSerialStructCSharp.invokeAsync(self, ((i, ), context))
-
-        def begin_opSerialStructCSharp(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opSerialStructCSharp.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opSerialStructCSharp(self, _r):
-            return _M_Test.MyClass._op_opSerialStructCSharp.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.MyClassPrx.ice_checkedCast(proxy, '::Test::MyClass', facetOrContext, context)
@@ -1743,15 +1698,6 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opCustomCVSS(self, i, current=None):
             raise NotImplementedError("servant method 'opCustomCVSS' not implemented")
 
-        def opSerialSmallCSharp(self, i, current=None):
-            raise NotImplementedError("servant method 'opSerialSmallCSharp' not implemented")
-
-        def opSerialLargeCSharp(self, i, current=None):
-            raise NotImplementedError("servant method 'opSerialLargeCSharp' not implemented")
-
-        def opSerialStructCSharp(self, i, current=None):
-            raise NotImplementedError("servant method 'opSerialStructCSharp' not implemented")
-
         def __str__(self):
             return IcePy.stringify(self, _M_Test._t_MyClassDisp)
 
@@ -1836,9 +1782,6 @@ if 'MyClassPrx' not in _M_Test.__dict__:
     MyClass._op_opCustomCVS = IcePy.Operation('opCustomCVS', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_CustomCVS, False, 0),), (((), _M_Test._t_CustomCVS, False, 0),), ((), _M_Test._t_CustomCVS, False, 0), ())
     MyClass._op_opCustomIntSS = IcePy.Operation('opCustomIntSS', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_CustomIntSS, False, 0),), (((), _M_Test._t_CustomIntSS, False, 0),), ((), _M_Test._t_CustomIntSS, False, 0), ())
     MyClass._op_opCustomCVSS = IcePy.Operation('opCustomCVSS', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_CustomCVSS, False, 0),), (((), _M_Test._t_CustomCVSS, False, 0),), ((), _M_Test._t_CustomCVSS, False, 0), ())
-    MyClass._op_opSerialSmallCSharp = IcePy.Operation('opSerialSmallCSharp', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_SerialSmall, False, 0),), (((), _M_Test._t_SerialSmall, False, 0),), ((), _M_Test._t_SerialSmall, False, 0), ())
-    MyClass._op_opSerialLargeCSharp = IcePy.Operation('opSerialLargeCSharp', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_SerialLarge, False, 0),), (((), _M_Test._t_SerialLarge, False, 0),), ((), _M_Test._t_SerialLarge, False, 0), ())
-    MyClass._op_opSerialStructCSharp = IcePy.Operation('opSerialStructCSharp', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_SerialStruct, False, 0),), (((), _M_Test._t_SerialStruct, False, 0),), ((), _M_Test._t_SerialStruct, False, 0), ())
 
     _M_Test.MyClass = MyClass
     del MyClass

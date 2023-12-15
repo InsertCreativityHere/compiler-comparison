@@ -1282,14 +1282,9 @@ namespace IceGrid
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class QueryPrxHelper : global::Ice.ObjectPrxHelperBase, QueryPrx
     {
         public QueryPrxHelper()
-        {
-        }
-
-        public QueryPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 
@@ -1879,14 +1874,9 @@ namespace IceGrid
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class RegistryPrxHelper : global::Ice.ObjectPrxHelperBase, RegistryPrx
     {
         public RegistryPrxHelper()
-        {
-        }
-
-        public RegistryPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 
@@ -2603,14 +2593,9 @@ namespace IceGrid
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class LocatorPrxHelper : global::Ice.ObjectPrxHelperBase, LocatorPrx
     {
         public LocatorPrxHelper()
-        {
-        }
-
-        public LocatorPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 

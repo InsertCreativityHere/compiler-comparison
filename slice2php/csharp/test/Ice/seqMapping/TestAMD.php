@@ -1003,39 +1003,6 @@ namespace Test
 
 namespace Test
 {
-    global $Test__t_SerialSmall;
-
-    if(!isset($Test__t_SerialSmall))
-    {
-        global $IcePHP__t_byte;
-        $Test__t_SerialSmall = IcePHP_defineSequence('::Test::SerialSmall', $IcePHP__t_byte);
-    }
-}
-
-namespace Test
-{
-    global $Test__t_SerialLarge;
-
-    if(!isset($Test__t_SerialLarge))
-    {
-        global $IcePHP__t_byte;
-        $Test__t_SerialLarge = IcePHP_defineSequence('::Test::SerialLarge', $IcePHP__t_byte);
-    }
-}
-
-namespace Test
-{
-    global $Test__t_SerialStruct;
-
-    if(!isset($Test__t_SerialStruct))
-    {
-        global $IcePHP__t_byte;
-        $Test__t_SerialStruct = IcePHP_defineSequence('::Test::SerialStruct', $IcePHP__t_byte);
-    }
-}
-
-namespace Test
-{
     global $Test__t_MyClass;
     global $Test__t_MyClassPrx;
 
@@ -1136,9 +1103,6 @@ namespace Test
     global $Test__t_CustomCVS;
     global $Test__t_CustomIntSS;
     global $Test__t_CustomCVSS;
-    global $Test__t_SerialSmall;
-    global $Test__t_SerialLarge;
-    global $Test__t_SerialStruct;
     IcePHP_defineOperation($Test__t_MyClassPrx, 'shutdown', 0, 0, 0, null, null, null, null);
     IcePHP_defineOperation($Test__t_MyClassPrx, 'opAByteS', 0, 0, 0, array(array($Test__t_AByteS)), array(array($Test__t_AByteS)), array($Test__t_AByteS), null);
     IcePHP_defineOperation($Test__t_MyClassPrx, 'opLByteS', 0, 0, 0, array(array($Test__t_LByteS)), array(array($Test__t_LByteS)), array($Test__t_LByteS), null);
@@ -1215,8 +1179,5 @@ namespace Test
     IcePHP_defineOperation($Test__t_MyClassPrx, 'opCustomCVS', 0, 0, 0, array(array($Test__t_CustomCVS)), array(array($Test__t_CustomCVS)), array($Test__t_CustomCVS), null);
     IcePHP_defineOperation($Test__t_MyClassPrx, 'opCustomIntSS', 0, 0, 0, array(array($Test__t_CustomIntSS)), array(array($Test__t_CustomIntSS)), array($Test__t_CustomIntSS), null);
     IcePHP_defineOperation($Test__t_MyClassPrx, 'opCustomCVSS', 0, 0, 0, array(array($Test__t_CustomCVSS)), array(array($Test__t_CustomCVSS)), array($Test__t_CustomCVSS), null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'opSerialSmallCSharp', 0, 0, 0, array(array($Test__t_SerialSmall)), array(array($Test__t_SerialSmall)), array($Test__t_SerialSmall), null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'opSerialLargeCSharp', 0, 0, 0, array(array($Test__t_SerialLarge)), array(array($Test__t_SerialLarge)), array($Test__t_SerialLarge), null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'opSerialStructCSharp', 0, 0, 0, array(array($Test__t_SerialStruct)), array(array($Test__t_SerialStruct)), array($Test__t_SerialStruct), null);
 }
 ?>

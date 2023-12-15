@@ -89,14 +89,9 @@ namespace Ice.defaultServant
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        [global::System.Serializable]
         public sealed class MyObjectPrxHelper : global::Ice.ObjectPrxHelperBase, MyObjectPrx
         {
             public MyObjectPrxHelper()
-            {
-            }
-
-            public MyObjectPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 

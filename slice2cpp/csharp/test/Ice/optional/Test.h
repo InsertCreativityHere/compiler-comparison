@@ -167,8 +167,6 @@ using OneOptionalSeq = ::std::vector<::std::shared_ptr<OneOptional>>;
 
 using OneOptionalPrxSeq = ::std::vector<::std::shared_ptr<::Ice::ObjectPrx>>;
 
-using Serializable = ::std::vector<::Ice::Byte>;
-
 using IntIntDict = ::std::map<int, int>;
 
 using StringIntDict = ::std::map<::std::string, int>;
@@ -767,20 +765,6 @@ public:
     /// \endcond
 
     /**
-     * Encapsulates the results of a call to opSerializable.
-     */
-    struct OpSerializableResult
-    {
-        Ice::optional<Serializable> returnValue;
-        Ice::optional<Serializable> p3;
-    };
-
-    virtual Ice::optional<Serializable> opSerializable(Ice::optional<Serializable> p1, Ice::optional<Serializable>& p3, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opSerializable(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
      * Encapsulates the results of a call to opIntIntDict.
      */
     struct OpIntIntDictResult
@@ -1037,11 +1021,6 @@ public:
     bool _iceD_supportsJavaSerializable(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual bool supportsCsharpSerializable(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_supportsCsharpSerializable(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
     virtual bool supportsCppStringView(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_supportsCppStringView(::IceInternal::Incoming&, const ::Ice::Current&);
@@ -1121,7 +1100,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    MultiOptional(const Ice::optional<::Ice::Byte>& a, const Ice::optional<bool>& b, const Ice::optional<short>& c, const Ice::optional<int>& d, const Ice::optional<long long int>& e, const Ice::optional<float>& f, const Ice::optional<double>& g, const Ice::optional<::std::string>& h, const Ice::optional<::Test::MyEnum>& i, const Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>>& j, const Ice::optional<::std::shared_ptr<::Test::MultiOptional>>& k, const Ice::optional<::Test::ByteSeq>& bs, const Ice::optional<::Test::StringSeq>& ss, const Ice::optional<::Test::IntIntDict>& iid, const Ice::optional<::Test::StringIntDict>& sid, const Ice::optional<::Test::FixedStruct>& fs, const Ice::optional<::Test::VarStruct>& vs, const Ice::optional<::Test::ShortSeq>& shs, const Ice::optional<::Test::MyEnumSeq>& es, const Ice::optional<::Test::FixedStructSeq>& fss, const Ice::optional<::Test::VarStructSeq>& vss, const Ice::optional<::Test::OneOptionalSeq>& oos, const Ice::optional<::Test::OneOptionalPrxSeq>& oops, const Ice::optional<::Test::IntEnumDict>& ied, const Ice::optional<::Test::IntFixedStructDict>& ifsd, const Ice::optional<::Test::IntVarStructDict>& ivsd, const Ice::optional<::Test::IntOneOptionalDict>& iood, const Ice::optional<::Test::IntOneOptionalPrxDict>& ioopd, const Ice::optional<::Test::BoolSeq>& bos, const Ice::optional<::Test::Serializable>& ser) :
+    MultiOptional(const Ice::optional<::Ice::Byte>& a, const Ice::optional<bool>& b, const Ice::optional<short>& c, const Ice::optional<int>& d, const Ice::optional<long long int>& e, const Ice::optional<float>& f, const Ice::optional<double>& g, const Ice::optional<::std::string>& h, const Ice::optional<::Test::MyEnum>& i, const Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>>& j, const Ice::optional<::std::shared_ptr<::Test::MultiOptional>>& k, const Ice::optional<::Test::ByteSeq>& bs, const Ice::optional<::Test::StringSeq>& ss, const Ice::optional<::Test::IntIntDict>& iid, const Ice::optional<::Test::StringIntDict>& sid, const Ice::optional<::Test::FixedStruct>& fs, const Ice::optional<::Test::VarStruct>& vs, const Ice::optional<::Test::ShortSeq>& shs, const Ice::optional<::Test::MyEnumSeq>& es, const Ice::optional<::Test::FixedStructSeq>& fss, const Ice::optional<::Test::VarStructSeq>& vss, const Ice::optional<::Test::OneOptionalSeq>& oos, const Ice::optional<::Test::OneOptionalPrxSeq>& oops, const Ice::optional<::Test::IntEnumDict>& ied, const Ice::optional<::Test::IntFixedStructDict>& ifsd, const Ice::optional<::Test::IntVarStructDict>& ivsd, const Ice::optional<::Test::IntOneOptionalDict>& iood, const Ice::optional<::Test::IntOneOptionalPrxDict>& ioopd, const Ice::optional<::Test::BoolSeq>& bos) :
         a(a),
         b(b),
         c(c),
@@ -1150,8 +1129,7 @@ public:
         ivsd(ivsd),
         iood(iood),
         ioopd(ioopd),
-        bos(bos),
-        ser(ser)
+        bos(bos)
     {
     }
 
@@ -1159,9 +1137,9 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const Ice::optional<::Ice::Byte>&, const Ice::optional<bool>&, const Ice::optional<short>&, const Ice::optional<int>&, const Ice::optional<long long int>&, const Ice::optional<float>&, const Ice::optional<double>&, const Ice::optional<::std::string>&, const Ice::optional<::Test::MyEnum>&, const Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>>&, const Ice::optional<::std::shared_ptr<::Test::MultiOptional>>&, const Ice::optional<::Test::ByteSeq>&, const Ice::optional<::Test::StringSeq>&, const Ice::optional<::Test::IntIntDict>&, const Ice::optional<::Test::StringIntDict>&, const Ice::optional<::Test::FixedStruct>&, const Ice::optional<::Test::VarStruct>&, const Ice::optional<::Test::ShortSeq>&, const Ice::optional<::Test::MyEnumSeq>&, const Ice::optional<::Test::FixedStructSeq>&, const Ice::optional<::Test::VarStructSeq>&, const Ice::optional<::Test::OneOptionalSeq>&, const Ice::optional<::Test::OneOptionalPrxSeq>&, const Ice::optional<::Test::IntEnumDict>&, const Ice::optional<::Test::IntFixedStructDict>&, const Ice::optional<::Test::IntVarStructDict>&, const Ice::optional<::Test::IntOneOptionalDict>&, const Ice::optional<::Test::IntOneOptionalPrxDict>&, const Ice::optional<::Test::BoolSeq>&, const Ice::optional<::Test::Serializable>&> ice_tuple() const
+    std::tuple<const Ice::optional<::Ice::Byte>&, const Ice::optional<bool>&, const Ice::optional<short>&, const Ice::optional<int>&, const Ice::optional<long long int>&, const Ice::optional<float>&, const Ice::optional<double>&, const Ice::optional<::std::string>&, const Ice::optional<::Test::MyEnum>&, const Ice::optional<::std::shared_ptr<::Ice::ObjectPrx>>&, const Ice::optional<::std::shared_ptr<::Test::MultiOptional>>&, const Ice::optional<::Test::ByteSeq>&, const Ice::optional<::Test::StringSeq>&, const Ice::optional<::Test::IntIntDict>&, const Ice::optional<::Test::StringIntDict>&, const Ice::optional<::Test::FixedStruct>&, const Ice::optional<::Test::VarStruct>&, const Ice::optional<::Test::ShortSeq>&, const Ice::optional<::Test::MyEnumSeq>&, const Ice::optional<::Test::FixedStructSeq>&, const Ice::optional<::Test::VarStructSeq>&, const Ice::optional<::Test::OneOptionalSeq>&, const Ice::optional<::Test::OneOptionalPrxSeq>&, const Ice::optional<::Test::IntEnumDict>&, const Ice::optional<::Test::IntFixedStructDict>&, const Ice::optional<::Test::IntVarStructDict>&, const Ice::optional<::Test::IntOneOptionalDict>&, const Ice::optional<::Test::IntOneOptionalPrxDict>&, const Ice::optional<::Test::BoolSeq>&> ice_tuple() const
     {
-        return std::tie(a, b, c, d, e, f, g, h, i, j, k, bs, ss, iid, sid, fs, vs, shs, es, fss, vss, oos, oops, ied, ifsd, ivsd, iood, ioopd, bos, ser);
+        return std::tie(a, b, c, d, e, f, g, h, i, j, k, bs, ss, iid, sid, fs, vs, shs, es, fss, vss, oos, oops, ied, ifsd, ivsd, iood, ioopd, bos);
     }
 
     /**
@@ -1199,7 +1177,6 @@ public:
     Ice::optional<::Test::IntOneOptionalDict> iood;
     Ice::optional<::Test::IntOneOptionalPrxDict> ioopd;
     Ice::optional<::Test::BoolSeq> bos;
-    Ice::optional<::Test::Serializable> ser;
 };
 
 class A : public ::Ice::ValueHelper<A, ::Ice::Value>
@@ -2690,38 +2667,6 @@ public:
     void _iceI_opVarStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpVarStructSeqResult>>&, const Ice::optional<VarStructSeq>&, const ::Ice::Context&);
     /// \endcond
 
-    Ice::optional<Serializable> opSerializable(const Ice::optional<Serializable>& p1, Ice::optional<Serializable>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _result = _makePromiseOutgoing<Initial::OpSerializableResult>(true, this, &InitialPrx::_iceI_opSerializable, p1, context).get();
-        p3 = ::std::move(_result.p3);
-        return ::std::move(_result.returnValue);
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opSerializableAsync(const Ice::optional<Serializable>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<Initial::OpSerializableResult>>().get_future())
-    {
-        return _makePromiseOutgoing<Initial::OpSerializableResult, P>(false, this, &InitialPrx::_iceI_opSerializable, p1, context);
-    }
-
-    ::std::function<void()>
-    opSerializableAsync(const Ice::optional<Serializable>& p1,
-                        ::std::function<void(Ice::optional<::Test::Serializable>, Ice::optional<::Test::Serializable>)> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        auto _responseCb = [response](Initial::OpSerializableResult&& _result)
-        {
-            response(::std::move(_result.returnValue), ::std::move(_result.p3));
-        };
-        return _makeLambdaOutgoing<Initial::OpSerializableResult>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opSerializable, p1, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opSerializable(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSerializableResult>>&, const Ice::optional<Serializable>&, const ::Ice::Context&);
-    /// \endcond
-
     Ice::optional<IntIntDict> opIntIntDict(const Ice::optional<IntIntDict>& p1, Ice::optional<IntIntDict>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         auto _result = _makePromiseOutgoing<Initial::OpIntIntDictResult>(true, this, &InitialPrx::_iceI_opIntIntDict, p1, context).get();
@@ -3225,31 +3170,6 @@ public:
     void _iceI_supportsJavaSerializable(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&);
     /// \endcond
 
-    bool supportsCsharpSerializable(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makePromiseOutgoing<bool>(true, this, &InitialPrx::_iceI_supportsCsharpSerializable, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto supportsCsharpSerializableAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<bool>>().get_future())
-    {
-        return _makePromiseOutgoing<bool, P>(false, this, &InitialPrx::_iceI_supportsCsharpSerializable, context);
-    }
-
-    ::std::function<void()>
-    supportsCsharpSerializableAsync(::std::function<void(bool)> response,
-                                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                    ::std::function<void(bool)> sent = nullptr,
-                                    const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_supportsCsharpSerializable, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_supportsCsharpSerializable(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&);
-    /// \endcond
-
     bool supportsCppStringView(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _makePromiseOutgoing<bool>(true, this, &InitialPrx::_iceI_supportsCppStringView, context).get();
@@ -3423,7 +3343,7 @@ struct StreamWriter<::Test::MultiOptional, S>
 {
     static void write(S* ostr, const ::Test::MultiOptional& v)
     {
-        ostr->writeAll({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30}, v.a, v.b, v.c, v.d, v.e, v.f, v.g, v.h, v.i, v.j, v.k, v.bs, v.ss, v.iid, v.sid, v.fs, v.vs, v.shs, v.es, v.fss, v.vss, v.oos, v.oops, v.ied, v.ifsd, v.ivsd, v.iood, v.ioopd, v.bos, v.ser);
+        ostr->writeAll({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29}, v.a, v.b, v.c, v.d, v.e, v.f, v.g, v.h, v.i, v.j, v.k, v.bs, v.ss, v.iid, v.sid, v.fs, v.vs, v.shs, v.es, v.fss, v.vss, v.oos, v.oops, v.ied, v.ifsd, v.ivsd, v.iood, v.ioopd, v.bos);
     }
 };
 
@@ -3432,7 +3352,7 @@ struct StreamReader<::Test::MultiOptional, S>
 {
     static void read(S* istr, ::Test::MultiOptional& v)
     {
-        istr->readAll({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30}, v.a, v.b, v.c, v.d, v.e, v.f, v.g, v.h, v.i, v.j, v.k, v.bs, v.ss, v.iid, v.sid, v.fs, v.vs, v.shs, v.es, v.fss, v.vss, v.oos, v.oops, v.ied, v.ifsd, v.ivsd, v.iood, v.ioopd, v.bos, v.ser);
+        istr->readAll({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29}, v.a, v.b, v.c, v.d, v.e, v.f, v.g, v.h, v.i, v.j, v.k, v.bs, v.ss, v.iid, v.sid, v.fs, v.vs, v.shs, v.es, v.fss, v.vss, v.oos, v.oops, v.ied, v.ifsd, v.ivsd, v.iood, v.ioopd, v.bos);
     }
 };
 
@@ -4215,8 +4135,6 @@ typedef ::std::vector<OneOptionalPtr> OneOptionalSeq;
 
 typedef ::std::vector<OneOptionalPrx> OneOptionalPrxSeq;
 
-typedef ::std::vector< ::Ice::Byte> Serializable;
-
 typedef ::std::map< ::Ice::Int, ::Ice::Int> IntIntDict;
 
 typedef ::std::map< ::std::string, ::Ice::Int> StringIntDict;
@@ -4640,14 +4558,6 @@ typedef ::IceUtil::Handle< Callback_Initial_opVarStructSeq_Base> Callback_Initia
 
 /**
  * Base class for asynchronous callback wrapper classes used for calls to
- * IceProxy::Test::Initial::begin_opSerializable.
- * Create a wrapper instance by calling ::Test::newCallback_Initial_opSerializable.
- */
-class Callback_Initial_opSerializable_Base : public virtual ::IceInternal::CallbackBase { };
-typedef ::IceUtil::Handle< Callback_Initial_opSerializable_Base> Callback_Initial_opSerializablePtr;
-
-/**
- * Base class for asynchronous callback wrapper classes used for calls to
  * IceProxy::Test::Initial::begin_opIntIntDict.
  * Create a wrapper instance by calling ::Test::newCallback_Initial_opIntIntDict.
  */
@@ -4789,14 +4699,6 @@ typedef ::IceUtil::Handle< Callback_Initial_supportsRequiredParams_Base> Callbac
  */
 class Callback_Initial_supportsJavaSerializable_Base : public virtual ::IceInternal::CallbackBase { };
 typedef ::IceUtil::Handle< Callback_Initial_supportsJavaSerializable_Base> Callback_Initial_supportsJavaSerializablePtr;
-
-/**
- * Base class for asynchronous callback wrapper classes used for calls to
- * IceProxy::Test::Initial::begin_supportsCsharpSerializable.
- * Create a wrapper instance by calling ::Test::newCallback_Initial_supportsCsharpSerializable.
- */
-class Callback_Initial_supportsCsharpSerializable_Base : public virtual ::IceInternal::CallbackBase { };
-typedef ::IceUtil::Handle< Callback_Initial_supportsCsharpSerializable_Base> Callback_Initial_supportsCsharpSerializablePtr;
 
 /**
  * Base class for asynchronous callback wrapper classes used for calls to
@@ -6371,48 +6273,6 @@ private:
 
 public:
 
-    IceUtil::Optional< ::Test::Serializable> opSerializable(const IceUtil::Optional< ::Test::Serializable>& p1, IceUtil::Optional< ::Test::Serializable>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return end_opSerializable(p3, _iceI_begin_opSerializable(p1, context, ::IceInternal::dummyCallback, 0, true));
-    }
-
-    ::Ice::AsyncResultPtr begin_opSerializable(const IceUtil::Optional< ::Test::Serializable>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _iceI_begin_opSerializable(p1, context, ::IceInternal::dummyCallback, 0);
-    }
-
-    ::Ice::AsyncResultPtr begin_opSerializable(const IceUtil::Optional< ::Test::Serializable>& p1, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_opSerializable(p1, ::Ice::noExplicitContext, cb, cookie);
-    }
-
-    ::Ice::AsyncResultPtr begin_opSerializable(const IceUtil::Optional< ::Test::Serializable>& p1, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_opSerializable(p1, context, cb, cookie);
-    }
-
-    ::Ice::AsyncResultPtr begin_opSerializable(const IceUtil::Optional< ::Test::Serializable>& p1, const ::Test::Callback_Initial_opSerializablePtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_opSerializable(p1, ::Ice::noExplicitContext, cb, cookie);
-    }
-
-    ::Ice::AsyncResultPtr begin_opSerializable(const IceUtil::Optional< ::Test::Serializable>& p1, const ::Ice::Context& context, const ::Test::Callback_Initial_opSerializablePtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_opSerializable(p1, context, cb, cookie);
-    }
-
-    IceUtil::Optional< ::Test::Serializable> end_opSerializable(IceUtil::Optional< ::Test::Serializable>& p3, const ::Ice::AsyncResultPtr& result);
-    /// \cond INTERNAL
-
-    void _iceI_end_opSerializable(IceUtil::Optional< ::Test::Serializable>& iceP_p3, IceUtil::Optional< ::Test::Serializable>& ret, const ::Ice::AsyncResultPtr&);
-    /// \endcond
-
-private:
-
-    ::Ice::AsyncResultPtr _iceI_begin_opSerializable(const IceUtil::Optional< ::Test::Serializable>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
-
-public:
-
     IceUtil::Optional< ::Test::IntIntDict> opIntIntDict(const IceUtil::Optional< ::Test::IntIntDict>& p1, IceUtil::Optional< ::Test::IntIntDict>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_opIntIntDict(p3, _iceI_begin_opIntIntDict(p1, context, ::IceInternal::dummyCallback, 0, true));
@@ -7129,44 +6989,6 @@ private:
 
 public:
 
-    bool supportsCsharpSerializable(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return end_supportsCsharpSerializable(_iceI_begin_supportsCsharpSerializable(context, ::IceInternal::dummyCallback, 0, true));
-    }
-
-    ::Ice::AsyncResultPtr begin_supportsCsharpSerializable(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _iceI_begin_supportsCsharpSerializable(context, ::IceInternal::dummyCallback, 0);
-    }
-
-    ::Ice::AsyncResultPtr begin_supportsCsharpSerializable(const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_supportsCsharpSerializable(::Ice::noExplicitContext, cb, cookie);
-    }
-
-    ::Ice::AsyncResultPtr begin_supportsCsharpSerializable(const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_supportsCsharpSerializable(context, cb, cookie);
-    }
-
-    ::Ice::AsyncResultPtr begin_supportsCsharpSerializable(const ::Test::Callback_Initial_supportsCsharpSerializablePtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_supportsCsharpSerializable(::Ice::noExplicitContext, cb, cookie);
-    }
-
-    ::Ice::AsyncResultPtr begin_supportsCsharpSerializable(const ::Ice::Context& context, const ::Test::Callback_Initial_supportsCsharpSerializablePtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_supportsCsharpSerializable(context, cb, cookie);
-    }
-
-    bool end_supportsCsharpSerializable(const ::Ice::AsyncResultPtr& result);
-
-private:
-
-    ::Ice::AsyncResultPtr _iceI_begin_supportsCsharpSerializable(const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
-
-public:
-
     bool supportsCppStringView(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_supportsCppStringView(_iceI_begin_supportsCppStringView(context, ::IceInternal::dummyCallback, 0, true));
@@ -7372,7 +7194,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    MultiOptional(const IceUtil::Optional< ::Ice::Byte>& a, const IceUtil::Optional<bool>& b, const IceUtil::Optional< ::Ice::Short>& c, const IceUtil::Optional< ::Ice::Int>& d, const IceUtil::Optional< ::Ice::Long>& e, const IceUtil::Optional< ::Ice::Float>& f, const IceUtil::Optional< ::Ice::Double>& g, const IceUtil::Optional< ::std::string>& h, const IceUtil::Optional< ::Test::MyEnum>& i, const IceUtil::Optional< ::Test::MultiOptionalPrx>& j, const IceUtil::Optional< ::Test::MultiOptionalPtr>& k, const IceUtil::Optional< ::Test::ByteSeq>& bs, const IceUtil::Optional< ::Test::StringSeq>& ss, const IceUtil::Optional< ::Test::IntIntDict>& iid, const IceUtil::Optional< ::Test::StringIntDict>& sid, const IceUtil::Optional< ::Test::FixedStruct>& fs, const IceUtil::Optional< ::Test::VarStruct>& vs, const IceUtil::Optional< ::Test::ShortSeq>& shs, const IceUtil::Optional< ::Test::MyEnumSeq>& es, const IceUtil::Optional< ::Test::FixedStructSeq>& fss, const IceUtil::Optional< ::Test::VarStructSeq>& vss, const IceUtil::Optional< ::Test::OneOptionalSeq>& oos, const IceUtil::Optional< ::Test::OneOptionalPrxSeq>& oops, const IceUtil::Optional< ::Test::IntEnumDict>& ied, const IceUtil::Optional< ::Test::IntFixedStructDict>& ifsd, const IceUtil::Optional< ::Test::IntVarStructDict>& ivsd, const IceUtil::Optional< ::Test::IntOneOptionalDict>& iood, const IceUtil::Optional< ::Test::IntOneOptionalPrxDict>& ioopd, const IceUtil::Optional< ::Test::BoolSeq>& bos, const IceUtil::Optional< ::Test::Serializable>& ser) :
+    MultiOptional(const IceUtil::Optional< ::Ice::Byte>& a, const IceUtil::Optional<bool>& b, const IceUtil::Optional< ::Ice::Short>& c, const IceUtil::Optional< ::Ice::Int>& d, const IceUtil::Optional< ::Ice::Long>& e, const IceUtil::Optional< ::Ice::Float>& f, const IceUtil::Optional< ::Ice::Double>& g, const IceUtil::Optional< ::std::string>& h, const IceUtil::Optional< ::Test::MyEnum>& i, const IceUtil::Optional< ::Test::MultiOptionalPrx>& j, const IceUtil::Optional< ::Test::MultiOptionalPtr>& k, const IceUtil::Optional< ::Test::ByteSeq>& bs, const IceUtil::Optional< ::Test::StringSeq>& ss, const IceUtil::Optional< ::Test::IntIntDict>& iid, const IceUtil::Optional< ::Test::StringIntDict>& sid, const IceUtil::Optional< ::Test::FixedStruct>& fs, const IceUtil::Optional< ::Test::VarStruct>& vs, const IceUtil::Optional< ::Test::ShortSeq>& shs, const IceUtil::Optional< ::Test::MyEnumSeq>& es, const IceUtil::Optional< ::Test::FixedStructSeq>& fss, const IceUtil::Optional< ::Test::VarStructSeq>& vss, const IceUtil::Optional< ::Test::OneOptionalSeq>& oos, const IceUtil::Optional< ::Test::OneOptionalPrxSeq>& oops, const IceUtil::Optional< ::Test::IntEnumDict>& ied, const IceUtil::Optional< ::Test::IntFixedStructDict>& ifsd, const IceUtil::Optional< ::Test::IntVarStructDict>& ivsd, const IceUtil::Optional< ::Test::IntOneOptionalDict>& iood, const IceUtil::Optional< ::Test::IntOneOptionalPrxDict>& ioopd, const IceUtil::Optional< ::Test::BoolSeq>& bos) :
         a(a),
         b(b),
         c(c),
@@ -7401,8 +7223,7 @@ public:
         ivsd(ivsd),
         iood(iood),
         ioopd(ioopd),
-        bos(bos),
-        ser(ser)
+        bos(bos)
     {
     }
 
@@ -7492,7 +7313,6 @@ public:
     IceUtil::Optional< ::Test::IntOneOptionalDict> iood;
     IceUtil::Optional< ::Test::IntOneOptionalPrxDict> ioopd;
     IceUtil::Optional< ::Test::BoolSeq> bos;
-    IceUtil::Optional< ::Test::Serializable> ser;
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_MultiOptional_init = ::Test::MultiOptional::ice_factory();
@@ -8811,11 +8631,6 @@ public:
     bool _iceD_opVarStructSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual IceUtil::Optional<Serializable> opSerializable(const IceUtil::Optional<Serializable>& p1, IceUtil::Optional<Serializable>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opSerializable(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
     virtual IceUtil::Optional<IntIntDict> opIntIntDict(const IceUtil::Optional<IntIntDict>& p1, IceUtil::Optional<IntIntDict>& p3, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opIntIntDict(::IceInternal::Incoming&, const ::Ice::Current&);
@@ -8904,11 +8719,6 @@ public:
     virtual bool supportsJavaSerializable(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_supportsJavaSerializable(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual bool supportsCsharpSerializable(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_supportsCsharpSerializable(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
     virtual bool supportsCppStringView(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
@@ -9117,7 +8927,6 @@ struct StreamWriter< ::Test::MultiOptional, S>
         ostr->write(27, v.iood);
         ostr->write(28, v.ioopd);
         ostr->write(29, v.bos);
-        ostr->write(30, v.ser);
     }
 };
 
@@ -9155,7 +8964,6 @@ struct StreamReader< ::Test::MultiOptional, S>
         istr->read(27, v.iood);
         istr->read(28, v.ioopd);
         istr->read(29, v.bos);
-        istr->read(30, v.ser);
     }
 };
 
@@ -14551,160 +14359,6 @@ newCallback_Initial_opVarStructSeq(T* instance, void (T::*cb)(const IceUtil::Opt
 
 /**
  * Type-safe asynchronous callback wrapper class used for calls to
- * IceProxy::Test::Initial::begin_opSerializable.
- * Create a wrapper instance by calling ::Test::newCallback_Initial_opSerializable.
- */
-template<class T>
-class CallbackNC_Initial_opSerializable : public Callback_Initial_opSerializable_Base, public ::IceInternal::TwowayCallbackNC<T>
-{
-public:
-
-    typedef IceUtil::Handle<T> TPtr;
-
-    typedef void (T::*Exception)(const ::Ice::Exception&);
-    typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const IceUtil::Optional<Serializable>&, const IceUtil::Optional<Serializable>&);
-
-    CallbackNC_Initial_opSerializable(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
-        : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
-    {
-    }
-
-    /// \cond INTERNAL
-    virtual void completed(const ::Ice::AsyncResultPtr& result) const
-    {
-        InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<Serializable> iceP_p3;
-        IceUtil::Optional<Serializable> ret;
-        try
-        {
-            ret = proxy->end_opSerializable(iceP_p3, result);
-        }
-        catch(const ::Ice::Exception& ex)
-        {
-            ::IceInternal::CallbackNC<T>::exception(result, ex);
-            return;
-        }
-        if(_response)
-        {
-            (::IceInternal::CallbackNC<T>::_callback.get()->*_response)(ret, iceP_p3);
-        }
-    }
-    /// \endcond
-
-private:
-
-    Response _response;
-};
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opSerializable.
- */
-template<class T> Callback_Initial_opSerializablePtr
-newCallback_Initial_opSerializable(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<Serializable>&, const IceUtil::Optional<Serializable>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
-{
-    return new CallbackNC_Initial_opSerializable<T>(instance, cb, excb, sentcb);
-}
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opSerializable.
- */
-template<class T> Callback_Initial_opSerializablePtr
-newCallback_Initial_opSerializable(T* instance, void (T::*cb)(const IceUtil::Optional<Serializable>&, const IceUtil::Optional<Serializable>&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
-{
-    return new CallbackNC_Initial_opSerializable<T>(instance, cb, excb, sentcb);
-}
-
-/**
- * Type-safe asynchronous callback wrapper class with cookie support used for calls to
- * IceProxy::Test::Initial::begin_opSerializable.
- * Create a wrapper instance by calling ::Test::newCallback_Initial_opSerializable.
- */
-template<class T, typename CT>
-class Callback_Initial_opSerializable : public Callback_Initial_opSerializable_Base, public ::IceInternal::TwowayCallback<T, CT>
-{
-public:
-
-    typedef IceUtil::Handle<T> TPtr;
-
-    typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
-    typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const IceUtil::Optional<Serializable>&, const IceUtil::Optional<Serializable>&, const CT&);
-
-    Callback_Initial_opSerializable(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
-        : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
-    {
-    }
-
-    /// \cond INTERNAL
-    virtual void completed(const ::Ice::AsyncResultPtr& result) const
-    {
-        InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        IceUtil::Optional<Serializable> iceP_p3;
-        IceUtil::Optional<Serializable> ret;
-        try
-        {
-            ret = proxy->end_opSerializable(iceP_p3, result);
-        }
-        catch(const ::Ice::Exception& ex)
-        {
-            ::IceInternal::Callback<T, CT>::exception(result, ex);
-            return;
-        }
-        if(_response)
-        {
-            (::IceInternal::Callback<T, CT>::_callback.get()->*_response)(ret, iceP_p3, CT::dynamicCast(result->getCookie()));
-        }
-    }
-    /// \endcond
-
-private:
-
-    Response _response;
-};
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * Use this overload when your callback methods receive a cookie value.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opSerializable.
- */
-template<class T, typename CT> Callback_Initial_opSerializablePtr
-newCallback_Initial_opSerializable(const IceUtil::Handle<T>& instance, void (T::*cb)(const IceUtil::Optional<Serializable>&, const IceUtil::Optional<Serializable>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
-{
-    return new Callback_Initial_opSerializable<T, CT>(instance, cb, excb, sentcb);
-}
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * Use this overload when your callback methods receive a cookie value.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_opSerializable.
- */
-template<class T, typename CT> Callback_Initial_opSerializablePtr
-newCallback_Initial_opSerializable(T* instance, void (T::*cb)(const IceUtil::Optional<Serializable>&, const IceUtil::Optional<Serializable>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
-{
-    return new Callback_Initial_opSerializable<T, CT>(instance, cb, excb, sentcb);
-}
-
-/**
- * Type-safe asynchronous callback wrapper class used for calls to
  * IceProxy::Test::Initial::begin_opIntIntDict.
  * Create a wrapper instance by calling ::Test::newCallback_Initial_opIntIntDict.
  */
@@ -17463,158 +17117,6 @@ template<class T, typename CT> Callback_Initial_supportsJavaSerializablePtr
 newCallback_Initial_supportsJavaSerializable(T* instance, void (T::*cb)(bool, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_Initial_supportsJavaSerializable<T, CT>(instance, cb, excb, sentcb);
-}
-
-/**
- * Type-safe asynchronous callback wrapper class used for calls to
- * IceProxy::Test::Initial::begin_supportsCsharpSerializable.
- * Create a wrapper instance by calling ::Test::newCallback_Initial_supportsCsharpSerializable.
- */
-template<class T>
-class CallbackNC_Initial_supportsCsharpSerializable : public Callback_Initial_supportsCsharpSerializable_Base, public ::IceInternal::TwowayCallbackNC<T>
-{
-public:
-
-    typedef IceUtil::Handle<T> TPtr;
-
-    typedef void (T::*Exception)(const ::Ice::Exception&);
-    typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(bool);
-
-    CallbackNC_Initial_supportsCsharpSerializable(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
-        : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
-    {
-    }
-
-    /// \cond INTERNAL
-    virtual void completed(const ::Ice::AsyncResultPtr& result) const
-    {
-        InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        bool ret;
-        try
-        {
-            ret = proxy->end_supportsCsharpSerializable(result);
-        }
-        catch(const ::Ice::Exception& ex)
-        {
-            ::IceInternal::CallbackNC<T>::exception(result, ex);
-            return;
-        }
-        if(_response)
-        {
-            (::IceInternal::CallbackNC<T>::_callback.get()->*_response)(ret);
-        }
-    }
-    /// \endcond
-
-private:
-
-    Response _response;
-};
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_supportsCsharpSerializable.
- */
-template<class T> Callback_Initial_supportsCsharpSerializablePtr
-newCallback_Initial_supportsCsharpSerializable(const IceUtil::Handle<T>& instance, void (T::*cb)(bool), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
-{
-    return new CallbackNC_Initial_supportsCsharpSerializable<T>(instance, cb, excb, sentcb);
-}
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_supportsCsharpSerializable.
- */
-template<class T> Callback_Initial_supportsCsharpSerializablePtr
-newCallback_Initial_supportsCsharpSerializable(T* instance, void (T::*cb)(bool), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
-{
-    return new CallbackNC_Initial_supportsCsharpSerializable<T>(instance, cb, excb, sentcb);
-}
-
-/**
- * Type-safe asynchronous callback wrapper class with cookie support used for calls to
- * IceProxy::Test::Initial::begin_supportsCsharpSerializable.
- * Create a wrapper instance by calling ::Test::newCallback_Initial_supportsCsharpSerializable.
- */
-template<class T, typename CT>
-class Callback_Initial_supportsCsharpSerializable : public Callback_Initial_supportsCsharpSerializable_Base, public ::IceInternal::TwowayCallback<T, CT>
-{
-public:
-
-    typedef IceUtil::Handle<T> TPtr;
-
-    typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
-    typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(bool, const CT&);
-
-    Callback_Initial_supportsCsharpSerializable(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
-        : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
-    {
-    }
-
-    /// \cond INTERNAL
-    virtual void completed(const ::Ice::AsyncResultPtr& result) const
-    {
-        InitialPrx proxy = InitialPrx::uncheckedCast(result->getProxy());
-        bool ret;
-        try
-        {
-            ret = proxy->end_supportsCsharpSerializable(result);
-        }
-        catch(const ::Ice::Exception& ex)
-        {
-            ::IceInternal::Callback<T, CT>::exception(result, ex);
-            return;
-        }
-        if(_response)
-        {
-            (::IceInternal::Callback<T, CT>::_callback.get()->*_response)(ret, CT::dynamicCast(result->getCookie()));
-        }
-    }
-    /// \endcond
-
-private:
-
-    Response _response;
-};
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * Use this overload when your callback methods receive a cookie value.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_supportsCsharpSerializable.
- */
-template<class T, typename CT> Callback_Initial_supportsCsharpSerializablePtr
-newCallback_Initial_supportsCsharpSerializable(const IceUtil::Handle<T>& instance, void (T::*cb)(bool, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
-{
-    return new Callback_Initial_supportsCsharpSerializable<T, CT>(instance, cb, excb, sentcb);
-}
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * Use this overload when your callback methods receive a cookie value.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::Initial::begin_supportsCsharpSerializable.
- */
-template<class T, typename CT> Callback_Initial_supportsCsharpSerializablePtr
-newCallback_Initial_supportsCsharpSerializable(T* instance, void (T::*cb)(bool, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
-{
-    return new Callback_Initial_supportsCsharpSerializable<T, CT>(instance, cb, excb, sentcb);
 }
 
 /**

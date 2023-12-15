@@ -27,7 +27,6 @@ namespace Glacier2
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032")]
-    [global::System.Serializable]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
@@ -65,12 +64,6 @@ namespace Glacier2
         public PermissionDeniedException(global::System.Exception ex) : base(ex)
         {
             _initDM();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public PermissionDeniedException(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
-        {
-            this.reason = info.GetString("reason");
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -479,14 +472,9 @@ namespace Glacier2
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class PermissionsVerifierPrxHelper : global::Ice.ObjectPrxHelperBase, PermissionsVerifierPrx
     {
         public PermissionsVerifierPrxHelper()
-        {
-        }
-
-        public PermissionsVerifierPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 
@@ -751,14 +739,9 @@ namespace Glacier2
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class SSLPermissionsVerifierPrxHelper : global::Ice.ObjectPrxHelperBase, SSLPermissionsVerifierPrx
     {
         public SSLPermissionsVerifierPrxHelper()
-        {
-        }
-
-        public SSLPermissionsVerifierPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 

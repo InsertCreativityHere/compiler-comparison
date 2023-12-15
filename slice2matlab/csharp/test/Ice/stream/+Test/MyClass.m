@@ -15,7 +15,6 @@
 %   seq9
 %   seq10
 %   d
-%   ss
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.7.10
@@ -36,10 +35,9 @@ classdef MyClass < Ice.Value
         seq9
         seq10
         d containers.Map
-        ss
     end
     methods
-        function obj = MyClass(c, o, s, seq1, seq2, seq3, seq4, seq5, seq6, seq7, seq8, seq9, seq10, d, ss)
+        function obj = MyClass(c, o, s, seq1, seq2, seq3, seq4, seq5, seq6, seq7, seq8, seq9, seq10, d)
             if nargin == 0
                 obj.c = [];
                 obj.o = [];
@@ -55,7 +53,6 @@ classdef MyClass < Ice.Value
                 obj.seq9 = [];
                 obj.seq10 = [];
                 obj.d = containers.Map('KeyType', 'char', 'ValueType', 'any');
-                obj.ss = [];
             elseif ne(c, IceInternal.NoInit.Instance)
                 obj.c = c;
                 obj.o = o;
@@ -71,7 +68,6 @@ classdef MyClass < Ice.Value
                 obj.seq9 = seq9;
                 obj.seq10 = seq10;
                 obj.d = d;
-                obj.ss = ss;
             end;
         end
         function id = ice_id(obj)
@@ -104,7 +100,6 @@ classdef MyClass < Ice.Value
             Test.MyEnumS.write(os, obj.seq9);
             Test.MyClassS.write(os, obj.seq10);
             Test.StringMyClassD.write(os, obj.d);
-            os.writeByteSeq(obj.ss);
             os.endSlice();
         end
         function iceReadImpl(obj, is)
@@ -123,7 +118,6 @@ classdef MyClass < Ice.Value
             obj.seq9 = Test.MyEnumS.read(is);
             obj.seq10 = Test.MyClassS.read(is);
             obj.d = Test.StringMyClassD.read(is);
-            obj.ss = is.readByteSeq();
             is.endSlice();
         end
         function iceSetMember_c(obj, v)

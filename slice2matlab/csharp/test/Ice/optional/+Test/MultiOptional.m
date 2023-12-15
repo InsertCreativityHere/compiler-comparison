@@ -30,7 +30,6 @@
 %   iood
 %   ioopd
 %   bos
-%   ser
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Test.ice by slice2matlab version 3.7.10
@@ -66,10 +65,9 @@ classdef MultiOptional < Ice.Value
         iood
         ioopd
         bos
-        ser
     end
     methods
-        function obj = MultiOptional(a, b, c, d, e, f, g, h, i, j, k, bs, ss, iid, sid, fs, vs, shs, es, fss, vss, oos, oops, ied, ifsd, ivsd, iood, ioopd, bos, ser)
+        function obj = MultiOptional(a, b, c, d, e, f, g, h, i, j, k, bs, ss, iid, sid, fs, vs, shs, es, fss, vss, oos, oops, ied, ifsd, ivsd, iood, ioopd, bos)
             if nargin == 0
                 obj.a = IceInternal.UnsetI.Instance;
                 obj.b = IceInternal.UnsetI.Instance;
@@ -100,7 +98,6 @@ classdef MultiOptional < Ice.Value
                 obj.iood = IceInternal.UnsetI.Instance;
                 obj.ioopd = IceInternal.UnsetI.Instance;
                 obj.bos = IceInternal.UnsetI.Instance;
-                obj.ser = IceInternal.UnsetI.Instance;
             elseif ne(a, IceInternal.NoInit.Instance)
                 obj.a = a;
                 obj.b = b;
@@ -131,7 +128,6 @@ classdef MultiOptional < Ice.Value
                 obj.iood = iood;
                 obj.ioopd = ioopd;
                 obj.bos = bos;
-                obj.ser = ser;
             end;
         end
         function id = ice_id(obj)
@@ -183,7 +179,6 @@ classdef MultiOptional < Ice.Value
             Test.IntOneOptionalDict.writeOpt(os, 27, obj.iood);
             Test.IntOneOptionalPrxDict.writeOpt(os, 28, obj.ioopd);
             os.writeBoolSeqOpt(29, obj.bos);
-            os.writeByteSeqOpt(30, obj.ser);
             os.endSlice();
         end
         function iceReadImpl(obj, is)
@@ -217,7 +212,6 @@ classdef MultiOptional < Ice.Value
             obj.iood = Test.IntOneOptionalDict.readOpt(is, 27);
             obj.ioopd = Test.IntOneOptionalPrxDict.readOpt(is, 28);
             obj.bos = is.readBoolSeqOpt(29);
-            obj.ser = is.readByteSeqOpt(30);
             is.endSlice();
         end
         function iceSetMember_k(obj, v)

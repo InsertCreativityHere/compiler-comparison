@@ -53,7 +53,6 @@ namespace @abstract
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial struct @break
     {
         #region Slice data members
@@ -192,7 +191,6 @@ namespace @abstract
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial class @else : global::Ice.Value
     {
         #region Slice data members
@@ -284,7 +282,6 @@ namespace @abstract
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032")]
-    [global::System.Serializable]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
@@ -321,12 +318,6 @@ namespace @abstract
         public hashCode(global::System.Exception ex) : base(ex)
         {
             _initDM();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public hashCode(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
-        {
-            this.@if = info.GetInt32("@if");
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -378,7 +369,6 @@ namespace @abstract
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032")]
-    [global::System.Serializable]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
@@ -418,13 +408,6 @@ namespace @abstract
         public import(global::System.Exception ex) : base(ex)
         {
             _initDM();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public import(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
-        {
-            this.instanceof = info.GetInt32("instanceof");
-            this.native = info.GetInt32("native");
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -649,14 +632,9 @@ namespace @abstract
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class catchPrxHelper : global::Ice.ObjectPrxHelperBase, catchPrx
     {
         public catchPrxHelper()
-        {
-        }
-
-        public catchPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 
@@ -901,14 +879,9 @@ namespace @abstract
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class defaultPrxHelper : global::Ice.ObjectPrxHelperBase, defaultPrx
     {
         public defaultPrxHelper()
-        {
-        }
-
-        public defaultPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 
@@ -1140,14 +1113,9 @@ namespace @abstract
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class finalizePrxHelper : global::Ice.ObjectPrxHelperBase, finalizePrx
     {
         public finalizePrxHelper()
-        {
-        }
-
-        public finalizePrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 

@@ -488,18 +488,6 @@ module ::Test
         T_CustomCVSS = ::Ice::__defineSequence('::Test::CustomCVSS', ::Test::::T_CustomCVS)
     end
 
-    if not defined?(::Test::::T_SerialSmall)
-        T_SerialSmall = ::Ice::__defineSequence('::Test::SerialSmall', ::Ice::T_byte)
-    end
-
-    if not defined?(::Test::::T_SerialLarge)
-        T_SerialLarge = ::Ice::__defineSequence('::Test::SerialLarge', ::Ice::T_byte)
-    end
-
-    if not defined?(::Test::::T_SerialStruct)
-        T_SerialStruct = ::Ice::__defineSequence('::Test::SerialStruct', ::Ice::T_byte)
-    end
-
     if not defined?(::Test::::MyClass_Mixin)
 
         module ::Test::::MyClass_Mixin
@@ -809,18 +797,6 @@ module ::Test
             def opCustomCVSS(i, context=nil)
                 MyClassPrx_mixin::OP_opCustomCVSS.invoke(self, [i], context)
             end
-
-            def opSerialSmallCSharp(i, context=nil)
-                MyClassPrx_mixin::OP_opSerialSmallCSharp.invoke(self, [i], context)
-            end
-
-            def opSerialLargeCSharp(i, context=nil)
-                MyClassPrx_mixin::OP_opSerialLargeCSharp.invoke(self, [i], context)
-            end
-
-            def opSerialStructCSharp(i, context=nil)
-                MyClassPrx_mixin::OP_opSerialStructCSharp.invoke(self, [i], context)
-            end
         end
 
         class MyClassPrx < ::Ice::ObjectPrx
@@ -913,8 +889,5 @@ module ::Test
         MyClassPrx_mixin::OP_opCustomCVS = ::Ice::__defineOperation('opCustomCVS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::::T_CustomCVS, false, 0]], [[::Test::::T_CustomCVS, false, 0]], [::Test::::T_CustomCVS, false, 0], [])
         MyClassPrx_mixin::OP_opCustomIntSS = ::Ice::__defineOperation('opCustomIntSS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::::T_CustomIntSS, false, 0]], [[::Test::::T_CustomIntSS, false, 0]], [::Test::::T_CustomIntSS, false, 0], [])
         MyClassPrx_mixin::OP_opCustomCVSS = ::Ice::__defineOperation('opCustomCVSS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::::T_CustomCVSS, false, 0]], [[::Test::::T_CustomCVSS, false, 0]], [::Test::::T_CustomCVSS, false, 0], [])
-        MyClassPrx_mixin::OP_opSerialSmallCSharp = ::Ice::__defineOperation('opSerialSmallCSharp', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::::T_SerialSmall, false, 0]], [[::Test::::T_SerialSmall, false, 0]], [::Test::::T_SerialSmall, false, 0], [])
-        MyClassPrx_mixin::OP_opSerialLargeCSharp = ::Ice::__defineOperation('opSerialLargeCSharp', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::::T_SerialLarge, false, 0]], [[::Test::::T_SerialLarge, false, 0]], [::Test::::T_SerialLarge, false, 0], [])
-        MyClassPrx_mixin::OP_opSerialStructCSharp = ::Ice::__defineOperation('opSerialStructCSharp', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::::T_SerialStruct, false, 0]], [[::Test::::T_SerialStruct, false, 0]], [::Test::::T_SerialStruct, false, 0], [])
     end
 end

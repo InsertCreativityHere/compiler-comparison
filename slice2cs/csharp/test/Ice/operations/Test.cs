@@ -57,7 +57,6 @@ namespace Ice.operations
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class AnotherStruct : global::System.ICloneable
         {
             #region Slice data members
@@ -209,7 +208,6 @@ namespace Ice.operations
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class Structure : global::System.ICloneable
         {
             #region Slice data members
@@ -393,7 +391,6 @@ namespace Ice.operations
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial struct MyStruct
         {
             #region Slice data members
@@ -504,7 +501,6 @@ namespace Ice.operations
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032")]
-        [global::System.Serializable]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
@@ -526,11 +522,6 @@ namespace Ice.operations
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
             public SomeException(global::System.Exception ex) : base(ex)
-            {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public SomeException(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 
@@ -586,7 +577,6 @@ namespace Ice.operations
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class MyStruct1 : global::System.ICloneable
         {
             #region Slice data members
@@ -782,7 +772,6 @@ namespace Ice.operations
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class MyClass1 : global::Ice.Value
         {
             #region Slice data members
@@ -1095,7 +1084,6 @@ namespace Ice.operations
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class A : global::Ice.Value
         {
             #region Slice data members
@@ -1184,7 +1172,6 @@ namespace Ice.operations
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1012")]
         public partial class B : A
         {
@@ -4848,14 +4835,9 @@ namespace Ice.operations
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        [global::System.Serializable]
         public sealed class MyClassPrxHelper : global::Ice.ObjectPrxHelperBase, MyClassPrx
         {
             public MyClassPrxHelper()
-            {
-            }
-
-            public MyClassPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 
@@ -11317,14 +11299,9 @@ namespace Ice.operations
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        [global::System.Serializable]
         public sealed class MyDerivedClassPrxHelper : global::Ice.ObjectPrxHelperBase, MyDerivedClassPrx
         {
             public MyDerivedClassPrxHelper()
-            {
-            }
-
-            public MyDerivedClassPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 
@@ -18038,14 +18015,9 @@ namespace Test2
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class MyDerivedClassPrxHelper : global::Ice.ObjectPrxHelperBase, MyDerivedClassPrx
     {
         public MyDerivedClassPrxHelper()
-        {
-        }
-
-        public MyDerivedClassPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 
@@ -24513,14 +24485,9 @@ namespace Ice.operations
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        [global::System.Serializable]
         public sealed class IntfPrxHelper : global::Ice.ObjectPrxHelperBase, IntfPrx
         {
             public IntfPrxHelper()
-            {
-            }
-
-            public IntfPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 
@@ -24752,14 +24719,9 @@ namespace Ice.operations
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        [global::System.Serializable]
         public sealed class BPrxHelper : global::Ice.ObjectPrxHelperBase, BPrx
         {
             public BPrxHelper()
-            {
-            }
-
-            public BPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 

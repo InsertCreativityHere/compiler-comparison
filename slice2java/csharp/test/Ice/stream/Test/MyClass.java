@@ -22,7 +22,7 @@ public class MyClass extends com.zeroc.Ice.Value
         this.s = new SmallStruct();
     }
 
-    public MyClass(MyClass c, com.zeroc.Ice.Value o, SmallStruct s, boolean[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, String[] seq8, MyEnum[] seq9, MyClass[] seq10, java.util.Map<java.lang.String, MyClass> d, byte[] ss)
+    public MyClass(MyClass c, com.zeroc.Ice.Value o, SmallStruct s, boolean[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, String[] seq8, MyEnum[] seq9, MyClass[] seq10, java.util.Map<java.lang.String, MyClass> d)
     {
         this.c = c;
         this.o = o;
@@ -38,7 +38,6 @@ public class MyClass extends com.zeroc.Ice.Value
         this.seq9 = seq9;
         this.seq10 = seq10;
         this.d = d;
-        this.ss = ss;
     }
 
     public MyClass c;
@@ -69,8 +68,6 @@ public class MyClass extends com.zeroc.Ice.Value
 
     public java.util.Map<java.lang.String, MyClass> d;
 
-    public byte[] ss;
-
     public MyClass clone()
     {
         return (MyClass)super.clone();
@@ -88,7 +85,7 @@ public class MyClass extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -4786305304252024975L;
+    public static final long serialVersionUID = 6137299306707343542L;
 
     /** @hidden */
     @Override
@@ -109,7 +106,6 @@ public class MyClass extends com.zeroc.Ice.Value
         MyEnumSHelper.write(ostr_, seq9);
         MyClassSHelper.write(ostr_, seq10);
         StringMyClassDHelper.write(ostr_, d);
-        ostr_.writeByteSeq(ss);
         ostr_.endSlice();
     }
 
@@ -132,7 +128,6 @@ public class MyClass extends com.zeroc.Ice.Value
         seq9 = MyEnumSHelper.read(istr_);
         seq10 = MyClassSHelper.read(istr_);
         d = StringMyClassDHelper.read(istr_);
-        ss = istr_.readByteSeq();
         istr_.endSlice();
     }
 }

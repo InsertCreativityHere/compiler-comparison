@@ -1098,46 +1098,6 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /**
-     * Holds the result of operation opSerializable.
-     **/
-    public static class OpSerializableResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpSerializableResult()
-        {
-        }
-
-        public OpSerializableResult(java.util.Optional<byte[]> returnValue, java.util.Optional<byte[]> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpSerializableResult(byte[] returnValue, byte[] p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<byte[]> returnValue;
-        public java.util.Optional<byte[]> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeByteSeq(1, returnValue);
-            ostr.writeByteSeq(3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = istr.readByteSeq(1);
-            this.p3 = istr.readByteSeq(3);
-        }
-    }
-
-    /**
      * Holds the result of operation opIntIntDict.
      **/
     public static class OpIntIntDictResult
@@ -1704,8 +1664,6 @@ public interface Initial extends com.zeroc.Ice.Object
 
     Initial.OpVarStructSeqResult opVarStructSeq(java.util.Optional<VarStruct[]> p1, com.zeroc.Ice.Current current);
 
-    Initial.OpSerializableResult opSerializable(java.util.Optional<byte[]> p1, com.zeroc.Ice.Current current);
-
     Initial.OpIntIntDictResult opIntIntDict(java.util.Optional<java.util.Map<java.lang.Integer, java.lang.Integer>> p1, com.zeroc.Ice.Current current);
 
     Initial.OpStringIntDictResult opStringIntDict(java.util.Optional<java.util.Map<java.lang.String, java.lang.Integer>> p1, com.zeroc.Ice.Current current);
@@ -1741,8 +1699,6 @@ public interface Initial extends com.zeroc.Ice.Object
     boolean supportsRequiredParams(com.zeroc.Ice.Current current);
 
     boolean supportsJavaSerializable(com.zeroc.Ice.Current current);
-
-    boolean supportsCsharpSerializable(com.zeroc.Ice.Current current);
 
     boolean supportsCppStringView(com.zeroc.Ice.Current current);
 
@@ -2461,27 +2417,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opSerializable(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<byte[]> iceP_p1;
-        iceP_p1 = istr.readByteSeq(2);
-        inS.endReadParams();
-        Initial.OpSerializableResult ret = obj.opSerializable(iceP_p1, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opIntIntDict(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -2815,24 +2750,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_supportsCsharpSerializable(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        boolean ret = obj.supportsCsharpSerializable(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeBool(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_supportsCppStringView(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -2902,7 +2819,6 @@ public interface Initial extends com.zeroc.Ice.Object
         "opOneOptionalProxy",
         "opOptionalException",
         "opRequiredException",
-        "opSerializable",
         "opShort",
         "opShortSeq",
         "opSmallStruct",
@@ -2919,7 +2835,6 @@ public interface Initial extends com.zeroc.Ice.Object
         "sendOptionalClass",
         "shutdown",
         "supportsCppStringView",
-        "supportsCsharpSerializable",
         "supportsJavaSerializable",
         "supportsNullOptional",
         "supportsRequiredParams"
@@ -3088,85 +3003,77 @@ public interface Initial extends com.zeroc.Ice.Object
             }
             case 37:
             {
-                return _iceD_opSerializable(this, in, current);
+                return _iceD_opShort(this, in, current);
             }
             case 38:
             {
-                return _iceD_opShort(this, in, current);
+                return _iceD_opShortSeq(this, in, current);
             }
             case 39:
             {
-                return _iceD_opShortSeq(this, in, current);
+                return _iceD_opSmallStruct(this, in, current);
             }
             case 40:
             {
-                return _iceD_opSmallStruct(this, in, current);
+                return _iceD_opSmallStructList(this, in, current);
             }
             case 41:
             {
-                return _iceD_opSmallStructList(this, in, current);
+                return _iceD_opSmallStructSeq(this, in, current);
             }
             case 42:
             {
-                return _iceD_opSmallStructSeq(this, in, current);
+                return _iceD_opString(this, in, current);
             }
             case 43:
             {
-                return _iceD_opString(this, in, current);
+                return _iceD_opStringIntDict(this, in, current);
             }
             case 44:
             {
-                return _iceD_opStringIntDict(this, in, current);
+                return _iceD_opStringSeq(this, in, current);
             }
             case 45:
             {
-                return _iceD_opStringSeq(this, in, current);
+                return _iceD_opVarStruct(this, in, current);
             }
             case 46:
             {
-                return _iceD_opVarStruct(this, in, current);
+                return _iceD_opVarStructSeq(this, in, current);
             }
             case 47:
             {
-                return _iceD_opVarStructSeq(this, in, current);
+                return _iceD_opVoid(this, in, current);
             }
             case 48:
             {
-                return _iceD_opVoid(this, in, current);
+                return _iceD_pingPong(this, in, current);
             }
             case 49:
             {
-                return _iceD_pingPong(this, in, current);
+                return _iceD_returnOptionalClass(this, in, current);
             }
             case 50:
             {
-                return _iceD_returnOptionalClass(this, in, current);
+                return _iceD_sendOptionalClass(this, in, current);
             }
             case 51:
             {
-                return _iceD_sendOptionalClass(this, in, current);
+                return _iceD_shutdown(this, in, current);
             }
             case 52:
             {
-                return _iceD_shutdown(this, in, current);
+                return _iceD_supportsCppStringView(this, in, current);
             }
             case 53:
             {
-                return _iceD_supportsCppStringView(this, in, current);
+                return _iceD_supportsJavaSerializable(this, in, current);
             }
             case 54:
             {
-                return _iceD_supportsCsharpSerializable(this, in, current);
-            }
-            case 55:
-            {
-                return _iceD_supportsJavaSerializable(this, in, current);
-            }
-            case 56:
-            {
                 return _iceD_supportsNullOptional(this, in, current);
             }
-            case 57:
+            case 55:
             {
                 return _iceD_supportsRequiredParams(this, in, current);
             }

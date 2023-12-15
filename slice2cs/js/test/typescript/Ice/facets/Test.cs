@@ -500,14 +500,9 @@ namespace Test
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class EmptyPrxHelper : global::Ice.ObjectPrxHelperBase, EmptyPrx
     {
         public EmptyPrxHelper()
-        {
-        }
-
-        public EmptyPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 
@@ -662,14 +657,9 @@ namespace Test
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class APrxHelper : global::Ice.ObjectPrxHelperBase, APrx
     {
         public APrxHelper()
-        {
-        }
-
-        public APrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 
@@ -910,14 +900,9 @@ namespace Test
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class BPrxHelper : global::Ice.ObjectPrxHelperBase, BPrx
     {
         public BPrxHelper()
-        {
-        }
-
-        public BPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 
@@ -1241,14 +1226,9 @@ namespace Test
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class CPrxHelper : global::Ice.ObjectPrxHelperBase, CPrx
     {
         public CPrxHelper()
-        {
-        }
-
-        public CPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 
@@ -1572,14 +1552,9 @@ namespace Test
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class DPrxHelper : global::Ice.ObjectPrxHelperBase, DPrx
     {
         public DPrxHelper()
-        {
-        }
-
-        public DPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 
@@ -2069,14 +2044,9 @@ namespace Test
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class EPrxHelper : global::Ice.ObjectPrxHelperBase, EPrx
     {
         public EPrxHelper()
-        {
-        }
-
-        public EPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 
@@ -2317,14 +2287,9 @@ namespace Test
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class FPrxHelper : global::Ice.ObjectPrxHelperBase, FPrx
     {
         public FPrxHelper()
-        {
-        }
-
-        public FPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 
@@ -2648,14 +2613,9 @@ namespace Test
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class GPrxHelper : global::Ice.ObjectPrxHelperBase, GPrx
     {
         public GPrxHelper()
-        {
-        }
-
-        public GPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 
@@ -2969,14 +2929,9 @@ namespace Test
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class HPrxHelper : global::Ice.ObjectPrxHelperBase, HPrx
     {
         public HPrxHelper()
-        {
-        }
-
-        public HPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 
@@ -3373,14 +3328,9 @@ namespace Test
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class EchoPrxHelper : global::Ice.ObjectPrxHelperBase, EchoPrx
     {
         public EchoPrxHelper()
-        {
-        }
-
-        public EchoPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 

@@ -202,8 +202,6 @@
 
     Slice.defineDictionary(Test, "SortedStringStringD", "SortedStringStringDHelper", "Ice.StringHelper", "Ice.StringHelper", false, undefined, undefined);
 
-    Slice.defineSequence(Test, "SerialSmallHelper", "Ice.ByteHelper", true);
-
     const iceC_Test_MyClass_ids = [
         "::Ice::Object",
         "::Test::MyClass"
@@ -211,7 +209,7 @@
 
     Test.MyClass = class extends Ice.Value
     {
-        constructor(c = null, o = null, s = new Test.SmallStruct(), seq1 = null, seq2 = null, seq3 = null, seq4 = null, seq5 = null, seq6 = null, seq7 = null, seq8 = null, seq9 = null, seq10 = null, d = null, ss = null)
+        constructor(c = null, o = null, s = new Test.SmallStruct(), seq1 = null, seq2 = null, seq3 = null, seq4 = null, seq5 = null, seq6 = null, seq7 = null, seq8 = null, seq9 = null, seq10 = null, d = null)
         {
             super();
             this.c = c;
@@ -228,7 +226,6 @@
             this.seq9 = seq9;
             this.seq10 = seq10;
             this.d = d;
-            this.ss = ss;
         }
 
         _iceWriteMemberImpl(ostr)
@@ -247,7 +244,6 @@
             Test.MyEnumSHelper.write(ostr, this.seq9);
             Test.MyClassSHelper.write(ostr, this.seq10);
             Test.StringMyClassDHelper.write(ostr, this.d);
-            Test.SerialSmallHelper.write(ostr, this.ss);
         }
 
         _iceReadMemberImpl(istr)
@@ -266,7 +262,6 @@
             this.seq9 = Test.MyEnumSHelper.read(istr);
             this.seq10 = Test.MyClassSHelper.read(istr);
             this.d = Test.StringMyClassDHelper.read(istr);
-            this.ss = Test.SerialSmallHelper.read(istr);
         }
     };
 

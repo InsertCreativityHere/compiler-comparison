@@ -30,7 +30,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial struct Struct1
     {
         #region Slice data members
@@ -141,7 +140,6 @@ namespace Test
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032")]
-    [global::System.Serializable]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
@@ -196,18 +194,6 @@ namespace Test
         public Exception1(global::System.Exception ex) : base(ex)
         {
             _initDM();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public Exception1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
-        {
-            this.isa = info.GetInt32("isa");
-            this.reason = info.GetInt32("reason");
-            this.raise = info.GetInt32("raise");
-            this.name = info.GetInt32("name");
-            this.callStackReturnAddresses = info.GetInt32("callStackReturnAddresses");
-            this.userInfo = info.GetInt32("userInfo");
-            this.reserved = info.GetInt32("reserved");
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -286,7 +272,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial class Class1 : global::Ice.Value
     {
         #region Slice data members
@@ -1117,14 +1102,9 @@ namespace Test
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class Intf1PrxHelper : global::Ice.ObjectPrxHelperBase, Intf1Prx
     {
         public Intf1PrxHelper()
-        {
-        }
-
-        public Intf1PrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 
@@ -2524,14 +2504,9 @@ namespace Test
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class Intf2PrxHelper : global::Ice.ObjectPrxHelperBase, Intf2Prx
     {
         public Intf2PrxHelper()
-        {
-        }
-
-        public Intf2PrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 

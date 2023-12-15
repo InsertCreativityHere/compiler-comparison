@@ -2588,86 +2588,6 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default Initial.OpSerializableResult opSerializable(byte[] p1)
-    {
-        return opSerializable(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default Initial.OpSerializableResult opSerializable(byte[] p1, java.util.Map<String, String> context)
-    {
-        return _iceI_opSerializableAsync(p1, context, true).waitForResponse();
-    }
-
-    default Initial.OpSerializableResult opSerializable(java.util.Optional<byte[]> p1)
-    {
-        return opSerializable(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default Initial.OpSerializableResult opSerializable(java.util.Optional<byte[]> p1, java.util.Map<String, String> context)
-    {
-        return _iceI_opSerializableAsync(p1, context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<Initial.OpSerializableResult> opSerializableAsync(byte[] p1)
-    {
-        return _iceI_opSerializableAsync(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<Initial.OpSerializableResult> opSerializableAsync(byte[] p1, java.util.Map<String, String> context)
-    {
-        return _iceI_opSerializableAsync(p1, context, false);
-    }
-
-    /**
-     * @hidden
-     * @param iceP_p1 -
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<Initial.OpSerializableResult> _iceI_opSerializableAsync(byte[] iceP_p1, java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<Initial.OpSerializableResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opSerializable", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
-                     ostr.writeByteSeq(2, iceP_p1);
-                 }, istr -> {
-                     Initial.OpSerializableResult ret = new Initial.OpSerializableResult();
-                     ret.read(istr);
-                     return ret;
-                 });
-        return f;
-    }
-
-    default java.util.concurrent.CompletableFuture<Initial.OpSerializableResult> opSerializableAsync(java.util.Optional<byte[]> p1)
-    {
-        return _iceI_opSerializableAsync(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<Initial.OpSerializableResult> opSerializableAsync(java.util.Optional<byte[]> p1, java.util.Map<String, String> context)
-    {
-        return _iceI_opSerializableAsync(p1, context, false);
-    }
-
-    /**
-     * @hidden
-     * @param iceP_p1 -
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<Initial.OpSerializableResult> _iceI_opSerializableAsync(java.util.Optional<byte[]> iceP_p1, java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<Initial.OpSerializableResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opSerializable", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
-                     ostr.writeByteSeq(2, iceP_p1);
-                 }, istr -> {
-                     Initial.OpSerializableResult ret = new Initial.OpSerializableResult();
-                     ret.read(istr);
-                     return ret;
-                 });
-        return f;
-    }
-
     default Initial.OpIntIntDictResult opIntIntDict(java.util.Map<java.lang.Integer, java.lang.Integer> p1)
     {
         return opIntIntDict(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext);
@@ -3670,43 +3590,6 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> _iceI_supportsJavaSerializableAsync(java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "supportsJavaSerializable", null, sync, null);
-        f.invoke(true, context, null, null, istr -> {
-                     boolean ret;
-                     ret = istr.readBool();
-                     return ret;
-                 });
-        return f;
-    }
-
-    default boolean supportsCsharpSerializable()
-    {
-        return supportsCsharpSerializable(com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default boolean supportsCsharpSerializable(java.util.Map<String, String> context)
-    {
-        return _iceI_supportsCsharpSerializableAsync(context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Boolean> supportsCsharpSerializableAsync()
-    {
-        return _iceI_supportsCsharpSerializableAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Boolean> supportsCsharpSerializableAsync(java.util.Map<String, String> context)
-    {
-        return _iceI_supportsCsharpSerializableAsync(context, false);
-    }
-
-    /**
-     * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> _iceI_supportsCsharpSerializableAsync(java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "supportsCsharpSerializable", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      boolean ret;
                      ret = istr.readBool();

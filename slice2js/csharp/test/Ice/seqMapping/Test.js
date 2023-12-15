@@ -324,12 +324,6 @@
 
     Slice.defineSequence(Test, "CustomCVSSHelper", "Test.CustomCVSHelper", false);
 
-    Slice.defineSequence(Test, "SerialSmallHelper", "Ice.ByteHelper", true);
-
-    Slice.defineSequence(Test, "SerialLargeHelper", "Ice.ByteHelper", true);
-
-    Slice.defineSequence(Test, "SerialStructHelper", "Ice.ByteHelper", true);
-
     const iceC_Test_MyClass_ids = [
         "::Ice::Object",
         "::Test::MyClass"
@@ -420,113 +414,8 @@
         "opCustomIntS": [, , , , ["Test.CustomIntSHelper"], [["Test.CustomIntSHelper"]], [["Test.CustomIntSHelper"]], , , ],
         "opCustomCVS": [, , , , ["Test.CustomCVSHelper"], [["Test.CustomCVSHelper"]], [["Test.CustomCVSHelper"]], , true, true],
         "opCustomIntSS": [, , , , ["Test.CustomIntSSHelper"], [["Test.CustomIntSSHelper"]], [["Test.CustomIntSSHelper"]], , , ],
-        "opCustomCVSS": [, , , , ["Test.CustomCVSSHelper"], [["Test.CustomCVSSHelper"]], [["Test.CustomCVSSHelper"]], , true, true],
-        "opSerialSmallCSharp": [, , , , ["Test.SerialSmallHelper"], [["Test.SerialSmallHelper"]], [["Test.SerialSmallHelper"]], , , ],
-        "opSerialLargeCSharp": [, , , , ["Test.SerialLargeHelper"], [["Test.SerialLargeHelper"]], [["Test.SerialLargeHelper"]], , , ],
-        "opSerialStructCSharp": [, , , , ["Test.SerialStructHelper"], [["Test.SerialStructHelper"]], [["Test.SerialStructHelper"]], , , ]
+        "opCustomCVSS": [, , , , ["Test.CustomCVSSHelper"], [["Test.CustomCVSSHelper"]], [["Test.CustomCVSSHelper"]], , true, true]
     });
-
-    Slice.defineSequence(Test, "SLSHelper", "Test.SerialLargeHelper", false);
-
-    Slice.defineSequence(Test, "SLSSHelper", "Test.SLSHelper", false);
-
-    Slice.defineDictionary(Test, "SLD", "SLDHelper", "Ice.IntHelper", "Test.SerialLargeHelper", false, undefined, undefined, Ice.ArrayUtil.equals);
-
-    Slice.defineDictionary(Test, "SLSD", "SLSDHelper", "Ice.IntHelper", "Test.SLSHelper", false, undefined, undefined, Ice.ArrayUtil.equals);
-
-    Test.Foo = class
-    {
-        constructor(SLmem = null, SLSmem = null)
-        {
-            this.SLmem = SLmem;
-            this.SLSmem = SLSmem;
-        }
-
-        _write(ostr)
-        {
-            Test.SerialLargeHelper.write(ostr, this.SLmem);
-            Test.SLSHelper.write(ostr, this.SLSmem);
-        }
-
-        _read(istr)
-        {
-            this.SLmem = Test.SerialLargeHelper.read(istr);
-            this.SLSmem = Test.SLSHelper.read(istr);
-        }
-
-        static get minWireSize()
-        {
-            return  2;
-        }
-    };
-
-    Slice.defineStruct(Test.Foo, true, true);
-
-    Test.Bar = class extends Ice.UserException
-    {
-        constructor(SLmem = null, SLSmem = null, _cause = "")
-        {
-            super(_cause);
-            this.SLmem = SLmem;
-            this.SLSmem = SLSmem;
-        }
-
-        static get _parent()
-        {
-            return Ice.UserException;
-        }
-
-        static get _id()
-        {
-            return "::Test::Bar";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.Bar;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            Test.SerialLargeHelper.write(ostr, this.SLmem);
-            Test.SLSHelper.write(ostr, this.SLSmem);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.SLmem = Test.SerialLargeHelper.read(istr);
-            this.SLSmem = Test.SLSHelper.read(istr);
-        }
-    };
-
-    const iceC_Test_Baz_ids = [
-        "::Ice::Object",
-        "::Test::Baz"
-    ];
-
-    Test.Baz = class extends Ice.Value
-    {
-        constructor(SLmem = null, SLSmem = null)
-        {
-            super();
-            this.SLmem = SLmem;
-            this.SLSmem = SLSmem;
-        }
-
-        _iceWriteMemberImpl(ostr)
-        {
-            Test.SerialLargeHelper.write(ostr, this.SLmem);
-            Test.SLSHelper.write(ostr, this.SLSmem);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.SLmem = Test.SerialLargeHelper.read(istr);
-            this.SLSmem = Test.SLSHelper.read(istr);
-        }
-    };
-
-    Slice.defineValue(Test.Baz, iceC_Test_Baz_ids[1], false);
     exports.Test = Test;
 }
 (typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,

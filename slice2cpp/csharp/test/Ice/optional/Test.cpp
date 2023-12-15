@@ -125,7 +125,6 @@ const ::std::string iceC_Test_Initial_ops[] =
     "opOneOptionalProxy",
     "opOptionalException",
     "opRequiredException",
-    "opSerializable",
     "opShort",
     "opShortSeq",
     "opSmallStruct",
@@ -142,7 +141,6 @@ const ::std::string iceC_Test_Initial_ops[] =
     "sendOptionalClass",
     "shutdown",
     "supportsCppStringView",
-    "supportsCsharpSerializable",
     "supportsJavaSerializable",
     "supportsNullOptional",
     "supportsRequiredParams"
@@ -179,7 +177,6 @@ const ::std::string iceC_Test_Initial_opSmallStructList_name = "opSmallStructLis
 const ::std::string iceC_Test_Initial_opFixedStructSeq_name = "opFixedStructSeq";
 const ::std::string iceC_Test_Initial_opFixedStructList_name = "opFixedStructList";
 const ::std::string iceC_Test_Initial_opVarStructSeq_name = "opVarStructSeq";
-const ::std::string iceC_Test_Initial_opSerializable_name = "opSerializable";
 const ::std::string iceC_Test_Initial_opIntIntDict_name = "opIntIntDict";
 const ::std::string iceC_Test_Initial_opStringIntDict_name = "opStringIntDict";
 const ::std::string iceC_Test_Initial_opIntOneOptionalDict_name = "opIntOneOptionalDict";
@@ -198,7 +195,6 @@ const ::std::string iceC_Test_Initial_opMG1_name = "opMG1";
 const ::std::string iceC_Test_Initial_opMG2_name = "opMG2";
 const ::std::string iceC_Test_Initial_supportsRequiredParams_name = "supportsRequiredParams";
 const ::std::string iceC_Test_Initial_supportsJavaSerializable_name = "supportsJavaSerializable";
-const ::std::string iceC_Test_Initial_supportsCsharpSerializable_name = "supportsCsharpSerializable";
 const ::std::string iceC_Test_Initial_supportsCppStringView_name = "supportsCppStringView";
 const ::std::string iceC_Test_Initial_supportsNullOptional_name = "supportsNullOptional";
 
@@ -840,24 +836,6 @@ Test::Initial::_iceD_opVarStructSeq(::IceInternal::Incoming& inS, const ::Ice::C
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opSerializable(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
-    Ice::optional<Serializable> iceP_p1;
-    istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    Ice::optional<Serializable> iceP_p3;
-    Ice::optional<Serializable> ret = this->opSerializable(::std::move(iceP_p1), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
 Test::Initial::_iceD_opIntIntDict(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
@@ -1186,20 +1164,6 @@ Test::Initial::_iceD_supportsJavaSerializable(::IceInternal::Incoming& inS, cons
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_supportsCsharpSerializable(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    bool ret = this->supportsCsharpSerializable(current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
 Test::Initial::_iceD_supportsCppStringView(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
@@ -1230,7 +1194,7 @@ Test::Initial::_iceD_supportsNullOptional(::IceInternal::Incoming& inS, const ::
 bool
 Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Initial_ops, iceC_Test_Initial_ops + 58, current.operation);
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Initial_ops, iceC_Test_Initial_ops + 56, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -1388,85 +1352,77 @@ Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
         }
         case 37:
         {
-            return _iceD_opSerializable(in, current);
+            return _iceD_opShort(in, current);
         }
         case 38:
         {
-            return _iceD_opShort(in, current);
+            return _iceD_opShortSeq(in, current);
         }
         case 39:
         {
-            return _iceD_opShortSeq(in, current);
+            return _iceD_opSmallStruct(in, current);
         }
         case 40:
         {
-            return _iceD_opSmallStruct(in, current);
+            return _iceD_opSmallStructList(in, current);
         }
         case 41:
         {
-            return _iceD_opSmallStructList(in, current);
+            return _iceD_opSmallStructSeq(in, current);
         }
         case 42:
         {
-            return _iceD_opSmallStructSeq(in, current);
+            return _iceD_opString(in, current);
         }
         case 43:
         {
-            return _iceD_opString(in, current);
+            return _iceD_opStringIntDict(in, current);
         }
         case 44:
         {
-            return _iceD_opStringIntDict(in, current);
+            return _iceD_opStringSeq(in, current);
         }
         case 45:
         {
-            return _iceD_opStringSeq(in, current);
+            return _iceD_opVarStruct(in, current);
         }
         case 46:
         {
-            return _iceD_opVarStruct(in, current);
+            return _iceD_opVarStructSeq(in, current);
         }
         case 47:
         {
-            return _iceD_opVarStructSeq(in, current);
+            return _iceD_opVoid(in, current);
         }
         case 48:
         {
-            return _iceD_opVoid(in, current);
+            return _iceD_pingPong(in, current);
         }
         case 49:
         {
-            return _iceD_pingPong(in, current);
+            return _iceD_returnOptionalClass(in, current);
         }
         case 50:
         {
-            return _iceD_returnOptionalClass(in, current);
+            return _iceD_sendOptionalClass(in, current);
         }
         case 51:
         {
-            return _iceD_sendOptionalClass(in, current);
+            return _iceD_shutdown(in, current);
         }
         case 52:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_supportsCppStringView(in, current);
         }
         case 53:
         {
-            return _iceD_supportsCppStringView(in, current);
+            return _iceD_supportsJavaSerializable(in, current);
         }
         case 54:
         {
-            return _iceD_supportsCsharpSerializable(in, current);
-        }
-        case 55:
-        {
-            return _iceD_supportsJavaSerializable(in, current);
-        }
-        case 56:
-        {
             return _iceD_supportsNullOptional(in, current);
         }
-        case 57:
+        case 55:
         {
             return _iceD_supportsRequiredParams(in, current);
         }
@@ -2301,26 +2257,6 @@ Test::InitialPrx::_iceI_opVarStructSeq(const ::std::shared_ptr<::IceInternal::Ou
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opSerializable(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpSerializableResult>>& outAsync, const Ice::optional<Serializable>& iceP_p1, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_Initial_opSerializable_name);
-    outAsync->invoke(iceC_Test_Initial_opSerializable_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll({2}, iceP_p1);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            Initial::OpSerializableResult v;
-            istr->readAll({1, 3}, v.returnValue, v.p3);
-            return v;
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
 Test::InitialPrx::_iceI_opIntIntDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpIntIntDictResult>>& outAsync, const Ice::optional<IntIntDict>& iceP_p1, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opIntIntDict_name);
@@ -2631,17 +2567,6 @@ Test::InitialPrx::_iceI_supportsJavaSerializable(const ::std::shared_ptr<::IceIn
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_supportsCsharpSerializable(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_Initial_supportsCsharpSerializable_name);
-    outAsync->invoke(iceC_Test_Initial_supportsCsharpSerializable_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
 Test::InitialPrx::_iceI_supportsCppStringView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_supportsCppStringView_name);
@@ -2749,8 +2674,6 @@ const ::std::string iceC_Test_Initial_opFixedStructList_name = "opFixedStructLis
 
 const ::std::string iceC_Test_Initial_opVarStructSeq_name = "opVarStructSeq";
 
-const ::std::string iceC_Test_Initial_opSerializable_name = "opSerializable";
-
 const ::std::string iceC_Test_Initial_opIntIntDict_name = "opIntIntDict";
 
 const ::std::string iceC_Test_Initial_opStringIntDict_name = "opStringIntDict";
@@ -2786,8 +2709,6 @@ const ::std::string iceC_Test_Initial_opMG2_name = "opMG2";
 const ::std::string iceC_Test_Initial_supportsRequiredParams_name = "supportsRequiredParams";
 
 const ::std::string iceC_Test_Initial_supportsJavaSerializable_name = "supportsJavaSerializable";
-
-const ::std::string iceC_Test_Initial_supportsCsharpSerializable_name = "supportsCsharpSerializable";
 
 const ::std::string iceC_Test_Initial_supportsCppStringView_name = "supportsCppStringView";
 
@@ -5368,69 +5289,6 @@ void IceProxy::Test::Initial::_iceI_end_opVarStructSeq(IceUtil::Optional< ::Test
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opSerializable(const IceUtil::Optional< ::Test::Serializable>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    _checkTwowayOnly(iceC_Test_Initial_opSerializable_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opSerializable_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_Test_Initial_opSerializable_name, ::Ice::Normal, context);
-        ::Ice::OutputStream* ostr = result->startWriteParams(::Ice::DefaultFormat);
-        ostr->write(2, iceP_p1);
-        result->endWriteParams();
-        result->invoke(iceC_Test_Initial_opSerializable_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-IceUtil::Optional< ::Test::Serializable>
-IceProxy::Test::Initial::end_opSerializable(IceUtil::Optional< ::Test::Serializable>& iceP_p3, const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opSerializable_name);
-    IceUtil::Optional< ::Test::Serializable> ret;
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(1, ret);
-    istr->read(3, iceP_p3);
-    result->_endReadParams();
-    return ret;
-}
-
-void IceProxy::Test::Initial::_iceI_end_opSerializable(IceUtil::Optional< ::Test::Serializable>& iceP_p3, IceUtil::Optional< ::Test::Serializable>& ret, const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opSerializable_name);
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(1, ret);
-    istr->read(3, iceP_p3);
-    result->_endReadParams();
-}
-
-::Ice::AsyncResultPtr
 IceProxy::Test::Initial::_iceI_begin_opIntIntDict(const IceUtil::Optional< ::Test::IntIntDict>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_opIntIntDict_name, sync);
@@ -6271,46 +6129,6 @@ bool
 IceProxy::Test::Initial::end_supportsJavaSerializable(const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_supportsJavaSerializable_name);
-    bool ret;
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(ret);
-    result->_endReadParams();
-    return ret;
-}
-
-::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_supportsCsharpSerializable(const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    _checkTwowayOnly(iceC_Test_Initial_supportsCsharpSerializable_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_supportsCsharpSerializable_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_Test_Initial_supportsCsharpSerializable_name, ::Ice::Normal, context);
-        result->writeEmptyParams();
-        result->invoke(iceC_Test_Initial_supportsCsharpSerializable_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-bool
-IceProxy::Test::Initial::end_supportsCsharpSerializable(const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_supportsCsharpSerializable_name);
     bool ret;
     if(!result->_waitForResponse())
     {
@@ -8530,25 +8348,6 @@ Test::Initial::_iceD_opVarStructSeq(::IceInternal::Incoming& inS, const ::Ice::C
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opSerializable(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    IceUtil::Optional<Serializable> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    IceUtil::Optional<Serializable> iceP_p3;
-    IceUtil::Optional<Serializable> ret = this->opSerializable(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
 Test::Initial::_iceD_opIntIntDict(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::Normal, current.mode);
@@ -8848,20 +8647,6 @@ Test::Initial::_iceD_supportsJavaSerializable(::IceInternal::Incoming& inS, cons
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_supportsCsharpSerializable(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    bool ret = this->supportsCsharpSerializable(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
 Test::Initial::_iceD_supportsCppStringView(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::Normal, current.mode);
@@ -8929,7 +8714,6 @@ const ::std::string iceC_Test_Initial_all[] =
     "opOneOptionalProxy",
     "opOptionalException",
     "opRequiredException",
-    "opSerializable",
     "opShort",
     "opShortSeq",
     "opSmallStruct",
@@ -8946,7 +8730,6 @@ const ::std::string iceC_Test_Initial_all[] =
     "sendOptionalClass",
     "shutdown",
     "supportsCppStringView",
-    "supportsCsharpSerializable",
     "supportsJavaSerializable",
     "supportsNullOptional",
     "supportsRequiredParams"
@@ -8958,7 +8741,7 @@ const ::std::string iceC_Test_Initial_all[] =
 bool
 Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Initial_all, iceC_Test_Initial_all + 58, current.operation);
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Initial_all, iceC_Test_Initial_all + 56, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -9116,85 +8899,77 @@ Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
         }
         case 37:
         {
-            return _iceD_opSerializable(in, current);
+            return _iceD_opShort(in, current);
         }
         case 38:
         {
-            return _iceD_opShort(in, current);
+            return _iceD_opShortSeq(in, current);
         }
         case 39:
         {
-            return _iceD_opShortSeq(in, current);
+            return _iceD_opSmallStruct(in, current);
         }
         case 40:
         {
-            return _iceD_opSmallStruct(in, current);
+            return _iceD_opSmallStructList(in, current);
         }
         case 41:
         {
-            return _iceD_opSmallStructList(in, current);
+            return _iceD_opSmallStructSeq(in, current);
         }
         case 42:
         {
-            return _iceD_opSmallStructSeq(in, current);
+            return _iceD_opString(in, current);
         }
         case 43:
         {
-            return _iceD_opString(in, current);
+            return _iceD_opStringIntDict(in, current);
         }
         case 44:
         {
-            return _iceD_opStringIntDict(in, current);
+            return _iceD_opStringSeq(in, current);
         }
         case 45:
         {
-            return _iceD_opStringSeq(in, current);
+            return _iceD_opVarStruct(in, current);
         }
         case 46:
         {
-            return _iceD_opVarStruct(in, current);
+            return _iceD_opVarStructSeq(in, current);
         }
         case 47:
         {
-            return _iceD_opVarStructSeq(in, current);
+            return _iceD_opVoid(in, current);
         }
         case 48:
         {
-            return _iceD_opVoid(in, current);
+            return _iceD_pingPong(in, current);
         }
         case 49:
         {
-            return _iceD_pingPong(in, current);
+            return _iceD_returnOptionalClass(in, current);
         }
         case 50:
         {
-            return _iceD_returnOptionalClass(in, current);
+            return _iceD_sendOptionalClass(in, current);
         }
         case 51:
         {
-            return _iceD_sendOptionalClass(in, current);
+            return _iceD_shutdown(in, current);
         }
         case 52:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_supportsCppStringView(in, current);
         }
         case 53:
         {
-            return _iceD_supportsCppStringView(in, current);
+            return _iceD_supportsJavaSerializable(in, current);
         }
         case 54:
         {
-            return _iceD_supportsCsharpSerializable(in, current);
-        }
-        case 55:
-        {
-            return _iceD_supportsJavaSerializable(in, current);
-        }
-        case 56:
-        {
             return _iceD_supportsNullOptional(in, current);
         }
-        case 57:
+        case 55:
         {
             return _iceD_supportsRequiredParams(in, current);
         }

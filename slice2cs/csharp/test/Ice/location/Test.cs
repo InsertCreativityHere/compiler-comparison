@@ -325,14 +325,9 @@ namespace Ice.location
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        [global::System.Serializable]
         public sealed class TestLocatorRegistryPrxHelper : global::Ice.ObjectPrxHelperBase, TestLocatorRegistryPrx
         {
             public TestLocatorRegistryPrxHelper()
-            {
-            }
-
-            public TestLocatorRegistryPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 
@@ -864,14 +859,9 @@ namespace Ice.location
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        [global::System.Serializable]
         public sealed class TestLocatorPrxHelper : global::Ice.ObjectPrxHelperBase, TestLocatorPrx
         {
             public TestLocatorPrxHelper()
-            {
-            }
-
-            public TestLocatorPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 
@@ -1395,14 +1385,9 @@ namespace Ice.location
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        [global::System.Serializable]
         public sealed class ServerManagerPrxHelper : global::Ice.ObjectPrxHelperBase, ServerManagerPrx
         {
             public ServerManagerPrxHelper()
-            {
-            }
-
-            public ServerManagerPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 
@@ -1707,14 +1692,9 @@ namespace Ice.location
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        [global::System.Serializable]
         public sealed class HelloPrxHelper : global::Ice.ObjectPrxHelperBase, HelloPrx
         {
             public HelloPrxHelper()
-            {
-            }
-
-            public HelloPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 
@@ -1946,14 +1926,9 @@ namespace Ice.location
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        [global::System.Serializable]
         public sealed class TestIntfPrxHelper : global::Ice.ObjectPrxHelperBase, TestIntfPrx
         {
             public TestIntfPrxHelper()
-            {
-            }
-
-            public TestIntfPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 

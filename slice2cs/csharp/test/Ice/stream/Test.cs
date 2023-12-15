@@ -57,7 +57,6 @@ namespace Ice.stream
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class SmallStruct : global::System.ICloneable
         {
             #region Slice data members
@@ -319,7 +318,6 @@ namespace Ice.stream
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class OptionalClass : global::Ice.Value
         {
             #region Slice data members
@@ -413,7 +411,6 @@ namespace Ice.stream
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class MyClass : global::Ice.Value
         {
             #region Slice data members
@@ -460,9 +457,6 @@ namespace Ice.stream
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
             public global::System.Collections.Generic.Dictionary<string, MyClass> d;
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public global::Ice.stream.Serialize.Small ss;
-
             #endregion
 
             partial void ice_initialize();
@@ -477,7 +471,7 @@ namespace Ice.stream
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public MyClass(MyClass c, global::Ice.Value o, SmallStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass> d, global::Ice.stream.Serialize.Small ss)
+            public MyClass(MyClass c, global::Ice.Value o, SmallStruct s, bool[] seq1, byte[] seq2, short[] seq3, int[] seq4, long[] seq5, float[] seq6, double[] seq7, string[] seq8, MyEnum[] seq9, MyClass[] seq10, global::System.Collections.Generic.Dictionary<string, MyClass> d)
             {
                 this.c = c;
                 this.o = o;
@@ -493,7 +487,6 @@ namespace Ice.stream
                 this.seq9 = seq9;
                 this.seq10 = seq10;
                 this.d = d;
-                this.ss = ss;
                 ice_initialize();
             }
 
@@ -532,7 +525,6 @@ namespace Ice.stream
                 MyEnumSHelper.write(ostr_, seq9);
                 MyClassSHelper.write(ostr_, seq10);
                 StringMyClassDHelper.write(ostr_, d);
-                SerialSmallHelper.write(ostr_, ss);
                 ostr_.endSlice();
             }
 
@@ -554,7 +546,6 @@ namespace Ice.stream
                 seq9 = MyEnumSHelper.read(istr_);
                 seq10 = MyClassSHelper.read(istr_);
                 d = StringMyClassDHelper.read(istr_);
-                ss = SerialSmallHelper.read(istr_);
                 istr_.endSlice();
             }
 
@@ -563,7 +554,6 @@ namespace Ice.stream
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032")]
-        [global::System.Serializable]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
@@ -593,12 +583,6 @@ namespace Ice.stream
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
             public MyException(global::System.Exception ex) : base(ex)
             {
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public MyException(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
-            {
-                this.c = (MyClass)info.GetValue("c", typeof(MyClass));
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -2104,32 +2088,11 @@ namespace Ice.stream
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public sealed class SerialSmallHelper
-        {
-            public static void write(global::Ice.OutputStream ostr, global::Ice.stream.Serialize.Small v)
-            {
-                ostr.writeSerializable(v);
-            }
-
-            public static global::Ice.stream.Serialize.Small read(global::Ice.InputStream istr)
-            {
-                global::Ice.stream.Serialize.Small v;
-                v = (global::Ice.stream.Serialize.Small)istr.readSerializable();
-                return v;
-            }
-        }
-
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        [global::System.Serializable]
         public sealed class MyInterfacePrxHelper : global::Ice.ObjectPrxHelperBase, MyInterfacePrx
         {
             public MyInterfacePrxHelper()
-            {
-            }
-
-            public MyInterfacePrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 

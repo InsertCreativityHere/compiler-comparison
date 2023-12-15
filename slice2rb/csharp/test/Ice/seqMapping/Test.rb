@@ -548,18 +548,6 @@ module ::Test
         T_CustomCVSS = ::Ice::__defineSequence('::Test::CustomCVSS', ::Test::::T_CustomCVS)
     end
 
-    if not defined?(::Test::::T_SerialSmall)
-        T_SerialSmall = ::Ice::__defineSequence('::Test::SerialSmall', ::Ice::T_byte)
-    end
-
-    if not defined?(::Test::::T_SerialLarge)
-        T_SerialLarge = ::Ice::__defineSequence('::Test::SerialLarge', ::Ice::T_byte)
-    end
-
-    if not defined?(::Test::::T_SerialStruct)
-        T_SerialStruct = ::Ice::__defineSequence('::Test::SerialStruct', ::Ice::T_byte)
-    end
-
     if not defined?(::Test::::MyClass_Mixin)
 
         module ::Test::::MyClass_Mixin
@@ -869,18 +857,6 @@ module ::Test
             def opCustomCVSS(i, context=nil)
                 MyClassPrx_mixin::OP_opCustomCVSS.invoke(self, [i], context)
             end
-
-            def opSerialSmallCSharp(i, context=nil)
-                MyClassPrx_mixin::OP_opSerialSmallCSharp.invoke(self, [i], context)
-            end
-
-            def opSerialLargeCSharp(i, context=nil)
-                MyClassPrx_mixin::OP_opSerialLargeCSharp.invoke(self, [i], context)
-            end
-
-            def opSerialStructCSharp(i, context=nil)
-                MyClassPrx_mixin::OP_opSerialStructCSharp.invoke(self, [i], context)
-            end
         end
 
         class MyClassPrx < ::Ice::ObjectPrx
@@ -973,103 +949,5 @@ module ::Test
         MyClassPrx_mixin::OP_opCustomCVS = ::Ice::__defineOperation('opCustomCVS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_CustomCVS, false, 0]], [[::Test::::T_CustomCVS, false, 0]], [::Test::::T_CustomCVS, false, 0], [])
         MyClassPrx_mixin::OP_opCustomIntSS = ::Ice::__defineOperation('opCustomIntSS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_CustomIntSS, false, 0]], [[::Test::::T_CustomIntSS, false, 0]], [::Test::::T_CustomIntSS, false, 0], [])
         MyClassPrx_mixin::OP_opCustomCVSS = ::Ice::__defineOperation('opCustomCVSS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_CustomCVSS, false, 0]], [[::Test::::T_CustomCVSS, false, 0]], [::Test::::T_CustomCVSS, false, 0], [])
-        MyClassPrx_mixin::OP_opSerialSmallCSharp = ::Ice::__defineOperation('opSerialSmallCSharp', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_SerialSmall, false, 0]], [[::Test::::T_SerialSmall, false, 0]], [::Test::::T_SerialSmall, false, 0], [])
-        MyClassPrx_mixin::OP_opSerialLargeCSharp = ::Ice::__defineOperation('opSerialLargeCSharp', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_SerialLarge, false, 0]], [[::Test::::T_SerialLarge, false, 0]], [::Test::::T_SerialLarge, false, 0], [])
-        MyClassPrx_mixin::OP_opSerialStructCSharp = ::Ice::__defineOperation('opSerialStructCSharp', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_SerialStruct, false, 0]], [[::Test::::T_SerialStruct, false, 0]], [::Test::::T_SerialStruct, false, 0], [])
-    end
-
-    if not defined?(::Test::::T_SLS)
-        T_SLS = ::Ice::__defineSequence('::Test::SLS', ::Test::::T_SerialLarge)
-    end
-
-    if not defined?(::Test::::T_SLSS)
-        T_SLSS = ::Ice::__defineSequence('::Test::SLSS', ::Test::::T_SLS)
-    end
-
-    if not defined?(::Test::::T_SLD)
-        T_SLD = ::Ice::__defineDictionary('::Test::SLD', ::Ice::T_int, ::Test::::T_SerialLarge)
-    end
-
-    if not defined?(::Test::::T_SLSD)
-        T_SLSD = ::Ice::__defineDictionary('::Test::SLSD', ::Ice::T_int, ::Test::::T_SLS)
-    end
-
-    if not defined?(::Test::::Foo)
-        class Foo
-            include ::Ice::Inspect_mixin
-            def initialize(sLmem=nil, sLSmem=nil)
-                @SLmem = sLmem
-                @SLSmem = sLSmem
-            end
-
-            def hash
-                _h = 0
-                _h = 5 * _h + @SLmem.hash
-                _h = 5 * _h + @SLSmem.hash
-                _h % 0x7fffffff
-            end
-
-            def ==(other)
-                return false if !other.is_a? ::Test::::Foo or
-                    @SLmem != other.SLmem or
-                    @SLSmem != other.SLSmem
-                true
-            end
-
-            def eql?(other)
-                return other.class == self.class && other == self
-            end
-
-            attr_accessor :SLmem, :SLSmem
-        end
-
-        T_Foo = ::Ice::__defineStruct('::Test::Foo', Foo, [
-            ["SLmem", ::Test::::T_SerialLarge],
-            ["SLSmem", ::Test::::T_SLS]
-        ])
-    end
-
-    if not defined?(::Test::::Bar)
-        class Bar < Ice::UserException
-            def initialize(sLmem=nil, sLSmem=nil)
-                @SLmem = sLmem
-                @SLSmem = sLSmem
-            end
-
-            def to_s
-                '::Test::Bar'
-            end
-
-            attr_accessor :SLmem, :SLSmem
-        end
-
-        T_Bar = ::Ice::__defineException('::Test::Bar', Bar, false, nil, [
-            ["SLmem", ::Test::::T_SerialLarge, false, 0],
-            ["SLSmem", ::Test::::T_SLS, false, 0]
-        ])
-    end
-
-    if not defined?(::Test::::Baz_Mixin)
-
-        module ::Test::::Baz_Mixin
-        end
-        class Baz < ::Ice::Value
-
-            def initialize(sLmem=nil, sLSmem=nil)
-                @SLmem = sLmem
-                @SLSmem = sLSmem
-            end
-
-            attr_accessor :SLmem, :SLSmem
-        end
-
-        if not defined?(::Test::::T_Baz)
-            T_Baz = ::Ice::__declareClass('::Test::Baz')
-        end
-
-        T_Baz.defineClass(Baz, -1, false, false, nil, [
-            ['SLmem', ::Test::::T_SerialLarge, false, 0],
-            ['SLSmem', ::Test::::T_SLS, false, 0]
-        ])
     end
 end

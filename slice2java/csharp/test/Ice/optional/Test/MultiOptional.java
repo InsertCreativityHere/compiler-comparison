@@ -25,7 +25,7 @@ public class MultiOptional extends com.zeroc.Ice.Value
         this.vs = new VarStruct();
     }
 
-    public MultiOptional(byte a, boolean b, short c, int d, long e, float f, double g, String h, MyEnum i, com.zeroc.Ice.ObjectPrx j, MultiOptional k, byte[] bs, String[] ss, java.util.Map<java.lang.Integer, java.lang.Integer> iid, java.util.Map<java.lang.String, java.lang.Integer> sid, FixedStruct fs, VarStruct vs, short[] shs, MyEnum[] es, FixedStruct[] fss, VarStruct[] vss, OneOptional[] oos, com.zeroc.Ice.ObjectPrx[] oops, java.util.Map<java.lang.Integer, MyEnum> ied, java.util.Map<java.lang.Integer, FixedStruct> ifsd, java.util.Map<java.lang.Integer, VarStruct> ivsd, java.util.Map<java.lang.Integer, OneOptional> iood, java.util.Map<java.lang.Integer, com.zeroc.Ice.ObjectPrx> ioopd, boolean[] bos, byte[] ser)
+    public MultiOptional(byte a, boolean b, short c, int d, long e, float f, double g, String h, MyEnum i, com.zeroc.Ice.ObjectPrx j, MultiOptional k, byte[] bs, String[] ss, java.util.Map<java.lang.Integer, java.lang.Integer> iid, java.util.Map<java.lang.String, java.lang.Integer> sid, FixedStruct fs, VarStruct vs, short[] shs, MyEnum[] es, FixedStruct[] fss, VarStruct[] vss, OneOptional[] oos, com.zeroc.Ice.ObjectPrx[] oops, java.util.Map<java.lang.Integer, MyEnum> ied, java.util.Map<java.lang.Integer, FixedStruct> ifsd, java.util.Map<java.lang.Integer, VarStruct> ivsd, java.util.Map<java.lang.Integer, OneOptional> iood, java.util.Map<java.lang.Integer, com.zeroc.Ice.ObjectPrx> ioopd, boolean[] bos)
     {
         setA(a);
         setB(b);
@@ -56,7 +56,6 @@ public class MultiOptional extends com.zeroc.Ice.Value
         setIood(iood);
         setIoopd(ioopd);
         setBos(bos);
-        setSer(ser);
     }
 
     private byte a;
@@ -1767,77 +1766,6 @@ public class MultiOptional extends com.zeroc.Ice.Value
         this.bos[index] = val;
     }
 
-    private byte[] ser;
-    private boolean _ser;
-
-    public byte[] getSer()
-    {
-        if(!_ser)
-        {
-            throw new java.util.NoSuchElementException("ser is not set");
-        }
-        return ser;
-    }
-
-    public void setSer(byte[] ser)
-    {
-        _ser = true;
-        this.ser = ser;
-    }
-
-    public boolean hasSer()
-    {
-        return _ser;
-    }
-
-    public void clearSer()
-    {
-        _ser = false;
-    }
-
-    public void optionalSer(java.util.Optional<byte[]> v)
-    {
-        if(v == null || !v.isPresent())
-        {
-            _ser = false;
-        }
-        else
-        {
-            _ser = true;
-            ser = v.get();
-        }
-    }
-
-    public java.util.Optional<byte[]> optionalSer()
-    {
-        if(_ser)
-        {
-            return java.util.Optional.of(ser);
-        }
-        else
-        {
-            return java.util.Optional.empty();
-        }
-    }
-
-    public byte getSer(int index)
-    {
-        if(!_ser)
-        {
-            throw new java.util.NoSuchElementException("ser is not set");
-        }
-        return this.ser[index];
-    }
-
-    public void setSer(int index, byte val)
-    {
-        if(!_ser)
-        {
-            throw new java.util.NoSuchElementException("ser is not set");
-        }
-        this.ser[index] = val;
-    }
-
     public MultiOptional clone()
     {
         return (MultiOptional)super.clone();
@@ -1855,7 +1783,7 @@ public class MultiOptional extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -5481362042026025641L;
+    public static final long serialVersionUID = 9113372124180371092L;
 
     /** @hidden */
     @Override
@@ -1977,10 +1905,6 @@ public class MultiOptional extends com.zeroc.Ice.Value
         if(_bos)
         {
             ostr_.writeBoolSeq(29, bos);
-        }
-        if(_ser)
-        {
-            ostr_.writeByteSeq(30, ser);
         }
         ostr_.endSlice();
     }
@@ -2122,10 +2046,6 @@ public class MultiOptional extends com.zeroc.Ice.Value
         if(_bos = istr_.readOptional(29, com.zeroc.Ice.OptionalFormat.VSize))
         {
             bos = istr_.readBoolSeq();
-        }
-        if(_ser = istr_.readOptional(30, com.zeroc.Ice.OptionalFormat.VSize))
-        {
-            ser = istr_.readByteSeq();
         }
         istr_.endSlice();
     }

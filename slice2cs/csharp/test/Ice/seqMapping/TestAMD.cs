@@ -32,7 +32,6 @@ namespace Ice.seqMapping.AMD
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial struct S
         {
             #region Slice data members
@@ -140,7 +139,6 @@ namespace Ice.seqMapping.AMD
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class SD : global::System.ICloneable
         {
             #region Slice data members
@@ -283,7 +281,6 @@ namespace Ice.seqMapping.AMD
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class CV : global::Ice.Value
         {
             #region Slice data members
@@ -372,7 +369,6 @@ namespace Ice.seqMapping.AMD
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class CR : global::Ice.Value
         {
             #region Slice data members
@@ -723,15 +719,6 @@ namespace Ice.seqMapping.AMD
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         public delegate void Callback_MyClass_opCustomCVSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> ret, global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public delegate void Callback_MyClass_opSerialSmallCSharp(global::Serialize.Small ret, global::Serialize.Small o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public delegate void Callback_MyClass_opSerialLargeCSharp(global::Serialize.Large ret, global::Serialize.Large o);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public delegate void Callback_MyClass_opSerialStructCSharp(global::Serialize.Struct ret, global::Serialize.Struct o);
     }
 }
 
@@ -1637,42 +1624,6 @@ namespace Ice.seqMapping.AMD
 
             public global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> returnValue;
             public global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> o;
-        }
-
-        public struct MyClass_OpSerialSmallCSharpResult
-        {
-            public MyClass_OpSerialSmallCSharpResult(global::Serialize.Small returnValue, global::Serialize.Small o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::Serialize.Small returnValue;
-            public global::Serialize.Small o;
-        }
-
-        public struct MyClass_OpSerialLargeCSharpResult
-        {
-            public MyClass_OpSerialLargeCSharpResult(global::Serialize.Large returnValue, global::Serialize.Large o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::Serialize.Large returnValue;
-            public global::Serialize.Large o;
-        }
-
-        public struct MyClass_OpSerialStructCSharpResult
-        {
-            public MyClass_OpSerialStructCSharpResult(global::Serialize.Struct returnValue, global::Serialize.Struct o)
-            {
-                this.returnValue = returnValue;
-                this.o = o;
-            }
-
-            public global::Serialize.Struct returnValue;
-            public global::Serialize.Struct o;
         }
     }
 }
@@ -2600,42 +2551,6 @@ namespace Ice.seqMapping.AMD
             global::Ice.AsyncResult begin_opCustomCVSS(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> i, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
             global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> end_opCustomCVSS(out global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> o, global::Ice.AsyncResult asyncResult);
-
-            global::Serialize.Small opSerialSmallCSharp(global::Serialize.Small i, out global::Serialize.Small o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::System.Threading.Tasks.Task<MyClass_OpSerialSmallCSharpResult> opSerialSmallCSharpAsync(global::Serialize.Small i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-            global::Ice.AsyncResult<Callback_MyClass_opSerialSmallCSharp> begin_opSerialSmallCSharp(global::Serialize.Small i, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::Ice.AsyncResult begin_opSerialSmallCSharp(global::Serialize.Small i, global::Ice.AsyncCallback callback, object cookie);
-
-            global::Ice.AsyncResult begin_opSerialSmallCSharp(global::Serialize.Small i, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-            global::Serialize.Small end_opSerialSmallCSharp(out global::Serialize.Small o, global::Ice.AsyncResult asyncResult);
-
-            global::Serialize.Large opSerialLargeCSharp(global::Serialize.Large i, out global::Serialize.Large o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::System.Threading.Tasks.Task<MyClass_OpSerialLargeCSharpResult> opSerialLargeCSharpAsync(global::Serialize.Large i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-            global::Ice.AsyncResult<Callback_MyClass_opSerialLargeCSharp> begin_opSerialLargeCSharp(global::Serialize.Large i, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::Ice.AsyncResult begin_opSerialLargeCSharp(global::Serialize.Large i, global::Ice.AsyncCallback callback, object cookie);
-
-            global::Ice.AsyncResult begin_opSerialLargeCSharp(global::Serialize.Large i, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-            global::Serialize.Large end_opSerialLargeCSharp(out global::Serialize.Large o, global::Ice.AsyncResult asyncResult);
-
-            global::Serialize.Struct opSerialStructCSharp(global::Serialize.Struct i, out global::Serialize.Struct o, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::System.Threading.Tasks.Task<MyClass_OpSerialStructCSharpResult> opSerialStructCSharpAsync(global::Serialize.Struct i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-            global::Ice.AsyncResult<Callback_MyClass_opSerialStructCSharp> begin_opSerialStructCSharp(global::Serialize.Struct i, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::Ice.AsyncResult begin_opSerialStructCSharp(global::Serialize.Struct i, global::Ice.AsyncCallback callback, object cookie);
-
-            global::Ice.AsyncResult begin_opSerialStructCSharp(global::Serialize.Struct i, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-            global::Serialize.Struct end_opSerialStructCSharp(out global::Serialize.Struct o, global::Ice.AsyncResult asyncResult);
         }
     }
 }
@@ -2879,15 +2794,6 @@ namespace Ice.seqMapping.AMD
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
             global::System.Threading.Tasks.Task<MyClass_OpCustomCVSSResult> opCustomCVSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> i, global::Ice.Current current = null);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            global::System.Threading.Tasks.Task<MyClass_OpSerialSmallCSharpResult> opSerialSmallCSharpAsync(global::Serialize.Small i, global::Ice.Current current = null);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            global::System.Threading.Tasks.Task<MyClass_OpSerialLargeCSharpResult> opSerialLargeCSharpAsync(global::Serialize.Large i, global::Ice.Current current = null);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            global::System.Threading.Tasks.Task<MyClass_OpSerialStructCSharpResult> opSerialStructCSharpAsync(global::Serialize.Struct i, global::Ice.Current current = null);
         }
     }
 }
@@ -4205,14 +4111,9 @@ namespace Ice.seqMapping.AMD
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        [global::System.Serializable]
         public sealed class IPrxHelper : global::Ice.ObjectPrxHelperBase, IPrx
         {
             public IPrxHelper()
-            {
-            }
-
-            public IPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 
@@ -4921,64 +4822,11 @@ namespace Ice.seqMapping.AMD
             }
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public sealed class SerialSmallHelper
-        {
-            public static void write(global::Ice.OutputStream ostr, global::Serialize.Small v)
-            {
-                ostr.writeSerializable(v);
-            }
-
-            public static global::Serialize.Small read(global::Ice.InputStream istr)
-            {
-                global::Serialize.Small v;
-                v = (global::Serialize.Small)istr.readSerializable();
-                return v;
-            }
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public sealed class SerialLargeHelper
-        {
-            public static void write(global::Ice.OutputStream ostr, global::Serialize.Large v)
-            {
-                ostr.writeSerializable(v);
-            }
-
-            public static global::Serialize.Large read(global::Ice.InputStream istr)
-            {
-                global::Serialize.Large v;
-                v = (global::Serialize.Large)istr.readSerializable();
-                return v;
-            }
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public sealed class SerialStructHelper
-        {
-            public static void write(global::Ice.OutputStream ostr, global::Serialize.Struct v)
-            {
-                ostr.writeSerializable(v);
-            }
-
-            public static global::Serialize.Struct read(global::Ice.InputStream istr)
-            {
-                global::Serialize.Struct v;
-                v = (global::Serialize.Struct)istr.readSerializable();
-                return v;
-            }
-        }
-
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        [global::System.Serializable]
         public sealed class MyClassPrxHelper : global::Ice.ObjectPrxHelperBase, MyClassPrx
         {
             public MyClassPrxHelper()
-            {
-            }
-
-            public MyClassPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 
@@ -6037,48 +5885,6 @@ namespace Ice.seqMapping.AMD
                 try
                 {
                     var result_ = _iceI_opCustomCVSSAsync(i, context, null, global::System.Threading.CancellationToken.None, true).Result;
-                    o = result_.o;
-                    return result_.returnValue;
-                }
-                catch(global::System.AggregateException ex_)
-                {
-                    throw ex_.InnerException;
-                }
-            }
-
-            public global::Serialize.Small opSerialSmallCSharp(global::Serialize.Small i, out global::Serialize.Small o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                try
-                {
-                    var result_ = _iceI_opSerialSmallCSharpAsync(i, context, null, global::System.Threading.CancellationToken.None, true).Result;
-                    o = result_.o;
-                    return result_.returnValue;
-                }
-                catch(global::System.AggregateException ex_)
-                {
-                    throw ex_.InnerException;
-                }
-            }
-
-            public global::Serialize.Large opSerialLargeCSharp(global::Serialize.Large i, out global::Serialize.Large o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                try
-                {
-                    var result_ = _iceI_opSerialLargeCSharpAsync(i, context, null, global::System.Threading.CancellationToken.None, true).Result;
-                    o = result_.o;
-                    return result_.returnValue;
-                }
-                catch(global::System.AggregateException ex_)
-                {
-                    throw ex_.InnerException;
-                }
-            }
-
-            public global::Serialize.Struct opSerialStructCSharp(global::Serialize.Struct i, out global::Serialize.Struct o, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                try
-                {
-                    var result_ = _iceI_opSerialStructCSharpAsync(i, context, null, global::System.Threading.CancellationToken.None, true).Result;
                     o = result_.o;
                     return result_.returnValue;
                 }
@@ -8904,117 +8710,6 @@ namespace Ice.seqMapping.AMD
                         ret.o = CustomCVSSHelper.read(istr);
                         ret.returnValue = CustomCVSSHelper.read(istr);
                         istr.readPendingValues();
-                        return ret;
-                    });
-            }
-
-            public global::System.Threading.Tasks.Task<MyClass_OpSerialSmallCSharpResult> opSerialSmallCSharpAsync(global::Serialize.Small i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-            {
-                return _iceI_opSerialSmallCSharpAsync(i, context, progress, cancel, false);
-            }
-
-            private global::System.Threading.Tasks.Task<MyClass_OpSerialSmallCSharpResult> _iceI_opSerialSmallCSharpAsync(global::Serialize.Small iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-            {
-                iceCheckTwowayOnly(_opSerialSmallCSharp_name);
-                var completed = new global::IceInternal.OperationTaskCompletionCallback<MyClass_OpSerialSmallCSharpResult>(progress, cancel);
-                _iceI_opSerialSmallCSharp(iceP_i, context, synchronous, completed);
-                return completed.Task;
-            }
-
-            private const string _opSerialSmallCSharp_name = "opSerialSmallCSharp";
-
-            private void _iceI_opSerialSmallCSharp(global::Serialize.Small iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-            {
-                var outAsync = getOutgoingAsync<MyClass_OpSerialSmallCSharpResult>(completed);
-                outAsync.invoke(
-                    _opSerialSmallCSharp_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
-                    context,
-                    synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
-                    {
-                        SerialSmallHelper.write(ostr, iceP_i);
-                    },
-                    read: (global::Ice.InputStream istr) =>
-                    {
-                        MyClass_OpSerialSmallCSharpResult ret = new MyClass_OpSerialSmallCSharpResult();
-                        ret.o = SerialSmallHelper.read(istr);
-                        ret.returnValue = SerialSmallHelper.read(istr);
-                        return ret;
-                    });
-            }
-
-            public global::System.Threading.Tasks.Task<MyClass_OpSerialLargeCSharpResult> opSerialLargeCSharpAsync(global::Serialize.Large i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-            {
-                return _iceI_opSerialLargeCSharpAsync(i, context, progress, cancel, false);
-            }
-
-            private global::System.Threading.Tasks.Task<MyClass_OpSerialLargeCSharpResult> _iceI_opSerialLargeCSharpAsync(global::Serialize.Large iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-            {
-                iceCheckTwowayOnly(_opSerialLargeCSharp_name);
-                var completed = new global::IceInternal.OperationTaskCompletionCallback<MyClass_OpSerialLargeCSharpResult>(progress, cancel);
-                _iceI_opSerialLargeCSharp(iceP_i, context, synchronous, completed);
-                return completed.Task;
-            }
-
-            private const string _opSerialLargeCSharp_name = "opSerialLargeCSharp";
-
-            private void _iceI_opSerialLargeCSharp(global::Serialize.Large iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-            {
-                var outAsync = getOutgoingAsync<MyClass_OpSerialLargeCSharpResult>(completed);
-                outAsync.invoke(
-                    _opSerialLargeCSharp_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
-                    context,
-                    synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
-                    {
-                        SerialLargeHelper.write(ostr, iceP_i);
-                    },
-                    read: (global::Ice.InputStream istr) =>
-                    {
-                        MyClass_OpSerialLargeCSharpResult ret = new MyClass_OpSerialLargeCSharpResult();
-                        ret.o = SerialLargeHelper.read(istr);
-                        ret.returnValue = SerialLargeHelper.read(istr);
-                        return ret;
-                    });
-            }
-
-            public global::System.Threading.Tasks.Task<MyClass_OpSerialStructCSharpResult> opSerialStructCSharpAsync(global::Serialize.Struct i, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-            {
-                return _iceI_opSerialStructCSharpAsync(i, context, progress, cancel, false);
-            }
-
-            private global::System.Threading.Tasks.Task<MyClass_OpSerialStructCSharpResult> _iceI_opSerialStructCSharpAsync(global::Serialize.Struct iceP_i, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-            {
-                iceCheckTwowayOnly(_opSerialStructCSharp_name);
-                var completed = new global::IceInternal.OperationTaskCompletionCallback<MyClass_OpSerialStructCSharpResult>(progress, cancel);
-                _iceI_opSerialStructCSharp(iceP_i, context, synchronous, completed);
-                return completed.Task;
-            }
-
-            private const string _opSerialStructCSharp_name = "opSerialStructCSharp";
-
-            private void _iceI_opSerialStructCSharp(global::Serialize.Struct iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-            {
-                var outAsync = getOutgoingAsync<MyClass_OpSerialStructCSharpResult>(completed);
-                outAsync.invoke(
-                    _opSerialStructCSharp_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
-                    context,
-                    synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
-                    {
-                        SerialStructHelper.write(ostr, iceP_i);
-                    },
-                    read: (global::Ice.InputStream istr) =>
-                    {
-                        MyClass_OpSerialStructCSharpResult ret = new MyClass_OpSerialStructCSharpResult();
-                        ret.o = SerialStructHelper.read(istr);
-                        ret.returnValue = SerialStructHelper.read(istr);
                         return ret;
                     });
             }
@@ -12059,126 +11754,6 @@ namespace Ice.seqMapping.AMD
                 return completed;
             }
 
-            public global::Ice.AsyncResult<Callback_MyClass_opSerialSmallCSharp> begin_opSerialSmallCSharp(global::Serialize.Small i, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                return begin_opSerialSmallCSharp(i, context, null, null, false);
-            }
-
-            public global::Ice.AsyncResult begin_opSerialSmallCSharp(global::Serialize.Small i, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_opSerialSmallCSharp(i, new global::Ice.OptionalContext(), callback, cookie, false);
-            }
-
-            public global::Ice.AsyncResult begin_opSerialSmallCSharp(global::Serialize.Small i, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_opSerialSmallCSharp(i, context, callback, cookie, false);
-            }
-
-            public global::Serialize.Small end_opSerialSmallCSharp(out global::Serialize.Small o, global::Ice.AsyncResult asyncResult)
-            {
-                var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _opSerialSmallCSharp_name);
-                var outgoing_ = (global::IceInternal.OutgoingAsyncT<MyClass_OpSerialSmallCSharpResult>)resultI_.OutgoingAsync;
-                var result_ = outgoing_.getResult(resultI_.wait());
-                o = result_.o;
-                return result_.returnValue;
-            }
-
-            private global::Ice.AsyncResult<Callback_MyClass_opSerialSmallCSharp> begin_opSerialSmallCSharp(global::Serialize.Small iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-            {
-                iceCheckAsyncTwowayOnly(_opSerialSmallCSharp_name);
-                var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_MyClass_opSerialSmallCSharp, MyClass_OpSerialSmallCSharpResult>(
-                    (Callback_MyClass_opSerialSmallCSharp cb, MyClass_OpSerialSmallCSharpResult ret) =>
-                    {
-                        if(cb != null)
-                        {
-                            cb.Invoke(ret.returnValue, ret.o);
-                        }
-                    },
-                    this, _opSerialSmallCSharp_name, cookie, completedCallback);
-                _iceI_opSerialSmallCSharp(iceP_i, context, synchronous, completed);
-                return completed;
-            }
-
-            public global::Ice.AsyncResult<Callback_MyClass_opSerialLargeCSharp> begin_opSerialLargeCSharp(global::Serialize.Large i, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                return begin_opSerialLargeCSharp(i, context, null, null, false);
-            }
-
-            public global::Ice.AsyncResult begin_opSerialLargeCSharp(global::Serialize.Large i, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_opSerialLargeCSharp(i, new global::Ice.OptionalContext(), callback, cookie, false);
-            }
-
-            public global::Ice.AsyncResult begin_opSerialLargeCSharp(global::Serialize.Large i, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_opSerialLargeCSharp(i, context, callback, cookie, false);
-            }
-
-            public global::Serialize.Large end_opSerialLargeCSharp(out global::Serialize.Large o, global::Ice.AsyncResult asyncResult)
-            {
-                var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _opSerialLargeCSharp_name);
-                var outgoing_ = (global::IceInternal.OutgoingAsyncT<MyClass_OpSerialLargeCSharpResult>)resultI_.OutgoingAsync;
-                var result_ = outgoing_.getResult(resultI_.wait());
-                o = result_.o;
-                return result_.returnValue;
-            }
-
-            private global::Ice.AsyncResult<Callback_MyClass_opSerialLargeCSharp> begin_opSerialLargeCSharp(global::Serialize.Large iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-            {
-                iceCheckAsyncTwowayOnly(_opSerialLargeCSharp_name);
-                var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_MyClass_opSerialLargeCSharp, MyClass_OpSerialLargeCSharpResult>(
-                    (Callback_MyClass_opSerialLargeCSharp cb, MyClass_OpSerialLargeCSharpResult ret) =>
-                    {
-                        if(cb != null)
-                        {
-                            cb.Invoke(ret.returnValue, ret.o);
-                        }
-                    },
-                    this, _opSerialLargeCSharp_name, cookie, completedCallback);
-                _iceI_opSerialLargeCSharp(iceP_i, context, synchronous, completed);
-                return completed;
-            }
-
-            public global::Ice.AsyncResult<Callback_MyClass_opSerialStructCSharp> begin_opSerialStructCSharp(global::Serialize.Struct i, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                return begin_opSerialStructCSharp(i, context, null, null, false);
-            }
-
-            public global::Ice.AsyncResult begin_opSerialStructCSharp(global::Serialize.Struct i, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_opSerialStructCSharp(i, new global::Ice.OptionalContext(), callback, cookie, false);
-            }
-
-            public global::Ice.AsyncResult begin_opSerialStructCSharp(global::Serialize.Struct i, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_opSerialStructCSharp(i, context, callback, cookie, false);
-            }
-
-            public global::Serialize.Struct end_opSerialStructCSharp(out global::Serialize.Struct o, global::Ice.AsyncResult asyncResult)
-            {
-                var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _opSerialStructCSharp_name);
-                var outgoing_ = (global::IceInternal.OutgoingAsyncT<MyClass_OpSerialStructCSharpResult>)resultI_.OutgoingAsync;
-                var result_ = outgoing_.getResult(resultI_.wait());
-                o = result_.o;
-                return result_.returnValue;
-            }
-
-            private global::Ice.AsyncResult<Callback_MyClass_opSerialStructCSharp> begin_opSerialStructCSharp(global::Serialize.Struct iceP_i, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-            {
-                iceCheckAsyncTwowayOnly(_opSerialStructCSharp_name);
-                var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_MyClass_opSerialStructCSharp, MyClass_OpSerialStructCSharpResult>(
-                    (Callback_MyClass_opSerialStructCSharp cb, MyClass_OpSerialStructCSharpResult ret) =>
-                    {
-                        if(cb != null)
-                        {
-                            cb.Invoke(ret.returnValue, ret.o);
-                        }
-                    },
-                    this, _opSerialStructCSharp_name, cookie, completedCallback);
-                _iceI_opSerialStructCSharp(iceP_i, context, synchronous, completed);
-                return completed;
-            }
-
             #endregion
 
             #region Checked and unchecked cast operations
@@ -12520,12 +12095,6 @@ namespace Ice.seqMapping.AMD
             public abstract global::System.Threading.Tasks.Task<MyClass_OpCustomIntSSResult> opCustomIntSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<int>> i, global::Ice.Current current = null);
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpCustomCVSSResult> opCustomCVSSAsync(global::Ice.seqMapping.Custom<global::Ice.seqMapping.Custom<CV>> i, global::Ice.Current current = null);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpSerialSmallCSharpResult> opSerialSmallCSharpAsync(global::Serialize.Small i, global::Ice.Current current = null);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpSerialLargeCSharpResult> opSerialLargeCSharpAsync(global::Serialize.Large i, global::Ice.Current current = null);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpSerialStructCSharpResult> opSerialStructCSharpAsync(global::Serialize.Struct i, global::Ice.Current current = null);
 
             #endregion
 
@@ -13861,57 +13430,6 @@ namespace Ice.seqMapping.AMD
                     });
             }
 
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_opSerialSmallCSharp(MyClass obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-            {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                var istr = inS.startReadParams();
-                global::Serialize.Small iceP_i;
-                iceP_i = SerialSmallHelper.read(istr);
-                inS.endReadParams();
-                return inS.setResultTask<MyClass_OpSerialSmallCSharpResult>(obj.opSerialSmallCSharpAsync(iceP_i, current),
-                    (ostr, ret) =>
-                    {
-                        SerialSmallHelper.write(ostr, ret.o);
-                        SerialSmallHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_opSerialLargeCSharp(MyClass obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-            {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                var istr = inS.startReadParams();
-                global::Serialize.Large iceP_i;
-                iceP_i = SerialLargeHelper.read(istr);
-                inS.endReadParams();
-                return inS.setResultTask<MyClass_OpSerialLargeCSharpResult>(obj.opSerialLargeCSharpAsync(iceP_i, current),
-                    (ostr, ret) =>
-                    {
-                        SerialLargeHelper.write(ostr, ret.o);
-                        SerialLargeHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_opSerialStructCSharp(MyClass obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-            {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                var istr = inS.startReadParams();
-                global::Serialize.Struct iceP_i;
-                iceP_i = SerialStructHelper.read(istr);
-                inS.endReadParams();
-                return inS.setResultTask<MyClass_OpSerialStructCSharpResult>(obj.opSerialStructCSharpAsync(iceP_i, current),
-                    (ostr, ret) =>
-                    {
-                        SerialStructHelper.write(ostr, ret.o);
-                        SerialStructHelper.write(ostr, ret.returnValue);
-                    });
-            }
-
             private static readonly string[] _all =
             {
                 "ice_id",
@@ -13993,9 +13511,6 @@ namespace Ice.seqMapping.AMD
                 "opSStringS",
                 "opSStructS",
                 "opSStructSD",
-                "opSerialLargeCSharp",
-                "opSerialSmallCSharp",
-                "opSerialStructCSharp",
                 "shutdown"
             };
 
@@ -14327,18 +13842,6 @@ namespace Ice.seqMapping.AMD
                         return iceD_opSStructSD(this, inS, current);
                     }
                     case 79:
-                    {
-                        return iceD_opSerialLargeCSharp(this, inS, current);
-                    }
-                    case 80:
-                    {
-                        return iceD_opSerialSmallCSharp(this, inS, current);
-                    }
-                    case 81:
-                    {
-                        return iceD_opSerialStructCSharp(this, inS, current);
-                    }
-                    case 82:
                     {
                         return iceD_shutdown(this, inS, current);
                     }

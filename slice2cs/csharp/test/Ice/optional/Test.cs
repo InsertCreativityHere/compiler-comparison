@@ -33,7 +33,6 @@ namespace Ice.optional
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class OneOptional : global::Ice.Value
         {
             #region Slice data members
@@ -130,7 +129,6 @@ namespace Ice.optional
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial struct SmallStruct
         {
             #region Slice data members
@@ -238,7 +236,6 @@ namespace Ice.optional
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial struct FixedStruct
         {
             #region Slice data members
@@ -346,7 +343,6 @@ namespace Ice.optional
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class VarStruct : global::System.ICloneable
         {
             #region Slice data members
@@ -498,7 +494,6 @@ namespace Ice.optional
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class ClassVarStruct : global::System.ICloneable
         {
             #region Slice data members
@@ -640,7 +635,6 @@ namespace Ice.optional
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class MultiOptional : global::Ice.Value
         {
             #region Slice data members
@@ -732,9 +726,6 @@ namespace Ice.optional
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
             public global::Ice.Optional<bool[]> bos;
 
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public global::Ice.Optional<global::Ice.optional.Test.SerializableClass> ser;
-
             #endregion
 
             partial void ice_initialize();
@@ -773,12 +764,11 @@ namespace Ice.optional
                 this.iood = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, OneOptional>>();
                 this.ioopd = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, global::Ice.ObjectPrx>>();
                 this.bos = new global::Ice.Optional<bool[]>();
-                this.ser = new global::Ice.Optional<global::Ice.optional.Test.SerializableClass>();
                 ice_initialize();
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public MultiOptional(global::Ice.Optional<byte> a, global::Ice.Optional<bool> b, global::Ice.Optional<short> c, global::Ice.Optional<int> d, global::Ice.Optional<long> e, global::Ice.Optional<float> f, global::Ice.Optional<double> g, global::Ice.Optional<string> h, global::Ice.Optional<MyEnum> i, global::Ice.Optional<global::Ice.ObjectPrx> j, global::Ice.Optional<MultiOptional> k, global::Ice.Optional<byte[]> bs, global::Ice.Optional<string[]> ss, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> iid, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, int>> sid, global::Ice.Optional<FixedStruct> fs, global::Ice.Optional<VarStruct> vs, global::Ice.Optional<short[]> shs, global::Ice.Optional<MyEnum[]> es, global::Ice.Optional<FixedStruct[]> fss, global::Ice.Optional<VarStruct[]> vss, global::Ice.Optional<OneOptional[]> oos, global::Ice.Optional<global::Ice.ObjectPrx[]> oops, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyEnum>> ied, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, FixedStruct>> ifsd, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, VarStruct>> ivsd, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, OneOptional>> iood, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, global::Ice.ObjectPrx>> ioopd, global::Ice.Optional<bool[]> bos, global::Ice.Optional<global::Ice.optional.Test.SerializableClass> ser)
+            public MultiOptional(global::Ice.Optional<byte> a, global::Ice.Optional<bool> b, global::Ice.Optional<short> c, global::Ice.Optional<int> d, global::Ice.Optional<long> e, global::Ice.Optional<float> f, global::Ice.Optional<double> g, global::Ice.Optional<string> h, global::Ice.Optional<MyEnum> i, global::Ice.Optional<global::Ice.ObjectPrx> j, global::Ice.Optional<MultiOptional> k, global::Ice.Optional<byte[]> bs, global::Ice.Optional<string[]> ss, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> iid, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, int>> sid, global::Ice.Optional<FixedStruct> fs, global::Ice.Optional<VarStruct> vs, global::Ice.Optional<short[]> shs, global::Ice.Optional<MyEnum[]> es, global::Ice.Optional<FixedStruct[]> fss, global::Ice.Optional<VarStruct[]> vss, global::Ice.Optional<OneOptional[]> oos, global::Ice.Optional<global::Ice.ObjectPrx[]> oops, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyEnum>> ied, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, FixedStruct>> ifsd, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, VarStruct>> ivsd, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, OneOptional>> iood, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, global::Ice.ObjectPrx>> ioopd, global::Ice.Optional<bool[]> bos)
             {
                 this.a = a;
                 this.b = b;
@@ -809,7 +799,6 @@ namespace Ice.optional
                 this.iood = iood;
                 this.ioopd = ioopd;
                 this.bos = bos;
-                this.ser = ser;
                 ice_initialize();
             }
 
@@ -937,10 +926,6 @@ namespace Ice.optional
                     ostr_.endSize(pos);
                 }
                 ostr_.writeBoolSeq(29, bos);
-                if(ser.HasValue && ostr_.writeOptional(30, global::Ice.OptionalFormat.VSize))
-                {
-                    ostr_.writeSerializable(ser.Value);
-                }
                 ostr_.endSlice();
             }
 
@@ -1174,16 +1159,6 @@ namespace Ice.optional
                 {
                     bos = new global::Ice.Optional<bool[]>();
                 }
-                if(istr_.readOptional(30, global::Ice.OptionalFormat.VSize))
-                {
-                    global::Ice.optional.Test.SerializableClass tmpVal;
-                    tmpVal = SerializableHelper.read(istr_);
-                    ser = new global::Ice.Optional<global::Ice.optional.Test.SerializableClass>(tmpVal);
-                }
-                else
-                {
-                    ser = new global::Ice.Optional<global::Ice.optional.Test.SerializableClass>();
-                }
                 istr_.endSlice();
             }
 
@@ -1201,7 +1176,6 @@ namespace Ice.optional
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class A : global::Ice.Value
         {
             #region Slice data members
@@ -1296,7 +1270,6 @@ namespace Ice.optional
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class B : A
         {
             #region Slice data members
@@ -1403,7 +1376,6 @@ namespace Ice.optional
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class C : B
         {
             #region Slice data members
@@ -1487,7 +1459,6 @@ namespace Ice.optional
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class WD : global::Ice.Value
         {
             #region Slice data members
@@ -1560,7 +1531,6 @@ namespace Ice.optional
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032")]
-        [global::System.Serializable]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
@@ -1610,15 +1580,6 @@ namespace Ice.optional
             public OptionalException(global::System.Exception ex) : base(ex)
             {
                 _initDM();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public OptionalException(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
-            {
-                this.req = info.GetBoolean("req");
-                this.a = (global::Ice.Optional<int>)info.GetValue("a", typeof(global::Ice.Optional<int>));
-                this.b = (global::Ice.Optional<string>)info.GetValue("b", typeof(global::Ice.Optional<string>));
-                this.o = (global::Ice.Optional<OneOptional>)info.GetValue("o", typeof(global::Ice.Optional<OneOptional>));
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1679,7 +1640,6 @@ namespace Ice.optional
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032")]
-        [global::System.Serializable]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
@@ -1729,15 +1689,6 @@ namespace Ice.optional
             public DerivedException(global::System.Exception ex) : base(ex)
             {
                 _initDM();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public DerivedException(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
-            {
-                this.d1 = info.GetString("d1");
-                this.ss = (global::Ice.Optional<string>)info.GetValue("ss", typeof(global::Ice.Optional<string>));
-                this.o2 = (global::Ice.Optional<OneOptional>)info.GetValue("o2", typeof(global::Ice.Optional<OneOptional>));
-                this.d2 = info.GetString("d2");
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1800,7 +1751,6 @@ namespace Ice.optional
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032")]
-        [global::System.Serializable]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
@@ -1841,13 +1791,6 @@ namespace Ice.optional
             public RequiredException(global::System.Exception ex) : base(ex)
             {
                 _initDM();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public RequiredException(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
-            {
-                this.ss = info.GetString("ss");
-                this.o2 = (OneOptional)info.GetValue("o2", typeof(OneOptional));
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1919,7 +1862,6 @@ namespace Ice.optional
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class OptionalWithCustom : global::Ice.Value
         {
             #region Slice data members
@@ -2079,7 +2021,6 @@ namespace Ice.optional
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class E : global::Ice.Value
         {
             #region Slice data members
@@ -2153,7 +2094,6 @@ namespace Ice.optional
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class F : E
         {
             #region Slice data members
@@ -2230,7 +2170,6 @@ namespace Ice.optional
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class G1 : global::Ice.Value
         {
             #region Slice data members
@@ -2305,7 +2244,6 @@ namespace Ice.optional
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class G2 : global::Ice.Value
         {
             #region Slice data members
@@ -2379,7 +2317,6 @@ namespace Ice.optional
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class G : global::Ice.Value
         {
             #region Slice data members
@@ -2473,7 +2410,6 @@ namespace Ice.optional
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class Recursive : global::Ice.Value
         {
             #region Slice data members
@@ -2769,9 +2705,6 @@ namespace Ice.optional
         public delegate void Callback_Initial_opVarStructSeq(global::Ice.Optional<VarStruct[]> ret, global::Ice.Optional<VarStruct[]> p3);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public delegate void Callback_Initial_opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> ret, global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p3);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         public delegate void Callback_Initial_opIntIntDict(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> ret, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> p3);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -2824,9 +2757,6 @@ namespace Ice.optional
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         public delegate void Callback_Initial_supportsJavaSerializable(bool ret);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public delegate void Callback_Initial_supportsCsharpSerializable(bool ret);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         public delegate void Callback_Initial_supportsCppStringView(bool ret);
@@ -3162,18 +3092,6 @@ namespace Ice.optional
 
             public global::Ice.Optional<VarStruct[]> returnValue;
             public global::Ice.Optional<VarStruct[]> p3;
-        }
-
-        public struct Initial_OpSerializableResult
-        {
-            public Initial_OpSerializableResult(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> returnValue, global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p3)
-            {
-                this.returnValue = returnValue;
-                this.p3 = p3;
-            }
-
-            public global::Ice.Optional<global::Ice.optional.Test.SerializableClass> returnValue;
-            public global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p3;
         }
 
         public struct Initial_OpIntIntDictResult
@@ -3868,18 +3786,6 @@ namespace Ice.optional
 
             global::Ice.Optional<VarStruct[]> end_opVarStructSeq(out global::Ice.Optional<VarStruct[]> p3, global::Ice.AsyncResult asyncResult);
 
-            global::Ice.Optional<global::Ice.optional.Test.SerializableClass> opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, out global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::System.Threading.Tasks.Task<Initial_OpSerializableResult> opSerializableAsync(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-            global::Ice.AsyncResult<Callback_Initial_opSerializable> begin_opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::Ice.AsyncResult begin_opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, global::Ice.AsyncCallback callback, object cookie);
-
-            global::Ice.AsyncResult begin_opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-            global::Ice.Optional<global::Ice.optional.Test.SerializableClass> end_opSerializable(out global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p3, global::Ice.AsyncResult asyncResult);
-
             global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> opIntIntDict(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> p1, out global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
             global::System.Threading.Tasks.Task<Initial_OpIntIntDictResult> opIntIntDictAsync(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
@@ -4096,18 +4002,6 @@ namespace Ice.optional
 
             bool end_supportsJavaSerializable(global::Ice.AsyncResult asyncResult);
 
-            bool supportsCsharpSerializable(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::System.Threading.Tasks.Task<bool> supportsCsharpSerializableAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-            global::Ice.AsyncResult<Callback_Initial_supportsCsharpSerializable> begin_supportsCsharpSerializable(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::Ice.AsyncResult begin_supportsCsharpSerializable(global::Ice.AsyncCallback callback, object cookie);
-
-            global::Ice.AsyncResult begin_supportsCsharpSerializable(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
-
-            bool end_supportsCsharpSerializable(global::Ice.AsyncResult asyncResult);
-
             bool supportsCppStringView(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
             global::System.Threading.Tasks.Task<bool> supportsCppStringViewAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
@@ -4239,9 +4133,6 @@ namespace Ice.optional
             global::Ice.Optional<VarStruct[]> opVarStructSeq(global::Ice.Optional<VarStruct[]> p1, out global::Ice.Optional<VarStruct[]> p3, global::Ice.Current current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            global::Ice.Optional<global::Ice.optional.Test.SerializableClass> opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, out global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p3, global::Ice.Current current = null);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
             global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> opIntIntDict(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> p1, out global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> p3, global::Ice.Current current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -4294,9 +4185,6 @@ namespace Ice.optional
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
             bool supportsJavaSerializable(global::Ice.Current current = null);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            bool supportsCsharpSerializable(global::Ice.Current current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
             bool supportsCppStringView(global::Ice.Current current = null);
@@ -4716,22 +4604,6 @@ namespace Ice.optional
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public sealed class SerializableHelper
-        {
-            public static void write(global::Ice.OutputStream ostr, global::Ice.optional.Test.SerializableClass v)
-            {
-                ostr.writeSerializable(v);
-            }
-
-            public static global::Ice.optional.Test.SerializableClass read(global::Ice.InputStream istr)
-            {
-                global::Ice.optional.Test.SerializableClass v;
-                v = (global::Ice.optional.Test.SerializableClass)istr.readSerializable();
-                return v;
-            }
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         public sealed class IntIntDictHelper
         {
             public static void write(global::Ice.OutputStream ostr,
@@ -5026,14 +4898,9 @@ namespace Ice.optional
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        [global::System.Serializable]
         public sealed class InitialPrxHelper : global::Ice.ObjectPrxHelperBase, InitialPrx
         {
             public InitialPrxHelper()
-            {
-            }
-
-            public InitialPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 
@@ -5477,20 +5344,6 @@ namespace Ice.optional
                 }
             }
 
-            public global::Ice.Optional<global::Ice.optional.Test.SerializableClass> opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, out global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                try
-                {
-                    var result_ = _iceI_opSerializableAsync(p1, context, null, global::System.Threading.CancellationToken.None, true).Result;
-                    p3 = result_.p3;
-                    return result_.returnValue;
-                }
-                catch(global::System.AggregateException ex_)
-                {
-                    throw ex_.InnerException;
-                }
-            }
-
             public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> opIntIntDict(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> p1, out global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
             {
                 try
@@ -5714,18 +5567,6 @@ namespace Ice.optional
                 try
                 {
                     return _iceI_supportsJavaSerializableAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
-                }
-                catch(global::System.AggregateException ex_)
-                {
-                    throw ex_.InnerException;
-                }
-            }
-
-            public bool supportsCsharpSerializable(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                try
-                {
-                    return _iceI_supportsCsharpSerializableAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
                 catch(global::System.AggregateException ex_)
                 {
@@ -7363,64 +7204,6 @@ namespace Ice.optional
                     });
             }
 
-            public global::System.Threading.Tasks.Task<Initial_OpSerializableResult> opSerializableAsync(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-            {
-                return _iceI_opSerializableAsync(p1, context, progress, cancel, false);
-            }
-
-            private global::System.Threading.Tasks.Task<Initial_OpSerializableResult> _iceI_opSerializableAsync(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-            {
-                iceCheckTwowayOnly(_opSerializable_name);
-                var completed = new global::IceInternal.OperationTaskCompletionCallback<Initial_OpSerializableResult>(progress, cancel);
-                _iceI_opSerializable(iceP_p1, context, synchronous, completed);
-                return completed.Task;
-            }
-
-            private const string _opSerializable_name = "opSerializable";
-
-            private void _iceI_opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-            {
-                var outAsync = getOutgoingAsync<Initial_OpSerializableResult>(completed);
-                outAsync.invoke(
-                    _opSerializable_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
-                    context,
-                    synchronous,
-                    write: (global::Ice.OutputStream ostr) =>
-                    {
-                        if(iceP_p1.HasValue && ostr.writeOptional(2, global::Ice.OptionalFormat.VSize))
-                        {
-                            ostr.writeSerializable(iceP_p1.Value);
-                        }
-                    },
-                    read: (global::Ice.InputStream istr) =>
-                    {
-                        Initial_OpSerializableResult ret = new Initial_OpSerializableResult();
-                        if(istr.readOptional(1, global::Ice.OptionalFormat.VSize))
-                        {
-                            global::Ice.optional.Test.SerializableClass tmpVal;
-                            tmpVal = SerializableHelper.read(istr);
-                            ret.returnValue = new global::Ice.Optional<global::Ice.optional.Test.SerializableClass>(tmpVal);
-                        }
-                        else
-                        {
-                            ret.returnValue = new global::Ice.Optional<global::Ice.optional.Test.SerializableClass>();
-                        }
-                        if(istr.readOptional(3, global::Ice.OptionalFormat.VSize))
-                        {
-                            global::Ice.optional.Test.SerializableClass tmpVal;
-                            tmpVal = SerializableHelper.read(istr);
-                            ret.p3 = new global::Ice.Optional<global::Ice.optional.Test.SerializableClass>(tmpVal);
-                        }
-                        else
-                        {
-                            ret.p3 = new global::Ice.Optional<global::Ice.optional.Test.SerializableClass>();
-                        }
-                        return ret;
-                    });
-            }
-
             public global::System.Threading.Tasks.Task<Initial_OpIntIntDictResult> opIntIntDictAsync(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
             {
                 return _iceI_opIntIntDictAsync(p1, context, progress, cancel, false);
@@ -8192,38 +7975,6 @@ namespace Ice.optional
                 var outAsync = getOutgoingAsync<bool>(completed);
                 outAsync.invoke(
                     _supportsJavaSerializable_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
-                    context,
-                    synchronous,
-                    read: (global::Ice.InputStream istr) =>
-                    {
-                        bool ret;
-                        ret = istr.readBool();
-                        return ret;
-                    });
-            }
-
-            public global::System.Threading.Tasks.Task<bool> supportsCsharpSerializableAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-            {
-                return _iceI_supportsCsharpSerializableAsync(context, progress, cancel, false);
-            }
-
-            private global::System.Threading.Tasks.Task<bool> _iceI_supportsCsharpSerializableAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-            {
-                iceCheckTwowayOnly(_supportsCsharpSerializable_name);
-                var completed = new global::IceInternal.OperationTaskCompletionCallback<bool>(progress, cancel);
-                _iceI_supportsCsharpSerializable(context, synchronous, completed);
-                return completed.Task;
-            }
-
-            private const string _supportsCsharpSerializable_name = "supportsCsharpSerializable";
-
-            private void _iceI_supportsCsharpSerializable(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-            {
-                var outAsync = getOutgoingAsync<bool>(completed);
-                outAsync.invoke(
-                    _supportsCsharpSerializable_name,
                     global::Ice.OperationMode.Normal,
                     global::Ice.FormatType.DefaultFormat,
                     context,
@@ -9569,46 +9320,6 @@ namespace Ice.optional
                 return completed;
             }
 
-            public global::Ice.AsyncResult<Callback_Initial_opSerializable> begin_opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                return begin_opSerializable(p1, context, null, null, false);
-            }
-
-            public global::Ice.AsyncResult begin_opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_opSerializable(p1, new global::Ice.OptionalContext(), callback, cookie, false);
-            }
-
-            public global::Ice.AsyncResult begin_opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_opSerializable(p1, context, callback, cookie, false);
-            }
-
-            public global::Ice.Optional<global::Ice.optional.Test.SerializableClass> end_opSerializable(out global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p3, global::Ice.AsyncResult asyncResult)
-            {
-                var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _opSerializable_name);
-                var outgoing_ = (global::IceInternal.OutgoingAsyncT<Initial_OpSerializableResult>)resultI_.OutgoingAsync;
-                var result_ = outgoing_.getResult(resultI_.wait());
-                p3 = result_.p3;
-                return result_.returnValue;
-            }
-
-            private global::Ice.AsyncResult<Callback_Initial_opSerializable> begin_opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-            {
-                iceCheckAsyncTwowayOnly(_opSerializable_name);
-                var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Initial_opSerializable, Initial_OpSerializableResult>(
-                    (Callback_Initial_opSerializable cb, Initial_OpSerializableResult ret) =>
-                    {
-                        if(cb != null)
-                        {
-                            cb.Invoke(ret.returnValue, ret.p3);
-                        }
-                    },
-                    this, _opSerializable_name, cookie, completedCallback);
-                _iceI_opSerializable(iceP_p1, context, synchronous, completed);
-                return completed;
-            }
-
             public global::Ice.AsyncResult<Callback_Initial_opIntIntDict> begin_opIntIntDict(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
             {
                 return begin_opIntIntDict(p1, context, null, null, false);
@@ -10301,44 +10012,6 @@ namespace Ice.optional
                 return completed;
             }
 
-            public global::Ice.AsyncResult<Callback_Initial_supportsCsharpSerializable> begin_supportsCsharpSerializable(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                return begin_supportsCsharpSerializable(context, null, null, false);
-            }
-
-            public global::Ice.AsyncResult begin_supportsCsharpSerializable(global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_supportsCsharpSerializable(new global::Ice.OptionalContext(), callback, cookie, false);
-            }
-
-            public global::Ice.AsyncResult begin_supportsCsharpSerializable(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
-            {
-                return begin_supportsCsharpSerializable(context, callback, cookie, false);
-            }
-
-            public bool end_supportsCsharpSerializable(global::Ice.AsyncResult asyncResult)
-            {
-                var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _supportsCsharpSerializable_name);
-                var outgoing_ = (global::IceInternal.OutgoingAsyncT<bool>)resultI_.OutgoingAsync;
-                return outgoing_.getResult(resultI_.wait());
-            }
-
-            private global::Ice.AsyncResult<Callback_Initial_supportsCsharpSerializable> begin_supportsCsharpSerializable(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
-            {
-                iceCheckAsyncTwowayOnly(_supportsCsharpSerializable_name);
-                var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Initial_supportsCsharpSerializable, bool>(
-                    (Callback_Initial_supportsCsharpSerializable cb, bool ret) =>
-                    {
-                        if(cb != null)
-                        {
-                            cb.Invoke(ret);
-                        }
-                    },
-                    this, _supportsCsharpSerializable_name, cookie, completedCallback);
-                _iceI_supportsCsharpSerializable(context, synchronous, completed);
-                return completed;
-            }
-
             public global::Ice.AsyncResult<Callback_Initial_supportsCppStringView> begin_supportsCppStringView(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
             {
                 return begin_supportsCppStringView(context, null, null, false);
@@ -10634,8 +10307,6 @@ namespace Ice.optional
 
             public abstract global::Ice.Optional<VarStruct[]> opVarStructSeq(global::Ice.Optional<VarStruct[]> p1, out global::Ice.Optional<VarStruct[]> p3, global::Ice.Current current = null);
 
-            public abstract global::Ice.Optional<global::Ice.optional.Test.SerializableClass> opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, out global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p3, global::Ice.Current current = null);
-
             public abstract global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> opIntIntDict(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> p1, out global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> p3, global::Ice.Current current = null);
 
             public abstract global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, int>> opStringIntDict(global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, int>> p1, out global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, int>> p3, global::Ice.Current current = null);
@@ -10671,8 +10342,6 @@ namespace Ice.optional
             public abstract bool supportsRequiredParams(global::Ice.Current current = null);
 
             public abstract bool supportsJavaSerializable(global::Ice.Current current = null);
-
-            public abstract bool supportsCsharpSerializable(global::Ice.Current current = null);
 
             public abstract bool supportsCppStringView(global::Ice.Current current = null);
 
@@ -11535,39 +11204,6 @@ namespace Ice.optional
 
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
             public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_opSerializable(Initial obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-            {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                var istr = inS.startReadParams();
-                global::Ice.Optional<global::Ice.optional.Test.SerializableClass> iceP_p1;
-                if(istr.readOptional(2, global::Ice.OptionalFormat.VSize))
-                {
-                    global::Ice.optional.Test.SerializableClass tmpVal;
-                    tmpVal = SerializableHelper.read(istr);
-                    iceP_p1 = new global::Ice.Optional<global::Ice.optional.Test.SerializableClass>(tmpVal);
-                }
-                else
-                {
-                    iceP_p1 = new global::Ice.Optional<global::Ice.optional.Test.SerializableClass>();
-                }
-                inS.endReadParams();
-                global::Ice.Optional<global::Ice.optional.Test.SerializableClass> iceP_p3;
-                var ret = obj.opSerializable(iceP_p1, out iceP_p3, current);
-                var ostr = inS.startWriteParams();
-                if(ret.HasValue && ostr.writeOptional(1, global::Ice.OptionalFormat.VSize))
-                {
-                    ostr.writeSerializable(ret.Value);
-                }
-                if(iceP_p3.HasValue && ostr.writeOptional(3, global::Ice.OptionalFormat.VSize))
-                {
-                    ostr.writeSerializable(iceP_p3.Value);
-                }
-                inS.endWriteParams(ostr);
-                return inS.setResult(ostr);
-            }
-
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
             iceD_opIntIntDict(Initial obj, global::IceInternal.Incoming inS, global::Ice.Current current)
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
@@ -11896,19 +11532,6 @@ namespace Ice.optional
 
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
             public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_supportsCsharpSerializable(Initial obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-            {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                inS.readEmptyParams();
-                var ret = obj.supportsCsharpSerializable(current);
-                var ostr = inS.startWriteParams();
-                ostr.writeBool(ret);
-                inS.endWriteParams(ostr);
-                return inS.setResult(ostr);
-            }
-
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
             iceD_supportsCppStringView(Initial obj, global::IceInternal.Incoming inS, global::Ice.Current current)
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
@@ -11972,7 +11595,6 @@ namespace Ice.optional
                 "opOneOptionalProxy",
                 "opOptionalException",
                 "opRequiredException",
-                "opSerializable",
                 "opShort",
                 "opShortSeq",
                 "opSmallStruct",
@@ -11989,7 +11611,6 @@ namespace Ice.optional
                 "sendOptionalClass",
                 "shutdown",
                 "supportsCppStringView",
-                "supportsCsharpSerializable",
                 "supportsJavaSerializable",
                 "supportsNullOptional",
                 "supportsRequiredParams"
@@ -12156,85 +11777,77 @@ namespace Ice.optional
                     }
                     case 37:
                     {
-                        return iceD_opSerializable(this, inS, current);
+                        return iceD_opShort(this, inS, current);
                     }
                     case 38:
                     {
-                        return iceD_opShort(this, inS, current);
+                        return iceD_opShortSeq(this, inS, current);
                     }
                     case 39:
                     {
-                        return iceD_opShortSeq(this, inS, current);
+                        return iceD_opSmallStruct(this, inS, current);
                     }
                     case 40:
                     {
-                        return iceD_opSmallStruct(this, inS, current);
+                        return iceD_opSmallStructList(this, inS, current);
                     }
                     case 41:
                     {
-                        return iceD_opSmallStructList(this, inS, current);
+                        return iceD_opSmallStructSeq(this, inS, current);
                     }
                     case 42:
                     {
-                        return iceD_opSmallStructSeq(this, inS, current);
+                        return iceD_opString(this, inS, current);
                     }
                     case 43:
                     {
-                        return iceD_opString(this, inS, current);
+                        return iceD_opStringIntDict(this, inS, current);
                     }
                     case 44:
                     {
-                        return iceD_opStringIntDict(this, inS, current);
+                        return iceD_opStringSeq(this, inS, current);
                     }
                     case 45:
                     {
-                        return iceD_opStringSeq(this, inS, current);
+                        return iceD_opVarStruct(this, inS, current);
                     }
                     case 46:
                     {
-                        return iceD_opVarStruct(this, inS, current);
+                        return iceD_opVarStructSeq(this, inS, current);
                     }
                     case 47:
                     {
-                        return iceD_opVarStructSeq(this, inS, current);
+                        return iceD_opVoid(this, inS, current);
                     }
                     case 48:
                     {
-                        return iceD_opVoid(this, inS, current);
+                        return iceD_pingPong(this, inS, current);
                     }
                     case 49:
                     {
-                        return iceD_pingPong(this, inS, current);
+                        return iceD_returnOptionalClass(this, inS, current);
                     }
                     case 50:
                     {
-                        return iceD_returnOptionalClass(this, inS, current);
+                        return iceD_sendOptionalClass(this, inS, current);
                     }
                     case 51:
                     {
-                        return iceD_sendOptionalClass(this, inS, current);
+                        return iceD_shutdown(this, inS, current);
                     }
                     case 52:
                     {
-                        return iceD_shutdown(this, inS, current);
+                        return iceD_supportsCppStringView(this, inS, current);
                     }
                     case 53:
                     {
-                        return iceD_supportsCppStringView(this, inS, current);
+                        return iceD_supportsJavaSerializable(this, inS, current);
                     }
                     case 54:
                     {
-                        return iceD_supportsCsharpSerializable(this, inS, current);
-                    }
-                    case 55:
-                    {
-                        return iceD_supportsJavaSerializable(this, inS, current);
-                    }
-                    case 56:
-                    {
                         return iceD_supportsNullOptional(this, inS, current);
                     }
-                    case 57:
+                    case 55:
                     {
                         return iceD_supportsRequiredParams(this, inS, current);
                     }

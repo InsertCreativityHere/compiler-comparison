@@ -850,8 +850,6 @@ public struct OneOptionalPrxSeqHelper {
     }
 }
 
-public typealias Serializable = Foundation.Data
-
 public typealias IntIntDict = [Swift.Int32: Swift.Int32]
 
 /// Helper class to read and write `IntIntDict` dictionary values from
@@ -1770,10 +1768,6 @@ public struct InitialTraits: Ice.SliceTraits {
 ///
 ///  - opVarStructSeqAsync: 
 ///
-///  - opSerializable: 
-///
-///  - opSerializableAsync: 
-///
 ///  - opIntIntDict: 
 ///
 ///  - opIntIntDictAsync: 
@@ -1845,10 +1839,6 @@ public struct InitialTraits: Ice.SliceTraits {
 ///  - supportsJavaSerializable: 
 ///
 ///  - supportsJavaSerializableAsync: 
-///
-///  - supportsCsharpSerializable: 
-///
-///  - supportsCsharpSerializableAsync: 
 ///
 ///  - supportsCppStringView: 
 ///
@@ -2064,10 +2054,6 @@ public extension Ice.InputStream {
 ///
 ///  - opVarStructSeqAsync: 
 ///
-///  - opSerializable: 
-///
-///  - opSerializableAsync: 
-///
 ///  - opIntIntDict: 
 ///
 ///  - opIntIntDictAsync: 
@@ -2139,10 +2125,6 @@ public extension Ice.InputStream {
 ///  - supportsJavaSerializable: 
 ///
 ///  - supportsJavaSerializableAsync: 
-///
-///  - supportsCsharpSerializable: 
-///
-///  - supportsCsharpSerializableAsync: 
 ///
 ///  - supportsCppStringView: 
 ///
@@ -3921,61 +3903,6 @@ public extension InitialPrx {
     }
 
     ///
-    /// - parameter _: `Serializable?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: Serializable?, p3: Serializable?)`:
-    ///
-    ///   - returnValue: `Serializable?`
-    ///
-    ///   - p3: `Serializable?`
-    func opSerializable(_ iceP_p1: Serializable? = nil, context: Ice.Context? = nil) throws -> (returnValue: Serializable?, p3: Serializable?) {
-        return try _impl._invoke(operation: "opSerializable",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(tag: 2, value: iceP_p1)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Serializable? = try istr.read(tag: 1)
-                                     let iceP_p3: Serializable? = try istr.read(tag: 3)
-                                     return (iceP_returnValue, iceP_p3)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `Serializable?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: Serializable?, p3: Serializable?)>` - The result of the operation
-    func opSerializableAsync(_ iceP_p1: Serializable? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: Serializable?, p3: Serializable?)> {
-        return _impl._invokeAsync(operation: "opSerializable",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Serializable? = try istr.read(tag: 1)
-                                      let iceP_p3: Serializable? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
     /// - parameter _: `IntIntDict?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
@@ -4825,45 +4752,6 @@ public extension InitialPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Bool`
-    func supportsCsharpSerializable(context: Ice.Context? = nil) throws -> Swift.Bool {
-        return try _impl._invoke(operation: "supportsCsharpSerializable",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Bool = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
-    func supportsCsharpSerializableAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Bool> {
-        return _impl._invokeAsync(operation: "supportsCsharpSerializable",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Bool = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool`
     func supportsCppStringView(context: Ice.Context? = nil) throws -> Swift.Bool {
         return try _impl._invoke(operation: "supportsCppStringView",
                                  mode: .Normal,
@@ -5031,11 +4919,10 @@ open class MultiOptional: Ice.Value {
     public var iood: IntOneOptionalDict? = nil
     public var ioopd: IntOneOptionalPrxDict? = nil
     public var bos: BoolSeq? = nil
-    public var ser: Serializable? = nil
 
     public required init() {}
 
-    public init(a: Swift.UInt8?, b: Swift.Bool?, c: Swift.Int16?, d: Swift.Int32?, e: Swift.Int64?, f: Swift.Float?, g: Swift.Double?, h: Swift.String?, i: MyEnum?, j: Ice.ObjectPrx?, k: MultiOptional?, bs: ByteSeq?, ss: StringSeq?, iid: IntIntDict?, sid: StringIntDict?, fs: FixedStruct?, vs: VarStruct?, shs: ShortSeq?, es: MyEnumSeq?, fss: FixedStructSeq?, vss: VarStructSeq?, oos: OneOptionalSeq?, oops: OneOptionalPrxSeq?, ied: IntEnumDict?, ifsd: IntFixedStructDict?, ivsd: IntVarStructDict?, iood: IntOneOptionalDict?, ioopd: IntOneOptionalPrxDict?, bos: BoolSeq?, ser: Serializable?) {
+    public init(a: Swift.UInt8?, b: Swift.Bool?, c: Swift.Int16?, d: Swift.Int32?, e: Swift.Int64?, f: Swift.Float?, g: Swift.Double?, h: Swift.String?, i: MyEnum?, j: Ice.ObjectPrx?, k: MultiOptional?, bs: ByteSeq?, ss: StringSeq?, iid: IntIntDict?, sid: StringIntDict?, fs: FixedStruct?, vs: VarStruct?, shs: ShortSeq?, es: MyEnumSeq?, fss: FixedStructSeq?, vss: VarStructSeq?, oos: OneOptionalSeq?, oops: OneOptionalPrxSeq?, ied: IntEnumDict?, ifsd: IntFixedStructDict?, ivsd: IntVarStructDict?, iood: IntOneOptionalDict?, ioopd: IntOneOptionalPrxDict?, bos: BoolSeq?) {
         self.a = a
         self.b = b
         self.c = c
@@ -5065,7 +4952,6 @@ open class MultiOptional: Ice.Value {
         self.iood = iood
         self.ioopd = ioopd
         self.bos = bos
-        self.ser = ser
     }
 
     /// Returns the Slice type ID of the most-derived interface supported by this object.
@@ -5113,7 +4999,6 @@ open class MultiOptional: Ice.Value {
         self.iood = try IntOneOptionalDictHelper.read(from: istr, tag: 27)
         self.ioopd = try IntOneOptionalPrxDictHelper.read(from: istr, tag: 28)
         self.bos = try istr.read(tag: 29)
-        self.ser = try istr.read(tag: 30)
         try istr.endSlice()
     }
 
@@ -5148,7 +5033,6 @@ open class MultiOptional: Ice.Value {
         IntOneOptionalDictHelper.write(to: ostr, tag: 27, value: self.iood)
         IntOneOptionalPrxDictHelper.write(to: ostr, tag: 28, value: self.ioopd)
         ostr.write(tag: 29, value: self.bos)
-        ostr.write(tag: 30, value: self.ser)
         ostr.endSlice()
     }
 }
@@ -5859,8 +5743,6 @@ public struct InitialDisp: Ice.Disp {
             return try servant._iceD_opOptionalException(incoming: request, current: current)
         case "opRequiredException":
             return try servant._iceD_opRequiredException(incoming: request, current: current)
-        case "opSerializable":
-            return try servant._iceD_opSerializable(incoming: request, current: current)
         case "opShort":
             return try servant._iceD_opShort(incoming: request, current: current)
         case "opShortSeq":
@@ -5893,8 +5775,6 @@ public struct InitialDisp: Ice.Disp {
             return try servant._iceD_shutdown(incoming: request, current: current)
         case "supportsCppStringView":
             return try servant._iceD_supportsCppStringView(incoming: request, current: current)
-        case "supportsCsharpSerializable":
-            return try servant._iceD_supportsCsharpSerializable(incoming: request, current: current)
         case "supportsJavaSerializable":
             return try servant._iceD_supportsJavaSerializable(incoming: request, current: current)
         case "supportsNullOptional":
@@ -6275,18 +6155,6 @@ public protocol Initial {
     func opVarStructSeq(p1: VarStructSeq?, current: Ice.Current) throws -> (returnValue: VarStructSeq?, p3: VarStructSeq?)
 
     ///
-    /// - parameter p1: `Serializable?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: Serializable?, p3: Serializable?)`:
-    ///
-    ///   - returnValue: `Serializable?`
-    ///
-    ///   - p3: `Serializable?`
-    func opSerializable(p1: Serializable?, current: Ice.Current) throws -> (returnValue: Serializable?, p3: Serializable?)
-
-    ///
     /// - parameter p1: `IntIntDict?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
@@ -6444,12 +6312,6 @@ public protocol Initial {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.Bool`
-    func supportsCsharpSerializable(current: Ice.Current) throws -> Swift.Bool
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Bool`
     func supportsCppStringView(current: Ice.Current) throws -> Swift.Bool
 
     ///
@@ -6527,8 +6389,6 @@ public protocol Initial {
 ///
 ///  - opVarStructSeq: 
 ///
-///  - opSerializable: 
-///
 ///  - opIntIntDict: 
 ///
 ///  - opStringIntDict: 
@@ -6564,8 +6424,6 @@ public protocol Initial {
 ///  - supportsRequiredParams: 
 ///
 ///  - supportsJavaSerializable: 
-///
-///  - supportsCsharpSerializable: 
 ///
 ///  - supportsCppStringView: 
 ///
@@ -7016,20 +6874,6 @@ public extension Initial {
         }
     }
 
-    func _iceD_opSerializable(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_p1: Serializable? = try inS.read { istr in
-            let iceP_p1: Serializable? = try istr.read(tag: 2)
-            return iceP_p1
-        }
-
-        let (iceP_returnValue, iceP_p3) = try self.opSerializable(p1: iceP_p1, current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-        }
-    }
-
     func _iceD_opIntIntDict(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         let iceP_p1: IntIntDict? = try inS.read { istr in
             let iceP_p1: IntIntDict? = try IntIntDictHelper.read(from: istr, tag: 2)
@@ -7246,16 +7090,6 @@ public extension Initial {
         try inS.readEmptyParams()
 
         let iceP_returnValue = try self.supportsJavaSerializable(current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
-        }
-    }
-
-    func _iceD_supportsCsharpSerializable(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        let iceP_returnValue = try self.supportsCsharpSerializable(current: current)
 
         return inS.setResult{ ostr in
             ostr.write(iceP_returnValue)

@@ -1,3 +1,4 @@
+/Users/austin/Code/zeroc/ice/swift/test/Ice/optional/TestAMD.ice:62: warning: ignoring invalid metadata `clr:serializable:Ice.optional.Test.SerializableClass'
 /Users/austin/Code/zeroc/ice/cpp/bin/slice2js: error:include/IceUtil/Handle.h:41: ::IceUtil::NullHandleException
 /Users/austin/Code/zeroc/ice/slice/IceBT/EndpointInfo.ice:40: `Ice::EndpointInfo' has been declared but not defined
 /Users/austin/Code/zeroc/ice/slice/IceBT/ConnectionInfo.ice:35: `Ice::ConnectionInfo' is not defined

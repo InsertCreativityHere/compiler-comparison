@@ -652,21 +652,10 @@ namespace Test
 
 namespace Test
 {
-    global $Test__t_SerialSmall;
-
-    if(!isset($Test__t_SerialSmall))
-    {
-        global $IcePHP__t_byte;
-        $Test__t_SerialSmall = IcePHP_defineSequence('::Test::SerialSmall', $IcePHP__t_byte);
-    }
-}
-
-namespace Test
-{
     global $Test__t_MyClass;
     class MyClass extends \Ice\Value
     {
-        public function __construct($c=null, $o=null, $s=null, $seq1=null, $seq2=null, $seq3=null, $seq4=null, $seq5=null, $seq6=null, $seq7=null, $seq8=null, $seq9=null, $seq10=null, $d=null, $ss=null)
+        public function __construct($c=null, $o=null, $s=null, $seq1=null, $seq2=null, $seq3=null, $seq4=null, $seq5=null, $seq6=null, $seq7=null, $seq8=null, $seq9=null, $seq10=null, $d=null)
         {
             $this->c = $c;
             $this->o = $o;
@@ -682,7 +671,6 @@ namespace Test
             $this->seq9 = $seq9;
             $this->seq10 = $seq10;
             $this->d = $d;
-            $this->ss = $ss;
         }
 
         public function ice_id()
@@ -715,7 +703,6 @@ namespace Test
         public $seq9;
         public $seq10;
         public $d;
-        public $ss;
     }
 
     global $Ice__t_Value;
@@ -732,7 +719,6 @@ namespace Test
     global $Test__t_MyEnumS;
     global $Test__t_MyClassS;
     global $Test__t_StringMyClassD;
-    global $Test__t_SerialSmall;
     $Test__t_MyClass = IcePHP_defineClass('::Test::MyClass', '\\Test\\MyClass', -1, false, false, $Ice__t_Value, array(
         array('c', $Test__t_MyClass, false, 0),
         array('o', $Ice__t_Value, false, 0),
@@ -747,8 +733,7 @@ namespace Test
         array('seq8', $Ice__t_StringSeq, false, 0),
         array('seq9', $Test__t_MyEnumS, false, 0),
         array('seq10', $Test__t_MyClassS, false, 0),
-        array('d', $Test__t_StringMyClassD, false, 0),
-        array('ss', $Test__t_SerialSmall, false, 0)));
+        array('d', $Test__t_StringMyClassD, false, 0)));
 }
 
 namespace Test

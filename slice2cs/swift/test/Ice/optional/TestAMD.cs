@@ -31,7 +31,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial class OneOptional : global::Ice.Value
     {
         #region Slice data members
@@ -128,7 +127,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial struct SmallStruct
     {
         #region Slice data members
@@ -236,7 +234,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial struct FixedStruct
     {
         #region Slice data members
@@ -344,7 +341,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial class VarStruct : global::System.ICloneable
     {
         #region Slice data members
@@ -496,7 +492,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial class ClassVarStruct : global::System.ICloneable
     {
         #region Slice data members
@@ -638,7 +633,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial class MultiOptional : global::Ice.Value
     {
         #region Slice data members
@@ -731,7 +725,7 @@ namespace Test
         public global::Ice.Optional<bool[]> bos;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public global::Ice.Optional<global::Ice.optional.Test.SerializableClass> ser;
+        public global::Ice.Optional<byte[]> ser;
 
         #endregion
 
@@ -771,12 +765,12 @@ namespace Test
             this.iood = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, OneOptional>>();
             this.ioopd = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, global::Ice.ObjectPrx>>();
             this.bos = new global::Ice.Optional<bool[]>();
-            this.ser = new global::Ice.Optional<global::Ice.optional.Test.SerializableClass>();
+            this.ser = new global::Ice.Optional<byte[]>();
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public MultiOptional(global::Ice.Optional<byte> a, global::Ice.Optional<bool> b, global::Ice.Optional<short> c, global::Ice.Optional<int> d, global::Ice.Optional<long> e, global::Ice.Optional<float> f, global::Ice.Optional<double> g, global::Ice.Optional<string> h, global::Ice.Optional<MyEnum> i, global::Ice.Optional<global::Ice.ObjectPrx> j, global::Ice.Optional<MultiOptional> k, global::Ice.Optional<byte[]> bs, global::Ice.Optional<string[]> ss, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> iid, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, int>> sid, global::Ice.Optional<FixedStruct> fs, global::Ice.Optional<VarStruct> vs, global::Ice.Optional<short[]> shs, global::Ice.Optional<MyEnum[]> es, global::Ice.Optional<FixedStruct[]> fss, global::Ice.Optional<VarStruct[]> vss, global::Ice.Optional<OneOptional[]> oos, global::Ice.Optional<global::Ice.ObjectPrx[]> oops, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyEnum>> ied, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, FixedStruct>> ifsd, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, VarStruct>> ivsd, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, OneOptional>> iood, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, global::Ice.ObjectPrx>> ioopd, global::Ice.Optional<bool[]> bos, global::Ice.Optional<global::Ice.optional.Test.SerializableClass> ser)
+        public MultiOptional(global::Ice.Optional<byte> a, global::Ice.Optional<bool> b, global::Ice.Optional<short> c, global::Ice.Optional<int> d, global::Ice.Optional<long> e, global::Ice.Optional<float> f, global::Ice.Optional<double> g, global::Ice.Optional<string> h, global::Ice.Optional<MyEnum> i, global::Ice.Optional<global::Ice.ObjectPrx> j, global::Ice.Optional<MultiOptional> k, global::Ice.Optional<byte[]> bs, global::Ice.Optional<string[]> ss, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> iid, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, int>> sid, global::Ice.Optional<FixedStruct> fs, global::Ice.Optional<VarStruct> vs, global::Ice.Optional<short[]> shs, global::Ice.Optional<MyEnum[]> es, global::Ice.Optional<FixedStruct[]> fss, global::Ice.Optional<VarStruct[]> vss, global::Ice.Optional<OneOptional[]> oos, global::Ice.Optional<global::Ice.ObjectPrx[]> oops, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyEnum>> ied, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, FixedStruct>> ifsd, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, VarStruct>> ivsd, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, OneOptional>> iood, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, global::Ice.ObjectPrx>> ioopd, global::Ice.Optional<bool[]> bos, global::Ice.Optional<byte[]> ser)
         {
             this.a = a;
             this.b = b;
@@ -935,10 +929,7 @@ namespace Test
                 ostr_.endSize(pos);
             }
             ostr_.writeBoolSeq(29, bos);
-            if(ser.HasValue && ostr_.writeOptional(30, global::Ice.OptionalFormat.VSize))
-            {
-                ostr_.writeSerializable(ser.Value);
-            }
+            ostr_.writeByteSeq(30, ser);
             ostr_.endSlice();
         }
 
@@ -1174,13 +1165,13 @@ namespace Test
             }
             if(istr_.readOptional(30, global::Ice.OptionalFormat.VSize))
             {
-                global::Ice.optional.Test.SerializableClass tmpVal;
+                byte[] tmpVal;
                 tmpVal = SerializableHelper.read(istr_);
-                ser = new global::Ice.Optional<global::Ice.optional.Test.SerializableClass>(tmpVal);
+                ser = new global::Ice.Optional<byte[]>(tmpVal);
             }
             else
             {
-                ser = new global::Ice.Optional<global::Ice.optional.Test.SerializableClass>();
+                ser = new global::Ice.Optional<byte[]>();
             }
             istr_.endSlice();
         }
@@ -1199,7 +1190,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial class A : global::Ice.Value
     {
         #region Slice data members
@@ -1294,7 +1284,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial class B : A
     {
         #region Slice data members
@@ -1401,7 +1390,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial class C : B
     {
         #region Slice data members
@@ -1485,7 +1473,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial class WD : global::Ice.Value
     {
         #region Slice data members
@@ -1558,7 +1545,6 @@ namespace Test
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032")]
-    [global::System.Serializable]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
@@ -1608,15 +1594,6 @@ namespace Test
         public OptionalException(global::System.Exception ex) : base(ex)
         {
             _initDM();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public OptionalException(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
-        {
-            this.req = info.GetBoolean("req");
-            this.a = (global::Ice.Optional<int>)info.GetValue("a", typeof(global::Ice.Optional<int>));
-            this.b = (global::Ice.Optional<string>)info.GetValue("b", typeof(global::Ice.Optional<string>));
-            this.o = (global::Ice.Optional<OneOptional>)info.GetValue("o", typeof(global::Ice.Optional<OneOptional>));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1677,7 +1654,6 @@ namespace Test
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032")]
-    [global::System.Serializable]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
@@ -1727,15 +1703,6 @@ namespace Test
         public DerivedException(global::System.Exception ex) : base(ex)
         {
             _initDM();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public DerivedException(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
-        {
-            this.d1 = info.GetString("d1");
-            this.ss = (global::Ice.Optional<string>)info.GetValue("ss", typeof(global::Ice.Optional<string>));
-            this.o2 = (global::Ice.Optional<OneOptional>)info.GetValue("o2", typeof(global::Ice.Optional<OneOptional>));
-            this.d2 = info.GetString("d2");
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1798,7 +1765,6 @@ namespace Test
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032")]
-    [global::System.Serializable]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
@@ -1839,13 +1805,6 @@ namespace Test
         public RequiredException(global::System.Exception ex) : base(ex)
         {
             _initDM();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public RequiredException(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
-        {
-            this.ss = info.GetString("ss");
-            this.o2 = (OneOptional)info.GetValue("o2", typeof(OneOptional));
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1917,7 +1876,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial class OptionalWithCustom : global::Ice.Value
     {
         #region Slice data members
@@ -2077,7 +2035,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial class E : global::Ice.Value
     {
         #region Slice data members
@@ -2151,7 +2108,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial class F : E
     {
         #region Slice data members
@@ -2228,7 +2184,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial class G1 : global::Ice.Value
     {
         #region Slice data members
@@ -2303,7 +2258,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial class G2 : global::Ice.Value
     {
         #region Slice data members
@@ -2377,7 +2331,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial class G : global::Ice.Value
     {
         #region Slice data members
@@ -2471,7 +2424,6 @@ namespace Test
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    [global::System.Serializable]
     public partial class Recursive : global::Ice.Value
     {
         #region Slice data members
@@ -2665,7 +2617,7 @@ namespace Test
     public delegate void Callback_Initial_opVarStructSeq(global::Ice.Optional<VarStruct[]> ret, global::Ice.Optional<VarStruct[]> p3);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    public delegate void Callback_Initial_opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> ret, global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p3);
+    public delegate void Callback_Initial_opSerializable(global::Ice.Optional<byte[]> ret, global::Ice.Optional<byte[]> p3);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public delegate void Callback_Initial_opIntIntDict(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> ret, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> p3);
@@ -3059,14 +3011,14 @@ namespace Test
 
     public struct Initial_OpSerializableResult
     {
-        public Initial_OpSerializableResult(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> returnValue, global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p3)
+        public Initial_OpSerializableResult(global::Ice.Optional<byte[]> returnValue, global::Ice.Optional<byte[]> p3)
         {
             this.returnValue = returnValue;
             this.p3 = p3;
         }
 
-        public global::Ice.Optional<global::Ice.optional.Test.SerializableClass> returnValue;
-        public global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p3;
+        public global::Ice.Optional<byte[]> returnValue;
+        public global::Ice.Optional<byte[]> p3;
     }
 
     public struct Initial_OpIntIntDictResult
@@ -3758,17 +3710,17 @@ namespace Test
 
         global::Ice.Optional<VarStruct[]> end_opVarStructSeq(out global::Ice.Optional<VarStruct[]> p3, global::Ice.AsyncResult asyncResult);
 
-        global::Ice.Optional<global::Ice.optional.Test.SerializableClass> opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, out global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::Ice.Optional<byte[]> opSerializable(global::Ice.Optional<byte[]> p1, out global::Ice.Optional<byte[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::System.Threading.Tasks.Task<Initial_OpSerializableResult> opSerializableAsync(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<Initial_OpSerializableResult> opSerializableAsync(global::Ice.Optional<byte[]> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_Initial_opSerializable> begin_opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::Ice.AsyncResult<Callback_Initial_opSerializable> begin_opSerializable(global::Ice.Optional<byte[]> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::Ice.AsyncResult begin_opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, global::Ice.AsyncCallback callback, object cookie);
+        global::Ice.AsyncResult begin_opSerializable(global::Ice.Optional<byte[]> p1, global::Ice.AsyncCallback callback, object cookie);
 
-        global::Ice.AsyncResult begin_opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
+        global::Ice.AsyncResult begin_opSerializable(global::Ice.Optional<byte[]> p1, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
-        global::Ice.Optional<global::Ice.optional.Test.SerializableClass> end_opSerializable(out global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p3, global::Ice.AsyncResult asyncResult);
+        global::Ice.Optional<byte[]> end_opSerializable(out global::Ice.Optional<byte[]> p3, global::Ice.AsyncResult asyncResult);
 
         global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> opIntIntDict(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> p1, out global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
@@ -4126,7 +4078,7 @@ namespace Test
         global::System.Threading.Tasks.Task<Initial_OpVarStructSeqResult> opVarStructSeqAsync(global::Ice.Optional<VarStruct[]> p1, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        global::System.Threading.Tasks.Task<Initial_OpSerializableResult> opSerializableAsync(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, global::Ice.Current current = null);
+        global::System.Threading.Tasks.Task<Initial_OpSerializableResult> opSerializableAsync(global::Ice.Optional<byte[]> p1, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         global::System.Threading.Tasks.Task<Initial_OpIntIntDictResult> opIntIntDictAsync(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> p1, global::Ice.Current current = null);
@@ -4602,15 +4554,15 @@ namespace Test
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public sealed class SerializableHelper
     {
-        public static void write(global::Ice.OutputStream ostr, global::Ice.optional.Test.SerializableClass v)
+        public static void write(global::Ice.OutputStream ostr, byte[] v)
         {
-            ostr.writeSerializable(v);
+            ostr.writeByteSeq(v);
         }
 
-        public static global::Ice.optional.Test.SerializableClass read(global::Ice.InputStream istr)
+        public static byte[] read(global::Ice.InputStream istr)
         {
-            global::Ice.optional.Test.SerializableClass v;
-            v = (global::Ice.optional.Test.SerializableClass)istr.readSerializable();
+            byte[] v;
+            v = istr.readByteSeq();
             return v;
         }
     }
@@ -4910,14 +4862,9 @@ namespace Test
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class InitialPrxHelper : global::Ice.ObjectPrxHelperBase, InitialPrx
     {
         public InitialPrxHelper()
-        {
-        }
-
-        public InitialPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 
@@ -5361,7 +5308,7 @@ namespace Test
             }
         }
 
-        public global::Ice.Optional<global::Ice.optional.Test.SerializableClass> opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, out global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Ice.Optional<byte[]> opSerializable(global::Ice.Optional<byte[]> p1, out global::Ice.Optional<byte[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
@@ -7247,12 +7194,12 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<Initial_OpSerializableResult> opSerializableAsync(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<Initial_OpSerializableResult> opSerializableAsync(global::Ice.Optional<byte[]> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_opSerializableAsync(p1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<Initial_OpSerializableResult> _iceI_opSerializableAsync(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Initial_OpSerializableResult> _iceI_opSerializableAsync(global::Ice.Optional<byte[]> iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_opSerializable_name);
             var completed = new global::IceInternal.OperationTaskCompletionCallback<Initial_OpSerializableResult>(progress, cancel);
@@ -7262,7 +7209,7 @@ namespace Test
 
         private const string _opSerializable_name = "opSerializable";
 
-        private void _iceI_opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opSerializable(global::Ice.Optional<byte[]> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<Initial_OpSerializableResult>(completed);
             outAsync.invoke(
@@ -7273,33 +7220,30 @@ namespace Test
                 synchronous,
                 write: (global::Ice.OutputStream ostr) =>
                 {
-                    if(iceP_p1.HasValue && ostr.writeOptional(2, global::Ice.OptionalFormat.VSize))
-                    {
-                        ostr.writeSerializable(iceP_p1.Value);
-                    }
+                    ostr.writeByteSeq(2, iceP_p1);
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
                     Initial_OpSerializableResult ret = new Initial_OpSerializableResult();
                     if(istr.readOptional(1, global::Ice.OptionalFormat.VSize))
                     {
-                        global::Ice.optional.Test.SerializableClass tmpVal;
+                        byte[] tmpVal;
                         tmpVal = SerializableHelper.read(istr);
-                        ret.returnValue = new global::Ice.Optional<global::Ice.optional.Test.SerializableClass>(tmpVal);
+                        ret.returnValue = new global::Ice.Optional<byte[]>(tmpVal);
                     }
                     else
                     {
-                        ret.returnValue = new global::Ice.Optional<global::Ice.optional.Test.SerializableClass>();
+                        ret.returnValue = new global::Ice.Optional<byte[]>();
                     }
                     if(istr.readOptional(3, global::Ice.OptionalFormat.VSize))
                     {
-                        global::Ice.optional.Test.SerializableClass tmpVal;
+                        byte[] tmpVal;
                         tmpVal = SerializableHelper.read(istr);
-                        ret.p3 = new global::Ice.Optional<global::Ice.optional.Test.SerializableClass>(tmpVal);
+                        ret.p3 = new global::Ice.Optional<byte[]>(tmpVal);
                     }
                     else
                     {
-                        ret.p3 = new global::Ice.Optional<global::Ice.optional.Test.SerializableClass>();
+                        ret.p3 = new global::Ice.Optional<byte[]>();
                     }
                     return ret;
                 });
@@ -9453,22 +9397,22 @@ namespace Test
             return completed;
         }
 
-        public global::Ice.AsyncResult<Callback_Initial_opSerializable> begin_opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Ice.AsyncResult<Callback_Initial_opSerializable> begin_opSerializable(global::Ice.Optional<byte[]> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             return begin_opSerializable(p1, context, null, null, false);
         }
 
-        public global::Ice.AsyncResult begin_opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, global::Ice.AsyncCallback callback, object cookie)
+        public global::Ice.AsyncResult begin_opSerializable(global::Ice.Optional<byte[]> p1, global::Ice.AsyncCallback callback, object cookie)
         {
             return begin_opSerializable(p1, new global::Ice.OptionalContext(), callback, cookie, false);
         }
 
-        public global::Ice.AsyncResult begin_opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
+        public global::Ice.AsyncResult begin_opSerializable(global::Ice.Optional<byte[]> p1, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
         {
             return begin_opSerializable(p1, context, callback, cookie, false);
         }
 
-        public global::Ice.Optional<global::Ice.optional.Test.SerializableClass> end_opSerializable(out global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p3, global::Ice.AsyncResult asyncResult)
+        public global::Ice.Optional<byte[]> end_opSerializable(out global::Ice.Optional<byte[]> p3, global::Ice.AsyncResult asyncResult)
         {
             var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _opSerializable_name);
             var outgoing_ = (global::IceInternal.OutgoingAsyncT<Initial_OpSerializableResult>)resultI_.OutgoingAsync;
@@ -9477,7 +9421,7 @@ namespace Test
             return result_.returnValue;
         }
 
-        private global::Ice.AsyncResult<Callback_Initial_opSerializable> begin_opSerializable(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+        private global::Ice.AsyncResult<Callback_Initial_opSerializable> begin_opSerializable(global::Ice.Optional<byte[]> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
         {
             iceCheckAsyncTwowayOnly(_opSerializable_name);
             var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Initial_opSerializable, Initial_OpSerializableResult>(
@@ -10515,7 +10459,7 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task<Initial_OpVarStructSeqResult> opVarStructSeqAsync(global::Ice.Optional<VarStruct[]> p1, global::Ice.Current current = null);
 
-        public abstract global::System.Threading.Tasks.Task<Initial_OpSerializableResult> opSerializableAsync(global::Ice.Optional<global::Ice.optional.Test.SerializableClass> p1, global::Ice.Current current = null);
+        public abstract global::System.Threading.Tasks.Task<Initial_OpSerializableResult> opSerializableAsync(global::Ice.Optional<byte[]> p1, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<Initial_OpIntIntDictResult> opIntIntDictAsync(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> p1, global::Ice.Current current = null);
 
@@ -11389,29 +11333,23 @@ namespace Test
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Optional<global::Ice.optional.Test.SerializableClass> iceP_p1;
+            global::Ice.Optional<byte[]> iceP_p1;
             if(istr.readOptional(2, global::Ice.OptionalFormat.VSize))
             {
-                global::Ice.optional.Test.SerializableClass tmpVal;
+                byte[] tmpVal;
                 tmpVal = SerializableHelper.read(istr);
-                iceP_p1 = new global::Ice.Optional<global::Ice.optional.Test.SerializableClass>(tmpVal);
+                iceP_p1 = new global::Ice.Optional<byte[]>(tmpVal);
             }
             else
             {
-                iceP_p1 = new global::Ice.Optional<global::Ice.optional.Test.SerializableClass>();
+                iceP_p1 = new global::Ice.Optional<byte[]>();
             }
             inS.endReadParams();
             return inS.setResultTask<Initial_OpSerializableResult>(obj.opSerializableAsync(iceP_p1, current),
                 (ostr, ret) =>
                 {
-                    if(ret.returnValue.HasValue && ostr.writeOptional(1, global::Ice.OptionalFormat.VSize))
-                    {
-                        ostr.writeSerializable(ret.returnValue.Value);
-                    }
-                    if(ret.p3.HasValue && ostr.writeOptional(3, global::Ice.OptionalFormat.VSize))
-                    {
-                        ostr.writeSerializable(ret.p3.Value);
-                    }
+                    ostr.writeByteSeq(1, ret.returnValue);
+                    ostr.writeByteSeq(3, ret.p3);
                 });
         }
 

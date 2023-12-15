@@ -2567,108 +2567,6 @@ public interface MyClass extends com.zeroc.Ice.Object
         }
     }
 
-    /**
-     * Holds the result of operation opSerialSmallCSharp.
-     **/
-    public static class OpSerialSmallCSharpResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpSerialSmallCSharpResult()
-        {
-        }
-
-        public OpSerialSmallCSharpResult(byte[] returnValue, byte[] o)
-        {
-            this.returnValue = returnValue;
-            this.o = o;
-        }
-
-        public byte[] returnValue;
-        public byte[] o;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeByteSeq(this.o);
-            ostr.writeByteSeq(returnValue);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            this.o = istr.readByteSeq();
-            returnValue = istr.readByteSeq();
-        }
-    }
-
-    /**
-     * Holds the result of operation opSerialLargeCSharp.
-     **/
-    public static class OpSerialLargeCSharpResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpSerialLargeCSharpResult()
-        {
-        }
-
-        public OpSerialLargeCSharpResult(byte[] returnValue, byte[] o)
-        {
-            this.returnValue = returnValue;
-            this.o = o;
-        }
-
-        public byte[] returnValue;
-        public byte[] o;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeByteSeq(this.o);
-            ostr.writeByteSeq(returnValue);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            this.o = istr.readByteSeq();
-            returnValue = istr.readByteSeq();
-        }
-    }
-
-    /**
-     * Holds the result of operation opSerialStructCSharp.
-     **/
-    public static class OpSerialStructCSharpResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpSerialStructCSharpResult()
-        {
-        }
-
-        public OpSerialStructCSharpResult(byte[] returnValue, byte[] o)
-        {
-            this.returnValue = returnValue;
-            this.o = o;
-        }
-
-        public byte[] returnValue;
-        public byte[] o;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeByteSeq(this.o);
-            ostr.writeByteSeq(returnValue);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            this.o = istr.readByteSeq();
-            returnValue = istr.readByteSeq();
-        }
-    }
-
     void shutdown(com.zeroc.Ice.Current current);
 
     MyClass.OpAByteSResult opAByteS(byte[] i, com.zeroc.Ice.Current current);
@@ -2820,12 +2718,6 @@ public interface MyClass extends com.zeroc.Ice.Object
     MyClass.OpCustomIntSSResult opCustomIntSS(int[][] i, com.zeroc.Ice.Current current);
 
     MyClass.OpCustomCVSSResult opCustomCVSS(CV[][] i, com.zeroc.Ice.Current current);
-
-    MyClass.OpSerialSmallCSharpResult opSerialSmallCSharp(byte[] i, com.zeroc.Ice.Current current);
-
-    MyClass.OpSerialLargeCSharpResult opSerialLargeCSharp(byte[] i, com.zeroc.Ice.Current current);
-
-    MyClass.OpSerialStructCSharpResult opSerialStructCSharp(byte[] i, com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -4457,69 +4349,6 @@ public interface MyClass extends com.zeroc.Ice.Object
         return inS.setResult(ostr);
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opSerialSmallCSharp(MyClass obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        byte[] iceP_i;
-        iceP_i = istr.readByteSeq();
-        inS.endReadParams();
-        MyClass.OpSerialSmallCSharpResult ret = obj.opSerialSmallCSharp(iceP_i, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opSerialLargeCSharp(MyClass obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        byte[] iceP_i;
-        iceP_i = istr.readByteSeq();
-        inS.endReadParams();
-        MyClass.OpSerialLargeCSharpResult ret = obj.opSerialLargeCSharp(iceP_i, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opSerialStructCSharp(MyClass obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        byte[] iceP_i;
-        iceP_i = istr.readByteSeq();
-        inS.endReadParams();
-        MyClass.OpSerialStructCSharpResult ret = obj.opSerialStructCSharp(iceP_i, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
     /** @hidden */
     final static String[] _iceOps =
     {
@@ -4602,9 +4431,6 @@ public interface MyClass extends com.zeroc.Ice.Object
         "opSStringS",
         "opSStructS",
         "opSStructSD",
-        "opSerialLargeCSharp",
-        "opSerialSmallCSharp",
-        "opSerialStructCSharp",
         "shutdown"
     };
 
@@ -4938,18 +4764,6 @@ public interface MyClass extends com.zeroc.Ice.Object
                 return _iceD_opSStructSD(this, in, current);
             }
             case 79:
-            {
-                return _iceD_opSerialLargeCSharp(this, in, current);
-            }
-            case 80:
-            {
-                return _iceD_opSerialSmallCSharp(this, in, current);
-            }
-            case 81:
-            {
-                return _iceD_opSerialStructCSharp(this, in, current);
-            }
-            case 82:
             {
                 return _iceD_shutdown(this, in, current);
             }

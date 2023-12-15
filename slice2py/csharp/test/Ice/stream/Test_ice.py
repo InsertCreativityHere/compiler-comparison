@@ -286,13 +286,10 @@ if '_t_StringSStack' not in _M_Test.__dict__:
 if '_t_SortedStringStringD' not in _M_Test.__dict__:
     _M_Test._t_SortedStringStringD = IcePy.defineDictionary('::Test::SortedStringStringD', (), IcePy._t_string, IcePy._t_string)
 
-if '_t_SerialSmall' not in _M_Test.__dict__:
-    _M_Test._t_SerialSmall = IcePy.defineSequence('::Test::SerialSmall', (), IcePy._t_byte)
-
 if 'MyClass' not in _M_Test.__dict__:
     _M_Test.MyClass = Ice.createTempClass()
     class MyClass(Ice.Value):
-        def __init__(self, c=None, o=None, s=Ice._struct_marker, seq1=None, seq2=None, seq3=None, seq4=None, seq5=None, seq6=None, seq7=None, seq8=None, seq9=None, seq10=None, d=None, ss=None):
+        def __init__(self, c=None, o=None, s=Ice._struct_marker, seq1=None, seq2=None, seq3=None, seq4=None, seq5=None, seq6=None, seq7=None, seq8=None, seq9=None, seq10=None, d=None):
             self.c = c
             self.o = o
             if s is Ice._struct_marker:
@@ -310,7 +307,6 @@ if 'MyClass' not in _M_Test.__dict__:
             self.seq9 = seq9
             self.seq10 = seq10
             self.d = d
-            self.ss = ss
 
         def ice_id(self):
             return '::Test::MyClass'
@@ -338,8 +334,7 @@ if 'MyClass' not in _M_Test.__dict__:
         ('seq8', (), _M_Ice._t_StringSeq, False, 0),
         ('seq9', (), _M_Test._t_MyEnumS, False, 0),
         ('seq10', (), _M_Test._t_MyClassS, False, 0),
-        ('d', (), _M_Test._t_StringMyClassD, False, 0),
-        ('ss', (), _M_Test._t_SerialSmall, False, 0)
+        ('d', (), _M_Test._t_StringMyClassD, False, 0)
     ))
     MyClass._ice_type = _M_Test._t_MyClass
 

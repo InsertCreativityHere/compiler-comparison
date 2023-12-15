@@ -26,7 +26,6 @@ namespace Glacier2
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032")]
-    [global::System.Serializable]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
@@ -64,12 +63,6 @@ namespace Glacier2
         public CannotCreateSessionException(global::System.Exception ex) : base(ex)
         {
             _initDM();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public CannotCreateSessionException(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
-        {
-            this.reason = info.GetString("reason");
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1399,14 +1392,9 @@ namespace Glacier2
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class SessionPrxHelper : global::Ice.ObjectPrxHelperBase, SessionPrx
     {
         public SessionPrxHelper()
-        {
-        }
-
-        public SessionPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 
@@ -1638,14 +1626,9 @@ namespace Glacier2
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class StringSetPrxHelper : global::Ice.ObjectPrxHelperBase, StringSetPrx
     {
         public StringSetPrxHelper()
-        {
-        }
-
-        public StringSetPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 
@@ -2040,14 +2023,9 @@ namespace Glacier2
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class IdentitySetPrxHelper : global::Ice.ObjectPrxHelperBase, IdentitySetPrx
     {
         public IdentitySetPrxHelper()
-        {
-        }
-
-        public IdentitySetPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 
@@ -2442,14 +2420,9 @@ namespace Glacier2
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class SessionControlPrxHelper : global::Ice.ObjectPrxHelperBase, SessionControlPrx
     {
         public SessionControlPrxHelper()
-        {
-        }
-
-        public SessionControlPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 
@@ -3009,14 +2982,9 @@ namespace Glacier2
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class SessionManagerPrxHelper : global::Ice.ObjectPrxHelperBase, SessionManagerPrx
     {
         public SessionManagerPrxHelper()
-        {
-        }
-
-        public SessionManagerPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 
@@ -3276,14 +3244,9 @@ namespace Glacier2
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    [global::System.Serializable]
     public sealed class SSLSessionManagerPrxHelper : global::Ice.ObjectPrxHelperBase, SSLSessionManagerPrx
     {
         public SSLSessionManagerPrxHelper()
-        {
-        }
-
-        public SSLSessionManagerPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
         {
         }
 

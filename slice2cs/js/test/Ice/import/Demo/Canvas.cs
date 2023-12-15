@@ -148,14 +148,9 @@ namespace Demo
     {
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        [global::System.Serializable]
         public sealed class CanvasPrxHelper : global::Ice.ObjectPrxHelperBase, CanvasPrx
         {
             public CanvasPrxHelper()
-            {
-            }
-
-            public CanvasPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 
@@ -468,14 +463,9 @@ namespace Demo
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        [global::System.Serializable]
         public sealed class SessionPrxHelper : global::Ice.ObjectPrxHelperBase, SessionPrx
         {
             public SessionPrxHelper()
-            {
-            }
-
-            public SessionPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 

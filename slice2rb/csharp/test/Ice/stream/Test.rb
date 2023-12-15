@@ -350,17 +350,13 @@ module ::Test
         T_SortedStringStringD = ::Ice::__defineDictionary('::Test::SortedStringStringD', ::Ice::T_string, ::Ice::T_string)
     end
 
-    if not defined?(::Test::::T_SerialSmall)
-        T_SerialSmall = ::Ice::__defineSequence('::Test::SerialSmall', ::Ice::T_byte)
-    end
-
     if not defined?(::Test::::MyClass_Mixin)
 
         module ::Test::::MyClass_Mixin
         end
         class MyClass < ::Ice::Value
 
-            def initialize(c=nil, o=nil, s=::Test::::SmallStruct.new, seq1=nil, seq2=nil, seq3=nil, seq4=nil, seq5=nil, seq6=nil, seq7=nil, seq8=nil, seq9=nil, seq10=nil, d=nil, ss=nil)
+            def initialize(c=nil, o=nil, s=::Test::::SmallStruct.new, seq1=nil, seq2=nil, seq3=nil, seq4=nil, seq5=nil, seq6=nil, seq7=nil, seq8=nil, seq9=nil, seq10=nil, d=nil)
                 @c = c
                 @o = o
                 @s = s
@@ -375,10 +371,9 @@ module ::Test
                 @seq9 = seq9
                 @seq10 = seq10
                 @d = d
-                @ss = ss
             end
 
-            attr_accessor :c, :o, :s, :seq1, :seq2, :seq3, :seq4, :seq5, :seq6, :seq7, :seq8, :seq9, :seq10, :d, :ss
+            attr_accessor :c, :o, :s, :seq1, :seq2, :seq3, :seq4, :seq5, :seq6, :seq7, :seq8, :seq9, :seq10, :d
         end
 
         if not defined?(::Test::::T_MyClass)
@@ -399,8 +394,7 @@ module ::Test
             ['seq8', ::Ice::::T_StringSeq, false, 0],
             ['seq9', ::Test::::T_MyEnumS, false, 0],
             ['seq10', ::Test::::T_MyClassS, false, 0],
-            ['d', ::Test::::T_StringMyClassD, false, 0],
-            ['ss', ::Test::::T_SerialSmall, false, 0]
+            ['d', ::Test::::T_StringMyClassD, false, 0]
         ])
     end
 

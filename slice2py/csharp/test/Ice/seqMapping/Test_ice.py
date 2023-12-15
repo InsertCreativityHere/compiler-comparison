@@ -568,15 +568,6 @@ if '_t_CustomIntSS' not in _M_Test.__dict__:
 if '_t_CustomCVSS' not in _M_Test.__dict__:
     _M_Test._t_CustomCVSS = IcePy.defineSequence('::Test::CustomCVSS', (), _M_Test._t_CustomCVS)
 
-if '_t_SerialSmall' not in _M_Test.__dict__:
-    _M_Test._t_SerialSmall = IcePy.defineSequence('::Test::SerialSmall', (), IcePy._t_byte)
-
-if '_t_SerialLarge' not in _M_Test.__dict__:
-    _M_Test._t_SerialLarge = IcePy.defineSequence('::Test::SerialLarge', (), IcePy._t_byte)
-
-if '_t_SerialStruct' not in _M_Test.__dict__:
-    _M_Test._t_SerialStruct = IcePy.defineSequence('::Test::SerialStruct', (), IcePy._t_byte)
-
 _M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', Ice.Value, -1, (), False, True, None, ())
 
 if 'MyClassPrx' not in _M_Test.__dict__:
@@ -1495,42 +1486,6 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def end_opCustomCVSS(self, _r):
             return _M_Test.MyClass._op_opCustomCVSS.end(self, _r)
 
-        def opSerialSmallCSharp(self, i, context=None):
-            return _M_Test.MyClass._op_opSerialSmallCSharp.invoke(self, ((i, ), context))
-
-        def opSerialSmallCSharpAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opSerialSmallCSharp.invokeAsync(self, ((i, ), context))
-
-        def begin_opSerialSmallCSharp(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opSerialSmallCSharp.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opSerialSmallCSharp(self, _r):
-            return _M_Test.MyClass._op_opSerialSmallCSharp.end(self, _r)
-
-        def opSerialLargeCSharp(self, i, context=None):
-            return _M_Test.MyClass._op_opSerialLargeCSharp.invoke(self, ((i, ), context))
-
-        def opSerialLargeCSharpAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opSerialLargeCSharp.invokeAsync(self, ((i, ), context))
-
-        def begin_opSerialLargeCSharp(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opSerialLargeCSharp.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opSerialLargeCSharp(self, _r):
-            return _M_Test.MyClass._op_opSerialLargeCSharp.end(self, _r)
-
-        def opSerialStructCSharp(self, i, context=None):
-            return _M_Test.MyClass._op_opSerialStructCSharp.invoke(self, ((i, ), context))
-
-        def opSerialStructCSharpAsync(self, i, context=None):
-            return _M_Test.MyClass._op_opSerialStructCSharp.invokeAsync(self, ((i, ), context))
-
-        def begin_opSerialStructCSharp(self, i, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.MyClass._op_opSerialStructCSharp.begin(self, ((i, ), _response, _ex, _sent, context))
-
-        def end_opSerialStructCSharp(self, _r):
-            return _M_Test.MyClass._op_opSerialStructCSharp.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.MyClassPrx.ice_checkedCast(proxy, '::Test::MyClass', facetOrContext, context)
@@ -1788,15 +1743,6 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opCustomCVSS(self, i, current=None):
             raise NotImplementedError("servant method 'opCustomCVSS' not implemented")
 
-        def opSerialSmallCSharp(self, i, current=None):
-            raise NotImplementedError("servant method 'opSerialSmallCSharp' not implemented")
-
-        def opSerialLargeCSharp(self, i, current=None):
-            raise NotImplementedError("servant method 'opSerialLargeCSharp' not implemented")
-
-        def opSerialStructCSharp(self, i, current=None):
-            raise NotImplementedError("servant method 'opSerialStructCSharp' not implemented")
-
         def __str__(self):
             return IcePy.stringify(self, _M_Test._t_MyClassDisp)
 
@@ -1881,172 +1827,8 @@ if 'MyClassPrx' not in _M_Test.__dict__:
     MyClass._op_opCustomCVS = IcePy.Operation('opCustomCVS', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CustomCVS, False, 0),), (((), _M_Test._t_CustomCVS, False, 0),), ((), _M_Test._t_CustomCVS, False, 0), ())
     MyClass._op_opCustomIntSS = IcePy.Operation('opCustomIntSS', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CustomIntSS, False, 0),), (((), _M_Test._t_CustomIntSS, False, 0),), ((), _M_Test._t_CustomIntSS, False, 0), ())
     MyClass._op_opCustomCVSS = IcePy.Operation('opCustomCVSS', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_CustomCVSS, False, 0),), (((), _M_Test._t_CustomCVSS, False, 0),), ((), _M_Test._t_CustomCVSS, False, 0), ())
-    MyClass._op_opSerialSmallCSharp = IcePy.Operation('opSerialSmallCSharp', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SerialSmall, False, 0),), (((), _M_Test._t_SerialSmall, False, 0),), ((), _M_Test._t_SerialSmall, False, 0), ())
-    MyClass._op_opSerialLargeCSharp = IcePy.Operation('opSerialLargeCSharp', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SerialLarge, False, 0),), (((), _M_Test._t_SerialLarge, False, 0),), ((), _M_Test._t_SerialLarge, False, 0), ())
-    MyClass._op_opSerialStructCSharp = IcePy.Operation('opSerialStructCSharp', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SerialStruct, False, 0),), (((), _M_Test._t_SerialStruct, False, 0),), ((), _M_Test._t_SerialStruct, False, 0), ())
 
     _M_Test.MyClass = MyClass
     del MyClass
-
-if '_t_SLS' not in _M_Test.__dict__:
-    _M_Test._t_SLS = IcePy.defineSequence('::Test::SLS', (), _M_Test._t_SerialLarge)
-
-if '_t_SLSS' not in _M_Test.__dict__:
-    _M_Test._t_SLSS = IcePy.defineSequence('::Test::SLSS', (), _M_Test._t_SLS)
-
-if '_t_SLD' not in _M_Test.__dict__:
-    _M_Test._t_SLD = IcePy.defineDictionary('::Test::SLD', (), IcePy._t_int, _M_Test._t_SerialLarge)
-
-if '_t_SLSD' not in _M_Test.__dict__:
-    _M_Test._t_SLSD = IcePy.defineDictionary('::Test::SLSD', (), IcePy._t_int, _M_Test._t_SLS)
-
-if 'Foo' not in _M_Test.__dict__:
-    _M_Test.Foo = Ice.createTempClass()
-    class Foo(object):
-        def __init__(self, SLmem=None, SLSmem=None):
-            self.SLmem = SLmem
-            self.SLSmem = SLSmem
-
-        def __hash__(self):
-            _h = 0
-            if self.SLmem:
-                for _i0 in self.SLmem:
-                    _h = 5 * _h + Ice.getHash(_i0)
-            if self.SLSmem:
-                for _i1 in self.SLSmem:
-                    if _i1:
-                        for _i2 in _i1:
-                            _h = 5 * _h + Ice.getHash(_i2)
-            return _h % 0x7fffffff
-
-        def __compare(self, other):
-            if other is None:
-                return 1
-            elif not isinstance(other, _M_Test.Foo):
-                return NotImplemented
-            else:
-                if self.SLmem is None or other.SLmem is None:
-                    if self.SLmem != other.SLmem:
-                        return (-1 if self.SLmem is None else 1)
-                else:
-                    if self.SLmem < other.SLmem:
-                        return -1
-                    elif self.SLmem > other.SLmem:
-                        return 1
-                if self.SLSmem is None or other.SLSmem is None:
-                    if self.SLSmem != other.SLSmem:
-                        return (-1 if self.SLSmem is None else 1)
-                else:
-                    if self.SLSmem < other.SLSmem:
-                        return -1
-                    elif self.SLSmem > other.SLSmem:
-                        return 1
-                return 0
-
-        def __lt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r < 0
-
-        def __le__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r <= 0
-
-        def __gt__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r > 0
-
-        def __ge__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r >= 0
-
-        def __eq__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r == 0
-
-        def __ne__(self, other):
-            r = self.__compare(other)
-            if r is NotImplemented:
-                return r
-            else:
-                return r != 0
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_Foo)
-
-        __repr__ = __str__
-
-    _M_Test._t_Foo = IcePy.defineStruct('::Test::Foo', Foo, (), (
-        ('SLmem', (), _M_Test._t_SerialLarge),
-        ('SLSmem', (), _M_Test._t_SLS)
-    ))
-
-    _M_Test.Foo = Foo
-    del Foo
-
-if 'Bar' not in _M_Test.__dict__:
-    _M_Test.Bar = Ice.createTempClass()
-    class Bar(Ice.UserException):
-        def __init__(self, SLmem=None, SLSmem=None):
-            self.SLmem = SLmem
-            self.SLSmem = SLSmem
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::Test::Bar'
-
-    _M_Test._t_Bar = IcePy.defineException('::Test::Bar', Bar, (), False, None, (
-        ('SLmem', (), _M_Test._t_SerialLarge, False, 0),
-        ('SLSmem', (), _M_Test._t_SLS, False, 0)
-    ))
-    Bar._ice_type = _M_Test._t_Bar
-
-    _M_Test.Bar = Bar
-    del Bar
-
-if 'Baz' not in _M_Test.__dict__:
-    _M_Test.Baz = Ice.createTempClass()
-    class Baz(Ice.Value):
-        def __init__(self, SLmem=None, SLSmem=None):
-            self.SLmem = SLmem
-            self.SLSmem = SLSmem
-
-        def ice_id(self):
-            return '::Test::Baz'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Baz'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_Baz)
-
-        __repr__ = __str__
-
-    _M_Test._t_Baz = IcePy.defineValue('::Test::Baz', Baz, -1, (), False, False, None, (
-        ('SLmem', (), _M_Test._t_SerialLarge, False, 0),
-        ('SLSmem', (), _M_Test._t_SLS, False, 0)
-    ))
-    Baz._ice_type = _M_Test._t_Baz
-
-    _M_Test.Baz = Baz
-    del Baz
 
 # End of module Test

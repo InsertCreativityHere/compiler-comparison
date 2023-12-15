@@ -65,8 +65,6 @@
 %   opFixedStructListAsync
 %   opVarStructSeq
 %   opVarStructSeqAsync
-%   opSerializable
-%   opSerializableAsync
 %   opIntIntDict
 %   opIntIntDictAsync
 %   opStringIntDict
@@ -103,8 +101,6 @@
 %   supportsRequiredParamsAsync
 %   supportsJavaSerializable
 %   supportsJavaSerializableAsync
-%   supportsCsharpSerializable
-%   supportsCsharpSerializableAsync
 %   supportsCppStringView
 %   supportsCppStringViewAsync
 %   supportsNullOptional
@@ -1421,48 +1417,6 @@ classdef InitialPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('opVarStructSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, p3] = opSerializable(obj, p1, varargin)
-            % opSerializable
-            %
-            % Parameters:
-            %   p1 (Test.Serializable)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.Serializable)
-            %   p3 (Test.Serializable)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeByteSeqOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opSerializable', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readByteSeqOpt(1);
-            p3 = is_.readByteSeqOpt(3);
-            is_.endEncapsulation();
-        end
-        function r_ = opSerializableAsync(obj, p1, varargin)
-            % opSerializableAsync
-            %
-            % Parameters:
-            %   p1 (Test.Serializable)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeByteSeqOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readByteSeqOpt(1);
-                p3 = is_.readByteSeqOpt(3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opSerializable', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
         function [result, p3] = opIntIntDict(obj, p1, varargin)
             % opIntIntDict
             %
@@ -2109,35 +2063,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{1} = result;
             end
             r_ = obj.iceInvokeAsync('supportsJavaSerializable', 0, true, [], 1, @unmarshal, {}, varargin{:});
-        end
-        function result = supportsCsharpSerializable(obj, varargin)
-            % supportsCsharpSerializable
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (logical)
-            
-            is_ = obj.iceInvoke('supportsCsharpSerializable', 0, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readBool();
-            is_.endEncapsulation();
-        end
-        function r_ = supportsCsharpSerializableAsync(obj, varargin)
-            % supportsCsharpSerializableAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readBool();
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('supportsCsharpSerializable', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = supportsCppStringView(obj, varargin)
             % supportsCppStringView

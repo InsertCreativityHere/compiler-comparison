@@ -185,8 +185,6 @@
 
     Slice.defineSequence(Test, "OneOptionalPrxSeqHelper", "Ice.ObjectPrx", false);
 
-    Slice.defineSequence(Test, "SerializableHelper", "Ice.ByteHelper", true);
-
     Slice.defineDictionary(Test, "IntIntDict", "IntIntDictHelper", "Ice.IntHelper", "Ice.IntHelper", true, undefined, undefined);
 
     Slice.defineDictionary(Test, "StringIntDict", "StringIntDictHelper", "Ice.StringHelper", "Ice.IntHelper", false, undefined, undefined);
@@ -208,7 +206,7 @@
 
     Test.MultiOptional = class extends Ice.Value
     {
-        constructor(a = undefined, b = undefined, c = undefined, d = undefined, e = undefined, f = undefined, g = undefined, h = undefined, i = undefined, j = undefined, k = undefined, bs = undefined, ss = undefined, iid = undefined, sid = undefined, fs = undefined, vs = undefined, shs = undefined, es = undefined, fss = undefined, vss = undefined, oos = undefined, oops = undefined, ied = undefined, ifsd = undefined, ivsd = undefined, iood = undefined, ioopd = undefined, bos = undefined, ser = undefined)
+        constructor(a = undefined, b = undefined, c = undefined, d = undefined, e = undefined, f = undefined, g = undefined, h = undefined, i = undefined, j = undefined, k = undefined, bs = undefined, ss = undefined, iid = undefined, sid = undefined, fs = undefined, vs = undefined, shs = undefined, es = undefined, fss = undefined, vss = undefined, oos = undefined, oops = undefined, ied = undefined, ifsd = undefined, ivsd = undefined, iood = undefined, ioopd = undefined, bos = undefined)
         {
             super();
             this.a = a;
@@ -240,7 +238,6 @@
             this.iood = iood;
             this.ioopd = ioopd;
             this.bos = bos;
-            this.ser = ser;
         }
 
         _iceWriteMemberImpl(ostr)
@@ -274,7 +271,6 @@
             Test.IntOneOptionalDictHelper.writeOptional(ostr, 27, this.iood);
             Test.IntOneOptionalPrxDictHelper.writeOptional(ostr, 28, this.ioopd);
             Test.BoolSeqHelper.writeOptional(ostr, 29, this.bos);
-            Test.SerializableHelper.writeOptional(ostr, 30, this.ser);
         }
 
         _iceReadMemberImpl(istr)
@@ -308,7 +304,6 @@
             this.iood = Test.IntOneOptionalDictHelper.readOptional(istr, 27);
             this.ioopd = Test.IntOneOptionalPrxDictHelper.readOptional(istr, 28);
             this.bos = Test.BoolSeqHelper.readOptional(istr, 29);
-            this.ser = Test.SerializableHelper.readOptional(istr, 30);
         }
     };
 
@@ -823,7 +818,6 @@
         "opFixedStructSeq": [, , , , ["Test.FixedStructSeqHelper", , 1], [["Test.FixedStructSeqHelper", , 2]], [["Test.FixedStructSeqHelper", , 3]], , , ],
         "opFixedStructList": [, , , , ["Test.FixedStructListHelper", , 1], [["Test.FixedStructListHelper", , 2]], [["Test.FixedStructListHelper", , 3]], , , ],
         "opVarStructSeq": [, , , , ["Test.VarStructSeqHelper", , 1], [["Test.VarStructSeqHelper", , 2]], [["Test.VarStructSeqHelper", , 3]], , , ],
-        "opSerializable": [, , , , ["Test.SerializableHelper", , 1], [["Test.SerializableHelper", , 2]], [["Test.SerializableHelper", , 3]], , , ],
         "opIntIntDict": [, , , , ["Test.IntIntDictHelper", , 1], [["Test.IntIntDictHelper", , 2]], [["Test.IntIntDictHelper", , 3]], , , ],
         "opStringIntDict": [, , , , ["Test.StringIntDictHelper", , 1], [["Test.StringIntDictHelper", , 2]], [["Test.StringIntDictHelper", , 3]], , , ],
         "opIntOneOptionalDict": [, , , , ["Test.IntOneOptionalDictHelper", , 1], [["Test.IntOneOptionalDictHelper", , 2]], [["Test.IntOneOptionalDictHelper", , 3]], , , ],
@@ -842,7 +836,6 @@
         "opMG2": [, , , , ["Test.G", true, 1], [["Test.G", true, 2]], [["Test.G", true, 3]], , , ],
         "supportsRequiredParams": [, , , , [1], , , , , ],
         "supportsJavaSerializable": [, , , , [1], , , , , ],
-        "supportsCsharpSerializable": [, , , , [1], , , , , ],
         "supportsCppStringView": [, , , , [1], , , , , ],
         "supportsNullOptional": [, , , , [1], , , , , ]
     });

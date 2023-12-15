@@ -294,12 +294,6 @@
 
     Slice.defineSequence(Test, "CustomCVSSHelper", "Test.CustomCVSHelper", false);
 
-    Slice.defineSequence(Test, "SerialSmallHelper", "Ice.ByteHelper", true);
-
-    Slice.defineSequence(Test, "SerialLargeHelper", "Ice.ByteHelper", true);
-
-    Slice.defineSequence(Test, "SerialStructHelper", "Ice.ByteHelper", true);
-
     const iceC_Test_MyClass_ids = [
         "::Ice::Object",
         "::Test::MyClass"
@@ -390,10 +384,7 @@
         "opCustomIntS": [, , , , ["Test.CustomIntSHelper"], [["Test.CustomIntSHelper"]], [["Test.CustomIntSHelper"]], , , ],
         "opCustomCVS": [, , , , ["Test.CustomCVSHelper"], [["Test.CustomCVSHelper"]], [["Test.CustomCVSHelper"]], , true, true],
         "opCustomIntSS": [, , , , ["Test.CustomIntSSHelper"], [["Test.CustomIntSSHelper"]], [["Test.CustomIntSSHelper"]], , , ],
-        "opCustomCVSS": [, , , , ["Test.CustomCVSSHelper"], [["Test.CustomCVSSHelper"]], [["Test.CustomCVSSHelper"]], , true, true],
-        "opSerialSmallCSharp": [, , , , ["Test.SerialSmallHelper"], [["Test.SerialSmallHelper"]], [["Test.SerialSmallHelper"]], , , ],
-        "opSerialLargeCSharp": [, , , , ["Test.SerialLargeHelper"], [["Test.SerialLargeHelper"]], [["Test.SerialLargeHelper"]], , , ],
-        "opSerialStructCSharp": [, , , , ["Test.SerialStructHelper"], [["Test.SerialStructHelper"]], [["Test.SerialStructHelper"]], , , ]
+        "opCustomCVSS": [, , , , ["Test.CustomCVSSHelper"], [["Test.CustomCVSSHelper"]], [["Test.CustomCVSSHelper"]], , true, true]
     });
     exports.Test = Test;
 }

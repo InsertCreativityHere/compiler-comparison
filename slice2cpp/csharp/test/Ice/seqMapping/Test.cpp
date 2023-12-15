@@ -20,7 +20,6 @@
 #include <Ice/OutgoingAsync.h>
 #include <Ice/InputStream.h>
 #include <Ice/OutputStream.h>
-#include <Ice/LocalException.h>
 #include <IceUtil/PopDisableWarnings.h>
 
 #if defined(_MSC_VER)
@@ -151,9 +150,6 @@ const ::std::string iceC_Test_MyClass_ops[] =
     "opSStringS",
     "opSStructS",
     "opSStructSD",
-    "opSerialLargeCSharp",
-    "opSerialSmallCSharp",
-    "opSerialStructCSharp",
     "shutdown"
 };
 const ::std::string iceC_Test_MyClass_shutdown_name = "shutdown";
@@ -232,25 +228,7 @@ const ::std::string iceC_Test_MyClass_opCustomIntS_name = "opCustomIntS";
 const ::std::string iceC_Test_MyClass_opCustomCVS_name = "opCustomCVS";
 const ::std::string iceC_Test_MyClass_opCustomIntSS_name = "opCustomIntSS";
 const ::std::string iceC_Test_MyClass_opCustomCVSS_name = "opCustomCVSS";
-const ::std::string iceC_Test_MyClass_opSerialSmallCSharp_name = "opSerialSmallCSharp";
-const ::std::string iceC_Test_MyClass_opSerialLargeCSharp_name = "opSerialLargeCSharp";
-const ::std::string iceC_Test_MyClass_opSerialStructCSharp_name = "opSerialStructCSharp";
 
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::Bar> iceC_Test_Bar_init("::Test::Bar");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::Baz> iceC_Test_Baz_init("::Test::Baz");
-
-}
-
-Test::Bar::~Bar()
-{
-}
-
-const ::std::string&
-Test::Bar::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::Bar";
-    return typeId;
 }
 
 bool
@@ -1683,63 +1661,9 @@ Test::MyClass::_iceD_opCustomCVSS(::IceInternal::Incoming& inS, const ::Ice::Cur
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opSerialSmallCSharp(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
-    SerialSmall iceP_i;
-    istr->readAll(iceP_i);
-    inS.endReadParams();
-    SerialSmall iceP_o;
-    SerialSmall ret = this->opSerialSmallCSharp(::std::move(iceP_i), iceP_o, current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll(iceP_o, ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::MyClass::_iceD_opSerialLargeCSharp(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
-    SerialLarge iceP_i;
-    istr->readAll(iceP_i);
-    inS.endReadParams();
-    SerialLarge iceP_o;
-    SerialLarge ret = this->opSerialLargeCSharp(::std::move(iceP_i), iceP_o, current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll(iceP_o, ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::MyClass::_iceD_opSerialStructCSharp(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
-    SerialStruct iceP_i;
-    istr->readAll(iceP_i);
-    inS.endReadParams();
-    SerialStruct iceP_o;
-    SerialStruct ret = this->opSerialStructCSharp(::std::move(iceP_i), iceP_o, current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll(iceP_o, ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
 Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MyClass_ops, iceC_Test_MyClass_ops + 83, current.operation);
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MyClass_ops, iceC_Test_MyClass_ops + 80, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -2065,18 +1989,6 @@ Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
         }
         case 79:
         {
-            return _iceD_opSerialLargeCSharp(in, current);
-        }
-        case 80:
-        {
-            return _iceD_opSerialSmallCSharp(in, current);
-        }
-        case 81:
-        {
-            return _iceD_opSerialStructCSharp(in, current);
-        }
-        case 82:
-        {
             return _iceD_shutdown(in, current);
         }
         default:
@@ -2107,17 +2019,6 @@ const ::std::string&
 Test::CR::ice_staticId()
 {
     static const ::std::string typeId = "::Test::CR";
-    return typeId;
-}
-
-Test::Baz::~Baz()
-{
-}
-
-const ::std::string&
-Test::Baz::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::Baz";
     return typeId;
 }
 
@@ -3662,66 +3563,6 @@ Test::MyClassPrx::_iceI_opCustomCVSS(const ::std::shared_ptr<::IceInternal::Outg
 /// \endcond
 
 /// \cond INTERNAL
-void
-Test::MyClassPrx::_iceI_opSerialSmallCSharp(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpSerialSmallCSharpResult>>& outAsync, const SerialSmall& iceP_i, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_MyClass_opSerialSmallCSharp_name);
-    outAsync->invoke(iceC_Test_MyClass_opSerialSmallCSharp_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_i);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            MyClass::OpSerialSmallCSharpResult v;
-            istr->readAll(v.o, v.returnValue);
-            return v;
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MyClassPrx::_iceI_opSerialLargeCSharp(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpSerialLargeCSharpResult>>& outAsync, const SerialLarge& iceP_i, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_MyClass_opSerialLargeCSharp_name);
-    outAsync->invoke(iceC_Test_MyClass_opSerialLargeCSharp_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_i);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            MyClass::OpSerialLargeCSharpResult v;
-            istr->readAll(v.o, v.returnValue);
-            return v;
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MyClassPrx::_iceI_opSerialStructCSharp(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass::OpSerialStructCSharpResult>>& outAsync, const SerialStruct& iceP_i, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_MyClass_opSerialStructCSharp_name);
-    outAsync->invoke(iceC_Test_MyClass_opSerialStructCSharp_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_i);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            MyClass::OpSerialStructCSharpResult v;
-            istr->readAll(v.o, v.returnValue);
-            return v;
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
 ::std::shared_ptr<::Ice::ObjectPrx>
 Test::MyClassPrx::_newInstance() const
 {
@@ -3896,73 +3737,7 @@ const ::std::string iceC_Test_MyClass_opCustomIntSS_name = "opCustomIntSS";
 
 const ::std::string iceC_Test_MyClass_opCustomCVSS_name = "opCustomCVSS";
 
-const ::std::string iceC_Test_MyClass_opSerialSmallCSharp_name = "opSerialSmallCSharp";
-
-const ::std::string iceC_Test_MyClass_opSerialLargeCSharp_name = "opSerialLargeCSharp";
-
-const ::std::string iceC_Test_MyClass_opSerialStructCSharp_name = "opSerialStructCSharp";
-
 }
-
-namespace
-{
-
-const ::IceInternal::DefaultUserExceptionFactoryInit< ::Test::Bar> iceC_Test_Bar_init("::Test::Bar");
-
-}
-
-Test::Bar::Bar(const SerialLarge& SLmem, const SLS& SLSmem) :
-    ::Ice::UserException(),
-    SLmem(SLmem),
-    SLSmem(SLSmem)
-{
-}
-
-#ifdef ICE_CPP11_COMPILER
-Test::Bar::~Bar()
-{
-}
-#else
-Test::Bar::~Bar() throw()
-{
-}
-#endif
-
-::std::string
-Test::Bar::ice_id() const
-{
-    return "::Test::Bar";
-}
-
-Test::Bar*
-Test::Bar::ice_clone() const
-{
-    return new Bar(*this);
-}
-
-void
-Test::Bar::ice_throw() const
-{
-    throw *this;
-}
-
-/// \cond STREAM
-void
-Test::Bar::_writeImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice("::Test::Bar", -1, true);
-    ::Ice::StreamWriter< Bar, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Bar::_readImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Bar, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
 
 /// \cond INTERNAL
 ::IceProxy::Ice::Object* ::IceProxy::Test::upCast(CV* p) { return p; }
@@ -8858,195 +8633,6 @@ void IceProxy::Test::MyClass::_iceI_end_opCustomCVSS(::Test::CustomCVSS& iceP_o,
     result->_endReadParams();
 }
 
-::Ice::AsyncResultPtr
-IceProxy::Test::MyClass::_iceI_begin_opSerialSmallCSharp(const ::Test::SerialSmall& iceP_i, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    _checkTwowayOnly(iceC_Test_MyClass_opSerialSmallCSharp_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_MyClass_opSerialSmallCSharp_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_Test_MyClass_opSerialSmallCSharp_name, ::Ice::Normal, context);
-        ::Ice::OutputStream* ostr = result->startWriteParams(::Ice::DefaultFormat);
-        ostr->write(iceP_i);
-        result->endWriteParams();
-        result->invoke(iceC_Test_MyClass_opSerialSmallCSharp_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-::Test::SerialSmall
-IceProxy::Test::MyClass::end_opSerialSmallCSharp(::Test::SerialSmall& iceP_o, const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_MyClass_opSerialSmallCSharp_name);
-    ::Test::SerialSmall ret;
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(iceP_o);
-    istr->read(ret);
-    result->_endReadParams();
-    return ret;
-}
-
-void IceProxy::Test::MyClass::_iceI_end_opSerialSmallCSharp(::Test::SerialSmall& iceP_o, ::Test::SerialSmall& ret, const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_MyClass_opSerialSmallCSharp_name);
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(iceP_o);
-    istr->read(ret);
-    result->_endReadParams();
-}
-
-::Ice::AsyncResultPtr
-IceProxy::Test::MyClass::_iceI_begin_opSerialLargeCSharp(const ::Test::SerialLarge& iceP_i, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    _checkTwowayOnly(iceC_Test_MyClass_opSerialLargeCSharp_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_MyClass_opSerialLargeCSharp_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_Test_MyClass_opSerialLargeCSharp_name, ::Ice::Normal, context);
-        ::Ice::OutputStream* ostr = result->startWriteParams(::Ice::DefaultFormat);
-        ostr->write(iceP_i);
-        result->endWriteParams();
-        result->invoke(iceC_Test_MyClass_opSerialLargeCSharp_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-::Test::SerialLarge
-IceProxy::Test::MyClass::end_opSerialLargeCSharp(::Test::SerialLarge& iceP_o, const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_MyClass_opSerialLargeCSharp_name);
-    ::Test::SerialLarge ret;
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(iceP_o);
-    istr->read(ret);
-    result->_endReadParams();
-    return ret;
-}
-
-void IceProxy::Test::MyClass::_iceI_end_opSerialLargeCSharp(::Test::SerialLarge& iceP_o, ::Test::SerialLarge& ret, const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_MyClass_opSerialLargeCSharp_name);
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(iceP_o);
-    istr->read(ret);
-    result->_endReadParams();
-}
-
-::Ice::AsyncResultPtr
-IceProxy::Test::MyClass::_iceI_begin_opSerialStructCSharp(const ::Test::SerialStruct& iceP_i, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    _checkTwowayOnly(iceC_Test_MyClass_opSerialStructCSharp_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_MyClass_opSerialStructCSharp_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_Test_MyClass_opSerialStructCSharp_name, ::Ice::Normal, context);
-        ::Ice::OutputStream* ostr = result->startWriteParams(::Ice::DefaultFormat);
-        ostr->write(iceP_i);
-        result->endWriteParams();
-        result->invoke(iceC_Test_MyClass_opSerialStructCSharp_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-::Test::SerialStruct
-IceProxy::Test::MyClass::end_opSerialStructCSharp(::Test::SerialStruct& iceP_o, const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_MyClass_opSerialStructCSharp_name);
-    ::Test::SerialStruct ret;
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(iceP_o);
-    istr->read(ret);
-    result->_endReadParams();
-    return ret;
-}
-
-void IceProxy::Test::MyClass::_iceI_end_opSerialStructCSharp(::Test::SerialStruct& iceP_o, ::Test::SerialStruct& ret, const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_MyClass_opSerialStructCSharp_name);
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(iceP_o);
-    istr->read(ret);
-    result->_endReadParams();
-}
-
 /// \cond INTERNAL
 ::IceProxy::Ice::Object*
 IceProxy::Test::MyClass::_newInstance() const
@@ -9059,40 +8645,6 @@ const ::std::string&
 IceProxy::Test::MyClass::ice_staticId()
 {
     return ::Test::MyClass::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(Baz* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< Baz>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new Baz;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::Baz::_newInstance() const
-{
-    return new Baz;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::Baz::ice_staticId()
-{
-    return ::Test::Baz::ice_staticId();
 }
 
 Test::CV::~CV()
@@ -10884,63 +10436,6 @@ Test::MyClass::_iceD_opCustomCVSS(::IceInternal::Incoming& inS, const ::Ice::Cur
 }
 /// \endcond
 
-/// \cond INTERNAL
-bool
-Test::MyClass::_iceD_opSerialSmallCSharp(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    SerialSmall iceP_i;
-    istr->read(iceP_i);
-    inS.endReadParams();
-    SerialSmall iceP_o;
-    SerialSmall ret = this->opSerialSmallCSharp(iceP_i, iceP_o, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(iceP_o);
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::MyClass::_iceD_opSerialLargeCSharp(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    SerialLarge iceP_i;
-    istr->read(iceP_i);
-    inS.endReadParams();
-    SerialLarge iceP_o;
-    SerialLarge ret = this->opSerialLargeCSharp(iceP_i, iceP_o, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(iceP_o);
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::MyClass::_iceD_opSerialStructCSharp(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    SerialStruct iceP_i;
-    istr->read(iceP_i);
-    inS.endReadParams();
-    SerialStruct iceP_o;
-    SerialStruct ret = this->opSerialStructCSharp(iceP_i, iceP_o, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(iceP_o);
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Test_MyClass_all[] =
@@ -11024,9 +10519,6 @@ const ::std::string iceC_Test_MyClass_all[] =
     "opSStringS",
     "opSStructS",
     "opSStructSD",
-    "opSerialLargeCSharp",
-    "opSerialSmallCSharp",
-    "opSerialStructCSharp",
     "shutdown"
 };
 
@@ -11036,7 +10528,7 @@ const ::std::string iceC_Test_MyClass_all[] =
 bool
 Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MyClass_all, iceC_Test_MyClass_all + 83, current.operation);
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MyClass_all, iceC_Test_MyClass_all + 80, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -11362,18 +10854,6 @@ Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
         }
         case 79:
         {
-            return _iceD_opSerialLargeCSharp(in, current);
-        }
-        case 80:
-        {
-            return _iceD_opSerialSmallCSharp(in, current);
-        }
-        case 81:
-        {
-            return _iceD_opSerialStructCSharp(in, current);
-        }
-        case 82:
-        {
             return _iceD_shutdown(in, current);
         }
         default:
@@ -11411,101 +10891,6 @@ Test::_icePatchObjectPtr(MyClassPtr& handle, const ::Ice::ObjectPtr& v)
     if(v && !handle)
     {
         IceInternal::Ex::throwUOE(MyClass::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-Test::Baz::~Baz()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(Baz* p) { return p; }
-
-/// \endcond
-::Ice::ObjectPtr
-Test::Baz::ice_clone() const
-{
-    ::Ice::Object* p = new Baz(*this);
-    return p;
-}
-
-namespace
-{
-const ::std::string iceC_Test_Baz_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Baz"
-};
-
-}
-
-bool
-Test::Baz::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Baz_ids, iceC_Test_Baz_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::Baz::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_Baz_ids[0], &iceC_Test_Baz_ids[2]);
-}
-
-const ::std::string&
-Test::Baz::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::Baz::ice_staticId()
-{
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
-    static const ::std::string typeId = "::Test::Baz";
-    return typeId;
-#else
-    return iceC_Test_Baz_ids[1];
-#endif
-}
-
-/// \cond STREAM
-void
-Test::Baz::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Baz, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Baz::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Baz, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::Baz> iceC_Test_Baz_init("::Test::Baz");
-}
-
-::Ice::ValueFactoryPtr
-Test::Baz::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::Baz::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(BazPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = BazPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Baz::ice_staticId(), v);
     }
 }
 /// \endcond

@@ -181,8 +181,6 @@ using StringSStack = ::std::vector<::Ice::StringSeq>;
 
 using SortedStringStringD = ::std::map<::std::string, ::std::string>;
 
-using SerialSmall = ::std::vector<::Ice::Byte>;
-
 class MyException : public ::Ice::UserExceptionHelper<MyException, ::Ice::UserException>
 {
 public:
@@ -344,7 +342,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    MyClass(const ::std::shared_ptr<::Test::MyClass>& c, const ::std::shared_ptr<::Ice::Value>& o, const ::Test::SmallStruct& s, const ::Ice::BoolSeq& seq1, const ::Ice::ByteSeq& seq2, const ::Ice::ShortSeq& seq3, const ::Ice::IntSeq& seq4, const ::Ice::LongSeq& seq5, const ::Ice::FloatSeq& seq6, const ::Ice::DoubleSeq& seq7, const ::Ice::StringSeq& seq8, const ::Test::MyEnumS& seq9, const ::Test::MyClassS& seq10, const ::Test::StringMyClassD& d, const ::Test::SerialSmall& ss) :
+    MyClass(const ::std::shared_ptr<::Test::MyClass>& c, const ::std::shared_ptr<::Ice::Value>& o, const ::Test::SmallStruct& s, const ::Ice::BoolSeq& seq1, const ::Ice::ByteSeq& seq2, const ::Ice::ShortSeq& seq3, const ::Ice::IntSeq& seq4, const ::Ice::LongSeq& seq5, const ::Ice::FloatSeq& seq6, const ::Ice::DoubleSeq& seq7, const ::Ice::StringSeq& seq8, const ::Test::MyEnumS& seq9, const ::Test::MyClassS& seq10, const ::Test::StringMyClassD& d) :
         c(c),
         o(o),
         s(s),
@@ -358,8 +356,7 @@ public:
         seq8(seq8),
         seq9(seq9),
         seq10(seq10),
-        d(d),
-        ss(ss)
+        d(d)
     {
     }
 
@@ -367,9 +364,9 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::shared_ptr<::Test::MyClass>&, const ::std::shared_ptr<::Ice::Value>&, const ::Test::SmallStruct&, const ::Ice::BoolSeq&, const ::Ice::ByteSeq&, const ::Ice::ShortSeq&, const ::Ice::IntSeq&, const ::Ice::LongSeq&, const ::Ice::FloatSeq&, const ::Ice::DoubleSeq&, const ::Ice::StringSeq&, const ::Test::MyEnumS&, const ::Test::MyClassS&, const ::Test::StringMyClassD&, const ::Test::SerialSmall&> ice_tuple() const
+    std::tuple<const ::std::shared_ptr<::Test::MyClass>&, const ::std::shared_ptr<::Ice::Value>&, const ::Test::SmallStruct&, const ::Ice::BoolSeq&, const ::Ice::ByteSeq&, const ::Ice::ShortSeq&, const ::Ice::IntSeq&, const ::Ice::LongSeq&, const ::Ice::FloatSeq&, const ::Ice::DoubleSeq&, const ::Ice::StringSeq&, const ::Test::MyEnumS&, const ::Test::MyClassS&, const ::Test::StringMyClassD&> ice_tuple() const
     {
-        return std::tie(c, o, s, seq1, seq2, seq3, seq4, seq5, seq6, seq7, seq8, seq9, seq10, d, ss);
+        return std::tie(c, o, s, seq1, seq2, seq3, seq4, seq5, seq6, seq7, seq8, seq9, seq10, d);
     }
 
     /**
@@ -392,7 +389,6 @@ public:
     ::Test::MyEnumS seq9;
     ::Test::MyClassS seq10;
     ::Test::StringMyClassD d;
-    ::Test::SerialSmall ss;
 };
 
 }
@@ -478,7 +474,7 @@ struct StreamReader<::Test::MyClass, S>
 {
     static void read(S* istr, ::Test::MyClass& v)
     {
-        istr->readAll(v.c, v.o, v.s, v.seq1, v.seq2, v.seq3, v.seq4, v.seq5, v.seq6, v.seq7, v.seq8, v.seq9, v.seq10, v.d, v.ss);
+        istr->readAll(v.c, v.o, v.s, v.seq1, v.seq2, v.seq3, v.seq4, v.seq5, v.seq6, v.seq7, v.seq8, v.seq9, v.seq10, v.d);
     }
 };
 
@@ -687,8 +683,6 @@ typedef ::std::vector< ::Ice::StringSeq> StringSList;
 typedef ::std::vector< ::Ice::StringSeq> StringSStack;
 
 typedef ::std::map< ::std::string, ::std::string> SortedStringStringD;
-
-typedef ::std::vector< ::Ice::Byte> SerialSmall;
 
 class MyException : public ::Ice::UserException
 {
@@ -926,7 +920,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    MyClass(const ::Test::MyClassPtr& c, const ::Ice::ObjectPtr& o, const ::Test::SmallStruct& s, const ::Ice::BoolSeq& seq1, const ::Ice::ByteSeq& seq2, const ::Ice::ShortSeq& seq3, const ::Ice::IntSeq& seq4, const ::Ice::LongSeq& seq5, const ::Ice::FloatSeq& seq6, const ::Ice::DoubleSeq& seq7, const ::Ice::StringSeq& seq8, const ::Test::MyEnumS& seq9, const ::Test::MyClassS& seq10, const ::Test::StringMyClassD& d, const ::Test::SerialSmall& ss) :
+    MyClass(const ::Test::MyClassPtr& c, const ::Ice::ObjectPtr& o, const ::Test::SmallStruct& s, const ::Ice::BoolSeq& seq1, const ::Ice::ByteSeq& seq2, const ::Ice::ShortSeq& seq3, const ::Ice::IntSeq& seq4, const ::Ice::LongSeq& seq5, const ::Ice::FloatSeq& seq6, const ::Ice::DoubleSeq& seq7, const ::Ice::StringSeq& seq8, const ::Test::MyEnumS& seq9, const ::Test::MyClassS& seq10, const ::Test::StringMyClassD& d) :
         c(c),
         o(o),
         s(s),
@@ -940,8 +934,7 @@ public:
         seq8(seq8),
         seq9(seq9),
         seq10(seq10),
-        d(d),
-        ss(ss)
+        d(d)
     {
     }
 
@@ -1016,7 +1009,6 @@ public:
     ::Test::MyEnumS seq9;
     ::Test::MyClassS seq10;
     ::Test::StringMyClassD d;
-    ::Test::SerialSmall ss;
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_MyClass_init = ::Test::MyClass::ice_factory();
@@ -1200,7 +1192,6 @@ struct StreamWriter< ::Test::MyClass, S>
         ostr->write(v.seq9);
         ostr->write(v.seq10);
         ostr->write(v.d);
-        ostr->write(v.ss);
     }
 };
 
@@ -1223,7 +1214,6 @@ struct StreamReader< ::Test::MyClass, S>
         istr->read(v.seq9);
         istr->read(v.seq10);
         istr->read(v.d);
-        istr->read(v.ss);
     }
 };
 

@@ -430,9 +430,6 @@ if '_t_OneOptionalSeq' not in _M_Test.__dict__:
 if '_t_OneOptionalPrxSeq' not in _M_Test.__dict__:
     _M_Test._t_OneOptionalPrxSeq = IcePy.defineSequence('::Test::OneOptionalPrxSeq', (), IcePy._t_ObjectPrx)
 
-if '_t_Serializable' not in _M_Test.__dict__:
-    _M_Test._t_Serializable = IcePy.defineSequence('::Test::Serializable', (), IcePy._t_byte)
-
 if '_t_IntIntDict' not in _M_Test.__dict__:
     _M_Test._t_IntIntDict = IcePy.defineDictionary('::Test::IntIntDict', (), IcePy._t_int, IcePy._t_int)
 
@@ -457,7 +454,7 @@ if '_t_IntOneOptionalPrxDict' not in _M_Test.__dict__:
 if 'MultiOptional' not in _M_Test.__dict__:
     _M_Test.MultiOptional = Ice.createTempClass()
     class MultiOptional(Ice.Value):
-        def __init__(self, a=Ice.Unset, b=Ice.Unset, c=Ice.Unset, d=Ice.Unset, e=Ice.Unset, f=Ice.Unset, g=Ice.Unset, h=Ice.Unset, i=Ice.Unset, j=Ice.Unset, k=Ice.Unset, bs=Ice.Unset, ss=Ice.Unset, iid=Ice.Unset, sid=Ice.Unset, fs=Ice.Unset, vs=Ice.Unset, shs=Ice.Unset, es=Ice.Unset, fss=Ice.Unset, vss=Ice.Unset, oos=Ice.Unset, oops=Ice.Unset, ied=Ice.Unset, ifsd=Ice.Unset, ivsd=Ice.Unset, iood=Ice.Unset, ioopd=Ice.Unset, bos=Ice.Unset, ser=Ice.Unset):
+        def __init__(self, a=Ice.Unset, b=Ice.Unset, c=Ice.Unset, d=Ice.Unset, e=Ice.Unset, f=Ice.Unset, g=Ice.Unset, h=Ice.Unset, i=Ice.Unset, j=Ice.Unset, k=Ice.Unset, bs=Ice.Unset, ss=Ice.Unset, iid=Ice.Unset, sid=Ice.Unset, fs=Ice.Unset, vs=Ice.Unset, shs=Ice.Unset, es=Ice.Unset, fss=Ice.Unset, vss=Ice.Unset, oos=Ice.Unset, oops=Ice.Unset, ied=Ice.Unset, ifsd=Ice.Unset, ivsd=Ice.Unset, iood=Ice.Unset, ioopd=Ice.Unset, bos=Ice.Unset):
             self.a = a
             self.b = b
             self.c = c
@@ -487,7 +484,6 @@ if 'MultiOptional' not in _M_Test.__dict__:
             self.iood = iood
             self.ioopd = ioopd
             self.bos = bos
-            self.ser = ser
 
         def ice_id(self):
             return '::Test::MultiOptional'
@@ -532,8 +528,7 @@ if 'MultiOptional' not in _M_Test.__dict__:
         ('ivsd', (), _M_Test._t_IntVarStructDict, True, 26),
         ('iood', (), _M_Test._t_IntOneOptionalDict, True, 27),
         ('ioopd', (), _M_Test._t_IntOneOptionalPrxDict, True, 28),
-        ('bos', (), _M_Test._t_BoolSeq, True, 29),
-        ('ser', (), _M_Test._t_Serializable, True, 30)
+        ('bos', (), _M_Test._t_BoolSeq, True, 29)
     ))
     MultiOptional._ice_type = _M_Test._t_MultiOptional
 
@@ -1322,18 +1317,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def end_opVarStructSeq(self, _r):
             return _M_Test.Initial._op_opVarStructSeq.end(self, _r)
 
-        def opSerializable(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opSerializable.invoke(self, ((p1, ), context))
-
-        def opSerializableAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opSerializable.invokeAsync(self, ((p1, ), context))
-
-        def begin_opSerializable(self, p1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_opSerializable.begin(self, ((p1, ), _response, _ex, _sent, context))
-
-        def end_opSerializable(self, _r):
-            return _M_Test.Initial._op_opSerializable.end(self, _r)
-
         def opIntIntDict(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opIntIntDict.invoke(self, ((p1, ), context))
 
@@ -1550,18 +1533,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def end_supportsJavaSerializable(self, _r):
             return _M_Test.Initial._op_supportsJavaSerializable.end(self, _r)
 
-        def supportsCsharpSerializable(self, context=None):
-            return _M_Test.Initial._op_supportsCsharpSerializable.invoke(self, ((), context))
-
-        def supportsCsharpSerializableAsync(self, context=None):
-            return _M_Test.Initial._op_supportsCsharpSerializable.invokeAsync(self, ((), context))
-
-        def begin_supportsCsharpSerializable(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_supportsCsharpSerializable.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_supportsCsharpSerializable(self, _r):
-            return _M_Test.Initial._op_supportsCsharpSerializable.end(self, _r)
-
         def supportsCppStringView(self, context=None):
             return _M_Test.Initial._op_supportsCppStringView.invoke(self, ((), context))
 
@@ -1710,9 +1681,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
 
         def opVarStructSeq(self, p1, current=None):
             raise NotImplementedError("servant method 'opVarStructSeq' not implemented")
-
-        def opSerializable(self, p1, current=None):
-            raise NotImplementedError("servant method 'opSerializable' not implemented")
 
         def opIntIntDict(self, p1, current=None):
             raise NotImplementedError("servant method 'opIntIntDict' not implemented")
@@ -1872,9 +1840,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def supportsJavaSerializable(self, current=None):
             raise NotImplementedError("servant method 'supportsJavaSerializable' not implemented")
 
-        def supportsCsharpSerializable(self, current=None):
-            raise NotImplementedError("servant method 'supportsCsharpSerializable' not implemented")
-
         def supportsCppStringView(self, current=None):
             raise NotImplementedError("servant method 'supportsCppStringView' not implemented")
 
@@ -1921,7 +1886,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
     Initial._op_opFixedStructSeq = IcePy.Operation('opFixedStructSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FixedStructSeq, True, 2),), (((), _M_Test._t_FixedStructSeq, True, 3),), ((), _M_Test._t_FixedStructSeq, True, 1), ())
     Initial._op_opFixedStructList = IcePy.Operation('opFixedStructList', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FixedStructList, True, 2),), (((), _M_Test._t_FixedStructList, True, 3),), ((), _M_Test._t_FixedStructList, True, 1), ())
     Initial._op_opVarStructSeq = IcePy.Operation('opVarStructSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_VarStructSeq, True, 2),), (((), _M_Test._t_VarStructSeq, True, 3),), ((), _M_Test._t_VarStructSeq, True, 1), ())
-    Initial._op_opSerializable = IcePy.Operation('opSerializable', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Serializable, True, 2),), (((), _M_Test._t_Serializable, True, 3),), ((), _M_Test._t_Serializable, True, 1), ())
     Initial._op_opIntIntDict = IcePy.Operation('opIntIntDict', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntIntDict, True, 2),), (((), _M_Test._t_IntIntDict, True, 3),), ((), _M_Test._t_IntIntDict, True, 1), ())
     Initial._op_opStringIntDict = IcePy.Operation('opStringIntDict', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringIntDict, True, 2),), (((), _M_Test._t_StringIntDict, True, 3),), ((), _M_Test._t_StringIntDict, True, 1), ())
     Initial._op_opIntOneOptionalDict = IcePy.Operation('opIntOneOptionalDict', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntOneOptionalDict, True, 2),), (((), _M_Test._t_IntOneOptionalDict, True, 3),), ((), _M_Test._t_IntOneOptionalDict, True, 1), ())
@@ -1940,7 +1904,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
     Initial._op_opMG2 = IcePy.Operation('opMG2', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_G, True, 2),), (((), _M_Test._t_G, True, 3),), ((), _M_Test._t_G, True, 1), ())
     Initial._op_supportsRequiredParams = IcePy.Operation('supportsRequiredParams', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     Initial._op_supportsJavaSerializable = IcePy.Operation('supportsJavaSerializable', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
-    Initial._op_supportsCsharpSerializable = IcePy.Operation('supportsCsharpSerializable', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     Initial._op_supportsCppStringView = IcePy.Operation('supportsCppStringView', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     Initial._op_supportsNullOptional = IcePy.Operation('supportsNullOptional', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
 

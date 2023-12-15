@@ -266,10 +266,6 @@ module ::Test
         T_OneOptionalPrxSeq = ::Ice::__defineSequence('::Test::OneOptionalPrxSeq', ::Ice::T_ObjectPrx)
     end
 
-    if not defined?(::Test::::T_Serializable)
-        T_Serializable = ::Ice::__defineSequence('::Test::Serializable', ::Ice::T_byte)
-    end
-
     if not defined?(::Test::::T_IntIntDict)
         T_IntIntDict = ::Ice::__defineDictionary('::Test::IntIntDict', ::Ice::T_int, ::Ice::T_int)
     end
@@ -304,7 +300,7 @@ module ::Test
         end
         class MultiOptional < ::Ice::Value
 
-            def initialize(a=::Ice::Unset, b=::Ice::Unset, c=::Ice::Unset, d=::Ice::Unset, e=::Ice::Unset, f=::Ice::Unset, g=::Ice::Unset, h=::Ice::Unset, i=::Ice::Unset, j=::Ice::Unset, k=::Ice::Unset, bs=::Ice::Unset, ss=::Ice::Unset, iid=::Ice::Unset, sid=::Ice::Unset, fs=::Ice::Unset, vs=::Ice::Unset, shs=::Ice::Unset, es=::Ice::Unset, fss=::Ice::Unset, vss=::Ice::Unset, oos=::Ice::Unset, oops=::Ice::Unset, ied=::Ice::Unset, ifsd=::Ice::Unset, ivsd=::Ice::Unset, iood=::Ice::Unset, ioopd=::Ice::Unset, bos=::Ice::Unset, ser=::Ice::Unset)
+            def initialize(a=::Ice::Unset, b=::Ice::Unset, c=::Ice::Unset, d=::Ice::Unset, e=::Ice::Unset, f=::Ice::Unset, g=::Ice::Unset, h=::Ice::Unset, i=::Ice::Unset, j=::Ice::Unset, k=::Ice::Unset, bs=::Ice::Unset, ss=::Ice::Unset, iid=::Ice::Unset, sid=::Ice::Unset, fs=::Ice::Unset, vs=::Ice::Unset, shs=::Ice::Unset, es=::Ice::Unset, fss=::Ice::Unset, vss=::Ice::Unset, oos=::Ice::Unset, oops=::Ice::Unset, ied=::Ice::Unset, ifsd=::Ice::Unset, ivsd=::Ice::Unset, iood=::Ice::Unset, ioopd=::Ice::Unset, bos=::Ice::Unset)
                 @a = a
                 @b = b
                 @c = c
@@ -334,10 +330,9 @@ module ::Test
                 @iood = iood
                 @ioopd = ioopd
                 @bos = bos
-                @ser = ser
             end
 
-            attr_accessor :a, :b, :c, :d, :e, :f, :g, :h, :i, :j, :k, :bs, :ss, :iid, :sid, :fs, :vs, :shs, :es, :fss, :vss, :oos, :oops, :ied, :ifsd, :ivsd, :iood, :ioopd, :bos, :ser
+            attr_accessor :a, :b, :c, :d, :e, :f, :g, :h, :i, :j, :k, :bs, :ss, :iid, :sid, :fs, :vs, :shs, :es, :fss, :vss, :oos, :oops, :ied, :ifsd, :ivsd, :iood, :ioopd, :bos
         end
 
         if not defined?(::Test::::T_MultiOptional)
@@ -373,8 +368,7 @@ module ::Test
             ['ivsd', ::Test::::T_IntVarStructDict, true, 26],
             ['iood', ::Test::::T_IntOneOptionalDict, true, 27],
             ['ioopd', ::Test::::T_IntOneOptionalPrxDict, true, 28],
-            ['bos', ::Test::::T_BoolSeq, true, 29],
-            ['ser', ::Test::::T_Serializable, true, 30]
+            ['bos', ::Test::::T_BoolSeq, true, 29]
         ])
     end
 
@@ -849,10 +843,6 @@ module ::Test
                 InitialPrx_mixin::OP_opVarStructSeq.invoke(self, [p1], context)
             end
 
-            def opSerializable(p1, context=nil)
-                InitialPrx_mixin::OP_opSerializable.invoke(self, [p1], context)
-            end
-
             def opIntIntDict(p1, context=nil)
                 InitialPrx_mixin::OP_opIntIntDict.invoke(self, [p1], context)
             end
@@ -925,10 +915,6 @@ module ::Test
                 InitialPrx_mixin::OP_supportsJavaSerializable.invoke(self, [], context)
             end
 
-            def supportsCsharpSerializable(context=nil)
-                InitialPrx_mixin::OP_supportsCsharpSerializable.invoke(self, [], context)
-            end
-
             def supportsCppStringView(context=nil)
                 InitialPrx_mixin::OP_supportsCppStringView.invoke(self, [], context)
             end
@@ -984,7 +970,6 @@ module ::Test
         InitialPrx_mixin::OP_opFixedStructSeq = ::Ice::__defineOperation('opFixedStructSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_FixedStructSeq, true, 2]], [[::Test::::T_FixedStructSeq, true, 3]], [::Test::::T_FixedStructSeq, true, 1], [])
         InitialPrx_mixin::OP_opFixedStructList = ::Ice::__defineOperation('opFixedStructList', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_FixedStructList, true, 2]], [[::Test::::T_FixedStructList, true, 3]], [::Test::::T_FixedStructList, true, 1], [])
         InitialPrx_mixin::OP_opVarStructSeq = ::Ice::__defineOperation('opVarStructSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_VarStructSeq, true, 2]], [[::Test::::T_VarStructSeq, true, 3]], [::Test::::T_VarStructSeq, true, 1], [])
-        InitialPrx_mixin::OP_opSerializable = ::Ice::__defineOperation('opSerializable', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_Serializable, true, 2]], [[::Test::::T_Serializable, true, 3]], [::Test::::T_Serializable, true, 1], [])
         InitialPrx_mixin::OP_opIntIntDict = ::Ice::__defineOperation('opIntIntDict', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_IntIntDict, true, 2]], [[::Test::::T_IntIntDict, true, 3]], [::Test::::T_IntIntDict, true, 1], [])
         InitialPrx_mixin::OP_opStringIntDict = ::Ice::__defineOperation('opStringIntDict', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_StringIntDict, true, 2]], [[::Test::::T_StringIntDict, true, 3]], [::Test::::T_StringIntDict, true, 1], [])
         InitialPrx_mixin::OP_opIntOneOptionalDict = ::Ice::__defineOperation('opIntOneOptionalDict', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_IntOneOptionalDict, true, 2]], [[::Test::::T_IntOneOptionalDict, true, 3]], [::Test::::T_IntOneOptionalDict, true, 1], [])
@@ -1003,7 +988,6 @@ module ::Test
         InitialPrx_mixin::OP_opMG2 = ::Ice::__defineOperation('opMG2', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_G, true, 2]], [[::Test::::T_G, true, 3]], [::Test::::T_G, true, 1], [])
         InitialPrx_mixin::OP_supportsRequiredParams = ::Ice::__defineOperation('supportsRequiredParams', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
         InitialPrx_mixin::OP_supportsJavaSerializable = ::Ice::__defineOperation('supportsJavaSerializable', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
-        InitialPrx_mixin::OP_supportsCsharpSerializable = ::Ice::__defineOperation('supportsCsharpSerializable', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
         InitialPrx_mixin::OP_supportsCppStringView = ::Ice::__defineOperation('supportsCppStringView', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
         InitialPrx_mixin::OP_supportsNullOptional = ::Ice::__defineOperation('supportsNullOptional', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
     end

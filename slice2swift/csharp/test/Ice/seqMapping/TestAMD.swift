@@ -2519,12 +2519,6 @@ public struct CustomCVSSHelper {
     }
 }
 
-public typealias SerialSmall = Foundation.Data
-
-public typealias SerialLarge = Foundation.Data
-
-public typealias SerialStruct = Foundation.Data
-
 /// Traits for Slice interface `MyClass`.
 public struct MyClassTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MyClass"]
@@ -2917,18 +2911,6 @@ public extension IPrx {}
 ///  - opCustomCVSS: 
 ///
 ///  - opCustomCVSSAsync: 
-///
-///  - opSerialSmallCSharp: 
-///
-///  - opSerialSmallCSharpAsync: 
-///
-///  - opSerialLargeCSharp: 
-///
-///  - opSerialLargeCSharpAsync: 
-///
-///  - opSerialStructCSharp: 
-///
-///  - opSerialStructCSharpAsync: 
 public protocol MyClassPrx: Ice.ObjectPrx {}
 
 private final class MyClassPrxI: Ice.ObjectPrxI, MyClassPrx {
@@ -3311,18 +3293,6 @@ public extension Ice.InputStream {
 ///  - opCustomCVSS: 
 ///
 ///  - opCustomCVSSAsync: 
-///
-///  - opSerialSmallCSharp: 
-///
-///  - opSerialSmallCSharpAsync: 
-///
-///  - opSerialLargeCSharp: 
-///
-///  - opSerialLargeCSharpAsync: 
-///
-///  - opSerialStructCSharp: 
-///
-///  - opSerialStructCSharpAsync: 
 public extension MyClassPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
@@ -7509,171 +7479,6 @@ public extension MyClassPrx {
                                   sentFlags: sentFlags,
                                   sent: sent)
     }
-
-    ///
-    /// - parameter _: `SerialSmall`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SerialSmall, o: SerialSmall)`:
-    ///
-    ///   - returnValue: `SerialSmall`
-    ///
-    ///   - o: `SerialSmall`
-    func opSerialSmallCSharp(_ iceP_i: SerialSmall, context: Ice.Context? = nil) throws -> (returnValue: SerialSmall, o: SerialSmall) {
-        return try _impl._invoke(operation: "opSerialSmallCSharp",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_i)
-                                 },
-                                 read: { istr in
-                                     let iceP_o: SerialSmall = try istr.read()
-                                     let iceP_returnValue: SerialSmall = try istr.read()
-                                     return (iceP_returnValue, iceP_o)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `SerialSmall`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: SerialSmall, o: SerialSmall)>` - The result of the operation
-    func opSerialSmallCSharpAsync(_ iceP_i: SerialSmall, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: SerialSmall, o: SerialSmall)> {
-        return _impl._invokeAsync(operation: "opSerialSmallCSharp",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_i)
-                                  },
-                                  read: { istr in
-                                      let iceP_o: SerialSmall = try istr.read()
-                                      let iceP_returnValue: SerialSmall = try istr.read()
-                                      return (iceP_returnValue, iceP_o)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter _: `SerialLarge`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SerialLarge, o: SerialLarge)`:
-    ///
-    ///   - returnValue: `SerialLarge`
-    ///
-    ///   - o: `SerialLarge`
-    func opSerialLargeCSharp(_ iceP_i: SerialLarge, context: Ice.Context? = nil) throws -> (returnValue: SerialLarge, o: SerialLarge) {
-        return try _impl._invoke(operation: "opSerialLargeCSharp",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_i)
-                                 },
-                                 read: { istr in
-                                     let iceP_o: SerialLarge = try istr.read()
-                                     let iceP_returnValue: SerialLarge = try istr.read()
-                                     return (iceP_returnValue, iceP_o)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `SerialLarge`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: SerialLarge, o: SerialLarge)>` - The result of the operation
-    func opSerialLargeCSharpAsync(_ iceP_i: SerialLarge, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: SerialLarge, o: SerialLarge)> {
-        return _impl._invokeAsync(operation: "opSerialLargeCSharp",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_i)
-                                  },
-                                  read: { istr in
-                                      let iceP_o: SerialLarge = try istr.read()
-                                      let iceP_returnValue: SerialLarge = try istr.read()
-                                      return (iceP_returnValue, iceP_o)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter _: `SerialStruct`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: SerialStruct, o: SerialStruct)`:
-    ///
-    ///   - returnValue: `SerialStruct`
-    ///
-    ///   - o: `SerialStruct`
-    func opSerialStructCSharp(_ iceP_i: SerialStruct, context: Ice.Context? = nil) throws -> (returnValue: SerialStruct, o: SerialStruct) {
-        return try _impl._invoke(operation: "opSerialStructCSharp",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_i)
-                                 },
-                                 read: { istr in
-                                     let iceP_o: SerialStruct = try istr.read()
-                                     let iceP_returnValue: SerialStruct = try istr.read()
-                                     return (iceP_returnValue, iceP_o)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `SerialStruct`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: SerialStruct, o: SerialStruct)>` - The result of the operation
-    func opSerialStructCSharpAsync(_ iceP_i: SerialStruct, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: SerialStruct, o: SerialStruct)> {
-        return _impl._invokeAsync(operation: "opSerialStructCSharp",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_i)
-                                  },
-                                  read: { istr in
-                                      let iceP_o: SerialStruct = try istr.read()
-                                      let iceP_returnValue: SerialStruct = try istr.read()
-                                      return (iceP_returnValue, iceP_o)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
 }
 
 /// :nodoc:
@@ -7974,12 +7779,6 @@ public struct MyClassDisp: Ice.Disp {
             return try servant._iceD_opSStructS(incoming: request, current: current)
         case "opSStructSD":
             return try servant._iceD_opSStructSD(incoming: request, current: current)
-        case "opSerialLargeCSharp":
-            return try servant._iceD_opSerialLargeCSharp(incoming: request, current: current)
-        case "opSerialSmallCSharp":
-            return try servant._iceD_opSerialSmallCSharp(incoming: request, current: current)
-        case "opSerialStructCSharp":
-            return try servant._iceD_opSerialStructCSharp(incoming: request, current: current)
         case "shutdown":
             return try servant._iceD_shutdown(incoming: request, current: current)
         default:
@@ -8594,30 +8393,6 @@ public protocol MyClass {
     ///
     /// - returns: `PromiseKit.Promise<(returnValue: CustomCVSS, o: CustomCVSS)>` - The result of the operation
     func opCustomCVSSAsync(i: CustomCVSS, current: Ice.Current) -> PromiseKit.Promise<(returnValue: CustomCVSS, o: CustomCVSS)>
-
-    ///
-    /// - parameter i: `SerialSmall`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: SerialSmall, o: SerialSmall)>` - The result of the operation
-    func opSerialSmallCSharpAsync(i: SerialSmall, current: Ice.Current) -> PromiseKit.Promise<(returnValue: SerialSmall, o: SerialSmall)>
-
-    ///
-    /// - parameter i: `SerialLarge`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: SerialLarge, o: SerialLarge)>` - The result of the operation
-    func opSerialLargeCSharpAsync(i: SerialLarge, current: Ice.Current) -> PromiseKit.Promise<(returnValue: SerialLarge, o: SerialLarge)>
-
-    ///
-    /// - parameter i: `SerialStruct`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: SerialStruct, o: SerialStruct)>` - The result of the operation
-    func opSerialStructCSharpAsync(i: SerialStruct, current: Ice.Current) -> PromiseKit.Promise<(returnValue: SerialStruct, o: SerialStruct)>
 }
 
 /// I overview.
@@ -8778,12 +8553,6 @@ public extension I {}
 ///  - opCustomIntSS: 
 ///
 ///  - opCustomCVSS: 
-///
-///  - opSerialSmallCSharp: 
-///
-///  - opSerialLargeCSharp: 
-///
-///  - opSerialStructCSharp: 
 public extension MyClass {
     func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         try inS.readEmptyParams()
@@ -9779,45 +9548,6 @@ public extension MyClass {
             CustomCVSSHelper.write(to: ostr, value: iceP_o)
             CustomCVSSHelper.write(to: ostr, value: iceP_returnValue)
             ostr.writePendingValues()
-        }
-    }
-
-    func _iceD_opSerialSmallCSharp(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_i: SerialSmall = try inS.read { istr in
-            let iceP_i: SerialSmall = try istr.read()
-            return iceP_i
-        }
-
-        return inS.setResultPromise(opSerialSmallCSharpAsync(i: iceP_i, current: current)) { (ostr, retVals) in
-            let (iceP_returnValue, iceP_o) = retVals
-            ostr.write(iceP_o)
-            ostr.write(iceP_returnValue)
-        }
-    }
-
-    func _iceD_opSerialLargeCSharp(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_i: SerialLarge = try inS.read { istr in
-            let iceP_i: SerialLarge = try istr.read()
-            return iceP_i
-        }
-
-        return inS.setResultPromise(opSerialLargeCSharpAsync(i: iceP_i, current: current)) { (ostr, retVals) in
-            let (iceP_returnValue, iceP_o) = retVals
-            ostr.write(iceP_o)
-            ostr.write(iceP_returnValue)
-        }
-    }
-
-    func _iceD_opSerialStructCSharp(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_i: SerialStruct = try inS.read { istr in
-            let iceP_i: SerialStruct = try istr.read()
-            return iceP_i
-        }
-
-        return inS.setResultPromise(opSerialStructCSharpAsync(i: iceP_i, current: current)) { (ostr, retVals) in
-            let (iceP_returnValue, iceP_o) = retVals
-            ostr.write(iceP_o)
-            ostr.write(iceP_returnValue)
         }
     }
 }

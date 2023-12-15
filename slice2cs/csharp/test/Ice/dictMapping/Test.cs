@@ -32,7 +32,6 @@ namespace Ice.dictMapping
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        [global::System.Serializable]
         public partial class TEstNv : global::System.ICloneable
         {
             #region Slice data members
@@ -883,14 +882,9 @@ namespace Ice.dictMapping
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        [global::System.Serializable]
         public sealed class MyClassPrxHelper : global::Ice.ObjectPrxHelperBase, MyClassPrx
         {
             public MyClassPrxHelper()
-            {
-            }
-
-            public MyClassPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 

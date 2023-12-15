@@ -50,7 +50,6 @@ namespace Ice.inheritance
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-            [global::System.Serializable]
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1012")]
             public partial class CA : global::Ice.Value
             {
@@ -142,7 +141,6 @@ namespace Ice.inheritance
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-            [global::System.Serializable]
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1012")]
             public partial class CB : global::Ice.inheritance.Test.MA.CA
             {
@@ -221,7 +219,6 @@ namespace Ice.inheritance
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-            [global::System.Serializable]
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1012")]
             public partial class CC : global::Ice.inheritance.Test.MB.CB
             {
@@ -282,7 +279,6 @@ namespace Ice.inheritance
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-            [global::System.Serializable]
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1012")]
             public partial class CD : CC
             {
@@ -817,14 +813,9 @@ namespace Ice.inheritance
         {
             [global::System.Runtime.InteropServices.ComVisible(false)]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            [global::System.Serializable]
             public sealed class IAPrxHelper : global::Ice.ObjectPrxHelperBase, IAPrx
             {
                 public IAPrxHelper()
-                {
-                }
-
-                public IAPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
                 {
                 }
 
@@ -1069,14 +1060,9 @@ namespace Ice.inheritance
 
             [global::System.Runtime.InteropServices.ComVisible(false)]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            [global::System.Serializable]
             public sealed class CAPrxHelper : global::Ice.ObjectPrxHelperBase, CAPrx
             {
                 public CAPrxHelper()
-                {
-                }
-
-                public CAPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
                 {
                 }
 
@@ -1324,14 +1310,9 @@ namespace Ice.inheritance
         {
             [global::System.Runtime.InteropServices.ComVisible(false)]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            [global::System.Serializable]
             public sealed class IB1PrxHelper : global::Ice.ObjectPrxHelperBase, IB1Prx
             {
                 public IB1PrxHelper()
-                {
-                }
-
-                public IB1PrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
                 {
                 }
 
@@ -1663,14 +1644,9 @@ namespace Ice.inheritance
 
             [global::System.Runtime.InteropServices.ComVisible(false)]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            [global::System.Serializable]
             public sealed class IB2PrxHelper : global::Ice.ObjectPrxHelperBase, IB2Prx
             {
                 public IB2PrxHelper()
-                {
-                }
-
-                public IB2PrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
                 {
                 }
 
@@ -2002,14 +1978,9 @@ namespace Ice.inheritance
 
             [global::System.Runtime.InteropServices.ComVisible(false)]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            [global::System.Serializable]
             public sealed class CBPrxHelper : global::Ice.ObjectPrxHelperBase, CBPrx
             {
                 public CBPrxHelper()
-                {
-                }
-
-                public CBPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
                 {
                 }
 
@@ -2344,14 +2315,9 @@ namespace Ice.inheritance
         {
             [global::System.Runtime.InteropServices.ComVisible(false)]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            [global::System.Serializable]
             public sealed class ICPrxHelper : global::Ice.ObjectPrxHelperBase, ICPrx
             {
                 public ICPrxHelper()
-                {
-                }
-
-                public ICPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
                 {
                 }
 
@@ -2857,14 +2823,9 @@ namespace Ice.inheritance
 
             [global::System.Runtime.InteropServices.ComVisible(false)]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            [global::System.Serializable]
             public sealed class CCPrxHelper : global::Ice.ObjectPrxHelperBase, CCPrx
             {
                 public CCPrxHelper()
-                {
-                }
-
-                public CCPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
                 {
                 }
 
@@ -3283,14 +3244,9 @@ namespace Ice.inheritance
 
             [global::System.Runtime.InteropServices.ComVisible(false)]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            [global::System.Serializable]
             public sealed class CDPrxHelper : global::Ice.ObjectPrxHelperBase, CDPrx
             {
                 public CDPrxHelper()
-                {
-                }
-
-                public CDPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
                 {
                 }
 
@@ -4058,14 +4014,9 @@ namespace Ice.inheritance
 
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        [global::System.Serializable]
         public sealed class InitialPrxHelper : global::Ice.ObjectPrxHelperBase, InitialPrx
         {
             public InitialPrxHelper()
-            {
-            }
-
-            public InitialPrxHelper(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : base(info, context)
             {
             }
 
