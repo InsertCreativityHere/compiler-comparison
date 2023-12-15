@@ -20,18 +20,18 @@ require 'LLURecord.rb'
 
 module ::IceStormElection
 
-    if not defined?(::IceStormElection::T_StringLogUpdateDict)
-        T_StringLogUpdateDict = ::Ice::__defineDictionary('::IceStormElection::StringLogUpdateDict', ::Ice::T_string, ::IceStormElection::T_LogUpdate)
+    if not defined?(::IceStormElection::::T_StringLogUpdateDict)
+        T_StringLogUpdateDict = ::Ice::__defineDictionary('::IceStormElection::StringLogUpdateDict', ::Ice::T_string, ::IceStormElection::::T_LogUpdate)
     end
 end
 
 module ::IceStorm
 
-    if not defined?(::IceStorm::T_SubscriberRecordDict)
-        T_SubscriberRecordDict = ::Ice::__defineDictionary('::IceStorm::SubscriberRecordDict', ::IceStorm::T_SubscriberRecordKey, ::IceStorm::T_SubscriberRecord)
+    if not defined?(::IceStorm::::T_SubscriberRecordDict)
+        T_SubscriberRecordDict = ::Ice::__defineDictionary('::IceStorm::SubscriberRecordDict', ::IceStorm::::T_SubscriberRecordKey, ::IceStorm::::T_SubscriberRecord)
     end
 
-    if not defined?(::IceStorm::AllData)
+    if not defined?(::IceStorm::::AllData)
         class AllData
             include ::Ice::Inspect_mixin
             def initialize(llus=nil, subscribers=nil)
@@ -47,7 +47,7 @@ module ::IceStorm
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceStorm::AllData or
+                return false if !other.is_a? ::IceStorm::::AllData or
                     @llus != other.llus or
                     @subscribers != other.subscribers
                 true
@@ -61,8 +61,8 @@ module ::IceStorm
         end
 
         T_AllData = ::Ice::__defineStruct('::IceStorm::AllData', AllData, [
-            ["llus", ::IceStormElection::T_StringLogUpdateDict],
-            ["subscribers", ::IceStorm::T_SubscriberRecordDict]
+            ["llus", ::IceStormElection::::T_StringLogUpdateDict],
+            ["subscribers", ::IceStorm::::T_SubscriberRecordDict]
         ])
     end
 end

@@ -19,11 +19,11 @@ require 'Ice/Connection.rb'
 
 module ::IceBT
 
-    if not defined?(::IceBT::ConnectionInfo_Mixin)
+    if not defined?(::IceBT::::ConnectionInfo_Mixin)
 
-        module ::IceBT::ConnectionInfo_Mixin
+        module ::IceBT::::ConnectionInfo_Mixin
         end
-        class ConnectionInfo < ::Ice::ConnectionInfo
+        class ConnectionInfo < ::Ice::::ConnectionInfo
 
             def initialize(underlying=nil, incoming=false, adapterName='', connectionId='', localAddress="", localChannel=-1, remoteAddress="", remoteChannel=-1, uuid="", rcvSize=0, sndSize=0)
                 super(underlying, incoming, adapterName, connectionId)
@@ -39,11 +39,11 @@ module ::IceBT
             attr_accessor :localAddress, :localChannel, :remoteAddress, :remoteChannel, :uuid, :rcvSize, :sndSize
         end
 
-        if not defined?(::IceBT::T_ConnectionInfo)
+        if not defined?(::IceBT::::T_ConnectionInfo)
             T_ConnectionInfo = ::Ice::__declareLocalClass('::IceBT::ConnectionInfo')
         end
 
-        T_ConnectionInfo.defineClass(ConnectionInfo, -1, false, false, ::Ice::T_ConnectionInfo, [
+        T_ConnectionInfo.defineClass(ConnectionInfo, -1, false, false, ::Ice::::T_ConnectionInfo, [
             ['localAddress', ::Ice::T_string, false, 0],
             ['localChannel', ::Ice::T_int, false, 0],
             ['remoteAddress', ::Ice::T_string, false, 0],

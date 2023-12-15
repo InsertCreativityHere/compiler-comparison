@@ -20,7 +20,7 @@ module ::Demo
 
     module Gx
 
-        if not defined?(::Demo::Gx::Point)
+        if not defined?(::Demo::Gx::::Point)
             class Point
                 include ::Ice::Inspect_mixin
                 def initialize(x=0, y=0)
@@ -36,7 +36,7 @@ module ::Demo
                 end
 
                 def ==(other)
-                    return false if !other.is_a? ::Demo::Gx::Point or
+                    return false if !other.is_a? ::Demo::Gx::::Point or
                         @x != other.x or
                         @y != other.y
                     true

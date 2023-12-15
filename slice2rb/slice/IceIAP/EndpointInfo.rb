@@ -19,11 +19,11 @@ require 'Ice/Endpoint.rb'
 
 module ::IceIAP
 
-    if not defined?(::IceIAP::EndpointInfo_Mixin)
+    if not defined?(::IceIAP::::EndpointInfo_Mixin)
 
-        module ::IceIAP::EndpointInfo_Mixin
+        module ::IceIAP::::EndpointInfo_Mixin
         end
-        class EndpointInfo < ::Ice::EndpointInfo
+        class EndpointInfo < ::Ice::::EndpointInfo
 
             def initialize(underlying=nil, timeout=0, compress=false, manufacturer='', modelNumber='', name='', protocol='')
                 super(underlying, timeout, compress)
@@ -36,11 +36,11 @@ module ::IceIAP
             attr_accessor :manufacturer, :modelNumber, :name, :protocol
         end
 
-        if not defined?(::IceIAP::T_EndpointInfo)
+        if not defined?(::IceIAP::::T_EndpointInfo)
             T_EndpointInfo = ::Ice::__declareLocalClass('::IceIAP::EndpointInfo')
         end
 
-        T_EndpointInfo.defineClass(EndpointInfo, -1, false, false, ::Ice::T_EndpointInfo, [
+        T_EndpointInfo.defineClass(EndpointInfo, -1, false, false, ::Ice::::T_EndpointInfo, [
             ['manufacturer', ::Ice::T_string, false, 0],
             ['modelNumber', ::Ice::T_string, false, 0],
             ['name', ::Ice::T_string, false, 0],

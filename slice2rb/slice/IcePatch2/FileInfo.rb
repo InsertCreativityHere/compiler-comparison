@@ -19,7 +19,7 @@ require 'Ice/BuiltinSequences.rb'
 
 module ::IcePatch2
 
-    if not defined?(::IcePatch2::FileInfo)
+    if not defined?(::IcePatch2::::FileInfo)
         class FileInfo
             include ::Ice::Inspect_mixin
             def initialize(path='', checksum=nil, size=0, executable=false)
@@ -39,7 +39,7 @@ module ::IcePatch2
             end
 
             def ==(other)
-                return false if !other.is_a? ::IcePatch2::FileInfo or
+                return false if !other.is_a? ::IcePatch2::::FileInfo or
                     @path != other.path or
                     @checksum != other.checksum or
                     @size != other.size or
@@ -56,17 +56,17 @@ module ::IcePatch2
 
         T_FileInfo = ::Ice::__defineStruct('::IcePatch2::FileInfo', FileInfo, [
             ["path", ::Ice::T_string],
-            ["checksum", ::Ice::T_ByteSeq],
+            ["checksum", ::Ice::::T_ByteSeq],
             ["size", ::Ice::T_int],
             ["executable", ::Ice::T_bool]
         ])
     end
 
-    if not defined?(::IcePatch2::T_FileInfoSeq)
-        T_FileInfoSeq = ::Ice::__defineSequence('::IcePatch2::FileInfoSeq', ::IcePatch2::T_FileInfo)
+    if not defined?(::IcePatch2::::T_FileInfoSeq)
+        T_FileInfoSeq = ::Ice::__defineSequence('::IcePatch2::FileInfoSeq', ::IcePatch2::::T_FileInfo)
     end
 
-    if not defined?(::IcePatch2::LargeFileInfo)
+    if not defined?(::IcePatch2::::LargeFileInfo)
         class LargeFileInfo
             include ::Ice::Inspect_mixin
             def initialize(path='', checksum=nil, size=0, executable=false)
@@ -86,7 +86,7 @@ module ::IcePatch2
             end
 
             def ==(other)
-                return false if !other.is_a? ::IcePatch2::LargeFileInfo or
+                return false if !other.is_a? ::IcePatch2::::LargeFileInfo or
                     @path != other.path or
                     @checksum != other.checksum or
                     @size != other.size or
@@ -103,13 +103,13 @@ module ::IcePatch2
 
         T_LargeFileInfo = ::Ice::__defineStruct('::IcePatch2::LargeFileInfo', LargeFileInfo, [
             ["path", ::Ice::T_string],
-            ["checksum", ::Ice::T_ByteSeq],
+            ["checksum", ::Ice::::T_ByteSeq],
             ["size", ::Ice::T_long],
             ["executable", ::Ice::T_bool]
         ])
     end
 
-    if not defined?(::IcePatch2::T_LargeFileInfoSeq)
-        T_LargeFileInfoSeq = ::Ice::__defineSequence('::IcePatch2::LargeFileInfoSeq', ::IcePatch2::T_LargeFileInfo)
+    if not defined?(::IcePatch2::::T_LargeFileInfoSeq)
+        T_LargeFileInfoSeq = ::Ice::__defineSequence('::IcePatch2::LargeFileInfoSeq', ::IcePatch2::::T_LargeFileInfo)
     end
 end

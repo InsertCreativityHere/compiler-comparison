@@ -18,15 +18,15 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::T_IntSeq)
+    if not defined?(::Test::::T_IntSeq)
         T_IntSeq = ::Ice::__defineSequence('::Test::IntSeq', ::Ice::T_int)
     end
 
-    if not defined?(::Test::T_StringDict)
+    if not defined?(::Test::::T_StringDict)
         T_StringDict = ::Ice::__defineDictionary('::Test::StringDict', ::Ice::T_string, ::Ice::T_string)
     end
 
-    if not defined?(::Test::S1)
+    if not defined?(::Test::::S1)
         class S1
             include ::Ice::Inspect_mixin
             def initialize(name='')
@@ -40,7 +40,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::S1 or
+                return false if !other.is_a? ::Test::::S1 or
                     @name != other.name
                 true
             end
@@ -55,10 +55,10 @@ module ::Test
         T_S1 = ::Ice::__defineStruct('::Test::S1', S1, [["name", ::Ice::T_string]])
     end
 
-    if not defined?(::Test::S2)
+    if not defined?(::Test::::S2)
         class S2
             include ::Ice::Inspect_mixin
-            def initialize(bo=false, by=0, sh=0, i=0, l=0, str='', seq=nil, s=::Test::S1.new)
+            def initialize(bo=false, by=0, sh=0, i=0, l=0, str='', seq=nil, s=::Test::::S1.new)
                 @bo = bo
                 @by = by
                 @sh = sh
@@ -83,7 +83,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::S2 or
+                return false if !other.is_a? ::Test::::S2 or
                     @bo != other.bo or
                     @by != other.by or
                     @sh != other.sh or
@@ -109,14 +109,14 @@ module ::Test
             ["i", ::Ice::T_int],
             ["l", ::Ice::T_long],
             ["str", ::Ice::T_string],
-            ["seq", ::Test::T_IntSeq],
-            ["s", ::Test::T_S1]
+            ["seq", ::Test::::T_IntSeq],
+            ["s", ::Test::::T_S1]
         ])
     end
 
-    if not defined?(::Test::C_Mixin)
+    if not defined?(::Test::::C_Mixin)
 
-        module ::Test::C_Mixin
+        module ::Test::::C_Mixin
         end
         class C < ::Ice::Value
 
@@ -127,14 +127,14 @@ module ::Test
             attr_accessor :name
         end
 
-        if not defined?(::Test::T_C)
+        if not defined?(::Test::::T_C)
             T_C = ::Ice::__declareClass('::Test::C')
         end
 
         T_C.defineClass(C, -1, false, false, nil, [['name', ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::S3)
+    if not defined?(::Test::::S3)
         class S3
             include ::Ice::Inspect_mixin
             def initialize(obj=nil, sd=nil, prx=nil)
@@ -152,7 +152,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::S3 or
+                return false if !other.is_a? ::Test::::S3 or
                     @obj != other.obj or
                     @sd != other.sd or
                     @prx != other.prx
@@ -167,8 +167,8 @@ module ::Test
         end
 
         T_S3 = ::Ice::__defineStruct('::Test::S3', S3, [
-            ["obj", ::Test::T_C],
-            ["sd", ::Test::T_StringDict],
+            ["obj", ::Test::::T_C],
+            ["sd", ::Test::::T_StringDict],
             ["prx", ::Ice::T_ObjectPrx]
         ])
     end

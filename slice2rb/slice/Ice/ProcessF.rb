@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::Ice
 
-    if not defined?(::Ice::T_Process)
+    if not defined?(::Ice::::T_Process)
         T_Process = ::Ice::__declareClass('::Ice::Process')
         T_ProcessPrx = ::Ice::__declareProxy('::Ice::Process')
     end

@@ -18,9 +18,9 @@ require 'Ice'
 
 module ::Test1
 
-    if not defined?(::Test1::C1_Mixin)
+    if not defined?(::Test1::::C1_Mixin)
 
-        module ::Test1::C1_Mixin
+        module ::Test1::::C1_Mixin
         end
         class C1 < ::Ice::Value
 
@@ -31,18 +31,18 @@ module ::Test1
             attr_accessor :i
         end
 
-        if not defined?(::Test1::T_C1)
+        if not defined?(::Test1::::T_C1)
             T_C1 = ::Ice::__declareClass('::Test1::C1')
         end
 
         T_C1.defineClass(C1, -1, false, false, nil, [['i', ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::Test1::C2_Mixin)
+    if not defined?(::Test1::::C2_Mixin)
 
-        module ::Test1::C2_Mixin
+        module ::Test1::::C2_Mixin
         end
-        class C2 < ::Test1::C1
+        class C2 < ::Test1::::C1
 
             def initialize(i=0, l=0)
                 super(i)
@@ -52,14 +52,14 @@ module ::Test1
             attr_accessor :l
         end
 
-        if not defined?(::Test1::T_C2)
+        if not defined?(::Test1::::T_C2)
             T_C2 = ::Ice::__declareClass('::Test1::C2')
         end
 
-        T_C2.defineClass(C2, -1, false, false, ::Test1::T_C1, [['l', ::Ice::T_long, false, 0]])
+        T_C2.defineClass(C2, -1, false, false, ::Test1::::T_C1, [['l', ::Ice::T_long, false, 0]])
     end
 
-    if not defined?(::Test1::E1)
+    if not defined?(::Test1::::E1)
         class E1 < Ice::UserException
             def initialize(i=0)
                 @i = i
@@ -75,8 +75,8 @@ module ::Test1
         T_E1 = ::Ice::__defineException('::Test1::E1', E1, false, nil, [["i", ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::Test1::E2)
-        class E2 < ::Test1::E1
+    if not defined?(::Test1::::E2)
+        class E2 < ::Test1::::E1
             def initialize(i=0, l=0)
                 super(i)
                 @l = l
@@ -89,10 +89,10 @@ module ::Test1
             attr_accessor :l
         end
 
-        T_E2 = ::Ice::__defineException('::Test1::E2', E2, false, ::Test1::T_E1, [["l", ::Ice::T_long, false, 0]])
+        T_E2 = ::Ice::__defineException('::Test1::E2', E2, false, ::Test1::::T_E1, [["l", ::Ice::T_long, false, 0]])
     end
 
-    if not defined?(::Test1::Def)
+    if not defined?(::Test1::::Def)
         class Def < Ice::UserException
             def initialize(i=0)
                 @i = i

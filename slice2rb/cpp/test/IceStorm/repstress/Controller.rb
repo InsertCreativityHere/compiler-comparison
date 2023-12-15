@@ -18,9 +18,9 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Controller_Mixin)
+    if not defined?(::Test::::Controller_Mixin)
 
-        module ::Test::Controller_Mixin
+        module ::Test::::Controller_Mixin
         end
         module ControllerPrx_mixin
 
@@ -34,7 +34,7 @@ module ::Test
             include ControllerPrx_mixin
         end
 
-        if not defined?(::Test::T_ControllerPrx)
+        if not defined?(::Test::::T_ControllerPrx)
             T_Controller = ::Ice::__declareClass('::Test::Controller')
             T_ControllerPrx = ::Ice::__declareProxy('::Test::Controller')
         end

@@ -18,11 +18,11 @@ require 'Ice'
 
 module ::Ice
 
-    if not defined?(::Ice::T_Properties)
+    if not defined?(::Ice::::T_Properties)
         T_Properties = ::Ice::__declareLocalClass('::Ice::Properties')
     end
 
-    if not defined?(::Ice::T_PropertiesAdmin)
+    if not defined?(::Ice::::T_PropertiesAdmin)
         T_PropertiesAdmin = ::Ice::__declareClass('::Ice::PropertiesAdmin')
         T_PropertiesAdminPrx = ::Ice::__declareProxy('::Ice::PropertiesAdmin')
     end

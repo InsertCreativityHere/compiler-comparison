@@ -19,23 +19,23 @@ require 'Core.rb'
 
 module ::User
 
-    if not defined?(::User::UserInfo_Mixin)
+    if not defined?(::User::::UserInfo_Mixin)
 
-        module ::User::UserInfo_Mixin
+        module ::User::::UserInfo_Mixin
         end
         class UserInfo < ::Ice::Value
         end
 
-        if not defined?(::User::T_UserInfo)
+        if not defined?(::User::::T_UserInfo)
             T_UserInfo = ::Ice::__declareClass('::User::UserInfo')
         end
 
         T_UserInfo.defineClass(UserInfo, -1, false, false, nil, [])
     end
 
-    if not defined?(::User::Registry_Mixin)
+    if not defined?(::User::::Registry_Mixin)
 
-        module ::User::Registry_Mixin
+        module ::User::::Registry_Mixin
         end
         module RegistryPrx_mixin
 
@@ -49,7 +49,7 @@ module ::User
             include RegistryPrx_mixin
         end
 
-        if not defined?(::User::T_RegistryPrx)
+        if not defined?(::User::::T_RegistryPrx)
             T_Registry = ::Ice::__declareClass('::User::Registry')
             T_RegistryPrx = ::Ice::__declareProxy('::User::Registry')
         end
@@ -58,6 +58,6 @@ module ::User
 
         T_RegistryPrx.defineProxy(RegistryPrx, nil, [])
 
-        RegistryPrx_mixin::OP_getUserInfo = ::Ice::__defineOperation('getUserInfo', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], [::User::T_UserInfo, false, 0], [::Core::T_ArgumentException])
+        RegistryPrx_mixin::OP_getUserInfo = ::Ice::__defineOperation('getUserInfo', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], [::User::::T_UserInfo, false, 0], [::Core::::T_ArgumentException])
     end
 end

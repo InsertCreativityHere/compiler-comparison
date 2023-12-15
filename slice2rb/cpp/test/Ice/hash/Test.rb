@@ -18,14 +18,14 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Point_Mixin)
+    if not defined?(::Test::::Point_Mixin)
 
-        module ::Test::Point_Mixin
+        module ::Test::::Point_Mixin
         end
         class Point < ::Ice::Value
         end
 
-        if not defined?(::Test::T_Point)
+        if not defined?(::Test::::T_Point)
             T_Point = ::Ice::__declareClass('::Test::Point')
         end
 

@@ -18,9 +18,9 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Echo_Mixin)
+    if not defined?(::Test::::Echo_Mixin)
 
-        module ::Test::Echo_Mixin
+        module ::Test::::Echo_Mixin
         end
         module EchoPrx_mixin
 
@@ -46,7 +46,7 @@ module ::Test
             include EchoPrx_mixin
         end
 
-        if not defined?(::Test::T_EchoPrx)
+        if not defined?(::Test::::T_EchoPrx)
             T_Echo = ::Ice::__declareClass('::Test::Echo')
             T_EchoPrx = ::Ice::__declareProxy('::Test::Echo')
         end

@@ -20,7 +20,7 @@ require 'Ice/BuiltinSequences.rb'
 
 module ::IceGrid
 
-    if not defined?(::IceGrid::ApplicationNotExistException)
+    if not defined?(::IceGrid::::ApplicationNotExistException)
         class ApplicationNotExistException < Ice::UserException
             def initialize(name='')
                 @name = name
@@ -36,7 +36,7 @@ module ::IceGrid
         T_ApplicationNotExistException = ::Ice::__defineException('::IceGrid::ApplicationNotExistException', ApplicationNotExistException, false, nil, [["name", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceGrid::ServerNotExistException)
+    if not defined?(::IceGrid::::ServerNotExistException)
         class ServerNotExistException < Ice::UserException
             def initialize(id='')
                 @id = id
@@ -52,7 +52,7 @@ module ::IceGrid
         T_ServerNotExistException = ::Ice::__defineException('::IceGrid::ServerNotExistException', ServerNotExistException, false, nil, [["id", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceGrid::ServerStartException)
+    if not defined?(::IceGrid::::ServerStartException)
         class ServerStartException < Ice::UserException
             def initialize(id='', reason='')
                 @id = id
@@ -72,7 +72,7 @@ module ::IceGrid
         ])
     end
 
-    if not defined?(::IceGrid::ServerStopException)
+    if not defined?(::IceGrid::::ServerStopException)
         class ServerStopException < Ice::UserException
             def initialize(id='', reason='')
                 @id = id
@@ -92,7 +92,7 @@ module ::IceGrid
         ])
     end
 
-    if not defined?(::IceGrid::AdapterNotExistException)
+    if not defined?(::IceGrid::::AdapterNotExistException)
         class AdapterNotExistException < Ice::UserException
             def initialize(id='')
                 @id = id
@@ -108,9 +108,9 @@ module ::IceGrid
         T_AdapterNotExistException = ::Ice::__defineException('::IceGrid::AdapterNotExistException', AdapterNotExistException, false, nil, [["id", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceGrid::ObjectExistsException)
+    if not defined?(::IceGrid::::ObjectExistsException)
         class ObjectExistsException < Ice::UserException
-            def initialize(id=::Ice::Identity.new)
+            def initialize(id=::Ice::::Identity.new)
                 @id = id
             end
 
@@ -121,12 +121,12 @@ module ::IceGrid
             attr_accessor :id
         end
 
-        T_ObjectExistsException = ::Ice::__defineException('::IceGrid::ObjectExistsException', ObjectExistsException, false, nil, [["id", ::Ice::T_Identity, false, 0]])
+        T_ObjectExistsException = ::Ice::__defineException('::IceGrid::ObjectExistsException', ObjectExistsException, false, nil, [["id", ::Ice::::T_Identity, false, 0]])
     end
 
-    if not defined?(::IceGrid::ObjectNotRegisteredException)
+    if not defined?(::IceGrid::::ObjectNotRegisteredException)
         class ObjectNotRegisteredException < Ice::UserException
-            def initialize(id=::Ice::Identity.new)
+            def initialize(id=::Ice::::Identity.new)
                 @id = id
             end
 
@@ -137,10 +137,10 @@ module ::IceGrid
             attr_accessor :id
         end
 
-        T_ObjectNotRegisteredException = ::Ice::__defineException('::IceGrid::ObjectNotRegisteredException', ObjectNotRegisteredException, false, nil, [["id", ::Ice::T_Identity, false, 0]])
+        T_ObjectNotRegisteredException = ::Ice::__defineException('::IceGrid::ObjectNotRegisteredException', ObjectNotRegisteredException, false, nil, [["id", ::Ice::::T_Identity, false, 0]])
     end
 
-    if not defined?(::IceGrid::NodeNotExistException)
+    if not defined?(::IceGrid::::NodeNotExistException)
         class NodeNotExistException < Ice::UserException
             def initialize(name='')
                 @name = name
@@ -156,7 +156,7 @@ module ::IceGrid
         T_NodeNotExistException = ::Ice::__defineException('::IceGrid::NodeNotExistException', NodeNotExistException, false, nil, [["name", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceGrid::RegistryNotExistException)
+    if not defined?(::IceGrid::::RegistryNotExistException)
         class RegistryNotExistException < Ice::UserException
             def initialize(name='')
                 @name = name
@@ -172,7 +172,7 @@ module ::IceGrid
         T_RegistryNotExistException = ::Ice::__defineException('::IceGrid::RegistryNotExistException', RegistryNotExistException, false, nil, [["name", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceGrid::DeploymentException)
+    if not defined?(::IceGrid::::DeploymentException)
         class DeploymentException < Ice::UserException
             def initialize(reason='')
                 @reason = reason
@@ -188,7 +188,7 @@ module ::IceGrid
         T_DeploymentException = ::Ice::__defineException('::IceGrid::DeploymentException', DeploymentException, false, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceGrid::NodeUnreachableException)
+    if not defined?(::IceGrid::::NodeUnreachableException)
         class NodeUnreachableException < Ice::UserException
             def initialize(name='', reason='')
                 @name = name
@@ -208,7 +208,7 @@ module ::IceGrid
         ])
     end
 
-    if not defined?(::IceGrid::ServerUnreachableException)
+    if not defined?(::IceGrid::::ServerUnreachableException)
         class ServerUnreachableException < Ice::UserException
             def initialize(name='', reason='')
                 @name = name
@@ -228,7 +228,7 @@ module ::IceGrid
         ])
     end
 
-    if not defined?(::IceGrid::RegistryUnreachableException)
+    if not defined?(::IceGrid::::RegistryUnreachableException)
         class RegistryUnreachableException < Ice::UserException
             def initialize(name='', reason='')
                 @name = name
@@ -248,7 +248,7 @@ module ::IceGrid
         ])
     end
 
-    if not defined?(::IceGrid::BadSignalException)
+    if not defined?(::IceGrid::::BadSignalException)
         class BadSignalException < Ice::UserException
             def initialize(reason='')
                 @reason = reason
@@ -264,7 +264,7 @@ module ::IceGrid
         T_BadSignalException = ::Ice::__defineException('::IceGrid::BadSignalException', BadSignalException, false, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceGrid::PatchException)
+    if not defined?(::IceGrid::::PatchException)
         class PatchException < Ice::UserException
             def initialize(reasons=nil)
                 @reasons = reasons
@@ -277,10 +277,10 @@ module ::IceGrid
             attr_accessor :reasons
         end
 
-        T_PatchException = ::Ice::__defineException('::IceGrid::PatchException', PatchException, false, nil, [["reasons", ::Ice::T_StringSeq, false, 0]])
+        T_PatchException = ::Ice::__defineException('::IceGrid::PatchException', PatchException, false, nil, [["reasons", ::Ice::::T_StringSeq, false, 0]])
     end
 
-    if not defined?(::IceGrid::AccessDeniedException)
+    if not defined?(::IceGrid::::AccessDeniedException)
         class AccessDeniedException < Ice::UserException
             def initialize(lockUserId='')
                 @lockUserId = lockUserId
@@ -296,7 +296,7 @@ module ::IceGrid
         T_AccessDeniedException = ::Ice::__defineException('::IceGrid::AccessDeniedException', AccessDeniedException, false, nil, [["lockUserId", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceGrid::AllocationException)
+    if not defined?(::IceGrid::::AllocationException)
         class AllocationException < Ice::UserException
             def initialize(reason='')
                 @reason = reason
@@ -312,8 +312,8 @@ module ::IceGrid
         T_AllocationException = ::Ice::__defineException('::IceGrid::AllocationException', AllocationException, false, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceGrid::AllocationTimeoutException)
-        class AllocationTimeoutException < ::IceGrid::AllocationException
+    if not defined?(::IceGrid::::AllocationTimeoutException)
+        class AllocationTimeoutException < ::IceGrid::::AllocationException
             def initialize(reason='')
                 super(reason)
             end
@@ -323,10 +323,10 @@ module ::IceGrid
             end
         end
 
-        T_AllocationTimeoutException = ::Ice::__defineException('::IceGrid::AllocationTimeoutException', AllocationTimeoutException, false, ::IceGrid::T_AllocationException, [])
+        T_AllocationTimeoutException = ::Ice::__defineException('::IceGrid::AllocationTimeoutException', AllocationTimeoutException, false, ::IceGrid::::T_AllocationException, [])
     end
 
-    if not defined?(::IceGrid::PermissionDeniedException)
+    if not defined?(::IceGrid::::PermissionDeniedException)
         class PermissionDeniedException < Ice::UserException
             def initialize(reason='')
                 @reason = reason
@@ -342,9 +342,9 @@ module ::IceGrid
         T_PermissionDeniedException = ::Ice::__defineException('::IceGrid::PermissionDeniedException', PermissionDeniedException, false, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceGrid::ObserverAlreadyRegisteredException)
+    if not defined?(::IceGrid::::ObserverAlreadyRegisteredException)
         class ObserverAlreadyRegisteredException < Ice::UserException
-            def initialize(id=::Ice::Identity.new)
+            def initialize(id=::Ice::::Identity.new)
                 @id = id
             end
 
@@ -355,10 +355,10 @@ module ::IceGrid
             attr_accessor :id
         end
 
-        T_ObserverAlreadyRegisteredException = ::Ice::__defineException('::IceGrid::ObserverAlreadyRegisteredException', ObserverAlreadyRegisteredException, false, nil, [["id", ::Ice::T_Identity, false, 0]])
+        T_ObserverAlreadyRegisteredException = ::Ice::__defineException('::IceGrid::ObserverAlreadyRegisteredException', ObserverAlreadyRegisteredException, false, nil, [["id", ::Ice::::T_Identity, false, 0]])
     end
 
-    if not defined?(::IceGrid::FileNotAvailableException)
+    if not defined?(::IceGrid::::FileNotAvailableException)
         class FileNotAvailableException < Ice::UserException
             def initialize(reason='')
                 @reason = reason

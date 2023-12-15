@@ -19,9 +19,9 @@ require 'Ice/Properties.rb'
 
 module ::Test
 
-    if not defined?(::Test::TestFacet_Mixin)
+    if not defined?(::Test::::TestFacet_Mixin)
 
-        module ::Test::TestFacet_Mixin
+        module ::Test::::TestFacet_Mixin
         end
         module TestFacetPrx_mixin
 
@@ -35,7 +35,7 @@ module ::Test
             include TestFacetPrx_mixin
         end
 
-        if not defined?(::Test::T_TestFacetPrx)
+        if not defined?(::Test::::T_TestFacetPrx)
             T_TestFacet = ::Ice::__declareClass('::Test::TestFacet')
             T_TestFacetPrx = ::Ice::__declareProxy('::Test::TestFacet')
         end
@@ -44,6 +44,6 @@ module ::Test
 
         T_TestFacetPrx.defineProxy(TestFacetPrx, nil, [])
 
-        TestFacetPrx_mixin::OP_getChanges = ::Ice::__defineOperation('getChanges', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_PropertyDict, false, 0], [])
+        TestFacetPrx_mixin::OP_getChanges = ::Ice::__defineOperation('getChanges', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::::T_PropertyDict, false, 0], [])
     end
 end

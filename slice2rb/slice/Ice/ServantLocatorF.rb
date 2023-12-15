@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::Ice
 
-    if not defined?(::Ice::T_ServantLocator)
+    if not defined?(::Ice::::T_ServantLocator)
         T_ServantLocator = ::Ice::__declareLocalClass('::Ice::ServantLocator')
     end
 end

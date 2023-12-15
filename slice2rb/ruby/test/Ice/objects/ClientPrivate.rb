@@ -18,37 +18,37 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Empty_Mixin)
+    if not defined?(::Test::::Empty_Mixin)
 
-        module ::Test::Empty_Mixin
+        module ::Test::::Empty_Mixin
         end
         class Empty < ::Ice::Value
         end
 
-        if not defined?(::Test::T_Empty)
+        if not defined?(::Test::::T_Empty)
             T_Empty = ::Ice::__declareClass('::Test::Empty')
         end
 
         T_Empty.defineClass(Empty, -1, false, false, nil, [])
     end
 
-    if not defined?(::Test::AlsoEmpty_Mixin)
+    if not defined?(::Test::::AlsoEmpty_Mixin)
 
-        module ::Test::AlsoEmpty_Mixin
+        module ::Test::::AlsoEmpty_Mixin
         end
         class AlsoEmpty < ::Ice::Value
         end
 
-        if not defined?(::Test::T_AlsoEmpty)
+        if not defined?(::Test::::T_AlsoEmpty)
             T_AlsoEmpty = ::Ice::__declareClass('::Test::AlsoEmpty')
         end
 
         T_AlsoEmpty.defineClass(AlsoEmpty, -1, false, false, nil, [])
     end
 
-    if not defined?(::Test::UnexpectedObjectExceptionTest_Mixin)
+    if not defined?(::Test::::UnexpectedObjectExceptionTest_Mixin)
 
-        module ::Test::UnexpectedObjectExceptionTest_Mixin
+        module ::Test::::UnexpectedObjectExceptionTest_Mixin
         end
         module UnexpectedObjectExceptionTestPrx_mixin
 
@@ -62,7 +62,7 @@ module ::Test
             include UnexpectedObjectExceptionTestPrx_mixin
         end
 
-        if not defined?(::Test::T_UnexpectedObjectExceptionTestPrx)
+        if not defined?(::Test::::T_UnexpectedObjectExceptionTestPrx)
             T_UnexpectedObjectExceptionTest = ::Ice::__declareClass('::Test::UnexpectedObjectExceptionTest')
             T_UnexpectedObjectExceptionTestPrx = ::Ice::__declareProxy('::Test::UnexpectedObjectExceptionTest')
         end
@@ -71,12 +71,12 @@ module ::Test
 
         T_UnexpectedObjectExceptionTestPrx.defineProxy(UnexpectedObjectExceptionTestPrx, nil, [])
 
-        UnexpectedObjectExceptionTestPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_Empty, false, 0], [])
+        UnexpectedObjectExceptionTestPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::::T_Empty, false, 0], [])
     end
 
-    if not defined?(::Test::COneMember_Mixin)
+    if not defined?(::Test::::COneMember_Mixin)
 
-        module ::Test::COneMember_Mixin
+        module ::Test::::COneMember_Mixin
         end
         class COneMember < ::Ice::Value
 
@@ -87,16 +87,16 @@ module ::Test
             attr_accessor :e
         end
 
-        if not defined?(::Test::T_COneMember)
+        if not defined?(::Test::::T_COneMember)
             T_COneMember = ::Ice::__declareClass('::Test::COneMember')
         end
 
-        T_COneMember.defineClass(COneMember, -1, false, false, nil, [['e', ::Test::T_Empty, false, 0]])
+        T_COneMember.defineClass(COneMember, -1, false, false, nil, [['e', ::Test::::T_Empty, false, 0]])
     end
 
-    if not defined?(::Test::CTwoMembers_Mixin)
+    if not defined?(::Test::::CTwoMembers_Mixin)
 
-        module ::Test::CTwoMembers_Mixin
+        module ::Test::::CTwoMembers_Mixin
         end
         class CTwoMembers < ::Ice::Value
 
@@ -108,17 +108,17 @@ module ::Test
             attr_accessor :e1, :e2
         end
 
-        if not defined?(::Test::T_CTwoMembers)
+        if not defined?(::Test::::T_CTwoMembers)
             T_CTwoMembers = ::Ice::__declareClass('::Test::CTwoMembers')
         end
 
         T_CTwoMembers.defineClass(CTwoMembers, -1, false, false, nil, [
-            ['e1', ::Test::T_Empty, false, 0],
-            ['e2', ::Test::T_Empty, false, 0]
+            ['e1', ::Test::::T_Empty, false, 0],
+            ['e2', ::Test::::T_Empty, false, 0]
         ])
     end
 
-    if not defined?(::Test::EOneMember)
+    if not defined?(::Test::::EOneMember)
         class EOneMember < Ice::UserException
             def initialize(e=nil)
                 @e = e
@@ -131,10 +131,10 @@ module ::Test
             attr_accessor :e
         end
 
-        T_EOneMember = ::Ice::__defineException('::Test::EOneMember', EOneMember, false, nil, [["e", ::Test::T_Empty, false, 0]])
+        T_EOneMember = ::Ice::__defineException('::Test::EOneMember', EOneMember, false, nil, [["e", ::Test::::T_Empty, false, 0]])
     end
 
-    if not defined?(::Test::ETwoMembers)
+    if not defined?(::Test::::ETwoMembers)
         class ETwoMembers < Ice::UserException
             def initialize(e1=nil, e2=nil)
                 @e1 = e1
@@ -149,12 +149,12 @@ module ::Test
         end
 
         T_ETwoMembers = ::Ice::__defineException('::Test::ETwoMembers', ETwoMembers, false, nil, [
-            ["e1", ::Test::T_Empty, false, 0],
-            ["e2", ::Test::T_Empty, false, 0]
+            ["e1", ::Test::::T_Empty, false, 0],
+            ["e2", ::Test::::T_Empty, false, 0]
         ])
     end
 
-    if not defined?(::Test::SOneMember)
+    if not defined?(::Test::::SOneMember)
         class SOneMember
             include ::Ice::Inspect_mixin
             def initialize(e=nil)
@@ -168,7 +168,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::SOneMember or
+                return false if !other.is_a? ::Test::::SOneMember or
                     @e != other.e
                 true
             end
@@ -180,10 +180,10 @@ module ::Test
             attr_accessor :e
         end
 
-        T_SOneMember = ::Ice::__defineStruct('::Test::SOneMember', SOneMember, [["e", ::Test::T_Empty]])
+        T_SOneMember = ::Ice::__defineStruct('::Test::SOneMember', SOneMember, [["e", ::Test::::T_Empty]])
     end
 
-    if not defined?(::Test::STwoMembers)
+    if not defined?(::Test::::STwoMembers)
         class STwoMembers
             include ::Ice::Inspect_mixin
             def initialize(e1=nil, e2=nil)
@@ -199,7 +199,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::STwoMembers or
+                return false if !other.is_a? ::Test::::STwoMembers or
                     @e1 != other.e1 or
                     @e2 != other.e2
                 true
@@ -213,16 +213,16 @@ module ::Test
         end
 
         T_STwoMembers = ::Ice::__defineStruct('::Test::STwoMembers', STwoMembers, [
-            ["e1", ::Test::T_Empty],
-            ["e2", ::Test::T_Empty]
+            ["e1", ::Test::::T_Empty],
+            ["e2", ::Test::::T_Empty]
         ])
     end
 
-    if not defined?(::Test::T_DOneMember)
-        T_DOneMember = ::Ice::__defineDictionary('::Test::DOneMember', ::Ice::T_int, ::Test::T_COneMember)
+    if not defined?(::Test::::T_DOneMember)
+        T_DOneMember = ::Ice::__defineDictionary('::Test::DOneMember', ::Ice::T_int, ::Test::::T_COneMember)
     end
 
-    if not defined?(::Test::T_DTwoMembers)
-        T_DTwoMembers = ::Ice::__defineDictionary('::Test::DTwoMembers', ::Ice::T_int, ::Test::T_CTwoMembers)
+    if not defined?(::Test::::T_DTwoMembers)
+        T_DTwoMembers = ::Ice::__defineDictionary('::Test::DTwoMembers', ::Ice::T_int, ::Test::::T_CTwoMembers)
     end
 end

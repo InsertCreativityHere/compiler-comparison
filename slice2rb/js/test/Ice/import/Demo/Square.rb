@@ -21,10 +21,10 @@ module ::Demo
 
     module Gx
 
-        if not defined?(::Demo::Gx::Square)
+        if not defined?(::Demo::Gx::::Square)
             class Square
                 include ::Ice::Inspect_mixin
-                def initialize(p1=::Demo::Gx::Point.new, p2=::Demo::Gx::Point.new, p3=::Demo::Gx::Point.new, p4=::Demo::Gx::Point.new)
+                def initialize(p1=::Demo::Gx::::Point.new, p2=::Demo::Gx::::Point.new, p3=::Demo::Gx::::Point.new, p4=::Demo::Gx::::Point.new)
                     @p1 = p1
                     @p2 = p2
                     @p3 = p3
@@ -41,7 +41,7 @@ module ::Demo
                 end
 
                 def ==(other)
-                    return false if !other.is_a? ::Demo::Gx::Square or
+                    return false if !other.is_a? ::Demo::Gx::::Square or
                         @p1 != other.p1 or
                         @p2 != other.p2 or
                         @p3 != other.p3 or
@@ -57,10 +57,10 @@ module ::Demo
             end
 
             T_Square = ::Ice::__defineStruct('::Demo::gx::Square', Square, [
-                ["p1", ::Demo::Gx::T_Point],
-                ["p2", ::Demo::Gx::T_Point],
-                ["p3", ::Demo::Gx::T_Point],
-                ["p4", ::Demo::Gx::T_Point]
+                ["p1", ::Demo::Gx::::T_Point],
+                ["p2", ::Demo::Gx::::T_Point],
+                ["p3", ::Demo::Gx::::T_Point],
+                ["p4", ::Demo::Gx::::T_Point]
             ])
         end
     end

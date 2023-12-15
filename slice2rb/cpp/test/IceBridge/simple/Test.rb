@@ -18,9 +18,9 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Callback_Mixin)
+    if not defined?(::Test::::Callback_Mixin)
 
-        module ::Test::Callback_Mixin
+        module ::Test::::Callback_Mixin
         end
         module CallbackPrx_mixin
 
@@ -46,7 +46,7 @@ module ::Test
             include CallbackPrx_mixin
         end
 
-        if not defined?(::Test::T_CallbackPrx)
+        if not defined?(::Test::::T_CallbackPrx)
             T_Callback = ::Ice::__declareClass('::Test::Callback')
             T_CallbackPrx = ::Ice::__declareProxy('::Test::Callback')
         end
@@ -61,9 +61,9 @@ module ::Test
         CallbackPrx_mixin::OP_getDatagramCount = ::Ice::__defineOperation('getDatagramCount', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
     end
 
-    if not defined?(::Test::MyClass_Mixin)
+    if not defined?(::Test::::MyClass_Mixin)
 
-        module ::Test::MyClass_Mixin
+        module ::Test::::MyClass_Mixin
         end
         module MyClassPrx_mixin
 
@@ -129,7 +129,7 @@ module ::Test
             include MyClassPrx_mixin
         end
 
-        if not defined?(::Test::T_MyClassPrx)
+        if not defined?(::Test::::T_MyClassPrx)
             T_MyClass = ::Ice::__declareClass('::Test::MyClass')
             T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
         end

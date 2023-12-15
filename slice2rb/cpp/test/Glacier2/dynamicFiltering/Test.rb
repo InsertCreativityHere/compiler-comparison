@@ -19,9 +19,9 @@ require 'Glacier2/Session.rb'
 
 module ::Test
 
-    if not defined?(::Test::Backend_Mixin)
+    if not defined?(::Test::::Backend_Mixin)
 
-        module ::Test::Backend_Mixin
+        module ::Test::::Backend_Mixin
         end
         module BackendPrx_mixin
 
@@ -39,7 +39,7 @@ module ::Test
             include BackendPrx_mixin
         end
 
-        if not defined?(::Test::T_BackendPrx)
+        if not defined?(::Test::::T_BackendPrx)
             T_Backend = ::Ice::__declareClass('::Test::Backend')
             T_BackendPrx = ::Ice::__declareProxy('::Test::Backend')
         end
@@ -52,7 +52,7 @@ module ::Test
         BackendPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::StateCode)
+    if not defined?(::Test::::StateCode)
         class StateCode
             include Comparable
 
@@ -102,10 +102,10 @@ module ::Test
         T_StateCode = ::Ice::__defineEnum('::Test::StateCode', StateCode, StateCode::_enumerators)
     end
 
-    if not defined?(::Test::TestToken)
+    if not defined?(::Test::::TestToken)
         class TestToken
             include ::Ice::Inspect_mixin
-            def initialize(expectedResult=false, description='', code=::Test::StateCode::Initial, config=0, caseIndex=0, testReference='')
+            def initialize(expectedResult=false, description='', code=::Test::::StateCode::Initial, config=0, caseIndex=0, testReference='')
                 @expectedResult = expectedResult
                 @description = description
                 @code = code
@@ -126,7 +126,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::TestToken or
+                return false if !other.is_a? ::Test::::TestToken or
                     @expectedResult != other.expectedResult or
                     @description != other.description or
                     @code != other.code or
@@ -146,16 +146,16 @@ module ::Test
         T_TestToken = ::Ice::__defineStruct('::Test::TestToken', TestToken, [
             ["expectedResult", ::Ice::T_bool],
             ["description", ::Ice::T_string],
-            ["code", ::Test::T_StateCode],
+            ["code", ::Test::::T_StateCode],
             ["config", ::Ice::T_short],
             ["caseIndex", ::Ice::T_short],
             ["testReference", ::Ice::T_string]
         ])
     end
 
-    if not defined?(::Test::TestController_Mixin)
+    if not defined?(::Test::::TestController_Mixin)
 
-        module ::Test::TestController_Mixin
+        module ::Test::::TestController_Mixin
         end
         module TestControllerPrx_mixin
 
@@ -173,7 +173,7 @@ module ::Test
             include TestControllerPrx_mixin
         end
 
-        if not defined?(::Test::T_TestControllerPrx)
+        if not defined?(::Test::::T_TestControllerPrx)
             T_TestController = ::Ice::__declareClass('::Test::TestController')
             T_TestControllerPrx = ::Ice::__declareProxy('::Test::TestController')
         end
@@ -182,16 +182,16 @@ module ::Test
 
         T_TestControllerPrx.defineProxy(TestControllerPrx, nil, [])
 
-        TestControllerPrx_mixin::OP_step = ::Ice::__defineOperation('step', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Glacier2::T_SessionPrx, false, 0], [::Test::T_TestToken, false, 0]], [[::Test::T_TestToken, false, 0]], nil, [])
+        TestControllerPrx_mixin::OP_step = ::Ice::__defineOperation('step', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Glacier2::::T_SessionPrx, false, 0], [::Test::::T_TestToken, false, 0]], [[::Test::::T_TestToken, false, 0]], nil, [])
         TestControllerPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::TestSession_Mixin)
+    if not defined?(::Test::::TestSession_Mixin)
 
-        module ::Test::TestSession_Mixin
+        module ::Test::::TestSession_Mixin
         end
         module TestSessionPrx_mixin
-            include ::Glacier2::SessionPrx_mixin
+            include ::Glacier2::::SessionPrx_mixin
 
             def shutdown(context=nil)
                 TestSessionPrx_mixin::OP_shutdown.invoke(self, [], context)
@@ -203,14 +203,14 @@ module ::Test
             include TestSessionPrx_mixin
         end
 
-        if not defined?(::Test::T_TestSessionPrx)
+        if not defined?(::Test::::T_TestSessionPrx)
             T_TestSession = ::Ice::__declareClass('::Test::TestSession')
             T_TestSessionPrx = ::Ice::__declareProxy('::Test::TestSession')
         end
 
         T_TestSession.defineClass(::Ice::Value, -1, false, true, nil, [])
 
-        T_TestSessionPrx.defineProxy(TestSessionPrx, nil, [::Glacier2::T_SessionPrx])
+        T_TestSessionPrx.defineProxy(TestSessionPrx, nil, [::Glacier2::::T_SessionPrx])
 
         TestSessionPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end

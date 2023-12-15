@@ -22,10 +22,10 @@ require 'LLURecord.rb'
 
 module ::IceStormElection
 
-    if not defined?(::IceStormElection::TopicContent)
+    if not defined?(::IceStormElection::::TopicContent)
         class TopicContent
             include ::Ice::Inspect_mixin
-            def initialize(id=::Ice::Identity.new, records=nil)
+            def initialize(id=::Ice::::Identity.new, records=nil)
                 @id = id
                 @records = records
             end
@@ -38,7 +38,7 @@ module ::IceStormElection
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceStormElection::TopicContent or
+                return false if !other.is_a? ::IceStormElection::::TopicContent or
                     @id != other.id or
                     @records != other.records
                 true
@@ -52,16 +52,16 @@ module ::IceStormElection
         end
 
         T_TopicContent = ::Ice::__defineStruct('::IceStormElection::TopicContent', TopicContent, [
-            ["id", ::Ice::T_Identity],
-            ["records", ::IceStorm::T_SubscriberRecordSeq]
+            ["id", ::Ice::::T_Identity],
+            ["records", ::IceStorm::::T_SubscriberRecordSeq]
         ])
     end
 
-    if not defined?(::IceStormElection::T_TopicContentSeq)
-        T_TopicContentSeq = ::Ice::__defineSequence('::IceStormElection::TopicContentSeq', ::IceStormElection::T_TopicContent)
+    if not defined?(::IceStormElection::::T_TopicContentSeq)
+        T_TopicContentSeq = ::Ice::__defineSequence('::IceStormElection::TopicContentSeq', ::IceStormElection::::T_TopicContent)
     end
 
-    if not defined?(::IceStormElection::ObserverInconsistencyException)
+    if not defined?(::IceStormElection::::ObserverInconsistencyException)
         class ObserverInconsistencyException < Ice::UserException
             def initialize(reason='')
                 @reason = reason
@@ -77,9 +77,9 @@ module ::IceStormElection
         T_ObserverInconsistencyException = ::Ice::__defineException('::IceStormElection::ObserverInconsistencyException', ObserverInconsistencyException, false, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceStormElection::ReplicaObserver_Mixin)
+    if not defined?(::IceStormElection::::ReplicaObserver_Mixin)
 
-        module ::IceStormElection::ReplicaObserver_Mixin
+        module ::IceStormElection::::ReplicaObserver_Mixin
         end
         module ReplicaObserverPrx_mixin
 
@@ -109,7 +109,7 @@ module ::IceStormElection
             include ReplicaObserverPrx_mixin
         end
 
-        if not defined?(::IceStormElection::T_ReplicaObserverPrx)
+        if not defined?(::IceStormElection::::T_ReplicaObserverPrx)
             T_ReplicaObserver = ::Ice::__declareClass('::IceStormElection::ReplicaObserver')
             T_ReplicaObserverPrx = ::Ice::__declareProxy('::IceStormElection::ReplicaObserver')
         end
@@ -118,16 +118,16 @@ module ::IceStormElection
 
         T_ReplicaObserverPrx.defineProxy(ReplicaObserverPrx, nil, [])
 
-        ReplicaObserverPrx_mixin::OP_init = ::Ice::__defineOperation('init', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceStormElection::T_LogUpdate, false, 0], [::IceStormElection::T_TopicContentSeq, false, 0]], [], nil, [::IceStormElection::T_ObserverInconsistencyException])
-        ReplicaObserverPrx_mixin::OP_createTopic = ::Ice::__defineOperation('createTopic', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceStormElection::T_LogUpdate, false, 0], [::Ice::T_string, false, 0]], [], nil, [::IceStormElection::T_ObserverInconsistencyException])
-        ReplicaObserverPrx_mixin::OP_destroyTopic = ::Ice::__defineOperation('destroyTopic', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceStormElection::T_LogUpdate, false, 0], [::Ice::T_string, false, 0]], [], nil, [::IceStormElection::T_ObserverInconsistencyException])
-        ReplicaObserverPrx_mixin::OP_addSubscriber = ::Ice::__defineOperation('addSubscriber', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceStormElection::T_LogUpdate, false, 0], [::Ice::T_string, false, 0], [::IceStorm::T_SubscriberRecord, false, 0]], [], nil, [::IceStormElection::T_ObserverInconsistencyException])
-        ReplicaObserverPrx_mixin::OP_removeSubscriber = ::Ice::__defineOperation('removeSubscriber', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceStormElection::T_LogUpdate, false, 0], [::Ice::T_string, false, 0], [::Ice::T_IdentitySeq, false, 0]], [], nil, [::IceStormElection::T_ObserverInconsistencyException])
+        ReplicaObserverPrx_mixin::OP_init = ::Ice::__defineOperation('init', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceStormElection::::T_LogUpdate, false, 0], [::IceStormElection::::T_TopicContentSeq, false, 0]], [], nil, [::IceStormElection::::T_ObserverInconsistencyException])
+        ReplicaObserverPrx_mixin::OP_createTopic = ::Ice::__defineOperation('createTopic', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceStormElection::::T_LogUpdate, false, 0], [::Ice::T_string, false, 0]], [], nil, [::IceStormElection::::T_ObserverInconsistencyException])
+        ReplicaObserverPrx_mixin::OP_destroyTopic = ::Ice::__defineOperation('destroyTopic', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceStormElection::::T_LogUpdate, false, 0], [::Ice::T_string, false, 0]], [], nil, [::IceStormElection::::T_ObserverInconsistencyException])
+        ReplicaObserverPrx_mixin::OP_addSubscriber = ::Ice::__defineOperation('addSubscriber', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceStormElection::::T_LogUpdate, false, 0], [::Ice::T_string, false, 0], [::IceStorm::::T_SubscriberRecord, false, 0]], [], nil, [::IceStormElection::::T_ObserverInconsistencyException])
+        ReplicaObserverPrx_mixin::OP_removeSubscriber = ::Ice::__defineOperation('removeSubscriber', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceStormElection::::T_LogUpdate, false, 0], [::Ice::T_string, false, 0], [::Ice::::T_IdentitySeq, false, 0]], [], nil, [::IceStormElection::::T_ObserverInconsistencyException])
     end
 
-    if not defined?(::IceStormElection::TopicManagerSync_Mixin)
+    if not defined?(::IceStormElection::::TopicManagerSync_Mixin)
 
-        module ::IceStormElection::TopicManagerSync_Mixin
+        module ::IceStormElection::::TopicManagerSync_Mixin
         end
         module TopicManagerSyncPrx_mixin
 
@@ -141,7 +141,7 @@ module ::IceStormElection
             include TopicManagerSyncPrx_mixin
         end
 
-        if not defined?(::IceStormElection::T_TopicManagerSyncPrx)
+        if not defined?(::IceStormElection::::T_TopicManagerSyncPrx)
             T_TopicManagerSync = ::Ice::__declareClass('::IceStormElection::TopicManagerSync')
             T_TopicManagerSyncPrx = ::Ice::__declareProxy('::IceStormElection::TopicManagerSync')
         end
@@ -150,10 +150,10 @@ module ::IceStormElection
 
         T_TopicManagerSyncPrx.defineProxy(TopicManagerSyncPrx, nil, [])
 
-        TopicManagerSyncPrx_mixin::OP_getContent = ::Ice::__defineOperation('getContent', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [[::IceStormElection::T_LogUpdate, false, 0], [::IceStormElection::T_TopicContentSeq, false, 0]], nil, [])
+        TopicManagerSyncPrx_mixin::OP_getContent = ::Ice::__defineOperation('getContent', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [[::IceStormElection::::T_LogUpdate, false, 0], [::IceStormElection::::T_TopicContentSeq, false, 0]], nil, [])
     end
 
-    if not defined?(::IceStormElection::NodeState)
+    if not defined?(::IceStormElection::::NodeState)
         class NodeState
             include Comparable
 
@@ -204,12 +204,12 @@ module ::IceStormElection
         T_NodeState = ::Ice::__defineEnum('::IceStormElection::NodeState', NodeState, NodeState::_enumerators)
     end
 
-    if not defined?(::IceStormElection::T_Node)
+    if not defined?(::IceStormElection::::T_Node)
         T_Node = ::Ice::__declareClass('::IceStormElection::Node')
         T_NodePrx = ::Ice::__declareProxy('::IceStormElection::Node')
     end
 
-    if not defined?(::IceStormElection::NodeInfo)
+    if not defined?(::IceStormElection::::NodeInfo)
         class NodeInfo
             include ::Ice::Inspect_mixin
             def initialize(id=0, n=nil)
@@ -225,7 +225,7 @@ module ::IceStormElection
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceStormElection::NodeInfo or
+                return false if !other.is_a? ::IceStormElection::::NodeInfo or
                     @id != other.id or
                     @n != other.n
                 true
@@ -240,18 +240,18 @@ module ::IceStormElection
 
         T_NodeInfo = ::Ice::__defineStruct('::IceStormElection::NodeInfo', NodeInfo, [
             ["id", ::Ice::T_int],
-            ["n", ::IceStormElection::T_NodePrx]
+            ["n", ::IceStormElection::::T_NodePrx]
         ])
     end
 
-    if not defined?(::IceStormElection::T_NodeInfoSeq)
-        T_NodeInfoSeq = ::Ice::__defineSequence('::IceStormElection::NodeInfoSeq', ::IceStormElection::T_NodeInfo)
+    if not defined?(::IceStormElection::::T_NodeInfoSeq)
+        T_NodeInfoSeq = ::Ice::__defineSequence('::IceStormElection::NodeInfoSeq', ::IceStormElection::::T_NodeInfo)
     end
 
-    if not defined?(::IceStormElection::GroupInfo)
+    if not defined?(::IceStormElection::::GroupInfo)
         class GroupInfo
             include ::Ice::Inspect_mixin
-            def initialize(id=0, llu=::IceStormElection::LogUpdate.new)
+            def initialize(id=0, llu=::IceStormElection::::LogUpdate.new)
                 @id = id
                 @llu = llu
             end
@@ -264,7 +264,7 @@ module ::IceStormElection
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceStormElection::GroupInfo or
+                return false if !other.is_a? ::IceStormElection::::GroupInfo or
                     @id != other.id or
                     @llu != other.llu
                 true
@@ -279,18 +279,18 @@ module ::IceStormElection
 
         T_GroupInfo = ::Ice::__defineStruct('::IceStormElection::GroupInfo', GroupInfo, [
             ["id", ::Ice::T_int],
-            ["llu", ::IceStormElection::T_LogUpdate]
+            ["llu", ::IceStormElection::::T_LogUpdate]
         ])
     end
 
-    if not defined?(::IceStormElection::T_GroupInfoSeq)
-        T_GroupInfoSeq = ::Ice::__defineSequence('::IceStormElection::GroupInfoSeq', ::IceStormElection::T_GroupInfo)
+    if not defined?(::IceStormElection::::T_GroupInfoSeq)
+        T_GroupInfoSeq = ::Ice::__defineSequence('::IceStormElection::GroupInfoSeq', ::IceStormElection::::T_GroupInfo)
     end
 
-    if not defined?(::IceStormElection::QueryInfo)
+    if not defined?(::IceStormElection::::QueryInfo)
         class QueryInfo
             include ::Ice::Inspect_mixin
-            def initialize(id=0, coord=0, group='', replica=nil, state=::IceStormElection::NodeState::NodeStateInactive, up=nil, max=0)
+            def initialize(id=0, coord=0, group='', replica=nil, state=::IceStormElection::::NodeState::NodeStateInactive, up=nil, max=0)
                 @id = id
                 @coord = coord
                 @group = group
@@ -313,7 +313,7 @@ module ::IceStormElection
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceStormElection::QueryInfo or
+                return false if !other.is_a? ::IceStormElection::::QueryInfo or
                     @id != other.id or
                     @coord != other.coord or
                     @group != other.group or
@@ -336,15 +336,15 @@ module ::IceStormElection
             ["coord", ::Ice::T_int],
             ["group", ::Ice::T_string],
             ["replica", ::Ice::T_ObjectPrx],
-            ["state", ::IceStormElection::T_NodeState],
-            ["up", ::IceStormElection::T_GroupInfoSeq],
+            ["state", ::IceStormElection::::T_NodeState],
+            ["up", ::IceStormElection::::T_GroupInfoSeq],
             ["max", ::Ice::T_int]
         ])
     end
 
-    if not defined?(::IceStormElection::Node_Mixin)
+    if not defined?(::IceStormElection::::Node_Mixin)
 
-        module ::IceStormElection::Node_Mixin
+        module ::IceStormElection::::Node_Mixin
         end
         module NodePrx_mixin
 
@@ -386,7 +386,7 @@ module ::IceStormElection
             include NodePrx_mixin
         end
 
-        if not defined?(::IceStormElection::T_NodePrx)
+        if not defined?(::IceStormElection::::T_NodePrx)
             T_Node = ::Ice::__declareClass('::IceStormElection::Node')
             T_NodePrx = ::Ice::__declareProxy('::IceStormElection::Node')
         end
@@ -397,11 +397,11 @@ module ::IceStormElection
 
         NodePrx_mixin::OP_invitation = ::Ice::__defineOperation('invitation', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_string, false, 0]], [], nil, [])
         NodePrx_mixin::OP_ready = ::Ice::__defineOperation('ready', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_string, false, 0], [::Ice::T_ObjectPrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_long, false, 0]], [], nil, [])
-        NodePrx_mixin::OP_accept = ::Ice::__defineOperation('accept', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_string, false, 0], [::Ice::T_IntSeq, false, 0], [::Ice::T_ObjectPrx, false, 0], [::IceStormElection::T_LogUpdate, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
+        NodePrx_mixin::OP_accept = ::Ice::__defineOperation('accept', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_string, false, 0], [::Ice::::T_IntSeq, false, 0], [::Ice::T_ObjectPrx, false, 0], [::IceStormElection::::T_LogUpdate, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
         NodePrx_mixin::OP_areYouCoordinator = ::Ice::__defineOperation('areYouCoordinator', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_bool, false, 0], [])
         NodePrx_mixin::OP_areYouThere = ::Ice::__defineOperation('areYouThere', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], [::Ice::T_bool, false, 0], [])
         NodePrx_mixin::OP_sync = ::Ice::__defineOperation('sync', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
-        NodePrx_mixin::OP_nodes = ::Ice::__defineOperation('nodes', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceStormElection::T_NodeInfoSeq, false, 0], [])
-        NodePrx_mixin::OP_query = ::Ice::__defineOperation('query', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceStormElection::T_QueryInfo, false, 0], [])
+        NodePrx_mixin::OP_nodes = ::Ice::__defineOperation('nodes', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceStormElection::::T_NodeInfoSeq, false, 0], [])
+        NodePrx_mixin::OP_query = ::Ice::__defineOperation('query', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceStormElection::::T_QueryInfo, false, 0], [])
     end
 end

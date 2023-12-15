@@ -18,9 +18,9 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::C_Mixin)
+    if not defined?(::Test::::C_Mixin)
 
-        module ::Test::C_Mixin
+        module ::Test::::C_Mixin
         end
         class C < ::Ice::Value
 
@@ -32,25 +32,25 @@ module ::Test
             attr_accessor :left, :right
         end
 
-        if not defined?(::Test::T_C)
+        if not defined?(::Test::::T_C)
             T_C = ::Ice::__declareClass('::Test::C')
         end
 
         T_C.defineClass(C, -1, false, false, nil, [
-            ['left', ::Test::T_C, false, 0],
-            ['right', ::Test::T_C, false, 0]
+            ['left', ::Test::::T_C, false, 0],
+            ['right', ::Test::::T_C, false, 0]
         ])
     end
 
-    if not defined?(::Test::T_CSeq)
-        T_CSeq = ::Ice::__defineSequence('::Test::CSeq', ::Test::T_C)
+    if not defined?(::Test::::T_CSeq)
+        T_CSeq = ::Ice::__defineSequence('::Test::CSeq', ::Test::::T_C)
     end
 
-    if not defined?(::Test::T_CDict)
-        T_CDict = ::Ice::__defineDictionary('::Test::CDict', ::Ice::T_int, ::Test::T_C)
+    if not defined?(::Test::::T_CDict)
+        T_CDict = ::Ice::__defineDictionary('::Test::CDict', ::Ice::T_int, ::Test::::T_C)
     end
 
-    if not defined?(::Test::S)
+    if not defined?(::Test::::S)
         class S
             include ::Ice::Inspect_mixin
             def initialize(theC=nil)
@@ -64,7 +64,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::S or
+                return false if !other.is_a? ::Test::::S or
                     @theC != other.theC
                 true
             end
@@ -76,23 +76,23 @@ module ::Test
             attr_accessor :theC
         end
 
-        T_S = ::Ice::__defineStruct('::Test::S', S, [["theC", ::Test::T_C]])
+        T_S = ::Ice::__defineStruct('::Test::S', S, [["theC", ::Test::::T_C]])
     end
 
-    if not defined?(::Test::T_SSeq)
-        T_SSeq = ::Ice::__defineSequence('::Test::SSeq', ::Test::T_S)
+    if not defined?(::Test::::T_SSeq)
+        T_SSeq = ::Ice::__defineSequence('::Test::SSeq', ::Test::::T_S)
     end
 
-    if not defined?(::Test::T_C2)
+    if not defined?(::Test::::T_C2)
         T_C2 = ::Ice::__declareClass('::Test::C2')
         T_C2Prx = ::Ice::__declareProxy('::Test::C2')
     end
 
-    if not defined?(::Test::T_C2Dict)
-        T_C2Dict = ::Ice::__defineDictionary('::Test::C2Dict', ::Ice::T_int, ::Test::T_C2)
+    if not defined?(::Test::::T_C2Dict)
+        T_C2Dict = ::Ice::__defineDictionary('::Test::C2Dict', ::Ice::T_int, ::Test::::T_C2)
     end
 
-    if not defined?(::Test::S2)
+    if not defined?(::Test::::S2)
         class S2
             include ::Ice::Inspect_mixin
             def initialize(theC2Dict=nil)
@@ -106,7 +106,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::S2 or
+                return false if !other.is_a? ::Test::::S2 or
                     @theC2Dict != other.theC2Dict
                 true
             end
@@ -118,16 +118,16 @@ module ::Test
             attr_accessor :theC2Dict
         end
 
-        T_S2 = ::Ice::__defineStruct('::Test::S2', S2, [["theC2Dict", ::Test::T_C2Dict]])
+        T_S2 = ::Ice::__defineStruct('::Test::S2', S2, [["theC2Dict", ::Test::::T_C2Dict]])
     end
 
-    if not defined?(::Test::T_S2Seq)
-        T_S2Seq = ::Ice::__defineSequence('::Test::S2Seq', ::Test::T_S2)
+    if not defined?(::Test::::T_S2Seq)
+        T_S2Seq = ::Ice::__defineSequence('::Test::S2Seq', ::Test::::T_S2)
     end
 
-    if not defined?(::Test::C2_Mixin)
+    if not defined?(::Test::::C2_Mixin)
 
-        module ::Test::C2_Mixin
+        module ::Test::::C2_Mixin
         end
         class C2 < ::Ice::Value
 
@@ -138,16 +138,16 @@ module ::Test
             attr_accessor :theS2Seq
         end
 
-        if not defined?(::Test::T_C2)
+        if not defined?(::Test::::T_C2)
             T_C2 = ::Ice::__declareClass('::Test::C2')
         end
 
-        T_C2.defineClass(C2, -1, false, false, nil, [['theS2Seq', ::Test::T_S2Seq, false, 0]])
+        T_C2.defineClass(C2, -1, false, false, nil, [['theS2Seq', ::Test::::T_S2Seq, false, 0]])
     end
 
-    if not defined?(::Test::Leaf_Mixin)
+    if not defined?(::Test::::Leaf_Mixin)
 
-        module ::Test::Leaf_Mixin
+        module ::Test::::Leaf_Mixin
         end
         class Leaf < ::Ice::Value
 
@@ -158,16 +158,16 @@ module ::Test
             attr_accessor :i
         end
 
-        if not defined?(::Test::T_Leaf)
+        if not defined?(::Test::::T_Leaf)
             T_Leaf = ::Ice::__declareClass('::Test::Leaf')
         end
 
         T_Leaf.defineClass(Leaf, -1, false, false, nil, [['i', ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::Test::Node_Mixin)
+    if not defined?(::Test::::Node_Mixin)
 
-        module ::Test::Node_Mixin
+        module ::Test::::Node_Mixin
         end
         class Node < ::Ice::Value
 
@@ -179,25 +179,25 @@ module ::Test
             attr_accessor :l, :n
         end
 
-        if not defined?(::Test::T_Node)
+        if not defined?(::Test::::T_Node)
             T_Node = ::Ice::__declareClass('::Test::Node')
         end
 
         T_Node.defineClass(Node, -1, false, false, nil, [
-            ['l', ::Test::T_Leaf, false, 0],
-            ['n', ::Test::T_Node, false, 0]
+            ['l', ::Test::::T_Leaf, false, 0],
+            ['n', ::Test::::T_Node, false, 0]
         ])
     end
 
-    if not defined?(::Test::T_C2DictSeq)
-        T_C2DictSeq = ::Ice::__defineSequence('::Test::C2DictSeq', ::Test::T_C2Dict)
+    if not defined?(::Test::::T_C2DictSeq)
+        T_C2DictSeq = ::Ice::__defineSequence('::Test::C2DictSeq', ::Test::::T_C2Dict)
     end
 
-    if not defined?(::Test::T_CSeqSeq)
-        T_CSeqSeq = ::Ice::__defineSequence('::Test::CSeqSeq', ::Test::T_CSeq)
+    if not defined?(::Test::::T_CSeqSeq)
+        T_CSeqSeq = ::Ice::__defineSequence('::Test::CSeqSeq', ::Test::::T_CSeq)
     end
 
-    if not defined?(::Test::A)
+    if not defined?(::Test::::A)
         class A
             include ::Ice::Inspect_mixin
             def initialize(theSSeq=nil)
@@ -211,7 +211,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::A or
+                return false if !other.is_a? ::Test::::A or
                     @theSSeq != other.theSSeq
                 true
             end
@@ -223,13 +223,13 @@ module ::Test
             attr_accessor :theSSeq
         end
 
-        T_A = ::Ice::__defineStruct('::Test::A', A, [["theSSeq", ::Test::T_SSeq]])
+        T_A = ::Ice::__defineStruct('::Test::A', A, [["theSSeq", ::Test::::T_SSeq]])
     end
 
-    if not defined?(::Test::B)
+    if not defined?(::Test::::B)
         class B
             include ::Ice::Inspect_mixin
-            def initialize(theS=::Test::S.new)
+            def initialize(theS=::Test::::S.new)
                 @theS = theS
             end
 
@@ -240,7 +240,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::B or
+                return false if !other.is_a? ::Test::::B or
                     @theS != other.theS
                 true
             end
@@ -252,28 +252,28 @@ module ::Test
             attr_accessor :theS
         end
 
-        T_B = ::Ice::__defineStruct('::Test::B', B, [["theS", ::Test::T_S]])
+        T_B = ::Ice::__defineStruct('::Test::B', B, [["theS", ::Test::::T_S]])
     end
 
-    if not defined?(::Test::T_CSeqDict)
-        T_CSeqDict = ::Ice::__defineDictionary('::Test::CSeqDict', ::Ice::T_int, ::Test::T_CSeq)
+    if not defined?(::Test::::T_CSeqDict)
+        T_CSeqDict = ::Ice::__defineDictionary('::Test::CSeqDict', ::Ice::T_int, ::Test::::T_CSeq)
     end
 
-    if not defined?(::Test::T_SDict)
-        T_SDict = ::Ice::__defineDictionary('::Test::SDict', ::Ice::T_int, ::Test::T_S)
+    if not defined?(::Test::::T_SDict)
+        T_SDict = ::Ice::__defineDictionary('::Test::SDict', ::Ice::T_int, ::Test::::T_S)
     end
 
-    if not defined?(::Test::T_CDictDict)
-        T_CDictDict = ::Ice::__defineDictionary('::Test::CDictDict', ::Ice::T_int, ::Test::T_CDict)
+    if not defined?(::Test::::T_CDictDict)
+        T_CDictDict = ::Ice::__defineDictionary('::Test::CDictDict', ::Ice::T_int, ::Test::::T_CDict)
     end
 
-    if not defined?(::Test::CTest_Mixin)
+    if not defined?(::Test::::CTest_Mixin)
 
-        module ::Test::CTest_Mixin
+        module ::Test::::CTest_Mixin
         end
         class CTest < ::Ice::Value
 
-            def initialize(theCSeq=nil, theSSeq=nil, theC2DictSeq=nil, theCSeqSeq=nil, theS=::Test::S.new, theA=::Test::A.new, theS2=::Test::S2.new, theB=::Test::B.new, theCDict=nil, theCSeqDict=nil, theSDict=nil, theCDictDict=nil)
+            def initialize(theCSeq=nil, theSSeq=nil, theC2DictSeq=nil, theCSeqSeq=nil, theS=::Test::::S.new, theA=::Test::::A.new, theS2=::Test::::S2.new, theB=::Test::::B.new, theCDict=nil, theCSeqDict=nil, theSDict=nil, theCDictDict=nil)
                 @theCSeq = theCSeq
                 @theSSeq = theSSeq
                 @theC2DictSeq = theC2DictSeq
@@ -291,42 +291,42 @@ module ::Test
             attr_accessor :theCSeq, :theSSeq, :theC2DictSeq, :theCSeqSeq, :theS, :theA, :theS2, :theB, :theCDict, :theCSeqDict, :theSDict, :theCDictDict
         end
 
-        if not defined?(::Test::T_CTest)
+        if not defined?(::Test::::T_CTest)
             T_CTest = ::Ice::__declareClass('::Test::CTest')
         end
 
         T_CTest.defineClass(CTest, -1, false, false, nil, [
-            ['theCSeq', ::Test::T_CSeq, false, 0],
-            ['theSSeq', ::Test::T_SSeq, false, 0],
-            ['theC2DictSeq', ::Test::T_C2DictSeq, false, 0],
-            ['theCSeqSeq', ::Test::T_CSeqSeq, false, 0],
-            ['theS', ::Test::T_S, false, 0],
-            ['theA', ::Test::T_A, false, 0],
-            ['theS2', ::Test::T_S2, false, 0],
-            ['theB', ::Test::T_B, false, 0],
-            ['theCDict', ::Test::T_CDict, false, 0],
-            ['theCSeqDict', ::Test::T_CSeqDict, false, 0],
-            ['theSDict', ::Test::T_SDict, false, 0],
-            ['theCDictDict', ::Test::T_CDictDict, false, 0]
+            ['theCSeq', ::Test::::T_CSeq, false, 0],
+            ['theSSeq', ::Test::::T_SSeq, false, 0],
+            ['theC2DictSeq', ::Test::::T_C2DictSeq, false, 0],
+            ['theCSeqSeq', ::Test::::T_CSeqSeq, false, 0],
+            ['theS', ::Test::::T_S, false, 0],
+            ['theA', ::Test::::T_A, false, 0],
+            ['theS2', ::Test::::T_S2, false, 0],
+            ['theB', ::Test::::T_B, false, 0],
+            ['theCDict', ::Test::::T_CDict, false, 0],
+            ['theCSeqDict', ::Test::::T_CSeqDict, false, 0],
+            ['theSDict', ::Test::::T_SDict, false, 0],
+            ['theCDictDict', ::Test::::T_CDictDict, false, 0]
         ])
     end
 
     module AAA
 
-        if not defined?(::Test::AAA::T_B)
+        if not defined?(::Test::AAA::::T_B)
             T_B = ::Ice::__declareClass('::Test::AAA::B')
             T_BPrx = ::Ice::__declareProxy('::Test::AAA::B')
         end
 
-        if not defined?(::Test::AAA::T_BSeq)
-            T_BSeq = ::Ice::__defineSequence('::Test::AAA::BSeq', ::Test::AAA::T_B)
+        if not defined?(::Test::AAA::::T_BSeq)
+            T_BSeq = ::Ice::__defineSequence('::Test::AAA::BSeq', ::Test::AAA::::T_B)
         end
 
-        if not defined?(::Test::AAA::T_BDict)
-            T_BDict = ::Ice::__defineDictionary('::Test::AAA::BDict', ::Ice::T_int, ::Test::AAA::T_B)
+        if not defined?(::Test::AAA::::T_BDict)
+            T_BDict = ::Ice::__defineDictionary('::Test::AAA::BDict', ::Ice::T_int, ::Test::AAA::::T_B)
         end
 
-        if not defined?(::Test::AAA::BStruct)
+        if not defined?(::Test::AAA::::BStruct)
             class BStruct
                 include ::Ice::Inspect_mixin
                 def initialize(bMem=nil)
@@ -340,7 +340,7 @@ module ::Test
                 end
 
                 def ==(other)
-                    return false if !other.is_a? ::Test::AAA::BStruct or
+                    return false if !other.is_a? ::Test::AAA::::BStruct or
                         @bMem != other.bMem
                     true
                 end
@@ -352,16 +352,16 @@ module ::Test
                 attr_accessor :bMem
             end
 
-            T_BStruct = ::Ice::__defineStruct('::Test::AAA::BStruct', BStruct, [["bMem", ::Test::AAA::T_B]])
+            T_BStruct = ::Ice::__defineStruct('::Test::AAA::BStruct', BStruct, [["bMem", ::Test::AAA::::T_B]])
         end
 
-        if not defined?(::Test::AAA::C_Mixin)
+        if not defined?(::Test::AAA::::C_Mixin)
 
-            module ::Test::AAA::C_Mixin
+            module ::Test::AAA::::C_Mixin
             end
             class C < ::Ice::Value
 
-                def initialize(obj1=nil, obj2=nil, b1=nil, b2=nil, x=nil, y=nil, z=::Test::AAA::BStruct.new)
+                def initialize(obj1=nil, obj2=nil, b1=nil, b2=nil, x=nil, y=nil, z=::Test::AAA::::BStruct.new)
                     @obj1 = obj1
                     @obj2 = obj2
                     @b1 = b1
@@ -374,33 +374,33 @@ module ::Test
                 attr_accessor :obj1, :obj2, :b1, :b2, :x, :y, :z
             end
 
-            if not defined?(::Test::AAA::T_C)
+            if not defined?(::Test::AAA::::T_C)
                 T_C = ::Ice::__declareClass('::Test::AAA::C')
             end
 
             T_C.defineClass(C, -1, false, false, nil, [
                 ['obj1', ::Ice::T_Value, false, 0],
                 ['obj2', ::Ice::T_Value, false, 0],
-                ['b1', ::Test::AAA::T_B, false, 0],
-                ['b2', ::Test::AAA::T_B, false, 0],
-                ['x', ::Test::AAA::T_BSeq, false, 0],
-                ['y', ::Test::AAA::T_BDict, false, 0],
-                ['z', ::Test::AAA::T_BStruct, false, 0]
+                ['b1', ::Test::AAA::::T_B, false, 0],
+                ['b2', ::Test::AAA::::T_B, false, 0],
+                ['x', ::Test::AAA::::T_BSeq, false, 0],
+                ['y', ::Test::AAA::::T_BDict, false, 0],
+                ['z', ::Test::AAA::::T_BStruct, false, 0]
             ])
         end
     end
 
     module AAA
 
-        if not defined?(::Test::AAA::T_CSeq)
-            T_CSeq = ::Ice::__defineSequence('::Test::AAA::CSeq', ::Test::AAA::T_C)
+        if not defined?(::Test::AAA::::T_CSeq)
+            T_CSeq = ::Ice::__defineSequence('::Test::AAA::CSeq', ::Test::AAA::::T_C)
         end
 
-        if not defined?(::Test::AAA::T_CDict)
-            T_CDict = ::Ice::__defineDictionary('::Test::AAA::CDict', ::Ice::T_int, ::Test::AAA::T_C)
+        if not defined?(::Test::AAA::::T_CDict)
+            T_CDict = ::Ice::__defineDictionary('::Test::AAA::CDict', ::Ice::T_int, ::Test::AAA::::T_C)
         end
 
-        if not defined?(::Test::AAA::CStruct)
+        if not defined?(::Test::AAA::::CStruct)
             class CStruct
                 include ::Ice::Inspect_mixin
                 def initialize(cMem=nil)
@@ -414,7 +414,7 @@ module ::Test
                 end
 
                 def ==(other)
-                    return false if !other.is_a? ::Test::AAA::CStruct or
+                    return false if !other.is_a? ::Test::AAA::::CStruct or
                         @cMem != other.cMem
                     true
                 end
@@ -426,16 +426,16 @@ module ::Test
                 attr_accessor :cMem
             end
 
-            T_CStruct = ::Ice::__defineStruct('::Test::AAA::CStruct', CStruct, [["cMem", ::Test::AAA::T_C]])
+            T_CStruct = ::Ice::__defineStruct('::Test::AAA::CStruct', CStruct, [["cMem", ::Test::AAA::::T_C]])
         end
 
-        if not defined?(::Test::AAA::B_Mixin)
+        if not defined?(::Test::AAA::::B_Mixin)
 
-            module ::Test::AAA::B_Mixin
+            module ::Test::AAA::::B_Mixin
             end
             class B < ::Ice::Value
 
-                def initialize(obj1=nil, obj2=nil, c1=nil, c2=nil, x=nil, y=nil, z=::Test::AAA::CStruct.new)
+                def initialize(obj1=nil, obj2=nil, c1=nil, c2=nil, x=nil, y=nil, z=::Test::AAA::::CStruct.new)
                     @obj1 = obj1
                     @obj2 = obj2
                     @c1 = c1
@@ -448,44 +448,44 @@ module ::Test
                 attr_accessor :obj1, :obj2, :c1, :c2, :x, :y, :z
             end
 
-            if not defined?(::Test::AAA::T_B)
+            if not defined?(::Test::AAA::::T_B)
                 T_B = ::Ice::__declareClass('::Test::AAA::B')
             end
 
             T_B.defineClass(B, -1, false, false, nil, [
                 ['obj1', ::Ice::T_Value, false, 0],
                 ['obj2', ::Ice::T_Value, false, 0],
-                ['c1', ::Test::AAA::T_C, false, 0],
-                ['c2', ::Test::AAA::T_C, false, 0],
-                ['x', ::Test::AAA::T_CSeq, false, 0],
-                ['y', ::Test::AAA::T_CDict, false, 0],
-                ['z', ::Test::AAA::T_CStruct, false, 0]
+                ['c1', ::Test::AAA::::T_C, false, 0],
+                ['c2', ::Test::AAA::::T_C, false, 0],
+                ['x', ::Test::AAA::::T_CSeq, false, 0],
+                ['y', ::Test::AAA::::T_CDict, false, 0],
+                ['z', ::Test::AAA::::T_CStruct, false, 0]
             ])
         end
     end
 
     module CCC
 
-        if not defined?(::Test::CCC::T_Forward)
+        if not defined?(::Test::CCC::::T_Forward)
             T_Forward = ::Ice::__declareClass('::Test::CCC::Forward')
             T_ForwardPrx = ::Ice::__declareProxy('::Test::CCC::Forward')
         end
 
-        if not defined?(::Test::CCC::T_ForwardProxySeq)
+        if not defined?(::Test::CCC::::T_ForwardProxySeq)
             T_ForwardProxySeq = ::Ice::__defineSequence('::Test::CCC::ForwardProxySeq', ::Ice::T_ObjectPrx)
         end
     end
 
     module CCC
 
-        if not defined?(::Test::CCC::Forward_Mixin)
+        if not defined?(::Test::CCC::::Forward_Mixin)
 
-            module ::Test::CCC::Forward_Mixin
+            module ::Test::CCC::::Forward_Mixin
             end
             class Forward < ::Ice::Value
             end
 
-            if not defined?(::Test::CCC::T_Forward)
+            if not defined?(::Test::CCC::::T_Forward)
                 T_Forward = ::Ice::__declareClass('::Test::CCC::Forward')
             end
 
@@ -495,9 +495,9 @@ module ::Test
 
     module DDD
 
-        if not defined?(::Test::DDD::I_Mixin)
+        if not defined?(::Test::DDD::::I_Mixin)
 
-            module ::Test::DDD::I_Mixin
+            module ::Test::DDD::::I_Mixin
             end
             module IPrx_mixin
 
@@ -511,7 +511,7 @@ module ::Test
                 include IPrx_mixin
             end
 
-            if not defined?(::Test::DDD::T_IPrx)
+            if not defined?(::Test::DDD::::T_IPrx)
                 T_I = ::Ice::__declareClass('::Test::DDD::I')
                 T_IPrx = ::Ice::__declareProxy('::Test::DDD::I')
             end
@@ -523,28 +523,28 @@ module ::Test
             IPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         end
 
-        if not defined?(::Test::DDD::C_Mixin)
+        if not defined?(::Test::DDD::::C_Mixin)
 
-            module ::Test::DDD::C_Mixin
+            module ::Test::DDD::::C_Mixin
             end
             class C < ::Ice::Value
             end
 
-            if not defined?(::Test::DDD::T_C)
+            if not defined?(::Test::DDD::::T_C)
                 T_C = ::Ice::__declareClass('::Test::DDD::C')
             end
 
             T_C.defineClass(C, -1, false, false, nil, [])
         end
 
-        if not defined?(::Test::DDD::T_C2)
+        if not defined?(::Test::DDD::::T_C2)
             T_C2 = ::Ice::__declareClass('::Test::DDD::C2')
             T_C2Prx = ::Ice::__declareProxy('::Test::DDD::C2')
         end
 
-        if not defined?(::Test::DDD::U_Mixin)
+        if not defined?(::Test::DDD::::U_Mixin)
 
-            module ::Test::DDD::U_Mixin
+            module ::Test::DDD::::U_Mixin
             end
             class U < ::Ice::Value
 
@@ -560,28 +560,28 @@ module ::Test
                 attr_accessor :myI, :myIstar, :myC, :myCstar, :myC2, :myC2star
             end
 
-            if not defined?(::Test::DDD::T_U)
+            if not defined?(::Test::DDD::::T_U)
                 T_U = ::Ice::__declareClass('::Test::DDD::U')
             end
 
             T_U.defineClass(U, -1, false, false, nil, [
-                ['myI', ::Test::DDD::T_I, false, 0],
-                ['myIstar', ::Test::DDD::T_IPrx, false, 0],
-                ['myC', ::Test::DDD::T_C, false, 0],
+                ['myI', ::Test::DDD::::T_I, false, 0],
+                ['myIstar', ::Test::DDD::::T_IPrx, false, 0],
+                ['myC', ::Test::DDD::::T_C, false, 0],
                 ['myCstar', ::Ice::T_ObjectPrx, false, 0],
-                ['myC2', ::Test::DDD::T_C2, false, 0],
+                ['myC2', ::Test::DDD::::T_C2, false, 0],
                 ['myC2star', ::Ice::T_ObjectPrx, false, 0]
             ])
         end
 
-        if not defined?(::Test::DDD::C2_Mixin)
+        if not defined?(::Test::DDD::::C2_Mixin)
 
-            module ::Test::DDD::C2_Mixin
+            module ::Test::DDD::::C2_Mixin
             end
             class C2 < ::Ice::Value
             end
 
-            if not defined?(::Test::DDD::T_C2)
+            if not defined?(::Test::DDD::::T_C2)
                 T_C2 = ::Ice::__declareClass('::Test::DDD::C2')
             end
 

@@ -22,11 +22,11 @@ require 'Version.rb'
 
 module ::Ice
 
-    if not defined?(::Ice::T_Context)
+    if not defined?(::Ice::::T_Context)
         T_Context = ::Ice::__defineDictionary('::Ice::Context', ::Ice::T_string, ::Ice::T_string)
     end
 
-    if not defined?(::Ice::OperationMode)
+    if not defined?(::Ice::::OperationMode)
         class OperationMode
             include Comparable
 
@@ -76,10 +76,10 @@ module ::Ice
         T_OperationMode = ::Ice::__defineEnum('::Ice::OperationMode', OperationMode, OperationMode::_enumerators)
     end
 
-    if not defined?(::Ice::Current)
+    if not defined?(::Ice::::Current)
         class Current
             include ::Ice::Inspect_mixin
-            def initialize(adapter=nil, con=nil, id=::Ice::Identity.new, facet='', operation='', mode=::Ice::OperationMode::Normal, ctx=nil, requestId=0, encoding=::Ice::EncodingVersion.new)
+            def initialize(adapter=nil, con=nil, id=::Ice::::Identity.new, facet='', operation='', mode=::Ice::::OperationMode::Normal, ctx=nil, requestId=0, encoding=::Ice::::EncodingVersion.new)
                 @adapter = adapter
                 @con = con
                 @id = id
@@ -106,7 +106,7 @@ module ::Ice
             end
 
             def ==(other)
-                return false if !other.is_a? ::Ice::Current or
+                return false if !other.is_a? ::Ice::::Current or
                     @adapter != other.adapter or
                     @con != other.con or
                     @id != other.id or
@@ -127,15 +127,15 @@ module ::Ice
         end
 
         T_Current = ::Ice::__defineStruct('::Ice::Current', Current, [
-            ["adapter", ::Ice::T_ObjectAdapter],
-            ["con", ::Ice::T_Connection],
-            ["id", ::Ice::T_Identity],
+            ["adapter", ::Ice::::T_ObjectAdapter],
+            ["con", ::Ice::::T_Connection],
+            ["id", ::Ice::::T_Identity],
             ["facet", ::Ice::T_string],
             ["operation", ::Ice::T_string],
-            ["mode", ::Ice::T_OperationMode],
-            ["ctx", ::Ice::T_Context],
+            ["mode", ::Ice::::T_OperationMode],
+            ["ctx", ::Ice::::T_Context],
             ["requestId", ::Ice::T_int],
-            ["encoding", ::Ice::T_EncodingVersion]
+            ["encoding", ::Ice::::T_EncodingVersion]
         ])
     end
 end

@@ -19,11 +19,11 @@ require 'Ice/Endpoint.rb'
 
 module ::IceBT
 
-    if not defined?(::IceBT::EndpointInfo_Mixin)
+    if not defined?(::IceBT::::EndpointInfo_Mixin)
 
-        module ::IceBT::EndpointInfo_Mixin
+        module ::IceBT::::EndpointInfo_Mixin
         end
-        class EndpointInfo < ::Ice::EndpointInfo
+        class EndpointInfo < ::Ice::::EndpointInfo
 
             def initialize(underlying=nil, timeout=0, compress=false, addr='', uuid='')
                 super(underlying, timeout, compress)
@@ -34,11 +34,11 @@ module ::IceBT
             attr_accessor :addr, :uuid
         end
 
-        if not defined?(::IceBT::T_EndpointInfo)
+        if not defined?(::IceBT::::T_EndpointInfo)
             T_EndpointInfo = ::Ice::__declareLocalClass('::IceBT::EndpointInfo')
         end
 
-        T_EndpointInfo.defineClass(EndpointInfo, -1, false, false, ::Ice::T_EndpointInfo, [
+        T_EndpointInfo.defineClass(EndpointInfo, -1, false, false, ::Ice::::T_EndpointInfo, [
             ['addr', ::Ice::T_string, false, 0],
             ['uuid', ::Ice::T_string, false, 0]
         ])

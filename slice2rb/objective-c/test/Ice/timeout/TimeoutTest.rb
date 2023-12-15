@@ -18,13 +18,13 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::T_ByteSeq)
+    if not defined?(::Test::::T_ByteSeq)
         T_ByteSeq = ::Ice::__defineSequence('::Test::ByteSeq', ::Ice::T_byte)
     end
 
-    if not defined?(::Test::Timeout_Mixin)
+    if not defined?(::Test::::Timeout_Mixin)
 
-        module ::Test::Timeout_Mixin
+        module ::Test::::Timeout_Mixin
         end
         module TimeoutPrx_mixin
 
@@ -46,7 +46,7 @@ module ::Test
             include TimeoutPrx_mixin
         end
 
-        if not defined?(::Test::T_TimeoutPrx)
+        if not defined?(::Test::::T_TimeoutPrx)
             T_Timeout = ::Ice::__declareClass('::Test::Timeout')
             T_TimeoutPrx = ::Ice::__declareProxy('::Test::Timeout')
         end
@@ -56,13 +56,13 @@ module ::Test
         T_TimeoutPrx.defineProxy(TimeoutPrx, nil, [])
 
         TimeoutPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        TimeoutPrx_mixin::OP_sendData = ::Ice::__defineOperation('sendData', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteSeq, false, 0]], [], nil, [])
+        TimeoutPrx_mixin::OP_sendData = ::Ice::__defineOperation('sendData', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_ByteSeq, false, 0]], [], nil, [])
         TimeoutPrx_mixin::OP_sleep = ::Ice::__defineOperation('sleep', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
     end
 
-    if not defined?(::Test::Controller_Mixin)
+    if not defined?(::Test::::Controller_Mixin)
 
-        module ::Test::Controller_Mixin
+        module ::Test::::Controller_Mixin
         end
         module ControllerPrx_mixin
 
@@ -84,7 +84,7 @@ module ::Test
             include ControllerPrx_mixin
         end
 
-        if not defined?(::Test::T_ControllerPrx)
+        if not defined?(::Test::::T_ControllerPrx)
             T_Controller = ::Ice::__declareClass('::Test::Controller')
             T_ControllerPrx = ::Ice::__declareProxy('::Test::Controller')
         end

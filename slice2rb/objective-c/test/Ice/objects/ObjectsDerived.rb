@@ -19,13 +19,13 @@ require 'ObjectsTest.rb'
 
 module ::Test
 
-    if not defined?(::Test::Derived_Mixin)
+    if not defined?(::Test::::Derived_Mixin)
 
-        module ::Test::Derived_Mixin
+        module ::Test::::Derived_Mixin
         end
-        class Derived < ::Test::Base
+        class Derived < ::Test::::Base
 
-            def initialize(theS=::Test::S.new, str='', b='')
+            def initialize(theS=::Test::::S.new, str='', b='')
                 super(theS, str)
                 @b = b
             end
@@ -33,10 +33,10 @@ module ::Test
             attr_accessor :b
         end
 
-        if not defined?(::Test::T_Derived)
+        if not defined?(::Test::::T_Derived)
             T_Derived = ::Ice::__declareClass('::Test::Derived')
         end
 
-        T_Derived.defineClass(Derived, -1, false, false, ::Test::T_Base, [['b', ::Ice::T_string, false, 0]])
+        T_Derived.defineClass(Derived, -1, false, false, ::Test::::T_Base, [['b', ::Ice::T_string, false, 0]])
     end
 end

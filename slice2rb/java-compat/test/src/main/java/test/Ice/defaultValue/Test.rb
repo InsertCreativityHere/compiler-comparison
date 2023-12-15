@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Color)
+    if not defined?(::Test::::Color)
         class Color
             include Comparable
 
@@ -70,7 +70,7 @@ module ::Test
 
     module Nested
 
-        if not defined?(::Test::Nested::Color)
+        if not defined?(::Test::Nested::::Color)
             class Color
                 include Comparable
 
@@ -121,10 +121,10 @@ module ::Test
         end
     end
 
-    if not defined?(::Test::Struct1)
+    if not defined?(::Test::::Struct1)
         class Struct1
             include ::Ice::Inspect_mixin
-            def initialize(boolFalse=false, boolTrue=true, b=254, s=16000, i=3, l=4, f=5.1, d=6.2, str="foo\s\\\s\"bar\n\s\r\n\t\v\f\a\b?\s\a\s\a", c1=::Test::Color::Red, c2=::Test::Color::Green, c3=::Test::Color::Blue, nc1=::Test::Nested::Color::Red, nc2=::Test::Nested::Color::Green, nc3=::Test::Nested::Color::Blue, noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0)
+            def initialize(boolFalse=false, boolTrue=true, b=254, s=16000, i=3, l=4, f=5.1, d=6.2, str="foo\s\\\s\"bar\n\s\r\n\t\v\f\a\b?\s\a\s\a", c1=::Test::Color::::Red, c2=::Test::Color::::Green, c3=::Test::Color::::Blue, nc1=::Test::Nested::Color::::Red, nc2=::Test::Nested::Color::::Green, nc3=::Test::Nested::Color::::Blue, noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0)
                 @boolFalse = boolFalse
                 @boolTrue = boolTrue
                 @b = b
@@ -177,7 +177,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::Struct1 or
+                return false if !other.is_a? ::Test::::Struct1 or
                     @boolFalse != other.boolFalse or
                     @boolTrue != other.boolTrue or
                     @b != other.b or
@@ -220,12 +220,12 @@ module ::Test
             ["f", ::Ice::T_float],
             ["d", ::Ice::T_double],
             ["str", ::Ice::T_string],
-            ["c1", ::Test::T_Color],
-            ["c2", ::Test::T_Color],
-            ["c3", ::Test::T_Color],
-            ["nc1", ::Test::Nested::T_Color],
-            ["nc2", ::Test::Nested::T_Color],
-            ["nc3", ::Test::Nested::T_Color],
+            ["c1", ::Test::::T_Color],
+            ["c2", ::Test::::T_Color],
+            ["c3", ::Test::::T_Color],
+            ["nc1", ::Test::Nested::::T_Color],
+            ["nc2", ::Test::Nested::::T_Color],
+            ["nc3", ::Test::Nested::::T_Color],
             ["noDefault", ::Ice::T_string],
             ["zeroI", ::Ice::T_int],
             ["zeroL", ::Ice::T_long],
@@ -252,17 +252,17 @@ module ::Test
 
     ConstString = "foo\s\\\s\"bar\n\s\r\n\t\v\f\a\b?\s\a\s\a"
 
-    ConstColor1 = ::Test::Color::Red
+    ConstColor1 = ::Test::Color::::Red
 
-    ConstColor2 = ::Test::Color::Green
+    ConstColor2 = ::Test::Color::::Green
 
-    ConstColor3 = ::Test::Color::Blue
+    ConstColor3 = ::Test::Color::::Blue
 
-    ConstNestedColor1 = ::Test::Nested::Color::Red
+    ConstNestedColor1 = ::Test::Nested::Color::::Red
 
-    ConstNestedColor2 = ::Test::Nested::Color::Green
+    ConstNestedColor2 = ::Test::Nested::Color::::Green
 
-    ConstNestedColor3 = ::Test::Nested::Color::Blue
+    ConstNestedColor3 = ::Test::Nested::Color::::Blue
 
     ConstZeroI = 0
 
@@ -276,7 +276,7 @@ module ::Test
 
     ConstZeroDotD = 0
 
-    if not defined?(::Test::Struct2)
+    if not defined?(::Test::::Struct2)
         class Struct2
             include ::Ice::Inspect_mixin
             def initialize(boolTrue=::Test::ConstBool, b=::Test::ConstByte, s=::Test::ConstShort, i=::Test::ConstInt, l=::Test::ConstLong, f=::Test::ConstFloat, d=::Test::ConstDouble, str=::Test::ConstString, c1=::Test::ConstColor1, c2=::Test::ConstColor2, c3=::Test::ConstColor3, nc1=::Test::ConstNestedColor1, nc2=::Test::ConstNestedColor2, nc3=::Test::ConstNestedColor3, zeroI=::Test::ConstZeroI, zeroL=::Test::ConstZeroL, zeroF=::Test::ConstZeroF, zeroDotF=::Test::ConstZeroDotF, zeroD=::Test::ConstZeroD, zeroDotD=::Test::ConstZeroDotD)
@@ -328,7 +328,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::Struct2 or
+                return false if !other.is_a? ::Test::::Struct2 or
                     @boolTrue != other.boolTrue or
                     @b != other.b or
                     @s != other.s or
@@ -368,12 +368,12 @@ module ::Test
             ["f", ::Ice::T_float],
             ["d", ::Ice::T_double],
             ["str", ::Ice::T_string],
-            ["c1", ::Test::T_Color],
-            ["c2", ::Test::T_Color],
-            ["c3", ::Test::T_Color],
-            ["nc1", ::Test::Nested::T_Color],
-            ["nc2", ::Test::Nested::T_Color],
-            ["nc3", ::Test::Nested::T_Color],
+            ["c1", ::Test::::T_Color],
+            ["c2", ::Test::::T_Color],
+            ["c3", ::Test::::T_Color],
+            ["nc1", ::Test::Nested::::T_Color],
+            ["nc2", ::Test::Nested::::T_Color],
+            ["nc3", ::Test::Nested::::T_Color],
             ["zeroI", ::Ice::T_int],
             ["zeroL", ::Ice::T_long],
             ["zeroF", ::Ice::T_float],
@@ -383,9 +383,9 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::Base_Mixin)
+    if not defined?(::Test::::Base_Mixin)
 
-        module ::Test::Base_Mixin
+        module ::Test::::Base_Mixin
         end
         class Base < ::Ice::Value
 
@@ -411,7 +411,7 @@ module ::Test
             attr_accessor :boolFalse, :boolTrue, :b, :s, :i, :l, :f, :d, :str, :noDefault, :zeroI, :zeroL, :zeroF, :zeroDotF, :zeroD, :zeroDotD
         end
 
-        if not defined?(::Test::T_Base)
+        if not defined?(::Test::::T_Base)
             T_Base = ::Ice::__declareClass('::Test::Base')
         end
 
@@ -435,13 +435,13 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::Derived_Mixin)
+    if not defined?(::Test::::Derived_Mixin)
 
-        module ::Test::Derived_Mixin
+        module ::Test::::Derived_Mixin
         end
-        class Derived < ::Test::Base
+        class Derived < ::Test::::Base
 
-            def initialize(boolFalse=false, boolTrue=true, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo\s\\\s\"bar\n\s\r\n\t\v\f\a\b?\s\a\s\a", noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0, c1=::Test::Color::Red, c2=::Test::Color::Green, c3=::Test::Color::Blue, nc1=::Test::Nested::Color::Red, nc2=::Test::Nested::Color::Green, nc3=::Test::Nested::Color::Blue)
+            def initialize(boolFalse=false, boolTrue=true, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo\s\\\s\"bar\n\s\r\n\t\v\f\a\b?\s\a\s\a", noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0, c1=::Test::Color::::Red, c2=::Test::Color::::Green, c3=::Test::Color::::Blue, nc1=::Test::Nested::Color::::Red, nc2=::Test::Nested::Color::::Green, nc3=::Test::Nested::Color::::Blue)
                 super(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD)
                 @c1 = c1
                 @c2 = c2
@@ -454,21 +454,21 @@ module ::Test
             attr_accessor :c1, :c2, :c3, :nc1, :nc2, :nc3
         end
 
-        if not defined?(::Test::T_Derived)
+        if not defined?(::Test::::T_Derived)
             T_Derived = ::Ice::__declareClass('::Test::Derived')
         end
 
-        T_Derived.defineClass(Derived, -1, false, false, ::Test::T_Base, [
-            ['c1', ::Test::T_Color, false, 0],
-            ['c2', ::Test::T_Color, false, 0],
-            ['c3', ::Test::T_Color, false, 0],
-            ['nc1', ::Test::Nested::T_Color, false, 0],
-            ['nc2', ::Test::Nested::T_Color, false, 0],
-            ['nc3', ::Test::Nested::T_Color, false, 0]
+        T_Derived.defineClass(Derived, -1, false, false, ::Test::::T_Base, [
+            ['c1', ::Test::::T_Color, false, 0],
+            ['c2', ::Test::::T_Color, false, 0],
+            ['c3', ::Test::::T_Color, false, 0],
+            ['nc1', ::Test::Nested::::T_Color, false, 0],
+            ['nc2', ::Test::Nested::::T_Color, false, 0],
+            ['nc3', ::Test::Nested::::T_Color, false, 0]
         ])
     end
 
-    if not defined?(::Test::BaseEx)
+    if not defined?(::Test::::BaseEx)
         class BaseEx < Ice::UserException
             def initialize(boolFalse=false, boolTrue=true, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo\s\\\s\"bar\n\s\r\n\t\v\f\a\b?\s\a\s\a", noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0)
                 @boolFalse = boolFalse
@@ -516,8 +516,8 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::DerivedEx)
-        class DerivedEx < ::Test::BaseEx
+    if not defined?(::Test::::DerivedEx)
+        class DerivedEx < ::Test::::BaseEx
             def initialize(boolFalse=false, boolTrue=true, b=1, s=2, i=3, l=4, f=5.1, d=6.2, str="foo\s\\\s\"bar\n\s\r\n\t\v\f\a\b?\s\a\s\a", noDefault='', zeroI=0, zeroL=0, zeroF=0, zeroDotF=0, zeroD=0, zeroDotD=0, c1=::Test::ConstColor1, c2=::Test::ConstColor2, c3=::Test::ConstColor3, nc1=::Test::ConstNestedColor1, nc2=::Test::ConstNestedColor2, nc3=::Test::ConstNestedColor3)
                 super(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD)
                 @c1 = c1
@@ -535,29 +535,29 @@ module ::Test
             attr_accessor :c1, :c2, :c3, :nc1, :nc2, :nc3
         end
 
-        T_DerivedEx = ::Ice::__defineException('::Test::DerivedEx', DerivedEx, false, ::Test::T_BaseEx, [
-            ["c1", ::Test::T_Color, false, 0],
-            ["c2", ::Test::T_Color, false, 0],
-            ["c3", ::Test::T_Color, false, 0],
-            ["nc1", ::Test::Nested::T_Color, false, 0],
-            ["nc2", ::Test::Nested::T_Color, false, 0],
-            ["nc3", ::Test::Nested::T_Color, false, 0]
+        T_DerivedEx = ::Ice::__defineException('::Test::DerivedEx', DerivedEx, false, ::Test::::T_BaseEx, [
+            ["c1", ::Test::::T_Color, false, 0],
+            ["c2", ::Test::::T_Color, false, 0],
+            ["c3", ::Test::::T_Color, false, 0],
+            ["nc1", ::Test::Nested::::T_Color, false, 0],
+            ["nc2", ::Test::Nested::::T_Color, false, 0],
+            ["nc3", ::Test::Nested::::T_Color, false, 0]
         ])
     end
 
-    if not defined?(::Test::T_ByteSeq)
+    if not defined?(::Test::::T_ByteSeq)
         T_ByteSeq = ::Ice::__defineSequence('::Test::ByteSeq', ::Ice::T_byte)
     end
 
-    if not defined?(::Test::T_IntSeq)
+    if not defined?(::Test::::T_IntSeq)
         T_IntSeq = ::Ice::__defineSequence('::Test::IntSeq', ::Ice::T_int)
     end
 
-    if not defined?(::Test::T_IntStringDict)
+    if not defined?(::Test::::T_IntStringDict)
         T_IntStringDict = ::Ice::__defineDictionary('::Test::IntStringDict', ::Ice::T_int, ::Ice::T_string)
     end
 
-    if not defined?(::Test::InnerStruct)
+    if not defined?(::Test::::InnerStruct)
         class InnerStruct
             include ::Ice::Inspect_mixin
             def initialize(a=0)
@@ -571,7 +571,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::InnerStruct or
+                return false if !other.is_a? ::Test::::InnerStruct or
                     @a != other.a
                 true
             end
@@ -586,10 +586,10 @@ module ::Test
         T_InnerStruct = ::Ice::__defineStruct('::Test::InnerStruct', InnerStruct, [["a", ::Ice::T_int]])
     end
 
-    if not defined?(::Test::StructNoDefaults)
+    if not defined?(::Test::::StructNoDefaults)
         class StructNoDefaults
             include ::Ice::Inspect_mixin
-            def initialize(bo=false, b=0, s=0, i=0, l=0, f=0.0, d=0.0, str='', c1=::Test::Color::Red, bs=nil, is=nil, st=::Test::InnerStruct.new, dict=nil)
+            def initialize(bo=false, b=0, s=0, i=0, l=0, f=0.0, d=0.0, str='', c1=::Test::::Color::Red, bs=nil, is=nil, st=::Test::::InnerStruct.new, dict=nil)
                 @bo = bo
                 @b = b
                 @s = s
@@ -624,7 +624,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::StructNoDefaults or
+                return false if !other.is_a? ::Test::::StructNoDefaults or
                     @bo != other.bo or
                     @b != other.b or
                     @s != other.s or
@@ -657,17 +657,17 @@ module ::Test
             ["f", ::Ice::T_float],
             ["d", ::Ice::T_double],
             ["str", ::Ice::T_string],
-            ["c1", ::Test::T_Color],
-            ["bs", ::Test::T_ByteSeq],
-            ["is", ::Test::T_IntSeq],
-            ["st", ::Test::T_InnerStruct],
-            ["dict", ::Test::T_IntStringDict]
+            ["c1", ::Test::::T_Color],
+            ["bs", ::Test::::T_ByteSeq],
+            ["is", ::Test::::T_IntSeq],
+            ["st", ::Test::::T_InnerStruct],
+            ["dict", ::Test::::T_IntStringDict]
         ])
     end
 
-    if not defined?(::Test::ExceptionNoDefaultsBase)
+    if not defined?(::Test::::ExceptionNoDefaultsBase)
         class ExceptionNoDefaultsBase < Ice::UserException
-            def initialize(str='', c1=::Test::Color::Red, bs=nil)
+            def initialize(str='', c1=::Test::::Color::Red, bs=nil)
                 @str = str
                 @c1 = c1
                 @bs = bs
@@ -682,14 +682,14 @@ module ::Test
 
         T_ExceptionNoDefaultsBase = ::Ice::__defineException('::Test::ExceptionNoDefaultsBase', ExceptionNoDefaultsBase, false, nil, [
             ["str", ::Ice::T_string, false, 0],
-            ["c1", ::Test::T_Color, false, 0],
-            ["bs", ::Test::T_ByteSeq, false, 0]
+            ["c1", ::Test::::T_Color, false, 0],
+            ["bs", ::Test::::T_ByteSeq, false, 0]
         ])
     end
 
-    if not defined?(::Test::ExceptionNoDefaults)
-        class ExceptionNoDefaults < ::Test::ExceptionNoDefaultsBase
-            def initialize(str='', c1=::Test::Color::Red, bs=nil, st=::Test::InnerStruct.new, dict=nil)
+    if not defined?(::Test::::ExceptionNoDefaults)
+        class ExceptionNoDefaults < ::Test::::ExceptionNoDefaultsBase
+            def initialize(str='', c1=::Test::::Color::Red, bs=nil, st=::Test::::InnerStruct.new, dict=nil)
                 super(str, c1, bs)
                 @st = st
                 @dict = dict
@@ -702,19 +702,19 @@ module ::Test
             attr_accessor :st, :dict
         end
 
-        T_ExceptionNoDefaults = ::Ice::__defineException('::Test::ExceptionNoDefaults', ExceptionNoDefaults, false, ::Test::T_ExceptionNoDefaultsBase, [
-            ["st", ::Test::T_InnerStruct, false, 0],
-            ["dict", ::Test::T_IntStringDict, false, 0]
+        T_ExceptionNoDefaults = ::Ice::__defineException('::Test::ExceptionNoDefaults', ExceptionNoDefaults, false, ::Test::::T_ExceptionNoDefaultsBase, [
+            ["st", ::Test::::T_InnerStruct, false, 0],
+            ["dict", ::Test::::T_IntStringDict, false, 0]
         ])
     end
 
-    if not defined?(::Test::ClassNoDefaultsBase_Mixin)
+    if not defined?(::Test::::ClassNoDefaultsBase_Mixin)
 
-        module ::Test::ClassNoDefaultsBase_Mixin
+        module ::Test::::ClassNoDefaultsBase_Mixin
         end
         class ClassNoDefaultsBase < ::Ice::Value
 
-            def initialize(str='', c1=::Test::Color::Red, bs=nil)
+            def initialize(str='', c1=::Test::::Color::Red, bs=nil)
                 @str = str
                 @c1 = c1
                 @bs = bs
@@ -723,24 +723,24 @@ module ::Test
             attr_accessor :str, :c1, :bs
         end
 
-        if not defined?(::Test::T_ClassNoDefaultsBase)
+        if not defined?(::Test::::T_ClassNoDefaultsBase)
             T_ClassNoDefaultsBase = ::Ice::__declareClass('::Test::ClassNoDefaultsBase')
         end
 
         T_ClassNoDefaultsBase.defineClass(ClassNoDefaultsBase, -1, false, false, nil, [
             ['str', ::Ice::T_string, false, 0],
-            ['c1', ::Test::T_Color, false, 0],
-            ['bs', ::Test::T_ByteSeq, false, 0]
+            ['c1', ::Test::::T_Color, false, 0],
+            ['bs', ::Test::::T_ByteSeq, false, 0]
         ])
     end
 
-    if not defined?(::Test::ClassNoDefaults_Mixin)
+    if not defined?(::Test::::ClassNoDefaults_Mixin)
 
-        module ::Test::ClassNoDefaults_Mixin
+        module ::Test::::ClassNoDefaults_Mixin
         end
-        class ClassNoDefaults < ::Test::ClassNoDefaultsBase
+        class ClassNoDefaults < ::Test::::ClassNoDefaultsBase
 
-            def initialize(str='', c1=::Test::Color::Red, bs=nil, st=::Test::InnerStruct.new, dict=nil)
+            def initialize(str='', c1=::Test::::Color::Red, bs=nil, st=::Test::::InnerStruct.new, dict=nil)
                 super(str, c1, bs)
                 @st = st
                 @dict = dict
@@ -749,13 +749,13 @@ module ::Test
             attr_accessor :st, :dict
         end
 
-        if not defined?(::Test::T_ClassNoDefaults)
+        if not defined?(::Test::::T_ClassNoDefaults)
             T_ClassNoDefaults = ::Ice::__declareClass('::Test::ClassNoDefaults')
         end
 
-        T_ClassNoDefaults.defineClass(ClassNoDefaults, -1, false, false, ::Test::T_ClassNoDefaultsBase, [
-            ['st', ::Test::T_InnerStruct, false, 0],
-            ['dict', ::Test::T_IntStringDict, false, 0]
+        T_ClassNoDefaults.defineClass(ClassNoDefaults, -1, false, false, ::Test::::T_ClassNoDefaultsBase, [
+            ['st', ::Test::::T_InnerStruct, false, 0],
+            ['dict', ::Test::::T_IntStringDict, false, 0]
         ])
     end
 end

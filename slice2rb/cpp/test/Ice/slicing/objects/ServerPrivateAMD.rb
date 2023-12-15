@@ -19,11 +19,11 @@ require 'TestAMD.rb'
 
 module ::Test
 
-    if not defined?(::Test::SBSUnknownDerived_Mixin)
+    if not defined?(::Test::::SBSUnknownDerived_Mixin)
 
-        module ::Test::SBSUnknownDerived_Mixin
+        module ::Test::::SBSUnknownDerived_Mixin
         end
-        class SBSUnknownDerived < ::Test::SBase
+        class SBSUnknownDerived < ::Test::::SBase
 
             def initialize(sb='', sbsud='')
                 super(sb)
@@ -33,16 +33,16 @@ module ::Test
             attr_accessor :sbsud
         end
 
-        if not defined?(::Test::T_SBSUnknownDerived)
+        if not defined?(::Test::::T_SBSUnknownDerived)
             T_SBSUnknownDerived = ::Ice::__declareClass('::Test::SBSUnknownDerived')
         end
 
-        T_SBSUnknownDerived.defineClass(SBSUnknownDerived, -1, false, false, ::Test::T_SBase, [['sbsud', ::Ice::T_string, false, 0]])
+        T_SBSUnknownDerived.defineClass(SBSUnknownDerived, -1, false, false, ::Test::::T_SBase, [['sbsud', ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::SUnknown_Mixin)
+    if not defined?(::Test::::SUnknown_Mixin)
 
-        module ::Test::SUnknown_Mixin
+        module ::Test::::SUnknown_Mixin
         end
         class SUnknown < ::Ice::Value
 
@@ -54,21 +54,21 @@ module ::Test
             attr_accessor :su, :cycle
         end
 
-        if not defined?(::Test::T_SUnknown)
+        if not defined?(::Test::::T_SUnknown)
             T_SUnknown = ::Ice::__declareClass('::Test::SUnknown')
         end
 
         T_SUnknown.defineClass(SUnknown, -1, false, false, nil, [
             ['su', ::Ice::T_string, false, 0],
-            ['cycle', ::Test::T_SUnknown, false, 0]
+            ['cycle', ::Test::::T_SUnknown, false, 0]
         ])
     end
 
-    if not defined?(::Test::D2_Mixin)
+    if not defined?(::Test::::D2_Mixin)
 
-        module ::Test::D2_Mixin
+        module ::Test::::D2_Mixin
         end
-        class D2 < ::Test::B
+        class D2 < ::Test::::B
 
             def initialize(sb='', pb=nil, sd2='', pd2=nil)
                 super(sb, pb)
@@ -79,21 +79,21 @@ module ::Test
             attr_accessor :sd2, :pd2
         end
 
-        if not defined?(::Test::T_D2)
+        if not defined?(::Test::::T_D2)
             T_D2 = ::Ice::__declareClass('::Test::D2')
         end
 
-        T_D2.defineClass(D2, -1, false, false, ::Test::T_B, [
+        T_D2.defineClass(D2, -1, false, false, ::Test::::T_B, [
             ['sd2', ::Ice::T_string, false, 0],
-            ['pd2', ::Test::T_B, false, 0]
+            ['pd2', ::Test::::T_B, false, 0]
         ])
     end
 
-    if not defined?(::Test::D4_Mixin)
+    if not defined?(::Test::::D4_Mixin)
 
-        module ::Test::D4_Mixin
+        module ::Test::::D4_Mixin
         end
-        class D4 < ::Test::B
+        class D4 < ::Test::::B
 
             def initialize(sb='', pb=nil, p1=nil, p2=nil)
                 super(sb, pb)
@@ -104,18 +104,18 @@ module ::Test
             attr_accessor :p1, :p2
         end
 
-        if not defined?(::Test::T_D4)
+        if not defined?(::Test::::T_D4)
             T_D4 = ::Ice::__declareClass('::Test::D4')
         end
 
-        T_D4.defineClass(D4, -1, false, false, ::Test::T_B, [
-            ['p1', ::Test::T_B, false, 0],
-            ['p2', ::Test::T_B, false, 0]
+        T_D4.defineClass(D4, -1, false, false, ::Test::::T_B, [
+            ['p1', ::Test::::T_B, false, 0],
+            ['p2', ::Test::::T_B, false, 0]
         ])
     end
 
-    if not defined?(::Test::UnknownDerivedException)
-        class UnknownDerivedException < ::Test::BaseException
+    if not defined?(::Test::::UnknownDerivedException)
+        class UnknownDerivedException < ::Test::::BaseException
             def initialize(sbe='', pb=nil, sude='', pd2=nil)
                 super(sbe, pb)
                 @sude = sude
@@ -129,15 +129,15 @@ module ::Test
             attr_accessor :sude, :pd2
         end
 
-        T_UnknownDerivedException = ::Ice::__defineException('::Test::UnknownDerivedException', UnknownDerivedException, false, ::Test::T_BaseException, [
+        T_UnknownDerivedException = ::Ice::__defineException('::Test::UnknownDerivedException', UnknownDerivedException, false, ::Test::::T_BaseException, [
             ["sude", ::Ice::T_string, false, 0],
-            ["pd2", ::Test::T_D2, false, 0]
+            ["pd2", ::Test::::T_D2, false, 0]
         ])
     end
 
-    if not defined?(::Test::MyClass_Mixin)
+    if not defined?(::Test::::MyClass_Mixin)
 
-        module ::Test::MyClass_Mixin
+        module ::Test::::MyClass_Mixin
         end
         class MyClass < ::Ice::Value
 
@@ -148,18 +148,18 @@ module ::Test
             attr_accessor :i
         end
 
-        if not defined?(::Test::T_MyClass)
+        if not defined?(::Test::::T_MyClass)
             T_MyClass = ::Ice::__declareClass('::Test::MyClass')
         end
 
         T_MyClass.defineClass(MyClass, -1, false, false, nil, [['i', ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::Test::PSUnknown_Mixin)
+    if not defined?(::Test::::PSUnknown_Mixin)
 
-        module ::Test::PSUnknown_Mixin
+        module ::Test::::PSUnknown_Mixin
         end
-        class PSUnknown < ::Test::Preserved
+        class PSUnknown < ::Test::::Preserved
 
             def initialize(pi=0, ps='', psu='', graph=nil, cl=nil)
                 super(pi, ps)
@@ -171,22 +171,22 @@ module ::Test
             attr_accessor :psu, :graph, :cl
         end
 
-        if not defined?(::Test::T_PSUnknown)
+        if not defined?(::Test::::T_PSUnknown)
             T_PSUnknown = ::Ice::__declareClass('::Test::PSUnknown')
         end
 
-        T_PSUnknown.defineClass(PSUnknown, -1, true, false, ::Test::T_Preserved, [
+        T_PSUnknown.defineClass(PSUnknown, -1, true, false, ::Test::::T_Preserved, [
             ['psu', ::Ice::T_string, false, 0],
-            ['graph', ::Test::T_PNode, false, 0],
-            ['cl', ::Test::T_MyClass, false, 0]
+            ['graph', ::Test::::T_PNode, false, 0],
+            ['cl', ::Test::::T_MyClass, false, 0]
         ])
     end
 
-    if not defined?(::Test::PSUnknown2_Mixin)
+    if not defined?(::Test::::PSUnknown2_Mixin)
 
-        module ::Test::PSUnknown2_Mixin
+        module ::Test::::PSUnknown2_Mixin
         end
-        class PSUnknown2 < ::Test::Preserved
+        class PSUnknown2 < ::Test::::Preserved
 
             def initialize(pi=0, ps='', pb=nil)
                 super(pi, ps)
@@ -196,15 +196,15 @@ module ::Test
             attr_accessor :pb
         end
 
-        if not defined?(::Test::T_PSUnknown2)
+        if not defined?(::Test::::T_PSUnknown2)
             T_PSUnknown2 = ::Ice::__declareClass('::Test::PSUnknown2')
         end
 
-        T_PSUnknown2.defineClass(PSUnknown2, -1, true, false, ::Test::T_Preserved, [['pb', ::Test::T_PBase, false, 0]])
+        T_PSUnknown2.defineClass(PSUnknown2, -1, true, false, ::Test::::T_Preserved, [['pb', ::Test::::T_PBase, false, 0]])
     end
 
-    if not defined?(::Test::PSUnknownException)
-        class PSUnknownException < ::Test::PreservedException
+    if not defined?(::Test::::PSUnknownException)
+        class PSUnknownException < ::Test::::PreservedException
             def initialize(p=nil)
                 @p = p
             end
@@ -216,6 +216,6 @@ module ::Test
             attr_accessor :p
         end
 
-        T_PSUnknownException = ::Ice::__defineException('::Test::PSUnknownException', PSUnknownException, true, ::Test::T_PreservedException, [["p", ::Test::T_PSUnknown2, false, 0]])
+        T_PSUnknownException = ::Ice::__defineException('::Test::PSUnknownException', PSUnknownException, true, ::Test::::T_PreservedException, [["p", ::Test::::T_PSUnknown2, false, 0]])
     end
 end

@@ -19,7 +19,7 @@ require 'Ice/Current.rb'
 
 module ::Test
 
-    if not defined?(::Test::MyEnum)
+    if not defined?(::Test::::MyEnum)
         class MyEnum
             include Comparable
 
@@ -69,12 +69,12 @@ module ::Test
         T_MyEnum = ::Ice::__defineEnum('::Test::MyEnum', MyEnum, MyEnum::_enumerators)
     end
 
-    if not defined?(::Test::T_MyClass)
+    if not defined?(::Test::::T_MyClass)
         T_MyClass = ::Ice::__declareClass('::Test::MyClass')
         T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
     end
 
-    if not defined?(::Test::AnotherStruct)
+    if not defined?(::Test::::AnotherStruct)
         class AnotherStruct
             include ::Ice::Inspect_mixin
             def initialize(s='')
@@ -88,7 +88,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::AnotherStruct or
+                return false if !other.is_a? ::Test::::AnotherStruct or
                     @s != other.s
                 true
             end
@@ -103,10 +103,10 @@ module ::Test
         T_AnotherStruct = ::Ice::__defineStruct('::Test::AnotherStruct', AnotherStruct, [["s", ::Ice::T_string]])
     end
 
-    if not defined?(::Test::Structure)
+    if not defined?(::Test::::Structure)
         class Structure
             include ::Ice::Inspect_mixin
-            def initialize(p=nil, e=::Test::MyEnum::Enum1, s=::Test::AnotherStruct.new)
+            def initialize(p=nil, e=::Test::::MyEnum::Enum1, s=::Test::::AnotherStruct.new)
                 @p = p
                 @e = e
                 @s = s
@@ -121,7 +121,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::Structure or
+                return false if !other.is_a? ::Test::::Structure or
                     @p != other.p or
                     @e != other.e or
                     @s != other.s
@@ -136,97 +136,97 @@ module ::Test
         end
 
         T_Structure = ::Ice::__defineStruct('::Test::Structure', Structure, [
-            ["p", ::Test::T_MyClassPrx],
-            ["e", ::Test::T_MyEnum],
-            ["s", ::Test::T_AnotherStruct]
+            ["p", ::Test::::T_MyClassPrx],
+            ["e", ::Test::::T_MyEnum],
+            ["s", ::Test::::T_AnotherStruct]
         ])
     end
 
-    if not defined?(::Test::T_ByteS)
+    if not defined?(::Test::::T_ByteS)
         T_ByteS = ::Ice::__defineSequence('::Test::ByteS', ::Ice::T_byte)
     end
 
-    if not defined?(::Test::T_BoolS)
+    if not defined?(::Test::::T_BoolS)
         T_BoolS = ::Ice::__defineSequence('::Test::BoolS', ::Ice::T_bool)
     end
 
-    if not defined?(::Test::T_ShortS)
+    if not defined?(::Test::::T_ShortS)
         T_ShortS = ::Ice::__defineSequence('::Test::ShortS', ::Ice::T_short)
     end
 
-    if not defined?(::Test::T_IntS)
+    if not defined?(::Test::::T_IntS)
         T_IntS = ::Ice::__defineSequence('::Test::IntS', ::Ice::T_int)
     end
 
-    if not defined?(::Test::T_LongS)
+    if not defined?(::Test::::T_LongS)
         T_LongS = ::Ice::__defineSequence('::Test::LongS', ::Ice::T_long)
     end
 
-    if not defined?(::Test::T_FloatS)
+    if not defined?(::Test::::T_FloatS)
         T_FloatS = ::Ice::__defineSequence('::Test::FloatS', ::Ice::T_float)
     end
 
-    if not defined?(::Test::T_DoubleS)
+    if not defined?(::Test::::T_DoubleS)
         T_DoubleS = ::Ice::__defineSequence('::Test::DoubleS', ::Ice::T_double)
     end
 
-    if not defined?(::Test::T_StringS)
+    if not defined?(::Test::::T_StringS)
         T_StringS = ::Ice::__defineSequence('::Test::StringS', ::Ice::T_string)
     end
 
-    if not defined?(::Test::T_MyEnumS)
-        T_MyEnumS = ::Ice::__defineSequence('::Test::MyEnumS', ::Test::T_MyEnum)
+    if not defined?(::Test::::T_MyEnumS)
+        T_MyEnumS = ::Ice::__defineSequence('::Test::MyEnumS', ::Test::::T_MyEnum)
     end
 
-    if not defined?(::Test::T_MyClassS)
-        T_MyClassS = ::Ice::__defineSequence('::Test::MyClassS', ::Test::T_MyClassPrx)
+    if not defined?(::Test::::T_MyClassS)
+        T_MyClassS = ::Ice::__defineSequence('::Test::MyClassS', ::Test::::T_MyClassPrx)
     end
 
-    if not defined?(::Test::T_ByteSS)
-        T_ByteSS = ::Ice::__defineSequence('::Test::ByteSS', ::Test::T_ByteS)
+    if not defined?(::Test::::T_ByteSS)
+        T_ByteSS = ::Ice::__defineSequence('::Test::ByteSS', ::Test::::T_ByteS)
     end
 
-    if not defined?(::Test::T_BoolSS)
-        T_BoolSS = ::Ice::__defineSequence('::Test::BoolSS', ::Test::T_BoolS)
+    if not defined?(::Test::::T_BoolSS)
+        T_BoolSS = ::Ice::__defineSequence('::Test::BoolSS', ::Test::::T_BoolS)
     end
 
-    if not defined?(::Test::T_ShortSS)
-        T_ShortSS = ::Ice::__defineSequence('::Test::ShortSS', ::Test::T_ShortS)
+    if not defined?(::Test::::T_ShortSS)
+        T_ShortSS = ::Ice::__defineSequence('::Test::ShortSS', ::Test::::T_ShortS)
     end
 
-    if not defined?(::Test::T_IntSS)
-        T_IntSS = ::Ice::__defineSequence('::Test::IntSS', ::Test::T_IntS)
+    if not defined?(::Test::::T_IntSS)
+        T_IntSS = ::Ice::__defineSequence('::Test::IntSS', ::Test::::T_IntS)
     end
 
-    if not defined?(::Test::T_LongSS)
-        T_LongSS = ::Ice::__defineSequence('::Test::LongSS', ::Test::T_LongS)
+    if not defined?(::Test::::T_LongSS)
+        T_LongSS = ::Ice::__defineSequence('::Test::LongSS', ::Test::::T_LongS)
     end
 
-    if not defined?(::Test::T_FloatSS)
-        T_FloatSS = ::Ice::__defineSequence('::Test::FloatSS', ::Test::T_FloatS)
+    if not defined?(::Test::::T_FloatSS)
+        T_FloatSS = ::Ice::__defineSequence('::Test::FloatSS', ::Test::::T_FloatS)
     end
 
-    if not defined?(::Test::T_DoubleSS)
-        T_DoubleSS = ::Ice::__defineSequence('::Test::DoubleSS', ::Test::T_DoubleS)
+    if not defined?(::Test::::T_DoubleSS)
+        T_DoubleSS = ::Ice::__defineSequence('::Test::DoubleSS', ::Test::::T_DoubleS)
     end
 
-    if not defined?(::Test::T_StringSS)
-        T_StringSS = ::Ice::__defineSequence('::Test::StringSS', ::Test::T_StringS)
+    if not defined?(::Test::::T_StringSS)
+        T_StringSS = ::Ice::__defineSequence('::Test::StringSS', ::Test::::T_StringS)
     end
 
-    if not defined?(::Test::T_MyEnumSS)
-        T_MyEnumSS = ::Ice::__defineSequence('::Test::MyEnumSS', ::Test::T_MyEnumS)
+    if not defined?(::Test::::T_MyEnumSS)
+        T_MyEnumSS = ::Ice::__defineSequence('::Test::MyEnumSS', ::Test::::T_MyEnumS)
     end
 
-    if not defined?(::Test::T_MyClassSS)
-        T_MyClassSS = ::Ice::__defineSequence('::Test::MyClassSS', ::Test::T_MyClassS)
+    if not defined?(::Test::::T_MyClassSS)
+        T_MyClassSS = ::Ice::__defineSequence('::Test::MyClassSS', ::Test::::T_MyClassS)
     end
 
-    if not defined?(::Test::T_StringSSS)
-        T_StringSSS = ::Ice::__defineSequence('::Test::StringSSS', ::Test::T_StringSS)
+    if not defined?(::Test::::T_StringSSS)
+        T_StringSSS = ::Ice::__defineSequence('::Test::StringSSS', ::Test::::T_StringSS)
     end
 
-    if not defined?(::Test::MyStruct)
+    if not defined?(::Test::::MyStruct)
         class MyStruct
             include ::Ice::Inspect_mixin
             def initialize(i=0, j=0)
@@ -242,7 +242,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::MyStruct or
+                return false if !other.is_a? ::Test::::MyStruct or
                     @i != other.i or
                     @j != other.j
                 true
@@ -261,101 +261,101 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::T_ByteBoolD)
+    if not defined?(::Test::::T_ByteBoolD)
         T_ByteBoolD = ::Ice::__defineDictionary('::Test::ByteBoolD', ::Ice::T_byte, ::Ice::T_bool)
     end
 
-    if not defined?(::Test::T_ShortIntD)
+    if not defined?(::Test::::T_ShortIntD)
         T_ShortIntD = ::Ice::__defineDictionary('::Test::ShortIntD', ::Ice::T_short, ::Ice::T_int)
     end
 
-    if not defined?(::Test::T_LongFloatD)
+    if not defined?(::Test::::T_LongFloatD)
         T_LongFloatD = ::Ice::__defineDictionary('::Test::LongFloatD', ::Ice::T_long, ::Ice::T_float)
     end
 
-    if not defined?(::Test::T_StringStringD)
+    if not defined?(::Test::::T_StringStringD)
         T_StringStringD = ::Ice::__defineDictionary('::Test::StringStringD', ::Ice::T_string, ::Ice::T_string)
     end
 
-    if not defined?(::Test::T_StringMyEnumD)
-        T_StringMyEnumD = ::Ice::__defineDictionary('::Test::StringMyEnumD', ::Ice::T_string, ::Test::T_MyEnum)
+    if not defined?(::Test::::T_StringMyEnumD)
+        T_StringMyEnumD = ::Ice::__defineDictionary('::Test::StringMyEnumD', ::Ice::T_string, ::Test::::T_MyEnum)
     end
 
-    if not defined?(::Test::T_MyEnumStringD)
-        T_MyEnumStringD = ::Ice::__defineDictionary('::Test::MyEnumStringD', ::Test::T_MyEnum, ::Ice::T_string)
+    if not defined?(::Test::::T_MyEnumStringD)
+        T_MyEnumStringD = ::Ice::__defineDictionary('::Test::MyEnumStringD', ::Test::::T_MyEnum, ::Ice::T_string)
     end
 
-    if not defined?(::Test::T_MyStructMyEnumD)
-        T_MyStructMyEnumD = ::Ice::__defineDictionary('::Test::MyStructMyEnumD', ::Test::T_MyStruct, ::Test::T_MyEnum)
+    if not defined?(::Test::::T_MyStructMyEnumD)
+        T_MyStructMyEnumD = ::Ice::__defineDictionary('::Test::MyStructMyEnumD', ::Test::::T_MyStruct, ::Test::::T_MyEnum)
     end
 
-    if not defined?(::Test::T_ByteBoolDS)
-        T_ByteBoolDS = ::Ice::__defineSequence('::Test::ByteBoolDS', ::Test::T_ByteBoolD)
+    if not defined?(::Test::::T_ByteBoolDS)
+        T_ByteBoolDS = ::Ice::__defineSequence('::Test::ByteBoolDS', ::Test::::T_ByteBoolD)
     end
 
-    if not defined?(::Test::T_ShortIntDS)
-        T_ShortIntDS = ::Ice::__defineSequence('::Test::ShortIntDS', ::Test::T_ShortIntD)
+    if not defined?(::Test::::T_ShortIntDS)
+        T_ShortIntDS = ::Ice::__defineSequence('::Test::ShortIntDS', ::Test::::T_ShortIntD)
     end
 
-    if not defined?(::Test::T_LongFloatDS)
-        T_LongFloatDS = ::Ice::__defineSequence('::Test::LongFloatDS', ::Test::T_LongFloatD)
+    if not defined?(::Test::::T_LongFloatDS)
+        T_LongFloatDS = ::Ice::__defineSequence('::Test::LongFloatDS', ::Test::::T_LongFloatD)
     end
 
-    if not defined?(::Test::T_StringStringDS)
-        T_StringStringDS = ::Ice::__defineSequence('::Test::StringStringDS', ::Test::T_StringStringD)
+    if not defined?(::Test::::T_StringStringDS)
+        T_StringStringDS = ::Ice::__defineSequence('::Test::StringStringDS', ::Test::::T_StringStringD)
     end
 
-    if not defined?(::Test::T_StringMyEnumDS)
-        T_StringMyEnumDS = ::Ice::__defineSequence('::Test::StringMyEnumDS', ::Test::T_StringMyEnumD)
+    if not defined?(::Test::::T_StringMyEnumDS)
+        T_StringMyEnumDS = ::Ice::__defineSequence('::Test::StringMyEnumDS', ::Test::::T_StringMyEnumD)
     end
 
-    if not defined?(::Test::T_MyEnumStringDS)
-        T_MyEnumStringDS = ::Ice::__defineSequence('::Test::MyEnumStringDS', ::Test::T_MyEnumStringD)
+    if not defined?(::Test::::T_MyEnumStringDS)
+        T_MyEnumStringDS = ::Ice::__defineSequence('::Test::MyEnumStringDS', ::Test::::T_MyEnumStringD)
     end
 
-    if not defined?(::Test::T_MyStructMyEnumDS)
-        T_MyStructMyEnumDS = ::Ice::__defineSequence('::Test::MyStructMyEnumDS', ::Test::T_MyStructMyEnumD)
+    if not defined?(::Test::::T_MyStructMyEnumDS)
+        T_MyStructMyEnumDS = ::Ice::__defineSequence('::Test::MyStructMyEnumDS', ::Test::::T_MyStructMyEnumD)
     end
 
-    if not defined?(::Test::T_ByteByteSD)
-        T_ByteByteSD = ::Ice::__defineDictionary('::Test::ByteByteSD', ::Ice::T_byte, ::Test::T_ByteS)
+    if not defined?(::Test::::T_ByteByteSD)
+        T_ByteByteSD = ::Ice::__defineDictionary('::Test::ByteByteSD', ::Ice::T_byte, ::Test::::T_ByteS)
     end
 
-    if not defined?(::Test::T_BoolBoolSD)
-        T_BoolBoolSD = ::Ice::__defineDictionary('::Test::BoolBoolSD', ::Ice::T_bool, ::Test::T_BoolS)
+    if not defined?(::Test::::T_BoolBoolSD)
+        T_BoolBoolSD = ::Ice::__defineDictionary('::Test::BoolBoolSD', ::Ice::T_bool, ::Test::::T_BoolS)
     end
 
-    if not defined?(::Test::T_ShortShortSD)
-        T_ShortShortSD = ::Ice::__defineDictionary('::Test::ShortShortSD', ::Ice::T_short, ::Test::T_ShortS)
+    if not defined?(::Test::::T_ShortShortSD)
+        T_ShortShortSD = ::Ice::__defineDictionary('::Test::ShortShortSD', ::Ice::T_short, ::Test::::T_ShortS)
     end
 
-    if not defined?(::Test::T_IntIntSD)
-        T_IntIntSD = ::Ice::__defineDictionary('::Test::IntIntSD', ::Ice::T_int, ::Test::T_IntS)
+    if not defined?(::Test::::T_IntIntSD)
+        T_IntIntSD = ::Ice::__defineDictionary('::Test::IntIntSD', ::Ice::T_int, ::Test::::T_IntS)
     end
 
-    if not defined?(::Test::T_LongLongSD)
-        T_LongLongSD = ::Ice::__defineDictionary('::Test::LongLongSD', ::Ice::T_long, ::Test::T_LongS)
+    if not defined?(::Test::::T_LongLongSD)
+        T_LongLongSD = ::Ice::__defineDictionary('::Test::LongLongSD', ::Ice::T_long, ::Test::::T_LongS)
     end
 
-    if not defined?(::Test::T_StringFloatSD)
-        T_StringFloatSD = ::Ice::__defineDictionary('::Test::StringFloatSD', ::Ice::T_string, ::Test::T_FloatS)
+    if not defined?(::Test::::T_StringFloatSD)
+        T_StringFloatSD = ::Ice::__defineDictionary('::Test::StringFloatSD', ::Ice::T_string, ::Test::::T_FloatS)
     end
 
-    if not defined?(::Test::T_StringDoubleSD)
-        T_StringDoubleSD = ::Ice::__defineDictionary('::Test::StringDoubleSD', ::Ice::T_string, ::Test::T_DoubleS)
+    if not defined?(::Test::::T_StringDoubleSD)
+        T_StringDoubleSD = ::Ice::__defineDictionary('::Test::StringDoubleSD', ::Ice::T_string, ::Test::::T_DoubleS)
     end
 
-    if not defined?(::Test::T_StringStringSD)
-        T_StringStringSD = ::Ice::__defineDictionary('::Test::StringStringSD', ::Ice::T_string, ::Test::T_StringS)
+    if not defined?(::Test::::T_StringStringSD)
+        T_StringStringSD = ::Ice::__defineDictionary('::Test::StringStringSD', ::Ice::T_string, ::Test::::T_StringS)
     end
 
-    if not defined?(::Test::T_MyEnumMyEnumSD)
-        T_MyEnumMyEnumSD = ::Ice::__defineDictionary('::Test::MyEnumMyEnumSD', ::Test::T_MyEnum, ::Test::T_MyEnumS)
+    if not defined?(::Test::::T_MyEnumMyEnumSD)
+        T_MyEnumMyEnumSD = ::Ice::__defineDictionary('::Test::MyEnumMyEnumSD', ::Test::::T_MyEnum, ::Test::::T_MyEnumS)
     end
 
-    if not defined?(::Test::MyClass_Mixin)
+    if not defined?(::Test::::MyClass_Mixin)
 
-        module ::Test::MyClass_Mixin
+        module ::Test::::MyClass_Mixin
         end
         module MyClassPrx_mixin
 
@@ -641,7 +641,7 @@ module ::Test
             include MyClassPrx_mixin
         end
 
-        if not defined?(::Test::T_MyClassPrx)
+        if not defined?(::Test::::T_MyClassPrx)
             T_MyClass = ::Ice::__declareClass('::Test::MyClass')
             T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
         end
@@ -658,47 +658,47 @@ module ::Test
         MyClassPrx_mixin::OP_opShortIntLong = ::Ice::__defineOperation('opShortIntLong', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_short, false, 0], [::Ice::T_int, false, 0], [::Ice::T_long, false, 0]], [[::Ice::T_short, false, 0], [::Ice::T_int, false, 0], [::Ice::T_long, false, 0]], [::Ice::T_long, false, 0], [])
         MyClassPrx_mixin::OP_opFloatDouble = ::Ice::__defineOperation('opFloatDouble', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_float, false, 0], [::Ice::T_double, false, 0]], [[::Ice::T_float, false, 0], [::Ice::T_double, false, 0]], [::Ice::T_double, false, 0], [])
         MyClassPrx_mixin::OP_opString = ::Ice::__defineOperation('opString', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_string, false, 0], [])
-        MyClassPrx_mixin::OP_opMyEnum = ::Ice::__defineOperation('opMyEnum', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_MyEnum, false, 0]], [[::Test::T_MyEnum, false, 0]], [::Test::T_MyEnum, false, 0], [])
-        MyClassPrx_mixin::OP_opMyClass = ::Ice::__defineOperation('opMyClass', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_MyClassPrx, false, 0]], [[::Test::T_MyClassPrx, false, 0], [::Test::T_MyClassPrx, false, 0]], [::Test::T_MyClassPrx, false, 0], [])
-        MyClassPrx_mixin::OP_opStruct = ::Ice::__defineOperation('opStruct', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_Structure, false, 0], [::Test::T_Structure, false, 0]], [[::Test::T_Structure, false, 0]], [::Test::T_Structure, false, 0], [])
-        MyClassPrx_mixin::OP_opByteS = ::Ice::__defineOperation('opByteS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteS, false, 0], [::Test::T_ByteS, false, 0]], [[::Test::T_ByteS, false, 0]], [::Test::T_ByteS, false, 0], [])
-        MyClassPrx_mixin::OP_opBoolS = ::Ice::__defineOperation('opBoolS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_BoolS, false, 0], [::Test::T_BoolS, false, 0]], [[::Test::T_BoolS, false, 0]], [::Test::T_BoolS, false, 0], [])
-        MyClassPrx_mixin::OP_opShortIntLongS = ::Ice::__defineOperation('opShortIntLongS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ShortS, false, 0], [::Test::T_IntS, false, 0], [::Test::T_LongS, false, 0]], [[::Test::T_ShortS, false, 0], [::Test::T_IntS, false, 0], [::Test::T_LongS, false, 0]], [::Test::T_LongS, false, 0], [])
-        MyClassPrx_mixin::OP_opFloatDoubleS = ::Ice::__defineOperation('opFloatDoubleS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_FloatS, false, 0], [::Test::T_DoubleS, false, 0]], [[::Test::T_FloatS, false, 0], [::Test::T_DoubleS, false, 0]], [::Test::T_DoubleS, false, 0], [])
-        MyClassPrx_mixin::OP_opStringS = ::Ice::__defineOperation('opStringS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_StringS, false, 0], [::Test::T_StringS, false, 0]], [[::Test::T_StringS, false, 0]], [::Test::T_StringS, false, 0], [])
-        MyClassPrx_mixin::OP_opByteSS = ::Ice::__defineOperation('opByteSS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteSS, false, 0], [::Test::T_ByteSS, false, 0]], [[::Test::T_ByteSS, false, 0]], [::Test::T_ByteSS, false, 0], [])
-        MyClassPrx_mixin::OP_opBoolSS = ::Ice::__defineOperation('opBoolSS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_BoolSS, false, 0], [::Test::T_BoolSS, false, 0]], [[::Test::T_BoolSS, false, 0]], [::Test::T_BoolSS, false, 0], [])
-        MyClassPrx_mixin::OP_opShortIntLongSS = ::Ice::__defineOperation('opShortIntLongSS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ShortSS, false, 0], [::Test::T_IntSS, false, 0], [::Test::T_LongSS, false, 0]], [[::Test::T_ShortSS, false, 0], [::Test::T_IntSS, false, 0], [::Test::T_LongSS, false, 0]], [::Test::T_LongSS, false, 0], [])
-        MyClassPrx_mixin::OP_opFloatDoubleSS = ::Ice::__defineOperation('opFloatDoubleSS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_FloatSS, false, 0], [::Test::T_DoubleSS, false, 0]], [[::Test::T_FloatSS, false, 0], [::Test::T_DoubleSS, false, 0]], [::Test::T_DoubleSS, false, 0], [])
-        MyClassPrx_mixin::OP_opStringSS = ::Ice::__defineOperation('opStringSS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_StringSS, false, 0], [::Test::T_StringSS, false, 0]], [[::Test::T_StringSS, false, 0]], [::Test::T_StringSS, false, 0], [])
-        MyClassPrx_mixin::OP_opStringSSS = ::Ice::__defineOperation('opStringSSS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_StringSSS, false, 0], [::Test::T_StringSSS, false, 0]], [[::Test::T_StringSSS, false, 0]], [::Test::T_StringSSS, false, 0], [])
-        MyClassPrx_mixin::OP_opByteBoolD = ::Ice::__defineOperation('opByteBoolD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteBoolD, false, 0], [::Test::T_ByteBoolD, false, 0]], [[::Test::T_ByteBoolD, false, 0]], [::Test::T_ByteBoolD, false, 0], [])
-        MyClassPrx_mixin::OP_opShortIntD = ::Ice::__defineOperation('opShortIntD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ShortIntD, false, 0], [::Test::T_ShortIntD, false, 0]], [[::Test::T_ShortIntD, false, 0]], [::Test::T_ShortIntD, false, 0], [])
-        MyClassPrx_mixin::OP_opLongFloatD = ::Ice::__defineOperation('opLongFloatD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_LongFloatD, false, 0], [::Test::T_LongFloatD, false, 0]], [[::Test::T_LongFloatD, false, 0]], [::Test::T_LongFloatD, false, 0], [])
-        MyClassPrx_mixin::OP_opStringStringD = ::Ice::__defineOperation('opStringStringD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_StringStringD, false, 0], [::Test::T_StringStringD, false, 0]], [[::Test::T_StringStringD, false, 0]], [::Test::T_StringStringD, false, 0], [])
-        MyClassPrx_mixin::OP_opStringMyEnumD = ::Ice::__defineOperation('opStringMyEnumD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_StringMyEnumD, false, 0], [::Test::T_StringMyEnumD, false, 0]], [[::Test::T_StringMyEnumD, false, 0]], [::Test::T_StringMyEnumD, false, 0], [])
-        MyClassPrx_mixin::OP_opMyEnumStringD = ::Ice::__defineOperation('opMyEnumStringD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_MyEnumStringD, false, 0], [::Test::T_MyEnumStringD, false, 0]], [[::Test::T_MyEnumStringD, false, 0]], [::Test::T_MyEnumStringD, false, 0], [])
-        MyClassPrx_mixin::OP_opMyStructMyEnumD = ::Ice::__defineOperation('opMyStructMyEnumD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_MyStructMyEnumD, false, 0], [::Test::T_MyStructMyEnumD, false, 0]], [[::Test::T_MyStructMyEnumD, false, 0]], [::Test::T_MyStructMyEnumD, false, 0], [])
-        MyClassPrx_mixin::OP_opByteBoolDS = ::Ice::__defineOperation('opByteBoolDS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteBoolDS, false, 0], [::Test::T_ByteBoolDS, false, 0]], [[::Test::T_ByteBoolDS, false, 0]], [::Test::T_ByteBoolDS, false, 0], [])
-        MyClassPrx_mixin::OP_opShortIntDS = ::Ice::__defineOperation('opShortIntDS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ShortIntDS, false, 0], [::Test::T_ShortIntDS, false, 0]], [[::Test::T_ShortIntDS, false, 0]], [::Test::T_ShortIntDS, false, 0], [])
-        MyClassPrx_mixin::OP_opLongFloatDS = ::Ice::__defineOperation('opLongFloatDS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_LongFloatDS, false, 0], [::Test::T_LongFloatDS, false, 0]], [[::Test::T_LongFloatDS, false, 0]], [::Test::T_LongFloatDS, false, 0], [])
-        MyClassPrx_mixin::OP_opStringStringDS = ::Ice::__defineOperation('opStringStringDS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_StringStringDS, false, 0], [::Test::T_StringStringDS, false, 0]], [[::Test::T_StringStringDS, false, 0]], [::Test::T_StringStringDS, false, 0], [])
-        MyClassPrx_mixin::OP_opStringMyEnumDS = ::Ice::__defineOperation('opStringMyEnumDS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_StringMyEnumDS, false, 0], [::Test::T_StringMyEnumDS, false, 0]], [[::Test::T_StringMyEnumDS, false, 0]], [::Test::T_StringMyEnumDS, false, 0], [])
-        MyClassPrx_mixin::OP_opMyEnumStringDS = ::Ice::__defineOperation('opMyEnumStringDS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_MyEnumStringDS, false, 0], [::Test::T_MyEnumStringDS, false, 0]], [[::Test::T_MyEnumStringDS, false, 0]], [::Test::T_MyEnumStringDS, false, 0], [])
-        MyClassPrx_mixin::OP_opMyStructMyEnumDS = ::Ice::__defineOperation('opMyStructMyEnumDS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_MyStructMyEnumDS, false, 0], [::Test::T_MyStructMyEnumDS, false, 0]], [[::Test::T_MyStructMyEnumDS, false, 0]], [::Test::T_MyStructMyEnumDS, false, 0], [])
-        MyClassPrx_mixin::OP_opByteByteSD = ::Ice::__defineOperation('opByteByteSD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteByteSD, false, 0], [::Test::T_ByteByteSD, false, 0]], [[::Test::T_ByteByteSD, false, 0]], [::Test::T_ByteByteSD, false, 0], [])
-        MyClassPrx_mixin::OP_opBoolBoolSD = ::Ice::__defineOperation('opBoolBoolSD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_BoolBoolSD, false, 0], [::Test::T_BoolBoolSD, false, 0]], [[::Test::T_BoolBoolSD, false, 0]], [::Test::T_BoolBoolSD, false, 0], [])
-        MyClassPrx_mixin::OP_opShortShortSD = ::Ice::__defineOperation('opShortShortSD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ShortShortSD, false, 0], [::Test::T_ShortShortSD, false, 0]], [[::Test::T_ShortShortSD, false, 0]], [::Test::T_ShortShortSD, false, 0], [])
-        MyClassPrx_mixin::OP_opIntIntSD = ::Ice::__defineOperation('opIntIntSD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_IntIntSD, false, 0], [::Test::T_IntIntSD, false, 0]], [[::Test::T_IntIntSD, false, 0]], [::Test::T_IntIntSD, false, 0], [])
-        MyClassPrx_mixin::OP_opLongLongSD = ::Ice::__defineOperation('opLongLongSD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_LongLongSD, false, 0], [::Test::T_LongLongSD, false, 0]], [[::Test::T_LongLongSD, false, 0]], [::Test::T_LongLongSD, false, 0], [])
-        MyClassPrx_mixin::OP_opStringFloatSD = ::Ice::__defineOperation('opStringFloatSD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_StringFloatSD, false, 0], [::Test::T_StringFloatSD, false, 0]], [[::Test::T_StringFloatSD, false, 0]], [::Test::T_StringFloatSD, false, 0], [])
-        MyClassPrx_mixin::OP_opStringDoubleSD = ::Ice::__defineOperation('opStringDoubleSD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_StringDoubleSD, false, 0], [::Test::T_StringDoubleSD, false, 0]], [[::Test::T_StringDoubleSD, false, 0]], [::Test::T_StringDoubleSD, false, 0], [])
-        MyClassPrx_mixin::OP_opStringStringSD = ::Ice::__defineOperation('opStringStringSD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_StringStringSD, false, 0], [::Test::T_StringStringSD, false, 0]], [[::Test::T_StringStringSD, false, 0]], [::Test::T_StringStringSD, false, 0], [])
-        MyClassPrx_mixin::OP_opMyEnumMyEnumSD = ::Ice::__defineOperation('opMyEnumMyEnumSD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_MyEnumMyEnumSD, false, 0], [::Test::T_MyEnumMyEnumSD, false, 0]], [[::Test::T_MyEnumMyEnumSD, false, 0]], [::Test::T_MyEnumMyEnumSD, false, 0], [])
-        MyClassPrx_mixin::OP_opIntS = ::Ice::__defineOperation('opIntS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_IntS, false, 0]], [], [::Test::T_IntS, false, 0], [])
-        MyClassPrx_mixin::OP_opByteSOneway = ::Ice::__defineOperation('opByteSOneway', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteS, false, 0]], [], nil, [])
+        MyClassPrx_mixin::OP_opMyEnum = ::Ice::__defineOperation('opMyEnum', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_MyEnum, false, 0]], [[::Test::::T_MyEnum, false, 0]], [::Test::::T_MyEnum, false, 0], [])
+        MyClassPrx_mixin::OP_opMyClass = ::Ice::__defineOperation('opMyClass', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_MyClassPrx, false, 0]], [[::Test::::T_MyClassPrx, false, 0], [::Test::::T_MyClassPrx, false, 0]], [::Test::::T_MyClassPrx, false, 0], [])
+        MyClassPrx_mixin::OP_opStruct = ::Ice::__defineOperation('opStruct', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_Structure, false, 0], [::Test::::T_Structure, false, 0]], [[::Test::::T_Structure, false, 0]], [::Test::::T_Structure, false, 0], [])
+        MyClassPrx_mixin::OP_opByteS = ::Ice::__defineOperation('opByteS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_ByteS, false, 0], [::Test::::T_ByteS, false, 0]], [[::Test::::T_ByteS, false, 0]], [::Test::::T_ByteS, false, 0], [])
+        MyClassPrx_mixin::OP_opBoolS = ::Ice::__defineOperation('opBoolS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_BoolS, false, 0], [::Test::::T_BoolS, false, 0]], [[::Test::::T_BoolS, false, 0]], [::Test::::T_BoolS, false, 0], [])
+        MyClassPrx_mixin::OP_opShortIntLongS = ::Ice::__defineOperation('opShortIntLongS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_ShortS, false, 0], [::Test::::T_IntS, false, 0], [::Test::::T_LongS, false, 0]], [[::Test::::T_ShortS, false, 0], [::Test::::T_IntS, false, 0], [::Test::::T_LongS, false, 0]], [::Test::::T_LongS, false, 0], [])
+        MyClassPrx_mixin::OP_opFloatDoubleS = ::Ice::__defineOperation('opFloatDoubleS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_FloatS, false, 0], [::Test::::T_DoubleS, false, 0]], [[::Test::::T_FloatS, false, 0], [::Test::::T_DoubleS, false, 0]], [::Test::::T_DoubleS, false, 0], [])
+        MyClassPrx_mixin::OP_opStringS = ::Ice::__defineOperation('opStringS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_StringS, false, 0], [::Test::::T_StringS, false, 0]], [[::Test::::T_StringS, false, 0]], [::Test::::T_StringS, false, 0], [])
+        MyClassPrx_mixin::OP_opByteSS = ::Ice::__defineOperation('opByteSS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_ByteSS, false, 0], [::Test::::T_ByteSS, false, 0]], [[::Test::::T_ByteSS, false, 0]], [::Test::::T_ByteSS, false, 0], [])
+        MyClassPrx_mixin::OP_opBoolSS = ::Ice::__defineOperation('opBoolSS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_BoolSS, false, 0], [::Test::::T_BoolSS, false, 0]], [[::Test::::T_BoolSS, false, 0]], [::Test::::T_BoolSS, false, 0], [])
+        MyClassPrx_mixin::OP_opShortIntLongSS = ::Ice::__defineOperation('opShortIntLongSS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_ShortSS, false, 0], [::Test::::T_IntSS, false, 0], [::Test::::T_LongSS, false, 0]], [[::Test::::T_ShortSS, false, 0], [::Test::::T_IntSS, false, 0], [::Test::::T_LongSS, false, 0]], [::Test::::T_LongSS, false, 0], [])
+        MyClassPrx_mixin::OP_opFloatDoubleSS = ::Ice::__defineOperation('opFloatDoubleSS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_FloatSS, false, 0], [::Test::::T_DoubleSS, false, 0]], [[::Test::::T_FloatSS, false, 0], [::Test::::T_DoubleSS, false, 0]], [::Test::::T_DoubleSS, false, 0], [])
+        MyClassPrx_mixin::OP_opStringSS = ::Ice::__defineOperation('opStringSS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_StringSS, false, 0], [::Test::::T_StringSS, false, 0]], [[::Test::::T_StringSS, false, 0]], [::Test::::T_StringSS, false, 0], [])
+        MyClassPrx_mixin::OP_opStringSSS = ::Ice::__defineOperation('opStringSSS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_StringSSS, false, 0], [::Test::::T_StringSSS, false, 0]], [[::Test::::T_StringSSS, false, 0]], [::Test::::T_StringSSS, false, 0], [])
+        MyClassPrx_mixin::OP_opByteBoolD = ::Ice::__defineOperation('opByteBoolD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_ByteBoolD, false, 0], [::Test::::T_ByteBoolD, false, 0]], [[::Test::::T_ByteBoolD, false, 0]], [::Test::::T_ByteBoolD, false, 0], [])
+        MyClassPrx_mixin::OP_opShortIntD = ::Ice::__defineOperation('opShortIntD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_ShortIntD, false, 0], [::Test::::T_ShortIntD, false, 0]], [[::Test::::T_ShortIntD, false, 0]], [::Test::::T_ShortIntD, false, 0], [])
+        MyClassPrx_mixin::OP_opLongFloatD = ::Ice::__defineOperation('opLongFloatD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_LongFloatD, false, 0], [::Test::::T_LongFloatD, false, 0]], [[::Test::::T_LongFloatD, false, 0]], [::Test::::T_LongFloatD, false, 0], [])
+        MyClassPrx_mixin::OP_opStringStringD = ::Ice::__defineOperation('opStringStringD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_StringStringD, false, 0], [::Test::::T_StringStringD, false, 0]], [[::Test::::T_StringStringD, false, 0]], [::Test::::T_StringStringD, false, 0], [])
+        MyClassPrx_mixin::OP_opStringMyEnumD = ::Ice::__defineOperation('opStringMyEnumD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_StringMyEnumD, false, 0], [::Test::::T_StringMyEnumD, false, 0]], [[::Test::::T_StringMyEnumD, false, 0]], [::Test::::T_StringMyEnumD, false, 0], [])
+        MyClassPrx_mixin::OP_opMyEnumStringD = ::Ice::__defineOperation('opMyEnumStringD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_MyEnumStringD, false, 0], [::Test::::T_MyEnumStringD, false, 0]], [[::Test::::T_MyEnumStringD, false, 0]], [::Test::::T_MyEnumStringD, false, 0], [])
+        MyClassPrx_mixin::OP_opMyStructMyEnumD = ::Ice::__defineOperation('opMyStructMyEnumD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_MyStructMyEnumD, false, 0], [::Test::::T_MyStructMyEnumD, false, 0]], [[::Test::::T_MyStructMyEnumD, false, 0]], [::Test::::T_MyStructMyEnumD, false, 0], [])
+        MyClassPrx_mixin::OP_opByteBoolDS = ::Ice::__defineOperation('opByteBoolDS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_ByteBoolDS, false, 0], [::Test::::T_ByteBoolDS, false, 0]], [[::Test::::T_ByteBoolDS, false, 0]], [::Test::::T_ByteBoolDS, false, 0], [])
+        MyClassPrx_mixin::OP_opShortIntDS = ::Ice::__defineOperation('opShortIntDS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_ShortIntDS, false, 0], [::Test::::T_ShortIntDS, false, 0]], [[::Test::::T_ShortIntDS, false, 0]], [::Test::::T_ShortIntDS, false, 0], [])
+        MyClassPrx_mixin::OP_opLongFloatDS = ::Ice::__defineOperation('opLongFloatDS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_LongFloatDS, false, 0], [::Test::::T_LongFloatDS, false, 0]], [[::Test::::T_LongFloatDS, false, 0]], [::Test::::T_LongFloatDS, false, 0], [])
+        MyClassPrx_mixin::OP_opStringStringDS = ::Ice::__defineOperation('opStringStringDS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_StringStringDS, false, 0], [::Test::::T_StringStringDS, false, 0]], [[::Test::::T_StringStringDS, false, 0]], [::Test::::T_StringStringDS, false, 0], [])
+        MyClassPrx_mixin::OP_opStringMyEnumDS = ::Ice::__defineOperation('opStringMyEnumDS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_StringMyEnumDS, false, 0], [::Test::::T_StringMyEnumDS, false, 0]], [[::Test::::T_StringMyEnumDS, false, 0]], [::Test::::T_StringMyEnumDS, false, 0], [])
+        MyClassPrx_mixin::OP_opMyEnumStringDS = ::Ice::__defineOperation('opMyEnumStringDS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_MyEnumStringDS, false, 0], [::Test::::T_MyEnumStringDS, false, 0]], [[::Test::::T_MyEnumStringDS, false, 0]], [::Test::::T_MyEnumStringDS, false, 0], [])
+        MyClassPrx_mixin::OP_opMyStructMyEnumDS = ::Ice::__defineOperation('opMyStructMyEnumDS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_MyStructMyEnumDS, false, 0], [::Test::::T_MyStructMyEnumDS, false, 0]], [[::Test::::T_MyStructMyEnumDS, false, 0]], [::Test::::T_MyStructMyEnumDS, false, 0], [])
+        MyClassPrx_mixin::OP_opByteByteSD = ::Ice::__defineOperation('opByteByteSD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_ByteByteSD, false, 0], [::Test::::T_ByteByteSD, false, 0]], [[::Test::::T_ByteByteSD, false, 0]], [::Test::::T_ByteByteSD, false, 0], [])
+        MyClassPrx_mixin::OP_opBoolBoolSD = ::Ice::__defineOperation('opBoolBoolSD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_BoolBoolSD, false, 0], [::Test::::T_BoolBoolSD, false, 0]], [[::Test::::T_BoolBoolSD, false, 0]], [::Test::::T_BoolBoolSD, false, 0], [])
+        MyClassPrx_mixin::OP_opShortShortSD = ::Ice::__defineOperation('opShortShortSD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_ShortShortSD, false, 0], [::Test::::T_ShortShortSD, false, 0]], [[::Test::::T_ShortShortSD, false, 0]], [::Test::::T_ShortShortSD, false, 0], [])
+        MyClassPrx_mixin::OP_opIntIntSD = ::Ice::__defineOperation('opIntIntSD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_IntIntSD, false, 0], [::Test::::T_IntIntSD, false, 0]], [[::Test::::T_IntIntSD, false, 0]], [::Test::::T_IntIntSD, false, 0], [])
+        MyClassPrx_mixin::OP_opLongLongSD = ::Ice::__defineOperation('opLongLongSD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_LongLongSD, false, 0], [::Test::::T_LongLongSD, false, 0]], [[::Test::::T_LongLongSD, false, 0]], [::Test::::T_LongLongSD, false, 0], [])
+        MyClassPrx_mixin::OP_opStringFloatSD = ::Ice::__defineOperation('opStringFloatSD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_StringFloatSD, false, 0], [::Test::::T_StringFloatSD, false, 0]], [[::Test::::T_StringFloatSD, false, 0]], [::Test::::T_StringFloatSD, false, 0], [])
+        MyClassPrx_mixin::OP_opStringDoubleSD = ::Ice::__defineOperation('opStringDoubleSD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_StringDoubleSD, false, 0], [::Test::::T_StringDoubleSD, false, 0]], [[::Test::::T_StringDoubleSD, false, 0]], [::Test::::T_StringDoubleSD, false, 0], [])
+        MyClassPrx_mixin::OP_opStringStringSD = ::Ice::__defineOperation('opStringStringSD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_StringStringSD, false, 0], [::Test::::T_StringStringSD, false, 0]], [[::Test::::T_StringStringSD, false, 0]], [::Test::::T_StringStringSD, false, 0], [])
+        MyClassPrx_mixin::OP_opMyEnumMyEnumSD = ::Ice::__defineOperation('opMyEnumMyEnumSD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_MyEnumMyEnumSD, false, 0], [::Test::::T_MyEnumMyEnumSD, false, 0]], [[::Test::::T_MyEnumMyEnumSD, false, 0]], [::Test::::T_MyEnumMyEnumSD, false, 0], [])
+        MyClassPrx_mixin::OP_opIntS = ::Ice::__defineOperation('opIntS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_IntS, false, 0]], [], [::Test::::T_IntS, false, 0], [])
+        MyClassPrx_mixin::OP_opByteSOneway = ::Ice::__defineOperation('opByteSOneway', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_ByteS, false, 0]], [], nil, [])
         MyClassPrx_mixin::OP_opByteSOnewayCallCount = ::Ice::__defineOperation('opByteSOnewayCallCount', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
-        MyClassPrx_mixin::OP_opContext = ::Ice::__defineOperation('opContext', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_Context, false, 0], [])
+        MyClassPrx_mixin::OP_opContext = ::Ice::__defineOperation('opContext', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::::T_Context, false, 0], [])
         MyClassPrx_mixin::OP_opIdempotent = ::Ice::__defineOperation('opIdempotent', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], nil, [])
         MyClassPrx_mixin::OP_opNonmutating = ::Ice::__defineOperation('opNonmutating', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], nil, [])
         MyClassPrx_mixin::OP_opByte1 = ::Ice::__defineOperation('opByte1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_byte, false, 0]], [], [::Ice::T_byte, false, 0], [])
@@ -708,20 +708,20 @@ module ::Test
         MyClassPrx_mixin::OP_opFloat1 = ::Ice::__defineOperation('opFloat1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_float, false, 0]], [], [::Ice::T_float, false, 0], [])
         MyClassPrx_mixin::OP_opDouble1 = ::Ice::__defineOperation('opDouble1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_double, false, 0]], [], [::Ice::T_double, false, 0], [])
         MyClassPrx_mixin::OP_opString1 = ::Ice::__defineOperation('opString1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_string, false, 0], [])
-        MyClassPrx_mixin::OP_opStringS1 = ::Ice::__defineOperation('opStringS1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_StringS, false, 0]], [], [::Test::T_StringS, false, 0], [])
-        MyClassPrx_mixin::OP_opByteBoolD1 = ::Ice::__defineOperation('opByteBoolD1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteBoolD, false, 0]], [], [::Test::T_ByteBoolD, false, 0], [])
-        MyClassPrx_mixin::OP_opStringS2 = ::Ice::__defineOperation('opStringS2', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_StringS, false, 0]], [], [::Test::T_StringS, false, 0], [])
-        MyClassPrx_mixin::OP_opByteBoolD2 = ::Ice::__defineOperation('opByteBoolD2', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteBoolD, false, 0]], [], [::Test::T_ByteBoolD, false, 0], [])
-        MyClassPrx_mixin::OP_opStringLiterals = ::Ice::__defineOperation('opStringLiterals', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_StringS, false, 0], [])
-        MyClassPrx_mixin::OP_opMStruct1 = ::Ice::__defineOperation('opMStruct1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_Structure, false, 0], [])
-        MyClassPrx_mixin::OP_opMStruct2 = ::Ice::__defineOperation('opMStruct2', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_Structure, false, 0]], [[::Test::T_Structure, false, 0]], [::Test::T_Structure, false, 0], [])
-        MyClassPrx_mixin::OP_opMSeq1 = ::Ice::__defineOperation('opMSeq1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_StringS, false, 0], [])
-        MyClassPrx_mixin::OP_opMSeq2 = ::Ice::__defineOperation('opMSeq2', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_StringS, false, 0]], [[::Test::T_StringS, false, 0]], [::Test::T_StringS, false, 0], [])
-        MyClassPrx_mixin::OP_opMDict1 = ::Ice::__defineOperation('opMDict1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_StringStringD, false, 0], [])
-        MyClassPrx_mixin::OP_opMDict2 = ::Ice::__defineOperation('opMDict2', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_StringStringD, false, 0]], [[::Test::T_StringStringD, false, 0]], [::Test::T_StringStringD, false, 0], [])
+        MyClassPrx_mixin::OP_opStringS1 = ::Ice::__defineOperation('opStringS1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_StringS, false, 0]], [], [::Test::::T_StringS, false, 0], [])
+        MyClassPrx_mixin::OP_opByteBoolD1 = ::Ice::__defineOperation('opByteBoolD1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_ByteBoolD, false, 0]], [], [::Test::::T_ByteBoolD, false, 0], [])
+        MyClassPrx_mixin::OP_opStringS2 = ::Ice::__defineOperation('opStringS2', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_StringS, false, 0]], [], [::Test::::T_StringS, false, 0], [])
+        MyClassPrx_mixin::OP_opByteBoolD2 = ::Ice::__defineOperation('opByteBoolD2', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_ByteBoolD, false, 0]], [], [::Test::::T_ByteBoolD, false, 0], [])
+        MyClassPrx_mixin::OP_opStringLiterals = ::Ice::__defineOperation('opStringLiterals', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::::T_StringS, false, 0], [])
+        MyClassPrx_mixin::OP_opMStruct1 = ::Ice::__defineOperation('opMStruct1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::::T_Structure, false, 0], [])
+        MyClassPrx_mixin::OP_opMStruct2 = ::Ice::__defineOperation('opMStruct2', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_Structure, false, 0]], [[::Test::::T_Structure, false, 0]], [::Test::::T_Structure, false, 0], [])
+        MyClassPrx_mixin::OP_opMSeq1 = ::Ice::__defineOperation('opMSeq1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::::T_StringS, false, 0], [])
+        MyClassPrx_mixin::OP_opMSeq2 = ::Ice::__defineOperation('opMSeq2', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_StringS, false, 0]], [[::Test::::T_StringS, false, 0]], [::Test::::T_StringS, false, 0], [])
+        MyClassPrx_mixin::OP_opMDict1 = ::Ice::__defineOperation('opMDict1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::::T_StringStringD, false, 0], [])
+        MyClassPrx_mixin::OP_opMDict2 = ::Ice::__defineOperation('opMDict2', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_StringStringD, false, 0]], [[::Test::::T_StringStringD, false, 0]], [::Test::::T_StringStringD, false, 0], [])
     end
 
-    if not defined?(::Test::MyStruct1)
+    if not defined?(::Test::::MyStruct1)
         class MyStruct1
             include ::Ice::Inspect_mixin
             def initialize(tesT='', myClass=nil, myStruct1='')
@@ -739,7 +739,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::MyStruct1 or
+                return false if !other.is_a? ::Test::::MyStruct1 or
                     @tesT != other.tesT or
                     @myClass != other.myClass or
                     @myStruct1 != other.myStruct1
@@ -755,14 +755,14 @@ module ::Test
 
         T_MyStruct1 = ::Ice::__defineStruct('::Test::MyStruct1', MyStruct1, [
             ["tesT", ::Ice::T_string],
-            ["myClass", ::Test::T_MyClassPrx],
+            ["myClass", ::Test::::T_MyClassPrx],
             ["myStruct1", ::Ice::T_string]
         ])
     end
 
-    if not defined?(::Test::MyClass1_Mixin)
+    if not defined?(::Test::::MyClass1_Mixin)
 
-        module ::Test::MyClass1_Mixin
+        module ::Test::::MyClass1_Mixin
         end
         class MyClass1 < ::Ice::Value
 
@@ -775,23 +775,23 @@ module ::Test
             attr_accessor :tesT, :myClass, :myClass1
         end
 
-        if not defined?(::Test::T_MyClass1)
+        if not defined?(::Test::::T_MyClass1)
             T_MyClass1 = ::Ice::__declareClass('::Test::MyClass1')
         end
 
         T_MyClass1.defineClass(MyClass1, -1, false, false, nil, [
             ['tesT', ::Ice::T_string, false, 0],
-            ['myClass', ::Test::T_MyClassPrx, false, 0],
+            ['myClass', ::Test::::T_MyClassPrx, false, 0],
             ['myClass1', ::Ice::T_string, false, 0]
         ])
     end
 
-    if not defined?(::Test::MyDerivedClass_Mixin)
+    if not defined?(::Test::::MyDerivedClass_Mixin)
 
-        module ::Test::MyDerivedClass_Mixin
+        module ::Test::::MyDerivedClass_Mixin
         end
         module MyDerivedClassPrx_mixin
-            include ::Test::MyClassPrx_mixin
+            include ::Test::::MyClassPrx_mixin
 
             def opDerived(context=nil)
                 MyDerivedClassPrx_mixin::OP_opDerived.invoke(self, [], context)
@@ -811,18 +811,18 @@ module ::Test
             include MyDerivedClassPrx_mixin
         end
 
-        if not defined?(::Test::T_MyDerivedClassPrx)
+        if not defined?(::Test::::T_MyDerivedClassPrx)
             T_MyDerivedClass = ::Ice::__declareClass('::Test::MyDerivedClass')
             T_MyDerivedClassPrx = ::Ice::__declareProxy('::Test::MyDerivedClass')
         end
 
         T_MyDerivedClass.defineClass(::Ice::Value, -1, false, true, nil, [])
 
-        T_MyDerivedClassPrx.defineProxy(MyDerivedClassPrx, nil, [::Test::T_MyClassPrx])
+        T_MyDerivedClassPrx.defineProxy(MyDerivedClassPrx, nil, [::Test::::T_MyClassPrx])
 
         MyDerivedClassPrx_mixin::OP_opDerived = ::Ice::__defineOperation('opDerived', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        MyDerivedClassPrx_mixin::OP_opMyClass1 = ::Ice::__defineOperation('opMyClass1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_MyClass1, false, 0]], [], [::Test::T_MyClass1, false, 0], [])
-        MyDerivedClassPrx_mixin::OP_opMyStruct1 = ::Ice::__defineOperation('opMyStruct1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_MyStruct1, false, 0]], [], [::Test::T_MyStruct1, false, 0], [])
+        MyDerivedClassPrx_mixin::OP_opMyClass1 = ::Ice::__defineOperation('opMyClass1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_MyClass1, false, 0]], [], [::Test::::T_MyClass1, false, 0], [])
+        MyDerivedClassPrx_mixin::OP_opMyStruct1 = ::Ice::__defineOperation('opMyStruct1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_MyStruct1, false, 0]], [], [::Test::::T_MyStruct1, false, 0], [])
     end
 
     S0 = "\\"
@@ -890,12 +890,12 @@ end
 
 module ::Test2
 
-    if not defined?(::Test2::MyDerivedClass_Mixin)
+    if not defined?(::Test2::::MyDerivedClass_Mixin)
 
-        module ::Test2::MyDerivedClass_Mixin
+        module ::Test2::::MyDerivedClass_Mixin
         end
         module MyDerivedClassPrx_mixin
-            include ::Test::MyClassPrx_mixin
+            include ::Test::::MyClassPrx_mixin
         end
 
         class MyDerivedClassPrx < ::Ice::ObjectPrx
@@ -903,22 +903,22 @@ module ::Test2
             include MyDerivedClassPrx_mixin
         end
 
-        if not defined?(::Test2::T_MyDerivedClassPrx)
+        if not defined?(::Test2::::T_MyDerivedClassPrx)
             T_MyDerivedClass = ::Ice::__declareClass('::Test2::MyDerivedClass')
             T_MyDerivedClassPrx = ::Ice::__declareProxy('::Test2::MyDerivedClass')
         end
 
         T_MyDerivedClass.defineClass(::Ice::Value, -1, false, true, nil, [])
 
-        T_MyDerivedClassPrx.defineProxy(MyDerivedClassPrx, nil, [::Test::T_MyClassPrx])
+        T_MyDerivedClassPrx.defineProxy(MyDerivedClassPrx, nil, [::Test::::T_MyClassPrx])
     end
 end
 
 module ::M
 
-    if not defined?(::M::A_Mixin)
+    if not defined?(::M::::A_Mixin)
 
-        module ::M::A_Mixin
+        module ::M::::A_Mixin
         end
         class A < ::Ice::Value
 
@@ -929,16 +929,16 @@ module ::M
             attr_accessor :x
         end
 
-        if not defined?(::M::T_A)
+        if not defined?(::M::::T_A)
             T_A = ::Ice::__declareClass('::M::A')
         end
 
         T_A.defineClass(A, -1, false, false, nil, [['x', ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::M::Intf_Mixin)
+    if not defined?(::M::::Intf_Mixin)
 
-        module ::M::Intf_Mixin
+        module ::M::::Intf_Mixin
         end
         module IntfPrx_mixin
 
@@ -952,7 +952,7 @@ module ::M
             include IntfPrx_mixin
         end
 
-        if not defined?(::M::T_IntfPrx)
+        if not defined?(::M::::T_IntfPrx)
             T_Intf = ::Ice::__declareClass('::M::Intf')
             T_IntfPrx = ::Ice::__declareProxy('::M::Intf')
         end
@@ -964,18 +964,18 @@ module ::M
         IntfPrx_mixin::OP_opIntf = ::Ice::__defineOperation('opIntf', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::M::B_Mixin)
+    if not defined?(::M::::B_Mixin)
 
-        module ::M::B_Mixin
+        module ::M::::B_Mixin
         end
-        class B < ::M::A
+        class B < ::M::::A
 
             def initialize(x=0)
                 super(x)
             end
         end
         module BPrx_mixin
-            include ::M::IntfPrx_mixin
+            include ::M::::IntfPrx_mixin
 
             def opB(context=nil)
                 BPrx_mixin::OP_opB.invoke(self, [], context)
@@ -987,14 +987,14 @@ module ::M
             include BPrx_mixin
         end
 
-        if not defined?(::M::T_B)
+        if not defined?(::M::::T_B)
             T_B = ::Ice::__declareClass('::M::B')
             T_BPrx = ::Ice::__declareProxy('::M::B')
         end
 
-        T_B.defineClass(B, -1, false, false, ::M::T_A, [])
+        T_B.defineClass(B, -1, false, false, ::M::::T_A, [])
 
-        T_BPrx.defineProxy(BPrx, nil, [::M::T_IntfPrx])
+        T_BPrx.defineProxy(BPrx, nil, [::M::::T_IntfPrx])
 
         BPrx_mixin::OP_opB = ::Ice::__defineOperation('opB', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end

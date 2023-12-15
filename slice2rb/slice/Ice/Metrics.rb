@@ -19,13 +19,13 @@ require 'BuiltinSequences.rb'
 
 module ::IceMX
 
-    if not defined?(::IceMX::T_StringIntDict)
+    if not defined?(::IceMX::::T_StringIntDict)
         T_StringIntDict = ::Ice::__defineDictionary('::IceMX::StringIntDict', ::Ice::T_string, ::Ice::T_int)
     end
 
-    if not defined?(::IceMX::Metrics_Mixin)
+    if not defined?(::IceMX::::Metrics_Mixin)
 
-        module ::IceMX::Metrics_Mixin
+        module ::IceMX::::Metrics_Mixin
         end
         class Metrics < ::Ice::Value
 
@@ -40,7 +40,7 @@ module ::IceMX
             attr_accessor :id, :total, :current, :totalLifetime, :failures
         end
 
-        if not defined?(::IceMX::T_Metrics)
+        if not defined?(::IceMX::::T_Metrics)
             T_Metrics = ::Ice::__declareClass('::IceMX::Metrics')
         end
 
@@ -53,7 +53,7 @@ module ::IceMX
         ])
     end
 
-    if not defined?(::IceMX::MetricsFailures)
+    if not defined?(::IceMX::::MetricsFailures)
         class MetricsFailures
             include ::Ice::Inspect_mixin
             def initialize(id='', failures=nil)
@@ -69,7 +69,7 @@ module ::IceMX
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceMX::MetricsFailures or
+                return false if !other.is_a? ::IceMX::::MetricsFailures or
                     @id != other.id or
                     @failures != other.failures
                 true
@@ -84,23 +84,23 @@ module ::IceMX
 
         T_MetricsFailures = ::Ice::__defineStruct('::IceMX::MetricsFailures', MetricsFailures, [
             ["id", ::Ice::T_string],
-            ["failures", ::IceMX::T_StringIntDict]
+            ["failures", ::IceMX::::T_StringIntDict]
         ])
     end
 
-    if not defined?(::IceMX::T_MetricsFailuresSeq)
-        T_MetricsFailuresSeq = ::Ice::__defineSequence('::IceMX::MetricsFailuresSeq', ::IceMX::T_MetricsFailures)
+    if not defined?(::IceMX::::T_MetricsFailuresSeq)
+        T_MetricsFailuresSeq = ::Ice::__defineSequence('::IceMX::MetricsFailuresSeq', ::IceMX::::T_MetricsFailures)
     end
 
-    if not defined?(::IceMX::T_MetricsMap)
-        T_MetricsMap = ::Ice::__defineSequence('::IceMX::MetricsMap', ::IceMX::T_Metrics)
+    if not defined?(::IceMX::::T_MetricsMap)
+        T_MetricsMap = ::Ice::__defineSequence('::IceMX::MetricsMap', ::IceMX::::T_Metrics)
     end
 
-    if not defined?(::IceMX::T_MetricsView)
-        T_MetricsView = ::Ice::__defineDictionary('::IceMX::MetricsView', ::Ice::T_string, ::IceMX::T_MetricsMap)
+    if not defined?(::IceMX::::T_MetricsView)
+        T_MetricsView = ::Ice::__defineDictionary('::IceMX::MetricsView', ::Ice::T_string, ::IceMX::::T_MetricsMap)
     end
 
-    if not defined?(::IceMX::UnknownMetricsView)
+    if not defined?(::IceMX::::UnknownMetricsView)
         class UnknownMetricsView < Ice::UserException
             def initialize
             end
@@ -113,9 +113,9 @@ module ::IceMX
         T_UnknownMetricsView = ::Ice::__defineException('::IceMX::UnknownMetricsView', UnknownMetricsView, false, nil, [])
     end
 
-    if not defined?(::IceMX::MetricsAdmin_Mixin)
+    if not defined?(::IceMX::::MetricsAdmin_Mixin)
 
-        module ::IceMX::MetricsAdmin_Mixin
+        module ::IceMX::::MetricsAdmin_Mixin
         end
         module MetricsAdminPrx_mixin
 
@@ -149,7 +149,7 @@ module ::IceMX
             include MetricsAdminPrx_mixin
         end
 
-        if not defined?(::IceMX::T_MetricsAdminPrx)
+        if not defined?(::IceMX::::T_MetricsAdminPrx)
             T_MetricsAdmin = ::Ice::__declareClass('::IceMX::MetricsAdmin')
             T_MetricsAdminPrx = ::Ice::__declareProxy('::IceMX::MetricsAdmin')
         end
@@ -158,19 +158,19 @@ module ::IceMX
 
         T_MetricsAdminPrx.defineProxy(MetricsAdminPrx, nil, [])
 
-        MetricsAdminPrx_mixin::OP_getMetricsViewNames = ::Ice::__defineOperation('getMetricsViewNames', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [[::Ice::T_StringSeq, false, 0]], [::Ice::T_StringSeq, false, 0], [])
-        MetricsAdminPrx_mixin::OP_enableMetricsView = ::Ice::__defineOperation('enableMetricsView', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [[::Ice::T_string, false, 0]], [], nil, [::IceMX::T_UnknownMetricsView])
-        MetricsAdminPrx_mixin::OP_disableMetricsView = ::Ice::__defineOperation('disableMetricsView', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [[::Ice::T_string, false, 0]], [], nil, [::IceMX::T_UnknownMetricsView])
-        MetricsAdminPrx_mixin::OP_getMetricsView = ::Ice::__defineOperation('getMetricsView', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [[::Ice::T_string, false, 0]], [[::Ice::T_long, false, 0]], [::IceMX::T_MetricsView, false, 0], [::IceMX::T_UnknownMetricsView])
-        MetricsAdminPrx_mixin::OP_getMapMetricsFailures = ::Ice::__defineOperation('getMapMetricsFailures', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], [::IceMX::T_MetricsFailuresSeq, false, 0], [::IceMX::T_UnknownMetricsView])
-        MetricsAdminPrx_mixin::OP_getMetricsFailures = ::Ice::__defineOperation('getMetricsFailures', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], [::IceMX::T_MetricsFailures, false, 0], [::IceMX::T_UnknownMetricsView])
+        MetricsAdminPrx_mixin::OP_getMetricsViewNames = ::Ice::__defineOperation('getMetricsViewNames', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [[::Ice::::T_StringSeq, false, 0]], [::Ice::::T_StringSeq, false, 0], [])
+        MetricsAdminPrx_mixin::OP_enableMetricsView = ::Ice::__defineOperation('enableMetricsView', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [[::Ice::T_string, false, 0]], [], nil, [::IceMX::::T_UnknownMetricsView])
+        MetricsAdminPrx_mixin::OP_disableMetricsView = ::Ice::__defineOperation('disableMetricsView', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [[::Ice::T_string, false, 0]], [], nil, [::IceMX::::T_UnknownMetricsView])
+        MetricsAdminPrx_mixin::OP_getMetricsView = ::Ice::__defineOperation('getMetricsView', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [[::Ice::T_string, false, 0]], [[::Ice::T_long, false, 0]], [::IceMX::::T_MetricsView, false, 0], [::IceMX::::T_UnknownMetricsView])
+        MetricsAdminPrx_mixin::OP_getMapMetricsFailures = ::Ice::__defineOperation('getMapMetricsFailures', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], [::IceMX::::T_MetricsFailuresSeq, false, 0], [::IceMX::::T_UnknownMetricsView])
+        MetricsAdminPrx_mixin::OP_getMetricsFailures = ::Ice::__defineOperation('getMetricsFailures', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], [::IceMX::::T_MetricsFailures, false, 0], [::IceMX::::T_UnknownMetricsView])
     end
 
-    if not defined?(::IceMX::ThreadMetrics_Mixin)
+    if not defined?(::IceMX::::ThreadMetrics_Mixin)
 
-        module ::IceMX::ThreadMetrics_Mixin
+        module ::IceMX::::ThreadMetrics_Mixin
         end
-        class ThreadMetrics < ::IceMX::Metrics
+        class ThreadMetrics < ::IceMX::::Metrics
 
             def initialize(id='', total=0, current=0, totalLifetime=0, failures=0, inUseForIO=0, inUseForUser=0, inUseForOther=0)
                 super(id, total, current, totalLifetime, failures)
@@ -182,22 +182,22 @@ module ::IceMX
             attr_accessor :inUseForIO, :inUseForUser, :inUseForOther
         end
 
-        if not defined?(::IceMX::T_ThreadMetrics)
+        if not defined?(::IceMX::::T_ThreadMetrics)
             T_ThreadMetrics = ::Ice::__declareClass('::IceMX::ThreadMetrics')
         end
 
-        T_ThreadMetrics.defineClass(ThreadMetrics, -1, false, false, ::IceMX::T_Metrics, [
+        T_ThreadMetrics.defineClass(ThreadMetrics, -1, false, false, ::IceMX::::T_Metrics, [
             ['inUseForIO', ::Ice::T_int, false, 0],
             ['inUseForUser', ::Ice::T_int, false, 0],
             ['inUseForOther', ::Ice::T_int, false, 0]
         ])
     end
 
-    if not defined?(::IceMX::DispatchMetrics_Mixin)
+    if not defined?(::IceMX::::DispatchMetrics_Mixin)
 
-        module ::IceMX::DispatchMetrics_Mixin
+        module ::IceMX::::DispatchMetrics_Mixin
         end
-        class DispatchMetrics < ::IceMX::Metrics
+        class DispatchMetrics < ::IceMX::::Metrics
 
             def initialize(id='', total=0, current=0, totalLifetime=0, failures=0, userException=0, size=0, replySize=0)
                 super(id, total, current, totalLifetime, failures)
@@ -209,22 +209,22 @@ module ::IceMX
             attr_accessor :userException, :size, :replySize
         end
 
-        if not defined?(::IceMX::T_DispatchMetrics)
+        if not defined?(::IceMX::::T_DispatchMetrics)
             T_DispatchMetrics = ::Ice::__declareClass('::IceMX::DispatchMetrics')
         end
 
-        T_DispatchMetrics.defineClass(DispatchMetrics, -1, false, false, ::IceMX::T_Metrics, [
+        T_DispatchMetrics.defineClass(DispatchMetrics, -1, false, false, ::IceMX::::T_Metrics, [
             ['userException', ::Ice::T_int, false, 0],
             ['size', ::Ice::T_long, false, 0],
             ['replySize', ::Ice::T_long, false, 0]
         ])
     end
 
-    if not defined?(::IceMX::ChildInvocationMetrics_Mixin)
+    if not defined?(::IceMX::::ChildInvocationMetrics_Mixin)
 
-        module ::IceMX::ChildInvocationMetrics_Mixin
+        module ::IceMX::::ChildInvocationMetrics_Mixin
         end
-        class ChildInvocationMetrics < ::IceMX::Metrics
+        class ChildInvocationMetrics < ::IceMX::::Metrics
 
             def initialize(id='', total=0, current=0, totalLifetime=0, failures=0, size=0, replySize=0)
                 super(id, total, current, totalLifetime, failures)
@@ -235,57 +235,57 @@ module ::IceMX
             attr_accessor :size, :replySize
         end
 
-        if not defined?(::IceMX::T_ChildInvocationMetrics)
+        if not defined?(::IceMX::::T_ChildInvocationMetrics)
             T_ChildInvocationMetrics = ::Ice::__declareClass('::IceMX::ChildInvocationMetrics')
         end
 
-        T_ChildInvocationMetrics.defineClass(ChildInvocationMetrics, -1, false, false, ::IceMX::T_Metrics, [
+        T_ChildInvocationMetrics.defineClass(ChildInvocationMetrics, -1, false, false, ::IceMX::::T_Metrics, [
             ['size', ::Ice::T_long, false, 0],
             ['replySize', ::Ice::T_long, false, 0]
         ])
     end
 
-    if not defined?(::IceMX::CollocatedMetrics_Mixin)
+    if not defined?(::IceMX::::CollocatedMetrics_Mixin)
 
-        module ::IceMX::CollocatedMetrics_Mixin
+        module ::IceMX::::CollocatedMetrics_Mixin
         end
-        class CollocatedMetrics < ::IceMX::ChildInvocationMetrics
+        class CollocatedMetrics < ::IceMX::::ChildInvocationMetrics
 
             def initialize(id='', total=0, current=0, totalLifetime=0, failures=0, size=0, replySize=0)
                 super(id, total, current, totalLifetime, failures, size, replySize)
             end
         end
 
-        if not defined?(::IceMX::T_CollocatedMetrics)
+        if not defined?(::IceMX::::T_CollocatedMetrics)
             T_CollocatedMetrics = ::Ice::__declareClass('::IceMX::CollocatedMetrics')
         end
 
-        T_CollocatedMetrics.defineClass(CollocatedMetrics, -1, false, false, ::IceMX::T_ChildInvocationMetrics, [])
+        T_CollocatedMetrics.defineClass(CollocatedMetrics, -1, false, false, ::IceMX::::T_ChildInvocationMetrics, [])
     end
 
-    if not defined?(::IceMX::RemoteMetrics_Mixin)
+    if not defined?(::IceMX::::RemoteMetrics_Mixin)
 
-        module ::IceMX::RemoteMetrics_Mixin
+        module ::IceMX::::RemoteMetrics_Mixin
         end
-        class RemoteMetrics < ::IceMX::ChildInvocationMetrics
+        class RemoteMetrics < ::IceMX::::ChildInvocationMetrics
 
             def initialize(id='', total=0, current=0, totalLifetime=0, failures=0, size=0, replySize=0)
                 super(id, total, current, totalLifetime, failures, size, replySize)
             end
         end
 
-        if not defined?(::IceMX::T_RemoteMetrics)
+        if not defined?(::IceMX::::T_RemoteMetrics)
             T_RemoteMetrics = ::Ice::__declareClass('::IceMX::RemoteMetrics')
         end
 
-        T_RemoteMetrics.defineClass(RemoteMetrics, -1, false, false, ::IceMX::T_ChildInvocationMetrics, [])
+        T_RemoteMetrics.defineClass(RemoteMetrics, -1, false, false, ::IceMX::::T_ChildInvocationMetrics, [])
     end
 
-    if not defined?(::IceMX::InvocationMetrics_Mixin)
+    if not defined?(::IceMX::::InvocationMetrics_Mixin)
 
-        module ::IceMX::InvocationMetrics_Mixin
+        module ::IceMX::::InvocationMetrics_Mixin
         end
-        class InvocationMetrics < ::IceMX::Metrics
+        class InvocationMetrics < ::IceMX::::Metrics
 
             def initialize(id='', total=0, current=0, totalLifetime=0, failures=0, _retry=0, userException=0, remotes=nil, collocated=nil)
                 super(id, total, current, totalLifetime, failures)
@@ -298,23 +298,23 @@ module ::IceMX
             attr_accessor :_retry, :userException, :remotes, :collocated
         end
 
-        if not defined?(::IceMX::T_InvocationMetrics)
+        if not defined?(::IceMX::::T_InvocationMetrics)
             T_InvocationMetrics = ::Ice::__declareClass('::IceMX::InvocationMetrics')
         end
 
-        T_InvocationMetrics.defineClass(InvocationMetrics, -1, false, false, ::IceMX::T_Metrics, [
+        T_InvocationMetrics.defineClass(InvocationMetrics, -1, false, false, ::IceMX::::T_Metrics, [
             ['_retry', ::Ice::T_int, false, 0],
             ['userException', ::Ice::T_int, false, 0],
-            ['remotes', ::IceMX::T_MetricsMap, false, 0],
-            ['collocated', ::IceMX::T_MetricsMap, false, 0]
+            ['remotes', ::IceMX::::T_MetricsMap, false, 0],
+            ['collocated', ::IceMX::::T_MetricsMap, false, 0]
         ])
     end
 
-    if not defined?(::IceMX::ConnectionMetrics_Mixin)
+    if not defined?(::IceMX::::ConnectionMetrics_Mixin)
 
-        module ::IceMX::ConnectionMetrics_Mixin
+        module ::IceMX::::ConnectionMetrics_Mixin
         end
-        class ConnectionMetrics < ::IceMX::Metrics
+        class ConnectionMetrics < ::IceMX::::Metrics
 
             def initialize(id='', total=0, current=0, totalLifetime=0, failures=0, receivedBytes=0, sentBytes=0)
                 super(id, total, current, totalLifetime, failures)
@@ -325,11 +325,11 @@ module ::IceMX
             attr_accessor :receivedBytes, :sentBytes
         end
 
-        if not defined?(::IceMX::T_ConnectionMetrics)
+        if not defined?(::IceMX::::T_ConnectionMetrics)
             T_ConnectionMetrics = ::Ice::__declareClass('::IceMX::ConnectionMetrics')
         end
 
-        T_ConnectionMetrics.defineClass(ConnectionMetrics, -1, false, false, ::IceMX::T_Metrics, [
+        T_ConnectionMetrics.defineClass(ConnectionMetrics, -1, false, false, ::IceMX::::T_Metrics, [
             ['receivedBytes', ::Ice::T_long, false, 0],
             ['sentBytes', ::Ice::T_long, false, 0]
         ])

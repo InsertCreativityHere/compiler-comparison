@@ -18,9 +18,9 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::ConcreteClass_Mixin)
+    if not defined?(::Test::::ConcreteClass_Mixin)
 
-        module ::Test::ConcreteClass_Mixin
+        module ::Test::::ConcreteClass_Mixin
         end
         class ConcreteClass < ::Ice::Value
 
@@ -31,16 +31,16 @@ module ::Test
             attr_accessor :i
         end
 
-        if not defined?(::Test::T_ConcreteClass)
+        if not defined?(::Test::::T_ConcreteClass)
             T_ConcreteClass = ::Ice::__declareClass('::Test::ConcreteClass')
         end
 
         T_ConcreteClass.defineClass(ConcreteClass, -1, false, false, nil, [['i', ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::Test::AbstractClass_Mixin)
+    if not defined?(::Test::::AbstractClass_Mixin)
 
-        module ::Test::AbstractClass_Mixin
+        module ::Test::::AbstractClass_Mixin
         end
         class AbstractClass < ::Ice::Value
         end
@@ -56,7 +56,7 @@ module ::Test
             include AbstractClassPrx_mixin
         end
 
-        if not defined?(::Test::T_AbstractClass)
+        if not defined?(::Test::::T_AbstractClass)
             T_AbstractClass = ::Ice::__declareClass('::Test::AbstractClass')
             T_AbstractClassPrx = ::Ice::__declareProxy('::Test::AbstractClass')
         end
@@ -68,7 +68,7 @@ module ::Test
         AbstractClassPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::E)
+    if not defined?(::Test::::E)
         class E < Ice::UserException
             def initialize
             end
@@ -81,9 +81,9 @@ module ::Test
         T_E = ::Ice::__defineException('::Test::E', E, false, nil, [])
     end
 
-    if not defined?(::Test::Initial_Mixin)
+    if not defined?(::Test::::Initial_Mixin)
 
-        module ::Test::Initial_Mixin
+        module ::Test::::Initial_Mixin
         end
         module InitialPrx_mixin
 
@@ -109,7 +109,7 @@ module ::Test
             include InitialPrx_mixin
         end
 
-        if not defined?(::Test::T_InitialPrx)
+        if not defined?(::Test::::T_InitialPrx)
             T_Initial = ::Ice::__declareClass('::Test::Initial')
             T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
         end
@@ -118,9 +118,9 @@ module ::Test
 
         T_InitialPrx.defineProxy(InitialPrx, nil, [])
 
-        InitialPrx_mixin::OP_getConcreteClass = ::Ice::__defineOperation('getConcreteClass', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_ConcreteClass, false, 0], [])
-        InitialPrx_mixin::OP_getAbstractClass = ::Ice::__defineOperation('getAbstractClass', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_AbstractClass, false, 0], [])
-        InitialPrx_mixin::OP_throwException = ::Ice::__defineOperation('throwException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::T_E])
+        InitialPrx_mixin::OP_getConcreteClass = ::Ice::__defineOperation('getConcreteClass', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::::T_ConcreteClass, false, 0], [])
+        InitialPrx_mixin::OP_getAbstractClass = ::Ice::__defineOperation('getAbstractClass', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::::T_AbstractClass, false, 0], [])
+        InitialPrx_mixin::OP_throwException = ::Ice::__defineOperation('throwException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::::T_E])
         InitialPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 end

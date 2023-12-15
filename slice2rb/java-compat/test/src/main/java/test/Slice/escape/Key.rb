@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::Abstract
 
-    if not defined?(::Abstract::Assert)
+    if not defined?(::Abstract::::Assert)
         class Assert
             include Comparable
 
@@ -66,7 +66,7 @@ module ::Abstract
         T_Assert = ::Ice::__defineEnum('::abstract::assert', Assert, Assert::_enumerators)
     end
 
-    if not defined?(::Abstract::Break)
+    if not defined?(::Abstract::::Break)
         class Break
             include ::Ice::Inspect_mixin
             def initialize(_case=0)
@@ -80,7 +80,7 @@ module ::Abstract
             end
 
             def ==(other)
-                return false if !other.is_a? ::Abstract::Break or
+                return false if !other.is_a? ::Abstract::::Break or
                     @_case != other._case
                 true
             end
@@ -95,9 +95,9 @@ module ::Abstract
         T_Break = ::Ice::__defineStruct('::abstract::break', Break, [["_case", ::Ice::T_int]])
     end
 
-    if not defined?(::Abstract::Catch_Mixin)
+    if not defined?(::Abstract::::Catch_Mixin)
 
-        module ::Abstract::Catch_Mixin
+        module ::Abstract::::Catch_Mixin
         end
         module CatchPrx_mixin
 
@@ -111,7 +111,7 @@ module ::Abstract
             include CatchPrx_mixin
         end
 
-        if not defined?(::Abstract::T_CatchPrx)
+        if not defined?(::Abstract::::T_CatchPrx)
             T_Catch = ::Ice::__declareClass('::abstract::catch')
             T_CatchPrx = ::Ice::__declareProxy('::abstract::catch')
         end
@@ -123,9 +123,9 @@ module ::Abstract
         CatchPrx_mixin::OP_checkedCast = ::Ice::__defineOperation('checkedCast', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
     end
 
-    if not defined?(::Abstract::Default_Mixin)
+    if not defined?(::Abstract::::Default_Mixin)
 
-        module ::Abstract::Default_Mixin
+        module ::Abstract::::Default_Mixin
         end
         module DefaultPrx_mixin
 
@@ -139,7 +139,7 @@ module ::Abstract
             include DefaultPrx_mixin
         end
 
-        if not defined?(::Abstract::T_DefaultPrx)
+        if not defined?(::Abstract::::T_DefaultPrx)
             T_Default = ::Ice::__declareClass('::abstract::default')
             T_DefaultPrx = ::Ice::__declareProxy('::abstract::default')
         end
@@ -151,9 +151,9 @@ module ::Abstract
         DefaultPrx_mixin::OP_do = ::Ice::__defineOperation('do', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Abstract::Else_Mixin)
+    if not defined?(::Abstract::::Else_Mixin)
 
-        module ::Abstract::Else_Mixin
+        module ::Abstract::::Else_Mixin
         end
         class Else < ::Ice::Value
 
@@ -166,24 +166,24 @@ module ::Abstract
             attr_accessor :_if, :equals, :final
         end
 
-        if not defined?(::Abstract::T_Else)
+        if not defined?(::Abstract::::T_Else)
             T_Else = ::Ice::__declareClass('::abstract::else')
         end
 
         T_Else.defineClass(Else, -1, false, false, nil, [
             ['_if', ::Ice::T_int, false, 0],
-            ['equals', ::Abstract::T_DefaultPrx, false, 0],
+            ['equals', ::Abstract::::T_DefaultPrx, false, 0],
             ['final', ::Ice::T_int, false, 0]
         ])
     end
 
-    if not defined?(::Abstract::Finalize_Mixin)
+    if not defined?(::Abstract::::Finalize_Mixin)
 
-        module ::Abstract::Finalize_Mixin
+        module ::Abstract::::Finalize_Mixin
         end
         module FinalizePrx_mixin
-            include ::Abstract::DefaultPrx_mixin
-            include ::Abstract::CatchPrx_mixin
+            include ::Abstract::::DefaultPrx_mixin
+            include ::Abstract::::CatchPrx_mixin
         end
 
         class FinalizePrx < ::Ice::ObjectPrx
@@ -191,25 +191,25 @@ module ::Abstract
             include FinalizePrx_mixin
         end
 
-        if not defined?(::Abstract::T_FinalizePrx)
+        if not defined?(::Abstract::::T_FinalizePrx)
             T_Finalize = ::Ice::__declareClass('::abstract::finalize')
             T_FinalizePrx = ::Ice::__declareProxy('::abstract::finalize')
         end
 
         T_Finalize.defineClass(::Ice::Value, -1, false, true, nil, [])
 
-        T_FinalizePrx.defineProxy(FinalizePrx, nil, [::Abstract::T_DefaultPrx, ::Abstract::T_CatchPrx])
+        T_FinalizePrx.defineProxy(FinalizePrx, nil, [::Abstract::::T_DefaultPrx, ::Abstract::::T_CatchPrx])
     end
 
-    if not defined?(::Abstract::T_For)
-        T_For = ::Ice::__defineSequence('::abstract::for', ::Abstract::T_Assert)
+    if not defined?(::Abstract::::T_For)
+        T_For = ::Ice::__defineSequence('::abstract::for', ::Abstract::::T_Assert)
     end
 
-    if not defined?(::Abstract::T_Goto)
-        T_Goto = ::Ice::__defineDictionary('::abstract::goto', ::Ice::T_string, ::Abstract::T_Assert)
+    if not defined?(::Abstract::::T_Goto)
+        T_Goto = ::Ice::__defineDictionary('::abstract::goto', ::Ice::T_string, ::Abstract::::T_Assert)
     end
 
-    if not defined?(::Abstract::HashCode)
+    if not defined?(::Abstract::::HashCode)
         class HashCode < Ice::UserException
             def initialize(_if=0)
                 @_if = _if
@@ -225,8 +225,8 @@ module ::Abstract
         T_HashCode = ::Ice::__defineException('::abstract::hashCode', HashCode, false, nil, [["_if", ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::Abstract::Import)
-        class Import < ::Abstract::HashCode
+    if not defined?(::Abstract::::Import)
+        class Import < ::Abstract::::HashCode
             def initialize(_if=0, instanceof=0, native=0)
                 super(_if)
                 @instanceof = instanceof
@@ -240,13 +240,13 @@ module ::Abstract
             attr_accessor :instanceof, :native
         end
 
-        T_Import = ::Ice::__defineException('::abstract::import', Import, false, ::Abstract::T_HashCode, [
+        T_Import = ::Ice::__defineException('::abstract::import', Import, false, ::Abstract::::T_HashCode, [
             ["instanceof", ::Ice::T_int, false, 0],
             ["native", ::Ice::T_int, false, 0]
         ])
     end
 
-    if not defined?(::Abstract::T_New)
+    if not defined?(::Abstract::::T_New)
         T_New = ::Ice::__declareLocalClass('::abstract::new')
     end
 

@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::Ice
 
-    if not defined?(::Ice::T_FacetMap)
+    if not defined?(::Ice::::T_FacetMap)
         T_FacetMap = ::Ice::__defineDictionary('::Ice::FacetMap', ::Ice::T_string, ::Ice::T_Value)
     end
 end

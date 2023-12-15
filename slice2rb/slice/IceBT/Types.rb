@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::IceBT
 
-    if not defined?(::IceBT::BluetoothException)
+    if not defined?(::IceBT::::BluetoothException)
         class BluetoothException < Ice::LocalException
             def initialize(reason='')
                 @reason = reason

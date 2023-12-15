@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::IceStormElection
 
-    if not defined?(::IceStormElection::LogUpdate)
+    if not defined?(::IceStormElection::::LogUpdate)
         class LogUpdate
             include ::Ice::Inspect_mixin
             def initialize(generation=0, iteration=0)
@@ -34,7 +34,7 @@ module ::IceStormElection
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceStormElection::LogUpdate or
+                return false if !other.is_a? ::IceStormElection::::LogUpdate or
                     @generation != other.generation or
                     @iteration != other.iteration
                 true

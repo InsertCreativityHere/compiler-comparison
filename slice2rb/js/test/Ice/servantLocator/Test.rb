@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::TestIntfUserException)
+    if not defined?(::Test::::TestIntfUserException)
         class TestIntfUserException < Ice::UserException
             def initialize
             end
@@ -31,7 +31,7 @@ module ::Test
         T_TestIntfUserException = ::Ice::__defineException('::Test::TestIntfUserException', TestIntfUserException, false, nil, [])
     end
 
-    if not defined?(::Test::TestImpossibleException)
+    if not defined?(::Test::::TestImpossibleException)
         class TestImpossibleException < Ice::UserException
             def initialize
             end
@@ -44,9 +44,9 @@ module ::Test
         T_TestImpossibleException = ::Ice::__defineException('::Test::TestImpossibleException', TestImpossibleException, false, nil, [])
     end
 
-    if not defined?(::Test::TestIntf_Mixin)
+    if not defined?(::Test::::TestIntf_Mixin)
 
-        module ::Test::TestIntf_Mixin
+        module ::Test::::TestIntf_Mixin
         end
         module TestIntfPrx_mixin
 
@@ -108,7 +108,7 @@ module ::Test
             include TestIntfPrx_mixin
         end
 
-        if not defined?(::Test::T_TestIntfPrx)
+        if not defined?(::Test::::T_TestIntfPrx)
             T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
@@ -125,16 +125,16 @@ module ::Test
         TestIntfPrx_mixin::OP_userException = ::Ice::__defineOperation('userException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         TestIntfPrx_mixin::OP_jsException = ::Ice::__defineOperation('jsException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         TestIntfPrx_mixin::OP_unknownExceptionWithServantException = ::Ice::__defineOperation('unknownExceptionWithServantException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_impossibleException = ::Ice::__defineOperation('impossibleException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0]], [], [::Ice::T_string, false, 0], [::Test::T_TestImpossibleException])
-        TestIntfPrx_mixin::OP_intfUserException = ::Ice::__defineOperation('intfUserException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0]], [], [::Ice::T_string, false, 0], [::Test::T_TestIntfUserException, ::Test::T_TestImpossibleException])
-        TestIntfPrx_mixin::OP_asyncResponse = ::Ice::__defineOperation('asyncResponse', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::T_TestIntfUserException, ::Test::T_TestImpossibleException])
-        TestIntfPrx_mixin::OP_asyncException = ::Ice::__defineOperation('asyncException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::T_TestIntfUserException, ::Test::T_TestImpossibleException])
+        TestIntfPrx_mixin::OP_impossibleException = ::Ice::__defineOperation('impossibleException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0]], [], [::Ice::T_string, false, 0], [::Test::::T_TestImpossibleException])
+        TestIntfPrx_mixin::OP_intfUserException = ::Ice::__defineOperation('intfUserException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0]], [], [::Ice::T_string, false, 0], [::Test::::T_TestIntfUserException, ::Test::::T_TestImpossibleException])
+        TestIntfPrx_mixin::OP_asyncResponse = ::Ice::__defineOperation('asyncResponse', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::::T_TestIntfUserException, ::Test::::T_TestImpossibleException])
+        TestIntfPrx_mixin::OP_asyncException = ::Ice::__defineOperation('asyncException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::::T_TestIntfUserException, ::Test::::T_TestImpossibleException])
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::TestActivation_Mixin)
+    if not defined?(::Test::::TestActivation_Mixin)
 
-        module ::Test::TestActivation_Mixin
+        module ::Test::::TestActivation_Mixin
         end
         module TestActivationPrx_mixin
 
@@ -148,7 +148,7 @@ module ::Test
             include TestActivationPrx_mixin
         end
 
-        if not defined?(::Test::T_TestActivationPrx)
+        if not defined?(::Test::::T_TestActivationPrx)
             T_TestActivation = ::Ice::__declareClass('::Test::TestActivation')
             T_TestActivationPrx = ::Ice::__declareProxy('::Test::TestActivation')
         end
@@ -160,23 +160,23 @@ module ::Test
         TestActivationPrx_mixin::OP_activateServantLocator = ::Ice::__defineOperation('activateServantLocator', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0]], [], nil, [])
     end
 
-    if not defined?(::Test::Cookie_Mixin)
+    if not defined?(::Test::::Cookie_Mixin)
 
-        module ::Test::Cookie_Mixin
+        module ::Test::::Cookie_Mixin
         end
         class Cookie
         end
 
-        if not defined?(::Test::T_Cookie)
+        if not defined?(::Test::::T_Cookie)
             T_Cookie = ::Ice::__declareLocalClass('::Test::Cookie')
         end
 
         T_Cookie.defineClass(Cookie, -1, false, false, nil, [])
     end
 
-    if not defined?(::Test::Echo_Mixin)
+    if not defined?(::Test::::Echo_Mixin)
 
-        module ::Test::Echo_Mixin
+        module ::Test::::Echo_Mixin
         end
         module EchoPrx_mixin
 
@@ -202,7 +202,7 @@ module ::Test
             include EchoPrx_mixin
         end
 
-        if not defined?(::Test::T_EchoPrx)
+        if not defined?(::Test::::T_EchoPrx)
             T_Echo = ::Ice::__declareClass('::Test::Echo')
             T_EchoPrx = ::Ice::__declareProxy('::Test::Echo')
         end

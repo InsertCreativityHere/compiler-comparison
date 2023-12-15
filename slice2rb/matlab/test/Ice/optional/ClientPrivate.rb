@@ -19,11 +19,11 @@ require 'Test.rb'
 
 module ::Test
 
-    if not defined?(::Test::D_Mixin)
+    if not defined?(::Test::::D_Mixin)
 
-        module ::Test::D_Mixin
+        module ::Test::::D_Mixin
         end
-        class D < ::Test::B
+        class D < ::Test::::B
 
             def initialize(requiredA=0, ma=::Ice::Unset, mb=::Ice::Unset, mc=::Ice::Unset, requiredB=0, md=::Ice::Unset, ds='', seq=::Ice::Unset, ao=::Ice::Unset)
                 super(requiredA, ma, mb, mc, requiredB, md)
@@ -35,20 +35,20 @@ module ::Test
             attr_accessor :ds, :seq, :ao
         end
 
-        if not defined?(::Test::T_D)
+        if not defined?(::Test::::T_D)
             T_D = ::Ice::__declareClass('::Test::D')
         end
 
-        T_D.defineClass(D, -1, true, false, ::Test::T_B, [
+        T_D.defineClass(D, -1, true, false, ::Test::::T_B, [
             ['ds', ::Ice::T_string, false, 0],
-            ['seq', ::Test::T_StringSeq, true, 990],
-            ['ao', ::Test::T_A, true, 1000]
+            ['seq', ::Test::::T_StringSeq, true, 990],
+            ['ao', ::Test::::T_A, true, 1000]
         ])
     end
 
-    if not defined?(::Test::Initial2_Mixin)
+    if not defined?(::Test::::Initial2_Mixin)
 
-        module ::Test::Initial2_Mixin
+        module ::Test::::Initial2_Mixin
         end
         module Initial2Prx_mixin
 
@@ -66,7 +66,7 @@ module ::Test
             include Initial2Prx_mixin
         end
 
-        if not defined?(::Test::T_Initial2Prx)
+        if not defined?(::Test::::T_Initial2Prx)
             T_Initial2 = ::Ice::__declareClass('::Test::Initial2')
             T_Initial2Prx = ::Ice::__declareProxy('::Test::Initial2')
         end
@@ -75,7 +75,7 @@ module ::Test
 
         T_Initial2Prx.defineProxy(Initial2Prx, nil, [])
 
-        Initial2Prx_mixin::OP_opClassAndUnknownOptional = ::Ice::__defineOperation('opClassAndUnknownOptional', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_A, false, 0], [::Ice::T_Value, true, 1]], [], nil, [])
+        Initial2Prx_mixin::OP_opClassAndUnknownOptional = ::Ice::__defineOperation('opClassAndUnknownOptional', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_A, false, 0], [::Ice::T_Value, true, 1]], [], nil, [])
         Initial2Prx_mixin::OP_opVoid = ::Ice::__defineOperation('opVoid', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, true, 1], [::Ice::T_string, true, 2]], [], nil, [])
     end
 end

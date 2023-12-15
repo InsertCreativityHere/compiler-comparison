@@ -34,7 +34,7 @@ module ::Test
 
     LongConst2 = 2147483646
 
-    if not defined?(::Test::ByteEnum)
+    if not defined?(::Test::::ByteEnum)
         class ByteEnum
             include Comparable
 
@@ -92,11 +92,11 @@ module ::Test
         T_ByteEnum = ::Ice::__defineEnum('::Test::ByteEnum', ByteEnum, ByteEnum::_enumerators)
     end
 
-    if not defined?(::Test::T_ByteEnumSeq)
-        T_ByteEnumSeq = ::Ice::__defineSequence('::Test::ByteEnumSeq', ::Test::T_ByteEnum)
+    if not defined?(::Test::::T_ByteEnumSeq)
+        T_ByteEnumSeq = ::Ice::__defineSequence('::Test::ByteEnumSeq', ::Test::::T_ByteEnum)
     end
 
-    if not defined?(::Test::ShortEnum)
+    if not defined?(::Test::::ShortEnum)
         class ShortEnum
             include Comparable
 
@@ -154,11 +154,11 @@ module ::Test
         T_ShortEnum = ::Ice::__defineEnum('::Test::ShortEnum', ShortEnum, ShortEnum::_enumerators)
     end
 
-    if not defined?(::Test::T_ShortEnumSeq)
-        T_ShortEnumSeq = ::Ice::__defineSequence('::Test::ShortEnumSeq', ::Test::T_ShortEnum)
+    if not defined?(::Test::::T_ShortEnumSeq)
+        T_ShortEnumSeq = ::Ice::__defineSequence('::Test::ShortEnumSeq', ::Test::::T_ShortEnum)
     end
 
-    if not defined?(::Test::IntEnum)
+    if not defined?(::Test::::IntEnum)
         class IntEnum
             include Comparable
 
@@ -217,11 +217,11 @@ module ::Test
         T_IntEnum = ::Ice::__defineEnum('::Test::IntEnum', IntEnum, IntEnum::_enumerators)
     end
 
-    if not defined?(::Test::T_IntEnumSeq)
-        T_IntEnumSeq = ::Ice::__defineSequence('::Test::IntEnumSeq', ::Test::T_IntEnum)
+    if not defined?(::Test::::T_IntEnumSeq)
+        T_IntEnumSeq = ::Ice::__defineSequence('::Test::IntEnumSeq', ::Test::::T_IntEnum)
     end
 
-    if not defined?(::Test::SimpleEnum)
+    if not defined?(::Test::::SimpleEnum)
         class SimpleEnum
             include Comparable
 
@@ -271,13 +271,13 @@ module ::Test
         T_SimpleEnum = ::Ice::__defineEnum('::Test::SimpleEnum', SimpleEnum, SimpleEnum::_enumerators)
     end
 
-    if not defined?(::Test::T_SimpleEnumSeq)
-        T_SimpleEnumSeq = ::Ice::__defineSequence('::Test::SimpleEnumSeq', ::Test::T_SimpleEnum)
+    if not defined?(::Test::::T_SimpleEnumSeq)
+        T_SimpleEnumSeq = ::Ice::__defineSequence('::Test::SimpleEnumSeq', ::Test::::T_SimpleEnum)
     end
 
-    if not defined?(::Test::TestIntf_Mixin)
+    if not defined?(::Test::::TestIntf_Mixin)
 
-        module ::Test::TestIntf_Mixin
+        module ::Test::::TestIntf_Mixin
         end
         module TestIntfPrx_mixin
 
@@ -323,7 +323,7 @@ module ::Test
             include TestIntfPrx_mixin
         end
 
-        if not defined?(::Test::T_TestIntfPrx)
+        if not defined?(::Test::::T_TestIntfPrx)
             T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
@@ -332,14 +332,14 @@ module ::Test
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_opByte = ::Ice::__defineOperation('opByte', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteEnum, false, 0]], [[::Test::T_ByteEnum, false, 0]], [::Test::T_ByteEnum, false, 0], [])
-        TestIntfPrx_mixin::OP_opShort = ::Ice::__defineOperation('opShort', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ShortEnum, false, 0]], [[::Test::T_ShortEnum, false, 0]], [::Test::T_ShortEnum, false, 0], [])
-        TestIntfPrx_mixin::OP_opInt = ::Ice::__defineOperation('opInt', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_IntEnum, false, 0]], [[::Test::T_IntEnum, false, 0]], [::Test::T_IntEnum, false, 0], [])
-        TestIntfPrx_mixin::OP_opSimple = ::Ice::__defineOperation('opSimple', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SimpleEnum, false, 0]], [[::Test::T_SimpleEnum, false, 0]], [::Test::T_SimpleEnum, false, 0], [])
-        TestIntfPrx_mixin::OP_opByteSeq = ::Ice::__defineOperation('opByteSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteEnumSeq, false, 0]], [[::Test::T_ByteEnumSeq, false, 0]], [::Test::T_ByteEnumSeq, false, 0], [])
-        TestIntfPrx_mixin::OP_opShortSeq = ::Ice::__defineOperation('opShortSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ShortEnumSeq, false, 0]], [[::Test::T_ShortEnumSeq, false, 0]], [::Test::T_ShortEnumSeq, false, 0], [])
-        TestIntfPrx_mixin::OP_opIntSeq = ::Ice::__defineOperation('opIntSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_IntEnumSeq, false, 0]], [[::Test::T_IntEnumSeq, false, 0]], [::Test::T_IntEnumSeq, false, 0], [])
-        TestIntfPrx_mixin::OP_opSimpleSeq = ::Ice::__defineOperation('opSimpleSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SimpleEnumSeq, false, 0]], [[::Test::T_SimpleEnumSeq, false, 0]], [::Test::T_SimpleEnumSeq, false, 0], [])
+        TestIntfPrx_mixin::OP_opByte = ::Ice::__defineOperation('opByte', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_ByteEnum, false, 0]], [[::Test::::T_ByteEnum, false, 0]], [::Test::::T_ByteEnum, false, 0], [])
+        TestIntfPrx_mixin::OP_opShort = ::Ice::__defineOperation('opShort', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_ShortEnum, false, 0]], [[::Test::::T_ShortEnum, false, 0]], [::Test::::T_ShortEnum, false, 0], [])
+        TestIntfPrx_mixin::OP_opInt = ::Ice::__defineOperation('opInt', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_IntEnum, false, 0]], [[::Test::::T_IntEnum, false, 0]], [::Test::::T_IntEnum, false, 0], [])
+        TestIntfPrx_mixin::OP_opSimple = ::Ice::__defineOperation('opSimple', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_SimpleEnum, false, 0]], [[::Test::::T_SimpleEnum, false, 0]], [::Test::::T_SimpleEnum, false, 0], [])
+        TestIntfPrx_mixin::OP_opByteSeq = ::Ice::__defineOperation('opByteSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_ByteEnumSeq, false, 0]], [[::Test::::T_ByteEnumSeq, false, 0]], [::Test::::T_ByteEnumSeq, false, 0], [])
+        TestIntfPrx_mixin::OP_opShortSeq = ::Ice::__defineOperation('opShortSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_ShortEnumSeq, false, 0]], [[::Test::::T_ShortEnumSeq, false, 0]], [::Test::::T_ShortEnumSeq, false, 0], [])
+        TestIntfPrx_mixin::OP_opIntSeq = ::Ice::__defineOperation('opIntSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_IntEnumSeq, false, 0]], [[::Test::::T_IntEnumSeq, false, 0]], [::Test::::T_IntEnumSeq, false, 0], [])
+        TestIntfPrx_mixin::OP_opSimpleSeq = ::Ice::__defineOperation('opSimpleSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_SimpleEnumSeq, false, 0]], [[::Test::::T_SimpleEnumSeq, false, 0]], [::Test::::T_SimpleEnumSeq, false, 0], [])
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 end

@@ -19,7 +19,7 @@ require 'Ice/BuiltinSequences.rb'
 
 module ::Glacier2
 
-    if not defined?(::Glacier2::SSLInfo)
+    if not defined?(::Glacier2::::SSLInfo)
         class SSLInfo
             include ::Ice::Inspect_mixin
             def initialize(remoteHost='', remotePort=0, localHost='', localPort=0, cipher='', certs=nil)
@@ -43,7 +43,7 @@ module ::Glacier2
             end
 
             def ==(other)
-                return false if !other.is_a? ::Glacier2::SSLInfo or
+                return false if !other.is_a? ::Glacier2::::SSLInfo or
                     @remoteHost != other.remoteHost or
                     @remotePort != other.remotePort or
                     @localHost != other.localHost or
@@ -66,7 +66,7 @@ module ::Glacier2
             ["localHost", ::Ice::T_string],
             ["localPort", ::Ice::T_int],
             ["cipher", ::Ice::T_string],
-            ["certs", ::Ice::T_StringSeq]
+            ["certs", ::Ice::::T_StringSeq]
         ])
     end
 end

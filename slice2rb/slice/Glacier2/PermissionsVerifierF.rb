@@ -18,12 +18,12 @@ require 'Ice'
 
 module ::Glacier2
 
-    if not defined?(::Glacier2::T_PermissionsVerifier)
+    if not defined?(::Glacier2::::T_PermissionsVerifier)
         T_PermissionsVerifier = ::Ice::__declareClass('::Glacier2::PermissionsVerifier')
         T_PermissionsVerifierPrx = ::Ice::__declareProxy('::Glacier2::PermissionsVerifier')
     end
 
-    if not defined?(::Glacier2::T_SSLPermissionsVerifier)
+    if not defined?(::Glacier2::::T_SSLPermissionsVerifier)
         T_SSLPermissionsVerifier = ::Ice::__declareClass('::Glacier2::SSLPermissionsVerifier')
         T_SSLPermissionsVerifierPrx = ::Ice::__declareProxy('::Glacier2::SSLPermissionsVerifier')
     end

@@ -19,7 +19,7 @@ require 'Ice/BuiltinSequences.rb'
 
 module ::Test
 
-    if not defined?(::Test::MyEnum)
+    if not defined?(::Test::::MyEnum)
         class MyEnum
             include Comparable
 
@@ -69,15 +69,15 @@ module ::Test
         T_MyEnum = ::Ice::__defineEnum('::Test::MyEnum', MyEnum, MyEnum::_enumerators)
     end
 
-    if not defined?(::Test::T_MyClass)
+    if not defined?(::Test::::T_MyClass)
         T_MyClass = ::Ice::__declareClass('::Test::MyClass')
         T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
     end
 
-    if not defined?(::Test::ValStruct)
+    if not defined?(::Test::::ValStruct)
         class ValStruct
             include ::Ice::Inspect_mixin
-            def initialize(bo=false, by=0, sh=0, i=0, l=0, e=::Test::MyEnum::Enum1)
+            def initialize(bo=false, by=0, sh=0, i=0, l=0, e=::Test::::MyEnum::Enum1)
                 @bo = bo
                 @by = by
                 @sh = sh
@@ -98,7 +98,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::ValStruct or
+                return false if !other.is_a? ::Test::::ValStruct or
                     @bo != other.bo or
                     @by != other.by or
                     @sh != other.sh or
@@ -121,13 +121,13 @@ module ::Test
             ["sh", ::Ice::T_short],
             ["i", ::Ice::T_int],
             ["l", ::Ice::T_long],
-            ["e", ::Test::T_MyEnum]
+            ["e", ::Test::::T_MyEnum]
         ])
     end
 
-    if not defined?(::Test::MyInterface_Mixin)
+    if not defined?(::Test::::MyInterface_Mixin)
 
-        module ::Test::MyInterface_Mixin
+        module ::Test::::MyInterface_Mixin
         end
         module MyInterfacePrx_mixin
 
@@ -141,7 +141,7 @@ module ::Test
             include MyInterfacePrx_mixin
         end
 
-        if not defined?(::Test::T_MyInterfacePrx)
+        if not defined?(::Test::::T_MyInterfacePrx)
             T_MyInterface = ::Ice::__declareClass('::Test::MyInterface')
             T_MyInterfacePrx = ::Ice::__declareProxy('::Test::MyInterface')
         end
@@ -153,11 +153,11 @@ module ::Test
         MyInterfacePrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::T_ProxySeq)
-        T_ProxySeq = ::Ice::__defineSequence('::Test::ProxySeq', ::Test::T_MyInterfacePrx)
+    if not defined?(::Test::::T_ProxySeq)
+        T_ProxySeq = ::Ice::__defineSequence('::Test::ProxySeq', ::Test::::T_MyInterfacePrx)
     end
 
-    if not defined?(::Test::RefStruct)
+    if not defined?(::Test::::RefStruct)
         class RefStruct
             include ::Ice::Inspect_mixin
             def initialize(s='', sp='', c=nil, p=nil, seq=nil)
@@ -179,7 +179,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::RefStruct or
+                return false if !other.is_a? ::Test::::RefStruct or
                     @s != other.s or
                     @sp != other.sp or
                     @c != other.c or
@@ -198,55 +198,55 @@ module ::Test
         T_RefStruct = ::Ice::__defineStruct('::Test::RefStruct', RefStruct, [
             ["s", ::Ice::T_string],
             ["sp", ::Ice::T_string],
-            ["c", ::Test::T_MyClass],
-            ["p", ::Test::T_MyInterfacePrx],
-            ["seq", ::Test::T_ProxySeq]
+            ["c", ::Test::::T_MyClass],
+            ["p", ::Test::::T_MyInterfacePrx],
+            ["seq", ::Test::::T_ProxySeq]
         ])
     end
 
-    if not defined?(::Test::T_ValStructS)
-        T_ValStructS = ::Ice::__defineSequence('::Test::ValStructS', ::Test::T_ValStruct)
+    if not defined?(::Test::::T_ValStructS)
+        T_ValStructS = ::Ice::__defineSequence('::Test::ValStructS', ::Test::::T_ValStruct)
     end
 
-    if not defined?(::Test::T_ValStructList)
-        T_ValStructList = ::Ice::__defineSequence('::Test::ValStructList', ::Test::T_ValStruct)
+    if not defined?(::Test::::T_ValStructList)
+        T_ValStructList = ::Ice::__defineSequence('::Test::ValStructList', ::Test::::T_ValStruct)
     end
 
-    if not defined?(::Test::T_ValStructLinkedList)
-        T_ValStructLinkedList = ::Ice::__defineSequence('::Test::ValStructLinkedList', ::Test::T_ValStruct)
+    if not defined?(::Test::::T_ValStructLinkedList)
+        T_ValStructLinkedList = ::Ice::__defineSequence('::Test::ValStructLinkedList', ::Test::::T_ValStruct)
     end
 
-    if not defined?(::Test::T_ValStructStack)
-        T_ValStructStack = ::Ice::__defineSequence('::Test::ValStructStack', ::Test::T_ValStruct)
+    if not defined?(::Test::::T_ValStructStack)
+        T_ValStructStack = ::Ice::__defineSequence('::Test::ValStructStack', ::Test::::T_ValStruct)
     end
 
-    if not defined?(::Test::T_ValStructQueue)
-        T_ValStructQueue = ::Ice::__defineSequence('::Test::ValStructQueue', ::Test::T_ValStruct)
+    if not defined?(::Test::::T_ValStructQueue)
+        T_ValStructQueue = ::Ice::__defineSequence('::Test::ValStructQueue', ::Test::::T_ValStruct)
     end
 
-    if not defined?(::Test::T_IntStringD)
+    if not defined?(::Test::::T_IntStringD)
         T_IntStringD = ::Ice::__defineDictionary('::Test::IntStringD', ::Ice::T_int, ::Ice::T_string)
     end
 
-    if not defined?(::Test::T_IntValStructD)
-        T_IntValStructD = ::Ice::__defineDictionary('::Test::IntValStructD', ::Ice::T_int, ::Test::T_ValStruct)
+    if not defined?(::Test::::T_IntValStructD)
+        T_IntValStructD = ::Ice::__defineDictionary('::Test::IntValStructD', ::Ice::T_int, ::Test::::T_ValStruct)
     end
 
-    if not defined?(::Test::T_IntProxyD)
-        T_IntProxyD = ::Ice::__defineDictionary('::Test::IntProxyD', ::Ice::T_int, ::Test::T_MyInterfacePrx)
+    if not defined?(::Test::::T_IntProxyD)
+        T_IntProxyD = ::Ice::__defineDictionary('::Test::IntProxyD', ::Ice::T_int, ::Test::::T_MyInterfacePrx)
     end
 
-    if not defined?(::Test::T_IntStringSD)
+    if not defined?(::Test::::T_IntStringSD)
         T_IntStringSD = ::Ice::__defineDictionary('::Test::IntStringSD', ::Ice::T_int, ::Ice::T_string)
     end
 
-    if not defined?(::Test::Base_Mixin)
+    if not defined?(::Test::::Base_Mixin)
 
-        module ::Test::Base_Mixin
+        module ::Test::::Base_Mixin
         end
         class Base < ::Ice::Value
 
-            def initialize(bo=false, by=0, sh=0, i=0, l=0, e=::Test::MyEnum::Enum1)
+            def initialize(bo=false, by=0, sh=0, i=0, l=0, e=::Test::::MyEnum::Enum1)
                 @bo = bo
                 @by = by
                 @sh = sh
@@ -258,7 +258,7 @@ module ::Test
             attr_accessor :bo, :by, :sh, :i, :l, :e
         end
 
-        if not defined?(::Test::T_Base)
+        if not defined?(::Test::::T_Base)
             T_Base = ::Ice::__declareClass('::Test::Base')
         end
 
@@ -268,17 +268,17 @@ module ::Test
             ['sh', ::Ice::T_short, false, 0],
             ['i', ::Ice::T_int, false, 0],
             ['l', ::Ice::T_long, false, 0],
-            ['e', ::Test::T_MyEnum, false, 0]
+            ['e', ::Test::::T_MyEnum, false, 0]
         ])
     end
 
-    if not defined?(::Test::MyClass_Mixin)
+    if not defined?(::Test::::MyClass_Mixin)
 
-        module ::Test::MyClass_Mixin
+        module ::Test::::MyClass_Mixin
         end
-        class MyClass < ::Test::Base
+        class MyClass < ::Test::::Base
 
-            def initialize(bo=false, by=0, sh=0, i=0, l=0, e=::Test::MyEnum::Enum1, c=nil, o=nil, s=::Test::ValStruct.new)
+            def initialize(bo=false, by=0, sh=0, i=0, l=0, e=::Test::::MyEnum::Enum1, c=nil, o=nil, s=::Test::::ValStruct.new)
                 super(bo, by, sh, i, l, e)
                 @c = c
                 @o = o
@@ -288,20 +288,20 @@ module ::Test
             attr_accessor :c, :o, :s
         end
 
-        if not defined?(::Test::T_MyClass)
+        if not defined?(::Test::::T_MyClass)
             T_MyClass = ::Ice::__declareClass('::Test::MyClass')
         end
 
-        T_MyClass.defineClass(MyClass, -1, false, false, ::Test::T_Base, [
-            ['c', ::Test::T_MyClass, false, 0],
+        T_MyClass.defineClass(MyClass, -1, false, false, ::Test::::T_Base, [
+            ['c', ::Test::::T_MyClass, false, 0],
             ['o', ::Ice::T_Value, false, 0],
-            ['s', ::Test::T_ValStruct, false, 0]
+            ['s', ::Test::::T_ValStruct, false, 0]
         ])
     end
 
-    if not defined?(::Test::MyException)
+    if not defined?(::Test::::MyException)
         class MyException < Ice::UserException
-            def initialize(name='', b=0, s=0, i=0, l=0, vs=::Test::ValStruct.new, rs=::Test::RefStruct.new, c=nil, p=nil, vss=nil, vsl=nil, vsll=nil, vssk=nil, vsq=nil, isd=nil, ivd=nil, ipd=nil, issd=nil, optName=::Ice::Unset, optInt=::Ice::Unset, optValStruct=::Ice::Unset, optRefStruct=::Ice::Unset, optEnum=::Ice::Unset, optClass=::Ice::Unset, optProxy=::Ice::Unset)
+            def initialize(name='', b=0, s=0, i=0, l=0, vs=::Test::::ValStruct.new, rs=::Test::::RefStruct.new, c=nil, p=nil, vss=nil, vsl=nil, vsll=nil, vssk=nil, vsq=nil, isd=nil, ivd=nil, ipd=nil, issd=nil, optName=::Ice::Unset, optInt=::Ice::Unset, optValStruct=::Ice::Unset, optRefStruct=::Ice::Unset, optEnum=::Ice::Unset, optClass=::Ice::Unset, optProxy=::Ice::Unset)
                 @name = name
                 @b = b
                 @s = s
@@ -342,26 +342,26 @@ module ::Test
             ["s", ::Ice::T_short, false, 0],
             ["i", ::Ice::T_int, false, 0],
             ["l", ::Ice::T_long, false, 0],
-            ["vs", ::Test::T_ValStruct, false, 0],
-            ["rs", ::Test::T_RefStruct, false, 0],
-            ["c", ::Test::T_MyClass, false, 0],
-            ["p", ::Test::T_MyInterfacePrx, false, 0],
-            ["vss", ::Test::T_ValStructS, false, 0],
-            ["vsl", ::Test::T_ValStructList, false, 0],
-            ["vsll", ::Test::T_ValStructLinkedList, false, 0],
-            ["vssk", ::Test::T_ValStructStack, false, 0],
-            ["vsq", ::Test::T_ValStructQueue, false, 0],
-            ["isd", ::Test::T_IntStringD, false, 0],
-            ["ivd", ::Test::T_IntValStructD, false, 0],
-            ["ipd", ::Test::T_IntProxyD, false, 0],
-            ["issd", ::Test::T_IntStringSD, false, 0],
+            ["vs", ::Test::::T_ValStruct, false, 0],
+            ["rs", ::Test::::T_RefStruct, false, 0],
+            ["c", ::Test::::T_MyClass, false, 0],
+            ["p", ::Test::::T_MyInterfacePrx, false, 0],
+            ["vss", ::Test::::T_ValStructS, false, 0],
+            ["vsl", ::Test::::T_ValStructList, false, 0],
+            ["vsll", ::Test::::T_ValStructLinkedList, false, 0],
+            ["vssk", ::Test::::T_ValStructStack, false, 0],
+            ["vsq", ::Test::::T_ValStructQueue, false, 0],
+            ["isd", ::Test::::T_IntStringD, false, 0],
+            ["ivd", ::Test::::T_IntValStructD, false, 0],
+            ["ipd", ::Test::::T_IntProxyD, false, 0],
+            ["issd", ::Test::::T_IntStringSD, false, 0],
             ["optName", ::Ice::T_string, true, 1],
             ["optInt", ::Ice::T_int, true, 2],
-            ["optValStruct", ::Test::T_ValStruct, true, 3],
-            ["optRefStruct", ::Test::T_RefStruct, true, 4],
-            ["optEnum", ::Test::T_MyEnum, true, 5],
-            ["optClass", ::Test::T_MyClass, true, 6],
-            ["optProxy", ::Test::T_MyInterfacePrx, true, 7]
+            ["optValStruct", ::Test::::T_ValStruct, true, 3],
+            ["optRefStruct", ::Test::::T_RefStruct, true, 4],
+            ["optEnum", ::Test::::T_MyEnum, true, 5],
+            ["optClass", ::Test::::T_MyClass, true, 6],
+            ["optProxy", ::Test::::T_MyInterfacePrx, true, 7]
         ])
     end
 end

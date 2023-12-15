@@ -18,9 +18,9 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Priority_Mixin)
+    if not defined?(::Test::::Priority_Mixin)
 
-        module ::Test::Priority_Mixin
+        module ::Test::::Priority_Mixin
         end
         module PriorityPrx_mixin
 
@@ -38,7 +38,7 @@ module ::Test
             include PriorityPrx_mixin
         end
 
-        if not defined?(::Test::T_PriorityPrx)
+        if not defined?(::Test::::T_PriorityPrx)
             T_Priority = ::Ice::__declareClass('::Test::Priority')
             T_PriorityPrx = ::Ice::__declareProxy('::Test::Priority')
         end

@@ -39,9 +39,9 @@ module ::Ice
 
     IAPSEndpointType = 9
 
-    if not defined?(::Ice::EndpointInfo_Mixin)
+    if not defined?(::Ice::::EndpointInfo_Mixin)
 
-        module ::Ice::EndpointInfo_Mixin
+        module ::Ice::::EndpointInfo_Mixin
         end
         class EndpointInfo
 
@@ -54,26 +54,26 @@ module ::Ice
             attr_accessor :underlying, :timeout, :compress
         end
 
-        if not defined?(::Ice::T_EndpointInfo)
+        if not defined?(::Ice::::T_EndpointInfo)
             T_EndpointInfo = ::Ice::__declareLocalClass('::Ice::EndpointInfo')
         end
 
         T_EndpointInfo.defineClass(EndpointInfo, -1, false, false, nil, [
-            ['underlying', ::Ice::T_EndpointInfo, false, 0],
+            ['underlying', ::Ice::::T_EndpointInfo, false, 0],
             ['timeout', ::Ice::T_int, false, 0],
             ['compress', ::Ice::T_bool, false, 0]
         ])
     end
 
-    if not defined?(::Ice::T_Endpoint)
+    if not defined?(::Ice::::T_Endpoint)
         T_Endpoint = ::Ice::__declareLocalClass('::Ice::Endpoint')
     end
 
-    if not defined?(::Ice::IPEndpointInfo_Mixin)
+    if not defined?(::Ice::::IPEndpointInfo_Mixin)
 
-        module ::Ice::IPEndpointInfo_Mixin
+        module ::Ice::::IPEndpointInfo_Mixin
         end
-        class IPEndpointInfo < ::Ice::EndpointInfo
+        class IPEndpointInfo < ::Ice::::EndpointInfo
 
             def initialize(underlying=nil, timeout=0, compress=false, host='', port=0, sourceAddress='')
                 super(underlying, timeout, compress)
@@ -85,40 +85,40 @@ module ::Ice
             attr_accessor :host, :port, :sourceAddress
         end
 
-        if not defined?(::Ice::T_IPEndpointInfo)
+        if not defined?(::Ice::::T_IPEndpointInfo)
             T_IPEndpointInfo = ::Ice::__declareLocalClass('::Ice::IPEndpointInfo')
         end
 
-        T_IPEndpointInfo.defineClass(IPEndpointInfo, -1, false, false, ::Ice::T_EndpointInfo, [
+        T_IPEndpointInfo.defineClass(IPEndpointInfo, -1, false, false, ::Ice::::T_EndpointInfo, [
             ['host', ::Ice::T_string, false, 0],
             ['port', ::Ice::T_int, false, 0],
             ['sourceAddress', ::Ice::T_string, false, 0]
         ])
     end
 
-    if not defined?(::Ice::TCPEndpointInfo_Mixin)
+    if not defined?(::Ice::::TCPEndpointInfo_Mixin)
 
-        module ::Ice::TCPEndpointInfo_Mixin
+        module ::Ice::::TCPEndpointInfo_Mixin
         end
-        class TCPEndpointInfo < ::Ice::IPEndpointInfo
+        class TCPEndpointInfo < ::Ice::::IPEndpointInfo
 
             def initialize(underlying=nil, timeout=0, compress=false, host='', port=0, sourceAddress='')
                 super(underlying, timeout, compress, host, port, sourceAddress)
             end
         end
 
-        if not defined?(::Ice::T_TCPEndpointInfo)
+        if not defined?(::Ice::::T_TCPEndpointInfo)
             T_TCPEndpointInfo = ::Ice::__declareLocalClass('::Ice::TCPEndpointInfo')
         end
 
-        T_TCPEndpointInfo.defineClass(TCPEndpointInfo, -1, false, false, ::Ice::T_IPEndpointInfo, [])
+        T_TCPEndpointInfo.defineClass(TCPEndpointInfo, -1, false, false, ::Ice::::T_IPEndpointInfo, [])
     end
 
-    if not defined?(::Ice::UDPEndpointInfo_Mixin)
+    if not defined?(::Ice::::UDPEndpointInfo_Mixin)
 
-        module ::Ice::UDPEndpointInfo_Mixin
+        module ::Ice::::UDPEndpointInfo_Mixin
         end
-        class UDPEndpointInfo < ::Ice::IPEndpointInfo
+        class UDPEndpointInfo < ::Ice::::IPEndpointInfo
 
             def initialize(underlying=nil, timeout=0, compress=false, host='', port=0, sourceAddress='', mcastInterface='', mcastTtl=0)
                 super(underlying, timeout, compress, host, port, sourceAddress)
@@ -129,21 +129,21 @@ module ::Ice
             attr_accessor :mcastInterface, :mcastTtl
         end
 
-        if not defined?(::Ice::T_UDPEndpointInfo)
+        if not defined?(::Ice::::T_UDPEndpointInfo)
             T_UDPEndpointInfo = ::Ice::__declareLocalClass('::Ice::UDPEndpointInfo')
         end
 
-        T_UDPEndpointInfo.defineClass(UDPEndpointInfo, -1, false, false, ::Ice::T_IPEndpointInfo, [
+        T_UDPEndpointInfo.defineClass(UDPEndpointInfo, -1, false, false, ::Ice::::T_IPEndpointInfo, [
             ['mcastInterface', ::Ice::T_string, false, 0],
             ['mcastTtl', ::Ice::T_int, false, 0]
         ])
     end
 
-    if not defined?(::Ice::WSEndpointInfo_Mixin)
+    if not defined?(::Ice::::WSEndpointInfo_Mixin)
 
-        module ::Ice::WSEndpointInfo_Mixin
+        module ::Ice::::WSEndpointInfo_Mixin
         end
-        class WSEndpointInfo < ::Ice::EndpointInfo
+        class WSEndpointInfo < ::Ice::::EndpointInfo
 
             def initialize(underlying=nil, timeout=0, compress=false, resource='')
                 super(underlying, timeout, compress)
@@ -153,20 +153,20 @@ module ::Ice
             attr_accessor :resource
         end
 
-        if not defined?(::Ice::T_WSEndpointInfo)
+        if not defined?(::Ice::::T_WSEndpointInfo)
             T_WSEndpointInfo = ::Ice::__declareLocalClass('::Ice::WSEndpointInfo')
         end
 
-        T_WSEndpointInfo.defineClass(WSEndpointInfo, -1, false, false, ::Ice::T_EndpointInfo, [['resource', ::Ice::T_string, false, 0]])
+        T_WSEndpointInfo.defineClass(WSEndpointInfo, -1, false, false, ::Ice::::T_EndpointInfo, [['resource', ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Ice::OpaqueEndpointInfo_Mixin)
+    if not defined?(::Ice::::OpaqueEndpointInfo_Mixin)
 
-        module ::Ice::OpaqueEndpointInfo_Mixin
+        module ::Ice::::OpaqueEndpointInfo_Mixin
         end
-        class OpaqueEndpointInfo < ::Ice::EndpointInfo
+        class OpaqueEndpointInfo < ::Ice::::EndpointInfo
 
-            def initialize(underlying=nil, timeout=0, compress=false, rawEncoding=::Ice::EncodingVersion.new, rawBytes=nil)
+            def initialize(underlying=nil, timeout=0, compress=false, rawEncoding=::Ice::::EncodingVersion.new, rawBytes=nil)
                 super(underlying, timeout, compress)
                 @rawEncoding = rawEncoding
                 @rawBytes = rawBytes
@@ -175,13 +175,13 @@ module ::Ice
             attr_accessor :rawEncoding, :rawBytes
         end
 
-        if not defined?(::Ice::T_OpaqueEndpointInfo)
+        if not defined?(::Ice::::T_OpaqueEndpointInfo)
             T_OpaqueEndpointInfo = ::Ice::__declareLocalClass('::Ice::OpaqueEndpointInfo')
         end
 
-        T_OpaqueEndpointInfo.defineClass(OpaqueEndpointInfo, -1, false, false, ::Ice::T_EndpointInfo, [
-            ['rawEncoding', ::Ice::T_EncodingVersion, false, 0],
-            ['rawBytes', ::Ice::T_ByteSeq, false, 0]
+        T_OpaqueEndpointInfo.defineClass(OpaqueEndpointInfo, -1, false, false, ::Ice::::T_EndpointInfo, [
+            ['rawEncoding', ::Ice::::T_EncodingVersion, false, 0],
+            ['rawBytes', ::Ice::::T_ByteSeq, false, 0]
         ])
     end
 end

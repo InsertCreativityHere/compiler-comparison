@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::MyEnum)
+    if not defined?(::Test::::MyEnum)
         class MyEnum
             include Comparable
 
@@ -68,20 +68,20 @@ module ::Test
         T_MyEnum = ::Ice::__defineEnum('::Test::MyEnum', MyEnum, MyEnum::_enumerators)
     end
 
-    if not defined?(::Test::T_Initial)
+    if not defined?(::Test::::T_Initial)
         T_Initial = ::Ice::__declareClass('::Test::Initial')
         T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
     end
 
-    if not defined?(::Test::T_Base)
+    if not defined?(::Test::::T_Base)
         T_Base = ::Ice::__declareClass('::Test::Base')
         T_BasePrx = ::Ice::__declareProxy('::Test::Base')
     end
 
-    if not defined?(::Test::Struct1)
+    if not defined?(::Test::::Struct1)
         class Struct1
             include ::Ice::Inspect_mixin
-            def initialize(bo=false, by=0, sh=0, i=0, l=0, f=0.0, d=0.0, str='', e=::Test::MyEnum::Enum1, p=nil)
+            def initialize(bo=false, by=0, sh=0, i=0, l=0, f=0.0, d=0.0, str='', e=::Test::::MyEnum::Enum1, p=nil)
                 @bo = bo
                 @by = by
                 @sh = sh
@@ -110,7 +110,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::Struct1 or
+                return false if !other.is_a? ::Test::::Struct1 or
                     @bo != other.bo or
                     @by != other.by or
                     @sh != other.sh or
@@ -140,50 +140,50 @@ module ::Test
             ["f", ::Ice::T_float],
             ["d", ::Ice::T_double],
             ["str", ::Ice::T_string],
-            ["e", ::Test::T_MyEnum],
-            ["p", ::Test::T_InitialPrx]
+            ["e", ::Test::::T_MyEnum],
+            ["p", ::Test::::T_InitialPrx]
         ])
     end
 
-    if not defined?(::Test::T_ByteS)
+    if not defined?(::Test::::T_ByteS)
         T_ByteS = ::Ice::__defineSequence('::Test::ByteS', ::Ice::T_byte)
     end
 
-    if not defined?(::Test::T_IntS)
+    if not defined?(::Test::::T_IntS)
         T_IntS = ::Ice::__defineSequence('::Test::IntS', ::Ice::T_int)
     end
 
-    if not defined?(::Test::T_MyEnumS)
-        T_MyEnumS = ::Ice::__defineSequence('::Test::MyEnumS', ::Test::T_MyEnum)
+    if not defined?(::Test::::T_MyEnumS)
+        T_MyEnumS = ::Ice::__defineSequence('::Test::MyEnumS', ::Test::::T_MyEnum)
     end
 
-    if not defined?(::Test::T_BaseS)
-        T_BaseS = ::Ice::__defineSequence('::Test::BaseS', ::Test::T_Base)
+    if not defined?(::Test::::T_BaseS)
+        T_BaseS = ::Ice::__defineSequence('::Test::BaseS', ::Test::::T_Base)
     end
 
-    if not defined?(::Test::T_ByteBoolD)
+    if not defined?(::Test::::T_ByteBoolD)
         T_ByteBoolD = ::Ice::__defineDictionary('::Test::ByteBoolD', ::Ice::T_byte, ::Ice::T_bool)
     end
 
-    if not defined?(::Test::T_ShortIntD)
+    if not defined?(::Test::::T_ShortIntD)
         T_ShortIntD = ::Ice::__defineDictionary('::Test::ShortIntD', ::Ice::T_short, ::Ice::T_int)
     end
 
-    if not defined?(::Test::T_StringMyEnumD)
-        T_StringMyEnumD = ::Ice::__defineDictionary('::Test::StringMyEnumD', ::Ice::T_string, ::Test::T_MyEnum)
+    if not defined?(::Test::::T_StringMyEnumD)
+        T_StringMyEnumD = ::Ice::__defineDictionary('::Test::StringMyEnumD', ::Ice::T_string, ::Test::::T_MyEnum)
     end
 
-    if not defined?(::Test::T_StringBaseD)
-        T_StringBaseD = ::Ice::__defineDictionary('::Test::StringBaseD', ::Ice::T_string, ::Test::T_Base)
+    if not defined?(::Test::::T_StringBaseD)
+        T_StringBaseD = ::Ice::__defineDictionary('::Test::StringBaseD', ::Ice::T_string, ::Test::::T_Base)
     end
 
-    if not defined?(::Test::Base_Mixin)
+    if not defined?(::Test::::Base_Mixin)
 
-        module ::Test::Base_Mixin
+        module ::Test::::Base_Mixin
         end
         class Base < ::Ice::Value
 
-            def initialize(b=nil, o=nil, s=::Test::Struct1.new, seq1=nil, seq2=nil, seq3=nil, seq4=nil, d1=nil, d2=nil, d3=nil, d4=nil)
+            def initialize(b=nil, o=nil, s=::Test::::Struct1.new, seq1=nil, seq2=nil, seq3=nil, seq4=nil, d1=nil, d2=nil, d3=nil, d4=nil)
                 @b = b
                 @o = o
                 @s = s
@@ -200,32 +200,32 @@ module ::Test
             attr_accessor :b, :o, :s, :seq1, :seq2, :seq3, :seq4, :d1, :d2, :d3, :d4
         end
 
-        if not defined?(::Test::T_Base)
+        if not defined?(::Test::::T_Base)
             T_Base = ::Ice::__declareClass('::Test::Base')
         end
 
         T_Base.defineClass(Base, -1, false, false, nil, [
-            ['b', ::Test::T_Base, false, 0],
+            ['b', ::Test::::T_Base, false, 0],
             ['o', ::Ice::T_Value, false, 0],
-            ['s', ::Test::T_Struct1, false, 0],
-            ['seq1', ::Test::T_ByteS, false, 0],
-            ['seq2', ::Test::T_IntS, false, 0],
-            ['seq3', ::Test::T_MyEnumS, false, 0],
-            ['seq4', ::Test::T_BaseS, false, 0],
-            ['d1', ::Test::T_ByteBoolD, false, 0],
-            ['d2', ::Test::T_ShortIntD, false, 0],
-            ['d3', ::Test::T_StringMyEnumD, false, 0],
-            ['d4', ::Test::T_StringBaseD, false, 0]
+            ['s', ::Test::::T_Struct1, false, 0],
+            ['seq1', ::Test::::T_ByteS, false, 0],
+            ['seq2', ::Test::::T_IntS, false, 0],
+            ['seq3', ::Test::::T_MyEnumS, false, 0],
+            ['seq4', ::Test::::T_BaseS, false, 0],
+            ['d1', ::Test::::T_ByteBoolD, false, 0],
+            ['d2', ::Test::::T_ShortIntD, false, 0],
+            ['d3', ::Test::::T_StringMyEnumD, false, 0],
+            ['d4', ::Test::::T_StringBaseD, false, 0]
         ])
     end
 
-    if not defined?(::Test::Derived_Mixin)
+    if not defined?(::Test::::Derived_Mixin)
 
-        module ::Test::Derived_Mixin
+        module ::Test::::Derived_Mixin
         end
-        class Derived < ::Test::Base
+        class Derived < ::Test::::Base
 
-            def initialize(b=nil, o=nil, s=::Test::Struct1.new, seq1=nil, seq2=nil, seq3=nil, seq4=nil, d1=nil, d2=nil, d3=nil, d4=nil, p=nil)
+            def initialize(b=nil, o=nil, s=::Test::::Struct1.new, seq1=nil, seq2=nil, seq3=nil, seq4=nil, d1=nil, d2=nil, d3=nil, d4=nil, p=nil)
                 super(b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4)
                 @p = p
             end
@@ -233,16 +233,16 @@ module ::Test
             attr_accessor :p
         end
 
-        if not defined?(::Test::T_Derived)
+        if not defined?(::Test::::T_Derived)
             T_Derived = ::Ice::__declareClass('::Test::Derived')
         end
 
-        T_Derived.defineClass(Derived, -1, false, false, ::Test::T_Base, [['p', ::Ice::T_ObjectPrx, false, 0]])
+        T_Derived.defineClass(Derived, -1, false, false, ::Test::::T_Base, [['p', ::Ice::T_ObjectPrx, false, 0]])
     end
 
-    if not defined?(::Test::Ex)
+    if not defined?(::Test::::Ex)
         class Ex < Ice::UserException
-            def initialize(s=::Test::Struct1.new, b=nil)
+            def initialize(s=::Test::::Struct1.new, b=nil)
                 @s = s
                 @b = b
             end
@@ -255,14 +255,14 @@ module ::Test
         end
 
         T_Ex = ::Ice::__defineException('::Test::Ex', Ex, false, nil, [
-            ["s", ::Test::T_Struct1, false, 0],
-            ["b", ::Test::T_Base, false, 0]
+            ["s", ::Test::::T_Struct1, false, 0],
+            ["b", ::Test::::T_Base, false, 0]
         ])
     end
 
-    if not defined?(::Test::Initial_Mixin)
+    if not defined?(::Test::::Initial_Mixin)
 
-        module ::Test::Initial_Mixin
+        module ::Test::::Initial_Mixin
         end
         module InitialPrx_mixin
 
@@ -288,7 +288,7 @@ module ::Test
             include InitialPrx_mixin
         end
 
-        if not defined?(::Test::T_InitialPrx)
+        if not defined?(::Test::::T_InitialPrx)
             T_Initial = ::Ice::__declareClass('::Test::Initial')
             T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
         end
@@ -297,9 +297,9 @@ module ::Test
 
         T_InitialPrx.defineProxy(InitialPrx, nil, [])
 
-        InitialPrx_mixin::OP_getStruct1 = ::Ice::__defineOperation('getStruct1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_ByteS, false, 0], [])
-        InitialPrx_mixin::OP_getBase = ::Ice::__defineOperation('getBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_ByteS, false, 0], [])
-        InitialPrx_mixin::OP_getEx = ::Ice::__defineOperation('getEx', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_ByteS, false, 0], [])
+        InitialPrx_mixin::OP_getStruct1 = ::Ice::__defineOperation('getStruct1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::::T_ByteS, false, 0], [])
+        InitialPrx_mixin::OP_getBase = ::Ice::__defineOperation('getBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::::T_ByteS, false, 0], [])
+        InitialPrx_mixin::OP_getEx = ::Ice::__defineOperation('getEx', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::::T_ByteS, false, 0], [])
         InitialPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 end

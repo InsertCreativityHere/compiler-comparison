@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::S)
+    if not defined?(::Test::::S)
         class S
             include ::Ice::Inspect_mixin
             def initialize(v=0)
@@ -32,7 +32,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::S or
+                return false if !other.is_a? ::Test::::S or
                     @v != other.v
                 true
             end
@@ -47,43 +47,43 @@ module ::Test
         T_S = ::Ice::__defineStruct('::Test::S', S, [["v", ::Ice::T_int]])
     end
 
-    if not defined?(::Test::T_SMap)
-        T_SMap = ::Ice::__defineDictionary('::Test::SMap', ::Ice::T_string, ::Test::T_S)
+    if not defined?(::Test::::T_SMap)
+        T_SMap = ::Ice::__defineDictionary('::Test::SMap', ::Ice::T_string, ::Test::::T_S)
     end
 
-    if not defined?(::Test::T_SSeq)
-        T_SSeq = ::Ice::__defineSequence('::Test::SSeq', ::Test::T_S)
+    if not defined?(::Test::::T_SSeq)
+        T_SSeq = ::Ice::__defineSequence('::Test::SSeq', ::Test::::T_S)
     end
 
-    if not defined?(::Test::C_Mixin)
+    if not defined?(::Test::::C_Mixin)
 
-        module ::Test::C_Mixin
+        module ::Test::::C_Mixin
         end
         class C < ::Ice::Value
 
-            def initialize(s=::Test::S.new)
+            def initialize(s=::Test::::S.new)
                 @s = s
             end
 
             attr_accessor :s
         end
 
-        if not defined?(::Test::T_C)
+        if not defined?(::Test::::T_C)
             T_C = ::Ice::__declareClass('::Test::C')
         end
 
-        T_C.defineClass(C, -1, false, false, nil, [['s', ::Test::T_S, false, 0]])
+        T_C.defineClass(C, -1, false, false, nil, [['s', ::Test::::T_S, false, 0]])
     end
 
-    if not defined?(::Test::T_CMap)
-        T_CMap = ::Ice::__defineDictionary('::Test::CMap', ::Ice::T_string, ::Test::T_C)
+    if not defined?(::Test::::T_CMap)
+        T_CMap = ::Ice::__defineDictionary('::Test::CMap', ::Ice::T_string, ::Test::::T_C)
     end
 
-    if not defined?(::Test::T_CSeq)
-        T_CSeq = ::Ice::__defineSequence('::Test::CSeq', ::Test::T_C)
+    if not defined?(::Test::::T_CSeq)
+        T_CSeq = ::Ice::__defineSequence('::Test::CSeq', ::Test::::T_C)
     end
 
-    if not defined?(::Test::E1)
+    if not defined?(::Test::::E1)
         class E1
             include Comparable
 
@@ -133,7 +133,7 @@ module ::Test
         T_E1 = ::Ice::__defineEnum('::Test::E1', E1, E1::_enumerators)
     end
 
-    if not defined?(::Test::S1)
+    if not defined?(::Test::::S1)
         class S1
             include ::Ice::Inspect_mixin
             def initialize(s='')
@@ -147,7 +147,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::S1 or
+                return false if !other.is_a? ::Test::::S1 or
                     @s != other.s
                 true
             end
@@ -162,17 +162,17 @@ module ::Test
         T_S1 = ::Ice::__defineStruct('::Test::S1', S1, [["s", ::Ice::T_string]])
     end
 
-    if not defined?(::Test::T_S1Seq)
-        T_S1Seq = ::Ice::__defineSequence('::Test::S1Seq', ::Test::T_S1)
+    if not defined?(::Test::::T_S1Seq)
+        T_S1Seq = ::Ice::__defineSequence('::Test::S1Seq', ::Test::::T_S1)
     end
 
-    if not defined?(::Test::T_S1Map)
-        T_S1Map = ::Ice::__defineDictionary('::Test::S1Map', ::Ice::T_string, ::Test::T_S1)
+    if not defined?(::Test::::T_S1Map)
+        T_S1Map = ::Ice::__defineDictionary('::Test::S1Map', ::Ice::T_string, ::Test::::T_S1)
     end
 
-    if not defined?(::Test::C1_Mixin)
+    if not defined?(::Test::::C1_Mixin)
 
-        module ::Test::C1_Mixin
+        module ::Test::::C1_Mixin
         end
         class C1 < ::Ice::Value
 
@@ -183,17 +183,17 @@ module ::Test
             attr_accessor :s
         end
 
-        if not defined?(::Test::T_C1)
+        if not defined?(::Test::::T_C1)
             T_C1 = ::Ice::__declareClass('::Test::C1')
         end
 
         T_C1.defineClass(C1, -1, false, false, nil, [['s', ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::S2)
+    if not defined?(::Test::::S2)
         class S2
             include ::Ice::Inspect_mixin
-            def initialize(e1=::Test::E1::V1, s1=::Test::S1.new, c1=nil, s1Seq=nil, s1Map=nil)
+            def initialize(e1=::Test::::E1::V1, s1=::Test::::S1.new, c1=nil, s1Seq=nil, s1Map=nil)
                 @E1 = e1
                 @S1 = s1
                 @C1 = c1
@@ -212,7 +212,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::S2 or
+                return false if !other.is_a? ::Test::::S2 or
                     @E1 != other.E1 or
                     @S1 != other.S1 or
                     @C1 != other.C1 or
@@ -229,21 +229,21 @@ module ::Test
         end
 
         T_S2 = ::Ice::__defineStruct('::Test::S2', S2, [
-            ["E1", ::Test::T_E1],
-            ["S1", ::Test::T_S1],
-            ["C1", ::Test::T_C1],
-            ["S1Seq", ::Test::T_S1Seq],
-            ["S1Map", ::Test::T_S1Map]
+            ["E1", ::Test::::T_E1],
+            ["S1", ::Test::::T_S1],
+            ["C1", ::Test::::T_C1],
+            ["S1Seq", ::Test::::T_S1Seq],
+            ["S1Map", ::Test::::T_S1Map]
         ])
     end
 
-    if not defined?(::Test::C2_Mixin)
+    if not defined?(::Test::::C2_Mixin)
 
-        module ::Test::C2_Mixin
+        module ::Test::::C2_Mixin
         end
         class C2 < ::Ice::Value
 
-            def initialize(e1=::Test::E1::V1, s1=::Test::S1.new, c1=nil, s1Seq=nil, s1Map=nil)
+            def initialize(e1=::Test::::E1::V1, s1=::Test::::S1.new, c1=nil, s1Seq=nil, s1Map=nil)
                 @E1 = e1
                 @S1 = s1
                 @C1 = c1
@@ -254,22 +254,22 @@ module ::Test
             attr_accessor :E1, :S1, :C1, :S1Seq, :S1Map
         end
 
-        if not defined?(::Test::T_C2)
+        if not defined?(::Test::::T_C2)
             T_C2 = ::Ice::__declareClass('::Test::C2')
         end
 
         T_C2.defineClass(C2, -1, false, false, nil, [
-            ['E1', ::Test::T_E1, false, 0],
-            ['S1', ::Test::T_S1, false, 0],
-            ['C1', ::Test::T_C1, false, 0],
-            ['S1Seq', ::Test::T_S1Seq, false, 0],
-            ['S1Map', ::Test::T_S1Map, false, 0]
+            ['E1', ::Test::::T_E1, false, 0],
+            ['S1', ::Test::::T_S1, false, 0],
+            ['C1', ::Test::::T_C1, false, 0],
+            ['S1Seq', ::Test::::T_S1Seq, false, 0],
+            ['S1Map', ::Test::::T_S1Map, false, 0]
         ])
     end
 
-    if not defined?(::Test::I_Mixin)
+    if not defined?(::Test::::I_Mixin)
 
-        module ::Test::I_Mixin
+        module ::Test::::I_Mixin
         end
         module IPrx_mixin
 
@@ -327,7 +327,7 @@ module ::Test
             include IPrx_mixin
         end
 
-        if not defined?(::Test::T_IPrx)
+        if not defined?(::Test::::T_IPrx)
             T_I = ::Ice::__declareClass('::Test::I')
             T_IPrx = ::Ice::__declareProxy('::Test::I')
         end
@@ -336,31 +336,31 @@ module ::Test
 
         T_IPrx.defineProxy(IPrx, nil, [])
 
-        IPrx_mixin::OP_opS = ::Ice::__defineOperation('opS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_S, false, 0]], [[::Test::T_S, false, 0]], [::Test::T_S, false, 0], [])
-        IPrx_mixin::OP_opSSeq = ::Ice::__defineOperation('opSSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SSeq, false, 0]], [[::Test::T_SSeq, false, 0]], [::Test::T_SSeq, false, 0], [])
-        IPrx_mixin::OP_opSMap = ::Ice::__defineOperation('opSMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SMap, false, 0]], [[::Test::T_SMap, false, 0]], [::Test::T_SMap, false, 0], [])
-        IPrx_mixin::OP_opC = ::Ice::__defineOperation('opC', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_C, false, 0]], [[::Test::T_C, false, 0]], [::Test::T_C, false, 0], [])
-        IPrx_mixin::OP_opCSeq = ::Ice::__defineOperation('opCSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_CSeq, false, 0]], [[::Test::T_CSeq, false, 0]], [::Test::T_CSeq, false, 0], [])
-        IPrx_mixin::OP_opCMap = ::Ice::__defineOperation('opCMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_CMap, false, 0]], [[::Test::T_CMap, false, 0]], [::Test::T_CMap, false, 0], [])
-        IPrx_mixin::OP_opE1 = ::Ice::__defineOperation('opE1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_E1, false, 0]], [], [::Test::T_E1, false, 0], [])
-        IPrx_mixin::OP_opS1 = ::Ice::__defineOperation('opS1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_S1, false, 0]], [], [::Test::T_S1, false, 0], [])
-        IPrx_mixin::OP_opC1 = ::Ice::__defineOperation('opC1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_C1, false, 0]], [], [::Test::T_C1, false, 0], [])
-        IPrx_mixin::OP_opS1Seq = ::Ice::__defineOperation('opS1Seq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_S1Seq, false, 0]], [], [::Test::T_S1Seq, false, 0], [])
-        IPrx_mixin::OP_opS1Map = ::Ice::__defineOperation('opS1Map', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_S1Map, false, 0]], [], [::Test::T_S1Map, false, 0], [])
+        IPrx_mixin::OP_opS = ::Ice::__defineOperation('opS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_S, false, 0]], [[::Test::::T_S, false, 0]], [::Test::::T_S, false, 0], [])
+        IPrx_mixin::OP_opSSeq = ::Ice::__defineOperation('opSSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_SSeq, false, 0]], [[::Test::::T_SSeq, false, 0]], [::Test::::T_SSeq, false, 0], [])
+        IPrx_mixin::OP_opSMap = ::Ice::__defineOperation('opSMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_SMap, false, 0]], [[::Test::::T_SMap, false, 0]], [::Test::::T_SMap, false, 0], [])
+        IPrx_mixin::OP_opC = ::Ice::__defineOperation('opC', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_C, false, 0]], [[::Test::::T_C, false, 0]], [::Test::::T_C, false, 0], [])
+        IPrx_mixin::OP_opCSeq = ::Ice::__defineOperation('opCSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_CSeq, false, 0]], [[::Test::::T_CSeq, false, 0]], [::Test::::T_CSeq, false, 0], [])
+        IPrx_mixin::OP_opCMap = ::Ice::__defineOperation('opCMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_CMap, false, 0]], [[::Test::::T_CMap, false, 0]], [::Test::::T_CMap, false, 0], [])
+        IPrx_mixin::OP_opE1 = ::Ice::__defineOperation('opE1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_E1, false, 0]], [], [::Test::::T_E1, false, 0], [])
+        IPrx_mixin::OP_opS1 = ::Ice::__defineOperation('opS1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_S1, false, 0]], [], [::Test::::T_S1, false, 0], [])
+        IPrx_mixin::OP_opC1 = ::Ice::__defineOperation('opC1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_C1, false, 0]], [], [::Test::::T_C1, false, 0], [])
+        IPrx_mixin::OP_opS1Seq = ::Ice::__defineOperation('opS1Seq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_S1Seq, false, 0]], [], [::Test::::T_S1Seq, false, 0], [])
+        IPrx_mixin::OP_opS1Map = ::Ice::__defineOperation('opS1Map', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_S1Map, false, 0]], [], [::Test::::T_S1Map, false, 0], [])
         IPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::T_IMap)
-        T_IMap = ::Ice::__defineDictionary('::Test::IMap', ::Ice::T_string, ::Test::T_IPrx)
+    if not defined?(::Test::::T_IMap)
+        T_IMap = ::Ice::__defineDictionary('::Test::IMap', ::Ice::T_string, ::Test::::T_IPrx)
     end
 
-    if not defined?(::Test::T_ISeq)
-        T_ISeq = ::Ice::__defineSequence('::Test::ISeq', ::Test::T_IPrx)
+    if not defined?(::Test::::T_ISeq)
+        T_ISeq = ::Ice::__defineSequence('::Test::ISeq', ::Test::::T_IPrx)
     end
 
     module Inner
 
-        if not defined?(::Test::Inner::S)
+        if not defined?(::Test::Inner::::S)
             class S
                 include ::Ice::Inspect_mixin
                 def initialize(v=0)
@@ -374,7 +374,7 @@ module ::Test
                 end
 
                 def ==(other)
-                    return false if !other.is_a? ::Test::Inner::S or
+                    return false if !other.is_a? ::Test::Inner::::S or
                         @v != other.v
                     true
                 end
@@ -391,7 +391,7 @@ module ::Test
 
         module Inner2
 
-            if not defined?(::Test::Inner::Inner2::S)
+            if not defined?(::Test::Inner::Inner2::::S)
                 class S
                     include ::Ice::Inspect_mixin
                     def initialize(v=0)
@@ -405,7 +405,7 @@ module ::Test
                     end
 
                     def ==(other)
-                        return false if !other.is_a? ::Test::Inner::Inner2::S or
+                        return false if !other.is_a? ::Test::Inner::Inner2::::S or
                             @v != other.v
                         true
                     end
@@ -420,45 +420,45 @@ module ::Test
                 T_S = ::Ice::__defineStruct('::Test::Inner::Inner2::S', S, [["v", ::Ice::T_int]])
             end
 
-            if not defined?(::Test::Inner::Inner2::T_SMap)
-                T_SMap = ::Ice::__defineDictionary('::Test::Inner::Inner2::SMap', ::Ice::T_string, ::Test::Inner::Inner2::T_S)
+            if not defined?(::Test::Inner::Inner2::::T_SMap)
+                T_SMap = ::Ice::__defineDictionary('::Test::Inner::Inner2::SMap', ::Ice::T_string, ::Test::Inner::Inner2::::T_S)
             end
 
-            if not defined?(::Test::Inner::Inner2::T_SSeq)
-                T_SSeq = ::Ice::__defineSequence('::Test::Inner::Inner2::SSeq', ::Test::Inner::Inner2::T_S)
+            if not defined?(::Test::Inner::Inner2::::T_SSeq)
+                T_SSeq = ::Ice::__defineSequence('::Test::Inner::Inner2::SSeq', ::Test::Inner::Inner2::::T_S)
             end
 
-            if not defined?(::Test::Inner::Inner2::C_Mixin)
+            if not defined?(::Test::Inner::Inner2::::C_Mixin)
 
-                module ::Test::Inner::Inner2::C_Mixin
+                module ::Test::Inner::Inner2::::C_Mixin
                 end
                 class C < ::Ice::Value
 
-                    def initialize(s=::Test::Inner::Inner2::S.new)
+                    def initialize(s=::Test::Inner::Inner2::::S.new)
                         @s = s
                     end
 
                     attr_accessor :s
                 end
 
-                if not defined?(::Test::Inner::Inner2::T_C)
+                if not defined?(::Test::Inner::Inner2::::T_C)
                     T_C = ::Ice::__declareClass('::Test::Inner::Inner2::C')
                 end
 
-                T_C.defineClass(C, -1, false, false, nil, [['s', ::Test::Inner::Inner2::T_S, false, 0]])
+                T_C.defineClass(C, -1, false, false, nil, [['s', ::Test::Inner::Inner2::::T_S, false, 0]])
             end
 
-            if not defined?(::Test::Inner::Inner2::T_CMap)
-                T_CMap = ::Ice::__defineDictionary('::Test::Inner::Inner2::CMap', ::Ice::T_string, ::Test::Inner::Inner2::T_C)
+            if not defined?(::Test::Inner::Inner2::::T_CMap)
+                T_CMap = ::Ice::__defineDictionary('::Test::Inner::Inner2::CMap', ::Ice::T_string, ::Test::Inner::Inner2::::T_C)
             end
 
-            if not defined?(::Test::Inner::Inner2::T_CSeq)
-                T_CSeq = ::Ice::__defineSequence('::Test::Inner::Inner2::CSeq', ::Test::Inner::Inner2::T_C)
+            if not defined?(::Test::Inner::Inner2::::T_CSeq)
+                T_CSeq = ::Ice::__defineSequence('::Test::Inner::Inner2::CSeq', ::Test::Inner::Inner2::::T_C)
             end
 
-            if not defined?(::Test::Inner::Inner2::I_Mixin)
+            if not defined?(::Test::Inner::Inner2::::I_Mixin)
 
-                module ::Test::Inner::Inner2::I_Mixin
+                module ::Test::Inner::Inner2::::I_Mixin
                 end
                 module IPrx_mixin
 
@@ -496,7 +496,7 @@ module ::Test
                     include IPrx_mixin
                 end
 
-                if not defined?(::Test::Inner::Inner2::T_IPrx)
+                if not defined?(::Test::Inner::Inner2::::T_IPrx)
                     T_I = ::Ice::__declareClass('::Test::Inner::Inner2::I')
                     T_IPrx = ::Ice::__declareProxy('::Test::Inner::Inner2::I')
                 end
@@ -505,63 +505,63 @@ module ::Test
 
                 T_IPrx.defineProxy(IPrx, nil, [])
 
-                IPrx_mixin::OP_opS = ::Ice::__defineOperation('opS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_S, false, 0]], [[::Test::Inner::Inner2::T_S, false, 0]], [::Test::Inner::Inner2::T_S, false, 0], [])
-                IPrx_mixin::OP_opSSeq = ::Ice::__defineOperation('opSSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_SSeq, false, 0]], [[::Test::Inner::Inner2::T_SSeq, false, 0]], [::Test::Inner::Inner2::T_SSeq, false, 0], [])
-                IPrx_mixin::OP_opSMap = ::Ice::__defineOperation('opSMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_SMap, false, 0]], [[::Test::Inner::Inner2::T_SMap, false, 0]], [::Test::Inner::Inner2::T_SMap, false, 0], [])
-                IPrx_mixin::OP_opC = ::Ice::__defineOperation('opC', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_C, false, 0]], [[::Test::Inner::Inner2::T_C, false, 0]], [::Test::Inner::Inner2::T_C, false, 0], [])
-                IPrx_mixin::OP_opCSeq = ::Ice::__defineOperation('opCSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_CSeq, false, 0]], [[::Test::Inner::Inner2::T_CSeq, false, 0]], [::Test::Inner::Inner2::T_CSeq, false, 0], [])
-                IPrx_mixin::OP_opCMap = ::Ice::__defineOperation('opCMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_CMap, false, 0]], [[::Test::Inner::Inner2::T_CMap, false, 0]], [::Test::Inner::Inner2::T_CMap, false, 0], [])
+                IPrx_mixin::OP_opS = ::Ice::__defineOperation('opS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::::T_S, false, 0]], [[::Test::Inner::Inner2::::T_S, false, 0]], [::Test::Inner::Inner2::::T_S, false, 0], [])
+                IPrx_mixin::OP_opSSeq = ::Ice::__defineOperation('opSSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::::T_SSeq, false, 0]], [[::Test::Inner::Inner2::::T_SSeq, false, 0]], [::Test::Inner::Inner2::::T_SSeq, false, 0], [])
+                IPrx_mixin::OP_opSMap = ::Ice::__defineOperation('opSMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::::T_SMap, false, 0]], [[::Test::Inner::Inner2::::T_SMap, false, 0]], [::Test::Inner::Inner2::::T_SMap, false, 0], [])
+                IPrx_mixin::OP_opC = ::Ice::__defineOperation('opC', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::::T_C, false, 0]], [[::Test::Inner::Inner2::::T_C, false, 0]], [::Test::Inner::Inner2::::T_C, false, 0], [])
+                IPrx_mixin::OP_opCSeq = ::Ice::__defineOperation('opCSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::::T_CSeq, false, 0]], [[::Test::Inner::Inner2::::T_CSeq, false, 0]], [::Test::Inner::Inner2::::T_CSeq, false, 0], [])
+                IPrx_mixin::OP_opCMap = ::Ice::__defineOperation('opCMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::::T_CMap, false, 0]], [[::Test::Inner::Inner2::::T_CMap, false, 0]], [::Test::Inner::Inner2::::T_CMap, false, 0], [])
                 IPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
             end
 
-            if not defined?(::Test::Inner::Inner2::T_IMap)
-                T_IMap = ::Ice::__defineDictionary('::Test::Inner::Inner2::IMap', ::Ice::T_string, ::Test::Inner::Inner2::T_IPrx)
+            if not defined?(::Test::Inner::Inner2::::T_IMap)
+                T_IMap = ::Ice::__defineDictionary('::Test::Inner::Inner2::IMap', ::Ice::T_string, ::Test::Inner::Inner2::::T_IPrx)
             end
 
-            if not defined?(::Test::Inner::Inner2::T_ISeq)
-                T_ISeq = ::Ice::__defineSequence('::Test::Inner::Inner2::ISeq', ::Test::Inner::Inner2::T_IPrx)
+            if not defined?(::Test::Inner::Inner2::::T_ISeq)
+                T_ISeq = ::Ice::__defineSequence('::Test::Inner::Inner2::ISeq', ::Test::Inner::Inner2::::T_IPrx)
             end
         end
 
-        if not defined?(::Test::Inner::C_Mixin)
+        if not defined?(::Test::Inner::::C_Mixin)
 
-            module ::Test::Inner::C_Mixin
+            module ::Test::Inner::::C_Mixin
             end
             class C < ::Ice::Value
 
-                def initialize(s=::Test::Inner::S.new)
+                def initialize(s=::Test::Inner::::S.new)
                     @s = s
                 end
 
                 attr_accessor :s
             end
 
-            if not defined?(::Test::Inner::T_C)
+            if not defined?(::Test::Inner::::T_C)
                 T_C = ::Ice::__declareClass('::Test::Inner::C')
             end
 
-            T_C.defineClass(C, -1, false, false, nil, [['s', ::Test::Inner::T_S, false, 0]])
+            T_C.defineClass(C, -1, false, false, nil, [['s', ::Test::Inner::::T_S, false, 0]])
         end
 
-        if not defined?(::Test::Inner::T_SSeq)
-            T_SSeq = ::Ice::__defineSequence('::Test::Inner::SSeq', ::Test::Inner::Inner2::T_S)
+        if not defined?(::Test::Inner::::T_SSeq)
+            T_SSeq = ::Ice::__defineSequence('::Test::Inner::SSeq', ::Test::Inner::Inner2::::T_S)
         end
 
-        if not defined?(::Test::Inner::T_SMap)
-            T_SMap = ::Ice::__defineDictionary('::Test::Inner::SMap', ::Ice::T_string, ::Test::Inner::Inner2::T_S)
+        if not defined?(::Test::Inner::::T_SMap)
+            T_SMap = ::Ice::__defineDictionary('::Test::Inner::SMap', ::Ice::T_string, ::Test::Inner::Inner2::::T_S)
         end
 
-        if not defined?(::Test::Inner::T_CMap)
-            T_CMap = ::Ice::__defineDictionary('::Test::Inner::CMap', ::Ice::T_string, ::Test::Inner::Inner2::T_C)
+        if not defined?(::Test::Inner::::T_CMap)
+            T_CMap = ::Ice::__defineDictionary('::Test::Inner::CMap', ::Ice::T_string, ::Test::Inner::Inner2::::T_C)
         end
 
-        if not defined?(::Test::Inner::T_CSeq)
-            T_CSeq = ::Ice::__defineSequence('::Test::Inner::CSeq', ::Test::Inner::Inner2::T_C)
+        if not defined?(::Test::Inner::::T_CSeq)
+            T_CSeq = ::Ice::__defineSequence('::Test::Inner::CSeq', ::Test::Inner::Inner2::::T_C)
         end
 
-        if not defined?(::Test::Inner::I_Mixin)
+        if not defined?(::Test::Inner::::I_Mixin)
 
-            module ::Test::Inner::I_Mixin
+            module ::Test::Inner::::I_Mixin
             end
             module IPrx_mixin
 
@@ -599,7 +599,7 @@ module ::Test
                 include IPrx_mixin
             end
 
-            if not defined?(::Test::Inner::T_IPrx)
+            if not defined?(::Test::Inner::::T_IPrx)
                 T_I = ::Ice::__declareClass('::Test::Inner::I')
                 T_IPrx = ::Ice::__declareProxy('::Test::Inner::I')
             end
@@ -608,21 +608,21 @@ module ::Test
 
             T_IPrx.defineProxy(IPrx, nil, [])
 
-            IPrx_mixin::OP_opS = ::Ice::__defineOperation('opS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_S, false, 0]], [[::Test::Inner::Inner2::T_S, false, 0]], [::Test::Inner::Inner2::T_S, false, 0], [])
-            IPrx_mixin::OP_opSSeq = ::Ice::__defineOperation('opSSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_SSeq, false, 0]], [[::Test::Inner::Inner2::T_SSeq, false, 0]], [::Test::Inner::Inner2::T_SSeq, false, 0], [])
-            IPrx_mixin::OP_opSMap = ::Ice::__defineOperation('opSMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_SMap, false, 0]], [[::Test::Inner::Inner2::T_SMap, false, 0]], [::Test::Inner::Inner2::T_SMap, false, 0], [])
-            IPrx_mixin::OP_opC = ::Ice::__defineOperation('opC', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_C, false, 0]], [[::Test::Inner::Inner2::T_C, false, 0]], [::Test::Inner::Inner2::T_C, false, 0], [])
-            IPrx_mixin::OP_opCSeq = ::Ice::__defineOperation('opCSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_CSeq, false, 0]], [[::Test::Inner::Inner2::T_CSeq, false, 0]], [::Test::Inner::Inner2::T_CSeq, false, 0], [])
-            IPrx_mixin::OP_opCMap = ::Ice::__defineOperation('opCMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_CMap, false, 0]], [[::Test::Inner::Inner2::T_CMap, false, 0]], [::Test::Inner::Inner2::T_CMap, false, 0], [])
+            IPrx_mixin::OP_opS = ::Ice::__defineOperation('opS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::::T_S, false, 0]], [[::Test::Inner::Inner2::::T_S, false, 0]], [::Test::Inner::Inner2::::T_S, false, 0], [])
+            IPrx_mixin::OP_opSSeq = ::Ice::__defineOperation('opSSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::::T_SSeq, false, 0]], [[::Test::Inner::Inner2::::T_SSeq, false, 0]], [::Test::Inner::Inner2::::T_SSeq, false, 0], [])
+            IPrx_mixin::OP_opSMap = ::Ice::__defineOperation('opSMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::::T_SMap, false, 0]], [[::Test::Inner::Inner2::::T_SMap, false, 0]], [::Test::Inner::Inner2::::T_SMap, false, 0], [])
+            IPrx_mixin::OP_opC = ::Ice::__defineOperation('opC', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::::T_C, false, 0]], [[::Test::Inner::Inner2::::T_C, false, 0]], [::Test::Inner::Inner2::::T_C, false, 0], [])
+            IPrx_mixin::OP_opCSeq = ::Ice::__defineOperation('opCSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::::T_CSeq, false, 0]], [[::Test::Inner::Inner2::::T_CSeq, false, 0]], [::Test::Inner::Inner2::::T_CSeq, false, 0], [])
+            IPrx_mixin::OP_opCMap = ::Ice::__defineOperation('opCMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::::T_CMap, false, 0]], [[::Test::Inner::Inner2::::T_CMap, false, 0]], [::Test::Inner::Inner2::::T_CMap, false, 0], [])
             IPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         end
 
-        if not defined?(::Test::Inner::T_IMap)
-            T_IMap = ::Ice::__defineDictionary('::Test::Inner::IMap', ::Ice::T_string, ::Test::Inner::T_IPrx)
+        if not defined?(::Test::Inner::::T_IMap)
+            T_IMap = ::Ice::__defineDictionary('::Test::Inner::IMap', ::Ice::T_string, ::Test::Inner::::T_IPrx)
         end
 
-        if not defined?(::Test::Inner::T_ISeq)
-            T_ISeq = ::Ice::__defineSequence('::Test::Inner::ISeq', ::Test::Inner::T_IPrx)
+        if not defined?(::Test::Inner::::T_ISeq)
+            T_ISeq = ::Ice::__defineSequence('::Test::Inner::ISeq', ::Test::Inner::::T_IPrx)
         end
     end
 end
@@ -633,9 +633,9 @@ module ::Inner
 
         module Inner2
 
-            if not defined?(::Inner::Test::Inner2::I_Mixin)
+            if not defined?(::Inner::Test::Inner2::::I_Mixin)
 
-                module ::Inner::Test::Inner2::I_Mixin
+                module ::Inner::Test::Inner2::::I_Mixin
                 end
                 module IPrx_mixin
 
@@ -673,7 +673,7 @@ module ::Inner
                     include IPrx_mixin
                 end
 
-                if not defined?(::Inner::Test::Inner2::T_IPrx)
+                if not defined?(::Inner::Test::Inner2::::T_IPrx)
                     T_I = ::Ice::__declareClass('::Inner::Test::Inner2::I')
                     T_IPrx = ::Ice::__declareProxy('::Inner::Test::Inner2::I')
                 end
@@ -682,12 +682,12 @@ module ::Inner
 
                 T_IPrx.defineProxy(IPrx, nil, [])
 
-                IPrx_mixin::OP_opS = ::Ice::__defineOperation('opS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_S, false, 0]], [[::Test::T_S, false, 0]], [::Test::T_S, false, 0], [])
-                IPrx_mixin::OP_opSSeq = ::Ice::__defineOperation('opSSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SSeq, false, 0]], [[::Test::T_SSeq, false, 0]], [::Test::T_SSeq, false, 0], [])
-                IPrx_mixin::OP_opSMap = ::Ice::__defineOperation('opSMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SMap, false, 0]], [[::Test::T_SMap, false, 0]], [::Test::T_SMap, false, 0], [])
-                IPrx_mixin::OP_opC = ::Ice::__defineOperation('opC', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_C, false, 0]], [[::Test::T_C, false, 0]], [::Test::T_C, false, 0], [])
-                IPrx_mixin::OP_opCSeq = ::Ice::__defineOperation('opCSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_CSeq, false, 0]], [[::Test::T_CSeq, false, 0]], [::Test::T_CSeq, false, 0], [])
-                IPrx_mixin::OP_opCMap = ::Ice::__defineOperation('opCMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_CMap, false, 0]], [[::Test::T_CMap, false, 0]], [::Test::T_CMap, false, 0], [])
+                IPrx_mixin::OP_opS = ::Ice::__defineOperation('opS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_S, false, 0]], [[::Test::::T_S, false, 0]], [::Test::::T_S, false, 0], [])
+                IPrx_mixin::OP_opSSeq = ::Ice::__defineOperation('opSSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_SSeq, false, 0]], [[::Test::::T_SSeq, false, 0]], [::Test::::T_SSeq, false, 0], [])
+                IPrx_mixin::OP_opSMap = ::Ice::__defineOperation('opSMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_SMap, false, 0]], [[::Test::::T_SMap, false, 0]], [::Test::::T_SMap, false, 0], [])
+                IPrx_mixin::OP_opC = ::Ice::__defineOperation('opC', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_C, false, 0]], [[::Test::::T_C, false, 0]], [::Test::::T_C, false, 0], [])
+                IPrx_mixin::OP_opCSeq = ::Ice::__defineOperation('opCSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_CSeq, false, 0]], [[::Test::::T_CSeq, false, 0]], [::Test::::T_CSeq, false, 0], [])
+                IPrx_mixin::OP_opCMap = ::Ice::__defineOperation('opCMap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_CMap, false, 0]], [[::Test::::T_CMap, false, 0]], [::Test::::T_CMap, false, 0], [])
                 IPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
             end
         end

@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::And
 
-    if not defined?(::And::Array)
+    if not defined?(::And::::Array)
         class Array
             include Comparable
 
@@ -66,7 +66,7 @@ module ::And
         T_Array = ::Ice::__defineEnum('::and::array', Array, Array::_enumerators)
     end
 
-    if not defined?(::And::Xor)
+    if not defined?(::And::::Xor)
         class Xor
             include ::Ice::Inspect_mixin
             def initialize(abstract=0, _clone=0, private=0, protected=0, public=0, this=0, throw=0, use=0, var=0)
@@ -96,7 +96,7 @@ module ::And
             end
 
             def ==(other)
-                return false if !other.is_a? ::And::Xor or
+                return false if !other.is_a? ::And::::Xor or
                     @abstract != other.abstract or
                     @_clone != other._clone or
                     @private != other.private or
@@ -129,9 +129,9 @@ module ::And
         ])
     end
 
-    if not defined?(::And::Break_Mixin)
+    if not defined?(::And::::Break_Mixin)
 
-        module ::And::Break_Mixin
+        module ::And::::Break_Mixin
         end
         module BreakPrx_mixin
 
@@ -145,7 +145,7 @@ module ::And
             include BreakPrx_mixin
         end
 
-        if not defined?(::And::T_BreakPrx)
+        if not defined?(::And::::T_BreakPrx)
             T_Break = ::Ice::__declareClass('::and::break')
             T_BreakPrx = ::Ice::__declareProxy('::and::break')
         end
@@ -157,9 +157,9 @@ module ::And
         BreakPrx_mixin::OP_case = ::Ice::__defineOperation('case', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
     end
 
-    if not defined?(::And::Function_Mixin)
+    if not defined?(::And::::Function_Mixin)
 
-        module ::And::Function_Mixin
+        module ::And::::Function_Mixin
         end
         module FunctionPrx_mixin
 
@@ -173,7 +173,7 @@ module ::And
             include FunctionPrx_mixin
         end
 
-        if not defined?(::And::T_FunctionPrx)
+        if not defined?(::And::::T_FunctionPrx)
             T_Function = ::Ice::__declareClass('::and::function')
             T_FunctionPrx = ::Ice::__declareProxy('::and::function')
         end
@@ -185,9 +185,9 @@ module ::And
         FunctionPrx_mixin::OP_continue = ::Ice::__defineOperation('continue', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
     end
 
-    if not defined?(::And::Die_Mixin)
+    if not defined?(::And::::Die_Mixin)
 
-        module ::And::Die_Mixin
+        module ::And::::Die_Mixin
         end
         module DiePrx_mixin
 
@@ -201,7 +201,7 @@ module ::And
             include DiePrx_mixin
         end
 
-        if not defined?(::And::T_DiePrx)
+        if not defined?(::And::::T_DiePrx)
             T_Die = ::Ice::__declareClass('::and::die')
             T_DiePrx = ::Ice::__declareProxy('::and::die')
         end
@@ -213,9 +213,9 @@ module ::And
         DiePrx_mixin::OP_do = ::Ice::__defineOperation('do', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::And::Echo_Mixin)
+    if not defined?(::And::::Echo_Mixin)
 
-        module ::And::Echo_Mixin
+        module ::And::::Echo_Mixin
         end
         class Echo < ::Ice::Value
 
@@ -229,25 +229,25 @@ module ::And
             attr_accessor :_if, :_else, :elseif, :empty
         end
 
-        if not defined?(::And::T_Echo)
+        if not defined?(::And::::T_Echo)
             T_Echo = ::Ice::__declareClass('::and::echo')
         end
 
         T_Echo.defineClass(Echo, -1, false, false, nil, [
             ['_if', ::Ice::T_int, false, 0],
             ['_else', ::Ice::T_int, false, 0],
-            ['elseif', ::And::T_DiePrx, false, 0],
+            ['elseif', ::And::::T_DiePrx, false, 0],
             ['empty', ::Ice::T_int, false, 0]
         ])
     end
 
-    if not defined?(::And::Enddeclare_Mixin)
+    if not defined?(::And::::Enddeclare_Mixin)
 
-        module ::And::Enddeclare_Mixin
+        module ::And::::Enddeclare_Mixin
         end
         module EnddeclarePrx_mixin
-            include ::And::DiePrx_mixin
-            include ::And::FunctionPrx_mixin
+            include ::And::::DiePrx_mixin
+            include ::And::::FunctionPrx_mixin
         end
 
         class EnddeclarePrx < ::Ice::ObjectPrx
@@ -255,25 +255,25 @@ module ::And
             include EnddeclarePrx_mixin
         end
 
-        if not defined?(::And::T_EnddeclarePrx)
+        if not defined?(::And::::T_EnddeclarePrx)
             T_Enddeclare = ::Ice::__declareClass('::and::enddeclare')
             T_EnddeclarePrx = ::Ice::__declareProxy('::and::enddeclare')
         end
 
         T_Enddeclare.defineClass(::Ice::Value, -1, false, true, nil, [])
 
-        T_EnddeclarePrx.defineProxy(EnddeclarePrx, nil, [::And::T_DiePrx, ::And::T_FunctionPrx])
+        T_EnddeclarePrx.defineProxy(EnddeclarePrx, nil, [::And::::T_DiePrx, ::And::::T_FunctionPrx])
     end
 
-    if not defined?(::And::T_Endfor)
-        T_Endfor = ::Ice::__defineSequence('::and::endfor', ::And::T_Array)
+    if not defined?(::And::::T_Endfor)
+        T_Endfor = ::Ice::__defineSequence('::and::endfor', ::And::::T_Array)
     end
 
-    if not defined?(::And::T_Endforeach)
-        T_Endforeach = ::Ice::__defineDictionary('::and::endforeach', ::Ice::T_string, ::And::T_Array)
+    if not defined?(::And::::T_Endforeach)
+        T_Endforeach = ::Ice::__defineDictionary('::and::endforeach', ::Ice::T_string, ::And::::T_Array)
     end
 
-    if not defined?(::And::Endif)
+    if not defined?(::And::::Endif)
         class Endif < Ice::UserException
             def initialize(endswitch=0)
                 @endswitch = endswitch
@@ -289,8 +289,8 @@ module ::And
         T_Endif = ::Ice::__defineException('::and::endif', Endif, false, nil, [["endswitch", ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::And::Endwhile)
-        class Endwhile < ::And::Endif
+    if not defined?(::And::::Endwhile)
+        class Endwhile < ::And::::Endif
             def initialize(endswitch=0, eval=0, exit=0)
                 super(endswitch)
                 @eval = eval
@@ -304,13 +304,13 @@ module ::And
             attr_accessor :eval, :exit
         end
 
-        T_Endwhile = ::Ice::__defineException('::and::endwhile', Endwhile, false, ::And::T_Endif, [
+        T_Endwhile = ::Ice::__defineException('::and::endwhile', Endwhile, false, ::And::::T_Endif, [
             ["eval", ::Ice::T_int, false, 0],
             ["exit", ::Ice::T_int, false, 0]
         ])
     end
 
-    if not defined?(::And::T_For)
+    if not defined?(::And::::T_For)
         T_For = ::Ice::__declareLocalClass('::and::for')
     end
 

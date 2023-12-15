@@ -19,11 +19,11 @@ require 'Test.rb'
 
 module ::Test
 
-    if not defined?(::Test::PreservedClass_Mixin)
+    if not defined?(::Test::::PreservedClass_Mixin)
 
-        module ::Test::PreservedClass_Mixin
+        module ::Test::::PreservedClass_Mixin
         end
-        class PreservedClass < ::Test::BaseClass
+        class PreservedClass < ::Test::::BaseClass
 
             def initialize(bc='', pc='')
                 super(bc)
@@ -33,15 +33,15 @@ module ::Test
             attr_accessor :pc
         end
 
-        if not defined?(::Test::T_PreservedClass)
+        if not defined?(::Test::::T_PreservedClass)
             T_PreservedClass = ::Ice::__declareClass('::Test::PreservedClass')
         end
 
-        T_PreservedClass.defineClass(PreservedClass, -1, true, false, ::Test::T_BaseClass, [['pc', ::Ice::T_string, false, 0]])
+        T_PreservedClass.defineClass(PreservedClass, -1, true, false, ::Test::::T_BaseClass, [['pc', ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::Preserved1)
-        class Preserved1 < ::Test::KnownPreservedDerived
+    if not defined?(::Test::::Preserved1)
+        class Preserved1 < ::Test::::KnownPreservedDerived
             def initialize(b='', kp='', kpd='', p1=nil)
                 super(b, kp, kpd)
                 @p1 = p1
@@ -54,11 +54,11 @@ module ::Test
             attr_accessor :p1
         end
 
-        T_Preserved1 = ::Ice::__defineException('::Test::Preserved1', Preserved1, true, ::Test::T_KnownPreservedDerived, [["p1", ::Test::T_BaseClass, false, 0]])
+        T_Preserved1 = ::Ice::__defineException('::Test::Preserved1', Preserved1, true, ::Test::::T_KnownPreservedDerived, [["p1", ::Test::::T_BaseClass, false, 0]])
     end
 
-    if not defined?(::Test::Preserved2)
-        class Preserved2 < ::Test::Preserved1
+    if not defined?(::Test::::Preserved2)
+        class Preserved2 < ::Test::::Preserved1
             def initialize(b='', kp='', kpd='', p1=nil, p2=nil)
                 super(b, kp, kpd, p1)
                 @p2 = p2
@@ -71,6 +71,6 @@ module ::Test
             attr_accessor :p2
         end
 
-        T_Preserved2 = ::Ice::__defineException('::Test::Preserved2', Preserved2, true, ::Test::T_Preserved1, [["p2", ::Test::T_BaseClass, false, 0]])
+        T_Preserved2 = ::Ice::__defineException('::Test::Preserved2', Preserved2, true, ::Test::::T_Preserved1, [["p2", ::Test::::T_BaseClass, false, 0]])
     end
 end

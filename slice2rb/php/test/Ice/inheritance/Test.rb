@@ -20,9 +20,9 @@ module ::Test
 
     module MA
 
-        if not defined?(::Test::MA::IA_Mixin)
+        if not defined?(::Test::MA::::IA_Mixin)
 
-            module ::Test::MA::IA_Mixin
+            module ::Test::MA::::IA_Mixin
             end
             module IAPrx_mixin
 
@@ -36,7 +36,7 @@ module ::Test
                 include IAPrx_mixin
             end
 
-            if not defined?(::Test::MA::T_IAPrx)
+            if not defined?(::Test::MA::::T_IAPrx)
                 T_IA = ::Ice::__declareClass('::Test::MA::IA')
                 T_IAPrx = ::Ice::__declareProxy('::Test::MA::IA')
             end
@@ -45,12 +45,12 @@ module ::Test
 
             T_IAPrx.defineProxy(IAPrx, nil, [])
 
-            IAPrx_mixin::OP_iaop = ::Ice::__defineOperation('iaop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::MA::T_IAPrx, false, 0]], [], [::Test::MA::T_IAPrx, false, 0], [])
+            IAPrx_mixin::OP_iaop = ::Ice::__defineOperation('iaop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::MA::::T_IAPrx, false, 0]], [], [::Test::MA::::T_IAPrx, false, 0], [])
         end
 
-        if not defined?(::Test::MA::CA_Mixin)
+        if not defined?(::Test::MA::::CA_Mixin)
 
-            module ::Test::MA::CA_Mixin
+            module ::Test::MA::::CA_Mixin
             end
             class CA < ::Ice::Value
             end
@@ -66,7 +66,7 @@ module ::Test
                 include CAPrx_mixin
             end
 
-            if not defined?(::Test::MA::T_CA)
+            if not defined?(::Test::MA::::T_CA)
                 T_CA = ::Ice::__declareClass('::Test::MA::CA')
                 T_CAPrx = ::Ice::__declareProxy('::Test::MA::CA')
             end
@@ -75,18 +75,18 @@ module ::Test
 
             T_CAPrx.defineProxy(CAPrx, nil, [])
 
-            CAPrx_mixin::OP_caop = ::Ice::__defineOperation('caop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::MA::T_CAPrx, false, 0]], [], [::Test::MA::T_CAPrx, false, 0], [])
+            CAPrx_mixin::OP_caop = ::Ice::__defineOperation('caop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::MA::::T_CAPrx, false, 0]], [], [::Test::MA::::T_CAPrx, false, 0], [])
         end
     end
 
     module MB
 
-        if not defined?(::Test::MB::IB1_Mixin)
+        if not defined?(::Test::MB::::IB1_Mixin)
 
-            module ::Test::MB::IB1_Mixin
+            module ::Test::MB::::IB1_Mixin
             end
             module IB1Prx_mixin
-                include ::Test::MA::IAPrx_mixin
+                include ::Test::MA::::IAPrx_mixin
 
                 def ib1op(p, context=nil)
                     IB1Prx_mixin::OP_ib1op.invoke(self, [p], context)
@@ -98,24 +98,24 @@ module ::Test
                 include IB1Prx_mixin
             end
 
-            if not defined?(::Test::MB::T_IB1Prx)
+            if not defined?(::Test::MB::::T_IB1Prx)
                 T_IB1 = ::Ice::__declareClass('::Test::MB::IB1')
                 T_IB1Prx = ::Ice::__declareProxy('::Test::MB::IB1')
             end
 
             T_IB1.defineClass(::Ice::Value, -1, false, true, nil, [])
 
-            T_IB1Prx.defineProxy(IB1Prx, nil, [::Test::MA::T_IAPrx])
+            T_IB1Prx.defineProxy(IB1Prx, nil, [::Test::MA::::T_IAPrx])
 
-            IB1Prx_mixin::OP_ib1op = ::Ice::__defineOperation('ib1op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::MB::T_IB1Prx, false, 0]], [], [::Test::MB::T_IB1Prx, false, 0], [])
+            IB1Prx_mixin::OP_ib1op = ::Ice::__defineOperation('ib1op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::MB::::T_IB1Prx, false, 0]], [], [::Test::MB::::T_IB1Prx, false, 0], [])
         end
 
-        if not defined?(::Test::MB::IB2_Mixin)
+        if not defined?(::Test::MB::::IB2_Mixin)
 
-            module ::Test::MB::IB2_Mixin
+            module ::Test::MB::::IB2_Mixin
             end
             module IB2Prx_mixin
-                include ::Test::MA::IAPrx_mixin
+                include ::Test::MA::::IAPrx_mixin
 
                 def ib2op(p, context=nil)
                     IB2Prx_mixin::OP_ib2op.invoke(self, [p], context)
@@ -127,26 +127,26 @@ module ::Test
                 include IB2Prx_mixin
             end
 
-            if not defined?(::Test::MB::T_IB2Prx)
+            if not defined?(::Test::MB::::T_IB2Prx)
                 T_IB2 = ::Ice::__declareClass('::Test::MB::IB2')
                 T_IB2Prx = ::Ice::__declareProxy('::Test::MB::IB2')
             end
 
             T_IB2.defineClass(::Ice::Value, -1, false, true, nil, [])
 
-            T_IB2Prx.defineProxy(IB2Prx, nil, [::Test::MA::T_IAPrx])
+            T_IB2Prx.defineProxy(IB2Prx, nil, [::Test::MA::::T_IAPrx])
 
-            IB2Prx_mixin::OP_ib2op = ::Ice::__defineOperation('ib2op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::MB::T_IB2Prx, false, 0]], [], [::Test::MB::T_IB2Prx, false, 0], [])
+            IB2Prx_mixin::OP_ib2op = ::Ice::__defineOperation('ib2op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::MB::::T_IB2Prx, false, 0]], [], [::Test::MB::::T_IB2Prx, false, 0], [])
         end
 
-        if not defined?(::Test::MB::CB_Mixin)
+        if not defined?(::Test::MB::::CB_Mixin)
 
-            module ::Test::MB::CB_Mixin
+            module ::Test::MB::::CB_Mixin
             end
-            class CB < ::Test::MA::CA
+            class CB < ::Test::MA::::CA
             end
             module CBPrx_mixin
-                include ::Test::MA::CAPrx_mixin
+                include ::Test::MA::::CAPrx_mixin
 
                 def cbop(p, context=nil)
                     CBPrx_mixin::OP_cbop.invoke(self, [p], context)
@@ -158,28 +158,28 @@ module ::Test
                 include CBPrx_mixin
             end
 
-            if not defined?(::Test::MB::T_CB)
+            if not defined?(::Test::MB::::T_CB)
                 T_CB = ::Ice::__declareClass('::Test::MB::CB')
                 T_CBPrx = ::Ice::__declareProxy('::Test::MB::CB')
             end
 
-            T_CB.defineClass(CB, -1, false, false, ::Test::MA::T_CA, [])
+            T_CB.defineClass(CB, -1, false, false, ::Test::MA::::T_CA, [])
 
-            T_CBPrx.defineProxy(CBPrx, ::Test::MA::T_CAPrx, [])
+            T_CBPrx.defineProxy(CBPrx, ::Test::MA::::T_CAPrx, [])
 
-            CBPrx_mixin::OP_cbop = ::Ice::__defineOperation('cbop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::MB::T_CBPrx, false, 0]], [], [::Test::MB::T_CBPrx, false, 0], [])
+            CBPrx_mixin::OP_cbop = ::Ice::__defineOperation('cbop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::MB::::T_CBPrx, false, 0]], [], [::Test::MB::::T_CBPrx, false, 0], [])
         end
     end
 
     module MA
 
-        if not defined?(::Test::MA::IC_Mixin)
+        if not defined?(::Test::MA::::IC_Mixin)
 
-            module ::Test::MA::IC_Mixin
+            module ::Test::MA::::IC_Mixin
             end
             module ICPrx_mixin
-                include ::Test::MB::IB1Prx_mixin
-                include ::Test::MB::IB2Prx_mixin
+                include ::Test::MB::::IB1Prx_mixin
+                include ::Test::MB::::IB2Prx_mixin
 
                 def icop(p, context=nil)
                     ICPrx_mixin::OP_icop.invoke(self, [p], context)
@@ -191,26 +191,26 @@ module ::Test
                 include ICPrx_mixin
             end
 
-            if not defined?(::Test::MA::T_ICPrx)
+            if not defined?(::Test::MA::::T_ICPrx)
                 T_IC = ::Ice::__declareClass('::Test::MA::IC')
                 T_ICPrx = ::Ice::__declareProxy('::Test::MA::IC')
             end
 
             T_IC.defineClass(::Ice::Value, -1, false, true, nil, [])
 
-            T_ICPrx.defineProxy(ICPrx, nil, [::Test::MB::T_IB1Prx, ::Test::MB::T_IB2Prx])
+            T_ICPrx.defineProxy(ICPrx, nil, [::Test::MB::::T_IB1Prx, ::Test::MB::::T_IB2Prx])
 
-            ICPrx_mixin::OP_icop = ::Ice::__defineOperation('icop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::MA::T_ICPrx, false, 0]], [], [::Test::MA::T_ICPrx, false, 0], [])
+            ICPrx_mixin::OP_icop = ::Ice::__defineOperation('icop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::MA::::T_ICPrx, false, 0]], [], [::Test::MA::::T_ICPrx, false, 0], [])
         end
 
-        if not defined?(::Test::MA::CC_Mixin)
+        if not defined?(::Test::MA::::CC_Mixin)
 
-            module ::Test::MA::CC_Mixin
+            module ::Test::MA::::CC_Mixin
             end
-            class CC < ::Test::MB::CB
+            class CC < ::Test::MB::::CB
             end
             module CCPrx_mixin
-                include ::Test::MB::CBPrx_mixin
+                include ::Test::MB::::CBPrx_mixin
 
                 def ccop(p, context=nil)
                     CCPrx_mixin::OP_ccop.invoke(self, [p], context)
@@ -222,28 +222,28 @@ module ::Test
                 include CCPrx_mixin
             end
 
-            if not defined?(::Test::MA::T_CC)
+            if not defined?(::Test::MA::::T_CC)
                 T_CC = ::Ice::__declareClass('::Test::MA::CC')
                 T_CCPrx = ::Ice::__declareProxy('::Test::MA::CC')
             end
 
-            T_CC.defineClass(CC, -1, false, false, ::Test::MB::T_CB, [])
+            T_CC.defineClass(CC, -1, false, false, ::Test::MB::::T_CB, [])
 
-            T_CCPrx.defineProxy(CCPrx, ::Test::MB::T_CBPrx, [])
+            T_CCPrx.defineProxy(CCPrx, ::Test::MB::::T_CBPrx, [])
 
-            CCPrx_mixin::OP_ccop = ::Ice::__defineOperation('ccop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::MA::T_CCPrx, false, 0]], [], [::Test::MA::T_CCPrx, false, 0], [])
+            CCPrx_mixin::OP_ccop = ::Ice::__defineOperation('ccop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::MA::::T_CCPrx, false, 0]], [], [::Test::MA::::T_CCPrx, false, 0], [])
         end
 
-        if not defined?(::Test::MA::CD_Mixin)
+        if not defined?(::Test::MA::::CD_Mixin)
 
-            module ::Test::MA::CD_Mixin
+            module ::Test::MA::::CD_Mixin
             end
-            class CD < ::Test::MA::CC
+            class CD < ::Test::MA::::CC
             end
             module CDPrx_mixin
-                include ::Test::MA::CCPrx_mixin
-                include ::Test::MB::IB1Prx_mixin
-                include ::Test::MB::IB2Prx_mixin
+                include ::Test::MA::::CCPrx_mixin
+                include ::Test::MB::::IB1Prx_mixin
+                include ::Test::MB::::IB2Prx_mixin
 
                 def cdop(p, context=nil)
                     CDPrx_mixin::OP_cdop.invoke(self, [p], context)
@@ -255,22 +255,22 @@ module ::Test
                 include CDPrx_mixin
             end
 
-            if not defined?(::Test::MA::T_CD)
+            if not defined?(::Test::MA::::T_CD)
                 T_CD = ::Ice::__declareClass('::Test::MA::CD')
                 T_CDPrx = ::Ice::__declareProxy('::Test::MA::CD')
             end
 
-            T_CD.defineClass(CD, -1, false, false, ::Test::MA::T_CC, [])
+            T_CD.defineClass(CD, -1, false, false, ::Test::MA::::T_CC, [])
 
-            T_CDPrx.defineProxy(CDPrx, ::Test::MA::T_CCPrx, [::Test::MB::T_IB1Prx, ::Test::MB::T_IB2Prx])
+            T_CDPrx.defineProxy(CDPrx, ::Test::MA::::T_CCPrx, [::Test::MB::::T_IB1Prx, ::Test::MB::::T_IB2Prx])
 
-            CDPrx_mixin::OP_cdop = ::Ice::__defineOperation('cdop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::MA::T_CDPrx, false, 0]], [], [::Test::MA::T_CDPrx, false, 0], [])
+            CDPrx_mixin::OP_cdop = ::Ice::__defineOperation('cdop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::MA::::T_CDPrx, false, 0]], [], [::Test::MA::::T_CDPrx, false, 0], [])
         end
     end
 
-    if not defined?(::Test::Initial_Mixin)
+    if not defined?(::Test::::Initial_Mixin)
 
-        module ::Test::Initial_Mixin
+        module ::Test::::Initial_Mixin
         end
         module InitialPrx_mixin
 
@@ -316,7 +316,7 @@ module ::Test
             include InitialPrx_mixin
         end
 
-        if not defined?(::Test::T_InitialPrx)
+        if not defined?(::Test::::T_InitialPrx)
             T_Initial = ::Ice::__declareClass('::Test::Initial')
             T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
         end
@@ -326,13 +326,13 @@ module ::Test
         T_InitialPrx.defineProxy(InitialPrx, nil, [])
 
         InitialPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        InitialPrx_mixin::OP_caop = ::Ice::__defineOperation('caop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::MA::T_CAPrx, false, 0], [])
-        InitialPrx_mixin::OP_cbop = ::Ice::__defineOperation('cbop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::MB::T_CBPrx, false, 0], [])
-        InitialPrx_mixin::OP_ccop = ::Ice::__defineOperation('ccop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::MA::T_CCPrx, false, 0], [])
-        InitialPrx_mixin::OP_cdop = ::Ice::__defineOperation('cdop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::MA::T_CDPrx, false, 0], [])
-        InitialPrx_mixin::OP_iaop = ::Ice::__defineOperation('iaop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::MA::T_IAPrx, false, 0], [])
-        InitialPrx_mixin::OP_ib1op = ::Ice::__defineOperation('ib1op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::MB::T_IB1Prx, false, 0], [])
-        InitialPrx_mixin::OP_ib2op = ::Ice::__defineOperation('ib2op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::MB::T_IB2Prx, false, 0], [])
-        InitialPrx_mixin::OP_icop = ::Ice::__defineOperation('icop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::MA::T_ICPrx, false, 0], [])
+        InitialPrx_mixin::OP_caop = ::Ice::__defineOperation('caop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::MA::::T_CAPrx, false, 0], [])
+        InitialPrx_mixin::OP_cbop = ::Ice::__defineOperation('cbop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::MB::::T_CBPrx, false, 0], [])
+        InitialPrx_mixin::OP_ccop = ::Ice::__defineOperation('ccop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::MA::::T_CCPrx, false, 0], [])
+        InitialPrx_mixin::OP_cdop = ::Ice::__defineOperation('cdop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::MA::::T_CDPrx, false, 0], [])
+        InitialPrx_mixin::OP_iaop = ::Ice::__defineOperation('iaop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::MA::::T_IAPrx, false, 0], [])
+        InitialPrx_mixin::OP_ib1op = ::Ice::__defineOperation('ib1op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::MB::::T_IB1Prx, false, 0], [])
+        InitialPrx_mixin::OP_ib2op = ::Ice::__defineOperation('ib2op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::MB::::T_IB2Prx, false, 0], [])
+        InitialPrx_mixin::OP_icop = ::Ice::__defineOperation('icop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::MA::::T_ICPrx, false, 0], [])
     end
 end

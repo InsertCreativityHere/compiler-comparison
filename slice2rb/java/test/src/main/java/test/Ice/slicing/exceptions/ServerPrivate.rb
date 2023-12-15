@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Base)
+    if not defined?(::Test::::Base)
         class Base < Ice::UserException
             def initialize(b='')
                 @b = b
@@ -34,8 +34,8 @@ module ::Test
         T_Base = ::Ice::__defineException('::Test::Base', Base, false, nil, [["b", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::KnownDerived)
-        class KnownDerived < ::Test::Base
+    if not defined?(::Test::::KnownDerived)
+        class KnownDerived < ::Test::::Base
             def initialize(b='', kd='')
                 super(b)
                 @kd = kd
@@ -48,11 +48,11 @@ module ::Test
             attr_accessor :kd
         end
 
-        T_KnownDerived = ::Ice::__defineException('::Test::KnownDerived', KnownDerived, false, ::Test::T_Base, [["kd", ::Ice::T_string, false, 0]])
+        T_KnownDerived = ::Ice::__defineException('::Test::KnownDerived', KnownDerived, false, ::Test::::T_Base, [["kd", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::KnownIntermediate)
-        class KnownIntermediate < ::Test::Base
+    if not defined?(::Test::::KnownIntermediate)
+        class KnownIntermediate < ::Test::::Base
             def initialize(b='', ki='')
                 super(b)
                 @ki = ki
@@ -65,11 +65,11 @@ module ::Test
             attr_accessor :ki
         end
 
-        T_KnownIntermediate = ::Ice::__defineException('::Test::KnownIntermediate', KnownIntermediate, false, ::Test::T_Base, [["ki", ::Ice::T_string, false, 0]])
+        T_KnownIntermediate = ::Ice::__defineException('::Test::KnownIntermediate', KnownIntermediate, false, ::Test::::T_Base, [["ki", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::KnownMostDerived)
-        class KnownMostDerived < ::Test::KnownIntermediate
+    if not defined?(::Test::::KnownMostDerived)
+        class KnownMostDerived < ::Test::::KnownIntermediate
             def initialize(b='', ki='', kmd='')
                 super(b, ki)
                 @kmd = kmd
@@ -82,11 +82,11 @@ module ::Test
             attr_accessor :kmd
         end
 
-        T_KnownMostDerived = ::Ice::__defineException('::Test::KnownMostDerived', KnownMostDerived, false, ::Test::T_KnownIntermediate, [["kmd", ::Ice::T_string, false, 0]])
+        T_KnownMostDerived = ::Ice::__defineException('::Test::KnownMostDerived', KnownMostDerived, false, ::Test::::T_KnownIntermediate, [["kmd", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::KnownPreserved)
-        class KnownPreserved < ::Test::Base
+    if not defined?(::Test::::KnownPreserved)
+        class KnownPreserved < ::Test::::Base
             def initialize(b='', kp='')
                 super(b)
                 @kp = kp
@@ -99,11 +99,11 @@ module ::Test
             attr_accessor :kp
         end
 
-        T_KnownPreserved = ::Ice::__defineException('::Test::KnownPreserved', KnownPreserved, true, ::Test::T_Base, [["kp", ::Ice::T_string, false, 0]])
+        T_KnownPreserved = ::Ice::__defineException('::Test::KnownPreserved', KnownPreserved, true, ::Test::::T_Base, [["kp", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::KnownPreservedDerived)
-        class KnownPreservedDerived < ::Test::KnownPreserved
+    if not defined?(::Test::::KnownPreservedDerived)
+        class KnownPreservedDerived < ::Test::::KnownPreserved
             def initialize(b='', kp='', kpd='')
                 super(b, kp)
                 @kpd = kpd
@@ -116,12 +116,12 @@ module ::Test
             attr_accessor :kpd
         end
 
-        T_KnownPreservedDerived = ::Ice::__defineException('::Test::KnownPreservedDerived', KnownPreservedDerived, true, ::Test::T_KnownPreserved, [["kpd", ::Ice::T_string, false, 0]])
+        T_KnownPreservedDerived = ::Ice::__defineException('::Test::KnownPreservedDerived', KnownPreservedDerived, true, ::Test::::T_KnownPreserved, [["kpd", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::BaseClass_Mixin)
+    if not defined?(::Test::::BaseClass_Mixin)
 
-        module ::Test::BaseClass_Mixin
+        module ::Test::::BaseClass_Mixin
         end
         class BaseClass < ::Ice::Value
 
@@ -132,16 +132,16 @@ module ::Test
             attr_accessor :bc
         end
 
-        if not defined?(::Test::T_BaseClass)
+        if not defined?(::Test::::T_BaseClass)
             T_BaseClass = ::Ice::__declareClass('::Test::BaseClass')
         end
 
         T_BaseClass.defineClass(BaseClass, -1, true, false, nil, [['bc', ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::Relay_Mixin)
+    if not defined?(::Test::::Relay_Mixin)
 
-        module ::Test::Relay_Mixin
+        module ::Test::::Relay_Mixin
         end
         module RelayPrx_mixin
 
@@ -167,7 +167,7 @@ module ::Test
             include RelayPrx_mixin
         end
 
-        if not defined?(::Test::T_RelayPrx)
+        if not defined?(::Test::::T_RelayPrx)
             T_Relay = ::Ice::__declareClass('::Test::Relay')
             T_RelayPrx = ::Ice::__declareProxy('::Test::Relay')
         end
@@ -176,15 +176,15 @@ module ::Test
 
         T_RelayPrx.defineProxy(RelayPrx, nil, [])
 
-        RelayPrx_mixin::OP_knownPreservedAsBase = ::Ice::__defineOperation('knownPreservedAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_Base])
-        RelayPrx_mixin::OP_knownPreservedAsKnownPreserved = ::Ice::__defineOperation('knownPreservedAsKnownPreserved', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_KnownPreserved])
-        RelayPrx_mixin::OP_unknownPreservedAsBase = ::Ice::__defineOperation('unknownPreservedAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_Base])
-        RelayPrx_mixin::OP_unknownPreservedAsKnownPreserved = ::Ice::__defineOperation('unknownPreservedAsKnownPreserved', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_KnownPreserved])
+        RelayPrx_mixin::OP_knownPreservedAsBase = ::Ice::__defineOperation('knownPreservedAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::::T_Base])
+        RelayPrx_mixin::OP_knownPreservedAsKnownPreserved = ::Ice::__defineOperation('knownPreservedAsKnownPreserved', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::::T_KnownPreserved])
+        RelayPrx_mixin::OP_unknownPreservedAsBase = ::Ice::__defineOperation('unknownPreservedAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::::T_Base])
+        RelayPrx_mixin::OP_unknownPreservedAsKnownPreserved = ::Ice::__defineOperation('unknownPreservedAsKnownPreserved', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::::T_KnownPreserved])
     end
 
-    if not defined?(::Test::TestIntf_Mixin)
+    if not defined?(::Test::::TestIntf_Mixin)
 
-        module ::Test::TestIntf_Mixin
+        module ::Test::::TestIntf_Mixin
         end
         module TestIntfPrx_mixin
 
@@ -286,7 +286,7 @@ module ::Test
             include TestIntfPrx_mixin
         end
 
-        if not defined?(::Test::T_TestIntfPrx)
+        if not defined?(::Test::::T_TestIntfPrx)
             T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
@@ -295,33 +295,33 @@ module ::Test
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
-        TestIntfPrx_mixin::OP_baseAsBase = ::Ice::__defineOperation('baseAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_Base])
-        TestIntfPrx_mixin::OP_unknownDerivedAsBase = ::Ice::__defineOperation('unknownDerivedAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_Base])
-        TestIntfPrx_mixin::OP_knownDerivedAsBase = ::Ice::__defineOperation('knownDerivedAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_Base])
-        TestIntfPrx_mixin::OP_knownDerivedAsKnownDerived = ::Ice::__defineOperation('knownDerivedAsKnownDerived', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_KnownDerived])
-        TestIntfPrx_mixin::OP_unknownIntermediateAsBase = ::Ice::__defineOperation('unknownIntermediateAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_Base])
-        TestIntfPrx_mixin::OP_knownIntermediateAsBase = ::Ice::__defineOperation('knownIntermediateAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_Base])
-        TestIntfPrx_mixin::OP_knownMostDerivedAsBase = ::Ice::__defineOperation('knownMostDerivedAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_Base])
-        TestIntfPrx_mixin::OP_knownIntermediateAsKnownIntermediate = ::Ice::__defineOperation('knownIntermediateAsKnownIntermediate', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_KnownIntermediate])
-        TestIntfPrx_mixin::OP_knownMostDerivedAsKnownIntermediate = ::Ice::__defineOperation('knownMostDerivedAsKnownIntermediate', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_KnownIntermediate])
-        TestIntfPrx_mixin::OP_knownMostDerivedAsKnownMostDerived = ::Ice::__defineOperation('knownMostDerivedAsKnownMostDerived', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_KnownMostDerived])
-        TestIntfPrx_mixin::OP_unknownMostDerived1AsBase = ::Ice::__defineOperation('unknownMostDerived1AsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_Base])
-        TestIntfPrx_mixin::OP_unknownMostDerived1AsKnownIntermediate = ::Ice::__defineOperation('unknownMostDerived1AsKnownIntermediate', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_KnownIntermediate])
-        TestIntfPrx_mixin::OP_unknownMostDerived2AsBase = ::Ice::__defineOperation('unknownMostDerived2AsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_Base])
-        TestIntfPrx_mixin::OP_unknownMostDerived2AsBaseCompact = ::Ice::__defineOperation('unknownMostDerived2AsBaseCompact', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::CompactFormat, [], [], nil, [::Test::T_Base])
-        TestIntfPrx_mixin::OP_knownPreservedAsBase = ::Ice::__defineOperation('knownPreservedAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_Base])
-        TestIntfPrx_mixin::OP_knownPreservedAsKnownPreserved = ::Ice::__defineOperation('knownPreservedAsKnownPreserved', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_KnownPreserved])
-        TestIntfPrx_mixin::OP_relayKnownPreservedAsBase = ::Ice::__defineOperation('relayKnownPreservedAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [[::Test::T_RelayPrx, false, 0]], [], nil, [::Test::T_Base])
-        TestIntfPrx_mixin::OP_relayKnownPreservedAsKnownPreserved = ::Ice::__defineOperation('relayKnownPreservedAsKnownPreserved', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [[::Test::T_RelayPrx, false, 0]], [], nil, [::Test::T_KnownPreserved])
-        TestIntfPrx_mixin::OP_unknownPreservedAsBase = ::Ice::__defineOperation('unknownPreservedAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_Base])
-        TestIntfPrx_mixin::OP_unknownPreservedAsKnownPreserved = ::Ice::__defineOperation('unknownPreservedAsKnownPreserved', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_KnownPreserved])
-        TestIntfPrx_mixin::OP_relayUnknownPreservedAsBase = ::Ice::__defineOperation('relayUnknownPreservedAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [[::Test::T_RelayPrx, false, 0]], [], nil, [::Test::T_Base])
-        TestIntfPrx_mixin::OP_relayUnknownPreservedAsKnownPreserved = ::Ice::__defineOperation('relayUnknownPreservedAsKnownPreserved', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [[::Test::T_RelayPrx, false, 0]], [], nil, [::Test::T_KnownPreserved])
+        TestIntfPrx_mixin::OP_baseAsBase = ::Ice::__defineOperation('baseAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::::T_Base])
+        TestIntfPrx_mixin::OP_unknownDerivedAsBase = ::Ice::__defineOperation('unknownDerivedAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::::T_Base])
+        TestIntfPrx_mixin::OP_knownDerivedAsBase = ::Ice::__defineOperation('knownDerivedAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::::T_Base])
+        TestIntfPrx_mixin::OP_knownDerivedAsKnownDerived = ::Ice::__defineOperation('knownDerivedAsKnownDerived', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::::T_KnownDerived])
+        TestIntfPrx_mixin::OP_unknownIntermediateAsBase = ::Ice::__defineOperation('unknownIntermediateAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::::T_Base])
+        TestIntfPrx_mixin::OP_knownIntermediateAsBase = ::Ice::__defineOperation('knownIntermediateAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::::T_Base])
+        TestIntfPrx_mixin::OP_knownMostDerivedAsBase = ::Ice::__defineOperation('knownMostDerivedAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::::T_Base])
+        TestIntfPrx_mixin::OP_knownIntermediateAsKnownIntermediate = ::Ice::__defineOperation('knownIntermediateAsKnownIntermediate', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::::T_KnownIntermediate])
+        TestIntfPrx_mixin::OP_knownMostDerivedAsKnownIntermediate = ::Ice::__defineOperation('knownMostDerivedAsKnownIntermediate', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::::T_KnownIntermediate])
+        TestIntfPrx_mixin::OP_knownMostDerivedAsKnownMostDerived = ::Ice::__defineOperation('knownMostDerivedAsKnownMostDerived', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::::T_KnownMostDerived])
+        TestIntfPrx_mixin::OP_unknownMostDerived1AsBase = ::Ice::__defineOperation('unknownMostDerived1AsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::::T_Base])
+        TestIntfPrx_mixin::OP_unknownMostDerived1AsKnownIntermediate = ::Ice::__defineOperation('unknownMostDerived1AsKnownIntermediate', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::::T_KnownIntermediate])
+        TestIntfPrx_mixin::OP_unknownMostDerived2AsBase = ::Ice::__defineOperation('unknownMostDerived2AsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::::T_Base])
+        TestIntfPrx_mixin::OP_unknownMostDerived2AsBaseCompact = ::Ice::__defineOperation('unknownMostDerived2AsBaseCompact', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::CompactFormat, [], [], nil, [::Test::::T_Base])
+        TestIntfPrx_mixin::OP_knownPreservedAsBase = ::Ice::__defineOperation('knownPreservedAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::::T_Base])
+        TestIntfPrx_mixin::OP_knownPreservedAsKnownPreserved = ::Ice::__defineOperation('knownPreservedAsKnownPreserved', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::::T_KnownPreserved])
+        TestIntfPrx_mixin::OP_relayKnownPreservedAsBase = ::Ice::__defineOperation('relayKnownPreservedAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [[::Test::::T_RelayPrx, false, 0]], [], nil, [::Test::::T_Base])
+        TestIntfPrx_mixin::OP_relayKnownPreservedAsKnownPreserved = ::Ice::__defineOperation('relayKnownPreservedAsKnownPreserved', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [[::Test::::T_RelayPrx, false, 0]], [], nil, [::Test::::T_KnownPreserved])
+        TestIntfPrx_mixin::OP_unknownPreservedAsBase = ::Ice::__defineOperation('unknownPreservedAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::::T_Base])
+        TestIntfPrx_mixin::OP_unknownPreservedAsKnownPreserved = ::Ice::__defineOperation('unknownPreservedAsKnownPreserved', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::::T_KnownPreserved])
+        TestIntfPrx_mixin::OP_relayUnknownPreservedAsBase = ::Ice::__defineOperation('relayUnknownPreservedAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [[::Test::::T_RelayPrx, false, 0]], [], nil, [::Test::::T_Base])
+        TestIntfPrx_mixin::OP_relayUnknownPreservedAsKnownPreserved = ::Ice::__defineOperation('relayUnknownPreservedAsKnownPreserved', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [[::Test::::T_RelayPrx, false, 0]], [], nil, [::Test::::T_KnownPreserved])
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [])
     end
 
-    if not defined?(::Test::UnknownDerived)
-        class UnknownDerived < ::Test::Base
+    if not defined?(::Test::::UnknownDerived)
+        class UnknownDerived < ::Test::::Base
             def initialize(b='', ud='')
                 super(b)
                 @ud = ud
@@ -334,11 +334,11 @@ module ::Test
             attr_accessor :ud
         end
 
-        T_UnknownDerived = ::Ice::__defineException('::Test::UnknownDerived', UnknownDerived, false, ::Test::T_Base, [["ud", ::Ice::T_string, false, 0]])
+        T_UnknownDerived = ::Ice::__defineException('::Test::UnknownDerived', UnknownDerived, false, ::Test::::T_Base, [["ud", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::UnknownIntermediate)
-        class UnknownIntermediate < ::Test::Base
+    if not defined?(::Test::::UnknownIntermediate)
+        class UnknownIntermediate < ::Test::::Base
             def initialize(b='', ui='')
                 super(b)
                 @ui = ui
@@ -351,11 +351,11 @@ module ::Test
             attr_accessor :ui
         end
 
-        T_UnknownIntermediate = ::Ice::__defineException('::Test::UnknownIntermediate', UnknownIntermediate, false, ::Test::T_Base, [["ui", ::Ice::T_string, false, 0]])
+        T_UnknownIntermediate = ::Ice::__defineException('::Test::UnknownIntermediate', UnknownIntermediate, false, ::Test::::T_Base, [["ui", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::UnknownMostDerived1)
-        class UnknownMostDerived1 < ::Test::KnownIntermediate
+    if not defined?(::Test::::UnknownMostDerived1)
+        class UnknownMostDerived1 < ::Test::::KnownIntermediate
             def initialize(b='', ki='', umd1='')
                 super(b, ki)
                 @umd1 = umd1
@@ -368,11 +368,11 @@ module ::Test
             attr_accessor :umd1
         end
 
-        T_UnknownMostDerived1 = ::Ice::__defineException('::Test::UnknownMostDerived1', UnknownMostDerived1, false, ::Test::T_KnownIntermediate, [["umd1", ::Ice::T_string, false, 0]])
+        T_UnknownMostDerived1 = ::Ice::__defineException('::Test::UnknownMostDerived1', UnknownMostDerived1, false, ::Test::::T_KnownIntermediate, [["umd1", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::UnknownMostDerived2)
-        class UnknownMostDerived2 < ::Test::UnknownIntermediate
+    if not defined?(::Test::::UnknownMostDerived2)
+        class UnknownMostDerived2 < ::Test::::UnknownIntermediate
             def initialize(b='', ui='', umd2='')
                 super(b, ui)
                 @umd2 = umd2
@@ -385,14 +385,14 @@ module ::Test
             attr_accessor :umd2
         end
 
-        T_UnknownMostDerived2 = ::Ice::__defineException('::Test::UnknownMostDerived2', UnknownMostDerived2, false, ::Test::T_UnknownIntermediate, [["umd2", ::Ice::T_string, false, 0]])
+        T_UnknownMostDerived2 = ::Ice::__defineException('::Test::UnknownMostDerived2', UnknownMostDerived2, false, ::Test::::T_UnknownIntermediate, [["umd2", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::SPreservedClass_Mixin)
+    if not defined?(::Test::::SPreservedClass_Mixin)
 
-        module ::Test::SPreservedClass_Mixin
+        module ::Test::::SPreservedClass_Mixin
         end
-        class SPreservedClass < ::Test::BaseClass
+        class SPreservedClass < ::Test::::BaseClass
 
             def initialize(bc='', spc='')
                 super(bc)
@@ -402,15 +402,15 @@ module ::Test
             attr_accessor :spc
         end
 
-        if not defined?(::Test::T_SPreservedClass)
+        if not defined?(::Test::::T_SPreservedClass)
             T_SPreservedClass = ::Ice::__declareClass('::Test::SPreservedClass')
         end
 
-        T_SPreservedClass.defineClass(SPreservedClass, -1, true, false, ::Test::T_BaseClass, [['spc', ::Ice::T_string, false, 0]])
+        T_SPreservedClass.defineClass(SPreservedClass, -1, true, false, ::Test::::T_BaseClass, [['spc', ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::SPreserved1)
-        class SPreserved1 < ::Test::KnownPreservedDerived
+    if not defined?(::Test::::SPreserved1)
+        class SPreserved1 < ::Test::::KnownPreservedDerived
             def initialize(b='', kp='', kpd='', p1=nil)
                 super(b, kp, kpd)
                 @p1 = p1
@@ -423,11 +423,11 @@ module ::Test
             attr_accessor :p1
         end
 
-        T_SPreserved1 = ::Ice::__defineException('::Test::SPreserved1', SPreserved1, true, ::Test::T_KnownPreservedDerived, [["p1", ::Test::T_BaseClass, false, 0]])
+        T_SPreserved1 = ::Ice::__defineException('::Test::SPreserved1', SPreserved1, true, ::Test::::T_KnownPreservedDerived, [["p1", ::Test::::T_BaseClass, false, 0]])
     end
 
-    if not defined?(::Test::SPreserved2)
-        class SPreserved2 < ::Test::SPreserved1
+    if not defined?(::Test::::SPreserved2)
+        class SPreserved2 < ::Test::::SPreserved1
             def initialize(b='', kp='', kpd='', p1=nil, p2=nil)
                 super(b, kp, kpd, p1)
                 @p2 = p2
@@ -440,6 +440,6 @@ module ::Test
             attr_accessor :p2
         end
 
-        T_SPreserved2 = ::Ice::__defineException('::Test::SPreserved2', SPreserved2, true, ::Test::T_SPreserved1, [["p2", ::Test::T_BaseClass, false, 0]])
+        T_SPreserved2 = ::Ice::__defineException('::Test::SPreserved2', SPreserved2, true, ::Test::::T_SPreserved1, [["p2", ::Test::::T_BaseClass, false, 0]])
     end
 end

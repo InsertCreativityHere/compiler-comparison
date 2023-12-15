@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::Ice
 
-    if not defined?(::Ice::Identity)
+    if not defined?(::Ice::::Identity)
         class Identity
             include ::Ice::Inspect_mixin
             def initialize(name='', category='')
@@ -34,7 +34,7 @@ module ::Ice
             end
 
             def ==(other)
-                return false if !other.is_a? ::Ice::Identity or
+                return false if !other.is_a? ::Ice::::Identity or
                     @name != other.name or
                     @category != other.category
                 true
@@ -53,11 +53,11 @@ module ::Ice
         ])
     end
 
-    if not defined?(::Ice::T_ObjectDict)
-        T_ObjectDict = ::Ice::__defineDictionary('::Ice::ObjectDict', ::Ice::T_Identity, ::Ice::T_Value)
+    if not defined?(::Ice::::T_ObjectDict)
+        T_ObjectDict = ::Ice::__defineDictionary('::Ice::ObjectDict', ::Ice::::T_Identity, ::Ice::T_Value)
     end
 
-    if not defined?(::Ice::T_IdentitySeq)
-        T_IdentitySeq = ::Ice::__defineSequence('::Ice::IdentitySeq', ::Ice::T_Identity)
+    if not defined?(::Ice::::T_IdentitySeq)
+        T_IdentitySeq = ::Ice::__defineSequence('::Ice::IdentitySeq', ::Ice::::T_Identity)
     end
 end

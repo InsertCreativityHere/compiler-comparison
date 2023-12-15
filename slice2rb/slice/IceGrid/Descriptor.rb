@@ -20,11 +20,11 @@ require 'Ice/BuiltinSequences.rb'
 
 module ::IceGrid
 
-    if not defined?(::IceGrid::T_StringStringDict)
+    if not defined?(::IceGrid::::T_StringStringDict)
         T_StringStringDict = ::Ice::__defineDictionary('::IceGrid::StringStringDict', ::Ice::T_string, ::Ice::T_string)
     end
 
-    if not defined?(::IceGrid::PropertyDescriptor)
+    if not defined?(::IceGrid::::PropertyDescriptor)
         class PropertyDescriptor
             include ::Ice::Inspect_mixin
             def initialize(name='', value='')
@@ -40,7 +40,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::PropertyDescriptor or
+                return false if !other.is_a? ::IceGrid::::PropertyDescriptor or
                     @name != other.name or
                     @value != other.value
                 true
@@ -59,11 +59,11 @@ module ::IceGrid
         ])
     end
 
-    if not defined?(::IceGrid::T_PropertyDescriptorSeq)
-        T_PropertyDescriptorSeq = ::Ice::__defineSequence('::IceGrid::PropertyDescriptorSeq', ::IceGrid::T_PropertyDescriptor)
+    if not defined?(::IceGrid::::T_PropertyDescriptorSeq)
+        T_PropertyDescriptorSeq = ::Ice::__defineSequence('::IceGrid::PropertyDescriptorSeq', ::IceGrid::::T_PropertyDescriptor)
     end
 
-    if not defined?(::IceGrid::PropertySetDescriptor)
+    if not defined?(::IceGrid::::PropertySetDescriptor)
         class PropertySetDescriptor
             include ::Ice::Inspect_mixin
             def initialize(references=nil, properties=nil)
@@ -79,7 +79,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::PropertySetDescriptor or
+                return false if !other.is_a? ::IceGrid::::PropertySetDescriptor or
                     @references != other.references or
                     @properties != other.properties
                 true
@@ -93,19 +93,19 @@ module ::IceGrid
         end
 
         T_PropertySetDescriptor = ::Ice::__defineStruct('::IceGrid::PropertySetDescriptor', PropertySetDescriptor, [
-            ["references", ::Ice::T_StringSeq],
-            ["properties", ::IceGrid::T_PropertyDescriptorSeq]
+            ["references", ::Ice::::T_StringSeq],
+            ["properties", ::IceGrid::::T_PropertyDescriptorSeq]
         ])
     end
 
-    if not defined?(::IceGrid::T_PropertySetDescriptorDict)
-        T_PropertySetDescriptorDict = ::Ice::__defineDictionary('::IceGrid::PropertySetDescriptorDict', ::Ice::T_string, ::IceGrid::T_PropertySetDescriptor)
+    if not defined?(::IceGrid::::T_PropertySetDescriptorDict)
+        T_PropertySetDescriptorDict = ::Ice::__defineDictionary('::IceGrid::PropertySetDescriptorDict', ::Ice::T_string, ::IceGrid::::T_PropertySetDescriptor)
     end
 
-    if not defined?(::IceGrid::ObjectDescriptor)
+    if not defined?(::IceGrid::::ObjectDescriptor)
         class ObjectDescriptor
             include ::Ice::Inspect_mixin
-            def initialize(id=::Ice::Identity.new, type='', proxyOptions='')
+            def initialize(id=::Ice::::Identity.new, type='', proxyOptions='')
                 @id = id
                 @type = type
                 @proxyOptions = proxyOptions
@@ -120,7 +120,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::ObjectDescriptor or
+                return false if !other.is_a? ::IceGrid::::ObjectDescriptor or
                     @id != other.id or
                     @type != other.type or
                     @proxyOptions != other.proxyOptions
@@ -135,17 +135,17 @@ module ::IceGrid
         end
 
         T_ObjectDescriptor = ::Ice::__defineStruct('::IceGrid::ObjectDescriptor', ObjectDescriptor, [
-            ["id", ::Ice::T_Identity],
+            ["id", ::Ice::::T_Identity],
             ["type", ::Ice::T_string],
             ["proxyOptions", ::Ice::T_string]
         ])
     end
 
-    if not defined?(::IceGrid::T_ObjectDescriptorSeq)
-        T_ObjectDescriptorSeq = ::Ice::__defineSequence('::IceGrid::ObjectDescriptorSeq', ::IceGrid::T_ObjectDescriptor)
+    if not defined?(::IceGrid::::T_ObjectDescriptorSeq)
+        T_ObjectDescriptorSeq = ::Ice::__defineSequence('::IceGrid::ObjectDescriptorSeq', ::IceGrid::::T_ObjectDescriptor)
     end
 
-    if not defined?(::IceGrid::AdapterDescriptor)
+    if not defined?(::IceGrid::::AdapterDescriptor)
         class AdapterDescriptor
             include ::Ice::Inspect_mixin
             def initialize(name='', description='', id='', replicaGroupId='', priority='', registerProcess=false, serverLifetime=false, objects=nil, allocatables=nil)
@@ -175,7 +175,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::AdapterDescriptor or
+                return false if !other.is_a? ::IceGrid::::AdapterDescriptor or
                     @name != other.name or
                     @description != other.description or
                     @id != other.id or
@@ -203,22 +203,22 @@ module ::IceGrid
             ["priority", ::Ice::T_string],
             ["registerProcess", ::Ice::T_bool],
             ["serverLifetime", ::Ice::T_bool],
-            ["objects", ::IceGrid::T_ObjectDescriptorSeq],
-            ["allocatables", ::IceGrid::T_ObjectDescriptorSeq]
+            ["objects", ::IceGrid::::T_ObjectDescriptorSeq],
+            ["allocatables", ::IceGrid::::T_ObjectDescriptorSeq]
         ])
     end
 
-    if not defined?(::IceGrid::T_AdapterDescriptorSeq)
-        T_AdapterDescriptorSeq = ::Ice::__defineSequence('::IceGrid::AdapterDescriptorSeq', ::IceGrid::T_AdapterDescriptor)
+    if not defined?(::IceGrid::::T_AdapterDescriptorSeq)
+        T_AdapterDescriptorSeq = ::Ice::__defineSequence('::IceGrid::AdapterDescriptorSeq', ::IceGrid::::T_AdapterDescriptor)
     end
 
-    if not defined?(::IceGrid::CommunicatorDescriptor_Mixin)
+    if not defined?(::IceGrid::::CommunicatorDescriptor_Mixin)
 
-        module ::IceGrid::CommunicatorDescriptor_Mixin
+        module ::IceGrid::::CommunicatorDescriptor_Mixin
         end
         class CommunicatorDescriptor < ::Ice::Value
 
-            def initialize(adapters=nil, propertySet=::IceGrid::PropertySetDescriptor.new, logs=nil, description='')
+            def initialize(adapters=nil, propertySet=::IceGrid::::PropertySetDescriptor.new, logs=nil, description='')
                 @adapters = adapters
                 @propertySet = propertySet
                 @logs = logs
@@ -228,19 +228,19 @@ module ::IceGrid
             attr_accessor :adapters, :propertySet, :logs, :description
         end
 
-        if not defined?(::IceGrid::T_CommunicatorDescriptor)
+        if not defined?(::IceGrid::::T_CommunicatorDescriptor)
             T_CommunicatorDescriptor = ::Ice::__declareClass('::IceGrid::CommunicatorDescriptor')
         end
 
         T_CommunicatorDescriptor.defineClass(CommunicatorDescriptor, -1, false, false, nil, [
-            ['adapters', ::IceGrid::T_AdapterDescriptorSeq, false, 0],
-            ['propertySet', ::IceGrid::T_PropertySetDescriptor, false, 0],
-            ['logs', ::Ice::T_StringSeq, false, 0],
+            ['adapters', ::IceGrid::::T_AdapterDescriptorSeq, false, 0],
+            ['propertySet', ::IceGrid::::T_PropertySetDescriptor, false, 0],
+            ['logs', ::Ice::::T_StringSeq, false, 0],
             ['description', ::Ice::T_string, false, 0]
         ])
     end
 
-    if not defined?(::IceGrid::DistributionDescriptor)
+    if not defined?(::IceGrid::::DistributionDescriptor)
         class DistributionDescriptor
             include ::Ice::Inspect_mixin
             def initialize(icepatch='', directories=nil)
@@ -256,7 +256,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::DistributionDescriptor or
+                return false if !other.is_a? ::IceGrid::::DistributionDescriptor or
                     @icepatch != other.icepatch or
                     @directories != other.directories
                 true
@@ -271,17 +271,17 @@ module ::IceGrid
 
         T_DistributionDescriptor = ::Ice::__defineStruct('::IceGrid::DistributionDescriptor', DistributionDescriptor, [
             ["icepatch", ::Ice::T_string],
-            ["directories", ::Ice::T_StringSeq]
+            ["directories", ::Ice::::T_StringSeq]
         ])
     end
 
-    if not defined?(::IceGrid::ServerDescriptor_Mixin)
+    if not defined?(::IceGrid::::ServerDescriptor_Mixin)
 
-        module ::IceGrid::ServerDescriptor_Mixin
+        module ::IceGrid::::ServerDescriptor_Mixin
         end
-        class ServerDescriptor < ::IceGrid::CommunicatorDescriptor
+        class ServerDescriptor < ::IceGrid::::CommunicatorDescriptor
 
-            def initialize(adapters=nil, propertySet=::IceGrid::PropertySetDescriptor.new, logs=nil, description='', id='', exe='', iceVersion='', pwd='', options=nil, envs=nil, activation='', activationTimeout='', deactivationTimeout='', applicationDistrib=false, distrib=::IceGrid::DistributionDescriptor.new, allocatable=false, user='')
+            def initialize(adapters=nil, propertySet=::IceGrid::::PropertySetDescriptor.new, logs=nil, description='', id='', exe='', iceVersion='', pwd='', options=nil, envs=nil, activation='', activationTimeout='', deactivationTimeout='', applicationDistrib=false, distrib=::IceGrid::::DistributionDescriptor.new, allocatable=false, user='')
                 super(adapters, propertySet, logs, description)
                 @id = id
                 @exe = exe
@@ -301,38 +301,38 @@ module ::IceGrid
             attr_accessor :id, :exe, :iceVersion, :pwd, :options, :envs, :activation, :activationTimeout, :deactivationTimeout, :applicationDistrib, :distrib, :allocatable, :user
         end
 
-        if not defined?(::IceGrid::T_ServerDescriptor)
+        if not defined?(::IceGrid::::T_ServerDescriptor)
             T_ServerDescriptor = ::Ice::__declareClass('::IceGrid::ServerDescriptor')
         end
 
-        T_ServerDescriptor.defineClass(ServerDescriptor, -1, false, false, ::IceGrid::T_CommunicatorDescriptor, [
+        T_ServerDescriptor.defineClass(ServerDescriptor, -1, false, false, ::IceGrid::::T_CommunicatorDescriptor, [
             ['id', ::Ice::T_string, false, 0],
             ['exe', ::Ice::T_string, false, 0],
             ['iceVersion', ::Ice::T_string, false, 0],
             ['pwd', ::Ice::T_string, false, 0],
-            ['options', ::Ice::T_StringSeq, false, 0],
-            ['envs', ::Ice::T_StringSeq, false, 0],
+            ['options', ::Ice::::T_StringSeq, false, 0],
+            ['envs', ::Ice::::T_StringSeq, false, 0],
             ['activation', ::Ice::T_string, false, 0],
             ['activationTimeout', ::Ice::T_string, false, 0],
             ['deactivationTimeout', ::Ice::T_string, false, 0],
             ['applicationDistrib', ::Ice::T_bool, false, 0],
-            ['distrib', ::IceGrid::T_DistributionDescriptor, false, 0],
+            ['distrib', ::IceGrid::::T_DistributionDescriptor, false, 0],
             ['allocatable', ::Ice::T_bool, false, 0],
             ['user', ::Ice::T_string, false, 0]
         ])
     end
 
-    if not defined?(::IceGrid::T_ServerDescriptorSeq)
-        T_ServerDescriptorSeq = ::Ice::__defineSequence('::IceGrid::ServerDescriptorSeq', ::IceGrid::T_ServerDescriptor)
+    if not defined?(::IceGrid::::T_ServerDescriptorSeq)
+        T_ServerDescriptorSeq = ::Ice::__defineSequence('::IceGrid::ServerDescriptorSeq', ::IceGrid::::T_ServerDescriptor)
     end
 
-    if not defined?(::IceGrid::ServiceDescriptor_Mixin)
+    if not defined?(::IceGrid::::ServiceDescriptor_Mixin)
 
-        module ::IceGrid::ServiceDescriptor_Mixin
+        module ::IceGrid::::ServiceDescriptor_Mixin
         end
-        class ServiceDescriptor < ::IceGrid::CommunicatorDescriptor
+        class ServiceDescriptor < ::IceGrid::::CommunicatorDescriptor
 
-            def initialize(adapters=nil, propertySet=::IceGrid::PropertySetDescriptor.new, logs=nil, description='', name='', entry='')
+            def initialize(adapters=nil, propertySet=::IceGrid::::PropertySetDescriptor.new, logs=nil, description='', name='', entry='')
                 super(adapters, propertySet, logs, description)
                 @name = name
                 @entry = entry
@@ -341,24 +341,24 @@ module ::IceGrid
             attr_accessor :name, :entry
         end
 
-        if not defined?(::IceGrid::T_ServiceDescriptor)
+        if not defined?(::IceGrid::::T_ServiceDescriptor)
             T_ServiceDescriptor = ::Ice::__declareClass('::IceGrid::ServiceDescriptor')
         end
 
-        T_ServiceDescriptor.defineClass(ServiceDescriptor, -1, false, false, ::IceGrid::T_CommunicatorDescriptor, [
+        T_ServiceDescriptor.defineClass(ServiceDescriptor, -1, false, false, ::IceGrid::::T_CommunicatorDescriptor, [
             ['name', ::Ice::T_string, false, 0],
             ['entry', ::Ice::T_string, false, 0]
         ])
     end
 
-    if not defined?(::IceGrid::T_ServiceDescriptorSeq)
-        T_ServiceDescriptorSeq = ::Ice::__defineSequence('::IceGrid::ServiceDescriptorSeq', ::IceGrid::T_ServiceDescriptor)
+    if not defined?(::IceGrid::::T_ServiceDescriptorSeq)
+        T_ServiceDescriptorSeq = ::Ice::__defineSequence('::IceGrid::ServiceDescriptorSeq', ::IceGrid::::T_ServiceDescriptor)
     end
 
-    if not defined?(::IceGrid::ServerInstanceDescriptor)
+    if not defined?(::IceGrid::::ServerInstanceDescriptor)
         class ServerInstanceDescriptor
             include ::Ice::Inspect_mixin
-            def initialize(template='', parameterValues=nil, propertySet=::IceGrid::PropertySetDescriptor.new, servicePropertySets=nil)
+            def initialize(template='', parameterValues=nil, propertySet=::IceGrid::::PropertySetDescriptor.new, servicePropertySets=nil)
                 @template = template
                 @parameterValues = parameterValues
                 @propertySet = propertySet
@@ -375,7 +375,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::ServerInstanceDescriptor or
+                return false if !other.is_a? ::IceGrid::::ServerInstanceDescriptor or
                     @template != other.template or
                     @parameterValues != other.parameterValues or
                     @propertySet != other.propertySet or
@@ -392,17 +392,17 @@ module ::IceGrid
 
         T_ServerInstanceDescriptor = ::Ice::__defineStruct('::IceGrid::ServerInstanceDescriptor', ServerInstanceDescriptor, [
             ["template", ::Ice::T_string],
-            ["parameterValues", ::IceGrid::T_StringStringDict],
-            ["propertySet", ::IceGrid::T_PropertySetDescriptor],
-            ["servicePropertySets", ::IceGrid::T_PropertySetDescriptorDict]
+            ["parameterValues", ::IceGrid::::T_StringStringDict],
+            ["propertySet", ::IceGrid::::T_PropertySetDescriptor],
+            ["servicePropertySets", ::IceGrid::::T_PropertySetDescriptorDict]
         ])
     end
 
-    if not defined?(::IceGrid::T_ServerInstanceDescriptorSeq)
-        T_ServerInstanceDescriptorSeq = ::Ice::__defineSequence('::IceGrid::ServerInstanceDescriptorSeq', ::IceGrid::T_ServerInstanceDescriptor)
+    if not defined?(::IceGrid::::T_ServerInstanceDescriptorSeq)
+        T_ServerInstanceDescriptorSeq = ::Ice::__defineSequence('::IceGrid::ServerInstanceDescriptorSeq', ::IceGrid::::T_ServerInstanceDescriptor)
     end
 
-    if not defined?(::IceGrid::TemplateDescriptor)
+    if not defined?(::IceGrid::::TemplateDescriptor)
         class TemplateDescriptor
             include ::Ice::Inspect_mixin
             def initialize(descriptor=nil, parameters=nil, parameterDefaults=nil)
@@ -420,7 +420,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::TemplateDescriptor or
+                return false if !other.is_a? ::IceGrid::::TemplateDescriptor or
                     @descriptor != other.descriptor or
                     @parameters != other.parameters or
                     @parameterDefaults != other.parameterDefaults
@@ -435,20 +435,20 @@ module ::IceGrid
         end
 
         T_TemplateDescriptor = ::Ice::__defineStruct('::IceGrid::TemplateDescriptor', TemplateDescriptor, [
-            ["descriptor", ::IceGrid::T_CommunicatorDescriptor],
-            ["parameters", ::Ice::T_StringSeq],
-            ["parameterDefaults", ::IceGrid::T_StringStringDict]
+            ["descriptor", ::IceGrid::::T_CommunicatorDescriptor],
+            ["parameters", ::Ice::::T_StringSeq],
+            ["parameterDefaults", ::IceGrid::::T_StringStringDict]
         ])
     end
 
-    if not defined?(::IceGrid::T_TemplateDescriptorDict)
-        T_TemplateDescriptorDict = ::Ice::__defineDictionary('::IceGrid::TemplateDescriptorDict', ::Ice::T_string, ::IceGrid::T_TemplateDescriptor)
+    if not defined?(::IceGrid::::T_TemplateDescriptorDict)
+        T_TemplateDescriptorDict = ::Ice::__defineDictionary('::IceGrid::TemplateDescriptorDict', ::Ice::T_string, ::IceGrid::::T_TemplateDescriptor)
     end
 
-    if not defined?(::IceGrid::ServiceInstanceDescriptor)
+    if not defined?(::IceGrid::::ServiceInstanceDescriptor)
         class ServiceInstanceDescriptor
             include ::Ice::Inspect_mixin
-            def initialize(template='', parameterValues=nil, descriptor=nil, propertySet=::IceGrid::PropertySetDescriptor.new)
+            def initialize(template='', parameterValues=nil, descriptor=nil, propertySet=::IceGrid::::PropertySetDescriptor.new)
                 @template = template
                 @parameterValues = parameterValues
                 @descriptor = descriptor
@@ -465,7 +465,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::ServiceInstanceDescriptor or
+                return false if !other.is_a? ::IceGrid::::ServiceInstanceDescriptor or
                     @template != other.template or
                     @parameterValues != other.parameterValues or
                     @descriptor != other.descriptor or
@@ -482,23 +482,23 @@ module ::IceGrid
 
         T_ServiceInstanceDescriptor = ::Ice::__defineStruct('::IceGrid::ServiceInstanceDescriptor', ServiceInstanceDescriptor, [
             ["template", ::Ice::T_string],
-            ["parameterValues", ::IceGrid::T_StringStringDict],
-            ["descriptor", ::IceGrid::T_ServiceDescriptor],
-            ["propertySet", ::IceGrid::T_PropertySetDescriptor]
+            ["parameterValues", ::IceGrid::::T_StringStringDict],
+            ["descriptor", ::IceGrid::::T_ServiceDescriptor],
+            ["propertySet", ::IceGrid::::T_PropertySetDescriptor]
         ])
     end
 
-    if not defined?(::IceGrid::T_ServiceInstanceDescriptorSeq)
-        T_ServiceInstanceDescriptorSeq = ::Ice::__defineSequence('::IceGrid::ServiceInstanceDescriptorSeq', ::IceGrid::T_ServiceInstanceDescriptor)
+    if not defined?(::IceGrid::::T_ServiceInstanceDescriptorSeq)
+        T_ServiceInstanceDescriptorSeq = ::Ice::__defineSequence('::IceGrid::ServiceInstanceDescriptorSeq', ::IceGrid::::T_ServiceInstanceDescriptor)
     end
 
-    if not defined?(::IceGrid::IceBoxDescriptor_Mixin)
+    if not defined?(::IceGrid::::IceBoxDescriptor_Mixin)
 
-        module ::IceGrid::IceBoxDescriptor_Mixin
+        module ::IceGrid::::IceBoxDescriptor_Mixin
         end
-        class IceBoxDescriptor < ::IceGrid::ServerDescriptor
+        class IceBoxDescriptor < ::IceGrid::::ServerDescriptor
 
-            def initialize(adapters=nil, propertySet=::IceGrid::PropertySetDescriptor.new, logs=nil, description='', id='', exe='', iceVersion='', pwd='', options=nil, envs=nil, activation='', activationTimeout='', deactivationTimeout='', applicationDistrib=false, distrib=::IceGrid::DistributionDescriptor.new, allocatable=false, user='', services=nil)
+            def initialize(adapters=nil, propertySet=::IceGrid::::PropertySetDescriptor.new, logs=nil, description='', id='', exe='', iceVersion='', pwd='', options=nil, envs=nil, activation='', activationTimeout='', deactivationTimeout='', applicationDistrib=false, distrib=::IceGrid::::DistributionDescriptor.new, allocatable=false, user='', services=nil)
                 super(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user)
                 @services = services
             end
@@ -506,14 +506,14 @@ module ::IceGrid
             attr_accessor :services
         end
 
-        if not defined?(::IceGrid::T_IceBoxDescriptor)
+        if not defined?(::IceGrid::::T_IceBoxDescriptor)
             T_IceBoxDescriptor = ::Ice::__declareClass('::IceGrid::IceBoxDescriptor')
         end
 
-        T_IceBoxDescriptor.defineClass(IceBoxDescriptor, -1, false, false, ::IceGrid::T_ServerDescriptor, [['services', ::IceGrid::T_ServiceInstanceDescriptorSeq, false, 0]])
+        T_IceBoxDescriptor.defineClass(IceBoxDescriptor, -1, false, false, ::IceGrid::::T_ServerDescriptor, [['services', ::IceGrid::::T_ServiceInstanceDescriptorSeq, false, 0]])
     end
 
-    if not defined?(::IceGrid::NodeDescriptor)
+    if not defined?(::IceGrid::::NodeDescriptor)
         class NodeDescriptor
             include ::Ice::Inspect_mixin
             def initialize(variables=nil, serverInstances=nil, servers=nil, loadFactor='', description='', propertySets=nil)
@@ -537,7 +537,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::NodeDescriptor or
+                return false if !other.is_a? ::IceGrid::::NodeDescriptor or
                     @variables != other.variables or
                     @serverInstances != other.serverInstances or
                     @servers != other.servers or
@@ -555,22 +555,22 @@ module ::IceGrid
         end
 
         T_NodeDescriptor = ::Ice::__defineStruct('::IceGrid::NodeDescriptor', NodeDescriptor, [
-            ["variables", ::IceGrid::T_StringStringDict],
-            ["serverInstances", ::IceGrid::T_ServerInstanceDescriptorSeq],
-            ["servers", ::IceGrid::T_ServerDescriptorSeq],
+            ["variables", ::IceGrid::::T_StringStringDict],
+            ["serverInstances", ::IceGrid::::T_ServerInstanceDescriptorSeq],
+            ["servers", ::IceGrid::::T_ServerDescriptorSeq],
             ["loadFactor", ::Ice::T_string],
             ["description", ::Ice::T_string],
-            ["propertySets", ::IceGrid::T_PropertySetDescriptorDict]
+            ["propertySets", ::IceGrid::::T_PropertySetDescriptorDict]
         ])
     end
 
-    if not defined?(::IceGrid::T_NodeDescriptorDict)
-        T_NodeDescriptorDict = ::Ice::__defineDictionary('::IceGrid::NodeDescriptorDict', ::Ice::T_string, ::IceGrid::T_NodeDescriptor)
+    if not defined?(::IceGrid::::T_NodeDescriptorDict)
+        T_NodeDescriptorDict = ::Ice::__defineDictionary('::IceGrid::NodeDescriptorDict', ::Ice::T_string, ::IceGrid::::T_NodeDescriptor)
     end
 
-    if not defined?(::IceGrid::LoadBalancingPolicy_Mixin)
+    if not defined?(::IceGrid::::LoadBalancingPolicy_Mixin)
 
-        module ::IceGrid::LoadBalancingPolicy_Mixin
+        module ::IceGrid::::LoadBalancingPolicy_Mixin
         end
         class LoadBalancingPolicy < ::Ice::Value
 
@@ -581,72 +581,72 @@ module ::IceGrid
             attr_accessor :nReplicas
         end
 
-        if not defined?(::IceGrid::T_LoadBalancingPolicy)
+        if not defined?(::IceGrid::::T_LoadBalancingPolicy)
             T_LoadBalancingPolicy = ::Ice::__declareClass('::IceGrid::LoadBalancingPolicy')
         end
 
         T_LoadBalancingPolicy.defineClass(LoadBalancingPolicy, -1, false, false, nil, [['nReplicas', ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceGrid::RandomLoadBalancingPolicy_Mixin)
+    if not defined?(::IceGrid::::RandomLoadBalancingPolicy_Mixin)
 
-        module ::IceGrid::RandomLoadBalancingPolicy_Mixin
+        module ::IceGrid::::RandomLoadBalancingPolicy_Mixin
         end
-        class RandomLoadBalancingPolicy < ::IceGrid::LoadBalancingPolicy
+        class RandomLoadBalancingPolicy < ::IceGrid::::LoadBalancingPolicy
 
             def initialize(nReplicas='')
                 super(nReplicas)
             end
         end
 
-        if not defined?(::IceGrid::T_RandomLoadBalancingPolicy)
+        if not defined?(::IceGrid::::T_RandomLoadBalancingPolicy)
             T_RandomLoadBalancingPolicy = ::Ice::__declareClass('::IceGrid::RandomLoadBalancingPolicy')
         end
 
-        T_RandomLoadBalancingPolicy.defineClass(RandomLoadBalancingPolicy, -1, false, false, ::IceGrid::T_LoadBalancingPolicy, [])
+        T_RandomLoadBalancingPolicy.defineClass(RandomLoadBalancingPolicy, -1, false, false, ::IceGrid::::T_LoadBalancingPolicy, [])
     end
 
-    if not defined?(::IceGrid::OrderedLoadBalancingPolicy_Mixin)
+    if not defined?(::IceGrid::::OrderedLoadBalancingPolicy_Mixin)
 
-        module ::IceGrid::OrderedLoadBalancingPolicy_Mixin
+        module ::IceGrid::::OrderedLoadBalancingPolicy_Mixin
         end
-        class OrderedLoadBalancingPolicy < ::IceGrid::LoadBalancingPolicy
+        class OrderedLoadBalancingPolicy < ::IceGrid::::LoadBalancingPolicy
 
             def initialize(nReplicas='')
                 super(nReplicas)
             end
         end
 
-        if not defined?(::IceGrid::T_OrderedLoadBalancingPolicy)
+        if not defined?(::IceGrid::::T_OrderedLoadBalancingPolicy)
             T_OrderedLoadBalancingPolicy = ::Ice::__declareClass('::IceGrid::OrderedLoadBalancingPolicy')
         end
 
-        T_OrderedLoadBalancingPolicy.defineClass(OrderedLoadBalancingPolicy, -1, false, false, ::IceGrid::T_LoadBalancingPolicy, [])
+        T_OrderedLoadBalancingPolicy.defineClass(OrderedLoadBalancingPolicy, -1, false, false, ::IceGrid::::T_LoadBalancingPolicy, [])
     end
 
-    if not defined?(::IceGrid::RoundRobinLoadBalancingPolicy_Mixin)
+    if not defined?(::IceGrid::::RoundRobinLoadBalancingPolicy_Mixin)
 
-        module ::IceGrid::RoundRobinLoadBalancingPolicy_Mixin
+        module ::IceGrid::::RoundRobinLoadBalancingPolicy_Mixin
         end
-        class RoundRobinLoadBalancingPolicy < ::IceGrid::LoadBalancingPolicy
+        class RoundRobinLoadBalancingPolicy < ::IceGrid::::LoadBalancingPolicy
 
             def initialize(nReplicas='')
                 super(nReplicas)
             end
         end
 
-        if not defined?(::IceGrid::T_RoundRobinLoadBalancingPolicy)
+        if not defined?(::IceGrid::::T_RoundRobinLoadBalancingPolicy)
             T_RoundRobinLoadBalancingPolicy = ::Ice::__declareClass('::IceGrid::RoundRobinLoadBalancingPolicy')
         end
 
-        T_RoundRobinLoadBalancingPolicy.defineClass(RoundRobinLoadBalancingPolicy, -1, false, false, ::IceGrid::T_LoadBalancingPolicy, [])
+        T_RoundRobinLoadBalancingPolicy.defineClass(RoundRobinLoadBalancingPolicy, -1, false, false, ::IceGrid::::T_LoadBalancingPolicy, [])
     end
 
-    if not defined?(::IceGrid::AdaptiveLoadBalancingPolicy_Mixin)
+    if not defined?(::IceGrid::::AdaptiveLoadBalancingPolicy_Mixin)
 
-        module ::IceGrid::AdaptiveLoadBalancingPolicy_Mixin
+        module ::IceGrid::::AdaptiveLoadBalancingPolicy_Mixin
         end
-        class AdaptiveLoadBalancingPolicy < ::IceGrid::LoadBalancingPolicy
+        class AdaptiveLoadBalancingPolicy < ::IceGrid::::LoadBalancingPolicy
 
             def initialize(nReplicas='', loadSample='')
                 super(nReplicas)
@@ -656,14 +656,14 @@ module ::IceGrid
             attr_accessor :loadSample
         end
 
-        if not defined?(::IceGrid::T_AdaptiveLoadBalancingPolicy)
+        if not defined?(::IceGrid::::T_AdaptiveLoadBalancingPolicy)
             T_AdaptiveLoadBalancingPolicy = ::Ice::__declareClass('::IceGrid::AdaptiveLoadBalancingPolicy')
         end
 
-        T_AdaptiveLoadBalancingPolicy.defineClass(AdaptiveLoadBalancingPolicy, -1, false, false, ::IceGrid::T_LoadBalancingPolicy, [['loadSample', ::Ice::T_string, false, 0]])
+        T_AdaptiveLoadBalancingPolicy.defineClass(AdaptiveLoadBalancingPolicy, -1, false, false, ::IceGrid::::T_LoadBalancingPolicy, [['loadSample', ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceGrid::ReplicaGroupDescriptor)
+    if not defined?(::IceGrid::::ReplicaGroupDescriptor)
         class ReplicaGroupDescriptor
             include ::Ice::Inspect_mixin
             def initialize(id='', loadBalancing=nil, proxyOptions='', objects=nil, description='', filter='')
@@ -687,7 +687,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::ReplicaGroupDescriptor or
+                return false if !other.is_a? ::IceGrid::::ReplicaGroupDescriptor or
                     @id != other.id or
                     @loadBalancing != other.loadBalancing or
                     @proxyOptions != other.proxyOptions or
@@ -706,22 +706,22 @@ module ::IceGrid
 
         T_ReplicaGroupDescriptor = ::Ice::__defineStruct('::IceGrid::ReplicaGroupDescriptor', ReplicaGroupDescriptor, [
             ["id", ::Ice::T_string],
-            ["loadBalancing", ::IceGrid::T_LoadBalancingPolicy],
+            ["loadBalancing", ::IceGrid::::T_LoadBalancingPolicy],
             ["proxyOptions", ::Ice::T_string],
-            ["objects", ::IceGrid::T_ObjectDescriptorSeq],
+            ["objects", ::IceGrid::::T_ObjectDescriptorSeq],
             ["description", ::Ice::T_string],
             ["filter", ::Ice::T_string]
         ])
     end
 
-    if not defined?(::IceGrid::T_ReplicaGroupDescriptorSeq)
-        T_ReplicaGroupDescriptorSeq = ::Ice::__defineSequence('::IceGrid::ReplicaGroupDescriptorSeq', ::IceGrid::T_ReplicaGroupDescriptor)
+    if not defined?(::IceGrid::::T_ReplicaGroupDescriptorSeq)
+        T_ReplicaGroupDescriptorSeq = ::Ice::__defineSequence('::IceGrid::ReplicaGroupDescriptorSeq', ::IceGrid::::T_ReplicaGroupDescriptor)
     end
 
-    if not defined?(::IceGrid::ApplicationDescriptor)
+    if not defined?(::IceGrid::::ApplicationDescriptor)
         class ApplicationDescriptor
             include ::Ice::Inspect_mixin
-            def initialize(name='', variables=nil, replicaGroups=nil, serverTemplates=nil, serviceTemplates=nil, nodes=nil, distrib=::IceGrid::DistributionDescriptor.new, description='', propertySets=nil)
+            def initialize(name='', variables=nil, replicaGroups=nil, serverTemplates=nil, serviceTemplates=nil, nodes=nil, distrib=::IceGrid::::DistributionDescriptor.new, description='', propertySets=nil)
                 @name = name
                 @variables = variables
                 @replicaGroups = replicaGroups
@@ -748,7 +748,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::ApplicationDescriptor or
+                return false if !other.is_a? ::IceGrid::::ApplicationDescriptor or
                     @name != other.name or
                     @variables != other.variables or
                     @replicaGroups != other.replicaGroups or
@@ -770,24 +770,24 @@ module ::IceGrid
 
         T_ApplicationDescriptor = ::Ice::__defineStruct('::IceGrid::ApplicationDescriptor', ApplicationDescriptor, [
             ["name", ::Ice::T_string],
-            ["variables", ::IceGrid::T_StringStringDict],
-            ["replicaGroups", ::IceGrid::T_ReplicaGroupDescriptorSeq],
-            ["serverTemplates", ::IceGrid::T_TemplateDescriptorDict],
-            ["serviceTemplates", ::IceGrid::T_TemplateDescriptorDict],
-            ["nodes", ::IceGrid::T_NodeDescriptorDict],
-            ["distrib", ::IceGrid::T_DistributionDescriptor],
+            ["variables", ::IceGrid::::T_StringStringDict],
+            ["replicaGroups", ::IceGrid::::T_ReplicaGroupDescriptorSeq],
+            ["serverTemplates", ::IceGrid::::T_TemplateDescriptorDict],
+            ["serviceTemplates", ::IceGrid::::T_TemplateDescriptorDict],
+            ["nodes", ::IceGrid::::T_NodeDescriptorDict],
+            ["distrib", ::IceGrid::::T_DistributionDescriptor],
             ["description", ::Ice::T_string],
-            ["propertySets", ::IceGrid::T_PropertySetDescriptorDict]
+            ["propertySets", ::IceGrid::::T_PropertySetDescriptorDict]
         ])
     end
 
-    if not defined?(::IceGrid::T_ApplicationDescriptorSeq)
-        T_ApplicationDescriptorSeq = ::Ice::__defineSequence('::IceGrid::ApplicationDescriptorSeq', ::IceGrid::T_ApplicationDescriptor)
+    if not defined?(::IceGrid::::T_ApplicationDescriptorSeq)
+        T_ApplicationDescriptorSeq = ::Ice::__defineSequence('::IceGrid::ApplicationDescriptorSeq', ::IceGrid::::T_ApplicationDescriptor)
     end
 
-    if not defined?(::IceGrid::BoxedString_Mixin)
+    if not defined?(::IceGrid::::BoxedString_Mixin)
 
-        module ::IceGrid::BoxedString_Mixin
+        module ::IceGrid::::BoxedString_Mixin
         end
         class BoxedString < ::Ice::Value
 
@@ -798,14 +798,14 @@ module ::IceGrid
             attr_accessor :value
         end
 
-        if not defined?(::IceGrid::T_BoxedString)
+        if not defined?(::IceGrid::::T_BoxedString)
             T_BoxedString = ::Ice::__declareClass('::IceGrid::BoxedString')
         end
 
         T_BoxedString.defineClass(BoxedString, -1, false, false, nil, [['value', ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceGrid::NodeUpdateDescriptor)
+    if not defined?(::IceGrid::::NodeUpdateDescriptor)
         class NodeUpdateDescriptor
             include ::Ice::Inspect_mixin
             def initialize(name='', description=nil, variables=nil, removeVariables=nil, propertySets=nil, removePropertySets=nil, serverInstances=nil, servers=nil, removeServers=nil, loadFactor=nil)
@@ -837,7 +837,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::NodeUpdateDescriptor or
+                return false if !other.is_a? ::IceGrid::::NodeUpdateDescriptor or
                     @name != other.name or
                     @description != other.description or
                     @variables != other.variables or
@@ -860,43 +860,43 @@ module ::IceGrid
 
         T_NodeUpdateDescriptor = ::Ice::__defineStruct('::IceGrid::NodeUpdateDescriptor', NodeUpdateDescriptor, [
             ["name", ::Ice::T_string],
-            ["description", ::IceGrid::T_BoxedString],
-            ["variables", ::IceGrid::T_StringStringDict],
-            ["removeVariables", ::Ice::T_StringSeq],
-            ["propertySets", ::IceGrid::T_PropertySetDescriptorDict],
-            ["removePropertySets", ::Ice::T_StringSeq],
-            ["serverInstances", ::IceGrid::T_ServerInstanceDescriptorSeq],
-            ["servers", ::IceGrid::T_ServerDescriptorSeq],
-            ["removeServers", ::Ice::T_StringSeq],
-            ["loadFactor", ::IceGrid::T_BoxedString]
+            ["description", ::IceGrid::::T_BoxedString],
+            ["variables", ::IceGrid::::T_StringStringDict],
+            ["removeVariables", ::Ice::::T_StringSeq],
+            ["propertySets", ::IceGrid::::T_PropertySetDescriptorDict],
+            ["removePropertySets", ::Ice::::T_StringSeq],
+            ["serverInstances", ::IceGrid::::T_ServerInstanceDescriptorSeq],
+            ["servers", ::IceGrid::::T_ServerDescriptorSeq],
+            ["removeServers", ::Ice::::T_StringSeq],
+            ["loadFactor", ::IceGrid::::T_BoxedString]
         ])
     end
 
-    if not defined?(::IceGrid::T_NodeUpdateDescriptorSeq)
-        T_NodeUpdateDescriptorSeq = ::Ice::__defineSequence('::IceGrid::NodeUpdateDescriptorSeq', ::IceGrid::T_NodeUpdateDescriptor)
+    if not defined?(::IceGrid::::T_NodeUpdateDescriptorSeq)
+        T_NodeUpdateDescriptorSeq = ::Ice::__defineSequence('::IceGrid::NodeUpdateDescriptorSeq', ::IceGrid::::T_NodeUpdateDescriptor)
     end
 
-    if not defined?(::IceGrid::BoxedDistributionDescriptor_Mixin)
+    if not defined?(::IceGrid::::BoxedDistributionDescriptor_Mixin)
 
-        module ::IceGrid::BoxedDistributionDescriptor_Mixin
+        module ::IceGrid::::BoxedDistributionDescriptor_Mixin
         end
         class BoxedDistributionDescriptor < ::Ice::Value
 
-            def initialize(value=::IceGrid::DistributionDescriptor.new)
+            def initialize(value=::IceGrid::::DistributionDescriptor.new)
                 @value = value
             end
 
             attr_accessor :value
         end
 
-        if not defined?(::IceGrid::T_BoxedDistributionDescriptor)
+        if not defined?(::IceGrid::::T_BoxedDistributionDescriptor)
             T_BoxedDistributionDescriptor = ::Ice::__declareClass('::IceGrid::BoxedDistributionDescriptor')
         end
 
-        T_BoxedDistributionDescriptor.defineClass(BoxedDistributionDescriptor, -1, false, false, nil, [['value', ::IceGrid::T_DistributionDescriptor, false, 0]])
+        T_BoxedDistributionDescriptor.defineClass(BoxedDistributionDescriptor, -1, false, false, nil, [['value', ::IceGrid::::T_DistributionDescriptor, false, 0]])
     end
 
-    if not defined?(::IceGrid::ApplicationUpdateDescriptor)
+    if not defined?(::IceGrid::::ApplicationUpdateDescriptor)
         class ApplicationUpdateDescriptor
             include ::Ice::Inspect_mixin
             def initialize(name='', description=nil, distrib=nil, variables=nil, removeVariables=nil, propertySets=nil, removePropertySets=nil, replicaGroups=nil, removeReplicaGroups=nil, serverTemplates=nil, removeServerTemplates=nil, serviceTemplates=nil, removeServiceTemplates=nil, nodes=nil, removeNodes=nil)
@@ -938,7 +938,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::ApplicationUpdateDescriptor or
+                return false if !other.is_a? ::IceGrid::::ApplicationUpdateDescriptor or
                     @name != other.name or
                     @description != other.description or
                     @distrib != other.distrib or
@@ -966,20 +966,20 @@ module ::IceGrid
 
         T_ApplicationUpdateDescriptor = ::Ice::__defineStruct('::IceGrid::ApplicationUpdateDescriptor', ApplicationUpdateDescriptor, [
             ["name", ::Ice::T_string],
-            ["description", ::IceGrid::T_BoxedString],
-            ["distrib", ::IceGrid::T_BoxedDistributionDescriptor],
-            ["variables", ::IceGrid::T_StringStringDict],
-            ["removeVariables", ::Ice::T_StringSeq],
-            ["propertySets", ::IceGrid::T_PropertySetDescriptorDict],
-            ["removePropertySets", ::Ice::T_StringSeq],
-            ["replicaGroups", ::IceGrid::T_ReplicaGroupDescriptorSeq],
-            ["removeReplicaGroups", ::Ice::T_StringSeq],
-            ["serverTemplates", ::IceGrid::T_TemplateDescriptorDict],
-            ["removeServerTemplates", ::Ice::T_StringSeq],
-            ["serviceTemplates", ::IceGrid::T_TemplateDescriptorDict],
-            ["removeServiceTemplates", ::Ice::T_StringSeq],
-            ["nodes", ::IceGrid::T_NodeUpdateDescriptorSeq],
-            ["removeNodes", ::Ice::T_StringSeq]
+            ["description", ::IceGrid::::T_BoxedString],
+            ["distrib", ::IceGrid::::T_BoxedDistributionDescriptor],
+            ["variables", ::IceGrid::::T_StringStringDict],
+            ["removeVariables", ::Ice::::T_StringSeq],
+            ["propertySets", ::IceGrid::::T_PropertySetDescriptorDict],
+            ["removePropertySets", ::Ice::::T_StringSeq],
+            ["replicaGroups", ::IceGrid::::T_ReplicaGroupDescriptorSeq],
+            ["removeReplicaGroups", ::Ice::::T_StringSeq],
+            ["serverTemplates", ::IceGrid::::T_TemplateDescriptorDict],
+            ["removeServerTemplates", ::Ice::::T_StringSeq],
+            ["serviceTemplates", ::IceGrid::::T_TemplateDescriptorDict],
+            ["removeServiceTemplates", ::Ice::::T_StringSeq],
+            ["nodes", ::IceGrid::::T_NodeUpdateDescriptorSeq],
+            ["removeNodes", ::Ice::::T_StringSeq]
         ])
     end
 end

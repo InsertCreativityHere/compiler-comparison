@@ -18,9 +18,9 @@ require 'Ice'
 
 module ::Clash
 
-    if not defined?(::Clash::Intf_Mixin)
+    if not defined?(::Clash::::Intf_Mixin)
 
-        module ::Clash::Intf_Mixin
+        module ::Clash::::Intf_Mixin
         end
         module IntfPrx_mixin
 
@@ -86,7 +86,7 @@ module ::Clash
             include IntfPrx_mixin
         end
 
-        if not defined?(::Clash::T_IntfPrx)
+        if not defined?(::Clash::::T_IntfPrx)
             T_Intf = ::Ice::__declareClass('::Clash::Intf')
             T_IntfPrx = ::Ice::__declareProxy('::Clash::Intf')
         end
@@ -111,9 +111,9 @@ module ::Clash
         IntfPrx_mixin::OP_opOut = ::Ice::__defineOperation('opOut', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, true, 1], [::Ice::T_string, true, 2]], nil, [])
     end
 
-    if not defined?(::Clash::Cls_Mixin)
+    if not defined?(::Clash::::Cls_Mixin)
 
-        module ::Clash::Cls_Mixin
+        module ::Clash::::Cls_Mixin
         end
         class Cls < ::Ice::Value
 
@@ -140,12 +140,12 @@ module ::Clash
             attr_accessor :s, :context, :current, :response, :upCast, :typeId, :del, :cookie, :ex, :result, :istr, :ostr, :inS, :_in, :proxy, :stream, :target
         end
 
-        if not defined?(::Clash::T_Cls)
+        if not defined?(::Clash::::T_Cls)
             T_Cls = ::Ice::__declareClass('::Clash::Cls')
         end
 
         T_Cls.defineClass(Cls, -1, false, false, nil, [
-            ['s', ::Clash::T_IntfPrx, false, 0],
+            ['s', ::Clash::::T_IntfPrx, false, 0],
             ['context', ::Ice::T_string, false, 0],
             ['current', ::Ice::T_int, false, 0],
             ['response', ::Ice::T_short, false, 0],
@@ -165,7 +165,7 @@ module ::Clash
         ])
     end
 
-    if not defined?(::Clash::St)
+    if not defined?(::Clash::::St)
         class St
             include ::Ice::Inspect_mixin
             def initialize(v='', istr=0, ostr=0, rhs=0)
@@ -185,7 +185,7 @@ module ::Clash
             end
 
             def ==(other)
-                return false if !other.is_a? ::Clash::St or
+                return false if !other.is_a? ::Clash::::St or
                     @v != other.v or
                     @istr != other.istr or
                     @ostr != other.ostr or
@@ -208,7 +208,7 @@ module ::Clash
         ])
     end
 
-    if not defined?(::Clash::Ex)
+    if not defined?(::Clash::::Ex)
         class Ex < Ice::UserException
             def initialize(istr=0, ostr=0)
                 @istr = istr

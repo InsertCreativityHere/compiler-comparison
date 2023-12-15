@@ -19,7 +19,7 @@ require 'PropertiesAdmin.rb'
 
 module ::Ice
 
-    if not defined?(::Ice::T_Properties)
+    if not defined?(::Ice::::T_Properties)
         T_Properties = ::Ice::__declareLocalClass('::Ice::Properties')
     end
 end

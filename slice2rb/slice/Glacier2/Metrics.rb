@@ -19,11 +19,11 @@ require 'Ice/Metrics.rb'
 
 module ::IceMX
 
-    if not defined?(::IceMX::SessionMetrics_Mixin)
+    if not defined?(::IceMX::::SessionMetrics_Mixin)
 
-        module ::IceMX::SessionMetrics_Mixin
+        module ::IceMX::::SessionMetrics_Mixin
         end
-        class SessionMetrics < ::IceMX::Metrics
+        class SessionMetrics < ::IceMX::::Metrics
 
             def initialize(id='', total=0, current=0, totalLifetime=0, failures=0, forwardedClient=0, forwardedServer=0, routingTableSize=0, queuedClient=0, queuedServer=0, overriddenClient=0, overriddenServer=0)
                 super(id, total, current, totalLifetime, failures)
@@ -39,11 +39,11 @@ module ::IceMX
             attr_accessor :forwardedClient, :forwardedServer, :routingTableSize, :queuedClient, :queuedServer, :overriddenClient, :overriddenServer
         end
 
-        if not defined?(::IceMX::T_SessionMetrics)
+        if not defined?(::IceMX::::T_SessionMetrics)
             T_SessionMetrics = ::Ice::__declareClass('::IceMX::SessionMetrics')
         end
 
-        T_SessionMetrics.defineClass(SessionMetrics, -1, false, false, ::IceMX::T_Metrics, [
+        T_SessionMetrics.defineClass(SessionMetrics, -1, false, false, ::IceMX::::T_Metrics, [
             ['forwardedClient', ::Ice::T_int, false, 0],
             ['forwardedServer', ::Ice::T_int, false, 0],
             ['routingTableSize', ::Ice::T_int, false, 0],

@@ -18,21 +18,21 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::T_SerialSmall)
+    if not defined?(::Test::::T_SerialSmall)
         T_SerialSmall = ::Ice::__defineSequence('::Test::SerialSmall', ::Ice::T_byte)
     end
 
-    if not defined?(::Test::T_SerialLarge)
+    if not defined?(::Test::::T_SerialLarge)
         T_SerialLarge = ::Ice::__defineSequence('::Test::SerialLarge', ::Ice::T_byte)
     end
 
-    if not defined?(::Test::T_SerialStruct)
+    if not defined?(::Test::::T_SerialStruct)
         T_SerialStruct = ::Ice::__defineSequence('::Test::SerialStruct', ::Ice::T_byte)
     end
 
-    if not defined?(::Test::MyClass_Mixin)
+    if not defined?(::Test::::MyClass_Mixin)
 
-        module ::Test::MyClass_Mixin
+        module ::Test::::MyClass_Mixin
         end
         module MyClassPrx_mixin
 
@@ -58,7 +58,7 @@ module ::Test
             include MyClassPrx_mixin
         end
 
-        if not defined?(::Test::T_MyClassPrx)
+        if not defined?(::Test::::T_MyClassPrx)
             T_MyClass = ::Ice::__declareClass('::Test::MyClass')
             T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
         end
@@ -68,28 +68,28 @@ module ::Test
         T_MyClassPrx.defineProxy(MyClassPrx, nil, [])
 
         MyClassPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        MyClassPrx_mixin::OP_opSerialSmallJava = ::Ice::__defineOperation('opSerialSmallJava', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SerialSmall, false, 0]], [[::Test::T_SerialSmall, false, 0]], [::Test::T_SerialSmall, false, 0], [])
-        MyClassPrx_mixin::OP_opSerialLargeJava = ::Ice::__defineOperation('opSerialLargeJava', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SerialLarge, false, 0]], [[::Test::T_SerialLarge, false, 0]], [::Test::T_SerialLarge, false, 0], [])
-        MyClassPrx_mixin::OP_opSerialStructJava = ::Ice::__defineOperation('opSerialStructJava', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SerialStruct, false, 0]], [[::Test::T_SerialStruct, false, 0]], [::Test::T_SerialStruct, false, 0], [])
+        MyClassPrx_mixin::OP_opSerialSmallJava = ::Ice::__defineOperation('opSerialSmallJava', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_SerialSmall, false, 0]], [[::Test::::T_SerialSmall, false, 0]], [::Test::::T_SerialSmall, false, 0], [])
+        MyClassPrx_mixin::OP_opSerialLargeJava = ::Ice::__defineOperation('opSerialLargeJava', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_SerialLarge, false, 0]], [[::Test::::T_SerialLarge, false, 0]], [::Test::::T_SerialLarge, false, 0], [])
+        MyClassPrx_mixin::OP_opSerialStructJava = ::Ice::__defineOperation('opSerialStructJava', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_SerialStruct, false, 0]], [[::Test::::T_SerialStruct, false, 0]], [::Test::::T_SerialStruct, false, 0], [])
     end
 
-    if not defined?(::Test::T_SLS)
-        T_SLS = ::Ice::__defineSequence('::Test::SLS', ::Test::T_SerialLarge)
+    if not defined?(::Test::::T_SLS)
+        T_SLS = ::Ice::__defineSequence('::Test::SLS', ::Test::::T_SerialLarge)
     end
 
-    if not defined?(::Test::T_SLSS)
-        T_SLSS = ::Ice::__defineSequence('::Test::SLSS', ::Test::T_SLS)
+    if not defined?(::Test::::T_SLSS)
+        T_SLSS = ::Ice::__defineSequence('::Test::SLSS', ::Test::::T_SLS)
     end
 
-    if not defined?(::Test::T_SLD)
-        T_SLD = ::Ice::__defineDictionary('::Test::SLD', ::Ice::T_int, ::Test::T_SerialLarge)
+    if not defined?(::Test::::T_SLD)
+        T_SLD = ::Ice::__defineDictionary('::Test::SLD', ::Ice::T_int, ::Test::::T_SerialLarge)
     end
 
-    if not defined?(::Test::T_SLSD)
-        T_SLSD = ::Ice::__defineDictionary('::Test::SLSD', ::Ice::T_int, ::Test::T_SLS)
+    if not defined?(::Test::::T_SLSD)
+        T_SLSD = ::Ice::__defineDictionary('::Test::SLSD', ::Ice::T_int, ::Test::::T_SLS)
     end
 
-    if not defined?(::Test::Foo)
+    if not defined?(::Test::::Foo)
         class Foo
             include ::Ice::Inspect_mixin
             def initialize(sLmem=nil, sLSmem=nil)
@@ -105,7 +105,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::Foo or
+                return false if !other.is_a? ::Test::::Foo or
                     @SLmem != other.SLmem or
                     @SLSmem != other.SLSmem
                 true
@@ -119,12 +119,12 @@ module ::Test
         end
 
         T_Foo = ::Ice::__defineStruct('::Test::Foo', Foo, [
-            ["SLmem", ::Test::T_SerialLarge],
-            ["SLSmem", ::Test::T_SLS]
+            ["SLmem", ::Test::::T_SerialLarge],
+            ["SLSmem", ::Test::::T_SLS]
         ])
     end
 
-    if not defined?(::Test::Bar)
+    if not defined?(::Test::::Bar)
         class Bar < Ice::UserException
             def initialize(sLmem=nil, sLSmem=nil)
                 @SLmem = sLmem
@@ -139,14 +139,14 @@ module ::Test
         end
 
         T_Bar = ::Ice::__defineException('::Test::Bar', Bar, false, nil, [
-            ["SLmem", ::Test::T_SerialLarge, false, 0],
-            ["SLSmem", ::Test::T_SLS, false, 0]
+            ["SLmem", ::Test::::T_SerialLarge, false, 0],
+            ["SLSmem", ::Test::::T_SLS, false, 0]
         ])
     end
 
-    if not defined?(::Test::Baz_Mixin)
+    if not defined?(::Test::::Baz_Mixin)
 
-        module ::Test::Baz_Mixin
+        module ::Test::::Baz_Mixin
         end
         class Baz < ::Ice::Value
 
@@ -158,13 +158,13 @@ module ::Test
             attr_accessor :SLmem, :SLSmem
         end
 
-        if not defined?(::Test::T_Baz)
+        if not defined?(::Test::::T_Baz)
             T_Baz = ::Ice::__declareClass('::Test::Baz')
         end
 
         T_Baz.defineClass(Baz, -1, false, false, nil, [
-            ['SLmem', ::Test::T_SerialLarge, false, 0],
-            ['SLSmem', ::Test::T_SLS, false, 0]
+            ['SLmem', ::Test::::T_SerialLarge, false, 0],
+            ['SLSmem', ::Test::::T_SLS, false, 0]
         ])
     end
 end

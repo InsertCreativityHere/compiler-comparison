@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::BEGIN_
 
-    if not defined?(::BEGIN_::END_)
+    if not defined?(::BEGIN_::::END_)
         class END_
             include Comparable
 
@@ -66,7 +66,7 @@ module ::BEGIN_
         T_END_ = ::Ice::__defineEnum('::BEGIN::END', END_, END_::_enumerators)
     end
 
-    if not defined?(::BEGIN_::And)
+    if not defined?(::BEGIN_::::And)
         class And
             include ::Ice::Inspect_mixin
             def initialize(_begin=0)
@@ -80,7 +80,7 @@ module ::BEGIN_
             end
 
             def ==(other)
-                return false if !other.is_a? ::BEGIN_::And or
+                return false if !other.is_a? ::BEGIN_::::And or
                     @_begin != other._begin
                 true
             end
@@ -95,9 +95,9 @@ module ::BEGIN_
         T_And = ::Ice::__defineStruct('::BEGIN::and', And, [["_begin", ::Ice::T_int]])
     end
 
-    if not defined?(::BEGIN_::Break_Mixin)
+    if not defined?(::BEGIN_::::Break_Mixin)
 
-        module ::BEGIN_::Break_Mixin
+        module ::BEGIN_::::Break_Mixin
         end
         module BreakPrx_mixin
 
@@ -123,7 +123,7 @@ module ::BEGIN_
             include BreakPrx_mixin
         end
 
-        if not defined?(::BEGIN_::T_BreakPrx)
+        if not defined?(::BEGIN_::::T_BreakPrx)
             T_Break = ::Ice::__declareClass('::BEGIN::break')
             T_BreakPrx = ::Ice::__declareProxy('::BEGIN::break')
         end
@@ -138,9 +138,9 @@ module ::BEGIN_
         BreakPrx_mixin::OP_instance_variables = ::Ice::__defineOperation('instance_variables', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::BEGIN_::Display_Mixin)
+    if not defined?(::BEGIN_::::Display_Mixin)
 
-        module ::BEGIN_::Display_Mixin
+        module ::BEGIN_::::Display_Mixin
         end
         class Display < ::Ice::Value
 
@@ -154,24 +154,24 @@ module ::BEGIN_
             attr_accessor :_when, :_do, :_dup, :_else
         end
 
-        if not defined?(::BEGIN_::T_Display)
+        if not defined?(::BEGIN_::::T_Display)
             T_Display = ::Ice::__declareClass('::BEGIN::display')
         end
 
         T_Display.defineClass(Display, -1, false, false, nil, [
             ['_when', ::Ice::T_int, false, 0],
             ['_do', ::Ice::T_int, false, 0],
-            ['_dup', ::BEGIN_::T_BreakPrx, false, 0],
+            ['_dup', ::BEGIN_::::T_BreakPrx, false, 0],
             ['_else', ::Ice::T_int, false, 0]
         ])
     end
 
-    if not defined?(::BEGIN_::Elsif_Mixin)
+    if not defined?(::BEGIN_::::Elsif_Mixin)
 
-        module ::BEGIN_::Elsif_Mixin
+        module ::BEGIN_::::Elsif_Mixin
         end
         module ElsifPrx_mixin
-            include ::BEGIN_::BreakPrx_mixin
+            include ::BEGIN_::::BreakPrx_mixin
         end
 
         class ElsifPrx < ::Ice::ObjectPrx
@@ -179,25 +179,25 @@ module ::BEGIN_
             include ElsifPrx_mixin
         end
 
-        if not defined?(::BEGIN_::T_ElsifPrx)
+        if not defined?(::BEGIN_::::T_ElsifPrx)
             T_Elsif = ::Ice::__declareClass('::BEGIN::elsif')
             T_ElsifPrx = ::Ice::__declareProxy('::BEGIN::elsif')
         end
 
         T_Elsif.defineClass(::Ice::Value, -1, false, true, nil, [])
 
-        T_ElsifPrx.defineProxy(ElsifPrx, nil, [::BEGIN_::T_BreakPrx])
+        T_ElsifPrx.defineProxy(ElsifPrx, nil, [::BEGIN_::::T_BreakPrx])
     end
 
-    if not defined?(::BEGIN_::T_Rescue)
-        T_Rescue = ::Ice::__defineSequence('::BEGIN::rescue', ::BEGIN_::T_END_)
+    if not defined?(::BEGIN_::::T_Rescue)
+        T_Rescue = ::Ice::__defineSequence('::BEGIN::rescue', ::BEGIN_::::T_END_)
     end
 
-    if not defined?(::BEGIN_::T_Ensure)
-        T_Ensure = ::Ice::__defineDictionary('::BEGIN::ensure', ::Ice::T_string, ::BEGIN_::T_END_)
+    if not defined?(::BEGIN_::::T_Ensure)
+        T_Ensure = ::Ice::__defineDictionary('::BEGIN::ensure', ::Ice::T_string, ::BEGIN_::::T_END_)
     end
 
-    if not defined?(::BEGIN_::Next)
+    if not defined?(::BEGIN_::::Next)
         class Next < Ice::UserException
             def initialize(_new=0)
                 @_new = _new
@@ -213,8 +213,8 @@ module ::BEGIN_
         T_Next = ::Ice::__defineException('::BEGIN::next', Next, false, nil, [["_new", ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::BEGIN_::Nil)
-        class Nil < ::BEGIN_::Next
+    if not defined?(::BEGIN_::::Nil)
+        class Nil < ::BEGIN_::::Next
             def initialize(_new=0, _not=0, _or=0)
                 super(_new)
                 @_not = _not
@@ -228,13 +228,13 @@ module ::BEGIN_
             attr_accessor :_not, :_or
         end
 
-        T_Nil = ::Ice::__defineException('::BEGIN::nil', Nil, false, ::BEGIN_::T_Next, [
+        T_Nil = ::Ice::__defineException('::BEGIN::nil', Nil, false, ::BEGIN_::::T_Next, [
             ["_not", ::Ice::T_int, false, 0],
             ["_or", ::Ice::T_int, false, 0]
         ])
     end
 
-    if not defined?(::BEGIN_::T_Extend)
+    if not defined?(::BEGIN_::::T_Extend)
         T_Extend = ::Ice::__declareLocalClass('::BEGIN::extend')
     end
 

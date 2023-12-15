@@ -18,9 +18,9 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Single_Mixin)
+    if not defined?(::Test::::Single_Mixin)
 
-        module ::Test::Single_Mixin
+        module ::Test::::Single_Mixin
         end
         module SinglePrx_mixin
 
@@ -34,7 +34,7 @@ module ::Test
             include SinglePrx_mixin
         end
 
-        if not defined?(::Test::T_SinglePrx)
+        if not defined?(::Test::::T_SinglePrx)
             T_Single = ::Ice::__declareClass('::Test::Single')
             T_SinglePrx = ::Ice::__declareProxy('::Test::Single')
         end

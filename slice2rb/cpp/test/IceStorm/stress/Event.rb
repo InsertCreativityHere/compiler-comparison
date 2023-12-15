@@ -18,9 +18,9 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Event_Mixin)
+    if not defined?(::Test::::Event_Mixin)
 
-        module ::Test::Event_Mixin
+        module ::Test::::Event_Mixin
         end
         module EventPrx_mixin
 
@@ -34,7 +34,7 @@ module ::Test
             include EventPrx_mixin
         end
 
-        if not defined?(::Test::T_EventPrx)
+        if not defined?(::Test::::T_EventPrx)
             T_Event = ::Ice::__declareClass('::Test::Event')
             T_EventPrx = ::Ice::__declareProxy('::Test::Event')
         end

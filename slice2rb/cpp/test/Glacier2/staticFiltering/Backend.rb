@@ -18,9 +18,9 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::Backend_Mixin)
+    if not defined?(::Test::::Backend_Mixin)
 
-        module ::Test::Backend_Mixin
+        module ::Test::::Backend_Mixin
         end
         module BackendPrx_mixin
 
@@ -34,7 +34,7 @@ module ::Test
             include BackendPrx_mixin
         end
 
-        if not defined?(::Test::T_BackendPrx)
+        if not defined?(::Test::::T_BackendPrx)
             T_Backend = ::Ice::__declareClass('::Test::Backend')
             T_BackendPrx = ::Ice::__declareProxy('::Test::Backend')
         end
