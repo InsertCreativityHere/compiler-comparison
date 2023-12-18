@@ -19,9 +19,9 @@ require 'Ice/Properties.rb'
 
 module ::Test
 
-    if not defined?(::Test::::TestIntf_Mixin)
+    if not defined?(::Test::TestIntf_Mixin)
 
-        module ::Test::::TestIntf_Mixin
+        module ::Test::TestIntf_Mixin
         end
         module TestIntfPrx_mixin
 
@@ -35,7 +35,7 @@ module ::Test
             include TestIntfPrx_mixin
         end
 
-        if not defined?(::Test::::T_TestIntfPrx)
+        if not defined?(::Test::T_TestIntfPrx)
             T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
@@ -47,9 +47,9 @@ module ::Test
         TestIntfPrx_mixin::OP_sleep = ::Ice::__defineOperation('sleep', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
     end
 
-    if not defined?(::Test::::RemoteCommunicator_Mixin)
+    if not defined?(::Test::RemoteCommunicator_Mixin)
 
-        module ::Test::::RemoteCommunicator_Mixin
+        module ::Test::RemoteCommunicator_Mixin
         end
         module RemoteCommunicatorPrx_mixin
 
@@ -83,7 +83,7 @@ module ::Test
             include RemoteCommunicatorPrx_mixin
         end
 
-        if not defined?(::Test::::T_RemoteCommunicatorPrx)
+        if not defined?(::Test::T_RemoteCommunicatorPrx)
             T_RemoteCommunicator = ::Ice::__declareClass('::Test::RemoteCommunicator')
             T_RemoteCommunicatorPrx = ::Ice::__declareProxy('::Test::RemoteCommunicator')
         end
@@ -92,7 +92,7 @@ module ::Test
 
         T_RemoteCommunicatorPrx.defineProxy(RemoteCommunicatorPrx, nil, [])
 
-        RemoteCommunicatorPrx_mixin::OP_getObject = ::Ice::__defineOperation('getObject', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::::T_TestIntfPrx, false, 0], [])
+        RemoteCommunicatorPrx_mixin::OP_getObject = ::Ice::__defineOperation('getObject', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_TestIntfPrx, false, 0], [])
         RemoteCommunicatorPrx_mixin::OP_getThreadHookStartCount = ::Ice::__defineOperation('getThreadHookStartCount', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
         RemoteCommunicatorPrx_mixin::OP_getThreadHookStopCount = ::Ice::__defineOperation('getThreadHookStopCount', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
         RemoteCommunicatorPrx_mixin::OP_getThreadStartCount = ::Ice::__defineOperation('getThreadStartCount', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
@@ -100,9 +100,9 @@ module ::Test
         RemoteCommunicatorPrx_mixin::OP_destroy = ::Ice::__defineOperation('destroy', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::::RemoteCommunicatorFactory_Mixin)
+    if not defined?(::Test::RemoteCommunicatorFactory_Mixin)
 
-        module ::Test::::RemoteCommunicatorFactory_Mixin
+        module ::Test::RemoteCommunicatorFactory_Mixin
         end
         module RemoteCommunicatorFactoryPrx_mixin
 
@@ -120,7 +120,7 @@ module ::Test
             include RemoteCommunicatorFactoryPrx_mixin
         end
 
-        if not defined?(::Test::::T_RemoteCommunicatorFactoryPrx)
+        if not defined?(::Test::T_RemoteCommunicatorFactoryPrx)
             T_RemoteCommunicatorFactory = ::Ice::__declareClass('::Test::RemoteCommunicatorFactory')
             T_RemoteCommunicatorFactoryPrx = ::Ice::__declareProxy('::Test::RemoteCommunicatorFactory')
         end
@@ -129,7 +129,7 @@ module ::Test
 
         T_RemoteCommunicatorFactoryPrx.defineProxy(RemoteCommunicatorFactoryPrx, nil, [])
 
-        RemoteCommunicatorFactoryPrx_mixin::OP_createCommunicator = ::Ice::__defineOperation('createCommunicator', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::::T_PropertyDict, false, 0]], [], [::Test::::T_RemoteCommunicatorPrx, false, 0], [])
+        RemoteCommunicatorFactoryPrx_mixin::OP_createCommunicator = ::Ice::__defineOperation('createCommunicator', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_PropertyDict, false, 0]], [], [::Test::T_RemoteCommunicatorPrx, false, 0], [])
         RemoteCommunicatorFactoryPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 end

@@ -19,13 +19,13 @@ require 'BuiltinSequences.rb'
 
 module ::Ice
 
-    if not defined?(::Ice::::T_PropertyDict)
+    if not defined?(::Ice::T_PropertyDict)
         T_PropertyDict = ::Ice::__defineDictionary('::Ice::PropertyDict', ::Ice::T_string, ::Ice::T_string)
     end
 
-    if not defined?(::Ice::::PropertiesAdmin_Mixin)
+    if not defined?(::Ice::PropertiesAdmin_Mixin)
 
-        module ::Ice::::PropertiesAdmin_Mixin
+        module ::Ice::PropertiesAdmin_Mixin
         end
         module PropertiesAdminPrx_mixin
 
@@ -47,7 +47,7 @@ module ::Ice
             include PropertiesAdminPrx_mixin
         end
 
-        if not defined?(::Ice::::T_PropertiesAdminPrx)
+        if not defined?(::Ice::T_PropertiesAdminPrx)
             T_PropertiesAdmin = ::Ice::__declareClass('::Ice::PropertiesAdmin')
             T_PropertiesAdminPrx = ::Ice::__declareProxy('::Ice::PropertiesAdmin')
         end
@@ -57,7 +57,7 @@ module ::Ice
         T_PropertiesAdminPrx.defineProxy(PropertiesAdminPrx, nil, [])
 
         PropertiesAdminPrx_mixin::OP_getProperty = ::Ice::__defineOperation('getProperty', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_string, false, 0], [])
-        PropertiesAdminPrx_mixin::OP_getPropertiesForPrefix = ::Ice::__defineOperation('getPropertiesForPrefix', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::::T_PropertyDict, false, 0], [])
-        PropertiesAdminPrx_mixin::OP_setProperties = ::Ice::__defineOperation('setProperties', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::::T_PropertyDict, false, 0]], [], nil, [])
+        PropertiesAdminPrx_mixin::OP_getPropertiesForPrefix = ::Ice::__defineOperation('getPropertiesForPrefix', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_PropertyDict, false, 0], [])
+        PropertiesAdminPrx_mixin::OP_setProperties = ::Ice::__defineOperation('setProperties', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_PropertyDict, false, 0]], [], nil, [])
     end
 end

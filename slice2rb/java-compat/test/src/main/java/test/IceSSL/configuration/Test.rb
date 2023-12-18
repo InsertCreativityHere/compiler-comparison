@@ -18,9 +18,9 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::::Server_Mixin)
+    if not defined?(::Test::Server_Mixin)
 
-        module ::Test::::Server_Mixin
+        module ::Test::Server_Mixin
         end
         module ServerPrx_mixin
 
@@ -42,7 +42,7 @@ module ::Test
             include ServerPrx_mixin
         end
 
-        if not defined?(::Test::::T_ServerPrx)
+        if not defined?(::Test::T_ServerPrx)
             T_Server = ::Ice::__declareClass('::Test::Server')
             T_ServerPrx = ::Ice::__declareProxy('::Test::Server')
         end
@@ -56,13 +56,13 @@ module ::Test
         ServerPrx_mixin::OP_checkCipher = ::Ice::__defineOperation('checkCipher', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [])
     end
 
-    if not defined?(::Test::::T_Properties)
+    if not defined?(::Test::T_Properties)
         T_Properties = ::Ice::__defineDictionary('::Test::Properties', ::Ice::T_string, ::Ice::T_string)
     end
 
-    if not defined?(::Test::::ServerFactory_Mixin)
+    if not defined?(::Test::ServerFactory_Mixin)
 
-        module ::Test::::ServerFactory_Mixin
+        module ::Test::ServerFactory_Mixin
         end
         module ServerFactoryPrx_mixin
 
@@ -84,7 +84,7 @@ module ::Test
             include ServerFactoryPrx_mixin
         end
 
-        if not defined?(::Test::::T_ServerFactoryPrx)
+        if not defined?(::Test::T_ServerFactoryPrx)
             T_ServerFactory = ::Ice::__declareClass('::Test::ServerFactory')
             T_ServerFactoryPrx = ::Ice::__declareProxy('::Test::ServerFactory')
         end
@@ -93,8 +93,8 @@ module ::Test
 
         T_ServerFactoryPrx.defineProxy(ServerFactoryPrx, nil, [])
 
-        ServerFactoryPrx_mixin::OP_createServer = ::Ice::__defineOperation('createServer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_Properties, false, 0]], [], [::Test::::T_ServerPrx, false, 0], [])
-        ServerFactoryPrx_mixin::OP_destroyServer = ::Ice::__defineOperation('destroyServer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_ServerPrx, false, 0]], [], nil, [])
+        ServerFactoryPrx_mixin::OP_createServer = ::Ice::__defineOperation('createServer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_Properties, false, 0]], [], [::Test::T_ServerPrx, false, 0], [])
+        ServerFactoryPrx_mixin::OP_destroyServer = ::Ice::__defineOperation('destroyServer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ServerPrx, false, 0]], [], nil, [])
         ServerFactoryPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 end

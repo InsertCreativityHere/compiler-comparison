@@ -18,9 +18,9 @@ require 'Ice'
 
 module ::Ice
 
-    if not defined?(::Ice::::Process_Mixin)
+    if not defined?(::Ice::Process_Mixin)
 
-        module ::Ice::::Process_Mixin
+        module ::Ice::Process_Mixin
         end
         module ProcessPrx_mixin
 
@@ -38,7 +38,7 @@ module ::Ice
             include ProcessPrx_mixin
         end
 
-        if not defined?(::Ice::::T_ProcessPrx)
+        if not defined?(::Ice::T_ProcessPrx)
             T_Process = ::Ice::__declareClass('::Ice::Process')
             T_ProcessPrx = ::Ice::__declareProxy('::Ice::Process')
         end

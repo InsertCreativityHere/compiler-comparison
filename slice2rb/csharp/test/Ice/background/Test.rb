@@ -19,9 +19,9 @@ require 'Ice/BuiltinSequences.rb'
 
 module ::Test
 
-    if not defined?(::Test::::Background_Mixin)
+    if not defined?(::Test::Background_Mixin)
 
-        module ::Test::::Background_Mixin
+        module ::Test::Background_Mixin
         end
         module BackgroundPrx_mixin
 
@@ -43,7 +43,7 @@ module ::Test
             include BackgroundPrx_mixin
         end
 
-        if not defined?(::Test::::T_BackgroundPrx)
+        if not defined?(::Test::T_BackgroundPrx)
             T_Background = ::Ice::__declareClass('::Test::Background')
             T_BackgroundPrx = ::Ice::__declareProxy('::Test::Background')
         end
@@ -53,13 +53,13 @@ module ::Test
         T_BackgroundPrx.defineProxy(BackgroundPrx, nil, [])
 
         BackgroundPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        BackgroundPrx_mixin::OP_opWithPayload = ::Ice::__defineOperation('opWithPayload', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::::T_ByteSeq, false, 0]], [], nil, [])
+        BackgroundPrx_mixin::OP_opWithPayload = ::Ice::__defineOperation('opWithPayload', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_ByteSeq, false, 0]], [], nil, [])
         BackgroundPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::::BackgroundController_Mixin)
+    if not defined?(::Test::BackgroundController_Mixin)
 
-        module ::Test::::BackgroundController_Mixin
+        module ::Test::BackgroundController_Mixin
         end
         module BackgroundControllerPrx_mixin
 
@@ -109,7 +109,7 @@ module ::Test
             include BackgroundControllerPrx_mixin
         end
 
-        if not defined?(::Test::::T_BackgroundControllerPrx)
+        if not defined?(::Test::T_BackgroundControllerPrx)
             T_BackgroundController = ::Ice::__declareClass('::Test::BackgroundController')
             T_BackgroundControllerPrx = ::Ice::__declareProxy('::Test::BackgroundController')
         end

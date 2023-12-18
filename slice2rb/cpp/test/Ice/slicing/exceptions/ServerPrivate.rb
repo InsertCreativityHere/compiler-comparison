@@ -19,8 +19,8 @@ require 'Test.rb'
 
 module ::Test
 
-    if not defined?(::Test::::UnknownDerived)
-        class UnknownDerived < ::Test::::Base
+    if not defined?(::Test::UnknownDerived)
+        class UnknownDerived < ::Test::Base
             def initialize(b='', ud='')
                 super(b)
                 @ud = ud
@@ -33,11 +33,11 @@ module ::Test
             attr_accessor :ud
         end
 
-        T_UnknownDerived = ::Ice::__defineException('::Test::UnknownDerived', UnknownDerived, false, ::Test::::T_Base, [["ud", ::Ice::T_string, false, 0]])
+        T_UnknownDerived = ::Ice::__defineException('::Test::UnknownDerived', UnknownDerived, false, ::Test::T_Base, [["ud", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::::UnknownIntermediate)
-        class UnknownIntermediate < ::Test::::Base
+    if not defined?(::Test::UnknownIntermediate)
+        class UnknownIntermediate < ::Test::Base
             def initialize(b='', ui='')
                 super(b)
                 @ui = ui
@@ -50,11 +50,11 @@ module ::Test
             attr_accessor :ui
         end
 
-        T_UnknownIntermediate = ::Ice::__defineException('::Test::UnknownIntermediate', UnknownIntermediate, false, ::Test::::T_Base, [["ui", ::Ice::T_string, false, 0]])
+        T_UnknownIntermediate = ::Ice::__defineException('::Test::UnknownIntermediate', UnknownIntermediate, false, ::Test::T_Base, [["ui", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::::UnknownMostDerived1)
-        class UnknownMostDerived1 < ::Test::::KnownIntermediate
+    if not defined?(::Test::UnknownMostDerived1)
+        class UnknownMostDerived1 < ::Test::KnownIntermediate
             def initialize(b='', ki='', umd1='')
                 super(b, ki)
                 @umd1 = umd1
@@ -67,11 +67,11 @@ module ::Test
             attr_accessor :umd1
         end
 
-        T_UnknownMostDerived1 = ::Ice::__defineException('::Test::UnknownMostDerived1', UnknownMostDerived1, false, ::Test::::T_KnownIntermediate, [["umd1", ::Ice::T_string, false, 0]])
+        T_UnknownMostDerived1 = ::Ice::__defineException('::Test::UnknownMostDerived1', UnknownMostDerived1, false, ::Test::T_KnownIntermediate, [["umd1", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::::UnknownMostDerived2)
-        class UnknownMostDerived2 < ::Test::::UnknownIntermediate
+    if not defined?(::Test::UnknownMostDerived2)
+        class UnknownMostDerived2 < ::Test::UnknownIntermediate
             def initialize(b='', ui='', umd2='')
                 super(b, ui)
                 @umd2 = umd2
@@ -84,14 +84,14 @@ module ::Test
             attr_accessor :umd2
         end
 
-        T_UnknownMostDerived2 = ::Ice::__defineException('::Test::UnknownMostDerived2', UnknownMostDerived2, false, ::Test::::T_UnknownIntermediate, [["umd2", ::Ice::T_string, false, 0]])
+        T_UnknownMostDerived2 = ::Ice::__defineException('::Test::UnknownMostDerived2', UnknownMostDerived2, false, ::Test::T_UnknownIntermediate, [["umd2", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::::SPreservedClass_Mixin)
+    if not defined?(::Test::SPreservedClass_Mixin)
 
-        module ::Test::::SPreservedClass_Mixin
+        module ::Test::SPreservedClass_Mixin
         end
-        class SPreservedClass < ::Test::::BaseClass
+        class SPreservedClass < ::Test::BaseClass
 
             def initialize(bc='', spc='')
                 super(bc)
@@ -101,15 +101,15 @@ module ::Test
             attr_accessor :spc
         end
 
-        if not defined?(::Test::::T_SPreservedClass)
+        if not defined?(::Test::T_SPreservedClass)
             T_SPreservedClass = ::Ice::__declareClass('::Test::SPreservedClass')
         end
 
-        T_SPreservedClass.defineClass(SPreservedClass, -1, true, false, ::Test::::T_BaseClass, [['spc', ::Ice::T_string, false, 0]])
+        T_SPreservedClass.defineClass(SPreservedClass, -1, true, false, ::Test::T_BaseClass, [['spc', ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::::SPreserved1)
-        class SPreserved1 < ::Test::::KnownPreservedDerived
+    if not defined?(::Test::SPreserved1)
+        class SPreserved1 < ::Test::KnownPreservedDerived
             def initialize(b='', kp='', kpd='', p1=nil)
                 super(b, kp, kpd)
                 @p1 = p1
@@ -122,11 +122,11 @@ module ::Test
             attr_accessor :p1
         end
 
-        T_SPreserved1 = ::Ice::__defineException('::Test::SPreserved1', SPreserved1, true, ::Test::::T_KnownPreservedDerived, [["p1", ::Test::::T_BaseClass, false, 0]])
+        T_SPreserved1 = ::Ice::__defineException('::Test::SPreserved1', SPreserved1, true, ::Test::T_KnownPreservedDerived, [["p1", ::Test::T_BaseClass, false, 0]])
     end
 
-    if not defined?(::Test::::SPreserved2)
-        class SPreserved2 < ::Test::::SPreserved1
+    if not defined?(::Test::SPreserved2)
+        class SPreserved2 < ::Test::SPreserved1
             def initialize(b='', kp='', kpd='', p1=nil, p2=nil)
                 super(b, kp, kpd, p1)
                 @p2 = p2
@@ -139,6 +139,6 @@ module ::Test
             attr_accessor :p2
         end
 
-        T_SPreserved2 = ::Ice::__defineException('::Test::SPreserved2', SPreserved2, true, ::Test::::T_SPreserved1, [["p2", ::Test::::T_BaseClass, false, 0]])
+        T_SPreserved2 = ::Ice::__defineException('::Test::SPreserved2', SPreserved2, true, ::Test::T_SPreserved1, [["p2", ::Test::T_BaseClass, false, 0]])
     end
 end

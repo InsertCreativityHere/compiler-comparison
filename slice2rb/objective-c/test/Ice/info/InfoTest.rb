@@ -19,9 +19,9 @@ require 'Ice/Current.rb'
 
 module ::Test
 
-    if not defined?(::Test::::TestIntf_Mixin)
+    if not defined?(::Test::TestIntf_Mixin)
 
-        module ::Test::::TestIntf_Mixin
+        module ::Test::TestIntf_Mixin
         end
         module TestIntfPrx_mixin
 
@@ -43,7 +43,7 @@ module ::Test
             include TestIntfPrx_mixin
         end
 
-        if not defined?(::Test::::T_TestIntfPrx)
+        if not defined?(::Test::T_TestIntfPrx)
             T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
@@ -53,7 +53,7 @@ module ::Test
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_getEndpointInfoAsContext = ::Ice::__defineOperation('getEndpointInfoAsContext', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::::T_Context, false, 0], [])
-        TestIntfPrx_mixin::OP_getConnectionInfoAsContext = ::Ice::__defineOperation('getConnectionInfoAsContext', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::::T_Context, false, 0], [])
+        TestIntfPrx_mixin::OP_getEndpointInfoAsContext = ::Ice::__defineOperation('getEndpointInfoAsContext', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_Context, false, 0], [])
+        TestIntfPrx_mixin::OP_getConnectionInfoAsContext = ::Ice::__defineOperation('getConnectionInfoAsContext', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_Context, false, 0], [])
     end
 end

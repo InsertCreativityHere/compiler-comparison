@@ -18,9 +18,9 @@ require 'Ice'
 
 module ::WithNamespace
 
-    if not defined?(::WithNamespace::::C1_Mixin)
+    if not defined?(::WithNamespace::C1_Mixin)
 
-        module ::WithNamespace::::C1_Mixin
+        module ::WithNamespace::C1_Mixin
         end
         class C1 < ::Ice::Value
 
@@ -31,18 +31,18 @@ module ::WithNamespace
             attr_accessor :i
         end
 
-        if not defined?(::WithNamespace::::T_C1)
+        if not defined?(::WithNamespace::T_C1)
             T_C1 = ::Ice::__declareClass('::WithNamespace::C1')
         end
 
         T_C1.defineClass(C1, -1, false, false, nil, [['i', ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::WithNamespace::::C2_Mixin)
+    if not defined?(::WithNamespace::C2_Mixin)
 
-        module ::WithNamespace::::C2_Mixin
+        module ::WithNamespace::C2_Mixin
         end
-        class C2 < ::WithNamespace::::C1
+        class C2 < ::WithNamespace::C1
 
             def initialize(i=0, l=0)
                 super(i)
@@ -52,14 +52,14 @@ module ::WithNamespace
             attr_accessor :l
         end
 
-        if not defined?(::WithNamespace::::T_C2)
+        if not defined?(::WithNamespace::T_C2)
             T_C2 = ::Ice::__declareClass('::WithNamespace::C2')
         end
 
-        T_C2.defineClass(C2, -1, false, false, ::WithNamespace::::T_C1, [['l', ::Ice::T_long, false, 0]])
+        T_C2.defineClass(C2, -1, false, false, ::WithNamespace::T_C1, [['l', ::Ice::T_long, false, 0]])
     end
 
-    if not defined?(::WithNamespace::::E1)
+    if not defined?(::WithNamespace::E1)
         class E1 < Ice::UserException
             def initialize(i=0)
                 @i = i
@@ -75,8 +75,8 @@ module ::WithNamespace
         T_E1 = ::Ice::__defineException('::WithNamespace::E1', E1, false, nil, [["i", ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::WithNamespace::::E2)
-        class E2 < ::WithNamespace::::E1
+    if not defined?(::WithNamespace::E2)
+        class E2 < ::WithNamespace::E1
             def initialize(i=0, l=0)
                 super(i)
                 @l = l
@@ -89,6 +89,6 @@ module ::WithNamespace
             attr_accessor :l
         end
 
-        T_E2 = ::Ice::__defineException('::WithNamespace::E2', E2, false, ::WithNamespace::::T_E1, [["l", ::Ice::T_long, false, 0]])
+        T_E2 = ::Ice::__defineException('::WithNamespace::E2', E2, false, ::WithNamespace::T_E1, [["l", ::Ice::T_long, false, 0]])
     end
 end

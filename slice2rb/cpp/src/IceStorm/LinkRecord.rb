@@ -20,7 +20,7 @@ require 'IceStormInternal.rb'
 
 module ::IceStorm
 
-    if not defined?(::IceStorm::::LinkRecord)
+    if not defined?(::IceStorm::LinkRecord)
         class LinkRecord
             include ::Ice::Inspect_mixin
             def initialize(obj=nil, cost=0, theTopic=nil)
@@ -38,7 +38,7 @@ module ::IceStorm
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceStorm::::LinkRecord or
+                return false if !other.is_a? ::IceStorm::LinkRecord or
                     @obj != other.obj or
                     @cost != other.cost or
                     @theTopic != other.theTopic
@@ -53,9 +53,9 @@ module ::IceStorm
         end
 
         T_LinkRecord = ::Ice::__defineStruct('::IceStorm::LinkRecord', LinkRecord, [
-            ["obj", ::IceStorm::::T_TopicLinkPrx],
+            ["obj", ::IceStorm::T_TopicLinkPrx],
             ["cost", ::Ice::T_int],
-            ["theTopic", ::IceStorm::::T_TopicPrx]
+            ["theTopic", ::IceStorm::T_TopicPrx]
         ])
     end
 end

@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::IceSSL
 
-    if not defined?(::IceSSL::::T_ConnectionInfo)
+    if not defined?(::IceSSL::T_ConnectionInfo)
         T_ConnectionInfo = ::Ice::__declareLocalClass('::IceSSL::ConnectionInfo')
     end
 end

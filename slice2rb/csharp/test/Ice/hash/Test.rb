@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::::BaseException)
+    if not defined?(::Test::BaseException)
         class BaseException < Ice::UserException
             def initialize
             end
@@ -31,8 +31,8 @@ module ::Test
         T_BaseException = ::Ice::__defineException('::Test::BaseException', BaseException, false, nil, [])
     end
 
-    if not defined?(::Test::::InvalidPointException)
-        class InvalidPointException < ::Test::::BaseException
+    if not defined?(::Test::InvalidPointException)
+        class InvalidPointException < ::Test::BaseException
             def initialize(index=0)
                 @index = index
             end
@@ -44,11 +44,11 @@ module ::Test
             attr_accessor :index
         end
 
-        T_InvalidPointException = ::Ice::__defineException('::Test::InvalidPointException', InvalidPointException, false, ::Test::::T_BaseException, [["index", ::Ice::T_int, false, 0]])
+        T_InvalidPointException = ::Ice::__defineException('::Test::InvalidPointException', InvalidPointException, false, ::Test::T_BaseException, [["index", ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::Test::::InvalidLengthException)
-        class InvalidLengthException < ::Test::::BaseException
+    if not defined?(::Test::InvalidLengthException)
+        class InvalidLengthException < ::Test::BaseException
             def initialize(length=0)
                 @length = length
             end
@@ -60,10 +60,10 @@ module ::Test
             attr_accessor :length
         end
 
-        T_InvalidLengthException = ::Ice::__defineException('::Test::InvalidLengthException', InvalidLengthException, false, ::Test::::T_BaseException, [["length", ::Ice::T_int, false, 0]])
+        T_InvalidLengthException = ::Ice::__defineException('::Test::InvalidLengthException', InvalidLengthException, false, ::Test::T_BaseException, [["length", ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::Test::::OtherException)
+    if not defined?(::Test::OtherException)
         class OtherException < Ice::UserException
             def initialize(x=0, y=0, z=0, b=false)
                 @x = x
@@ -87,7 +87,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::::PointF)
+    if not defined?(::Test::PointF)
         class PointF
             include ::Ice::Inspect_mixin
             def initialize(x=0.0, y=0.0, z=0.0)
@@ -105,7 +105,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::::PointF or
+                return false if !other.is_a? ::Test::PointF or
                     @x != other.x or
                     @y != other.y or
                     @z != other.z
@@ -126,7 +126,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::::PointD)
+    if not defined?(::Test::PointD)
         class PointD
             include ::Ice::Inspect_mixin
             def initialize(x=0.0, y=0.0, z=0.0)
@@ -144,7 +144,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::::PointD or
+                return false if !other.is_a? ::Test::PointD or
                     @x != other.x or
                     @y != other.y or
                     @z != other.z
@@ -165,7 +165,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::::Point)
+    if not defined?(::Test::Point)
         class Point
             include ::Ice::Inspect_mixin
             def initialize(x=0, y=0)
@@ -181,7 +181,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::::Point or
+                return false if !other.is_a? ::Test::Point or
                     @x != other.x or
                     @y != other.y
                 true
@@ -200,11 +200,11 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::::T_Points)
-        T_Points = ::Ice::__defineSequence('::Test::Points', ::Test::::T_Point)
+    if not defined?(::Test::T_Points)
+        T_Points = ::Ice::__defineSequence('::Test::Points', ::Test::T_Point)
     end
 
-    if not defined?(::Test::::Polyline)
+    if not defined?(::Test::Polyline)
         class Polyline
             include ::Ice::Inspect_mixin
             def initialize(vertices=nil)
@@ -218,7 +218,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::::Polyline or
+                return false if !other.is_a? ::Test::Polyline or
                     @vertices != other.vertices
                 true
             end
@@ -230,10 +230,10 @@ module ::Test
             attr_accessor :vertices
         end
 
-        T_Polyline = ::Ice::__defineStruct('::Test::Polyline', Polyline, [["vertices", ::Test::::T_Points]])
+        T_Polyline = ::Ice::__defineStruct('::Test::Polyline', Polyline, [["vertices", ::Test::T_Points]])
     end
 
-    if not defined?(::Test::::Color)
+    if not defined?(::Test::Color)
         class Color
             include ::Ice::Inspect_mixin
             def initialize(r=0, g=0, b=0, a=0)
@@ -253,7 +253,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::::Color or
+                return false if !other.is_a? ::Test::Color or
                     @r != other.r or
                     @g != other.g or
                     @b != other.b or
@@ -276,11 +276,11 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::::T_StringColorMap)
-        T_StringColorMap = ::Ice::__defineDictionary('::Test::StringColorMap', ::Ice::T_int, ::Test::::T_Color)
+    if not defined?(::Test::T_StringColorMap)
+        T_StringColorMap = ::Ice::__defineDictionary('::Test::StringColorMap', ::Ice::T_int, ::Test::T_Color)
     end
 
-    if not defined?(::Test::::ColorPalette)
+    if not defined?(::Test::ColorPalette)
         class ColorPalette
             include ::Ice::Inspect_mixin
             def initialize(colors=nil)
@@ -294,7 +294,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::::ColorPalette or
+                return false if !other.is_a? ::Test::ColorPalette or
                     @colors != other.colors
                 true
             end
@@ -306,16 +306,16 @@ module ::Test
             attr_accessor :colors
         end
 
-        T_ColorPalette = ::Ice::__defineStruct('::Test::ColorPalette', ColorPalette, [["colors", ::Test::::T_StringColorMap]])
+        T_ColorPalette = ::Ice::__defineStruct('::Test::ColorPalette', ColorPalette, [["colors", ::Test::T_StringColorMap]])
     end
 
-    if not defined?(::Test::::Pen_Mixin)
+    if not defined?(::Test::Pen_Mixin)
 
-        module ::Test::::Pen_Mixin
+        module ::Test::Pen_Mixin
         end
         class Pen < ::Ice::Value
 
-            def initialize(thickness=0, color=::Test::::Color.new)
+            def initialize(thickness=0, color=::Test::Color.new)
                 @thickness = thickness
                 @color = color
             end
@@ -323,20 +323,20 @@ module ::Test
             attr_accessor :thickness, :color
         end
 
-        if not defined?(::Test::::T_Pen)
+        if not defined?(::Test::T_Pen)
             T_Pen = ::Ice::__declareClass('::Test::Pen')
         end
 
         T_Pen.defineClass(Pen, -1, false, false, nil, [
             ['thickness', ::Ice::T_int, false, 0],
-            ['color', ::Test::::T_Color, false, 0]
+            ['color', ::Test::T_Color, false, 0]
         ])
     end
 
-    if not defined?(::Test::::Draw)
+    if not defined?(::Test::Draw)
         class Draw
             include ::Ice::Inspect_mixin
-            def initialize(backgroundColor=::Test::::Color.new, pen=nil, shared=false)
+            def initialize(backgroundColor=::Test::Color.new, pen=nil, shared=false)
                 @backgroundColor = backgroundColor
                 @pen = pen
                 @shared = shared
@@ -351,7 +351,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::::Draw or
+                return false if !other.is_a? ::Test::Draw or
                     @backgroundColor != other.backgroundColor or
                     @pen != other.pen or
                     @shared != other.shared
@@ -366,8 +366,8 @@ module ::Test
         end
 
         T_Draw = ::Ice::__defineStruct('::Test::Draw', Draw, [
-            ["backgroundColor", ::Test::::T_Color],
-            ["pen", ::Test::::T_Pen],
+            ["backgroundColor", ::Test::T_Color],
+            ["pen", ::Test::T_Pen],
             ["shared", ::Ice::T_bool]
         ])
     end

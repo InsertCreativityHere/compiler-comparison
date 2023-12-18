@@ -20,12 +20,12 @@ require 'Metrics.rb'
 
 module ::IceStorm
 
-    if not defined?(::IceStorm::::T_Topic)
+    if not defined?(::IceStorm::T_Topic)
         T_Topic = ::Ice::__declareClass('::IceStorm::Topic')
         T_TopicPrx = ::Ice::__declareProxy('::IceStorm::Topic')
     end
 
-    if not defined?(::IceStorm::::LinkInfo)
+    if not defined?(::IceStorm::LinkInfo)
         class LinkInfo
             include ::Ice::Inspect_mixin
             def initialize(theTopic=nil, name='', cost=0)
@@ -43,7 +43,7 @@ module ::IceStorm
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceStorm::::LinkInfo or
+                return false if !other.is_a? ::IceStorm::LinkInfo or
                     @theTopic != other.theTopic or
                     @name != other.name or
                     @cost != other.cost
@@ -58,21 +58,21 @@ module ::IceStorm
         end
 
         T_LinkInfo = ::Ice::__defineStruct('::IceStorm::LinkInfo', LinkInfo, [
-            ["theTopic", ::IceStorm::::T_TopicPrx],
+            ["theTopic", ::IceStorm::T_TopicPrx],
             ["name", ::Ice::T_string],
             ["cost", ::Ice::T_int]
         ])
     end
 
-    if not defined?(::IceStorm::::T_LinkInfoSeq)
-        T_LinkInfoSeq = ::Ice::__defineSequence('::IceStorm::LinkInfoSeq', ::IceStorm::::T_LinkInfo)
+    if not defined?(::IceStorm::T_LinkInfoSeq)
+        T_LinkInfoSeq = ::Ice::__defineSequence('::IceStorm::LinkInfoSeq', ::IceStorm::T_LinkInfo)
     end
 
-    if not defined?(::IceStorm::::T_QoS)
+    if not defined?(::IceStorm::T_QoS)
         T_QoS = ::Ice::__defineDictionary('::IceStorm::QoS', ::Ice::T_string, ::Ice::T_string)
     end
 
-    if not defined?(::IceStorm::::LinkExists)
+    if not defined?(::IceStorm::LinkExists)
         class LinkExists < Ice::UserException
             def initialize(name='')
                 @name = name
@@ -88,7 +88,7 @@ module ::IceStorm
         T_LinkExists = ::Ice::__defineException('::IceStorm::LinkExists', LinkExists, false, nil, [["name", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceStorm::::NoSuchLink)
+    if not defined?(::IceStorm::NoSuchLink)
         class NoSuchLink < Ice::UserException
             def initialize(name='')
                 @name = name
@@ -104,7 +104,7 @@ module ::IceStorm
         T_NoSuchLink = ::Ice::__defineException('::IceStorm::NoSuchLink', NoSuchLink, false, nil, [["name", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceStorm::::AlreadySubscribed)
+    if not defined?(::IceStorm::AlreadySubscribed)
         class AlreadySubscribed < Ice::UserException
             def initialize
             end
@@ -117,7 +117,7 @@ module ::IceStorm
         T_AlreadySubscribed = ::Ice::__defineException('::IceStorm::AlreadySubscribed', AlreadySubscribed, false, nil, [])
     end
 
-    if not defined?(::IceStorm::::InvalidSubscriber)
+    if not defined?(::IceStorm::InvalidSubscriber)
         class InvalidSubscriber < Ice::UserException
             def initialize(reason='')
                 @reason = reason
@@ -133,7 +133,7 @@ module ::IceStorm
         T_InvalidSubscriber = ::Ice::__defineException('::IceStorm::InvalidSubscriber', InvalidSubscriber, false, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceStorm::::BadQoS)
+    if not defined?(::IceStorm::BadQoS)
         class BadQoS < Ice::UserException
             def initialize(reason='')
                 @reason = reason
@@ -149,9 +149,9 @@ module ::IceStorm
         T_BadQoS = ::Ice::__defineException('::IceStorm::BadQoS', BadQoS, false, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceStorm::::Topic_Mixin)
+    if not defined?(::IceStorm::Topic_Mixin)
 
-        module ::IceStorm::::Topic_Mixin
+        module ::IceStorm::Topic_Mixin
         end
         module TopicPrx_mixin
 
@@ -201,7 +201,7 @@ module ::IceStorm
             include TopicPrx_mixin
         end
 
-        if not defined?(::IceStorm::::T_TopicPrx)
+        if not defined?(::IceStorm::T_TopicPrx)
             T_Topic = ::Ice::__declareClass('::IceStorm::Topic')
             T_TopicPrx = ::Ice::__declareProxy('::IceStorm::Topic')
         end
@@ -213,20 +213,20 @@ module ::IceStorm
         TopicPrx_mixin::OP_getName = ::Ice::__defineOperation('getName', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_string, false, 0], [])
         TopicPrx_mixin::OP_getPublisher = ::Ice::__defineOperation('getPublisher', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
         TopicPrx_mixin::OP_getNonReplicatedPublisher = ::Ice::__defineOperation('getNonReplicatedPublisher', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
-        TopicPrx_mixin::OP_subscribeAndGetPublisher = ::Ice::__defineOperation('subscribeAndGetPublisher', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceStorm::::T_QoS, false, 0], [::Ice::T_ObjectPrx, false, 0]], [], [::Ice::T_ObjectPrx, false, 0], [::IceStorm::::T_AlreadySubscribed, ::IceStorm::::T_InvalidSubscriber, ::IceStorm::::T_BadQoS])
+        TopicPrx_mixin::OP_subscribeAndGetPublisher = ::Ice::__defineOperation('subscribeAndGetPublisher', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceStorm::T_QoS, false, 0], [::Ice::T_ObjectPrx, false, 0]], [], [::Ice::T_ObjectPrx, false, 0], [::IceStorm::T_AlreadySubscribed, ::IceStorm::T_InvalidSubscriber, ::IceStorm::T_BadQoS])
         TopicPrx_mixin::OP_unsubscribe = ::Ice::__defineOperation('unsubscribe', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_ObjectPrx, false, 0]], [], nil, [])
-        TopicPrx_mixin::OP_link = ::Ice::__defineOperation('link', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceStorm::::T_TopicPrx, false, 0], [::Ice::T_int, false, 0]], [], nil, [::IceStorm::::T_LinkExists])
-        TopicPrx_mixin::OP_unlink = ::Ice::__defineOperation('unlink', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceStorm::::T_TopicPrx, false, 0]], [], nil, [::IceStorm::::T_NoSuchLink])
-        TopicPrx_mixin::OP_getLinkInfoSeq = ::Ice::__defineOperation('getLinkInfoSeq', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::IceStorm::::T_LinkInfoSeq, false, 0], [])
-        TopicPrx_mixin::OP_getSubscribers = ::Ice::__defineOperation('getSubscribers', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::::T_IdentitySeq, false, 0], [])
+        TopicPrx_mixin::OP_link = ::Ice::__defineOperation('link', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceStorm::T_TopicPrx, false, 0], [::Ice::T_int, false, 0]], [], nil, [::IceStorm::T_LinkExists])
+        TopicPrx_mixin::OP_unlink = ::Ice::__defineOperation('unlink', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceStorm::T_TopicPrx, false, 0]], [], nil, [::IceStorm::T_NoSuchLink])
+        TopicPrx_mixin::OP_getLinkInfoSeq = ::Ice::__defineOperation('getLinkInfoSeq', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::IceStorm::T_LinkInfoSeq, false, 0], [])
+        TopicPrx_mixin::OP_getSubscribers = ::Ice::__defineOperation('getSubscribers', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_IdentitySeq, false, 0], [])
         TopicPrx_mixin::OP_destroy = ::Ice::__defineOperation('destroy', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::IceStorm::::T_TopicDict)
-        T_TopicDict = ::Ice::__defineDictionary('::IceStorm::TopicDict', ::Ice::T_string, ::IceStorm::::T_TopicPrx)
+    if not defined?(::IceStorm::T_TopicDict)
+        T_TopicDict = ::Ice::__defineDictionary('::IceStorm::TopicDict', ::Ice::T_string, ::IceStorm::T_TopicPrx)
     end
 
-    if not defined?(::IceStorm::::TopicExists)
+    if not defined?(::IceStorm::TopicExists)
         class TopicExists < Ice::UserException
             def initialize(name='')
                 @name = name
@@ -242,7 +242,7 @@ module ::IceStorm
         T_TopicExists = ::Ice::__defineException('::IceStorm::TopicExists', TopicExists, false, nil, [["name", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceStorm::::NoSuchTopic)
+    if not defined?(::IceStorm::NoSuchTopic)
         class NoSuchTopic < Ice::UserException
             def initialize(name='')
                 @name = name
@@ -258,9 +258,9 @@ module ::IceStorm
         T_NoSuchTopic = ::Ice::__defineException('::IceStorm::NoSuchTopic', NoSuchTopic, false, nil, [["name", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceStorm::::TopicManager_Mixin)
+    if not defined?(::IceStorm::TopicManager_Mixin)
 
-        module ::IceStorm::::TopicManager_Mixin
+        module ::IceStorm::TopicManager_Mixin
         end
         module TopicManagerPrx_mixin
 
@@ -282,7 +282,7 @@ module ::IceStorm
             include TopicManagerPrx_mixin
         end
 
-        if not defined?(::IceStorm::::T_TopicManagerPrx)
+        if not defined?(::IceStorm::T_TopicManagerPrx)
             T_TopicManager = ::Ice::__declareClass('::IceStorm::TopicManager')
             T_TopicManagerPrx = ::Ice::__declareProxy('::IceStorm::TopicManager')
         end
@@ -291,14 +291,14 @@ module ::IceStorm
 
         T_TopicManagerPrx.defineProxy(TopicManagerPrx, nil, [])
 
-        TopicManagerPrx_mixin::OP_create = ::Ice::__defineOperation('create', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], [::IceStorm::::T_TopicPrx, false, 0], [::IceStorm::::T_TopicExists])
-        TopicManagerPrx_mixin::OP_retrieve = ::Ice::__defineOperation('retrieve', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::IceStorm::::T_TopicPrx, false, 0], [::IceStorm::::T_NoSuchTopic])
-        TopicManagerPrx_mixin::OP_retrieveAll = ::Ice::__defineOperation('retrieveAll', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::IceStorm::::T_TopicDict, false, 0], [])
+        TopicManagerPrx_mixin::OP_create = ::Ice::__defineOperation('create', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], [::IceStorm::T_TopicPrx, false, 0], [::IceStorm::T_TopicExists])
+        TopicManagerPrx_mixin::OP_retrieve = ::Ice::__defineOperation('retrieve', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::IceStorm::T_TopicPrx, false, 0], [::IceStorm::T_NoSuchTopic])
+        TopicManagerPrx_mixin::OP_retrieveAll = ::Ice::__defineOperation('retrieveAll', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::IceStorm::T_TopicDict, false, 0], [])
     end
 
-    if not defined?(::IceStorm::::Finder_Mixin)
+    if not defined?(::IceStorm::Finder_Mixin)
 
-        module ::IceStorm::::Finder_Mixin
+        module ::IceStorm::Finder_Mixin
         end
         module FinderPrx_mixin
 
@@ -312,7 +312,7 @@ module ::IceStorm
             include FinderPrx_mixin
         end
 
-        if not defined?(::IceStorm::::T_FinderPrx)
+        if not defined?(::IceStorm::T_FinderPrx)
             T_Finder = ::Ice::__declareClass('::IceStorm::Finder')
             T_FinderPrx = ::Ice::__declareProxy('::IceStorm::Finder')
         end
@@ -321,6 +321,6 @@ module ::IceStorm
 
         T_FinderPrx.defineProxy(FinderPrx, nil, [])
 
-        FinderPrx_mixin::OP_getTopicManager = ::Ice::__defineOperation('getTopicManager', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::IceStorm::::T_TopicManagerPrx, false, 0], [])
+        FinderPrx_mixin::OP_getTopicManager = ::Ice::__defineOperation('getTopicManager', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::IceStorm::T_TopicManagerPrx, false, 0], [])
     end
 end

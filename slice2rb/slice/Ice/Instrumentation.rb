@@ -23,11 +23,11 @@ module ::Ice
 
     module Instrumentation
 
-        if not defined?(::Ice::Instrumentation::::T_Observer)
+        if not defined?(::Ice::Instrumentation::T_Observer)
             T_Observer = ::Ice::__declareLocalClass('::Ice::Instrumentation::Observer')
         end
 
-        if not defined?(::Ice::Instrumentation::::ThreadState)
+        if not defined?(::Ice::Instrumentation::ThreadState)
             class ThreadState
                 include Comparable
 
@@ -78,11 +78,11 @@ module ::Ice
             T_ThreadState = ::Ice::__defineEnum('::Ice::Instrumentation::ThreadState', ThreadState, ThreadState::_enumerators)
         end
 
-        if not defined?(::Ice::Instrumentation::::T_ThreadObserver)
+        if not defined?(::Ice::Instrumentation::T_ThreadObserver)
             T_ThreadObserver = ::Ice::__declareLocalClass('::Ice::Instrumentation::ThreadObserver')
         end
 
-        if not defined?(::Ice::Instrumentation::::ConnectionState)
+        if not defined?(::Ice::Instrumentation::ConnectionState)
             class ConnectionState
                 include Comparable
 
@@ -134,35 +134,35 @@ module ::Ice
             T_ConnectionState = ::Ice::__defineEnum('::Ice::Instrumentation::ConnectionState', ConnectionState, ConnectionState::_enumerators)
         end
 
-        if not defined?(::Ice::Instrumentation::::T_ConnectionObserver)
+        if not defined?(::Ice::Instrumentation::T_ConnectionObserver)
             T_ConnectionObserver = ::Ice::__declareLocalClass('::Ice::Instrumentation::ConnectionObserver')
         end
 
-        if not defined?(::Ice::Instrumentation::::T_DispatchObserver)
+        if not defined?(::Ice::Instrumentation::T_DispatchObserver)
             T_DispatchObserver = ::Ice::__declareLocalClass('::Ice::Instrumentation::DispatchObserver')
         end
 
-        if not defined?(::Ice::Instrumentation::::T_ChildInvocationObserver)
+        if not defined?(::Ice::Instrumentation::T_ChildInvocationObserver)
             T_ChildInvocationObserver = ::Ice::__declareLocalClass('::Ice::Instrumentation::ChildInvocationObserver')
         end
 
-        if not defined?(::Ice::Instrumentation::::T_RemoteObserver)
+        if not defined?(::Ice::Instrumentation::T_RemoteObserver)
             T_RemoteObserver = ::Ice::__declareLocalClass('::Ice::Instrumentation::RemoteObserver')
         end
 
-        if not defined?(::Ice::Instrumentation::::T_CollocatedObserver)
+        if not defined?(::Ice::Instrumentation::T_CollocatedObserver)
             T_CollocatedObserver = ::Ice::__declareLocalClass('::Ice::Instrumentation::CollocatedObserver')
         end
 
-        if not defined?(::Ice::Instrumentation::::T_InvocationObserver)
+        if not defined?(::Ice::Instrumentation::T_InvocationObserver)
             T_InvocationObserver = ::Ice::__declareLocalClass('::Ice::Instrumentation::InvocationObserver')
         end
 
-        if not defined?(::Ice::Instrumentation::::T_ObserverUpdater)
+        if not defined?(::Ice::Instrumentation::T_ObserverUpdater)
             T_ObserverUpdater = ::Ice::__declareLocalClass('::Ice::Instrumentation::ObserverUpdater')
         end
 
-        if not defined?(::Ice::Instrumentation::::T_CommunicatorObserver)
+        if not defined?(::Ice::Instrumentation::T_CommunicatorObserver)
             T_CommunicatorObserver = ::Ice::__declareLocalClass('::Ice::Instrumentation::CommunicatorObserver')
         end
     end

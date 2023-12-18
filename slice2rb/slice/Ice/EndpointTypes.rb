@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::Ice
 
-    if not defined?(::Ice::::EndpointSelectionType)
+    if not defined?(::Ice::EndpointSelectionType)
         class EndpointSelectionType
             include Comparable
 

@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::Core
 
-    if not defined?(::Core::::ArgumentException)
+    if not defined?(::Core::ArgumentException)
         class ArgumentException < Ice::UserException
             def initialize
             end

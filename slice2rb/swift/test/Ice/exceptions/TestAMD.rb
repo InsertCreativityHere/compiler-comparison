@@ -19,9 +19,9 @@ require 'Ice/BuiltinSequences.rb'
 
 module ::Test
 
-    if not defined?(::Test::::Empty_Mixin)
+    if not defined?(::Test::Empty_Mixin)
 
-        module ::Test::::Empty_Mixin
+        module ::Test::Empty_Mixin
         end
         module EmptyPrx_mixin
         end
@@ -31,7 +31,7 @@ module ::Test
             include EmptyPrx_mixin
         end
 
-        if not defined?(::Test::::T_EmptyPrx)
+        if not defined?(::Test::T_EmptyPrx)
             T_Empty = ::Ice::__declareClass('::Test::Empty')
             T_EmptyPrx = ::Ice::__declareProxy('::Test::Empty')
         end
@@ -41,12 +41,12 @@ module ::Test
         T_EmptyPrx.defineProxy(EmptyPrx, nil, [])
     end
 
-    if not defined?(::Test::::T_Thrower)
+    if not defined?(::Test::T_Thrower)
         T_Thrower = ::Ice::__declareClass('::Test::Thrower')
         T_ThrowerPrx = ::Ice::__declareProxy('::Test::Thrower')
     end
 
-    if not defined?(::Test::::A)
+    if not defined?(::Test::A)
         class A < Ice::UserException
             def initialize(aMem=0)
                 @aMem = aMem
@@ -62,8 +62,8 @@ module ::Test
         T_A = ::Ice::__defineException('::Test::A', A, false, nil, [["aMem", ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::Test::::B)
-        class B < ::Test::::A
+    if not defined?(::Test::B)
+        class B < ::Test::A
             def initialize(aMem=0, bMem=0)
                 super(aMem)
                 @bMem = bMem
@@ -76,11 +76,11 @@ module ::Test
             attr_accessor :bMem
         end
 
-        T_B = ::Ice::__defineException('::Test::B', B, false, ::Test::::T_A, [["bMem", ::Ice::T_int, false, 0]])
+        T_B = ::Ice::__defineException('::Test::B', B, false, ::Test::T_A, [["bMem", ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::Test::::C)
-        class C < ::Test::::B
+    if not defined?(::Test::C)
+        class C < ::Test::B
             def initialize(aMem=0, bMem=0, cMem=0)
                 super(aMem, bMem)
                 @cMem = cMem
@@ -93,10 +93,10 @@ module ::Test
             attr_accessor :cMem
         end
 
-        T_C = ::Ice::__defineException('::Test::C', C, false, ::Test::::T_B, [["cMem", ::Ice::T_int, false, 0]])
+        T_C = ::Ice::__defineException('::Test::C', C, false, ::Test::T_B, [["cMem", ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::Test::::D)
+    if not defined?(::Test::D)
         class D < Ice::UserException
             def initialize(dMem=0)
                 @dMem = dMem
@@ -112,7 +112,7 @@ module ::Test
         T_D = ::Ice::__defineException('::Test::D', D, false, nil, [["dMem", ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::Test::::E)
+    if not defined?(::Test::E)
         class E < Ice::UserException
             def initialize(data='')
                 @data = data
@@ -128,7 +128,7 @@ module ::Test
         T_E = ::Ice::__defineException('::Test::E', E, false, nil, [["data", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::::F)
+    if not defined?(::Test::F)
         class F < Ice::UserException
             def initialize(data='')
                 @data = data
@@ -144,7 +144,7 @@ module ::Test
         T_F = ::Ice::__defineException('::Test::F', F, false, nil, [["data", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::::G)
+    if not defined?(::Test::G)
         class G < Ice::LocalException
             def initialize(data='')
                 @data = data
@@ -160,7 +160,7 @@ module ::Test
         T_G = ::Ice::__defineException('::Test::G', G, false, nil, [["data", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::::H)
+    if not defined?(::Test::H)
         class H < Ice::LocalException
             def initialize(data='')
                 @data = data
@@ -178,8 +178,8 @@ module ::Test
 
     module Mod
 
-        if not defined?(::Test::Mod::::A)
-            class A < ::Test::::A
+        if not defined?(::Test::Mod::A)
+            class A < ::Test::A
                 def initialize(aMem=0, a2Mem=0)
                     super(aMem)
                     @a2Mem = a2Mem
@@ -192,13 +192,13 @@ module ::Test
                 attr_accessor :a2Mem
             end
 
-            T_A = ::Ice::__defineException('::Test::Mod::A', A, false, ::Test::::T_A, [["a2Mem", ::Ice::T_int, false, 0]])
+            T_A = ::Ice::__defineException('::Test::Mod::A', A, false, ::Test::T_A, [["a2Mem", ::Ice::T_int, false, 0]])
         end
     end
 
-    if not defined?(::Test::::Thrower_Mixin)
+    if not defined?(::Test::Thrower_Mixin)
 
-        module ::Test::::Thrower_Mixin
+        module ::Test::Thrower_Mixin
         end
         module ThrowerPrx_mixin
 
@@ -308,7 +308,7 @@ module ::Test
             include ThrowerPrx_mixin
         end
 
-        if not defined?(::Test::::T_ThrowerPrx)
+        if not defined?(::Test::T_ThrowerPrx)
             T_Thrower = ::Ice::__declareClass('::Test::Thrower')
             T_ThrowerPrx = ::Ice::__declareProxy('::Test::Thrower')
         end
@@ -320,33 +320,33 @@ module ::Test
         ThrowerPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
         ThrowerPrx_mixin::OP_supportsUndeclaredExceptions = ::Ice::__defineOperation('supportsUndeclaredExceptions', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], [::Ice::T_bool, false, 0], [])
         ThrowerPrx_mixin::OP_supportsAssertException = ::Ice::__defineOperation('supportsAssertException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], [::Ice::T_bool, false, 0], [])
-        ThrowerPrx_mixin::OP_throwAasA = ::Ice::__defineOperation('throwAasA', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0]], [], nil, [::Test::::T_A])
-        ThrowerPrx_mixin::OP_throwAorDasAorD = ::Ice::__defineOperation('throwAorDasAorD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0]], [], nil, [::Test::::T_A, ::Test::::T_D])
-        ThrowerPrx_mixin::OP_throwBasA = ::Ice::__defineOperation('throwBasA', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::::T_A])
-        ThrowerPrx_mixin::OP_throwCasA = ::Ice::__defineOperation('throwCasA', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::::T_A])
-        ThrowerPrx_mixin::OP_throwBasB = ::Ice::__defineOperation('throwBasB', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::::T_B])
-        ThrowerPrx_mixin::OP_throwCasB = ::Ice::__defineOperation('throwCasB', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::::T_B])
-        ThrowerPrx_mixin::OP_throwCasC = ::Ice::__defineOperation('throwCasC', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::::T_C])
-        ThrowerPrx_mixin::OP_throwModA = ::Ice::__defineOperation('throwModA', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::Mod::::T_A])
+        ThrowerPrx_mixin::OP_throwAasA = ::Ice::__defineOperation('throwAasA', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0]], [], nil, [::Test::T_A])
+        ThrowerPrx_mixin::OP_throwAorDasAorD = ::Ice::__defineOperation('throwAorDasAorD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0]], [], nil, [::Test::T_A, ::Test::T_D])
+        ThrowerPrx_mixin::OP_throwBasA = ::Ice::__defineOperation('throwBasA', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::T_A])
+        ThrowerPrx_mixin::OP_throwCasA = ::Ice::__defineOperation('throwCasA', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::T_A])
+        ThrowerPrx_mixin::OP_throwBasB = ::Ice::__defineOperation('throwBasB', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::T_B])
+        ThrowerPrx_mixin::OP_throwCasB = ::Ice::__defineOperation('throwCasB', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::T_B])
+        ThrowerPrx_mixin::OP_throwCasC = ::Ice::__defineOperation('throwCasC', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::T_C])
+        ThrowerPrx_mixin::OP_throwModA = ::Ice::__defineOperation('throwModA', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [::Test::Mod::T_A])
         ThrowerPrx_mixin::OP_throwUndeclaredA = ::Ice::__defineOperation('throwUndeclaredA', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0]], [], nil, [])
         ThrowerPrx_mixin::OP_throwUndeclaredB = ::Ice::__defineOperation('throwUndeclaredB', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
         ThrowerPrx_mixin::OP_throwUndeclaredC = ::Ice::__defineOperation('throwUndeclaredC', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
         ThrowerPrx_mixin::OP_throwLocalException = ::Ice::__defineOperation('throwLocalException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
         ThrowerPrx_mixin::OP_throwNonIceException = ::Ice::__defineOperation('throwNonIceException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
         ThrowerPrx_mixin::OP_throwAssertException = ::Ice::__defineOperation('throwAssertException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
-        ThrowerPrx_mixin::OP_throwMemoryLimitException = ::Ice::__defineOperation('throwMemoryLimitException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::::T_ByteSeq, false, 0]], [], [::Ice::::T_ByteSeq, false, 0], [])
+        ThrowerPrx_mixin::OP_throwMemoryLimitException = ::Ice::__defineOperation('throwMemoryLimitException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_ByteSeq, false, 0]], [], [::Ice::T_ByteSeq, false, 0], [])
         ThrowerPrx_mixin::OP_throwLocalExceptionIdempotent = ::Ice::__defineOperation('throwLocalExceptionIdempotent', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, true, nil, [], [], nil, [])
         ThrowerPrx_mixin::OP_throwAfterResponse = ::Ice::__defineOperation('throwAfterResponse', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
-        ThrowerPrx_mixin::OP_throwAfterException = ::Ice::__defineOperation('throwAfterException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [::Test::::T_A])
-        ThrowerPrx_mixin::OP_throwE = ::Ice::__defineOperation('throwE', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [::Test::::T_E])
-        ThrowerPrx_mixin::OP_throwF = ::Ice::__defineOperation('throwF', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [::Test::::T_F])
+        ThrowerPrx_mixin::OP_throwAfterException = ::Ice::__defineOperation('throwAfterException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [::Test::T_A])
+        ThrowerPrx_mixin::OP_throwE = ::Ice::__defineOperation('throwE', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [::Test::T_E])
+        ThrowerPrx_mixin::OP_throwF = ::Ice::__defineOperation('throwF', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [::Test::T_F])
         ThrowerPrx_mixin::OP_throwG = ::Ice::__defineOperation('throwG', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
         ThrowerPrx_mixin::OP_throwH = ::Ice::__defineOperation('throwH', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::::WrongOperation_Mixin)
+    if not defined?(::Test::WrongOperation_Mixin)
 
-        module ::Test::::WrongOperation_Mixin
+        module ::Test::WrongOperation_Mixin
         end
         module WrongOperationPrx_mixin
 
@@ -360,7 +360,7 @@ module ::Test
             include WrongOperationPrx_mixin
         end
 
-        if not defined?(::Test::::T_WrongOperationPrx)
+        if not defined?(::Test::T_WrongOperationPrx)
             T_WrongOperation = ::Ice::__declareClass('::Test::WrongOperation')
             T_WrongOperationPrx = ::Ice::__declareProxy('::Test::WrongOperation')
         end

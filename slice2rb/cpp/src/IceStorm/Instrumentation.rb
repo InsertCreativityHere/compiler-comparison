@@ -22,19 +22,19 @@ module ::IceStorm
 
     module Instrumentation
 
-        if not defined?(::IceStorm::Instrumentation::::T_TopicObserver)
+        if not defined?(::IceStorm::Instrumentation::T_TopicObserver)
             T_TopicObserver = ::Ice::__declareLocalClass('::IceStorm::Instrumentation::TopicObserver')
         end
 
-        if not defined?(::IceStorm::Instrumentation::::T_SubscriberObserver)
+        if not defined?(::IceStorm::Instrumentation::T_SubscriberObserver)
             T_SubscriberObserver = ::Ice::__declareLocalClass('::IceStorm::Instrumentation::SubscriberObserver')
         end
 
-        if not defined?(::IceStorm::Instrumentation::::T_ObserverUpdater)
+        if not defined?(::IceStorm::Instrumentation::T_ObserverUpdater)
             T_ObserverUpdater = ::Ice::__declareLocalClass('::IceStorm::Instrumentation::ObserverUpdater')
         end
 
-        if not defined?(::IceStorm::Instrumentation::::SubscriberState)
+        if not defined?(::IceStorm::Instrumentation::SubscriberState)
             class SubscriberState
                 include Comparable
 
@@ -84,7 +84,7 @@ module ::IceStorm
             T_SubscriberState = ::Ice::__defineEnum('::IceStorm::Instrumentation::SubscriberState', SubscriberState, SubscriberState::_enumerators)
         end
 
-        if not defined?(::IceStorm::Instrumentation::::T_TopicManagerObserver)
+        if not defined?(::IceStorm::Instrumentation::T_TopicManagerObserver)
             T_TopicManagerObserver = ::Ice::__declareLocalClass('::IceStorm::Instrumentation::TopicManagerObserver')
         end
     end

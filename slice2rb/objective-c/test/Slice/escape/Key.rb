@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::And
 
-    if not defined?(::And::::Continue)
+    if not defined?(::And::Continue)
         class Continue
             include Comparable
 
@@ -66,7 +66,7 @@ module ::And
         T_Continue = ::Ice::__defineEnum('::and::continue', Continue, Continue::_enumerators)
     end
 
-    if not defined?(::And::::Auto)
+    if not defined?(::And::Auto)
         class Auto
             include ::Ice::Inspect_mixin
             def initialize(default=0)
@@ -80,7 +80,7 @@ module ::And
             end
 
             def ==(other)
-                return false if !other.is_a? ::And::::Auto or
+                return false if !other.is_a? ::And::Auto or
                     @default != other.default
                 true
             end
@@ -95,7 +95,7 @@ module ::And
         T_Auto = ::Ice::__defineStruct('::and::auto', Auto, [["default", ::Ice::T_int]])
     end
 
-    if not defined?(::And::::Delete)
+    if not defined?(::And::Delete)
         class Delete
             include ::Ice::Inspect_mixin
             def initialize(_else='')
@@ -109,7 +109,7 @@ module ::And
             end
 
             def ==(other)
-                return false if !other.is_a? ::And::::Delete or
+                return false if !other.is_a? ::And::Delete or
                     @_else != other._else
                 true
             end
@@ -124,9 +124,9 @@ module ::And
         T_Delete = ::Ice::__defineStruct('::and::delete', Delete, [["_else", ::Ice::T_string]])
     end
 
-    if not defined?(::And::::Break_Mixin)
+    if not defined?(::And::Break_Mixin)
 
-        module ::And::::Break_Mixin
+        module ::And::Break_Mixin
         end
         module BreakPrx_mixin
 
@@ -140,7 +140,7 @@ module ::And
             include BreakPrx_mixin
         end
 
-        if not defined?(::And::::T_BreakPrx)
+        if not defined?(::And::T_BreakPrx)
             T_Break = ::Ice::__declareClass('::and::break')
             T_BreakPrx = ::Ice::__declareProxy('::and::break')
         end
@@ -152,9 +152,9 @@ module ::And
         BreakPrx_mixin::OP_case = ::Ice::__defineOperation('case', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
     end
 
-    if not defined?(::And::::Char_Mixin)
+    if not defined?(::And::Char_Mixin)
 
-        module ::And::::Char_Mixin
+        module ::And::Char_Mixin
         end
         module CharPrx_mixin
 
@@ -168,7 +168,7 @@ module ::And
             include CharPrx_mixin
         end
 
-        if not defined?(::And::::T_CharPrx)
+        if not defined?(::And::T_CharPrx)
             T_Char = ::Ice::__declareClass('::and::char')
             T_CharPrx = ::Ice::__declareProxy('::and::char')
         end
@@ -180,9 +180,9 @@ module ::And
         CharPrx_mixin::OP_explicit = ::Ice::__defineOperation('explicit', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::And::::Switch_Mixin)
+    if not defined?(::And::Switch_Mixin)
 
-        module ::And::::Switch_Mixin
+        module ::And::Switch_Mixin
         end
         module SwitchPrx_mixin
 
@@ -204,7 +204,7 @@ module ::And
             include SwitchPrx_mixin
         end
 
-        if not defined?(::And::::T_SwitchPrx)
+        if not defined?(::And::T_SwitchPrx)
             T_Switch = ::Ice::__declareClass('::and::switch')
             T_SwitchPrx = ::Ice::__declareProxy('::and::switch')
         end
@@ -213,14 +213,14 @@ module ::And
 
         T_SwitchPrx.defineProxy(SwitchPrx, nil, [])
 
-        SwitchPrx_mixin::OP_foo = ::Ice::__defineOperation('foo', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::And::::T_CharPrx, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
-        SwitchPrx_mixin::OP_foo2 = ::Ice::__defineOperation('foo2', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::And::::T_CharPrx, false, 0], [::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
-        SwitchPrx_mixin::OP_foo3 = ::Ice::__defineOperation('foo3', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::And::::T_CharPrx, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
+        SwitchPrx_mixin::OP_foo = ::Ice::__defineOperation('foo', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::And::T_CharPrx, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
+        SwitchPrx_mixin::OP_foo2 = ::Ice::__defineOperation('foo2', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::And::T_CharPrx, false, 0], [::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
+        SwitchPrx_mixin::OP_foo3 = ::Ice::__defineOperation('foo3', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::And::T_CharPrx, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
     end
 
-    if not defined?(::And::::Do_Mixin)
+    if not defined?(::And::Do_Mixin)
 
-        module ::And::::Do_Mixin
+        module ::And::Do_Mixin
         end
         class Do < ::Ice::Value
 
@@ -231,9 +231,9 @@ module ::And
             attr_accessor :_if
         end
         module DoPrx_mixin
-            include ::And::::CharPrx_mixin
-            include ::And::::BreakPrx_mixin
-            include ::And::::SwitchPrx_mixin
+            include ::And::CharPrx_mixin
+            include ::And::BreakPrx_mixin
+            include ::And::SwitchPrx_mixin
         end
 
         class DoPrx < ::Ice::ObjectPrx
@@ -241,25 +241,25 @@ module ::And
             include DoPrx_mixin
         end
 
-        if not defined?(::And::::T_Do)
+        if not defined?(::And::T_Do)
             T_Do = ::Ice::__declareClass('::and::do')
             T_DoPrx = ::Ice::__declareProxy('::and::do')
         end
 
         T_Do.defineClass(Do, -1, false, false, nil, [['_if', ::Ice::T_int, false, 0]])
 
-        T_DoPrx.defineProxy(DoPrx, nil, [::And::::T_CharPrx, ::And::::T_BreakPrx, ::And::::T_SwitchPrx])
+        T_DoPrx.defineProxy(DoPrx, nil, [::And::T_CharPrx, ::And::T_BreakPrx, ::And::T_SwitchPrx])
     end
 
-    if not defined?(::And::::T_Extern)
-        T_Extern = ::Ice::__defineSequence('::and::extern', ::And::::T_Auto)
+    if not defined?(::And::T_Extern)
+        T_Extern = ::Ice::__defineSequence('::and::extern', ::And::T_Auto)
     end
 
-    if not defined?(::And::::T_For)
-        T_For = ::Ice::__defineDictionary('::and::for', ::Ice::T_string, ::And::::T_Auto)
+    if not defined?(::And::T_For)
+        T_For = ::Ice::__defineDictionary('::and::for', ::Ice::T_string, ::And::T_Auto)
     end
 
-    if not defined?(::And::::Return)
+    if not defined?(::And::Return)
         class Return < Ice::UserException
             def initialize(signed=0)
                 @signed = signed
@@ -275,8 +275,8 @@ module ::And
         T_Return = ::Ice::__defineException('::and::return', Return, false, nil, [["signed", ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::And::::Sizeof)
-        class Sizeof < ::And::::Return
+    if not defined?(::And::Sizeof)
+        class Sizeof < ::And::Return
             def initialize(signed=0, static=0, switch=0)
                 super(signed)
                 @static = static
@@ -290,13 +290,13 @@ module ::And
             attr_accessor :static, :switch
         end
 
-        T_Sizeof = ::Ice::__defineException('::and::sizeof', Sizeof, false, ::And::::T_Return, [
+        T_Sizeof = ::Ice::__defineException('::and::sizeof', Sizeof, false, ::And::T_Return, [
             ["static", ::Ice::T_int, false, 0],
             ["switch", ::Ice::T_int, false, 0]
         ])
     end
 
-    if not defined?(::And::::T_Friend)
+    if not defined?(::And::T_Friend)
         T_Friend = ::Ice::__declareLocalClass('::and::friend')
     end
 

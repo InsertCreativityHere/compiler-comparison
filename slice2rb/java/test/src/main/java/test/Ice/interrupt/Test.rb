@@ -19,7 +19,7 @@ require 'Ice/BuiltinSequences.rb'
 
 module ::Test
 
-    if not defined?(::Test::::InterruptedException)
+    if not defined?(::Test::InterruptedException)
         class InterruptedException < Ice::UserException
             def initialize
             end
@@ -32,9 +32,9 @@ module ::Test
         T_InterruptedException = ::Ice::__defineException('::Test::InterruptedException', InterruptedException, false, nil, [])
     end
 
-    if not defined?(::Test::::TestIntf_Mixin)
+    if not defined?(::Test::TestIntf_Mixin)
 
-        module ::Test::::TestIntf_Mixin
+        module ::Test::TestIntf_Mixin
         end
         module TestIntfPrx_mixin
 
@@ -64,7 +64,7 @@ module ::Test
             include TestIntfPrx_mixin
         end
 
-        if not defined?(::Test::::T_TestIntfPrx)
+        if not defined?(::Test::T_TestIntfPrx)
             T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
@@ -75,12 +75,12 @@ module ::Test
 
         TestIntfPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         TestIntfPrx_mixin::OP_opIdempotent = ::Ice::__defineOperation('opIdempotent', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_sleep = ::Ice::__defineOperation('sleep', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [::Test::::T_InterruptedException])
-        TestIntfPrx_mixin::OP_opWithPayload = ::Ice::__defineOperation('opWithPayload', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::::T_ByteSeq, false, 0]], [], nil, [])
+        TestIntfPrx_mixin::OP_sleep = ::Ice::__defineOperation('sleep', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [::Test::T_InterruptedException])
+        TestIntfPrx_mixin::OP_opWithPayload = ::Ice::__defineOperation('opWithPayload', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_ByteSeq, false, 0]], [], nil, [])
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::::CannotInterruptException)
+    if not defined?(::Test::CannotInterruptException)
         class CannotInterruptException < Ice::UserException
             def initialize
             end
@@ -93,9 +93,9 @@ module ::Test
         T_CannotInterruptException = ::Ice::__defineException('::Test::CannotInterruptException', CannotInterruptException, false, nil, [])
     end
 
-    if not defined?(::Test::::TestIntfController_Mixin)
+    if not defined?(::Test::TestIntfController_Mixin)
 
-        module ::Test::::TestIntfController_Mixin
+        module ::Test::TestIntfController_Mixin
         end
         module TestIntfControllerPrx_mixin
 
@@ -117,7 +117,7 @@ module ::Test
             include TestIntfControllerPrx_mixin
         end
 
-        if not defined?(::Test::::T_TestIntfControllerPrx)
+        if not defined?(::Test::T_TestIntfControllerPrx)
             T_TestIntfController = ::Ice::__declareClass('::Test::TestIntfController')
             T_TestIntfControllerPrx = ::Ice::__declareProxy('::Test::TestIntfController')
         end
@@ -128,6 +128,6 @@ module ::Test
 
         TestIntfControllerPrx_mixin::OP_holdAdapter = ::Ice::__defineOperation('holdAdapter', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         TestIntfControllerPrx_mixin::OP_resumeAdapter = ::Ice::__defineOperation('resumeAdapter', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        TestIntfControllerPrx_mixin::OP_interrupt = ::Ice::__defineOperation('interrupt', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::::T_CannotInterruptException])
+        TestIntfControllerPrx_mixin::OP_interrupt = ::Ice::__defineOperation('interrupt', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::T_CannotInterruptException])
     end
 end

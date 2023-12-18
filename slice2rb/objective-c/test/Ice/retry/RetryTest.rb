@@ -18,9 +18,9 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::::Retry_Mixin)
+    if not defined?(::Test::Retry_Mixin)
 
-        module ::Test::::Retry_Mixin
+        module ::Test::Retry_Mixin
         end
         module RetryPrx_mixin
 
@@ -54,7 +54,7 @@ module ::Test
             include RetryPrx_mixin
         end
 
-        if not defined?(::Test::::T_RetryPrx)
+        if not defined?(::Test::T_RetryPrx)
             T_Retry = ::Ice::__declareClass('::Test::Retry')
             T_RetryPrx = ::Ice::__declareProxy('::Test::Retry')
         end

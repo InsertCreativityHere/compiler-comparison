@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::IceGrid
 
-    if not defined?(::IceGrid::::UserAccountNotFoundException)
+    if not defined?(::IceGrid::UserAccountNotFoundException)
         class UserAccountNotFoundException < Ice::UserException
             def initialize
             end
@@ -31,9 +31,9 @@ module ::IceGrid
         T_UserAccountNotFoundException = ::Ice::__defineException('::IceGrid::UserAccountNotFoundException', UserAccountNotFoundException, false, nil, [])
     end
 
-    if not defined?(::IceGrid::::UserAccountMapper_Mixin)
+    if not defined?(::IceGrid::UserAccountMapper_Mixin)
 
-        module ::IceGrid::::UserAccountMapper_Mixin
+        module ::IceGrid::UserAccountMapper_Mixin
         end
         module UserAccountMapperPrx_mixin
 
@@ -47,7 +47,7 @@ module ::IceGrid
             include UserAccountMapperPrx_mixin
         end
 
-        if not defined?(::IceGrid::::T_UserAccountMapperPrx)
+        if not defined?(::IceGrid::T_UserAccountMapperPrx)
             T_UserAccountMapper = ::Ice::__declareClass('::IceGrid::UserAccountMapper')
             T_UserAccountMapperPrx = ::Ice::__declareProxy('::IceGrid::UserAccountMapper')
         end
@@ -56,6 +56,6 @@ module ::IceGrid
 
         T_UserAccountMapperPrx.defineProxy(UserAccountMapperPrx, nil, [])
 
-        UserAccountMapperPrx_mixin::OP_getUserAccount = ::Ice::__defineOperation('getUserAccount', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_string, false, 0], [::IceGrid::::T_UserAccountNotFoundException])
+        UserAccountMapperPrx_mixin::OP_getUserAccount = ::Ice::__defineOperation('getUserAccount', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_string, false, 0], [::IceGrid::T_UserAccountNotFoundException])
     end
 end

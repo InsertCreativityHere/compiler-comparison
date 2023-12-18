@@ -18,17 +18,17 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::::T_StringSeq)
+    if not defined?(::Test::T_StringSeq)
         T_StringSeq = ::Ice::__defineSequence('::Test::StringSeq', ::Ice::T_string)
     end
 
-    if not defined?(::Test::::T_StringDict)
+    if not defined?(::Test::T_StringDict)
         T_StringDict = ::Ice::__defineDictionary('::Test::StringDict', ::Ice::T_string, ::Ice::T_string)
     end
 
-    if not defined?(::Test::::C_Mixin)
+    if not defined?(::Test::C_Mixin)
 
-        module ::Test::::C_Mixin
+        module ::Test::C_Mixin
         end
         class C < ::Ice::Value
 
@@ -39,14 +39,14 @@ module ::Test
             attr_accessor :i
         end
 
-        if not defined?(::Test::::T_C)
+        if not defined?(::Test::T_C)
             T_C = ::Ice::__declareClass('::Test::C')
         end
 
         T_C.defineClass(C, -1, false, false, nil, [['i', ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::Test::::S1)
+    if not defined?(::Test::S1)
         class S1
             include ::Ice::Inspect_mixin
             def initialize(name='')
@@ -60,7 +60,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::::S1 or
+                return false if !other.is_a? ::Test::S1 or
                     @name != other.name
                 true
             end
@@ -75,10 +75,10 @@ module ::Test
         T_S1 = ::Ice::__defineStruct('::Test::S1', S1, [["name", ::Ice::T_string]])
     end
 
-    if not defined?(::Test::::S2)
+    if not defined?(::Test::S2)
         class S2
             include ::Ice::Inspect_mixin
-            def initialize(bo=false, by=0, sh=0, i=0, l=0, f=0.0, d=0.0, str='', ss=nil, sd=nil, s=::Test::::S1.new, cls=nil, prx=nil)
+            def initialize(bo=false, by=0, sh=0, i=0, l=0, f=0.0, d=0.0, str='', ss=nil, sd=nil, s=::Test::S1.new, cls=nil, prx=nil)
                 @bo = bo
                 @by = by
                 @sh = sh
@@ -113,7 +113,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::::S2 or
+                return false if !other.is_a? ::Test::S2 or
                     @bo != other.bo or
                     @by != other.by or
                     @sh != other.sh or
@@ -146,10 +146,10 @@ module ::Test
             ["f", ::Ice::T_float],
             ["d", ::Ice::T_double],
             ["str", ::Ice::T_string],
-            ["ss", ::Test::::T_StringSeq],
-            ["sd", ::Test::::T_StringDict],
-            ["s", ::Test::::T_S1],
-            ["cls", ::Test::::T_C],
+            ["ss", ::Test::T_StringSeq],
+            ["sd", ::Test::T_StringDict],
+            ["s", ::Test::T_S1],
+            ["cls", ::Test::T_C],
             ["prx", ::Ice::T_ObjectPrx]
         ])
     end

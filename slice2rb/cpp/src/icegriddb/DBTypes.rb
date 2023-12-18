@@ -19,11 +19,11 @@ require 'IceGrid/Admin.rb'
 
 module ::IceGrid
 
-    if not defined?(::IceGrid::::T_StringLongDict)
+    if not defined?(::IceGrid::T_StringLongDict)
         T_StringLongDict = ::Ice::__defineDictionary('::IceGrid::StringLongDict', ::Ice::T_string, ::Ice::T_long)
     end
 
-    if not defined?(::IceGrid::::AllData)
+    if not defined?(::IceGrid::AllData)
         class AllData
             include ::Ice::Inspect_mixin
             def initialize(applications=nil, adapters=nil, objects=nil, internalObjects=nil, serials=nil)
@@ -45,7 +45,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::::AllData or
+                return false if !other.is_a? ::IceGrid::AllData or
                     @applications != other.applications or
                     @adapters != other.adapters or
                     @objects != other.objects or
@@ -62,11 +62,11 @@ module ::IceGrid
         end
 
         T_AllData = ::Ice::__defineStruct('::IceGrid::AllData', AllData, [
-            ["applications", ::IceGrid::::T_ApplicationInfoSeq],
-            ["adapters", ::IceGrid::::T_AdapterInfoSeq],
-            ["objects", ::IceGrid::::T_ObjectInfoSeq],
-            ["internalObjects", ::IceGrid::::T_ObjectInfoSeq],
-            ["serials", ::IceGrid::::T_StringLongDict]
+            ["applications", ::IceGrid::T_ApplicationInfoSeq],
+            ["adapters", ::IceGrid::T_AdapterInfoSeq],
+            ["objects", ::IceGrid::T_ObjectInfoSeq],
+            ["internalObjects", ::IceGrid::T_ObjectInfoSeq],
+            ["serials", ::IceGrid::T_StringLongDict]
         ])
     end
 end

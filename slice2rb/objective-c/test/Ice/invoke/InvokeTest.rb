@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::::MyException)
+    if not defined?(::Test::MyException)
         class MyException < Ice::UserException
             def initialize
             end
@@ -31,9 +31,9 @@ module ::Test
         T_MyException = ::Ice::__defineException('::Test::MyException', MyException, false, nil, [])
     end
 
-    if not defined?(::Test::::MyClass_Mixin)
+    if not defined?(::Test::MyClass_Mixin)
 
-        module ::Test::::MyClass_Mixin
+        module ::Test::MyClass_Mixin
         end
         module MyClassPrx_mixin
 
@@ -59,7 +59,7 @@ module ::Test
             include MyClassPrx_mixin
         end
 
-        if not defined?(::Test::::T_MyClassPrx)
+        if not defined?(::Test::T_MyClassPrx)
             T_MyClass = ::Ice::__declareClass('::Test::MyClass')
             T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
         end
@@ -70,7 +70,7 @@ module ::Test
 
         MyClassPrx_mixin::OP_opOneway = ::Ice::__defineOperation('opOneway', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         MyClassPrx_mixin::OP_opString = ::Ice::__defineOperation('opString', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_string, false, 0], [])
-        MyClassPrx_mixin::OP_opException = ::Ice::__defineOperation('opException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::::T_MyException])
+        MyClassPrx_mixin::OP_opException = ::Ice::__defineOperation('opException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::T_MyException])
         MyClassPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 end

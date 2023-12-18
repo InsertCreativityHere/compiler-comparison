@@ -20,10 +20,10 @@ require 'IceStorm/IceStorm.rb'
 
 module ::IceStorm
 
-    if not defined?(::IceStorm::::SubscriberRecordKey)
+    if not defined?(::IceStorm::SubscriberRecordKey)
         class SubscriberRecordKey
             include ::Ice::Inspect_mixin
-            def initialize(topic=::Ice::::Identity.new, id=::Ice::::Identity.new)
+            def initialize(topic=::Ice::Identity.new, id=::Ice::Identity.new)
                 @topic = topic
                 @id = id
             end
@@ -36,7 +36,7 @@ module ::IceStorm
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceStorm::::SubscriberRecordKey or
+                return false if !other.is_a? ::IceStorm::SubscriberRecordKey or
                     @topic != other.topic or
                     @id != other.id
                 true
@@ -50,15 +50,15 @@ module ::IceStorm
         end
 
         T_SubscriberRecordKey = ::Ice::__defineStruct('::IceStorm::SubscriberRecordKey', SubscriberRecordKey, [
-            ["topic", ::Ice::::T_Identity],
-            ["id", ::Ice::::T_Identity]
+            ["topic", ::Ice::T_Identity],
+            ["id", ::Ice::T_Identity]
         ])
     end
 
-    if not defined?(::IceStorm::::SubscriberRecord)
+    if not defined?(::IceStorm::SubscriberRecord)
         class SubscriberRecord
             include ::Ice::Inspect_mixin
-            def initialize(topicName='', id=::Ice::::Identity.new, link=false, obj=nil, theQoS=nil, cost=0, theTopic=nil)
+            def initialize(topicName='', id=::Ice::Identity.new, link=false, obj=nil, theQoS=nil, cost=0, theTopic=nil)
                 @topicName = topicName
                 @id = id
                 @link = link
@@ -81,7 +81,7 @@ module ::IceStorm
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceStorm::::SubscriberRecord or
+                return false if !other.is_a? ::IceStorm::SubscriberRecord or
                     @topicName != other.topicName or
                     @id != other.id or
                     @link != other.link or
@@ -101,16 +101,16 @@ module ::IceStorm
 
         T_SubscriberRecord = ::Ice::__defineStruct('::IceStorm::SubscriberRecord', SubscriberRecord, [
             ["topicName", ::Ice::T_string],
-            ["id", ::Ice::::T_Identity],
+            ["id", ::Ice::T_Identity],
             ["link", ::Ice::T_bool],
             ["obj", ::Ice::T_ObjectPrx],
-            ["theQoS", ::IceStorm::::T_QoS],
+            ["theQoS", ::IceStorm::T_QoS],
             ["cost", ::Ice::T_int],
-            ["theTopic", ::IceStorm::::T_TopicPrx]
+            ["theTopic", ::IceStorm::T_TopicPrx]
         ])
     end
 
-    if not defined?(::IceStorm::::T_SubscriberRecordSeq)
-        T_SubscriberRecordSeq = ::Ice::__defineSequence('::IceStorm::SubscriberRecordSeq', ::IceStorm::::T_SubscriberRecord)
+    if not defined?(::IceStorm::T_SubscriberRecordSeq)
+        T_SubscriberRecordSeq = ::Ice::__defineSequence('::IceStorm::SubscriberRecordSeq', ::IceStorm::T_SubscriberRecord)
     end
 end

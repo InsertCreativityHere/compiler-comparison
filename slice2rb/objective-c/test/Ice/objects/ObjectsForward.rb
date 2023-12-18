@@ -18,9 +18,9 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::::F1_Mixin)
+    if not defined?(::Test::F1_Mixin)
 
-        module ::Test::::F1_Mixin
+        module ::Test::F1_Mixin
         end
         class F1 < ::Ice::Value
 
@@ -31,16 +31,16 @@ module ::Test
             attr_accessor :name
         end
 
-        if not defined?(::Test::::T_F1)
+        if not defined?(::Test::T_F1)
             T_F1 = ::Ice::__declareClass('::Test::F1')
         end
 
         T_F1.defineClass(F1, -1, false, false, nil, [['name', ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::::F2_Mixin)
+    if not defined?(::Test::F2_Mixin)
 
-        module ::Test::::F2_Mixin
+        module ::Test::F2_Mixin
         end
         module F2Prx_mixin
 
@@ -54,7 +54,7 @@ module ::Test
             include F2Prx_mixin
         end
 
-        if not defined?(::Test::::T_F2Prx)
+        if not defined?(::Test::T_F2Prx)
             T_F2 = ::Ice::__declareClass('::Test::F2')
             T_F2Prx = ::Ice::__declareProxy('::Test::F2')
         end

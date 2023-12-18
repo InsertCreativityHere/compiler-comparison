@@ -18,15 +18,15 @@ require 'Ice'
 
 module ::Test1
 
-    if not defined?(::Test1::::T_WstringSeq)
+    if not defined?(::Test1::T_WstringSeq)
         T_WstringSeq = ::Ice::__defineSequence('::Test1::WstringSeq', ::Ice::T_string)
     end
 
-    if not defined?(::Test1::::T_WstringWStringDict)
+    if not defined?(::Test1::T_WstringWStringDict)
         T_WstringWStringDict = ::Ice::__defineDictionary('::Test1::WstringWStringDict', ::Ice::T_string, ::Ice::T_string)
     end
 
-    if not defined?(::Test1::::WstringStruct)
+    if not defined?(::Test1::WstringStruct)
         class WstringStruct
             include ::Ice::Inspect_mixin
             def initialize(s='')
@@ -40,7 +40,7 @@ module ::Test1
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test1::::WstringStruct or
+                return false if !other.is_a? ::Test1::WstringStruct or
                     @s != other.s
                 true
             end
@@ -55,7 +55,7 @@ module ::Test1
         T_WstringStruct = ::Ice::__defineStruct('::Test1::WstringStruct', WstringStruct, [["s", ::Ice::T_string]])
     end
 
-    if not defined?(::Test1::::WstringException)
+    if not defined?(::Test1::WstringException)
         class WstringException < Ice::UserException
             def initialize(reason='')
                 @reason = reason
@@ -71,9 +71,9 @@ module ::Test1
         T_WstringException = ::Ice::__defineException('::Test1::WstringException', WstringException, false, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test1::::WstringClass_Mixin)
+    if not defined?(::Test1::WstringClass_Mixin)
 
-        module ::Test1::::WstringClass_Mixin
+        module ::Test1::WstringClass_Mixin
         end
         module WstringClassPrx_mixin
 
@@ -95,7 +95,7 @@ module ::Test1
             include WstringClassPrx_mixin
         end
 
-        if not defined?(::Test1::::T_WstringClassPrx)
+        if not defined?(::Test1::T_WstringClassPrx)
             T_WstringClass = ::Ice::__declareClass('::Test1::WstringClass')
             T_WstringClassPrx = ::Ice::__declareProxy('::Test1::WstringClass')
         end
@@ -105,22 +105,22 @@ module ::Test1
         T_WstringClassPrx.defineProxy(WstringClassPrx, nil, [])
 
         WstringClassPrx_mixin::OP_opString = ::Ice::__defineOperation('opString', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_string, false, 0], [])
-        WstringClassPrx_mixin::OP_opStruct = ::Ice::__defineOperation('opStruct', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test1::::T_WstringStruct, false, 0]], [[::Test1::::T_WstringStruct, false, 0]], [::Test1::::T_WstringStruct, false, 0], [])
-        WstringClassPrx_mixin::OP_throwExcept = ::Ice::__defineOperation('throwExcept', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::Test1::::T_WstringException])
+        WstringClassPrx_mixin::OP_opStruct = ::Ice::__defineOperation('opStruct', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test1::T_WstringStruct, false, 0]], [[::Test1::T_WstringStruct, false, 0]], [::Test1::T_WstringStruct, false, 0], [])
+        WstringClassPrx_mixin::OP_throwExcept = ::Ice::__defineOperation('throwExcept', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::Test1::T_WstringException])
     end
 end
 
 module ::Test2
 
-    if not defined?(::Test2::::T_WstringSeq)
+    if not defined?(::Test2::T_WstringSeq)
         T_WstringSeq = ::Ice::__defineSequence('::Test2::WstringSeq', ::Ice::T_string)
     end
 
-    if not defined?(::Test2::::T_WstringWStringDict)
+    if not defined?(::Test2::T_WstringWStringDict)
         T_WstringWStringDict = ::Ice::__defineDictionary('::Test2::WstringWStringDict', ::Ice::T_string, ::Ice::T_string)
     end
 
-    if not defined?(::Test2::::WstringStruct)
+    if not defined?(::Test2::WstringStruct)
         class WstringStruct
             include ::Ice::Inspect_mixin
             def initialize(s='')
@@ -134,7 +134,7 @@ module ::Test2
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test2::::WstringStruct or
+                return false if !other.is_a? ::Test2::WstringStruct or
                     @s != other.s
                 true
             end
@@ -149,7 +149,7 @@ module ::Test2
         T_WstringStruct = ::Ice::__defineStruct('::Test2::WstringStruct', WstringStruct, [["s", ::Ice::T_string]])
     end
 
-    if not defined?(::Test2::::WstringException)
+    if not defined?(::Test2::WstringException)
         class WstringException < Ice::UserException
             def initialize(reason='')
                 @reason = reason
@@ -165,9 +165,9 @@ module ::Test2
         T_WstringException = ::Ice::__defineException('::Test2::WstringException', WstringException, false, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test2::::WstringClass_Mixin)
+    if not defined?(::Test2::WstringClass_Mixin)
 
-        module ::Test2::::WstringClass_Mixin
+        module ::Test2::WstringClass_Mixin
         end
         module WstringClassPrx_mixin
 
@@ -189,7 +189,7 @@ module ::Test2
             include WstringClassPrx_mixin
         end
 
-        if not defined?(::Test2::::T_WstringClassPrx)
+        if not defined?(::Test2::T_WstringClassPrx)
             T_WstringClass = ::Ice::__declareClass('::Test2::WstringClass')
             T_WstringClassPrx = ::Ice::__declareProxy('::Test2::WstringClass')
         end
@@ -199,7 +199,7 @@ module ::Test2
         T_WstringClassPrx.defineProxy(WstringClassPrx, nil, [])
 
         WstringClassPrx_mixin::OP_opString = ::Ice::__defineOperation('opString', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_string, false, 0], [])
-        WstringClassPrx_mixin::OP_opStruct = ::Ice::__defineOperation('opStruct', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test2::::T_WstringStruct, false, 0]], [[::Test2::::T_WstringStruct, false, 0]], [::Test2::::T_WstringStruct, false, 0], [])
-        WstringClassPrx_mixin::OP_throwExcept = ::Ice::__defineOperation('throwExcept', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::Test2::::T_WstringException])
+        WstringClassPrx_mixin::OP_opStruct = ::Ice::__defineOperation('opStruct', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test2::T_WstringStruct, false, 0]], [[::Test2::T_WstringStruct, false, 0]], [::Test2::T_WstringStruct, false, 0], [])
+        WstringClassPrx_mixin::OP_throwExcept = ::Ice::__defineOperation('throwExcept', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::Test2::T_WstringException])
     end
 end

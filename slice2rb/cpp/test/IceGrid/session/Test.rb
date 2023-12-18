@@ -19,8 +19,8 @@ require 'Glacier2/PermissionsVerifier.rb'
 
 module ::Test
 
-    if not defined?(::Test::::ExtendedPermissionDeniedException)
-        class ExtendedPermissionDeniedException < ::Glacier2::::PermissionDeniedException
+    if not defined?(::Test::ExtendedPermissionDeniedException)
+        class ExtendedPermissionDeniedException < ::Glacier2::PermissionDeniedException
             def initialize(reason='')
                 super(reason)
             end
@@ -30,6 +30,6 @@ module ::Test
             end
         end
 
-        T_ExtendedPermissionDeniedException = ::Ice::__defineException('::Test::ExtendedPermissionDeniedException', ExtendedPermissionDeniedException, true, ::Glacier2::::T_PermissionDeniedException, [])
+        T_ExtendedPermissionDeniedException = ::Ice::__defineException('::Test::ExtendedPermissionDeniedException', ExtendedPermissionDeniedException, true, ::Glacier2::T_PermissionDeniedException, [])
     end
 end

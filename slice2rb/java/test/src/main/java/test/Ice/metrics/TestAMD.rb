@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::::UserEx)
+    if not defined?(::Test::UserEx)
         class UserEx < Ice::UserException
             def initialize
             end
@@ -31,13 +31,13 @@ module ::Test
         T_UserEx = ::Ice::__defineException('::Test::UserEx', UserEx, false, nil, [])
     end
 
-    if not defined?(::Test::::T_ByteSeq)
+    if not defined?(::Test::T_ByteSeq)
         T_ByteSeq = ::Ice::__defineSequence('::Test::ByteSeq', ::Ice::T_byte)
     end
 
-    if not defined?(::Test::::Metrics_Mixin)
+    if not defined?(::Test::Metrics_Mixin)
 
-        module ::Test::::Metrics_Mixin
+        module ::Test::Metrics_Mixin
         end
         module MetricsPrx_mixin
 
@@ -83,7 +83,7 @@ module ::Test
             include MetricsPrx_mixin
         end
 
-        if not defined?(::Test::::T_MetricsPrx)
+        if not defined?(::Test::T_MetricsPrx)
             T_Metrics = ::Ice::__declareClass('::Test::Metrics')
             T_MetricsPrx = ::Ice::__declareProxy('::Test::Metrics')
         end
@@ -94,18 +94,18 @@ module ::Test
 
         MetricsPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
         MetricsPrx_mixin::OP_fail = ::Ice::__defineOperation('fail', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, true, nil, [], [], nil, [])
-        MetricsPrx_mixin::OP_opWithUserException = ::Ice::__defineOperation('opWithUserException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [::Test::::T_UserEx])
+        MetricsPrx_mixin::OP_opWithUserException = ::Ice::__defineOperation('opWithUserException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [::Test::T_UserEx])
         MetricsPrx_mixin::OP_opWithRequestFailedException = ::Ice::__defineOperation('opWithRequestFailedException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
         MetricsPrx_mixin::OP_opWithLocalException = ::Ice::__defineOperation('opWithLocalException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
         MetricsPrx_mixin::OP_opWithUnknownException = ::Ice::__defineOperation('opWithUnknownException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
-        MetricsPrx_mixin::OP_opByteS = ::Ice::__defineOperation('opByteS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::::T_ByteSeq, false, 0]], [], nil, [])
+        MetricsPrx_mixin::OP_opByteS = ::Ice::__defineOperation('opByteS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_ByteSeq, false, 0]], [], nil, [])
         MetricsPrx_mixin::OP_getAdmin = ::Ice::__defineOperation('getAdmin', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
         MetricsPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::::Controller_Mixin)
+    if not defined?(::Test::Controller_Mixin)
 
-        module ::Test::::Controller_Mixin
+        module ::Test::Controller_Mixin
         end
         module ControllerPrx_mixin
 
@@ -123,7 +123,7 @@ module ::Test
             include ControllerPrx_mixin
         end
 
-        if not defined?(::Test::::T_ControllerPrx)
+        if not defined?(::Test::T_ControllerPrx)
             T_Controller = ::Ice::__declareClass('::Test::Controller')
             T_ControllerPrx = ::Ice::__declareProxy('::Test::Controller')
         end

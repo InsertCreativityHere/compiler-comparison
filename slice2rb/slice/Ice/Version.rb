@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::Ice
 
-    if not defined?(::Ice::::ProtocolVersion)
+    if not defined?(::Ice::ProtocolVersion)
         class ProtocolVersion
             include ::Ice::Inspect_mixin
             def initialize(major=0, minor=0)
@@ -34,7 +34,7 @@ module ::Ice
             end
 
             def ==(other)
-                return false if !other.is_a? ::Ice::::ProtocolVersion or
+                return false if !other.is_a? ::Ice::ProtocolVersion or
                     @major != other.major or
                     @minor != other.minor
                 true
@@ -53,7 +53,7 @@ module ::Ice
         ])
     end
 
-    if not defined?(::Ice::::EncodingVersion)
+    if not defined?(::Ice::EncodingVersion)
         class EncodingVersion
             include ::Ice::Inspect_mixin
             def initialize(major=0, minor=0)
@@ -69,7 +69,7 @@ module ::Ice
             end
 
             def ==(other)
-                return false if !other.is_a? ::Ice::::EncodingVersion or
+                return false if !other.is_a? ::Ice::EncodingVersion or
                     @major != other.major or
                     @minor != other.minor
                 true

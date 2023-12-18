@@ -21,10 +21,10 @@ module ::Demo
 
     module Gx
 
-        if not defined?(::Demo::Gx::::Circle)
+        if not defined?(::Demo::Gx::Circle)
             class Circle
                 include ::Ice::Inspect_mixin
-                def initialize(center=::Demo::Gx::::Point.new, radius=0)
+                def initialize(center=::Demo::Gx::Point.new, radius=0)
                     @center = center
                     @radius = radius
                 end
@@ -37,7 +37,7 @@ module ::Demo
                 end
 
                 def ==(other)
-                    return false if !other.is_a? ::Demo::Gx::::Circle or
+                    return false if !other.is_a? ::Demo::Gx::Circle or
                         @center != other.center or
                         @radius != other.radius
                     true
@@ -51,7 +51,7 @@ module ::Demo
             end
 
             T_Circle = ::Ice::__defineStruct('::Demo::gx::Circle', Circle, [
-                ["center", ::Demo::Gx::::T_Point],
+                ["center", ::Demo::Gx::T_Point],
                 ["radius", ::Ice::T_long]
             ])
         end

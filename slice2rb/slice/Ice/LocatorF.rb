@@ -18,12 +18,12 @@ require 'Ice'
 
 module ::Ice
 
-    if not defined?(::Ice::::T_Locator)
+    if not defined?(::Ice::T_Locator)
         T_Locator = ::Ice::__declareClass('::Ice::Locator')
         T_LocatorPrx = ::Ice::__declareProxy('::Ice::Locator')
     end
 
-    if not defined?(::Ice::::T_LocatorRegistry)
+    if not defined?(::Ice::T_LocatorRegistry)
         T_LocatorRegistry = ::Ice::__declareClass('::Ice::LocatorRegistry')
         T_LocatorRegistryPrx = ::Ice::__declareProxy('::Ice::LocatorRegistry')
     end

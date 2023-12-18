@@ -18,9 +18,9 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::::Default_Mixin)
+    if not defined?(::Test::Default_Mixin)
 
-        module ::Test::::Default_Mixin
+        module ::Test::Default_Mixin
         end
         class Default < ::Ice::Value
 
@@ -32,7 +32,7 @@ module ::Test
             attr_accessor :x, :y
         end
 
-        if not defined?(::Test::::T_Default)
+        if not defined?(::Test::T_Default)
             T_Default = ::Ice::__declareClass('::Test::Default')
         end
 
@@ -42,9 +42,9 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::::NoDefault_Mixin)
+    if not defined?(::Test::NoDefault_Mixin)
 
-        module ::Test::::NoDefault_Mixin
+        module ::Test::NoDefault_Mixin
         end
         class NoDefault < ::Ice::Value
 
@@ -56,7 +56,7 @@ module ::Test
             attr_accessor :x, :y
         end
 
-        if not defined?(::Test::::T_NoDefault)
+        if not defined?(::Test::T_NoDefault)
             T_NoDefault = ::Ice::__declareClass('::Test::NoDefault')
         end
 
@@ -66,9 +66,9 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::::RubyOnly_Mixin)
+    if not defined?(::Test::RubyOnly_Mixin)
 
-        module ::Test::::RubyOnly_Mixin
+        module ::Test::RubyOnly_Mixin
         end
         class RubyOnly < ::Ice::Value
 
@@ -80,7 +80,7 @@ module ::Test
             attr_accessor :lang, :version
         end
 
-        if not defined?(::Test::::T_RubyOnly)
+        if not defined?(::Test::T_RubyOnly)
             T_RubyOnly = ::Ice::__declareClass('::Test::RubyOnly')
         end
 

@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::::Struct1)
+    if not defined?(::Test::Struct1)
         class Struct1
             include ::Ice::Inspect_mixin
             def initialize(isa=0, retainCount=0)
@@ -34,7 +34,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::::Struct1 or
+                return false if !other.is_a? ::Test::Struct1 or
                     @isa != other.isa or
                     @retainCount != other.retainCount
                 true
@@ -53,7 +53,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::::Exception1)
+    if not defined?(::Test::Exception1)
         class Exception1 < Ice::UserException
             def initialize(isa=0, reason=0, raise=0, name=0, callStackReturnAddresses=0, userInfo=0, reserved=0)
                 @isa = isa
@@ -83,9 +83,9 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::::Class1_Mixin)
+    if not defined?(::Test::Class1_Mixin)
 
-        module ::Test::::Class1_Mixin
+        module ::Test::Class1_Mixin
         end
         class Class1 < ::Ice::Value
 
@@ -112,7 +112,7 @@ module ::Test
             attr_accessor :reason, :isa, :autorelease, :classForCoder, :copy, :dealloc, :description, :_hash, :init, :isProxy, :mutableCopy, :release, :retain, :retainCount, :_self, :superclass, :zone
         end
 
-        if not defined?(::Test::::T_Class1)
+        if not defined?(::Test::T_Class1)
             T_Class1 = ::Ice::__declareClass('::Test::Class1')
         end
 
@@ -137,9 +137,9 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::::Intf1_Mixin)
+    if not defined?(::Test::Intf1_Mixin)
 
-        module ::Test::::Intf1_Mixin
+        module ::Test::Intf1_Mixin
         end
         module Intf1Prx_mixin
 
@@ -217,7 +217,7 @@ module ::Test
             include Intf1Prx_mixin
         end
 
-        if not defined?(::Test::::T_Intf1Prx)
+        if not defined?(::Test::T_Intf1Prx)
             T_Intf1 = ::Ice::__declareClass('::Test::Intf1')
             T_Intf1Prx = ::Ice::__declareProxy('::Test::Intf1')
         end
@@ -245,9 +245,9 @@ module ::Test
         Intf1Prx_mixin::OP_zone = ::Ice::__defineOperation('zone', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::::Intf2_Mixin)
+    if not defined?(::Test::Intf2_Mixin)
 
-        module ::Test::::Intf2_Mixin
+        module ::Test::Intf2_Mixin
         end
         module Intf2Prx_mixin
 
@@ -325,7 +325,7 @@ module ::Test
             include Intf2Prx_mixin
         end
 
-        if not defined?(::Test::::T_Intf2Prx)
+        if not defined?(::Test::T_Intf2Prx)
             T_Intf2 = ::Ice::__declareClass('::Test::Intf2')
             T_Intf2Prx = ::Ice::__declareProxy('::Test::Intf2')
         end

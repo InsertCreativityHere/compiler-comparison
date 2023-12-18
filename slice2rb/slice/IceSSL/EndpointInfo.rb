@@ -19,21 +19,21 @@ require 'Ice/Endpoint.rb'
 
 module ::IceSSL
 
-    if not defined?(::IceSSL::::EndpointInfo_Mixin)
+    if not defined?(::IceSSL::EndpointInfo_Mixin)
 
-        module ::IceSSL::::EndpointInfo_Mixin
+        module ::IceSSL::EndpointInfo_Mixin
         end
-        class EndpointInfo < ::Ice::::EndpointInfo
+        class EndpointInfo < ::Ice::EndpointInfo
 
             def initialize(underlying=nil, timeout=0, compress=false)
                 super(underlying, timeout, compress)
             end
         end
 
-        if not defined?(::IceSSL::::T_EndpointInfo)
+        if not defined?(::IceSSL::T_EndpointInfo)
             T_EndpointInfo = ::Ice::__declareLocalClass('::IceSSL::EndpointInfo')
         end
 
-        T_EndpointInfo.defineClass(EndpointInfo, -1, false, false, ::Ice::::T_EndpointInfo, [])
+        T_EndpointInfo.defineClass(EndpointInfo, -1, false, false, ::Ice::T_EndpointInfo, [])
     end
 end

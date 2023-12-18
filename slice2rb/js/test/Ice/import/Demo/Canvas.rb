@@ -23,9 +23,9 @@ module ::Demo
 
     module Gx
 
-        if not defined?(::Demo::Gx::::Canvas_Mixin)
+        if not defined?(::Demo::Gx::Canvas_Mixin)
 
-            module ::Demo::Gx::::Canvas_Mixin
+            module ::Demo::Gx::Canvas_Mixin
             end
             module CanvasPrx_mixin
 
@@ -43,7 +43,7 @@ module ::Demo
                 include CanvasPrx_mixin
             end
 
-            if not defined?(::Demo::Gx::::T_CanvasPrx)
+            if not defined?(::Demo::Gx::T_CanvasPrx)
                 T_Canvas = ::Ice::__declareClass('::Demo::gx::Canvas')
                 T_CanvasPrx = ::Ice::__declareProxy('::Demo::gx::Canvas')
             end
@@ -52,16 +52,16 @@ module ::Demo
 
             T_CanvasPrx.defineProxy(CanvasPrx, nil, [])
 
-            CanvasPrx_mixin::OP_paintSquare = ::Ice::__defineOperation('paintSquare', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Demo::Gx::::T_Square, false, 0]], [], nil, [])
-            CanvasPrx_mixin::OP_paintCircle = ::Ice::__defineOperation('paintCircle', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Demo::Gx::::T_Circle, false, 0]], [], nil, [])
+            CanvasPrx_mixin::OP_paintSquare = ::Ice::__defineOperation('paintSquare', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Demo::Gx::T_Square, false, 0]], [], nil, [])
+            CanvasPrx_mixin::OP_paintCircle = ::Ice::__defineOperation('paintCircle', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Demo::Gx::T_Circle, false, 0]], [], nil, [])
         end
 
-        if not defined?(::Demo::Gx::::Session_Mixin)
+        if not defined?(::Demo::Gx::Session_Mixin)
 
-            module ::Demo::Gx::::Session_Mixin
+            module ::Demo::Gx::Session_Mixin
             end
             module SessionPrx_mixin
-                include ::Glacier2::::SessionPrx_mixin
+                include ::Glacier2::SessionPrx_mixin
 
                 def destroySession(context=nil)
                     SessionPrx_mixin::OP_destroySession.invoke(self, [], context)
@@ -73,14 +73,14 @@ module ::Demo
                 include SessionPrx_mixin
             end
 
-            if not defined?(::Demo::Gx::::T_SessionPrx)
+            if not defined?(::Demo::Gx::T_SessionPrx)
                 T_Session = ::Ice::__declareClass('::Demo::gx::Session')
                 T_SessionPrx = ::Ice::__declareProxy('::Demo::gx::Session')
             end
 
             T_Session.defineClass(::Ice::Value, -1, false, true, nil, [])
 
-            T_SessionPrx.defineProxy(SessionPrx, nil, [::Glacier2::::T_SessionPrx])
+            T_SessionPrx.defineProxy(SessionPrx, nil, [::Glacier2::T_SessionPrx])
 
             SessionPrx_mixin::OP_destroySession = ::Ice::__defineOperation('destroySession', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         end

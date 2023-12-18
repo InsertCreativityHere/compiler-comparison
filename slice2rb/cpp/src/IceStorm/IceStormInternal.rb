@@ -21,10 +21,10 @@ require 'Ice/Current.rb'
 
 module ::IceStorm
 
-    if not defined?(::IceStorm::::EventData)
+    if not defined?(::IceStorm::EventData)
         class EventData
             include ::Ice::Inspect_mixin
-            def initialize(op='', mode=::Ice::::OperationMode::Normal, data=nil, context=nil)
+            def initialize(op='', mode=::Ice::OperationMode::Normal, data=nil, context=nil)
                 @op = op
                 @mode = mode
                 @data = data
@@ -41,7 +41,7 @@ module ::IceStorm
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceStorm::::EventData or
+                return false if !other.is_a? ::IceStorm::EventData or
                     @op != other.op or
                     @mode != other.mode or
                     @data != other.data or
@@ -58,13 +58,13 @@ module ::IceStorm
 
         T_EventData = ::Ice::__defineStruct('::IceStorm::EventData', EventData, [
             ["op", ::Ice::T_string],
-            ["mode", ::Ice::::T_OperationMode],
-            ["data", ::Ice::::T_ByteSeq],
-            ["context", ::Ice::::T_Context]
+            ["mode", ::Ice::T_OperationMode],
+            ["data", ::Ice::T_ByteSeq],
+            ["context", ::Ice::T_Context]
         ])
     end
 
-    if not defined?(::IceStorm::::SendQueueSizeMaxReached)
+    if not defined?(::IceStorm::SendQueueSizeMaxReached)
         class SendQueueSizeMaxReached < Ice::LocalException
             def initialize
             end
@@ -77,13 +77,13 @@ module ::IceStorm
         T_SendQueueSizeMaxReached = ::Ice::__defineException('::IceStorm::SendQueueSizeMaxReached', SendQueueSizeMaxReached, false, nil, [])
     end
 
-    if not defined?(::IceStorm::::T_EventDataSeq)
-        T_EventDataSeq = ::Ice::__defineSequence('::IceStorm::EventDataSeq', ::IceStorm::::T_EventData)
+    if not defined?(::IceStorm::T_EventDataSeq)
+        T_EventDataSeq = ::Ice::__defineSequence('::IceStorm::EventDataSeq', ::IceStorm::T_EventData)
     end
 
-    if not defined?(::IceStorm::::TopicLink_Mixin)
+    if not defined?(::IceStorm::TopicLink_Mixin)
 
-        module ::IceStorm::::TopicLink_Mixin
+        module ::IceStorm::TopicLink_Mixin
         end
         module TopicLinkPrx_mixin
 
@@ -97,7 +97,7 @@ module ::IceStorm
             include TopicLinkPrx_mixin
         end
 
-        if not defined?(::IceStorm::::T_TopicLinkPrx)
+        if not defined?(::IceStorm::T_TopicLinkPrx)
             T_TopicLink = ::Ice::__declareClass('::IceStorm::TopicLink')
             T_TopicLinkPrx = ::Ice::__declareProxy('::IceStorm::TopicLink')
         end
@@ -106,10 +106,10 @@ module ::IceStorm
 
         T_TopicLinkPrx.defineProxy(TopicLinkPrx, nil, [])
 
-        TopicLinkPrx_mixin::OP_forward = ::Ice::__defineOperation('forward', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceStorm::::T_EventDataSeq, false, 0]], [], nil, [])
+        TopicLinkPrx_mixin::OP_forward = ::Ice::__defineOperation('forward', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceStorm::T_EventDataSeq, false, 0]], [], nil, [])
     end
 
-    if not defined?(::IceStorm::::ReapWouldBlock)
+    if not defined?(::IceStorm::ReapWouldBlock)
         class ReapWouldBlock < Ice::UserException
             def initialize
             end
@@ -122,12 +122,12 @@ module ::IceStorm
         T_ReapWouldBlock = ::Ice::__defineException('::IceStorm::ReapWouldBlock', ReapWouldBlock, false, nil, [])
     end
 
-    if not defined?(::IceStorm::::TopicInternal_Mixin)
+    if not defined?(::IceStorm::TopicInternal_Mixin)
 
-        module ::IceStorm::::TopicInternal_Mixin
+        module ::IceStorm::TopicInternal_Mixin
         end
         module TopicInternalPrx_mixin
-            include ::IceStorm::::TopicPrx_mixin
+            include ::IceStorm::TopicPrx_mixin
 
             def getLinkProxy(context=nil)
                 TopicInternalPrx_mixin::OP_getLinkProxy.invoke(self, [], context)
@@ -143,25 +143,25 @@ module ::IceStorm
             include TopicInternalPrx_mixin
         end
 
-        if not defined?(::IceStorm::::T_TopicInternalPrx)
+        if not defined?(::IceStorm::T_TopicInternalPrx)
             T_TopicInternal = ::Ice::__declareClass('::IceStorm::TopicInternal')
             T_TopicInternalPrx = ::Ice::__declareProxy('::IceStorm::TopicInternal')
         end
 
         T_TopicInternal.defineClass(::Ice::Value, -1, false, true, nil, [])
 
-        T_TopicInternalPrx.defineProxy(TopicInternalPrx, nil, [::IceStorm::::T_TopicPrx])
+        T_TopicInternalPrx.defineProxy(TopicInternalPrx, nil, [::IceStorm::T_TopicPrx])
 
-        TopicInternalPrx_mixin::OP_getLinkProxy = ::Ice::__defineOperation('getLinkProxy', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceStorm::::T_TopicLinkPrx, false, 0], [])
-        TopicInternalPrx_mixin::OP_reap = ::Ice::__defineOperation('reap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::::T_IdentitySeq, false, 0]], [], nil, [::IceStorm::::T_ReapWouldBlock])
+        TopicInternalPrx_mixin::OP_getLinkProxy = ::Ice::__defineOperation('getLinkProxy', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceStorm::T_TopicLinkPrx, false, 0], [])
+        TopicInternalPrx_mixin::OP_reap = ::Ice::__defineOperation('reap', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_IdentitySeq, false, 0]], [], nil, [::IceStorm::T_ReapWouldBlock])
     end
 
-    if not defined?(::IceStorm::::TopicManagerInternal_Mixin)
+    if not defined?(::IceStorm::TopicManagerInternal_Mixin)
 
-        module ::IceStorm::::TopicManagerInternal_Mixin
+        module ::IceStorm::TopicManagerInternal_Mixin
         end
         module TopicManagerInternalPrx_mixin
-            include ::IceStorm::::TopicManagerPrx_mixin
+            include ::IceStorm::TopicManagerPrx_mixin
 
             def getReplicaNode(context=nil)
                 TopicManagerInternalPrx_mixin::OP_getReplicaNode.invoke(self, [], context)
@@ -173,15 +173,15 @@ module ::IceStorm
             include TopicManagerInternalPrx_mixin
         end
 
-        if not defined?(::IceStorm::::T_TopicManagerInternalPrx)
+        if not defined?(::IceStorm::T_TopicManagerInternalPrx)
             T_TopicManagerInternal = ::Ice::__declareClass('::IceStorm::TopicManagerInternal')
             T_TopicManagerInternalPrx = ::Ice::__declareProxy('::IceStorm::TopicManagerInternal')
         end
 
         T_TopicManagerInternal.defineClass(::Ice::Value, -1, false, true, nil, [])
 
-        T_TopicManagerInternalPrx.defineProxy(TopicManagerInternalPrx, nil, [::IceStorm::::T_TopicManagerPrx])
+        T_TopicManagerInternalPrx.defineProxy(TopicManagerInternalPrx, nil, [::IceStorm::T_TopicManagerPrx])
 
-        TopicManagerInternalPrx_mixin::OP_getReplicaNode = ::Ice::__defineOperation('getReplicaNode', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceStormElection::::T_NodePrx, false, 0], [])
+        TopicManagerInternalPrx_mixin::OP_getReplicaNode = ::Ice::__defineOperation('getReplicaNode', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceStormElection::T_NodePrx, false, 0], [])
     end
 end

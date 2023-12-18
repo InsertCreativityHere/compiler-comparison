@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::::UE)
+    if not defined?(::Test::UE)
         class UE < Ice::UserException
             def initialize
             end
@@ -31,9 +31,9 @@ module ::Test
         T_UE = ::Ice::__defineException('::Test::UE', UE, false, nil, [])
     end
 
-    if not defined?(::Test::::Hello_Mixin)
+    if not defined?(::Test::Hello_Mixin)
 
-        module ::Test::::Hello_Mixin
+        module ::Test::Hello_Mixin
         end
         module HelloPrx_mixin
 
@@ -59,7 +59,7 @@ module ::Test
             include HelloPrx_mixin
         end
 
-        if not defined?(::Test::::T_HelloPrx)
+        if not defined?(::Test::T_HelloPrx)
             T_Hello = ::Ice::__declareClass('::Test::Hello')
             T_HelloPrx = ::Ice::__declareProxy('::Test::Hello')
         end
@@ -70,7 +70,7 @@ module ::Test
 
         HelloPrx_mixin::OP_sayHello = ::Ice::__defineOperation('sayHello', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
         HelloPrx_mixin::OP_add = ::Ice::__defineOperation('add', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [])
-        HelloPrx_mixin::OP_raiseUE = ::Ice::__defineOperation('raiseUE', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::::T_UE])
+        HelloPrx_mixin::OP_raiseUE = ::Ice::__defineOperation('raiseUE', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::T_UE])
         HelloPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 end

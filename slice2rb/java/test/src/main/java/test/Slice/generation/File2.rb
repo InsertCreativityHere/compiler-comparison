@@ -18,9 +18,9 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::::Interface2_Mixin)
+    if not defined?(::Test::Interface2_Mixin)
 
-        module ::Test::::Interface2_Mixin
+        module ::Test::Interface2_Mixin
         end
         module Interface2Prx_mixin
 
@@ -34,7 +34,7 @@ module ::Test
             include Interface2Prx_mixin
         end
 
-        if not defined?(::Test::::T_Interface2Prx)
+        if not defined?(::Test::T_Interface2Prx)
             T_Interface2 = ::Ice::__declareClass('::Test::Interface2')
             T_Interface2Prx = ::Ice::__declareProxy('::Test::Interface2')
         end

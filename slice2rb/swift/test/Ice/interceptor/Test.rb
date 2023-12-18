@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::::InvalidInputException)
+    if not defined?(::Test::InvalidInputException)
         class InvalidInputException < Ice::UserException
             def initialize(message='')
                 @message = message
@@ -34,9 +34,9 @@ module ::Test
         T_InvalidInputException = ::Ice::__defineException('::Test::InvalidInputException', InvalidInputException, false, nil, [["message", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::::MyObject_Mixin)
+    if not defined?(::Test::MyObject_Mixin)
 
-        module ::Test::::MyObject_Mixin
+        module ::Test::MyObject_Mixin
         end
         module MyObjectPrx_mixin
 
@@ -78,7 +78,7 @@ module ::Test
             include MyObjectPrx_mixin
         end
 
-        if not defined?(::Test::::T_MyObjectPrx)
+        if not defined?(::Test::T_MyObjectPrx)
             T_MyObject = ::Ice::__declareClass('::Test::MyObject')
             T_MyObjectPrx = ::Ice::__declareProxy('::Test::MyObject')
         end
@@ -89,11 +89,11 @@ module ::Test
 
         MyObjectPrx_mixin::OP_add = ::Ice::__defineOperation('add', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [])
         MyObjectPrx_mixin::OP_addWithRetry = ::Ice::__defineOperation('addWithRetry', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [])
-        MyObjectPrx_mixin::OP_badAdd = ::Ice::__defineOperation('badAdd', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [::Test::::T_InvalidInputException])
+        MyObjectPrx_mixin::OP_badAdd = ::Ice::__defineOperation('badAdd', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [::Test::T_InvalidInputException])
         MyObjectPrx_mixin::OP_notExistAdd = ::Ice::__defineOperation('notExistAdd', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [])
         MyObjectPrx_mixin::OP_amdAdd = ::Ice::__defineOperation('amdAdd', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [])
         MyObjectPrx_mixin::OP_amdAddWithRetry = ::Ice::__defineOperation('amdAddWithRetry', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [])
-        MyObjectPrx_mixin::OP_amdBadAdd = ::Ice::__defineOperation('amdBadAdd', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [::Test::::T_InvalidInputException])
+        MyObjectPrx_mixin::OP_amdBadAdd = ::Ice::__defineOperation('amdBadAdd', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [::Test::T_InvalidInputException])
         MyObjectPrx_mixin::OP_amdNotExistAdd = ::Ice::__defineOperation('amdNotExistAdd', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [])
     end
 end

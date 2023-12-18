@@ -18,9 +18,9 @@ require 'Ice'
 
 module ::NoNamespace
 
-    if not defined?(::NoNamespace::::C1_Mixin)
+    if not defined?(::NoNamespace::C1_Mixin)
 
-        module ::NoNamespace::::C1_Mixin
+        module ::NoNamespace::C1_Mixin
         end
         class C1 < ::Ice::Value
 
@@ -31,18 +31,18 @@ module ::NoNamespace
             attr_accessor :i
         end
 
-        if not defined?(::NoNamespace::::T_C1)
+        if not defined?(::NoNamespace::T_C1)
             T_C1 = ::Ice::__declareClass('::NoNamespace::C1')
         end
 
         T_C1.defineClass(C1, -1, false, false, nil, [['i', ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::NoNamespace::::C2_Mixin)
+    if not defined?(::NoNamespace::C2_Mixin)
 
-        module ::NoNamespace::::C2_Mixin
+        module ::NoNamespace::C2_Mixin
         end
-        class C2 < ::NoNamespace::::C1
+        class C2 < ::NoNamespace::C1
 
             def initialize(i=0, l=0)
                 super(i)
@@ -52,14 +52,14 @@ module ::NoNamespace
             attr_accessor :l
         end
 
-        if not defined?(::NoNamespace::::T_C2)
+        if not defined?(::NoNamespace::T_C2)
             T_C2 = ::Ice::__declareClass('::NoNamespace::C2')
         end
 
-        T_C2.defineClass(C2, -1, false, false, ::NoNamespace::::T_C1, [['l', ::Ice::T_long, false, 0]])
+        T_C2.defineClass(C2, -1, false, false, ::NoNamespace::T_C1, [['l', ::Ice::T_long, false, 0]])
     end
 
-    if not defined?(::NoNamespace::::E1)
+    if not defined?(::NoNamespace::E1)
         class E1 < Ice::UserException
             def initialize(i=0)
                 @i = i
@@ -75,8 +75,8 @@ module ::NoNamespace
         T_E1 = ::Ice::__defineException('::NoNamespace::E1', E1, false, nil, [["i", ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::NoNamespace::::E2)
-        class E2 < ::NoNamespace::::E1
+    if not defined?(::NoNamespace::E2)
+        class E2 < ::NoNamespace::E1
             def initialize(i=0, l=0)
                 super(i)
                 @l = l
@@ -89,10 +89,10 @@ module ::NoNamespace
             attr_accessor :l
         end
 
-        T_E2 = ::Ice::__defineException('::NoNamespace::E2', E2, false, ::NoNamespace::::T_E1, [["l", ::Ice::T_long, false, 0]])
+        T_E2 = ::Ice::__defineException('::NoNamespace::E2', E2, false, ::NoNamespace::T_E1, [["l", ::Ice::T_long, false, 0]])
     end
 
-    if not defined?(::NoNamespace::::Notify)
+    if not defined?(::NoNamespace::Notify)
         class Notify < Ice::UserException
             def initialize(i=0)
                 @i = i

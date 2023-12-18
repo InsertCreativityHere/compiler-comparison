@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::::UserError)
+    if not defined?(::Test::UserError)
         class UserError < Ice::UserException
             def initialize(message='')
                 @message = message
@@ -34,9 +34,9 @@ module ::Test
         T_UserError = ::Ice::__defineException('::Test::UserError', UserError, false, nil, [["message", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::::MyInterface_Mixin)
+    if not defined?(::Test::MyInterface_Mixin)
 
-        module ::Test::::MyInterface_Mixin
+        module ::Test::MyInterface_Mixin
         end
         module MyInterfacePrx_mixin
 
@@ -50,7 +50,7 @@ module ::Test
             include MyInterfacePrx_mixin
         end
 
-        if not defined?(::Test::::T_MyInterfacePrx)
+        if not defined?(::Test::T_MyInterfacePrx)
             T_MyInterface = ::Ice::__declareClass('::Test::MyInterface')
             T_MyInterfacePrx = ::Ice::__declareProxy('::Test::MyInterface')
         end
@@ -59,6 +59,6 @@ module ::Test
 
         T_MyInterfacePrx.defineProxy(MyInterfacePrx, nil, [])
 
-        MyInterfacePrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0]], [], nil, [::Test::::T_UserError])
+        MyInterfacePrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0]], [], nil, [::Test::T_UserError])
     end
 end

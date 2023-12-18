@@ -31,11 +31,11 @@ require 'Connection.rb'
 
 module ::Ice
 
-    if not defined?(::Ice::::T_Communicator)
+    if not defined?(::Ice::T_Communicator)
         T_Communicator = ::Ice::__declareLocalClass('::Ice::Communicator')
     end
 
-    if not defined?(::Ice::::ToStringMode)
+    if not defined?(::Ice::ToStringMode)
         class ToStringMode
             include Comparable
 

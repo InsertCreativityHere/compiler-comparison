@@ -18,9 +18,9 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::::TestIntf_Mixin)
+    if not defined?(::Test::TestIntf_Mixin)
 
-        module ::Test::::TestIntf_Mixin
+        module ::Test::TestIntf_Mixin
         end
         module TestIntfPrx_mixin
 
@@ -34,7 +34,7 @@ module ::Test
             include TestIntfPrx_mixin
         end
 
-        if not defined?(::Test::::T_TestIntfPrx)
+        if not defined?(::Test::T_TestIntfPrx)
             T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
@@ -46,9 +46,9 @@ module ::Test
         TestIntfPrx_mixin::OP_getAdapterId = ::Ice::__defineOperation('getAdapterId', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
     end
 
-    if not defined?(::Test::::Controller_Mixin)
+    if not defined?(::Test::Controller_Mixin)
 
-        module ::Test::::Controller_Mixin
+        module ::Test::Controller_Mixin
         end
         module ControllerPrx_mixin
 
@@ -78,7 +78,7 @@ module ::Test
             include ControllerPrx_mixin
         end
 
-        if not defined?(::Test::::T_ControllerPrx)
+        if not defined?(::Test::T_ControllerPrx)
             T_Controller = ::Ice::__declareClass('::Test::Controller')
             T_ControllerPrx = ::Ice::__declareProxy('::Test::Controller')
         end

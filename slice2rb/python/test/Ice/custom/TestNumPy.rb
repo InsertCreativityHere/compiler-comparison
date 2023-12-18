@@ -20,69 +20,69 @@ module ::Test
 
     module NumPy
 
-        if not defined?(::Test::NumPy::::T_BoolSeq1)
+        if not defined?(::Test::NumPy::T_BoolSeq1)
             T_BoolSeq1 = ::Ice::__defineSequence('::Test::NumPy::BoolSeq1', ::Ice::T_bool)
         end
 
-        if not defined?(::Test::NumPy::::T_BoolSeq2)
+        if not defined?(::Test::NumPy::T_BoolSeq2)
             T_BoolSeq2 = ::Ice::__defineSequence('::Test::NumPy::BoolSeq2', ::Ice::T_bool)
         end
 
-        if not defined?(::Test::NumPy::::T_ByteSeq1)
+        if not defined?(::Test::NumPy::T_ByteSeq1)
             T_ByteSeq1 = ::Ice::__defineSequence('::Test::NumPy::ByteSeq1', ::Ice::T_byte)
         end
 
-        if not defined?(::Test::NumPy::::T_ByteSeq2)
+        if not defined?(::Test::NumPy::T_ByteSeq2)
             T_ByteSeq2 = ::Ice::__defineSequence('::Test::NumPy::ByteSeq2', ::Ice::T_byte)
         end
 
-        if not defined?(::Test::NumPy::::T_ShortSeq1)
+        if not defined?(::Test::NumPy::T_ShortSeq1)
             T_ShortSeq1 = ::Ice::__defineSequence('::Test::NumPy::ShortSeq1', ::Ice::T_short)
         end
 
-        if not defined?(::Test::NumPy::::T_ShortSeq2)
+        if not defined?(::Test::NumPy::T_ShortSeq2)
             T_ShortSeq2 = ::Ice::__defineSequence('::Test::NumPy::ShortSeq2', ::Ice::T_short)
         end
 
-        if not defined?(::Test::NumPy::::T_IntSeq1)
+        if not defined?(::Test::NumPy::T_IntSeq1)
             T_IntSeq1 = ::Ice::__defineSequence('::Test::NumPy::IntSeq1', ::Ice::T_int)
         end
 
-        if not defined?(::Test::NumPy::::T_IntSeq2)
+        if not defined?(::Test::NumPy::T_IntSeq2)
             T_IntSeq2 = ::Ice::__defineSequence('::Test::NumPy::IntSeq2', ::Ice::T_int)
         end
 
-        if not defined?(::Test::NumPy::::T_LongSeq1)
+        if not defined?(::Test::NumPy::T_LongSeq1)
             T_LongSeq1 = ::Ice::__defineSequence('::Test::NumPy::LongSeq1', ::Ice::T_long)
         end
 
-        if not defined?(::Test::NumPy::::T_LongSeq2)
+        if not defined?(::Test::NumPy::T_LongSeq2)
             T_LongSeq2 = ::Ice::__defineSequence('::Test::NumPy::LongSeq2', ::Ice::T_long)
         end
 
-        if not defined?(::Test::NumPy::::T_FloatSeq1)
+        if not defined?(::Test::NumPy::T_FloatSeq1)
             T_FloatSeq1 = ::Ice::__defineSequence('::Test::NumPy::FloatSeq1', ::Ice::T_float)
         end
 
-        if not defined?(::Test::NumPy::::T_FloatSeq2)
+        if not defined?(::Test::NumPy::T_FloatSeq2)
             T_FloatSeq2 = ::Ice::__defineSequence('::Test::NumPy::FloatSeq2', ::Ice::T_float)
         end
 
-        if not defined?(::Test::NumPy::::T_DoubleSeq1)
+        if not defined?(::Test::NumPy::T_DoubleSeq1)
             T_DoubleSeq1 = ::Ice::__defineSequence('::Test::NumPy::DoubleSeq1', ::Ice::T_double)
         end
 
-        if not defined?(::Test::NumPy::::T_DoubleSeq2)
+        if not defined?(::Test::NumPy::T_DoubleSeq2)
             T_DoubleSeq2 = ::Ice::__defineSequence('::Test::NumPy::DoubleSeq2', ::Ice::T_double)
         end
 
-        if not defined?(::Test::NumPy::::T_Complex128Seq)
+        if not defined?(::Test::NumPy::T_Complex128Seq)
             T_Complex128Seq = ::Ice::__defineSequence('::Test::NumPy::Complex128Seq', ::Ice::T_byte)
         end
 
-        if not defined?(::Test::NumPy::::D_Mixin)
+        if not defined?(::Test::NumPy::D_Mixin)
 
-            module ::Test::NumPy::::D_Mixin
+            module ::Test::NumPy::D_Mixin
             end
             class D < ::Ice::Value
 
@@ -99,24 +99,24 @@ module ::Test
                 attr_accessor :boolSeq, :byteSeq, :shortSeq, :intSeq, :longSeq, :floatSeq, :doubleSeq
             end
 
-            if not defined?(::Test::NumPy::::T_D)
+            if not defined?(::Test::NumPy::T_D)
                 T_D = ::Ice::__declareClass('::Test::NumPy::D')
             end
 
             T_D.defineClass(D, -1, false, false, nil, [
-                ['boolSeq', ::Test::NumPy::::T_BoolSeq1, true, 1],
-                ['byteSeq', ::Test::NumPy::::T_ByteSeq1, true, 2],
-                ['shortSeq', ::Test::NumPy::::T_ShortSeq1, true, 3],
-                ['intSeq', ::Test::NumPy::::T_IntSeq1, true, 4],
-                ['longSeq', ::Test::NumPy::::T_LongSeq1, true, 5],
-                ['floatSeq', ::Test::NumPy::::T_FloatSeq1, true, 6],
-                ['doubleSeq', ::Test::NumPy::::T_DoubleSeq1, true, 7]
+                ['boolSeq', ::Test::NumPy::T_BoolSeq1, true, 1],
+                ['byteSeq', ::Test::NumPy::T_ByteSeq1, true, 2],
+                ['shortSeq', ::Test::NumPy::T_ShortSeq1, true, 3],
+                ['intSeq', ::Test::NumPy::T_IntSeq1, true, 4],
+                ['longSeq', ::Test::NumPy::T_LongSeq1, true, 5],
+                ['floatSeq', ::Test::NumPy::T_FloatSeq1, true, 6],
+                ['doubleSeq', ::Test::NumPy::T_DoubleSeq1, true, 7]
             ])
         end
 
-        if not defined?(::Test::NumPy::::Custom_Mixin)
+        if not defined?(::Test::NumPy::Custom_Mixin)
 
-            module ::Test::NumPy::::Custom_Mixin
+            module ::Test::NumPy::Custom_Mixin
             end
             module CustomPrx_mixin
 
@@ -198,7 +198,7 @@ module ::Test
                 include CustomPrx_mixin
             end
 
-            if not defined?(::Test::NumPy::::T_CustomPrx)
+            if not defined?(::Test::NumPy::T_CustomPrx)
                 T_Custom = ::Ice::__declareClass('::Test::NumPy::Custom')
                 T_CustomPrx = ::Ice::__declareProxy('::Test::NumPy::Custom')
             end
@@ -207,23 +207,23 @@ module ::Test
 
             T_CustomPrx.defineProxy(CustomPrx, nil, [])
 
-            CustomPrx_mixin::OP_opBoolSeq = ::Ice::__defineOperation('opBoolSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::NumPy::::T_BoolSeq1, false, 0]], [[::Test::NumPy::::T_BoolSeq2, false, 0]], [::Test::NumPy::::T_BoolSeq1, false, 0], [])
-            CustomPrx_mixin::OP_opByteSeq = ::Ice::__defineOperation('opByteSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::NumPy::::T_ByteSeq1, false, 0]], [[::Test::NumPy::::T_ByteSeq2, false, 0]], [::Test::NumPy::::T_ByteSeq1, false, 0], [])
-            CustomPrx_mixin::OP_opShortSeq = ::Ice::__defineOperation('opShortSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::NumPy::::T_ShortSeq1, false, 0]], [[::Test::NumPy::::T_ShortSeq2, false, 0]], [::Test::NumPy::::T_ShortSeq1, false, 0], [])
-            CustomPrx_mixin::OP_opIntSeq = ::Ice::__defineOperation('opIntSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::NumPy::::T_IntSeq1, false, 0]], [[::Test::NumPy::::T_IntSeq2, false, 0]], [::Test::NumPy::::T_IntSeq1, false, 0], [])
-            CustomPrx_mixin::OP_opLongSeq = ::Ice::__defineOperation('opLongSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::NumPy::::T_LongSeq1, false, 0]], [[::Test::NumPy::::T_LongSeq2, false, 0]], [::Test::NumPy::::T_LongSeq1, false, 0], [])
-            CustomPrx_mixin::OP_opFloatSeq = ::Ice::__defineOperation('opFloatSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::NumPy::::T_FloatSeq1, false, 0]], [[::Test::NumPy::::T_FloatSeq2, false, 0]], [::Test::NumPy::::T_FloatSeq1, false, 0], [])
-            CustomPrx_mixin::OP_opDoubleSeq = ::Ice::__defineOperation('opDoubleSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::NumPy::::T_DoubleSeq1, false, 0]], [[::Test::NumPy::::T_DoubleSeq2, false, 0]], [::Test::NumPy::::T_DoubleSeq1, false, 0], [])
-            CustomPrx_mixin::OP_opComplex128Seq = ::Ice::__defineOperation('opComplex128Seq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::NumPy::::T_Complex128Seq, false, 0]], [], [::Test::NumPy::::T_Complex128Seq, false, 0], [])
-            CustomPrx_mixin::OP_opBoolMatrix = ::Ice::__defineOperation('opBoolMatrix', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::NumPy::::T_BoolSeq1, false, 0], [])
-            CustomPrx_mixin::OP_opByteMatrix = ::Ice::__defineOperation('opByteMatrix', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::NumPy::::T_ByteSeq1, false, 0], [])
-            CustomPrx_mixin::OP_opShortMatrix = ::Ice::__defineOperation('opShortMatrix', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::NumPy::::T_ShortSeq1, false, 0], [])
-            CustomPrx_mixin::OP_opIntMatrix = ::Ice::__defineOperation('opIntMatrix', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::NumPy::::T_IntSeq1, false, 0], [])
-            CustomPrx_mixin::OP_opLongMatrix = ::Ice::__defineOperation('opLongMatrix', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::NumPy::::T_LongSeq1, false, 0], [])
-            CustomPrx_mixin::OP_opFloatMatrix = ::Ice::__defineOperation('opFloatMatrix', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::NumPy::::T_FloatSeq1, false, 0], [])
-            CustomPrx_mixin::OP_opDoubleMatrix = ::Ice::__defineOperation('opDoubleMatrix', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::NumPy::::T_DoubleSeq1, false, 0], [])
-            CustomPrx_mixin::OP_opBogusNumpyArrayType = ::Ice::__defineOperation('opBogusNumpyArrayType', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::NumPy::::T_BoolSeq1, false, 0], [])
-            CustomPrx_mixin::OP_opD = ::Ice::__defineOperation('opD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::NumPy::::T_D, false, 0]], [], [::Test::NumPy::::T_D, false, 0], [])
+            CustomPrx_mixin::OP_opBoolSeq = ::Ice::__defineOperation('opBoolSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::NumPy::T_BoolSeq1, false, 0]], [[::Test::NumPy::T_BoolSeq2, false, 0]], [::Test::NumPy::T_BoolSeq1, false, 0], [])
+            CustomPrx_mixin::OP_opByteSeq = ::Ice::__defineOperation('opByteSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::NumPy::T_ByteSeq1, false, 0]], [[::Test::NumPy::T_ByteSeq2, false, 0]], [::Test::NumPy::T_ByteSeq1, false, 0], [])
+            CustomPrx_mixin::OP_opShortSeq = ::Ice::__defineOperation('opShortSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::NumPy::T_ShortSeq1, false, 0]], [[::Test::NumPy::T_ShortSeq2, false, 0]], [::Test::NumPy::T_ShortSeq1, false, 0], [])
+            CustomPrx_mixin::OP_opIntSeq = ::Ice::__defineOperation('opIntSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::NumPy::T_IntSeq1, false, 0]], [[::Test::NumPy::T_IntSeq2, false, 0]], [::Test::NumPy::T_IntSeq1, false, 0], [])
+            CustomPrx_mixin::OP_opLongSeq = ::Ice::__defineOperation('opLongSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::NumPy::T_LongSeq1, false, 0]], [[::Test::NumPy::T_LongSeq2, false, 0]], [::Test::NumPy::T_LongSeq1, false, 0], [])
+            CustomPrx_mixin::OP_opFloatSeq = ::Ice::__defineOperation('opFloatSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::NumPy::T_FloatSeq1, false, 0]], [[::Test::NumPy::T_FloatSeq2, false, 0]], [::Test::NumPy::T_FloatSeq1, false, 0], [])
+            CustomPrx_mixin::OP_opDoubleSeq = ::Ice::__defineOperation('opDoubleSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::NumPy::T_DoubleSeq1, false, 0]], [[::Test::NumPy::T_DoubleSeq2, false, 0]], [::Test::NumPy::T_DoubleSeq1, false, 0], [])
+            CustomPrx_mixin::OP_opComplex128Seq = ::Ice::__defineOperation('opComplex128Seq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::NumPy::T_Complex128Seq, false, 0]], [], [::Test::NumPy::T_Complex128Seq, false, 0], [])
+            CustomPrx_mixin::OP_opBoolMatrix = ::Ice::__defineOperation('opBoolMatrix', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::NumPy::T_BoolSeq1, false, 0], [])
+            CustomPrx_mixin::OP_opByteMatrix = ::Ice::__defineOperation('opByteMatrix', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::NumPy::T_ByteSeq1, false, 0], [])
+            CustomPrx_mixin::OP_opShortMatrix = ::Ice::__defineOperation('opShortMatrix', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::NumPy::T_ShortSeq1, false, 0], [])
+            CustomPrx_mixin::OP_opIntMatrix = ::Ice::__defineOperation('opIntMatrix', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::NumPy::T_IntSeq1, false, 0], [])
+            CustomPrx_mixin::OP_opLongMatrix = ::Ice::__defineOperation('opLongMatrix', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::NumPy::T_LongSeq1, false, 0], [])
+            CustomPrx_mixin::OP_opFloatMatrix = ::Ice::__defineOperation('opFloatMatrix', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::NumPy::T_FloatSeq1, false, 0], [])
+            CustomPrx_mixin::OP_opDoubleMatrix = ::Ice::__defineOperation('opDoubleMatrix', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::NumPy::T_DoubleSeq1, false, 0], [])
+            CustomPrx_mixin::OP_opBogusNumpyArrayType = ::Ice::__defineOperation('opBogusNumpyArrayType', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::NumPy::T_BoolSeq1, false, 0], [])
+            CustomPrx_mixin::OP_opD = ::Ice::__defineOperation('opD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::NumPy::T_D, false, 0]], [], [::Test::NumPy::T_D, false, 0], [])
             CustomPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         end
     end

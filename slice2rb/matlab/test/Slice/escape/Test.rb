@@ -20,7 +20,7 @@ module ::Classdef
 
     module Break
 
-        if not defined?(::Classdef::Break::::Bitand)
+        if not defined?(::Classdef::Break::Bitand)
             class Bitand
                 include Comparable
 
@@ -99,10 +99,10 @@ module ::Classdef
             T_Bitand = ::Ice::__defineEnum('::classdef::break::bitand', Bitand, Bitand::_enumerators)
         end
 
-        if not defined?(::Classdef::Break::::Bitor)
+        if not defined?(::Classdef::Break::Bitor)
             class Bitor
                 include ::Ice::Inspect_mixin
-                def initialize(_case=::Classdef::Break::Bitand::::Catch, continue=1, eq=2, ne=3)
+                def initialize(_case=::Classdef::Break::Bitand::Catch, continue=1, eq=2, ne=3)
                     @_case = _case
                     @continue = continue
                     @eq = eq
@@ -119,7 +119,7 @@ module ::Classdef
                 end
 
                 def ==(other)
-                    return false if !other.is_a? ::Classdef::Break::::Bitor or
+                    return false if !other.is_a? ::Classdef::Break::Bitor or
                         @_case != other._case or
                         @continue != other.continue or
                         @eq != other.eq or
@@ -135,20 +135,20 @@ module ::Classdef
             end
 
             T_Bitor = ::Ice::__defineStruct('::classdef::break::bitor', Bitor, [
-                ["_case", ::Classdef::Break::::T_Bitand],
+                ["_case", ::Classdef::Break::T_Bitand],
                 ["continue", ::Ice::T_int],
                 ["eq", ::Ice::T_int],
                 ["ne", ::Ice::T_int]
             ])
         end
 
-        if not defined?(::Classdef::Break::::Logical_Mixin)
+        if not defined?(::Classdef::Break::Logical_Mixin)
 
-            module ::Classdef::Break::::Logical_Mixin
+            module ::Classdef::Break::Logical_Mixin
             end
             class Logical < ::Ice::Value
 
-                def initialize(_else=::Classdef::Break::Bitand::::Enumeration, _for=::Classdef::Break::::Bitor.new, int64=true)
+                def initialize(_else=::Classdef::Break::Bitand::Enumeration, _for=::Classdef::Break::Bitor.new, int64=true)
                     @_else = _else
                     @_for = _for
                     @int64 = int64
@@ -157,24 +157,24 @@ module ::Classdef
                 attr_accessor :_else, :_for, :int64
             end
 
-            if not defined?(::Classdef::Break::::T_Logical)
+            if not defined?(::Classdef::Break::T_Logical)
                 T_Logical = ::Ice::__declareClass('::classdef::break::logical')
             end
 
             T_Logical.defineClass(Logical, -1, false, false, nil, [
-                ['_else', ::Classdef::Break::::T_Bitand, false, 0],
-                ['_for', ::Classdef::Break::::T_Bitor, false, 0],
+                ['_else', ::Classdef::Break::T_Bitand, false, 0],
+                ['_for', ::Classdef::Break::T_Bitor, false, 0],
                 ['int64', ::Ice::T_bool, false, 0]
             ])
         end
 
-        if not defined?(::Classdef::Break::::Xor_Mixin)
+        if not defined?(::Classdef::Break::Xor_Mixin)
 
-            module ::Classdef::Break::::Xor_Mixin
+            module ::Classdef::Break::Xor_Mixin
             end
-            class Xor < ::Classdef::Break::::Logical
+            class Xor < ::Classdef::Break::Logical
 
-                def initialize(_else=::Classdef::Break::Bitand::::Enumeration, _for=::Classdef::Break::::Bitor.new, int64=true, _return=1)
+                def initialize(_else=::Classdef::Break::Bitand::Enumeration, _for=::Classdef::Break::Bitor.new, int64=true, _return=1)
                     super(_else, _for, int64)
                     @_return = _return
                 end
@@ -182,24 +182,24 @@ module ::Classdef
                 attr_accessor :_return
             end
 
-            if not defined?(::Classdef::Break::::T_Xor)
+            if not defined?(::Classdef::Break::T_Xor)
                 T_Xor = ::Ice::__declareClass('::classdef::break::xor')
             end
 
-            T_Xor.defineClass(Xor, -1, false, false, ::Classdef::Break::::T_Logical, [['_return', ::Ice::T_int, false, 0]])
+            T_Xor.defineClass(Xor, -1, false, false, ::Classdef::Break::T_Logical, [['_return', ::Ice::T_int, false, 0]])
         end
 
-        if not defined?(::Classdef::Break::::T_Parfor)
-            T_Parfor = ::Ice::__defineSequence('::classdef::break::parfor', ::Classdef::Break::::T_Bitor)
+        if not defined?(::Classdef::Break::T_Parfor)
+            T_Parfor = ::Ice::__defineSequence('::classdef::break::parfor', ::Classdef::Break::T_Bitor)
         end
 
-        if not defined?(::Classdef::Break::::T_Switch)
-            T_Switch = ::Ice::__defineDictionary('::classdef::break::switch', ::Ice::T_int, ::Classdef::Break::::T_Bitor)
+        if not defined?(::Classdef::Break::T_Switch)
+            T_Switch = ::Ice::__defineDictionary('::classdef::break::switch', ::Ice::T_int, ::Classdef::Break::T_Bitor)
         end
 
-        if not defined?(::Classdef::Break::::Try_Mixin)
+        if not defined?(::Classdef::Break::Try_Mixin)
 
-            module ::Classdef::Break::::Try_Mixin
+            module ::Classdef::Break::Try_Mixin
             end
             class Try < ::Ice::Value
 
@@ -211,7 +211,7 @@ module ::Classdef
                 attr_accessor :_while, :delete
             end
 
-            if not defined?(::Classdef::Break::::T_Try)
+            if not defined?(::Classdef::Break::T_Try)
                 T_Try = ::Ice::__declareClass('::classdef::break::try')
             end
 
@@ -221,11 +221,11 @@ module ::Classdef
             ])
         end
 
-        if not defined?(::Classdef::Break::::Properties_Mixin)
+        if not defined?(::Classdef::Break::Properties_Mixin)
 
-            module ::Classdef::Break::::Properties_Mixin
+            module ::Classdef::Break::Properties_Mixin
             end
-            class Properties < ::Classdef::Break::::Try
+            class Properties < ::Classdef::Break::Try
 
                 def initialize(_while=1, delete=2, _if=2, catch=nil, spmd=nil, otherwise=nil)
                     super(_while, delete)
@@ -238,19 +238,19 @@ module ::Classdef
                 attr_accessor :_if, :catch, :spmd, :otherwise
             end
 
-            if not defined?(::Classdef::Break::::T_Properties)
+            if not defined?(::Classdef::Break::T_Properties)
                 T_Properties = ::Ice::__declareClass('::classdef::break::properties')
             end
 
-            T_Properties.defineClass(Properties, -1, false, false, ::Classdef::Break::::T_Try, [
+            T_Properties.defineClass(Properties, -1, false, false, ::Classdef::Break::T_Try, [
                 ['_if', ::Ice::T_int, false, 0],
-                ['catch', ::Classdef::Break::::T_Xor, false, 0],
-                ['spmd', ::Classdef::Break::::T_Parfor, false, 0],
-                ['otherwise', ::Classdef::Break::::T_Switch, false, 0]
+                ['catch', ::Classdef::Break::T_Xor, false, 0],
+                ['spmd', ::Classdef::Break::T_Parfor, false, 0],
+                ['otherwise', ::Classdef::Break::T_Switch, false, 0]
             ])
         end
 
-        if not defined?(::Classdef::Break::::Persistent)
+        if not defined?(::Classdef::Break::Persistent)
             class Persistent < Ice::UserException
                 def initialize(identifier="1", message="2", stack="3", cause="4", type="5", _end=nil)
                     @identifier = identifier
@@ -274,12 +274,12 @@ module ::Classdef
                 ["stack", ::Ice::T_string, false, 0],
                 ["cause", ::Ice::T_string, false, 0],
                 ["type", ::Ice::T_string, false, 0],
-                ["_end", ::Classdef::Break::::T_Logical, false, 0]
+                ["_end", ::Classdef::Break::T_Logical, false, 0]
             ])
         end
 
-        if not defined?(::Classdef::Break::::Global)
-            class Global < ::Classdef::Break::::Persistent
+        if not defined?(::Classdef::Break::Global)
+            class Global < ::Classdef::Break::Persistent
                 def initialize(identifier="1", message="2", stack="3", cause="4", type="5", _end=nil, enumeration=1)
                     super(identifier, message, stack, cause, type, _end)
                     @enumeration = enumeration
@@ -292,12 +292,12 @@ module ::Classdef
                 attr_accessor :enumeration
             end
 
-            T_Global = ::Ice::__defineException('::classdef::break::global', Global, false, ::Classdef::Break::::T_Persistent, [["enumeration", ::Ice::T_int, false, 0]])
+            T_Global = ::Ice::__defineException('::classdef::break::global', Global, false, ::Classdef::Break::T_Persistent, [["enumeration", ::Ice::T_int, false, 0]])
         end
 
-        if not defined?(::Classdef::Break::::Elseif_Mixin)
+        if not defined?(::Classdef::Break::Elseif_Mixin)
 
-            module ::Classdef::Break::::Elseif_Mixin
+            module ::Classdef::Break::Elseif_Mixin
             end
             module ElseifPrx_mixin
 
@@ -323,7 +323,7 @@ module ::Classdef
                 include ElseifPrx_mixin
             end
 
-            if not defined?(::Classdef::Break::::T_ElseifPrx)
+            if not defined?(::Classdef::Break::T_ElseifPrx)
                 T_Elseif = ::Ice::__declareClass('::classdef::break::elseif')
                 T_ElseifPrx = ::Ice::__declareProxy('::classdef::break::elseif')
             end

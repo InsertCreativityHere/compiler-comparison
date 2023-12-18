@@ -18,9 +18,9 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::::Hold_Mixin)
+    if not defined?(::Test::Hold_Mixin)
 
-        module ::Test::::Hold_Mixin
+        module ::Test::Hold_Mixin
         end
         module HoldPrx_mixin
 
@@ -50,7 +50,7 @@ module ::Test
             include HoldPrx_mixin
         end
 
-        if not defined?(::Test::::T_HoldPrx)
+        if not defined?(::Test::T_HoldPrx)
             T_Hold = ::Ice::__declareClass('::Test::Hold')
             T_HoldPrx = ::Ice::__declareProxy('::Test::Hold')
         end

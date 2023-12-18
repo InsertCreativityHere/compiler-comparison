@@ -19,11 +19,11 @@ require 'Test.rb'
 
 module ::Test
 
-    if not defined?(::Test::::D3_Mixin)
+    if not defined?(::Test::D3_Mixin)
 
-        module ::Test::::D3_Mixin
+        module ::Test::D3_Mixin
         end
-        class D3 < ::Test::::B
+        class D3 < ::Test::B
 
             def initialize(sb='', pb=nil, sd3='', pd3=nil)
                 super(sb, pb)
@@ -34,21 +34,21 @@ module ::Test
             attr_accessor :sd3, :pd3
         end
 
-        if not defined?(::Test::::T_D3)
+        if not defined?(::Test::T_D3)
             T_D3 = ::Ice::__declareClass('::Test::D3')
         end
 
-        T_D3.defineClass(D3, -1, false, false, ::Test::::T_B, [
+        T_D3.defineClass(D3, -1, false, false, ::Test::T_B, [
             ['sd3', ::Ice::T_string, false, 0],
-            ['pd3', ::Test::::T_B, false, 0]
+            ['pd3', ::Test::T_B, false, 0]
         ])
     end
 
-    if not defined?(::Test::::PCUnknown_Mixin)
+    if not defined?(::Test::PCUnknown_Mixin)
 
-        module ::Test::::PCUnknown_Mixin
+        module ::Test::PCUnknown_Mixin
         end
-        class PCUnknown < ::Test::::PBase
+        class PCUnknown < ::Test::PBase
 
             def initialize(pi=0, pu='')
                 super(pi)
@@ -58,18 +58,18 @@ module ::Test
             attr_accessor :pu
         end
 
-        if not defined?(::Test::::T_PCUnknown)
+        if not defined?(::Test::T_PCUnknown)
             T_PCUnknown = ::Ice::__declareClass('::Test::PCUnknown')
         end
 
-        T_PCUnknown.defineClass(PCUnknown, -1, true, false, ::Test::::T_PBase, [['pu', ::Ice::T_string, false, 0]])
+        T_PCUnknown.defineClass(PCUnknown, -1, true, false, ::Test::T_PBase, [['pu', ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::::PCDerived_Mixin)
+    if not defined?(::Test::PCDerived_Mixin)
 
-        module ::Test::::PCDerived_Mixin
+        module ::Test::PCDerived_Mixin
         end
-        class PCDerived < ::Test::::PDerived
+        class PCDerived < ::Test::PDerived
 
             def initialize(pi=0, ps='', pb=nil, pbs=nil)
                 super(pi, ps, pb)
@@ -79,18 +79,18 @@ module ::Test
             attr_accessor :pbs
         end
 
-        if not defined?(::Test::::T_PCDerived)
+        if not defined?(::Test::T_PCDerived)
             T_PCDerived = ::Ice::__declareClass('::Test::PCDerived')
         end
 
-        T_PCDerived.defineClass(PCDerived, -1, true, false, ::Test::::T_PDerived, [['pbs', ::Test::::T_PBaseSeq, false, 0]])
+        T_PCDerived.defineClass(PCDerived, -1, true, false, ::Test::T_PDerived, [['pbs', ::Test::T_PBaseSeq, false, 0]])
     end
 
-    if not defined?(::Test::::PCDerived2_Mixin)
+    if not defined?(::Test::PCDerived2_Mixin)
 
-        module ::Test::::PCDerived2_Mixin
+        module ::Test::PCDerived2_Mixin
         end
-        class PCDerived2 < ::Test::::PCDerived
+        class PCDerived2 < ::Test::PCDerived
 
             def initialize(pi=0, ps='', pb=nil, pbs=nil, pcd2=0)
                 super(pi, ps, pb, pbs)
@@ -100,18 +100,18 @@ module ::Test
             attr_accessor :pcd2
         end
 
-        if not defined?(::Test::::T_PCDerived2)
+        if not defined?(::Test::T_PCDerived2)
             T_PCDerived2 = ::Ice::__declareClass('::Test::PCDerived2')
         end
 
-        T_PCDerived2.defineClass(PCDerived2, -1, true, false, ::Test::::T_PCDerived, [['pcd2', ::Ice::T_int, false, 0]])
+        T_PCDerived2.defineClass(PCDerived2, -1, true, false, ::Test::T_PCDerived, [['pcd2', ::Ice::T_int, false, 0]])
     end
 
-    if not defined?(::Test::::PCDerived3_Mixin)
+    if not defined?(::Test::PCDerived3_Mixin)
 
-        module ::Test::::PCDerived3_Mixin
+        module ::Test::PCDerived3_Mixin
         end
-        class PCDerived3 < ::Test::::PCDerived2
+        class PCDerived3 < ::Test::PCDerived2
 
             def initialize(pi=0, ps='', pb=nil, pbs=nil, pcd2=0, pcd3=nil)
                 super(pi, ps, pb, pbs, pcd2)
@@ -121,18 +121,18 @@ module ::Test
             attr_accessor :pcd3
         end
 
-        if not defined?(::Test::::T_PCDerived3)
+        if not defined?(::Test::T_PCDerived3)
             T_PCDerived3 = ::Ice::__declareClass('::Test::PCDerived3')
         end
 
-        T_PCDerived3.defineClass(PCDerived3, -1, true, false, ::Test::::T_PCDerived2, [['pcd3', ::Ice::T_Value, false, 0]])
+        T_PCDerived3.defineClass(PCDerived3, -1, true, false, ::Test::T_PCDerived2, [['pcd3', ::Ice::T_Value, false, 0]])
     end
 
-    if not defined?(::Test::::CompactPCDerived_Mixin)
+    if not defined?(::Test::CompactPCDerived_Mixin)
 
-        module ::Test::::CompactPCDerived_Mixin
+        module ::Test::CompactPCDerived_Mixin
         end
-        class CompactPCDerived < ::Test::::CompactPDerived
+        class CompactPCDerived < ::Test::CompactPDerived
 
             def initialize(pi=0, ps='', pb=nil, pbs=nil)
                 super(pi, ps, pb)
@@ -142,10 +142,10 @@ module ::Test
             attr_accessor :pbs
         end
 
-        if not defined?(::Test::::T_CompactPCDerived)
+        if not defined?(::Test::T_CompactPCDerived)
             T_CompactPCDerived = ::Ice::__declareClass('::Test::CompactPCDerived')
         end
 
-        T_CompactPCDerived.defineClass(CompactPCDerived, 57, true, false, ::Test::::T_CompactPDerived, [['pbs', ::Test::::T_PBaseSeq, false, 0]])
+        T_CompactPCDerived.defineClass(CompactPCDerived, 57, true, false, ::Test::T_CompactPDerived, [['pbs', ::Test::T_PBaseSeq, false, 0]])
     end
 end

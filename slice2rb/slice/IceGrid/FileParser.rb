@@ -19,7 +19,7 @@ require 'Admin.rb'
 
 module ::IceGrid
 
-    if not defined?(::IceGrid::::ParseException)
+    if not defined?(::IceGrid::ParseException)
         class ParseException < Ice::UserException
             def initialize(reason='')
                 @reason = reason
@@ -35,9 +35,9 @@ module ::IceGrid
         T_ParseException = ::Ice::__defineException('::IceGrid::ParseException', ParseException, false, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceGrid::::FileParser_Mixin)
+    if not defined?(::IceGrid::FileParser_Mixin)
 
-        module ::IceGrid::::FileParser_Mixin
+        module ::IceGrid::FileParser_Mixin
         end
         module FileParserPrx_mixin
 
@@ -51,7 +51,7 @@ module ::IceGrid
             include FileParserPrx_mixin
         end
 
-        if not defined?(::IceGrid::::T_FileParserPrx)
+        if not defined?(::IceGrid::T_FileParserPrx)
             T_FileParser = ::Ice::__declareClass('::IceGrid::FileParser')
             T_FileParserPrx = ::Ice::__declareProxy('::IceGrid::FileParser')
         end
@@ -60,6 +60,6 @@ module ::IceGrid
 
         T_FileParserPrx.defineProxy(FileParserPrx, nil, [])
 
-        FileParserPrx_mixin::OP_parse = ::Ice::__defineOperation('parse', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0], [::IceGrid::::T_AdminPrx, false, 0]], [], [::IceGrid::::T_ApplicationDescriptor, false, 0], [::IceGrid::::T_ParseException])
+        FileParserPrx_mixin::OP_parse = ::Ice::__defineOperation('parse', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0], [::IceGrid::T_AdminPrx, false, 0]], [], [::IceGrid::T_ApplicationDescriptor, false, 0], [::IceGrid::T_ParseException])
     end
 end

@@ -24,7 +24,7 @@ require 'Descriptor.rb'
 
 module ::IceGrid
 
-    if not defined?(::IceGrid::::ServerState)
+    if not defined?(::IceGrid::ServerState)
         class ServerState
             include Comparable
 
@@ -78,11 +78,11 @@ module ::IceGrid
         T_ServerState = ::Ice::__defineEnum('::IceGrid::ServerState', ServerState, ServerState::_enumerators)
     end
 
-    if not defined?(::IceGrid::::T_StringObjectProxyDict)
+    if not defined?(::IceGrid::T_StringObjectProxyDict)
         T_StringObjectProxyDict = ::Ice::__defineDictionary('::IceGrid::StringObjectProxyDict', ::Ice::T_string, ::Ice::T_ObjectPrx)
     end
 
-    if not defined?(::IceGrid::::ObjectInfo)
+    if not defined?(::IceGrid::ObjectInfo)
         class ObjectInfo
             include ::Ice::Inspect_mixin
             def initialize(proxy=nil, type='')
@@ -98,7 +98,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::::ObjectInfo or
+                return false if !other.is_a? ::IceGrid::ObjectInfo or
                     @proxy != other.proxy or
                     @type != other.type
                 true
@@ -117,11 +117,11 @@ module ::IceGrid
         ])
     end
 
-    if not defined?(::IceGrid::::T_ObjectInfoSeq)
-        T_ObjectInfoSeq = ::Ice::__defineSequence('::IceGrid::ObjectInfoSeq', ::IceGrid::::T_ObjectInfo)
+    if not defined?(::IceGrid::T_ObjectInfoSeq)
+        T_ObjectInfoSeq = ::Ice::__defineSequence('::IceGrid::ObjectInfoSeq', ::IceGrid::T_ObjectInfo)
     end
 
-    if not defined?(::IceGrid::::AdapterInfo)
+    if not defined?(::IceGrid::AdapterInfo)
         class AdapterInfo
             include ::Ice::Inspect_mixin
             def initialize(id='', proxy=nil, replicaGroupId='')
@@ -139,7 +139,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::::AdapterInfo or
+                return false if !other.is_a? ::IceGrid::AdapterInfo or
                     @id != other.id or
                     @proxy != other.proxy or
                     @replicaGroupId != other.replicaGroupId
@@ -160,11 +160,11 @@ module ::IceGrid
         ])
     end
 
-    if not defined?(::IceGrid::::T_AdapterInfoSeq)
-        T_AdapterInfoSeq = ::Ice::__defineSequence('::IceGrid::AdapterInfoSeq', ::IceGrid::::T_AdapterInfo)
+    if not defined?(::IceGrid::T_AdapterInfoSeq)
+        T_AdapterInfoSeq = ::Ice::__defineSequence('::IceGrid::AdapterInfoSeq', ::IceGrid::T_AdapterInfo)
     end
 
-    if not defined?(::IceGrid::::ServerInfo)
+    if not defined?(::IceGrid::ServerInfo)
         class ServerInfo
             include ::Ice::Inspect_mixin
             def initialize(application='', uuid='', revision=0, node='', descriptor=nil, sessionId='')
@@ -188,7 +188,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::::ServerInfo or
+                return false if !other.is_a? ::IceGrid::ServerInfo or
                     @application != other.application or
                     @uuid != other.uuid or
                     @revision != other.revision or
@@ -210,12 +210,12 @@ module ::IceGrid
             ["uuid", ::Ice::T_string],
             ["revision", ::Ice::T_int],
             ["node", ::Ice::T_string],
-            ["descriptor", ::IceGrid::::T_ServerDescriptor],
+            ["descriptor", ::IceGrid::T_ServerDescriptor],
             ["sessionId", ::Ice::T_string]
         ])
     end
 
-    if not defined?(::IceGrid::::NodeInfo)
+    if not defined?(::IceGrid::NodeInfo)
         class NodeInfo
             include ::Ice::Inspect_mixin
             def initialize(name='', os='', hostname='', release='', version='', machine='', nProcessors=0, dataDir='')
@@ -243,7 +243,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::::NodeInfo or
+                return false if !other.is_a? ::IceGrid::NodeInfo or
                     @name != other.name or
                     @os != other.os or
                     @hostname != other.hostname or
@@ -274,7 +274,7 @@ module ::IceGrid
         ])
     end
 
-    if not defined?(::IceGrid::::RegistryInfo)
+    if not defined?(::IceGrid::RegistryInfo)
         class RegistryInfo
             include ::Ice::Inspect_mixin
             def initialize(name='', hostname='')
@@ -290,7 +290,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::::RegistryInfo or
+                return false if !other.is_a? ::IceGrid::RegistryInfo or
                     @name != other.name or
                     @hostname != other.hostname
                 true
@@ -309,11 +309,11 @@ module ::IceGrid
         ])
     end
 
-    if not defined?(::IceGrid::::T_RegistryInfoSeq)
-        T_RegistryInfoSeq = ::Ice::__defineSequence('::IceGrid::RegistryInfoSeq', ::IceGrid::::T_RegistryInfo)
+    if not defined?(::IceGrid::T_RegistryInfoSeq)
+        T_RegistryInfoSeq = ::Ice::__defineSequence('::IceGrid::RegistryInfoSeq', ::IceGrid::T_RegistryInfo)
     end
 
-    if not defined?(::IceGrid::::LoadInfo)
+    if not defined?(::IceGrid::LoadInfo)
         class LoadInfo
             include ::Ice::Inspect_mixin
             def initialize(avg1=0.0, avg5=0.0, avg15=0.0)
@@ -331,7 +331,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::::LoadInfo or
+                return false if !other.is_a? ::IceGrid::LoadInfo or
                     @avg1 != other.avg1 or
                     @avg5 != other.avg5 or
                     @avg15 != other.avg15
@@ -352,10 +352,10 @@ module ::IceGrid
         ])
     end
 
-    if not defined?(::IceGrid::::ApplicationInfo)
+    if not defined?(::IceGrid::ApplicationInfo)
         class ApplicationInfo
             include ::Ice::Inspect_mixin
-            def initialize(uuid='', createTime=0, createUser='', updateTime=0, updateUser='', revision=0, descriptor=::IceGrid::::ApplicationDescriptor.new)
+            def initialize(uuid='', createTime=0, createUser='', updateTime=0, updateUser='', revision=0, descriptor=::IceGrid::ApplicationDescriptor.new)
                 @uuid = uuid
                 @createTime = createTime
                 @createUser = createUser
@@ -378,7 +378,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::::ApplicationInfo or
+                return false if !other.is_a? ::IceGrid::ApplicationInfo or
                     @uuid != other.uuid or
                     @createTime != other.createTime or
                     @createUser != other.createUser or
@@ -403,18 +403,18 @@ module ::IceGrid
             ["updateTime", ::Ice::T_long],
             ["updateUser", ::Ice::T_string],
             ["revision", ::Ice::T_int],
-            ["descriptor", ::IceGrid::::T_ApplicationDescriptor]
+            ["descriptor", ::IceGrid::T_ApplicationDescriptor]
         ])
     end
 
-    if not defined?(::IceGrid::::T_ApplicationInfoSeq)
-        T_ApplicationInfoSeq = ::Ice::__defineSequence('::IceGrid::ApplicationInfoSeq', ::IceGrid::::T_ApplicationInfo)
+    if not defined?(::IceGrid::T_ApplicationInfoSeq)
+        T_ApplicationInfoSeq = ::Ice::__defineSequence('::IceGrid::ApplicationInfoSeq', ::IceGrid::T_ApplicationInfo)
     end
 
-    if not defined?(::IceGrid::::ApplicationUpdateInfo)
+    if not defined?(::IceGrid::ApplicationUpdateInfo)
         class ApplicationUpdateInfo
             include ::Ice::Inspect_mixin
-            def initialize(updateTime=0, updateUser='', revision=0, descriptor=::IceGrid::::ApplicationUpdateDescriptor.new)
+            def initialize(updateTime=0, updateUser='', revision=0, descriptor=::IceGrid::ApplicationUpdateDescriptor.new)
                 @updateTime = updateTime
                 @updateUser = updateUser
                 @revision = revision
@@ -431,7 +431,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::::ApplicationUpdateInfo or
+                return false if !other.is_a? ::IceGrid::ApplicationUpdateInfo or
                     @updateTime != other.updateTime or
                     @updateUser != other.updateUser or
                     @revision != other.revision or
@@ -450,13 +450,13 @@ module ::IceGrid
             ["updateTime", ::Ice::T_long],
             ["updateUser", ::Ice::T_string],
             ["revision", ::Ice::T_int],
-            ["descriptor", ::IceGrid::::T_ApplicationUpdateDescriptor]
+            ["descriptor", ::IceGrid::T_ApplicationUpdateDescriptor]
         ])
     end
 
-    if not defined?(::IceGrid::::Admin_Mixin)
+    if not defined?(::IceGrid::Admin_Mixin)
 
-        module ::IceGrid::::Admin_Mixin
+        module ::IceGrid::Admin_Mixin
         end
         module AdminPrx_mixin
 
@@ -654,7 +654,7 @@ module ::IceGrid
             include AdminPrx_mixin
         end
 
-        if not defined?(::IceGrid::::T_AdminPrx)
+        if not defined?(::IceGrid::T_AdminPrx)
             T_Admin = ::Ice::__declareClass('::IceGrid::Admin')
             T_AdminPrx = ::Ice::__declareProxy('::IceGrid::Admin')
         end
@@ -663,58 +663,58 @@ module ::IceGrid
 
         T_AdminPrx.defineProxy(AdminPrx, nil, [])
 
-        AdminPrx_mixin::OP_addApplication = ::Ice::__defineOperation('addApplication', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::::T_ApplicationDescriptor, false, 0]], [], nil, [::IceGrid::::T_AccessDeniedException, ::IceGrid::::T_DeploymentException])
-        AdminPrx_mixin::OP_syncApplication = ::Ice::__defineOperation('syncApplication', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::::T_ApplicationDescriptor, false, 0]], [], nil, [::IceGrid::::T_AccessDeniedException, ::IceGrid::::T_DeploymentException, ::IceGrid::::T_ApplicationNotExistException])
-        AdminPrx_mixin::OP_updateApplication = ::Ice::__defineOperation('updateApplication', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::::T_ApplicationUpdateDescriptor, false, 0]], [], nil, [::IceGrid::::T_AccessDeniedException, ::IceGrid::::T_DeploymentException, ::IceGrid::::T_ApplicationNotExistException])
-        AdminPrx_mixin::OP_syncApplicationWithoutRestart = ::Ice::__defineOperation('syncApplicationWithoutRestart', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::::T_ApplicationDescriptor, false, 0]], [], nil, [::IceGrid::::T_AccessDeniedException, ::IceGrid::::T_DeploymentException, ::IceGrid::::T_ApplicationNotExistException])
-        AdminPrx_mixin::OP_updateApplicationWithoutRestart = ::Ice::__defineOperation('updateApplicationWithoutRestart', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::::T_ApplicationUpdateDescriptor, false, 0]], [], nil, [::IceGrid::::T_AccessDeniedException, ::IceGrid::::T_DeploymentException, ::IceGrid::::T_ApplicationNotExistException])
-        AdminPrx_mixin::OP_removeApplication = ::Ice::__defineOperation('removeApplication', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceGrid::::T_AccessDeniedException, ::IceGrid::::T_DeploymentException, ::IceGrid::::T_ApplicationNotExistException])
-        AdminPrx_mixin::OP_instantiateServer = ::Ice::__defineOperation('instantiateServer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::IceGrid::::T_ServerInstanceDescriptor, false, 0]], [], nil, [::IceGrid::::T_AccessDeniedException, ::IceGrid::::T_ApplicationNotExistException, ::IceGrid::::T_DeploymentException])
-        AdminPrx_mixin::OP_patchApplication = ::Ice::__defineOperation('patchApplication', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_string, false, 0], [::Ice::T_bool, false, 0]], [], nil, [::IceGrid::::T_ApplicationNotExistException, ::IceGrid::::T_PatchException])
-        AdminPrx_mixin::OP_getApplicationInfo = ::Ice::__defineOperation('getApplicationInfo', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::IceGrid::::T_ApplicationInfo, false, 0], [::IceGrid::::T_ApplicationNotExistException])
-        AdminPrx_mixin::OP_getDefaultApplicationDescriptor = ::Ice::__defineOperation('getDefaultApplicationDescriptor', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::IceGrid::::T_ApplicationDescriptor, false, 0], [::IceGrid::::T_DeploymentException])
-        AdminPrx_mixin::OP_getAllApplicationNames = ::Ice::__defineOperation('getAllApplicationNames', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::::T_StringSeq, false, 0], [])
-        AdminPrx_mixin::OP_getServerInfo = ::Ice::__defineOperation('getServerInfo', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::IceGrid::::T_ServerInfo, false, 0], [::IceGrid::::T_ServerNotExistException])
-        AdminPrx_mixin::OP_getServerState = ::Ice::__defineOperation('getServerState', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::IceGrid::::T_ServerState, false, 0], [::IceGrid::::T_ServerNotExistException, ::IceGrid::::T_NodeUnreachableException, ::IceGrid::::T_DeploymentException])
-        AdminPrx_mixin::OP_getServerPid = ::Ice::__defineOperation('getServerPid', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_int, false, 0], [::IceGrid::::T_ServerNotExistException, ::IceGrid::::T_NodeUnreachableException, ::IceGrid::::T_DeploymentException])
+        AdminPrx_mixin::OP_addApplication = ::Ice::__defineOperation('addApplication', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_ApplicationDescriptor, false, 0]], [], nil, [::IceGrid::T_AccessDeniedException, ::IceGrid::T_DeploymentException])
+        AdminPrx_mixin::OP_syncApplication = ::Ice::__defineOperation('syncApplication', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_ApplicationDescriptor, false, 0]], [], nil, [::IceGrid::T_AccessDeniedException, ::IceGrid::T_DeploymentException, ::IceGrid::T_ApplicationNotExistException])
+        AdminPrx_mixin::OP_updateApplication = ::Ice::__defineOperation('updateApplication', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_ApplicationUpdateDescriptor, false, 0]], [], nil, [::IceGrid::T_AccessDeniedException, ::IceGrid::T_DeploymentException, ::IceGrid::T_ApplicationNotExistException])
+        AdminPrx_mixin::OP_syncApplicationWithoutRestart = ::Ice::__defineOperation('syncApplicationWithoutRestart', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_ApplicationDescriptor, false, 0]], [], nil, [::IceGrid::T_AccessDeniedException, ::IceGrid::T_DeploymentException, ::IceGrid::T_ApplicationNotExistException])
+        AdminPrx_mixin::OP_updateApplicationWithoutRestart = ::Ice::__defineOperation('updateApplicationWithoutRestart', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_ApplicationUpdateDescriptor, false, 0]], [], nil, [::IceGrid::T_AccessDeniedException, ::IceGrid::T_DeploymentException, ::IceGrid::T_ApplicationNotExistException])
+        AdminPrx_mixin::OP_removeApplication = ::Ice::__defineOperation('removeApplication', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceGrid::T_AccessDeniedException, ::IceGrid::T_DeploymentException, ::IceGrid::T_ApplicationNotExistException])
+        AdminPrx_mixin::OP_instantiateServer = ::Ice::__defineOperation('instantiateServer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::IceGrid::T_ServerInstanceDescriptor, false, 0]], [], nil, [::IceGrid::T_AccessDeniedException, ::IceGrid::T_ApplicationNotExistException, ::IceGrid::T_DeploymentException])
+        AdminPrx_mixin::OP_patchApplication = ::Ice::__defineOperation('patchApplication', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_string, false, 0], [::Ice::T_bool, false, 0]], [], nil, [::IceGrid::T_ApplicationNotExistException, ::IceGrid::T_PatchException])
+        AdminPrx_mixin::OP_getApplicationInfo = ::Ice::__defineOperation('getApplicationInfo', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::IceGrid::T_ApplicationInfo, false, 0], [::IceGrid::T_ApplicationNotExistException])
+        AdminPrx_mixin::OP_getDefaultApplicationDescriptor = ::Ice::__defineOperation('getDefaultApplicationDescriptor', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::IceGrid::T_ApplicationDescriptor, false, 0], [::IceGrid::T_DeploymentException])
+        AdminPrx_mixin::OP_getAllApplicationNames = ::Ice::__defineOperation('getAllApplicationNames', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_StringSeq, false, 0], [])
+        AdminPrx_mixin::OP_getServerInfo = ::Ice::__defineOperation('getServerInfo', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::IceGrid::T_ServerInfo, false, 0], [::IceGrid::T_ServerNotExistException])
+        AdminPrx_mixin::OP_getServerState = ::Ice::__defineOperation('getServerState', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::IceGrid::T_ServerState, false, 0], [::IceGrid::T_ServerNotExistException, ::IceGrid::T_NodeUnreachableException, ::IceGrid::T_DeploymentException])
+        AdminPrx_mixin::OP_getServerPid = ::Ice::__defineOperation('getServerPid', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_int, false, 0], [::IceGrid::T_ServerNotExistException, ::IceGrid::T_NodeUnreachableException, ::IceGrid::T_DeploymentException])
         AdminPrx_mixin::OP_getServerAdminCategory = ::Ice::__defineOperation('getServerAdminCategory', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_string, false, 0], [])
-        AdminPrx_mixin::OP_getServerAdmin = ::Ice::__defineOperation('getServerAdmin', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_ObjectPrx, false, 0], [::IceGrid::::T_ServerNotExistException, ::IceGrid::::T_NodeUnreachableException, ::IceGrid::::T_DeploymentException])
-        AdminPrx_mixin::OP_enableServer = ::Ice::__defineOperation('enableServer', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_bool, false, 0]], [], nil, [::IceGrid::::T_ServerNotExistException, ::IceGrid::::T_NodeUnreachableException, ::IceGrid::::T_DeploymentException])
-        AdminPrx_mixin::OP_isServerEnabled = ::Ice::__defineOperation('isServerEnabled', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_bool, false, 0], [::IceGrid::::T_ServerNotExistException, ::IceGrid::::T_NodeUnreachableException, ::IceGrid::::T_DeploymentException])
-        AdminPrx_mixin::OP_startServer = ::Ice::__defineOperation('startServer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceGrid::::T_ServerNotExistException, ::IceGrid::::T_ServerStartException, ::IceGrid::::T_NodeUnreachableException, ::IceGrid::::T_DeploymentException])
-        AdminPrx_mixin::OP_stopServer = ::Ice::__defineOperation('stopServer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceGrid::::T_ServerNotExistException, ::IceGrid::::T_ServerStopException, ::IceGrid::::T_NodeUnreachableException, ::IceGrid::::T_DeploymentException])
-        AdminPrx_mixin::OP_patchServer = ::Ice::__defineOperation('patchServer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_string, false, 0], [::Ice::T_bool, false, 0]], [], nil, [::IceGrid::::T_ServerNotExistException, ::IceGrid::::T_NodeUnreachableException, ::IceGrid::::T_DeploymentException, ::IceGrid::::T_PatchException])
-        AdminPrx_mixin::OP_sendSignal = ::Ice::__defineOperation('sendSignal', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], nil, [::IceGrid::::T_ServerNotExistException, ::IceGrid::::T_NodeUnreachableException, ::IceGrid::::T_DeploymentException, ::IceGrid::::T_BadSignalException])
-        AdminPrx_mixin::OP_getAllServerIds = ::Ice::__defineOperation('getAllServerIds', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::::T_StringSeq, false, 0], [])
-        AdminPrx_mixin::OP_getAdapterInfo = ::Ice::__defineOperation('getAdapterInfo', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::IceGrid::::T_AdapterInfoSeq, false, 0], [::IceGrid::::T_AdapterNotExistException])
-        AdminPrx_mixin::OP_removeAdapter = ::Ice::__defineOperation('removeAdapter', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceGrid::::T_AdapterNotExistException, ::IceGrid::::T_DeploymentException])
-        AdminPrx_mixin::OP_getAllAdapterIds = ::Ice::__defineOperation('getAllAdapterIds', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::::T_StringSeq, false, 0], [])
-        AdminPrx_mixin::OP_addObject = ::Ice::__defineOperation('addObject', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_ObjectPrx, false, 0]], [], nil, [::IceGrid::::T_ObjectExistsException, ::IceGrid::::T_DeploymentException])
-        AdminPrx_mixin::OP_updateObject = ::Ice::__defineOperation('updateObject', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_ObjectPrx, false, 0]], [], nil, [::IceGrid::::T_ObjectNotRegisteredException, ::IceGrid::::T_DeploymentException])
-        AdminPrx_mixin::OP_addObjectWithType = ::Ice::__defineOperation('addObjectWithType', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_ObjectPrx, false, 0], [::Ice::T_string, false, 0]], [], nil, [::IceGrid::::T_ObjectExistsException, ::IceGrid::::T_DeploymentException])
-        AdminPrx_mixin::OP_removeObject = ::Ice::__defineOperation('removeObject', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::::T_Identity, false, 0]], [], nil, [::IceGrid::::T_ObjectNotRegisteredException, ::IceGrid::::T_DeploymentException])
-        AdminPrx_mixin::OP_getObjectInfo = ::Ice::__defineOperation('getObjectInfo', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::::T_Identity, false, 0]], [], [::IceGrid::::T_ObjectInfo, false, 0], [::IceGrid::::T_ObjectNotRegisteredException])
-        AdminPrx_mixin::OP_getObjectInfosByType = ::Ice::__defineOperation('getObjectInfosByType', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::IceGrid::::T_ObjectInfoSeq, false, 0], [])
-        AdminPrx_mixin::OP_getAllObjectInfos = ::Ice::__defineOperation('getAllObjectInfos', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::IceGrid::::T_ObjectInfoSeq, false, 0], [])
-        AdminPrx_mixin::OP_pingNode = ::Ice::__defineOperation('pingNode', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_bool, false, 0], [::IceGrid::::T_NodeNotExistException])
-        AdminPrx_mixin::OP_getNodeLoad = ::Ice::__defineOperation('getNodeLoad', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::IceGrid::::T_LoadInfo, false, 0], [::IceGrid::::T_NodeNotExistException, ::IceGrid::::T_NodeUnreachableException])
-        AdminPrx_mixin::OP_getNodeInfo = ::Ice::__defineOperation('getNodeInfo', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::IceGrid::::T_NodeInfo, false, 0], [::IceGrid::::T_NodeNotExistException, ::IceGrid::::T_NodeUnreachableException])
-        AdminPrx_mixin::OP_getNodeAdmin = ::Ice::__defineOperation('getNodeAdmin', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_ObjectPrx, false, 0], [::IceGrid::::T_NodeNotExistException, ::IceGrid::::T_NodeUnreachableException])
-        AdminPrx_mixin::OP_getNodeProcessorSocketCount = ::Ice::__defineOperation('getNodeProcessorSocketCount', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_int, false, 0], [::IceGrid::::T_NodeNotExistException, ::IceGrid::::T_NodeUnreachableException])
-        AdminPrx_mixin::OP_shutdownNode = ::Ice::__defineOperation('shutdownNode', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceGrid::::T_NodeNotExistException, ::IceGrid::::T_NodeUnreachableException])
-        AdminPrx_mixin::OP_getNodeHostname = ::Ice::__defineOperation('getNodeHostname', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_string, false, 0], [::IceGrid::::T_NodeNotExistException, ::IceGrid::::T_NodeUnreachableException])
-        AdminPrx_mixin::OP_getAllNodeNames = ::Ice::__defineOperation('getAllNodeNames', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::::T_StringSeq, false, 0], [])
-        AdminPrx_mixin::OP_pingRegistry = ::Ice::__defineOperation('pingRegistry', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_bool, false, 0], [::IceGrid::::T_RegistryNotExistException])
-        AdminPrx_mixin::OP_getRegistryInfo = ::Ice::__defineOperation('getRegistryInfo', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0]], [], [::IceGrid::::T_RegistryInfo, false, 0], [::IceGrid::::T_RegistryNotExistException, ::IceGrid::::T_RegistryUnreachableException])
-        AdminPrx_mixin::OP_getRegistryAdmin = ::Ice::__defineOperation('getRegistryAdmin', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_ObjectPrx, false, 0], [::IceGrid::::T_RegistryNotExistException])
-        AdminPrx_mixin::OP_shutdownRegistry = ::Ice::__defineOperation('shutdownRegistry', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceGrid::::T_RegistryNotExistException, ::IceGrid::::T_RegistryUnreachableException])
-        AdminPrx_mixin::OP_getAllRegistryNames = ::Ice::__defineOperation('getAllRegistryNames', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::::T_StringSeq, false, 0], [])
+        AdminPrx_mixin::OP_getServerAdmin = ::Ice::__defineOperation('getServerAdmin', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_ObjectPrx, false, 0], [::IceGrid::T_ServerNotExistException, ::IceGrid::T_NodeUnreachableException, ::IceGrid::T_DeploymentException])
+        AdminPrx_mixin::OP_enableServer = ::Ice::__defineOperation('enableServer', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_bool, false, 0]], [], nil, [::IceGrid::T_ServerNotExistException, ::IceGrid::T_NodeUnreachableException, ::IceGrid::T_DeploymentException])
+        AdminPrx_mixin::OP_isServerEnabled = ::Ice::__defineOperation('isServerEnabled', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_bool, false, 0], [::IceGrid::T_ServerNotExistException, ::IceGrid::T_NodeUnreachableException, ::IceGrid::T_DeploymentException])
+        AdminPrx_mixin::OP_startServer = ::Ice::__defineOperation('startServer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceGrid::T_ServerNotExistException, ::IceGrid::T_ServerStartException, ::IceGrid::T_NodeUnreachableException, ::IceGrid::T_DeploymentException])
+        AdminPrx_mixin::OP_stopServer = ::Ice::__defineOperation('stopServer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceGrid::T_ServerNotExistException, ::IceGrid::T_ServerStopException, ::IceGrid::T_NodeUnreachableException, ::IceGrid::T_DeploymentException])
+        AdminPrx_mixin::OP_patchServer = ::Ice::__defineOperation('patchServer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_string, false, 0], [::Ice::T_bool, false, 0]], [], nil, [::IceGrid::T_ServerNotExistException, ::IceGrid::T_NodeUnreachableException, ::IceGrid::T_DeploymentException, ::IceGrid::T_PatchException])
+        AdminPrx_mixin::OP_sendSignal = ::Ice::__defineOperation('sendSignal', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], nil, [::IceGrid::T_ServerNotExistException, ::IceGrid::T_NodeUnreachableException, ::IceGrid::T_DeploymentException, ::IceGrid::T_BadSignalException])
+        AdminPrx_mixin::OP_getAllServerIds = ::Ice::__defineOperation('getAllServerIds', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_StringSeq, false, 0], [])
+        AdminPrx_mixin::OP_getAdapterInfo = ::Ice::__defineOperation('getAdapterInfo', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::IceGrid::T_AdapterInfoSeq, false, 0], [::IceGrid::T_AdapterNotExistException])
+        AdminPrx_mixin::OP_removeAdapter = ::Ice::__defineOperation('removeAdapter', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceGrid::T_AdapterNotExistException, ::IceGrid::T_DeploymentException])
+        AdminPrx_mixin::OP_getAllAdapterIds = ::Ice::__defineOperation('getAllAdapterIds', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_StringSeq, false, 0], [])
+        AdminPrx_mixin::OP_addObject = ::Ice::__defineOperation('addObject', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_ObjectPrx, false, 0]], [], nil, [::IceGrid::T_ObjectExistsException, ::IceGrid::T_DeploymentException])
+        AdminPrx_mixin::OP_updateObject = ::Ice::__defineOperation('updateObject', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_ObjectPrx, false, 0]], [], nil, [::IceGrid::T_ObjectNotRegisteredException, ::IceGrid::T_DeploymentException])
+        AdminPrx_mixin::OP_addObjectWithType = ::Ice::__defineOperation('addObjectWithType', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_ObjectPrx, false, 0], [::Ice::T_string, false, 0]], [], nil, [::IceGrid::T_ObjectExistsException, ::IceGrid::T_DeploymentException])
+        AdminPrx_mixin::OP_removeObject = ::Ice::__defineOperation('removeObject', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_Identity, false, 0]], [], nil, [::IceGrid::T_ObjectNotRegisteredException, ::IceGrid::T_DeploymentException])
+        AdminPrx_mixin::OP_getObjectInfo = ::Ice::__defineOperation('getObjectInfo', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_Identity, false, 0]], [], [::IceGrid::T_ObjectInfo, false, 0], [::IceGrid::T_ObjectNotRegisteredException])
+        AdminPrx_mixin::OP_getObjectInfosByType = ::Ice::__defineOperation('getObjectInfosByType', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::IceGrid::T_ObjectInfoSeq, false, 0], [])
+        AdminPrx_mixin::OP_getAllObjectInfos = ::Ice::__defineOperation('getAllObjectInfos', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::IceGrid::T_ObjectInfoSeq, false, 0], [])
+        AdminPrx_mixin::OP_pingNode = ::Ice::__defineOperation('pingNode', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_bool, false, 0], [::IceGrid::T_NodeNotExistException])
+        AdminPrx_mixin::OP_getNodeLoad = ::Ice::__defineOperation('getNodeLoad', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::IceGrid::T_LoadInfo, false, 0], [::IceGrid::T_NodeNotExistException, ::IceGrid::T_NodeUnreachableException])
+        AdminPrx_mixin::OP_getNodeInfo = ::Ice::__defineOperation('getNodeInfo', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::IceGrid::T_NodeInfo, false, 0], [::IceGrid::T_NodeNotExistException, ::IceGrid::T_NodeUnreachableException])
+        AdminPrx_mixin::OP_getNodeAdmin = ::Ice::__defineOperation('getNodeAdmin', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_ObjectPrx, false, 0], [::IceGrid::T_NodeNotExistException, ::IceGrid::T_NodeUnreachableException])
+        AdminPrx_mixin::OP_getNodeProcessorSocketCount = ::Ice::__defineOperation('getNodeProcessorSocketCount', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_int, false, 0], [::IceGrid::T_NodeNotExistException, ::IceGrid::T_NodeUnreachableException])
+        AdminPrx_mixin::OP_shutdownNode = ::Ice::__defineOperation('shutdownNode', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceGrid::T_NodeNotExistException, ::IceGrid::T_NodeUnreachableException])
+        AdminPrx_mixin::OP_getNodeHostname = ::Ice::__defineOperation('getNodeHostname', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_string, false, 0], [::IceGrid::T_NodeNotExistException, ::IceGrid::T_NodeUnreachableException])
+        AdminPrx_mixin::OP_getAllNodeNames = ::Ice::__defineOperation('getAllNodeNames', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_StringSeq, false, 0], [])
+        AdminPrx_mixin::OP_pingRegistry = ::Ice::__defineOperation('pingRegistry', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_bool, false, 0], [::IceGrid::T_RegistryNotExistException])
+        AdminPrx_mixin::OP_getRegistryInfo = ::Ice::__defineOperation('getRegistryInfo', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0]], [], [::IceGrid::T_RegistryInfo, false, 0], [::IceGrid::T_RegistryNotExistException, ::IceGrid::T_RegistryUnreachableException])
+        AdminPrx_mixin::OP_getRegistryAdmin = ::Ice::__defineOperation('getRegistryAdmin', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_ObjectPrx, false, 0], [::IceGrid::T_RegistryNotExistException])
+        AdminPrx_mixin::OP_shutdownRegistry = ::Ice::__defineOperation('shutdownRegistry', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceGrid::T_RegistryNotExistException, ::IceGrid::T_RegistryUnreachableException])
+        AdminPrx_mixin::OP_getAllRegistryNames = ::Ice::__defineOperation('getAllRegistryNames', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_StringSeq, false, 0], [])
         AdminPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::IceGrid::::FileIterator_Mixin)
+    if not defined?(::IceGrid::FileIterator_Mixin)
 
-        module ::IceGrid::::FileIterator_Mixin
+        module ::IceGrid::FileIterator_Mixin
         end
         module FileIteratorPrx_mixin
 
@@ -732,7 +732,7 @@ module ::IceGrid
             include FileIteratorPrx_mixin
         end
 
-        if not defined?(::IceGrid::::T_FileIteratorPrx)
+        if not defined?(::IceGrid::T_FileIteratorPrx)
             T_FileIterator = ::Ice::__declareClass('::IceGrid::FileIterator')
             T_FileIteratorPrx = ::Ice::__declareProxy('::IceGrid::FileIterator')
         end
@@ -741,14 +741,14 @@ module ::IceGrid
 
         T_FileIteratorPrx.defineProxy(FileIteratorPrx, nil, [])
 
-        FileIteratorPrx_mixin::OP_read = ::Ice::__defineOperation('read', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [[::Ice::::T_StringSeq, false, 0]], [::Ice::T_bool, false, 0], [::IceGrid::::T_FileNotAvailableException])
+        FileIteratorPrx_mixin::OP_read = ::Ice::__defineOperation('read', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_StringSeq, false, 0]], [::Ice::T_bool, false, 0], [::IceGrid::T_FileNotAvailableException])
         FileIteratorPrx_mixin::OP_destroy = ::Ice::__defineOperation('destroy', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::IceGrid::::ServerDynamicInfo)
+    if not defined?(::IceGrid::ServerDynamicInfo)
         class ServerDynamicInfo
             include ::Ice::Inspect_mixin
-            def initialize(id='', state=::IceGrid::::ServerState::Inactive, pid=0, enabled=false)
+            def initialize(id='', state=::IceGrid::ServerState::Inactive, pid=0, enabled=false)
                 @id = id
                 @state = state
                 @pid = pid
@@ -765,7 +765,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::::ServerDynamicInfo or
+                return false if !other.is_a? ::IceGrid::ServerDynamicInfo or
                     @id != other.id or
                     @state != other.state or
                     @pid != other.pid or
@@ -782,17 +782,17 @@ module ::IceGrid
 
         T_ServerDynamicInfo = ::Ice::__defineStruct('::IceGrid::ServerDynamicInfo', ServerDynamicInfo, [
             ["id", ::Ice::T_string],
-            ["state", ::IceGrid::::T_ServerState],
+            ["state", ::IceGrid::T_ServerState],
             ["pid", ::Ice::T_int],
             ["enabled", ::Ice::T_bool]
         ])
     end
 
-    if not defined?(::IceGrid::::T_ServerDynamicInfoSeq)
-        T_ServerDynamicInfoSeq = ::Ice::__defineSequence('::IceGrid::ServerDynamicInfoSeq', ::IceGrid::::T_ServerDynamicInfo)
+    if not defined?(::IceGrid::T_ServerDynamicInfoSeq)
+        T_ServerDynamicInfoSeq = ::Ice::__defineSequence('::IceGrid::ServerDynamicInfoSeq', ::IceGrid::T_ServerDynamicInfo)
     end
 
-    if not defined?(::IceGrid::::AdapterDynamicInfo)
+    if not defined?(::IceGrid::AdapterDynamicInfo)
         class AdapterDynamicInfo
             include ::Ice::Inspect_mixin
             def initialize(id='', proxy=nil)
@@ -808,7 +808,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::::AdapterDynamicInfo or
+                return false if !other.is_a? ::IceGrid::AdapterDynamicInfo or
                     @id != other.id or
                     @proxy != other.proxy
                 true
@@ -827,14 +827,14 @@ module ::IceGrid
         ])
     end
 
-    if not defined?(::IceGrid::::T_AdapterDynamicInfoSeq)
-        T_AdapterDynamicInfoSeq = ::Ice::__defineSequence('::IceGrid::AdapterDynamicInfoSeq', ::IceGrid::::T_AdapterDynamicInfo)
+    if not defined?(::IceGrid::T_AdapterDynamicInfoSeq)
+        T_AdapterDynamicInfoSeq = ::Ice::__defineSequence('::IceGrid::AdapterDynamicInfoSeq', ::IceGrid::T_AdapterDynamicInfo)
     end
 
-    if not defined?(::IceGrid::::NodeDynamicInfo)
+    if not defined?(::IceGrid::NodeDynamicInfo)
         class NodeDynamicInfo
             include ::Ice::Inspect_mixin
-            def initialize(info=::IceGrid::::NodeInfo.new, servers=nil, adapters=nil)
+            def initialize(info=::IceGrid::NodeInfo.new, servers=nil, adapters=nil)
                 @info = info
                 @servers = servers
                 @adapters = adapters
@@ -849,7 +849,7 @@ module ::IceGrid
             end
 
             def ==(other)
-                return false if !other.is_a? ::IceGrid::::NodeDynamicInfo or
+                return false if !other.is_a? ::IceGrid::NodeDynamicInfo or
                     @info != other.info or
                     @servers != other.servers or
                     @adapters != other.adapters
@@ -864,15 +864,15 @@ module ::IceGrid
         end
 
         T_NodeDynamicInfo = ::Ice::__defineStruct('::IceGrid::NodeDynamicInfo', NodeDynamicInfo, [
-            ["info", ::IceGrid::::T_NodeInfo],
-            ["servers", ::IceGrid::::T_ServerDynamicInfoSeq],
-            ["adapters", ::IceGrid::::T_AdapterDynamicInfoSeq]
+            ["info", ::IceGrid::T_NodeInfo],
+            ["servers", ::IceGrid::T_ServerDynamicInfoSeq],
+            ["adapters", ::IceGrid::T_AdapterDynamicInfoSeq]
         ])
     end
 
-    if not defined?(::IceGrid::::RegistryObserver_Mixin)
+    if not defined?(::IceGrid::RegistryObserver_Mixin)
 
-        module ::IceGrid::::RegistryObserver_Mixin
+        module ::IceGrid::RegistryObserver_Mixin
         end
         module RegistryObserverPrx_mixin
 
@@ -894,7 +894,7 @@ module ::IceGrid
             include RegistryObserverPrx_mixin
         end
 
-        if not defined?(::IceGrid::::T_RegistryObserverPrx)
+        if not defined?(::IceGrid::T_RegistryObserverPrx)
             T_RegistryObserver = ::Ice::__declareClass('::IceGrid::RegistryObserver')
             T_RegistryObserverPrx = ::Ice::__declareProxy('::IceGrid::RegistryObserver')
         end
@@ -903,18 +903,18 @@ module ::IceGrid
 
         T_RegistryObserverPrx.defineProxy(RegistryObserverPrx, nil, [])
 
-        RegistryObserverPrx_mixin::OP_registryInit = ::Ice::__defineOperation('registryInit', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::::T_RegistryInfoSeq, false, 0]], [], nil, [])
-        RegistryObserverPrx_mixin::OP_registryUp = ::Ice::__defineOperation('registryUp', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::::T_RegistryInfo, false, 0]], [], nil, [])
+        RegistryObserverPrx_mixin::OP_registryInit = ::Ice::__defineOperation('registryInit', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_RegistryInfoSeq, false, 0]], [], nil, [])
+        RegistryObserverPrx_mixin::OP_registryUp = ::Ice::__defineOperation('registryUp', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_RegistryInfo, false, 0]], [], nil, [])
         RegistryObserverPrx_mixin::OP_registryDown = ::Ice::__defineOperation('registryDown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [])
     end
 
-    if not defined?(::IceGrid::::T_NodeDynamicInfoSeq)
-        T_NodeDynamicInfoSeq = ::Ice::__defineSequence('::IceGrid::NodeDynamicInfoSeq', ::IceGrid::::T_NodeDynamicInfo)
+    if not defined?(::IceGrid::T_NodeDynamicInfoSeq)
+        T_NodeDynamicInfoSeq = ::Ice::__defineSequence('::IceGrid::NodeDynamicInfoSeq', ::IceGrid::T_NodeDynamicInfo)
     end
 
-    if not defined?(::IceGrid::::NodeObserver_Mixin)
+    if not defined?(::IceGrid::NodeObserver_Mixin)
 
-        module ::IceGrid::::NodeObserver_Mixin
+        module ::IceGrid::NodeObserver_Mixin
         end
         module NodeObserverPrx_mixin
 
@@ -944,7 +944,7 @@ module ::IceGrid
             include NodeObserverPrx_mixin
         end
 
-        if not defined?(::IceGrid::::T_NodeObserverPrx)
+        if not defined?(::IceGrid::T_NodeObserverPrx)
             T_NodeObserver = ::Ice::__declareClass('::IceGrid::NodeObserver')
             T_NodeObserverPrx = ::Ice::__declareProxy('::IceGrid::NodeObserver')
         end
@@ -953,16 +953,16 @@ module ::IceGrid
 
         T_NodeObserverPrx.defineProxy(NodeObserverPrx, nil, [])
 
-        NodeObserverPrx_mixin::OP_nodeInit = ::Ice::__defineOperation('nodeInit', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::::T_NodeDynamicInfoSeq, false, 0]], [], nil, [])
-        NodeObserverPrx_mixin::OP_nodeUp = ::Ice::__defineOperation('nodeUp', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::::T_NodeDynamicInfo, false, 0]], [], nil, [])
+        NodeObserverPrx_mixin::OP_nodeInit = ::Ice::__defineOperation('nodeInit', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_NodeDynamicInfoSeq, false, 0]], [], nil, [])
+        NodeObserverPrx_mixin::OP_nodeUp = ::Ice::__defineOperation('nodeUp', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_NodeDynamicInfo, false, 0]], [], nil, [])
         NodeObserverPrx_mixin::OP_nodeDown = ::Ice::__defineOperation('nodeDown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [])
-        NodeObserverPrx_mixin::OP_updateServer = ::Ice::__defineOperation('updateServer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::IceGrid::::T_ServerDynamicInfo, false, 0]], [], nil, [])
-        NodeObserverPrx_mixin::OP_updateAdapter = ::Ice::__defineOperation('updateAdapter', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::IceGrid::::T_AdapterDynamicInfo, false, 0]], [], nil, [])
+        NodeObserverPrx_mixin::OP_updateServer = ::Ice::__defineOperation('updateServer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::IceGrid::T_ServerDynamicInfo, false, 0]], [], nil, [])
+        NodeObserverPrx_mixin::OP_updateAdapter = ::Ice::__defineOperation('updateAdapter', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::IceGrid::T_AdapterDynamicInfo, false, 0]], [], nil, [])
     end
 
-    if not defined?(::IceGrid::::ApplicationObserver_Mixin)
+    if not defined?(::IceGrid::ApplicationObserver_Mixin)
 
-        module ::IceGrid::::ApplicationObserver_Mixin
+        module ::IceGrid::ApplicationObserver_Mixin
         end
         module ApplicationObserverPrx_mixin
 
@@ -988,7 +988,7 @@ module ::IceGrid
             include ApplicationObserverPrx_mixin
         end
 
-        if not defined?(::IceGrid::::T_ApplicationObserverPrx)
+        if not defined?(::IceGrid::T_ApplicationObserverPrx)
             T_ApplicationObserver = ::Ice::__declareClass('::IceGrid::ApplicationObserver')
             T_ApplicationObserverPrx = ::Ice::__declareProxy('::IceGrid::ApplicationObserver')
         end
@@ -997,15 +997,15 @@ module ::IceGrid
 
         T_ApplicationObserverPrx.defineProxy(ApplicationObserverPrx, nil, [])
 
-        ApplicationObserverPrx_mixin::OP_applicationInit = ::Ice::__defineOperation('applicationInit', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::IceGrid::::T_ApplicationInfoSeq, false, 0]], [], nil, [])
-        ApplicationObserverPrx_mixin::OP_applicationAdded = ::Ice::__defineOperation('applicationAdded', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::IceGrid::::T_ApplicationInfo, false, 0]], [], nil, [])
+        ApplicationObserverPrx_mixin::OP_applicationInit = ::Ice::__defineOperation('applicationInit', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::IceGrid::T_ApplicationInfoSeq, false, 0]], [], nil, [])
+        ApplicationObserverPrx_mixin::OP_applicationAdded = ::Ice::__defineOperation('applicationAdded', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::IceGrid::T_ApplicationInfo, false, 0]], [], nil, [])
         ApplicationObserverPrx_mixin::OP_applicationRemoved = ::Ice::__defineOperation('applicationRemoved', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_string, false, 0]], [], nil, [])
-        ApplicationObserverPrx_mixin::OP_applicationUpdated = ::Ice::__defineOperation('applicationUpdated', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::IceGrid::::T_ApplicationUpdateInfo, false, 0]], [], nil, [])
+        ApplicationObserverPrx_mixin::OP_applicationUpdated = ::Ice::__defineOperation('applicationUpdated', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::IceGrid::T_ApplicationUpdateInfo, false, 0]], [], nil, [])
     end
 
-    if not defined?(::IceGrid::::AdapterObserver_Mixin)
+    if not defined?(::IceGrid::AdapterObserver_Mixin)
 
-        module ::IceGrid::::AdapterObserver_Mixin
+        module ::IceGrid::AdapterObserver_Mixin
         end
         module AdapterObserverPrx_mixin
 
@@ -1031,7 +1031,7 @@ module ::IceGrid
             include AdapterObserverPrx_mixin
         end
 
-        if not defined?(::IceGrid::::T_AdapterObserverPrx)
+        if not defined?(::IceGrid::T_AdapterObserverPrx)
             T_AdapterObserver = ::Ice::__declareClass('::IceGrid::AdapterObserver')
             T_AdapterObserverPrx = ::Ice::__declareProxy('::IceGrid::AdapterObserver')
         end
@@ -1040,15 +1040,15 @@ module ::IceGrid
 
         T_AdapterObserverPrx.defineProxy(AdapterObserverPrx, nil, [])
 
-        AdapterObserverPrx_mixin::OP_adapterInit = ::Ice::__defineOperation('adapterInit', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::::T_AdapterInfoSeq, false, 0]], [], nil, [])
-        AdapterObserverPrx_mixin::OP_adapterAdded = ::Ice::__defineOperation('adapterAdded', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::::T_AdapterInfo, false, 0]], [], nil, [])
-        AdapterObserverPrx_mixin::OP_adapterUpdated = ::Ice::__defineOperation('adapterUpdated', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::::T_AdapterInfo, false, 0]], [], nil, [])
+        AdapterObserverPrx_mixin::OP_adapterInit = ::Ice::__defineOperation('adapterInit', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_AdapterInfoSeq, false, 0]], [], nil, [])
+        AdapterObserverPrx_mixin::OP_adapterAdded = ::Ice::__defineOperation('adapterAdded', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_AdapterInfo, false, 0]], [], nil, [])
+        AdapterObserverPrx_mixin::OP_adapterUpdated = ::Ice::__defineOperation('adapterUpdated', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_AdapterInfo, false, 0]], [], nil, [])
         AdapterObserverPrx_mixin::OP_adapterRemoved = ::Ice::__defineOperation('adapterRemoved', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [])
     end
 
-    if not defined?(::IceGrid::::ObjectObserver_Mixin)
+    if not defined?(::IceGrid::ObjectObserver_Mixin)
 
-        module ::IceGrid::::ObjectObserver_Mixin
+        module ::IceGrid::ObjectObserver_Mixin
         end
         module ObjectObserverPrx_mixin
 
@@ -1074,7 +1074,7 @@ module ::IceGrid
             include ObjectObserverPrx_mixin
         end
 
-        if not defined?(::IceGrid::::T_ObjectObserverPrx)
+        if not defined?(::IceGrid::T_ObjectObserverPrx)
             T_ObjectObserver = ::Ice::__declareClass('::IceGrid::ObjectObserver')
             T_ObjectObserverPrx = ::Ice::__declareProxy('::IceGrid::ObjectObserver')
         end
@@ -1083,18 +1083,18 @@ module ::IceGrid
 
         T_ObjectObserverPrx.defineProxy(ObjectObserverPrx, nil, [])
 
-        ObjectObserverPrx_mixin::OP_objectInit = ::Ice::__defineOperation('objectInit', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::::T_ObjectInfoSeq, false, 0]], [], nil, [])
-        ObjectObserverPrx_mixin::OP_objectAdded = ::Ice::__defineOperation('objectAdded', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::::T_ObjectInfo, false, 0]], [], nil, [])
-        ObjectObserverPrx_mixin::OP_objectUpdated = ::Ice::__defineOperation('objectUpdated', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::::T_ObjectInfo, false, 0]], [], nil, [])
-        ObjectObserverPrx_mixin::OP_objectRemoved = ::Ice::__defineOperation('objectRemoved', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::::T_Identity, false, 0]], [], nil, [])
+        ObjectObserverPrx_mixin::OP_objectInit = ::Ice::__defineOperation('objectInit', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_ObjectInfoSeq, false, 0]], [], nil, [])
+        ObjectObserverPrx_mixin::OP_objectAdded = ::Ice::__defineOperation('objectAdded', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_ObjectInfo, false, 0]], [], nil, [])
+        ObjectObserverPrx_mixin::OP_objectUpdated = ::Ice::__defineOperation('objectUpdated', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_ObjectInfo, false, 0]], [], nil, [])
+        ObjectObserverPrx_mixin::OP_objectRemoved = ::Ice::__defineOperation('objectRemoved', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_Identity, false, 0]], [], nil, [])
     end
 
-    if not defined?(::IceGrid::::AdminSession_Mixin)
+    if not defined?(::IceGrid::AdminSession_Mixin)
 
-        module ::IceGrid::::AdminSession_Mixin
+        module ::IceGrid::AdminSession_Mixin
         end
         module AdminSessionPrx_mixin
-            include ::Glacier2::::SessionPrx_mixin
+            include ::Glacier2::SessionPrx_mixin
 
             def keepAlive(context=nil)
                 AdminSessionPrx_mixin::OP_keepAlive.invoke(self, [], context)
@@ -1162,29 +1162,29 @@ module ::IceGrid
             include AdminSessionPrx_mixin
         end
 
-        if not defined?(::IceGrid::::T_AdminSessionPrx)
+        if not defined?(::IceGrid::T_AdminSessionPrx)
             T_AdminSession = ::Ice::__declareClass('::IceGrid::AdminSession')
             T_AdminSessionPrx = ::Ice::__declareProxy('::IceGrid::AdminSession')
         end
 
         T_AdminSession.defineClass(::Ice::Value, -1, false, true, nil, [])
 
-        T_AdminSessionPrx.defineProxy(AdminSessionPrx, nil, [::Glacier2::::T_SessionPrx])
+        T_AdminSessionPrx.defineProxy(AdminSessionPrx, nil, [::Glacier2::T_SessionPrx])
 
         AdminSessionPrx_mixin::OP_keepAlive = ::Ice::__defineOperation('keepAlive', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], nil, [])
-        AdminSessionPrx_mixin::OP_getAdmin = ::Ice::__defineOperation('getAdmin', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::IceGrid::::T_AdminPrx, false, 0], [])
+        AdminSessionPrx_mixin::OP_getAdmin = ::Ice::__defineOperation('getAdmin', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::IceGrid::T_AdminPrx, false, 0], [])
         AdminSessionPrx_mixin::OP_getAdminCallbackTemplate = ::Ice::__defineOperation('getAdminCallbackTemplate', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
-        AdminSessionPrx_mixin::OP_setObservers = ::Ice::__defineOperation('setObservers', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::IceGrid::::T_RegistryObserverPrx, false, 0], [::IceGrid::::T_NodeObserverPrx, false, 0], [::IceGrid::::T_ApplicationObserverPrx, false, 0], [::IceGrid::::T_AdapterObserverPrx, false, 0], [::IceGrid::::T_ObjectObserverPrx, false, 0]], [], nil, [::IceGrid::::T_ObserverAlreadyRegisteredException])
-        AdminSessionPrx_mixin::OP_setObserversByIdentity = ::Ice::__defineOperation('setObserversByIdentity', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::::T_Identity, false, 0], [::Ice::::T_Identity, false, 0], [::Ice::::T_Identity, false, 0], [::Ice::::T_Identity, false, 0], [::Ice::::T_Identity, false, 0]], [], nil, [::IceGrid::::T_ObserverAlreadyRegisteredException])
-        AdminSessionPrx_mixin::OP_startUpdate = ::Ice::__defineOperation('startUpdate', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [::IceGrid::::T_AccessDeniedException])
-        AdminSessionPrx_mixin::OP_finishUpdate = ::Ice::__defineOperation('finishUpdate', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::IceGrid::::T_AccessDeniedException])
+        AdminSessionPrx_mixin::OP_setObservers = ::Ice::__defineOperation('setObservers', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::IceGrid::T_RegistryObserverPrx, false, 0], [::IceGrid::T_NodeObserverPrx, false, 0], [::IceGrid::T_ApplicationObserverPrx, false, 0], [::IceGrid::T_AdapterObserverPrx, false, 0], [::IceGrid::T_ObjectObserverPrx, false, 0]], [], nil, [::IceGrid::T_ObserverAlreadyRegisteredException])
+        AdminSessionPrx_mixin::OP_setObserversByIdentity = ::Ice::__defineOperation('setObserversByIdentity', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_Identity, false, 0], [::Ice::T_Identity, false, 0], [::Ice::T_Identity, false, 0], [::Ice::T_Identity, false, 0], [::Ice::T_Identity, false, 0]], [], nil, [::IceGrid::T_ObserverAlreadyRegisteredException])
+        AdminSessionPrx_mixin::OP_startUpdate = ::Ice::__defineOperation('startUpdate', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [::IceGrid::T_AccessDeniedException])
+        AdminSessionPrx_mixin::OP_finishUpdate = ::Ice::__defineOperation('finishUpdate', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::IceGrid::T_AccessDeniedException])
         AdminSessionPrx_mixin::OP_getReplicaName = ::Ice::__defineOperation('getReplicaName', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_string, false, 0], [])
-        AdminSessionPrx_mixin::OP_openServerLog = ::Ice::__defineOperation('openServerLog', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], [::IceGrid::::T_FileIteratorPrx, false, 0], [::IceGrid::::T_FileNotAvailableException, ::IceGrid::::T_ServerNotExistException, ::IceGrid::::T_NodeUnreachableException, ::IceGrid::::T_DeploymentException])
-        AdminSessionPrx_mixin::OP_openServerStdErr = ::Ice::__defineOperation('openServerStdErr', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], [::IceGrid::::T_FileIteratorPrx, false, 0], [::IceGrid::::T_FileNotAvailableException, ::IceGrid::::T_ServerNotExistException, ::IceGrid::::T_NodeUnreachableException, ::IceGrid::::T_DeploymentException])
-        AdminSessionPrx_mixin::OP_openServerStdOut = ::Ice::__defineOperation('openServerStdOut', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], [::IceGrid::::T_FileIteratorPrx, false, 0], [::IceGrid::::T_FileNotAvailableException, ::IceGrid::::T_ServerNotExistException, ::IceGrid::::T_NodeUnreachableException, ::IceGrid::::T_DeploymentException])
-        AdminSessionPrx_mixin::OP_openNodeStdErr = ::Ice::__defineOperation('openNodeStdErr', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], [::IceGrid::::T_FileIteratorPrx, false, 0], [::IceGrid::::T_FileNotAvailableException, ::IceGrid::::T_NodeNotExistException, ::IceGrid::::T_NodeUnreachableException])
-        AdminSessionPrx_mixin::OP_openNodeStdOut = ::Ice::__defineOperation('openNodeStdOut', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], [::IceGrid::::T_FileIteratorPrx, false, 0], [::IceGrid::::T_FileNotAvailableException, ::IceGrid::::T_NodeNotExistException, ::IceGrid::::T_NodeUnreachableException])
-        AdminSessionPrx_mixin::OP_openRegistryStdErr = ::Ice::__defineOperation('openRegistryStdErr', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], [::IceGrid::::T_FileIteratorPrx, false, 0], [::IceGrid::::T_FileNotAvailableException, ::IceGrid::::T_RegistryNotExistException, ::IceGrid::::T_RegistryUnreachableException])
-        AdminSessionPrx_mixin::OP_openRegistryStdOut = ::Ice::__defineOperation('openRegistryStdOut', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], [::IceGrid::::T_FileIteratorPrx, false, 0], [::IceGrid::::T_FileNotAvailableException, ::IceGrid::::T_RegistryNotExistException, ::IceGrid::::T_RegistryUnreachableException])
+        AdminSessionPrx_mixin::OP_openServerLog = ::Ice::__defineOperation('openServerLog', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], [::IceGrid::T_FileIteratorPrx, false, 0], [::IceGrid::T_FileNotAvailableException, ::IceGrid::T_ServerNotExistException, ::IceGrid::T_NodeUnreachableException, ::IceGrid::T_DeploymentException])
+        AdminSessionPrx_mixin::OP_openServerStdErr = ::Ice::__defineOperation('openServerStdErr', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], [::IceGrid::T_FileIteratorPrx, false, 0], [::IceGrid::T_FileNotAvailableException, ::IceGrid::T_ServerNotExistException, ::IceGrid::T_NodeUnreachableException, ::IceGrid::T_DeploymentException])
+        AdminSessionPrx_mixin::OP_openServerStdOut = ::Ice::__defineOperation('openServerStdOut', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], [::IceGrid::T_FileIteratorPrx, false, 0], [::IceGrid::T_FileNotAvailableException, ::IceGrid::T_ServerNotExistException, ::IceGrid::T_NodeUnreachableException, ::IceGrid::T_DeploymentException])
+        AdminSessionPrx_mixin::OP_openNodeStdErr = ::Ice::__defineOperation('openNodeStdErr', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], [::IceGrid::T_FileIteratorPrx, false, 0], [::IceGrid::T_FileNotAvailableException, ::IceGrid::T_NodeNotExistException, ::IceGrid::T_NodeUnreachableException])
+        AdminSessionPrx_mixin::OP_openNodeStdOut = ::Ice::__defineOperation('openNodeStdOut', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], [::IceGrid::T_FileIteratorPrx, false, 0], [::IceGrid::T_FileNotAvailableException, ::IceGrid::T_NodeNotExistException, ::IceGrid::T_NodeUnreachableException])
+        AdminSessionPrx_mixin::OP_openRegistryStdErr = ::Ice::__defineOperation('openRegistryStdErr', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], [::IceGrid::T_FileIteratorPrx, false, 0], [::IceGrid::T_FileNotAvailableException, ::IceGrid::T_RegistryNotExistException, ::IceGrid::T_RegistryUnreachableException])
+        AdminSessionPrx_mixin::OP_openRegistryStdOut = ::Ice::__defineOperation('openRegistryStdOut', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], [::IceGrid::T_FileIteratorPrx, false, 0], [::IceGrid::T_FileNotAvailableException, ::IceGrid::T_RegistryNotExistException, ::IceGrid::T_RegistryUnreachableException])
     end
 end

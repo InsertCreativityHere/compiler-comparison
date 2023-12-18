@@ -19,12 +19,12 @@ require 'Ice/Locator.rb'
 
 module ::Test
 
-    if not defined?(::Test::::TestLocatorRegistry_Mixin)
+    if not defined?(::Test::TestLocatorRegistry_Mixin)
 
-        module ::Test::::TestLocatorRegistry_Mixin
+        module ::Test::TestLocatorRegistry_Mixin
         end
         module TestLocatorRegistryPrx_mixin
-            include ::Ice::::LocatorRegistryPrx_mixin
+            include ::Ice::LocatorRegistryPrx_mixin
 
             def addObject(obj, context=nil)
                 TestLocatorRegistryPrx_mixin::OP_addObject.invoke(self, [obj], context)
@@ -36,21 +36,21 @@ module ::Test
             include TestLocatorRegistryPrx_mixin
         end
 
-        if not defined?(::Test::::T_TestLocatorRegistryPrx)
+        if not defined?(::Test::T_TestLocatorRegistryPrx)
             T_TestLocatorRegistry = ::Ice::__declareClass('::Test::TestLocatorRegistry')
             T_TestLocatorRegistryPrx = ::Ice::__declareProxy('::Test::TestLocatorRegistry')
         end
 
         T_TestLocatorRegistry.defineClass(::Ice::Value, -1, false, true, nil, [])
 
-        T_TestLocatorRegistryPrx.defineProxy(TestLocatorRegistryPrx, nil, [::Ice::::T_LocatorRegistryPrx])
+        T_TestLocatorRegistryPrx.defineProxy(TestLocatorRegistryPrx, nil, [::Ice::T_LocatorRegistryPrx])
 
         TestLocatorRegistryPrx_mixin::OP_addObject = ::Ice::__defineOperation('addObject', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_ObjectPrx, false, 0]], [], nil, [])
     end
 
-    if not defined?(::Test::::ServerManager_Mixin)
+    if not defined?(::Test::ServerManager_Mixin)
 
-        module ::Test::::ServerManager_Mixin
+        module ::Test::ServerManager_Mixin
         end
         module ServerManagerPrx_mixin
 
@@ -68,7 +68,7 @@ module ::Test
             include ServerManagerPrx_mixin
         end
 
-        if not defined?(::Test::::T_ServerManagerPrx)
+        if not defined?(::Test::T_ServerManagerPrx)
             T_ServerManager = ::Ice::__declareClass('::Test::ServerManager')
             T_ServerManagerPrx = ::Ice::__declareProxy('::Test::ServerManager')
         end
@@ -81,9 +81,9 @@ module ::Test
         ServerManagerPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::::Hello_Mixin)
+    if not defined?(::Test::Hello_Mixin)
 
-        module ::Test::::Hello_Mixin
+        module ::Test::Hello_Mixin
         end
         module HelloPrx_mixin
 
@@ -97,7 +97,7 @@ module ::Test
             include HelloPrx_mixin
         end
 
-        if not defined?(::Test::::T_HelloPrx)
+        if not defined?(::Test::T_HelloPrx)
             T_Hello = ::Ice::__declareClass('::Test::Hello')
             T_HelloPrx = ::Ice::__declareProxy('::Test::Hello')
         end
@@ -109,9 +109,9 @@ module ::Test
         HelloPrx_mixin::OP_sayHello = ::Ice::__defineOperation('sayHello', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 
-    if not defined?(::Test::::TestIntf_Mixin)
+    if not defined?(::Test::TestIntf_Mixin)
 
-        module ::Test::::TestIntf_Mixin
+        module ::Test::TestIntf_Mixin
         end
         module TestIntfPrx_mixin
 
@@ -133,7 +133,7 @@ module ::Test
             include TestIntfPrx_mixin
         end
 
-        if not defined?(::Test::::T_TestIntfPrx)
+        if not defined?(::Test::T_TestIntfPrx)
             T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
@@ -143,7 +143,7 @@ module ::Test
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        TestIntfPrx_mixin::OP_getHello = ::Ice::__defineOperation('getHello', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::::T_HelloPrx, false, 0], [])
+        TestIntfPrx_mixin::OP_getHello = ::Ice::__defineOperation('getHello', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_HelloPrx, false, 0], [])
         TestIntfPrx_mixin::OP_migrateHello = ::Ice::__defineOperation('migrateHello', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 end

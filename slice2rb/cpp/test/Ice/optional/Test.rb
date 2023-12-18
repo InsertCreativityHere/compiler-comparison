@@ -18,9 +18,9 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::::OneOptional_Mixin)
+    if not defined?(::Test::OneOptional_Mixin)
 
-        module ::Test::::OneOptional_Mixin
+        module ::Test::OneOptional_Mixin
         end
         class OneOptional < ::Ice::Value
 
@@ -31,14 +31,14 @@ module ::Test
             attr_accessor :a
         end
 
-        if not defined?(::Test::::T_OneOptional)
+        if not defined?(::Test::T_OneOptional)
             T_OneOptional = ::Ice::__declareClass('::Test::OneOptional')
         end
 
         T_OneOptional.defineClass(OneOptional, -1, false, false, nil, [['a', ::Ice::T_int, true, 1]])
     end
 
-    if not defined?(::Test::::MyEnum)
+    if not defined?(::Test::MyEnum)
         class MyEnum
             include Comparable
 
@@ -86,7 +86,7 @@ module ::Test
         T_MyEnum = ::Ice::__defineEnum('::Test::MyEnum', MyEnum, MyEnum::_enumerators)
     end
 
-    if not defined?(::Test::::SmallStruct)
+    if not defined?(::Test::SmallStruct)
         class SmallStruct
             include ::Ice::Inspect_mixin
             def initialize(m=0)
@@ -100,7 +100,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::::SmallStruct or
+                return false if !other.is_a? ::Test::SmallStruct or
                     @m != other.m
                 true
             end
@@ -115,7 +115,7 @@ module ::Test
         T_SmallStruct = ::Ice::__defineStruct('::Test::SmallStruct', SmallStruct, [["m", ::Ice::T_byte]])
     end
 
-    if not defined?(::Test::::FixedStruct)
+    if not defined?(::Test::FixedStruct)
         class FixedStruct
             include ::Ice::Inspect_mixin
             def initialize(m=0)
@@ -129,7 +129,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::::FixedStruct or
+                return false if !other.is_a? ::Test::FixedStruct or
                     @m != other.m
                 true
             end
@@ -144,7 +144,7 @@ module ::Test
         T_FixedStruct = ::Ice::__defineStruct('::Test::FixedStruct', FixedStruct, [["m", ::Ice::T_int]])
     end
 
-    if not defined?(::Test::::VarStruct)
+    if not defined?(::Test::VarStruct)
         class VarStruct
             include ::Ice::Inspect_mixin
             def initialize(m='')
@@ -158,7 +158,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::::VarStruct or
+                return false if !other.is_a? ::Test::VarStruct or
                     @m != other.m
                 true
             end
@@ -173,7 +173,7 @@ module ::Test
         T_VarStruct = ::Ice::__defineStruct('::Test::VarStruct', VarStruct, [["m", ::Ice::T_string]])
     end
 
-    if not defined?(::Test::::ClassVarStruct)
+    if not defined?(::Test::ClassVarStruct)
         class ClassVarStruct
             include ::Ice::Inspect_mixin
             def initialize(a=0)
@@ -187,7 +187,7 @@ module ::Test
             end
 
             def ==(other)
-                return false if !other.is_a? ::Test::::ClassVarStruct or
+                return false if !other.is_a? ::Test::ClassVarStruct or
                     @a != other.a
                 true
             end
@@ -202,109 +202,109 @@ module ::Test
         T_ClassVarStruct = ::Ice::__defineStruct('::Test::ClassVarStruct', ClassVarStruct, [["a", ::Ice::T_int]])
     end
 
-    if not defined?(::Test::::T_ByteSeq)
+    if not defined?(::Test::T_ByteSeq)
         T_ByteSeq = ::Ice::__defineSequence('::Test::ByteSeq', ::Ice::T_byte)
     end
 
-    if not defined?(::Test::::T_BoolSeq)
+    if not defined?(::Test::T_BoolSeq)
         T_BoolSeq = ::Ice::__defineSequence('::Test::BoolSeq', ::Ice::T_bool)
     end
 
-    if not defined?(::Test::::T_ShortSeq)
+    if not defined?(::Test::T_ShortSeq)
         T_ShortSeq = ::Ice::__defineSequence('::Test::ShortSeq', ::Ice::T_short)
     end
 
-    if not defined?(::Test::::T_IntSeq)
+    if not defined?(::Test::T_IntSeq)
         T_IntSeq = ::Ice::__defineSequence('::Test::IntSeq', ::Ice::T_int)
     end
 
-    if not defined?(::Test::::T_LongSeq)
+    if not defined?(::Test::T_LongSeq)
         T_LongSeq = ::Ice::__defineSequence('::Test::LongSeq', ::Ice::T_long)
     end
 
-    if not defined?(::Test::::T_FloatSeq)
+    if not defined?(::Test::T_FloatSeq)
         T_FloatSeq = ::Ice::__defineSequence('::Test::FloatSeq', ::Ice::T_float)
     end
 
-    if not defined?(::Test::::T_DoubleSeq)
+    if not defined?(::Test::T_DoubleSeq)
         T_DoubleSeq = ::Ice::__defineSequence('::Test::DoubleSeq', ::Ice::T_double)
     end
 
-    if not defined?(::Test::::T_StringSeq)
+    if not defined?(::Test::T_StringSeq)
         T_StringSeq = ::Ice::__defineSequence('::Test::StringSeq', ::Ice::T_string)
     end
 
-    if not defined?(::Test::::T_MyEnumSeq)
-        T_MyEnumSeq = ::Ice::__defineSequence('::Test::MyEnumSeq', ::Test::::T_MyEnum)
+    if not defined?(::Test::T_MyEnumSeq)
+        T_MyEnumSeq = ::Ice::__defineSequence('::Test::MyEnumSeq', ::Test::T_MyEnum)
     end
 
-    if not defined?(::Test::::T_SmallStructSeq)
-        T_SmallStructSeq = ::Ice::__defineSequence('::Test::SmallStructSeq', ::Test::::T_SmallStruct)
+    if not defined?(::Test::T_SmallStructSeq)
+        T_SmallStructSeq = ::Ice::__defineSequence('::Test::SmallStructSeq', ::Test::T_SmallStruct)
     end
 
-    if not defined?(::Test::::T_SmallStructList)
-        T_SmallStructList = ::Ice::__defineSequence('::Test::SmallStructList', ::Test::::T_SmallStruct)
+    if not defined?(::Test::T_SmallStructList)
+        T_SmallStructList = ::Ice::__defineSequence('::Test::SmallStructList', ::Test::T_SmallStruct)
     end
 
-    if not defined?(::Test::::T_FixedStructSeq)
-        T_FixedStructSeq = ::Ice::__defineSequence('::Test::FixedStructSeq', ::Test::::T_FixedStruct)
+    if not defined?(::Test::T_FixedStructSeq)
+        T_FixedStructSeq = ::Ice::__defineSequence('::Test::FixedStructSeq', ::Test::T_FixedStruct)
     end
 
-    if not defined?(::Test::::T_FixedStructList)
-        T_FixedStructList = ::Ice::__defineSequence('::Test::FixedStructList', ::Test::::T_FixedStruct)
+    if not defined?(::Test::T_FixedStructList)
+        T_FixedStructList = ::Ice::__defineSequence('::Test::FixedStructList', ::Test::T_FixedStruct)
     end
 
-    if not defined?(::Test::::T_VarStructSeq)
-        T_VarStructSeq = ::Ice::__defineSequence('::Test::VarStructSeq', ::Test::::T_VarStruct)
+    if not defined?(::Test::T_VarStructSeq)
+        T_VarStructSeq = ::Ice::__defineSequence('::Test::VarStructSeq', ::Test::T_VarStruct)
     end
 
-    if not defined?(::Test::::T_OneOptionalSeq)
-        T_OneOptionalSeq = ::Ice::__defineSequence('::Test::OneOptionalSeq', ::Test::::T_OneOptional)
+    if not defined?(::Test::T_OneOptionalSeq)
+        T_OneOptionalSeq = ::Ice::__defineSequence('::Test::OneOptionalSeq', ::Test::T_OneOptional)
     end
 
-    if not defined?(::Test::::T_OneOptionalPrxSeq)
+    if not defined?(::Test::T_OneOptionalPrxSeq)
         T_OneOptionalPrxSeq = ::Ice::__defineSequence('::Test::OneOptionalPrxSeq', ::Ice::T_ObjectPrx)
     end
 
-    if not defined?(::Test::::T_Serializable)
+    if not defined?(::Test::T_Serializable)
         T_Serializable = ::Ice::__defineSequence('::Test::Serializable', ::Ice::T_byte)
     end
 
-    if not defined?(::Test::::T_IntIntDict)
+    if not defined?(::Test::T_IntIntDict)
         T_IntIntDict = ::Ice::__defineDictionary('::Test::IntIntDict', ::Ice::T_int, ::Ice::T_int)
     end
 
-    if not defined?(::Test::::T_StringIntDict)
+    if not defined?(::Test::T_StringIntDict)
         T_StringIntDict = ::Ice::__defineDictionary('::Test::StringIntDict', ::Ice::T_string, ::Ice::T_int)
     end
 
-    if not defined?(::Test::::T_IntEnumDict)
-        T_IntEnumDict = ::Ice::__defineDictionary('::Test::IntEnumDict', ::Ice::T_int, ::Test::::T_MyEnum)
+    if not defined?(::Test::T_IntEnumDict)
+        T_IntEnumDict = ::Ice::__defineDictionary('::Test::IntEnumDict', ::Ice::T_int, ::Test::T_MyEnum)
     end
 
-    if not defined?(::Test::::T_IntFixedStructDict)
-        T_IntFixedStructDict = ::Ice::__defineDictionary('::Test::IntFixedStructDict', ::Ice::T_int, ::Test::::T_FixedStruct)
+    if not defined?(::Test::T_IntFixedStructDict)
+        T_IntFixedStructDict = ::Ice::__defineDictionary('::Test::IntFixedStructDict', ::Ice::T_int, ::Test::T_FixedStruct)
     end
 
-    if not defined?(::Test::::T_IntVarStructDict)
-        T_IntVarStructDict = ::Ice::__defineDictionary('::Test::IntVarStructDict', ::Ice::T_int, ::Test::::T_VarStruct)
+    if not defined?(::Test::T_IntVarStructDict)
+        T_IntVarStructDict = ::Ice::__defineDictionary('::Test::IntVarStructDict', ::Ice::T_int, ::Test::T_VarStruct)
     end
 
-    if not defined?(::Test::::T_IntOneOptionalDict)
-        T_IntOneOptionalDict = ::Ice::__defineDictionary('::Test::IntOneOptionalDict', ::Ice::T_int, ::Test::::T_OneOptional)
+    if not defined?(::Test::T_IntOneOptionalDict)
+        T_IntOneOptionalDict = ::Ice::__defineDictionary('::Test::IntOneOptionalDict', ::Ice::T_int, ::Test::T_OneOptional)
     end
 
-    if not defined?(::Test::::T_IntOneOptionalPrxDict)
+    if not defined?(::Test::T_IntOneOptionalPrxDict)
         T_IntOneOptionalPrxDict = ::Ice::__defineDictionary('::Test::IntOneOptionalPrxDict', ::Ice::T_int, ::Ice::T_ObjectPrx)
     end
 
-    if not defined?(::Test::::T_IntStringDict)
+    if not defined?(::Test::T_IntStringDict)
         T_IntStringDict = ::Ice::__defineDictionary('::Test::IntStringDict', ::Ice::T_int, ::Ice::T_string)
     end
 
-    if not defined?(::Test::::MultiOptional_Mixin)
+    if not defined?(::Test::MultiOptional_Mixin)
 
-        module ::Test::::MultiOptional_Mixin
+        module ::Test::MultiOptional_Mixin
         end
         class MultiOptional < ::Ice::Value
 
@@ -344,7 +344,7 @@ module ::Test
             attr_accessor :a, :b, :c, :d, :e, :f, :g, :h, :i, :j, :k, :bs, :ss, :iid, :sid, :fs, :vs, :shs, :es, :fss, :vss, :oos, :oops, :ied, :ifsd, :ivsd, :iood, :ioopd, :bos, :ser
         end
 
-        if not defined?(::Test::::T_MultiOptional)
+        if not defined?(::Test::T_MultiOptional)
             T_MultiOptional = ::Ice::__declareClass('::Test::MultiOptional')
         end
 
@@ -357,34 +357,34 @@ module ::Test
             ['f', ::Ice::T_float, true, 6],
             ['g', ::Ice::T_double, true, 7],
             ['h', ::Ice::T_string, true, 8],
-            ['i', ::Test::::T_MyEnum, true, 9],
+            ['i', ::Test::T_MyEnum, true, 9],
             ['j', ::Ice::T_ObjectPrx, true, 10],
-            ['k', ::Test::::T_MultiOptional, true, 11],
-            ['bs', ::Test::::T_ByteSeq, true, 12],
-            ['ss', ::Test::::T_StringSeq, true, 13],
-            ['iid', ::Test::::T_IntIntDict, true, 14],
-            ['sid', ::Test::::T_StringIntDict, true, 15],
-            ['fs', ::Test::::T_FixedStruct, true, 16],
-            ['vs', ::Test::::T_VarStruct, true, 17],
-            ['shs', ::Test::::T_ShortSeq, true, 18],
-            ['es', ::Test::::T_MyEnumSeq, true, 19],
-            ['fss', ::Test::::T_FixedStructSeq, true, 20],
-            ['vss', ::Test::::T_VarStructSeq, true, 21],
-            ['oos', ::Test::::T_OneOptionalSeq, true, 22],
-            ['oops', ::Test::::T_OneOptionalPrxSeq, true, 23],
-            ['ied', ::Test::::T_IntEnumDict, true, 24],
-            ['ifsd', ::Test::::T_IntFixedStructDict, true, 25],
-            ['ivsd', ::Test::::T_IntVarStructDict, true, 26],
-            ['iood', ::Test::::T_IntOneOptionalDict, true, 27],
-            ['ioopd', ::Test::::T_IntOneOptionalPrxDict, true, 28],
-            ['bos', ::Test::::T_BoolSeq, true, 29],
-            ['ser', ::Test::::T_Serializable, true, 30]
+            ['k', ::Test::T_MultiOptional, true, 11],
+            ['bs', ::Test::T_ByteSeq, true, 12],
+            ['ss', ::Test::T_StringSeq, true, 13],
+            ['iid', ::Test::T_IntIntDict, true, 14],
+            ['sid', ::Test::T_StringIntDict, true, 15],
+            ['fs', ::Test::T_FixedStruct, true, 16],
+            ['vs', ::Test::T_VarStruct, true, 17],
+            ['shs', ::Test::T_ShortSeq, true, 18],
+            ['es', ::Test::T_MyEnumSeq, true, 19],
+            ['fss', ::Test::T_FixedStructSeq, true, 20],
+            ['vss', ::Test::T_VarStructSeq, true, 21],
+            ['oos', ::Test::T_OneOptionalSeq, true, 22],
+            ['oops', ::Test::T_OneOptionalPrxSeq, true, 23],
+            ['ied', ::Test::T_IntEnumDict, true, 24],
+            ['ifsd', ::Test::T_IntFixedStructDict, true, 25],
+            ['ivsd', ::Test::T_IntVarStructDict, true, 26],
+            ['iood', ::Test::T_IntOneOptionalDict, true, 27],
+            ['ioopd', ::Test::T_IntOneOptionalPrxDict, true, 28],
+            ['bos', ::Test::T_BoolSeq, true, 29],
+            ['ser', ::Test::T_Serializable, true, 30]
         ])
     end
 
-    if not defined?(::Test::::A_Mixin)
+    if not defined?(::Test::A_Mixin)
 
-        module ::Test::::A_Mixin
+        module ::Test::A_Mixin
         end
         class A < ::Ice::Value
 
@@ -398,7 +398,7 @@ module ::Test
             attr_accessor :requiredA, :ma, :mb, :mc
         end
 
-        if not defined?(::Test::::T_A)
+        if not defined?(::Test::T_A)
             T_A = ::Ice::__declareClass('::Test::A')
         end
 
@@ -410,11 +410,11 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::::B_Mixin)
+    if not defined?(::Test::B_Mixin)
 
-        module ::Test::::B_Mixin
+        module ::Test::B_Mixin
         end
-        class B < ::Test::::A
+        class B < ::Test::A
 
             def initialize(requiredA=0, ma=::Ice::Unset, mb=::Ice::Unset, mc=::Ice::Unset, requiredB=0, md=::Ice::Unset)
                 super(requiredA, ma, mb, mc)
@@ -425,21 +425,21 @@ module ::Test
             attr_accessor :requiredB, :md
         end
 
-        if not defined?(::Test::::T_B)
+        if not defined?(::Test::T_B)
             T_B = ::Ice::__declareClass('::Test::B')
         end
 
-        T_B.defineClass(B, -1, true, false, ::Test::::T_A, [
+        T_B.defineClass(B, -1, true, false, ::Test::T_A, [
             ['requiredB', ::Ice::T_int, false, 0],
             ['md', ::Ice::T_int, true, 10]
         ])
     end
 
-    if not defined?(::Test::::C_Mixin)
+    if not defined?(::Test::C_Mixin)
 
-        module ::Test::::C_Mixin
+        module ::Test::C_Mixin
         end
-        class C < ::Test::::B
+        class C < ::Test::B
 
             def initialize(requiredA=0, ma=::Ice::Unset, mb=::Ice::Unset, mc=::Ice::Unset, requiredB=0, md=::Ice::Unset, ss='', ms=::Ice::Unset)
                 super(requiredA, ma, mb, mc, requiredB, md)
@@ -450,19 +450,19 @@ module ::Test
             attr_accessor :ss, :ms
         end
 
-        if not defined?(::Test::::T_C)
+        if not defined?(::Test::T_C)
             T_C = ::Ice::__declareClass('::Test::C')
         end
 
-        T_C.defineClass(C, -1, true, false, ::Test::::T_B, [
+        T_C.defineClass(C, -1, true, false, ::Test::T_B, [
             ['ss', ::Ice::T_string, false, 0],
             ['ms', ::Ice::T_string, true, 890]
         ])
     end
 
-    if not defined?(::Test::::WD_Mixin)
+    if not defined?(::Test::WD_Mixin)
 
-        module ::Test::::WD_Mixin
+        module ::Test::WD_Mixin
         end
         class WD < ::Ice::Value
 
@@ -474,7 +474,7 @@ module ::Test
             attr_accessor :a, :s
         end
 
-        if not defined?(::Test::::T_WD)
+        if not defined?(::Test::T_WD)
             T_WD = ::Ice::__declareClass('::Test::WD')
         end
 
@@ -484,7 +484,7 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::::OptionalException)
+    if not defined?(::Test::OptionalException)
         class OptionalException < Ice::UserException
             def initialize(req=false, a=5, b=::Ice::Unset, o=::Ice::Unset)
                 @req = req
@@ -504,12 +504,12 @@ module ::Test
             ["req", ::Ice::T_bool, false, 0],
             ["a", ::Ice::T_int, true, 1],
             ["b", ::Ice::T_string, true, 2],
-            ["o", ::Test::::T_OneOptional, true, 50]
+            ["o", ::Test::T_OneOptional, true, 50]
         ])
     end
 
-    if not defined?(::Test::::DerivedException)
-        class DerivedException < ::Test::::OptionalException
+    if not defined?(::Test::DerivedException)
+        class DerivedException < ::Test::OptionalException
             def initialize(req=false, a=5, b=::Ice::Unset, o=::Ice::Unset, d1='', ss="test", o2=::Ice::Unset, d2='')
                 super(req, a, b, o)
                 @d1 = d1
@@ -525,16 +525,16 @@ module ::Test
             attr_accessor :d1, :ss, :o2, :d2
         end
 
-        T_DerivedException = ::Ice::__defineException('::Test::DerivedException', DerivedException, false, ::Test::::T_OptionalException, [
+        T_DerivedException = ::Ice::__defineException('::Test::DerivedException', DerivedException, false, ::Test::T_OptionalException, [
             ["d1", ::Ice::T_string, false, 0],
             ["ss", ::Ice::T_string, true, 600],
-            ["o2", ::Test::::T_OneOptional, true, 601],
+            ["o2", ::Test::T_OneOptional, true, 601],
             ["d2", ::Ice::T_string, false, 0]
         ])
     end
 
-    if not defined?(::Test::::RequiredException)
-        class RequiredException < ::Test::::OptionalException
+    if not defined?(::Test::RequiredException)
+        class RequiredException < ::Test::OptionalException
             def initialize(req=false, a=5, b=::Ice::Unset, o=::Ice::Unset, ss="test", o2=nil)
                 super(req, a, b, o)
                 @ss = ss
@@ -548,15 +548,15 @@ module ::Test
             attr_accessor :ss, :o2
         end
 
-        T_RequiredException = ::Ice::__defineException('::Test::RequiredException', RequiredException, false, ::Test::::T_OptionalException, [
+        T_RequiredException = ::Ice::__defineException('::Test::RequiredException', RequiredException, false, ::Test::T_OptionalException, [
             ["ss", ::Ice::T_string, false, 0],
-            ["o2", ::Test::::T_OneOptional, false, 0]
+            ["o2", ::Test::T_OneOptional, false, 0]
         ])
     end
 
-    if not defined?(::Test::::OptionalWithCustom_Mixin)
+    if not defined?(::Test::OptionalWithCustom_Mixin)
 
-        module ::Test::::OptionalWithCustom_Mixin
+        module ::Test::OptionalWithCustom_Mixin
         end
         class OptionalWithCustom < ::Ice::Value
 
@@ -570,20 +570,20 @@ module ::Test
             protected :lp, :lp=
         end
 
-        if not defined?(::Test::::T_OptionalWithCustom)
+        if not defined?(::Test::T_OptionalWithCustom)
             T_OptionalWithCustom = ::Ice::__declareClass('::Test::OptionalWithCustom')
         end
 
         T_OptionalWithCustom.defineClass(OptionalWithCustom, -1, false, false, nil, [
-            ['l', ::Test::::T_SmallStructList, true, 1],
-            ['lp', ::Test::::T_SmallStructList, true, 2],
-            ['s', ::Test::::T_ClassVarStruct, true, 3]
+            ['l', ::Test::T_SmallStructList, true, 1],
+            ['lp', ::Test::T_SmallStructList, true, 2],
+            ['s', ::Test::T_ClassVarStruct, true, 3]
         ])
     end
 
-    if not defined?(::Test::::E_Mixin)
+    if not defined?(::Test::E_Mixin)
 
-        module ::Test::::E_Mixin
+        module ::Test::E_Mixin
         end
         class E < ::Ice::Value
 
@@ -594,18 +594,18 @@ module ::Test
             attr_accessor :ae
         end
 
-        if not defined?(::Test::::T_E)
+        if not defined?(::Test::T_E)
             T_E = ::Ice::__declareClass('::Test::E')
         end
 
-        T_E.defineClass(E, -1, false, false, nil, [['ae', ::Test::::T_A, false, 0]])
+        T_E.defineClass(E, -1, false, false, nil, [['ae', ::Test::T_A, false, 0]])
     end
 
-    if not defined?(::Test::::F_Mixin)
+    if not defined?(::Test::F_Mixin)
 
-        module ::Test::::F_Mixin
+        module ::Test::F_Mixin
         end
-        class F < ::Test::::E
+        class F < ::Test::E
 
             def initialize(ae=nil, af=::Ice::Unset)
                 super(ae)
@@ -615,16 +615,16 @@ module ::Test
             attr_accessor :af
         end
 
-        if not defined?(::Test::::T_F)
+        if not defined?(::Test::T_F)
             T_F = ::Ice::__declareClass('::Test::F')
         end
 
-        T_F.defineClass(F, -1, false, false, ::Test::::T_E, [['af', ::Test::::T_A, true, 1]])
+        T_F.defineClass(F, -1, false, false, ::Test::T_E, [['af', ::Test::T_A, true, 1]])
     end
 
-    if not defined?(::Test::::G1_Mixin)
+    if not defined?(::Test::G1_Mixin)
 
-        module ::Test::::G1_Mixin
+        module ::Test::G1_Mixin
         end
         class G1 < ::Ice::Value
 
@@ -635,16 +635,16 @@ module ::Test
             attr_accessor :a
         end
 
-        if not defined?(::Test::::T_G1)
+        if not defined?(::Test::T_G1)
             T_G1 = ::Ice::__declareClass('::Test::G1')
         end
 
         T_G1.defineClass(G1, -1, false, false, nil, [['a', ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::::G2_Mixin)
+    if not defined?(::Test::G2_Mixin)
 
-        module ::Test::::G2_Mixin
+        module ::Test::G2_Mixin
         end
         class G2 < ::Ice::Value
 
@@ -655,16 +655,16 @@ module ::Test
             attr_accessor :a
         end
 
-        if not defined?(::Test::::T_G2)
+        if not defined?(::Test::T_G2)
             T_G2 = ::Ice::__declareClass('::Test::G2')
         end
 
         T_G2.defineClass(G2, -1, false, false, nil, [['a', ::Ice::T_long, false, 0]])
     end
 
-    if not defined?(::Test::::G_Mixin)
+    if not defined?(::Test::G_Mixin)
 
-        module ::Test::::G_Mixin
+        module ::Test::G_Mixin
         end
         class G < ::Ice::Value
 
@@ -678,30 +678,30 @@ module ::Test
             attr_accessor :gg1Opt, :gg2, :gg2Opt, :gg1
         end
 
-        if not defined?(::Test::::T_G)
+        if not defined?(::Test::T_G)
             T_G = ::Ice::__declareClass('::Test::G')
         end
 
         T_G.defineClass(G, -1, false, false, nil, [
-            ['gg1Opt', ::Test::::T_G1, true, 1],
-            ['gg2', ::Test::::T_G2, false, 0],
-            ['gg2Opt', ::Test::::T_G2, true, 0],
-            ['gg1', ::Test::::T_G1, false, 0]
+            ['gg1Opt', ::Test::T_G1, true, 1],
+            ['gg2', ::Test::T_G2, false, 0],
+            ['gg2Opt', ::Test::T_G2, true, 0],
+            ['gg1', ::Test::T_G1, false, 0]
         ])
     end
 
-    if not defined?(::Test::::T_Recursive)
+    if not defined?(::Test::T_Recursive)
         T_Recursive = ::Ice::__declareClass('::Test::Recursive')
         T_RecursivePrx = ::Ice::__declareProxy('::Test::Recursive')
     end
 
-    if not defined?(::Test::::T_RecursiveSeq)
-        T_RecursiveSeq = ::Ice::__defineSequence('::Test::RecursiveSeq', ::Test::::T_Recursive)
+    if not defined?(::Test::T_RecursiveSeq)
+        T_RecursiveSeq = ::Ice::__defineSequence('::Test::RecursiveSeq', ::Test::T_Recursive)
     end
 
-    if not defined?(::Test::::Recursive_Mixin)
+    if not defined?(::Test::Recursive_Mixin)
 
-        module ::Test::::Recursive_Mixin
+        module ::Test::Recursive_Mixin
         end
         class Recursive < ::Ice::Value
 
@@ -712,16 +712,16 @@ module ::Test
             attr_accessor :value
         end
 
-        if not defined?(::Test::::T_Recursive)
+        if not defined?(::Test::T_Recursive)
             T_Recursive = ::Ice::__declareClass('::Test::Recursive')
         end
 
-        T_Recursive.defineClass(Recursive, -1, false, false, nil, [['value', ::Test::::T_RecursiveSeq, true, 0]])
+        T_Recursive.defineClass(Recursive, -1, false, false, nil, [['value', ::Test::T_RecursiveSeq, true, 0]])
     end
 
-    if not defined?(::Test::::Initial_Mixin)
+    if not defined?(::Test::Initial_Mixin)
 
-        module ::Test::::Initial_Mixin
+        module ::Test::Initial_Mixin
         end
         module InitialPrx_mixin
 
@@ -955,7 +955,7 @@ module ::Test
             include InitialPrx_mixin
         end
 
-        if not defined?(::Test::::T_InitialPrx)
+        if not defined?(::Test::T_InitialPrx)
             T_Initial = ::Ice::__declareClass('::Test::Initial')
             T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
         end
@@ -966,9 +966,9 @@ module ::Test
 
         InitialPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         InitialPrx_mixin::OP_pingPong = ::Ice::__defineOperation('pingPong', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_Value, false, 0]], [], [::Ice::T_Value, false, 0], [])
-        InitialPrx_mixin::OP_opOptionalException = ::Ice::__defineOperation('opOptionalException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, true, 1], [::Ice::T_string, true, 2], [::Test::::T_OneOptional, true, 3]], [], nil, [::Test::::T_OptionalException])
-        InitialPrx_mixin::OP_opDerivedException = ::Ice::__defineOperation('opDerivedException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, true, 1], [::Ice::T_string, true, 2], [::Test::::T_OneOptional, true, 3]], [], nil, [::Test::::T_OptionalException])
-        InitialPrx_mixin::OP_opRequiredException = ::Ice::__defineOperation('opRequiredException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, true, 1], [::Ice::T_string, true, 2], [::Test::::T_OneOptional, true, 3]], [], nil, [::Test::::T_OptionalException])
+        InitialPrx_mixin::OP_opOptionalException = ::Ice::__defineOperation('opOptionalException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, true, 1], [::Ice::T_string, true, 2], [::Test::T_OneOptional, true, 3]], [], nil, [::Test::T_OptionalException])
+        InitialPrx_mixin::OP_opDerivedException = ::Ice::__defineOperation('opDerivedException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, true, 1], [::Ice::T_string, true, 2], [::Test::T_OneOptional, true, 3]], [], nil, [::Test::T_OptionalException])
+        InitialPrx_mixin::OP_opRequiredException = ::Ice::__defineOperation('opRequiredException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, true, 1], [::Ice::T_string, true, 2], [::Test::T_OneOptional, true, 3]], [], nil, [::Test::T_OptionalException])
         InitialPrx_mixin::OP_opByte = ::Ice::__defineOperation('opByte', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_byte, true, 2]], [[::Ice::T_byte, true, 3]], [::Ice::T_byte, true, 1], [])
         InitialPrx_mixin::OP_opBool = ::Ice::__defineOperation('opBool', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, true, 2]], [[::Ice::T_bool, true, 3]], [::Ice::T_bool, true, 1], [])
         InitialPrx_mixin::OP_opShort = ::Ice::__defineOperation('opShort', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_short, true, 2]], [[::Ice::T_short, true, 3]], [::Ice::T_short, true, 1], [])
@@ -978,43 +978,43 @@ module ::Test
         InitialPrx_mixin::OP_opDouble = ::Ice::__defineOperation('opDouble', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_double, true, 2]], [[::Ice::T_double, true, 3]], [::Ice::T_double, true, 1], [])
         InitialPrx_mixin::OP_opString = ::Ice::__defineOperation('opString', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, true, 2]], [[::Ice::T_string, true, 3]], [::Ice::T_string, true, 1], [])
         InitialPrx_mixin::OP_opCustomString = ::Ice::__defineOperation('opCustomString', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, true, 2]], [[::Ice::T_string, true, 3]], [::Ice::T_string, true, 1], [])
-        InitialPrx_mixin::OP_opMyEnum = ::Ice::__defineOperation('opMyEnum', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_MyEnum, true, 2]], [[::Test::::T_MyEnum, true, 3]], [::Test::::T_MyEnum, true, 1], [])
-        InitialPrx_mixin::OP_opSmallStruct = ::Ice::__defineOperation('opSmallStruct', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_SmallStruct, true, 2]], [[::Test::::T_SmallStruct, true, 3]], [::Test::::T_SmallStruct, true, 1], [])
-        InitialPrx_mixin::OP_opFixedStruct = ::Ice::__defineOperation('opFixedStruct', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_FixedStruct, true, 2]], [[::Test::::T_FixedStruct, true, 3]], [::Test::::T_FixedStruct, true, 1], [])
-        InitialPrx_mixin::OP_opVarStruct = ::Ice::__defineOperation('opVarStruct', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_VarStruct, true, 2]], [[::Test::::T_VarStruct, true, 3]], [::Test::::T_VarStruct, true, 1], [])
-        InitialPrx_mixin::OP_opOneOptional = ::Ice::__defineOperation('opOneOptional', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_OneOptional, true, 2]], [[::Test::::T_OneOptional, true, 3]], [::Test::::T_OneOptional, true, 1], [])
+        InitialPrx_mixin::OP_opMyEnum = ::Ice::__defineOperation('opMyEnum', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_MyEnum, true, 2]], [[::Test::T_MyEnum, true, 3]], [::Test::T_MyEnum, true, 1], [])
+        InitialPrx_mixin::OP_opSmallStruct = ::Ice::__defineOperation('opSmallStruct', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SmallStruct, true, 2]], [[::Test::T_SmallStruct, true, 3]], [::Test::T_SmallStruct, true, 1], [])
+        InitialPrx_mixin::OP_opFixedStruct = ::Ice::__defineOperation('opFixedStruct', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_FixedStruct, true, 2]], [[::Test::T_FixedStruct, true, 3]], [::Test::T_FixedStruct, true, 1], [])
+        InitialPrx_mixin::OP_opVarStruct = ::Ice::__defineOperation('opVarStruct', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_VarStruct, true, 2]], [[::Test::T_VarStruct, true, 3]], [::Test::T_VarStruct, true, 1], [])
+        InitialPrx_mixin::OP_opOneOptional = ::Ice::__defineOperation('opOneOptional', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_OneOptional, true, 2]], [[::Test::T_OneOptional, true, 3]], [::Test::T_OneOptional, true, 1], [])
         InitialPrx_mixin::OP_opOneOptionalProxy = ::Ice::__defineOperation('opOneOptionalProxy', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_ObjectPrx, true, 2]], [[::Ice::T_ObjectPrx, true, 3]], [::Ice::T_ObjectPrx, true, 1], [])
-        InitialPrx_mixin::OP_opByteSeq = ::Ice::__defineOperation('opByteSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_ByteSeq, true, 2]], [[::Test::::T_ByteSeq, true, 3]], [::Test::::T_ByteSeq, true, 1], [])
-        InitialPrx_mixin::OP_opBoolSeq = ::Ice::__defineOperation('opBoolSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_BoolSeq, true, 2]], [[::Test::::T_BoolSeq, true, 3]], [::Test::::T_BoolSeq, true, 1], [])
-        InitialPrx_mixin::OP_opShortSeq = ::Ice::__defineOperation('opShortSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_ShortSeq, true, 2]], [[::Test::::T_ShortSeq, true, 3]], [::Test::::T_ShortSeq, true, 1], [])
-        InitialPrx_mixin::OP_opIntSeq = ::Ice::__defineOperation('opIntSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_IntSeq, true, 2]], [[::Test::::T_IntSeq, true, 3]], [::Test::::T_IntSeq, true, 1], [])
-        InitialPrx_mixin::OP_opLongSeq = ::Ice::__defineOperation('opLongSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_LongSeq, true, 2]], [[::Test::::T_LongSeq, true, 3]], [::Test::::T_LongSeq, true, 1], [])
-        InitialPrx_mixin::OP_opFloatSeq = ::Ice::__defineOperation('opFloatSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_FloatSeq, true, 2]], [[::Test::::T_FloatSeq, true, 3]], [::Test::::T_FloatSeq, true, 1], [])
-        InitialPrx_mixin::OP_opDoubleSeq = ::Ice::__defineOperation('opDoubleSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_DoubleSeq, true, 2]], [[::Test::::T_DoubleSeq, true, 3]], [::Test::::T_DoubleSeq, true, 1], [])
-        InitialPrx_mixin::OP_opStringSeq = ::Ice::__defineOperation('opStringSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_StringSeq, true, 2]], [[::Test::::T_StringSeq, true, 3]], [::Test::::T_StringSeq, true, 1], [])
-        InitialPrx_mixin::OP_opSmallStructSeq = ::Ice::__defineOperation('opSmallStructSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_SmallStructSeq, true, 2]], [[::Test::::T_SmallStructSeq, true, 3]], [::Test::::T_SmallStructSeq, true, 1], [])
-        InitialPrx_mixin::OP_opSmallStructList = ::Ice::__defineOperation('opSmallStructList', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_SmallStructList, true, 2]], [[::Test::::T_SmallStructList, true, 3]], [::Test::::T_SmallStructList, true, 1], [])
-        InitialPrx_mixin::OP_opFixedStructSeq = ::Ice::__defineOperation('opFixedStructSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_FixedStructSeq, true, 2]], [[::Test::::T_FixedStructSeq, true, 3]], [::Test::::T_FixedStructSeq, true, 1], [])
-        InitialPrx_mixin::OP_opFixedStructList = ::Ice::__defineOperation('opFixedStructList', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_FixedStructList, true, 2]], [[::Test::::T_FixedStructList, true, 3]], [::Test::::T_FixedStructList, true, 1], [])
-        InitialPrx_mixin::OP_opVarStructSeq = ::Ice::__defineOperation('opVarStructSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_VarStructSeq, true, 2]], [[::Test::::T_VarStructSeq, true, 3]], [::Test::::T_VarStructSeq, true, 1], [])
-        InitialPrx_mixin::OP_opSerializable = ::Ice::__defineOperation('opSerializable', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_Serializable, true, 2]], [[::Test::::T_Serializable, true, 3]], [::Test::::T_Serializable, true, 1], [])
-        InitialPrx_mixin::OP_opIntIntDict = ::Ice::__defineOperation('opIntIntDict', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_IntIntDict, true, 2]], [[::Test::::T_IntIntDict, true, 3]], [::Test::::T_IntIntDict, true, 1], [])
-        InitialPrx_mixin::OP_opStringIntDict = ::Ice::__defineOperation('opStringIntDict', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_StringIntDict, true, 2]], [[::Test::::T_StringIntDict, true, 3]], [::Test::::T_StringIntDict, true, 1], [])
-        InitialPrx_mixin::OP_opCustomIntStringDict = ::Ice::__defineOperation('opCustomIntStringDict', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_IntStringDict, true, 2]], [[::Test::::T_IntStringDict, true, 3]], [::Test::::T_IntStringDict, true, 1], [])
-        InitialPrx_mixin::OP_opIntOneOptionalDict = ::Ice::__defineOperation('opIntOneOptionalDict', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_IntOneOptionalDict, true, 2]], [[::Test::::T_IntOneOptionalDict, true, 3]], [::Test::::T_IntOneOptionalDict, true, 1], [])
-        InitialPrx_mixin::OP_opClassAndUnknownOptional = ::Ice::__defineOperation('opClassAndUnknownOptional', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_A, false, 0]], [], nil, [])
-        InitialPrx_mixin::OP_sendOptionalClass = ::Ice::__defineOperation('sendOptionalClass', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0], [::Test::::T_OneOptional, true, 1]], [], nil, [])
-        InitialPrx_mixin::OP_returnOptionalClass = ::Ice::__defineOperation('returnOptionalClass', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0]], [[::Test::::T_OneOptional, true, 1]], nil, [])
-        InitialPrx_mixin::OP_opG = ::Ice::__defineOperation('opG', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_G, false, 0]], [], [::Test::::T_G, false, 0], [])
+        InitialPrx_mixin::OP_opByteSeq = ::Ice::__defineOperation('opByteSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteSeq, true, 2]], [[::Test::T_ByteSeq, true, 3]], [::Test::T_ByteSeq, true, 1], [])
+        InitialPrx_mixin::OP_opBoolSeq = ::Ice::__defineOperation('opBoolSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_BoolSeq, true, 2]], [[::Test::T_BoolSeq, true, 3]], [::Test::T_BoolSeq, true, 1], [])
+        InitialPrx_mixin::OP_opShortSeq = ::Ice::__defineOperation('opShortSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ShortSeq, true, 2]], [[::Test::T_ShortSeq, true, 3]], [::Test::T_ShortSeq, true, 1], [])
+        InitialPrx_mixin::OP_opIntSeq = ::Ice::__defineOperation('opIntSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_IntSeq, true, 2]], [[::Test::T_IntSeq, true, 3]], [::Test::T_IntSeq, true, 1], [])
+        InitialPrx_mixin::OP_opLongSeq = ::Ice::__defineOperation('opLongSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_LongSeq, true, 2]], [[::Test::T_LongSeq, true, 3]], [::Test::T_LongSeq, true, 1], [])
+        InitialPrx_mixin::OP_opFloatSeq = ::Ice::__defineOperation('opFloatSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_FloatSeq, true, 2]], [[::Test::T_FloatSeq, true, 3]], [::Test::T_FloatSeq, true, 1], [])
+        InitialPrx_mixin::OP_opDoubleSeq = ::Ice::__defineOperation('opDoubleSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_DoubleSeq, true, 2]], [[::Test::T_DoubleSeq, true, 3]], [::Test::T_DoubleSeq, true, 1], [])
+        InitialPrx_mixin::OP_opStringSeq = ::Ice::__defineOperation('opStringSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_StringSeq, true, 2]], [[::Test::T_StringSeq, true, 3]], [::Test::T_StringSeq, true, 1], [])
+        InitialPrx_mixin::OP_opSmallStructSeq = ::Ice::__defineOperation('opSmallStructSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SmallStructSeq, true, 2]], [[::Test::T_SmallStructSeq, true, 3]], [::Test::T_SmallStructSeq, true, 1], [])
+        InitialPrx_mixin::OP_opSmallStructList = ::Ice::__defineOperation('opSmallStructList', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SmallStructList, true, 2]], [[::Test::T_SmallStructList, true, 3]], [::Test::T_SmallStructList, true, 1], [])
+        InitialPrx_mixin::OP_opFixedStructSeq = ::Ice::__defineOperation('opFixedStructSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_FixedStructSeq, true, 2]], [[::Test::T_FixedStructSeq, true, 3]], [::Test::T_FixedStructSeq, true, 1], [])
+        InitialPrx_mixin::OP_opFixedStructList = ::Ice::__defineOperation('opFixedStructList', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_FixedStructList, true, 2]], [[::Test::T_FixedStructList, true, 3]], [::Test::T_FixedStructList, true, 1], [])
+        InitialPrx_mixin::OP_opVarStructSeq = ::Ice::__defineOperation('opVarStructSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_VarStructSeq, true, 2]], [[::Test::T_VarStructSeq, true, 3]], [::Test::T_VarStructSeq, true, 1], [])
+        InitialPrx_mixin::OP_opSerializable = ::Ice::__defineOperation('opSerializable', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_Serializable, true, 2]], [[::Test::T_Serializable, true, 3]], [::Test::T_Serializable, true, 1], [])
+        InitialPrx_mixin::OP_opIntIntDict = ::Ice::__defineOperation('opIntIntDict', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_IntIntDict, true, 2]], [[::Test::T_IntIntDict, true, 3]], [::Test::T_IntIntDict, true, 1], [])
+        InitialPrx_mixin::OP_opStringIntDict = ::Ice::__defineOperation('opStringIntDict', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_StringIntDict, true, 2]], [[::Test::T_StringIntDict, true, 3]], [::Test::T_StringIntDict, true, 1], [])
+        InitialPrx_mixin::OP_opCustomIntStringDict = ::Ice::__defineOperation('opCustomIntStringDict', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_IntStringDict, true, 2]], [[::Test::T_IntStringDict, true, 3]], [::Test::T_IntStringDict, true, 1], [])
+        InitialPrx_mixin::OP_opIntOneOptionalDict = ::Ice::__defineOperation('opIntOneOptionalDict', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_IntOneOptionalDict, true, 2]], [[::Test::T_IntOneOptionalDict, true, 3]], [::Test::T_IntOneOptionalDict, true, 1], [])
+        InitialPrx_mixin::OP_opClassAndUnknownOptional = ::Ice::__defineOperation('opClassAndUnknownOptional', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_A, false, 0]], [], nil, [])
+        InitialPrx_mixin::OP_sendOptionalClass = ::Ice::__defineOperation('sendOptionalClass', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0], [::Test::T_OneOptional, true, 1]], [], nil, [])
+        InitialPrx_mixin::OP_returnOptionalClass = ::Ice::__defineOperation('returnOptionalClass', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0]], [[::Test::T_OneOptional, true, 1]], nil, [])
+        InitialPrx_mixin::OP_opG = ::Ice::__defineOperation('opG', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_G, false, 0]], [], [::Test::T_G, false, 0], [])
         InitialPrx_mixin::OP_opVoid = ::Ice::__defineOperation('opVoid', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        InitialPrx_mixin::OP_opMStruct1 = ::Ice::__defineOperation('opMStruct1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::::T_SmallStruct, true, 1], [])
-        InitialPrx_mixin::OP_opMStruct2 = ::Ice::__defineOperation('opMStruct2', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_SmallStruct, true, 2]], [[::Test::::T_SmallStruct, true, 3]], [::Test::::T_SmallStruct, true, 1], [])
-        InitialPrx_mixin::OP_opMSeq1 = ::Ice::__defineOperation('opMSeq1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::::T_StringSeq, true, 1], [])
-        InitialPrx_mixin::OP_opMSeq2 = ::Ice::__defineOperation('opMSeq2', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_StringSeq, true, 2]], [[::Test::::T_StringSeq, true, 3]], [::Test::::T_StringSeq, true, 1], [])
-        InitialPrx_mixin::OP_opMDict1 = ::Ice::__defineOperation('opMDict1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::::T_StringIntDict, true, 1], [])
-        InitialPrx_mixin::OP_opMDict2 = ::Ice::__defineOperation('opMDict2', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_StringIntDict, true, 2]], [[::Test::::T_StringIntDict, true, 3]], [::Test::::T_StringIntDict, true, 1], [])
-        InitialPrx_mixin::OP_opMG1 = ::Ice::__defineOperation('opMG1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::::T_G, true, 1], [])
-        InitialPrx_mixin::OP_opMG2 = ::Ice::__defineOperation('opMG2', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::::T_G, true, 2]], [[::Test::::T_G, true, 3]], [::Test::::T_G, true, 1], [])
+        InitialPrx_mixin::OP_opMStruct1 = ::Ice::__defineOperation('opMStruct1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_SmallStruct, true, 1], [])
+        InitialPrx_mixin::OP_opMStruct2 = ::Ice::__defineOperation('opMStruct2', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_SmallStruct, true, 2]], [[::Test::T_SmallStruct, true, 3]], [::Test::T_SmallStruct, true, 1], [])
+        InitialPrx_mixin::OP_opMSeq1 = ::Ice::__defineOperation('opMSeq1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_StringSeq, true, 1], [])
+        InitialPrx_mixin::OP_opMSeq2 = ::Ice::__defineOperation('opMSeq2', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_StringSeq, true, 2]], [[::Test::T_StringSeq, true, 3]], [::Test::T_StringSeq, true, 1], [])
+        InitialPrx_mixin::OP_opMDict1 = ::Ice::__defineOperation('opMDict1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_StringIntDict, true, 1], [])
+        InitialPrx_mixin::OP_opMDict2 = ::Ice::__defineOperation('opMDict2', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_StringIntDict, true, 2]], [[::Test::T_StringIntDict, true, 3]], [::Test::T_StringIntDict, true, 1], [])
+        InitialPrx_mixin::OP_opMG1 = ::Ice::__defineOperation('opMG1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_G, true, 1], [])
+        InitialPrx_mixin::OP_opMG2 = ::Ice::__defineOperation('opMG2', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_G, true, 2]], [[::Test::T_G, true, 3]], [::Test::T_G, true, 1], [])
         InitialPrx_mixin::OP_supportsRequiredParams = ::Ice::__defineOperation('supportsRequiredParams', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
         InitialPrx_mixin::OP_supportsJavaSerializable = ::Ice::__defineOperation('supportsJavaSerializable', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
         InitialPrx_mixin::OP_supportsCsharpSerializable = ::Ice::__defineOperation('supportsCsharpSerializable', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])

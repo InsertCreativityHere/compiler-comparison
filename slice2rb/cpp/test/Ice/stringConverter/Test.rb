@@ -18,7 +18,7 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::::BadEncodingException)
+    if not defined?(::Test::BadEncodingException)
         class BadEncodingException < Ice::UserException
             def initialize
             end
@@ -31,9 +31,9 @@ module ::Test
         T_BadEncodingException = ::Ice::__defineException('::Test::BadEncodingException', BadEncodingException, false, nil, [])
     end
 
-    if not defined?(::Test::::MyObject_Mixin)
+    if not defined?(::Test::MyObject_Mixin)
 
-        module ::Test::::MyObject_Mixin
+        module ::Test::MyObject_Mixin
         end
         module MyObjectPrx_mixin
 
@@ -55,7 +55,7 @@ module ::Test
             include MyObjectPrx_mixin
         end
 
-        if not defined?(::Test::::T_MyObjectPrx)
+        if not defined?(::Test::T_MyObjectPrx)
             T_MyObject = ::Ice::__declareClass('::Test::MyObject')
             T_MyObjectPrx = ::Ice::__declareProxy('::Test::MyObject')
         end
@@ -64,7 +64,7 @@ module ::Test
 
         T_MyObjectPrx.defineProxy(MyObjectPrx, nil, [])
 
-        MyObjectPrx_mixin::OP_widen = ::Ice::__defineOperation('widen', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_string, false, 0], [::Test::::T_BadEncodingException])
+        MyObjectPrx_mixin::OP_widen = ::Ice::__defineOperation('widen', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_string, false, 0], [::Test::T_BadEncodingException])
         MyObjectPrx_mixin::OP_narrow = ::Ice::__defineOperation('narrow', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_string, false, 0], [])
         MyObjectPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end

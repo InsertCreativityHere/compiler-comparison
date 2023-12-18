@@ -18,11 +18,11 @@ require 'Ice'
 
 module ::Ice
 
-    if not defined?(::Ice::::T_ValueFactory)
+    if not defined?(::Ice::T_ValueFactory)
         T_ValueFactory = ::Ice::__declareLocalClass('::Ice::ValueFactory')
     end
 
-    if not defined?(::Ice::::T_ValueFactoryManager)
+    if not defined?(::Ice::T_ValueFactoryManager)
         T_ValueFactoryManager = ::Ice::__declareLocalClass('::Ice::ValueFactoryManager')
     end
 end

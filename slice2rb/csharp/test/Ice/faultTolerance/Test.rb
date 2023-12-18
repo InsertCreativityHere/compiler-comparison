@@ -18,9 +18,9 @@ require 'Ice'
 
 module ::Test
 
-    if not defined?(::Test::::TestIntf_Mixin)
+    if not defined?(::Test::TestIntf_Mixin)
 
-        module ::Test::::TestIntf_Mixin
+        module ::Test::TestIntf_Mixin
         end
         module TestIntfPrx_mixin
 
@@ -46,7 +46,7 @@ module ::Test
             include TestIntfPrx_mixin
         end
 
-        if not defined?(::Test::::T_TestIntfPrx)
+        if not defined?(::Test::T_TestIntfPrx)
             T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
@@ -61,9 +61,9 @@ module ::Test
         TestIntfPrx_mixin::OP_pid = ::Ice::__defineOperation('pid', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_int, false, 0], [])
     end
 
-    if not defined?(::Test::::Cleaner_Mixin)
+    if not defined?(::Test::Cleaner_Mixin)
 
-        module ::Test::::Cleaner_Mixin
+        module ::Test::Cleaner_Mixin
         end
         module CleanerPrx_mixin
 
@@ -77,7 +77,7 @@ module ::Test
             include CleanerPrx_mixin
         end
 
-        if not defined?(::Test::::T_CleanerPrx)
+        if not defined?(::Test::T_CleanerPrx)
             T_Cleaner = ::Ice::__declareClass('::Test::Cleaner')
             T_CleanerPrx = ::Ice::__declareProxy('::Test::Cleaner')
         end

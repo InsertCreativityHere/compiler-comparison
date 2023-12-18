@@ -19,11 +19,11 @@ require 'Ice/Connection.rb'
 
 module ::IceIAP
 
-    if not defined?(::IceIAP::::ConnectionInfo_Mixin)
+    if not defined?(::IceIAP::ConnectionInfo_Mixin)
 
-        module ::IceIAP::::ConnectionInfo_Mixin
+        module ::IceIAP::ConnectionInfo_Mixin
         end
-        class ConnectionInfo < ::Ice::::ConnectionInfo
+        class ConnectionInfo < ::Ice::ConnectionInfo
 
             def initialize(underlying=nil, incoming=false, adapterName='', connectionId='', name='', manufacturer='', modelNumber='', firmwareRevision='', hardwareRevision='', protocol='')
                 super(underlying, incoming, adapterName, connectionId)
@@ -38,11 +38,11 @@ module ::IceIAP
             attr_accessor :name, :manufacturer, :modelNumber, :firmwareRevision, :hardwareRevision, :protocol
         end
 
-        if not defined?(::IceIAP::::T_ConnectionInfo)
+        if not defined?(::IceIAP::T_ConnectionInfo)
             T_ConnectionInfo = ::Ice::__declareLocalClass('::IceIAP::ConnectionInfo')
         end
 
-        T_ConnectionInfo.defineClass(ConnectionInfo, -1, false, false, ::Ice::::T_ConnectionInfo, [
+        T_ConnectionInfo.defineClass(ConnectionInfo, -1, false, false, ::Ice::T_ConnectionInfo, [
             ['name', ::Ice::T_string, false, 0],
             ['manufacturer', ::Ice::T_string, false, 0],
             ['modelNumber', ::Ice::T_string, false, 0],
