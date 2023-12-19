@@ -1,28 +1,23 @@
 /Users/austin/Code/zeroc/ice/swift/test/Ice/optional/TestAMD.ice:62: warning: ignoring invalid metadata `cs:serializable:Ice.optional.Test.SerializableClass'
 /Users/austin/Code/zeroc/ice/cpp/bin/slice2js: error:include/IceUtil/Handle.h:41: ::IceUtil::NullHandleException
-/Users/austin/Code/zeroc/ice/slice/IceBT/EndpointInfo.ice:32: `Ice::EndpointInfo' has been declared but not defined
-/Users/austin/Code/zeroc/ice/slice/IceBT/ConnectionInfo.ice:31: `Ice::ConnectionInfo' is not defined
+/Users/austin/Code/zeroc/ice/slice/IceBT/EndpointInfo.ice:30: `Ice::EndpointInfo' has been declared but not defined
+/Users/austin/Code/zeroc/ice/slice/IceBT/ConnectionInfo.ice:29: `Ice::ConnectionInfo' is not defined
 /Users/austin/Code/zeroc/ice/slice/IceIAP/EndpointInfo.ice:26: `Ice::EndpointInfo' has been declared but not defined
 /Users/austin/Code/zeroc/ice/slice/IceIAP/ConnectionInfo.ice:25: `Ice::ConnectionInfo' is not defined
-/Users/austin/Code/zeroc/ice/slice/IceSSL/EndpointInfo.ice:33: `Ice::EndpointInfo' has been declared but not defined
-/Users/austin/Code/zeroc/ice/slice/IceSSL/ConnectionInfo.ice:34: `Ice::ConnectionInfo' is not defined
+/Users/austin/Code/zeroc/ice/slice/IceSSL/EndpointInfo.ice:31: `Ice::EndpointInfo' has been declared but not defined
+/Users/austin/Code/zeroc/ice/slice/IceSSL/ConnectionInfo.ice:32: `Ice::ConnectionInfo' is not defined
 /Users/austin/Code/zeroc/ice/python/test/Ice/objects/Test.ice:194: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/python/test/Ice/operations/Test.ice:71: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/js/test/typescript/Ice/objects/Test.ice:194: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/js/test/typescript/Ice/operations/Test.ice:72: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/js/test/Ice/objects/Test.ice:198: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/js/test/Ice/operations/Test.ice:72: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/slice/IceBT/EndpointInfo.ice:32: `Ice::EndpointInfo' has been declared but not defined
-/Users/austin/Code/zeroc/ice/slice/IceBT/ConnectionInfo.ice:31: `Ice::ConnectionInfo' is not defined
+/Users/austin/Code/zeroc/ice/slice/IceBT/EndpointInfo.ice:30: `Ice::EndpointInfo' has been declared but not defined
+/Users/austin/Code/zeroc/ice/slice/IceBT/ConnectionInfo.ice:29: `Ice::ConnectionInfo' is not defined
 /Users/austin/Code/zeroc/ice/slice/IceIAP/EndpointInfo.ice:26: `Ice::EndpointInfo' has been declared but not defined
 /Users/austin/Code/zeroc/ice/slice/IceIAP/ConnectionInfo.ice:25: `Ice::ConnectionInfo' is not defined
-/Users/austin/Code/zeroc/ice/slice/IceSSL/EndpointInfo.ice:33: `Ice::EndpointInfo' has been declared but not defined
-/Users/austin/Code/zeroc/ice/slice/IceSSL/ConnectionInfo.ice:34: `Ice::ConnectionInfo' is not defined
-/Users/austin/Code/zeroc/ice/java-compat/test/src/main/java/test/Ice/impl/TestAMD.ice:70: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/java-compat/test/src/main/java/test/Ice/impl/Test.ice:70: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/java-compat/test/src/main/java/test/Ice/objects/Test.ice:195: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/java-compat/test/src/main/java/test/Ice/operations/TestAMD.ice:72: warning: dictionary key type not supported in PHP
-/Users/austin/Code/zeroc/ice/java-compat/test/src/main/java/test/Ice/operations/Test.ice:72: warning: dictionary key type not supported in PHP
+/Users/austin/Code/zeroc/ice/slice/IceSSL/EndpointInfo.ice:31: `Ice::EndpointInfo' has been declared but not defined
+/Users/austin/Code/zeroc/ice/slice/IceSSL/ConnectionInfo.ice:32: `Ice::ConnectionInfo' is not defined
 /Users/austin/Code/zeroc/ice/java/test/src/main/java/test/Ice/impl/TestAMD.ice:70: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/java/test/src/main/java/test/Ice/impl/Test.ice:70: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/java/test/src/main/java/test/Ice/objects/Test.ice:195: warning: dictionary key type not supported in PHP
@@ -68,18 +63,6 @@
  Slice module `::Inner' should be map to Swift module `Test'
 /Users/austin/Code/zeroc/ice/js/test/Ice/operations/Test.ice:363: invalid module mapping:
  Slice module `::Test2' should be map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/java-compat/test/src/main/java/test/Slice/generation/File1.ice:20: invalid module mapping:
- Slice module `::Test2' should be map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/java-compat/test/src/main/java/test/Ice/packagemd/Package.ice:33: invalid module mapping:
- Slice module `::Test3' should be map to Swift module `Test2'
-/Users/austin/Code/zeroc/ice/java-compat/test/src/main/java/test/Ice/packagemd/Package.ice:33: invalid module mapping:
- Slice module `::Test3' should be map to Swift module `Test2'
-/Users/austin/Code/zeroc/ice/java-compat/test/src/main/java/test/Ice/scope/Test.ice:148: invalid module mapping:
- Slice module `::Inner' should be map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/java-compat/test/src/main/java/test/Ice/operations/TestAMD.ice:358: invalid module mapping:
- Slice module `::M' should be map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/java-compat/test/src/main/java/test/Ice/operations/Test.ice:358: invalid module mapping:
- Slice module `::M' should be map to Swift module `Test'
 /Users/austin/Code/zeroc/ice/java/test/src/main/java/test/Slice/generation/File1.ice:20: invalid module mapping:
  Slice module `::Test2' should be map to Swift module `Test'
 /Users/austin/Code/zeroc/ice/java/test/src/main/java/test/Ice/packagemd/Package.ice:33: invalid module mapping:
