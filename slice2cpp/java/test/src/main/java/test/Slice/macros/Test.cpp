@@ -196,12 +196,8 @@ Test::Default::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Default::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Default";
     return typeId;
-#else
-    return iceC_Test_Default_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -291,12 +287,8 @@ Test::NoDefault::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::NoDefault::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::NoDefault";
     return typeId;
-#else
-    return iceC_Test_NoDefault_ids[1];
-#endif
 }
 
 /// \cond STREAM

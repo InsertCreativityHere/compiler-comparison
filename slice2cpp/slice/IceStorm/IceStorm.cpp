@@ -2094,12 +2094,8 @@ IceStorm::Topic::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceStorm::Topic::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceStorm::Topic";
     return typeId;
-#else
-    return iceC_IceStorm_Topic_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2419,12 +2415,8 @@ IceStorm::TopicManager::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceStorm::TopicManager::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceStorm::TopicManager";
     return typeId;
-#else
-    return iceC_IceStorm_TopicManager_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2609,12 +2601,8 @@ IceStorm::Finder::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceStorm::Finder::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceStorm::Finder";
     return typeId;
-#else
-    return iceC_IceStorm_Finder_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

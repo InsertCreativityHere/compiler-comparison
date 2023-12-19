@@ -646,7 +646,7 @@ Test::Base::~Base()
 
 /// \endcond
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
@@ -656,7 +656,7 @@ Test::Base::ice_clone() const
     ::Ice::Object* p = new Base(*this);
     return p;
 }
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
@@ -691,12 +691,8 @@ Test::Base::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Base::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Base";
     return typeId;
-#else
-    return iceC_Test_Base_ids[1];
-#endif
 }
 
 void
@@ -830,12 +826,8 @@ Test::Derived::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Derived::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Derived";
     return typeId;
-#else
-    return iceC_Test_Derived_ids[2];
-#endif
 }
 
 void
@@ -927,12 +919,8 @@ Test::Initial::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Initial::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Initial";
     return typeId;
-#else
-    return iceC_Test_Initial_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

@@ -1694,12 +1694,8 @@ IceStormElection::ReplicaObserver::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceStormElection::ReplicaObserver::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceStormElection::ReplicaObserver";
     return typeId;
-#else
-    return iceC_IceStormElection_ReplicaObserver_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1935,12 +1931,8 @@ IceStormElection::TopicManagerSync::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceStormElection::TopicManagerSync::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceStormElection::TopicManagerSync";
     return typeId;
-#else
-    return iceC_IceStormElection_TopicManagerSync_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2084,12 +2076,8 @@ IceStormElection::Node::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceStormElection::Node::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceStormElection::Node";
     return typeId;
-#else
-    return iceC_IceStormElection_Node_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

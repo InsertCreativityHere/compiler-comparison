@@ -5475,7 +5475,7 @@ namespace IceAsync
 namespace Test
 {
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5489,11 +5489,11 @@ public:
     virtual void ice_response();
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5507,11 +5507,11 @@ public:
     virtual void ice_response(const ::Ice::ObjectPtr&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5525,11 +5525,11 @@ public:
     virtual void ice_response();
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5543,11 +5543,11 @@ public:
     virtual void ice_response();
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5561,11 +5561,11 @@ public:
     virtual void ice_response();
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5579,11 +5579,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Ice::Byte>&, const IceUtil::Optional< ::Ice::Byte>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5597,11 +5597,11 @@ public:
     virtual void ice_response(const IceUtil::Optional<bool>&, const IceUtil::Optional<bool>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5615,11 +5615,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Ice::Short>&, const IceUtil::Optional< ::Ice::Short>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5633,11 +5633,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Ice::Int>&, const IceUtil::Optional< ::Ice::Int>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5651,11 +5651,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Ice::Long>&, const IceUtil::Optional< ::Ice::Long>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5669,11 +5669,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Ice::Float>&, const IceUtil::Optional< ::Ice::Float>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5687,11 +5687,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Ice::Double>&, const IceUtil::Optional< ::Ice::Double>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5705,11 +5705,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::std::string>&, const IceUtil::Optional< ::std::string>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5723,11 +5723,11 @@ public:
     virtual void ice_response(const IceUtil::Optional<Util::string_view>&, const IceUtil::Optional<Util::string_view>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5741,11 +5741,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Test::MyEnum>&, const IceUtil::Optional< ::Test::MyEnum>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5759,11 +5759,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Test::SmallStruct>&, const IceUtil::Optional< ::Test::SmallStruct>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5777,11 +5777,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Test::FixedStruct>&, const IceUtil::Optional< ::Test::FixedStruct>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5795,11 +5795,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Test::VarStruct>&, const IceUtil::Optional< ::Test::VarStruct>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5813,11 +5813,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Test::OneOptionalPtr>&, const IceUtil::Optional< ::Test::OneOptionalPtr>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5831,11 +5831,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Test::OneOptionalPrx>&, const IceUtil::Optional< ::Test::OneOptionalPrx>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5849,11 +5849,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&, const IceUtil::Optional< ::std::pair<const ::Ice::Byte*, const ::Ice::Byte*> >&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5867,11 +5867,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::std::pair<const bool*, const bool*> >&, const IceUtil::Optional< ::std::pair<const bool*, const bool*> >&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5885,11 +5885,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&, const IceUtil::Optional< ::std::pair<const ::Ice::Short*, const ::Ice::Short*> >&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5903,11 +5903,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::std::pair<const ::Ice::Int*, const ::Ice::Int*> >&, const IceUtil::Optional< ::std::pair<const ::Ice::Int*, const ::Ice::Int*> >&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5921,11 +5921,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::std::pair<const ::Ice::Long*, const ::Ice::Long*> >&, const IceUtil::Optional< ::std::pair<const ::Ice::Long*, const ::Ice::Long*> >&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5939,11 +5939,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::std::pair<const ::Ice::Float*, const ::Ice::Float*> >&, const IceUtil::Optional< ::std::pair<const ::Ice::Float*, const ::Ice::Float*> >&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5957,11 +5957,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::std::pair<const ::Ice::Double*, const ::Ice::Double*> >&, const IceUtil::Optional< ::std::pair<const ::Ice::Double*, const ::Ice::Double*> >&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5975,11 +5975,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::std::pair< ::Test::StringSeq::const_iterator,  ::Test::StringSeq::const_iterator> >&, const IceUtil::Optional< ::std::pair< ::Test::StringSeq::const_iterator,  ::Test::StringSeq::const_iterator> >&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -5993,11 +5993,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >&, const IceUtil::Optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6011,11 +6011,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >&, const IceUtil::Optional< ::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*> >&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6029,11 +6029,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >&, const IceUtil::Optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6047,11 +6047,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >&, const IceUtil::Optional< ::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*> >&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6065,11 +6065,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::std::pair< ::Test::VarStructSeq::const_iterator,  ::Test::VarStructSeq::const_iterator> >&, const IceUtil::Optional< ::std::pair< ::Test::VarStructSeq::const_iterator,  ::Test::VarStructSeq::const_iterator> >&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6083,11 +6083,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Test::Serializable>&, const IceUtil::Optional< ::Test::Serializable>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6101,11 +6101,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Test::IntIntDict>&, const IceUtil::Optional< ::Test::IntIntDict>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6119,11 +6119,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Test::StringIntDict>&, const IceUtil::Optional< ::Test::StringIntDict>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6137,11 +6137,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Test::IntOneOptionalDict>&, const IceUtil::Optional< ::Test::IntOneOptionalDict>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6155,11 +6155,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::std::map< ::Ice::Int, ::Util::string_view> >&, const IceUtil::Optional< ::std::map< ::Ice::Int, ::Util::string_view> >&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6173,11 +6173,11 @@ public:
     virtual void ice_response();
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6191,11 +6191,11 @@ public:
     virtual void ice_response();
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6209,11 +6209,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Test::OneOptionalPtr>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6227,11 +6227,11 @@ public:
     virtual void ice_response(const ::Test::GPtr&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6245,11 +6245,11 @@ public:
     virtual void ice_response();
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6263,11 +6263,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Test::SmallStruct>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6281,11 +6281,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Test::SmallStruct>&, const IceUtil::Optional< ::Test::SmallStruct>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6299,11 +6299,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Test::StringSeq>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6317,11 +6317,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Test::StringSeq>&, const IceUtil::Optional< ::Test::StringSeq>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6335,11 +6335,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Test::StringIntDict>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6353,11 +6353,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Test::StringIntDict>&, const IceUtil::Optional< ::Test::StringIntDict>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6371,11 +6371,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Test::GPtr>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6389,11 +6389,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::Test::GPtr>&, const IceUtil::Optional< ::Test::GPtr>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6407,11 +6407,11 @@ public:
     virtual void ice_response(bool);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6425,11 +6425,11 @@ public:
     virtual void ice_response(bool);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6443,11 +6443,11 @@ public:
     virtual void ice_response(bool);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6461,11 +6461,11 @@ public:
     virtual void ice_response(bool);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -6479,7 +6479,7 @@ public:
     virtual void ice_response(bool);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 

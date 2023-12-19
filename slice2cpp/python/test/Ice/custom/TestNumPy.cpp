@@ -1851,12 +1851,8 @@ Test::NumPy::D::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::NumPy::D::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::NumPy::D";
     return typeId;
-#else
-    return iceC_Test_NumPy_D_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -1940,12 +1936,8 @@ Test::NumPy::Custom::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::NumPy::Custom::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::NumPy::Custom";
     return typeId;
-#else
-    return iceC_Test_NumPy_Custom_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

@@ -860,12 +860,8 @@ _cpp_and::del::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::del::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::and::del";
     return typeId;
-#else
-    return iceC_and_del_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1006,12 +1002,8 @@ _cpp_and::exec::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::exec::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::and::exec";
     return typeId;
-#else
-    return iceC_and_exec_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1156,12 +1148,8 @@ _cpp_and::_cpp_for::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::_cpp_for::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::and::for";
     return typeId;
-#else
-    return iceC_and_for_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -1247,12 +1235,8 @@ _cpp_and::_cpp_if::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::_cpp_if::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::and::if";
     return typeId;
-#else
-    return iceC_and_if_ids[3];
-#endif
 }
 
 namespace

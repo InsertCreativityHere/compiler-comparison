@@ -1947,12 +1947,8 @@ Glacier2::Session::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Glacier2::Session::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Glacier2::Session";
     return typeId;
-#else
-    return iceC_Glacier2_Session_ids[0];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2091,12 +2087,8 @@ Glacier2::StringSet::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Glacier2::StringSet::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Glacier2::StringSet";
     return typeId;
-#else
-    return iceC_Glacier2_StringSet_ids[0];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2277,12 +2269,8 @@ Glacier2::IdentitySet::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Glacier2::IdentitySet::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Glacier2::IdentitySet";
     return typeId;
-#else
-    return iceC_Glacier2_IdentitySet_ids[0];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2463,12 +2451,8 @@ Glacier2::SessionControl::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Glacier2::SessionControl::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Glacier2::SessionControl";
     return typeId;
-#else
-    return iceC_Glacier2_SessionControl_ids[0];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2683,12 +2667,8 @@ Glacier2::SessionManager::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Glacier2::SessionManager::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Glacier2::SessionManager";
     return typeId;
-#else
-    return iceC_Glacier2_SessionManager_ids[0];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2835,12 +2815,8 @@ Glacier2::SSLSessionManager::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Glacier2::SSLSessionManager::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Glacier2::SSLSessionManager";
     return typeId;
-#else
-    return iceC_Glacier2_SSLSessionManager_ids[0];
-#endif
 }
 
 /// \cond INTERNAL

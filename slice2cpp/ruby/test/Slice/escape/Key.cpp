@@ -788,12 +788,8 @@ BEGIN::_cpp_break::ice_id(const ::Ice::Current&) const
 const ::std::string&
 BEGIN::_cpp_break::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::BEGIN::break";
     return typeId;
-#else
-    return iceC_BEGIN_break_ids[0];
-#endif
 }
 
 /// \cond INTERNAL
@@ -994,12 +990,8 @@ BEGIN::display::ice_id(const ::Ice::Current&) const
 const ::std::string&
 BEGIN::display::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::BEGIN::display";
     return typeId;
-#else
-    return iceC_BEGIN_display_ids[0];
-#endif
 }
 
 /// \cond STREAM
@@ -1084,12 +1076,8 @@ BEGIN::elsif::ice_id(const ::Ice::Current&) const
 const ::std::string&
 BEGIN::elsif::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::BEGIN::elsif";
     return typeId;
-#else
-    return iceC_BEGIN_elsif_ids[1];
-#endif
 }
 
 namespace

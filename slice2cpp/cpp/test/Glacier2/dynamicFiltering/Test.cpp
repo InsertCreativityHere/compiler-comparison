@@ -790,12 +790,8 @@ Test::Backend::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Backend::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Backend";
     return typeId;
-#else
-    return iceC_Test_Backend_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -951,12 +947,8 @@ Test::TestController::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::TestController::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::TestController";
     return typeId;
-#else
-    return iceC_Test_TestController_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1121,12 +1113,8 @@ Test::TestSession::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::TestSession::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::TestSession";
     return typeId;
-#else
-    return iceC_Test_TestSession_ids[2];
-#endif
 }
 
 /// \cond INTERNAL

@@ -2647,12 +2647,8 @@ Test::MA::IA::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::MA::IA::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::MA::IA";
     return typeId;
-#else
-    return iceC_Test_MA_IA_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2801,12 +2797,8 @@ Test::MA::CA::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::MA::CA::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::MA::CA";
     return typeId;
-#else
-    return iceC_Test_MA_CA_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2951,12 +2943,8 @@ Test::MB::IB1::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::MB::IB1::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::MB::IB1";
     return typeId;
-#else
-    return iceC_Test_MB_IB1_ids[2];
-#endif
 }
 
 /// \cond INTERNAL
@@ -3106,12 +3094,8 @@ Test::MB::IB2::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::MB::IB2::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::MB::IB2";
     return typeId;
-#else
-    return iceC_Test_MB_IB2_ids[2];
-#endif
 }
 
 /// \cond INTERNAL
@@ -3266,12 +3250,8 @@ Test::MB::CB::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::MB::CB::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::MB::CB";
     return typeId;
-#else
-    return iceC_Test_MB_CB_ids[2];
-#endif
 }
 
 /// \cond INTERNAL
@@ -3425,12 +3405,8 @@ Test::MA::IC::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::MA::IC::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::MA::IC";
     return typeId;
-#else
-    return iceC_Test_MA_IC_ids[2];
-#endif
 }
 
 /// \cond INTERNAL
@@ -3596,12 +3572,8 @@ Test::MA::CC::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::MA::CC::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::MA::CC";
     return typeId;
-#else
-    return iceC_Test_MA_CC_ids[2];
-#endif
 }
 
 /// \cond INTERNAL
@@ -3768,12 +3740,8 @@ Test::MA::CD::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::MA::CD::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::MA::CD";
     return typeId;
-#else
-    return iceC_Test_MA_CD_ids[3];
-#endif
 }
 
 /// \cond INTERNAL
@@ -3949,12 +3917,8 @@ Test::Initial::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Initial::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Initial";
     return typeId;
-#else
-    return iceC_Test_Initial_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

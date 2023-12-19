@@ -1662,7 +1662,7 @@ namespace IceAsync
 namespace abstract
 {
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -1676,11 +1676,11 @@ public:
     virtual void ice_response(::Ice::Int);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -1694,11 +1694,11 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::abstract::_cpp_break>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4239)
 #endif
@@ -1712,7 +1712,7 @@ public:
     virtual void ice_response(const IceUtil::Optional< ::abstract::_cpp_break>&, const IceUtil::Optional< ::abstract::as>&, const IceUtil::Optional< ::abstract::explicitPtr>&, const IceUtil::Optional< ::abstract::_cpp_while>&, const IceUtil::Optional< ::std::string>&, const IceUtil::Optional< ::abstract::explicitPrx>&);
 };
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 

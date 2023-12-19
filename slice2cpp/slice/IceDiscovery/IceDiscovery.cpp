@@ -600,12 +600,8 @@ IceDiscovery::LookupReply::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceDiscovery::LookupReply::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceDiscovery::LookupReply";
     return typeId;
-#else
-    return iceC_IceDiscovery_LookupReply_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -773,12 +769,8 @@ IceDiscovery::Lookup::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceDiscovery::Lookup::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceDiscovery::Lookup";
     return typeId;
-#else
-    return iceC_IceDiscovery_Lookup_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

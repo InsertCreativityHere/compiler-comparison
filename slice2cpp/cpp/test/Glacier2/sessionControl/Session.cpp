@@ -352,12 +352,8 @@ Test::Session::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Session::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Session";
     return typeId;
-#else
-    return iceC_Test_Session_ids[2];
-#endif
 }
 
 /// \cond INTERNAL

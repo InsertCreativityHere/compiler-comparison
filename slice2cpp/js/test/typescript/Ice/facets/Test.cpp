@@ -2189,12 +2189,8 @@ Test::Empty::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Empty::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Empty";
     return typeId;
-#else
-    return iceC_Test_Empty_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -2267,12 +2263,8 @@ Test::A::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::A::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::A";
     return typeId;
-#else
-    return iceC_Test_A_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2414,12 +2406,8 @@ Test::B::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::B::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::B";
     return typeId;
-#else
-    return iceC_Test_B_ids[2];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2566,12 +2554,8 @@ Test::C::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::C::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::C";
     return typeId;
-#else
-    return iceC_Test_C_ids[2];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2720,12 +2704,8 @@ Test::D::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::D::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::D";
     return typeId;
-#else
-    return iceC_Test_D_ids[4];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2881,12 +2861,8 @@ Test::E::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::E::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::E";
     return typeId;
-#else
-    return iceC_Test_E_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -3028,12 +3004,8 @@ Test::F::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::F::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::F";
     return typeId;
-#else
-    return iceC_Test_F_ids[2];
-#endif
 }
 
 /// \cond INTERNAL
@@ -3179,12 +3151,8 @@ Test::G::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::G::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::G";
     return typeId;
-#else
-    return iceC_Test_G_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -3343,12 +3311,8 @@ Test::H::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::H::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::H";
     return typeId;
-#else
-    return iceC_Test_H_ids[2];
-#endif
 }
 
 /// \cond INTERNAL
@@ -3499,12 +3463,8 @@ Test::Echo::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Echo::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Echo";
     return typeId;
-#else
-    return iceC_Test_Echo_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

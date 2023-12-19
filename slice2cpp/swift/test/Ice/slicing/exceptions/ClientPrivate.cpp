@@ -276,7 +276,7 @@ Test::PreservedClass::~PreservedClass()
 
 /// \endcond
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
@@ -286,7 +286,7 @@ Test::PreservedClass::ice_clone() const
     ::Ice::Object* p = new PreservedClass(*this);
     return p;
 }
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
@@ -322,12 +322,8 @@ Test::PreservedClass::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::PreservedClass::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::PreservedClass";
     return typeId;
-#else
-    return iceC_Test_PreservedClass_ids[2];
-#endif
 }
 
 /// \cond STREAM

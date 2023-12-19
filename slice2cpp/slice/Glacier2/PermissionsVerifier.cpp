@@ -729,12 +729,8 @@ Glacier2::PermissionsVerifier::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Glacier2::PermissionsVerifier::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Glacier2::PermissionsVerifier";
     return typeId;
-#else
-    return iceC_Glacier2_PermissionsVerifier_ids[0];
-#endif
 }
 
 /// \cond INTERNAL
@@ -883,12 +879,8 @@ Glacier2::SSLPermissionsVerifier::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Glacier2::SSLPermissionsVerifier::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Glacier2::SSLPermissionsVerifier";
     return typeId;
-#else
-    return iceC_Glacier2_SSLPermissionsVerifier_ids[0];
-#endif
 }
 
 /// \cond INTERNAL

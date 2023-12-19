@@ -445,12 +445,8 @@ Ice::PropertiesAdmin::ice_id(const Current&) const
 const ::std::string&
 Ice::PropertiesAdmin::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Ice::PropertiesAdmin";
     return typeId;
-#else
-    return iceC_Ice_PropertiesAdmin_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

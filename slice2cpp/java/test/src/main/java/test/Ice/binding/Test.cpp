@@ -861,12 +861,8 @@ Test::TestIntf::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::TestIntf::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::TestIntf";
     return typeId;
-#else
-    return iceC_Test_TestIntf_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1007,12 +1003,8 @@ Test::RemoteObjectAdapter::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::RemoteObjectAdapter::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::RemoteObjectAdapter";
     return typeId;
-#else
-    return iceC_Test_RemoteObjectAdapter_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1170,12 +1162,8 @@ Test::RemoteCommunicator::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::RemoteCommunicator::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::RemoteCommunicator";
     return typeId;
-#else
-    return iceC_Test_RemoteCommunicator_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

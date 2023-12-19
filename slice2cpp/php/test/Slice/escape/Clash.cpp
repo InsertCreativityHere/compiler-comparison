@@ -1086,12 +1086,8 @@ Clash::Intf::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Clash::Intf::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Clash::Intf";
     return typeId;
-#else
-    return iceC_Clash_Intf_ids[0];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1469,12 +1465,8 @@ Clash::Cls::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Clash::Cls::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Clash::Cls";
     return typeId;
-#else
-    return iceC_Clash_Cls_ids[0];
-#endif
 }
 
 /// \cond STREAM

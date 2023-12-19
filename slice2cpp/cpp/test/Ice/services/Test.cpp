@@ -280,12 +280,8 @@ Test::Clock::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Clock::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Clock";
     return typeId;
-#else
-    return iceC_Test_Clock_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

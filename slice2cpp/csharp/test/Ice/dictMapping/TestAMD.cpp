@@ -1362,12 +1362,8 @@ Test::MyClass::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::MyClass::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::MyClass";
     return typeId;
-#else
-    return iceC_Test_MyClass_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

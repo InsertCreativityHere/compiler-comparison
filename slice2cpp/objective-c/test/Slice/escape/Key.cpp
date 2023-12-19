@@ -1240,12 +1240,8 @@ _cpp_and::_cpp_break::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::_cpp_break::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::and::break";
     return typeId;
-#else
-    return iceC_and_break_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1390,12 +1386,8 @@ _cpp_and::_cpp_char::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::_cpp_char::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::and::char";
     return typeId;
-#else
-    return iceC_and_char_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1534,12 +1526,8 @@ _cpp_and::_cpp_switch::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::_cpp_switch::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::and::switch";
     return typeId;
-#else
-    return iceC_and_switch_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1740,12 +1728,8 @@ _cpp_and::_cpp_do::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::_cpp_do::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::and::do";
     return typeId;
-#else
-    return iceC_and_do_ids[3];
-#endif
 }
 
 namespace

@@ -280,12 +280,8 @@ Test::Single::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Single::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Single";
     return typeId;
-#else
-    return iceC_Test_Single_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

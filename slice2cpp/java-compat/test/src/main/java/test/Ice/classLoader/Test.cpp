@@ -829,12 +829,8 @@ Test::ConcreteClass::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::ConcreteClass::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::ConcreteClass";
     return typeId;
-#else
-    return iceC_Test_ConcreteClass_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -923,12 +919,8 @@ Test::AbstractClass::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::AbstractClass::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::AbstractClass";
     return typeId;
-#else
-    return iceC_Test_AbstractClass_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1067,12 +1059,8 @@ Test::Initial::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Initial::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Initial";
     return typeId;
-#else
-    return iceC_Test_Initial_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

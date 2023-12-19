@@ -3582,7 +3582,7 @@ Test::BaseClass::~BaseClass()
 
 /// \endcond
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
@@ -3592,7 +3592,7 @@ Test::BaseClass::ice_clone() const
     ::Ice::Object* p = new BaseClass(*this);
     return p;
 }
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
@@ -3627,12 +3627,8 @@ Test::BaseClass::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::BaseClass::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::BaseClass";
     return typeId;
-#else
-    return iceC_Test_BaseClass_ids[1];
-#endif
 }
 
 void
@@ -3747,12 +3743,8 @@ Test::Relay::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Relay::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Relay";
     return typeId;
-#else
-    return iceC_Test_Relay_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -3946,12 +3938,8 @@ Test::TestIntf::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::TestIntf::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::TestIntf";
     return typeId;
-#else
-    return iceC_Test_TestIntf_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

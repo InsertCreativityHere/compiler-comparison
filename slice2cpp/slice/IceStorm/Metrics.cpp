@@ -201,12 +201,8 @@ IceMX::TopicMetrics::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceMX::TopicMetrics::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceMX::TopicMetrics";
     return typeId;
-#else
-    return iceC_IceMX_TopicMetrics_ids[2];
-#endif
 }
 
 /// \cond STREAM
@@ -299,12 +295,8 @@ IceMX::SubscriberMetrics::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceMX::SubscriberMetrics::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceMX::SubscriberMetrics";
     return typeId;
-#else
-    return iceC_IceMX_SubscriberMetrics_ids[2];
-#endif
 }
 
 /// \cond STREAM

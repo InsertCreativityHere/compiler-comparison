@@ -1553,12 +1553,8 @@ Ice::Locator::ice_id(const Current&) const
 const ::std::string&
 Ice::Locator::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Ice::Locator";
     return typeId;
-#else
-    return iceC_Ice_Locator_ids[0];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1737,12 +1733,8 @@ Ice::LocatorRegistry::ice_id(const Current&) const
 const ::std::string&
 Ice::LocatorRegistry::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Ice::LocatorRegistry";
     return typeId;
-#else
-    return iceC_Ice_LocatorRegistry_ids[0];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1929,12 +1921,8 @@ Ice::LocatorFinder::ice_id(const Current&) const
 const ::std::string&
 Ice::LocatorFinder::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Ice::LocatorFinder";
     return typeId;
-#else
-    return iceC_Ice_LocatorFinder_ids[0];
-#endif
 }
 
 /// \cond INTERNAL

@@ -530,12 +530,8 @@ Demo::gx::Canvas::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Demo::gx::Canvas::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Demo::gx::Canvas";
     return typeId;
-#else
-    return iceC_Demo_gx_Canvas_ids[0];
-#endif
 }
 
 /// \cond INTERNAL
@@ -698,12 +694,8 @@ Demo::gx::Session::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Demo::gx::Session::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Demo::gx::Session";
     return typeId;
-#else
-    return iceC_Demo_gx_Session_ids[0];
-#endif
 }
 
 /// \cond INTERNAL

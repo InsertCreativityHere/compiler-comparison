@@ -860,12 +860,8 @@ abstract::_cpp_catch::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::_cpp_catch::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::abstract::catch";
     return typeId;
-#else
-    return iceC_abstract_catch_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1006,12 +1002,8 @@ abstract::_cpp_default::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::_cpp_default::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::abstract::default";
     return typeId;
-#else
-    return iceC_abstract_default_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1156,12 +1148,8 @@ abstract::_cpp_else::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::_cpp_else::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::abstract::else";
     return typeId;
-#else
-    return iceC_abstract_else_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -1247,12 +1235,8 @@ abstract::finalize::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::finalize::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::abstract::finalize";
     return typeId;
-#else
-    return iceC_abstract_finalize_ids[3];
-#endif
 }
 
 namespace

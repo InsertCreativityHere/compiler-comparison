@@ -1164,12 +1164,8 @@ Test::Background::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Background::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Background";
     return typeId;
-#else
-    return iceC_Test_Background_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1345,12 +1341,8 @@ Test::BackgroundController::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::BackgroundController::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::BackgroundController";
     return typeId;
-#else
-    return iceC_Test_BackgroundController_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

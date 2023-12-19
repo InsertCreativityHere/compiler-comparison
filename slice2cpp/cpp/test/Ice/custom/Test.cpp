@@ -5213,12 +5213,8 @@ Test::C::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::C::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::C";
     return typeId;
-#else
-    return iceC_Test_C_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -5302,12 +5298,8 @@ Test::D::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::D::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::D";
     return typeId;
-#else
-    return iceC_Test_D_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -5386,12 +5378,8 @@ Test::DictClass::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::DictClass::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::DictClass";
     return typeId;
-#else
-    return iceC_Test_DictClass_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -5475,12 +5463,8 @@ Test::TestIntf::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::TestIntf::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::TestIntf";
     return typeId;
-#else
-    return iceC_Test_TestIntf_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

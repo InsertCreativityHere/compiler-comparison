@@ -387,12 +387,8 @@ Test::MyInterface::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::MyInterface::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::MyInterface";
     return typeId;
-#else
-    return iceC_Test_MyInterface_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

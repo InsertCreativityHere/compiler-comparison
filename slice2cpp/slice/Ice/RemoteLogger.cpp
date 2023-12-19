@@ -832,12 +832,8 @@ Ice::RemoteLogger::ice_id(const Current&) const
 const ::std::string&
 Ice::RemoteLogger::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Ice::RemoteLogger";
     return typeId;
-#else
-    return iceC_Ice_RemoteLogger_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1001,12 +997,8 @@ Ice::LoggerAdmin::ice_id(const Current&) const
 const ::std::string&
 Ice::LoggerAdmin::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Ice::LoggerAdmin";
     return typeId;
-#else
-    return iceC_Ice_LoggerAdmin_ids[0];
-#endif
 }
 
 /// \cond INTERNAL

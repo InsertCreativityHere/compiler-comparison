@@ -380,12 +380,8 @@ User::UserInfo::ice_id(const ::Ice::Current&) const
 const ::std::string&
 User::UserInfo::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::User::UserInfo";
     return typeId;
-#else
-    return iceC_User_UserInfo_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -469,12 +465,8 @@ User::Registry::ice_id(const ::Ice::Current&) const
 const ::std::string&
 User::Registry::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::User::Registry";
     return typeId;
-#else
-    return iceC_User_Registry_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

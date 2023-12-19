@@ -1120,12 +1120,8 @@ Test1::WstringClass::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test1::WstringClass::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test1::WstringClass";
     return typeId;
-#else
-    return iceC_Test1_WstringClass_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1315,12 +1311,8 @@ Test2::WstringClass::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test2::WstringClass::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test2::WstringClass";
     return typeId;
-#else
-    return iceC_Test2_WstringClass_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

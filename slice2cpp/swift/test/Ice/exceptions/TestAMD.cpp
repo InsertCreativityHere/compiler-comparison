@@ -3435,12 +3435,8 @@ Test::Empty::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Empty::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Empty";
     return typeId;
-#else
-    return iceC_Test_Empty_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -3513,12 +3509,8 @@ Test::Thrower::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Thrower::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Thrower";
     return typeId;
-#else
-    return iceC_Test_Thrower_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -4100,12 +4092,8 @@ Test::WrongOperation::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::WrongOperation::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::WrongOperation";
     return typeId;
-#else
-    return iceC_Test_WrongOperation_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

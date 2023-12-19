@@ -673,12 +673,8 @@ Test::Empty::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Empty::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Empty";
     return typeId;
-#else
-    return iceC_Test_Empty_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -768,12 +764,8 @@ Test::AlsoEmpty::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::AlsoEmpty::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::AlsoEmpty";
     return typeId;
-#else
-    return iceC_Test_AlsoEmpty_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -857,12 +849,8 @@ Test::UnexpectedObjectExceptionTest::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::UnexpectedObjectExceptionTest::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::UnexpectedObjectExceptionTest";
     return typeId;
-#else
-    return iceC_Test_UnexpectedObjectExceptionTest_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -973,7 +961,7 @@ Test::COneMember::~COneMember()
 
 /// \endcond
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
@@ -983,7 +971,7 @@ Test::COneMember::ice_clone() const
     ::Ice::Object* p = new COneMember(*this);
     return p;
 }
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
@@ -1018,12 +1006,8 @@ Test::COneMember::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::COneMember::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::COneMember";
     return typeId;
-#else
-    return iceC_Test_COneMember_ids[1];
-#endif
 }
 
 void
@@ -1088,7 +1072,7 @@ Test::CTwoMembers::~CTwoMembers()
 
 /// \endcond
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
@@ -1098,7 +1082,7 @@ Test::CTwoMembers::ice_clone() const
     ::Ice::Object* p = new CTwoMembers(*this);
     return p;
 }
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
@@ -1133,12 +1117,8 @@ Test::CTwoMembers::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::CTwoMembers::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::CTwoMembers";
     return typeId;
-#else
-    return iceC_Test_CTwoMembers_ids[1];
-#endif
 }
 
 void

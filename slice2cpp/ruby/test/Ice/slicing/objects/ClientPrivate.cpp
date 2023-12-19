@@ -412,12 +412,8 @@ Test::D3::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::D3::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::D3";
     return typeId;
-#else
-    return iceC_Test_D3_ids[2];
-#endif
 }
 
 void
@@ -485,7 +481,7 @@ Test::PCUnknown::~PCUnknown()
 
 /// \endcond
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
@@ -495,7 +491,7 @@ Test::PCUnknown::ice_clone() const
     ::Ice::Object* p = new PCUnknown(*this);
     return p;
 }
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
@@ -531,12 +527,8 @@ Test::PCUnknown::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::PCUnknown::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::PCUnknown";
     return typeId;
-#else
-    return iceC_Test_PCUnknown_ids[2];
-#endif
 }
 
 void
@@ -622,7 +614,7 @@ Test::PCDerived::~PCDerived()
 
 /// \endcond
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
@@ -632,7 +624,7 @@ Test::PCDerived::ice_clone() const
     ::Ice::Object* p = new PCDerived(*this);
     return p;
 }
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
@@ -670,12 +662,8 @@ Test::PCDerived::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::PCDerived::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::PCDerived";
     return typeId;
-#else
-    return iceC_Test_PCDerived_ids[2];
-#endif
 }
 
 void
@@ -748,7 +736,7 @@ Test::PCDerived2::~PCDerived2()
 
 /// \endcond
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
@@ -758,7 +746,7 @@ Test::PCDerived2::ice_clone() const
     ::Ice::Object* p = new PCDerived2(*this);
     return p;
 }
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
@@ -797,12 +785,8 @@ Test::PCDerived2::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::PCDerived2::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::PCDerived2";
     return typeId;
-#else
-    return iceC_Test_PCDerived2_ids[3];
-#endif
 }
 
 void
@@ -863,7 +847,7 @@ Test::PCDerived3::~PCDerived3()
 
 /// \endcond
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
@@ -873,7 +857,7 @@ Test::PCDerived3::ice_clone() const
     ::Ice::Object* p = new PCDerived3(*this);
     return p;
 }
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
@@ -913,12 +897,8 @@ Test::PCDerived3::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::PCDerived3::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::PCDerived3";
     return typeId;
-#else
-    return iceC_Test_PCDerived3_ids[4];
-#endif
 }
 
 void
@@ -986,7 +966,7 @@ Test::CompactPCDerived::~CompactPCDerived()
 
 /// \endcond
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
@@ -996,7 +976,7 @@ Test::CompactPCDerived::ice_clone() const
     ::Ice::Object* p = new CompactPCDerived(*this);
     return p;
 }
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
@@ -1034,12 +1014,8 @@ Test::CompactPCDerived::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::CompactPCDerived::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::CompactPCDerived";
     return typeId;
-#else
-    return iceC_Test_CompactPCDerived_ids[1];
-#endif
 }
 
 void

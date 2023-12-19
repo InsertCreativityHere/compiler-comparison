@@ -149,12 +149,8 @@ Test::Point::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Point::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Point";
     return typeId;
-#else
-    return iceC_Test_Point_ids[1];
-#endif
 }
 
 /// \cond STREAM

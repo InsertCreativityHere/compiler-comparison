@@ -8772,12 +8772,8 @@ IceGrid::Admin::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceGrid::Admin::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceGrid::Admin";
     return typeId;
-#else
-    return iceC_IceGrid_Admin_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -9885,12 +9881,8 @@ IceGrid::FileIterator::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceGrid::FileIterator::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceGrid::FileIterator";
     return typeId;
-#else
-    return iceC_IceGrid_FileIterator_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -10053,12 +10045,8 @@ IceGrid::RegistryObserver::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceGrid::RegistryObserver::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceGrid::RegistryObserver";
     return typeId;
-#else
-    return iceC_IceGrid_RegistryObserver_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -10240,12 +10228,8 @@ IceGrid::NodeObserver::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceGrid::NodeObserver::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceGrid::NodeObserver";
     return typeId;
-#else
-    return iceC_IceGrid_NodeObserver_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -10471,12 +10455,8 @@ IceGrid::ApplicationObserver::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceGrid::ApplicationObserver::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceGrid::ApplicationObserver";
     return typeId;
-#else
-    return iceC_IceGrid_ApplicationObserver_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -10689,12 +10669,8 @@ IceGrid::AdapterObserver::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceGrid::AdapterObserver::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceGrid::AdapterObserver";
     return typeId;
-#else
-    return iceC_IceGrid_AdapterObserver_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -10896,12 +10872,8 @@ IceGrid::ObjectObserver::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceGrid::ObjectObserver::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceGrid::ObjectObserver";
     return typeId;
-#else
-    return iceC_IceGrid_ObjectObserver_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -11104,12 +11076,8 @@ IceGrid::AdminSession::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceGrid::AdminSession::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceGrid::AdminSession";
     return typeId;
-#else
-    return iceC_IceGrid_AdminSession_ids[2];
-#endif
 }
 
 /// \cond INTERNAL

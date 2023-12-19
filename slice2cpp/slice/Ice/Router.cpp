@@ -675,12 +675,8 @@ Ice::Router::ice_id(const Current&) const
 const ::std::string&
 Ice::Router::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Ice::Router";
     return typeId;
-#else
-    return iceC_Ice_Router_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -864,12 +860,8 @@ Ice::RouterFinder::ice_id(const Current&) const
 const ::std::string&
 Ice::RouterFinder::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Ice::RouterFinder";
     return typeId;
-#else
-    return iceC_Ice_RouterFinder_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

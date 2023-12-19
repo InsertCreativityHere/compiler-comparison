@@ -1302,12 +1302,8 @@ IceMX::Metrics::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceMX::Metrics::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceMX::Metrics";
     return typeId;
-#else
-    return iceC_IceMX_Metrics_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -1391,12 +1387,8 @@ IceMX::MetricsAdmin::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceMX::MetricsAdmin::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceMX::MetricsAdmin";
     return typeId;
-#else
-    return iceC_IceMX_MetricsAdmin_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1667,12 +1659,8 @@ IceMX::ThreadMetrics::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceMX::ThreadMetrics::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceMX::ThreadMetrics";
     return typeId;
-#else
-    return iceC_IceMX_ThreadMetrics_ids[2];
-#endif
 }
 
 /// \cond STREAM
@@ -1765,12 +1753,8 @@ IceMX::DispatchMetrics::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceMX::DispatchMetrics::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceMX::DispatchMetrics";
     return typeId;
-#else
-    return iceC_IceMX_DispatchMetrics_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -1863,12 +1847,8 @@ IceMX::ChildInvocationMetrics::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceMX::ChildInvocationMetrics::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceMX::ChildInvocationMetrics";
     return typeId;
-#else
-    return iceC_IceMX_ChildInvocationMetrics_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -1962,12 +1942,8 @@ IceMX::CollocatedMetrics::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceMX::CollocatedMetrics::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceMX::CollocatedMetrics";
     return typeId;
-#else
-    return iceC_IceMX_CollocatedMetrics_ids[2];
-#endif
 }
 
 /// \cond STREAM
@@ -2061,12 +2037,8 @@ IceMX::RemoteMetrics::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceMX::RemoteMetrics::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceMX::RemoteMetrics";
     return typeId;
-#else
-    return iceC_IceMX_RemoteMetrics_ids[3];
-#endif
 }
 
 /// \cond STREAM
@@ -2121,7 +2093,7 @@ ICE_API ::Ice::Object* IceMX::upCast(InvocationMetrics* p) { return p; }
 
 /// \endcond
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
@@ -2131,7 +2103,7 @@ IceMX::InvocationMetrics::ice_clone() const
     ::Ice::Object* p = new InvocationMetrics(*this);
     return p;
 }
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
@@ -2167,12 +2139,8 @@ IceMX::InvocationMetrics::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceMX::InvocationMetrics::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceMX::InvocationMetrics";
     return typeId;
-#else
-    return iceC_IceMX_InvocationMetrics_ids[1];
-#endif
 }
 
 void
@@ -2294,12 +2262,8 @@ IceMX::ConnectionMetrics::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceMX::ConnectionMetrics::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceMX::ConnectionMetrics";
     return typeId;
-#else
-    return iceC_IceMX_ConnectionMetrics_ids[1];
-#endif
 }
 
 /// \cond STREAM

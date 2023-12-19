@@ -1565,12 +1565,8 @@ IceGrid::Query::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceGrid::Query::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceGrid::Query";
     return typeId;
-#else
-    return iceC_IceGrid_Query_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1804,12 +1800,8 @@ IceGrid::Registry::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceGrid::Registry::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceGrid::Registry";
     return typeId;
-#else
-    return iceC_IceGrid_Registry_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2056,12 +2048,8 @@ IceGrid::Locator::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceGrid::Locator::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceGrid::Locator";
     return typeId;
-#else
-    return iceC_IceGrid_Locator_ids[2];
-#endif
 }
 
 /// \cond INTERNAL

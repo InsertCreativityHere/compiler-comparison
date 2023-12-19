@@ -324,12 +324,8 @@ Test::Interface1::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Interface1::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Interface1";
     return typeId;
-#else
-    return iceC_Test_Interface1_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -474,12 +470,8 @@ Test2::Class1::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test2::Class1::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test2::Class1";
     return typeId;
-#else
-    return iceC_Test2_Class1_ids[1];
-#endif
 }
 
 /// \cond STREAM

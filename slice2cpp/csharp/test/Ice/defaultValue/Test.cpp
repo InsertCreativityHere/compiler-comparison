@@ -793,12 +793,8 @@ Test::Base::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Base::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Base";
     return typeId;
-#else
-    return iceC_Test_Base_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -889,12 +885,8 @@ Test::Derived::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Derived::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Derived";
     return typeId;
-#else
-    return iceC_Test_Derived_ids[2];
-#endif
 }
 
 /// \cond STREAM
@@ -986,12 +978,8 @@ Test::ClassProperty::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::ClassProperty::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::ClassProperty";
     return typeId;
-#else
-    return iceC_Test_ClassProperty_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -1081,12 +1069,8 @@ Test::ClassNoDefaultsBase::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::ClassNoDefaultsBase::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::ClassNoDefaultsBase";
     return typeId;
-#else
-    return iceC_Test_ClassNoDefaultsBase_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -1177,12 +1161,8 @@ Test::ClassNoDefaults::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::ClassNoDefaults::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::ClassNoDefaults";
     return typeId;
-#else
-    return iceC_Test_ClassNoDefaults_ids[1];
-#endif
 }
 
 /// \cond STREAM

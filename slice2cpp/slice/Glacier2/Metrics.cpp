@@ -154,12 +154,8 @@ IceMX::SessionMetrics::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceMX::SessionMetrics::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceMX::SessionMetrics";
     return typeId;
-#else
-    return iceC_IceMX_SessionMetrics_ids[2];
-#endif
 }
 
 /// \cond STREAM

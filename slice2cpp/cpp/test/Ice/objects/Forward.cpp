@@ -325,12 +325,8 @@ Test::F1::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::F1::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::F1";
     return typeId;
-#else
-    return iceC_Test_F1_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -414,12 +410,8 @@ Test::F2::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::F2::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::F2";
     return typeId;
-#else
-    return iceC_Test_F2_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

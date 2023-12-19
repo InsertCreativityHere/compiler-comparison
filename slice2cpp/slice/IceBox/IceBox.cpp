@@ -1042,12 +1042,8 @@ IceBox::ServiceObserver::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceBox::ServiceObserver::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceBox::ServiceObserver";
     return typeId;
-#else
-    return iceC_IceBox_ServiceObserver_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1209,12 +1205,8 @@ IceBox::ServiceManager::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceBox::ServiceManager::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceBox::ServiceManager";
     return typeId;
-#else
-    return iceC_IceBox_ServiceManager_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

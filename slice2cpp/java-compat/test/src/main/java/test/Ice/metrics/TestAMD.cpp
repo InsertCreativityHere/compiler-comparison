@@ -1177,12 +1177,8 @@ Test::Metrics::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Metrics::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Metrics";
     return typeId;
-#else
-    return iceC_Test_Metrics_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1455,12 +1451,8 @@ Test::Controller::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Controller::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Controller";
     return typeId;
-#else
-    return iceC_Test_Controller_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

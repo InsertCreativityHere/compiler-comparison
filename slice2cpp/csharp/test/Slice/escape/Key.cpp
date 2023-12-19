@@ -1944,12 +1944,8 @@ abstract::_cpp_case::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::_cpp_case::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::abstract::case";
     return typeId;
-#else
-    return iceC_abstract_case_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2090,12 +2086,8 @@ abstract::decimal::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::decimal::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::abstract::decimal";
     return typeId;
-#else
-    return iceC_abstract_decimal_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2240,12 +2232,8 @@ abstract::delegate::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::delegate::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::abstract::delegate";
     return typeId;
-#else
-    return iceC_abstract_delegate_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -2331,12 +2319,8 @@ abstract::_cpp_explicit::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::_cpp_explicit::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::abstract::explicit";
     return typeId;
-#else
-    return iceC_abstract_explicit_ids[3];
-#endif
 }
 
 namespace
@@ -2437,7 +2421,7 @@ abstract::optionalMembers::~optionalMembers()
 
 /// \endcond
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
@@ -2447,7 +2431,7 @@ abstract::optionalMembers::ice_clone() const
     ::Ice::Object* p = new optionalMembers(*this);
     return p;
 }
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
@@ -2482,12 +2466,8 @@ abstract::optionalMembers::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::optionalMembers::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::abstract::optionalMembers";
     return typeId;
-#else
-    return iceC_abstract_optionalMembers_ids[1];
-#endif
 }
 
 void
@@ -2586,12 +2566,8 @@ abstract::optionalParams::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::optionalParams::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::abstract::optionalParams";
     return typeId;
-#else
-    return iceC_abstract_optionalParams_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2823,12 +2799,8 @@ abstract::System::Test::ice_id(const ::Ice::Current&) const
 const ::std::string&
 abstract::System::Test::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::abstract::System::Test";
     return typeId;
-#else
-    return iceC_abstract_System_Test_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2967,12 +2939,8 @@ System::Test::ice_id(const ::Ice::Current&) const
 const ::std::string&
 System::Test::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::System::Test";
     return typeId;
-#else
-    return iceC_System_Test_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

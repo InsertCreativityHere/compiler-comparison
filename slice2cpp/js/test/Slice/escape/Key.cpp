@@ -1944,12 +1944,8 @@ await::_cpp_case::ice_id(const ::Ice::Current&) const
 const ::std::string&
 await::_cpp_case::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::await::case";
     return typeId;
-#else
-    return iceC_await_case_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2090,12 +2086,8 @@ await::typeof::ice_id(const ::Ice::Current&) const
 const ::std::string&
 await::typeof::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::await::typeof";
     return typeId;
-#else
-    return iceC_await_typeof_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2240,12 +2232,8 @@ await::_cpp_delete::ice_id(const ::Ice::Current&) const
 const ::std::string&
 await::_cpp_delete::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::await::delete";
     return typeId;
-#else
-    return iceC_await_delete_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -2331,12 +2319,8 @@ await::_cpp_explicit::ice_id(const ::Ice::Current&) const
 const ::std::string&
 await::_cpp_explicit::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::await::explicit";
     return typeId;
-#else
-    return iceC_await_explicit_ids[2];
-#endif
 }
 
 namespace
@@ -2437,7 +2421,7 @@ await::package::~package()
 
 /// \endcond
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
@@ -2447,7 +2431,7 @@ await::package::ice_clone() const
     ::Ice::Object* p = new package(*this);
     return p;
 }
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
@@ -2482,12 +2466,8 @@ await::package::ice_id(const ::Ice::Current&) const
 const ::std::string&
 await::package::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::await::package";
     return typeId;
-#else
-    return iceC_await_package_ids[1];
-#endif
 }
 
 void
@@ -2586,12 +2566,8 @@ await::optionalParams::ice_id(const ::Ice::Current&) const
 const ::std::string&
 await::optionalParams::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::await::optionalParams";
     return typeId;
-#else
-    return iceC_await_optionalParams_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2823,12 +2799,8 @@ await::System::Test::ice_id(const ::Ice::Current&) const
 const ::std::string&
 await::System::Test::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::await::System::Test";
     return typeId;
-#else
-    return iceC_await_System_Test_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2967,12 +2939,8 @@ System::Test::ice_id(const ::Ice::Current&) const
 const ::std::string&
 System::Test::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::System::Test";
     return typeId;
-#else
-    return iceC_System_Test_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

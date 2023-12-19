@@ -759,12 +759,8 @@ Test::CallbackReceiver::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::CallbackReceiver::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::CallbackReceiver";
     return typeId;
-#else
-    return iceC_Test_CallbackReceiver_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -920,12 +916,8 @@ Test::Callback::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Callback::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Callback";
     return typeId;
-#else
-    return iceC_Test_Callback_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

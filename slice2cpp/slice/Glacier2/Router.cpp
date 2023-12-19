@@ -970,12 +970,8 @@ Glacier2::Router::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Glacier2::Router::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Glacier2::Router";
     return typeId;
-#else
-    return iceC_Glacier2_Router_ids[0];
-#endif
 }
 
 /// \cond INTERNAL

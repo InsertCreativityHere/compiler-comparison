@@ -626,12 +626,8 @@ IceGrid::CommunicatorDescriptor::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceGrid::CommunicatorDescriptor::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceGrid::CommunicatorDescriptor";
     return typeId;
-#else
-    return iceC_IceGrid_CommunicatorDescriptor_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -722,12 +718,8 @@ IceGrid::ServerDescriptor::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceGrid::ServerDescriptor::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceGrid::ServerDescriptor";
     return typeId;
-#else
-    return iceC_IceGrid_ServerDescriptor_ids[2];
-#endif
 }
 
 /// \cond STREAM
@@ -820,12 +812,8 @@ IceGrid::ServiceDescriptor::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceGrid::ServiceDescriptor::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceGrid::ServiceDescriptor";
     return typeId;
-#else
-    return iceC_IceGrid_ServiceDescriptor_ids[2];
-#endif
 }
 
 /// \cond STREAM
@@ -880,7 +868,7 @@ ICEGRID_API ::Ice::Object* IceGrid::upCast(IceBoxDescriptor* p) { return p; }
 
 /// \endcond
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
@@ -890,7 +878,7 @@ IceGrid::IceBoxDescriptor::ice_clone() const
     ::Ice::Object* p = new IceBoxDescriptor(*this);
     return p;
 }
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
@@ -927,12 +915,8 @@ IceGrid::IceBoxDescriptor::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceGrid::IceBoxDescriptor::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceGrid::IceBoxDescriptor";
     return typeId;
-#else
-    return iceC_IceGrid_IceBoxDescriptor_ids[2];
-#endif
 }
 
 void
@@ -1041,12 +1025,8 @@ IceGrid::LoadBalancingPolicy::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceGrid::LoadBalancingPolicy::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceGrid::LoadBalancingPolicy";
     return typeId;
-#else
-    return iceC_IceGrid_LoadBalancingPolicy_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -1137,12 +1117,8 @@ IceGrid::RandomLoadBalancingPolicy::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceGrid::RandomLoadBalancingPolicy::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceGrid::RandomLoadBalancingPolicy";
     return typeId;
-#else
-    return iceC_IceGrid_RandomLoadBalancingPolicy_ids[2];
-#endif
 }
 
 /// \cond STREAM
@@ -1235,12 +1211,8 @@ IceGrid::OrderedLoadBalancingPolicy::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceGrid::OrderedLoadBalancingPolicy::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceGrid::OrderedLoadBalancingPolicy";
     return typeId;
-#else
-    return iceC_IceGrid_OrderedLoadBalancingPolicy_ids[2];
-#endif
 }
 
 /// \cond STREAM
@@ -1333,12 +1305,8 @@ IceGrid::RoundRobinLoadBalancingPolicy::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceGrid::RoundRobinLoadBalancingPolicy::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceGrid::RoundRobinLoadBalancingPolicy";
     return typeId;
-#else
-    return iceC_IceGrid_RoundRobinLoadBalancingPolicy_ids[2];
-#endif
 }
 
 /// \cond STREAM
@@ -1431,12 +1399,8 @@ IceGrid::AdaptiveLoadBalancingPolicy::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceGrid::AdaptiveLoadBalancingPolicy::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceGrid::AdaptiveLoadBalancingPolicy";
     return typeId;
-#else
-    return iceC_IceGrid_AdaptiveLoadBalancingPolicy_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -1528,12 +1492,8 @@ IceGrid::BoxedString::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceGrid::BoxedString::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceGrid::BoxedString";
     return typeId;
-#else
-    return iceC_IceGrid_BoxedString_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -1623,12 +1583,8 @@ IceGrid::BoxedDistributionDescriptor::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceGrid::BoxedDistributionDescriptor::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceGrid::BoxedDistributionDescriptor";
     return typeId;
-#else
-    return iceC_IceGrid_BoxedDistributionDescriptor_ids[1];
-#endif
 }
 
 /// \cond STREAM

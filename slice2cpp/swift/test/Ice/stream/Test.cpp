@@ -521,12 +521,8 @@ Test::OptionalClass::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::OptionalClass::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::OptionalClass";
     return typeId;
-#else
-    return iceC_Test_OptionalClass_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -579,7 +575,7 @@ Test::MyClass::~MyClass()
 
 /// \endcond
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
@@ -589,7 +585,7 @@ Test::MyClass::ice_clone() const
     ::Ice::Object* p = new MyClass(*this);
     return p;
 }
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
@@ -624,12 +620,8 @@ Test::MyClass::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::MyClass::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::MyClass";
     return typeId;
-#else
-    return iceC_Test_MyClass_ids[1];
-#endif
 }
 
 void
@@ -756,12 +748,8 @@ Test::MyInterface::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::MyInterface::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::MyInterface";
     return typeId;
-#else
-    return iceC_Test_MyInterface_ids[1];
-#endif
 }
 
 /// \cond STREAM

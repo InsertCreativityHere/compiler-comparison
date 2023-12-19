@@ -405,12 +405,8 @@ IceGrid::FileParser::ice_id(const ::Ice::Current&) const
 const ::std::string&
 IceGrid::FileParser::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::IceGrid::FileParser";
     return typeId;
-#else
-    return iceC_IceGrid_FileParser_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

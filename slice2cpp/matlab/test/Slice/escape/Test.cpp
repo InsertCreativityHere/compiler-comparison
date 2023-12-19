@@ -814,12 +814,8 @@ classdef::_cpp_break::logical::ice_id(const ::Ice::Current&) const
 const ::std::string&
 classdef::_cpp_break::logical::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::classdef::break::logical";
     return typeId;
-#else
-    return iceC_classdef_break_logical_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -910,12 +906,8 @@ classdef::_cpp_break::_cpp_xor::ice_id(const ::Ice::Current&) const
 const ::std::string&
 classdef::_cpp_break::_cpp_xor::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::classdef::break::xor";
     return typeId;
-#else
-    return iceC_classdef_break_xor_ids[2];
-#endif
 }
 
 /// \cond STREAM
@@ -1007,12 +999,8 @@ classdef::_cpp_break::_cpp_try::ice_id(const ::Ice::Current&) const
 const ::std::string&
 classdef::_cpp_break::_cpp_try::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::classdef::break::try";
     return typeId;
-#else
-    return iceC_classdef_break_try_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -1065,7 +1053,7 @@ classdef::_cpp_break::properties::~properties()
 
 /// \endcond
 
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
@@ -1075,7 +1063,7 @@ classdef::_cpp_break::properties::ice_clone() const
     ::Ice::Object* p = new properties(*this);
     return p;
 }
-#if defined(_MSC_VER) && (_MSC_VER >= 1900)
+#if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
@@ -1111,12 +1099,8 @@ classdef::_cpp_break::properties::ice_id(const ::Ice::Current&) const
 const ::std::string&
 classdef::_cpp_break::properties::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::classdef::break::properties";
     return typeId;
-#else
-    return iceC_classdef_break_properties_ids[1];
-#endif
 }
 
 void
@@ -1214,12 +1198,8 @@ classdef::_cpp_break::elseif::ice_id(const ::Ice::Current&) const
 const ::std::string&
 classdef::_cpp_break::elseif::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::classdef::break::elseif";
     return typeId;
-#else
-    return iceC_classdef_break_elseif_ids[1];
-#endif
 }
 
 /// \cond INTERNAL

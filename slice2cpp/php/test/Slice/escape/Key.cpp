@@ -1022,12 +1022,8 @@ _cpp_and::_cpp_break::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::_cpp_break::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::and::break";
     return typeId;
-#else
-    return iceC_and_break_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1172,12 +1168,8 @@ _cpp_and::function::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::function::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::and::function";
     return typeId;
-#else
-    return iceC_and_function_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1321,12 +1313,8 @@ _cpp_and::die::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::die::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::and::die";
     return typeId;
-#else
-    return iceC_and_die_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -1471,12 +1459,8 @@ _cpp_and::echo::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::echo::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::and::echo";
     return typeId;
-#else
-    return iceC_and_echo_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -1562,12 +1546,8 @@ _cpp_and::enddeclare::ice_id(const ::Ice::Current&) const
 const ::std::string&
 _cpp_and::enddeclare::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::and::enddeclare";
     return typeId;
-#else
-    return iceC_and_enddeclare_ids[2];
-#endif
 }
 
 namespace

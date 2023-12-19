@@ -9760,12 +9760,8 @@ Test::A::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::A::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::A";
     return typeId;
-#else
-    return iceC_Test_A_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -9849,12 +9845,8 @@ Test::MyClass::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::MyClass::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::MyClass";
     return typeId;
-#else
-    return iceC_Test_MyClass_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -11902,12 +11894,8 @@ Test::MyClass1::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::MyClass1::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::MyClass1";
     return typeId;
-#else
-    return iceC_Test_MyClass1_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -11992,12 +11980,8 @@ Test::MyDerivedClass::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::MyDerivedClass::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::MyDerivedClass";
     return typeId;
-#else
-    return iceC_Test_MyDerivedClass_ids[2];
-#endif
 }
 
 /// \cond INTERNAL
@@ -12588,12 +12572,8 @@ Test2::MyDerivedClass::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test2::MyDerivedClass::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test2::MyDerivedClass";
     return typeId;
-#else
-    return iceC_Test2_MyDerivedClass_ids[1];
-#endif
 }
 
 namespace
@@ -13126,12 +13106,8 @@ M::A::ice_id(const ::Ice::Current&) const
 const ::std::string&
 M::A::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::M::A";
     return typeId;
-#else
-    return iceC_M_A_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -13215,12 +13191,8 @@ M::Intf::ice_id(const ::Ice::Current&) const
 const ::std::string&
 M::Intf::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::M::Intf";
     return typeId;
-#else
-    return iceC_M_Intf_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -13366,12 +13338,8 @@ M::B::ice_id(const ::Ice::Current&) const
 const ::std::string&
 M::B::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::M::B";
     return typeId;
-#else
-    return iceC_M_B_ids[2];
-#endif
 }
 
 /// \cond INTERNAL

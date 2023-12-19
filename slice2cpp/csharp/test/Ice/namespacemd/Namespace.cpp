@@ -343,12 +343,8 @@ WithNamespace::C1::ice_id(const ::Ice::Current&) const
 const ::std::string&
 WithNamespace::C1::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::WithNamespace::C1";
     return typeId;
-#else
-    return iceC_WithNamespace_C1_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -439,12 +435,8 @@ WithNamespace::C2::ice_id(const ::Ice::Current&) const
 const ::std::string&
 WithNamespace::C2::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::WithNamespace::C2";
     return typeId;
-#else
-    return iceC_WithNamespace_C2_ids[2];
-#endif
 }
 
 /// \cond STREAM

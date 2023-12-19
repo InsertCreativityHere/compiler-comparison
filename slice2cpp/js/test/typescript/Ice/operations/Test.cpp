@@ -8808,12 +8808,8 @@ Test::MyClass::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::MyClass::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::MyClass";
     return typeId;
-#else
-    return iceC_Test_MyClass_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -10653,12 +10649,8 @@ Test::MyClass1::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::MyClass1::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::MyClass1";
     return typeId;
-#else
-    return iceC_Test_MyClass1_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -10743,12 +10735,8 @@ Test::MyDerivedClass::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::MyDerivedClass::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::MyDerivedClass";
     return typeId;
-#else
-    return iceC_Test_MyDerivedClass_ids[2];
-#endif
 }
 
 /// \cond INTERNAL
@@ -11288,12 +11276,8 @@ Test::Echo::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Echo::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Echo";
     return typeId;
-#else
-    return iceC_Test_Echo_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -11503,12 +11487,8 @@ Test2::MyDerivedClass::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test2::MyDerivedClass::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test2::MyDerivedClass";
     return typeId;
-#else
-    return iceC_Test2_MyDerivedClass_ids[1];
-#endif
 }
 
 namespace

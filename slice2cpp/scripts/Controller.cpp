@@ -2442,12 +2442,8 @@ Test::Common::Config::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Common::Config::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Common::Config";
     return typeId;
-#else
-    return iceC_Test_Common_Config_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -2537,12 +2533,8 @@ Test::Common::OptionOverrides::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Common::OptionOverrides::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Common::OptionOverrides";
     return typeId;
-#else
-    return iceC_Test_Common_OptionOverrides_ids[1];
-#endif
 }
 
 /// \cond STREAM
@@ -2626,12 +2618,8 @@ Test::Common::TestCase::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Common::TestCase::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Common::TestCase";
     return typeId;
-#else
-    return iceC_Test_Common_TestCase_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -2840,12 +2828,8 @@ Test::Common::Controller::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Common::Controller::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Common::Controller";
     return typeId;
-#else
-    return iceC_Test_Common_Controller_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -3061,12 +3045,8 @@ Test::Common::Process::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Common::Process::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Common::Process";
     return typeId;
-#else
-    return iceC_Test_Common_Process_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -3249,12 +3229,8 @@ Test::Common::ProcessController::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Common::ProcessController::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Common::ProcessController";
     return typeId;
-#else
-    return iceC_Test_Common_ProcessController_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -3427,12 +3403,8 @@ Test::Common::BrowserProcessController::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Common::BrowserProcessController::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Common::BrowserProcessController";
     return typeId;
-#else
-    return iceC_Test_Common_BrowserProcessController_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
@@ -3584,12 +3556,8 @@ Test::Common::ProcessControllerRegistry::ice_id(const ::Ice::Current&) const
 const ::std::string&
 Test::Common::ProcessControllerRegistry::ice_staticId()
 {
-#ifdef ICE_HAS_THREAD_SAFE_LOCAL_STATIC
     static const ::std::string typeId = "::Test::Common::ProcessControllerRegistry";
     return typeId;
-#else
-    return iceC_Test_Common_ProcessControllerRegistry_ids[1];
-#endif
 }
 
 /// \cond INTERNAL
