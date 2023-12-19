@@ -47,13 +47,13 @@ if 'TopicObserver' not in _M_IceStorm.Instrumentation.__dict__:
 
         def published(self):
             """
-            Notification of an event published on the topic by a publisher.
+             Notification of an event published on the topic by a publisher.
             """
             raise NotImplementedError("method 'published' not implemented")
 
         def forwarded(self):
             """
-            Notification of an event forwared on the topic by another topic.
+             Notification of an event forwared on the topic by another topic.
             """
             raise NotImplementedError("method 'forwarded' not implemented")
 
@@ -77,7 +77,7 @@ if 'SubscriberObserver' not in _M_IceStorm.Instrumentation.__dict__:
 
         def queued(self, count):
             """
-            Notification of some events being queued.
+             Notification of some events being queued.
             Arguments:
             count -- 
             """
@@ -85,7 +85,7 @@ if 'SubscriberObserver' not in _M_IceStorm.Instrumentation.__dict__:
 
         def outstanding(self, count):
             """
-            Notification of a some events being sent.
+             Notification of a some events being sent.
             Arguments:
             count -- 
             """
@@ -93,7 +93,7 @@ if 'SubscriberObserver' not in _M_IceStorm.Instrumentation.__dict__:
 
         def delivered(self, count):
             """
-            Notification of some events being delivered.
+             Notification of some events being delivered.
             Arguments:
             count -- 
             """
@@ -114,12 +114,10 @@ if 'ObserverUpdater' not in _M_IceStorm.Instrumentation.__dict__:
     _M_IceStorm.Instrumentation.ObserverUpdater = Ice.createTempClass()
     class ObserverUpdater(object):
         """
-        The ObserverUpdater interface is implemented by IceStorm and an
-        instance of this interface is provided on initialization to the
-        TopicManagerObserver object.
-        This interface can be used by add-ins imlementing the
-        TopicManagerObserver interface to update the obsevers of observed
-        objects.
+         The ObserverUpdater interface is implemented by IceStorm and an instance of this interface is provided on
+         initialization to the TopicManagerObserver object.
+         This interface can be used by add-ins imlementing the TopicManagerObserver interface to update the obsevers of
+         observed objects.
         """
         def __init__(self):
             if Ice.getType(self) == _M_IceStorm.Instrumentation.ObserverUpdater:
@@ -127,21 +125,19 @@ if 'ObserverUpdater' not in _M_IceStorm.Instrumentation.__dict__:
 
         def updateTopicObservers(self):
             """
-            Update topic observers associated with each topics.
-            When called, this method goes through all the topics and for
-            each topic TopicManagerObserver::getTopicObserver is
-            called. The implementation of getTopicObserver has the
-            possibility to return an updated observer if necessary.
+             Update topic observers associated with each topics.
+             When called, this method goes through all the topics and for each topic TopicManagerObserver::getTopicObserver
+             is called. The implementation of getTopicObserver has the possibility to return an updated observer if
+             necessary.
             """
             raise NotImplementedError("method 'updateTopicObservers' not implemented")
 
         def updateSubscriberObservers(self):
             """
-            Update subscriber observers associated with each subscriber.
-            When called, this method goes through all the subscribers and
-            for each subscriber TopicManagerObserver::getSubscriberObserver
-            is called. The implementation of getSubscriberObserver has the
-            possibility to return an updated observer if necessary.
+             Update subscriber observers associated with each subscriber.
+             When called, this method goes through all the subscribers and for each subscriber
+             TopicManagerObserver::getSubscriberObserver is called. The implementation of getSubscriberObserver has the
+             possibility to return an updated observer if necessary.
             """
             raise NotImplementedError("method 'updateSubscriberObservers' not implemented")
 
@@ -183,10 +179,9 @@ if 'TopicManagerObserver' not in _M_IceStorm.Instrumentation.__dict__:
     _M_IceStorm.Instrumentation.TopicManagerObserver = Ice.createTempClass()
     class TopicManagerObserver(object):
         """
-        The topic manager observer interface used by the Ice run-time to
-        obtain and update observers for its observeable objects. This
-        interface should be implemented by add-ins that wish to observe
-        IceStorm objects in order to collect statistics.
+         The topic manager observer interface used by the Ice run-time to obtain and update observers for its observeable
+         objects. This interface should be implemented by add-ins that wish to observe IceStorm objects in order to collect
+         statistics.
         """
         def __init__(self):
             if Ice.getType(self) == _M_IceStorm.Instrumentation.TopicManagerObserver:
@@ -194,7 +189,7 @@ if 'TopicManagerObserver' not in _M_IceStorm.Instrumentation.__dict__:
 
         def getTopicObserver(self, svc, name, old):
             """
-            This method should return an observer for the given topic.
+             This method should return an observer for the given topic.
             Arguments:
             svc -- The service name.
             name -- The topic name.
@@ -204,7 +199,7 @@ if 'TopicManagerObserver' not in _M_IceStorm.Instrumentation.__dict__:
 
         def getSubscriberObserver(self, svc, topic, prx, q, link, s, old):
             """
-            This method should return an observer for the given subscriber.
+             This method should return an observer for the given subscriber.
             Arguments:
             svc -- 
             topic -- The name of the topic subscribed.
@@ -218,9 +213,8 @@ if 'TopicManagerObserver' not in _M_IceStorm.Instrumentation.__dict__:
 
         def setObserverUpdater(self, updater):
             """
-            IceStorm calls this method on initialization. The add-in
-            implementing this interface can use this object to get IceStorm
-            to re-obtain observers for topics and subscribers.
+             IceStorm calls this method on initialization. The add-in implementing this interface can use this object to
+             get IceStorm to re-obtain observers for topics and subscribers.
             Arguments:
             updater -- The observer updater object.
             """

@@ -112,6 +112,9 @@ if 'E2' not in _M_Test1.__dict__:
 if 'notify' not in _M_Test1.__dict__:
     _M_Test1.notify = Ice.createTempClass()
     class notify(Ice.UserException):
+        """
+        Test keyword escape.
+        """
         def __init__(self, i=0):
             self.i = i
 

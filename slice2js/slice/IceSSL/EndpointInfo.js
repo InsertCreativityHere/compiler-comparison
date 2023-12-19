@@ -37,8 +37,7 @@ let IceSSL = _ModuleRegistry.module("IceSSL");
 /* slice2js browser-bundle-skip-end */
 
 /**
- * Provides access to an SSL endpoint information.
- *
+ *  Provides access to an SSL endpoint information.
  **/
 IceSSL.EndpointInfo = class extends Ice.EndpointInfo
 {

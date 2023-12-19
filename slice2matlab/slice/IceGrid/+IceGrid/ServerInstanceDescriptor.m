@@ -19,8 +19,8 @@ classdef ServerInstanceDescriptor
         parameterValues containers.Map
         % propertySet - The property set.
         propertySet IceGrid.PropertySetDescriptor
-        % servicePropertySets - The services property sets. It's only valid to set these
-        % property sets if the template is an IceBox server template.
+        % servicePropertySets - The services property sets. It's only valid to set these property sets if the template is an IceBox server
+        % template.
         servicePropertySets containers.Map
     end
     methods

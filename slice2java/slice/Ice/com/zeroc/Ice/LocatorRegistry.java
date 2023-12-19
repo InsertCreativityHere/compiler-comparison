@@ -16,30 +16,22 @@
 package com.zeroc.Ice;
 
 /**
- * The Ice locator registry interface. This interface is used by
- * servers to register adapter endpoints with the locator.
- *
- * <p class="Note"> The {@link LocatorRegistry} interface is intended to be used
- * by Ice internals and by locator implementations. Regular user
- * code should not attempt to use any functionality of this interface
- * directly.
+ * The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
+ * locator. <p class="Note"> The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
+ * locator implementations. Regular user code should not attempt to use any functionality of this interface directly.
  **/
 public interface LocatorRegistry extends Object
 {
     /**
      * Set the adapter endpoints with the locator registry.
      * @param id The adapter id.
-     * @param proxy The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
-     * endpoints.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints.
      * @param current The Current object for the invocation.
      * @return A completion stage that the servant will complete when the invocation completes.
-     * @throws AdapterAlreadyActiveException Raised if an adapter with the same
-     * id is already active.
-     * @throws AdapterNotFoundException Raised if the adapter cannot
-     * be found, or if the locator only allows
-     * registered adapters to set their active proxy and the
-     * adapter is not registered with the locator.
+     * @throws AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
+     * @throws AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
+     * registered adapters to set their active proxy and the adapter is not registered with the locator.
      **/
     java.util.concurrent.CompletionStage<Void> setAdapterDirectProxyAsync(String id, ObjectPrx proxy, Current current)
         throws AdapterAlreadyActiveException,
@@ -49,20 +41,15 @@ public interface LocatorRegistry extends Object
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param p The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
+     * @param p The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
      * endpoints.
      * @param current The Current object for the invocation.
      * @return A completion stage that the servant will complete when the invocation completes.
-     * @throws AdapterAlreadyActiveException Raised if an adapter with the same
-     * id is already active.
-     * @throws AdapterNotFoundException Raised if the adapter cannot
-     * be found, or if the locator only allows registered adapters to
-     * set their active proxy and the adapter is not registered with
-     * the locator.
-     * @throws InvalidReplicaGroupIdException Raised if the given
-     * replica group doesn't match the one registered with the
-     * locator registry for this object adapter.
+     * @throws AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
+     * @throws AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
+     * registered adapters to set their active proxy and the adapter is not registered with the locator.
+     * @throws InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered with
+     * the locator registry for this object adapter.
      **/
     java.util.concurrent.CompletionStage<Void> setReplicatedAdapterDirectProxyAsync(String adapterId, String replicaGroupId, ObjectPrx p, Current current)
         throws AdapterAlreadyActiveException,
@@ -75,8 +62,7 @@ public interface LocatorRegistry extends Object
      * @param proxy The process proxy.
      * @param current The Current object for the invocation.
      * @return A completion stage that the servant will complete when the invocation completes.
-     * @throws ServerNotFoundException Raised if the server cannot
-     * be found.
+     * @throws ServerNotFoundException Raised if the server cannot be found.
      **/
     java.util.concurrent.CompletionStage<Void> setServerProcessProxyAsync(String id, ProcessPrx proxy, Current current)
         throws ServerNotFoundException;

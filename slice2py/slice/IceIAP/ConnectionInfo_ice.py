@@ -29,14 +29,14 @@ if 'ConnectionInfo' not in _M_IceIAP.__dict__:
     _M_IceIAP.ConnectionInfo = Ice.createTempClass()
     class ConnectionInfo(_M_Ice.ConnectionInfo):
         """
-        Provides access to the connection details of an IAP connection
+         Provides access to the connection details of an IAP connection.
         Members:
-        name -- The accessory name.
-        manufacturer -- The accessory manufacturer.
-        modelNumber -- The accessory model number.
-        firmwareRevision -- The accessory firmare revision.
-        hardwareRevision -- The accessory hardware revision.
-        protocol -- The protocol used by the accessory.
+        name --  The accessory name.
+        manufacturer --  The accessory manufacturer.
+        modelNumber --  The accessory model number.
+        firmwareRevision --  The accessory firmare revision.
+        hardwareRevision --  The accessory hardware revision.
+        protocol --  The protocol used by the accessory.
         """
         def __init__(self, underlying=None, incoming=False, adapterName='', connectionId='', name='', manufacturer='', modelNumber='', firmwareRevision='', hardwareRevision='', protocol=''):
             _M_Ice.ConnectionInfo.__init__(self, underlying, incoming, adapterName, connectionId)

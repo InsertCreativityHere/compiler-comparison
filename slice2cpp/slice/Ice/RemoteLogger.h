@@ -113,13 +113,12 @@ struct LogMessage
      */
     ::Ice::LogMessageType type;
     /**
-     * The date and time when the {@link Logger} received this message, expressed
-     * as the number of microseconds since the Unix Epoch (00:00:00 UTC on 1 January 1970)
+     * The date and time when the {@link Logger} received this message, expressed as the number of microseconds
+     * since the Unix Epoch (00:00:00 UTC on 1 January 1970)
      */
     long long int timestamp;
     /**
-     * For a message of type trace, the trace category of this log message;
-     * otherwise, the empty string.
+     * For a message of type trace, the trace category of this log message; otherwise, the empty string.
      */
     ::std::string traceCategory;
     /**
@@ -189,9 +188,8 @@ namespace Ice
 {
 
 /**
- * The Ice remote logger interface. An application can implement a
- * RemoteLogger to receive the log messages sent to the local {@link Logger}
- * of another Ice application.
+ * The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
+ * to the local {@link Logger} of another Ice application.
  * \headerfile Ice/Ice.h
  */
 class ICE_API RemoteLogger : public virtual Object
@@ -294,19 +292,19 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Attaches a RemoteLogger object to the local logger.
-     * attachRemoteLogger calls init on the provided RemoteLogger proxy.
+     * Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+     * RemoteLogger proxy.
      * @param prx A proxy to the remote logger.
-     * @param messageTypes The list of message types that the remote logger wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that the remote logger wishes to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be provided
-     * to init. A negative value requests all messages available.
+     * @param messageTypes The list of message types that the remote logger wishes to receive. An empty list means
+     * no filtering (send all message types).
+     * @param traceCategories The categories of traces that the remote logger wishes to receive. This parameter is
+     * ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+     * trace categories).
+     * @param messageMax The maximum number of log messages (of all types) to be provided to init. A negative
+     * value requests all messages available.
      * @param current The Current object for the invocation.
-     * @throws Ice::RemoteLoggerAlreadyAttachedException Raised if this remote logger is already
-     * attached to this admin object.
+     * @throws Ice::RemoteLoggerAlreadyAttachedException Raised if this remote logger is already attached to this admin
+     * object.
      */
     virtual void attachRemoteLogger(::std::shared_ptr<RemoteLoggerPrx> prx, LogMessageTypeSeq messageTypes, StringSeq traceCategories, int messageMax, const Current& current) = 0;
     /// \cond INTERNAL
@@ -337,13 +335,13 @@ public:
 
     /**
      * Retrieves log messages recently logged.
-     * @param messageTypes The list of message types that the caller wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that caller wish to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be returned.
-     * A negative value requests all messages available.
+     * @param messageTypes The list of message types that the caller wishes to receive. An empty list means no
+     * filtering (send all message types).
+     * @param traceCategories The categories of traces that caller wish to receive. This parameter is ignored if
+     * messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+     * categories).
+     * @param messageMax The maximum number of log messages (of all types) to be returned. A negative value
+     * requests all messages available.
      * @param prefix The prefix of the associated local logger.
      * @param current The Current object for the invocation.
      * @return The Log messages.
@@ -364,9 +362,8 @@ namespace Ice
 {
 
 /**
- * The Ice remote logger interface. An application can implement a
- * RemoteLogger to receive the log messages sent to the local {@link Logger}
- * of another Ice application.
+ * The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
+ * to the local {@link Logger} of another Ice application.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) RemoteLoggerPrx : public virtual Proxy<RemoteLoggerPrx, ObjectPrx>
@@ -494,19 +491,19 @@ class ICE_CLASS(ICE_API) LoggerAdminPrx : public virtual Proxy<LoggerAdminPrx, O
 public:
 
     /**
-     * Attaches a RemoteLogger object to the local logger.
-     * attachRemoteLogger calls init on the provided RemoteLogger proxy.
+     * Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+     * RemoteLogger proxy.
      * @param prx A proxy to the remote logger.
-     * @param messageTypes The list of message types that the remote logger wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that the remote logger wishes to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be provided
-     * to init. A negative value requests all messages available.
+     * @param messageTypes The list of message types that the remote logger wishes to receive. An empty list means
+     * no filtering (send all message types).
+     * @param traceCategories The categories of traces that the remote logger wishes to receive. This parameter is
+     * ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+     * trace categories).
+     * @param messageMax The maximum number of log messages (of all types) to be provided to init. A negative
+     * value requests all messages available.
      * @param context The Context map to send with the invocation.
-     * @throws Ice::RemoteLoggerAlreadyAttachedException Raised if this remote logger is already
-     * attached to this admin object.
+     * @throws Ice::RemoteLoggerAlreadyAttachedException Raised if this remote logger is already attached to this admin
+     * object.
      */
     void attachRemoteLogger(const ::std::shared_ptr<RemoteLoggerPrx>& prx, const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, int messageMax, const Context& context = noExplicitContext)
     {
@@ -514,16 +511,16 @@ public:
     }
 
     /**
-     * Attaches a RemoteLogger object to the local logger.
-     * attachRemoteLogger calls init on the provided RemoteLogger proxy.
+     * Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+     * RemoteLogger proxy.
      * @param prx A proxy to the remote logger.
-     * @param messageTypes The list of message types that the remote logger wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that the remote logger wishes to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be provided
-     * to init. A negative value requests all messages available.
+     * @param messageTypes The list of message types that the remote logger wishes to receive. An empty list means
+     * no filtering (send all message types).
+     * @param traceCategories The categories of traces that the remote logger wishes to receive. This parameter is
+     * ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+     * trace categories).
+     * @param messageMax The maximum number of log messages (of all types) to be provided to init. A negative
+     * value requests all messages available.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -535,16 +532,16 @@ public:
     }
 
     /**
-     * Attaches a RemoteLogger object to the local logger.
-     * attachRemoteLogger calls init on the provided RemoteLogger proxy.
+     * Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+     * RemoteLogger proxy.
      * @param prx A proxy to the remote logger.
-     * @param messageTypes The list of message types that the remote logger wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that the remote logger wishes to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be provided
-     * to init. A negative value requests all messages available.
+     * @param messageTypes The list of message types that the remote logger wishes to receive. An empty list means
+     * no filtering (send all message types).
+     * @param traceCategories The categories of traces that the remote logger wishes to receive. This parameter is
+     * ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+     * trace categories).
+     * @param messageMax The maximum number of log messages (of all types) to be provided to init. A negative
+     * value requests all messages available.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -614,13 +611,13 @@ public:
 
     /**
      * Retrieves log messages recently logged.
-     * @param messageTypes The list of message types that the caller wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that caller wish to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be returned.
-     * A negative value requests all messages available.
+     * @param messageTypes The list of message types that the caller wishes to receive. An empty list means no
+     * filtering (send all message types).
+     * @param traceCategories The categories of traces that caller wish to receive. This parameter is ignored if
+     * messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+     * categories).
+     * @param messageMax The maximum number of log messages (of all types) to be returned. A negative value
+     * requests all messages available.
      * @param prefix The prefix of the associated local logger.
      * @param context The Context map to send with the invocation.
      * @return The Log messages.
@@ -634,13 +631,13 @@ public:
 
     /**
      * Retrieves log messages recently logged.
-     * @param messageTypes The list of message types that the caller wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that caller wish to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be returned.
-     * A negative value requests all messages available.
+     * @param messageTypes The list of message types that the caller wishes to receive. An empty list means no
+     * filtering (send all message types).
+     * @param traceCategories The categories of traces that caller wish to receive. This parameter is ignored if
+     * messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+     * categories).
+     * @param messageMax The maximum number of log messages (of all types) to be returned. A negative value
+     * requests all messages available.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -653,13 +650,13 @@ public:
 
     /**
      * Retrieves log messages recently logged.
-     * @param messageTypes The list of message types that the caller wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that caller wish to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be returned.
-     * A negative value requests all messages available.
+     * @param messageTypes The list of message types that the caller wishes to receive. An empty list means no
+     * filtering (send all message types).
+     * @param traceCategories The categories of traces that caller wish to receive. This parameter is ignored if
+     * messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+     * categories).
+     * @param messageMax The maximum number of log messages (of all types) to be returned. A negative value
+     * requests all messages available.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -842,13 +839,12 @@ struct LogMessage
      */
     ::Ice::LogMessageType type;
     /**
-     * The date and time when the {@link Logger} received this message, expressed
-     * as the number of microseconds since the Unix Epoch (00:00:00 UTC on 1 January 1970)
+     * The date and time when the {@link Logger} received this message, expressed as the number of microseconds
+     * since the Unix Epoch (00:00:00 UTC on 1 January 1970)
      */
     ::Ice::Long timestamp;
     /**
-     * For a message of type trace, the trace category of this log message;
-     * otherwise, the empty string.
+     * For a message of type trace, the trace category of this log message; otherwise, the empty string.
      */
     ::std::string traceCategory;
     /**
@@ -1236,19 +1232,19 @@ class ICE_CLASS(ICE_API) LoggerAdmin : public virtual ::Ice::Proxy<LoggerAdmin, 
 public:
 
     /**
-     * Attaches a RemoteLogger object to the local logger.
-     * attachRemoteLogger calls init on the provided RemoteLogger proxy.
+     * Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+     * RemoteLogger proxy.
      * @param prx A proxy to the remote logger.
-     * @param messageTypes The list of message types that the remote logger wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that the remote logger wishes to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be provided
-     * to init. A negative value requests all messages available.
+     * @param messageTypes The list of message types that the remote logger wishes to receive. An empty list means
+     * no filtering (send all message types).
+     * @param traceCategories The categories of traces that the remote logger wishes to receive. This parameter is
+     * ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+     * trace categories).
+     * @param messageMax The maximum number of log messages (of all types) to be provided to init. A negative
+     * value requests all messages available.
      * @param context The Context map to send with the invocation.
-     * @throws Ice::RemoteLoggerAlreadyAttachedException Raised if this remote logger is already
-     * attached to this admin object.
+     * @throws Ice::RemoteLoggerAlreadyAttachedException Raised if this remote logger is already attached to this admin
+     * object.
      */
     ICE_MEMBER(ICE_API) void attachRemoteLogger(const ::Ice::RemoteLoggerPrx& prx, const ::Ice::LogMessageTypeSeq& messageTypes, const ::Ice::StringSeq& traceCategories, ::Ice::Int messageMax, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -1256,16 +1252,16 @@ public:
     }
 
     /**
-     * Attaches a RemoteLogger object to the local logger.
-     * attachRemoteLogger calls init on the provided RemoteLogger proxy.
+     * Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+     * RemoteLogger proxy.
      * @param prx A proxy to the remote logger.
-     * @param messageTypes The list of message types that the remote logger wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that the remote logger wishes to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be provided
-     * to init. A negative value requests all messages available.
+     * @param messageTypes The list of message types that the remote logger wishes to receive. An empty list means
+     * no filtering (send all message types).
+     * @param traceCategories The categories of traces that the remote logger wishes to receive. This parameter is
+     * ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+     * trace categories).
+     * @param messageMax The maximum number of log messages (of all types) to be provided to init. A negative
+     * value requests all messages available.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -1275,16 +1271,16 @@ public:
     }
 
     /**
-     * Attaches a RemoteLogger object to the local logger.
-     * attachRemoteLogger calls init on the provided RemoteLogger proxy.
+     * Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+     * RemoteLogger proxy.
      * @param prx A proxy to the remote logger.
-     * @param messageTypes The list of message types that the remote logger wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that the remote logger wishes to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be provided
-     * to init. A negative value requests all messages available.
+     * @param messageTypes The list of message types that the remote logger wishes to receive. An empty list means
+     * no filtering (send all message types).
+     * @param traceCategories The categories of traces that the remote logger wishes to receive. This parameter is
+     * ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+     * trace categories).
+     * @param messageMax The maximum number of log messages (of all types) to be provided to init. A negative
+     * value requests all messages available.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -1295,16 +1291,16 @@ public:
     }
 
     /**
-     * Attaches a RemoteLogger object to the local logger.
-     * attachRemoteLogger calls init on the provided RemoteLogger proxy.
+     * Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+     * RemoteLogger proxy.
      * @param prx A proxy to the remote logger.
-     * @param messageTypes The list of message types that the remote logger wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that the remote logger wishes to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be provided
-     * to init. A negative value requests all messages available.
+     * @param messageTypes The list of message types that the remote logger wishes to receive. An empty list means
+     * no filtering (send all message types).
+     * @param traceCategories The categories of traces that the remote logger wishes to receive. This parameter is
+     * ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+     * trace categories).
+     * @param messageMax The maximum number of log messages (of all types) to be provided to init. A negative
+     * value requests all messages available.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -1316,16 +1312,16 @@ public:
     }
 
     /**
-     * Attaches a RemoteLogger object to the local logger.
-     * attachRemoteLogger calls init on the provided RemoteLogger proxy.
+     * Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+     * RemoteLogger proxy.
      * @param prx A proxy to the remote logger.
-     * @param messageTypes The list of message types that the remote logger wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that the remote logger wishes to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be provided
-     * to init. A negative value requests all messages available.
+     * @param messageTypes The list of message types that the remote logger wishes to receive. An empty list means
+     * no filtering (send all message types).
+     * @param traceCategories The categories of traces that the remote logger wishes to receive. This parameter is
+     * ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+     * trace categories).
+     * @param messageMax The maximum number of log messages (of all types) to be provided to init. A negative
+     * value requests all messages available.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -1336,16 +1332,16 @@ public:
     }
 
     /**
-     * Attaches a RemoteLogger object to the local logger.
-     * attachRemoteLogger calls init on the provided RemoteLogger proxy.
+     * Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+     * RemoteLogger proxy.
      * @param prx A proxy to the remote logger.
-     * @param messageTypes The list of message types that the remote logger wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that the remote logger wishes to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be provided
-     * to init. A negative value requests all messages available.
+     * @param messageTypes The list of message types that the remote logger wishes to receive. An empty list means
+     * no filtering (send all message types).
+     * @param traceCategories The categories of traces that the remote logger wishes to receive. This parameter is
+     * ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+     * trace categories).
+     * @param messageMax The maximum number of log messages (of all types) to be provided to init. A negative
+     * value requests all messages available.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -1359,8 +1355,8 @@ public:
     /**
      * Completes an invocation of begin_attachRemoteLogger.
      * @param result The asynchronous result object for the invocation.
-     * @throws Ice::RemoteLoggerAlreadyAttachedException Raised if this remote logger is already
-     * attached to this admin object.
+     * @throws Ice::RemoteLoggerAlreadyAttachedException Raised if this remote logger is already attached to this admin
+     * object.
      */
     ICE_MEMBER(ICE_API) void end_attachRemoteLogger(const ::Ice::AsyncResultPtr& result);
 
@@ -1457,13 +1453,13 @@ public:
 
     /**
      * Retrieves log messages recently logged.
-     * @param messageTypes The list of message types that the caller wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that caller wish to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be returned.
-     * A negative value requests all messages available.
+     * @param messageTypes The list of message types that the caller wishes to receive. An empty list means no
+     * filtering (send all message types).
+     * @param traceCategories The categories of traces that caller wish to receive. This parameter is ignored if
+     * messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+     * categories).
+     * @param messageMax The maximum number of log messages (of all types) to be returned. A negative value
+     * requests all messages available.
      * @param prefix The prefix of the associated local logger.
      * @param context The Context map to send with the invocation.
      * @return The Log messages.
@@ -1475,13 +1471,13 @@ public:
 
     /**
      * Retrieves log messages recently logged.
-     * @param messageTypes The list of message types that the caller wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that caller wish to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be returned.
-     * A negative value requests all messages available.
+     * @param messageTypes The list of message types that the caller wishes to receive. An empty list means no
+     * filtering (send all message types).
+     * @param traceCategories The categories of traces that caller wish to receive. This parameter is ignored if
+     * messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+     * categories).
+     * @param messageMax The maximum number of log messages (of all types) to be returned. A negative value
+     * requests all messages available.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -1492,13 +1488,13 @@ public:
 
     /**
      * Retrieves log messages recently logged.
-     * @param messageTypes The list of message types that the caller wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that caller wish to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be returned.
-     * A negative value requests all messages available.
+     * @param messageTypes The list of message types that the caller wishes to receive. An empty list means no
+     * filtering (send all message types).
+     * @param traceCategories The categories of traces that caller wish to receive. This parameter is ignored if
+     * messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+     * categories).
+     * @param messageMax The maximum number of log messages (of all types) to be returned. A negative value
+     * requests all messages available.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -1510,13 +1506,13 @@ public:
 
     /**
      * Retrieves log messages recently logged.
-     * @param messageTypes The list of message types that the caller wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that caller wish to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be returned.
-     * A negative value requests all messages available.
+     * @param messageTypes The list of message types that the caller wishes to receive. An empty list means no
+     * filtering (send all message types).
+     * @param traceCategories The categories of traces that caller wish to receive. This parameter is ignored if
+     * messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+     * categories).
+     * @param messageMax The maximum number of log messages (of all types) to be returned. A negative value
+     * requests all messages available.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -1529,13 +1525,13 @@ public:
 
     /**
      * Retrieves log messages recently logged.
-     * @param messageTypes The list of message types that the caller wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that caller wish to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be returned.
-     * A negative value requests all messages available.
+     * @param messageTypes The list of message types that the caller wishes to receive. An empty list means no
+     * filtering (send all message types).
+     * @param traceCategories The categories of traces that caller wish to receive. This parameter is ignored if
+     * messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+     * categories).
+     * @param messageMax The maximum number of log messages (of all types) to be returned. A negative value
+     * requests all messages available.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -1547,13 +1543,13 @@ public:
 
     /**
      * Retrieves log messages recently logged.
-     * @param messageTypes The list of message types that the caller wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that caller wish to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be returned.
-     * A negative value requests all messages available.
+     * @param messageTypes The list of message types that the caller wishes to receive. An empty list means no
+     * filtering (send all message types).
+     * @param traceCategories The categories of traces that caller wish to receive. This parameter is ignored if
+     * messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+     * categories).
+     * @param messageMax The maximum number of log messages (of all types) to be returned. A negative value
+     * requests all messages available.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -1603,9 +1599,8 @@ namespace Ice
 {
 
 /**
- * The Ice remote logger interface. An application can implement a
- * RemoteLogger to receive the log messages sent to the local {@link Logger}
- * of another Ice application.
+ * The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
+ * to the local {@link Logger} of another Ice application.
  * \headerfile Ice/Ice.h
  */
 class ICE_API RemoteLogger : public virtual Object
@@ -1745,19 +1740,19 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Attaches a RemoteLogger object to the local logger.
-     * attachRemoteLogger calls init on the provided RemoteLogger proxy.
+     * Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+     * RemoteLogger proxy.
      * @param prx A proxy to the remote logger.
-     * @param messageTypes The list of message types that the remote logger wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that the remote logger wishes to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be provided
-     * to init. A negative value requests all messages available.
+     * @param messageTypes The list of message types that the remote logger wishes to receive. An empty list means
+     * no filtering (send all message types).
+     * @param traceCategories The categories of traces that the remote logger wishes to receive. This parameter is
+     * ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+     * trace categories).
+     * @param messageMax The maximum number of log messages (of all types) to be provided to init. A negative
+     * value requests all messages available.
      * @param current The Current object for the invocation.
-     * @throws Ice::RemoteLoggerAlreadyAttachedException Raised if this remote logger is already
-     * attached to this admin object.
+     * @throws Ice::RemoteLoggerAlreadyAttachedException Raised if this remote logger is already attached to this admin
+     * object.
      */
     virtual void attachRemoteLogger(const RemoteLoggerPrx& prx, const LogMessageTypeSeq& messageTypes, const StringSeq& traceCategories, Int messageMax, const Current& current = emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -1777,13 +1772,13 @@ public:
 
     /**
      * Retrieves log messages recently logged.
-     * @param messageTypes The list of message types that the caller wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that caller wish to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be returned.
-     * A negative value requests all messages available.
+     * @param messageTypes The list of message types that the caller wishes to receive. An empty list means no
+     * filtering (send all message types).
+     * @param traceCategories The categories of traces that caller wish to receive. This parameter is ignored if
+     * messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+     * categories).
+     * @param messageMax The maximum number of log messages (of all types) to be returned. A negative value
+     * requests all messages available.
      * @param prefix The prefix of the associated local logger.
      * @param current The Current object for the invocation.
      * @return The Log messages.

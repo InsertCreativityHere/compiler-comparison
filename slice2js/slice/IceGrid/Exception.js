@@ -36,8 +36,7 @@ let IceGrid = _ModuleRegistry.module("IceGrid");
 /* slice2js browser-bundle-skip-end */
 
 /**
- * This exception is raised if an application does not exist.
- *
+ *  This exception is raised if an application does not exist.
  **/
 IceGrid.ApplicationNotExistException = class extends Ice.UserException
 {
@@ -74,8 +73,7 @@ IceGrid.ApplicationNotExistException = class extends Ice.UserException
 };
 
 /**
- * This exception is raised if a server does not exist.
- *
+ *  This exception is raised if a server does not exist.
  **/
 IceGrid.ServerNotExistException = class extends Ice.UserException
 {
@@ -112,8 +110,7 @@ IceGrid.ServerNotExistException = class extends Ice.UserException
 };
 
 /**
- * This exception is raised if a server failed to start.
- *
+ *  This exception is raised if a server failed to start.
  **/
 IceGrid.ServerStartException = class extends Ice.UserException
 {
@@ -153,8 +150,7 @@ IceGrid.ServerStartException = class extends Ice.UserException
 };
 
 /**
- * This exception is raised if a server failed to stop.
- *
+ *  This exception is raised if a server failed to stop.
  **/
 IceGrid.ServerStopException = class extends Ice.UserException
 {
@@ -194,8 +190,7 @@ IceGrid.ServerStopException = class extends Ice.UserException
 };
 
 /**
- * This exception is raised if an adapter does not exist.
- *
+ *  This exception is raised if an adapter does not exist.
  **/
 IceGrid.AdapterNotExistException = class extends Ice.UserException
 {
@@ -232,8 +227,7 @@ IceGrid.AdapterNotExistException = class extends Ice.UserException
 };
 
 /**
- * This exception is raised if an object already exists.
- *
+ *  This exception is raised if an object already exists.
  **/
 IceGrid.ObjectExistsException = class extends Ice.UserException
 {
@@ -270,8 +264,7 @@ IceGrid.ObjectExistsException = class extends Ice.UserException
 };
 
 /**
- * This exception is raised if an object is not registered.
- *
+ *  This exception is raised if an object is not registered.
  **/
 IceGrid.ObjectNotRegisteredException = class extends Ice.UserException
 {
@@ -308,8 +301,7 @@ IceGrid.ObjectNotRegisteredException = class extends Ice.UserException
 };
 
 /**
- * This exception is raised if a node does not exist.
- *
+ *  This exception is raised if a node does not exist.
  **/
 IceGrid.NodeNotExistException = class extends Ice.UserException
 {
@@ -346,8 +338,7 @@ IceGrid.NodeNotExistException = class extends Ice.UserException
 };
 
 /**
- * This exception is raised if a registry does not exist.
- *
+ *  This exception is raised if a registry does not exist.
  **/
 IceGrid.RegistryNotExistException = class extends Ice.UserException
 {
@@ -384,8 +375,7 @@ IceGrid.RegistryNotExistException = class extends Ice.UserException
 };
 
 /**
- * An exception for deployment errors.
- *
+ *  An exception for deployment errors.
  **/
 IceGrid.DeploymentException = class extends Ice.UserException
 {
@@ -422,8 +412,7 @@ IceGrid.DeploymentException = class extends Ice.UserException
 };
 
 /**
- * This exception is raised if a node could not be reached.
- *
+ *  This exception is raised if a node could not be reached.
  **/
 IceGrid.NodeUnreachableException = class extends Ice.UserException
 {
@@ -463,8 +452,7 @@ IceGrid.NodeUnreachableException = class extends Ice.UserException
 };
 
 /**
- * This exception is raised if a server could not be reached.
- *
+ *  This exception is raised if a server could not be reached.
  **/
 IceGrid.ServerUnreachableException = class extends Ice.UserException
 {
@@ -504,8 +492,7 @@ IceGrid.ServerUnreachableException = class extends Ice.UserException
 };
 
 /**
- * This exception is raised if a registry could not be reached.
- *
+ *  This exception is raised if a registry could not be reached.
  **/
 IceGrid.RegistryUnreachableException = class extends Ice.UserException
 {
@@ -545,9 +532,7 @@ IceGrid.RegistryUnreachableException = class extends Ice.UserException
 };
 
 /**
- * This exception is raised if an unknown signal was sent to
- * to a server.
- *
+ *  This exception is raised if an unknown signal was sent to to a server.
  **/
 IceGrid.BadSignalException = class extends Ice.UserException
 {
@@ -584,8 +569,7 @@ IceGrid.BadSignalException = class extends Ice.UserException
 };
 
 /**
- * This exception is raised if a patch failed.
- *
+ *  This exception is raised if a patch failed.
  **/
 IceGrid.PatchException = class extends Ice.UserException
 {
@@ -622,9 +606,7 @@ IceGrid.PatchException = class extends Ice.UserException
 };
 
 /**
- * This exception is raised if a registry lock wasn't
- * acquired or is already held by a session.
- *
+ *  his exception is raised if a registry lock wasn't acquired or is already held by a session.
  **/
 IceGrid.AccessDeniedException = class extends Ice.UserException
 {
@@ -661,8 +643,7 @@ IceGrid.AccessDeniedException = class extends Ice.UserException
 };
 
 /**
- * This exception is raised if the allocation of an object failed.
- *
+ *  This exception is raised if the allocation of an object failed.
  **/
 IceGrid.AllocationException = class extends Ice.UserException
 {
@@ -699,9 +680,7 @@ IceGrid.AllocationException = class extends Ice.UserException
 };
 
 /**
- * This exception is raised if the request to allocate an object times
- * out.
- *
+ *  This exception is raised if the request to allocate an object times out.
  **/
 IceGrid.AllocationTimeoutException = class extends IceGrid.AllocationException
 {
@@ -727,9 +706,7 @@ IceGrid.AllocationTimeoutException = class extends IceGrid.AllocationException
 };
 
 /**
- * This exception is raised if a client is denied the ability to create
- * a session with IceGrid.
- *
+ *  This exception is raised if a client is denied the ability to create a session with IceGrid.
  **/
 IceGrid.PermissionDeniedException = class extends Ice.UserException
 {
@@ -766,12 +743,9 @@ IceGrid.PermissionDeniedException = class extends Ice.UserException
 };
 
 /**
- * This exception is raised if an observer is already registered with
- * the registry.
- *
- * @see AdminSession#setObservers
- * @see AdminSession#setObserversByIdentity
- *
+ *  This exception is raised if an observer is already registered with the registry.
+ *  @see AdminSession#setObservers
+ *  @see AdminSession#setObserversByIdentity
  **/
 IceGrid.ObserverAlreadyRegisteredException = class extends Ice.UserException
 {
@@ -808,15 +782,13 @@ IceGrid.ObserverAlreadyRegisteredException = class extends Ice.UserException
 };
 
 /**
- * This exception is raised if a file is not available.
- *
- * @see AdminSession#openServerStdOut
- * @see AdminSession#openServerStdErr
- * @see AdminSession#openNodeStdOut
- * @see AdminSession#openNodeStdErr
- * @see AdminSession#openRegistryStdOut
- * @see AdminSession#openRegistryStdErr
- *
+ *  This exception is raised if a file is not available.
+ *  @see AdminSession#openServerStdOut
+ *  @see AdminSession#openServerStdErr
+ *  @see AdminSession#openNodeStdOut
+ *  @see AdminSession#openNodeStdErr
+ *  @see AdminSession#openRegistryStdOut
+ *  @see AdminSession#openRegistryStdErr
  **/
 IceGrid.FileNotAvailableException = class extends Ice.UserException
 {

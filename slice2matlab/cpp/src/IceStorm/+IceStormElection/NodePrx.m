@@ -28,8 +28,7 @@
 classdef NodePrx < Ice.ObjectPrx
     methods
         function invitation(obj, j, gn, varargin)
-            % invitation   Invite the node into a group with the given coordinator and
-            % group name.
+            % invitation   Invite the node into a group with the given coordinator and group name.
             %
             % Parameters:
             %   j (int32) - The group coordinator.
@@ -43,8 +42,7 @@ classdef NodePrx < Ice.ObjectPrx
             obj.iceInvoke('invitation', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = invitationAsync(obj, j, gn, varargin)
-            % invitationAsync   Invite the node into a group with the given coordinator and
-            % group name.
+            % invitationAsync   Invite the node into a group with the given coordinator and group name.
             %
             % Parameters:
             %   j (int32) - The group coordinator.
@@ -60,15 +58,13 @@ classdef NodePrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('invitation', 0, false, os_, 0, [], {}, varargin{:});
         end
         function ready(obj, j, gn, coordinator, max, generation, varargin)
-            % ready   Call from the group coordinator to a node to inform the node
-            % that the replica group is active.
+            % ready   Call from the group coordinator to a node to inform the node that the replica group is active.
             %
             % Parameters:
             %   j (int32) - The group coordinator.
             %   gn (char) - The group name.
             %   coordinator (Ice.ObjectPrx) - The proxy to the coordinator.
-            %   max (int32) - The highest priority node seen by this replica
-            %     group.
+            %   max (int32) - The highest priority node seen by this replica group.
             %   generation (int64) - The current generation count.
             %   context (containers.Map) - Optional request context.
             
@@ -82,15 +78,13 @@ classdef NodePrx < Ice.ObjectPrx
             obj.iceInvoke('ready', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = readyAsync(obj, j, gn, coordinator, max, generation, varargin)
-            % readyAsync   Call from the group coordinator to a node to inform the node
-            % that the replica group is active.
+            % readyAsync   Call from the group coordinator to a node to inform the node that the replica group is active.
             %
             % Parameters:
             %   j (int32) - The group coordinator.
             %   gn (char) - The group name.
             %   coordinator (Ice.ObjectPrx) - The proxy to the coordinator.
-            %   max (int32) - The highest priority node seen by this replica
-            %     group.
+            %   max (int32) - The highest priority node seen by this replica group.
             %   generation (int64) - The current generation count.
             %   context (containers.Map) - Optional request context.
             %
@@ -106,18 +100,15 @@ classdef NodePrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('ready', 0, false, os_, 0, [], {}, varargin{:});
         end
         function accept(obj, j, gn, forwardedInvites, observer, llu, max, varargin)
-            % accept   Called to accept an invitation into
-            % the given group.
+            % accept   Called to accept an invitation into the given group.
             %
             % Parameters:
             %   j (int32) - The id of the node accepting the invitation.
             %   gn (char) - The group name.
-            %   forwardedInvites (Ice.IntSeq) - The ids of the nodes to which
-            %     invitations were forwarded.
+            %   forwardedInvites (Ice.IntSeq) - The ids of the nodes to which invitations were forwarded.
             %   observer (Ice.ObjectPrx) - The observer.
             %   llu (IceStormElection.LogUpdate) - The last log update for the given node.
-            %   max (int32) - The highest priority node seen by this replica
-            %     group.
+            %   max (int32) - The highest priority node seen by this replica group.
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
@@ -131,18 +122,15 @@ classdef NodePrx < Ice.ObjectPrx
             obj.iceInvoke('accept', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = acceptAsync(obj, j, gn, forwardedInvites, observer, llu, max, varargin)
-            % acceptAsync   Called to accept an invitation into
-            % the given group.
+            % acceptAsync   Called to accept an invitation into the given group.
             %
             % Parameters:
             %   j (int32) - The id of the node accepting the invitation.
             %   gn (char) - The group name.
-            %   forwardedInvites (Ice.IntSeq) - The ids of the nodes to which
-            %     invitations were forwarded.
+            %   forwardedInvites (Ice.IntSeq) - The ids of the nodes to which invitations were forwarded.
             %   observer (Ice.ObjectPrx) - The observer.
             %   llu (IceStormElection.LogUpdate) - The last log update for the given node.
-            %   max (int32) - The highest priority node seen by this replica
-            %     group.
+            %   max (int32) - The highest priority node seen by this replica group.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -187,8 +175,7 @@ classdef NodePrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('areYouCoordinator', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = areYouThere(obj, gn, j, varargin)
-            % areYouThere   Determine if the node is a member of the given group with the
-            % given coordinator.
+            % areYouThere   Determine if the node is a member of the given group with the given coordinator.
             %
             % Parameters:
             %   gn (char) - The group name.
@@ -207,8 +194,7 @@ classdef NodePrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = areYouThereAsync(obj, gn, j, varargin)
-            % areYouThereAsync   Determine if the node is a member of the given group with the
-            % given coordinator.
+            % areYouThereAsync   Determine if the node is a member of the given group with the given coordinator.
             %
             % Parameters:
             %   gn (char) - The group name.
@@ -264,8 +250,7 @@ classdef NodePrx < Ice.ObjectPrx
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (IceStormElection.NodeInfoSeq) - The set of configured nodes and the associated
-            % priority.
+            % Returns (IceStormElection.NodeInfoSeq) - The set of configured nodes and the associated priority.
             
             is_ = obj.iceInvoke('nodes', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();

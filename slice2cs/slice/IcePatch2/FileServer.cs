@@ -170,9 +170,9 @@ namespace IcePatch2
     }
 
     /// <summary>
-    /// This exception is raised if an operation tries to use a file whose size is
-    /// larger than 2.1 GB.
-    /// Use the "large" versions of the operations instead.
+    /// This exception is raised if an operation tries to use a file whose size is larger than 2.1 GB.
+    /// Use the "large"
+    ///  versions of the operations instead.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -291,19 +291,15 @@ namespace IcePatch2
         ///
         /// <para>getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.</para>
         ///
-        /// &lt;p class="Deprecated"&gt; This operation is deprecated and only present for
-        /// compatibility with old Ice clients (older than version 3.6).
-        ///
+        /// &lt;p class="Deprecated"&gt; This operation is deprecated and
+        ///  only present for compatibility with old Ice clients (older than version 3.6).
         /// </summary>
-        /// <param name="partition">The partition number in the range 0-255.
-        ///
-        /// </param>
-        /// <returns>A sequence containing information about the files in the
-        /// specified partition.
-        ///
-        /// </returns>
+        ///  <param name="partition">The partition number in the range 0-255.
+        ///  </param>
+        /// <returns>A sequence containing information about the files in the specified partition.
+        ///  </returns>
         /// <exception name="PartitionOutOfRangeException">If the partition number is out of range.
-        /// </exception>
+        ///  </exception>
         /// <exception name="FileSizeRangeException">If a file is larger than 2.1GB.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -312,11 +308,10 @@ namespace IcePatch2
 
         /// <summary>
         /// Return file information for the specified partition.
-        /// &lt;p class="Deprecated"&gt; This operation is deprecated and only present for
+        /// &lt;p class="Deprecated"&gt; This operation is deprecated and
         /// </summary>
-        /// <param name="partition">The partition number in the range 0-255.
-        ///
-        /// </param>
+        ///  <param name="partition">The partition number in the range 0-255.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -327,11 +322,10 @@ namespace IcePatch2
 
         /// <summary>
         /// Return file information for the specified partition.
-        /// &lt;p class="Deprecated"&gt; This operation is deprecated and only present for
+        /// &lt;p class="Deprecated"&gt; This operation is deprecated and
         /// </summary>
-        /// <param name="partition">The partition number in the range 0-255.
-        ///
-        /// </param>
+        ///  <param name="partition">The partition number in the range 0-255.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         /// <para>getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.</para>
@@ -340,11 +334,10 @@ namespace IcePatch2
 
         /// <summary>
         /// Return file information for the specified partition.
-        /// &lt;p class="Deprecated"&gt; This operation is deprecated and only present for
+        /// &lt;p class="Deprecated"&gt; This operation is deprecated and
         /// </summary>
-        /// <param name="partition">The partition number in the range 0-255.
-        ///
-        /// </param>
+        ///  <param name="partition">The partition number in the range 0-255.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -354,11 +347,10 @@ namespace IcePatch2
 
         /// <summary>
         /// Return file information for the specified partition.
-        /// &lt;p class="Deprecated"&gt; This operation is deprecated and only present for
+        /// &lt;p class="Deprecated"&gt; This operation is deprecated and
         /// </summary>
-        /// <param name="partition">The partition number in the range 0-255.
-        ///
-        /// </param>
+        ///  <param name="partition">The partition number in the range 0-255.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -369,13 +361,11 @@ namespace IcePatch2
 
         /// <summary>
         /// Return file information for the specified partition.
-        /// &lt;p class="Deprecated"&gt; This operation is deprecated and only present for
+        /// &lt;p class="Deprecated"&gt; This operation is deprecated and
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A sequence containing information about the files in the
-        /// specified partition.
-        ///
-        /// </returns>
+        /// <returns>A sequence containing information about the files in the specified partition.
+        ///  </returns>
         /// <para>getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.</para>
         [global::System.Obsolete("getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.")]
         FileInfo[] end_getFileInfoSeq(global::Ice.AsyncResult asyncResult);
@@ -384,12 +374,9 @@ namespace IcePatch2
         /// Returns file information for the specified partition.
         /// </summary>
         /// <param name="partition">The partition number in the range 0-255.
-        ///
-        /// </param>
-        /// <returns>A sequence containing information about the files in the
-        /// specified partition.
-        ///
-        /// </returns>
+        ///  </param>
+        /// <returns>A sequence containing information about the files in the specified partition.
+        ///  </returns>
         /// <exception name="PartitionOutOfRangeException">If the partition number is out of range.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -399,8 +386,7 @@ namespace IcePatch2
         /// Returns file information for the specified partition.
         /// </summary>
         /// <param name="partition">The partition number in the range 0-255.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -411,8 +397,7 @@ namespace IcePatch2
         /// Returns file information for the specified partition.
         /// </summary>
         /// <param name="partition">The partition number in the range 0-255.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_FileServer_getLargeFileInfoSeq> begin_getLargeFileInfoSeq(int partition, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -421,8 +406,7 @@ namespace IcePatch2
         /// Returns file information for the specified partition.
         /// </summary>
         /// <param name="partition">The partition number in the range 0-255.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -432,8 +416,7 @@ namespace IcePatch2
         /// Returns file information for the specified partition.
         /// </summary>
         /// <param name="partition">The partition number in the range 0-255.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -444,20 +427,16 @@ namespace IcePatch2
         /// Returns file information for the specified partition.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A sequence containing information about the files in the
-        /// specified partition.
-        ///
-        /// </returns>
+        /// <returns>A sequence containing information about the files in the specified partition.
+        ///  </returns>
         LargeFileInfo[] end_getLargeFileInfoSeq(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Return the checksums for all partitions.
         /// </summary>
-        /// <returns>A sequence containing 256 checksums. Partitions with a
-        /// checksum that differs from the previous checksum for the same
-        /// partition contain updated files. Partitions with a checksum
-        /// that is identical to the previous checksum do not contain
-        /// updated files.</returns>
+        /// <returns>A sequence containing 256 checksums. Partitions with a checksum that differs from the previous checksum
+        ///  for the same partition contain updated files. Partitions with a checksum that is identical to the previous
+        ///  checksum do not contain updated files.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         byte[][] getChecksumSeq(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -499,27 +478,24 @@ namespace IcePatch2
         /// Return the checksums for all partitions.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A sequence containing 256 checksums. Partitions with a
-        /// checksum that differs from the previous checksum for the same
-        /// partition contain updated files. Partitions with a checksum
-        /// that is identical to the previous checksum do not contain
-        /// updated files.</returns>
+        /// <returns>A sequence containing 256 checksums. Partitions with a checksum that differs from the previous checksum
+        ///  for the same partition contain updated files. Partitions with a checksum that is identical to the previous
+        ///  checksum do not contain updated files.</returns>
         byte[][] end_getChecksumSeq(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Return the master checksum for all partitions.
-        /// If this checksum is the same
-        /// as for a previous run, the entire file set is up-to-date.
-        ///
+        /// If this checksum is the same as for a previous run, the entire
+        ///  file set is up-to-date.
         /// </summary>
-        /// <returns>The master checksum for the file set.</returns>
+        ///  <returns>The master checksum for the file set.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         byte[] getChecksum(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Return the master checksum for all partitions.
-        /// If this checksum is the same
+        /// If this checksum is the same as for a previous run, the entire
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -529,7 +505,7 @@ namespace IcePatch2
 
         /// <summary>
         /// Return the master checksum for all partitions.
-        /// If this checksum is the same
+        /// If this checksum is the same as for a previous run, the entire
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -537,7 +513,7 @@ namespace IcePatch2
 
         /// <summary>
         /// Return the master checksum for all partitions.
-        /// If this checksum is the same
+        /// If this checksum is the same as for a previous run, the entire
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -546,7 +522,7 @@ namespace IcePatch2
 
         /// <summary>
         /// Return the master checksum for all partitions.
-        /// If this checksum is the same
+        /// If this checksum is the same as for a previous run, the entire
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -556,7 +532,7 @@ namespace IcePatch2
 
         /// <summary>
         /// Return the master checksum for all partitions.
-        /// If this checksum is the same
+        /// If this checksum is the same as for a previous run, the entire
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The master checksum for the file set.</returns>
@@ -567,28 +543,20 @@ namespace IcePatch2
         ///
         /// <para>getFileCompressed() is deprecated, use getLargeFileCompressed() instead.</para>
         ///
-        /// This operation may only return fewer bytes than requested
-        /// in case there was an end-of-file condition.
-        ///
-        /// &lt;p class="Deprecated"&gt; This operation is deprecated and only present for
-        /// compatibility with old Ice clients (older than version 3.6).
-        ///
+        /// This operation may only return fewer bytes than requested in case there was an end-of-file
+        ///  condition. &lt;p class="Deprecated"&gt; This operation is deprecated and only present for compatibility with old Ice
+        ///  clients (older than version 3.6).
         /// </summary>
-        /// <param name="path">The pathname (relative to the data directory) for
-        /// the file to be read.
-        ///
-        /// </param>
+        ///  <param name="path">The pathname (relative to the data directory) for the file to be read.
+        ///  </param>
         /// <param name="pos">The file offset at which to begin reading.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="num">The number of bytes to be read.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>A sequence containing the compressed file contents.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="FileAccessException">If an error occurred while trying to read the file.
-        /// </exception>
+        ///  </exception>
         /// <exception name="FileSizeRangeException">If a file is larger than 2.1GB.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -597,18 +565,14 @@ namespace IcePatch2
 
         /// <summary>
         /// Read the specified file.
-        /// This operation may only return fewer bytes than requested
+        /// This operation may only return fewer bytes than requested in case there was an end-of-file
         /// </summary>
-        /// <param name="path">The pathname (relative to the data directory) for
-        /// the file to be read.
-        ///
-        /// </param>
+        ///  <param name="path">The pathname (relative to the data directory) for the file to be read.
+        ///  </param>
         /// <param name="pos">The file offset at which to begin reading.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="num">The number of bytes to be read.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -619,18 +583,14 @@ namespace IcePatch2
 
         /// <summary>
         /// Read the specified file.
-        /// This operation may only return fewer bytes than requested
+        /// This operation may only return fewer bytes than requested in case there was an end-of-file
         /// </summary>
-        /// <param name="path">The pathname (relative to the data directory) for
-        /// the file to be read.
-        ///
-        /// </param>
+        ///  <param name="path">The pathname (relative to the data directory) for the file to be read.
+        ///  </param>
         /// <param name="pos">The file offset at which to begin reading.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="num">The number of bytes to be read.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         /// <para>getFileCompressed() is deprecated, use getLargeFileCompressed() instead.</para>
@@ -639,18 +599,14 @@ namespace IcePatch2
 
         /// <summary>
         /// Read the specified file.
-        /// This operation may only return fewer bytes than requested
+        /// This operation may only return fewer bytes than requested in case there was an end-of-file
         /// </summary>
-        /// <param name="path">The pathname (relative to the data directory) for
-        /// the file to be read.
-        ///
-        /// </param>
+        ///  <param name="path">The pathname (relative to the data directory) for the file to be read.
+        ///  </param>
         /// <param name="pos">The file offset at which to begin reading.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="num">The number of bytes to be read.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -660,18 +616,14 @@ namespace IcePatch2
 
         /// <summary>
         /// Read the specified file.
-        /// This operation may only return fewer bytes than requested
+        /// This operation may only return fewer bytes than requested in case there was an end-of-file
         /// </summary>
-        /// <param name="path">The pathname (relative to the data directory) for
-        /// the file to be read.
-        ///
-        /// </param>
+        ///  <param name="path">The pathname (relative to the data directory) for the file to be read.
+        ///  </param>
         /// <param name="pos">The file offset at which to begin reading.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="num">The number of bytes to be read.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -682,35 +634,28 @@ namespace IcePatch2
 
         /// <summary>
         /// Read the specified file.
-        /// This operation may only return fewer bytes than requested
+        /// This operation may only return fewer bytes than requested in case there was an end-of-file
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>A sequence containing the compressed file contents.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <para>getFileCompressed() is deprecated, use getLargeFileCompressed() instead.</para>
         [global::System.Obsolete("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.")]
         byte[] end_getFileCompressed(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Read the specified file.
-        /// This operation may only return fewer bytes than requested
-        /// in case there was an end-of-file condition.
-        ///
+        /// This operation may only return fewer bytes than requested in case there was an
+        ///  end-of-file condition.
         /// </summary>
-        /// <param name="path">The pathname (relative to the data directory) for
-        /// the file to be read.
-        ///
-        /// </param>
+        ///  <param name="path">The pathname (relative to the data directory) for the file to be read.
+        ///  </param>
         /// <param name="pos">The file offset at which to begin reading.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="num">The number of bytes to be read.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>A sequence containing the compressed file contents.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="FileAccessException">If an error occurred while trying to read the file.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -718,18 +663,14 @@ namespace IcePatch2
 
         /// <summary>
         /// Read the specified file.
-        /// This operation may only return fewer bytes than requested
+        /// This operation may only return fewer bytes than requested in case there was an
         /// </summary>
-        /// <param name="path">The pathname (relative to the data directory) for
-        /// the file to be read.
-        ///
-        /// </param>
+        ///  <param name="path">The pathname (relative to the data directory) for the file to be read.
+        ///  </param>
         /// <param name="pos">The file offset at which to begin reading.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="num">The number of bytes to be read.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -738,36 +679,28 @@ namespace IcePatch2
 
         /// <summary>
         /// Read the specified file.
-        /// This operation may only return fewer bytes than requested
+        /// This operation may only return fewer bytes than requested in case there was an
         /// </summary>
-        /// <param name="path">The pathname (relative to the data directory) for
-        /// the file to be read.
-        ///
-        /// </param>
+        ///  <param name="path">The pathname (relative to the data directory) for the file to be read.
+        ///  </param>
         /// <param name="pos">The file offset at which to begin reading.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="num">The number of bytes to be read.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_FileServer_getLargeFileCompressed> begin_getLargeFileCompressed(string path, long pos, int num, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Read the specified file.
-        /// This operation may only return fewer bytes than requested
+        /// This operation may only return fewer bytes than requested in case there was an
         /// </summary>
-        /// <param name="path">The pathname (relative to the data directory) for
-        /// the file to be read.
-        ///
-        /// </param>
+        ///  <param name="path">The pathname (relative to the data directory) for the file to be read.
+        ///  </param>
         /// <param name="pos">The file offset at which to begin reading.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="num">The number of bytes to be read.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -775,18 +708,14 @@ namespace IcePatch2
 
         /// <summary>
         /// Read the specified file.
-        /// This operation may only return fewer bytes than requested
+        /// This operation may only return fewer bytes than requested in case there was an
         /// </summary>
-        /// <param name="path">The pathname (relative to the data directory) for
-        /// the file to be read.
-        ///
-        /// </param>
+        ///  <param name="path">The pathname (relative to the data directory) for the file to be read.
+        ///  </param>
         /// <param name="pos">The file offset at which to begin reading.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="num">The number of bytes to be read.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -795,12 +724,11 @@ namespace IcePatch2
 
         /// <summary>
         /// Read the specified file.
-        /// This operation may only return fewer bytes than requested
+        /// This operation may only return fewer bytes than requested in case there was an
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>A sequence containing the compressed file contents.
-        ///
-        /// </returns>
+        ///  </returns>
         byte[] end_getLargeFileCompressed(global::Ice.AsyncResult asyncResult);
     }
 }
@@ -819,19 +747,15 @@ namespace IcePatch2
         ///
         /// <para>getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.</para>
         ///
-        /// &lt;p class="Deprecated"&gt; This operation is deprecated and only present for
-        /// compatibility with old Ice clients (older than version 3.6).
-        ///
+        /// &lt;p class="Deprecated"&gt; This operation is deprecated and
+        ///  only present for compatibility with old Ice clients (older than version 3.6).
         /// </summary>
-        /// <param name="partition">The partition number in the range 0-255.
-        ///
-        /// </param>
-        /// <returns>A sequence containing information about the files in the
-        /// specified partition.
-        ///
-        /// </returns>
+        ///  <param name="partition">The partition number in the range 0-255.
+        ///  </param>
+        /// <returns>A sequence containing information about the files in the specified partition.
+        ///  </returns>
         /// <exception name="PartitionOutOfRangeException">If the partition number is out of range.
-        /// </exception>
+        ///  </exception>
         /// <exception name="FileSizeRangeException">If a file is larger than 2.1GB.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -843,12 +767,9 @@ namespace IcePatch2
         /// Returns file information for the specified partition.
         /// </summary>
         /// <param name="partition">The partition number in the range 0-255.
-        ///
-        /// </param>
-        /// <returns>A sequence containing information about the files in the
-        /// specified partition.
-        ///
-        /// </returns>
+        ///  </param>
+        /// <returns>A sequence containing information about the files in the specified partition.
+        ///  </returns>
         /// <exception name="PartitionOutOfRangeException">If the partition number is out of range.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -858,11 +779,9 @@ namespace IcePatch2
         /// <summary>
         /// Return the checksums for all partitions.
         /// </summary>
-        /// <returns>A sequence containing 256 checksums. Partitions with a
-        /// checksum that differs from the previous checksum for the same
-        /// partition contain updated files. Partitions with a checksum
-        /// that is identical to the previous checksum do not contain
-        /// updated files.</returns>
+        /// <returns>A sequence containing 256 checksums. Partitions with a checksum that differs from the previous checksum
+        ///  for the same partition contain updated files. Partitions with a checksum that is identical to the previous
+        ///  checksum do not contain updated files.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -870,11 +789,10 @@ namespace IcePatch2
 
         /// <summary>
         /// Return the master checksum for all partitions.
-        /// If this checksum is the same
-        /// as for a previous run, the entire file set is up-to-date.
-        ///
+        /// If this checksum is the same as for a previous run, the entire
+        ///  file set is up-to-date.
         /// </summary>
-        /// <returns>The master checksum for the file set.</returns>
+        ///  <returns>The master checksum for the file set.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -882,18 +800,14 @@ namespace IcePatch2
 
         /// <summary>
         /// Read the specified file.
-        /// This operation may only return fewer bytes than requested
+        /// This operation may only return fewer bytes than requested in case there was an end-of-file
         /// </summary>
-        /// <param name="path">The pathname (relative to the data directory) for
-        /// the file to be read.
-        ///
-        /// </param>
+        ///  <param name="path">The pathname (relative to the data directory) for the file to be read.
+        ///  </param>
         /// <param name="pos">The file offset at which to begin reading.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="num">The number of bytes to be read.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <para>getFileCompressed() is deprecated, use getLargeFileCompressed() instead.</para>
@@ -903,18 +817,14 @@ namespace IcePatch2
 
         /// <summary>
         /// Read the specified file.
-        /// This operation may only return fewer bytes than requested
+        /// This operation may only return fewer bytes than requested in case there was an
         /// </summary>
-        /// <param name="path">The pathname (relative to the data directory) for
-        /// the file to be read.
-        ///
-        /// </param>
+        ///  <param name="path">The pathname (relative to the data directory) for the file to be read.
+        ///  </param>
         /// <param name="pos">The file offset at which to begin reading.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="num">The number of bytes to be read.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]

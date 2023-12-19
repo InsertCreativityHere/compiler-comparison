@@ -1,13 +1,9 @@
 % ProcessPrx   Summary of ProcessPrx
 %
-% An administrative interface for process management. Managed servers must
-% implement this interface.
-%
-% A servant implementing this interface is a potential target
-% for denial-of-service attacks, therefore proper security precautions
-% should be taken. For example, the servant can use a UUID to make its
-% identity harder to guess, and be registered in an object adapter with
-% a secured endpoint.
+% An administrative interface for process management. Managed servers must implement this interface.
+% A servant implementing this interface is a potential target for denial-of-service attacks,
+% therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
+% identity harder to guess, and be registered in an object adapter with a secured endpoint.
 %
 % ProcessPrx Methods:
 %   shutdown - Initiate a graceful shut-down.

@@ -485,14 +485,6 @@
         value: "\\\\U\\u\\"
     });
 
-    Object.defineProperty(Test, 'ss4', {
-        value: "\\A\\"
-    });
-
-    Object.defineProperty(Test, 'ss5', {
-        value: "\\u0041\\"
-    });
-
     Object.defineProperty(Test, 'su0', {
         value: "\u0128\u0178\u00ff\u0100\u1f00\ud800\udd94\ud800\udd6a\ud800\udd98\ud83c\udf40\ud83c\udf41\ud83c\udf42\ud83c\udf43"
     });

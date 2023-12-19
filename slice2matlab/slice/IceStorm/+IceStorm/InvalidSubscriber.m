@@ -1,7 +1,6 @@
 % InvalidSubscriber   Summary of InvalidSubscriber
 %
-% This exception indicates that an attempt was made to subscribe
-% a proxy that is null.
+% This exception indicates that an attempt was made to subscribe a proxy that is null.
 %
 % InvalidSubscriber Properties:
 %   reason - The reason for the failure.

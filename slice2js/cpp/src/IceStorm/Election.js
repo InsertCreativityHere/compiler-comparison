@@ -25,7 +25,7 @@
     const Slice = Ice.Slice;
 
     /**
-     * The contents of topic.
+     *  The contents of topic.
      **/
     IceStormElection.TopicContent = class
     {
@@ -58,7 +58,7 @@
     Slice.defineSequence(IceStormElection, "TopicContentSeqHelper", "IceStormElection.TopicContent", false);
 
     /**
-     * Thrown if an observer detects an inconsistency.
+     *  Thrown if an observer detects an inconsistency.
      **/
     IceStormElection.ObserverInconsistencyException = class extends Ice.UserException
     {
@@ -100,7 +100,7 @@
     ];
 
     /**
-     * The replica observer.
+     *  The replica observer.
      **/
     IceStormElection.ReplicaObserver = class extends Ice.Object
     {
@@ -140,7 +140,7 @@
     ];
 
     /**
-     * Interface used to sync topics.
+     *  Interface used to sync topics.
      **/
     IceStormElection.TopicManagerSync = class extends Ice.Object
     {
@@ -156,13 +156,13 @@
     });
 
     /**
-     * The node state.
+     *  The node state.
      **/
     IceStormElection.NodeState = Slice.defineEnum([
         ['NodeStateInactive', 0], ['NodeStateElection', 1], ['NodeStateReorganization', 2], ['NodeStateNormal', 3]]);
 
     /**
-     * All nodes in the replication group.
+     *  All nodes in the replication group.
      **/
     IceStormElection.NodeInfo = class
     {
@@ -195,7 +195,7 @@
     Slice.defineSequence(IceStormElection, "NodeInfoSeqHelper", "IceStormElection.NodeInfo", false);
 
     /**
-     * The group info.
+     *  The group info.
      **/
     IceStormElection.GroupInfo = class
     {
@@ -276,7 +276,7 @@
     ];
 
     /**
-     * A replica node.
+     *  A replica node.
      **/
     IceStormElection.Node = class extends Ice.Object
     {

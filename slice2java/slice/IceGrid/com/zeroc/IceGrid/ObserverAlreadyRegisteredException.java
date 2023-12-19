@@ -16,8 +16,7 @@
 package com.zeroc.IceGrid;
 
 /**
- * This exception is raised if an observer is already registered with
- * the registry.
+ * This exception is raised if an observer is already registered with the registry.
  *
  * @see AdminSession#setObservers
  * @see AdminSession#setObserversByIdentity

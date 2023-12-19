@@ -34,8 +34,7 @@ let IceBT = _ModuleRegistry.module("IceBT");
 /* slice2js browser-bundle-skip-end */
 
 /**
- * Indicates a failure in the Bluetooth plug-in.
- *
+ *  Indicates a failure in the Bluetooth plug-in.
  **/
 IceBT.BluetoothException = class extends Ice.LocalException
 {

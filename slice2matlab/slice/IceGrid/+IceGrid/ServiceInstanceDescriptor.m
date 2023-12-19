@@ -17,8 +17,7 @@ classdef ServiceInstanceDescriptor
         template char
         % parameterValues - The template parameter values.
         parameterValues containers.Map
-        % descriptor - The service definition if the instance isn't a template
-        % instance (i.e.: if the template attribute is empty).
+        % descriptor - The service definition if the instance isn't a template instance (i.e.: if the template attribute is empty).
         descriptor
         % propertySet - The property set.
         propertySet IceGrid.PropertySetDescriptor

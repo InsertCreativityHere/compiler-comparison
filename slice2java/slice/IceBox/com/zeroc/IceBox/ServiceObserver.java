@@ -16,8 +16,7 @@
 package com.zeroc.IceBox;
 
 /**
- * An Observer interface implemented by admin clients interested in the status
- * of services.
+ * An Observer interface implemented by admin clients interested in the status of services.
  *
  * @see ServiceManager
  **/

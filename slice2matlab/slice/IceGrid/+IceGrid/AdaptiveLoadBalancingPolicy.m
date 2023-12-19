@@ -10,10 +10,8 @@
 
 classdef AdaptiveLoadBalancingPolicy < IceGrid.LoadBalancingPolicy
     properties
-        % loadSample - The load sample to use for the load balancing. The allowed
-        % values for this attribute are "1", "5" and "15", representing
-        % respectively the load average over the past minute, the past 5
-        % minutes and the past 15 minutes.
+        % loadSample - The load sample to use for the load balancing. The allowed values for this attribute are "1", "5" and "15",
+        % representing respectively the load average over the past minute, the past 5 minutes and the past 15 minutes.
         loadSample char
     end
     methods

@@ -42,9 +42,8 @@ public class AdapterDescriptor implements java.lang.Cloneable,
     public String replicaGroupId;
 
     /**
-     * The adapter priority. This is eventually used when the adapter
-     * is member of a replica group to sort the adapter endpoints by
-     * priority.
+     * The adapter priority. This is eventually used when the adapter is member of a replica group to sort the adapter
+     * endpoints by priority.
      **/
     public String priority;
 
@@ -54,10 +53,9 @@ public class AdapterDescriptor implements java.lang.Cloneable,
     public boolean registerProcess;
 
     /**
-     * If true the lifetime of this object adapter is the same of the
-     * server lifetime. This information is used by the IceGrid node
-     * to figure out the server state: the server is active only if
-     * all its "server lifetime" adapters are active.
+     * If true the lifetime of this object adapter is the same of the server lifetime. This information is used by the
+     * IceGrid node to figure out the server state: the server is active only if all its "server lifetime" adapters
+     * are active.
      **/
     public boolean serverLifetime;
 

@@ -25,17 +25,17 @@ _M_Ice = Ice.openModule('Ice')
 _M_IceBT = Ice.openModule('IceBT')
 __name__ = 'IceBT'
 _M_IceBT.__doc__ = """
-IceBT provides a Bluetooth transport for Ice.
+ IceBT provides a Bluetooth transport for Ice.
 """
 
 if 'EndpointInfo' not in _M_IceBT.__dict__:
     _M_IceBT.EndpointInfo = Ice.createTempClass()
     class EndpointInfo(_M_Ice.EndpointInfo):
         """
-        Provides access to Bluetooth endpoint information.
+         Provides access to Bluetooth endpoint information.
         Members:
-        addr -- The address configured with the endpoint.
-        uuid -- The UUID configured with the endpoint.
+        addr --  The address configured with the endpoint.
+        uuid --  The UUID configured with the endpoint.
         """
         def __init__(self, underlying=None, timeout=0, compress=False, addr='', uuid=''):
             if Ice.getType(self) == _M_IceBT.EndpointInfo:

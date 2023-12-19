@@ -1,7 +1,6 @@
 % TopicExists   Summary of TopicExists
 %
-% This exception indicates that an attempt was made to create a topic
-% that already exists.
+% This exception indicates that an attempt was made to create a topic that already exists.
 %
 % TopicExists Properties:
 %   name - The name of the topic that already exists.

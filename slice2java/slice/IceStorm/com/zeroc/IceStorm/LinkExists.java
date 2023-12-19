@@ -16,8 +16,7 @@
 package com.zeroc.IceStorm;
 
 /**
- * This exception indicates that an attempt was made to create a link
- * that already exists.
+ * This exception indicates that an attempt was made to create a link that already exists.
  **/
 public class LinkExists extends com.zeroc.Ice.UserException
 {

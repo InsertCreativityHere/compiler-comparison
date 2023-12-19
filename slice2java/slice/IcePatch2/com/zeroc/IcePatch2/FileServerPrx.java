@@ -21,13 +21,10 @@ package com.zeroc.IcePatch2;
 public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
-     * Return file information for the specified partition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
+     * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
+     * only present for compatibility with old Ice clients (older than version 3.6).
      * @param partition The partition number in the range 0-255.
-     * @return A sequence containing information about the files in the
-     * specified partition.
+     * @return A sequence containing information about the files in the specified partition.
      * @throws FileSizeRangeException If a file is larger than 2.1GB.
      * @throws PartitionOutOfRangeException If the partition number is out of range.
      * @deprecated getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
@@ -41,14 +38,11 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Return file information for the specified partition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
+     * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
+     * only present for compatibility with old Ice clients (older than version 3.6).
      * @param partition The partition number in the range 0-255.
      * @param context The Context map to send with the invocation.
-     * @return A sequence containing information about the files in the
-     * specified partition.
+     * @return A sequence containing information about the files in the specified partition.
      * @throws FileSizeRangeException If a file is larger than 2.1GB.
      * @throws PartitionOutOfRangeException If the partition number is out of range.
      * @deprecated getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
@@ -77,13 +71,10 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Return file information for the specified partition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
+     * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
+     * only present for compatibility with old Ice clients (older than version 3.6).
      * @param partition The partition number in the range 0-255.
-     * @return A sequence containing information about the files in the
-     * specified partition.
+     * @return A sequence containing information about the files in the specified partition.
      * @deprecated getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
      **/
     @Deprecated
@@ -93,14 +84,11 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Return file information for the specified partition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
+     * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
+     * only present for compatibility with old Ice clients (older than version 3.6).
      * @param partition The partition number in the range 0-255.
      * @param context The Context map to send with the invocation.
-     * @return A sequence containing information about the files in the
-     * specified partition.
+     * @return A sequence containing information about the files in the specified partition.
      * @deprecated getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
      **/
     @Deprecated
@@ -139,8 +127,7 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Returns file information for the specified partition.
      * @param partition The partition number in the range 0-255.
-     * @return A sequence containing information about the files in the
-     * specified partition.
+     * @return A sequence containing information about the files in the specified partition.
      * @throws PartitionOutOfRangeException If the partition number is out of range.
      **/
     default LargeFileInfo[] getLargeFileInfoSeq(int partition)
@@ -153,8 +140,7 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
      * Returns file information for the specified partition.
      * @param partition The partition number in the range 0-255.
      * @param context The Context map to send with the invocation.
-     * @return A sequence containing information about the files in the
-     * specified partition.
+     * @return A sequence containing information about the files in the specified partition.
      * @throws PartitionOutOfRangeException If the partition number is out of range.
      **/
     default LargeFileInfo[] getLargeFileInfoSeq(int partition, java.util.Map<String, String> context)
@@ -177,8 +163,7 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Returns file information for the specified partition.
      * @param partition The partition number in the range 0-255.
-     * @return A sequence containing information about the files in the
-     * specified partition.
+     * @return A sequence containing information about the files in the specified partition.
      **/
     default java.util.concurrent.CompletableFuture<LargeFileInfo[]> getLargeFileInfoSeqAsync(int partition)
     {
@@ -189,8 +174,7 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
      * Returns file information for the specified partition.
      * @param partition The partition number in the range 0-255.
      * @param context The Context map to send with the invocation.
-     * @return A sequence containing information about the files in the
-     * specified partition.
+     * @return A sequence containing information about the files in the specified partition.
      **/
     default java.util.concurrent.CompletableFuture<LargeFileInfo[]> getLargeFileInfoSeqAsync(int partition, java.util.Map<String, String> context)
     {
@@ -225,11 +209,9 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Return the checksums for all partitions.
-     * @return A sequence containing 256 checksums. Partitions with a
-     * checksum that differs from the previous checksum for the same
-     * partition contain updated files. Partitions with a checksum
-     * that is identical to the previous checksum do not contain
-     * updated files.
+     * @return A sequence containing 256 checksums. Partitions with a checksum that differs from the previous checksum
+     * for the same partition contain updated files. Partitions with a checksum that is identical to the previous
+     * checksum do not contain updated files.
      **/
     default byte[][] getChecksumSeq()
     {
@@ -239,11 +221,9 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Return the checksums for all partitions.
      * @param context The Context map to send with the invocation.
-     * @return A sequence containing 256 checksums. Partitions with a
-     * checksum that differs from the previous checksum for the same
-     * partition contain updated files. Partitions with a checksum
-     * that is identical to the previous checksum do not contain
-     * updated files.
+     * @return A sequence containing 256 checksums. Partitions with a checksum that differs from the previous checksum
+     * for the same partition contain updated files. Partitions with a checksum that is identical to the previous
+     * checksum do not contain updated files.
      **/
     default byte[][] getChecksumSeq(java.util.Map<String, String> context)
     {
@@ -252,11 +232,9 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Return the checksums for all partitions.
-     * @return A sequence containing 256 checksums. Partitions with a
-     * checksum that differs from the previous checksum for the same
-     * partition contain updated files. Partitions with a checksum
-     * that is identical to the previous checksum do not contain
-     * updated files.
+     * @return A sequence containing 256 checksums. Partitions with a checksum that differs from the previous checksum
+     * for the same partition contain updated files. Partitions with a checksum that is identical to the previous
+     * checksum do not contain updated files.
      **/
     default java.util.concurrent.CompletableFuture<byte[][]> getChecksumSeqAsync()
     {
@@ -266,11 +244,9 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Return the checksums for all partitions.
      * @param context The Context map to send with the invocation.
-     * @return A sequence containing 256 checksums. Partitions with a
-     * checksum that differs from the previous checksum for the same
-     * partition contain updated files. Partitions with a checksum
-     * that is identical to the previous checksum do not contain
-     * updated files.
+     * @return A sequence containing 256 checksums. Partitions with a checksum that differs from the previous checksum
+     * for the same partition contain updated files. Partitions with a checksum that is identical to the previous
+     * checksum do not contain updated files.
      **/
     default java.util.concurrent.CompletableFuture<byte[][]> getChecksumSeqAsync(java.util.Map<String, String> context)
     {
@@ -295,8 +271,8 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Return the master checksum for all partitions. If this checksum is the same
-     * as for a previous run, the entire file set is up-to-date.
+     * Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+     * file set is up-to-date.
      * @return The master checksum for the file set.
      **/
     default byte[] getChecksum()
@@ -305,8 +281,8 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Return the master checksum for all partitions. If this checksum is the same
-     * as for a previous run, the entire file set is up-to-date.
+     * Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+     * file set is up-to-date.
      * @param context The Context map to send with the invocation.
      * @return The master checksum for the file set.
      **/
@@ -316,8 +292,8 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Return the master checksum for all partitions. If this checksum is the same
-     * as for a previous run, the entire file set is up-to-date.
+     * Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+     * file set is up-to-date.
      * @return The master checksum for the file set.
      **/
     default java.util.concurrent.CompletableFuture<byte[]> getChecksumAsync()
@@ -326,8 +302,8 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Return the master checksum for all partitions. If this checksum is the same
-     * as for a previous run, the entire file set is up-to-date.
+     * Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+     * file set is up-to-date.
      * @param context The Context map to send with the invocation.
      * @return The master checksum for the file set.
      **/
@@ -354,13 +330,10 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+     * condition. <p class="Deprecated"> This operation is deprecated and only present for compatibility with old Ice
+     * clients (older than version 3.6).
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @return A sequence containing the compressed file contents.
@@ -377,13 +350,10 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+     * condition. <p class="Deprecated"> This operation is deprecated and only present for compatibility with old Ice
+     * clients (older than version 3.6).
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param context The Context map to send with the invocation.
@@ -416,13 +386,10 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+     * condition. <p class="Deprecated"> This operation is deprecated and only present for compatibility with old Ice
+     * clients (older than version 3.6).
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @return A sequence containing the compressed file contents.
@@ -435,13 +402,10 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+     * condition. <p class="Deprecated"> This operation is deprecated and only present for compatibility with old Ice
+     * clients (older than version 3.6).
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param context The Context map to send with the invocation.
@@ -486,10 +450,9 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an
+     * end-of-file condition.
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @return A sequence containing the compressed file contents.
@@ -502,10 +465,9 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an
+     * end-of-file condition.
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param context The Context map to send with the invocation.
@@ -530,10 +492,9 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an
+     * end-of-file condition.
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @return A sequence containing the compressed file contents.
@@ -544,10 +505,9 @@ public interface FileServerPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an
+     * end-of-file condition.
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param context The Context map to send with the invocation.

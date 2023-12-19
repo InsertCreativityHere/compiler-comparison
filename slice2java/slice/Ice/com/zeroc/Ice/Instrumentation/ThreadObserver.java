@@ -16,9 +16,8 @@
 package com.zeroc.Ice.Instrumentation;
 
 /**
- * The thread observer interface to instrument Ice threads. This can
- * be threads from the Ice thread pool or utility threads used by the
- * Ice core.
+ * The thread observer interface to instrument Ice threads. This can be threads from the Ice thread pool or utility
+ * threads used by the Ice core.
  **/
 public interface ThreadObserver extends Observer
 {

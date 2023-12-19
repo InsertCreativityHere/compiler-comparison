@@ -16,8 +16,7 @@
 package com.zeroc.Ice;
 
 /**
- * This exception is raised if there was an error while parsing an
- * endpoint selection type.
+ * This exception is raised if there was an error while parsing an endpoint selection type.
  **/
 public class EndpointSelectionTypeParseException extends LocalException
 {

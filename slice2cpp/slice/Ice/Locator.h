@@ -112,8 +112,7 @@ static AdapterNotFoundException _iceS_AdapterNotFoundException_init;
 /// \endcond
 
 /**
- * This exception is raised if the replica group provided by the
- * server is invalid.
+ * This exception is raised if the replica group provided by the server is invalid.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) InvalidReplicaGroupIdException : public UserExceptionHelper<InvalidReplicaGroupIdException, UserException>
@@ -143,8 +142,7 @@ public:
 };
 
 /**
- * This exception is raised if a server tries to set endpoints for
- * an adapter that is already active.
+ * This exception is raised if a server tries to set endpoints for an adapter that is already active.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) AdapterAlreadyActiveException : public UserExceptionHelper<AdapterAlreadyActiveException, UserException>
@@ -239,14 +237,10 @@ namespace Ice
 {
 
 /**
- * The Ice locator interface. This interface is used by clients to
- * lookup adapters and objects. It is also used by servers to get the
- * locator registry proxy.
- *
- * <p class="Note">The {@link Locator} interface is intended to be used by
- * Ice internals and by locator implementations. Regular user code
- * should not attempt to use any functionality of this interface
- * directly.
+ * The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
+ * servers to get the locator registry proxy. <p class="Note">The {@link Locator} interface is intended to be used by
+ * Ice internals and by locator implementations. Regular user code should not attempt to use any functionality of this
+ * interface directly.
  * \headerfile Ice/Ice.h
  */
 class ICE_API Locator : public virtual Object
@@ -284,15 +278,13 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Find an object by identity and return a proxy that contains
-     * the adapter ID or endpoints which can be used to access the
-     * object.
+     * Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+     * access the object.
      * @param id The identity.
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
-     * @throws Ice::ObjectNotFoundException Raised if the object cannot
-     * be found.
+     * @throws Ice::ObjectNotFoundException Raised if the object cannot be found.
      */
     virtual void findObjectByIdAsync(Identity id, ::std::function<void(const ::std::shared_ptr<ObjectPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const Current& current) const = 0;
     /// \cond INTERNAL
@@ -300,14 +292,12 @@ public:
     /// \endcond
 
     /**
-     * Find an adapter by id and return a proxy that contains
-     * its endpoints.
+     * Find an adapter by id and return a proxy that contains its endpoints.
      * @param id The adapter id.
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
-     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be
-     * found.
+     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found.
      */
     virtual void findAdapterByIdAsync(::std::string id, ::std::function<void(const ::std::shared_ptr<ObjectPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const Current& current) const = 0;
     /// \cond INTERNAL
@@ -330,13 +320,9 @@ public:
 };
 
 /**
- * The Ice locator registry interface. This interface is used by
- * servers to register adapter endpoints with the locator.
- *
- * <p class="Note"> The {@link LocatorRegistry} interface is intended to be used
- * by Ice internals and by locator implementations. Regular user
- * code should not attempt to use any functionality of this interface
- * directly.
+ * The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
+ * locator. <p class="Note"> The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
+ * locator implementations. Regular user code should not attempt to use any functionality of this interface directly.
  * \headerfile Ice/Ice.h
  */
 class ICE_API LocatorRegistry : public virtual Object
@@ -376,18 +362,14 @@ public:
     /**
      * Set the adapter endpoints with the locator registry.
      * @param id The adapter id.
-     * @param proxy The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
-     * endpoints.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints.
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
-     * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same
-     * id is already active.
-     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot
-     * be found, or if the locator only allows
-     * registered adapters to set their active proxy and the
-     * adapter is not registered with the locator.
+     * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
+     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
+     * registered adapters to set their active proxy and the adapter is not registered with the locator.
      */
     virtual void setAdapterDirectProxyAsync(::std::string id, ::std::shared_ptr<ObjectPrx> proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Current& current) = 0;
     /// \cond INTERNAL
@@ -398,21 +380,16 @@ public:
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param p The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
+     * @param p The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
      * endpoints.
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
-     * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same
-     * id is already active.
-     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot
-     * be found, or if the locator only allows registered adapters to
-     * set their active proxy and the adapter is not registered with
-     * the locator.
-     * @throws Ice::InvalidReplicaGroupIdException Raised if the given
-     * replica group doesn't match the one registered with the
-     * locator registry for this object adapter.
+     * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
+     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
+     * registered adapters to set their active proxy and the adapter is not registered with the locator.
+     * @throws Ice::InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered with
+     * the locator registry for this object adapter.
      */
     virtual void setReplicatedAdapterDirectProxyAsync(::std::string adapterId, ::std::string replicaGroupId, ::std::shared_ptr<ObjectPrx> p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Current& current) = 0;
     /// \cond INTERNAL
@@ -426,8 +403,7 @@ public:
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
-     * @throws Ice::ServerNotFoundException Raised if the server cannot
-     * be found.
+     * @throws Ice::ServerNotFoundException Raised if the server cannot be found.
      */
     virtual void setServerProcessProxyAsync(::std::string id, ::std::shared_ptr<ProcessPrx> proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Current& current) = 0;
     /// \cond INTERNAL
@@ -440,11 +416,9 @@ public:
 };
 
 /**
- * This interface should be implemented by services implementing the
- * Ice::Locator interface. It should be advertised through an Ice
- * object with the identity `Ice/LocatorFinder'. This allows clients
- * to retrieve the locator proxy with just the endpoint information of
- * the service.
+ * This interface should be implemented by services implementing the <code>Ice::Locator interface</code>. It should be
+ * advertised through an Ice object with the identity <code>`Ice/LocatorFinder'</code>. This allows clients to
+ * retrieve the locator proxy with just the endpoint information of the service.
  * \headerfile Ice/Ice.h
  */
 class ICE_API LocatorFinder : public virtual Object
@@ -482,8 +456,8 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Get the locator proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param current The Current object for the invocation.
      * @return The locator proxy.
      */
@@ -503,14 +477,10 @@ namespace Ice
 {
 
 /**
- * The Ice locator interface. This interface is used by clients to
- * lookup adapters and objects. It is also used by servers to get the
- * locator registry proxy.
- *
- * <p class="Note">The {@link Locator} interface is intended to be used by
- * Ice internals and by locator implementations. Regular user code
- * should not attempt to use any functionality of this interface
- * directly.
+ * The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
+ * servers to get the locator registry proxy. <p class="Note">The {@link Locator} interface is intended to be used by
+ * Ice internals and by locator implementations. Regular user code should not attempt to use any functionality of this
+ * interface directly.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) LocatorPrx : public virtual Proxy<LocatorPrx, ObjectPrx>
@@ -518,14 +488,12 @@ class ICE_CLASS(ICE_API) LocatorPrx : public virtual Proxy<LocatorPrx, ObjectPrx
 public:
 
     /**
-     * Find an object by identity and return a proxy that contains
-     * the adapter ID or endpoints which can be used to access the
-     * object.
+     * Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+     * access the object.
      * @param id The identity.
      * @param context The Context map to send with the invocation.
      * @return The proxy, or null if the object is not active.
-     * @throws Ice::ObjectNotFoundException Raised if the object cannot
-     * be found.
+     * @throws Ice::ObjectNotFoundException Raised if the object cannot be found.
      */
     ::std::shared_ptr<ObjectPrx> findObjectById(const Identity& id, const Context& context = noExplicitContext)
     {
@@ -533,9 +501,8 @@ public:
     }
 
     /**
-     * Find an object by identity and return a proxy that contains
-     * the adapter ID or endpoints which can be used to access the
-     * object.
+     * Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+     * access the object.
      * @param id The identity.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -548,9 +515,8 @@ public:
     }
 
     /**
-     * Find an object by identity and return a proxy that contains
-     * the adapter ID or endpoints which can be used to access the
-     * object.
+     * Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+     * access the object.
      * @param id The identity.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -573,13 +539,11 @@ public:
     /// \endcond
 
     /**
-     * Find an adapter by id and return a proxy that contains
-     * its endpoints.
+     * Find an adapter by id and return a proxy that contains its endpoints.
      * @param id The adapter id.
      * @param context The Context map to send with the invocation.
      * @return The adapter proxy, or null if the adapter is not active.
-     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be
-     * found.
+     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found.
      */
     ::std::shared_ptr<ObjectPrx> findAdapterById(const ::std::string& id, const Context& context = noExplicitContext)
     {
@@ -587,8 +551,7 @@ public:
     }
 
     /**
-     * Find an adapter by id and return a proxy that contains
-     * its endpoints.
+     * Find an adapter by id and return a proxy that contains its endpoints.
      * @param id The adapter id.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -601,8 +564,7 @@ public:
     }
 
     /**
-     * Find an adapter by id and return a proxy that contains
-     * its endpoints.
+     * Find an adapter by id and return a proxy that contains its endpoints.
      * @param id The adapter id.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -684,13 +646,9 @@ protected:
 };
 
 /**
- * The Ice locator registry interface. This interface is used by
- * servers to register adapter endpoints with the locator.
- *
- * <p class="Note"> The {@link LocatorRegistry} interface is intended to be used
- * by Ice internals and by locator implementations. Regular user
- * code should not attempt to use any functionality of this interface
- * directly.
+ * The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
+ * locator. <p class="Note"> The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
+ * locator implementations. Regular user code should not attempt to use any functionality of this interface directly.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) LocatorRegistryPrx : public virtual Proxy<LocatorRegistryPrx, ObjectPrx>
@@ -700,16 +658,12 @@ public:
     /**
      * Set the adapter endpoints with the locator registry.
      * @param id The adapter id.
-     * @param proxy The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
-     * endpoints.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints.
      * @param context The Context map to send with the invocation.
-     * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same
-     * id is already active.
-     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot
-     * be found, or if the locator only allows
-     * registered adapters to set their active proxy and the
-     * adapter is not registered with the locator.
+     * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
+     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
+     * registered adapters to set their active proxy and the adapter is not registered with the locator.
      */
     void setAdapterDirectProxy(const ::std::string& id, const ::std::shared_ptr<ObjectPrx>& proxy, const Context& context = noExplicitContext)
     {
@@ -719,9 +673,8 @@ public:
     /**
      * Set the adapter endpoints with the locator registry.
      * @param id The adapter id.
-     * @param proxy The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
-     * endpoints.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -735,9 +688,8 @@ public:
     /**
      * Set the adapter endpoints with the locator registry.
      * @param id The adapter id.
-     * @param proxy The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
-     * endpoints.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -762,19 +714,14 @@ public:
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param p The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
+     * @param p The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
      * endpoints.
      * @param context The Context map to send with the invocation.
-     * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same
-     * id is already active.
-     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot
-     * be found, or if the locator only allows registered adapters to
-     * set their active proxy and the adapter is not registered with
-     * the locator.
-     * @throws Ice::InvalidReplicaGroupIdException Raised if the given
-     * replica group doesn't match the one registered with the
-     * locator registry for this object adapter.
+     * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
+     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
+     * registered adapters to set their active proxy and the adapter is not registered with the locator.
+     * @throws Ice::InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered with
+     * the locator registry for this object adapter.
      */
     void setReplicatedAdapterDirectProxy(const ::std::string& adapterId, const ::std::string& replicaGroupId, const ::std::shared_ptr<ObjectPrx>& p, const Context& context = noExplicitContext)
     {
@@ -785,8 +732,7 @@ public:
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param p The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
+     * @param p The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
      * endpoints.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -802,8 +748,7 @@ public:
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param p The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
+     * @param p The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
      * endpoints.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -830,8 +775,7 @@ public:
      * @param id The server id.
      * @param proxy The process proxy.
      * @param context The Context map to send with the invocation.
-     * @throws Ice::ServerNotFoundException Raised if the server cannot
-     * be found.
+     * @throws Ice::ServerNotFoundException Raised if the server cannot be found.
      */
     void setServerProcessProxy(const ::std::string& id, const ::std::shared_ptr<ProcessPrx>& proxy, const Context& context = noExplicitContext)
     {
@@ -893,11 +837,9 @@ protected:
 };
 
 /**
- * This interface should be implemented by services implementing the
- * Ice::Locator interface. It should be advertised through an Ice
- * object with the identity `Ice/LocatorFinder'. This allows clients
- * to retrieve the locator proxy with just the endpoint information of
- * the service.
+ * This interface should be implemented by services implementing the <code>Ice::Locator interface</code>. It should be
+ * advertised through an Ice object with the identity <code>`Ice/LocatorFinder'</code>. This allows clients to
+ * retrieve the locator proxy with just the endpoint information of the service.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) LocatorFinderPrx : public virtual Proxy<LocatorFinderPrx, ObjectPrx>
@@ -905,8 +847,8 @@ class ICE_CLASS(ICE_API) LocatorFinderPrx : public virtual Proxy<LocatorFinderPr
 public:
 
     /**
-     * Get the locator proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param context The Context map to send with the invocation.
      * @return The locator proxy.
      */
@@ -916,8 +858,8 @@ public:
     }
 
     /**
-     * Get the locator proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -929,8 +871,8 @@ public:
     }
 
     /**
-     * Get the locator proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -1107,8 +1049,7 @@ static AdapterNotFoundException _iceS_AdapterNotFoundException_init;
 /// \endcond
 
 /**
- * This exception is raised if the replica group provided by the
- * server is invalid.
+ * This exception is raised if the replica group provided by the server is invalid.
  * \headerfile Ice/Ice.h
  */
 class ICE_API InvalidReplicaGroupIdException : public UserException
@@ -1148,8 +1089,7 @@ protected:
 };
 
 /**
- * This exception is raised if a server tries to set endpoints for
- * an adapter that is already active.
+ * This exception is raised if a server tries to set endpoints for an adapter that is already active.
  * \headerfile Ice/Ice.h
  */
 class ICE_API AdapterAlreadyActiveException : public UserException
@@ -1546,14 +1486,12 @@ class ICE_CLASS(ICE_API) Locator : public virtual ::Ice::Proxy<Locator, ::IcePro
 public:
 
     /**
-     * Find an object by identity and return a proxy that contains
-     * the adapter ID or endpoints which can be used to access the
-     * object.
+     * Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+     * access the object.
      * @param id The identity.
      * @param context The Context map to send with the invocation.
      * @return The proxy, or null if the object is not active.
-     * @throws Ice::ObjectNotFoundException Raised if the object cannot
-     * be found.
+     * @throws Ice::ObjectNotFoundException Raised if the object cannot be found.
      */
     ICE_MEMBER(ICE_API) ::Ice::ObjectPrx findObjectById(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -1561,9 +1499,8 @@ public:
     }
 
     /**
-     * Find an object by identity and return a proxy that contains
-     * the adapter ID or endpoints which can be used to access the
-     * object.
+     * Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+     * access the object.
      * @param id The identity.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -1574,9 +1511,8 @@ public:
     }
 
     /**
-     * Find an object by identity and return a proxy that contains
-     * the adapter ID or endpoints which can be used to access the
-     * object.
+     * Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+     * access the object.
      * @param id The identity.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -1588,9 +1524,8 @@ public:
     }
 
     /**
-     * Find an object by identity and return a proxy that contains
-     * the adapter ID or endpoints which can be used to access the
-     * object.
+     * Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+     * access the object.
      * @param id The identity.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -1603,9 +1538,8 @@ public:
     }
 
     /**
-     * Find an object by identity and return a proxy that contains
-     * the adapter ID or endpoints which can be used to access the
-     * object.
+     * Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+     * access the object.
      * @param id The identity.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -1617,9 +1551,8 @@ public:
     }
 
     /**
-     * Find an object by identity and return a proxy that contains
-     * the adapter ID or endpoints which can be used to access the
-     * object.
+     * Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+     * access the object.
      * @param id The identity.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -1635,8 +1568,7 @@ public:
      * Completes an invocation of begin_findObjectById.
      * @param result The asynchronous result object for the invocation.
      * @return The proxy, or null if the object is not active.
-     * @throws Ice::ObjectNotFoundException Raised if the object cannot
-     * be found.
+     * @throws Ice::ObjectNotFoundException Raised if the object cannot be found.
      */
     ICE_MEMBER(ICE_API) ::Ice::ObjectPrx end_findObjectById(const ::Ice::AsyncResultPtr& result);
 
@@ -1647,13 +1579,11 @@ private:
 public:
 
     /**
-     * Find an adapter by id and return a proxy that contains
-     * its endpoints.
+     * Find an adapter by id and return a proxy that contains its endpoints.
      * @param id The adapter id.
      * @param context The Context map to send with the invocation.
      * @return The adapter proxy, or null if the adapter is not active.
-     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be
-     * found.
+     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found.
      */
     ICE_MEMBER(ICE_API) ::Ice::ObjectPrx findAdapterById(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -1661,8 +1591,7 @@ public:
     }
 
     /**
-     * Find an adapter by id and return a proxy that contains
-     * its endpoints.
+     * Find an adapter by id and return a proxy that contains its endpoints.
      * @param id The adapter id.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -1673,8 +1602,7 @@ public:
     }
 
     /**
-     * Find an adapter by id and return a proxy that contains
-     * its endpoints.
+     * Find an adapter by id and return a proxy that contains its endpoints.
      * @param id The adapter id.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -1686,8 +1614,7 @@ public:
     }
 
     /**
-     * Find an adapter by id and return a proxy that contains
-     * its endpoints.
+     * Find an adapter by id and return a proxy that contains its endpoints.
      * @param id The adapter id.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -1700,8 +1627,7 @@ public:
     }
 
     /**
-     * Find an adapter by id and return a proxy that contains
-     * its endpoints.
+     * Find an adapter by id and return a proxy that contains its endpoints.
      * @param id The adapter id.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -1713,8 +1639,7 @@ public:
     }
 
     /**
-     * Find an adapter by id and return a proxy that contains
-     * its endpoints.
+     * Find an adapter by id and return a proxy that contains its endpoints.
      * @param id The adapter id.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -1730,8 +1655,7 @@ public:
      * Completes an invocation of begin_findAdapterById.
      * @param result The asynchronous result object for the invocation.
      * @return The adapter proxy, or null if the adapter is not active.
-     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be
-     * found.
+     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found.
      */
     ICE_MEMBER(ICE_API) ::Ice::ObjectPrx end_findAdapterById(const ::Ice::AsyncResultPtr& result);
 
@@ -1840,16 +1764,12 @@ public:
     /**
      * Set the adapter endpoints with the locator registry.
      * @param id The adapter id.
-     * @param proxy The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
-     * endpoints.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints.
      * @param context The Context map to send with the invocation.
-     * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same
-     * id is already active.
-     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot
-     * be found, or if the locator only allows
-     * registered adapters to set their active proxy and the
-     * adapter is not registered with the locator.
+     * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
+     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
+     * registered adapters to set their active proxy and the adapter is not registered with the locator.
      */
     ICE_MEMBER(ICE_API) void setAdapterDirectProxy(const ::std::string& id, const ::Ice::ObjectPrx& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -1859,9 +1779,8 @@ public:
     /**
      * Set the adapter endpoints with the locator registry.
      * @param id The adapter id.
-     * @param proxy The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
-     * endpoints.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -1873,9 +1792,8 @@ public:
     /**
      * Set the adapter endpoints with the locator registry.
      * @param id The adapter id.
-     * @param proxy The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
-     * endpoints.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -1888,9 +1806,8 @@ public:
     /**
      * Set the adapter endpoints with the locator registry.
      * @param id The adapter id.
-     * @param proxy The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
-     * endpoints.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -1904,9 +1821,8 @@ public:
     /**
      * Set the adapter endpoints with the locator registry.
      * @param id The adapter id.
-     * @param proxy The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
-     * endpoints.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -1919,9 +1835,8 @@ public:
     /**
      * Set the adapter endpoints with the locator registry.
      * @param id The adapter id.
-     * @param proxy The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
-     * endpoints.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -1935,12 +1850,9 @@ public:
     /**
      * Completes an invocation of begin_setAdapterDirectProxy.
      * @param result The asynchronous result object for the invocation.
-     * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same
-     * id is already active.
-     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot
-     * be found, or if the locator only allows
-     * registered adapters to set their active proxy and the
-     * adapter is not registered with the locator.
+     * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
+     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
+     * registered adapters to set their active proxy and the adapter is not registered with the locator.
      */
     ICE_MEMBER(ICE_API) void end_setAdapterDirectProxy(const ::Ice::AsyncResultPtr& result);
 
@@ -1954,19 +1866,14 @@ public:
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param p The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
+     * @param p The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
      * endpoints.
      * @param context The Context map to send with the invocation.
-     * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same
-     * id is already active.
-     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot
-     * be found, or if the locator only allows registered adapters to
-     * set their active proxy and the adapter is not registered with
-     * the locator.
-     * @throws Ice::InvalidReplicaGroupIdException Raised if the given
-     * replica group doesn't match the one registered with the
-     * locator registry for this object adapter.
+     * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
+     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
+     * registered adapters to set their active proxy and the adapter is not registered with the locator.
+     * @throws Ice::InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered with
+     * the locator registry for this object adapter.
      */
     ICE_MEMBER(ICE_API) void setReplicatedAdapterDirectProxy(const ::std::string& adapterId, const ::std::string& replicaGroupId, const ::Ice::ObjectPrx& p, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -1977,8 +1884,7 @@ public:
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param p The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
+     * @param p The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
      * endpoints.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -1992,8 +1898,7 @@ public:
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param p The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
+     * @param p The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
      * endpoints.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2008,8 +1913,7 @@ public:
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param p The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
+     * @param p The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
      * endpoints.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -2025,8 +1929,7 @@ public:
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param p The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
+     * @param p The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
      * endpoints.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2041,8 +1944,7 @@ public:
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param p The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
+     * @param p The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
      * endpoints.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -2057,15 +1959,11 @@ public:
     /**
      * Completes an invocation of begin_setReplicatedAdapterDirectProxy.
      * @param result The asynchronous result object for the invocation.
-     * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same
-     * id is already active.
-     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot
-     * be found, or if the locator only allows registered adapters to
-     * set their active proxy and the adapter is not registered with
-     * the locator.
-     * @throws Ice::InvalidReplicaGroupIdException Raised if the given
-     * replica group doesn't match the one registered with the
-     * locator registry for this object adapter.
+     * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
+     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
+     * registered adapters to set their active proxy and the adapter is not registered with the locator.
+     * @throws Ice::InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered with
+     * the locator registry for this object adapter.
      */
     ICE_MEMBER(ICE_API) void end_setReplicatedAdapterDirectProxy(const ::Ice::AsyncResultPtr& result);
 
@@ -2080,8 +1978,7 @@ public:
      * @param id The server id.
      * @param proxy The process proxy.
      * @param context The Context map to send with the invocation.
-     * @throws Ice::ServerNotFoundException Raised if the server cannot
-     * be found.
+     * @throws Ice::ServerNotFoundException Raised if the server cannot be found.
      */
     ICE_MEMBER(ICE_API) void setServerProcessProxy(const ::std::string& id, const ::Ice::ProcessPrx& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -2157,8 +2054,7 @@ public:
     /**
      * Completes an invocation of begin_setServerProcessProxy.
      * @param result The asynchronous result object for the invocation.
-     * @throws Ice::ServerNotFoundException Raised if the server cannot
-     * be found.
+     * @throws Ice::ServerNotFoundException Raised if the server cannot be found.
      */
     ICE_MEMBER(ICE_API) void end_setServerProcessProxy(const ::Ice::AsyncResultPtr& result);
 
@@ -2186,8 +2082,8 @@ class ICE_CLASS(ICE_API) LocatorFinder : public virtual ::Ice::Proxy<LocatorFind
 public:
 
     /**
-     * Get the locator proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param context The Context map to send with the invocation.
      * @return The locator proxy.
      */
@@ -2197,8 +2093,8 @@ public:
     }
 
     /**
-     * Get the locator proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -2208,8 +2104,8 @@ public:
     }
 
     /**
-     * Get the locator proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2220,8 +2116,8 @@ public:
     }
 
     /**
-     * Get the locator proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2233,8 +2129,8 @@ public:
     }
 
     /**
-     * Get the locator proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2245,8 +2141,8 @@ public:
     }
 
     /**
-     * Get the locator proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2291,14 +2187,10 @@ namespace Ice
 {
 
 /**
- * The Ice locator interface. This interface is used by clients to
- * lookup adapters and objects. It is also used by servers to get the
- * locator registry proxy.
- *
- * <p class="Note">The {@link Locator} interface is intended to be used by
- * Ice internals and by locator implementations. Regular user code
- * should not attempt to use any functionality of this interface
- * directly.
+ * The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
+ * servers to get the locator registry proxy. <p class="Note">The {@link Locator} interface is intended to be used by
+ * Ice internals and by locator implementations. Regular user code should not attempt to use any functionality of this
+ * interface directly.
  * \headerfile Ice/Ice.h
  */
 class ICE_API Locator : public virtual Object
@@ -2345,14 +2237,12 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Find an object by identity and return a proxy that contains
-     * the adapter ID or endpoints which can be used to access the
-     * object.
+     * Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+     * access the object.
      * @param cb The AMD callback object for the invocation.
      * @param id The identity.
      * @param current The Current object for the invocation.
-     * @throws Ice::ObjectNotFoundException Raised if the object cannot
-     * be found.
+     * @throws Ice::ObjectNotFoundException Raised if the object cannot be found.
      */
     virtual void findObjectById_async(const ::Ice::AMD_Locator_findObjectByIdPtr& cb, const Identity& id, const Current& current = emptyCurrent) const = 0;
     /// \cond INTERNAL
@@ -2360,13 +2250,11 @@ public:
     /// \endcond
 
     /**
-     * Find an adapter by id and return a proxy that contains
-     * its endpoints.
+     * Find an adapter by id and return a proxy that contains its endpoints.
      * @param cb The AMD callback object for the invocation.
      * @param id The adapter id.
      * @param current The Current object for the invocation.
-     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be
-     * found.
+     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found.
      */
     virtual void findAdapterById_async(const ::Ice::AMD_Locator_findAdapterByIdPtr& cb, const ::std::string& id, const Current& current = emptyCurrent) const = 0;
     /// \cond INTERNAL
@@ -2408,13 +2296,9 @@ inline bool operator<(const Locator& lhs, const Locator& rhs)
 /// \endcond
 
 /**
- * The Ice locator registry interface. This interface is used by
- * servers to register adapter endpoints with the locator.
- *
- * <p class="Note"> The {@link LocatorRegistry} interface is intended to be used
- * by Ice internals and by locator implementations. Regular user
- * code should not attempt to use any functionality of this interface
- * directly.
+ * The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
+ * locator. <p class="Note"> The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
+ * locator implementations. Regular user code should not attempt to use any functionality of this interface directly.
  * \headerfile Ice/Ice.h
  */
 class ICE_API LocatorRegistry : public virtual Object
@@ -2464,16 +2348,12 @@ public:
      * Set the adapter endpoints with the locator registry.
      * @param cb The AMD callback object for the invocation.
      * @param id The adapter id.
-     * @param proxy The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
-     * endpoints.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints.
      * @param current The Current object for the invocation.
-     * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same
-     * id is already active.
-     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot
-     * be found, or if the locator only allows
-     * registered adapters to set their active proxy and the
-     * adapter is not registered with the locator.
+     * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
+     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
+     * registered adapters to set their active proxy and the adapter is not registered with the locator.
      */
     virtual void setAdapterDirectProxy_async(const ::Ice::AMD_LocatorRegistry_setAdapterDirectProxyPtr& cb, const ::std::string& id, const ObjectPrx& proxy, const Current& current = emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -2485,19 +2365,14 @@ public:
      * @param cb The AMD callback object for the invocation.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param p The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
+     * @param p The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
      * endpoints.
      * @param current The Current object for the invocation.
-     * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same
-     * id is already active.
-     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot
-     * be found, or if the locator only allows registered adapters to
-     * set their active proxy and the adapter is not registered with
-     * the locator.
-     * @throws Ice::InvalidReplicaGroupIdException Raised if the given
-     * replica group doesn't match the one registered with the
-     * locator registry for this object adapter.
+     * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
+     * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
+     * registered adapters to set their active proxy and the adapter is not registered with the locator.
+     * @throws Ice::InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered with
+     * the locator registry for this object adapter.
      */
     virtual void setReplicatedAdapterDirectProxy_async(const ::Ice::AMD_LocatorRegistry_setReplicatedAdapterDirectProxyPtr& cb, const ::std::string& adapterId, const ::std::string& replicaGroupId, const ObjectPrx& p, const Current& current = emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -2510,8 +2385,7 @@ public:
      * @param id The server id.
      * @param proxy The process proxy.
      * @param current The Current object for the invocation.
-     * @throws Ice::ServerNotFoundException Raised if the server cannot
-     * be found.
+     * @throws Ice::ServerNotFoundException Raised if the server cannot be found.
      */
     virtual void setServerProcessProxy_async(const ::Ice::AMD_LocatorRegistry_setServerProcessProxyPtr& cb, const ::std::string& id, const ProcessPrx& proxy, const Current& current = emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -2543,11 +2417,9 @@ inline bool operator<(const LocatorRegistry& lhs, const LocatorRegistry& rhs)
 /// \endcond
 
 /**
- * This interface should be implemented by services implementing the
- * Ice::Locator interface. It should be advertised through an Ice
- * object with the identity `Ice/LocatorFinder'. This allows clients
- * to retrieve the locator proxy with just the endpoint information of
- * the service.
+ * This interface should be implemented by services implementing the <code>Ice::Locator interface</code>. It should be
+ * advertised through an Ice object with the identity <code>`Ice/LocatorFinder'</code>. This allows clients to
+ * retrieve the locator proxy with just the endpoint information of the service.
  * \headerfile Ice/Ice.h
  */
 class ICE_API LocatorFinder : public virtual Object
@@ -2594,8 +2466,8 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Get the locator proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param current The Current object for the invocation.
      * @return The locator proxy.
      */

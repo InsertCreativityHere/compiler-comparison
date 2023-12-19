@@ -1,7 +1,6 @@
 % TopicLinkPrx   Summary of TopicLinkPrx
 %
-% The TopicLink interface. This is used to forward events between
-% federated Topic instances.
+% The TopicLink interface. This is used to forward events between federated Topic instances.
 %
 % TopicLinkPrx Methods:
 %   forward - Forward a sequence of events.

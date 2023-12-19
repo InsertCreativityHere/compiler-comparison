@@ -16,32 +16,28 @@
 package com.zeroc.Glacier2;
 
 /**
- * An administrative session control object, which is tied to the
- * lifecycle of a {@link Session}.
+ * An administrative session control object, which is tied to the lifecycle of a {@link Session}.
  *
  * @see Session
  **/
 public interface SessionControl extends com.zeroc.Ice.Object
 {
     /**
-     * Access the object that manages the allowable categories
-     * for object identities for this session.
+     * Access the object that manages the allowable categories for object identities for this session.
      * @param current The Current object for the invocation.
      * @return A StringSet object.
      **/
     StringSetPrx categories(com.zeroc.Ice.Current current);
 
     /**
-     * Access the object that manages the allowable adapter identities
-     * for objects for this session.
+     * Access the object that manages the allowable adapter identities for objects for this session.
      * @param current The Current object for the invocation.
      * @return A StringSet object.
      **/
     StringSetPrx adapterIds(com.zeroc.Ice.Current current);
 
     /**
-     * Access the object that manages the allowable object identities
-     * for this session.
+     * Access the object that manages the allowable object identities for this session.
      * @param current The Current object for the invocation.
      * @return An IdentitySet object.
      **/

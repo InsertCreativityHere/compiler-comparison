@@ -1,7 +1,6 @@
 % CloseCallback   Summary of CloseCallback
 %
-% An application can implement this interface to receive notifications when
-% a connection closes.
+% An application can implement this interface to receive notifications when a connection closes.
 %
 % See also Ice.Connection.setCloseCallback
 

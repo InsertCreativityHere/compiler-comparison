@@ -48,9 +48,8 @@ classdef ServerPrx < IceGrid.FileReaderPrx
             r_ = obj.iceInvokeAsync('start', 0, true, [], 0, [], IceGrid.ServerPrx.start_ex_, varargin{:});
         end
         function stop(obj, varargin)
-            % stop   Stop the server. This methods returns only when the server is
-            % deactivated. If the server doesn't stop after a configurable
-            % amount of time, it will be killed.
+            % stop   Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+            % configurable amount of time, it will be killed.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -58,9 +57,8 @@ classdef ServerPrx < IceGrid.FileReaderPrx
             obj.iceInvoke('stop', 0, true, [], false, IceGrid.ServerPrx.stop_ex_, varargin{:});
         end
         function r_ = stopAsync(obj, varargin)
-            % stopAsync   Stop the server. This methods returns only when the server is
-            % deactivated. If the server doesn't stop after a configurable
-            % amount of time, it will be killed.
+            % stopAsync   Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+            % configurable amount of time, it will be killed.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -263,10 +261,8 @@ classdef ServerPrx < IceGrid.FileReaderPrx
             r_ = obj.iceInvokeAsync('getState', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getPid(obj, varargin)
-            % getPid   Get the server pid. Note that the value returned by this method
-            % is system dependant. On Unix operating systems, it's the pid
-            % value returned by the fork() system call and converted to an
-            % integer.
+            % getPid   Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+            % it's the pid value returned by the fork() system call and converted to an integer.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -279,10 +275,8 @@ classdef ServerPrx < IceGrid.FileReaderPrx
             is_.endEncapsulation();
         end
         function r_ = getPidAsync(obj, varargin)
-            % getPidAsync   Get the server pid. Note that the value returned by this method
-            % is system dependant. On Unix operating systems, it's the pid
-            % value returned by the fork() system call and converted to an
-            % integer.
+            % getPidAsync   Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+            % it's the pid value returned by the fork() system call and converted to an integer.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.

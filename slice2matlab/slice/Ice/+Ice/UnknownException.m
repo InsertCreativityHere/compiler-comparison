@@ -1,10 +1,8 @@
 % UnknownException   Summary of UnknownException
 %
-% This exception is raised if an operation call on a server raises an
-% unknown exception. For example, for C++, this exception is raised
-% if the server throws a C++ exception that is not directly or
-% indirectly derived from Ice::LocalException or
-% Ice::UserException.
+% This exception is raised if an operation call on a server raises an unknown exception. For example, for C++, this
+% exception is raised if the server throws a C++ exception that is not directly or indirectly derived from
+% Ice::LocalException or Ice::UserException.
 %
 % UnknownException Properties:
 %   unknown - This field is set to the textual representation of the unknown exception if available.
@@ -14,8 +12,7 @@
 
 classdef UnknownException < Ice.LocalException
     properties
-        % unknown - This field is set to the textual representation of the unknown
-        % exception if available.
+        % unknown - This field is set to the textual representation of the unknown exception if available.
         unknown char
     end
     methods

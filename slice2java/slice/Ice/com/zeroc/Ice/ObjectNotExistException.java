@@ -16,8 +16,8 @@
 package com.zeroc.Ice;
 
 /**
- * This exception is raised if an object does not exist on the server,
- * that is, if no facets with the given identity exist.
+ * This exception is raised if an object does not exist on the server, that is, if no facets with the given identity
+ * exist.
  **/
 public class ObjectNotExistException extends RequestFailedException
 {

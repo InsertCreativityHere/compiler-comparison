@@ -16,9 +16,8 @@
 package com.zeroc.Ice;
 
 /**
- * This exception is raised if a request failed. This exception, and
- * all exceptions derived from {@link RequestFailedException}, are
- * transmitted by the Ice protocol, even though they are declared
+ * This exception is raised if a request failed. This exception, and all exceptions derived from
+ * {@link RequestFailedException}, are transmitted by the Ice protocol, even though they are declared
  * <code>local</code>.
  **/
 public class RequestFailedException extends LocalException

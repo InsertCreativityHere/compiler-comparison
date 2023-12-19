@@ -1,7 +1,7 @@
 % SessionNotExistException   Summary of SessionNotExistException
 %
-% This exception is raised if a client tries to destroy a session
-% with a router, but no session exists for the client.
+% This exception is raised if a client tries to destroy a session with a router, but no session exists for the
+% client.
 %
 % See also Glacier2.Router.destroySession
 

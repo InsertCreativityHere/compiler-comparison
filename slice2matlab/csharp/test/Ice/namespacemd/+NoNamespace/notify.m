@@ -1,5 +1,7 @@
 % notify   Summary of notify
 %
+% Test keyword escape.
+%
 % notify Properties:
 %   i
 

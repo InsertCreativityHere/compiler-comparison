@@ -1,10 +1,8 @@
 % LocatorFinderPrx   Summary of LocatorFinderPrx
 %
-% This interface should be implemented by services implementing the
-% Ice::Locator interface. It should be advertised through an Ice
-% object with the identity `Ice/LocatorFinder'. This allows clients
-% to retrieve the locator proxy with just the endpoint information of
-% the service.
+% This interface should be implemented by services implementing the Ice::Locator interface. It should be
+% advertised through an Ice object with the identity `Ice/LocatorFinder'. This allows clients to
+% retrieve the locator proxy with just the endpoint information of the service.
 %
 % LocatorFinderPrx Methods:
 %   getLocator - Get the locator proxy implemented by the process hosting this finder object.
@@ -18,8 +16,8 @@
 classdef LocatorFinderPrx < Ice.ObjectPrx
     methods
         function result = getLocator(obj, varargin)
-            % getLocator   Get the locator proxy implemented by the process hosting this
-            % finder object. The proxy might point to several replicas.
+            % getLocator   Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+            % replicas.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -32,8 +30,8 @@ classdef LocatorFinderPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getLocatorAsync(obj, varargin)
-            % getLocatorAsync   Get the locator proxy implemented by the process hosting this
-            % finder object. The proxy might point to several replicas.
+            % getLocatorAsync   Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+            % replicas.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.

@@ -21,8 +21,7 @@ classdef TopicManagerInternalPrx < IceStorm.TopicManagerPrx
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (IceStormElection.NodePrx) - The replica proxy, or null if this instance is not
-            % replicated.
+            % Returns (IceStormElection.NodePrx) - The replica proxy, or null if this instance is not replicated.
             
             is_ = obj.iceInvoke('getReplicaNode', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();

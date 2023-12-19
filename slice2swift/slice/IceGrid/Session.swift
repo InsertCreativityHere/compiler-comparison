@@ -24,10 +24,8 @@ public struct SessionTraits: Ice.SliceTraits {
     public static let staticId = "::IceGrid::Session"
 }
 
-/// A session object is used by IceGrid clients to allocate and
-/// release objects. Client sessions are created either via the
-/// Registry object or via the registry client SessionManager
-/// object.
+/// A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
+/// via the Registry object or via the registry client SessionManager object.
 ///
 /// SessionPrx Methods:
 ///
@@ -125,10 +123,8 @@ public extension Ice.InputStream {
     }
 }
 
-/// A session object is used by IceGrid clients to allocate and
-/// release objects. Client sessions are created either via the
-/// Registry object or via the registry client SessionManager
-/// object.
+/// A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
+/// via the Registry object or via the registry client SessionManager object.
 ///
 /// SessionPrx Methods:
 ///
@@ -152,8 +148,8 @@ public extension Ice.InputStream {
 ///
 ///  - setAllocationTimeoutAsync: Set the allocation timeout.
 public extension SessionPrx {
-    /// Keep the session alive. Clients should call this operation
-    /// regularly to prevent the server from reaping the session.
+    /// Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+    /// session.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func keepAlive(context: Ice.Context? = nil) throws {
@@ -162,8 +158,8 @@ public extension SessionPrx {
                           context: context)
     }
 
-    /// Keep the session alive. Clients should call this operation
-    /// regularly to prevent the server from reaping the session.
+    /// Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+    /// session.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -185,9 +181,8 @@ public extension SessionPrx {
                                   sent: sent)
     }
 
-    /// Allocate an object. Depending on the allocation timeout, this
-    /// operation might hang until the object is available or until the
-    /// timeout is reached.
+    /// Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+    /// available or until the timeout is reached.
     ///
     /// - parameter _: `Ice.Identity` The identity of the object to allocate.
     ///
@@ -197,11 +192,10 @@ public extension SessionPrx {
     ///
     /// - throws:
     ///
-    ///   - AllocationException - Raised if the object can't be
-    ///     allocated.
+    ///   - AllocationException - Raised if the object can't be allocated.
     ///
-    ///   - ObjectNotRegisteredException - Raised if the object with
-    ///     the given identity is not registered with the registry.
+    ///   - ObjectNotRegisteredException - Raised if the object with the given identity is not registered with
+    ///     the registry.
     func allocateObjectById(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
         return try _impl._invoke(operation: "allocateObjectById",
                                  mode: .Normal,
@@ -224,9 +218,8 @@ public extension SessionPrx {
                                  context: context)
     }
 
-    /// Allocate an object. Depending on the allocation timeout, this
-    /// operation might hang until the object is available or until the
-    /// timeout is reached.
+    /// Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+    /// available or until the timeout is reached.
     ///
     /// - parameter _: `Ice.Identity` The identity of the object to allocate.
     ///
@@ -266,9 +259,8 @@ public extension SessionPrx {
                                   sent: sent)
     }
 
-    /// Allocate an object with the given type. Depending on the
-    /// allocation timeout, this operation can block until an object
-    /// becomes available or until the timeout is reached.
+    /// Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+    /// an object becomes available or until the timeout is reached.
     ///
     /// - parameter _: `Swift.String` The type of the object.
     ///
@@ -299,9 +291,8 @@ public extension SessionPrx {
                                  context: context)
     }
 
-    /// Allocate an object with the given type. Depending on the
-    /// allocation timeout, this operation can block until an object
-    /// becomes available or until the timeout is reached.
+    /// Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+    /// an object becomes available or until the timeout is reached.
     ///
     /// - parameter _: `Swift.String` The type of the object.
     ///
@@ -348,12 +339,11 @@ public extension SessionPrx {
     ///
     /// - throws:
     ///
-    ///   - AllocationException - Raised if the given object can't be
-    ///     released. This might happen if the object isn't allocatable or
-    ///     isn't allocated by the session.
+    ///   - AllocationException - Raised if the given object can't be released. This might happen if the object
+    ///     isn't allocatable or isn't allocated by the session.
     ///
-    ///   - ObjectNotRegisteredException - Raised if the object with
-    ///     the given identity is not registered with the registry.
+    ///   - ObjectNotRegisteredException - Raised if the object with the given identity is not registered with
+    ///     the registry.
     func releaseObject(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "releaseObject",
                           mode: .Normal,
@@ -409,9 +399,8 @@ public extension SessionPrx {
                                   sent: sent)
     }
 
-    /// Set the allocation timeout. If no objects are available for an
-    /// allocation request, a call to allocateObjectById or
-    /// allocateObjectByType will block for the duration of this
+    /// Set the allocation timeout. If no objects are available for an allocation request, a call to
+    /// allocateObjectById or allocateObjectByType will block for the duration of this
     /// timeout.
     ///
     /// - parameter _: `Swift.Int32` The timeout in milliseconds.
@@ -426,9 +415,8 @@ public extension SessionPrx {
                           context: context)
     }
 
-    /// Set the allocation timeout. If no objects are available for an
-    /// allocation request, a call to allocateObjectById or
-    /// allocateObjectByType will block for the duration of this
+    /// Set the allocation timeout. If no objects are available for an allocation request, a call to
+    /// allocateObjectById or allocateObjectByType will block for the duration of this
     /// timeout.
     ///
     /// - parameter _: `Swift.Int32` The timeout in milliseconds.
@@ -496,20 +484,17 @@ public struct SessionDisp: Ice.Disp {
     }
 }
 
-/// A session object is used by IceGrid clients to allocate and
-/// release objects. Client sessions are created either via the
-/// Registry object or via the registry client SessionManager
-/// object.
+/// A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
+/// via the Registry object or via the registry client SessionManager object.
 public protocol Session: Glacier2.Session {
-    /// Keep the session alive. Clients should call this operation
-    /// regularly to prevent the server from reaping the session.
+    /// Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+    /// session.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func keepAlive(current: Ice.Current) throws
 
-    /// Allocate an object. Depending on the allocation timeout, this
-    /// operation might hang until the object is available or until the
-    /// timeout is reached.
+    /// Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+    /// available or until the timeout is reached.
     ///
     /// - parameter id: `Ice.Identity` The identity of the object to allocate.
     ///
@@ -518,9 +503,8 @@ public protocol Session: Glacier2.Session {
     /// - returns: `PromiseKit.Promise<Ice.ObjectPrx?>` - The result of the operation
     func allocateObjectByIdAsync(id: Ice.Identity, current: Ice.Current) -> PromiseKit.Promise<Ice.ObjectPrx?>
 
-    /// Allocate an object with the given type. Depending on the
-    /// allocation timeout, this operation can block until an object
-    /// becomes available or until the timeout is reached.
+    /// Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+    /// an object becomes available or until the timeout is reached.
     ///
     /// - parameter type: `Swift.String` The type of the object.
     ///
@@ -538,17 +522,15 @@ public protocol Session: Glacier2.Session {
     ///
     /// - throws:
     ///
-    ///   - AllocationException - Raised if the given object can't be
-    ///     released. This might happen if the object isn't allocatable or
-    ///     isn't allocated by the session.
+    ///   - AllocationException - Raised if the given object can't be released. This might happen if the object
+    ///     isn't allocatable or isn't allocated by the session.
     ///
-    ///   - ObjectNotRegisteredException - Raised if the object with
-    ///     the given identity is not registered with the registry.
+    ///   - ObjectNotRegisteredException - Raised if the object with the given identity is not registered with
+    ///     the registry.
     func releaseObject(id: Ice.Identity, current: Ice.Current) throws
 
-    /// Set the allocation timeout. If no objects are available for an
-    /// allocation request, a call to allocateObjectById or
-    /// allocateObjectByType will block for the duration of this
+    /// Set the allocation timeout. If no objects are available for an allocation request, a call to
+    /// allocateObjectById or allocateObjectByType will block for the duration of this
     /// timeout.
     ///
     /// - parameter timeout: `Swift.Int32` The timeout in milliseconds.
@@ -557,10 +539,8 @@ public protocol Session: Glacier2.Session {
     func setAllocationTimeout(timeout: Swift.Int32, current: Ice.Current) throws
 }
 
-/// A session object is used by IceGrid clients to allocate and
-/// release objects. Client sessions are created either via the
-/// Registry object or via the registry client SessionManager
-/// object.
+/// A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
+/// via the Registry object or via the registry client SessionManager object.
 ///
 /// Session Methods:
 ///

@@ -16,8 +16,7 @@
 package com.zeroc.IceGrid;
 
 /**
- * This exception is raised if an unknown signal was sent to
- * to a server.
+ * This exception is raised if an unknown signal was sent to to a server.
  **/
 public class BadSignalException extends com.zeroc.Ice.UserException
 {

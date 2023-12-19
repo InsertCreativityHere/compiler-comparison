@@ -1,8 +1,7 @@
 % ObjectFactory   Summary of ObjectFactory
 %
-% A factory for objects. Object factories are used when receiving "objects by value".
-% An object factory must be implemented by the application writer and registered
-% with the communicator.
+% A factory for objects. Object factories are used when receiving "objects by value". An object factory must be
+% implemented by the application writer and registered with the communicator.
 %
 % Deprecated: ObjectFactory has been deprecated, use ValueFactory instead.
 

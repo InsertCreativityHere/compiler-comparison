@@ -70,9 +70,8 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Set the replica observer. The node calls this method when it's
-     * ready to receive notifications for the replicas. It only calls
-     * this for the session with the master.
+     * Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+     * It only calls this for the session with the master.
      **/
     default void setReplicaObserver(ReplicaObserverPrx observer)
     {
@@ -80,9 +79,8 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Set the replica observer. The node calls this method when it's
-     * ready to receive notifications for the replicas. It only calls
-     * this for the session with the master.
+     * Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+     * It only calls this for the session with the master.
      * @param context The Context map to send with the invocation.
      **/
     default void setReplicaObserver(ReplicaObserverPrx observer, java.util.Map<String, String> context)
@@ -91,9 +89,8 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Set the replica observer. The node calls this method when it's
-     * ready to receive notifications for the replicas. It only calls
-     * this for the session with the master.
+     * Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+     * It only calls this for the session with the master.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> setReplicaObserverAsync(ReplicaObserverPrx observer)
@@ -102,9 +99,8 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Set the replica observer. The node calls this method when it's
-     * ready to receive notifications for the replicas. It only calls
-     * this for the session with the master.
+     * Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+     * It only calls this for the session with the master.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -338,11 +334,9 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Wait for the application update to complete (the application is
-     * completely updated once all the registry replicas have been
-     * updated). This is used by the node to ensure that before to
-     * start a server all the replicas have the up-to-date descriptor
-     * of the server.
+     * Wait for the application update to complete (the application is completely updated once all the registry
+     * replicas have been updated). This is used by the node to ensure that before to start a server all the
+     * replicas have the up-to-date descriptor of the server.
      **/
     default void waitForApplicationUpdate(String application, int revision)
     {
@@ -350,11 +344,9 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Wait for the application update to complete (the application is
-     * completely updated once all the registry replicas have been
-     * updated). This is used by the node to ensure that before to
-     * start a server all the replicas have the up-to-date descriptor
-     * of the server.
+     * Wait for the application update to complete (the application is completely updated once all the registry
+     * replicas have been updated). This is used by the node to ensure that before to start a server all the
+     * replicas have the up-to-date descriptor of the server.
      * @param context The Context map to send with the invocation.
      **/
     default void waitForApplicationUpdate(String application, int revision, java.util.Map<String, String> context)
@@ -363,11 +355,9 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Wait for the application update to complete (the application is
-     * completely updated once all the registry replicas have been
-     * updated). This is used by the node to ensure that before to
-     * start a server all the replicas have the up-to-date descriptor
-     * of the server.
+     * Wait for the application update to complete (the application is completely updated once all the registry
+     * replicas have been updated). This is used by the node to ensure that before to start a server all the
+     * replicas have the up-to-date descriptor of the server.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> waitForApplicationUpdateAsync(String application, int revision)
@@ -376,11 +366,9 @@ public interface NodeSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Wait for the application update to complete (the application is
-     * completely updated once all the registry replicas have been
-     * updated). This is used by the node to ensure that before to
-     * start a server all the replicas have the up-to-date descriptor
-     * of the server.
+     * Wait for the application update to complete (the application is completely updated once all the registry
+     * replicas have been updated). This is used by the node to ensure that before to start a server all the
+     * replicas have the up-to-date descriptor of the server.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/

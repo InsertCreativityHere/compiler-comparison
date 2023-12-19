@@ -120,8 +120,7 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Set the database observer. Once the observer is subscribed, it
-     * will receive the database and database updates.
+     * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      **/
     default void setDatabaseObserver(DatabaseObserverPrx dbObs, java.util.Map<java.lang.String, java.lang.Long> serials)
         throws com.zeroc.IceGrid.DeploymentException,
@@ -131,8 +130,7 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Set the database observer. Once the observer is subscribed, it
-     * will receive the database and database updates.
+     * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      * @param context The Context map to send with the invocation.
      **/
     default void setDatabaseObserver(DatabaseObserverPrx dbObs, java.util.Map<java.lang.String, java.lang.Long> serials, java.util.Map<String, String> context)
@@ -158,8 +156,7 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Set the database observer. Once the observer is subscribed, it
-     * will receive the database and database updates.
+     * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      **/
     default void setDatabaseObserver(DatabaseObserverPrx dbObs, java.util.Optional<java.util.Map<java.lang.String, java.lang.Long>> serials)
         throws com.zeroc.IceGrid.DeploymentException,
@@ -169,8 +166,7 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Set the database observer. Once the observer is subscribed, it
-     * will receive the database and database updates.
+     * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      * @param context The Context map to send with the invocation.
      **/
     default void setDatabaseObserver(DatabaseObserverPrx dbObs, java.util.Optional<java.util.Map<java.lang.String, java.lang.Long>> serials, java.util.Map<String, String> context)
@@ -196,8 +192,7 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Set the database observer. Once the observer is subscribed, it
-     * will receive the database and database updates.
+     * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> setDatabaseObserverAsync(DatabaseObserverPrx dbObs, java.util.Map<java.lang.String, java.lang.Long> serials)
@@ -206,8 +201,7 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Set the database observer. Once the observer is subscribed, it
-     * will receive the database and database updates.
+     * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -242,8 +236,7 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     /**
-     * Set the database observer. Once the observer is subscribed, it
-     * will receive the database and database updates.
+     * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> setDatabaseObserverAsync(DatabaseObserverPrx dbObs, java.util.Optional<java.util.Map<java.lang.String, java.lang.Long>> serials)
@@ -252,8 +245,7 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Set the database observer. Once the observer is subscribed, it
-     * will receive the database and database updates.
+     * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -281,9 +273,8 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * This method sets the endpoints of the replica. This allows the
-     * master to create proxies with multiple endpoints for replicated
-     * objects (e.g.: IceGrid::Query object).
+     * This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+     * for replicated objects (e.g.: IceGrid::Query object).
      **/
     default void setEndpoints(java.util.Map<java.lang.String, com.zeroc.Ice.ObjectPrx> endpoints)
     {
@@ -291,9 +282,8 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * This method sets the endpoints of the replica. This allows the
-     * master to create proxies with multiple endpoints for replicated
-     * objects (e.g.: IceGrid::Query object).
+     * This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+     * for replicated objects (e.g.: IceGrid::Query object).
      * @param context The Context map to send with the invocation.
      **/
     default void setEndpoints(java.util.Map<java.lang.String, com.zeroc.Ice.ObjectPrx> endpoints, java.util.Map<String, String> context)
@@ -302,9 +292,8 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * This method sets the endpoints of the replica. This allows the
-     * master to create proxies with multiple endpoints for replicated
-     * objects (e.g.: IceGrid::Query object).
+     * This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+     * for replicated objects (e.g.: IceGrid::Query object).
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> setEndpointsAsync(java.util.Map<java.lang.String, com.zeroc.Ice.ObjectPrx> endpoints)
@@ -313,9 +302,8 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * This method sets the endpoints of the replica. This allows the
-     * master to create proxies with multiple endpoints for replicated
-     * objects (e.g.: IceGrid::Query object).
+     * This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+     * for replicated objects (e.g.: IceGrid::Query object).
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -393,9 +381,8 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Set the adapter direct proxy of the given adapter in the
-     * master. This is used to support dynamic registration with
-     * the locator registry interface.
+     * Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+     * with the locator registry interface.
      **/
     default void setAdapterDirectProxy(String adapterId, String replicaGroupId, com.zeroc.Ice.ObjectPrx proxy)
         throws AdapterExistsException,
@@ -405,9 +392,8 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Set the adapter direct proxy of the given adapter in the
-     * master. This is used to support dynamic registration with
-     * the locator registry interface.
+     * Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+     * with the locator registry interface.
      * @param context The Context map to send with the invocation.
      **/
     default void setAdapterDirectProxy(String adapterId, String replicaGroupId, com.zeroc.Ice.ObjectPrx proxy, java.util.Map<String, String> context)
@@ -433,9 +419,8 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Set the adapter direct proxy of the given adapter in the
-     * master. This is used to support dynamic registration with
-     * the locator registry interface.
+     * Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+     * with the locator registry interface.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> setAdapterDirectProxyAsync(String adapterId, String replicaGroupId, com.zeroc.Ice.ObjectPrx proxy)
@@ -444,9 +429,8 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Set the adapter direct proxy of the given adapter in the
-     * master. This is used to support dynamic registration with
-     * the locator registry interface.
+     * Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+     * with the locator registry interface.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -483,9 +467,8 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     /**
-     * Notify the master that an update was received. The master might
-     * wait for replication updates to be received by all the replicas
-     * before to continue.
+     * Notify the master that an update was received. The master might wait for replication updates to be received by
+     * all the replicas before to continue.
      **/
     default void receivedUpdate(TopicName name, int serial, String failure)
     {
@@ -493,9 +476,8 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Notify the master that an update was received. The master might
-     * wait for replication updates to be received by all the replicas
-     * before to continue.
+     * Notify the master that an update was received. The master might wait for replication updates to be received by
+     * all the replicas before to continue.
      * @param context The Context map to send with the invocation.
      **/
     default void receivedUpdate(TopicName name, int serial, String failure, java.util.Map<String, String> context)
@@ -504,9 +486,8 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Notify the master that an update was received. The master might
-     * wait for replication updates to be received by all the replicas
-     * before to continue.
+     * Notify the master that an update was received. The master might wait for replication updates to be received by
+     * all the replicas before to continue.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> receivedUpdateAsync(TopicName name, int serial, String failure)
@@ -515,9 +496,8 @@ public interface ReplicaSessionPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Notify the master that an update was received. The master might
-     * wait for replication updates to be received by all the replicas
-     * before to continue.
+     * Notify the master that an update was received. The master might wait for replication updates to be received by
+     * all the replicas before to continue.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/

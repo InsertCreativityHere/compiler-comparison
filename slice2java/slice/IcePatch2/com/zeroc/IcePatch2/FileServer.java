@@ -21,14 +21,11 @@ package com.zeroc.IcePatch2;
 public interface FileServer extends com.zeroc.Ice.Object
 {
     /**
-     * Return file information for the specified partition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
+     * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
+     * only present for compatibility with old Ice clients (older than version 3.6).
      * @param partition The partition number in the range 0-255.
      * @param current The Current object for the invocation.
-     * @return A sequence containing information about the files in the
-     * specified partition.
+     * @return A sequence containing information about the files in the specified partition.
      * @throws FileSizeRangeException If a file is larger than 2.1GB.
      * @throws PartitionOutOfRangeException If the partition number is out of range.
      * @deprecated getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
@@ -42,8 +39,7 @@ public interface FileServer extends com.zeroc.Ice.Object
      * Returns file information for the specified partition.
      * @param partition The partition number in the range 0-255.
      * @param current The Current object for the invocation.
-     * @return A sequence containing information about the files in the
-     * specified partition.
+     * @return A sequence containing information about the files in the specified partition.
      * @throws PartitionOutOfRangeException If the partition number is out of range.
      **/
     LargeFileInfo[] getLargeFileInfoSeq(int partition, com.zeroc.Ice.Current current)
@@ -52,30 +48,25 @@ public interface FileServer extends com.zeroc.Ice.Object
     /**
      * Return the checksums for all partitions.
      * @param current The Current object for the invocation.
-     * @return A sequence containing 256 checksums. Partitions with a
-     * checksum that differs from the previous checksum for the same
-     * partition contain updated files. Partitions with a checksum
-     * that is identical to the previous checksum do not contain
-     * updated files.
+     * @return A sequence containing 256 checksums. Partitions with a checksum that differs from the previous checksum
+     * for the same partition contain updated files. Partitions with a checksum that is identical to the previous
+     * checksum do not contain updated files.
      **/
     byte[][] getChecksumSeq(com.zeroc.Ice.Current current);
 
     /**
-     * Return the master checksum for all partitions. If this checksum is the same
-     * as for a previous run, the entire file set is up-to-date.
+     * Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+     * file set is up-to-date.
      * @param current The Current object for the invocation.
      * @return The master checksum for the file set.
      **/
     byte[] getChecksum(com.zeroc.Ice.Current current);
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+     * condition. <p class="Deprecated"> This operation is deprecated and only present for compatibility with old Ice
+     * clients (older than version 3.6).
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param current The Current object for the invocation.
@@ -90,10 +81,9 @@ public interface FileServer extends com.zeroc.Ice.Object
                FileSizeRangeException;
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an
+     * end-of-file condition.
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param current The Current object for the invocation.

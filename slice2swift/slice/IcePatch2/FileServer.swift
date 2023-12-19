@@ -17,8 +17,7 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// A sequence of byte sequences. Each element is the checksum for a
-/// partition.
+/// A sequence of byte sequences. Each element is the checksum for a partition.
 public typealias ByteSeqSeq = [Ice.ByteSeq]
 
 /// Helper class to read and write `ByteSeqSeq` sequence values from
@@ -177,8 +176,8 @@ public extension Ice.ClassResolver {
     }
 }
 
-/// This exception is raised if an operation tries to use a file whose size is
-/// larger than 2.1 GB. Use the "large" versions of the operations instead.
+/// This exception is raised if an operation tries to use a file whose size is larger than 2.1 GB. Use the "large"
+/// versions of the operations instead.
 open class FileSizeRangeException: FileAccessException {
     /// Returns the Slice type ID of this exception.
     ///
@@ -336,10 +335,8 @@ public extension Ice.InputStream {
 ///
 ///  - getLargeFileCompressedAsync: Read the specified file.
 public extension FileServerPrx {
-    /// Return file information for the specified partition.
-    ///
-    /// This operation is deprecated and only present for
-    /// compatibility with old Ice clients (older than version 3.6).
+    /// Return file information for the specified partition.  This operation is deprecated and
+    /// only present for compatibility with old Ice clients (older than version 3.6).
     ///
     ///  ## Deprecated
     /// getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
@@ -348,8 +345,7 @@ public extension FileServerPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `FileInfoSeq` - A sequence containing information about the files in the
-    /// specified partition.
+    /// - returns: `FileInfoSeq` - A sequence containing information about the files in the specified partition.
     ///
     /// - throws:
     ///
@@ -378,10 +374,8 @@ public extension FileServerPrx {
                                  context: context)
     }
 
-    /// Return file information for the specified partition.
-    ///
-    /// This operation is deprecated and only present for
-    /// compatibility with old Ice clients (older than version 3.6).
+    /// Return file information for the specified partition.  This operation is deprecated and
+    /// only present for compatibility with old Ice clients (older than version 3.6).
     ///
     ///  ## Deprecated
     /// getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
@@ -430,8 +424,7 @@ public extension FileServerPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `LargeFileInfoSeq` - A sequence containing information about the files in the
-    /// specified partition.
+    /// - returns: `LargeFileInfoSeq` - A sequence containing information about the files in the specified partition.
     ///
     /// - throws:
     ///
@@ -498,11 +491,9 @@ public extension FileServerPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `ByteSeqSeq` - A sequence containing 256 checksums. Partitions with a
-    /// checksum that differs from the previous checksum for the same
-    /// partition contain updated files. Partitions with a checksum
-    /// that is identical to the previous checksum do not contain
-    /// updated files.
+    /// - returns: `ByteSeqSeq` - A sequence containing 256 checksums. Partitions with a checksum that differs from the previous checksum
+    /// for the same partition contain updated files. Partitions with a checksum that is identical to the previous
+    /// checksum do not contain updated files.
     func getChecksumSeq(context: Ice.Context? = nil) throws -> ByteSeqSeq {
         return try _impl._invoke(operation: "getChecksumSeq",
                                  mode: .Nonmutating,
@@ -539,8 +530,8 @@ public extension FileServerPrx {
                                   sent: sent)
     }
 
-    /// Return the master checksum for all partitions. If this checksum is the same
-    /// as for a previous run, the entire file set is up-to-date.
+    /// Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+    /// file set is up-to-date.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -555,8 +546,8 @@ public extension FileServerPrx {
                                  context: context)
     }
 
-    /// Return the master checksum for all partitions. If this checksum is the same
-    /// as for a previous run, the entire file set is up-to-date.
+    /// Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+    /// file set is up-to-date.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -582,17 +573,14 @@ public extension FileServerPrx {
                                   sent: sent)
     }
 
-    /// Read the specified file. This operation may only return fewer bytes than requested
-    /// in case there was an end-of-file condition.
-    ///
-    /// This operation is deprecated and only present for
-    /// compatibility with old Ice clients (older than version 3.6).
+    /// Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+    /// condition.  This operation is deprecated and only present for compatibility with old Ice
+    /// clients (older than version 3.6).
     ///
     ///  ## Deprecated
     /// getFileCompressed() is deprecated, use getLargeFileCompressed() instead.
     ///
-    /// - parameter path: `Swift.String` The pathname (relative to the data directory) for
-    /// the file to be read.
+    /// - parameter path: `Swift.String` The pathname (relative to the data directory) for the file to be read.
     ///
     /// - parameter pos: `Swift.Int32` The file offset at which to begin reading.
     ///
@@ -631,17 +619,14 @@ public extension FileServerPrx {
                                  context: context)
     }
 
-    /// Read the specified file. This operation may only return fewer bytes than requested
-    /// in case there was an end-of-file condition.
-    ///
-    /// This operation is deprecated and only present for
-    /// compatibility with old Ice clients (older than version 3.6).
+    /// Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+    /// condition.  This operation is deprecated and only present for compatibility with old Ice
+    /// clients (older than version 3.6).
     ///
     ///  ## Deprecated
     /// getFileCompressed() is deprecated, use getLargeFileCompressed() instead.
     ///
-    /// - parameter path: `Swift.String` The pathname (relative to the data directory) for
-    /// the file to be read.
+    /// - parameter path: `Swift.String` The pathname (relative to the data directory) for the file to be read.
     ///
     /// - parameter pos: `Swift.Int32` The file offset at which to begin reading.
     ///
@@ -685,11 +670,10 @@ public extension FileServerPrx {
                                   sent: sent)
     }
 
-    /// Read the specified file. This operation may only return fewer bytes than requested
-    /// in case there was an end-of-file condition.
+    /// Read the specified file. This operation may only return fewer bytes than requested in case there was an
+    /// end-of-file condition.
     ///
-    /// - parameter path: `Swift.String` The pathname (relative to the data directory) for
-    /// the file to be read.
+    /// - parameter path: `Swift.String` The pathname (relative to the data directory) for the file to be read.
     ///
     /// - parameter pos: `Swift.Int64` The file offset at which to begin reading.
     ///
@@ -724,11 +708,10 @@ public extension FileServerPrx {
                                  context: context)
     }
 
-    /// Read the specified file. This operation may only return fewer bytes than requested
-    /// in case there was an end-of-file condition.
+    /// Read the specified file. This operation may only return fewer bytes than requested in case there was an
+    /// end-of-file condition.
     ///
-    /// - parameter path: `Swift.String` The pathname (relative to the data directory) for
-    /// the file to be read.
+    /// - parameter path: `Swift.String` The pathname (relative to the data directory) for the file to be read.
     ///
     /// - parameter pos: `Swift.Int64` The file offset at which to begin reading.
     ///
@@ -812,10 +795,8 @@ public struct FileServerDisp: Ice.Disp {
 
 /// The interface that provides access to files.
 public protocol FileServer {
-    /// Return file information for the specified partition.
-    ///
-    /// This operation is deprecated and only present for
-    /// compatibility with old Ice clients (older than version 3.6).
+    /// Return file information for the specified partition.  This operation is deprecated and
+    /// only present for compatibility with old Ice clients (older than version 3.6).
     ///
     ///  ## Deprecated
     /// getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
@@ -824,8 +805,7 @@ public protocol FileServer {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `FileInfoSeq` - A sequence containing information about the files in the
-    /// specified partition.
+    /// - returns: `FileInfoSeq` - A sequence containing information about the files in the specified partition.
     ///
     /// - throws:
     ///
@@ -840,8 +820,7 @@ public protocol FileServer {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `LargeFileInfoSeq` - A sequence containing information about the files in the
-    /// specified partition.
+    /// - returns: `LargeFileInfoSeq` - A sequence containing information about the files in the specified partition.
     ///
     /// - throws:
     ///
@@ -852,32 +831,27 @@ public protocol FileServer {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ByteSeqSeq` - A sequence containing 256 checksums. Partitions with a
-    /// checksum that differs from the previous checksum for the same
-    /// partition contain updated files. Partitions with a checksum
-    /// that is identical to the previous checksum do not contain
-    /// updated files.
+    /// - returns: `ByteSeqSeq` - A sequence containing 256 checksums. Partitions with a checksum that differs from the previous checksum
+    /// for the same partition contain updated files. Partitions with a checksum that is identical to the previous
+    /// checksum do not contain updated files.
     func getChecksumSeq(current: Ice.Current) throws -> ByteSeqSeq
 
-    /// Return the master checksum for all partitions. If this checksum is the same
-    /// as for a previous run, the entire file set is up-to-date.
+    /// Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+    /// file set is up-to-date.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Ice.ByteSeq` - The master checksum for the file set.
     func getChecksum(current: Ice.Current) throws -> Ice.ByteSeq
 
-    /// Read the specified file. This operation may only return fewer bytes than requested
-    /// in case there was an end-of-file condition.
-    ///
-    /// This operation is deprecated and only present for
-    /// compatibility with old Ice clients (older than version 3.6).
+    /// Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+    /// condition.  This operation is deprecated and only present for compatibility with old Ice
+    /// clients (older than version 3.6).
     ///
     ///  ## Deprecated
     /// getFileCompressed() is deprecated, use getLargeFileCompressed() instead.
     ///
-    /// - parameter path: `Swift.String` The pathname (relative to the data directory) for
-    /// the file to be read.
+    /// - parameter path: `Swift.String` The pathname (relative to the data directory) for the file to be read.
     ///
     /// - parameter pos: `Swift.Int32` The file offset at which to begin reading.
     ///
@@ -888,11 +862,10 @@ public protocol FileServer {
     /// - returns: `PromiseKit.Promise<Ice.ByteSeq>` - The result of the operation
     func getFileCompressedAsync(path: Swift.String, pos: Swift.Int32, num: Swift.Int32, current: Ice.Current) -> PromiseKit.Promise<Ice.ByteSeq>
 
-    /// Read the specified file. This operation may only return fewer bytes than requested
-    /// in case there was an end-of-file condition.
+    /// Read the specified file. This operation may only return fewer bytes than requested in case there was an
+    /// end-of-file condition.
     ///
-    /// - parameter path: `Swift.String` The pathname (relative to the data directory) for
-    /// the file to be read.
+    /// - parameter path: `Swift.String` The pathname (relative to the data directory) for the file to be read.
     ///
     /// - parameter pos: `Swift.Int64` The file offset at which to begin reading.
     ///

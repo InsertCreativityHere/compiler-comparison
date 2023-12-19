@@ -58,8 +58,7 @@ namespace Ice
         /// Check if this key has an associated value in the underlying context.
         /// </summary>
         /// <param name="key">The key.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>True if the key has an associated value, False otherwise.</returns>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -68,14 +67,12 @@ namespace Ice
 
         /// <summary>
         /// Get the value associated with the given key in the underlying context.
-        /// Returns an empty string if no value is associated with the key.
-        /// containsKey allows you to distinguish between an empty-string value and
-        /// no value at all.
-        ///
+        /// Returns an empty string if no value is
+        ///  associated with the key. containsKey allows you to distinguish between an empty-string value and no
+        ///  value at all.
         /// </summary>
-        /// <param name="key">The key.
-        ///
-        /// </param>
+        ///  <param name="key">The key.
+        ///  </param>
         /// <returns>The value associated with the key.</returns>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -86,11 +83,9 @@ namespace Ice
         /// Create or update a key/value entry in the underlying context.
         /// </summary>
         /// <param name="key">The key.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="value">The value.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The previous value associated with the key, if any.</returns>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -101,8 +96,7 @@ namespace Ice
         /// Remove the entry for the given key in the underlying context.
         /// </summary>
         /// <param name="key">The key.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The value associated with the key, if any.</returns>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]

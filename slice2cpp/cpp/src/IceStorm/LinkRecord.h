@@ -59,8 +59,17 @@ namespace IceStorm
  */
 struct LinkRecord
 {
+    /**
+     * The topic link object.
+     */
     ::std::shared_ptr<::IceStorm::TopicLinkPrx> obj;
+    /**
+     * The cost.
+     */
     int cost;
+    /**
+     * The linked topic for getLinkInfoSeq
+     */
     ::std::shared_ptr<::IceStorm::TopicPrx> theTopic;
 
     /**
@@ -121,8 +130,17 @@ namespace IceStorm
  */
 struct LinkRecord
 {
+    /**
+     * The topic link object.
+     */
     ::IceStorm::TopicLinkPrx obj;
+    /**
+     * The cost.
+     */
     ::Ice::Int cost;
+    /**
+     * The linked topic for getLinkInfoSeq
+     */
     ::IceStorm::TopicPrx theTopic;
 };
 

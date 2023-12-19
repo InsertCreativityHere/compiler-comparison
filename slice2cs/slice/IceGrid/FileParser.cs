@@ -137,9 +137,8 @@ namespace IceGrid
 namespace IceGrid
 {
     /// <summary>
-    /// icegridadmin provides a FileParser
-    /// object to transform XML files into ApplicationDescriptor
-    /// objects.
+    /// icegridadmin provides a FileParser object to transform XML files into
+    ///  ApplicationDescriptor objects.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -149,15 +148,11 @@ namespace IceGrid
         /// Parse a file.
         /// </summary>
         /// <param name="xmlFile">Full pathname to the file.
-        ///
-        /// </param>
-        /// <param name="adminProxy">An Admin proxy, used only to retrieve default
-        /// templates when needed. May be null.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="adminProxy">An Admin proxy, used only to retrieve default templates when needed. May be null.
+        ///  </param>
         /// <returns>The application descriptor.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="ParseException">Raised if an error occurred during parsing.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -167,12 +162,9 @@ namespace IceGrid
         /// Parse a file.
         /// </summary>
         /// <param name="xmlFile">Full pathname to the file.
-        ///
-        /// </param>
-        /// <param name="adminProxy">An Admin proxy, used only to retrieve default
-        /// templates when needed. May be null.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="adminProxy">An Admin proxy, used only to retrieve default templates when needed. May be null.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -183,12 +175,9 @@ namespace IceGrid
         /// Parse a file.
         /// </summary>
         /// <param name="xmlFile">Full pathname to the file.
-        ///
-        /// </param>
-        /// <param name="adminProxy">An Admin proxy, used only to retrieve default
-        /// templates when needed. May be null.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="adminProxy">An Admin proxy, used only to retrieve default templates when needed. May be null.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_FileParser_parse> begin_parse(string xmlFile, AdminPrx adminProxy, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -197,12 +186,9 @@ namespace IceGrid
         /// Parse a file.
         /// </summary>
         /// <param name="xmlFile">Full pathname to the file.
-        ///
-        /// </param>
-        /// <param name="adminProxy">An Admin proxy, used only to retrieve default
-        /// templates when needed. May be null.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="adminProxy">An Admin proxy, used only to retrieve default templates when needed. May be null.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -212,12 +198,9 @@ namespace IceGrid
         /// Parse a file.
         /// </summary>
         /// <param name="xmlFile">Full pathname to the file.
-        ///
-        /// </param>
-        /// <param name="adminProxy">An Admin proxy, used only to retrieve default
-        /// templates when needed. May be null.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="adminProxy">An Admin proxy, used only to retrieve default templates when needed. May be null.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -229,8 +212,7 @@ namespace IceGrid
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The application descriptor.
-        ///
-        /// </returns>
+        ///  </returns>
         ApplicationDescriptor end_parse(global::Ice.AsyncResult asyncResult);
     }
 }
@@ -238,9 +220,8 @@ namespace IceGrid
 namespace IceGrid
 {
     /// <summary>
-    /// icegridadmin provides a FileParser
-    /// object to transform XML files into ApplicationDescriptor
-    /// objects.
+    /// icegridadmin provides a FileParser object to transform XML files into
+    ///  ApplicationDescriptor objects.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -250,15 +231,11 @@ namespace IceGrid
         /// Parse a file.
         /// </summary>
         /// <param name="xmlFile">Full pathname to the file.
-        ///
-        /// </param>
-        /// <param name="adminProxy">An Admin proxy, used only to retrieve default
-        /// templates when needed. May be null.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="adminProxy">An Admin proxy, used only to retrieve default templates when needed. May be null.
+        ///  </param>
         /// <returns>The application descriptor.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="ParseException">Raised if an error occurred during parsing.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 

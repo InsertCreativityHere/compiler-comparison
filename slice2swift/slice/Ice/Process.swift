@@ -22,14 +22,10 @@ public struct ProcessTraits: SliceTraits {
     public static let staticId = "::Ice::Process"
 }
 
-/// An administrative interface for process management. Managed servers must
-/// implement this interface.
-///
-/// A servant implementing this interface is a potential target
-/// for denial-of-service attacks, therefore proper security precautions
-/// should be taken. For example, the servant can use a UUID to make its
-/// identity harder to guess, and be registered in an object adapter with
-/// a secured endpoint.
+/// An administrative interface for process management. Managed servers must implement this interface.
+/// A servant implementing this interface is a potential target for denial-of-service attacks,
+/// therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
+/// identity harder to guess, and be registered in an object adapter with a secured endpoint.
 ///
 /// ProcessPrx Methods:
 ///
@@ -115,14 +111,10 @@ public extension InputStream {
     }
 }
 
-/// An administrative interface for process management. Managed servers must
-/// implement this interface.
-///
-/// A servant implementing this interface is a potential target
-/// for denial-of-service attacks, therefore proper security precautions
-/// should be taken. For example, the servant can use a UUID to make its
-/// identity harder to guess, and be registered in an object adapter with
-/// a secured endpoint.
+/// An administrative interface for process management. Managed servers must implement this interface.
+/// A servant implementing this interface is a potential target for denial-of-service attacks,
+/// therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
+/// identity harder to guess, and be registered in an object adapter with a secured endpoint.
 ///
 /// ProcessPrx Methods:
 ///
@@ -244,14 +236,10 @@ public struct ProcessDisp: Disp {
     }
 }
 
-/// An administrative interface for process management. Managed servers must
-/// implement this interface.
-///
-/// A servant implementing this interface is a potential target
-/// for denial-of-service attacks, therefore proper security precautions
-/// should be taken. For example, the servant can use a UUID to make its
-/// identity harder to guess, and be registered in an object adapter with
-/// a secured endpoint.
+/// An administrative interface for process management. Managed servers must implement this interface.
+/// A servant implementing this interface is a potential target for denial-of-service attacks,
+/// therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
+/// identity harder to guess, and be registered in an object adapter with a secured endpoint.
 public protocol Process {
     /// Initiate a graceful shut-down.
     ///
@@ -268,14 +256,10 @@ public protocol Process {
     func writeMessage(message: Swift.String, fd: Swift.Int32, current: Current) throws
 }
 
-/// An administrative interface for process management. Managed servers must
-/// implement this interface.
-///
-/// A servant implementing this interface is a potential target
-/// for denial-of-service attacks, therefore proper security precautions
-/// should be taken. For example, the servant can use a UUID to make its
-/// identity harder to guess, and be registered in an object adapter with
-/// a secured endpoint.
+/// An administrative interface for process management. Managed servers must implement this interface.
+/// A servant implementing this interface is a potential target for denial-of-service attacks,
+/// therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
+/// identity harder to guess, and be registered in an object adapter with a secured endpoint.
 ///
 /// Process Methods:
 ///

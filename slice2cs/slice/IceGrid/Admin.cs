@@ -33,16 +33,13 @@ namespace IceGrid
 
         Inactive,
         /// <summary>
-        /// The server is being activated and will change to the active
-        /// state when the registered server object adapters are activated
-        /// or to the activation timed out state if the activation timeout
-        /// expires.
+        /// The server is being activated and will change to the active state when the registered server object adapters
+        ///  are activated or to the activation timed out state if the activation timeout expires.
         /// </summary>
 
         Activating,
         /// <summary>
-        /// The activation timed out state indicates that the server
-        /// activation timed out.
+        /// The activation timed out state indicates that the server activation timed out.
         /// </summary>
 
         ActivationTimedOut,
@@ -2685,9 +2682,8 @@ namespace IceGrid
 {
     /// <summary>
     /// The IceGrid administrative interface.
-    /// &lt;p class="Warning"&gt;Allowing access to this interface
-    /// is a security risk! Please see the IceGrid documentation
-    /// for further information.
+    /// &lt;p class="Warning"&gt;Allowing access to this interface is a security risk!
+    ///  Please see the IceGrid documentation for further information.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -2697,15 +2693,11 @@ namespace IceGrid
         /// Add an application to IceGrid.
         /// </summary>
         /// <param name="descriptor">The application descriptor.
-        ///
-        /// </param>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't
-        /// hold the exclusive lock or if another session is holding the
-        /// lock.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if application deployment
-        /// failed.</exception>
+        ///  </param>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
+        ///  holding the lock.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if application deployment failed.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void addApplication(ApplicationDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -2714,8 +2706,7 @@ namespace IceGrid
         /// Add an application to IceGrid.
         /// </summary>
         /// <param name="descriptor">The application descriptor.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -2726,8 +2717,7 @@ namespace IceGrid
         /// Add an application to IceGrid.
         /// </summary>
         /// <param name="descriptor">The application descriptor.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_addApplication> begin_addApplication(ApplicationDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -2736,8 +2726,7 @@ namespace IceGrid
         /// Add an application to IceGrid.
         /// </summary>
         /// <param name="descriptor">The application descriptor.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -2747,8 +2736,7 @@ namespace IceGrid
         /// Add an application to IceGrid.
         /// </summary>
         /// <param name="descriptor">The application descriptor.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -2762,38 +2750,28 @@ namespace IceGrid
         void end_addApplication(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// Synchronize a deployed application with the given application
-        /// descriptor.
-        /// This operation will replace the current descriptor
-        /// with this new descriptor.
-        ///
+        /// Synchronize a deployed application with the given application descriptor.
+        /// This operation will replace the
+        ///  current descriptor with this new descriptor.
         /// </summary>
-        /// <param name="descriptor">The application descriptor.
-        ///
-        /// </param>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't
-        /// hold the exclusive lock or if another session is holding the
-        /// lock.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if application deployment
-        /// failed.
-        ///
-        /// </exception>
-        /// <exception name="ApplicationNotExistException">Raised if the application
-        /// doesn't exist.</exception>
+        ///  <param name="descriptor">The application descriptor.
+        ///  </param>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
+        ///  holding the lock.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if application deployment failed.
+        ///  </exception>
+        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void syncApplication(ApplicationDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Synchronize a deployed application with the given application
-        /// descriptor.
-        /// This operation will replace the current descriptor
+        /// Synchronize a deployed application with the given application descriptor.
+        /// This operation will replace the
         /// </summary>
-        /// <param name="descriptor">The application descriptor.
-        ///
-        /// </param>
+        ///  <param name="descriptor">The application descriptor.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -2801,38 +2779,32 @@ namespace IceGrid
         global::System.Threading.Tasks.Task syncApplicationAsync(ApplicationDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Synchronize a deployed application with the given application
-        /// descriptor.
-        /// This operation will replace the current descriptor
+        /// Synchronize a deployed application with the given application descriptor.
+        /// This operation will replace the
         /// </summary>
-        /// <param name="descriptor">The application descriptor.
-        ///
-        /// </param>
+        ///  <param name="descriptor">The application descriptor.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_syncApplication> begin_syncApplication(ApplicationDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Synchronize a deployed application with the given application
-        /// descriptor.
-        /// This operation will replace the current descriptor
+        /// Synchronize a deployed application with the given application descriptor.
+        /// This operation will replace the
         /// </summary>
-        /// <param name="descriptor">The application descriptor.
-        ///
-        /// </param>
+        ///  <param name="descriptor">The application descriptor.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult begin_syncApplication(ApplicationDescriptor descriptor, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Synchronize a deployed application with the given application
-        /// descriptor.
-        /// This operation will replace the current descriptor
+        /// Synchronize a deployed application with the given application descriptor.
+        /// This operation will replace the
         /// </summary>
-        /// <param name="descriptor">The application descriptor.
-        ///
-        /// </param>
+        ///  <param name="descriptor">The application descriptor.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -2840,42 +2812,32 @@ namespace IceGrid
         global::Ice.AsyncResult begin_syncApplication(ApplicationDescriptor descriptor, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Synchronize a deployed application with the given application
-        /// descriptor.
-        /// This operation will replace the current descriptor
+        /// Synchronize a deployed application with the given application descriptor.
+        /// This operation will replace the
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_syncApplication(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// Update a deployed application with the given update application
-        /// descriptor.
+        /// Update a deployed application with the given update application descriptor.
         /// </summary>
         /// <param name="descriptor">The update descriptor.
-        ///
-        /// </param>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't
-        /// hold the exclusive lock or if another session is holding the
-        /// lock.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if application deployment
-        /// failed.
-        ///
-        /// </exception>
-        /// <exception name="ApplicationNotExistException">Raised if the application
-        /// doesn't exist.</exception>
+        ///  </param>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
+        ///  holding the lock.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if application deployment failed.
+        ///  </exception>
+        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void updateApplication(ApplicationUpdateDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Update a deployed application with the given update application
-        /// descriptor.
+        /// Update a deployed application with the given update application descriptor.
         /// </summary>
         /// <param name="descriptor">The update descriptor.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -2883,35 +2845,29 @@ namespace IceGrid
         global::System.Threading.Tasks.Task updateApplicationAsync(ApplicationUpdateDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Update a deployed application with the given update application
-        /// descriptor.
+        /// Update a deployed application with the given update application descriptor.
         /// </summary>
         /// <param name="descriptor">The update descriptor.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_updateApplication> begin_updateApplication(ApplicationUpdateDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Update a deployed application with the given update application
-        /// descriptor.
+        /// Update a deployed application with the given update application descriptor.
         /// </summary>
         /// <param name="descriptor">The update descriptor.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult begin_updateApplication(ApplicationUpdateDescriptor descriptor, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Update a deployed application with the given update application
-        /// descriptor.
+        /// Update a deployed application with the given update application descriptor.
         /// </summary>
         /// <param name="descriptor">The update descriptor.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -2919,48 +2875,35 @@ namespace IceGrid
         global::Ice.AsyncResult begin_updateApplication(ApplicationUpdateDescriptor descriptor, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Update a deployed application with the given update application
-        /// descriptor.
+        /// Update a deployed application with the given update application descriptor.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_updateApplication(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// Synchronize a deployed application with the given application
-        /// descriptor.
-        /// This operation will replace the current descriptor
-        /// with this new descriptor only if no server restarts are
-        /// necessary for the update of the application. If some servers
-        /// need to be restarted, the synchronization is rejected with a
-        /// DeploymentException.
-        ///
+        /// Synchronize a deployed application with the given application descriptor.
+        /// This operation will replace the
+        ///  current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+        ///  application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
         /// </summary>
-        /// <param name="descriptor">The application descriptor.
-        ///
-        /// </param>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't
-        /// hold the exclusive lock or if another session is holding the
-        /// lock.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if application deployment
-        /// failed.
-        ///
-        /// </exception>
-        /// <exception name="ApplicationNotExistException">Raised if the application
-        /// doesn't exist.</exception>
+        ///  <param name="descriptor">The application descriptor.
+        ///  </param>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
+        ///  holding the lock.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if application deployment failed.
+        ///  </exception>
+        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void syncApplicationWithoutRestart(ApplicationDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Synchronize a deployed application with the given application
-        /// descriptor.
-        /// This operation will replace the current descriptor
+        /// Synchronize a deployed application with the given application descriptor.
+        /// This operation will replace the
         /// </summary>
-        /// <param name="descriptor">The application descriptor.
-        ///
-        /// </param>
+        ///  <param name="descriptor">The application descriptor.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -2968,38 +2911,32 @@ namespace IceGrid
         global::System.Threading.Tasks.Task syncApplicationWithoutRestartAsync(ApplicationDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Synchronize a deployed application with the given application
-        /// descriptor.
-        /// This operation will replace the current descriptor
+        /// Synchronize a deployed application with the given application descriptor.
+        /// This operation will replace the
         /// </summary>
-        /// <param name="descriptor">The application descriptor.
-        ///
-        /// </param>
+        ///  <param name="descriptor">The application descriptor.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_syncApplicationWithoutRestart> begin_syncApplicationWithoutRestart(ApplicationDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Synchronize a deployed application with the given application
-        /// descriptor.
-        /// This operation will replace the current descriptor
+        /// Synchronize a deployed application with the given application descriptor.
+        /// This operation will replace the
         /// </summary>
-        /// <param name="descriptor">The application descriptor.
-        ///
-        /// </param>
+        ///  <param name="descriptor">The application descriptor.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult begin_syncApplicationWithoutRestart(ApplicationDescriptor descriptor, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Synchronize a deployed application with the given application
-        /// descriptor.
-        /// This operation will replace the current descriptor
+        /// Synchronize a deployed application with the given application descriptor.
+        /// This operation will replace the
         /// </summary>
-        /// <param name="descriptor">The application descriptor.
-        ///
-        /// </param>
+        ///  <param name="descriptor">The application descriptor.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -3007,49 +2944,37 @@ namespace IceGrid
         global::Ice.AsyncResult begin_syncApplicationWithoutRestart(ApplicationDescriptor descriptor, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Synchronize a deployed application with the given application
-        /// descriptor.
-        /// This operation will replace the current descriptor
+        /// Synchronize a deployed application with the given application descriptor.
+        /// This operation will replace the
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_syncApplicationWithoutRestart(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// Update a deployed application with the given update application
-        /// descriptor only if no server restarts are necessary for the
-        /// update of the application.
-        /// If some servers need to be
-        /// restarted, the synchronization is rejected with a
-        /// DeploymentException.
-        ///
+        /// Update a deployed application with the given update application descriptor only if no server restarts are
+        ///  necessary for the update of the application.
+        /// If some servers need to be restarted, the synchronization is
+        ///  rejected with a DeploymentException.
         /// </summary>
-        /// <param name="descriptor">The update descriptor.
-        ///
-        /// </param>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't
-        /// hold the exclusive lock or if another session is holding the
-        /// lock.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if application deployment
-        /// failed.
-        ///
-        /// </exception>
-        /// <exception name="ApplicationNotExistException">Raised if the application
-        /// doesn't exist.</exception>
+        ///  <param name="descriptor">The update descriptor.
+        ///  </param>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
+        ///  holding the lock.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if application deployment failed.
+        ///  </exception>
+        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Update a deployed application with the given update application
-        /// descriptor only if no server restarts are necessary for the
-        /// update of the application.
-        /// If some servers need to be
+        /// Update a deployed application with the given update application descriptor only if no server restarts are
+        ///  necessary for the update of the application.
+        /// If some servers need to be restarted, the synchronization is
         /// </summary>
-        /// <param name="descriptor">The update descriptor.
-        ///
-        /// </param>
+        ///  <param name="descriptor">The update descriptor.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -3057,41 +2982,35 @@ namespace IceGrid
         global::System.Threading.Tasks.Task updateApplicationWithoutRestartAsync(ApplicationUpdateDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Update a deployed application with the given update application
-        /// descriptor only if no server restarts are necessary for the
-        /// update of the application.
-        /// If some servers need to be
+        /// Update a deployed application with the given update application descriptor only if no server restarts are
+        ///  necessary for the update of the application.
+        /// If some servers need to be restarted, the synchronization is
         /// </summary>
-        /// <param name="descriptor">The update descriptor.
-        ///
-        /// </param>
+        ///  <param name="descriptor">The update descriptor.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_updateApplicationWithoutRestart> begin_updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Update a deployed application with the given update application
-        /// descriptor only if no server restarts are necessary for the
-        /// update of the application.
-        /// If some servers need to be
+        /// Update a deployed application with the given update application descriptor only if no server restarts are
+        ///  necessary for the update of the application.
+        /// If some servers need to be restarted, the synchronization is
         /// </summary>
-        /// <param name="descriptor">The update descriptor.
-        ///
-        /// </param>
+        ///  <param name="descriptor">The update descriptor.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult begin_updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Update a deployed application with the given update application
-        /// descriptor only if no server restarts are necessary for the
-        /// update of the application.
-        /// If some servers need to be
+        /// Update a deployed application with the given update application descriptor only if no server restarts are
+        ///  necessary for the update of the application.
+        /// If some servers need to be restarted, the synchronization is
         /// </summary>
-        /// <param name="descriptor">The update descriptor.
-        ///
-        /// </param>
+        ///  <param name="descriptor">The update descriptor.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -3099,10 +3018,9 @@ namespace IceGrid
         global::Ice.AsyncResult begin_updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Update a deployed application with the given update application
-        /// descriptor only if no server restarts are necessary for the
-        /// update of the application.
-        /// If some servers need to be
+        /// Update a deployed application with the given update application descriptor only if no server restarts are
+        ///  necessary for the update of the application.
+        /// If some servers need to be restarted, the synchronization is
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_updateApplicationWithoutRestart(global::Ice.AsyncResult asyncResult);
@@ -3111,18 +3029,13 @@ namespace IceGrid
         /// Remove an application from IceGrid.
         /// </summary>
         /// <param name="name">The application name.
-        ///
-        /// </param>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't
-        /// hold the exclusive lock or if another session is holding the
-        /// lock.
-        ///
-        /// </exception>
+        ///  </param>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
+        ///  holding the lock.
+        ///  </exception>
         /// <exception name="DeploymentException">Raised if application deployment failed.
-        ///
-        /// </exception>
-        /// <exception name="ApplicationNotExistException">Raised if the application
-        /// doesn't exist.</exception>
+        ///  </exception>
+        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void removeApplication(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -3131,8 +3044,7 @@ namespace IceGrid
         /// Remove an application from IceGrid.
         /// </summary>
         /// <param name="name">The application name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -3143,8 +3055,7 @@ namespace IceGrid
         /// Remove an application from IceGrid.
         /// </summary>
         /// <param name="name">The application name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_removeApplication> begin_removeApplication(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -3153,8 +3064,7 @@ namespace IceGrid
         /// Remove an application from IceGrid.
         /// </summary>
         /// <param name="name">The application name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -3164,8 +3074,7 @@ namespace IceGrid
         /// Remove an application from IceGrid.
         /// </summary>
         /// <param name="name">The application name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -3179,48 +3088,33 @@ namespace IceGrid
         void end_removeApplication(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// Instantiate a server template from an application on the given
-        /// node.
+        /// Instantiate a server template from an application on the given node.
         /// </summary>
         /// <param name="application">The application name.
-        ///
-        /// </param>
-        /// <param name="node">The name of the node where the server will be
-        /// deployed.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="node">The name of the node where the server will be deployed.
+        ///  </param>
         /// <param name="desc">The descriptor of the server instance to deploy.
-        ///
-        /// </param>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't
-        /// hold the exclusive lock or if another session is holding the
-        /// lock.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if server instantiation
-        /// failed.
-        ///
-        /// </exception>
-        /// <exception name="ApplicationNotExistException">Raised if the application
-        /// doesn't exist.</exception>
+        ///  </param>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
+        ///  holding the lock.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if server instantiation failed.
+        ///  </exception>
+        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void instantiateServer(string application, string node, ServerInstanceDescriptor desc, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Instantiate a server template from an application on the given
-        /// node.
+        /// Instantiate a server template from an application on the given node.
         /// </summary>
         /// <param name="application">The application name.
-        ///
-        /// </param>
-        /// <param name="node">The name of the node where the server will be
-        /// deployed.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="node">The name of the node where the server will be deployed.
+        ///  </param>
         /// <param name="desc">The descriptor of the server instance to deploy.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -3228,56 +3122,41 @@ namespace IceGrid
         global::System.Threading.Tasks.Task instantiateServerAsync(string application, string node, ServerInstanceDescriptor desc, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Instantiate a server template from an application on the given
-        /// node.
+        /// Instantiate a server template from an application on the given node.
         /// </summary>
         /// <param name="application">The application name.
-        ///
-        /// </param>
-        /// <param name="node">The name of the node where the server will be
-        /// deployed.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="node">The name of the node where the server will be deployed.
+        ///  </param>
         /// <param name="desc">The descriptor of the server instance to deploy.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_instantiateServer> begin_instantiateServer(string application, string node, ServerInstanceDescriptor desc, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Instantiate a server template from an application on the given
-        /// node.
+        /// Instantiate a server template from an application on the given node.
         /// </summary>
         /// <param name="application">The application name.
-        ///
-        /// </param>
-        /// <param name="node">The name of the node where the server will be
-        /// deployed.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="node">The name of the node where the server will be deployed.
+        ///  </param>
         /// <param name="desc">The descriptor of the server instance to deploy.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult begin_instantiateServer(string application, string node, ServerInstanceDescriptor desc, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Instantiate a server template from an application on the given
-        /// node.
+        /// Instantiate a server template from an application on the given node.
         /// </summary>
         /// <param name="application">The application name.
-        ///
-        /// </param>
-        /// <param name="node">The name of the node where the server will be
-        /// deployed.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="node">The name of the node where the server will be deployed.
+        ///  </param>
         /// <param name="desc">The descriptor of the server instance to deploy.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -3285,8 +3164,7 @@ namespace IceGrid
         global::Ice.AsyncResult begin_instantiateServer(string application, string node, ServerInstanceDescriptor desc, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Instantiate a server template from an application on the given
-        /// node.
+        /// Instantiate a server template from an application on the given node.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_instantiateServer(global::Ice.AsyncResult asyncResult);
@@ -3295,16 +3173,11 @@ namespace IceGrid
         /// Patch the given application data.
         /// </summary>
         /// <param name="name">The application name.
-        ///
-        /// </param>
-        /// <param name="shutdown">If true, the servers depending on the data to
-        /// patch will be shut down if necessary.
-        ///
-        /// </param>
-        /// <exception name="ApplicationNotExistException">Raised if the application
-        /// doesn't exist.
-        ///
-        /// </exception>
+        ///  </param>
+        /// <param name="shutdown">If true, the servers depending on the data to patch will be shut down if necessary.
+        ///  </param>
+        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.
+        ///  </exception>
         /// <exception name="PatchException">Raised if the patch failed.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -3314,12 +3187,9 @@ namespace IceGrid
         /// Patch the given application data.
         /// </summary>
         /// <param name="name">The application name.
-        ///
-        /// </param>
-        /// <param name="shutdown">If true, the servers depending on the data to
-        /// patch will be shut down if necessary.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="shutdown">If true, the servers depending on the data to patch will be shut down if necessary.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -3330,12 +3200,9 @@ namespace IceGrid
         /// Patch the given application data.
         /// </summary>
         /// <param name="name">The application name.
-        ///
-        /// </param>
-        /// <param name="shutdown">If true, the servers depending on the data to
-        /// patch will be shut down if necessary.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="shutdown">If true, the servers depending on the data to patch will be shut down if necessary.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_patchApplication> begin_patchApplication(string name, bool shutdown, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -3344,12 +3211,9 @@ namespace IceGrid
         /// Patch the given application data.
         /// </summary>
         /// <param name="name">The application name.
-        ///
-        /// </param>
-        /// <param name="shutdown">If true, the servers depending on the data to
-        /// patch will be shut down if necessary.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="shutdown">If true, the servers depending on the data to patch will be shut down if necessary.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -3359,12 +3223,9 @@ namespace IceGrid
         /// Patch the given application data.
         /// </summary>
         /// <param name="name">The application name.
-        ///
-        /// </param>
-        /// <param name="shutdown">If true, the servers depending on the data to
-        /// patch will be shut down if necessary.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="shutdown">If true, the servers depending on the data to patch will be shut down if necessary.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -3381,13 +3242,10 @@ namespace IceGrid
         /// Get an application descriptor.
         /// </summary>
         /// <param name="name">The application name.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The application descriptor.
-        ///
-        /// </returns>
-        /// <exception name="ApplicationNotExistException">Raised if the application
-        /// doesn't exist.</exception>
+        ///  </returns>
+        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         ApplicationInfo getApplicationInfo(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -3396,8 +3254,7 @@ namespace IceGrid
         /// Get an application descriptor.
         /// </summary>
         /// <param name="name">The application name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -3408,8 +3265,7 @@ namespace IceGrid
         /// Get an application descriptor.
         /// </summary>
         /// <param name="name">The application name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_getApplicationInfo> begin_getApplicationInfo(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -3418,8 +3274,7 @@ namespace IceGrid
         /// Get an application descriptor.
         /// </summary>
         /// <param name="name">The application name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -3429,8 +3284,7 @@ namespace IceGrid
         /// Get an application descriptor.
         /// </summary>
         /// <param name="name">The application name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -3442,18 +3296,15 @@ namespace IceGrid
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The application descriptor.
-        ///
-        /// </returns>
+        ///  </returns>
         ApplicationInfo end_getApplicationInfo(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get the default application descriptor.
         /// </summary>
         /// <returns>The default application descriptor.
-        ///
-        /// </returns>
-        /// <exception name="DeploymentException">Raised if the default application
-        /// descriptor can't be accessed or is invalid.</exception>
+        ///  </returns>
+        /// <exception name="DeploymentException">Raised if the default application descriptor can't be accessed or is invalid.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         ApplicationDescriptor getDefaultApplicationDescriptor(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -3496,8 +3347,7 @@ namespace IceGrid
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The default application descriptor.
-        ///
-        /// </returns>
+        ///  </returns>
         ApplicationDescriptor end_getDefaultApplicationDescriptor(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
@@ -3552,11 +3402,9 @@ namespace IceGrid
         /// Get the server information for the server with the given id.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
-        ///
-        /// </exception>
+        ///  </exception>
         /// <returns>The server information.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -3566,8 +3414,7 @@ namespace IceGrid
         /// Get the server information for the server with the given id.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -3578,8 +3425,7 @@ namespace IceGrid
         /// Get the server information for the server with the given id.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_getServerInfo> begin_getServerInfo(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -3588,8 +3434,7 @@ namespace IceGrid
         /// Get the server information for the server with the given id.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -3599,8 +3444,7 @@ namespace IceGrid
         /// Get the server information for the server with the given id.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -3618,20 +3462,14 @@ namespace IceGrid
         /// Get a server's state.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The server state.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be
-        /// reached.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be
-        /// deployed on the node.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         ServerState getServerState(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -3640,8 +3478,7 @@ namespace IceGrid
         /// Get a server's state.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -3652,8 +3489,7 @@ namespace IceGrid
         /// Get a server's state.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_getServerState> begin_getServerState(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -3662,8 +3498,7 @@ namespace IceGrid
         /// Get a server's state.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -3673,8 +3508,7 @@ namespace IceGrid
         /// Get a server's state.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -3686,42 +3520,32 @@ namespace IceGrid
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The server state.
-        ///
-        /// </returns>
+        ///  </returns>
         ServerState end_getServerState(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get a server's system process id.
-        /// The process id is operating
-        /// system dependent.
-        ///
+        /// The process id is operating system dependent.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
         /// <returns>The server's process id.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be
-        /// reached.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be
-        /// deployed on the node.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         int getServerPid(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Get a server's system process id.
-        /// The process id is operating
+        /// The process id is operating system dependent.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -3730,22 +3554,20 @@ namespace IceGrid
 
         /// <summary>
         /// Get a server's system process id.
-        /// The process id is operating
+        /// The process id is operating system dependent.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_getServerPid> begin_getServerPid(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Get a server's system process id.
-        /// The process id is operating
+        /// The process id is operating system dependent.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -3753,11 +3575,10 @@ namespace IceGrid
 
         /// <summary>
         /// Get a server's system process id.
-        /// The process id is operating
+        /// The process id is operating system dependent.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -3766,29 +3587,26 @@ namespace IceGrid
 
         /// <summary>
         /// Get a server's system process id.
-        /// The process id is operating
+        /// The process id is operating system dependent.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The server's process id.
-        ///
-        /// </returns>
+        ///  </returns>
         int end_getServerPid(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get the category for server admin objects.
-        /// You can manufacture a server admin
-        /// proxy from the admin proxy by changing its identity: use the server ID as name
-        /// and the returned category as category.
-        ///
+        /// You can manufacture a server admin proxy from the admin proxy by
+        ///  changing its identity: use the server ID as name and the returned category as category.
         /// </summary>
-        /// <returns>The category for server admin objects.</returns>
+        ///  <returns>The category for server admin objects.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         string getServerAdminCategory(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Get the category for server admin objects.
-        /// You can manufacture a server admin
+        /// You can manufacture a server admin proxy from the admin proxy by
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -3798,7 +3616,7 @@ namespace IceGrid
 
         /// <summary>
         /// Get the category for server admin objects.
-        /// You can manufacture a server admin
+        /// You can manufacture a server admin proxy from the admin proxy by
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -3806,7 +3624,7 @@ namespace IceGrid
 
         /// <summary>
         /// Get the category for server admin objects.
-        /// You can manufacture a server admin
+        /// You can manufacture a server admin proxy from the admin proxy by
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -3815,7 +3633,7 @@ namespace IceGrid
 
         /// <summary>
         /// Get the category for server admin objects.
-        /// You can manufacture a server admin
+        /// You can manufacture a server admin proxy from the admin proxy by
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -3825,7 +3643,7 @@ namespace IceGrid
 
         /// <summary>
         /// Get the category for server admin objects.
-        /// You can manufacture a server admin
+        /// You can manufacture a server admin proxy from the admin proxy by
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The category for server admin objects.</returns>
@@ -3835,20 +3653,14 @@ namespace IceGrid
         /// Get a proxy to the server's admin object.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>A proxy to the server's admin object
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not
-        /// be reached.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be
-        /// deployed on the node.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         global::Ice.ObjectPrx getServerAdmin(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -3857,8 +3669,7 @@ namespace IceGrid
         /// Get a proxy to the server's admin object.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -3869,8 +3680,7 @@ namespace IceGrid
         /// Get a proxy to the server's admin object.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_getServerAdmin> begin_getServerAdmin(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -3879,8 +3689,7 @@ namespace IceGrid
         /// Get a proxy to the server's admin object.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -3890,8 +3699,7 @@ namespace IceGrid
         /// Get a proxy to the server's admin object.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -3903,47 +3711,35 @@ namespace IceGrid
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>A proxy to the server's admin object
-        ///
-        /// </returns>
+        ///  </returns>
         global::Ice.ObjectPrx end_getServerAdmin(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Enable or disable a server.
-        /// A disabled server can't be started
-        /// on demand or administratively. The enable state of the server
-        /// is not persistent: if the node is shut down and restarted, the
-        /// server will be enabled by default.
-        ///
+        /// A disabled server can't be started on demand or administratively. The enable state
+        ///  of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
         /// <param name="enabled">True to enable the server, false to disable it.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not
-        /// be reached.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be
-        /// deployed on the node.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void enableServer(string id, bool enabled, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Enable or disable a server.
-        /// A disabled server can't be started
+        /// A disabled server can't be started on demand or administratively. The enable state
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
         /// <param name="enabled">True to enable the server, false to disable it.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -3952,28 +3748,24 @@ namespace IceGrid
 
         /// <summary>
         /// Enable or disable a server.
-        /// A disabled server can't be started
+        /// A disabled server can't be started on demand or administratively. The enable state
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
         /// <param name="enabled">True to enable the server, false to disable it.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_enableServer> begin_enableServer(string id, bool enabled, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Enable or disable a server.
-        /// A disabled server can't be started
+        /// A disabled server can't be started on demand or administratively. The enable state
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
         /// <param name="enabled">True to enable the server, false to disable it.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -3981,14 +3773,12 @@ namespace IceGrid
 
         /// <summary>
         /// Enable or disable a server.
-        /// A disabled server can't be started
+        /// A disabled server can't be started on demand or administratively. The enable state
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
         /// <param name="enabled">True to enable the server, false to disable it.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -3997,7 +3787,7 @@ namespace IceGrid
 
         /// <summary>
         /// Enable or disable a server.
-        /// A disabled server can't be started
+        /// A disabled server can't be started on demand or administratively. The enable state
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_enableServer(global::Ice.AsyncResult asyncResult);
@@ -4006,21 +3796,14 @@ namespace IceGrid
         /// Check if the server is enabled or disabled.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>True if the server is enabled.
-        ///
-        /// </returns>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't
-        /// exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not
-        /// be reached.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be
-        /// deployed on the node.</exception>
+        ///  </returns>
+        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         bool isServerEnabled(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -4029,8 +3812,7 @@ namespace IceGrid
         /// Check if the server is enabled or disabled.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -4041,8 +3823,7 @@ namespace IceGrid
         /// Check if the server is enabled or disabled.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_isServerEnabled> begin_isServerEnabled(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -4051,8 +3832,7 @@ namespace IceGrid
         /// Check if the server is enabled or disabled.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -4062,8 +3842,7 @@ namespace IceGrid
         /// Check if the server is enabled or disabled.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -4075,30 +3854,21 @@ namespace IceGrid
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>True if the server is enabled.
-        ///
-        /// </returns>
+        ///  </returns>
         bool end_isServerEnabled(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Start a server and wait for its activation.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't
-        /// exist.
-        ///
-        /// </exception>
-        /// <exception name="ServerStartException">Raised if the server couldn't be
-        /// started.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not
-        /// be reached.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be
-        /// deployed on the node.</exception>
+        ///  </param>
+        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
+        ///  </exception>
+        /// <exception name="ServerStartException">Raised if the server couldn't be started.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void startServer(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -4107,8 +3877,7 @@ namespace IceGrid
         /// Start a server and wait for its activation.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -4119,8 +3888,7 @@ namespace IceGrid
         /// Start a server and wait for its activation.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_startServer> begin_startServer(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -4129,8 +3897,7 @@ namespace IceGrid
         /// Start a server and wait for its activation.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -4140,8 +3907,7 @@ namespace IceGrid
         /// Start a server and wait for its activation.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -4158,22 +3924,14 @@ namespace IceGrid
         /// Stop a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't
-        /// exist.
-        ///
-        /// </exception>
-        /// <exception name="ServerStopException">Raised if the server couldn't be
-        /// stopped.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be
-        /// reached.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be
-        /// deployed on the node.</exception>
+        ///  </param>
+        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
+        ///  </exception>
+        /// <exception name="ServerStopException">Raised if the server couldn't be stopped.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void stopServer(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -4182,8 +3940,7 @@ namespace IceGrid
         /// Stop a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -4194,8 +3951,7 @@ namespace IceGrid
         /// Stop a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_stopServer> begin_stopServer(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -4204,8 +3960,7 @@ namespace IceGrid
         /// Stop a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -4215,8 +3970,7 @@ namespace IceGrid
         /// Stop a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -4233,24 +3987,15 @@ namespace IceGrid
         /// Patch a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="shutdown">If true, servers depending on the data to patch
-        /// will be shut down if necessary.
-        ///
-        /// </param>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't
-        /// exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be
-        /// reached.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be
-        /// deployed on the node.
-        ///
-        /// </exception>
+        ///  </param>
+        /// <param name="shutdown">If true, servers depending on the data to patch will be shut down if necessary.
+        ///  </param>
+        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.
+        ///  </exception>
         /// <exception name="PatchException">Raised if the patch failed.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -4260,12 +4005,9 @@ namespace IceGrid
         /// Patch a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="shutdown">If true, servers depending on the data to patch
-        /// will be shut down if necessary.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="shutdown">If true, servers depending on the data to patch will be shut down if necessary.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -4276,12 +4018,9 @@ namespace IceGrid
         /// Patch a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="shutdown">If true, servers depending on the data to patch
-        /// will be shut down if necessary.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="shutdown">If true, servers depending on the data to patch will be shut down if necessary.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_patchServer> begin_patchServer(string id, bool shutdown, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -4290,12 +4029,9 @@ namespace IceGrid
         /// Patch a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="shutdown">If true, servers depending on the data to patch
-        /// will be shut down if necessary.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="shutdown">If true, servers depending on the data to patch will be shut down if necessary.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -4305,12 +4041,9 @@ namespace IceGrid
         /// Patch a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="shutdown">If true, servers depending on the data to patch
-        /// will be shut down if necessary.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="shutdown">If true, servers depending on the data to patch will be shut down if necessary.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -4327,25 +4060,16 @@ namespace IceGrid
         /// Send signal to a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="signal">The signal, for example SIGTERM or 15.
-        ///
-        /// </param>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't
-        /// exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be
-        /// reached.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be
-        /// deployed on the node.
-        ///
-        /// </exception>
-        /// <exception name="BadSignalException">Raised if the signal is not recognized
-        /// by the target server.</exception>
+        ///  </param>
+        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.
+        ///  </exception>
+        /// <exception name="BadSignalException">Raised if the signal is not recognized by the target server.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void sendSignal(string id, string signal, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -4354,11 +4078,9 @@ namespace IceGrid
         /// Send signal to a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="signal">The signal, for example SIGTERM or 15.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -4369,11 +4091,9 @@ namespace IceGrid
         /// Send signal to a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="signal">The signal, for example SIGTERM or 15.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_sendSignal> begin_sendSignal(string id, string signal, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -4382,11 +4102,9 @@ namespace IceGrid
         /// Send signal to a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="signal">The signal, for example SIGTERM or 15.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -4396,11 +4114,9 @@ namespace IceGrid
         /// Send signal to a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="signal">The signal, for example SIGTERM or 15.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -4462,32 +4178,24 @@ namespace IceGrid
         string[] end_getAllServerIds(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// Get the adapter information for the replica group or adapter
-        /// with the given id.
+        /// Get the adapter information for the replica group or adapter with the given id.
         /// </summary>
         /// <param name="id">The adapter id.
-        ///
-        /// </param>
-        /// <returns>A sequence of adapter information structures. If the
-        /// given id refers to an adapter, this sequence will contain only
-        /// one element. If the given id refers to a replica group, the
-        /// sequence will contain the adapter information of each member of
-        /// the replica group.
-        ///
-        /// </returns>
-        /// <exception name="AdapterNotExistException">Raised if the adapter or
-        /// replica group doesn't exist.</exception>
+        ///  </param>
+        /// <returns>A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
+        ///  contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
+        ///  information of each member of the replica group.
+        ///  </returns>
+        /// <exception name="AdapterNotExistException">Raised if the adapter or replica group doesn't exist.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         AdapterInfo[] getAdapterInfo(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Get the adapter information for the replica group or adapter
-        /// with the given id.
+        /// Get the adapter information for the replica group or adapter with the given id.
         /// </summary>
         /// <param name="id">The adapter id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -4495,35 +4203,29 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<AdapterInfo[]> getAdapterInfoAsync(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the adapter information for the replica group or adapter
-        /// with the given id.
+        /// Get the adapter information for the replica group or adapter with the given id.
         /// </summary>
         /// <param name="id">The adapter id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_getAdapterInfo> begin_getAdapterInfo(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Get the adapter information for the replica group or adapter
-        /// with the given id.
+        /// Get the adapter information for the replica group or adapter with the given id.
         /// </summary>
         /// <param name="id">The adapter id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult begin_getAdapterInfo(string id, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Get the adapter information for the replica group or adapter
-        /// with the given id.
+        /// Get the adapter information for the replica group or adapter with the given id.
         /// </summary>
         /// <param name="id">The adapter id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -4531,28 +4233,22 @@ namespace IceGrid
         global::Ice.AsyncResult begin_getAdapterInfo(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Get the adapter information for the replica group or adapter
-        /// with the given id.
+        /// Get the adapter information for the replica group or adapter with the given id.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A sequence of adapter information structures. If the
-        /// given id refers to an adapter, this sequence will contain only
-        /// one element. If the given id refers to a replica group, the
-        /// sequence will contain the adapter information of each member of
-        /// the replica group.
-        ///
-        /// </returns>
+        /// <returns>A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
+        ///  contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
+        ///  information of each member of the replica group.
+        ///  </returns>
         AdapterInfo[] end_getAdapterInfo(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Remove the adapter with the given id.
         /// </summary>
         /// <param name="id">The adapter id.
-        /// </param>
-        /// <exception name="AdapterNotExistException">Raised if the adapter doesn't
-        /// exist.
-        ///
-        /// </exception>
+        ///  </param>
+        /// <exception name="AdapterNotExistException">Raised if the adapter doesn't exist.
+        ///  </exception>
         /// <exception name="DeploymentException">Raised if application deployment failed.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -4562,7 +4258,7 @@ namespace IceGrid
         /// Remove the adapter with the given id.
         /// </summary>
         /// <param name="id">The adapter id.
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -4573,7 +4269,7 @@ namespace IceGrid
         /// Remove the adapter with the given id.
         /// </summary>
         /// <param name="id">The adapter id.
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_removeAdapter> begin_removeAdapter(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -4582,7 +4278,7 @@ namespace IceGrid
         /// Remove the adapter with the given id.
         /// </summary>
         /// <param name="id">The adapter id.
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -4592,7 +4288,7 @@ namespace IceGrid
         /// Remove the adapter with the given id.
         /// </summary>
         /// <param name="id">The adapter id.
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -4655,32 +4351,25 @@ namespace IceGrid
 
         /// <summary>
         /// Add an object to the object registry.
-        /// IceGrid will get the
-        /// object type by calling ice_id on the given proxy. The object
-        /// must be reachable.
-        ///
+        /// IceGrid will get the object type by calling ice_id on the
+        ///  given proxy. The object must be reachable.
         /// </summary>
-        /// <param name="obj">The object to be added to the registry.
-        ///
-        /// </param>
-        /// <exception name="ObjectExistsException">Raised if the object is already
-        /// registered.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the object can't be
-        /// added. This might be raised if the invocation on the proxy to
-        /// get the object type failed.</exception>
+        ///  <param name="obj">The object to be added to the registry.
+        ///  </param>
+        /// <exception name="ObjectExistsException">Raised if the object is already registered.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the object can't be added. This might be raised if the invocation on the
+        ///  proxy to get the object type failed.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void addObject(global::Ice.ObjectPrx obj, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Add an object to the object registry.
-        /// IceGrid will get the
+        /// IceGrid will get the object type by calling ice_id on the
         /// </summary>
-        /// <param name="obj">The object to be added to the registry.
-        ///
-        /// </param>
+        ///  <param name="obj">The object to be added to the registry.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -4689,22 +4378,20 @@ namespace IceGrid
 
         /// <summary>
         /// Add an object to the object registry.
-        /// IceGrid will get the
+        /// IceGrid will get the object type by calling ice_id on the
         /// </summary>
-        /// <param name="obj">The object to be added to the registry.
-        ///
-        /// </param>
+        ///  <param name="obj">The object to be added to the registry.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_addObject> begin_addObject(global::Ice.ObjectPrx obj, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Add an object to the object registry.
-        /// IceGrid will get the
+        /// IceGrid will get the object type by calling ice_id on the
         /// </summary>
-        /// <param name="obj">The object to be added to the registry.
-        ///
-        /// </param>
+        ///  <param name="obj">The object to be added to the registry.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -4712,11 +4399,10 @@ namespace IceGrid
 
         /// <summary>
         /// Add an object to the object registry.
-        /// IceGrid will get the
+        /// IceGrid will get the object type by calling ice_id on the
         /// </summary>
-        /// <param name="obj">The object to be added to the registry.
-        ///
-        /// </param>
+        ///  <param name="obj">The object to be added to the registry.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -4725,40 +4411,32 @@ namespace IceGrid
 
         /// <summary>
         /// Add an object to the object registry.
-        /// IceGrid will get the
+        /// IceGrid will get the object type by calling ice_id on the
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_addObject(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Update an object in the object registry.
-        /// Only objects added
-        /// with this interface can be updated with this operation. Objects
-        /// added with deployment descriptors should be updated with the
-        /// deployment mechanism.
-        ///
+        /// Only objects added with this interface can be updated with this
+        ///  operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
         /// </summary>
-        /// <param name="obj">The object to be updated to the registry.
-        ///
-        /// </param>
-        /// <exception name="ObjectNotRegisteredException">Raised if the object isn't
-        /// registered with the registry.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the object can't be
-        /// updated. This might happen if the object was added with a
-        /// deployment descriptor.</exception>
+        ///  <param name="obj">The object to be updated to the registry.
+        ///  </param>
+        /// <exception name="ObjectNotRegisteredException">Raised if the object isn't registered with the registry.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the object can't be updated. This might happen if the object was added
+        ///  with a deployment descriptor.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void updateObject(global::Ice.ObjectPrx obj, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Update an object in the object registry.
-        /// Only objects added
+        /// Only objects added with this interface can be updated with this
         /// </summary>
-        /// <param name="obj">The object to be updated to the registry.
-        ///
-        /// </param>
+        ///  <param name="obj">The object to be updated to the registry.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -4767,22 +4445,20 @@ namespace IceGrid
 
         /// <summary>
         /// Update an object in the object registry.
-        /// Only objects added
+        /// Only objects added with this interface can be updated with this
         /// </summary>
-        /// <param name="obj">The object to be updated to the registry.
-        ///
-        /// </param>
+        ///  <param name="obj">The object to be updated to the registry.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_updateObject> begin_updateObject(global::Ice.ObjectPrx obj, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Update an object in the object registry.
-        /// Only objects added
+        /// Only objects added with this interface can be updated with this
         /// </summary>
-        /// <param name="obj">The object to be updated to the registry.
-        ///
-        /// </param>
+        ///  <param name="obj">The object to be updated to the registry.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -4790,11 +4466,10 @@ namespace IceGrid
 
         /// <summary>
         /// Update an object in the object registry.
-        /// Only objects added
+        /// Only objects added with this interface can be updated with this
         /// </summary>
-        /// <param name="obj">The object to be updated to the registry.
-        ///
-        /// </param>
+        ///  <param name="obj">The object to be updated to the registry.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -4803,40 +4478,32 @@ namespace IceGrid
 
         /// <summary>
         /// Update an object in the object registry.
-        /// Only objects added
+        /// Only objects added with this interface can be updated with this
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_updateObject(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// Add an object to the object registry and explicitly specify
-        /// its type.
+        /// Add an object to the object registry and explicitly specify its type.
         /// </summary>
         /// <param name="obj">The object to be added to the registry.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="type">The object type.
-        ///
-        /// </param>
-        /// <exception name="ObjectExistsException">Raised if the object is already
-        /// registered.
-        ///
-        /// </exception>
+        ///  </param>
+        /// <exception name="ObjectExistsException">Raised if the object is already registered.
+        ///  </exception>
         /// <exception name="DeploymentException">Raised if application deployment failed.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void addObjectWithType(global::Ice.ObjectPrx obj, string type, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Add an object to the object registry and explicitly specify
-        /// its type.
+        /// Add an object to the object registry and explicitly specify its type.
         /// </summary>
         /// <param name="obj">The object to be added to the registry.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="type">The object type.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -4844,44 +4511,35 @@ namespace IceGrid
         global::System.Threading.Tasks.Task addObjectWithTypeAsync(global::Ice.ObjectPrx obj, string type, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Add an object to the object registry and explicitly specify
-        /// its type.
+        /// Add an object to the object registry and explicitly specify its type.
         /// </summary>
         /// <param name="obj">The object to be added to the registry.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="type">The object type.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_addObjectWithType> begin_addObjectWithType(global::Ice.ObjectPrx obj, string type, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Add an object to the object registry and explicitly specify
-        /// its type.
+        /// Add an object to the object registry and explicitly specify its type.
         /// </summary>
         /// <param name="obj">The object to be added to the registry.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="type">The object type.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult begin_addObjectWithType(global::Ice.ObjectPrx obj, string type, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Add an object to the object registry and explicitly specify
-        /// its type.
+        /// Add an object to the object registry and explicitly specify its type.
         /// </summary>
         /// <param name="obj">The object to be added to the registry.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="type">The object type.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -4889,43 +4547,32 @@ namespace IceGrid
         global::Ice.AsyncResult begin_addObjectWithType(global::Ice.ObjectPrx obj, string type, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Add an object to the object registry and explicitly specify
-        /// its type.
+        /// Add an object to the object registry and explicitly specify its type.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_addObjectWithType(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Remove an object from the object registry.
-        /// Only objects added
-        /// with this interface can be removed with this operation. Objects
-        /// added with deployment descriptors should be removed with the
-        /// deployment mechanism.
-        ///
+        /// Only objects added with this interface can be removed with this
+        ///  operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
         /// </summary>
-        /// <param name="id">The identity of the object to be removed from the
-        /// registry.
-        ///
-        /// </param>
-        /// <exception name="ObjectNotRegisteredException">Raised if the object isn't
-        /// registered with the registry.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the object can't be
-        /// removed. This might happen if the object was added with a
-        /// deployment descriptor.</exception>
+        ///  <param name="id">The identity of the object to be removed from the registry.
+        ///  </param>
+        /// <exception name="ObjectNotRegisteredException">Raised if the object isn't registered with the registry.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the object can't be removed. This might happen if the object was added
+        ///  with a deployment descriptor.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void removeObject(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Remove an object from the object registry.
-        /// Only objects added
+        /// Only objects added with this interface can be removed with this
         /// </summary>
-        /// <param name="id">The identity of the object to be removed from the
-        /// registry.
-        ///
-        /// </param>
+        ///  <param name="id">The identity of the object to be removed from the registry.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -4934,24 +4581,20 @@ namespace IceGrid
 
         /// <summary>
         /// Remove an object from the object registry.
-        /// Only objects added
+        /// Only objects added with this interface can be removed with this
         /// </summary>
-        /// <param name="id">The identity of the object to be removed from the
-        /// registry.
-        ///
-        /// </param>
+        ///  <param name="id">The identity of the object to be removed from the registry.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_removeObject> begin_removeObject(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Remove an object from the object registry.
-        /// Only objects added
+        /// Only objects added with this interface can be removed with this
         /// </summary>
-        /// <param name="id">The identity of the object to be removed from the
-        /// registry.
-        ///
-        /// </param>
+        ///  <param name="id">The identity of the object to be removed from the registry.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -4959,12 +4602,10 @@ namespace IceGrid
 
         /// <summary>
         /// Remove an object from the object registry.
-        /// Only objects added
+        /// Only objects added with this interface can be removed with this
         /// </summary>
-        /// <param name="id">The identity of the object to be removed from the
-        /// registry.
-        ///
-        /// </param>
+        ///  <param name="id">The identity of the object to be removed from the registry.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -4973,7 +4614,7 @@ namespace IceGrid
 
         /// <summary>
         /// Remove an object from the object registry.
-        /// Only objects added
+        /// Only objects added with this interface can be removed with this
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_removeObject(global::Ice.AsyncResult asyncResult);
@@ -4982,13 +4623,10 @@ namespace IceGrid
         /// Get the object info for the object with the given identity.
         /// </summary>
         /// <param name="id">The identity of the object.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The object info.
-        ///
-        /// </returns>
-        /// <exception name="ObjectNotRegisteredException">Raised if the object isn't
-        /// registered with the registry.</exception>
+        ///  </returns>
+        /// <exception name="ObjectNotRegisteredException">Raised if the object isn't registered with the registry.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         ObjectInfo getObjectInfo(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -4997,8 +4635,7 @@ namespace IceGrid
         /// Get the object info for the object with the given identity.
         /// </summary>
         /// <param name="id">The identity of the object.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -5009,8 +4646,7 @@ namespace IceGrid
         /// Get the object info for the object with the given identity.
         /// </summary>
         /// <param name="id">The identity of the object.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_getObjectInfo> begin_getObjectInfo(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -5019,8 +4655,7 @@ namespace IceGrid
         /// Get the object info for the object with the given identity.
         /// </summary>
         /// <param name="id">The identity of the object.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -5030,8 +4665,7 @@ namespace IceGrid
         /// Get the object info for the object with the given identity.
         /// </summary>
         /// <param name="id">The identity of the object.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -5043,29 +4677,24 @@ namespace IceGrid
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The object info.
-        ///
-        /// </returns>
+        ///  </returns>
         ObjectInfo end_getObjectInfo(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// Get the object info of all the registered objects with the
-        /// given type.
+        /// Get the object info of all the registered objects with the given type.
         /// </summary>
         /// <param name="type">The type of the object.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The object infos.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         ObjectInfo[] getObjectInfosByType(string type, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Get the object info of all the registered objects with the
-        /// given type.
+        /// Get the object info of all the registered objects with the given type.
         /// </summary>
         /// <param name="type">The type of the object.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -5073,35 +4702,29 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<ObjectInfo[]> getObjectInfosByTypeAsync(string type, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the object info of all the registered objects with the
-        /// given type.
+        /// Get the object info of all the registered objects with the given type.
         /// </summary>
         /// <param name="type">The type of the object.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_getObjectInfosByType> begin_getObjectInfosByType(string type, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Get the object info of all the registered objects with the
-        /// given type.
+        /// Get the object info of all the registered objects with the given type.
         /// </summary>
         /// <param name="type">The type of the object.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult begin_getObjectInfosByType(string type, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Get the object info of all the registered objects with the
-        /// given type.
+        /// Get the object info of all the registered objects with the given type.
         /// </summary>
         /// <param name="type">The type of the object.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -5109,37 +4732,29 @@ namespace IceGrid
         global::Ice.AsyncResult begin_getObjectInfosByType(string type, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Get the object info of all the registered objects with the
-        /// given type.
+        /// Get the object info of all the registered objects with the given type.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The object infos.</returns>
         ObjectInfo[] end_getObjectInfosByType(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// Get the object info of all the registered objects whose stringified
-        /// identities match the given expression.
+        /// Get the object info of all the registered objects whose stringified identities match the given expression.
         /// </summary>
-        /// <param name="expr">The expression to match against the stringified
-        /// identities of registered objects. The expression may contain
-        /// a trailing wildcard (*) character.
-        ///
-        /// </param>
-        /// <returns>All the object infos with a stringified identity
-        /// matching the given expression.</returns>
+        /// <param name="expr">The expression to match against the stringified identities of registered objects. The expression
+        ///  may contain a trailing wildcard (*) character.
+        ///  </param>
+        /// <returns>All the object infos with a stringified identity matching the given expression.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         ObjectInfo[] getAllObjectInfos(string expr, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Get the object info of all the registered objects whose stringified
-        /// identities match the given expression.
+        /// Get the object info of all the registered objects whose stringified identities match the given expression.
         /// </summary>
-        /// <param name="expr">The expression to match against the stringified
-        /// identities of registered objects. The expression may contain
-        /// a trailing wildcard (*) character.
-        ///
-        /// </param>
+        /// <param name="expr">The expression to match against the stringified identities of registered objects. The expression
+        ///  may contain a trailing wildcard (*) character.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -5147,41 +4762,32 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<ObjectInfo[]> getAllObjectInfosAsync(string expr, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the object info of all the registered objects whose stringified
-        /// identities match the given expression.
+        /// Get the object info of all the registered objects whose stringified identities match the given expression.
         /// </summary>
-        /// <param name="expr">The expression to match against the stringified
-        /// identities of registered objects. The expression may contain
-        /// a trailing wildcard (*) character.
-        ///
-        /// </param>
+        /// <param name="expr">The expression to match against the stringified identities of registered objects. The expression
+        ///  may contain a trailing wildcard (*) character.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_getAllObjectInfos> begin_getAllObjectInfos(string expr, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Get the object info of all the registered objects whose stringified
-        /// identities match the given expression.
+        /// Get the object info of all the registered objects whose stringified identities match the given expression.
         /// </summary>
-        /// <param name="expr">The expression to match against the stringified
-        /// identities of registered objects. The expression may contain
-        /// a trailing wildcard (*) character.
-        ///
-        /// </param>
+        /// <param name="expr">The expression to match against the stringified identities of registered objects. The expression
+        ///  may contain a trailing wildcard (*) character.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult begin_getAllObjectInfos(string expr, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Get the object info of all the registered objects whose stringified
-        /// identities match the given expression.
+        /// Get the object info of all the registered objects whose stringified identities match the given expression.
         /// </summary>
-        /// <param name="expr">The expression to match against the stringified
-        /// identities of registered objects. The expression may contain
-        /// a trailing wildcard (*) character.
-        ///
-        /// </param>
+        /// <param name="expr">The expression to match against the stringified identities of registered objects. The expression
+        ///  may contain a trailing wildcard (*) character.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -5189,23 +4795,19 @@ namespace IceGrid
         global::Ice.AsyncResult begin_getAllObjectInfos(string expr, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Get the object info of all the registered objects whose stringified
-        /// identities match the given expression.
+        /// Get the object info of all the registered objects whose stringified identities match the given expression.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>All the object infos with a stringified identity
-        /// matching the given expression.</returns>
+        /// <returns>All the object infos with a stringified identity matching the given expression.</returns>
         ObjectInfo[] end_getAllObjectInfos(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Ping an IceGrid node to see if it is active.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>true if the node ping succeeded, false otherwise.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -5215,8 +4817,7 @@ namespace IceGrid
         /// Ping an IceGrid node to see if it is active.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -5227,8 +4828,7 @@ namespace IceGrid
         /// Ping an IceGrid node to see if it is active.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_pingNode> begin_pingNode(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -5237,8 +4837,7 @@ namespace IceGrid
         /// Ping an IceGrid node to see if it is active.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -5248,8 +4847,7 @@ namespace IceGrid
         /// Ping an IceGrid node to see if it is active.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -5261,24 +4859,19 @@ namespace IceGrid
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>true if the node ping succeeded, false otherwise.
-        ///
-        /// </returns>
+        ///  </returns>
         bool end_pingNode(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get the load averages of the node.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The node load information.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be
-        /// reached.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         LoadInfo getNodeLoad(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -5287,8 +4880,7 @@ namespace IceGrid
         /// Get the load averages of the node.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -5299,8 +4891,7 @@ namespace IceGrid
         /// Get the load averages of the node.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_getNodeLoad> begin_getNodeLoad(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -5309,8 +4900,7 @@ namespace IceGrid
         /// Get the load averages of the node.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -5320,8 +4910,7 @@ namespace IceGrid
         /// Get the load averages of the node.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -5333,24 +4922,19 @@ namespace IceGrid
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The node load information.
-        ///
-        /// </returns>
+        ///  </returns>
         LoadInfo end_getNodeLoad(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get the node information for the node with the given name.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The node information.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be
-        /// reached.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         NodeInfo getNodeInfo(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -5359,8 +4943,7 @@ namespace IceGrid
         /// Get the node information for the node with the given name.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -5371,8 +4954,7 @@ namespace IceGrid
         /// Get the node information for the node with the given name.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_getNodeInfo> begin_getNodeInfo(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -5381,8 +4963,7 @@ namespace IceGrid
         /// Get the node information for the node with the given name.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -5392,8 +4973,7 @@ namespace IceGrid
         /// Get the node information for the node with the given name.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -5405,24 +4985,19 @@ namespace IceGrid
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The node information.
-        ///
-        /// </returns>
+        ///  </returns>
         NodeInfo end_getNodeInfo(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get a proxy to the IceGrid node's admin object.
         /// </summary>
         /// <param name="name">The IceGrid node name
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>A proxy to the IceGrid node's admin object
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be
-        /// reached.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         global::Ice.ObjectPrx getNodeAdmin(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -5431,8 +5006,7 @@ namespace IceGrid
         /// Get a proxy to the IceGrid node's admin object.
         /// </summary>
         /// <param name="name">The IceGrid node name
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -5443,8 +5017,7 @@ namespace IceGrid
         /// Get a proxy to the IceGrid node's admin object.
         /// </summary>
         /// <param name="name">The IceGrid node name
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_getNodeAdmin> begin_getNodeAdmin(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -5453,8 +5026,7 @@ namespace IceGrid
         /// Get a proxy to the IceGrid node's admin object.
         /// </summary>
         /// <param name="name">The IceGrid node name
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -5464,8 +5036,7 @@ namespace IceGrid
         /// Get a proxy to the IceGrid node's admin object.
         /// </summary>
         /// <param name="name">The IceGrid node name
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -5477,43 +5048,31 @@ namespace IceGrid
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>A proxy to the IceGrid node's admin object
-        ///
-        /// </returns>
+        ///  </returns>
         global::Ice.ObjectPrx end_getNodeAdmin(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// Get the number of physical processor sockets for the machine
-        /// running the node with the given name.
-        /// Note that this method will return 1 on operating systems where
-        /// this can't be automatically determined and where the
-        /// IceGrid.Node.ProcessorSocketCount property for the node is not
-        /// set.
-        ///
+        /// Get the number of physical processor sockets for the machine running the node with the given name.
+        /// Note that this method will return 1 on operating systems where this can't be automatically determined and where
+        ///  the IceGrid.Node.ProcessorSocketCount property for the node is not set.
         /// </summary>
-        /// <param name="name">The node name.
-        ///
-        /// </param>
-        /// <returns>The number of processor sockets or 1 if the number of
-        /// sockets can't determined.
-        ///
-        /// </returns>
+        ///  <param name="name">The node name.
+        ///  </param>
+        /// <returns>The number of processor sockets or 1 if the number of sockets can't determined.
+        ///  </returns>
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be
-        /// reached.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         int getNodeProcessorSocketCount(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Get the number of physical processor sockets for the machine
-        /// running the node with the given name.
-        /// Note that this method will return 1 on operating systems where
+        /// Get the number of physical processor sockets for the machine running the node with the given name.
+        /// Note that this method will return 1 on operating systems where this can't be automatically determined and where
         /// </summary>
-        /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  <param name="name">The node name.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -5521,38 +5080,32 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<int> getNodeProcessorSocketCountAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the number of physical processor sockets for the machine
-        /// running the node with the given name.
-        /// Note that this method will return 1 on operating systems where
+        /// Get the number of physical processor sockets for the machine running the node with the given name.
+        /// Note that this method will return 1 on operating systems where this can't be automatically determined and where
         /// </summary>
-        /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  <param name="name">The node name.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_getNodeProcessorSocketCount> begin_getNodeProcessorSocketCount(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Get the number of physical processor sockets for the machine
-        /// running the node with the given name.
-        /// Note that this method will return 1 on operating systems where
+        /// Get the number of physical processor sockets for the machine running the node with the given name.
+        /// Note that this method will return 1 on operating systems where this can't be automatically determined and where
         /// </summary>
-        /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  <param name="name">The node name.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult begin_getNodeProcessorSocketCount(string name, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Get the number of physical processor sockets for the machine
-        /// running the node with the given name.
-        /// Note that this method will return 1 on operating systems where
+        /// Get the number of physical processor sockets for the machine running the node with the given name.
+        /// Note that this method will return 1 on operating systems where this can't be automatically determined and where
         /// </summary>
-        /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  <param name="name">The node name.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -5560,28 +5113,22 @@ namespace IceGrid
         global::Ice.AsyncResult begin_getNodeProcessorSocketCount(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Get the number of physical processor sockets for the machine
-        /// running the node with the given name.
-        /// Note that this method will return 1 on operating systems where
+        /// Get the number of physical processor sockets for the machine running the node with the given name.
+        /// Note that this method will return 1 on operating systems where this can't be automatically determined and where
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The number of processor sockets or 1 if the number of
-        /// sockets can't determined.
-        ///
-        /// </returns>
+        /// <returns>The number of processor sockets or 1 if the number of sockets can't determined.
+        ///  </returns>
         int end_getNodeProcessorSocketCount(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Shutdown an IceGrid node.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be
-        /// reached.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void shutdownNode(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -5590,8 +5137,7 @@ namespace IceGrid
         /// Shutdown an IceGrid node.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -5602,8 +5148,7 @@ namespace IceGrid
         /// Shutdown an IceGrid node.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_shutdownNode> begin_shutdownNode(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -5612,8 +5157,7 @@ namespace IceGrid
         /// Shutdown an IceGrid node.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -5623,8 +5167,7 @@ namespace IceGrid
         /// Shutdown an IceGrid node.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -5641,16 +5184,12 @@ namespace IceGrid
         /// Get the hostname of this node.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The node hostname.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be
-        /// reached.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         string getNodeHostname(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -5659,8 +5198,7 @@ namespace IceGrid
         /// Get the hostname of this node.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -5671,8 +5209,7 @@ namespace IceGrid
         /// Get the hostname of this node.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_getNodeHostname> begin_getNodeHostname(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -5681,8 +5218,7 @@ namespace IceGrid
         /// Get the hostname of this node.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -5692,8 +5228,7 @@ namespace IceGrid
         /// Get the hostname of this node.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -5705,8 +5240,7 @@ namespace IceGrid
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The node hostname.
-        ///
-        /// </returns>
+        ///  </returns>
         string end_getNodeHostname(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
@@ -5761,11 +5295,9 @@ namespace IceGrid
         /// Ping an IceGrid registry to see if it is active.
         /// </summary>
         /// <param name="name">The registry name.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>true if the registry ping succeeded, false otherwise.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -5775,8 +5307,7 @@ namespace IceGrid
         /// Ping an IceGrid registry to see if it is active.
         /// </summary>
         /// <param name="name">The registry name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -5787,8 +5318,7 @@ namespace IceGrid
         /// Ping an IceGrid registry to see if it is active.
         /// </summary>
         /// <param name="name">The registry name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_pingRegistry> begin_pingRegistry(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -5797,8 +5327,7 @@ namespace IceGrid
         /// Ping an IceGrid registry to see if it is active.
         /// </summary>
         /// <param name="name">The registry name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -5808,8 +5337,7 @@ namespace IceGrid
         /// Ping an IceGrid registry to see if it is active.
         /// </summary>
         /// <param name="name">The registry name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -5821,24 +5349,19 @@ namespace IceGrid
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>true if the registry ping succeeded, false otherwise.
-        ///
-        /// </returns>
+        ///  </returns>
         bool end_pingRegistry(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get the registry information for the registry with the given name.
         /// </summary>
         /// <param name="name">The registry name.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The registry information.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="RegistryUnreachableException">Raised if the registry could not be
-        /// reached.</exception>
+        ///  </exception>
+        /// <exception name="RegistryUnreachableException">Raised if the registry could not be reached.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         RegistryInfo getRegistryInfo(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -5847,8 +5370,7 @@ namespace IceGrid
         /// Get the registry information for the registry with the given name.
         /// </summary>
         /// <param name="name">The registry name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -5859,8 +5381,7 @@ namespace IceGrid
         /// Get the registry information for the registry with the given name.
         /// </summary>
         /// <param name="name">The registry name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_getRegistryInfo> begin_getRegistryInfo(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -5869,8 +5390,7 @@ namespace IceGrid
         /// Get the registry information for the registry with the given name.
         /// </summary>
         /// <param name="name">The registry name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -5880,8 +5400,7 @@ namespace IceGrid
         /// Get the registry information for the registry with the given name.
         /// </summary>
         /// <param name="name">The registry name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -5893,19 +5412,16 @@ namespace IceGrid
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The registry information.
-        ///
-        /// </returns>
+        ///  </returns>
         RegistryInfo end_getRegistryInfo(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get a proxy to the IceGrid registry's admin object.
         /// </summary>
         /// <param name="name">The registry name
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>A proxy to the IceGrid registry's admin object
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -5915,8 +5431,7 @@ namespace IceGrid
         /// Get a proxy to the IceGrid registry's admin object.
         /// </summary>
         /// <param name="name">The registry name
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -5927,8 +5442,7 @@ namespace IceGrid
         /// Get a proxy to the IceGrid registry's admin object.
         /// </summary>
         /// <param name="name">The registry name
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_getRegistryAdmin> begin_getRegistryAdmin(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -5937,8 +5451,7 @@ namespace IceGrid
         /// Get a proxy to the IceGrid registry's admin object.
         /// </summary>
         /// <param name="name">The registry name
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -5948,8 +5461,7 @@ namespace IceGrid
         /// Get a proxy to the IceGrid registry's admin object.
         /// </summary>
         /// <param name="name">The registry name
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -5961,21 +5473,17 @@ namespace IceGrid
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>A proxy to the IceGrid registry's admin object
-        ///
-        /// </returns>
+        ///  </returns>
         global::Ice.ObjectPrx end_getRegistryAdmin(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Shutdown an IceGrid registry.
         /// </summary>
         /// <param name="name">The registry name.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="RegistryUnreachableException">Raised if the registry could not be
-        /// reached.</exception>
+        ///  </exception>
+        /// <exception name="RegistryUnreachableException">Raised if the registry could not be reached.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void shutdownRegistry(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -5984,8 +5492,7 @@ namespace IceGrid
         /// Shutdown an IceGrid registry.
         /// </summary>
         /// <param name="name">The registry name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -5996,8 +5503,7 @@ namespace IceGrid
         /// Shutdown an IceGrid registry.
         /// </summary>
         /// <param name="name">The registry name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Admin_shutdownRegistry> begin_shutdownRegistry(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -6006,8 +5512,7 @@ namespace IceGrid
         /// Shutdown an IceGrid registry.
         /// </summary>
         /// <param name="name">The registry name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -6017,8 +5522,7 @@ namespace IceGrid
         /// Shutdown an IceGrid registry.
         /// </summary>
         /// <param name="name">The registry name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -6136,23 +5640,16 @@ namespace IceGrid
         /// <summary>
         /// Read lines from the log file.
         /// </summary>
-        /// <param name="size">Specifies the maximum number of bytes to be
-        /// received. The server will ensure that the returned message
-        /// doesn't exceed the given size.
-        ///
-        /// </param>
-        /// <param name="lines">The lines read from the file. If there was nothing to
-        /// read from the file since the last call to read, an empty
-        /// sequence is returned. The last line of the sequence is always
-        /// incomplete (and therefore no '\n' should be added when writing
-        /// the last line to the to the output device).
-        ///
-        /// </param>
+        /// <param name="size">Specifies the maximum number of bytes to be received. The server will ensure that the returned
+        ///  message doesn't exceed the given size.
+        ///  </param>
+        /// <param name="lines">The lines read from the file. If there was nothing to read from the file since the last call to
+        ///  read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n'
+        ///  should be added when writing the last line to the to the output device).
+        ///  </param>
         /// <returns>True if EOF is encountered.
-        ///
-        /// </returns>
-        /// <exception name="FileNotAvailableException">Raised if there was a problem
-        /// to read lines from the file.</exception>
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if there was a problem to read lines from the file.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         bool read(int size, out string[] lines, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -6160,11 +5657,9 @@ namespace IceGrid
         /// <summary>
         /// Read lines from the log file.
         /// </summary>
-        /// <param name="size">Specifies the maximum number of bytes to be
-        /// received. The server will ensure that the returned message
-        /// doesn't exceed the given size.
-        ///
-        /// </param>
+        /// <param name="size">Specifies the maximum number of bytes to be received. The server will ensure that the returned
+        ///  message doesn't exceed the given size.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -6174,11 +5669,9 @@ namespace IceGrid
         /// <summary>
         /// Read lines from the log file.
         /// </summary>
-        /// <param name="size">Specifies the maximum number of bytes to be
-        /// received. The server will ensure that the returned message
-        /// doesn't exceed the given size.
-        ///
-        /// </param>
+        /// <param name="size">Specifies the maximum number of bytes to be received. The server will ensure that the returned
+        ///  message doesn't exceed the given size.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_FileIterator_read> begin_read(int size, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -6186,11 +5679,9 @@ namespace IceGrid
         /// <summary>
         /// Read lines from the log file.
         /// </summary>
-        /// <param name="size">Specifies the maximum number of bytes to be
-        /// received. The server will ensure that the returned message
-        /// doesn't exceed the given size.
-        ///
-        /// </param>
+        /// <param name="size">Specifies the maximum number of bytes to be received. The server will ensure that the returned
+        ///  message doesn't exceed the given size.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -6199,11 +5690,9 @@ namespace IceGrid
         /// <summary>
         /// Read lines from the log file.
         /// </summary>
-        /// <param name="size">Specifies the maximum number of bytes to be
-        /// received. The server will ensure that the returned message
-        /// doesn't exceed the given size.
-        ///
-        /// </param>
+        /// <param name="size">Specifies the maximum number of bytes to be received. The server will ensure that the returned
+        ///  message doesn't exceed the given size.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -6213,17 +5702,13 @@ namespace IceGrid
         /// <summary>
         /// Read lines from the log file.
         /// </summary>
-        /// <param name="lines">The lines read from the file. If there was nothing to
-        /// read from the file since the last call to read, an empty
-        /// sequence is returned. The last line of the sequence is always
-        /// incomplete (and therefore no '\n' should be added when writing
-        /// the last line to the to the output device).
-        ///
-        /// </param>
+        /// <param name="lines">The lines read from the file. If there was nothing to read from the file since the last call to
+        ///  read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n'
+        ///  should be added when writing the last line to the to the output device).
+        ///  </param>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>True if EOF is encountered.
-        ///
-        /// </returns>
+        ///  </returns>
         bool end_read(out string[] lines, global::Ice.AsyncResult asyncResult);
 
         /// <summary>
@@ -6274,16 +5759,15 @@ namespace IceGrid
     }
 
     /// <summary>
-    /// This interface allows applications to monitor changes the state
-    /// of the registry.
+    /// This interface allows applications to monitor changes the state of the registry.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface RegistryObserverPrx : global::Ice.ObjectPrx
     {
         /// <summary>
-        /// The registryInit operation is called after registration of
-        /// an observer to indicate the state of the registries.
+        /// The registryInit operation is called after registration of an observer to indicate the state of
+        ///  the registries.
         /// </summary>
         /// <param name="registries">The current state of the registries.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -6291,8 +5775,8 @@ namespace IceGrid
         void registryInit(RegistryInfo[] registries, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The registryInit operation is called after registration of
-        /// an observer to indicate the state of the registries.
+        /// The registryInit operation is called after registration of an observer to indicate the state of
+        ///  the registries.
         /// </summary>
         /// <param name="registries">The current state of the registries.</param>
         /// <param name="context">Context map to send with the invocation.</param>
@@ -6302,8 +5786,8 @@ namespace IceGrid
         global::System.Threading.Tasks.Task registryInitAsync(RegistryInfo[] registries, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The registryInit operation is called after registration of
-        /// an observer to indicate the state of the registries.
+        /// The registryInit operation is called after registration of an observer to indicate the state of
+        ///  the registries.
         /// </summary>
         /// <param name="registries">The current state of the registries.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -6311,8 +5795,8 @@ namespace IceGrid
         global::Ice.AsyncResult<Callback_RegistryObserver_registryInit> begin_registryInit(RegistryInfo[] registries, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The registryInit operation is called after registration of
-        /// an observer to indicate the state of the registries.
+        /// The registryInit operation is called after registration of an observer to indicate the state of
+        ///  the registries.
         /// </summary>
         /// <param name="registries">The current state of the registries.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -6321,8 +5805,8 @@ namespace IceGrid
         global::Ice.AsyncResult begin_registryInit(RegistryInfo[] registries, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The registryInit operation is called after registration of
-        /// an observer to indicate the state of the registries.
+        /// The registryInit operation is called after registration of an observer to indicate the state of
+        ///  the registries.
         /// </summary>
         /// <param name="registries">The current state of the registries.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -6332,15 +5816,14 @@ namespace IceGrid
         global::Ice.AsyncResult begin_registryInit(RegistryInfo[] registries, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The registryInit operation is called after registration of
-        /// an observer to indicate the state of the registries.
+        /// The registryInit operation is called after registration of an observer to indicate the state of
+        ///  the registries.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_registryInit(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node
-        /// came up.
+        /// The nodeUp operation is called to notify an observer that a node came up.
         /// </summary>
         /// <param name="node">The node state.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -6348,8 +5831,7 @@ namespace IceGrid
         void registryUp(RegistryInfo node, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node
-        /// came up.
+        /// The nodeUp operation is called to notify an observer that a node came up.
         /// </summary>
         /// <param name="node">The node state.</param>
         /// <param name="context">Context map to send with the invocation.</param>
@@ -6359,8 +5841,7 @@ namespace IceGrid
         global::System.Threading.Tasks.Task registryUpAsync(RegistryInfo node, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node
-        /// came up.
+        /// The nodeUp operation is called to notify an observer that a node came up.
         /// </summary>
         /// <param name="node">The node state.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -6368,8 +5849,7 @@ namespace IceGrid
         global::Ice.AsyncResult<Callback_RegistryObserver_registryUp> begin_registryUp(RegistryInfo node, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node
-        /// came up.
+        /// The nodeUp operation is called to notify an observer that a node came up.
         /// </summary>
         /// <param name="node">The node state.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -6378,8 +5858,7 @@ namespace IceGrid
         global::Ice.AsyncResult begin_registryUp(RegistryInfo node, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node
-        /// came up.
+        /// The nodeUp operation is called to notify an observer that a node came up.
         /// </summary>
         /// <param name="node">The node state.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -6389,15 +5868,13 @@ namespace IceGrid
         global::Ice.AsyncResult begin_registryUp(RegistryInfo node, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node
-        /// came up.
+        /// The nodeUp operation is called to notify an observer that a node came up.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_registryUp(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node
-        /// went down.
+        /// The nodeDown operation is called to notify an observer that a node went down.
         /// </summary>
         /// <param name="name">The node name.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -6405,8 +5882,7 @@ namespace IceGrid
         void registryDown(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node
-        /// went down.
+        /// The nodeDown operation is called to notify an observer that a node went down.
         /// </summary>
         /// <param name="name">The node name.</param>
         /// <param name="context">Context map to send with the invocation.</param>
@@ -6416,8 +5892,7 @@ namespace IceGrid
         global::System.Threading.Tasks.Task registryDownAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node
-        /// went down.
+        /// The nodeDown operation is called to notify an observer that a node went down.
         /// </summary>
         /// <param name="name">The node name.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -6425,8 +5900,7 @@ namespace IceGrid
         global::Ice.AsyncResult<Callback_RegistryObserver_registryDown> begin_registryDown(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node
-        /// went down.
+        /// The nodeDown operation is called to notify an observer that a node went down.
         /// </summary>
         /// <param name="name">The node name.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -6435,8 +5909,7 @@ namespace IceGrid
         global::Ice.AsyncResult begin_registryDown(string name, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node
-        /// went down.
+        /// The nodeDown operation is called to notify an observer that a node went down.
         /// </summary>
         /// <param name="name">The node name.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -6446,8 +5919,7 @@ namespace IceGrid
         global::Ice.AsyncResult begin_registryDown(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node
-        /// went down.
+        /// The nodeDown operation is called to notify an observer that a node went down.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_registryDown(global::Ice.AsyncResult asyncResult);
@@ -6455,31 +5927,28 @@ namespace IceGrid
 
     /// <summary>
     /// The node observer interface.
-    /// Observers should implement this
-    /// interface to receive information about the state of the IceGrid
-    /// nodes.
+    /// Observers should implement this interface to receive information about the state of
+    ///  the IceGrid nodes.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface NodeObserverPrx : global::Ice.ObjectPrx
     {
         /// <summary>
-        /// The nodeInit operation indicates the current state
-        /// of nodes.
-        /// It is called after the registration of an observer.
-        ///
+        /// The nodeInit operation indicates the current state of nodes.
+        /// It is called after the registration
+        ///  of an observer.
         /// </summary>
-        /// <param name="nodes">The current state of the nodes.</param>
+        ///  <param name="nodes">The current state of the nodes.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void nodeInit(NodeDynamicInfo[] nodes, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The nodeInit operation indicates the current state
-        /// of nodes.
-        /// It is called after the registration of an observer.
+        /// The nodeInit operation indicates the current state of nodes.
+        /// It is called after the registration
         /// </summary>
-        /// <param name="nodes">The current state of the nodes.</param>
+        ///  <param name="nodes">The current state of the nodes.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -6487,32 +5956,29 @@ namespace IceGrid
         global::System.Threading.Tasks.Task nodeInitAsync(NodeDynamicInfo[] nodes, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The nodeInit operation indicates the current state
-        /// of nodes.
-        /// It is called after the registration of an observer.
+        /// The nodeInit operation indicates the current state of nodes.
+        /// It is called after the registration
         /// </summary>
-        /// <param name="nodes">The current state of the nodes.</param>
+        ///  <param name="nodes">The current state of the nodes.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_NodeObserver_nodeInit> begin_nodeInit(NodeDynamicInfo[] nodes, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The nodeInit operation indicates the current state
-        /// of nodes.
-        /// It is called after the registration of an observer.
+        /// The nodeInit operation indicates the current state of nodes.
+        /// It is called after the registration
         /// </summary>
-        /// <param name="nodes">The current state of the nodes.</param>
+        ///  <param name="nodes">The current state of the nodes.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult begin_nodeInit(NodeDynamicInfo[] nodes, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The nodeInit operation indicates the current state
-        /// of nodes.
-        /// It is called after the registration of an observer.
+        /// The nodeInit operation indicates the current state of nodes.
+        /// It is called after the registration
         /// </summary>
-        /// <param name="nodes">The current state of the nodes.</param>
+        ///  <param name="nodes">The current state of the nodes.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -6520,16 +5986,14 @@ namespace IceGrid
         global::Ice.AsyncResult begin_nodeInit(NodeDynamicInfo[] nodes, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The nodeInit operation indicates the current state
-        /// of nodes.
-        /// It is called after the registration of an observer.
+        /// The nodeInit operation indicates the current state of nodes.
+        /// It is called after the registration
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_nodeInit(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node
-        /// came up.
+        /// The nodeUp operation is called to notify an observer that a node came up.
         /// </summary>
         /// <param name="node">The node state.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -6537,8 +6001,7 @@ namespace IceGrid
         void nodeUp(NodeDynamicInfo node, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node
-        /// came up.
+        /// The nodeUp operation is called to notify an observer that a node came up.
         /// </summary>
         /// <param name="node">The node state.</param>
         /// <param name="context">Context map to send with the invocation.</param>
@@ -6548,8 +6011,7 @@ namespace IceGrid
         global::System.Threading.Tasks.Task nodeUpAsync(NodeDynamicInfo node, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node
-        /// came up.
+        /// The nodeUp operation is called to notify an observer that a node came up.
         /// </summary>
         /// <param name="node">The node state.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -6557,8 +6019,7 @@ namespace IceGrid
         global::Ice.AsyncResult<Callback_NodeObserver_nodeUp> begin_nodeUp(NodeDynamicInfo node, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node
-        /// came up.
+        /// The nodeUp operation is called to notify an observer that a node came up.
         /// </summary>
         /// <param name="node">The node state.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -6567,8 +6028,7 @@ namespace IceGrid
         global::Ice.AsyncResult begin_nodeUp(NodeDynamicInfo node, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node
-        /// came up.
+        /// The nodeUp operation is called to notify an observer that a node came up.
         /// </summary>
         /// <param name="node">The node state.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -6578,15 +6038,13 @@ namespace IceGrid
         global::Ice.AsyncResult begin_nodeUp(NodeDynamicInfo node, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node
-        /// came up.
+        /// The nodeUp operation is called to notify an observer that a node came up.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_nodeUp(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node
-        /// went down.
+        /// The nodeDown operation is called to notify an observer that a node went down.
         /// </summary>
         /// <param name="name">The node name.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -6594,8 +6052,7 @@ namespace IceGrid
         void nodeDown(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node
-        /// went down.
+        /// The nodeDown operation is called to notify an observer that a node went down.
         /// </summary>
         /// <param name="name">The node name.</param>
         /// <param name="context">Context map to send with the invocation.</param>
@@ -6605,8 +6062,7 @@ namespace IceGrid
         global::System.Threading.Tasks.Task nodeDownAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node
-        /// went down.
+        /// The nodeDown operation is called to notify an observer that a node went down.
         /// </summary>
         /// <param name="name">The node name.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -6614,8 +6070,7 @@ namespace IceGrid
         global::Ice.AsyncResult<Callback_NodeObserver_nodeDown> begin_nodeDown(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node
-        /// went down.
+        /// The nodeDown operation is called to notify an observer that a node went down.
         /// </summary>
         /// <param name="name">The node name.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -6624,8 +6079,7 @@ namespace IceGrid
         global::Ice.AsyncResult begin_nodeDown(string name, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node
-        /// went down.
+        /// The nodeDown operation is called to notify an observer that a node went down.
         /// </summary>
         /// <param name="name">The node name.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -6635,31 +6089,26 @@ namespace IceGrid
         global::Ice.AsyncResult begin_nodeDown(string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node
-        /// went down.
+        /// The nodeDown operation is called to notify an observer that a node went down.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_nodeDown(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// The updateServer operation is called to notify an observer that
-        /// the state of a server changed.
+        /// The updateServer operation is called to notify an observer that the state of a server changed.
         /// </summary>
         /// <param name="node">The node hosting the server.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="updatedInfo">The new server state.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void updateServer(string node, ServerDynamicInfo updatedInfo, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The updateServer operation is called to notify an observer that
-        /// the state of a server changed.
+        /// The updateServer operation is called to notify an observer that the state of a server changed.
         /// </summary>
         /// <param name="node">The node hosting the server.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="updatedInfo">The new server state.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -6668,24 +6117,20 @@ namespace IceGrid
         global::System.Threading.Tasks.Task updateServerAsync(string node, ServerDynamicInfo updatedInfo, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The updateServer operation is called to notify an observer that
-        /// the state of a server changed.
+        /// The updateServer operation is called to notify an observer that the state of a server changed.
         /// </summary>
         /// <param name="node">The node hosting the server.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="updatedInfo">The new server state.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_NodeObserver_updateServer> begin_updateServer(string node, ServerDynamicInfo updatedInfo, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The updateServer operation is called to notify an observer that
-        /// the state of a server changed.
+        /// The updateServer operation is called to notify an observer that the state of a server changed.
         /// </summary>
         /// <param name="node">The node hosting the server.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="updatedInfo">The new server state.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -6693,12 +6138,10 @@ namespace IceGrid
         global::Ice.AsyncResult begin_updateServer(string node, ServerDynamicInfo updatedInfo, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The updateServer operation is called to notify an observer that
-        /// the state of a server changed.
+        /// The updateServer operation is called to notify an observer that the state of a server changed.
         /// </summary>
         /// <param name="node">The node hosting the server.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="updatedInfo">The new server state.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -6707,31 +6150,26 @@ namespace IceGrid
         global::Ice.AsyncResult begin_updateServer(string node, ServerDynamicInfo updatedInfo, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The updateServer operation is called to notify an observer that
-        /// the state of a server changed.
+        /// The updateServer operation is called to notify an observer that the state of a server changed.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_updateServer(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// The updateAdapter operation is called to notify an observer that
-        /// the state of an adapter changed.
+        /// The updateAdapter operation is called to notify an observer that the state of an adapter changed.
         /// </summary>
         /// <param name="node">The node hosting the adapter.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="updatedInfo">The new adapter state.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void updateAdapter(string node, AdapterDynamicInfo updatedInfo, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The updateAdapter operation is called to notify an observer that
-        /// the state of an adapter changed.
+        /// The updateAdapter operation is called to notify an observer that the state of an adapter changed.
         /// </summary>
         /// <param name="node">The node hosting the adapter.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="updatedInfo">The new adapter state.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -6740,24 +6178,20 @@ namespace IceGrid
         global::System.Threading.Tasks.Task updateAdapterAsync(string node, AdapterDynamicInfo updatedInfo, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The updateAdapter operation is called to notify an observer that
-        /// the state of an adapter changed.
+        /// The updateAdapter operation is called to notify an observer that the state of an adapter changed.
         /// </summary>
         /// <param name="node">The node hosting the adapter.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="updatedInfo">The new adapter state.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_NodeObserver_updateAdapter> begin_updateAdapter(string node, AdapterDynamicInfo updatedInfo, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The updateAdapter operation is called to notify an observer that
-        /// the state of an adapter changed.
+        /// The updateAdapter operation is called to notify an observer that the state of an adapter changed.
         /// </summary>
         /// <param name="node">The node hosting the adapter.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="updatedInfo">The new adapter state.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -6765,12 +6199,10 @@ namespace IceGrid
         global::Ice.AsyncResult begin_updateAdapter(string node, AdapterDynamicInfo updatedInfo, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The updateAdapter operation is called to notify an observer that
-        /// the state of an adapter changed.
+        /// The updateAdapter operation is called to notify an observer that the state of an adapter changed.
         /// </summary>
         /// <param name="node">The node hosting the adapter.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="updatedInfo">The new adapter state.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -6779,8 +6211,7 @@ namespace IceGrid
         global::Ice.AsyncResult begin_updateAdapter(string node, AdapterDynamicInfo updatedInfo, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The updateAdapter operation is called to notify an observer that
-        /// the state of an adapter changed.
+        /// The updateAdapter operation is called to notify an observer that the state of an adapter changed.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_updateAdapter(global::Ice.AsyncResult asyncResult);
@@ -6788,40 +6219,33 @@ namespace IceGrid
 
     /// <summary>
     /// The database observer interface.
-    /// Observers should implement this
-    /// interface to receive information about the state of the IceGrid
-    /// registry database.
+    /// Observers should implement this interface to receive information about the state
+    ///  of the IceGrid registry database.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface ApplicationObserverPrx : global::Ice.ObjectPrx
     {
         /// <summary>
-        /// applicationInit is called after the registration
-        /// of an observer to indicate the state of the registry.
+        /// applicationInit is called after the registration of an observer to indicate the state of the
+        ///  registry.
         /// </summary>
-        /// <param name="serial">The current serial number of the registry
-        /// database. This serial number allows observers to make sure that
-        /// their internal state is synchronized with the registry.
-        ///
-        /// </param>
-        /// <param name="applications">The applications currently registered with
-        /// the registry.</param>
+        /// <param name="serial">The current serial number of the registry database. This serial number allows observers to make
+        ///  sure that their internal state is synchronized with the registry.
+        ///  </param>
+        /// <param name="applications">The applications currently registered with the registry.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void applicationInit(int serial, ApplicationInfo[] applications, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// applicationInit is called after the registration
-        /// of an observer to indicate the state of the registry.
+        /// applicationInit is called after the registration of an observer to indicate the state of the
+        ///  registry.
         /// </summary>
-        /// <param name="serial">The current serial number of the registry
-        /// database. This serial number allows observers to make sure that
-        /// their internal state is synchronized with the registry.
-        ///
-        /// </param>
-        /// <param name="applications">The applications currently registered with
-        /// the registry.</param>
+        /// <param name="serial">The current serial number of the registry database. This serial number allows observers to make
+        ///  sure that their internal state is synchronized with the registry.
+        ///  </param>
+        /// <param name="applications">The applications currently registered with the registry.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -6829,47 +6253,38 @@ namespace IceGrid
         global::System.Threading.Tasks.Task applicationInitAsync(int serial, ApplicationInfo[] applications, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// applicationInit is called after the registration
-        /// of an observer to indicate the state of the registry.
+        /// applicationInit is called after the registration of an observer to indicate the state of the
+        ///  registry.
         /// </summary>
-        /// <param name="serial">The current serial number of the registry
-        /// database. This serial number allows observers to make sure that
-        /// their internal state is synchronized with the registry.
-        ///
-        /// </param>
-        /// <param name="applications">The applications currently registered with
-        /// the registry.</param>
+        /// <param name="serial">The current serial number of the registry database. This serial number allows observers to make
+        ///  sure that their internal state is synchronized with the registry.
+        ///  </param>
+        /// <param name="applications">The applications currently registered with the registry.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_ApplicationObserver_applicationInit> begin_applicationInit(int serial, ApplicationInfo[] applications, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// applicationInit is called after the registration
-        /// of an observer to indicate the state of the registry.
+        /// applicationInit is called after the registration of an observer to indicate the state of the
+        ///  registry.
         /// </summary>
-        /// <param name="serial">The current serial number of the registry
-        /// database. This serial number allows observers to make sure that
-        /// their internal state is synchronized with the registry.
-        ///
-        /// </param>
-        /// <param name="applications">The applications currently registered with
-        /// the registry.</param>
+        /// <param name="serial">The current serial number of the registry database. This serial number allows observers to make
+        ///  sure that their internal state is synchronized with the registry.
+        ///  </param>
+        /// <param name="applications">The applications currently registered with the registry.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult begin_applicationInit(int serial, ApplicationInfo[] applications, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// applicationInit is called after the registration
-        /// of an observer to indicate the state of the registry.
+        /// applicationInit is called after the registration of an observer to indicate the state of the
+        ///  registry.
         /// </summary>
-        /// <param name="serial">The current serial number of the registry
-        /// database. This serial number allows observers to make sure that
-        /// their internal state is synchronized with the registry.
-        ///
-        /// </param>
-        /// <param name="applications">The applications currently registered with
-        /// the registry.</param>
+        /// <param name="serial">The current serial number of the registry database. This serial number allows observers to make
+        ///  sure that their internal state is synchronized with the registry.
+        ///  </param>
+        /// <param name="applications">The applications currently registered with the registry.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -6877,31 +6292,27 @@ namespace IceGrid
         global::Ice.AsyncResult begin_applicationInit(int serial, ApplicationInfo[] applications, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// applicationInit is called after the registration
-        /// of an observer to indicate the state of the registry.
+        /// applicationInit is called after the registration of an observer to indicate the state of the
+        ///  registry.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_applicationInit(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// The applicationAdded operation is called to notify an observer
-        /// that an application was added.
+        /// The applicationAdded operation is called to notify an observer that an application was added.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="desc">The descriptor of the new application.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void applicationAdded(int serial, ApplicationInfo desc, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The applicationAdded operation is called to notify an observer
-        /// that an application was added.
+        /// The applicationAdded operation is called to notify an observer that an application was added.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="desc">The descriptor of the new application.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -6910,24 +6321,20 @@ namespace IceGrid
         global::System.Threading.Tasks.Task applicationAddedAsync(int serial, ApplicationInfo desc, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The applicationAdded operation is called to notify an observer
-        /// that an application was added.
+        /// The applicationAdded operation is called to notify an observer that an application was added.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="desc">The descriptor of the new application.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_ApplicationObserver_applicationAdded> begin_applicationAdded(int serial, ApplicationInfo desc, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The applicationAdded operation is called to notify an observer
-        /// that an application was added.
+        /// The applicationAdded operation is called to notify an observer that an application was added.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="desc">The descriptor of the new application.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -6935,12 +6342,10 @@ namespace IceGrid
         global::Ice.AsyncResult begin_applicationAdded(int serial, ApplicationInfo desc, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The applicationAdded operation is called to notify an observer
-        /// that an application was added.
+        /// The applicationAdded operation is called to notify an observer that an application was added.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="desc">The descriptor of the new application.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -6949,31 +6354,26 @@ namespace IceGrid
         global::Ice.AsyncResult begin_applicationAdded(int serial, ApplicationInfo desc, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The applicationAdded operation is called to notify an observer
-        /// that an application was added.
+        /// The applicationAdded operation is called to notify an observer that an application was added.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_applicationAdded(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// The applicationRemoved operation is called to notify an observer
-        /// that an application was removed.
+        /// The applicationRemoved operation is called to notify an observer that an application was removed.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="name">The name of the application that was removed.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void applicationRemoved(int serial, string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The applicationRemoved operation is called to notify an observer
-        /// that an application was removed.
+        /// The applicationRemoved operation is called to notify an observer that an application was removed.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="name">The name of the application that was removed.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -6982,24 +6382,20 @@ namespace IceGrid
         global::System.Threading.Tasks.Task applicationRemovedAsync(int serial, string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The applicationRemoved operation is called to notify an observer
-        /// that an application was removed.
+        /// The applicationRemoved operation is called to notify an observer that an application was removed.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="name">The name of the application that was removed.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_ApplicationObserver_applicationRemoved> begin_applicationRemoved(int serial, string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The applicationRemoved operation is called to notify an observer
-        /// that an application was removed.
+        /// The applicationRemoved operation is called to notify an observer that an application was removed.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="name">The name of the application that was removed.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -7007,12 +6403,10 @@ namespace IceGrid
         global::Ice.AsyncResult begin_applicationRemoved(int serial, string name, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The applicationRemoved operation is called to notify an observer
-        /// that an application was removed.
+        /// The applicationRemoved operation is called to notify an observer that an application was removed.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="name">The name of the application that was removed.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -7021,31 +6415,26 @@ namespace IceGrid
         global::Ice.AsyncResult begin_applicationRemoved(int serial, string name, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The applicationRemoved operation is called to notify an observer
-        /// that an application was removed.
+        /// The applicationRemoved operation is called to notify an observer that an application was removed.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_applicationRemoved(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// The applicationUpdated operation is called to notify an observer
-        /// that an application was updated.
+        /// The applicationUpdated operation is called to notify an observer that an application was updated.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="desc">The descriptor of the update.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void applicationUpdated(int serial, ApplicationUpdateInfo desc, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The applicationUpdated operation is called to notify an observer
-        /// that an application was updated.
+        /// The applicationUpdated operation is called to notify an observer that an application was updated.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="desc">The descriptor of the update.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -7054,24 +6443,20 @@ namespace IceGrid
         global::System.Threading.Tasks.Task applicationUpdatedAsync(int serial, ApplicationUpdateInfo desc, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The applicationUpdated operation is called to notify an observer
-        /// that an application was updated.
+        /// The applicationUpdated operation is called to notify an observer that an application was updated.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="desc">The descriptor of the update.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_ApplicationObserver_applicationUpdated> begin_applicationUpdated(int serial, ApplicationUpdateInfo desc, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The applicationUpdated operation is called to notify an observer
-        /// that an application was updated.
+        /// The applicationUpdated operation is called to notify an observer that an application was updated.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="desc">The descriptor of the update.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -7079,12 +6464,10 @@ namespace IceGrid
         global::Ice.AsyncResult begin_applicationUpdated(int serial, ApplicationUpdateInfo desc, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The applicationUpdated operation is called to notify an observer
-        /// that an application was updated.
+        /// The applicationUpdated operation is called to notify an observer that an application was updated.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="desc">The descriptor of the update.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -7093,37 +6476,33 @@ namespace IceGrid
         global::Ice.AsyncResult begin_applicationUpdated(int serial, ApplicationUpdateInfo desc, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The applicationUpdated operation is called to notify an observer
-        /// that an application was updated.
+        /// The applicationUpdated operation is called to notify an observer that an application was updated.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_applicationUpdated(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
-    /// This interface allows applications to monitor the state of object
-    /// adapters that are registered with IceGrid.
+    /// This interface allows applications to monitor the state of object adapters that are registered with IceGrid.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface AdapterObserverPrx : global::Ice.ObjectPrx
     {
         /// <summary>
-        /// adapterInit is called after registration of
-        /// an observer to indicate the state of the registry.
+        /// adapterInit is called after registration of an observer to indicate the state of the registry.
         /// </summary>
-        /// <param name="adpts">The adapters that were dynamically registered
-        /// with the registry (not through the deployment mechanism).</param>
+        /// <param name="adpts">The adapters that were dynamically registered with the registry (not through the deployment
+        ///  mechanism).</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void adapterInit(AdapterInfo[] adpts, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// adapterInit is called after registration of
-        /// an observer to indicate the state of the registry.
+        /// adapterInit is called after registration of an observer to indicate the state of the registry.
         /// </summary>
-        /// <param name="adpts">The adapters that were dynamically registered
-        /// with the registry (not through the deployment mechanism).</param>
+        /// <param name="adpts">The adapters that were dynamically registered with the registry (not through the deployment
+        ///  mechanism).</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -7131,32 +6510,29 @@ namespace IceGrid
         global::System.Threading.Tasks.Task adapterInitAsync(AdapterInfo[] adpts, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// adapterInit is called after registration of
-        /// an observer to indicate the state of the registry.
+        /// adapterInit is called after registration of an observer to indicate the state of the registry.
         /// </summary>
-        /// <param name="adpts">The adapters that were dynamically registered
-        /// with the registry (not through the deployment mechanism).</param>
+        /// <param name="adpts">The adapters that were dynamically registered with the registry (not through the deployment
+        ///  mechanism).</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_AdapterObserver_adapterInit> begin_adapterInit(AdapterInfo[] adpts, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// adapterInit is called after registration of
-        /// an observer to indicate the state of the registry.
+        /// adapterInit is called after registration of an observer to indicate the state of the registry.
         /// </summary>
-        /// <param name="adpts">The adapters that were dynamically registered
-        /// with the registry (not through the deployment mechanism).</param>
+        /// <param name="adpts">The adapters that were dynamically registered with the registry (not through the deployment
+        ///  mechanism).</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult begin_adapterInit(AdapterInfo[] adpts, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// adapterInit is called after registration of
-        /// an observer to indicate the state of the registry.
+        /// adapterInit is called after registration of an observer to indicate the state of the registry.
         /// </summary>
-        /// <param name="adpts">The adapters that were dynamically registered
-        /// with the registry (not through the deployment mechanism).</param>
+        /// <param name="adpts">The adapters that were dynamically registered with the registry (not through the deployment
+        ///  mechanism).</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -7164,15 +6540,14 @@ namespace IceGrid
         global::Ice.AsyncResult begin_adapterInit(AdapterInfo[] adpts, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// adapterInit is called after registration of
-        /// an observer to indicate the state of the registry.
+        /// adapterInit is called after registration of an observer to indicate the state of the registry.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_adapterInit(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// The adapterAdded operation is called to notify an observer when
-        /// a dynamically-registered adapter was added.
+        /// The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
+        ///  was added.
         /// </summary>
         /// <param name="info">The details of the new adapter.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -7180,8 +6555,8 @@ namespace IceGrid
         void adapterAdded(AdapterInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The adapterAdded operation is called to notify an observer when
-        /// a dynamically-registered adapter was added.
+        /// The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
+        ///  was added.
         /// </summary>
         /// <param name="info">The details of the new adapter.</param>
         /// <param name="context">Context map to send with the invocation.</param>
@@ -7191,8 +6566,8 @@ namespace IceGrid
         global::System.Threading.Tasks.Task adapterAddedAsync(AdapterInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The adapterAdded operation is called to notify an observer when
-        /// a dynamically-registered adapter was added.
+        /// The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
+        ///  was added.
         /// </summary>
         /// <param name="info">The details of the new adapter.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -7200,8 +6575,8 @@ namespace IceGrid
         global::Ice.AsyncResult<Callback_AdapterObserver_adapterAdded> begin_adapterAdded(AdapterInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The adapterAdded operation is called to notify an observer when
-        /// a dynamically-registered adapter was added.
+        /// The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
+        ///  was added.
         /// </summary>
         /// <param name="info">The details of the new adapter.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -7210,8 +6585,8 @@ namespace IceGrid
         global::Ice.AsyncResult begin_adapterAdded(AdapterInfo info, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The adapterAdded operation is called to notify an observer when
-        /// a dynamically-registered adapter was added.
+        /// The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
+        ///  was added.
         /// </summary>
         /// <param name="info">The details of the new adapter.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -7221,15 +6596,14 @@ namespace IceGrid
         global::Ice.AsyncResult begin_adapterAdded(AdapterInfo info, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The adapterAdded operation is called to notify an observer when
-        /// a dynamically-registered adapter was added.
+        /// The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
+        ///  was added.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_adapterAdded(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// The adapterUpdated operation is called to notify an observer when
-        /// a dynamically-registered adapter was updated.
+        /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
         /// </summary>
         /// <param name="info">The details of the updated adapter.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -7237,8 +6611,7 @@ namespace IceGrid
         void adapterUpdated(AdapterInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The adapterUpdated operation is called to notify an observer when
-        /// a dynamically-registered adapter was updated.
+        /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
         /// </summary>
         /// <param name="info">The details of the updated adapter.</param>
         /// <param name="context">Context map to send with the invocation.</param>
@@ -7248,8 +6621,7 @@ namespace IceGrid
         global::System.Threading.Tasks.Task adapterUpdatedAsync(AdapterInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The adapterUpdated operation is called to notify an observer when
-        /// a dynamically-registered adapter was updated.
+        /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
         /// </summary>
         /// <param name="info">The details of the updated adapter.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -7257,8 +6629,7 @@ namespace IceGrid
         global::Ice.AsyncResult<Callback_AdapterObserver_adapterUpdated> begin_adapterUpdated(AdapterInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The adapterUpdated operation is called to notify an observer when
-        /// a dynamically-registered adapter was updated.
+        /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
         /// </summary>
         /// <param name="info">The details of the updated adapter.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -7267,8 +6638,7 @@ namespace IceGrid
         global::Ice.AsyncResult begin_adapterUpdated(AdapterInfo info, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The adapterUpdated operation is called to notify an observer when
-        /// a dynamically-registered adapter was updated.
+        /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
         /// </summary>
         /// <param name="info">The details of the updated adapter.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -7278,15 +6648,13 @@ namespace IceGrid
         global::Ice.AsyncResult begin_adapterUpdated(AdapterInfo info, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The adapterUpdated operation is called to notify an observer when
-        /// a dynamically-registered adapter was updated.
+        /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_adapterUpdated(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// The adapterRemoved operation is called to notify an observer when
-        /// a dynamically-registered adapter was removed.
+        /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
         /// </summary>
         /// <param name="id">The ID of the removed adapter.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -7294,8 +6662,7 @@ namespace IceGrid
         void adapterRemoved(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The adapterRemoved operation is called to notify an observer when
-        /// a dynamically-registered adapter was removed.
+        /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
         /// </summary>
         /// <param name="id">The ID of the removed adapter.</param>
         /// <param name="context">Context map to send with the invocation.</param>
@@ -7305,8 +6672,7 @@ namespace IceGrid
         global::System.Threading.Tasks.Task adapterRemovedAsync(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The adapterRemoved operation is called to notify an observer when
-        /// a dynamically-registered adapter was removed.
+        /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
         /// </summary>
         /// <param name="id">The ID of the removed adapter.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -7314,8 +6680,7 @@ namespace IceGrid
         global::Ice.AsyncResult<Callback_AdapterObserver_adapterRemoved> begin_adapterRemoved(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The adapterRemoved operation is called to notify an observer when
-        /// a dynamically-registered adapter was removed.
+        /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
         /// </summary>
         /// <param name="id">The ID of the removed adapter.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -7324,8 +6689,7 @@ namespace IceGrid
         global::Ice.AsyncResult begin_adapterRemoved(string id, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The adapterRemoved operation is called to notify an observer when
-        /// a dynamically-registered adapter was removed.
+        /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
         /// </summary>
         /// <param name="id">The ID of the removed adapter.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -7335,8 +6699,7 @@ namespace IceGrid
         global::Ice.AsyncResult begin_adapterRemoved(string id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The adapterRemoved operation is called to notify an observer when
-        /// a dynamically-registered adapter was removed.
+        /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_adapterRemoved(global::Ice.AsyncResult asyncResult);
@@ -7350,21 +6713,17 @@ namespace IceGrid
     public interface ObjectObserverPrx : global::Ice.ObjectPrx
     {
         /// <summary>
-        /// objectInit is called after the registration of
-        /// an observer to indicate the state of the registry.
+        /// objectInit is called after the registration of an observer to indicate the state of the registry.
         /// </summary>
-        /// <param name="objects">The objects registered with the Admin
-        /// interface (not through the deployment mechanism).</param>
+        /// <param name="objects">The objects registered with the Admin interface (not through the deployment mechanism).</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void objectInit(ObjectInfo[] objects, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// objectInit is called after the registration of
-        /// an observer to indicate the state of the registry.
+        /// objectInit is called after the registration of an observer to indicate the state of the registry.
         /// </summary>
-        /// <param name="objects">The objects registered with the Admin
-        /// interface (not through the deployment mechanism).</param>
+        /// <param name="objects">The objects registered with the Admin interface (not through the deployment mechanism).</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -7372,32 +6731,26 @@ namespace IceGrid
         global::System.Threading.Tasks.Task objectInitAsync(ObjectInfo[] objects, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// objectInit is called after the registration of
-        /// an observer to indicate the state of the registry.
+        /// objectInit is called after the registration of an observer to indicate the state of the registry.
         /// </summary>
-        /// <param name="objects">The objects registered with the Admin
-        /// interface (not through the deployment mechanism).</param>
+        /// <param name="objects">The objects registered with the Admin interface (not through the deployment mechanism).</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_ObjectObserver_objectInit> begin_objectInit(ObjectInfo[] objects, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// objectInit is called after the registration of
-        /// an observer to indicate the state of the registry.
+        /// objectInit is called after the registration of an observer to indicate the state of the registry.
         /// </summary>
-        /// <param name="objects">The objects registered with the Admin
-        /// interface (not through the deployment mechanism).</param>
+        /// <param name="objects">The objects registered with the Admin interface (not through the deployment mechanism).</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult begin_objectInit(ObjectInfo[] objects, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// objectInit is called after the registration of
-        /// an observer to indicate the state of the registry.
+        /// objectInit is called after the registration of an observer to indicate the state of the registry.
         /// </summary>
-        /// <param name="objects">The objects registered with the Admin
-        /// interface (not through the deployment mechanism).</param>
+        /// <param name="objects">The objects registered with the Admin interface (not through the deployment mechanism).</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -7405,15 +6758,14 @@ namespace IceGrid
         global::Ice.AsyncResult begin_objectInit(ObjectInfo[] objects, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// objectInit is called after the registration of
-        /// an observer to indicate the state of the registry.
+        /// objectInit is called after the registration of an observer to indicate the state of the registry.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_objectInit(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// The objectAdded operation is called to notify an observer when an
-        /// object was added to the Admin interface.
+        /// The objectAdded operation is called to notify an observer when an object was added to the
+        ///  Admin interface.
         /// </summary>
         /// <param name="info">The details of the added object.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -7421,8 +6773,8 @@ namespace IceGrid
         void objectAdded(ObjectInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The objectAdded operation is called to notify an observer when an
-        /// object was added to the Admin interface.
+        /// The objectAdded operation is called to notify an observer when an object was added to the
+        ///  Admin interface.
         /// </summary>
         /// <param name="info">The details of the added object.</param>
         /// <param name="context">Context map to send with the invocation.</param>
@@ -7432,8 +6784,8 @@ namespace IceGrid
         global::System.Threading.Tasks.Task objectAddedAsync(ObjectInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The objectAdded operation is called to notify an observer when an
-        /// object was added to the Admin interface.
+        /// The objectAdded operation is called to notify an observer when an object was added to the
+        ///  Admin interface.
         /// </summary>
         /// <param name="info">The details of the added object.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -7441,8 +6793,8 @@ namespace IceGrid
         global::Ice.AsyncResult<Callback_ObjectObserver_objectAdded> begin_objectAdded(ObjectInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The objectAdded operation is called to notify an observer when an
-        /// object was added to the Admin interface.
+        /// The objectAdded operation is called to notify an observer when an object was added to the
+        ///  Admin interface.
         /// </summary>
         /// <param name="info">The details of the added object.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -7451,8 +6803,8 @@ namespace IceGrid
         global::Ice.AsyncResult begin_objectAdded(ObjectInfo info, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The objectAdded operation is called to notify an observer when an
-        /// object was added to the Admin interface.
+        /// The objectAdded operation is called to notify an observer when an object was added to the
+        ///  Admin interface.
         /// </summary>
         /// <param name="info">The details of the added object.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -7462,15 +6814,15 @@ namespace IceGrid
         global::Ice.AsyncResult begin_objectAdded(ObjectInfo info, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// The objectAdded operation is called to notify an observer when an
-        /// object was added to the Admin interface.
+        /// The objectAdded operation is called to notify an observer when an object was added to the
+        ///  Admin interface.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_objectAdded(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// objectUpdated is called to notify an observer when
-        /// an object registered with the Admin interface was updated.
+        /// objectUpdated is called to notify an observer when an object registered with the Admin
+        ///  interface was updated.
         /// </summary>
         /// <param name="info">The details of the updated object.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -7478,8 +6830,8 @@ namespace IceGrid
         void objectUpdated(ObjectInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// objectUpdated is called to notify an observer when
-        /// an object registered with the Admin interface was updated.
+        /// objectUpdated is called to notify an observer when an object registered with the Admin
+        ///  interface was updated.
         /// </summary>
         /// <param name="info">The details of the updated object.</param>
         /// <param name="context">Context map to send with the invocation.</param>
@@ -7489,8 +6841,8 @@ namespace IceGrid
         global::System.Threading.Tasks.Task objectUpdatedAsync(ObjectInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// objectUpdated is called to notify an observer when
-        /// an object registered with the Admin interface was updated.
+        /// objectUpdated is called to notify an observer when an object registered with the Admin
+        ///  interface was updated.
         /// </summary>
         /// <param name="info">The details of the updated object.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -7498,8 +6850,8 @@ namespace IceGrid
         global::Ice.AsyncResult<Callback_ObjectObserver_objectUpdated> begin_objectUpdated(ObjectInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// objectUpdated is called to notify an observer when
-        /// an object registered with the Admin interface was updated.
+        /// objectUpdated is called to notify an observer when an object registered with the Admin
+        ///  interface was updated.
         /// </summary>
         /// <param name="info">The details of the updated object.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -7508,8 +6860,8 @@ namespace IceGrid
         global::Ice.AsyncResult begin_objectUpdated(ObjectInfo info, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// objectUpdated is called to notify an observer when
-        /// an object registered with the Admin interface was updated.
+        /// objectUpdated is called to notify an observer when an object registered with the Admin
+        ///  interface was updated.
         /// </summary>
         /// <param name="info">The details of the updated object.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -7519,15 +6871,15 @@ namespace IceGrid
         global::Ice.AsyncResult begin_objectUpdated(ObjectInfo info, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// objectUpdated is called to notify an observer when
-        /// an object registered with the Admin interface was updated.
+        /// objectUpdated is called to notify an observer when an object registered with the Admin
+        ///  interface was updated.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_objectUpdated(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// objectRemoved is called to notify an observer when
-        /// an object registered with the Admin interface was removed.
+        /// objectRemoved is called to notify an observer when an object registered with the Admin
+        ///  interface was removed.
         /// </summary>
         /// <param name="id">The identity of the removed object.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -7535,8 +6887,8 @@ namespace IceGrid
         void objectRemoved(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// objectRemoved is called to notify an observer when
-        /// an object registered with the Admin interface was removed.
+        /// objectRemoved is called to notify an observer when an object registered with the Admin
+        ///  interface was removed.
         /// </summary>
         /// <param name="id">The identity of the removed object.</param>
         /// <param name="context">Context map to send with the invocation.</param>
@@ -7546,8 +6898,8 @@ namespace IceGrid
         global::System.Threading.Tasks.Task objectRemovedAsync(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// objectRemoved is called to notify an observer when
-        /// an object registered with the Admin interface was removed.
+        /// objectRemoved is called to notify an observer when an object registered with the Admin
+        ///  interface was removed.
         /// </summary>
         /// <param name="id">The identity of the removed object.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -7555,8 +6907,8 @@ namespace IceGrid
         global::Ice.AsyncResult<Callback_ObjectObserver_objectRemoved> begin_objectRemoved(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// objectRemoved is called to notify an observer when
-        /// an object registered with the Admin interface was removed.
+        /// objectRemoved is called to notify an observer when an object registered with the Admin
+        ///  interface was removed.
         /// </summary>
         /// <param name="id">The identity of the removed object.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -7565,8 +6917,8 @@ namespace IceGrid
         global::Ice.AsyncResult begin_objectRemoved(global::Ice.Identity id, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// objectRemoved is called to notify an observer when
-        /// an object registered with the Admin interface was removed.
+        /// objectRemoved is called to notify an observer when an object registered with the Admin
+        ///  interface was removed.
         /// </summary>
         /// <param name="id">The identity of the removed object.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -7576,20 +6928,18 @@ namespace IceGrid
         global::Ice.AsyncResult begin_objectRemoved(global::Ice.Identity id, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// objectRemoved is called to notify an observer when
-        /// an object registered with the Admin interface was removed.
+        /// objectRemoved is called to notify an observer when an object registered with the Admin
+        ///  interface was removed.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_objectRemoved(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
-    /// Used by administrative clients to view,
-    /// update, and receive observer updates from the IceGrid
-    /// registry.
-    /// Admin sessions are created either via the Registry
-    /// object or via the registry admin SessionManager object.
-    ///
+    /// Used by administrative clients to view, update, and receive observer updates from the IceGrid registry.
+    /// Admin
+    ///  sessions are created either via the Registry object or via the registry admin SessionManager
+    ///  object.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -7597,9 +6947,8 @@ namespace IceGrid
     {
         /// <summary>
         /// Keep the session alive.
-        /// Clients should call this operation
-        /// regularly to prevent the server from reaping the session.
-        ///
+        /// Clients should call this operation regularly to prevent the server from reaping the
+        ///  session.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -7607,7 +6956,7 @@ namespace IceGrid
 
         /// <summary>
         /// Keep the session alive.
-        /// Clients should call this operation
+        /// Clients should call this operation regularly to prevent the server from reaping the
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -7617,7 +6966,7 @@ namespace IceGrid
 
         /// <summary>
         /// Keep the session alive.
-        /// Clients should call this operation
+        /// Clients should call this operation regularly to prevent the server from reaping the
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -7625,7 +6974,7 @@ namespace IceGrid
 
         /// <summary>
         /// Keep the session alive.
-        /// Clients should call this operation
+        /// Clients should call this operation regularly to prevent the server from reaping the
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -7634,7 +6983,7 @@ namespace IceGrid
 
         /// <summary>
         /// Keep the session alive.
-        /// Clients should call this operation
+        /// Clients should call this operation regularly to prevent the server from reaping the
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -7644,25 +6993,23 @@ namespace IceGrid
 
         /// <summary>
         /// Keep the session alive.
-        /// Clients should call this operation
+        /// Clients should call this operation regularly to prevent the server from reaping the
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_keepAlive(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get the admin interface.
-        /// The admin object returned by this
-        /// operation can only be accessed by the session.
-        ///
+        /// The admin object returned by this operation can only be accessed by the session.
         /// </summary>
-        /// <returns>The admin interface proxy.</returns>
+        ///  <returns>The admin interface proxy.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         AdminPrx getAdmin(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Get the admin interface.
-        /// The admin object returned by this
+        /// The admin object returned by this operation can only be accessed by the session.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -7672,7 +7019,7 @@ namespace IceGrid
 
         /// <summary>
         /// Get the admin interface.
-        /// The admin object returned by this
+        /// The admin object returned by this operation can only be accessed by the session.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -7680,7 +7027,7 @@ namespace IceGrid
 
         /// <summary>
         /// Get the admin interface.
-        /// The admin object returned by this
+        /// The admin object returned by this operation can only be accessed by the session.
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -7689,7 +7036,7 @@ namespace IceGrid
 
         /// <summary>
         /// Get the admin interface.
-        /// The admin object returned by this
+        /// The admin object returned by this operation can only be accessed by the session.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -7699,7 +7046,7 @@ namespace IceGrid
 
         /// <summary>
         /// Get the admin interface.
-        /// The admin object returned by this
+        /// The admin object returned by this operation can only be accessed by the session.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The admin interface proxy.</returns>
@@ -7707,20 +7054,17 @@ namespace IceGrid
 
         /// <summary>
         /// Get a "template" proxy for admin callback objects.
-        /// An Admin client uses this proxy to set the category of its callback
-        /// objects, and the published endpoints of the object adapter hosting
-        /// the admin callback objects.
-        ///
+        /// An Admin client uses this proxy to set the category of its
+        ///  callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
         /// </summary>
-        /// <returns>A template proxy. The returned proxy is null when the Admin
-        /// session was established using Glacier2.</returns>
+        ///  <returns>A template proxy. The returned proxy is null when the Admin session was established using Glacier2.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         global::Ice.ObjectPrx getAdminCallbackTemplate(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Get a "template" proxy for admin callback objects.
-        /// An Admin client uses this proxy to set the category of its callback
+        /// An Admin client uses this proxy to set the category of its
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -7730,7 +7074,7 @@ namespace IceGrid
 
         /// <summary>
         /// Get a "template" proxy for admin callback objects.
-        /// An Admin client uses this proxy to set the category of its callback
+        /// An Admin client uses this proxy to set the category of its
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -7738,7 +7082,7 @@ namespace IceGrid
 
         /// <summary>
         /// Get a "template" proxy for admin callback objects.
-        /// An Admin client uses this proxy to set the category of its callback
+        /// An Admin client uses this proxy to set the category of its
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -7747,7 +7091,7 @@ namespace IceGrid
 
         /// <summary>
         /// Get a "template" proxy for admin callback objects.
-        /// An Admin client uses this proxy to set the category of its callback
+        /// An Admin client uses this proxy to set the category of its
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -7757,59 +7101,43 @@ namespace IceGrid
 
         /// <summary>
         /// Get a "template" proxy for admin callback objects.
-        /// An Admin client uses this proxy to set the category of its callback
+        /// An Admin client uses this proxy to set the category of its
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A template proxy. The returned proxy is null when the Admin
-        /// session was established using Glacier2.</returns>
+        /// <returns>A template proxy. The returned proxy is null when the Admin session was established using Glacier2.</returns>
         global::Ice.ObjectPrx end_getAdminCallbackTemplate(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// Set the observer proxies that receive
-        /// notifications when the state of the registry
-        /// or nodes changes.
+        /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
         /// </summary>
         /// <param name="registryObs">The registry observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="nodeObs">The node observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="appObs">The application observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="adptObs">The adapter observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="objObs">The object observer.
-        ///
-        /// </param>
-        /// <exception name="ObserverAlreadyRegisteredException">Raised if an
-        /// observer is already registered with this registry.</exception>
+        ///  </param>
+        /// <exception name="ObserverAlreadyRegisteredException">Raised if an observer is already registered with this registry.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void setObservers(RegistryObserverPrx registryObs, NodeObserverPrx nodeObs, ApplicationObserverPrx appObs, AdapterObserverPrx adptObs, ObjectObserverPrx objObs, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Set the observer proxies that receive
-        /// notifications when the state of the registry
-        /// or nodes changes.
+        /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
         /// </summary>
         /// <param name="registryObs">The registry observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="nodeObs">The node observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="appObs">The application observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="adptObs">The adapter observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="objObs">The object observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -7817,74 +7145,53 @@ namespace IceGrid
         global::System.Threading.Tasks.Task setObserversAsync(RegistryObserverPrx registryObs, NodeObserverPrx nodeObs, ApplicationObserverPrx appObs, AdapterObserverPrx adptObs, ObjectObserverPrx objObs, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Set the observer proxies that receive
-        /// notifications when the state of the registry
-        /// or nodes changes.
+        /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
         /// </summary>
         /// <param name="registryObs">The registry observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="nodeObs">The node observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="appObs">The application observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="adptObs">The adapter observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="objObs">The object observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_AdminSession_setObservers> begin_setObservers(RegistryObserverPrx registryObs, NodeObserverPrx nodeObs, ApplicationObserverPrx appObs, AdapterObserverPrx adptObs, ObjectObserverPrx objObs, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Set the observer proxies that receive
-        /// notifications when the state of the registry
-        /// or nodes changes.
+        /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
         /// </summary>
         /// <param name="registryObs">The registry observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="nodeObs">The node observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="appObs">The application observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="adptObs">The adapter observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="objObs">The object observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult begin_setObservers(RegistryObserverPrx registryObs, NodeObserverPrx nodeObs, ApplicationObserverPrx appObs, AdapterObserverPrx adptObs, ObjectObserverPrx objObs, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Set the observer proxies that receive
-        /// notifications when the state of the registry
-        /// or nodes changes.
+        /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
         /// </summary>
         /// <param name="registryObs">The registry observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="nodeObs">The node observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="appObs">The application observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="adptObs">The adapter observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="objObs">The object observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -7892,64 +7199,45 @@ namespace IceGrid
         global::Ice.AsyncResult begin_setObservers(RegistryObserverPrx registryObs, NodeObserverPrx nodeObs, ApplicationObserverPrx appObs, AdapterObserverPrx adptObs, ObjectObserverPrx objObs, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Set the observer proxies that receive
-        /// notifications when the state of the registry
-        /// or nodes changes.
+        /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_setObservers(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// Set the observer identities that receive
-        /// notifications the state of the registry
-        /// or nodes changes.
-        /// This operation should be used by clients that
-        /// are using a bidirectional connection to communicate with the
-        /// session.
-        ///
+        /// Set the observer identities that receive notifications the state of the registry or nodes changes.
+        /// This
+        ///  operation should be used by clients that are using a bidirectional connection to communicate with the session.
         /// </summary>
-        /// <param name="registryObs">The registry observer identity.
-        ///
-        /// </param>
+        ///  <param name="registryObs">The registry observer identity.
+        ///  </param>
         /// <param name="nodeObs">The node observer identity.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="appObs">The application observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="adptObs">The adapter observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="objObs">The object observer.
-        ///
-        /// </param>
-        /// <exception name="ObserverAlreadyRegisteredException">Raised if an
-        /// observer is already registered with this registry.</exception>
+        ///  </param>
+        /// <exception name="ObserverAlreadyRegisteredException">Raised if an observer is already registered with this registry.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void setObserversByIdentity(global::Ice.Identity registryObs, global::Ice.Identity nodeObs, global::Ice.Identity appObs, global::Ice.Identity adptObs, global::Ice.Identity objObs, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Set the observer identities that receive
-        /// notifications the state of the registry
-        /// or nodes changes.
-        /// This operation should be used by clients that
+        /// Set the observer identities that receive notifications the state of the registry or nodes changes.
+        /// This
         /// </summary>
-        /// <param name="registryObs">The registry observer identity.
-        ///
-        /// </param>
+        ///  <param name="registryObs">The registry observer identity.
+        ///  </param>
         /// <param name="nodeObs">The node observer identity.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="appObs">The application observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="adptObs">The adapter observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="objObs">The object observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -7957,77 +7245,56 @@ namespace IceGrid
         global::System.Threading.Tasks.Task setObserversByIdentityAsync(global::Ice.Identity registryObs, global::Ice.Identity nodeObs, global::Ice.Identity appObs, global::Ice.Identity adptObs, global::Ice.Identity objObs, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Set the observer identities that receive
-        /// notifications the state of the registry
-        /// or nodes changes.
-        /// This operation should be used by clients that
+        /// Set the observer identities that receive notifications the state of the registry or nodes changes.
+        /// This
         /// </summary>
-        /// <param name="registryObs">The registry observer identity.
-        ///
-        /// </param>
+        ///  <param name="registryObs">The registry observer identity.
+        ///  </param>
         /// <param name="nodeObs">The node observer identity.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="appObs">The application observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="adptObs">The adapter observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="objObs">The object observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_AdminSession_setObserversByIdentity> begin_setObserversByIdentity(global::Ice.Identity registryObs, global::Ice.Identity nodeObs, global::Ice.Identity appObs, global::Ice.Identity adptObs, global::Ice.Identity objObs, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Set the observer identities that receive
-        /// notifications the state of the registry
-        /// or nodes changes.
-        /// This operation should be used by clients that
+        /// Set the observer identities that receive notifications the state of the registry or nodes changes.
+        /// This
         /// </summary>
-        /// <param name="registryObs">The registry observer identity.
-        ///
-        /// </param>
+        ///  <param name="registryObs">The registry observer identity.
+        ///  </param>
         /// <param name="nodeObs">The node observer identity.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="appObs">The application observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="adptObs">The adapter observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="objObs">The object observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult begin_setObserversByIdentity(global::Ice.Identity registryObs, global::Ice.Identity nodeObs, global::Ice.Identity appObs, global::Ice.Identity adptObs, global::Ice.Identity objObs, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Set the observer identities that receive
-        /// notifications the state of the registry
-        /// or nodes changes.
-        /// This operation should be used by clients that
+        /// Set the observer identities that receive notifications the state of the registry or nodes changes.
+        /// This
         /// </summary>
-        /// <param name="registryObs">The registry observer identity.
-        ///
-        /// </param>
+        ///  <param name="registryObs">The registry observer identity.
+        ///  </param>
         /// <param name="nodeObs">The node observer identity.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="appObs">The application observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="adptObs">The adapter observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="objObs">The object observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -8035,10 +7302,8 @@ namespace IceGrid
         global::Ice.AsyncResult begin_setObserversByIdentity(global::Ice.Identity registryObs, global::Ice.Identity nodeObs, global::Ice.Identity appObs, global::Ice.Identity adptObs, global::Ice.Identity objObs, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Set the observer identities that receive
-        /// notifications the state of the registry
-        /// or nodes changes.
-        /// This operation should be used by clients that
+        /// Set the observer identities that receive notifications the state of the registry or nodes changes.
+        /// This
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_setObserversByIdentity(global::Ice.AsyncResult asyncResult);
@@ -8047,11 +7312,9 @@ namespace IceGrid
         /// Acquires an exclusive lock to start updating the registry applications.
         /// </summary>
         /// <returns>The current serial.
-        ///
-        /// </returns>
-        /// <exception name="AccessDeniedException">Raised if the exclusive lock can't be
-        /// acquired. This might happen if the lock is currently acquired by
-        /// another session.</exception>
+        ///  </returns>
+        /// <exception name="AccessDeniedException">Raised if the exclusive lock can't be acquired. This might happen if the lock is
+        ///  currently acquired by another session.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         int startUpdate(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -8094,15 +7357,13 @@ namespace IceGrid
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The current serial.
-        ///
-        /// </returns>
+        ///  </returns>
         int end_startUpdate(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Finish updating the registry and release the exclusive lock.
         /// </summary>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the
-        /// exclusive lock.</exception>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void finishUpdate(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -8196,61 +7457,41 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given server log file for reading.
-        /// The file can be
-        /// read with the returned file iterator.
-        ///
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="path">The path of the log file. A log file can be opened
-        /// only if it's declared in the server or service deployment
-        /// descriptor.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
+        /// <param name="path">The path of the log file. A log file can be opened only if it's declared in the server or service
+        ///  deployment descriptor.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <returns>An iterator to read the file.
-        ///
-        /// </returns>
-        /// <exception name="FileNotAvailableException">Raised if the file can't be
-        /// read.
-        ///
-        /// </exception>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't
-        /// exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not
-        /// be reached.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be
-        /// deployed on the node.</exception>
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
+        ///  </exception>
+        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         FileIteratorPrx openServerLog(string id, string path, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Open the given server log file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="path">The path of the log file. A log file can be opened
-        /// only if it's declared in the server or service deployment
-        /// descriptor.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
+        /// <param name="path">The path of the log file. A log file can be opened only if it's declared in the server or service
+        ///  deployment descriptor.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -8259,42 +7500,32 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given server log file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="path">The path of the log file. A log file can be opened
-        /// only if it's declared in the server or service deployment
-        /// descriptor.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
+        /// <param name="path">The path of the log file. A log file can be opened only if it's declared in the server or service
+        ///  deployment descriptor.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_AdminSession_openServerLog> begin_openServerLog(string id, string path, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Open the given server log file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="path">The path of the log file. A log file can be opened
-        /// only if it's declared in the server or service deployment
-        /// descriptor.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
+        /// <param name="path">The path of the log file. A log file can be opened only if it's declared in the server or service
+        ///  deployment descriptor.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -8302,21 +7533,16 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given server log file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="path">The path of the log file. A log file can be opened
-        /// only if it's declared in the server or service deployment
-        /// descriptor.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
+        /// <param name="path">The path of the log file. A log file can be opened only if it's declared in the server or service
+        ///  deployment descriptor.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -8325,61 +7551,44 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given server log file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>An iterator to read the file.
-        ///
-        /// </returns>
+        ///  </returns>
         FileIteratorPrx end_openServerLog(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Open the given server stderr file for reading.
-        /// The file can be
-        /// read with the returned file iterator.
-        ///
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <returns>An iterator to read the file.
-        ///
-        /// </returns>
-        /// <exception name="FileNotAvailableException">Raised if the file can't be
-        /// read.
-        ///
-        /// </exception>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't
-        /// exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not
-        /// be reached.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be
-        /// deployed on the node.</exception>
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
+        ///  </exception>
+        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         FileIteratorPrx openServerStdErr(string id, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Open the given server stderr file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -8388,32 +7597,26 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given server stderr file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_AdminSession_openServerStdErr> begin_openServerStdErr(string id, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Open the given server stderr file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -8421,16 +7624,13 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given server stderr file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -8439,61 +7639,44 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given server stderr file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>An iterator to read the file.
-        ///
-        /// </returns>
+        ///  </returns>
         FileIteratorPrx end_openServerStdErr(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Open the given server stdout file for reading.
-        /// The file can be
-        /// read with the returned file iterator.
-        ///
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining.
+        ///  If 0 or positive, the file is read from the last count lines.
+        ///  </param>
         /// <returns>An iterator to read the file.
-        ///
-        /// </returns>
-        /// <exception name="FileNotAvailableException">Raised if the file can't be
-        /// read.
-        ///
-        /// </exception>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't
-        /// exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not
-        /// be reached.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be
-        /// deployed on the node.</exception>
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
+        ///   </exception>
+        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         FileIteratorPrx openServerStdOut(string id, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Open the given server stdout file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining.
+        ///  If 0 or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -8502,32 +7685,26 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given server stdout file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining.
+        ///  If 0 or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_AdminSession_openServerStdOut> begin_openServerStdOut(string id, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Open the given server stdout file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining.
+        ///  If 0 or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -8535,16 +7712,13 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given server stdout file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining.
+        ///  If 0 or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -8553,56 +7727,42 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given server stdout file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>An iterator to read the file.
-        ///
-        /// </returns>
+        ///  </returns>
         FileIteratorPrx end_openServerStdOut(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Open the given node stderr file for reading.
-        /// The file can be
-        /// read with the returned file iterator.
-        ///
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The node name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The node name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <returns>An iterator to read the file.
-        ///
-        /// </returns>
-        /// <exception name="FileNotAvailableException">Raised if the file can't be
-        /// read.
-        ///
-        /// </exception>
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
+        ///  </exception>
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not
-        /// be reached.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         FileIteratorPrx openNodeStdErr(string name, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Open the given node stderr file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The node name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The node name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -8611,32 +7771,26 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given node stderr file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The node name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The node name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_AdminSession_openNodeStdErr> begin_openNodeStdErr(string name, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Open the given node stderr file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The node name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The node name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -8644,16 +7798,13 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given node stderr file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The node name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The node name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -8662,56 +7813,42 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given node stderr file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>An iterator to read the file.
-        ///
-        /// </returns>
+        ///  </returns>
         FileIteratorPrx end_openNodeStdErr(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Open the given node stdout file for reading.
-        /// The file can be
-        /// read with the returned file iterator.
-        ///
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The node name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The node name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <returns>An iterator to read the file.
-        ///
-        /// </returns>
-        /// <exception name="FileNotAvailableException">Raised if the file can't be
-        /// read.
-        ///
-        /// </exception>
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
+        ///  </exception>
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not
-        /// be reached.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         FileIteratorPrx openNodeStdOut(string name, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Open the given node stdout file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The node name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The node name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -8720,32 +7857,26 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given node stdout file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The node name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The node name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_AdminSession_openNodeStdOut> begin_openNodeStdOut(string name, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Open the given node stdout file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The node name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The node name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -8753,16 +7884,13 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given node stdout file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The node name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The node name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -8771,57 +7899,42 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given node stdout file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>An iterator to read the file.
-        ///
-        /// </returns>
+        ///  </returns>
         FileIteratorPrx end_openNodeStdOut(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Open the given registry stderr file for reading.
-        /// The file can be
-        /// read with the returned file iterator.
-        ///
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The registry name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The registry name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <returns>An iterator to read the file.
-        ///
-        /// </returns>
-        /// <exception name="FileNotAvailableException">Raised if the file can't be
-        /// read.
-        ///
-        /// </exception>
-        /// <exception name="RegistryNotExistException">Raised if the registry
-        /// doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="RegistryUnreachableException">Raised if the registry
-        /// could not be reached.</exception>
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
+        ///  </exception>
+        /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.
+        ///  </exception>
+        /// <exception name="RegistryUnreachableException">Raised if the registry could not be reached.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         FileIteratorPrx openRegistryStdErr(string name, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Open the given registry stderr file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The registry name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The registry name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -8830,32 +7943,26 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given registry stderr file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The registry name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The registry name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_AdminSession_openRegistryStdErr> begin_openRegistryStdErr(string name, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Open the given registry stderr file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The registry name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The registry name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -8863,16 +7970,13 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given registry stderr file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The registry name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The registry name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -8881,57 +7985,42 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given registry stderr file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>An iterator to read the file.
-        ///
-        /// </returns>
+        ///  </returns>
         FileIteratorPrx end_openRegistryStdErr(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Open the given registry stdout file for reading.
-        /// The file can be
-        /// read with the returned file iterator.
-        ///
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The registry name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The registry name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <returns>An iterator to read the file.
-        ///
-        /// </returns>
-        /// <exception name="FileNotAvailableException">Raised if the file can't be
-        /// read.
-        ///
-        /// </exception>
-        /// <exception name="RegistryNotExistException">Raised if the registry
-        /// doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="RegistryUnreachableException">Raised if the registry
-        /// could not be reached.</exception>
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
+        ///  </exception>
+        /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.
+        ///  </exception>
+        /// <exception name="RegistryUnreachableException">Raised if the registry could not be reached.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         FileIteratorPrx openRegistryStdOut(string name, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Open the given registry stdout file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The registry name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The registry name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -8940,32 +8029,26 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given registry stdout file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The registry name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The registry name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_AdminSession_openRegistryStdOut> begin_openRegistryStdOut(string name, int count, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Open the given registry stdout file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The registry name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The registry name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -8973,16 +8056,13 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given registry stdout file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The registry name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The registry name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -8991,12 +8071,11 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given registry stdout file for reading.
-        /// The file can be
+        /// The file can be read with the returned file iterator.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>An iterator to read the file.
-        ///
-        /// </returns>
+        ///  </returns>
         FileIteratorPrx end_openRegistryStdOut(global::Ice.AsyncResult asyncResult);
     }
 }
@@ -9005,9 +8084,8 @@ namespace IceGrid
 {
     /// <summary>
     /// The IceGrid administrative interface.
-    /// &lt;p class="Warning"&gt;Allowing access to this interface
-    /// is a security risk! Please see the IceGrid documentation
-    /// for further information.
+    /// &lt;p class="Warning"&gt;Allowing access to this interface is a security risk!
+    ///  Please see the IceGrid documentation for further information.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9017,121 +8095,83 @@ namespace IceGrid
         /// Add an application to IceGrid.
         /// </summary>
         /// <param name="descriptor">The application descriptor.
-        ///
-        /// </param>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't
-        /// hold the exclusive lock or if another session is holding the
-        /// lock.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if application deployment
-        /// failed.</exception>
+        ///  </param>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
+        ///  holding the lock.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if application deployment failed.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         void addApplication(ApplicationDescriptor descriptor, global::Ice.Current current = null);
 
         /// <summary>
-        /// Synchronize a deployed application with the given application
-        /// descriptor.
-        /// This operation will replace the current descriptor
-        /// with this new descriptor.
-        ///
+        /// Synchronize a deployed application with the given application descriptor.
+        /// This operation will replace the
+        ///  current descriptor with this new descriptor.
         /// </summary>
-        /// <param name="descriptor">The application descriptor.
-        ///
-        /// </param>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't
-        /// hold the exclusive lock or if another session is holding the
-        /// lock.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if application deployment
-        /// failed.
-        ///
-        /// </exception>
-        /// <exception name="ApplicationNotExistException">Raised if the application
-        /// doesn't exist.</exception>
+        ///  <param name="descriptor">The application descriptor.
+        ///  </param>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
+        ///  holding the lock.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if application deployment failed.
+        ///  </exception>
+        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         void syncApplication(ApplicationDescriptor descriptor, global::Ice.Current current = null);
 
         /// <summary>
-        /// Update a deployed application with the given update application
-        /// descriptor.
+        /// Update a deployed application with the given update application descriptor.
         /// </summary>
         /// <param name="descriptor">The update descriptor.
-        ///
-        /// </param>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't
-        /// hold the exclusive lock or if another session is holding the
-        /// lock.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if application deployment
-        /// failed.
-        ///
-        /// </exception>
-        /// <exception name="ApplicationNotExistException">Raised if the application
-        /// doesn't exist.</exception>
+        ///  </param>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
+        ///  holding the lock.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if application deployment failed.
+        ///  </exception>
+        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         void updateApplication(ApplicationUpdateDescriptor descriptor, global::Ice.Current current = null);
 
         /// <summary>
-        /// Synchronize a deployed application with the given application
-        /// descriptor.
-        /// This operation will replace the current descriptor
-        /// with this new descriptor only if no server restarts are
-        /// necessary for the update of the application. If some servers
-        /// need to be restarted, the synchronization is rejected with a
-        /// DeploymentException.
-        ///
+        /// Synchronize a deployed application with the given application descriptor.
+        /// This operation will replace the
+        ///  current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+        ///  application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
         /// </summary>
-        /// <param name="descriptor">The application descriptor.
-        ///
-        /// </param>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't
-        /// hold the exclusive lock or if another session is holding the
-        /// lock.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if application deployment
-        /// failed.
-        ///
-        /// </exception>
-        /// <exception name="ApplicationNotExistException">Raised if the application
-        /// doesn't exist.</exception>
+        ///  <param name="descriptor">The application descriptor.
+        ///  </param>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
+        ///  holding the lock.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if application deployment failed.
+        ///  </exception>
+        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         void syncApplicationWithoutRestart(ApplicationDescriptor descriptor, global::Ice.Current current = null);
 
         /// <summary>
-        /// Update a deployed application with the given update application
-        /// descriptor only if no server restarts are necessary for the
-        /// update of the application.
-        /// If some servers need to be
-        /// restarted, the synchronization is rejected with a
-        /// DeploymentException.
-        ///
+        /// Update a deployed application with the given update application descriptor only if no server restarts are
+        ///  necessary for the update of the application.
+        /// If some servers need to be restarted, the synchronization is
+        ///  rejected with a DeploymentException.
         /// </summary>
-        /// <param name="descriptor">The update descriptor.
-        ///
-        /// </param>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't
-        /// hold the exclusive lock or if another session is holding the
-        /// lock.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if application deployment
-        /// failed.
-        ///
-        /// </exception>
-        /// <exception name="ApplicationNotExistException">Raised if the application
-        /// doesn't exist.</exception>
+        ///  <param name="descriptor">The update descriptor.
+        ///  </param>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
+        ///  holding the lock.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if application deployment failed.
+        ///  </exception>
+        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9141,48 +8181,33 @@ namespace IceGrid
         /// Remove an application from IceGrid.
         /// </summary>
         /// <param name="name">The application name.
-        ///
-        /// </param>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't
-        /// hold the exclusive lock or if another session is holding the
-        /// lock.
-        ///
-        /// </exception>
+        ///  </param>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
+        ///  holding the lock.
+        ///  </exception>
         /// <exception name="DeploymentException">Raised if application deployment failed.
-        ///
-        /// </exception>
-        /// <exception name="ApplicationNotExistException">Raised if the application
-        /// doesn't exist.</exception>
+        ///  </exception>
+        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         void removeApplication(string name, global::Ice.Current current = null);
 
         /// <summary>
-        /// Instantiate a server template from an application on the given
-        /// node.
+        /// Instantiate a server template from an application on the given node.
         /// </summary>
         /// <param name="application">The application name.
-        ///
-        /// </param>
-        /// <param name="node">The name of the node where the server will be
-        /// deployed.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="node">The name of the node where the server will be deployed.
+        ///  </param>
         /// <param name="desc">The descriptor of the server instance to deploy.
-        ///
-        /// </param>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't
-        /// hold the exclusive lock or if another session is holding the
-        /// lock.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if server instantiation
-        /// failed.
-        ///
-        /// </exception>
-        /// <exception name="ApplicationNotExistException">Raised if the application
-        /// doesn't exist.</exception>
+        ///  </param>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock or if another session is
+        ///  holding the lock.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if server instantiation failed.
+        ///  </exception>
+        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9192,12 +8217,9 @@ namespace IceGrid
         /// Patch the given application data.
         /// </summary>
         /// <param name="name">The application name.
-        ///
-        /// </param>
-        /// <param name="shutdown">If true, the servers depending on the data to
-        /// patch will be shut down if necessary.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="shutdown">If true, the servers depending on the data to patch will be shut down if necessary.
+        ///  </param>
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9207,13 +8229,10 @@ namespace IceGrid
         /// Get an application descriptor.
         /// </summary>
         /// <param name="name">The application name.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The application descriptor.
-        ///
-        /// </returns>
-        /// <exception name="ApplicationNotExistException">Raised if the application
-        /// doesn't exist.</exception>
+        ///  </returns>
+        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9223,10 +8242,8 @@ namespace IceGrid
         /// Get the default application descriptor.
         /// </summary>
         /// <returns>The default application descriptor.
-        ///
-        /// </returns>
-        /// <exception name="DeploymentException">Raised if the default application
-        /// descriptor can't be accessed or is invalid.</exception>
+        ///  </returns>
+        /// <exception name="DeploymentException">Raised if the default application descriptor can't be accessed or is invalid.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9245,11 +8262,9 @@ namespace IceGrid
         /// Get the server information for the server with the given id.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
-        ///
-        /// </exception>
+        ///  </exception>
         /// <returns>The server information.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -9260,20 +8275,14 @@ namespace IceGrid
         /// Get a server's state.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The server state.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be
-        /// reached.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be
-        /// deployed on the node.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9281,25 +8290,17 @@ namespace IceGrid
 
         /// <summary>
         /// Get a server's system process id.
-        /// The process id is operating
-        /// system dependent.
-        ///
+        /// The process id is operating system dependent.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
         /// <returns>The server's process id.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be
-        /// reached.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be
-        /// deployed on the node.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9307,12 +8308,10 @@ namespace IceGrid
 
         /// <summary>
         /// Get the category for server admin objects.
-        /// You can manufacture a server admin
-        /// proxy from the admin proxy by changing its identity: use the server ID as name
-        /// and the returned category as category.
-        ///
+        /// You can manufacture a server admin proxy from the admin proxy by
+        ///  changing its identity: use the server ID as name and the returned category as category.
         /// </summary>
-        /// <returns>The category for server admin objects.</returns>
+        ///  <returns>The category for server admin objects.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9322,20 +8321,14 @@ namespace IceGrid
         /// Get a proxy to the server's admin object.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>A proxy to the server's admin object
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not
-        /// be reached.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be
-        /// deployed on the node.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9343,27 +8336,18 @@ namespace IceGrid
 
         /// <summary>
         /// Enable or disable a server.
-        /// A disabled server can't be started
-        /// on demand or administratively. The enable state of the server
-        /// is not persistent: if the node is shut down and restarted, the
-        /// server will be enabled by default.
-        ///
+        /// A disabled server can't be started on demand or administratively. The enable state
+        ///  of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
         /// <param name="enabled">True to enable the server, false to disable it.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not
-        /// be reached.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be
-        /// deployed on the node.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9373,21 +8357,14 @@ namespace IceGrid
         /// Check if the server is enabled or disabled.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>True if the server is enabled.
-        ///
-        /// </returns>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't
-        /// exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not
-        /// be reached.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be
-        /// deployed on the node.</exception>
+        ///  </returns>
+        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9397,8 +8374,7 @@ namespace IceGrid
         /// Start a server and wait for its activation.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9408,8 +8384,7 @@ namespace IceGrid
         /// Stop a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9419,12 +8394,9 @@ namespace IceGrid
         /// Patch a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="shutdown">If true, servers depending on the data to patch
-        /// will be shut down if necessary.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="shutdown">If true, servers depending on the data to patch will be shut down if necessary.
+        ///  </param>
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9434,25 +8406,16 @@ namespace IceGrid
         /// Send signal to a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="signal">The signal, for example SIGTERM or 15.
-        ///
-        /// </param>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't
-        /// exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be
-        /// reached.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be
-        /// deployed on the node.
-        ///
-        /// </exception>
-        /// <exception name="BadSignalException">Raised if the signal is not recognized
-        /// by the target server.</exception>
+        ///  </param>
+        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.
+        ///  </exception>
+        /// <exception name="BadSignalException">Raised if the signal is not recognized by the target server.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9468,21 +8431,15 @@ namespace IceGrid
         string[] getAllServerIds(global::Ice.Current current = null);
 
         /// <summary>
-        /// Get the adapter information for the replica group or adapter
-        /// with the given id.
+        /// Get the adapter information for the replica group or adapter with the given id.
         /// </summary>
         /// <param name="id">The adapter id.
-        ///
-        /// </param>
-        /// <returns>A sequence of adapter information structures. If the
-        /// given id refers to an adapter, this sequence will contain only
-        /// one element. If the given id refers to a replica group, the
-        /// sequence will contain the adapter information of each member of
-        /// the replica group.
-        ///
-        /// </returns>
-        /// <exception name="AdapterNotExistException">Raised if the adapter or
-        /// replica group doesn't exist.</exception>
+        ///  </param>
+        /// <returns>A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
+        ///  contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
+        ///  information of each member of the replica group.
+        ///  </returns>
+        /// <exception name="AdapterNotExistException">Raised if the adapter or replica group doesn't exist.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9492,11 +8449,9 @@ namespace IceGrid
         /// Remove the adapter with the given id.
         /// </summary>
         /// <param name="id">The adapter id.
-        /// </param>
-        /// <exception name="AdapterNotExistException">Raised if the adapter doesn't
-        /// exist.
-        ///
-        /// </exception>
+        ///  </param>
+        /// <exception name="AdapterNotExistException">Raised if the adapter doesn't exist.
+        ///  </exception>
         /// <exception name="DeploymentException">Raised if application deployment failed.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -9514,21 +8469,15 @@ namespace IceGrid
 
         /// <summary>
         /// Add an object to the object registry.
-        /// IceGrid will get the
-        /// object type by calling ice_id on the given proxy. The object
-        /// must be reachable.
-        ///
+        /// IceGrid will get the object type by calling ice_id on the
+        ///  given proxy. The object must be reachable.
         /// </summary>
-        /// <param name="obj">The object to be added to the registry.
-        ///
-        /// </param>
-        /// <exception name="ObjectExistsException">Raised if the object is already
-        /// registered.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the object can't be
-        /// added. This might be raised if the invocation on the proxy to
-        /// get the object type failed.</exception>
+        ///  <param name="obj">The object to be added to the registry.
+        ///  </param>
+        /// <exception name="ObjectExistsException">Raised if the object is already registered.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the object can't be added. This might be raised if the invocation on the
+        ///  proxy to get the object type failed.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9536,41 +8485,29 @@ namespace IceGrid
 
         /// <summary>
         /// Update an object in the object registry.
-        /// Only objects added
-        /// with this interface can be updated with this operation. Objects
-        /// added with deployment descriptors should be updated with the
-        /// deployment mechanism.
-        ///
+        /// Only objects added with this interface can be updated with this
+        ///  operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
         /// </summary>
-        /// <param name="obj">The object to be updated to the registry.
-        ///
-        /// </param>
-        /// <exception name="ObjectNotRegisteredException">Raised if the object isn't
-        /// registered with the registry.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the object can't be
-        /// updated. This might happen if the object was added with a
-        /// deployment descriptor.</exception>
+        ///  <param name="obj">The object to be updated to the registry.
+        ///  </param>
+        /// <exception name="ObjectNotRegisteredException">Raised if the object isn't registered with the registry.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the object can't be updated. This might happen if the object was added
+        ///  with a deployment descriptor.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         void updateObject(global::Ice.ObjectPrx obj, global::Ice.Current current = null);
 
         /// <summary>
-        /// Add an object to the object registry and explicitly specify
-        /// its type.
+        /// Add an object to the object registry and explicitly specify its type.
         /// </summary>
         /// <param name="obj">The object to be added to the registry.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="type">The object type.
-        ///
-        /// </param>
-        /// <exception name="ObjectExistsException">Raised if the object is already
-        /// registered.
-        ///
-        /// </exception>
+        ///  </param>
+        /// <exception name="ObjectExistsException">Raised if the object is already registered.
+        ///  </exception>
         /// <exception name="DeploymentException">Raised if application deployment failed.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -9579,23 +8516,15 @@ namespace IceGrid
 
         /// <summary>
         /// Remove an object from the object registry.
-        /// Only objects added
-        /// with this interface can be removed with this operation. Objects
-        /// added with deployment descriptors should be removed with the
-        /// deployment mechanism.
-        ///
+        /// Only objects added with this interface can be removed with this
+        ///  operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
         /// </summary>
-        /// <param name="id">The identity of the object to be removed from the
-        /// registry.
-        ///
-        /// </param>
-        /// <exception name="ObjectNotRegisteredException">Raised if the object isn't
-        /// registered with the registry.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the object can't be
-        /// removed. This might happen if the object was added with a
-        /// deployment descriptor.</exception>
+        ///  <param name="id">The identity of the object to be removed from the registry.
+        ///  </param>
+        /// <exception name="ObjectNotRegisteredException">Raised if the object isn't registered with the registry.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the object can't be removed. This might happen if the object was added
+        ///  with a deployment descriptor.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9605,25 +8534,20 @@ namespace IceGrid
         /// Get the object info for the object with the given identity.
         /// </summary>
         /// <param name="id">The identity of the object.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The object info.
-        ///
-        /// </returns>
-        /// <exception name="ObjectNotRegisteredException">Raised if the object isn't
-        /// registered with the registry.</exception>
+        ///  </returns>
+        /// <exception name="ObjectNotRegisteredException">Raised if the object isn't registered with the registry.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         ObjectInfo getObjectInfo(global::Ice.Identity id, global::Ice.Current current = null);
 
         /// <summary>
-        /// Get the object info of all the registered objects with the
-        /// given type.
+        /// Get the object info of all the registered objects with the given type.
         /// </summary>
         /// <param name="type">The type of the object.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The object infos.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -9631,16 +8555,12 @@ namespace IceGrid
         ObjectInfo[] getObjectInfosByType(string type, global::Ice.Current current = null);
 
         /// <summary>
-        /// Get the object info of all the registered objects whose stringified
-        /// identities match the given expression.
+        /// Get the object info of all the registered objects whose stringified identities match the given expression.
         /// </summary>
-        /// <param name="expr">The expression to match against the stringified
-        /// identities of registered objects. The expression may contain
-        /// a trailing wildcard (*) character.
-        ///
-        /// </param>
-        /// <returns>All the object infos with a stringified identity
-        /// matching the given expression.</returns>
+        /// <param name="expr">The expression to match against the stringified identities of registered objects. The expression
+        ///  may contain a trailing wildcard (*) character.
+        ///  </param>
+        /// <returns>All the object infos with a stringified identity matching the given expression.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9650,11 +8570,9 @@ namespace IceGrid
         /// Ping an IceGrid node to see if it is active.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>true if the node ping succeeded, false otherwise.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -9665,16 +8583,12 @@ namespace IceGrid
         /// Get the load averages of the node.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The node load information.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be
-        /// reached.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9684,16 +8598,12 @@ namespace IceGrid
         /// Get the node information for the node with the given name.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The node information.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be
-        /// reached.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9703,42 +8613,29 @@ namespace IceGrid
         /// Get a proxy to the IceGrid node's admin object.
         /// </summary>
         /// <param name="name">The IceGrid node name
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>A proxy to the IceGrid node's admin object
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be
-        /// reached.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         global::Ice.ObjectPrx getNodeAdmin(string name, global::Ice.Current current = null);
 
         /// <summary>
-        /// Get the number of physical processor sockets for the machine
-        /// running the node with the given name.
-        /// Note that this method will return 1 on operating systems where
-        /// this can't be automatically determined and where the
-        /// IceGrid.Node.ProcessorSocketCount property for the node is not
-        /// set.
-        ///
+        /// Get the number of physical processor sockets for the machine running the node with the given name.
+        /// Note that this method will return 1 on operating systems where this can't be automatically determined and where
+        ///  the IceGrid.Node.ProcessorSocketCount property for the node is not set.
         /// </summary>
-        /// <param name="name">The node name.
-        ///
-        /// </param>
-        /// <returns>The number of processor sockets or 1 if the number of
-        /// sockets can't determined.
-        ///
-        /// </returns>
+        ///  <param name="name">The node name.
+        ///  </param>
+        /// <returns>The number of processor sockets or 1 if the number of sockets can't determined.
+        ///  </returns>
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be
-        /// reached.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9748,13 +8645,10 @@ namespace IceGrid
         /// Shutdown an IceGrid node.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be
-        /// reached.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9764,16 +8658,12 @@ namespace IceGrid
         /// Get the hostname of this node.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The node hostname.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be
-        /// reached.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9792,11 +8682,9 @@ namespace IceGrid
         /// Ping an IceGrid registry to see if it is active.
         /// </summary>
         /// <param name="name">The registry name.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>true if the registry ping succeeded, false otherwise.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -9807,16 +8695,12 @@ namespace IceGrid
         /// Get the registry information for the registry with the given name.
         /// </summary>
         /// <param name="name">The registry name.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The registry information.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="RegistryUnreachableException">Raised if the registry could not be
-        /// reached.</exception>
+        ///  </exception>
+        /// <exception name="RegistryUnreachableException">Raised if the registry could not be reached.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9826,11 +8710,9 @@ namespace IceGrid
         /// Get a proxy to the IceGrid registry's admin object.
         /// </summary>
         /// <param name="name">The registry name
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>A proxy to the IceGrid registry's admin object
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -9841,13 +8723,10 @@ namespace IceGrid
         /// Shutdown an IceGrid registry.
         /// </summary>
         /// <param name="name">The registry name.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="RegistryUnreachableException">Raised if the registry could not be
-        /// reached.</exception>
+        ///  </exception>
+        /// <exception name="RegistryUnreachableException">Raised if the registry could not be reached.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9881,23 +8760,16 @@ namespace IceGrid
         /// <summary>
         /// Read lines from the log file.
         /// </summary>
-        /// <param name="size">Specifies the maximum number of bytes to be
-        /// received. The server will ensure that the returned message
-        /// doesn't exceed the given size.
-        ///
-        /// </param>
-        /// <param name="lines">The lines read from the file. If there was nothing to
-        /// read from the file since the last call to read, an empty
-        /// sequence is returned. The last line of the sequence is always
-        /// incomplete (and therefore no '\n' should be added when writing
-        /// the last line to the to the output device).
-        ///
-        /// </param>
+        /// <param name="size">Specifies the maximum number of bytes to be received. The server will ensure that the returned
+        ///  message doesn't exceed the given size.
+        ///  </param>
+        /// <param name="lines">The lines read from the file. If there was nothing to read from the file since the last call to
+        ///  read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n'
+        ///  should be added when writing the last line to the to the output device).
+        ///  </param>
         /// <returns>True if EOF is encountered.
-        ///
-        /// </returns>
-        /// <exception name="FileNotAvailableException">Raised if there was a problem
-        /// to read lines from the file.</exception>
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if there was a problem to read lines from the file.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -9913,16 +8785,15 @@ namespace IceGrid
     }
 
     /// <summary>
-    /// This interface allows applications to monitor changes the state
-    /// of the registry.
+    /// This interface allows applications to monitor changes the state of the registry.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface RegistryObserverOperations_
     {
         /// <summary>
-        /// The registryInit operation is called after registration of
-        /// an observer to indicate the state of the registries.
+        /// The registryInit operation is called after registration of an observer to indicate the state of
+        ///  the registries.
         /// </summary>
         /// <param name="registries">The current state of the registries.</param>
         /// <param name="current">The Current object for the invocation.</param>
@@ -9931,8 +8802,7 @@ namespace IceGrid
         void registryInit(RegistryInfo[] registries, global::Ice.Current current = null);
 
         /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node
-        /// came up.
+        /// The nodeUp operation is called to notify an observer that a node came up.
         /// </summary>
         /// <param name="node">The node state.</param>
         /// <param name="current">The Current object for the invocation.</param>
@@ -9941,8 +8811,7 @@ namespace IceGrid
         void registryUp(RegistryInfo node, global::Ice.Current current = null);
 
         /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node
-        /// went down.
+        /// The nodeDown operation is called to notify an observer that a node went down.
         /// </summary>
         /// <param name="name">The node name.</param>
         /// <param name="current">The Current object for the invocation.</param>
@@ -9953,29 +8822,26 @@ namespace IceGrid
 
     /// <summary>
     /// The node observer interface.
-    /// Observers should implement this
-    /// interface to receive information about the state of the IceGrid
-    /// nodes.
+    /// Observers should implement this interface to receive information about the state of
+    ///  the IceGrid nodes.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface NodeObserverOperations_
     {
         /// <summary>
-        /// The nodeInit operation indicates the current state
-        /// of nodes.
-        /// It is called after the registration of an observer.
-        ///
+        /// The nodeInit operation indicates the current state of nodes.
+        /// It is called after the registration
+        ///  of an observer.
         /// </summary>
-        /// <param name="nodes">The current state of the nodes.</param>
+        ///  <param name="nodes">The current state of the nodes.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         void nodeInit(NodeDynamicInfo[] nodes, global::Ice.Current current = null);
 
         /// <summary>
-        /// The nodeUp operation is called to notify an observer that a node
-        /// came up.
+        /// The nodeUp operation is called to notify an observer that a node came up.
         /// </summary>
         /// <param name="node">The node state.</param>
         /// <param name="current">The Current object for the invocation.</param>
@@ -9984,8 +8850,7 @@ namespace IceGrid
         void nodeUp(NodeDynamicInfo node, global::Ice.Current current = null);
 
         /// <summary>
-        /// The nodeDown operation is called to notify an observer that a node
-        /// went down.
+        /// The nodeDown operation is called to notify an observer that a node went down.
         /// </summary>
         /// <param name="name">The node name.</param>
         /// <param name="current">The Current object for the invocation.</param>
@@ -9994,12 +8859,10 @@ namespace IceGrid
         void nodeDown(string name, global::Ice.Current current = null);
 
         /// <summary>
-        /// The updateServer operation is called to notify an observer that
-        /// the state of a server changed.
+        /// The updateServer operation is called to notify an observer that the state of a server changed.
         /// </summary>
         /// <param name="node">The node hosting the server.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="updatedInfo">The new server state.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -10007,12 +8870,10 @@ namespace IceGrid
         void updateServer(string node, ServerDynamicInfo updatedInfo, global::Ice.Current current = null);
 
         /// <summary>
-        /// The updateAdapter operation is called to notify an observer that
-        /// the state of an adapter changed.
+        /// The updateAdapter operation is called to notify an observer that the state of an adapter changed.
         /// </summary>
         /// <param name="node">The node hosting the adapter.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="updatedInfo">The new adapter state.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -10022,37 +8883,31 @@ namespace IceGrid
 
     /// <summary>
     /// The database observer interface.
-    /// Observers should implement this
-    /// interface to receive information about the state of the IceGrid
-    /// registry database.
+    /// Observers should implement this interface to receive information about the state
+    ///  of the IceGrid registry database.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface ApplicationObserverOperations_
     {
         /// <summary>
-        /// applicationInit is called after the registration
-        /// of an observer to indicate the state of the registry.
+        /// applicationInit is called after the registration of an observer to indicate the state of the
+        ///  registry.
         /// </summary>
-        /// <param name="serial">The current serial number of the registry
-        /// database. This serial number allows observers to make sure that
-        /// their internal state is synchronized with the registry.
-        ///
-        /// </param>
-        /// <param name="applications">The applications currently registered with
-        /// the registry.</param>
+        /// <param name="serial">The current serial number of the registry database. This serial number allows observers to make
+        ///  sure that their internal state is synchronized with the registry.
+        ///  </param>
+        /// <param name="applications">The applications currently registered with the registry.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         void applicationInit(int serial, ApplicationInfo[] applications, global::Ice.Current current = null);
 
         /// <summary>
-        /// The applicationAdded operation is called to notify an observer
-        /// that an application was added.
+        /// The applicationAdded operation is called to notify an observer that an application was added.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="desc">The descriptor of the new application.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -10060,12 +8915,10 @@ namespace IceGrid
         void applicationAdded(int serial, ApplicationInfo desc, global::Ice.Current current = null);
 
         /// <summary>
-        /// The applicationRemoved operation is called to notify an observer
-        /// that an application was removed.
+        /// The applicationRemoved operation is called to notify an observer that an application was removed.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="name">The name of the application that was removed.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -10073,12 +8926,10 @@ namespace IceGrid
         void applicationRemoved(int serial, string name, global::Ice.Current current = null);
 
         /// <summary>
-        /// The applicationUpdated operation is called to notify an observer
-        /// that an application was updated.
+        /// The applicationUpdated operation is called to notify an observer that an application was updated.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="desc">The descriptor of the update.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -10087,27 +8938,25 @@ namespace IceGrid
     }
 
     /// <summary>
-    /// This interface allows applications to monitor the state of object
-    /// adapters that are registered with IceGrid.
+    /// This interface allows applications to monitor the state of object adapters that are registered with IceGrid.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface AdapterObserverOperations_
     {
         /// <summary>
-        /// adapterInit is called after registration of
-        /// an observer to indicate the state of the registry.
+        /// adapterInit is called after registration of an observer to indicate the state of the registry.
         /// </summary>
-        /// <param name="adpts">The adapters that were dynamically registered
-        /// with the registry (not through the deployment mechanism).</param>
+        /// <param name="adpts">The adapters that were dynamically registered with the registry (not through the deployment
+        ///  mechanism).</param>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         void adapterInit(AdapterInfo[] adpts, global::Ice.Current current = null);
 
         /// <summary>
-        /// The adapterAdded operation is called to notify an observer when
-        /// a dynamically-registered adapter was added.
+        /// The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
+        ///  was added.
         /// </summary>
         /// <param name="info">The details of the new adapter.</param>
         /// <param name="current">The Current object for the invocation.</param>
@@ -10116,8 +8965,7 @@ namespace IceGrid
         void adapterAdded(AdapterInfo info, global::Ice.Current current = null);
 
         /// <summary>
-        /// The adapterUpdated operation is called to notify an observer when
-        /// a dynamically-registered adapter was updated.
+        /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
         /// </summary>
         /// <param name="info">The details of the updated adapter.</param>
         /// <param name="current">The Current object for the invocation.</param>
@@ -10126,8 +8974,7 @@ namespace IceGrid
         void adapterUpdated(AdapterInfo info, global::Ice.Current current = null);
 
         /// <summary>
-        /// The adapterRemoved operation is called to notify an observer when
-        /// a dynamically-registered adapter was removed.
+        /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
         /// </summary>
         /// <param name="id">The ID of the removed adapter.</param>
         /// <param name="current">The Current object for the invocation.</param>
@@ -10144,19 +8991,17 @@ namespace IceGrid
     public interface ObjectObserverOperations_
     {
         /// <summary>
-        /// objectInit is called after the registration of
-        /// an observer to indicate the state of the registry.
+        /// objectInit is called after the registration of an observer to indicate the state of the registry.
         /// </summary>
-        /// <param name="objects">The objects registered with the Admin
-        /// interface (not through the deployment mechanism).</param>
+        /// <param name="objects">The objects registered with the Admin interface (not through the deployment mechanism).</param>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         void objectInit(ObjectInfo[] objects, global::Ice.Current current = null);
 
         /// <summary>
-        /// The objectAdded operation is called to notify an observer when an
-        /// object was added to the Admin interface.
+        /// The objectAdded operation is called to notify an observer when an object was added to the
+        ///  Admin interface.
         /// </summary>
         /// <param name="info">The details of the added object.</param>
         /// <param name="current">The Current object for the invocation.</param>
@@ -10165,8 +9010,8 @@ namespace IceGrid
         void objectAdded(ObjectInfo info, global::Ice.Current current = null);
 
         /// <summary>
-        /// objectUpdated is called to notify an observer when
-        /// an object registered with the Admin interface was updated.
+        /// objectUpdated is called to notify an observer when an object registered with the Admin
+        ///  interface was updated.
         /// </summary>
         /// <param name="info">The details of the updated object.</param>
         /// <param name="current">The Current object for the invocation.</param>
@@ -10175,8 +9020,8 @@ namespace IceGrid
         void objectUpdated(ObjectInfo info, global::Ice.Current current = null);
 
         /// <summary>
-        /// objectRemoved is called to notify an observer when
-        /// an object registered with the Admin interface was removed.
+        /// objectRemoved is called to notify an observer when an object registered with the Admin
+        ///  interface was removed.
         /// </summary>
         /// <param name="id">The identity of the removed object.</param>
         /// <param name="current">The Current object for the invocation.</param>
@@ -10186,12 +9031,10 @@ namespace IceGrid
     }
 
     /// <summary>
-    /// Used by administrative clients to view,
-    /// update, and receive observer updates from the IceGrid
-    /// registry.
-    /// Admin sessions are created either via the Registry
-    /// object or via the registry admin SessionManager object.
-    ///
+    /// Used by administrative clients to view, update, and receive observer updates from the IceGrid registry.
+    /// Admin
+    ///  sessions are created either via the Registry object or via the registry admin SessionManager
+    ///  object.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -10199,9 +9042,8 @@ namespace IceGrid
     {
         /// <summary>
         /// Keep the session alive.
-        /// Clients should call this operation
-        /// regularly to prevent the server from reaping the session.
-        ///
+        /// Clients should call this operation regularly to prevent the server from reaping the
+        ///  session.
         /// </summary>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -10210,11 +9052,9 @@ namespace IceGrid
 
         /// <summary>
         /// Get the admin interface.
-        /// The admin object returned by this
-        /// operation can only be accessed by the session.
-        ///
+        /// The admin object returned by this operation can only be accessed by the session.
         /// </summary>
-        /// <returns>The admin interface proxy.</returns>
+        ///  <returns>The admin interface proxy.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -10222,71 +9062,50 @@ namespace IceGrid
 
         /// <summary>
         /// Get a "template" proxy for admin callback objects.
-        /// An Admin client uses this proxy to set the category of its callback
-        /// objects, and the published endpoints of the object adapter hosting
-        /// the admin callback objects.
-        ///
+        /// An Admin client uses this proxy to set the category of its
+        ///  callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
         /// </summary>
-        /// <returns>A template proxy. The returned proxy is null when the Admin
-        /// session was established using Glacier2.</returns>
+        ///  <returns>A template proxy. The returned proxy is null when the Admin session was established using Glacier2.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         global::Ice.ObjectPrx getAdminCallbackTemplate(global::Ice.Current current = null);
 
         /// <summary>
-        /// Set the observer proxies that receive
-        /// notifications when the state of the registry
-        /// or nodes changes.
+        /// Set the observer proxies that receive notifications when the state of the registry or nodes changes.
         /// </summary>
         /// <param name="registryObs">The registry observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="nodeObs">The node observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="appObs">The application observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="adptObs">The adapter observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="objObs">The object observer.
-        ///
-        /// </param>
-        /// <exception name="ObserverAlreadyRegisteredException">Raised if an
-        /// observer is already registered with this registry.</exception>
+        ///  </param>
+        /// <exception name="ObserverAlreadyRegisteredException">Raised if an observer is already registered with this registry.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         void setObservers(RegistryObserverPrx registryObs, NodeObserverPrx nodeObs, ApplicationObserverPrx appObs, AdapterObserverPrx adptObs, ObjectObserverPrx objObs, global::Ice.Current current = null);
 
         /// <summary>
-        /// Set the observer identities that receive
-        /// notifications the state of the registry
-        /// or nodes changes.
-        /// This operation should be used by clients that
-        /// are using a bidirectional connection to communicate with the
-        /// session.
-        ///
+        /// Set the observer identities that receive notifications the state of the registry or nodes changes.
+        /// This
+        ///  operation should be used by clients that are using a bidirectional connection to communicate with the session.
         /// </summary>
-        /// <param name="registryObs">The registry observer identity.
-        ///
-        /// </param>
+        ///  <param name="registryObs">The registry observer identity.
+        ///  </param>
         /// <param name="nodeObs">The node observer identity.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="appObs">The application observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="adptObs">The adapter observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="objObs">The object observer.
-        ///
-        /// </param>
-        /// <exception name="ObserverAlreadyRegisteredException">Raised if an
-        /// observer is already registered with this registry.</exception>
+        ///  </param>
+        /// <exception name="ObserverAlreadyRegisteredException">Raised if an observer is already registered with this registry.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -10296,11 +9115,9 @@ namespace IceGrid
         /// Acquires an exclusive lock to start updating the registry applications.
         /// </summary>
         /// <returns>The current serial.
-        ///
-        /// </returns>
-        /// <exception name="AccessDeniedException">Raised if the exclusive lock can't be
-        /// acquired. This might happen if the lock is currently acquired by
-        /// another session.</exception>
+        ///  </returns>
+        /// <exception name="AccessDeniedException">Raised if the exclusive lock can't be acquired. This might happen if the lock is
+        ///  currently acquired by another session.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -10309,8 +9126,7 @@ namespace IceGrid
         /// <summary>
         /// Finish updating the registry and release the exclusive lock.
         /// </summary>
-        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the
-        /// exclusive lock.</exception>
+        /// <exception name="AccessDeniedException">Raised if the session doesn't hold the exclusive lock.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -10327,40 +9143,25 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given server log file for reading.
-        /// The file can be
-        /// read with the returned file iterator.
-        ///
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="path">The path of the log file. A log file can be opened
-        /// only if it's declared in the server or service deployment
-        /// descriptor.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
+        /// <param name="path">The path of the log file. A log file can be opened only if it's declared in the server or service
+        ///  deployment descriptor.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <returns>An iterator to read the file.
-        ///
-        /// </returns>
-        /// <exception name="FileNotAvailableException">Raised if the file can't be
-        /// read.
-        ///
-        /// </exception>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't
-        /// exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not
-        /// be reached.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be
-        /// deployed on the node.</exception>
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
+        ///  </exception>
+        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -10368,35 +9169,22 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given server stderr file for reading.
-        /// The file can be
-        /// read with the returned file iterator.
-        ///
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <returns>An iterator to read the file.
-        ///
-        /// </returns>
-        /// <exception name="FileNotAvailableException">Raised if the file can't be
-        /// read.
-        ///
-        /// </exception>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't
-        /// exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not
-        /// be reached.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be
-        /// deployed on the node.</exception>
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
+        ///  </exception>
+        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -10404,35 +9192,22 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given server stdout file for reading.
-        /// The file can be
-        /// read with the returned file iterator.
-        ///
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="id">The server id.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="id">The server id.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining.
+        ///  If 0 or positive, the file is read from the last count lines.
+        ///  </param>
         /// <returns>An iterator to read the file.
-        ///
-        /// </returns>
-        /// <exception name="FileNotAvailableException">Raised if the file can't be
-        /// read.
-        ///
-        /// </exception>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't
-        /// exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not
-        /// be reached.
-        ///
-        /// </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be
-        /// deployed on the node.</exception>
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
+        ///   </exception>
+        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
+        ///  </exception>
+        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -10440,30 +9215,20 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given node stderr file for reading.
-        /// The file can be
-        /// read with the returned file iterator.
-        ///
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The node name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The node name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <returns>An iterator to read the file.
-        ///
-        /// </returns>
-        /// <exception name="FileNotAvailableException">Raised if the file can't be
-        /// read.
-        ///
-        /// </exception>
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
+        ///  </exception>
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not
-        /// be reached.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -10471,30 +9236,20 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given node stdout file for reading.
-        /// The file can be
-        /// read with the returned file iterator.
-        ///
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The node name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The node name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <returns>An iterator to read the file.
-        ///
-        /// </returns>
-        /// <exception name="FileNotAvailableException">Raised if the file can't be
-        /// read.
-        ///
-        /// </exception>
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
+        ///  </exception>
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not
-        /// be reached.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -10502,31 +9257,20 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given registry stderr file for reading.
-        /// The file can be
-        /// read with the returned file iterator.
-        ///
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The registry name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The registry name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <returns>An iterator to read the file.
-        ///
-        /// </returns>
-        /// <exception name="FileNotAvailableException">Raised if the file can't be
-        /// read.
-        ///
-        /// </exception>
-        /// <exception name="RegistryNotExistException">Raised if the registry
-        /// doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="RegistryUnreachableException">Raised if the registry
-        /// could not be reached.</exception>
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
+        ///  </exception>
+        /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.
+        ///  </exception>
+        /// <exception name="RegistryUnreachableException">Raised if the registry could not be reached.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -10534,31 +9278,20 @@ namespace IceGrid
 
         /// <summary>
         /// Open the given registry stdout file for reading.
-        /// The file can be
-        /// read with the returned file iterator.
-        ///
+        /// The file can be read with the returned file iterator.
         /// </summary>
-        /// <param name="name">The registry name.
-        ///
-        /// </param>
-        /// <param name="count">Specifies where to start reading the file. If
-        /// negative, the file is read from the begining. If 0 or positive,
-        /// the file is read from the last count lines.
-        ///
-        /// </param>
+        ///  <param name="name">The registry name.
+        ///  </param>
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+        ///  or positive, the file is read from the last count lines.
+        ///  </param>
         /// <returns>An iterator to read the file.
-        ///
-        /// </returns>
-        /// <exception name="FileNotAvailableException">Raised if the file can't be
-        /// read.
-        ///
-        /// </exception>
-        /// <exception name="RegistryNotExistException">Raised if the registry
-        /// doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="RegistryUnreachableException">Raised if the registry
-        /// could not be reached.</exception>
+        ///  </returns>
+        /// <exception name="FileNotAvailableException">Raised if the file can't be read.
+        ///  </exception>
+        /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.
+        ///  </exception>
+        /// <exception name="RegistryUnreachableException">Raised if the registry could not be reached.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]

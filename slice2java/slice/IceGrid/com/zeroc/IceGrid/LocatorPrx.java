@@ -16,8 +16,8 @@
 package com.zeroc.IceGrid;
 
 /**
- * The IceGrid locator interface provides access to the {@link Query}
- * and {@link Registry} object of the IceGrid registry.
+ * The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
+ * registry.
  *
  * @see Query
  * @see Registry
@@ -25,8 +25,7 @@ package com.zeroc.IceGrid;
 public interface LocatorPrx extends com.zeroc.Ice.LocatorPrx
 {
     /**
-     * Get the proxy of the registry object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the registry object hosted by this IceGrid registry.
      * @return The proxy of the registry object.
      **/
     default RegistryPrx getLocalRegistry()
@@ -35,8 +34,7 @@ public interface LocatorPrx extends com.zeroc.Ice.LocatorPrx
     }
 
     /**
-     * Get the proxy of the registry object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the registry object hosted by this IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @return The proxy of the registry object.
      **/
@@ -46,8 +44,7 @@ public interface LocatorPrx extends com.zeroc.Ice.LocatorPrx
     }
 
     /**
-     * Get the proxy of the registry object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the registry object hosted by this IceGrid registry.
      * @return The proxy of the registry object.
      **/
     default java.util.concurrent.CompletableFuture<RegistryPrx> getLocalRegistryAsync()
@@ -56,8 +53,7 @@ public interface LocatorPrx extends com.zeroc.Ice.LocatorPrx
     }
 
     /**
-     * Get the proxy of the registry object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the registry object hosted by this IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @return The proxy of the registry object.
      **/
@@ -84,8 +80,7 @@ public interface LocatorPrx extends com.zeroc.Ice.LocatorPrx
     }
 
     /**
-     * Get the proxy of the query object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the query object hosted by this IceGrid registry.
      * @return The proxy of the query object.
      **/
     default QueryPrx getLocalQuery()
@@ -94,8 +89,7 @@ public interface LocatorPrx extends com.zeroc.Ice.LocatorPrx
     }
 
     /**
-     * Get the proxy of the query object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the query object hosted by this IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @return The proxy of the query object.
      **/
@@ -105,8 +99,7 @@ public interface LocatorPrx extends com.zeroc.Ice.LocatorPrx
     }
 
     /**
-     * Get the proxy of the query object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the query object hosted by this IceGrid registry.
      * @return The proxy of the query object.
      **/
     default java.util.concurrent.CompletableFuture<QueryPrx> getLocalQueryAsync()
@@ -115,8 +108,7 @@ public interface LocatorPrx extends com.zeroc.Ice.LocatorPrx
     }
 
     /**
-     * Get the proxy of the query object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the query object hosted by this IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @return The proxy of the query object.
      **/

@@ -16,8 +16,7 @@
 package com.zeroc.Ice;
 
 /**
- * This exception is raised if there was an error while parsing a
- * version.
+ * This exception is raised if there was an error while parsing a version.
  **/
 public class VersionParseException extends LocalException
 {

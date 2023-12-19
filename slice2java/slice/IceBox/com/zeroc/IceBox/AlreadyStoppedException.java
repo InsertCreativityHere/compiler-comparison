@@ -16,8 +16,7 @@
 package com.zeroc.IceBox;
 
 /**
- * This exception is thrown if an attempt is made to stop an
- * already-stopped service.
+ * This exception is thrown if an attempt is made to stop an already-stopped service.
  **/
 public class AlreadyStoppedException extends com.zeroc.Ice.UserException
 {

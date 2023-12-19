@@ -1,8 +1,7 @@
 % FeatureNotSupportedException   Summary of FeatureNotSupportedException
 %
-% This exception is raised if an unsupported feature is used. The
-% unsupported feature string contains the name of the unsupported
-% feature
+% This exception is raised if an unsupported feature is used. The unsupported feature string contains the name of the
+% unsupported feature.
 %
 % FeatureNotSupportedException Properties:
 %   unsupportedFeature - The name of the unsupported feature.

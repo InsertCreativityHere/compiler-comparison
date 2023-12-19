@@ -1,7 +1,6 @@
 % NoSuchTopic   Summary of NoSuchTopic
 %
-% This exception indicates that an attempt was made to retrieve a
-% topic that does not exist.
+% This exception indicates that an attempt was made to retrieve a topic that does not exist.
 %
 % NoSuchTopic Properties:
 %   name - The name of the topic that does not exist.

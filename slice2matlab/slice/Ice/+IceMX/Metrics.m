@@ -1,7 +1,6 @@
 % Metrics   Summary of Metrics
 %
-% The base class for metrics. A metrics object represents a
-% collection of measurements associated to a given a system.
+% The base class for metrics. A metrics object represents a collection of measurements associated to a given a system.
 %
 % Metrics Properties:
 %   id - The metrics identifier.
@@ -17,15 +16,13 @@ classdef Metrics < Ice.Value
     properties
         % id - The metrics identifier.
         id char
-        % total - The total number of objects observed by this metrics. This includes
-        % the number of currently observed objects and the number of objects
-        % observed in the past.
+        % total - The total number of objects observed by this metrics. This includes the number of currently observed objects
+        % and the number of objects observed in the past.
         total int64
         % current - The number of objects currently observed by this metrics.
         current int32
-        % totalLifetime - The sum of the lifetime of each observed objects. This does not
-        % include the lifetime of objects which are currently observed,
-        % only the objects observed in the past.
+        % totalLifetime - The sum of the lifetime of each observed objects. This does not include the lifetime of objects which are
+        % currently observed, only the objects observed in the past.
         totalLifetime int64
         % failures - The number of failures observed.
         failures int32

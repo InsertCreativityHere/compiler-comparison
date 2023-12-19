@@ -16,17 +16,15 @@
 package com.zeroc.Ice;
 
 /**
- * This interface should be implemented by services implementing the
- * Ice::Router interface. It should be advertised through an Ice
- * object with the identity `Ice/RouterFinder'. This allows clients to
- * retrieve the router proxy with just the endpoint information of the
- * service.
+ * This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
+ * through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
+ * just the endpoint information of the service.
  **/
 public interface RouterFinderPrx extends ObjectPrx
 {
     /**
-     * Get the router proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @return The router proxy.
      **/
     default RouterPrx getRouter()
@@ -35,8 +33,8 @@ public interface RouterFinderPrx extends ObjectPrx
     }
 
     /**
-     * Get the router proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param context The Context map to send with the invocation.
      * @return The router proxy.
      **/
@@ -46,8 +44,8 @@ public interface RouterFinderPrx extends ObjectPrx
     }
 
     /**
-     * Get the router proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @return The router proxy.
      **/
     default java.util.concurrent.CompletableFuture<RouterPrx> getRouterAsync()
@@ -56,8 +54,8 @@ public interface RouterFinderPrx extends ObjectPrx
     }
 
     /**
-     * Get the router proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param context The Context map to send with the invocation.
      * @return The router proxy.
      **/

@@ -1,7 +1,6 @@
 % RegistryObserverPrx   Summary of RegistryObserverPrx
 %
-% This interface allows applications to monitor changes the state
-% of the registry.
+% This interface allows applications to monitor changes the state of the registry.
 %
 % RegistryObserverPrx Methods:
 %   registryInit - The registryInit operation is called after registration of an observer to indicate the state of the registries.
@@ -19,8 +18,8 @@
 classdef RegistryObserverPrx < Ice.ObjectPrx
     methods
         function registryInit(obj, registries, varargin)
-            % registryInit   The registryInit operation is called after registration of
-            % an observer to indicate the state of the registries.
+            % registryInit   The registryInit operation is called after registration of an observer to indicate the state of
+            % the registries.
             %
             % Parameters:
             %   registries (IceGrid.RegistryInfoSeq) - The current state of the registries.
@@ -32,8 +31,8 @@ classdef RegistryObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('registryInit', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = registryInitAsync(obj, registries, varargin)
-            % registryInitAsync   The registryInit operation is called after registration of
-            % an observer to indicate the state of the registries.
+            % registryInitAsync   The registryInit operation is called after registration of an observer to indicate the state of
+            % the registries.
             %
             % Parameters:
             %   registries (IceGrid.RegistryInfoSeq) - The current state of the registries.
@@ -47,8 +46,7 @@ classdef RegistryObserverPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('registryInit', 0, false, os_, 0, [], {}, varargin{:});
         end
         function registryUp(obj, node, varargin)
-            % registryUp   The nodeUp operation is called to notify an observer that a node
-            % came up.
+            % registryUp   The nodeUp operation is called to notify an observer that a node came up.
             %
             % Parameters:
             %   node (IceGrid.RegistryInfo) - The node state.
@@ -60,8 +58,7 @@ classdef RegistryObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('registryUp', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = registryUpAsync(obj, node, varargin)
-            % registryUpAsync   The nodeUp operation is called to notify an observer that a node
-            % came up.
+            % registryUpAsync   The nodeUp operation is called to notify an observer that a node came up.
             %
             % Parameters:
             %   node (IceGrid.RegistryInfo) - The node state.
@@ -75,8 +72,7 @@ classdef RegistryObserverPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('registryUp', 0, false, os_, 0, [], {}, varargin{:});
         end
         function registryDown(obj, name, varargin)
-            % registryDown   The nodeDown operation is called to notify an observer that a node
-            % went down.
+            % registryDown   The nodeDown operation is called to notify an observer that a node went down.
             %
             % Parameters:
             %   name (char) - The node name.
@@ -88,8 +84,7 @@ classdef RegistryObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('registryDown', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = registryDownAsync(obj, name, varargin)
-            % registryDownAsync   The nodeDown operation is called to notify an observer that a node
-            % went down.
+            % registryDownAsync   The nodeDown operation is called to notify an observer that a node went down.
             %
             % Parameters:
             %   name (char) - The node name.

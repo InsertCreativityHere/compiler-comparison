@@ -15,13 +15,11 @@
 
 import Foundation
 
-/// Determines the order in which the Ice run time uses the endpoints
-/// in a proxy when establishing a connection.
+/// Determines the order in which the Ice run time uses the endpoints in a proxy when establishing a connection.
 public enum EndpointSelectionType: Swift.UInt8 {
     /// Random Random causes the endpoints to be arranged in a random order.
     case Random = 0
-    /// Ordered Ordered forces the Ice run time to use the endpoints in the
-    /// order they appeared in the proxy.
+    /// Ordered Ordered forces the Ice run time to use the endpoints in the order they appeared in the proxy.
     case Ordered = 1
     public init() {
         self = .Random

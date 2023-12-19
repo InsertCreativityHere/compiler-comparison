@@ -16,8 +16,7 @@
 package com.zeroc.IceMX;
 
 /**
- * Provides information on the number of threads currently in use and
- * their activity.
+ * Provides information on the number of threads currently in use and their activity.
  **/
 public class ThreadMetrics extends Metrics
 {
@@ -38,22 +37,18 @@ public class ThreadMetrics extends Metrics
     }
 
     /**
-     * The number of threads which are currently performing socket
-     * read or writes.
+     * The number of threads which are currently performing socket read or writes.
      **/
     public int inUseForIO;
 
     /**
-     * The number of threads which are currently calling user code
-     * (servant dispatch, AMI callbacks, etc).
+     * The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
      **/
     public int inUseForUser;
 
     /**
-     * The number of threads which are currently performing other
-     * activities. These are all other that are not counted with
-     * {@link #inUseForUser} or {@link #inUseForIO}, such as DNS
-     * lookups, garbage collection).
+     * The number of threads which are currently performing other activities. These are all other that are not counted
+     * with {@link #inUseForUser} or {@link #inUseForIO}, such as DNS lookups, garbage collection).
      **/
     public int inUseForOther;
 

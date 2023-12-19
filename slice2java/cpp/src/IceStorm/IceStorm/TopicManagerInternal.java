@@ -25,8 +25,7 @@ public interface TopicManagerInternal extends com.zeroc.IceStorm.TopicManager
     /**
      * Return the replica node proxy for this topic manager.
      * @param current The Current object for the invocation.
-     * @return The replica proxy, or null if this instance is not
-     * replicated.
+     * @return The replica proxy, or null if this instance is not replicated.
      **/
     IceStormElection.NodePrx getReplicaNode(com.zeroc.Ice.Current current);
 

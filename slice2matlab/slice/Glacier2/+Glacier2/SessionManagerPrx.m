@@ -1,10 +1,9 @@
 % SessionManagerPrx   Summary of SessionManagerPrx
 %
-% The session manager for username/password authenticated users that
-% is responsible for managing Session objects. New session objects
-% are created by the Router object calling on an application-provided
-% session manager. If no session manager is provided by the application,
-% no client-visible sessions are passed to the client.
+% The session manager for username/password authenticated users that is responsible for managing Session
+% objects. New session objects are created by the Router object calling on an application-provided
+% session manager. If no session manager is provided by the application, no client-visible sessions are passed to
+% the client.
 %
 % SessionManagerPrx Methods:
 %   create - Create a new session.
@@ -30,8 +29,7 @@ classdef SessionManagerPrx < Ice.ObjectPrx
             % Returns (Glacier2.SessionPrx) - A proxy to the newly created session.
             %
             % Exceptions:
-            %   Glacier2.CannotCreateSessionException - Raised if the session
-            %     cannot be created.
+            %   Glacier2.CannotCreateSessionException - Raised if the session cannot be created.
             
             os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
             os_.writeString(userId);
@@ -53,8 +51,7 @@ classdef SessionManagerPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   Glacier2.CannotCreateSessionException - Raised if the session
-            %     cannot be created.
+            %   Glacier2.CannotCreateSessionException - Raised if the session cannot be created.
             
             os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
             os_.writeString(userId);

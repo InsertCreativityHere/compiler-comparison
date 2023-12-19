@@ -16,8 +16,7 @@
 package com.zeroc.Ice;
 
 /**
- * This exception is raised if a server tries to set endpoints for
- * an adapter that is already active.
+ * This exception is raised if a server tries to set endpoints for an adapter that is already active.
  **/
 public class AdapterAlreadyActiveException extends UserException
 {

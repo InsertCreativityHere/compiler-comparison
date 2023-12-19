@@ -43,8 +43,7 @@
     ];
 
     /**
-     * Provides information on Glacier2 sessions.
-     *
+     *  Provides information on Glacier2 sessions.
      **/
     IceMX.SessionMetrics = class extends IceMX.Metrics
     {

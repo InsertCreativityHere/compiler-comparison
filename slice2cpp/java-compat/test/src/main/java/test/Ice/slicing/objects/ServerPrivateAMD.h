@@ -594,6 +594,12 @@ public:
     bool _iceD_throwPreservedException(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
+    /**
+     * Use of forward-declared class to verify that code is generated correctly.
+     * @param response The response callback.
+     * @param exception The exception callback.
+     * @param current The Current object for the invocation.
+     */
     virtual void useForwardAsync(::std::function<void(const ::std::shared_ptr<Forward>& f)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_useForward(::IceInternal::Incoming&, const ::Ice::Current&);
@@ -2358,11 +2364,20 @@ public:
     void _iceI_throwPreservedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
     /// \endcond
 
+    /**
+     * Use of forward-declared class to verify that code is generated correctly.
+     * @param context The Context map to send with the invocation.
+     */
     void useForward(::std::shared_ptr<Forward>& f, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         f = _makePromiseOutgoing<::std::shared_ptr<::Test::Forward>>(true, this, &TestIntfPrx::_iceI_useForward, context).get();
     }
 
+    /**
+     * Use of forward-declared class to verify that code is generated correctly.
+     * @param context The Context map to send with the invocation.
+     * @return The future object for the invocation.
+     */
     template<template<typename> class P = ::std::promise>
     auto useForwardAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<::std::shared_ptr<::Test::Forward>>>().get_future())
@@ -2370,6 +2385,14 @@ public:
         return _makePromiseOutgoing<::std::shared_ptr<::Test::Forward>, P>(false, this, &TestIntfPrx::_iceI_useForward, context);
     }
 
+    /**
+     * Use of forward-declared class to verify that code is generated correctly.
+     * @param response The response callback.
+     * @param ex The exception callback.
+     * @param sent The sent callback.
+     * @param context The Context map to send with the invocation.
+     * @return A function that can be called to cancel the invocation locally.
+     */
     ::std::function<void()>
     useForwardAsync(::std::function<void(::std::shared_ptr<::Test::Forward>)> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
@@ -6641,36 +6664,75 @@ private:
 
 public:
 
+    /**
+     * Use of forward-declared class to verify that code is generated correctly.
+     * @param context The Context map to send with the invocation.
+     */
     void useForward(::Test::ForwardPtr& f, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         end_useForward(f, _iceI_begin_useForward(context, ::IceInternal::dummyCallback, 0, true));
     }
 
+    /**
+     * Use of forward-declared class to verify that code is generated correctly.
+     * @param context The Context map to send with the invocation.
+     * @return The asynchronous result object for the invocation.
+     */
     ::Ice::AsyncResultPtr begin_useForward(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_useForward(context, ::IceInternal::dummyCallback, 0);
     }
 
+    /**
+     * Use of forward-declared class to verify that code is generated correctly.
+     * @param cb Asynchronous callback object.
+     * @param cookie User-defined data to associate with the invocation.
+     * @return The asynchronous result object for the invocation.
+     */
     ::Ice::AsyncResultPtr begin_useForward(const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_useForward(::Ice::noExplicitContext, cb, cookie);
     }
 
+    /**
+     * Use of forward-declared class to verify that code is generated correctly.
+     * @param context The Context map to send with the invocation.
+     * @param cb Asynchronous callback object.
+     * @param cookie User-defined data to associate with the invocation.
+     * @return The asynchronous result object for the invocation.
+     */
     ::Ice::AsyncResultPtr begin_useForward(const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_useForward(context, cb, cookie);
     }
 
+    /**
+     * Use of forward-declared class to verify that code is generated correctly.
+     * @param cb Asynchronous callback object.
+     * @param cookie User-defined data to associate with the invocation.
+     * @return The asynchronous result object for the invocation.
+     */
     ::Ice::AsyncResultPtr begin_useForward(const ::Test::Callback_TestIntf_useForwardPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_useForward(::Ice::noExplicitContext, cb, cookie);
     }
 
+    /**
+     * Use of forward-declared class to verify that code is generated correctly.
+     * @param context The Context map to send with the invocation.
+     * @param cb Asynchronous callback object.
+     * @param cookie User-defined data to associate with the invocation.
+     * @return The asynchronous result object for the invocation.
+     */
     ::Ice::AsyncResultPtr begin_useForward(const ::Ice::Context& context, const ::Test::Callback_TestIntf_useForwardPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_useForward(context, cb, cookie);
     }
 
+    /**
+     * Completes an invocation of begin_useForward.
+     * @param result The asynchronous result object for the invocation.
+     */
     void end_useForward(::Test::ForwardPtr& f, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
 
@@ -8109,6 +8171,11 @@ public:
     bool _iceD_throwPreservedException(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
+    /**
+     * Use of forward-declared class to verify that code is generated correctly.
+     * @param cb The AMD callback object for the invocation.
+     * @param current The Current object for the invocation.
+     */
     virtual void useForward_async(const ::Test::AMD_TestIntf_useForwardPtr& cb, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_useForward(::IceInternal::Incoming&, const ::Ice::Current&);

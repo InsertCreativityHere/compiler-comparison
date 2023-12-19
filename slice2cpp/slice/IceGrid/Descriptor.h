@@ -161,9 +161,8 @@ struct ObjectDescriptor
      */
     ::std::string type;
     /**
-     * Proxy options to use with the proxy created for this Ice object. If empty,
-     * the proxy will be created with the proxy options specified on the object
-     * adapter or replica group.
+     * Proxy options to use with the proxy created for this Ice object. If empty, the proxy will be created with the
+     * proxy options specified on the object adapter or replica group.
      */
     ::std::string proxyOptions;
 
@@ -205,9 +204,8 @@ struct AdapterDescriptor
      */
     ::std::string replicaGroupId;
     /**
-     * The adapter priority. This is eventually used when the adapter
-     * is member of a replica group to sort the adapter endpoints by
-     * priority.
+     * The adapter priority. This is eventually used when the adapter is member of a replica group to sort the adapter
+     * endpoints by priority.
      */
     ::std::string priority;
     /**
@@ -215,10 +213,9 @@ struct AdapterDescriptor
      */
     bool registerProcess;
     /**
-     * If true the lifetime of this object adapter is the same of the
-     * server lifetime. This information is used by the IceGrid node
-     * to figure out the server state: the server is active only if
-     * all its "server lifetime" adapters are active.
+     * If true the lifetime of this object adapter is the same of the server lifetime. This information is used by the
+     * IceGrid node to figure out the server state: the server is active only if all its "server lifetime" adapters
+     * are active.
      */
     bool serverLifetime;
     /**
@@ -246,8 +243,7 @@ struct AdapterDescriptor
 using AdapterDescriptorSeq = ::std::vector<AdapterDescriptor>;
 
 /**
- * A distribution descriptor defines an IcePatch2 server and the
- * directories to retrieve from the patch server.
+ * A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
  * \headerfile IceGrid/IceGrid.h
  */
 struct DistributionDescriptor
@@ -300,8 +296,8 @@ struct ServerInstanceDescriptor
      */
     ::IceGrid::PropertySetDescriptor propertySet;
     /**
-     * The services property sets. It's only valid to set these
-     * property sets if the template is an IceBox server template.
+     * The services property sets. It's only valid to set these property sets if the template is an IceBox server
+     * template.
      */
     ::IceGrid::PropertySetDescriptorDict servicePropertySets;
 
@@ -369,8 +365,7 @@ struct ServiceInstanceDescriptor
      */
     ::IceGrid::StringStringDict parameterValues;
     /**
-     * The service definition if the instance isn't a template
-     * instance (i.e.: if the template attribute is empty).
+     * The service definition if the instance isn't a template instance (i.e.: if the template attribute is empty).
      */
     ::std::shared_ptr<::IceGrid::ServiceDescriptor> descriptor;
     /**
@@ -544,8 +539,7 @@ struct ApplicationDescriptor
 using ApplicationDescriptorSeq = ::std::vector<ApplicationDescriptor>;
 
 /**
- * A node update descriptor to describe the updates to apply to a
- * node of a deployed application.
+ * A node update descriptor to describe the updates to apply to a node of a deployed application.
  * \headerfile IceGrid/IceGrid.h
  */
 struct NodeUpdateDescriptor
@@ -555,8 +549,7 @@ struct NodeUpdateDescriptor
      */
     ::std::string name;
     /**
-     * The updated description (or null if the description wasn't
-     * updated.)
+     * The updated description (or null if the description wasn't updated.)
      */
     ::std::shared_ptr<::IceGrid::BoxedString> description;
     /**
@@ -588,8 +581,7 @@ struct NodeUpdateDescriptor
      */
     ::Ice::StringSeq removeServers;
     /**
-     * The updated load factor of the node (or null if the load factor
-     * was not updated).
+     * The updated load factor of the node (or null if the load factor was not updated).
      */
     ::std::shared_ptr<::IceGrid::BoxedString> loadFactor;
 
@@ -609,8 +601,7 @@ struct NodeUpdateDescriptor
 using NodeUpdateDescriptorSeq = ::std::vector<NodeUpdateDescriptor>;
 
 /**
- * An application update descriptor to describe the updates to apply
- * to a deployed application.
+ * An application update descriptor to describe the updates to apply to a deployed application.
  * \headerfile IceGrid/IceGrid.h
  */
 struct ApplicationUpdateDescriptor
@@ -620,8 +611,7 @@ struct ApplicationUpdateDescriptor
      */
     ::std::string name;
     /**
-     * The updated description (or null if the description wasn't
-     * updated.)
+     * The updated description (or null if the description wasn't updated.)
      */
     ::std::shared_ptr<::IceGrid::BoxedString> description;
     /**
@@ -797,7 +787,7 @@ public:
      * @param pwd The path to the server working directory.
      * @param options The command line options to pass to the server executable.
      * @param envs The server environment variables.
-     * @param activation The server activation mode (possible values are "on-demand" or "manual").
+     * @param activation / The server activation mode (possible values are "on-demand" or "manual").
      * @param activationTimeout The activation timeout (an integer value representing the number of seconds to wait for activation).
      * @param deactivationTimeout The deactivation timeout (an integer value representing the number of seconds to wait for deactivation).
      * @param applicationDistrib Specifies if the server depends on the application distribution.
@@ -847,10 +837,8 @@ public:
      */
     ::std::string exe;
     /**
-     * The Ice version used by this server. This is only required if
-     * backward compatibility with servers using old Ice versions is
-     * needed (otherwise the registry will assume the server is using
-     * the same Ice version).
+     * The Ice version used by this server. This is only required if backward compatibility with servers using old
+     * Ice versions is needed (otherwise the registry will assume the server is using the same Ice version).
      * For example "3.1.1", "3.2", "3.3.0".
      */
     ::std::string iceVersion;
@@ -867,23 +855,19 @@ public:
      */
     ::Ice::StringSeq envs;
     /**
-     * The server activation mode (possible values are "on-demand" or
-     * "manual").
+     * / The server activation mode (possible values are "on-demand" or "manual").
      */
     ::std::string activation;
     /**
-     * The activation timeout (an integer value representing the
-     * number of seconds to wait for activation).
+     * The activation timeout (an integer value representing the number of seconds to wait for activation).
      */
     ::std::string activationTimeout;
     /**
-     * The deactivation timeout (an integer value representing the
-     * number of seconds to wait for deactivation).
+     * The deactivation timeout (an integer value representing the number of seconds to wait for deactivation).
      */
     ::std::string deactivationTimeout;
     /**
-     * Specifies if the server depends on the application
-     * distribution.
+     * Specifies if the server depends on the application distribution.
      */
     bool applicationDistrib;
     /**
@@ -987,7 +971,7 @@ public:
      * @param pwd The path to the server working directory.
      * @param options The command line options to pass to the server executable.
      * @param envs The server environment variables.
-     * @param activation The server activation mode (possible values are "on-demand" or "manual").
+     * @param activation / The server activation mode (possible values are "on-demand" or "manual").
      * @param activationTimeout The activation timeout (an integer value representing the number of seconds to wait for activation).
      * @param deactivationTimeout The deactivation timeout (an integer value representing the number of seconds to wait for deactivation).
      * @param applicationDistrib Specifies if the server depends on the application distribution.
@@ -1065,8 +1049,7 @@ public:
     ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
     /**
-     * The number of replicas that will be used to gather the
-     * endpoints of a replica group.
+     * The number of replicas that will be used to gather the endpoints of a replica group.
      */
     ::std::string nReplicas;
 };
@@ -1241,10 +1224,8 @@ public:
     ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
 
     /**
-     * The load sample to use for the load balancing. The allowed
-     * values for this attribute are "1", "5" and "15", representing
-     * respectively the load average over the past minute, the past 5
-     * minutes and the past 15 minutes.
+     * The load sample to use for the load balancing. The allowed values for this attribute are "1", "5" and "15",
+     * representing respectively the load average over the past minute, the past 5 minutes and the past 15 minutes.
      */
     ::std::string loadSample;
 };
@@ -2150,9 +2131,8 @@ struct ObjectDescriptor
      */
     ::std::string type;
     /**
-     * Proxy options to use with the proxy created for this Ice object. If empty,
-     * the proxy will be created with the proxy options specified on the object
-     * adapter or replica group.
+     * Proxy options to use with the proxy created for this Ice object. If empty, the proxy will be created with the
+     * proxy options specified on the object adapter or replica group.
      */
     ::std::string proxyOptions;
 
@@ -2256,9 +2236,8 @@ struct AdapterDescriptor
      */
     ::std::string replicaGroupId;
     /**
-     * The adapter priority. This is eventually used when the adapter
-     * is member of a replica group to sort the adapter endpoints by
-     * priority.
+     * The adapter priority. This is eventually used when the adapter is member of a replica group to sort the adapter
+     * endpoints by priority.
      */
     ::std::string priority;
     /**
@@ -2266,10 +2245,9 @@ struct AdapterDescriptor
      */
     bool registerProcess;
     /**
-     * If true the lifetime of this object adapter is the same of the
-     * server lifetime. This information is used by the IceGrid node
-     * to figure out the server state: the server is active only if
-     * all its "server lifetime" adapters are active.
+     * If true the lifetime of this object adapter is the same of the server lifetime. This information is used by the
+     * IceGrid node to figure out the server state: the server is active only if all its "server lifetime" adapters
+     * are active.
      */
     bool serverLifetime;
     /**
@@ -2431,8 +2409,7 @@ struct AdapterDescriptor
 typedef ::std::vector<AdapterDescriptor> AdapterDescriptorSeq;
 
 /**
- * A distribution descriptor defines an IcePatch2 server and the
- * directories to retrieve from the patch server.
+ * A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
  * \headerfile IceGrid/IceGrid.h
  */
 struct DistributionDescriptor
@@ -2535,8 +2512,8 @@ struct ServerInstanceDescriptor
      */
     ::IceGrid::PropertySetDescriptor propertySet;
     /**
-     * The services property sets. It's only valid to set these
-     * property sets if the template is an IceBox server template.
+     * The services property sets. It's only valid to set these property sets if the template is an IceBox server
+     * template.
      */
     ::IceGrid::PropertySetDescriptorDict servicePropertySets;
 
@@ -2669,8 +2646,7 @@ struct ServiceInstanceDescriptor
      */
     ::IceGrid::StringStringDict parameterValues;
     /**
-     * The service definition if the instance isn't a template
-     * instance (i.e.: if the template attribute is empty).
+     * The service definition if the instance isn't a template instance (i.e.: if the template attribute is empty).
      */
     ::IceGrid::ServiceDescriptorPtr descriptor;
     /**
@@ -2808,8 +2784,7 @@ struct ApplicationDescriptor
 typedef ::std::vector<ApplicationDescriptor> ApplicationDescriptorSeq;
 
 /**
- * A node update descriptor to describe the updates to apply to a
- * node of a deployed application.
+ * A node update descriptor to describe the updates to apply to a node of a deployed application.
  * \headerfile IceGrid/IceGrid.h
  */
 struct NodeUpdateDescriptor
@@ -2819,8 +2794,7 @@ struct NodeUpdateDescriptor
      */
     ::std::string name;
     /**
-     * The updated description (or null if the description wasn't
-     * updated.)
+     * The updated description (or null if the description wasn't updated.)
      */
     ::IceGrid::BoxedStringPtr description;
     /**
@@ -2852,8 +2826,7 @@ struct NodeUpdateDescriptor
      */
     ::Ice::StringSeq removeServers;
     /**
-     * The updated load factor of the node (or null if the load factor
-     * was not updated).
+     * The updated load factor of the node (or null if the load factor was not updated).
      */
     ::IceGrid::BoxedStringPtr loadFactor;
 };
@@ -2864,8 +2837,7 @@ struct NodeUpdateDescriptor
 typedef ::std::vector<NodeUpdateDescriptor> NodeUpdateDescriptorSeq;
 
 /**
- * An application update descriptor to describe the updates to apply
- * to a deployed application.
+ * An application update descriptor to describe the updates to apply to a deployed application.
  * \headerfile IceGrid/IceGrid.h
  */
 struct ApplicationUpdateDescriptor
@@ -2875,8 +2847,7 @@ struct ApplicationUpdateDescriptor
      */
     ::std::string name;
     /**
-     * The updated description (or null if the description wasn't
-     * updated.)
+     * The updated description (or null if the description wasn't updated.)
      */
     ::IceGrid::BoxedStringPtr description;
     /**
@@ -3288,7 +3259,7 @@ public:
      * @param pwd The path to the server working directory.
      * @param options The command line options to pass to the server executable.
      * @param envs The server environment variables.
-     * @param activation The server activation mode (possible values are "on-demand" or "manual").
+     * @param activation / The server activation mode (possible values are "on-demand" or "manual").
      * @param activationTimeout The activation timeout (an integer value representing the number of seconds to wait for activation).
      * @param deactivationTimeout The deactivation timeout (an integer value representing the number of seconds to wait for deactivation).
      * @param applicationDistrib Specifies if the server depends on the application distribution.
@@ -3377,10 +3348,8 @@ public:
      */
     ::std::string exe;
     /**
-     * The Ice version used by this server. This is only required if
-     * backward compatibility with servers using old Ice versions is
-     * needed (otherwise the registry will assume the server is using
-     * the same Ice version).
+     * The Ice version used by this server. This is only required if backward compatibility with servers using old
+     * Ice versions is needed (otherwise the registry will assume the server is using the same Ice version).
      * For example "3.1.1", "3.2", "3.3.0".
      */
     ::std::string iceVersion;
@@ -3397,23 +3366,19 @@ public:
      */
     ::Ice::StringSeq envs;
     /**
-     * The server activation mode (possible values are "on-demand" or
-     * "manual").
+     * / The server activation mode (possible values are "on-demand" or "manual").
      */
     ::std::string activation;
     /**
-     * The activation timeout (an integer value representing the
-     * number of seconds to wait for activation).
+     * The activation timeout (an integer value representing the number of seconds to wait for activation).
      */
     ::std::string activationTimeout;
     /**
-     * The deactivation timeout (an integer value representing the
-     * number of seconds to wait for deactivation).
+     * The deactivation timeout (an integer value representing the number of seconds to wait for deactivation).
      */
     ::std::string deactivationTimeout;
     /**
-     * Specifies if the server depends on the application
-     * distribution.
+     * Specifies if the server depends on the application distribution.
      */
     bool applicationDistrib;
     /**
@@ -3586,7 +3551,7 @@ public:
      * @param pwd The path to the server working directory.
      * @param options The command line options to pass to the server executable.
      * @param envs The server environment variables.
-     * @param activation The server activation mode (possible values are "on-demand" or "manual").
+     * @param activation / The server activation mode (possible values are "on-demand" or "manual").
      * @param activationTimeout The activation timeout (an integer value representing the number of seconds to wait for activation).
      * @param deactivationTimeout The deactivation timeout (an integer value representing the number of seconds to wait for deactivation).
      * @param applicationDistrib Specifies if the server depends on the application distribution.
@@ -3760,8 +3725,7 @@ protected:
 public:
 
     /**
-     * The number of replicas that will be used to gather the
-     * endpoints of a replica group.
+     * The number of replicas that will be used to gather the endpoints of a replica group.
      */
     ::std::string nReplicas;
 };
@@ -4146,10 +4110,8 @@ protected:
 public:
 
     /**
-     * The load sample to use for the load balancing. The allowed
-     * values for this attribute are "1", "5" and "15", representing
-     * respectively the load average over the past minute, the past 5
-     * minutes and the past 15 minutes.
+     * The load sample to use for the load balancing. The allowed values for this attribute are "1", "5" and "15",
+     * representing respectively the load average over the past minute, the past 5 minutes and the past 15 minutes.
      */
     ::std::string loadSample;
 };

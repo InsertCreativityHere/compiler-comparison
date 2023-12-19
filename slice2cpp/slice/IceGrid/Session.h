@@ -76,10 +76,8 @@ namespace IceGrid
 {
 
 /**
- * A session object is used by IceGrid clients to allocate and
- * release objects. Client sessions are created either via the
- * {@link Registry} object or via the registry client <code>SessionManager</code>
- * object.
+ * A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
+ * via the {@link Registry} object or via the registry client <code>SessionManager</code> object.
  * @see Registry
  * \headerfile IceGrid/IceGrid.h
  */
@@ -118,8 +116,8 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param current The Current object for the invocation.
      * @see Registry#getSessionTimeout
      */
@@ -129,17 +127,15 @@ public:
     /// \endcond
 
     /**
-     * Allocate an object. Depending on the allocation timeout, this
-     * operation might hang until the object is available or until the
-     * timeout is reached.
+     * Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+     * available or until the timeout is reached.
      * @param id The identity of the object to allocate.
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AllocationException Raised if the object can't be
-     * allocated.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with
-     * the given identity is not registered with the registry.
+     * @throws IceGrid::AllocationException Raised if the object can't be allocated.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with the given identity is not registered with
+     * the registry.
      * @see #setAllocationTimeout
      * @see #releaseObject
      */
@@ -149,9 +145,8 @@ public:
     /// \endcond
 
     /**
-     * Allocate an object with the given type. Depending on the
-     * allocation timeout, this operation can block until an object
-     * becomes available or until the timeout is reached.
+     * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+     * an object becomes available or until the timeout is reached.
      * @param type The type of the object.
      * @param response The response callback.
      * @param exception The exception callback.
@@ -170,11 +165,10 @@ public:
      * <code>allocateObjectByType</code>.
      * @param id The identity of the object to release.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AllocationException Raised if the given object can't be
-     * released. This might happen if the object isn't allocatable or
-     * isn't allocated by the session.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with
-     * the given identity is not registered with the registry.
+     * @throws IceGrid::AllocationException Raised if the given object can't be released. This might happen if the object
+     * isn't allocatable or isn't allocated by the session.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with the given identity is not registered with
+     * the registry.
      */
     virtual void releaseObject(::Ice::Identity id, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -182,9 +176,8 @@ public:
     /// \endcond
 
     /**
-     * Set the allocation timeout. If no objects are available for an
-     * allocation request, a call to <code>allocateObjectById</code> or
-     * <code>allocateObjectByType</code> will block for the duration of this
+     * Set the allocation timeout. If no objects are available for an allocation request, a call to
+     * <code>allocateObjectById</code> or <code>allocateObjectByType</code> will block for the duration of this
      * timeout.
      * @param timeout The timeout in milliseconds.
      * @param current The Current object for the invocation.
@@ -205,10 +198,8 @@ namespace IceGrid
 {
 
 /**
- * A session object is used by IceGrid clients to allocate and
- * release objects. Client sessions are created either via the
- * {@link Registry} object or via the registry client <code>SessionManager</code>
- * object.
+ * A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
+ * via the {@link Registry} object or via the registry client <code>SessionManager</code> object.
  * @see Registry
  * \headerfile IceGrid/IceGrid.h
  */
@@ -217,8 +208,8 @@ class ICE_CLASS(ICEGRID_API) SessionPrx : public virtual ::Ice::Proxy<SessionPrx
 public:
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param context The Context map to send with the invocation.
      * @see Registry#getSessionTimeout
      */
@@ -228,8 +219,8 @@ public:
     }
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      * @see Registry#getSessionTimeout
@@ -242,8 +233,8 @@ public:
     }
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -265,16 +256,14 @@ public:
     /// \endcond
 
     /**
-     * Allocate an object. Depending on the allocation timeout, this
-     * operation might hang until the object is available or until the
-     * timeout is reached.
+     * Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+     * available or until the timeout is reached.
      * @param id The identity of the object to allocate.
      * @param context The Context map to send with the invocation.
      * @return The proxy of the allocated object.
-     * @throws IceGrid::AllocationException Raised if the object can't be
-     * allocated.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with
-     * the given identity is not registered with the registry.
+     * @throws IceGrid::AllocationException Raised if the object can't be allocated.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with the given identity is not registered with
+     * the registry.
      * @see #setAllocationTimeout
      * @see #releaseObject
      */
@@ -284,9 +273,8 @@ public:
     }
 
     /**
-     * Allocate an object. Depending on the allocation timeout, this
-     * operation might hang until the object is available or until the
-     * timeout is reached.
+     * Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+     * available or until the timeout is reached.
      * @param id The identity of the object to allocate.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -301,9 +289,8 @@ public:
     }
 
     /**
-     * Allocate an object. Depending on the allocation timeout, this
-     * operation might hang until the object is available or until the
-     * timeout is reached.
+     * Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+     * available or until the timeout is reached.
      * @param id The identity of the object to allocate.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -328,9 +315,8 @@ public:
     /// \endcond
 
     /**
-     * Allocate an object with the given type. Depending on the
-     * allocation timeout, this operation can block until an object
-     * becomes available or until the timeout is reached.
+     * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+     * an object becomes available or until the timeout is reached.
      * @param type The type of the object.
      * @param context The Context map to send with the invocation.
      * @return The proxy of the allocated object.
@@ -344,9 +330,8 @@ public:
     }
 
     /**
-     * Allocate an object with the given type. Depending on the
-     * allocation timeout, this operation can block until an object
-     * becomes available or until the timeout is reached.
+     * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+     * an object becomes available or until the timeout is reached.
      * @param type The type of the object.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -361,9 +346,8 @@ public:
     }
 
     /**
-     * Allocate an object with the given type. Depending on the
-     * allocation timeout, this operation can block until an object
-     * becomes available or until the timeout is reached.
+     * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+     * an object becomes available or until the timeout is reached.
      * @param type The type of the object.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -392,11 +376,10 @@ public:
      * <code>allocateObjectByType</code>.
      * @param id The identity of the object to release.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AllocationException Raised if the given object can't be
-     * released. This might happen if the object isn't allocatable or
-     * isn't allocated by the session.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with
-     * the given identity is not registered with the registry.
+     * @throws IceGrid::AllocationException Raised if the given object can't be released. This might happen if the object
+     * isn't allocatable or isn't allocated by the session.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with the given identity is not registered with
+     * the registry.
      */
     void releaseObject(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -442,9 +425,8 @@ public:
     /// \endcond
 
     /**
-     * Set the allocation timeout. If no objects are available for an
-     * allocation request, a call to <code>allocateObjectById</code> or
-     * <code>allocateObjectByType</code> will block for the duration of this
+     * Set the allocation timeout. If no objects are available for an allocation request, a call to
+     * <code>allocateObjectById</code> or <code>allocateObjectByType</code> will block for the duration of this
      * timeout.
      * @param timeout The timeout in milliseconds.
      * @param context The Context map to send with the invocation.
@@ -455,9 +437,8 @@ public:
     }
 
     /**
-     * Set the allocation timeout. If no objects are available for an
-     * allocation request, a call to <code>allocateObjectById</code> or
-     * <code>allocateObjectByType</code> will block for the duration of this
+     * Set the allocation timeout. If no objects are available for an allocation request, a call to
+     * <code>allocateObjectById</code> or <code>allocateObjectByType</code> will block for the duration of this
      * timeout.
      * @param timeout The timeout in milliseconds.
      * @param context The Context map to send with the invocation.
@@ -471,9 +452,8 @@ public:
     }
 
     /**
-     * Set the allocation timeout. If no objects are available for an
-     * allocation request, a call to <code>allocateObjectById</code> or
-     * <code>allocateObjectByType</code> will block for the duration of this
+     * Set the allocation timeout. If no objects are available for an allocation request, a call to
+     * <code>allocateObjectById</code> or <code>allocateObjectByType</code> will block for the duration of this
      * timeout.
      * @param timeout The timeout in milliseconds.
      * @param response The response callback.
@@ -714,8 +694,8 @@ class ICE_CLASS(ICEGRID_API) Session : public virtual ::Ice::Proxy<Session, ::Ic
 public:
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param context The Context map to send with the invocation.
      * @see Registry#getSessionTimeout
      */
@@ -725,8 +705,8 @@ public:
     }
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      * @see Registry#getSessionTimeout
@@ -737,8 +717,8 @@ public:
     }
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -750,8 +730,8 @@ public:
     }
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -764,8 +744,8 @@ public:
     }
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -777,8 +757,8 @@ public:
     }
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -803,16 +783,14 @@ private:
 public:
 
     /**
-     * Allocate an object. Depending on the allocation timeout, this
-     * operation might hang until the object is available or until the
-     * timeout is reached.
+     * Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+     * available or until the timeout is reached.
      * @param id The identity of the object to allocate.
      * @param context The Context map to send with the invocation.
      * @return The proxy of the allocated object.
-     * @throws IceGrid::AllocationException Raised if the object can't be
-     * allocated.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with
-     * the given identity is not registered with the registry.
+     * @throws IceGrid::AllocationException Raised if the object can't be allocated.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with the given identity is not registered with
+     * the registry.
      * @see #setAllocationTimeout
      * @see #releaseObject
      */
@@ -822,9 +800,8 @@ public:
     }
 
     /**
-     * Allocate an object. Depending on the allocation timeout, this
-     * operation might hang until the object is available or until the
-     * timeout is reached.
+     * Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+     * available or until the timeout is reached.
      * @param id The identity of the object to allocate.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -837,9 +814,8 @@ public:
     }
 
     /**
-     * Allocate an object. Depending on the allocation timeout, this
-     * operation might hang until the object is available or until the
-     * timeout is reached.
+     * Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+     * available or until the timeout is reached.
      * @param id The identity of the object to allocate.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -853,9 +829,8 @@ public:
     }
 
     /**
-     * Allocate an object. Depending on the allocation timeout, this
-     * operation might hang until the object is available or until the
-     * timeout is reached.
+     * Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+     * available or until the timeout is reached.
      * @param id The identity of the object to allocate.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -870,9 +845,8 @@ public:
     }
 
     /**
-     * Allocate an object. Depending on the allocation timeout, this
-     * operation might hang until the object is available or until the
-     * timeout is reached.
+     * Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+     * available or until the timeout is reached.
      * @param id The identity of the object to allocate.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -886,9 +860,8 @@ public:
     }
 
     /**
-     * Allocate an object. Depending on the allocation timeout, this
-     * operation might hang until the object is available or until the
-     * timeout is reached.
+     * Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+     * available or until the timeout is reached.
      * @param id The identity of the object to allocate.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -906,10 +879,9 @@ public:
      * Completes an invocation of begin_allocateObjectById.
      * @param result The asynchronous result object for the invocation.
      * @return The proxy of the allocated object.
-     * @throws IceGrid::AllocationException Raised if the object can't be
-     * allocated.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with
-     * the given identity is not registered with the registry.
+     * @throws IceGrid::AllocationException Raised if the object can't be allocated.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with the given identity is not registered with
+     * the registry.
      */
     ICE_MEMBER(ICEGRID_API) ::Ice::ObjectPrx end_allocateObjectById(const ::Ice::AsyncResultPtr& result);
 
@@ -920,9 +892,8 @@ private:
 public:
 
     /**
-     * Allocate an object with the given type. Depending on the
-     * allocation timeout, this operation can block until an object
-     * becomes available or until the timeout is reached.
+     * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+     * an object becomes available or until the timeout is reached.
      * @param type The type of the object.
      * @param context The Context map to send with the invocation.
      * @return The proxy of the allocated object.
@@ -936,9 +907,8 @@ public:
     }
 
     /**
-     * Allocate an object with the given type. Depending on the
-     * allocation timeout, this operation can block until an object
-     * becomes available or until the timeout is reached.
+     * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+     * an object becomes available or until the timeout is reached.
      * @param type The type of the object.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -951,9 +921,8 @@ public:
     }
 
     /**
-     * Allocate an object with the given type. Depending on the
-     * allocation timeout, this operation can block until an object
-     * becomes available or until the timeout is reached.
+     * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+     * an object becomes available or until the timeout is reached.
      * @param type The type of the object.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -967,9 +936,8 @@ public:
     }
 
     /**
-     * Allocate an object with the given type. Depending on the
-     * allocation timeout, this operation can block until an object
-     * becomes available or until the timeout is reached.
+     * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+     * an object becomes available or until the timeout is reached.
      * @param type The type of the object.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -984,9 +952,8 @@ public:
     }
 
     /**
-     * Allocate an object with the given type. Depending on the
-     * allocation timeout, this operation can block until an object
-     * becomes available or until the timeout is reached.
+     * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+     * an object becomes available or until the timeout is reached.
      * @param type The type of the object.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -1000,9 +967,8 @@ public:
     }
 
     /**
-     * Allocate an object with the given type. Depending on the
-     * allocation timeout, this operation can block until an object
-     * becomes available or until the timeout is reached.
+     * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+     * an object becomes available or until the timeout is reached.
      * @param type The type of the object.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -1035,11 +1001,10 @@ public:
      * <code>allocateObjectByType</code>.
      * @param id The identity of the object to release.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AllocationException Raised if the given object can't be
-     * released. This might happen if the object isn't allocatable or
-     * isn't allocated by the session.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with
-     * the given identity is not registered with the registry.
+     * @throws IceGrid::AllocationException Raised if the given object can't be released. This might happen if the object
+     * isn't allocatable or isn't allocated by the session.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with the given identity is not registered with
+     * the registry.
      */
     ICE_MEMBER(ICEGRID_API) void releaseObject(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -1115,11 +1080,10 @@ public:
     /**
      * Completes an invocation of begin_releaseObject.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceGrid::AllocationException Raised if the given object can't be
-     * released. This might happen if the object isn't allocatable or
-     * isn't allocated by the session.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with
-     * the given identity is not registered with the registry.
+     * @throws IceGrid::AllocationException Raised if the given object can't be released. This might happen if the object
+     * isn't allocatable or isn't allocated by the session.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with the given identity is not registered with
+     * the registry.
      */
     ICE_MEMBER(ICEGRID_API) void end_releaseObject(const ::Ice::AsyncResultPtr& result);
 
@@ -1130,9 +1094,8 @@ private:
 public:
 
     /**
-     * Set the allocation timeout. If no objects are available for an
-     * allocation request, a call to <code>allocateObjectById</code> or
-     * <code>allocateObjectByType</code> will block for the duration of this
+     * Set the allocation timeout. If no objects are available for an allocation request, a call to
+     * <code>allocateObjectById</code> or <code>allocateObjectByType</code> will block for the duration of this
      * timeout.
      * @param timeout The timeout in milliseconds.
      * @param context The Context map to send with the invocation.
@@ -1143,9 +1106,8 @@ public:
     }
 
     /**
-     * Set the allocation timeout. If no objects are available for an
-     * allocation request, a call to <code>allocateObjectById</code> or
-     * <code>allocateObjectByType</code> will block for the duration of this
+     * Set the allocation timeout. If no objects are available for an allocation request, a call to
+     * <code>allocateObjectById</code> or <code>allocateObjectByType</code> will block for the duration of this
      * timeout.
      * @param timeout The timeout in milliseconds.
      * @param context The Context map to send with the invocation.
@@ -1157,9 +1119,8 @@ public:
     }
 
     /**
-     * Set the allocation timeout. If no objects are available for an
-     * allocation request, a call to <code>allocateObjectById</code> or
-     * <code>allocateObjectByType</code> will block for the duration of this
+     * Set the allocation timeout. If no objects are available for an allocation request, a call to
+     * <code>allocateObjectById</code> or <code>allocateObjectByType</code> will block for the duration of this
      * timeout.
      * @param timeout The timeout in milliseconds.
      * @param cb Asynchronous callback object.
@@ -1172,9 +1133,8 @@ public:
     }
 
     /**
-     * Set the allocation timeout. If no objects are available for an
-     * allocation request, a call to <code>allocateObjectById</code> or
-     * <code>allocateObjectByType</code> will block for the duration of this
+     * Set the allocation timeout. If no objects are available for an allocation request, a call to
+     * <code>allocateObjectById</code> or <code>allocateObjectByType</code> will block for the duration of this
      * timeout.
      * @param timeout The timeout in milliseconds.
      * @param context The Context map to send with the invocation.
@@ -1188,9 +1148,8 @@ public:
     }
 
     /**
-     * Set the allocation timeout. If no objects are available for an
-     * allocation request, a call to <code>allocateObjectById</code> or
-     * <code>allocateObjectByType</code> will block for the duration of this
+     * Set the allocation timeout. If no objects are available for an allocation request, a call to
+     * <code>allocateObjectById</code> or <code>allocateObjectByType</code> will block for the duration of this
      * timeout.
      * @param timeout The timeout in milliseconds.
      * @param cb Asynchronous callback object.
@@ -1203,9 +1162,8 @@ public:
     }
 
     /**
-     * Set the allocation timeout. If no objects are available for an
-     * allocation request, a call to <code>allocateObjectById</code> or
-     * <code>allocateObjectByType</code> will block for the duration of this
+     * Set the allocation timeout. If no objects are available for an allocation request, a call to
+     * <code>allocateObjectById</code> or <code>allocateObjectByType</code> will block for the duration of this
      * timeout.
      * @param timeout The timeout in milliseconds.
      * @param context The Context map to send with the invocation.
@@ -1251,10 +1209,8 @@ namespace IceGrid
 {
 
 /**
- * A session object is used by IceGrid clients to allocate and
- * release objects. Client sessions are created either via the
- * {@link Registry} object or via the registry client <code>SessionManager</code>
- * object.
+ * A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
+ * via the {@link Registry} object or via the registry client <code>SessionManager</code> object.
  * @see Registry
  * \headerfile IceGrid/IceGrid.h
  */
@@ -1302,8 +1258,8 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param current The Current object for the invocation.
      * @see Registry#getSessionTimeout
      */
@@ -1313,16 +1269,14 @@ public:
     /// \endcond
 
     /**
-     * Allocate an object. Depending on the allocation timeout, this
-     * operation might hang until the object is available or until the
-     * timeout is reached.
+     * Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+     * available or until the timeout is reached.
      * @param cb The AMD callback object for the invocation.
      * @param id The identity of the object to allocate.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AllocationException Raised if the object can't be
-     * allocated.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with
-     * the given identity is not registered with the registry.
+     * @throws IceGrid::AllocationException Raised if the object can't be allocated.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with the given identity is not registered with
+     * the registry.
      * @see #setAllocationTimeout
      * @see #releaseObject
      */
@@ -1332,9 +1286,8 @@ public:
     /// \endcond
 
     /**
-     * Allocate an object with the given type. Depending on the
-     * allocation timeout, this operation can block until an object
-     * becomes available or until the timeout is reached.
+     * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+     * an object becomes available or until the timeout is reached.
      * @param cb The AMD callback object for the invocation.
      * @param type The type of the object.
      * @param current The Current object for the invocation.
@@ -1352,11 +1305,10 @@ public:
      * <code>allocateObjectByType</code>.
      * @param id The identity of the object to release.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AllocationException Raised if the given object can't be
-     * released. This might happen if the object isn't allocatable or
-     * isn't allocated by the session.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with
-     * the given identity is not registered with the registry.
+     * @throws IceGrid::AllocationException Raised if the given object can't be released. This might happen if the object
+     * isn't allocatable or isn't allocated by the session.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object with the given identity is not registered with
+     * the registry.
      */
     virtual void releaseObject(const ::Ice::Identity& id, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -1364,9 +1316,8 @@ public:
     /// \endcond
 
     /**
-     * Set the allocation timeout. If no objects are available for an
-     * allocation request, a call to <code>allocateObjectById</code> or
-     * <code>allocateObjectByType</code> will block for the duration of this
+     * Set the allocation timeout. If no objects are available for an allocation request, a call to
+     * <code>allocateObjectById</code> or <code>allocateObjectByType</code> will block for the duration of this
      * timeout.
      * @param timeout The timeout in milliseconds.
      * @param current The Current object for the invocation.

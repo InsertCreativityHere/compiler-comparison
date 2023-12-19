@@ -16,30 +16,27 @@
 package com.zeroc.IceGrid;
 
 /**
- * This interface allows applications to monitor changes the state
- * of the registry.
+ * This interface allows applications to monitor changes the state of the registry.
  **/
 public interface RegistryObserver extends com.zeroc.Ice.Object
 {
     /**
-     * The <code>registryInit</code> operation is called after registration of
-     * an observer to indicate the state of the registries.
+     * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
+     * the registries.
      * @param registries The current state of the registries.
      * @param current The Current object for the invocation.
      **/
     void registryInit(RegistryInfo[] registries, com.zeroc.Ice.Current current);
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param current The Current object for the invocation.
      **/
     void registryUp(RegistryInfo node, com.zeroc.Ice.Current current);
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param current The Current object for the invocation.
      **/

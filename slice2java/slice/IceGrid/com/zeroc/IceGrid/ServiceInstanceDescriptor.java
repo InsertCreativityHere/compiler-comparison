@@ -32,8 +32,7 @@ public class ServiceInstanceDescriptor implements java.lang.Cloneable,
     public java.util.Map<java.lang.String, java.lang.String> parameterValues;
 
     /**
-     * The service definition if the instance isn't a template
-     * instance (i.e.: if the template attribute is empty).
+     * The service definition if the instance isn't a template instance (i.e.: if the template attribute is empty).
      **/
     public ServiceDescriptor descriptor;
 

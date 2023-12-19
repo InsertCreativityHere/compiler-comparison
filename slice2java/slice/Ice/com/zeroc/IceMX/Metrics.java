@@ -16,8 +16,7 @@
 package com.zeroc.IceMX;
 
 /**
- * The base class for metrics. A metrics object represents a
- * collection of measurements associated to a given a system.
+ * The base class for metrics. A metrics object represents a collection of measurements associated to a given a system.
  **/
 public class Metrics extends com.zeroc.Ice.Value
 {
@@ -45,9 +44,8 @@ public class Metrics extends com.zeroc.Ice.Value
     public String id;
 
     /**
-     * The total number of objects observed by this metrics. This includes
-     * the number of currently observed objects and the number of objects
-     * observed in the past.
+     * The total number of objects observed by this metrics. This includes the number of currently observed objects
+     * and the number of objects observed in the past.
      **/
     public long total;
 
@@ -57,9 +55,8 @@ public class Metrics extends com.zeroc.Ice.Value
     public int current;
 
     /**
-     * The sum of the lifetime of each observed objects. This does not
-     * include the lifetime of objects which are currently observed,
-     * only the objects observed in the past.
+     * The sum of the lifetime of each observed objects. This does not include the lifetime of objects which are
+     * currently observed, only the objects observed in the past.
      **/
     public long totalLifetime;
 

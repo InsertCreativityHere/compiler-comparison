@@ -85,37 +85,30 @@ namespace Ice
 {
     /// <summary>
     /// The Ice router interface.
-    /// Routers can be set either globally with
-    /// Communicator.setDefaultRouter, or with ice_router on specific
-    /// proxies.
+    /// Routers can be set either globally with Communicator.setDefaultRouter, or with
+    ///  ice_router on specific proxies.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface RouterPrx : ObjectPrx
     {
         /// <summary>
-        /// Get the router's client proxy, i.e., the proxy to use for
-        /// forwarding requests from the client to the router.
-        /// If a null proxy is returned, the client will forward requests
-        /// to the router's endpoints.
-        ///
+        /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+        /// If a null proxy is returned, the client will forward requests to the router's endpoints.
         /// </summary>
-        /// <param name="hasRoutingTable">Indicates whether or not the router supports a routing
-        /// table. If it is supported, the Ice runtime will call addProxies to populate the
-        /// routing table. This out parameter is only supported starting with Ice 3.7.
-        /// The Ice runtime assumes the router has a routing table if the optional is not
-        /// set.
-        ///
-        /// </param>
+        ///  <param name="hasRoutingTable">Indicates whether or not the router supports a routing table. If it is supported, the
+        ///  Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
+        ///  with Ice 3.7.
+        ///  The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
+        ///  </param>
         /// <returns>The router's client proxy.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         ObjectPrx getClientProxy(out Optional<bool> hasRoutingTable, OptionalContext context = new OptionalContext());
 
         /// <summary>
-        /// Get the router's client proxy, i.e., the proxy to use for
-        /// forwarding requests from the client to the router.
-        /// If a null proxy is returned, the client will forward requests
+        /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+        /// If a null proxy is returned, the client will forward requests to the router's endpoints.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -124,18 +117,16 @@ namespace Ice
         global::System.Threading.Tasks.Task<Router_GetClientProxyResult> getClientProxyAsync(OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the router's client proxy, i.e., the proxy to use for
-        /// forwarding requests from the client to the router.
-        /// If a null proxy is returned, the client will forward requests
+        /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+        /// If a null proxy is returned, the client will forward requests to the router's endpoints.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         AsyncResult<Callback_Router_getClientProxy> begin_getClientProxy(OptionalContext context = new OptionalContext());
 
         /// <summary>
-        /// Get the router's client proxy, i.e., the proxy to use for
-        /// forwarding requests from the client to the router.
-        /// If a null proxy is returned, the client will forward requests
+        /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+        /// If a null proxy is returned, the client will forward requests to the router's endpoints.
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -143,9 +134,8 @@ namespace Ice
         AsyncResult begin_getClientProxy(AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Get the router's client proxy, i.e., the proxy to use for
-        /// forwarding requests from the client to the router.
-        /// If a null proxy is returned, the client will forward requests
+        /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+        /// If a null proxy is returned, the client will forward requests to the router's endpoints.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -154,24 +144,20 @@ namespace Ice
         AsyncResult begin_getClientProxy(OptionalContext context, AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Get the router's client proxy, i.e., the proxy to use for
-        /// forwarding requests from the client to the router.
-        /// If a null proxy is returned, the client will forward requests
+        /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+        /// If a null proxy is returned, the client will forward requests to the router's endpoints.
         /// </summary>
-        /// <param name="hasRoutingTable">Indicates whether or not the router supports a routing
-        /// table. If it is supported, the Ice runtime will call addProxies to populate the
-        /// routing table. This out parameter is only supported starting with Ice 3.7.
-        /// The Ice runtime assumes the router has a routing table if the optional is not
-        /// set.
-        ///
-        /// </param>
+        ///  <param name="hasRoutingTable">Indicates whether or not the router supports a routing table. If it is supported, the
+        ///  Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
+        ///  with Ice 3.7.
+        ///  The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
+        ///  </param>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The router's client proxy.</returns>
         ObjectPrx end_getClientProxy(out Optional<bool> hasRoutingTable, AsyncResult asyncResult);
 
         /// <summary>
-        /// Get the router's server proxy, i.e., the proxy to use for
-        /// forwarding requests from the server to the router.
+        /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
         /// </summary>
         /// <returns>The router's server proxy.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -179,8 +165,7 @@ namespace Ice
         ObjectPrx getServerProxy(OptionalContext context = new OptionalContext());
 
         /// <summary>
-        /// Get the router's server proxy, i.e., the proxy to use for
-        /// forwarding requests from the server to the router.
+        /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -189,16 +174,14 @@ namespace Ice
         global::System.Threading.Tasks.Task<ObjectPrx> getServerProxyAsync(OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the router's server proxy, i.e., the proxy to use for
-        /// forwarding requests from the server to the router.
+        /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         AsyncResult<Callback_Router_getServerProxy> begin_getServerProxy(OptionalContext context = new OptionalContext());
 
         /// <summary>
-        /// Get the router's server proxy, i.e., the proxy to use for
-        /// forwarding requests from the server to the router.
+        /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -206,8 +189,7 @@ namespace Ice
         AsyncResult begin_getServerProxy(AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Get the router's server proxy, i.e., the proxy to use for
-        /// forwarding requests from the server to the router.
+        /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -216,8 +198,7 @@ namespace Ice
         AsyncResult begin_getServerProxy(OptionalContext context, AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Get the router's server proxy, i.e., the proxy to use for
-        /// forwarding requests from the server to the router.
+        /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The router's server proxy.</returns>
@@ -227,8 +208,7 @@ namespace Ice
         /// Add new proxy information to the router's routing table.
         /// </summary>
         /// <param name="proxies">The proxies to add.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>Proxies discarded by the router.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -238,8 +218,7 @@ namespace Ice
         /// Add new proxy information to the router's routing table.
         /// </summary>
         /// <param name="proxies">The proxies to add.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -250,8 +229,7 @@ namespace Ice
         /// Add new proxy information to the router's routing table.
         /// </summary>
         /// <param name="proxies">The proxies to add.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         AsyncResult<Callback_Router_addProxies> begin_addProxies(ObjectPrx[] proxies, OptionalContext context = new OptionalContext());
@@ -260,8 +238,7 @@ namespace Ice
         /// Add new proxy information to the router's routing table.
         /// </summary>
         /// <param name="proxies">The proxies to add.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -271,8 +248,7 @@ namespace Ice
         /// Add new proxy information to the router's routing table.
         /// </summary>
         /// <param name="proxies">The proxies to add.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -288,32 +264,28 @@ namespace Ice
     }
 
     /// <summary>
-    /// This interface should be implemented by services implementing the
-    /// Ice::Router interface.
-    /// It should be advertised through an Ice
-    /// object with the identity `Ice/RouterFinder'. This allows clients to
-    /// retrieve the router proxy with just the endpoint information of the
-    /// service.
+    /// This interface should be implemented by services implementing the Ice::Router interface.
+    /// It should be advertised
+    ///  through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
+    ///  just the endpoint information of the service.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface RouterFinderPrx : ObjectPrx
     {
         /// <summary>
-        /// Get the router proxy implemented by the process hosting this
-        /// finder object.
-        /// The proxy might point to several replicas.
-        ///
+        /// Get the router proxy implemented by the process hosting this finder object.
+        /// The proxy might point to several
+        ///  replicas.
         /// </summary>
-        /// <returns>The router proxy.</returns>
+        ///  <returns>The router proxy.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         RouterPrx getRouter(OptionalContext context = new OptionalContext());
 
         /// <summary>
-        /// Get the router proxy implemented by the process hosting this
-        /// finder object.
-        /// The proxy might point to several replicas.
+        /// Get the router proxy implemented by the process hosting this finder object.
+        /// The proxy might point to several
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -322,18 +294,16 @@ namespace Ice
         global::System.Threading.Tasks.Task<RouterPrx> getRouterAsync(OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the router proxy implemented by the process hosting this
-        /// finder object.
-        /// The proxy might point to several replicas.
+        /// Get the router proxy implemented by the process hosting this finder object.
+        /// The proxy might point to several
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         AsyncResult<Callback_RouterFinder_getRouter> begin_getRouter(OptionalContext context = new OptionalContext());
 
         /// <summary>
-        /// Get the router proxy implemented by the process hosting this
-        /// finder object.
-        /// The proxy might point to several replicas.
+        /// Get the router proxy implemented by the process hosting this finder object.
+        /// The proxy might point to several
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -341,9 +311,8 @@ namespace Ice
         AsyncResult begin_getRouter(AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Get the router proxy implemented by the process hosting this
-        /// finder object.
-        /// The proxy might point to several replicas.
+        /// Get the router proxy implemented by the process hosting this finder object.
+        /// The proxy might point to several
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -352,9 +321,8 @@ namespace Ice
         AsyncResult begin_getRouter(OptionalContext context, AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Get the router proxy implemented by the process hosting this
-        /// finder object.
-        /// The proxy might point to several replicas.
+        /// Get the router proxy implemented by the process hosting this finder object.
+        /// The proxy might point to several
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The router proxy.</returns>
@@ -366,28 +334,22 @@ namespace Ice
 {
     /// <summary>
     /// The Ice router interface.
-    /// Routers can be set either globally with
-    /// Communicator.setDefaultRouter, or with ice_router on specific
-    /// proxies.
+    /// Routers can be set either globally with Communicator.setDefaultRouter, or with
+    ///  ice_router on specific proxies.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface RouterOperations_
     {
         /// <summary>
-        /// Get the router's client proxy, i.e., the proxy to use for
-        /// forwarding requests from the client to the router.
-        /// If a null proxy is returned, the client will forward requests
-        /// to the router's endpoints.
-        ///
+        /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+        /// If a null proxy is returned, the client will forward requests to the router's endpoints.
         /// </summary>
-        /// <param name="hasRoutingTable">Indicates whether or not the router supports a routing
-        /// table. If it is supported, the Ice runtime will call addProxies to populate the
-        /// routing table. This out parameter is only supported starting with Ice 3.7.
-        /// The Ice runtime assumes the router has a routing table if the optional is not
-        /// set.
-        ///
-        /// </param>
+        ///  <param name="hasRoutingTable">Indicates whether or not the router supports a routing table. If it is supported, the
+        ///  Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
+        ///  with Ice 3.7.
+        ///  The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
+        ///  </param>
         /// <returns>The router's client proxy.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -395,8 +357,7 @@ namespace Ice
         ObjectPrx getClientProxy(out Optional<bool> hasRoutingTable, Current current = null);
 
         /// <summary>
-        /// Get the router's server proxy, i.e., the proxy to use for
-        /// forwarding requests from the server to the router.
+        /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
         /// </summary>
         /// <returns>The router's server proxy.</returns>
         /// <param name="current">The Current object for the invocation.</param>
@@ -408,8 +369,7 @@ namespace Ice
         /// Add new proxy information to the router's routing table.
         /// </summary>
         /// <param name="proxies">The proxies to add.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>Proxies discarded by the router.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -418,24 +378,21 @@ namespace Ice
     }
 
     /// <summary>
-    /// This interface should be implemented by services implementing the
-    /// Ice::Router interface.
-    /// It should be advertised through an Ice
-    /// object with the identity `Ice/RouterFinder'. This allows clients to
-    /// retrieve the router proxy with just the endpoint information of the
-    /// service.
+    /// This interface should be implemented by services implementing the Ice::Router interface.
+    /// It should be advertised
+    ///  through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
+    ///  just the endpoint information of the service.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface RouterFinderOperations_
     {
         /// <summary>
-        /// Get the router proxy implemented by the process hosting this
-        /// finder object.
-        /// The proxy might point to several replicas.
-        ///
+        /// Get the router proxy implemented by the process hosting this finder object.
+        /// The proxy might point to several
+        ///  replicas.
         /// </summary>
-        /// <returns>The router proxy.</returns>
+        ///  <returns>The router proxy.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]

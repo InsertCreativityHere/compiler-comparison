@@ -38,8 +38,7 @@ public class InternalReplicaInfo extends com.zeroc.Ice.Value
     public String name;
 
     /**
-     * The network name of the host running this registry (as defined in
-     * uname()).
+     * The network name of the host running this registry (as defined in uname()).
      **/
     public String hostname;
 

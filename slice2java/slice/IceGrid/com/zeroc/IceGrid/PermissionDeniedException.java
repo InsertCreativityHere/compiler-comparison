@@ -16,8 +16,7 @@
 package com.zeroc.IceGrid;
 
 /**
- * This exception is raised if a client is denied the ability to create
- * a session with IceGrid.
+ * This exception is raised if a client is denied the ability to create a session with IceGrid.
  **/
 public class PermissionDeniedException extends com.zeroc.Ice.UserException
 {

@@ -15,6 +15,9 @@
 
 package test.Ice.packagemd.Test1;
 
+/**
+ * Test keyword escape.
+ **/
 public class _notify extends com.zeroc.Ice.UserException
 {
     public _notify()

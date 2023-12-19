@@ -21,38 +21,28 @@ package com.zeroc.Glacier2;
 public interface Router extends com.zeroc.Ice.Router
 {
     /**
-     * This category must be used in the identities of all of the client's
-     * callback objects. This is necessary in order for the router to
-     * forward callback requests to the intended client. If the Glacier2
-     * server endpoints are not set, the returned category is an empty
-     * string.
+     * This category must be used in the identities of all of the client's callback objects. This is necessary in
+     * order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
+     * are not set, the returned category is an empty string.
      * @param current The Current object for the invocation.
      * @return The category.
      **/
     String getCategoryForClient(com.zeroc.Ice.Current current);
 
     /**
-     * Create a per-client session with the router. If a
-     * {@link SessionManager} has been installed, a proxy to a {@link Session}
-     * object is returned to the client. Otherwise, null is returned
-     * and only an internal session (i.e., not visible to the client)
-     * is created.
-     *
-     * If a session proxy is returned, it must be configured to route
-     * through the router that created it. This will happen automatically
-     * if the router is configured as the client's default router at the
-     * time the session proxy is created in the client process, otherwise
-     * the client must configure the session proxy explicitly.
+     * Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
+     * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
+     * (i.e., not visible to the client) is created.
+     * If a session proxy is returned, it must be configured to route through the router that created it. This will
+     * happen automatically if the router is configured as the client's default router at the time the session proxy
+     * is created in the client process, otherwise the client must configure the session proxy explicitly.
      * @param userId The user id for which to check the password.
      * @param password The password for the given user id.
      * @param current The Current object for the invocation.
-     * @return A proxy for the newly created session, or null if no
-     * {@link SessionManager} has been installed.
-     * @throws CannotCreateSessionException Raised if the session
-     * cannot be created.
-     * @throws PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @return A proxy for the newly created session, or null if no {@link SessionManager} has been installed.
+     * @throws CannotCreateSessionException Raised if the session cannot be created.
+     * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the user
+     * is not allowed access.
      *
      * @see Session
      * @see SessionManager
@@ -63,25 +53,18 @@ public interface Router extends com.zeroc.Ice.Router
                PermissionDeniedException;
 
     /**
-     * Create a per-client session with the router. The user is
-     * authenticated through the SSL certificates that have been
-     * associated with the connection. If a {@link SessionManager} has been
-     * installed, a proxy to a {@link Session} object is returned to the
-     * client. Otherwise, null is returned and only an internal
-     * session (i.e., not visible to the client) is created.
-     *
-     * If a session proxy is returned, it must be configured to route
-     * through the router that created it. This will happen automatically
-     * if the router is configured as the client's default router at the
-     * time the session proxy is created in the client process, otherwise
-     * the client must configure the session proxy explicitly.
+     * Create a per-client session with the router. The user is authenticated through the SSL certificates that have
+     * been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
+     * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
+     * (i.e., not visible to the client) is created.
+     * If a session proxy is returned, it must be configured to route through the router that created it. This will
+     * happen automatically if the router is configured as the client's default router at the time the session proxy
+     * is created in the client process, otherwise the client must configure the session proxy explicitly.
      * @param current The Current object for the invocation.
-     * @return A proxy for the newly created session, or null if no
-     * {@link SessionManager} has been installed.
-     * @throws CannotCreateSessionException Raised if the session
-     * cannot be created.
-     * @throws PermissionDeniedException Raised if the user cannot be
-     * authenticated or if the user is not allowed access.
+     * @return A proxy for the newly created session, or null if no {@link SessionManager} has been installed.
+     * @throws CannotCreateSessionException Raised if the session cannot be created.
+     * @throws PermissionDeniedException Raised if the user cannot be authenticated or if the user is not allowed
+     * access.
      *
      * @see Session
      * @see SessionManager
@@ -95,8 +78,7 @@ public interface Router extends com.zeroc.Ice.Router
      * Keep the calling client's session with this router alive.
      * @param current The Current object for the invocation.
      * @return A completion stage that the servant will complete when the invocation completes.
-     * @throws SessionNotExistException Raised if no session exists
-     * for the calling client.
+     * @throws SessionNotExistException Raised if no session exists for the calling client.
      **/
     java.util.concurrent.CompletionStage<Void> refreshSessionAsync(com.zeroc.Ice.Current current)
         throws SessionNotExistException;
@@ -104,26 +86,21 @@ public interface Router extends com.zeroc.Ice.Router
     /**
      * Destroy the calling client's session with this router.
      * @param current The Current object for the invocation.
-     * @throws SessionNotExistException Raised if no session exists
-     * for the calling client.
+     * @throws SessionNotExistException Raised if no session exists for the calling client.
      **/
     void destroySession(com.zeroc.Ice.Current current)
         throws SessionNotExistException;
 
     /**
-     * Get the value of the session timeout. Sessions are destroyed
-     * if they see no activity for this period of time.
+     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
      * @param current The Current object for the invocation.
      * @return The timeout (in seconds).
      **/
     long getSessionTimeout(com.zeroc.Ice.Current current);
 
     /**
-     * Get the value of the ACM timeout. Clients supporting connection
-     * heartbeats can enable them instead of explicitly sending keep
-     * alives requests.
-     *
-     * NOTE: This method is only available since Ice 3.6.
+     * Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
+     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
      * @param current The Current object for the invocation.
      * @return The timeout (in seconds).
      **/

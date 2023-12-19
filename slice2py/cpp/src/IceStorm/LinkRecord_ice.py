@@ -38,7 +38,11 @@ if 'LinkRecord' not in _M_IceStorm.__dict__:
     _M_IceStorm.LinkRecord = Ice.createTempClass()
     class LinkRecord(object):
         """
-        Used to store persistent information for Topic federation.
+         Used to store persistent information for Topic federation.
+        Members:
+        obj --  The topic link object.
+        cost --  The cost.
+        theTopic --  The linked topic for getLinkInfoSeq
         """
         def __init__(self, obj=None, cost=0, theTopic=None):
             self.obj = obj

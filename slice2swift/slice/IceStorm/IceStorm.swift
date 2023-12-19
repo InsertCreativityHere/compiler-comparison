@@ -237,8 +237,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-/// This exception indicates that an attempt was made to create a link
-/// that already exists.
+/// This exception indicates that an attempt was made to create a link that already exists.
 open class LinkExists: Ice.UserException {
     /// The name of the linked topic.
     public var name: Swift.String = ""
@@ -282,8 +281,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-/// This exception indicates that an attempt was made to remove a
-/// link that does not exist.
+/// This exception indicates that an attempt was made to remove a link that does not exist.
 open class NoSuchLink: Ice.UserException {
     /// The name of the link that does not exist.
     public var name: Swift.String = ""
@@ -327,8 +325,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-/// This exception indicates that an attempt was made to subscribe
-/// a proxy for which a subscription already exists.
+/// This exception indicates that an attempt was made to subscribe a proxy for which a subscription already exists.
 open class AlreadySubscribed: Ice.UserException {
     public required init() {}
 
@@ -363,8 +360,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-/// This exception indicates that an attempt was made to subscribe
-/// a proxy that is null.
+/// This exception indicates that an attempt was made to subscribe a proxy that is null.
 open class InvalidSubscriber: Ice.UserException {
     /// The reason for the failure.
     public var reason: Swift.String = ""
@@ -408,8 +404,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-/// This exception indicates that a subscription failed due to an
-/// invalid QoS.
+/// This exception indicates that a subscription failed due to an invalid QoS.
 open class BadQoS: Ice.UserException {
     /// The reason for the failure.
     public var reason: Swift.String = ""
@@ -527,8 +522,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-/// This exception indicates that an attempt was made to create a topic
-/// that already exists.
+/// This exception indicates that an attempt was made to create a topic that already exists.
 open class TopicExists: Ice.UserException {
     /// The name of the topic that already exists.
     public var name: Swift.String = ""
@@ -572,8 +566,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-/// This exception indicates that an attempt was made to retrieve a
-/// topic that does not exist.
+/// This exception indicates that an attempt was made to retrieve a topic that does not exist.
 open class NoSuchTopic: Ice.UserException {
     /// The name of the topic that does not exist.
     public var name: Swift.String = ""
@@ -616,8 +609,7 @@ public struct FinderTraits: Ice.SliceTraits {
     public static let staticId = "::IceStorm::Finder"
 }
 
-/// Publishers publish information on a particular topic. A topic
-/// logically represents a type.
+/// Publishers publish information on a particular topic. A topic logically represents a type. A
 ///
 /// TopicPrx Methods:
 ///
@@ -735,8 +727,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// Publishers publish information on a particular topic. A topic
-/// logically represents a type.
+/// Publishers publish information on a particular topic. A topic logically represents a type. A
 ///
 /// TopicPrx Methods:
 ///
@@ -821,11 +812,9 @@ public extension TopicPrx {
                                   sent: sent)
     }
 
-    /// Get a proxy to a publisher object for this topic. To publish
-    /// data to a topic, the publisher calls getPublisher and then
-    /// casts to the topic type. An unchecked cast must be used on this
-    /// proxy. If a replicated IceStorm deployment is used this call
-    /// may return a replicated proxy.
+    /// Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+    /// and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
+    /// deployment is used this call may return a replicated proxy.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -840,11 +829,9 @@ public extension TopicPrx {
                                  context: context)
     }
 
-    /// Get a proxy to a publisher object for this topic. To publish
-    /// data to a topic, the publisher calls getPublisher and then
-    /// casts to the topic type. An unchecked cast must be used on this
-    /// proxy. If a replicated IceStorm deployment is used this call
-    /// may return a replicated proxy.
+    /// Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+    /// and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
+    /// deployment is used this call may return a replicated proxy.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -870,10 +857,8 @@ public extension TopicPrx {
                                   sent: sent)
     }
 
-    /// Get a non-replicated proxy to a publisher object for this
-    /// topic. To publish data to a topic, the publisher calls
-    /// getPublisher and then casts to the topic type. An unchecked
-    /// cast must be used on this proxy.
+    /// Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+    /// calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -888,10 +873,8 @@ public extension TopicPrx {
                                  context: context)
     }
 
-    /// Get a non-replicated proxy to a publisher object for this
-    /// topic. To publish data to a topic, the publisher calls
-    /// getPublisher and then casts to the topic type. An unchecked
-    /// cast must be used on this proxy.
+    /// Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+    /// calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -917,11 +900,9 @@ public extension TopicPrx {
                                   sent: sent)
     }
 
-    /// Subscribe with the given qos to this topic.  A
-    /// per-subscriber publisher object is returned.
+    /// Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
     ///
-    /// - parameter theQoS: `QoS` The quality of service parameters for this
-    /// subscription.
+    /// - parameter theQoS: `QoS` The quality of service parameters for this subscription.
     ///
     /// - parameter subscriber: `Ice.ObjectPrx?` The subscriber's proxy.
     ///
@@ -931,11 +912,9 @@ public extension TopicPrx {
     ///
     /// - throws:
     ///
-    ///   - AlreadySubscribed - Raised if the subscriber object is
-    ///     already subscribed.
+    ///   - AlreadySubscribed - Raised if the subscriber object is already subscribed.
     ///
-    ///   - BadQoS - Raised if the requested quality of service
-    ///     is unavailable or invalid.
+    ///   - BadQoS - Raised if the requested quality of service is unavailable or invalid.
     ///
     ///   - InvalidSubscriber - Raised if the subscriber object is null.
     func subscribeAndGetPublisher(theQoS iceP_theQoS: QoS, subscriber iceP_subscriber: Ice.ObjectPrx?, context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
@@ -963,11 +942,9 @@ public extension TopicPrx {
                                  context: context)
     }
 
-    /// Subscribe with the given qos to this topic.  A
-    /// per-subscriber publisher object is returned.
+    /// Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
     ///
-    /// - parameter theQoS: `QoS` The quality of service parameters for this
-    /// subscription.
+    /// - parameter theQoS: `QoS` The quality of service parameters for this subscription.
     ///
     /// - parameter subscriber: `Ice.ObjectPrx?` The subscriber's proxy.
     ///
@@ -1051,8 +1028,8 @@ public extension TopicPrx {
                                   sent: sent)
     }
 
-    /// Create a link to the given topic. All events originating
-    /// on this topic will also be sent to linkTo.
+    /// Create a link to the given topic. All events originating on this topic will also be sent to
+    /// linkTo.
     ///
     /// - parameter linkTo: `TopicPrx?` The topic to link to.
     ///
@@ -1062,8 +1039,7 @@ public extension TopicPrx {
     ///
     /// - throws:
     ///
-    ///   - LinkExists - Raised if a link to the same topic already
-    ///     exists.
+    ///   - LinkExists - Raised if a link to the same topic already exists.
     func link(linkTo iceP_linkTo: TopicPrx?, cost iceP_cost: Swift.Int32, context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "link",
                           mode: .Normal,
@@ -1081,8 +1057,8 @@ public extension TopicPrx {
                           context: context)
     }
 
-    /// Create a link to the given topic. All events originating
-    /// on this topic will also be sent to linkTo.
+    /// Create a link to the given topic. All events originating on this topic will also be sent to
+    /// linkTo.
     ///
     /// - parameter linkTo: `TopicPrx?` The topic to link to.
     ///
@@ -1408,8 +1384,7 @@ public extension TopicManagerPrx {
     ///
     /// - throws:
     ///
-    ///   - TopicExists - Raised if a topic with the same name already
-    ///     exists.
+    ///   - TopicExists - Raised if a topic with the same name already exists.
     func create(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> TopicPrx? {
         return try _impl._invoke(operation: "create",
                                  mode: .Normal,
@@ -1579,10 +1554,8 @@ public extension TopicManagerPrx {
     }
 }
 
-/// This interface is advertised by the IceStorm service through the
-/// Ice object with the identity `IceStorm/Finder'. This allows clients
-/// to retrieve the topic manager with just the endpoint information of
-/// the IceStorm service.
+/// This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+/// This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
 ///
 /// FinderPrx Methods:
 ///
@@ -1664,10 +1637,8 @@ public extension Ice.InputStream {
     }
 }
 
-/// This interface is advertised by the IceStorm service through the
-/// Ice object with the identity `IceStorm/Finder'. This allows clients
-/// to retrieve the topic manager with just the endpoint information of
-/// the IceStorm service.
+/// This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+/// This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
 ///
 /// FinderPrx Methods:
 ///
@@ -1675,8 +1646,7 @@ public extension Ice.InputStream {
 ///
 ///  - getTopicManagerAsync: Get the topic manager proxy.
 public extension FinderPrx {
-    /// Get the topic manager proxy. The proxy might point to several
-    /// replicas.
+    /// Get the topic manager proxy. The proxy might point to several replicas.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1691,8 +1661,7 @@ public extension FinderPrx {
                                  context: context)
     }
 
-    /// Get the topic manager proxy. The proxy might point to several
-    /// replicas.
+    /// Get the topic manager proxy. The proxy might point to several replicas.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1766,8 +1735,7 @@ public struct TopicDisp: Ice.Disp {
     }
 }
 
-/// Publishers publish information on a particular topic. A topic
-/// logically represents a type.
+/// Publishers publish information on a particular topic. A topic logically represents a type. A
 public protocol Topic {
     /// Get the name of this topic.
     ///
@@ -1776,32 +1744,26 @@ public protocol Topic {
     /// - returns: `Swift.String` - The name of the topic.
     func getName(current: Ice.Current) throws -> Swift.String
 
-    /// Get a proxy to a publisher object for this topic. To publish
-    /// data to a topic, the publisher calls getPublisher and then
-    /// casts to the topic type. An unchecked cast must be used on this
-    /// proxy. If a replicated IceStorm deployment is used this call
-    /// may return a replicated proxy.
+    /// Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+    /// and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
+    /// deployment is used this call may return a replicated proxy.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Ice.ObjectPrx?` - A proxy to publish data on this topic.
     func getPublisher(current: Ice.Current) throws -> Ice.ObjectPrx?
 
-    /// Get a non-replicated proxy to a publisher object for this
-    /// topic. To publish data to a topic, the publisher calls
-    /// getPublisher and then casts to the topic type. An unchecked
-    /// cast must be used on this proxy.
+    /// Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+    /// calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Ice.ObjectPrx?` - A proxy to publish data on this topic.
     func getNonReplicatedPublisher(current: Ice.Current) throws -> Ice.ObjectPrx?
 
-    /// Subscribe with the given qos to this topic.  A
-    /// per-subscriber publisher object is returned.
+    /// Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
     ///
-    /// - parameter theQoS: `QoS` The quality of service parameters for this
-    /// subscription.
+    /// - parameter theQoS: `QoS` The quality of service parameters for this subscription.
     ///
     /// - parameter subscriber: `Ice.ObjectPrx?` The subscriber's proxy.
     ///
@@ -1811,11 +1773,9 @@ public protocol Topic {
     ///
     /// - throws:
     ///
-    ///   - AlreadySubscribed - Raised if the subscriber object is
-    ///     already subscribed.
+    ///   - AlreadySubscribed - Raised if the subscriber object is already subscribed.
     ///
-    ///   - BadQoS - Raised if the requested quality of service
-    ///     is unavailable or invalid.
+    ///   - BadQoS - Raised if the requested quality of service is unavailable or invalid.
     ///
     ///   - InvalidSubscriber - Raised if the subscriber object is null.
     func subscribeAndGetPublisher(theQoS: QoS, subscriber: Ice.ObjectPrx?, current: Ice.Current) throws -> Ice.ObjectPrx?
@@ -1827,8 +1787,8 @@ public protocol Topic {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func unsubscribe(subscriber: Ice.ObjectPrx?, current: Ice.Current) throws
 
-    /// Create a link to the given topic. All events originating
-    /// on this topic will also be sent to linkTo.
+    /// Create a link to the given topic. All events originating on this topic will also be sent to
+    /// linkTo.
     ///
     /// - parameter linkTo: `TopicPrx?` The topic to link to.
     ///
@@ -1838,8 +1798,7 @@ public protocol Topic {
     ///
     /// - throws:
     ///
-    ///   - LinkExists - Raised if a link to the same topic already
-    ///     exists.
+    ///   - LinkExists - Raised if a link to the same topic already exists.
     func link(linkTo: TopicPrx?, cost: Swift.Int32, current: Ice.Current) throws
 
     /// Destroy the link from this topic to the given topic linkTo.
@@ -1918,8 +1877,7 @@ public protocol TopicManager {
     ///
     /// - throws:
     ///
-    ///   - TopicExists - Raised if a topic with the same name already
-    ///     exists.
+    ///   - TopicExists - Raised if a topic with the same name already exists.
     func create(name: Swift.String, current: Ice.Current) throws -> TopicPrx?
 
     /// Retrieve a topic by name.
@@ -1972,13 +1930,10 @@ public struct FinderDisp: Ice.Disp {
     }
 }
 
-/// This interface is advertised by the IceStorm service through the
-/// Ice object with the identity `IceStorm/Finder'. This allows clients
-/// to retrieve the topic manager with just the endpoint information of
-/// the IceStorm service.
+/// This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+/// This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
 public protocol Finder {
-    /// Get the topic manager proxy. The proxy might point to several
-    /// replicas.
+    /// Get the topic manager proxy. The proxy might point to several replicas.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -1986,8 +1941,7 @@ public protocol Finder {
     func getTopicManager(current: Ice.Current) throws -> TopicManagerPrx?
 }
 
-/// Publishers publish information on a particular topic. A topic
-/// logically represents a type.
+/// Publishers publish information on a particular topic. A topic logically represents a type. A
 ///
 /// Topic Methods:
 ///
@@ -2165,10 +2119,8 @@ public extension TopicManager {
     }
 }
 
-/// This interface is advertised by the IceStorm service through the
-/// Ice object with the identity `IceStorm/Finder'. This allows clients
-/// to retrieve the topic manager with just the endpoint information of
-/// the IceStorm service.
+/// This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+/// This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
 ///
 /// Finder Methods:
 ///

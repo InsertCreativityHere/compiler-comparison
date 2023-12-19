@@ -1,7 +1,6 @@
 % EndpointSelectionType   Summary of EndpointSelectionType
 %
-% Determines the order in which the Ice run time uses the endpoints
-% in a proxy when establishing a connection.
+% Determines the order in which the Ice run time uses the endpoints in a proxy when establishing a connection.
 %
 % EndpointSelectionType Properties:
 %   Random - Random causes the endpoints to be arranged in a random order.
@@ -14,8 +13,7 @@ classdef EndpointSelectionType < uint8
     enumeration
         % Random causes the endpoints to be arranged in a random order.
         Random (0)
-        % Ordered forces the Ice run time to use the endpoints in the
-        % order they appeared in the proxy.
+        % Ordered forces the Ice run time to use the endpoints in the order they appeared in the proxy.
         Ordered (1)
     end
     methods(Static)

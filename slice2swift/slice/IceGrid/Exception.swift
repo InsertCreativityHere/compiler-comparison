@@ -626,8 +626,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-/// This exception is raised if an unknown signal was sent to
-/// to a server.
+/// This exception is raised if an unknown signal was sent to to a server.
 open class BadSignalException: Ice.UserException {
     /// The details of the unknown signal.
     public var reason: Swift.String = ""
@@ -715,8 +714,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-/// This exception is raised if a registry lock wasn't
-/// acquired or is already held by a session.
+/// his exception is raised if a registry lock wasn't acquired or is already held by a session.
 open class AccessDeniedException: Ice.UserException {
     /// The id of the user holding the lock (if any).
     public var lockUserId: Swift.String = ""
@@ -804,8 +802,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-/// This exception is raised if the request to allocate an object times
-/// out.
+/// This exception is raised if the request to allocate an object times out.
 open class AllocationTimeoutException: AllocationException {
     /// Returns the Slice type ID of this exception.
     ///
@@ -840,8 +837,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-/// This exception is raised if a client is denied the ability to create
-/// a session with IceGrid.
+/// This exception is raised if a client is denied the ability to create a session with IceGrid.
 open class PermissionDeniedException: Ice.UserException {
     /// The reason why permission was denied.
     public var reason: Swift.String = ""
@@ -885,8 +881,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-/// This exception is raised if an observer is already registered with
-/// the registry.
+/// This exception is raised if an observer is already registered with the registry.
 open class ObserverAlreadyRegisteredException: Ice.UserException {
     /// The identity of the observer.
     public var id: Ice.Identity = Ice.Identity()

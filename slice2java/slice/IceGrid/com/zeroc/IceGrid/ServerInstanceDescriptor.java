@@ -37,8 +37,8 @@ public class ServerInstanceDescriptor implements java.lang.Cloneable,
     public PropertySetDescriptor propertySet;
 
     /**
-     * The services property sets. It's only valid to set these
-     * property sets if the template is an IceBox server template.
+     * The services property sets. It's only valid to set these property sets if the template is an IceBox server
+     * template.
      **/
     public java.util.Map<java.lang.String, PropertySetDescriptor> servicePropertySets;
 

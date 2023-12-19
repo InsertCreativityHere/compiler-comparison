@@ -67,9 +67,8 @@ public struct FileParserTraits: Ice.SliceTraits {
     public static let staticId = "::IceGrid::FileParser"
 }
 
-/// icegridadmin provides a FileParser
-/// object to transform XML files into ApplicationDescriptor
-/// objects.
+/// icegridadmin provides a FileParser object to transform XML files into
+/// ApplicationDescriptor objects.
 ///
 /// FileParserPrx Methods:
 ///
@@ -151,9 +150,8 @@ public extension Ice.InputStream {
     }
 }
 
-/// icegridadmin provides a FileParser
-/// object to transform XML files into ApplicationDescriptor
-/// objects.
+/// icegridadmin provides a FileParser object to transform XML files into
+/// ApplicationDescriptor objects.
 ///
 /// FileParserPrx Methods:
 ///
@@ -165,8 +163,7 @@ public extension FileParserPrx {
     ///
     /// - parameter xmlFile: `Swift.String` Full pathname to the file.
     ///
-    /// - parameter adminProxy: `AdminPrx?` An Admin proxy, used only to retrieve default
-    /// templates when needed. May be null.
+    /// - parameter adminProxy: `AdminPrx?` An Admin proxy, used only to retrieve default templates when needed. May be null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -201,8 +198,7 @@ public extension FileParserPrx {
     ///
     /// - parameter xmlFile: `Swift.String` Full pathname to the file.
     ///
-    /// - parameter adminProxy: `AdminPrx?` An Admin proxy, used only to retrieve default
-    /// templates when needed. May be null.
+    /// - parameter adminProxy: `AdminPrx?` An Admin proxy, used only to retrieve default templates when needed. May be null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -270,16 +266,14 @@ public struct FileParserDisp: Ice.Disp {
     }
 }
 
-/// icegridadmin provides a FileParser
-/// object to transform XML files into ApplicationDescriptor
-/// objects.
+/// icegridadmin provides a FileParser object to transform XML files into
+/// ApplicationDescriptor objects.
 public protocol FileParser {
     /// Parse a file.
     ///
     /// - parameter xmlFile: `Swift.String` Full pathname to the file.
     ///
-    /// - parameter adminProxy: `AdminPrx?` An Admin proxy, used only to retrieve default
-    /// templates when needed. May be null.
+    /// - parameter adminProxy: `AdminPrx?` An Admin proxy, used only to retrieve default templates when needed. May be null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -291,9 +285,8 @@ public protocol FileParser {
     func parse(xmlFile: Swift.String, adminProxy: AdminPrx?, current: Ice.Current) throws -> ApplicationDescriptor
 }
 
-/// icegridadmin provides a FileParser
-/// object to transform XML files into ApplicationDescriptor
-/// objects.
+/// icegridadmin provides a FileParser object to transform XML files into
+/// ApplicationDescriptor objects.
 ///
 /// FileParser Methods:
 ///

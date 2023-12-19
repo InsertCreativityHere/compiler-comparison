@@ -1,7 +1,6 @@
 % VersionMismatchException   Summary of VersionMismatchException
 %
-% This exception is raised if the Ice library version does not match
-% the version in the Ice header files.
+% This exception is raised if the Ice library version does not match the version in the Ice header files.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from LocalException.ice by slice2matlab version 3.7.10

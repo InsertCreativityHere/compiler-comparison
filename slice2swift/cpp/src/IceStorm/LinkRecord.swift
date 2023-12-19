@@ -18,8 +18,11 @@ import Ice
 
 /// Used to store persistent information for Topic federation.
 public struct LinkRecord {
+    /// The topic link object.
     public var obj: TopicLinkPrx? = nil
+    /// The cost.
     public var cost: Swift.Int32 = 0
+    /// The linked topic for getLinkInfoSeq
     public var theTopic: TopicPrx? = nil
 
     public init() {}

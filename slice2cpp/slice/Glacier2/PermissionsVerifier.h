@@ -76,8 +76,7 @@ namespace Glacier2
 {
 
 /**
- * This exception is raised if a client is denied the ability to create
- * a session with the router.
+ * This exception is raised if a client is denied the ability to create a session with the router.
  * \headerfile Glacier2/Glacier2.h
  */
 class ICE_CLASS(GLACIER2_API) PermissionDeniedException : public ::Ice::UserExceptionHelper<PermissionDeniedException, ::Ice::UserException>
@@ -145,8 +144,7 @@ namespace Glacier2
 {
 
 /**
- * The Glacier2 permissions verifier. This is called through the
- * process of establishing a session.
+ * The Glacier2 permissions verifier. This is called through the process of establishing a session.
  * @see Router
  * \headerfile Glacier2/Glacier2.h
  */
@@ -202,9 +200,8 @@ public:
      * @param reason The reason why access was denied.
      * @param current The Current object for the invocation.
      * @return True if access is granted, or false otherwise.
-     * @throws Glacier2::PermissionDeniedException Raised if the user access is
-     * denied. This can be raised in place of returning false with a
-     * reason set in the reason out parameter.
+     * @throws Glacier2::PermissionDeniedException Raised if the user access is denied. This can be raised in place of
+     * returning false with a reason set in the reason out parameter.
      */
     virtual bool checkPermissions(::std::string userId, ::std::string password, ::std::string& reason, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -217,8 +214,7 @@ public:
 };
 
 /**
- * The SSL Glacier2 permissions verifier. This is called through the
- * process of establishing a session.
+ * The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
  * @see Router
  * \headerfile Glacier2/Glacier2.h
  */
@@ -273,9 +269,8 @@ public:
      * @param reason The reason why access was denied.
      * @param current The Current object for the invocation.
      * @return True if access is granted, or false otherwise.
-     * @throws Glacier2::PermissionDeniedException Raised if the user access is
-     * denied. This can be raised in place of returning false with a
-     * reason set in the reason out parameter.
+     * @throws Glacier2::PermissionDeniedException Raised if the user access is denied. This can be raised in place of
+     * returning false with a reason set in the reason out parameter.
      * @see SSLInfo
      */
     virtual bool authorize(SSLInfo info, ::std::string& reason, const ::Ice::Current& current) const = 0;
@@ -294,8 +289,7 @@ namespace Glacier2
 {
 
 /**
- * The Glacier2 permissions verifier. This is called through the
- * process of establishing a session.
+ * The Glacier2 permissions verifier. This is called through the process of establishing a session.
  * @see Router
  * \headerfile Glacier2/Glacier2.h
  */
@@ -310,9 +304,8 @@ public:
      * @param reason The reason why access was denied.
      * @param context The Context map to send with the invocation.
      * @return True if access is granted, or false otherwise.
-     * @throws Glacier2::PermissionDeniedException Raised if the user access is
-     * denied. This can be raised in place of returning false with a
-     * reason set in the reason out parameter.
+     * @throws Glacier2::PermissionDeniedException Raised if the user access is denied. This can be raised in place of
+     * returning false with a reason set in the reason out parameter.
      */
     bool checkPermissions(const ::std::string& userId, const ::std::string& password, ::std::string& reason, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -380,8 +373,7 @@ protected:
 };
 
 /**
- * The SSL Glacier2 permissions verifier. This is called through the
- * process of establishing a session.
+ * The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
  * @see Router
  * \headerfile Glacier2/Glacier2.h
  */
@@ -395,9 +387,8 @@ public:
      * @param reason The reason why access was denied.
      * @param context The Context map to send with the invocation.
      * @return True if access is granted, or false otherwise.
-     * @throws Glacier2::PermissionDeniedException Raised if the user access is
-     * denied. This can be raised in place of returning false with a
-     * reason set in the reason out parameter.
+     * @throws Glacier2::PermissionDeniedException Raised if the user access is denied. This can be raised in place of
+     * returning false with a reason set in the reason out parameter.
      * @see SSLInfo
      */
     bool authorize(const SSLInfo& info, ::std::string& reason, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -551,8 +542,7 @@ namespace Glacier2
 {
 
 /**
- * This exception is raised if a client is denied the ability to create
- * a session with the router.
+ * This exception is raised if a client is denied the ability to create a session with the router.
  * \headerfile Glacier2/Glacier2.h
  */
 class GLACIER2_API PermissionDeniedException : public ::Ice::UserException
@@ -664,9 +654,8 @@ public:
      * @param reason The reason why access was denied.
      * @param context The Context map to send with the invocation.
      * @return True if access is granted, or false otherwise.
-     * @throws Glacier2::PermissionDeniedException Raised if the user access is
-     * denied. This can be raised in place of returning false with a
-     * reason set in the reason out parameter.
+     * @throws Glacier2::PermissionDeniedException Raised if the user access is denied. This can be raised in place of
+     * returning false with a reason set in the reason out parameter.
      */
     ICE_MEMBER(GLACIER2_API) bool checkPermissions(const ::std::string& userId, const ::std::string& password, ::std::string& reason, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -744,9 +733,8 @@ public:
      * @param reason The reason why access was denied.
      * @param result The asynchronous result object for the invocation.
      * @return True if access is granted, or false otherwise.
-     * @throws Glacier2::PermissionDeniedException Raised if the user access is
-     * denied. This can be raised in place of returning false with a
-     * reason set in the reason out parameter.
+     * @throws Glacier2::PermissionDeniedException Raised if the user access is denied. This can be raised in place of
+     * returning false with a reason set in the reason out parameter.
      */
     ICE_MEMBER(GLACIER2_API) bool end_checkPermissions(::std::string& reason, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
@@ -783,9 +771,8 @@ public:
      * @param reason The reason why access was denied.
      * @param context The Context map to send with the invocation.
      * @return True if access is granted, or false otherwise.
-     * @throws Glacier2::PermissionDeniedException Raised if the user access is
-     * denied. This can be raised in place of returning false with a
-     * reason set in the reason out parameter.
+     * @throws Glacier2::PermissionDeniedException Raised if the user access is denied. This can be raised in place of
+     * returning false with a reason set in the reason out parameter.
      * @see SSLInfo
      */
     ICE_MEMBER(GLACIER2_API) bool authorize(const ::Glacier2::SSLInfo& info, ::std::string& reason, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -864,9 +851,8 @@ public:
      * @param reason The reason why access was denied.
      * @param result The asynchronous result object for the invocation.
      * @return True if access is granted, or false otherwise.
-     * @throws Glacier2::PermissionDeniedException Raised if the user access is
-     * denied. This can be raised in place of returning false with a
-     * reason set in the reason out parameter.
+     * @throws Glacier2::PermissionDeniedException Raised if the user access is denied. This can be raised in place of
+     * returning false with a reason set in the reason out parameter.
      */
     ICE_MEMBER(GLACIER2_API) bool end_authorize(::std::string& reason, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
@@ -901,8 +887,7 @@ namespace Glacier2
 {
 
 /**
- * The Glacier2 permissions verifier. This is called through the
- * process of establishing a session.
+ * The Glacier2 permissions verifier. This is called through the process of establishing a session.
  * @see Router
  * \headerfile Glacier2/Glacier2.h
  */
@@ -956,9 +941,8 @@ public:
      * @param reason The reason why access was denied.
      * @param current The Current object for the invocation.
      * @return True if access is granted, or false otherwise.
-     * @throws Glacier2::PermissionDeniedException Raised if the user access is
-     * denied. This can be raised in place of returning false with a
-     * reason set in the reason out parameter.
+     * @throws Glacier2::PermissionDeniedException Raised if the user access is denied. This can be raised in place of
+     * returning false with a reason set in the reason out parameter.
      */
     virtual bool checkPermissions(const ::std::string& userId, const ::std::string& password, ::std::string& reason, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
     /// \cond INTERNAL
@@ -990,8 +974,7 @@ inline bool operator<(const PermissionsVerifier& lhs, const PermissionsVerifier&
 /// \endcond
 
 /**
- * The SSL Glacier2 permissions verifier. This is called through the
- * process of establishing a session.
+ * The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
  * @see Router
  * \headerfile Glacier2/Glacier2.h
  */
@@ -1044,9 +1027,8 @@ public:
      * @param reason The reason why access was denied.
      * @param current The Current object for the invocation.
      * @return True if access is granted, or false otherwise.
-     * @throws Glacier2::PermissionDeniedException Raised if the user access is
-     * denied. This can be raised in place of returning false with a
-     * reason set in the reason out parameter.
+     * @throws Glacier2::PermissionDeniedException Raised if the user access is denied. This can be raised in place of
+     * returning false with a reason set in the reason out parameter.
      * @see SSLInfo
      */
     virtual bool authorize(const SSLInfo& info, ::std::string& reason, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;

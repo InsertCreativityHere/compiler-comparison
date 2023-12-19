@@ -1,7 +1,6 @@
 % ServantLocator   Summary of ServantLocator
 %
-% A servant locator is called by an object adapter to
-% locate a servant that is not found in its active servant map.
+% A servant locator is called by an object adapter to locate a servant that is not found in its active servant map.
 %
 % See also Ice.ObjectAdapter, Ice.ObjectAdapter.addServantLocator, Ice.ObjectAdapter.findServantLocator
 

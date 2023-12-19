@@ -33,9 +33,9 @@ if 'CannotCreateSessionException' not in _M_Glacier2.__dict__:
     _M_Glacier2.CannotCreateSessionException = Ice.createTempClass()
     class CannotCreateSessionException(Ice.UserException):
         """
-        This exception is raised if an attempt to create a new session failed.
+         This exception is raised if an attempt to create a new session failed.
         Members:
-        reason -- The reason why session creation has failed.
+        reason --  The reason why session creation has failed.
         """
         def __init__(self, reason=''):
             self.reason = reason
@@ -60,7 +60,7 @@ if 'SessionPrx' not in _M_Glacier2.__dict__:
     class SessionPrx(Ice.ObjectPrx):
 
         """
-        Destroy the session. This is called automatically when the router is destroyed.
+         Destroy the session. This is called automatically when the router is destroyed.
         Arguments:
         context -- The request context for the invocation.
         """
@@ -68,7 +68,7 @@ if 'SessionPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.Session._op_destroy.invoke(self, ((), context))
 
         """
-        Destroy the session. This is called automatically when the router is destroyed.
+         Destroy the session. This is called automatically when the router is destroyed.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -77,7 +77,7 @@ if 'SessionPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.Session._op_destroy.invokeAsync(self, ((), context))
 
         """
-        Destroy the session. This is called automatically when the router is destroyed.
+         Destroy the session. This is called automatically when the router is destroyed.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -89,7 +89,7 @@ if 'SessionPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.Session._op_destroy.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Destroy the session. This is called automatically when the router is destroyed.
+         Destroy the session. This is called automatically when the router is destroyed.
         Arguments:
         """
         def end_destroy(self, _r):
@@ -126,7 +126,7 @@ if 'SessionPrx' not in _M_Glacier2.__dict__:
 
         def destroy(self, current=None):
             """
-            Destroy the session. This is called automatically when the router is destroyed.
+             Destroy the session. This is called automatically when the router is destroyed.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -153,8 +153,8 @@ if 'StringSetPrx' not in _M_Glacier2.__dict__:
     class StringSetPrx(Ice.ObjectPrx):
 
         """
-        Add a sequence of strings to this set of constraints. Order is
-        not preserved and duplicates are implicitly removed.
+         Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+         removed.
         Arguments:
         additions -- The sequence of strings to be added.
         context -- The request context for the invocation.
@@ -163,8 +163,8 @@ if 'StringSetPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.StringSet._op_add.invoke(self, ((additions, ), context))
 
         """
-        Add a sequence of strings to this set of constraints. Order is
-        not preserved and duplicates are implicitly removed.
+         Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+         removed.
         Arguments:
         additions -- The sequence of strings to be added.
         context -- The request context for the invocation.
@@ -174,8 +174,8 @@ if 'StringSetPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.StringSet._op_add.invokeAsync(self, ((additions, ), context))
 
         """
-        Add a sequence of strings to this set of constraints. Order is
-        not preserved and duplicates are implicitly removed.
+         Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+         removed.
         Arguments:
         additions -- The sequence of strings to be added.
         _response -- The asynchronous response callback.
@@ -188,8 +188,8 @@ if 'StringSetPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.StringSet._op_add.begin(self, ((additions, ), _response, _ex, _sent, context))
 
         """
-        Add a sequence of strings to this set of constraints. Order is
-        not preserved and duplicates are implicitly removed.
+         Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+         removed.
         Arguments:
         additions -- The sequence of strings to be added.
         """
@@ -197,8 +197,7 @@ if 'StringSetPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.StringSet._op_add.end(self, _r)
 
         """
-        Remove a sequence of strings from this set of constraints. No
-        errors are returned if an entry is not found.
+         Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
         Arguments:
         deletions -- The sequence of strings to be removed.
         context -- The request context for the invocation.
@@ -207,8 +206,7 @@ if 'StringSetPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.StringSet._op_remove.invoke(self, ((deletions, ), context))
 
         """
-        Remove a sequence of strings from this set of constraints. No
-        errors are returned if an entry is not found.
+         Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
         Arguments:
         deletions -- The sequence of strings to be removed.
         context -- The request context for the invocation.
@@ -218,8 +216,7 @@ if 'StringSetPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.StringSet._op_remove.invokeAsync(self, ((deletions, ), context))
 
         """
-        Remove a sequence of strings from this set of constraints. No
-        errors are returned if an entry is not found.
+         Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
         Arguments:
         deletions -- The sequence of strings to be removed.
         _response -- The asynchronous response callback.
@@ -232,8 +229,7 @@ if 'StringSetPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.StringSet._op_remove.begin(self, ((deletions, ), _response, _ex, _sent, context))
 
         """
-        Remove a sequence of strings from this set of constraints. No
-        errors are returned if an entry is not found.
+         Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
         Arguments:
         deletions -- The sequence of strings to be removed.
         """
@@ -241,8 +237,7 @@ if 'StringSetPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.StringSet._op_remove.end(self, _r)
 
         """
-        Returns a sequence of strings describing the constraints in this
-        set.
+         Returns a sequence of strings describing the constraints in this set.
         Arguments:
         context -- The request context for the invocation.
         Returns: The sequence of strings for this set.
@@ -251,8 +246,7 @@ if 'StringSetPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.StringSet._op_get.invoke(self, ((), context))
 
         """
-        Returns a sequence of strings describing the constraints in this
-        set.
+         Returns a sequence of strings describing the constraints in this set.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -261,8 +255,7 @@ if 'StringSetPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.StringSet._op_get.invokeAsync(self, ((), context))
 
         """
-        Returns a sequence of strings describing the constraints in this
-        set.
+         Returns a sequence of strings describing the constraints in this set.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -274,8 +267,7 @@ if 'StringSetPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.StringSet._op_get.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Returns a sequence of strings describing the constraints in this
-        set.
+         Returns a sequence of strings describing the constraints in this set.
         Arguments:
         Returns: The sequence of strings for this set.
         """
@@ -313,8 +305,8 @@ if 'StringSetPrx' not in _M_Glacier2.__dict__:
 
         def add(self, additions, current=None):
             """
-            Add a sequence of strings to this set of constraints. Order is
-            not preserved and duplicates are implicitly removed.
+             Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+             removed.
             Arguments:
             additions -- The sequence of strings to be added.
             current -- The Current object for the invocation.
@@ -324,8 +316,7 @@ if 'StringSetPrx' not in _M_Glacier2.__dict__:
 
         def remove(self, deletions, current=None):
             """
-            Remove a sequence of strings from this set of constraints. No
-            errors are returned if an entry is not found.
+             Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
             Arguments:
             deletions -- The sequence of strings to be removed.
             current -- The Current object for the invocation.
@@ -335,8 +326,7 @@ if 'StringSetPrx' not in _M_Glacier2.__dict__:
 
         def get(self, current=None):
             """
-            Returns a sequence of strings describing the constraints in this
-            set.
+             Returns a sequence of strings describing the constraints in this set.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -365,8 +355,8 @@ if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
     class IdentitySetPrx(Ice.ObjectPrx):
 
         """
-        Add a sequence of Ice identities to this set of constraints. Order is
-        not preserved and duplicates are implicitly removed.
+         Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+         implicitly removed.
         Arguments:
         additions -- The sequence of Ice identities to be added.
         context -- The request context for the invocation.
@@ -375,8 +365,8 @@ if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.IdentitySet._op_add.invoke(self, ((additions, ), context))
 
         """
-        Add a sequence of Ice identities to this set of constraints. Order is
-        not preserved and duplicates are implicitly removed.
+         Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+         implicitly removed.
         Arguments:
         additions -- The sequence of Ice identities to be added.
         context -- The request context for the invocation.
@@ -386,8 +376,8 @@ if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.IdentitySet._op_add.invokeAsync(self, ((additions, ), context))
 
         """
-        Add a sequence of Ice identities to this set of constraints. Order is
-        not preserved and duplicates are implicitly removed.
+         Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+         implicitly removed.
         Arguments:
         additions -- The sequence of Ice identities to be added.
         _response -- The asynchronous response callback.
@@ -400,8 +390,8 @@ if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.IdentitySet._op_add.begin(self, ((additions, ), _response, _ex, _sent, context))
 
         """
-        Add a sequence of Ice identities to this set of constraints. Order is
-        not preserved and duplicates are implicitly removed.
+         Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+         implicitly removed.
         Arguments:
         additions -- The sequence of Ice identities to be added.
         """
@@ -409,8 +399,8 @@ if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.IdentitySet._op_add.end(self, _r)
 
         """
-        Remove a sequence of identities from this set of constraints. No
-        errors are returned if an entry is not found.
+         Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+         found.
         Arguments:
         deletions -- The sequence of Ice identities to be removed.
         context -- The request context for the invocation.
@@ -419,8 +409,8 @@ if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.IdentitySet._op_remove.invoke(self, ((deletions, ), context))
 
         """
-        Remove a sequence of identities from this set of constraints. No
-        errors are returned if an entry is not found.
+         Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+         found.
         Arguments:
         deletions -- The sequence of Ice identities to be removed.
         context -- The request context for the invocation.
@@ -430,8 +420,8 @@ if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.IdentitySet._op_remove.invokeAsync(self, ((deletions, ), context))
 
         """
-        Remove a sequence of identities from this set of constraints. No
-        errors are returned if an entry is not found.
+         Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+         found.
         Arguments:
         deletions -- The sequence of Ice identities to be removed.
         _response -- The asynchronous response callback.
@@ -444,8 +434,8 @@ if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.IdentitySet._op_remove.begin(self, ((deletions, ), _response, _ex, _sent, context))
 
         """
-        Remove a sequence of identities from this set of constraints. No
-        errors are returned if an entry is not found.
+         Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+         found.
         Arguments:
         deletions -- The sequence of Ice identities to be removed.
         """
@@ -453,8 +443,7 @@ if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.IdentitySet._op_remove.end(self, _r)
 
         """
-        Returns a sequence of identities describing the constraints in this
-        set.
+         Returns a sequence of identities describing the constraints in this set.
         Arguments:
         context -- The request context for the invocation.
         Returns: The sequence of Ice identities for this set.
@@ -463,8 +452,7 @@ if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.IdentitySet._op_get.invoke(self, ((), context))
 
         """
-        Returns a sequence of identities describing the constraints in this
-        set.
+         Returns a sequence of identities describing the constraints in this set.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -473,8 +461,7 @@ if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.IdentitySet._op_get.invokeAsync(self, ((), context))
 
         """
-        Returns a sequence of identities describing the constraints in this
-        set.
+         Returns a sequence of identities describing the constraints in this set.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -486,8 +473,7 @@ if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.IdentitySet._op_get.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Returns a sequence of identities describing the constraints in this
-        set.
+         Returns a sequence of identities describing the constraints in this set.
         Arguments:
         Returns: The sequence of Ice identities for this set.
         """
@@ -525,8 +511,8 @@ if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
 
         def add(self, additions, current=None):
             """
-            Add a sequence of Ice identities to this set of constraints. Order is
-            not preserved and duplicates are implicitly removed.
+             Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+             implicitly removed.
             Arguments:
             additions -- The sequence of Ice identities to be added.
             current -- The Current object for the invocation.
@@ -536,8 +522,8 @@ if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
 
         def remove(self, deletions, current=None):
             """
-            Remove a sequence of identities from this set of constraints. No
-            errors are returned if an entry is not found.
+             Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+             found.
             Arguments:
             deletions -- The sequence of Ice identities to be removed.
             current -- The Current object for the invocation.
@@ -547,8 +533,7 @@ if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
 
         def get(self, current=None):
             """
-            Returns a sequence of identities describing the constraints in this
-            set.
+             Returns a sequence of identities describing the constraints in this set.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -577,8 +562,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
     class SessionControlPrx(Ice.ObjectPrx):
 
         """
-        Access the object that manages the allowable categories
-        for object identities for this session.
+         Access the object that manages the allowable categories for object identities for this session.
         Arguments:
         context -- The request context for the invocation.
         Returns: A StringSet object.
@@ -587,8 +571,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SessionControl._op_categories.invoke(self, ((), context))
 
         """
-        Access the object that manages the allowable categories
-        for object identities for this session.
+         Access the object that manages the allowable categories for object identities for this session.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -597,8 +580,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SessionControl._op_categories.invokeAsync(self, ((), context))
 
         """
-        Access the object that manages the allowable categories
-        for object identities for this session.
+         Access the object that manages the allowable categories for object identities for this session.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -610,8 +592,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SessionControl._op_categories.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Access the object that manages the allowable categories
-        for object identities for this session.
+         Access the object that manages the allowable categories for object identities for this session.
         Arguments:
         Returns: A StringSet object.
         """
@@ -619,8 +600,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SessionControl._op_categories.end(self, _r)
 
         """
-        Access the object that manages the allowable adapter identities
-        for objects for this session.
+         Access the object that manages the allowable adapter identities for objects for this session.
         Arguments:
         context -- The request context for the invocation.
         Returns: A StringSet object.
@@ -629,8 +609,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SessionControl._op_adapterIds.invoke(self, ((), context))
 
         """
-        Access the object that manages the allowable adapter identities
-        for objects for this session.
+         Access the object that manages the allowable adapter identities for objects for this session.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -639,8 +618,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SessionControl._op_adapterIds.invokeAsync(self, ((), context))
 
         """
-        Access the object that manages the allowable adapter identities
-        for objects for this session.
+         Access the object that manages the allowable adapter identities for objects for this session.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -652,8 +630,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SessionControl._op_adapterIds.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Access the object that manages the allowable adapter identities
-        for objects for this session.
+         Access the object that manages the allowable adapter identities for objects for this session.
         Arguments:
         Returns: A StringSet object.
         """
@@ -661,8 +638,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SessionControl._op_adapterIds.end(self, _r)
 
         """
-        Access the object that manages the allowable object identities
-        for this session.
+         Access the object that manages the allowable object identities for this session.
         Arguments:
         context -- The request context for the invocation.
         Returns: An IdentitySet object.
@@ -671,8 +647,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SessionControl._op_identities.invoke(self, ((), context))
 
         """
-        Access the object that manages the allowable object identities
-        for this session.
+         Access the object that manages the allowable object identities for this session.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -681,8 +656,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SessionControl._op_identities.invokeAsync(self, ((), context))
 
         """
-        Access the object that manages the allowable object identities
-        for this session.
+         Access the object that manages the allowable object identities for this session.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -694,8 +668,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SessionControl._op_identities.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Access the object that manages the allowable object identities
-        for this session.
+         Access the object that manages the allowable object identities for this session.
         Arguments:
         Returns: An IdentitySet object.
         """
@@ -703,7 +676,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SessionControl._op_identities.end(self, _r)
 
         """
-        Get the session timeout.
+         Get the session timeout.
         Arguments:
         context -- The request context for the invocation.
         Returns: The timeout.
@@ -712,7 +685,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SessionControl._op_getSessionTimeout.invoke(self, ((), context))
 
         """
-        Get the session timeout.
+         Get the session timeout.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -721,7 +694,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SessionControl._op_getSessionTimeout.invokeAsync(self, ((), context))
 
         """
-        Get the session timeout.
+         Get the session timeout.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -733,7 +706,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SessionControl._op_getSessionTimeout.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Get the session timeout.
+         Get the session timeout.
         Arguments:
         Returns: The timeout.
         """
@@ -741,7 +714,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SessionControl._op_getSessionTimeout.end(self, _r)
 
         """
-        Destroy the associated session.
+         Destroy the associated session.
         Arguments:
         context -- The request context for the invocation.
         """
@@ -749,7 +722,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SessionControl._op_destroy.invoke(self, ((), context))
 
         """
-        Destroy the associated session.
+         Destroy the associated session.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -758,7 +731,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SessionControl._op_destroy.invokeAsync(self, ((), context))
 
         """
-        Destroy the associated session.
+         Destroy the associated session.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -770,7 +743,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SessionControl._op_destroy.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Destroy the associated session.
+         Destroy the associated session.
         Arguments:
         """
         def end_destroy(self, _r):
@@ -807,8 +780,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
 
         def categories(self, current=None):
             """
-            Access the object that manages the allowable categories
-            for object identities for this session.
+             Access the object that manages the allowable categories for object identities for this session.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -817,8 +789,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
 
         def adapterIds(self, current=None):
             """
-            Access the object that manages the allowable adapter identities
-            for objects for this session.
+             Access the object that manages the allowable adapter identities for objects for this session.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -827,8 +798,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
 
         def identities(self, current=None):
             """
-            Access the object that manages the allowable object identities
-            for this session.
+             Access the object that manages the allowable object identities for this session.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -837,7 +807,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
 
         def getSessionTimeout(self, current=None):
             """
-            Get the session timeout.
+             Get the session timeout.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -846,7 +816,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
 
         def destroy(self, current=None):
             """
-            Destroy the associated session.
+             Destroy the associated session.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -877,7 +847,7 @@ if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
     class SessionManagerPrx(Ice.ObjectPrx):
 
         """
-        Create a new session.
+         Create a new session.
         Arguments:
         userId -- The user id for the session.
         control -- A proxy to the session control object.
@@ -890,7 +860,7 @@ if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SessionManager._op_create.invoke(self, ((userId, control), context))
 
         """
-        Create a new session.
+         Create a new session.
         Arguments:
         userId -- The user id for the session.
         control -- A proxy to the session control object.
@@ -901,7 +871,7 @@ if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SessionManager._op_create.invokeAsync(self, ((userId, control), context))
 
         """
-        Create a new session.
+         Create a new session.
         Arguments:
         userId -- The user id for the session.
         control -- A proxy to the session control object.
@@ -915,7 +885,7 @@ if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SessionManager._op_create.begin(self, ((userId, control), _response, _ex, _sent, context))
 
         """
-        Create a new session.
+         Create a new session.
         Arguments:
         userId -- The user id for the session.
         control -- A proxy to the session control object.
@@ -957,7 +927,7 @@ if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
 
         def create(self, userId, control, current=None):
             """
-            Create a new session.
+             Create a new session.
             Arguments:
             userId -- The user id for the session.
             control -- A proxy to the session control object.
@@ -988,7 +958,7 @@ if 'SSLSessionManagerPrx' not in _M_Glacier2.__dict__:
     class SSLSessionManagerPrx(Ice.ObjectPrx):
 
         """
-        Create a new session.
+         Create a new session.
         Arguments:
         info -- The SSL info.
         control -- A proxy to the session control object.
@@ -1001,7 +971,7 @@ if 'SSLSessionManagerPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SSLSessionManager._op_create.invoke(self, ((info, control), context))
 
         """
-        Create a new session.
+         Create a new session.
         Arguments:
         info -- The SSL info.
         control -- A proxy to the session control object.
@@ -1012,7 +982,7 @@ if 'SSLSessionManagerPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SSLSessionManager._op_create.invokeAsync(self, ((info, control), context))
 
         """
-        Create a new session.
+         Create a new session.
         Arguments:
         info -- The SSL info.
         control -- A proxy to the session control object.
@@ -1026,7 +996,7 @@ if 'SSLSessionManagerPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SSLSessionManager._op_create.begin(self, ((info, control), _response, _ex, _sent, context))
 
         """
-        Create a new session.
+         Create a new session.
         Arguments:
         info -- The SSL info.
         control -- A proxy to the session control object.
@@ -1068,7 +1038,7 @@ if 'SSLSessionManagerPrx' not in _M_Glacier2.__dict__:
 
         def create(self, info, control, current=None):
             """
-            Create a new session.
+             Create a new session.
             Arguments:
             info -- The SSL info.
             control -- A proxy to the session control object.

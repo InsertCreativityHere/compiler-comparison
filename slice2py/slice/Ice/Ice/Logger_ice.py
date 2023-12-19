@@ -25,8 +25,8 @@ if 'Logger' not in _M_Ice.__dict__:
     _M_Ice.Logger = Ice.createTempClass()
     class Logger(object):
         """
-        The Ice message logger. Applications can provide their own logger
-        by implementing this interface and installing it in a communicator.
+         The Ice message logger. Applications can provide their own logger by implementing this interface and installing it
+         in a communicator.
         """
         def __init__(self):
             if Ice.getType(self) == _M_Ice.Logger:
@@ -34,8 +34,8 @@ if 'Logger' not in _M_Ice.__dict__:
 
         def _print(self, message):
             """
-            Print a message. The message is printed literally, without
-            any decorations such as executable name or time stamp.
+             Print a message. The message is printed literally, without any decorations such as executable name or time
+             stamp.
             Arguments:
             message -- The message to log.
             """
@@ -43,7 +43,7 @@ if 'Logger' not in _M_Ice.__dict__:
 
         def trace(self, category, message):
             """
-            Log a trace message.
+             Log a trace message.
             Arguments:
             category -- The trace category.
             message -- The trace message to log.
@@ -52,7 +52,7 @@ if 'Logger' not in _M_Ice.__dict__:
 
         def warning(self, message):
             """
-            Log a warning message.
+             Log a warning message.
             Arguments:
             message -- The warning message to log.
             """
@@ -60,7 +60,7 @@ if 'Logger' not in _M_Ice.__dict__:
 
         def error(self, message):
             """
-            Log an error message.
+             Log an error message.
             Arguments:
             message -- The error message to log.
             """
@@ -68,14 +68,14 @@ if 'Logger' not in _M_Ice.__dict__:
 
         def getPrefix(self):
             """
-            Returns this logger's prefix.
+             Returns this logger's prefix.
             Returns: The prefix.
             """
             raise NotImplementedError("method 'getPrefix' not implemented")
 
         def cloneWithPrefix(self, prefix):
             """
-            Returns a clone of the logger with a new prefix.
+             Returns a clone of the logger with a new prefix.
             Arguments:
             prefix -- The new prefix for the logger.
             Returns: A logger instance.

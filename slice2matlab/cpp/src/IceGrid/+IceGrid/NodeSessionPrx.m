@@ -52,9 +52,8 @@ classdef NodeSessionPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('keepAlive', 0, false, os_, 0, [], {}, varargin{:});
         end
         function setReplicaObserver(obj, observer, varargin)
-            % setReplicaObserver   Set the replica observer. The node calls this method when it's
-            % ready to receive notifications for the replicas. It only calls
-            % this for the session with the master.
+            % setReplicaObserver   Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+            % It only calls this for the session with the master.
             %
             % Parameters:
             %   observer (IceGrid.ReplicaObserverPrx)
@@ -66,9 +65,8 @@ classdef NodeSessionPrx < Ice.ObjectPrx
             obj.iceInvoke('setReplicaObserver', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = setReplicaObserverAsync(obj, observer, varargin)
-            % setReplicaObserverAsync   Set the replica observer. The node calls this method when it's
-            % ready to receive notifications for the replicas. It only calls
-            % this for the session with the master.
+            % setReplicaObserverAsync   Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+            % It only calls this for the session with the master.
             %
             % Parameters:
             %   observer (IceGrid.ReplicaObserverPrx)
@@ -187,11 +185,9 @@ classdef NodeSessionPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('getServers', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function waitForApplicationUpdate(obj, application, revision, varargin)
-            % waitForApplicationUpdate   Wait for the application update to complete (the application is
-            % completely updated once all the registry replicas have been
-            % updated). This is used by the node to ensure that before to
-            % start a server all the replicas have the up-to-date descriptor
-            % of the server.
+            % waitForApplicationUpdate   Wait for the application update to complete (the application is completely updated once all the registry
+            % replicas have been updated). This is used by the node to ensure that before to start a server all the
+            % replicas have the up-to-date descriptor of the server.
             %
             % Parameters:
             %   application (char)
@@ -205,11 +201,9 @@ classdef NodeSessionPrx < Ice.ObjectPrx
             obj.iceInvoke('waitForApplicationUpdate', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = waitForApplicationUpdateAsync(obj, application, revision, varargin)
-            % waitForApplicationUpdateAsync   Wait for the application update to complete (the application is
-            % completely updated once all the registry replicas have been
-            % updated). This is used by the node to ensure that before to
-            % start a server all the replicas have the up-to-date descriptor
-            % of the server.
+            % waitForApplicationUpdateAsync   Wait for the application update to complete (the application is completely updated once all the registry
+            % replicas have been updated). This is used by the node to ensure that before to start a server all the
+            % replicas have the up-to-date descriptor of the server.
             %
             % Parameters:
             %   application (char)

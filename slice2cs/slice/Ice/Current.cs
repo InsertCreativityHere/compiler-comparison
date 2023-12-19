@@ -29,42 +29,31 @@ namespace Ice
     {
         /// <summary>
         /// Ordinary operations have Normal mode.
-        /// These operations
-        /// modify object state; invoking such an operation twice in a row
-        /// has different semantics than invoking it once. The Ice run time
-        /// guarantees that it will not violate at-most-once semantics for
-        /// Normal operations.
+        /// These operations modify object state; invoking such an
+        ///  operation twice in a row has different semantics than invoking it once. The Ice run time guarantees that it
+        ///  will not violate at-most-once semantics for Normal operations.
         /// </summary>
 
         Normal,
         /// <summary>
-        /// Operations that use the Slice nonmutating keyword must not
-        /// modify object state.
-        /// For C++, nonmutating operations generate
-        /// const member functions in the skeleton. In addition, the Ice
-        /// run time will attempt to transparently recover from certain
-        /// run-time errors by re-issuing a failed request and propagate
-        /// the failure to the application only if the second attempt
-        /// fails.
-        ///
-        /// &lt;p class="Deprecated"&gt;Nonmutating is deprecated; Use the
-        /// idempotent keyword instead. For C++, to retain the mapping
-        /// of nonmutating operations to C++ const
-        /// member functions, use the ["cpp:const"] metadata
-        /// directive.
+        /// Operations that use the Slice nonmutating keyword must not modify object state.
+        /// For C++,
+        ///  nonmutating operations generate const member functions in the skeleton. In addition, the Ice
+        ///  run time will attempt to transparently recover from certain run-time errors by re-issuing a failed request and
+        ///  propagate the failure to the application only if the second attempt fails.
+        ///  &lt;p class="Deprecated"&gt;Nonmutating is deprecated; Use the idempotent keyword instead.
+        ///  For C++, to retain the mapping of nonmutating operations to C++ const member
+        ///  functions, use the ["cpp:const"] metadata directive.
         /// </summary>
 
         Nonmutating,
         /// <summary>
-        /// Operations that use the Slice idempotent keyword can modify
-        /// object state, but invoking an operation twice in a row must
-        /// result in the same object state as invoking it once.
-        /// For
-        /// example, x = 1 is an idempotent statement,
-        /// whereas x += 1 is not. For idempotent
-        /// operations, the Ice run-time uses the same retry behavior
-        /// as for nonmutating operations in case of a potentially
-        /// recoverable error.
+        /// Operations that use the Slice idempotent keyword can modify object state, but invoking an
+        ///  operation twice in a row must result in the same object state as invoking it once.
+        /// For example,
+        ///  x = 1 is an idempotent statement, whereas x += 1 is not. For idempotent operations,
+        ///  the Ice run-time uses the same retry behavior as for nonmutating operations in case of a potentially
+        ///  recoverable error.
         /// </summary>
 
         Idempotent

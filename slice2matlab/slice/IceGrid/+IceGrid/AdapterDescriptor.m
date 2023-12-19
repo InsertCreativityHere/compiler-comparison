@@ -26,16 +26,14 @@ classdef AdapterDescriptor
         id char
         % replicaGroupId - The replica id of this adapter.
         replicaGroupId char
-        % priority - The adapter priority. This is eventually used when the adapter
-        % is member of a replica group to sort the adapter endpoints by
-        % priority.
+        % priority - The adapter priority. This is eventually used when the adapter is member of a replica group to sort the adapter
+        % endpoints by priority.
         priority char
         % registerProcess - Flag to specify if the object adapter will register a process object.
         registerProcess logical
-        % serverLifetime - If true the lifetime of this object adapter is the same of the
-        % server lifetime. This information is used by the IceGrid node
-        % to figure out the server state: the server is active only if
-        % all its "server lifetime" adapters are active.
+        % serverLifetime - If true the lifetime of this object adapter is the same of the server lifetime. This information is used by the
+        % IceGrid node to figure out the server state: the server is active only if all its "server lifetime" adapters
+        % are active.
         serverLifetime logical
         % objects - The well-known object descriptors associated with this object adapter.
         objects

@@ -71,8 +71,8 @@ namespace Ice
 {
 
 /**
- * A simple collection of properties, represented as a dictionary of
- * key/value pairs. Both key and value are strings.
+ * A simple collection of properties, represented as a dictionary of key/value pairs. Both key and value are
+ * strings.
  * @see Properties#getPropertiesForPrefix
  */
 using PropertyDict = ::std::map<::std::string, ::std::string>;
@@ -83,8 +83,7 @@ namespace Ice
 {
 
 /**
- * The PropertiesAdmin interface provides remote access to the properties
- * of a communicator.
+ * The PropertiesAdmin interface provides remote access to the properties of a communicator.
  * \headerfile Ice/Ice.h
  */
 class ICE_API PropertiesAdmin : public virtual Object
@@ -122,8 +121,7 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Get a property by key. If the property is not set, an empty
-     * string is returned.
+     * Get a property by key. If the property is not set, an empty string is returned.
      * @param key The property key.
      * @param current The Current object for the invocation.
      * @return The property value.
@@ -134,8 +132,8 @@ public:
     /// \endcond
 
     /**
-     * Get all properties whose keys begin with <em>prefix</em>. If
-     * <em>prefix</em> is an empty string then all properties are returned.
+     * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
+     * properties are returned.
      * @param prefix The prefix to search for (empty string if none).
      * @param current The Current object for the invocation.
      * @return The matching property set.
@@ -146,13 +144,11 @@ public:
     /// \endcond
 
     /**
-     * Update the communicator's properties with the given property set.
+     * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
+     * matches the name of an existing property, that property's value is replaced with the new value. If the new
+     * value is an empty string, the property is removed. Any existing properties that are not modified or removed
+     * by the entries in newProperties are retained with their original values.
      * @param newProperties Properties to be added, changed, or removed.
-     * If an entry in <em>newProperties</em> matches the name of an existing property,
-     * that property's value is replaced with the new value. If the new value
-     * is an empty string, the property is removed. Any existing properties
-     * that are not modified or removed by the entries in newProperties are
-     * retained with their original values.
      * @param current The Current object for the invocation.
      */
     virtual void setProperties(PropertyDict newProperties, const Current& current) = 0;
@@ -171,8 +167,7 @@ namespace Ice
 {
 
 /**
- * The PropertiesAdmin interface provides remote access to the properties
- * of a communicator.
+ * The PropertiesAdmin interface provides remote access to the properties of a communicator.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) PropertiesAdminPrx : public virtual Proxy<PropertiesAdminPrx, ObjectPrx>
@@ -180,8 +175,7 @@ class ICE_CLASS(ICE_API) PropertiesAdminPrx : public virtual Proxy<PropertiesAdm
 public:
 
     /**
-     * Get a property by key. If the property is not set, an empty
-     * string is returned.
+     * Get a property by key. If the property is not set, an empty string is returned.
      * @param key The property key.
      * @param context The Context map to send with the invocation.
      * @return The property value.
@@ -192,8 +186,7 @@ public:
     }
 
     /**
-     * Get a property by key. If the property is not set, an empty
-     * string is returned.
+     * Get a property by key. If the property is not set, an empty string is returned.
      * @param key The property key.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -206,8 +199,7 @@ public:
     }
 
     /**
-     * Get a property by key. If the property is not set, an empty
-     * string is returned.
+     * Get a property by key. If the property is not set, an empty string is returned.
      * @param key The property key.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -230,8 +222,8 @@ public:
     /// \endcond
 
     /**
-     * Get all properties whose keys begin with <em>prefix</em>. If
-     * <em>prefix</em> is an empty string then all properties are returned.
+     * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
+     * properties are returned.
      * @param prefix The prefix to search for (empty string if none).
      * @param context The Context map to send with the invocation.
      * @return The matching property set.
@@ -242,8 +234,8 @@ public:
     }
 
     /**
-     * Get all properties whose keys begin with <em>prefix</em>. If
-     * <em>prefix</em> is an empty string then all properties are returned.
+     * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
+     * properties are returned.
      * @param prefix The prefix to search for (empty string if none).
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -256,8 +248,8 @@ public:
     }
 
     /**
-     * Get all properties whose keys begin with <em>prefix</em>. If
-     * <em>prefix</em> is an empty string then all properties are returned.
+     * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
+     * properties are returned.
      * @param prefix The prefix to search for (empty string if none).
      * @param response The response callback.
      * @param ex The exception callback.
@@ -280,13 +272,11 @@ public:
     /// \endcond
 
     /**
-     * Update the communicator's properties with the given property set.
+     * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
+     * matches the name of an existing property, that property's value is replaced with the new value. If the new
+     * value is an empty string, the property is removed. Any existing properties that are not modified or removed
+     * by the entries in newProperties are retained with their original values.
      * @param newProperties Properties to be added, changed, or removed.
-     * If an entry in <em>newProperties</em> matches the name of an existing property,
-     * that property's value is replaced with the new value. If the new value
-     * is an empty string, the property is removed. Any existing properties
-     * that are not modified or removed by the entries in newProperties are
-     * retained with their original values.
      * @param context The Context map to send with the invocation.
      */
     void setProperties(const PropertyDict& newProperties, const Context& context = noExplicitContext)
@@ -295,13 +285,11 @@ public:
     }
 
     /**
-     * Update the communicator's properties with the given property set.
+     * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
+     * matches the name of an existing property, that property's value is replaced with the new value. If the new
+     * value is an empty string, the property is removed. Any existing properties that are not modified or removed
+     * by the entries in newProperties are retained with their original values.
      * @param newProperties Properties to be added, changed, or removed.
-     * If an entry in <em>newProperties</em> matches the name of an existing property,
-     * that property's value is replaced with the new value. If the new value
-     * is an empty string, the property is removed. Any existing properties
-     * that are not modified or removed by the entries in newProperties are
-     * retained with their original values.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -313,13 +301,11 @@ public:
     }
 
     /**
-     * Update the communicator's properties with the given property set.
+     * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
+     * matches the name of an existing property, that property's value is replaced with the new value. If the new
+     * value is an empty string, the property is removed. Any existing properties that are not modified or removed
+     * by the entries in newProperties are retained with their original values.
      * @param newProperties Properties to be added, changed, or removed.
-     * If an entry in <em>newProperties</em> matches the name of an existing property,
-     * that property's value is replaced with the new value. If the new value
-     * is an empty string, the property is removed. Any existing properties
-     * that are not modified or removed by the entries in newProperties are
-     * retained with their original values.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -413,8 +399,8 @@ namespace Ice
 {
 
 /**
- * A simple collection of properties, represented as a dictionary of
- * key/value pairs. Both key and value are strings.
+ * A simple collection of properties, represented as a dictionary of key/value pairs. Both key and value are
+ * strings.
  * @see Properties#getPropertiesForPrefix
  */
 typedef ::std::map< ::std::string, ::std::string> PropertyDict;
@@ -461,8 +447,7 @@ class ICE_CLASS(ICE_API) PropertiesAdmin : public virtual ::Ice::Proxy<Propertie
 public:
 
     /**
-     * Get a property by key. If the property is not set, an empty
-     * string is returned.
+     * Get a property by key. If the property is not set, an empty string is returned.
      * @param key The property key.
      * @param context The Context map to send with the invocation.
      * @return The property value.
@@ -473,8 +458,7 @@ public:
     }
 
     /**
-     * Get a property by key. If the property is not set, an empty
-     * string is returned.
+     * Get a property by key. If the property is not set, an empty string is returned.
      * @param key The property key.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -485,8 +469,7 @@ public:
     }
 
     /**
-     * Get a property by key. If the property is not set, an empty
-     * string is returned.
+     * Get a property by key. If the property is not set, an empty string is returned.
      * @param key The property key.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -498,8 +481,7 @@ public:
     }
 
     /**
-     * Get a property by key. If the property is not set, an empty
-     * string is returned.
+     * Get a property by key. If the property is not set, an empty string is returned.
      * @param key The property key.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -512,8 +494,7 @@ public:
     }
 
     /**
-     * Get a property by key. If the property is not set, an empty
-     * string is returned.
+     * Get a property by key. If the property is not set, an empty string is returned.
      * @param key The property key.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -525,8 +506,7 @@ public:
     }
 
     /**
-     * Get a property by key. If the property is not set, an empty
-     * string is returned.
+     * Get a property by key. If the property is not set, an empty string is returned.
      * @param key The property key.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -552,8 +532,8 @@ private:
 public:
 
     /**
-     * Get all properties whose keys begin with <em>prefix</em>. If
-     * <em>prefix</em> is an empty string then all properties are returned.
+     * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
+     * properties are returned.
      * @param prefix The prefix to search for (empty string if none).
      * @param context The Context map to send with the invocation.
      * @return The matching property set.
@@ -564,8 +544,8 @@ public:
     }
 
     /**
-     * Get all properties whose keys begin with <em>prefix</em>. If
-     * <em>prefix</em> is an empty string then all properties are returned.
+     * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
+     * properties are returned.
      * @param prefix The prefix to search for (empty string if none).
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -576,8 +556,8 @@ public:
     }
 
     /**
-     * Get all properties whose keys begin with <em>prefix</em>. If
-     * <em>prefix</em> is an empty string then all properties are returned.
+     * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
+     * properties are returned.
      * @param prefix The prefix to search for (empty string if none).
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -589,8 +569,8 @@ public:
     }
 
     /**
-     * Get all properties whose keys begin with <em>prefix</em>. If
-     * <em>prefix</em> is an empty string then all properties are returned.
+     * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
+     * properties are returned.
      * @param prefix The prefix to search for (empty string if none).
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -603,8 +583,8 @@ public:
     }
 
     /**
-     * Get all properties whose keys begin with <em>prefix</em>. If
-     * <em>prefix</em> is an empty string then all properties are returned.
+     * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
+     * properties are returned.
      * @param prefix The prefix to search for (empty string if none).
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -616,8 +596,8 @@ public:
     }
 
     /**
-     * Get all properties whose keys begin with <em>prefix</em>. If
-     * <em>prefix</em> is an empty string then all properties are returned.
+     * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
+     * properties are returned.
      * @param prefix The prefix to search for (empty string if none).
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -643,13 +623,11 @@ private:
 public:
 
     /**
-     * Update the communicator's properties with the given property set.
+     * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
+     * matches the name of an existing property, that property's value is replaced with the new value. If the new
+     * value is an empty string, the property is removed. Any existing properties that are not modified or removed
+     * by the entries in newProperties are retained with their original values.
      * @param newProperties Properties to be added, changed, or removed.
-     * If an entry in <em>newProperties</em> matches the name of an existing property,
-     * that property's value is replaced with the new value. If the new value
-     * is an empty string, the property is removed. Any existing properties
-     * that are not modified or removed by the entries in newProperties are
-     * retained with their original values.
      * @param context The Context map to send with the invocation.
      */
     ICE_MEMBER(ICE_API) void setProperties(const ::Ice::PropertyDict& newProperties, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -658,13 +636,11 @@ public:
     }
 
     /**
-     * Update the communicator's properties with the given property set.
+     * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
+     * matches the name of an existing property, that property's value is replaced with the new value. If the new
+     * value is an empty string, the property is removed. Any existing properties that are not modified or removed
+     * by the entries in newProperties are retained with their original values.
      * @param newProperties Properties to be added, changed, or removed.
-     * If an entry in <em>newProperties</em> matches the name of an existing property,
-     * that property's value is replaced with the new value. If the new value
-     * is an empty string, the property is removed. Any existing properties
-     * that are not modified or removed by the entries in newProperties are
-     * retained with their original values.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -674,13 +650,11 @@ public:
     }
 
     /**
-     * Update the communicator's properties with the given property set.
+     * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
+     * matches the name of an existing property, that property's value is replaced with the new value. If the new
+     * value is an empty string, the property is removed. Any existing properties that are not modified or removed
+     * by the entries in newProperties are retained with their original values.
      * @param newProperties Properties to be added, changed, or removed.
-     * If an entry in <em>newProperties</em> matches the name of an existing property,
-     * that property's value is replaced with the new value. If the new value
-     * is an empty string, the property is removed. Any existing properties
-     * that are not modified or removed by the entries in newProperties are
-     * retained with their original values.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -691,13 +665,11 @@ public:
     }
 
     /**
-     * Update the communicator's properties with the given property set.
+     * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
+     * matches the name of an existing property, that property's value is replaced with the new value. If the new
+     * value is an empty string, the property is removed. Any existing properties that are not modified or removed
+     * by the entries in newProperties are retained with their original values.
      * @param newProperties Properties to be added, changed, or removed.
-     * If an entry in <em>newProperties</em> matches the name of an existing property,
-     * that property's value is replaced with the new value. If the new value
-     * is an empty string, the property is removed. Any existing properties
-     * that are not modified or removed by the entries in newProperties are
-     * retained with their original values.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -709,13 +681,11 @@ public:
     }
 
     /**
-     * Update the communicator's properties with the given property set.
+     * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
+     * matches the name of an existing property, that property's value is replaced with the new value. If the new
+     * value is an empty string, the property is removed. Any existing properties that are not modified or removed
+     * by the entries in newProperties are retained with their original values.
      * @param newProperties Properties to be added, changed, or removed.
-     * If an entry in <em>newProperties</em> matches the name of an existing property,
-     * that property's value is replaced with the new value. If the new value
-     * is an empty string, the property is removed. Any existing properties
-     * that are not modified or removed by the entries in newProperties are
-     * retained with their original values.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -726,13 +696,11 @@ public:
     }
 
     /**
-     * Update the communicator's properties with the given property set.
+     * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
+     * matches the name of an existing property, that property's value is replaced with the new value. If the new
+     * value is an empty string, the property is removed. Any existing properties that are not modified or removed
+     * by the entries in newProperties are retained with their original values.
      * @param newProperties Properties to be added, changed, or removed.
-     * If an entry in <em>newProperties</em> matches the name of an existing property,
-     * that property's value is replaced with the new value. If the new value
-     * is an empty string, the property is removed. Any existing properties
-     * that are not modified or removed by the entries in newProperties are
-     * retained with their original values.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -776,8 +744,7 @@ namespace Ice
 {
 
 /**
- * The PropertiesAdmin interface provides remote access to the properties
- * of a communicator.
+ * The PropertiesAdmin interface provides remote access to the properties of a communicator.
  * \headerfile Ice/Ice.h
  */
 class ICE_API PropertiesAdmin : public virtual Object
@@ -824,8 +791,7 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Get a property by key. If the property is not set, an empty
-     * string is returned.
+     * Get a property by key. If the property is not set, an empty string is returned.
      * @param key The property key.
      * @param current The Current object for the invocation.
      * @return The property value.
@@ -836,8 +802,8 @@ public:
     /// \endcond
 
     /**
-     * Get all properties whose keys begin with <em>prefix</em>. If
-     * <em>prefix</em> is an empty string then all properties are returned.
+     * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
+     * properties are returned.
      * @param prefix The prefix to search for (empty string if none).
      * @param current The Current object for the invocation.
      * @return The matching property set.
@@ -848,13 +814,11 @@ public:
     /// \endcond
 
     /**
-     * Update the communicator's properties with the given property set.
+     * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
+     * matches the name of an existing property, that property's value is replaced with the new value. If the new
+     * value is an empty string, the property is removed. Any existing properties that are not modified or removed
+     * by the entries in newProperties are retained with their original values.
      * @param newProperties Properties to be added, changed, or removed.
-     * If an entry in <em>newProperties</em> matches the name of an existing property,
-     * that property's value is replaced with the new value. If the new value
-     * is an empty string, the property is removed. Any existing properties
-     * that are not modified or removed by the entries in newProperties are
-     * retained with their original values.
      * @param current The Current object for the invocation.
      */
     virtual void setProperties(const PropertyDict& newProperties, const Current& current = emptyCurrent) = 0;

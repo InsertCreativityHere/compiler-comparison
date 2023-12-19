@@ -17,12 +17,12 @@ import Foundation
 import Ice
 
 /// The key for persistent subscribers, or topics.
-///
-/// If the subscriber identity is empty then the record is used as a
-/// place holder for the creation of a topic, otherwise the record
-/// holds a subscription record.
+/// If the subscriber identity is empty then the record is used as a place holder for the creation of a topic,
+/// otherwise the record holds a subscription record.
 public struct SubscriberRecordKey: Swift.Hashable {
+    /// The topic identity.
     public var topic: Ice.Identity = Ice.Identity()
+    /// The identity of the subscriber. If this is empty then the key is a placeholder for a topic.
     public var id: Ice.Identity = Ice.Identity()
 
     public init() {}
@@ -87,12 +87,19 @@ public extension Ice.OutputStream {
 
 /// Used to store persistent information for persistent subscribers.
 public struct SubscriberRecord {
+    /// The name of the topic.
     public var topicName: Swift.String = ""
+    /// The subscriber identity.
     public var id: Ice.Identity = Ice.Identity()
+    /// Is this a link record, or a subscriber record?
     public var link: Swift.Bool = false
+    /// The subscriber object.
     public var obj: Ice.ObjectPrx? = nil
+    /// The QoS.
     public var theQoS: QoS = QoS()
+    /// The cost.
     public var cost: Swift.Int32 = 0
+    /// The linked topic.
     public var theTopic: TopicPrx? = nil
 
     public init() {}

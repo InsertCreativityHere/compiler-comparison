@@ -16,18 +16,17 @@
 package com.zeroc.IceGrid;
 
 /**
- * Used by administrative clients to view,
- * update, and receive observer updates from the IceGrid
- * registry. Admin sessions are created either via the {@link Registry}
- * object or via the registry admin <code>SessionManager</code> object.
+ * Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
+ * sessions are created either via the {@link Registry} object or via the registry admin <code>SessionManager</code>
+ * object.
  *
  * @see Registry
  **/
 public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
 {
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      *
      * @see Registry#getSessionTimeout
      **/
@@ -37,8 +36,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param context The Context map to send with the invocation.
      *
      * @see Registry#getSessionTimeout
@@ -49,8 +48,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @return A future that will be completed when the invocation completes.
      *
      * @see Registry#getSessionTimeout
@@ -61,8 +60,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      *
@@ -87,8 +86,7 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Get the admin interface. The admin object returned by this
-     * operation can only be accessed by the session.
+     * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
      * @return The admin interface proxy.
      **/
     default AdminPrx getAdmin()
@@ -97,8 +95,7 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Get the admin interface. The admin object returned by this
-     * operation can only be accessed by the session.
+     * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
      * @param context The Context map to send with the invocation.
      * @return The admin interface proxy.
      **/
@@ -108,8 +105,7 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Get the admin interface. The admin object returned by this
-     * operation can only be accessed by the session.
+     * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
      * @return The admin interface proxy.
      **/
     default java.util.concurrent.CompletableFuture<AdminPrx> getAdminAsync()
@@ -118,8 +114,7 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Get the admin interface. The admin object returned by this
-     * operation can only be accessed by the session.
+     * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
      * @param context The Context map to send with the invocation.
      * @return The admin interface proxy.
      **/
@@ -146,12 +141,9 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Get a "template" proxy for admin callback objects.
-     * An Admin client uses this proxy to set the category of its callback
-     * objects, and the published endpoints of the object adapter hosting
-     * the admin callback objects.
-     * @return A template proxy. The returned proxy is null when the Admin
-     * session was established using Glacier2.
+     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
+     * @return A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
      **/
     default com.zeroc.Ice.ObjectPrx getAdminCallbackTemplate()
     {
@@ -159,13 +151,10 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Get a "template" proxy for admin callback objects.
-     * An Admin client uses this proxy to set the category of its callback
-     * objects, and the published endpoints of the object adapter hosting
-     * the admin callback objects.
+     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
      * @param context The Context map to send with the invocation.
-     * @return A template proxy. The returned proxy is null when the Admin
-     * session was established using Glacier2.
+     * @return A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
      **/
     default com.zeroc.Ice.ObjectPrx getAdminCallbackTemplate(java.util.Map<String, String> context)
     {
@@ -173,12 +162,9 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Get a "template" proxy for admin callback objects.
-     * An Admin client uses this proxy to set the category of its callback
-     * objects, and the published endpoints of the object adapter hosting
-     * the admin callback objects.
-     * @return A template proxy. The returned proxy is null when the Admin
-     * session was established using Glacier2.
+     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
+     * @return A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
      **/
     default java.util.concurrent.CompletableFuture<com.zeroc.Ice.ObjectPrx> getAdminCallbackTemplateAsync()
     {
@@ -186,13 +172,10 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Get a "template" proxy for admin callback objects.
-     * An Admin client uses this proxy to set the category of its callback
-     * objects, and the published endpoints of the object adapter hosting
-     * the admin callback objects.
+     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
      * @param context The Context map to send with the invocation.
-     * @return A template proxy. The returned proxy is null when the Admin
-     * session was established using Glacier2.
+     * @return A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
      **/
     default java.util.concurrent.CompletableFuture<com.zeroc.Ice.ObjectPrx> getAdminCallbackTemplateAsync(java.util.Map<String, String> context)
     {
@@ -217,16 +200,13 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Set the observer proxies that receive
-     * notifications when the state of the registry
-     * or nodes changes.
+     * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
      * @param registryObs The registry observer.
      * @param nodeObs The node observer.
      * @param appObs The application observer.
      * @param adptObs The adapter observer.
      * @param objObs The object observer.
-     * @throws ObserverAlreadyRegisteredException Raised if an
-     * observer is already registered with this registry.
+     * @throws ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
      **/
     default void setObservers(RegistryObserverPrx registryObs, NodeObserverPrx nodeObs, ApplicationObserverPrx appObs, AdapterObserverPrx adptObs, ObjectObserverPrx objObs)
         throws ObserverAlreadyRegisteredException
@@ -235,17 +215,14 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Set the observer proxies that receive
-     * notifications when the state of the registry
-     * or nodes changes.
+     * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
      * @param registryObs The registry observer.
      * @param nodeObs The node observer.
      * @param appObs The application observer.
      * @param adptObs The adapter observer.
      * @param objObs The object observer.
      * @param context The Context map to send with the invocation.
-     * @throws ObserverAlreadyRegisteredException Raised if an
-     * observer is already registered with this registry.
+     * @throws ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
      **/
     default void setObservers(RegistryObserverPrx registryObs, NodeObserverPrx nodeObs, ApplicationObserverPrx appObs, AdapterObserverPrx adptObs, ObjectObserverPrx objObs, java.util.Map<String, String> context)
         throws ObserverAlreadyRegisteredException
@@ -265,9 +242,7 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Set the observer proxies that receive
-     * notifications when the state of the registry
-     * or nodes changes.
+     * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
      * @param registryObs The registry observer.
      * @param nodeObs The node observer.
      * @param appObs The application observer.
@@ -281,9 +256,7 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Set the observer proxies that receive
-     * notifications when the state of the registry
-     * or nodes changes.
+     * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
      * @param registryObs The registry observer.
      * @param nodeObs The node observer.
      * @param appObs The application observer.
@@ -328,18 +301,14 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     };
 
     /**
-     * Set the observer identities that receive
-     * notifications the state of the registry
-     * or nodes changes. This operation should be used by clients that
-     * are using a bidirectional connection to communicate with the
-     * session.
+     * Set the observer identities that receive notifications the state of the registry or nodes changes. This
+     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
      * @param registryObs The registry observer identity.
      * @param nodeObs The node observer identity.
      * @param appObs The application observer.
      * @param adptObs The adapter observer.
      * @param objObs The object observer.
-     * @throws ObserverAlreadyRegisteredException Raised if an
-     * observer is already registered with this registry.
+     * @throws ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
      **/
     default void setObserversByIdentity(com.zeroc.Ice.Identity registryObs, com.zeroc.Ice.Identity nodeObs, com.zeroc.Ice.Identity appObs, com.zeroc.Ice.Identity adptObs, com.zeroc.Ice.Identity objObs)
         throws ObserverAlreadyRegisteredException
@@ -348,19 +317,15 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Set the observer identities that receive
-     * notifications the state of the registry
-     * or nodes changes. This operation should be used by clients that
-     * are using a bidirectional connection to communicate with the
-     * session.
+     * Set the observer identities that receive notifications the state of the registry or nodes changes. This
+     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
      * @param registryObs The registry observer identity.
      * @param nodeObs The node observer identity.
      * @param appObs The application observer.
      * @param adptObs The adapter observer.
      * @param objObs The object observer.
      * @param context The Context map to send with the invocation.
-     * @throws ObserverAlreadyRegisteredException Raised if an
-     * observer is already registered with this registry.
+     * @throws ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
      **/
     default void setObserversByIdentity(com.zeroc.Ice.Identity registryObs, com.zeroc.Ice.Identity nodeObs, com.zeroc.Ice.Identity appObs, com.zeroc.Ice.Identity adptObs, com.zeroc.Ice.Identity objObs, java.util.Map<String, String> context)
         throws ObserverAlreadyRegisteredException
@@ -380,11 +345,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Set the observer identities that receive
-     * notifications the state of the registry
-     * or nodes changes. This operation should be used by clients that
-     * are using a bidirectional connection to communicate with the
-     * session.
+     * Set the observer identities that receive notifications the state of the registry or nodes changes. This
+     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
      * @param registryObs The registry observer identity.
      * @param nodeObs The node observer identity.
      * @param appObs The application observer.
@@ -398,11 +360,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Set the observer identities that receive
-     * notifications the state of the registry
-     * or nodes changes. This operation should be used by clients that
-     * are using a bidirectional connection to communicate with the
-     * session.
+     * Set the observer identities that receive notifications the state of the registry or nodes changes. This
+     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
      * @param registryObs The registry observer identity.
      * @param nodeObs The node observer identity.
      * @param appObs The application observer.
@@ -449,9 +408,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     /**
      * Acquires an exclusive lock to start updating the registry applications.
      * @return The current serial.
-     * @throws AccessDeniedException Raised if the exclusive lock can't be
-     * acquired. This might happen if the lock is currently acquired by
-     * another session.
+     * @throws AccessDeniedException Raised if the exclusive lock can't be acquired. This might happen if the lock is
+     * currently acquired by another session.
      **/
     default int startUpdate()
         throws AccessDeniedException
@@ -463,9 +421,8 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
      * Acquires an exclusive lock to start updating the registry applications.
      * @param context The Context map to send with the invocation.
      * @return The current serial.
-     * @throws AccessDeniedException Raised if the exclusive lock can't be
-     * acquired. This might happen if the lock is currently acquired by
-     * another session.
+     * @throws AccessDeniedException Raised if the exclusive lock can't be acquired. This might happen if the lock is
+     * currently acquired by another session.
      **/
     default int startUpdate(java.util.Map<String, String> context)
         throws AccessDeniedException
@@ -528,8 +485,7 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
 
     /**
      * Finish updating the registry and release the exclusive lock.
-     * @throws AccessDeniedException Raised if the session doesn't hold the
-     * exclusive lock.
+     * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock.
      **/
     default void finishUpdate()
         throws AccessDeniedException
@@ -540,8 +496,7 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     /**
      * Finish updating the registry and release the exclusive lock.
      * @param context The Context map to send with the invocation.
-     * @throws AccessDeniedException Raised if the session doesn't hold the
-     * exclusive lock.
+     * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock.
      **/
     default void finishUpdate(java.util.Map<String, String> context)
         throws AccessDeniedException
@@ -654,24 +609,17 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Open the given server log file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server log file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param path The path of the log file. A log file can be opened
-     * only if it's declared in the server or service deployment
-     * descriptor.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
+     * deployment descriptor.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @return An iterator to read the file.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws FileNotAvailableException Raised if the file can't be read.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
+     * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default FileIteratorPrx openServerLog(String id, String path, int count)
         throws DeploymentException,
@@ -683,25 +631,18 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Open the given server log file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server log file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param path The path of the log file. A log file can be opened
-     * only if it's declared in the server or service deployment
-     * descriptor.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
+     * deployment descriptor.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws FileNotAvailableException Raised if the file can't be read.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
+     * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default FileIteratorPrx openServerLog(String id, String path, int count, java.util.Map<String, String> context)
         throws DeploymentException,
@@ -736,15 +677,12 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Open the given server log file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server log file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param path The path of the log file. A log file can be opened
-     * only if it's declared in the server or service deployment
-     * descriptor.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
+     * deployment descriptor.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @return An iterator to read the file.
      **/
     default java.util.concurrent.CompletableFuture<FileIteratorPrx> openServerLogAsync(String id, String path, int count)
@@ -753,15 +691,12 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Open the given server log file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server log file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param path The path of the log file. A log file can be opened
-     * only if it's declared in the server or service deployment
-     * descriptor.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
+     * deployment descriptor.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
      **/
@@ -804,21 +739,15 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     };
 
     /**
-     * Open the given server stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stderr file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @return An iterator to read the file.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws FileNotAvailableException Raised if the file can't be read.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
+     * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default FileIteratorPrx openServerStdErr(String id, int count)
         throws DeploymentException,
@@ -830,22 +759,16 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Open the given server stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stderr file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws FileNotAvailableException Raised if the file can't be read.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
+     * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default FileIteratorPrx openServerStdErr(String id, int count, java.util.Map<String, String> context)
         throws DeploymentException,
@@ -880,12 +803,10 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Open the given server stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stderr file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @return An iterator to read the file.
      **/
     default java.util.concurrent.CompletableFuture<FileIteratorPrx> openServerStdErrAsync(String id, int count)
@@ -894,12 +815,10 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Open the given server stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stderr file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
      **/
@@ -940,21 +859,15 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     };
 
     /**
-     * Open the given server stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stdout file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
+     * If 0 or positive, the file is read from the last <code>count</code> lines.
      * @return An iterator to read the file.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws FileNotAvailableException Raised if the file can't be read.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
+     * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default FileIteratorPrx openServerStdOut(String id, int count)
         throws DeploymentException,
@@ -966,22 +879,16 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Open the given server stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stdout file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
+     * If 0 or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws FileNotAvailableException Raised if the file can't be read.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
+     * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default FileIteratorPrx openServerStdOut(String id, int count, java.util.Map<String, String> context)
         throws DeploymentException,
@@ -1016,12 +923,10 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Open the given server stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stdout file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
+     * If 0 or positive, the file is read from the last <code>count</code> lines.
      * @return An iterator to read the file.
      **/
     default java.util.concurrent.CompletableFuture<FileIteratorPrx> openServerStdOutAsync(String id, int count)
@@ -1030,12 +935,10 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Open the given server stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stdout file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
+     * If 0 or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
      **/
@@ -1076,18 +979,14 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     };
 
     /**
-     * Open the given node stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stderr file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @return An iterator to read the file.
-     * @throws FileNotAvailableException Raised if the file can't be
-     * read.
+     * @throws FileNotAvailableException Raised if the file can't be read.
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     default FileIteratorPrx openNodeStdErr(String name, int count)
         throws FileNotAvailableException,
@@ -1098,19 +997,15 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Open the given node stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stderr file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
-     * @throws FileNotAvailableException Raised if the file can't be
-     * read.
+     * @throws FileNotAvailableException Raised if the file can't be read.
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     default FileIteratorPrx openNodeStdErr(String name, int count, java.util.Map<String, String> context)
         throws FileNotAvailableException,
@@ -1140,12 +1035,10 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Open the given node stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stderr file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @return An iterator to read the file.
      **/
     default java.util.concurrent.CompletableFuture<FileIteratorPrx> openNodeStdErrAsync(String name, int count)
@@ -1154,12 +1047,10 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Open the given node stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stderr file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
      **/
@@ -1199,18 +1090,14 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     };
 
     /**
-     * Open the given node stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stdout file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @return An iterator to read the file.
-     * @throws FileNotAvailableException Raised if the file can't be
-     * read.
+     * @throws FileNotAvailableException Raised if the file can't be read.
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     default FileIteratorPrx openNodeStdOut(String name, int count)
         throws FileNotAvailableException,
@@ -1221,19 +1108,15 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Open the given node stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stdout file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
-     * @throws FileNotAvailableException Raised if the file can't be
-     * read.
+     * @throws FileNotAvailableException Raised if the file can't be read.
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     default FileIteratorPrx openNodeStdOut(String name, int count, java.util.Map<String, String> context)
         throws FileNotAvailableException,
@@ -1263,12 +1146,10 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Open the given node stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stdout file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @return An iterator to read the file.
      **/
     default java.util.concurrent.CompletableFuture<FileIteratorPrx> openNodeStdOutAsync(String name, int count)
@@ -1277,12 +1158,10 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Open the given node stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stdout file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
      **/
@@ -1322,19 +1201,14 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     };
 
     /**
-     * Open the given registry stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @return An iterator to read the file.
-     * @throws FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws RegistryNotExistException Raised if the registry
-     * doesn't exist.
-     * @throws RegistryUnreachableException Raised if the registry
-     * could not be reached.
+     * @throws FileNotAvailableException Raised if the file can't be read.
+     * @throws RegistryNotExistException Raised if the registry doesn't exist.
+     * @throws RegistryUnreachableException Raised if the registry could not be reached.
      **/
     default FileIteratorPrx openRegistryStdErr(String name, int count)
         throws FileNotAvailableException,
@@ -1345,20 +1219,15 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Open the given registry stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
-     * @throws FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws RegistryNotExistException Raised if the registry
-     * doesn't exist.
-     * @throws RegistryUnreachableException Raised if the registry
-     * could not be reached.
+     * @throws FileNotAvailableException Raised if the file can't be read.
+     * @throws RegistryNotExistException Raised if the registry doesn't exist.
+     * @throws RegistryUnreachableException Raised if the registry could not be reached.
      **/
     default FileIteratorPrx openRegistryStdErr(String name, int count, java.util.Map<String, String> context)
         throws FileNotAvailableException,
@@ -1388,12 +1257,10 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Open the given registry stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @return An iterator to read the file.
      **/
     default java.util.concurrent.CompletableFuture<FileIteratorPrx> openRegistryStdErrAsync(String name, int count)
@@ -1402,12 +1269,10 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Open the given registry stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
      **/
@@ -1447,19 +1312,14 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     };
 
     /**
-     * Open the given registry stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @return An iterator to read the file.
-     * @throws FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws RegistryNotExistException Raised if the registry
-     * doesn't exist.
-     * @throws RegistryUnreachableException Raised if the registry
-     * could not be reached.
+     * @throws FileNotAvailableException Raised if the file can't be read.
+     * @throws RegistryNotExistException Raised if the registry doesn't exist.
+     * @throws RegistryUnreachableException Raised if the registry could not be reached.
      **/
     default FileIteratorPrx openRegistryStdOut(String name, int count)
         throws FileNotAvailableException,
@@ -1470,20 +1330,15 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Open the given registry stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
-     * @throws FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws RegistryNotExistException Raised if the registry
-     * doesn't exist.
-     * @throws RegistryUnreachableException Raised if the registry
-     * could not be reached.
+     * @throws FileNotAvailableException Raised if the file can't be read.
+     * @throws RegistryNotExistException Raised if the registry doesn't exist.
+     * @throws RegistryUnreachableException Raised if the registry could not be reached.
      **/
     default FileIteratorPrx openRegistryStdOut(String name, int count, java.util.Map<String, String> context)
         throws FileNotAvailableException,
@@ -1513,12 +1368,10 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Open the given registry stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @return An iterator to read the file.
      **/
     default java.util.concurrent.CompletableFuture<FileIteratorPrx> openRegistryStdOutAsync(String name, int count)
@@ -1527,12 +1380,10 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
     }
 
     /**
-     * Open the given registry stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
      **/

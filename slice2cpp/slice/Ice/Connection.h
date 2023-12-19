@@ -85,8 +85,7 @@ enum class CompressBatch : unsigned char
      */
     No,
     /**
-     * Compress the batch requests if at least one request was
-     * made on a compressed proxy.
+     * Compress the batch requests if at least one request was made on a compressed proxy.
      */
     BasedOnProxy
 };
@@ -105,8 +104,8 @@ enum class ACMClose : unsigned char
      */
     CloseOnIdle,
     /**
-     * Forcefully closes a connection that has been idle for the configured timeout period,
-     * but only if the connection has pending invocations.
+     * Forcefully closes a connection that has been idle for the configured timeout period, but only if the connection
+     * has pending invocations.
      */
     CloseOnInvocation,
     /**
@@ -114,8 +113,8 @@ enum class ACMClose : unsigned char
      */
     CloseOnInvocationAndIdle,
     /**
-     * Forcefully closes a connection that has been idle for the configured timeout period,
-     * regardless of whether the connection has pending invocations or dispatch.
+     * Forcefully closes a connection that has been idle for the configured timeout period, regardless of whether the
+     * connection has pending invocations or dispatch.
      */
     CloseOnIdleForceful
 };
@@ -178,13 +177,13 @@ struct ACM
 enum class ConnectionClose : unsigned char
 {
     /**
-     * Close the connection immediately without sending a close connection protocol message to the peer
-     * and waiting for the peer to acknowledge it.
+     * Close the connection immediately without sending a close connection protocol message to the peer and waiting
+     * for the peer to acknowledge it.
      */
     Forcefully,
     /**
-     * Close the connection by notifying the peer but do not wait for pending outgoing invocations to complete.
-     * On the server side, the connection will not be closed until all incoming invocations have completed.
+     * Close the connection by notifying the peer but do not wait for pending outgoing invocations to complete. On the
+     * server side, the connection will not be closed until all incoming invocations have completed.
      */
     Gracefully,
     /**
@@ -243,13 +242,11 @@ public:
     }
 
     /**
-     * The information of the underyling transport or null if there's
-     * no underlying transport.
+     * The information of the underyling transport or null if there's no underlying transport.
      */
     ::std::shared_ptr<::Ice::ConnectionInfo> underlying;
     /**
-     * Whether or not the connection is an incoming or outgoing
-     * connection.
+     * Whether or not the connection is an incoming or outgoing connection.
      */
     bool incoming;
     /**
@@ -263,16 +260,14 @@ public:
 };
 
 /**
- * This method is called by the connection when the connection is
- * closed. If the callback needs more information about the closure,
- * it can call {@link Connection#throwException}.
+ * This method is called by the connection when the connection is closed. If the callback needs more information
+ * about the closure, it can call {@link Connection#throwException}.
  * @param con The connection that closed.
  */
 using CloseCallback = ::std::function<void(const ::std::shared_ptr<Connection>& con)>;
 
 /**
- * This method is called by the connection when a heartbeat is
- * received from the peer.
+ * This method is called by the connection when a heartbeat is received from the peer.
  * @param con The connection on which a heartbeat was received.
  */
 using HeartbeatCallback = ::std::function<void(const ::std::shared_ptr<Connection>& con)>;
@@ -295,42 +290,31 @@ public:
     virtual void close(ConnectionClose mode) noexcept = 0;
 
     /**
-     * Create a special proxy that always uses this connection. This
-     * can be used for callbacks from a server to a client if the
-     * server cannot directly establish a connection to the client,
-     * for example because of firewalls. In this case, the server
-     * would create a proxy using an already established connection
-     * from the client.
+     * Create a special proxy that always uses this connection. This can be used for callbacks from a server to a
+     * client if the server cannot directly establish a connection to the client, for example because of firewalls. In
+     * this case, the server would create a proxy using an already established connection from the client.
      * @param id The identity for which a proxy is to be created.
-     * @return A proxy that matches the given identity and uses this
-     * connection.
+     * @return A proxy that matches the given identity and uses this connection.
      * @see #setAdapter
      */
     virtual ::std::shared_ptr<::Ice::ObjectPrx> createProxy(const Identity& id) const = 0;
 
     /**
-     * Explicitly set an object adapter that dispatches requests that
-     * are received over this connection. A client can invoke an
-     * operation on a server using a proxy, and then set an object
-     * adapter for the outgoing connection that is used by the proxy
-     * in order to receive callbacks. This is useful if the server
-     * cannot establish a connection back to the client, for example
-     * because of firewalls.
-     * @param adapter The object adapter that should be used by this
-     * connection to dispatch requests. The object adapter must be
-     * activated. When the object adapter is deactivated, it is
-     * automatically removed from the connection. Attempts to use a
-     * deactivated object adapter raise {@link ObjectAdapterDeactivatedException}
+     * Explicitly set an object adapter that dispatches requests that are received over this connection. A client can
+     * invoke an operation on a server using a proxy, and then set an object adapter for the outgoing connection that
+     * is used by the proxy in order to receive callbacks. This is useful if the server cannot establish a connection
+     * back to the client, for example because of firewalls.
+     * @param adapter The object adapter that should be used by this connection to dispatch requests. The object
+     * adapter must be activated. When the object adapter is deactivated, it is automatically removed from the
+     * connection. Attempts to use a deactivated object adapter raise {@link ObjectAdapterDeactivatedException}
      * @see #createProxy
      * @see #getAdapter
      */
     virtual void setAdapter(const ::std::shared_ptr<ObjectAdapter>& adapter) = 0;
 
     /**
-     * Get the object adapter that dispatches requests for this
-     * connection.
-     * @return The object adapter that dispatches requests for the
-     * connection, or null if no adapter is set.
+     * Get the object adapter that dispatches requests for this connection.
+     * @return The object adapter that dispatches requests for the connection, or null if no adapter is set.
      * @see #setAdapter
      */
     virtual ::std::shared_ptr<::Ice::ObjectAdapter> getAdapter() const noexcept = 0;
@@ -342,11 +326,10 @@ public:
     virtual ::std::shared_ptr<::Ice::Endpoint> getEndpoint() const noexcept = 0;
 
     /**
-     * Flush any pending batch requests for this connection.
-     * This means all batch requests invoked on fixed proxies
+     * Flush any pending batch requests for this connection. This means all batch requests invoked on fixed proxies
      * associated with the connection.
-     * @param compress Specifies whether or not the queued batch requests
-     * should be compressed before being sent over the wire.
+     * @param compress Specifies whether or not the queued batch requests should be compressed before being sent over
+     * the wire.
      */
     virtual void flushBatchRequests(CompressBatch compress)
     {
@@ -354,11 +337,10 @@ public:
     }
 
     /**
-     * Flush any pending batch requests for this connection.
-     * This means all batch requests invoked on fixed proxies
+     * Flush any pending batch requests for this connection. This means all batch requests invoked on fixed proxies
      * associated with the connection.
-     * @param compress Specifies whether or not the queued batch requests
-     * should be compressed before being sent over the wire.
+     * @param compress Specifies whether or not the queued batch requests should be compressed before being sent over
+     * the wire.
      * @param exception The exception callback.
      * @param sent The sent callback.
      * @return A function that can be called to cancel the invocation locally.
@@ -369,11 +351,10 @@ public:
                             ::std::function<void(bool)> sent = nullptr) = 0;
 
     /**
-     * Flush any pending batch requests for this connection.
-     * This means all batch requests invoked on fixed proxies
+     * Flush any pending batch requests for this connection. This means all batch requests invoked on fixed proxies
      * associated with the connection.
-     * @param compress Specifies whether or not the queued batch requests
-     * should be compressed before being sent over the wire.
+     * @param compress Specifies whether or not the queued batch requests should be compressed before being sent over
+     * the wire.
      * @return The future object for the invocation.
      */
     template<template<typename> class P = ::std::promise>
@@ -395,18 +376,16 @@ public:
     }
 
     /**
-     * Set a close callback on the connection. The callback is called by the
-     * connection when it's closed. The callback is called from the
-     * Ice thread pool associated with the connection. If the callback needs
-     * more information about the closure, it can call {@link Connection#throwException}.
+     * Set a close callback on the connection. The callback is called by the connection when it's closed. The callback
+     * is called from the Ice thread pool associated with the connection. If the callback needs more information about
+     * the closure, it can call {@link Connection#throwException}.
      * @param callback The close callback object.
      */
     virtual void setCloseCallback(CloseCallback callback) = 0;
 
     /**
-     * Set a heartbeat callback on the connection. The callback is called by the
-     * connection when a heartbeat is received. The callback is called
-     * from the Ice thread pool associated with the connection.
+     * Set a heartbeat callback on the connection. The callback is called by the connection when a heartbeat is
+     * received. The callback is called from the Ice thread pool associated with the connection.
      * @param callback The heartbeat callback object.
      */
     virtual void setHeartbeatCallback(HeartbeatCallback callback) = 0;
@@ -465,8 +444,7 @@ public:
     virtual ::Ice::ACM getACM() noexcept = 0;
 
     /**
-     * Return the connection type. This corresponds to the endpoint
-     * type, i.e., "tcp", "udp", etc.
+     * Return the connection type. This corresponds to the endpoint type, i.e., "tcp", "udp", etc.
      * @return The type of the connection.
      */
     virtual ::std::string type() const noexcept = 0;
@@ -478,10 +456,8 @@ public:
     virtual int timeout() const noexcept = 0;
 
     /**
-     * Return a description of the connection as human readable text,
-     * suitable for logging or error messages.
-     * @return The description of the connection as human readable
-     * text.
+     * Return a description of the connection as human readable text, suitable for logging or error messages.
+     * @return The description of the connection as human readable text.
      */
     virtual ::std::string toString() const noexcept = 0;
 
@@ -500,10 +476,9 @@ public:
 
     /**
      * Throw an exception indicating the reason for connection closure. For example,
-     * {@link CloseConnectionException} is raised if the connection was closed gracefully,
-     * whereas {@link ConnectionManuallyClosedException} is raised if the connection was
-     * manually closed by the application. This operation does nothing if the connection is
-     * not yet closed.
+     * {@link CloseConnectionException} is raised if the connection was closed gracefully, whereas
+     * {@link ConnectionManuallyClosedException} is raised if the connection was manually closed by
+     * the application. This operation does nothing if the connection is not yet closed.
      */
     virtual void throwException() const = 0;
 };
@@ -821,8 +796,7 @@ enum CompressBatch
      */
     CompressBatchNo,
     /**
-     * Compress the batch requests if at least one request was
-     * made on a compressed proxy.
+     * Compress the batch requests if at least one request was made on a compressed proxy.
      */
     CompressBatchBasedOnProxy
 };
@@ -841,8 +815,8 @@ enum ACMClose
      */
     CloseOnIdle,
     /**
-     * Forcefully closes a connection that has been idle for the configured timeout period,
-     * but only if the connection has pending invocations.
+     * Forcefully closes a connection that has been idle for the configured timeout period, but only if the connection
+     * has pending invocations.
      */
     CloseOnInvocation,
     /**
@@ -850,8 +824,8 @@ enum ACMClose
      */
     CloseOnInvocationAndIdle,
     /**
-     * Forcefully closes a connection that has been idle for the configured timeout period,
-     * regardless of whether the connection has pending invocations or dispatch.
+     * Forcefully closes a connection that has been idle for the configured timeout period, regardless of whether the
+     * connection has pending invocations or dispatch.
      */
     CloseOnIdleForceful
 };
@@ -976,13 +950,13 @@ struct ACM
 enum ConnectionClose
 {
     /**
-     * Close the connection immediately without sending a close connection protocol message to the peer
-     * and waiting for the peer to acknowledge it.
+     * Close the connection immediately without sending a close connection protocol message to the peer and waiting
+     * for the peer to acknowledge it.
      */
     ConnectionCloseForcefully,
     /**
-     * Close the connection by notifying the peer but do not wait for pending outgoing invocations to complete.
-     * On the server side, the connection will not be closed until all incoming invocations have completed.
+     * Close the connection by notifying the peer but do not wait for pending outgoing invocations to complete. On the
+     * server side, the connection will not be closed until all incoming invocations have completed.
      */
     ConnectionCloseGracefully,
     /**
@@ -1059,13 +1033,11 @@ public:
 #endif
 
     /**
-     * The information of the underyling transport or null if there's
-     * no underlying transport.
+     * The information of the underyling transport or null if there's no underlying transport.
      */
     ::Ice::ConnectionInfoPtr underlying;
     /**
-     * Whether or not the connection is an incoming or outgoing
-     * connection.
+     * Whether or not the connection is an incoming or outgoing connection.
      */
     bool incoming;
     /**
@@ -1091,8 +1063,7 @@ inline bool operator<(const ConnectionInfo& lhs, const ConnectionInfo& rhs)
 /// \endcond
 
 /**
- * An application can implement this interface to receive notifications when
- * a connection closes.
+ * An application can implement this interface to receive notifications when a connection closes.
  * @see Connection#setCloseCallback
  * \headerfile Ice/Ice.h
  */
@@ -1111,9 +1082,8 @@ public:
 #endif
 
     /**
-     * This method is called by the connection when the connection is
-     * closed. If the callback needs more information about the closure,
-     * it can call {@link Connection#throwException}.
+     * This method is called by the connection when the connection is closed. If the callback needs more information
+     * about the closure, it can call {@link Connection#throwException}.
      * @param con The connection that closed.
      */
     virtual void closed(const ConnectionPtr& con) = 0;
@@ -1132,8 +1102,8 @@ inline bool operator<(const CloseCallback& lhs, const CloseCallback& rhs)
 /// \endcond
 
 /**
- * An application can implement this interface to receive notifications when
- * a connection receives a heartbeat message.
+ * An application can implement this interface to receive notifications when a connection receives a heartbeat
+ * message.
  * @see Connection#setHeartbeatCallback
  * \headerfile Ice/Ice.h
  */
@@ -1152,8 +1122,7 @@ public:
 #endif
 
     /**
-     * This method is called by the connection when a heartbeat is
-     * received from the peer.
+     * This method is called by the connection when a heartbeat is received from the peer.
      * @param con The connection on which a heartbeat was received.
      */
     virtual void heartbeat(const ConnectionPtr& con) = 0;
@@ -1197,42 +1166,31 @@ public:
     virtual void close(ConnectionClose mode) ICE_NOEXCEPT = 0;
 
     /**
-     * Create a special proxy that always uses this connection. This
-     * can be used for callbacks from a server to a client if the
-     * server cannot directly establish a connection to the client,
-     * for example because of firewalls. In this case, the server
-     * would create a proxy using an already established connection
-     * from the client.
+     * Create a special proxy that always uses this connection. This can be used for callbacks from a server to a
+     * client if the server cannot directly establish a connection to the client, for example because of firewalls. In
+     * this case, the server would create a proxy using an already established connection from the client.
      * @param id The identity for which a proxy is to be created.
-     * @return A proxy that matches the given identity and uses this
-     * connection.
+     * @return A proxy that matches the given identity and uses this connection.
      * @see #setAdapter
      */
     virtual ObjectPrx createProxy(const Identity& id) const = 0;
 
     /**
-     * Explicitly set an object adapter that dispatches requests that
-     * are received over this connection. A client can invoke an
-     * operation on a server using a proxy, and then set an object
-     * adapter for the outgoing connection that is used by the proxy
-     * in order to receive callbacks. This is useful if the server
-     * cannot establish a connection back to the client, for example
-     * because of firewalls.
-     * @param adapter The object adapter that should be used by this
-     * connection to dispatch requests. The object adapter must be
-     * activated. When the object adapter is deactivated, it is
-     * automatically removed from the connection. Attempts to use a
-     * deactivated object adapter raise {@link ObjectAdapterDeactivatedException}
+     * Explicitly set an object adapter that dispatches requests that are received over this connection. A client can
+     * invoke an operation on a server using a proxy, and then set an object adapter for the outgoing connection that
+     * is used by the proxy in order to receive callbacks. This is useful if the server cannot establish a connection
+     * back to the client, for example because of firewalls.
+     * @param adapter The object adapter that should be used by this connection to dispatch requests. The object
+     * adapter must be activated. When the object adapter is deactivated, it is automatically removed from the
+     * connection. Attempts to use a deactivated object adapter raise {@link ObjectAdapterDeactivatedException}
      * @see #createProxy
      * @see #getAdapter
      */
     virtual void setAdapter(const ObjectAdapterPtr& adapter) = 0;
 
     /**
-     * Get the object adapter that dispatches requests for this
-     * connection.
-     * @return The object adapter that dispatches requests for the
-     * connection, or null if no adapter is set.
+     * Get the object adapter that dispatches requests for this connection.
+     * @return The object adapter that dispatches requests for the connection, or null if no adapter is set.
      * @see #setAdapter
      */
     virtual ObjectAdapterPtr getAdapter() const ICE_NOEXCEPT = 0;
@@ -1244,30 +1202,27 @@ public:
     virtual EndpointPtr getEndpoint() const ICE_NOEXCEPT = 0;
 
     /**
-     * Flush any pending batch requests for this connection.
-     * This means all batch requests invoked on fixed proxies
+     * Flush any pending batch requests for this connection. This means all batch requests invoked on fixed proxies
      * associated with the connection.
-     * @param compress Specifies whether or not the queued batch requests
-     * should be compressed before being sent over the wire.
+     * @param compress Specifies whether or not the queued batch requests should be compressed before being sent over
+     * the wire.
      */
     virtual void flushBatchRequests(CompressBatch compress) = 0;
 
     /**
-     * Flush any pending batch requests for this connection.
-     * This means all batch requests invoked on fixed proxies
+     * Flush any pending batch requests for this connection. This means all batch requests invoked on fixed proxies
      * associated with the connection.
-     * @param compress Specifies whether or not the queued batch requests
-     * should be compressed before being sent over the wire.
+     * @param compress Specifies whether or not the queued batch requests should be compressed before being sent over
+     * the wire.
      * @return The asynchronous result object for the invocation.
      */
     virtual AsyncResultPtr begin_flushBatchRequests(CompressBatch compress) = 0;
 
     /**
-     * Flush any pending batch requests for this connection.
-     * This means all batch requests invoked on fixed proxies
+     * Flush any pending batch requests for this connection. This means all batch requests invoked on fixed proxies
      * associated with the connection.
-     * @param compress Specifies whether or not the queued batch requests
-     * should be compressed before being sent over the wire.
+     * @param compress Specifies whether or not the queued batch requests should be compressed before being sent over
+     * the wire.
      * @param cb Callback to be invoked when the invocation completes
      * @param cookie Extra data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -1275,11 +1230,10 @@ public:
     virtual AsyncResultPtr begin_flushBatchRequests(CompressBatch compress, const CallbackPtr& cb, const LocalObjectPtr& cookie = 0) = 0;
 
     /**
-     * Flush any pending batch requests for this connection.
-     * This means all batch requests invoked on fixed proxies
+     * Flush any pending batch requests for this connection. This means all batch requests invoked on fixed proxies
      * associated with the connection.
-     * @param compress Specifies whether or not the queued batch requests
-     * should be compressed before being sent over the wire.
+     * @param compress Specifies whether or not the queued batch requests should be compressed before being sent over
+     * the wire.
      * @param cb Callback to be invoked when the invocation completes
      * @param cookie Extra data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -1287,26 +1241,23 @@ public:
     virtual AsyncResultPtr begin_flushBatchRequests(CompressBatch compress, const Callback_Connection_flushBatchRequestsPtr& cb, const LocalObjectPtr& cookie = 0) = 0;
 
     /**
-     * Flush any pending batch requests for this connection.
-     * This means all batch requests invoked on fixed proxies
+     * Flush any pending batch requests for this connection. This means all batch requests invoked on fixed proxies
      * associated with the connection.
      * @param result The asynchronous result object returned by the begin_ method.
      */
     virtual void end_flushBatchRequests(const AsyncResultPtr& result) = 0;
 
     /**
-     * Set a close callback on the connection. The callback is called by the
-     * connection when it's closed. The callback is called from the
-     * Ice thread pool associated with the connection. If the callback needs
-     * more information about the closure, it can call {@link Connection#throwException}.
+     * Set a close callback on the connection. The callback is called by the connection when it's closed. The callback
+     * is called from the Ice thread pool associated with the connection. If the callback needs more information about
+     * the closure, it can call {@link Connection#throwException}.
      * @param callback The close callback object.
      */
     virtual void setCloseCallback(const CloseCallbackPtr& callback) = 0;
 
     /**
-     * Set a heartbeat callback on the connection. The callback is called by the
-     * connection when a heartbeat is received. The callback is called
-     * from the Ice thread pool associated with the connection.
+     * Set a heartbeat callback on the connection. The callback is called by the connection when a heartbeat is
+     * received. The callback is called from the Ice thread pool associated with the connection.
      * @param callback The heartbeat callback object.
      */
     virtual void setHeartbeatCallback(const HeartbeatCallbackPtr& callback) = 0;
@@ -1359,8 +1310,7 @@ public:
     virtual ACM getACM() ICE_NOEXCEPT = 0;
 
     /**
-     * Return the connection type. This corresponds to the endpoint
-     * type, i.e., "tcp", "udp", etc.
+     * Return the connection type. This corresponds to the endpoint type, i.e., "tcp", "udp", etc.
      * @return The type of the connection.
      */
     virtual ::std::string type() const ICE_NOEXCEPT = 0;
@@ -1372,10 +1322,8 @@ public:
     virtual Int timeout() const ICE_NOEXCEPT = 0;
 
     /**
-     * Return a description of the connection as human readable text,
-     * suitable for logging or error messages.
-     * @return The description of the connection as human readable
-     * text.
+     * Return a description of the connection as human readable text, suitable for logging or error messages.
+     * @return The description of the connection as human readable text.
      */
     virtual ::std::string toString() const ICE_NOEXCEPT = 0;
 
@@ -1394,10 +1342,9 @@ public:
 
     /**
      * Throw an exception indicating the reason for connection closure. For example,
-     * {@link CloseConnectionException} is raised if the connection was closed gracefully,
-     * whereas {@link ConnectionManuallyClosedException} is raised if the connection was
-     * manually closed by the application. This operation does nothing if the connection is
-     * not yet closed.
+     * {@link CloseConnectionException} is raised if the connection was closed gracefully, whereas
+     * {@link ConnectionManuallyClosedException} is raised if the connection was manually closed by
+     * the application. This operation does nothing if the connection is not yet closed.
      */
     virtual void throwException() const = 0;
 };

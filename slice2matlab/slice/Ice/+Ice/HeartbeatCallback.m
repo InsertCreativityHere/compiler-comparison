@@ -1,7 +1,7 @@
 % HeartbeatCallback   Summary of HeartbeatCallback
 %
-% An application can implement this interface to receive notifications when
-% a connection receives a heartbeat message.
+% An application can implement this interface to receive notifications when a connection receives a heartbeat
+% message.
 %
 % See also Ice.Connection.setHeartbeatCallback
 

@@ -16,8 +16,7 @@
 package com.zeroc.Ice;
 
 /**
- * This exception is raised to reject an illegal servant (typically
- * a null servant)
+ * This exception is raised to reject an illegal servant (typically a null servant).
  **/
 public class IllegalServantException extends LocalException
 {

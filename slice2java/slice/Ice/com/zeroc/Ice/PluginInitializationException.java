@@ -16,8 +16,7 @@
 package com.zeroc.Ice;
 
 /**
- * This exception indicates that a failure occurred while initializing
- * a plug-in.
+ * This exception indicates that a failure occurred while initializing a plug-in.
  **/
 public class PluginInitializationException extends LocalException
 {

@@ -40,19 +40,13 @@ namespace IceGrid
         /// Filter the given set of adapters.
         /// </summary>
         /// <param name="replicaGroupId">The replica group ID.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="adapterIds">The adpater IDs to filter.
-        ///
-        /// </param>
-        /// <param name="con">The connection from the Ice client which is
-        /// resolving the replica group endpoints.
-        ///
-        /// </param>
-        /// <param name="ctx">The context from the Ice client which is resolving
-        /// the replica group endpoints.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="con">The connection from the Ice client which is resolving the replica group endpoints.
+        ///  </param>
+        /// <param name="ctx">The context from the Ice client which is resolving the replica group endpoints.
+        ///  </param>
         /// <returns>The filtered adapter IDs.</returns>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -81,19 +75,13 @@ namespace IceGrid
         /// Filter the given set of proxies.
         /// </summary>
         /// <param name="type">The type.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="proxies">The proxies to filter.
-        ///
-        /// </param>
-        /// <param name="con">The connection from the Ice client which is
-        /// looking up well-known objects by type.
-        ///
-        /// </param>
-        /// <param name="ctx">The context from the Ice client which is looking up
-        /// well-known objects by type.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="con">The connection from the Ice client which is looking up well-known objects by type.
+        ///  </param>
+        /// <param name="ctx">The context from the Ice client which is looking up well-known objects by type.
+        ///  </param>
         /// <returns>The filtered proxies.</returns>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -122,13 +110,10 @@ namespace IceGrid
         /// Get an application descriptor.
         /// </summary>
         /// <param name="name">The application name.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The application descriptor.
-        ///
-        /// </returns>
-        /// <exception name="ApplicationNotExistException">Raised if the application
-        /// doesn't exist.</exception>
+        ///  </returns>
+        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.</exception>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         ApplicationInfo getApplicationInfo(string name);
@@ -138,11 +123,9 @@ namespace IceGrid
         /// Get the server information for the server with the given id.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
-        ///
-        /// </exception>
+        ///  </exception>
         /// <returns>The server information.</returns>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -153,15 +136,11 @@ namespace IceGrid
         /// Get the ID of the server to which the given adapter belongs.
         /// </summary>
         /// <param name="adapterId">The adapter ID.
-        ///
-        /// </param>
-        /// <returns>The server ID or the empty string if the given
-        /// identifier is not associated to an object adapter defined with
-        /// an application descriptor.
-        ///
-        /// </returns>
-        /// <exception name="AdapterNotExistException">Raised if the adapter doesn't
-        /// exist.</exception>
+        ///  </param>
+        /// <returns>The server ID or the empty string if the given identifier is not associated to an object adapter
+        ///  defined with an application descriptor.
+        ///  </returns>
+        /// <exception name="AdapterNotExistException">Raised if the adapter doesn't exist.</exception>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         string getAdapterServer(string adapterId);
@@ -171,15 +150,11 @@ namespace IceGrid
         /// Get the name of the application to which the given adapter belongs.
         /// </summary>
         /// <param name="adapterId">The adapter ID.
-        ///
-        /// </param>
-        /// <returns>The application name or the empty string if the given
-        /// identifier is not associated to a replica group or object
-        /// adapter defined with an application descriptor.
-        ///
-        /// </returns>
-        /// <exception name="AdapterNotExistException">Raised if the adapter doesn't
-        /// exist.</exception>
+        ///  </param>
+        /// <returns>The application name or the empty string if the given identifier is not associated to a replica group
+        ///  or object adapter defined with an application descriptor.
+        ///  </returns>
+        /// <exception name="AdapterNotExistException">Raised if the adapter doesn't exist.</exception>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         string getAdapterApplication(string adapterId);
@@ -189,36 +164,26 @@ namespace IceGrid
         /// Get the name of the node to which the given adapter belongs.
         /// </summary>
         /// <param name="adapterId">The adapter ID.
-        ///
-        /// </param>
-        /// <returns>The node name or the empty string if the given
-        /// identifier is not associated to an object adapter defined with
-        /// an application descriptor.
-        ///
-        /// </returns>
-        /// <exception name="AdapterNotExistException">Raised if the adapter doesn't
-        /// exist.</exception>
+        ///  </param>
+        /// <returns>The node name or the empty string if the given identifier is not associated to an object adapter
+        ///  defined with an application descriptor.
+        ///  </returns>
+        /// <exception name="AdapterNotExistException">Raised if the adapter doesn't exist.</exception>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         string getAdapterNode(string adapterId);
 
 
         /// <summary>
-        /// Get the adapter information for the replica group or adapter
-        /// with the given id.
+        /// Get the adapter information for the replica group or adapter with the given id.
         /// </summary>
         /// <param name="id">The adapter id.
-        ///
-        /// </param>
-        /// <returns>A sequence of adapter information structures. If the
-        /// given id refers to an adapter, this sequence will contain only
-        /// one element. If the given id refers to a replica group, the
-        /// sequence will contain the adapter information of each member of
-        /// the replica group.
-        ///
-        /// </returns>
-        /// <exception name="AdapterNotExistException">Raised if the adapter or
-        /// replica group doesn't exist.</exception>
+        ///  </param>
+        /// <returns>A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
+        ///  contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
+        ///  information of each member of the replica group.
+        ///  </returns>
+        /// <exception name="AdapterNotExistException">Raised if the adapter or replica group doesn't exist.</exception>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         AdapterInfo[] getAdapterInfo(string id);
@@ -228,13 +193,10 @@ namespace IceGrid
         /// Get the object info for the object with the given identity.
         /// </summary>
         /// <param name="id">The identity of the object.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The object info.
-        ///
-        /// </returns>
-        /// <exception name="ObjectNotRegisteredException">Raised if the object isn't
-        /// registered with the registry.</exception>
+        ///  </returns>
+        /// <exception name="ObjectNotRegisteredException">Raised if the object isn't registered with the registry.</exception>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         ObjectInfo getObjectInfo(global::Ice.Identity id);
@@ -244,16 +206,12 @@ namespace IceGrid
         /// Get the node information for the node with the given name.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The node information.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be
-        /// reached.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         NodeInfo getNodeInfo(string name);
@@ -263,16 +221,12 @@ namespace IceGrid
         /// Get the load averages of the node.
         /// </summary>
         /// <param name="name">The node name.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The node load information.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
-        ///
-        /// </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be
-        /// reached.</exception>
+        ///  </exception>
+        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.</exception>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         LoadInfo getNodeLoad(string name);
@@ -280,20 +234,15 @@ namespace IceGrid
 
         /// <summary>
         /// Get the property value for the given property and adapter.
-        /// The
-        /// property is looked up in the server or service descriptor where
-        /// the adapter is defined.
-        ///
+        /// The property is looked up in the server or service
+        ///  descriptor where the adapter is defined.
         /// </summary>
-        /// <param name="adapterId">The adapter ID
-        ///
-        /// </param>
+        ///  <param name="adapterId">The adapter ID
+        ///  </param>
         /// <param name="name">The name of the property.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The property value.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="AdapterNotExistException">Raised if the adapter doesn't exist.</exception>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -303,12 +252,10 @@ namespace IceGrid
         /// <summary>
         /// Add a replica group filter.
         /// </summary>
-        /// <param name="id">The identifier of the filter. This identifier must
-        /// match the value of the "filter" attribute specified in the
-        /// replica group descriptor. To filter dynamically registered
-        /// replica groups, you should use the empty filter id.
-        ///
-        /// </param>
+        /// <param name="id">The identifier of the filter. This identifier must match the value of the "filter" attribute
+        ///  specified in the replica group descriptor. To filter dynamically registered replica groups, you should use the
+        ///  empty filter id.
+        ///  </param>
         /// <param name="filter">The filter implementation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -319,11 +266,9 @@ namespace IceGrid
         /// Remove a replica group filter.
         /// </summary>
         /// <param name="id">The identifier of the filter.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="filter">The filter implementation.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>True of the filter was removed, false otherwise.</returns>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -334,8 +279,7 @@ namespace IceGrid
         /// Add a type filter.
         /// </summary>
         /// <param name="type">The type to register this filter with.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="filter">The filter implementation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -346,11 +290,9 @@ namespace IceGrid
         /// Remove a type filter.
         /// </summary>
         /// <param name="type">The type to register this filter with.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="filter">The filter implementation.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>True of the filter was removed, false otherwise.</returns>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]

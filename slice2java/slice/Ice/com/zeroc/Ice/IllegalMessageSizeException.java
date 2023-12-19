@@ -16,8 +16,7 @@
 package com.zeroc.Ice;
 
 /**
- * This exception indicates that a message size is less
- * than the minimum required size.
+ * This exception indicates that a message size is less than the minimum required size.
  **/
 public class IllegalMessageSizeException extends ProtocolException
 {

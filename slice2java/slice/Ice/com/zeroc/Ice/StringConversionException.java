@@ -16,8 +16,7 @@
 package com.zeroc.Ice;
 
 /**
- * This exception is raised when a string conversion to or from UTF-8
- * fails during marshaling or unmarshaling.
+ * This exception is raised when a string conversion to or from UTF-8 fails during marshaling or unmarshaling.
  **/
 public class StringConversionException extends MarshalException
 {

@@ -26,8 +26,7 @@ public interface TopicManagerPrx extends com.zeroc.Ice.ObjectPrx
      * Create a new topic. The topic name must be unique.
      * @param name The name of the topic.
      * @return A proxy to the topic instance.
-     * @throws TopicExists Raised if a topic with the same name already
-     * exists.
+     * @throws TopicExists Raised if a topic with the same name already exists.
      **/
     default TopicPrx create(String name)
         throws TopicExists
@@ -40,8 +39,7 @@ public interface TopicManagerPrx extends com.zeroc.Ice.ObjectPrx
      * @param name The name of the topic.
      * @param context The Context map to send with the invocation.
      * @return A proxy to the topic instance.
-     * @throws TopicExists Raised if a topic with the same name already
-     * exists.
+     * @throws TopicExists Raised if a topic with the same name already exists.
      **/
     default TopicPrx create(String name, java.util.Map<String, String> context)
         throws TopicExists

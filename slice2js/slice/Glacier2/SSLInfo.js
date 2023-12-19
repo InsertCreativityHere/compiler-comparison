@@ -35,11 +35,8 @@ let Glacier2 = _ModuleRegistry.module("Glacier2");
 /* slice2js browser-bundle-skip-end */
 
 /**
- * Information taken from an SSL connection used for permissions
- * verification.
- *
- * @see PermissionsVerifier
- *
+ *  Information taken from an SSL connection used for permissions verification.
+ *  @see PermissionsVerifier
  **/
 Glacier2.SSLInfo = class
 {

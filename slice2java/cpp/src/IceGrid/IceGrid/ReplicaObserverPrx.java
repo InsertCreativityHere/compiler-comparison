@@ -70,8 +70,7 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Notification that a replica has been added. The node should
-     * establish a session with this new replica.
+     * Notification that a replica has been added. The node should establish a session with this new replica.
      **/
     default void replicaAdded(InternalRegistryPrx replica)
     {
@@ -79,8 +78,7 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Notification that a replica has been added. The node should
-     * establish a session with this new replica.
+     * Notification that a replica has been added. The node should establish a session with this new replica.
      * @param context The Context map to send with the invocation.
      **/
     default void replicaAdded(InternalRegistryPrx replica, java.util.Map<String, String> context)
@@ -89,8 +87,7 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Notification that a replica has been added. The node should
-     * establish a session with this new replica.
+     * Notification that a replica has been added. The node should establish a session with this new replica.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> replicaAddedAsync(InternalRegistryPrx replica)
@@ -99,8 +96,7 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Notification that a replica has been added. The node should
-     * establish a session with this new replica.
+     * Notification that a replica has been added. The node should establish a session with this new replica.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -126,8 +122,7 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Notification that a replica has been removed. The node should
-     * destroy the session to this replica.
+     * Notification that a replica has been removed. The node should destroy the session to this replica.
      **/
     default void replicaRemoved(InternalRegistryPrx replica)
     {
@@ -135,8 +130,7 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Notification that a replica has been removed. The node should
-     * destroy the session to this replica.
+     * Notification that a replica has been removed. The node should destroy the session to this replica.
      * @param context The Context map to send with the invocation.
      **/
     default void replicaRemoved(InternalRegistryPrx replica, java.util.Map<String, String> context)
@@ -145,8 +139,7 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Notification that a replica has been removed. The node should
-     * destroy the session to this replica.
+     * Notification that a replica has been removed. The node should destroy the session to this replica.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> replicaRemovedAsync(InternalRegistryPrx replica)
@@ -155,8 +148,7 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Notification that a replica has been removed. The node should
-     * destroy the session to this replica.
+     * Notification that a replica has been removed. The node should destroy the session to this replica.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/

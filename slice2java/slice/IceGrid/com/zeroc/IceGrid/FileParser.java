@@ -16,17 +16,15 @@
 package com.zeroc.IceGrid;
 
 /**
- * <code>icegridadmin</code> provides a {@link FileParser}
- * object to transform XML files into {@link ApplicationDescriptor}
- * objects.
+ * <code>icegridadmin</code> provides a {@link FileParser} object to transform XML files into
+ * {@link ApplicationDescriptor} objects.
  **/
 public interface FileParser extends com.zeroc.Ice.Object
 {
     /**
      * Parse a file.
      * @param xmlFile Full pathname to the file.
-     * @param adminProxy An Admin proxy, used only to retrieve default
-     * templates when needed. May be null.
+     * @param adminProxy An Admin proxy, used only to retrieve default templates when needed. May be null.
      * @param current The Current object for the invocation.
      * @return The application descriptor.
      * @throws ParseException Raised if an error occurred during parsing.

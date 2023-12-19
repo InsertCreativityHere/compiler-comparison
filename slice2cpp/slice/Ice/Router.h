@@ -73,9 +73,8 @@ namespace Ice
 {
 
 /**
- * The Ice router interface. Routers can be set either globally with
- * {@link Communicator#setDefaultRouter}, or with <code>ice_router</code> on specific
- * proxies.
+ * The Ice router interface. Routers can be set either globally with {@link Communicator#setDefaultRouter}, or with
+ * <code>ice_router</code> on specific proxies.
  * \headerfile Ice/Ice.h
  */
 class ICE_API Router : public virtual Object
@@ -124,16 +123,12 @@ public:
     };
 
     /**
-     * Get the router's client proxy, i.e., the proxy to use for
-     * forwarding requests from the client to the router.
-     *
-     * If a null proxy is returned, the client will forward requests
-     * to the router's endpoints.
-     * @param hasRoutingTable Indicates whether or not the router supports a routing
-     * table. If it is supported, the Ice runtime will call addProxies to populate the
-     * routing table. This out parameter is only supported starting with Ice 3.7.
-     * The Ice runtime assumes the router has a routing table if the optional is not
-     * set.
+     * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+     * If a null proxy is returned, the client will forward requests to the router's endpoints.
+     * @param hasRoutingTable Indicates whether or not the router supports a routing table. If it is supported, the
+     * Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
+     * with Ice 3.7.
+     * The Ice runtime assumes the router has a routing table if the <code>hasRoutingTable</code> is not set.
      * @param current The Current object for the invocation.
      * @return The router's client proxy.
      */
@@ -143,8 +138,7 @@ public:
     /// \endcond
 
     /**
-     * Get the router's server proxy, i.e., the proxy to use for
-     * forwarding requests from the server to the router.
+     * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
      * @param current The Current object for the invocation.
      * @return The router's server proxy.
      */
@@ -170,11 +164,9 @@ public:
 };
 
 /**
- * This interface should be implemented by services implementing the
- * Ice::Router interface. It should be advertised through an Ice
- * object with the identity `Ice/RouterFinder'. This allows clients to
- * retrieve the router proxy with just the endpoint information of the
- * service.
+ * This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
+ * through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
+ * just the endpoint information of the service.
  * \headerfile Ice/Ice.h
  */
 class ICE_API RouterFinder : public virtual Object
@@ -212,8 +204,8 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Get the router proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param current The Current object for the invocation.
      * @return The router proxy.
      */
@@ -233,9 +225,8 @@ namespace Ice
 {
 
 /**
- * The Ice router interface. Routers can be set either globally with
- * {@link Communicator#setDefaultRouter}, or with <code>ice_router</code> on specific
- * proxies.
+ * The Ice router interface. Routers can be set either globally with {@link Communicator#setDefaultRouter}, or with
+ * <code>ice_router</code> on specific proxies.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) RouterPrx : public virtual Proxy<RouterPrx, ObjectPrx>
@@ -243,16 +234,12 @@ class ICE_CLASS(ICE_API) RouterPrx : public virtual Proxy<RouterPrx, ObjectPrx>
 public:
 
     /**
-     * Get the router's client proxy, i.e., the proxy to use for
-     * forwarding requests from the client to the router.
-     *
-     * If a null proxy is returned, the client will forward requests
-     * to the router's endpoints.
-     * @param hasRoutingTable Indicates whether or not the router supports a routing
-     * table. If it is supported, the Ice runtime will call addProxies to populate the
-     * routing table. This out parameter is only supported starting with Ice 3.7.
-     * The Ice runtime assumes the router has a routing table if the optional is not
-     * set.
+     * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+     * If a null proxy is returned, the client will forward requests to the router's endpoints.
+     * @param hasRoutingTable Indicates whether or not the router supports a routing table. If it is supported, the
+     * Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
+     * with Ice 3.7.
+     * The Ice runtime assumes the router has a routing table if the <code>hasRoutingTable</code> is not set.
      * @param context The Context map to send with the invocation.
      * @return The router's client proxy.
      */
@@ -264,11 +251,8 @@ public:
     }
 
     /**
-     * Get the router's client proxy, i.e., the proxy to use for
-     * forwarding requests from the client to the router.
-     *
-     * If a null proxy is returned, the client will forward requests
-     * to the router's endpoints.
+     * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+     * If a null proxy is returned, the client will forward requests to the router's endpoints.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -280,11 +264,8 @@ public:
     }
 
     /**
-     * Get the router's client proxy, i.e., the proxy to use for
-     * forwarding requests from the client to the router.
-     *
-     * If a null proxy is returned, the client will forward requests
-     * to the router's endpoints.
+     * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+     * If a null proxy is returned, the client will forward requests to the router's endpoints.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -309,8 +290,7 @@ public:
     /// \endcond
 
     /**
-     * Get the router's server proxy, i.e., the proxy to use for
-     * forwarding requests from the server to the router.
+     * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
      * @param context The Context map to send with the invocation.
      * @return The router's server proxy.
      */
@@ -320,8 +300,7 @@ public:
     }
 
     /**
-     * Get the router's server proxy, i.e., the proxy to use for
-     * forwarding requests from the server to the router.
+     * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -333,8 +312,7 @@ public:
     }
 
     /**
-     * Get the router's server proxy, i.e., the proxy to use for
-     * forwarding requests from the server to the router.
+     * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -418,11 +396,9 @@ protected:
 };
 
 /**
- * This interface should be implemented by services implementing the
- * Ice::Router interface. It should be advertised through an Ice
- * object with the identity `Ice/RouterFinder'. This allows clients to
- * retrieve the router proxy with just the endpoint information of the
- * service.
+ * This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
+ * through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
+ * just the endpoint information of the service.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) RouterFinderPrx : public virtual Proxy<RouterFinderPrx, ObjectPrx>
@@ -430,8 +406,8 @@ class ICE_CLASS(ICE_API) RouterFinderPrx : public virtual Proxy<RouterFinderPrx,
 public:
 
     /**
-     * Get the router proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param context The Context map to send with the invocation.
      * @return The router proxy.
      */
@@ -441,8 +417,8 @@ public:
     }
 
     /**
-     * Get the router proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -454,8 +430,8 @@ public:
     }
 
     /**
-     * Get the router proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -612,16 +588,12 @@ class ICE_CLASS(ICE_API) Router : public virtual ::Ice::Proxy<Router, ::IceProxy
 public:
 
     /**
-     * Get the router's client proxy, i.e., the proxy to use for
-     * forwarding requests from the client to the router.
-     *
-     * If a null proxy is returned, the client will forward requests
-     * to the router's endpoints.
-     * @param hasRoutingTable Indicates whether or not the router supports a routing
-     * table. If it is supported, the Ice runtime will call addProxies to populate the
-     * routing table. This out parameter is only supported starting with Ice 3.7.
-     * The Ice runtime assumes the router has a routing table if the optional is not
-     * set.
+     * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+     * If a null proxy is returned, the client will forward requests to the router's endpoints.
+     * @param hasRoutingTable Indicates whether or not the router supports a routing table. If it is supported, the
+     * Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
+     * with Ice 3.7.
+     * The Ice runtime assumes the router has a routing table if the <code>hasRoutingTable</code> is not set.
      * @param context The Context map to send with the invocation.
      * @return The router's client proxy.
      */
@@ -631,11 +603,8 @@ public:
     }
 
     /**
-     * Get the router's client proxy, i.e., the proxy to use for
-     * forwarding requests from the client to the router.
-     *
-     * If a null proxy is returned, the client will forward requests
-     * to the router's endpoints.
+     * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+     * If a null proxy is returned, the client will forward requests to the router's endpoints.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -645,11 +614,8 @@ public:
     }
 
     /**
-     * Get the router's client proxy, i.e., the proxy to use for
-     * forwarding requests from the client to the router.
-     *
-     * If a null proxy is returned, the client will forward requests
-     * to the router's endpoints.
+     * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+     * If a null proxy is returned, the client will forward requests to the router's endpoints.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -660,11 +626,8 @@ public:
     }
 
     /**
-     * Get the router's client proxy, i.e., the proxy to use for
-     * forwarding requests from the client to the router.
-     *
-     * If a null proxy is returned, the client will forward requests
-     * to the router's endpoints.
+     * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+     * If a null proxy is returned, the client will forward requests to the router's endpoints.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -676,11 +639,8 @@ public:
     }
 
     /**
-     * Get the router's client proxy, i.e., the proxy to use for
-     * forwarding requests from the client to the router.
-     *
-     * If a null proxy is returned, the client will forward requests
-     * to the router's endpoints.
+     * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+     * If a null proxy is returned, the client will forward requests to the router's endpoints.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -691,11 +651,8 @@ public:
     }
 
     /**
-     * Get the router's client proxy, i.e., the proxy to use for
-     * forwarding requests from the client to the router.
-     *
-     * If a null proxy is returned, the client will forward requests
-     * to the router's endpoints.
+     * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+     * If a null proxy is returned, the client will forward requests to the router's endpoints.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -708,11 +665,10 @@ public:
 
     /**
      * Completes an invocation of begin_getClientProxy.
-     * @param hasRoutingTable Indicates whether or not the router supports a routing
-     * table. If it is supported, the Ice runtime will call addProxies to populate the
-     * routing table. This out parameter is only supported starting with Ice 3.7.
-     * The Ice runtime assumes the router has a routing table if the optional is not
-     * set.
+     * @param hasRoutingTable Indicates whether or not the router supports a routing table. If it is supported, the
+     * Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
+     * with Ice 3.7.
+     * The Ice runtime assumes the router has a routing table if the <code>hasRoutingTable</code> is not set.
      * @param result The asynchronous result object for the invocation.
      * @return The router's client proxy.
      */
@@ -729,8 +685,7 @@ private:
 public:
 
     /**
-     * Get the router's server proxy, i.e., the proxy to use for
-     * forwarding requests from the server to the router.
+     * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
      * @param context The Context map to send with the invocation.
      * @return The router's server proxy.
      */
@@ -740,8 +695,7 @@ public:
     }
 
     /**
-     * Get the router's server proxy, i.e., the proxy to use for
-     * forwarding requests from the server to the router.
+     * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -751,8 +705,7 @@ public:
     }
 
     /**
-     * Get the router's server proxy, i.e., the proxy to use for
-     * forwarding requests from the server to the router.
+     * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -763,8 +716,7 @@ public:
     }
 
     /**
-     * Get the router's server proxy, i.e., the proxy to use for
-     * forwarding requests from the server to the router.
+     * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -776,8 +728,7 @@ public:
     }
 
     /**
-     * Get the router's server proxy, i.e., the proxy to use for
-     * forwarding requests from the server to the router.
+     * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -788,8 +739,7 @@ public:
     }
 
     /**
-     * Get the router's server proxy, i.e., the proxy to use for
-     * forwarding requests from the server to the router.
+     * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -916,8 +866,8 @@ class ICE_CLASS(ICE_API) RouterFinder : public virtual ::Ice::Proxy<RouterFinder
 public:
 
     /**
-     * Get the router proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param context The Context map to send with the invocation.
      * @return The router proxy.
      */
@@ -927,8 +877,8 @@ public:
     }
 
     /**
-     * Get the router proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -938,8 +888,8 @@ public:
     }
 
     /**
-     * Get the router proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -950,8 +900,8 @@ public:
     }
 
     /**
-     * Get the router proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -963,8 +913,8 @@ public:
     }
 
     /**
-     * Get the router proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -975,8 +925,8 @@ public:
     }
 
     /**
-     * Get the router proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -1021,9 +971,8 @@ namespace Ice
 {
 
 /**
- * The Ice router interface. Routers can be set either globally with
- * {@link Communicator#setDefaultRouter}, or with <code>ice_router</code> on specific
- * proxies.
+ * The Ice router interface. Routers can be set either globally with {@link Communicator#setDefaultRouter}, or with
+ * <code>ice_router</code> on specific proxies.
  * \headerfile Ice/Ice.h
  */
 class ICE_API Router : public virtual Object
@@ -1070,16 +1019,12 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Get the router's client proxy, i.e., the proxy to use for
-     * forwarding requests from the client to the router.
-     *
-     * If a null proxy is returned, the client will forward requests
-     * to the router's endpoints.
-     * @param hasRoutingTable Indicates whether or not the router supports a routing
-     * table. If it is supported, the Ice runtime will call addProxies to populate the
-     * routing table. This out parameter is only supported starting with Ice 3.7.
-     * The Ice runtime assumes the router has a routing table if the optional is not
-     * set.
+     * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+     * If a null proxy is returned, the client will forward requests to the router's endpoints.
+     * @param hasRoutingTable Indicates whether or not the router supports a routing table. If it is supported, the
+     * Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
+     * with Ice 3.7.
+     * The Ice runtime assumes the router has a routing table if the <code>hasRoutingTable</code> is not set.
      * @param current The Current object for the invocation.
      * @return The router's client proxy.
      */
@@ -1089,8 +1034,7 @@ public:
     /// \endcond
 
     /**
-     * Get the router's server proxy, i.e., the proxy to use for
-     * forwarding requests from the server to the router.
+     * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
      * @param current The Current object for the invocation.
      * @return The router's server proxy.
      */
@@ -1135,11 +1079,9 @@ inline bool operator<(const Router& lhs, const Router& rhs)
 /// \endcond
 
 /**
- * This interface should be implemented by services implementing the
- * Ice::Router interface. It should be advertised through an Ice
- * object with the identity `Ice/RouterFinder'. This allows clients to
- * retrieve the router proxy with just the endpoint information of the
- * service.
+ * This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
+ * through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
+ * just the endpoint information of the service.
  * \headerfile Ice/Ice.h
  */
 class ICE_API RouterFinder : public virtual Object
@@ -1186,8 +1128,8 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Get the router proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param current The Current object for the invocation.
      * @return The router proxy.
      */

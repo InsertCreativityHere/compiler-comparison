@@ -86,9 +86,8 @@ public interface ServerPrx extends FileReaderPrx
     };
 
     /**
-     * Stop the server. This methods returns only when the server is
-     * deactivated. If the server doesn't stop after a configurable
-     * amount of time, it will be killed.
+     * Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+     * configurable amount of time, it will be killed.
      **/
     default void stop()
         throws com.zeroc.IceGrid.ServerStopException
@@ -97,9 +96,8 @@ public interface ServerPrx extends FileReaderPrx
     }
 
     /**
-     * Stop the server. This methods returns only when the server is
-     * deactivated. If the server doesn't stop after a configurable
-     * amount of time, it will be killed.
+     * Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+     * configurable amount of time, it will be killed.
      * @param context The Context map to send with the invocation.
      **/
     default void stop(java.util.Map<String, String> context)
@@ -120,9 +118,8 @@ public interface ServerPrx extends FileReaderPrx
     }
 
     /**
-     * Stop the server. This methods returns only when the server is
-     * deactivated. If the server doesn't stop after a configurable
-     * amount of time, it will be killed.
+     * Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+     * configurable amount of time, it will be killed.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> stopAsync()
@@ -131,9 +128,8 @@ public interface ServerPrx extends FileReaderPrx
     }
 
     /**
-     * Stop the server. This methods returns only when the server is
-     * deactivated. If the server doesn't stop after a configurable
-     * amount of time, it will be killed.
+     * Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+     * configurable amount of time, it will be killed.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -537,10 +533,8 @@ public interface ServerPrx extends FileReaderPrx
     }
 
     /**
-     * Get the server pid. Note that the value returned by this method
-     * is system dependant. On Unix operating systems, it's the pid
-     * value returned by the fork() system call and converted to an
-     * integer.
+     * Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+     * it's the pid value returned by the fork() system call and converted to an integer.
      **/
     default int getPid()
     {
@@ -548,10 +542,8 @@ public interface ServerPrx extends FileReaderPrx
     }
 
     /**
-     * Get the server pid. Note that the value returned by this method
-     * is system dependant. On Unix operating systems, it's the pid
-     * value returned by the fork() system call and converted to an
-     * integer.
+     * Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+     * it's the pid value returned by the fork() system call and converted to an integer.
      * @param context The Context map to send with the invocation.
      **/
     default int getPid(java.util.Map<String, String> context)
@@ -560,10 +552,8 @@ public interface ServerPrx extends FileReaderPrx
     }
 
     /**
-     * Get the server pid. Note that the value returned by this method
-     * is system dependant. On Unix operating systems, it's the pid
-     * value returned by the fork() system call and converted to an
-     * integer.
+     * Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+     * it's the pid value returned by the fork() system call and converted to an integer.
      * @return A future that will be completed with the result.
      **/
     default java.util.concurrent.CompletableFuture<java.lang.Integer> getPidAsync()
@@ -572,10 +562,8 @@ public interface ServerPrx extends FileReaderPrx
     }
 
     /**
-     * Get the server pid. Note that the value returned by this method
-     * is system dependant. On Unix operating systems, it's the pid
-     * value returned by the fork() system call and converted to an
-     * integer.
+     * Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+     * it's the pid value returned by the fork() system call and converted to an integer.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed with the result.
      **/

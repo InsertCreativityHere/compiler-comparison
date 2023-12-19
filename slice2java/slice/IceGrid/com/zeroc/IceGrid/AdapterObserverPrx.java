@@ -16,16 +16,14 @@
 package com.zeroc.IceGrid;
 
 /**
- * This interface allows applications to monitor the state of object
- * adapters that are registered with IceGrid.
+ * This interface allows applications to monitor the state of object adapters that are registered with IceGrid.
  **/
 public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
-     * <code>adapterInit</code> is called after registration of
-     * an observer to indicate the state of the registry.
-     * @param adpts The adapters that were dynamically registered
-     * with the registry (not through the deployment mechanism).
+     * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
+     * @param adpts The adapters that were dynamically registered with the registry (not through the deployment
+     * mechanism).
      **/
     default void adapterInit(AdapterInfo[] adpts)
     {
@@ -33,10 +31,9 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * <code>adapterInit</code> is called after registration of
-     * an observer to indicate the state of the registry.
-     * @param adpts The adapters that were dynamically registered
-     * with the registry (not through the deployment mechanism).
+     * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
+     * @param adpts The adapters that were dynamically registered with the registry (not through the deployment
+     * mechanism).
      * @param context The Context map to send with the invocation.
      **/
     default void adapterInit(AdapterInfo[] adpts, java.util.Map<String, String> context)
@@ -45,10 +42,9 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * <code>adapterInit</code> is called after registration of
-     * an observer to indicate the state of the registry.
-     * @param adpts The adapters that were dynamically registered
-     * with the registry (not through the deployment mechanism).
+     * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
+     * @param adpts The adapters that were dynamically registered with the registry (not through the deployment
+     * mechanism).
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> adapterInitAsync(AdapterInfo[] adpts)
@@ -57,10 +53,9 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * <code>adapterInit</code> is called after registration of
-     * an observer to indicate the state of the registry.
-     * @param adpts The adapters that were dynamically registered
-     * with the registry (not through the deployment mechanism).
+     * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
+     * @param adpts The adapters that were dynamically registered with the registry (not through the deployment
+     * mechanism).
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -86,8 +81,8 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>adapterAdded</code> operation is called to notify an observer when
-     * a dynamically-registered adapter was added.
+     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
+     * was added.
      * @param info The details of the new adapter.
      **/
     default void adapterAdded(AdapterInfo info)
@@ -96,8 +91,8 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>adapterAdded</code> operation is called to notify an observer when
-     * a dynamically-registered adapter was added.
+     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
+     * was added.
      * @param info The details of the new adapter.
      * @param context The Context map to send with the invocation.
      **/
@@ -107,8 +102,8 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>adapterAdded</code> operation is called to notify an observer when
-     * a dynamically-registered adapter was added.
+     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
+     * was added.
      * @param info The details of the new adapter.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -118,8 +113,8 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>adapterAdded</code> operation is called to notify an observer when
-     * a dynamically-registered adapter was added.
+     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
+     * was added.
      * @param info The details of the new adapter.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -146,8 +141,7 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The adapterUpdated operation is called to notify an observer when
-     * a dynamically-registered adapter was updated.
+     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
      * @param info The details of the updated adapter.
      **/
     default void adapterUpdated(AdapterInfo info)
@@ -156,8 +150,7 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The adapterUpdated operation is called to notify an observer when
-     * a dynamically-registered adapter was updated.
+     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
      * @param info The details of the updated adapter.
      * @param context The Context map to send with the invocation.
      **/
@@ -167,8 +160,7 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The adapterUpdated operation is called to notify an observer when
-     * a dynamically-registered adapter was updated.
+     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
      * @param info The details of the updated adapter.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -178,8 +170,7 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The adapterUpdated operation is called to notify an observer when
-     * a dynamically-registered adapter was updated.
+     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
      * @param info The details of the updated adapter.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -206,8 +197,7 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The adapterRemoved operation is called to notify an observer when
-     * a dynamically-registered adapter was removed.
+     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
      * @param id The ID of the removed adapter.
      **/
     default void adapterRemoved(String id)
@@ -216,8 +206,7 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The adapterRemoved operation is called to notify an observer when
-     * a dynamically-registered adapter was removed.
+     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
      * @param id The ID of the removed adapter.
      * @param context The Context map to send with the invocation.
      **/
@@ -227,8 +216,7 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The adapterRemoved operation is called to notify an observer when
-     * a dynamically-registered adapter was removed.
+     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
      * @param id The ID of the removed adapter.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -238,8 +226,7 @@ public interface AdapterObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The adapterRemoved operation is called to notify an observer when
-     * a dynamically-registered adapter was removed.
+     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
      * @param id The ID of the removed adapter.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.

@@ -16,39 +16,35 @@
 package com.zeroc.IceGrid;
 
 /**
- * The node observer interface. Observers should implement this
- * interface to receive information about the state of the IceGrid
- * nodes.
+ * The node observer interface. Observers should implement this interface to receive information about the state of
+ * the IceGrid nodes.
  **/
 public interface NodeObserver extends com.zeroc.Ice.Object
 {
     /**
-     * The <code>nodeInit</code> operation indicates the current state
-     * of nodes. It is called after the registration of an observer.
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
+     * of an observer.
      * @param nodes The current state of the nodes.
      * @param current The Current object for the invocation.
      **/
     void nodeInit(NodeDynamicInfo[] nodes, com.zeroc.Ice.Current current);
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param current The Current object for the invocation.
      **/
     void nodeUp(NodeDynamicInfo node, com.zeroc.Ice.Current current);
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param current The Current object for the invocation.
      **/
     void nodeDown(String name, com.zeroc.Ice.Current current);
 
     /**
-     * The <code>updateServer</code> operation is called to notify an observer that
-     * the state of a server changed.
+     * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
      * @param node The node hosting the server.
      * @param updatedInfo The new server state.
      * @param current The Current object for the invocation.
@@ -56,8 +52,7 @@ public interface NodeObserver extends com.zeroc.Ice.Object
     void updateServer(String node, ServerDynamicInfo updatedInfo, com.zeroc.Ice.Current current);
 
     /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that
-     * the state of an adapter changed.
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
      * @param node The node hosting the adapter.
      * @param updatedInfo The new adapter state.
      * @param current The Current object for the invocation.

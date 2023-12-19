@@ -29,12 +29,12 @@ if 'FileInfo' not in _M_IcePatch2.__dict__:
     _M_IcePatch2.FileInfo = Ice.createTempClass()
     class FileInfo(object):
         """
-        Basic information about a single file.
+         Basic information about a single file.
         Members:
-        path -- The pathname.
-        checksum -- The SHA-1 checksum of the file.
-        size -- The size of the compressed file in number of bytes.
-        executable -- The executable flag.
+        path --  The pathname.
+        checksum --  The SHA-1 checksum of the file.
+        size --  The size of the compressed file in number of bytes.
+        executable --  The executable flag.
         """
         def __init__(self, path='', checksum=None, size=0, executable=False):
             self.path = path
@@ -156,12 +156,12 @@ if 'LargeFileInfo' not in _M_IcePatch2.__dict__:
     _M_IcePatch2.LargeFileInfo = Ice.createTempClass()
     class LargeFileInfo(object):
         """
-        Basic information about a single file.
+         Basic information about a single file.
         Members:
-        path -- The pathname.
-        checksum -- The SHA-1 checksum of the file.
-        size -- The size of the compressed file in number of bytes.
-        executable -- The executable flag.
+        path --  The pathname.
+        checksum --  The SHA-1 checksum of the file.
+        size --  The size of the compressed file in number of bytes.
+        executable --  The executable flag.
         """
         def __init__(self, path='', checksum=None, size=0, executable=False):
             self.path = path

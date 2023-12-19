@@ -1,7 +1,6 @@
 % PluginInitializationException   Summary of PluginInitializationException
 %
-% This exception indicates that a failure occurred while initializing
-% a plug-in.
+% This exception indicates that a failure occurred while initializing a plug-in.
 %
 % PluginInitializationException Properties:
 %   reason - The reason for the failure.

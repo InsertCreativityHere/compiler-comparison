@@ -16,13 +16,10 @@
 package com.zeroc.IceLocatorDiscovery;
 
 /**
- * The Ice lookup interface is implemented by Ice locator
- * implementations and can be used by clients to find available Ice
- * locators on the network.
- *
- * Ice locator implementations provide a well-known `Ice/LocatorLookup'
- * object accessible through UDP multicast. Clients typically make a
- * multicast findLocator request to find the locator proxy.
+ * The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
+ * available Ice locators on the network.
+ * Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
+ * Clients typically make a multicast findLocator request to find the locator proxy.
  *
  * @see LookupReply
  **/
@@ -30,9 +27,8 @@ public interface Lookup extends com.zeroc.Ice.Object
 {
     /**
      * Find a locator proxy with the given instance name.
-     * @param instanceName Restrict the search to Ice registries
-     * configured with the given instance name. If empty, all the
-     * available registries will reply.
+     * @param instanceName Restrict the search to Ice registries configured with the given instance name. If
+     * empty, all the available registries will reply.
      * @param reply The reply object to use to send the reply.
      * @param current The Current object for the invocation.
      **/

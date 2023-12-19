@@ -16,18 +16,14 @@
 package com.zeroc.Ice;
 
 /**
- * The Ice router interface. Routers can be set either globally with
- * {@link Communicator#setDefaultRouter}, or with <code>ice_router</code> on specific
- * proxies.
+ * The Ice router interface. Routers can be set either globally with {@link Communicator#setDefaultRouter}, or with
+ * <code>ice_router</code> on specific proxies.
  **/
 public interface RouterPrx extends ObjectPrx
 {
     /**
-     * Get the router's client proxy, i.e., the proxy to use for
-     * forwarding requests from the client to the router.
-     *
-     * If a null proxy is returned, the client will forward requests
-     * to the router's endpoints.
+     * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+     * If a null proxy is returned, the client will forward requests to the router's endpoints.
      * @return An instance of Router.GetClientProxyResult.
      **/
     default Router.GetClientProxyResult getClientProxy()
@@ -36,11 +32,8 @@ public interface RouterPrx extends ObjectPrx
     }
 
     /**
-     * Get the router's client proxy, i.e., the proxy to use for
-     * forwarding requests from the client to the router.
-     *
-     * If a null proxy is returned, the client will forward requests
-     * to the router's endpoints.
+     * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+     * If a null proxy is returned, the client will forward requests to the router's endpoints.
      * @param context The Context map to send with the invocation.
      * @return An instance of Router.GetClientProxyResult.
      **/
@@ -50,11 +43,8 @@ public interface RouterPrx extends ObjectPrx
     }
 
     /**
-     * Get the router's client proxy, i.e., the proxy to use for
-     * forwarding requests from the client to the router.
-     *
-     * If a null proxy is returned, the client will forward requests
-     * to the router's endpoints.
+     * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+     * If a null proxy is returned, the client will forward requests to the router's endpoints.
      * @return A future that will be completed with an instance of Router.GetClientProxyResult.
      **/
     default java.util.concurrent.CompletableFuture<Router.GetClientProxyResult> getClientProxyAsync()
@@ -63,11 +53,8 @@ public interface RouterPrx extends ObjectPrx
     }
 
     /**
-     * Get the router's client proxy, i.e., the proxy to use for
-     * forwarding requests from the client to the router.
-     *
-     * If a null proxy is returned, the client will forward requests
-     * to the router's endpoints.
+     * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+     * If a null proxy is returned, the client will forward requests to the router's endpoints.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed with an instance of Router.GetClientProxyResult.
      **/
@@ -94,8 +81,7 @@ public interface RouterPrx extends ObjectPrx
     }
 
     /**
-     * Get the router's server proxy, i.e., the proxy to use for
-     * forwarding requests from the server to the router.
+     * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
      * @return The router's server proxy.
      **/
     default ObjectPrx getServerProxy()
@@ -104,8 +90,7 @@ public interface RouterPrx extends ObjectPrx
     }
 
     /**
-     * Get the router's server proxy, i.e., the proxy to use for
-     * forwarding requests from the server to the router.
+     * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
      * @param context The Context map to send with the invocation.
      * @return The router's server proxy.
      **/
@@ -115,8 +100,7 @@ public interface RouterPrx extends ObjectPrx
     }
 
     /**
-     * Get the router's server proxy, i.e., the proxy to use for
-     * forwarding requests from the server to the router.
+     * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
      * @return The router's server proxy.
      **/
     default java.util.concurrent.CompletableFuture<com.zeroc.Ice.ObjectPrx> getServerProxyAsync()
@@ -125,8 +109,7 @@ public interface RouterPrx extends ObjectPrx
     }
 
     /**
-     * Get the router's server proxy, i.e., the proxy to use for
-     * forwarding requests from the server to the router.
+     * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
      * @param context The Context map to send with the invocation.
      * @return The router's server proxy.
      **/

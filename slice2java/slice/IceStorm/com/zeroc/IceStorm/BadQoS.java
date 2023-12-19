@@ -16,8 +16,7 @@
 package com.zeroc.IceStorm;
 
 /**
- * This exception indicates that a subscription failed due to an
- * invalid QoS.
+ * This exception indicates that a subscription failed due to an invalid QoS.
  **/
 public class BadQoS extends com.zeroc.Ice.UserException
 {

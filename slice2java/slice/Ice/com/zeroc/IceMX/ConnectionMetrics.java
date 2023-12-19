@@ -16,8 +16,7 @@
 package com.zeroc.IceMX;
 
 /**
- * Provides information on the data sent and received over Ice
- * connections.
+ * Provides information on the data sent and received over Ice connections.
  **/
 public class ConnectionMetrics extends Metrics
 {

@@ -30,9 +30,7 @@ const Slice = Ice.Slice;
 /* slice2js browser-bundle-skip-end */
 
 /**
- * Determines the order in which the Ice run time uses the endpoints
- * in a proxy when establishing a connection.
- *
+ *  Determines the order in which the Ice run time uses the endpoints in a proxy when establishing a connection.
  **/
 Ice.EndpointSelectionType = Slice.defineEnum([
     ['Random', 0], ['Ordered', 1]]);

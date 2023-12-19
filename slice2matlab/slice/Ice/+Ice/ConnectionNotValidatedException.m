@@ -1,7 +1,6 @@
 % ConnectionNotValidatedException   Summary of ConnectionNotValidatedException
 %
-% This exception is raised if a message is received over a connection
-% that is not yet validated.
+% This exception is raised if a message is received over a connection that is not yet validated.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from LocalException.ice by slice2matlab version 3.7.10

@@ -1,7 +1,6 @@
 % LinkExists   Summary of LinkExists
 %
-% This exception indicates that an attempt was made to create a link
-% that already exists.
+% This exception indicates that an attempt was made to create a link that already exists.
 %
 % LinkExists Properties:
 %   name - The name of the linked topic.

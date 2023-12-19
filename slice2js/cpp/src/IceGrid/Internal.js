@@ -222,8 +222,7 @@
     Slice.defineValue(IceGrid.InternalServerDescriptor, iceC_IceGrid_InternalServerDescriptor_ids[1], false);
 
     /**
-     * This exception is raised if an adapter is active.
-     *
+     *  This exception is raised if an adapter is active.
      **/
     IceGrid.AdapterActiveException = class extends Ice.UserException
     {
@@ -309,9 +308,7 @@
     });
 
     /**
-     * This exception is raised if an adapter with the same name already
-     * exists.
-     *
+     *  This exception is raised if an adapter with the same name already exists.
      **/
     IceGrid.AdapterExistsException = class extends Ice.UserException
     {
@@ -524,9 +521,7 @@
     Slice.defineSequence(IceGrid, "NodePrxSeqHelper", "IceGrid.NodePrx", false);
 
     /**
-     * This exception is raised if a node is already registered and
-     * active.
-     *
+     *  This exception is raised if a node is already registered and active.
      **/
     IceGrid.NodeActiveException = class extends Ice.UserException
     {
@@ -577,9 +572,7 @@
     });
 
     /**
-     * This exception is raised if a replica is already registered and
-     * active.
-     *
+     *  This exception is raised if a replica is already registered and active.
      **/
     IceGrid.ReplicaActiveException = class extends Ice.UserException
     {
@@ -681,8 +674,7 @@
     ];
 
     /**
-     * Information about an IceGrid node.
-     *
+     *  Information about an IceGrid node.
      **/
     IceGrid.InternalNodeInfo = class extends Ice.Value
     {
@@ -732,8 +724,7 @@
     ];
 
     /**
-     * Information about an IceGrid registry replica.
-     *
+     *  Information about an IceGrid registry replica.
      **/
     IceGrid.InternalReplicaInfo = class extends Ice.Value
     {

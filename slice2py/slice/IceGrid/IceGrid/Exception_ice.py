@@ -30,9 +30,9 @@ if 'ApplicationNotExistException' not in _M_IceGrid.__dict__:
     _M_IceGrid.ApplicationNotExistException = Ice.createTempClass()
     class ApplicationNotExistException(Ice.UserException):
         """
-        This exception is raised if an application does not exist.
+         This exception is raised if an application does not exist.
         Members:
-        name -- The name of the application.
+        name --  The name of the application.
         """
         def __init__(self, name=''):
             self.name = name
@@ -54,9 +54,9 @@ if 'ServerNotExistException' not in _M_IceGrid.__dict__:
     _M_IceGrid.ServerNotExistException = Ice.createTempClass()
     class ServerNotExistException(Ice.UserException):
         """
-        This exception is raised if a server does not exist.
+         This exception is raised if a server does not exist.
         Members:
-        id -- The identifier of the server.
+        id --  The identifier of the server.
         """
         def __init__(self, id=''):
             self.id = id
@@ -78,10 +78,10 @@ if 'ServerStartException' not in _M_IceGrid.__dict__:
     _M_IceGrid.ServerStartException = Ice.createTempClass()
     class ServerStartException(Ice.UserException):
         """
-        This exception is raised if a server failed to start.
+         This exception is raised if a server failed to start.
         Members:
-        id -- The identifier of the server.
-        reason -- The reason for the failure.
+        id --  The identifier of the server.
+        reason --  The reason for the failure.
         """
         def __init__(self, id='', reason=''):
             self.id = id
@@ -107,10 +107,10 @@ if 'ServerStopException' not in _M_IceGrid.__dict__:
     _M_IceGrid.ServerStopException = Ice.createTempClass()
     class ServerStopException(Ice.UserException):
         """
-        This exception is raised if a server failed to stop.
+         This exception is raised if a server failed to stop.
         Members:
-        id -- The identifier of the server.
-        reason -- The reason for the failure.
+        id --  The identifier of the server.
+        reason --  The reason for the failure.
         """
         def __init__(self, id='', reason=''):
             self.id = id
@@ -136,9 +136,9 @@ if 'AdapterNotExistException' not in _M_IceGrid.__dict__:
     _M_IceGrid.AdapterNotExistException = Ice.createTempClass()
     class AdapterNotExistException(Ice.UserException):
         """
-        This exception is raised if an adapter does not exist.
+         This exception is raised if an adapter does not exist.
         Members:
-        id -- The id of the object adapter.
+        id --  The id of the object adapter.
         """
         def __init__(self, id=''):
             self.id = id
@@ -160,9 +160,9 @@ if 'ObjectExistsException' not in _M_IceGrid.__dict__:
     _M_IceGrid.ObjectExistsException = Ice.createTempClass()
     class ObjectExistsException(Ice.UserException):
         """
-        This exception is raised if an object already exists.
+         This exception is raised if an object already exists.
         Members:
-        id -- The identity of the object.
+        id --  The identity of the object.
         """
         def __init__(self, id=Ice._struct_marker):
             if id is Ice._struct_marker:
@@ -187,9 +187,9 @@ if 'ObjectNotRegisteredException' not in _M_IceGrid.__dict__:
     _M_IceGrid.ObjectNotRegisteredException = Ice.createTempClass()
     class ObjectNotRegisteredException(Ice.UserException):
         """
-        This exception is raised if an object is not registered.
+         This exception is raised if an object is not registered.
         Members:
-        id -- The identity of the object.
+        id --  The identity of the object.
         """
         def __init__(self, id=Ice._struct_marker):
             if id is Ice._struct_marker:
@@ -214,9 +214,9 @@ if 'NodeNotExistException' not in _M_IceGrid.__dict__:
     _M_IceGrid.NodeNotExistException = Ice.createTempClass()
     class NodeNotExistException(Ice.UserException):
         """
-        This exception is raised if a node does not exist.
+         This exception is raised if a node does not exist.
         Members:
-        name -- The node name.
+        name --  The node name.
         """
         def __init__(self, name=''):
             self.name = name
@@ -238,9 +238,9 @@ if 'RegistryNotExistException' not in _M_IceGrid.__dict__:
     _M_IceGrid.RegistryNotExistException = Ice.createTempClass()
     class RegistryNotExistException(Ice.UserException):
         """
-        This exception is raised if a registry does not exist.
+         This exception is raised if a registry does not exist.
         Members:
-        name -- The registry name.
+        name --  The registry name.
         """
         def __init__(self, name=''):
             self.name = name
@@ -262,9 +262,9 @@ if 'DeploymentException' not in _M_IceGrid.__dict__:
     _M_IceGrid.DeploymentException = Ice.createTempClass()
     class DeploymentException(Ice.UserException):
         """
-        An exception for deployment errors.
+         An exception for deployment errors.
         Members:
-        reason -- The reason for the failure.
+        reason --  The reason for the failure.
         """
         def __init__(self, reason=''):
             self.reason = reason
@@ -286,10 +286,10 @@ if 'NodeUnreachableException' not in _M_IceGrid.__dict__:
     _M_IceGrid.NodeUnreachableException = Ice.createTempClass()
     class NodeUnreachableException(Ice.UserException):
         """
-        This exception is raised if a node could not be reached.
+         This exception is raised if a node could not be reached.
         Members:
-        name -- The name of the node that is not reachable.
-        reason -- The reason why the node couldn't be reached.
+        name --  The name of the node that is not reachable.
+        reason --  The reason why the node couldn't be reached.
         """
         def __init__(self, name='', reason=''):
             self.name = name
@@ -315,10 +315,10 @@ if 'ServerUnreachableException' not in _M_IceGrid.__dict__:
     _M_IceGrid.ServerUnreachableException = Ice.createTempClass()
     class ServerUnreachableException(Ice.UserException):
         """
-        This exception is raised if a server could not be reached.
+         This exception is raised if a server could not be reached.
         Members:
-        name -- The id of the server that is not reachable.
-        reason -- The reason why the server couldn't be reached.
+        name --  The id of the server that is not reachable.
+        reason --  The reason why the server couldn't be reached.
         """
         def __init__(self, name='', reason=''):
             self.name = name
@@ -344,10 +344,10 @@ if 'RegistryUnreachableException' not in _M_IceGrid.__dict__:
     _M_IceGrid.RegistryUnreachableException = Ice.createTempClass()
     class RegistryUnreachableException(Ice.UserException):
         """
-        This exception is raised if a registry could not be reached.
+         This exception is raised if a registry could not be reached.
         Members:
-        name -- The name of the registry that is not reachable.
-        reason -- The reason why the registry couldn't be reached.
+        name --  The name of the registry that is not reachable.
+        reason --  The reason why the registry couldn't be reached.
         """
         def __init__(self, name='', reason=''):
             self.name = name
@@ -373,10 +373,9 @@ if 'BadSignalException' not in _M_IceGrid.__dict__:
     _M_IceGrid.BadSignalException = Ice.createTempClass()
     class BadSignalException(Ice.UserException):
         """
-        This exception is raised if an unknown signal was sent to
-        to a server.
+         This exception is raised if an unknown signal was sent to to a server.
         Members:
-        reason -- The details of the unknown signal.
+        reason --  The details of the unknown signal.
         """
         def __init__(self, reason=''):
             self.reason = reason
@@ -398,9 +397,9 @@ if 'PatchException' not in _M_IceGrid.__dict__:
     _M_IceGrid.PatchException = Ice.createTempClass()
     class PatchException(Ice.UserException):
         """
-        This exception is raised if a patch failed.
+         This exception is raised if a patch failed.
         Members:
-        reasons -- The reasons why the patch failed.
+        reasons --  The reasons why the patch failed.
         """
         def __init__(self, reasons=None):
             self.reasons = reasons
@@ -422,10 +421,9 @@ if 'AccessDeniedException' not in _M_IceGrid.__dict__:
     _M_IceGrid.AccessDeniedException = Ice.createTempClass()
     class AccessDeniedException(Ice.UserException):
         """
-        This exception is raised if a registry lock wasn't
-        acquired or is already held by a session.
+         his exception is raised if a registry lock wasn't acquired or is already held by a session.
         Members:
-        lockUserId -- The id of the user holding the lock (if any).
+        lockUserId --  The id of the user holding the lock (if any).
         """
         def __init__(self, lockUserId=''):
             self.lockUserId = lockUserId
@@ -447,9 +445,9 @@ if 'AllocationException' not in _M_IceGrid.__dict__:
     _M_IceGrid.AllocationException = Ice.createTempClass()
     class AllocationException(Ice.UserException):
         """
-        This exception is raised if the allocation of an object failed.
+         This exception is raised if the allocation of an object failed.
         Members:
-        reason -- The reason why the object couldn't be allocated.
+        reason --  The reason why the object couldn't be allocated.
         """
         def __init__(self, reason=''):
             self.reason = reason
@@ -471,8 +469,7 @@ if 'AllocationTimeoutException' not in _M_IceGrid.__dict__:
     _M_IceGrid.AllocationTimeoutException = Ice.createTempClass()
     class AllocationTimeoutException(_M_IceGrid.AllocationException):
         """
-        This exception is raised if the request to allocate an object times
-        out.
+         This exception is raised if the request to allocate an object times out.
         """
         def __init__(self, reason=''):
             _M_IceGrid.AllocationException.__init__(self, reason)
@@ -494,10 +491,9 @@ if 'PermissionDeniedException' not in _M_IceGrid.__dict__:
     _M_IceGrid.PermissionDeniedException = Ice.createTempClass()
     class PermissionDeniedException(Ice.UserException):
         """
-        This exception is raised if a client is denied the ability to create
-        a session with IceGrid.
+         This exception is raised if a client is denied the ability to create a session with IceGrid.
         Members:
-        reason -- The reason why permission was denied.
+        reason --  The reason why permission was denied.
         """
         def __init__(self, reason=''):
             self.reason = reason
@@ -519,10 +515,9 @@ if 'ObserverAlreadyRegisteredException' not in _M_IceGrid.__dict__:
     _M_IceGrid.ObserverAlreadyRegisteredException = Ice.createTempClass()
     class ObserverAlreadyRegisteredException(Ice.UserException):
         """
-        This exception is raised if an observer is already registered with
-        the registry.
+         This exception is raised if an observer is already registered with the registry.
         Members:
-        id -- The identity of the observer.
+        id --  The identity of the observer.
         """
         def __init__(self, id=Ice._struct_marker):
             if id is Ice._struct_marker:
@@ -547,9 +542,9 @@ if 'FileNotAvailableException' not in _M_IceGrid.__dict__:
     _M_IceGrid.FileNotAvailableException = Ice.createTempClass()
     class FileNotAvailableException(Ice.UserException):
         """
-        This exception is raised if a file is not available.
+         This exception is raised if a file is not available.
         Members:
-        reason -- The reason for the failure.
+        reason --  The reason for the failure.
         """
         def __init__(self, reason=''):
             self.reason = reason

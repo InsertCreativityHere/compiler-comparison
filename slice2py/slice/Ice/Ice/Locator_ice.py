@@ -29,7 +29,7 @@ if 'AdapterNotFoundException' not in _M_Ice.__dict__:
     _M_Ice.AdapterNotFoundException = Ice.createTempClass()
     class AdapterNotFoundException(Ice.UserException):
         """
-        This exception is raised if an adapter cannot be found.
+          This exception is raised if an adapter cannot be found.
         """
         def __init__(self):
             pass
@@ -51,8 +51,7 @@ if 'InvalidReplicaGroupIdException' not in _M_Ice.__dict__:
     _M_Ice.InvalidReplicaGroupIdException = Ice.createTempClass()
     class InvalidReplicaGroupIdException(Ice.UserException):
         """
-        This exception is raised if the replica group provided by the
-        server is invalid.
+         This exception is raised if the replica group provided by the server is invalid.
         """
         def __init__(self):
             pass
@@ -74,8 +73,7 @@ if 'AdapterAlreadyActiveException' not in _M_Ice.__dict__:
     _M_Ice.AdapterAlreadyActiveException = Ice.createTempClass()
     class AdapterAlreadyActiveException(Ice.UserException):
         """
-        This exception is raised if a server tries to set endpoints for
-        an adapter that is already active.
+         This exception is raised if a server tries to set endpoints for an adapter that is already active.
         """
         def __init__(self):
             pass
@@ -97,7 +95,7 @@ if 'ObjectNotFoundException' not in _M_Ice.__dict__:
     _M_Ice.ObjectNotFoundException = Ice.createTempClass()
     class ObjectNotFoundException(Ice.UserException):
         """
-        This exception is raised if an object cannot be found.
+         This exception is raised if an object cannot be found.
         """
         def __init__(self):
             pass
@@ -119,7 +117,7 @@ if 'ServerNotFoundException' not in _M_Ice.__dict__:
     _M_Ice.ServerNotFoundException = Ice.createTempClass()
     class ServerNotFoundException(Ice.UserException):
         """
-        This exception is raised if a server cannot be found.
+         This exception is raised if a server cannot be found.
         """
         def __init__(self):
             pass
@@ -148,9 +146,8 @@ if 'LocatorPrx' not in _M_Ice.__dict__:
     class LocatorPrx(Ice.ObjectPrx):
 
         """
-        Find an object by identity and return a proxy that contains
-        the adapter ID or endpoints which can be used to access the
-        object.
+         Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+         access the object.
         Arguments:
         id -- The identity.
         context -- The request context for the invocation.
@@ -162,9 +159,8 @@ if 'LocatorPrx' not in _M_Ice.__dict__:
             return _M_Ice.Locator._op_findObjectById.invoke(self, ((id, ), context))
 
         """
-        Find an object by identity and return a proxy that contains
-        the adapter ID or endpoints which can be used to access the
-        object.
+         Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+         access the object.
         Arguments:
         id -- The identity.
         context -- The request context for the invocation.
@@ -174,9 +170,8 @@ if 'LocatorPrx' not in _M_Ice.__dict__:
             return _M_Ice.Locator._op_findObjectById.invokeAsync(self, ((id, ), context))
 
         """
-        Find an object by identity and return a proxy that contains
-        the adapter ID or endpoints which can be used to access the
-        object.
+         Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+         access the object.
         Arguments:
         id -- The identity.
         _response -- The asynchronous response callback.
@@ -189,9 +184,8 @@ if 'LocatorPrx' not in _M_Ice.__dict__:
             return _M_Ice.Locator._op_findObjectById.begin(self, ((id, ), _response, _ex, _sent, context))
 
         """
-        Find an object by identity and return a proxy that contains
-        the adapter ID or endpoints which can be used to access the
-        object.
+         Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+         access the object.
         Arguments:
         id -- The identity.
         Returns: The proxy, or null if the object is not active.
@@ -202,8 +196,7 @@ if 'LocatorPrx' not in _M_Ice.__dict__:
             return _M_Ice.Locator._op_findObjectById.end(self, _r)
 
         """
-        Find an adapter by id and return a proxy that contains
-        its endpoints.
+         Find an adapter by id and return a proxy that contains its endpoints.
         Arguments:
         id -- The adapter id.
         context -- The request context for the invocation.
@@ -215,8 +208,7 @@ if 'LocatorPrx' not in _M_Ice.__dict__:
             return _M_Ice.Locator._op_findAdapterById.invoke(self, ((id, ), context))
 
         """
-        Find an adapter by id and return a proxy that contains
-        its endpoints.
+         Find an adapter by id and return a proxy that contains its endpoints.
         Arguments:
         id -- The adapter id.
         context -- The request context for the invocation.
@@ -226,8 +218,7 @@ if 'LocatorPrx' not in _M_Ice.__dict__:
             return _M_Ice.Locator._op_findAdapterById.invokeAsync(self, ((id, ), context))
 
         """
-        Find an adapter by id and return a proxy that contains
-        its endpoints.
+         Find an adapter by id and return a proxy that contains its endpoints.
         Arguments:
         id -- The adapter id.
         _response -- The asynchronous response callback.
@@ -240,8 +231,7 @@ if 'LocatorPrx' not in _M_Ice.__dict__:
             return _M_Ice.Locator._op_findAdapterById.begin(self, ((id, ), _response, _ex, _sent, context))
 
         """
-        Find an adapter by id and return a proxy that contains
-        its endpoints.
+         Find an adapter by id and return a proxy that contains its endpoints.
         Arguments:
         id -- The adapter id.
         Returns: The adapter proxy, or null if the adapter is not active.
@@ -252,7 +242,7 @@ if 'LocatorPrx' not in _M_Ice.__dict__:
             return _M_Ice.Locator._op_findAdapterById.end(self, _r)
 
         """
-        Get the locator registry.
+         Get the locator registry.
         Arguments:
         context -- The request context for the invocation.
         Returns: The locator registry.
@@ -261,7 +251,7 @@ if 'LocatorPrx' not in _M_Ice.__dict__:
             return _M_Ice.Locator._op_getRegistry.invoke(self, ((), context))
 
         """
-        Get the locator registry.
+         Get the locator registry.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -270,7 +260,7 @@ if 'LocatorPrx' not in _M_Ice.__dict__:
             return _M_Ice.Locator._op_getRegistry.invokeAsync(self, ((), context))
 
         """
-        Get the locator registry.
+         Get the locator registry.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -282,7 +272,7 @@ if 'LocatorPrx' not in _M_Ice.__dict__:
             return _M_Ice.Locator._op_getRegistry.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Get the locator registry.
+         Get the locator registry.
         Arguments:
         Returns: The locator registry.
         """
@@ -320,9 +310,8 @@ if 'LocatorPrx' not in _M_Ice.__dict__:
 
         def findObjectById(self, id, current=None):
             """
-            Find an object by identity and return a proxy that contains
-            the adapter ID or endpoints which can be used to access the
-            object.
+             Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+             access the object.
             Arguments:
             id -- The identity.
             current -- The Current object for the invocation.
@@ -334,8 +323,7 @@ if 'LocatorPrx' not in _M_Ice.__dict__:
 
         def findAdapterById(self, id, current=None):
             """
-            Find an adapter by id and return a proxy that contains
-            its endpoints.
+             Find an adapter by id and return a proxy that contains its endpoints.
             Arguments:
             id -- The adapter id.
             current -- The Current object for the invocation.
@@ -347,7 +335,7 @@ if 'LocatorPrx' not in _M_Ice.__dict__:
 
         def getRegistry(self, current=None):
             """
-            Get the locator registry.
+             Get the locator registry.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -376,7 +364,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
     class LocatorRegistryPrx(Ice.ObjectPrx):
 
         """
-        Set the adapter endpoints with the locator registry.
+         Set the adapter endpoints with the locator registry.
         Arguments:
         id -- The adapter id.
         proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints.
@@ -389,7 +377,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             return _M_Ice.LocatorRegistry._op_setAdapterDirectProxy.invoke(self, ((id, proxy), context))
 
         """
-        Set the adapter endpoints with the locator registry.
+         Set the adapter endpoints with the locator registry.
         Arguments:
         id -- The adapter id.
         proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints.
@@ -400,7 +388,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             return _M_Ice.LocatorRegistry._op_setAdapterDirectProxy.invokeAsync(self, ((id, proxy), context))
 
         """
-        Set the adapter endpoints with the locator registry.
+         Set the adapter endpoints with the locator registry.
         Arguments:
         id -- The adapter id.
         proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints.
@@ -414,7 +402,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             return _M_Ice.LocatorRegistry._op_setAdapterDirectProxy.begin(self, ((id, proxy), _response, _ex, _sent, context))
 
         """
-        Set the adapter endpoints with the locator registry.
+         Set the adapter endpoints with the locator registry.
         Arguments:
         id -- The adapter id.
         proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints.
@@ -426,7 +414,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             return _M_Ice.LocatorRegistry._op_setAdapterDirectProxy.end(self, _r)
 
         """
-        Set the adapter endpoints with the locator registry.
+         Set the adapter endpoints with the locator registry.
         Arguments:
         adapterId -- The adapter id.
         replicaGroupId -- The replica group id.
@@ -441,7 +429,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             return _M_Ice.LocatorRegistry._op_setReplicatedAdapterDirectProxy.invoke(self, ((adapterId, replicaGroupId, p), context))
 
         """
-        Set the adapter endpoints with the locator registry.
+         Set the adapter endpoints with the locator registry.
         Arguments:
         adapterId -- The adapter id.
         replicaGroupId -- The replica group id.
@@ -453,7 +441,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             return _M_Ice.LocatorRegistry._op_setReplicatedAdapterDirectProxy.invokeAsync(self, ((adapterId, replicaGroupId, p), context))
 
         """
-        Set the adapter endpoints with the locator registry.
+         Set the adapter endpoints with the locator registry.
         Arguments:
         adapterId -- The adapter id.
         replicaGroupId -- The replica group id.
@@ -468,7 +456,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             return _M_Ice.LocatorRegistry._op_setReplicatedAdapterDirectProxy.begin(self, ((adapterId, replicaGroupId, p), _response, _ex, _sent, context))
 
         """
-        Set the adapter endpoints with the locator registry.
+         Set the adapter endpoints with the locator registry.
         Arguments:
         adapterId -- The adapter id.
         replicaGroupId -- The replica group id.
@@ -482,7 +470,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             return _M_Ice.LocatorRegistry._op_setReplicatedAdapterDirectProxy.end(self, _r)
 
         """
-        Set the process proxy for a server.
+         Set the process proxy for a server.
         Arguments:
         id -- The server id.
         proxy -- The process proxy.
@@ -494,7 +482,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             return _M_Ice.LocatorRegistry._op_setServerProcessProxy.invoke(self, ((id, proxy), context))
 
         """
-        Set the process proxy for a server.
+         Set the process proxy for a server.
         Arguments:
         id -- The server id.
         proxy -- The process proxy.
@@ -505,7 +493,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             return _M_Ice.LocatorRegistry._op_setServerProcessProxy.invokeAsync(self, ((id, proxy), context))
 
         """
-        Set the process proxy for a server.
+         Set the process proxy for a server.
         Arguments:
         id -- The server id.
         proxy -- The process proxy.
@@ -519,7 +507,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             return _M_Ice.LocatorRegistry._op_setServerProcessProxy.begin(self, ((id, proxy), _response, _ex, _sent, context))
 
         """
-        Set the process proxy for a server.
+         Set the process proxy for a server.
         Arguments:
         id -- The server id.
         proxy -- The process proxy.
@@ -560,7 +548,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
 
         def setAdapterDirectProxy(self, id, proxy, current=None):
             """
-            Set the adapter endpoints with the locator registry.
+             Set the adapter endpoints with the locator registry.
             Arguments:
             id -- The adapter id.
             proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints.
@@ -574,7 +562,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
 
         def setReplicatedAdapterDirectProxy(self, adapterId, replicaGroupId, p, current=None):
             """
-            Set the adapter endpoints with the locator registry.
+             Set the adapter endpoints with the locator registry.
             Arguments:
             adapterId -- The adapter id.
             replicaGroupId -- The replica group id.
@@ -590,7 +578,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
 
         def setServerProcessProxy(self, id, proxy, current=None):
             """
-            Set the process proxy for a server.
+             Set the process proxy for a server.
             Arguments:
             id -- The server id.
             proxy -- The process proxy.
@@ -623,8 +611,8 @@ if 'LocatorFinderPrx' not in _M_Ice.__dict__:
     class LocatorFinderPrx(Ice.ObjectPrx):
 
         """
-        Get the locator proxy implemented by the process hosting this
-        finder object. The proxy might point to several replicas.
+         Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+         replicas.
         Arguments:
         context -- The request context for the invocation.
         Returns: The locator proxy.
@@ -633,8 +621,8 @@ if 'LocatorFinderPrx' not in _M_Ice.__dict__:
             return _M_Ice.LocatorFinder._op_getLocator.invoke(self, ((), context))
 
         """
-        Get the locator proxy implemented by the process hosting this
-        finder object. The proxy might point to several replicas.
+         Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+         replicas.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -643,8 +631,8 @@ if 'LocatorFinderPrx' not in _M_Ice.__dict__:
             return _M_Ice.LocatorFinder._op_getLocator.invokeAsync(self, ((), context))
 
         """
-        Get the locator proxy implemented by the process hosting this
-        finder object. The proxy might point to several replicas.
+         Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+         replicas.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -656,8 +644,8 @@ if 'LocatorFinderPrx' not in _M_Ice.__dict__:
             return _M_Ice.LocatorFinder._op_getLocator.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Get the locator proxy implemented by the process hosting this
-        finder object. The proxy might point to several replicas.
+         Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+         replicas.
         Arguments:
         Returns: The locator proxy.
         """
@@ -695,8 +683,8 @@ if 'LocatorFinderPrx' not in _M_Ice.__dict__:
 
         def getLocator(self, current=None):
             """
-            Get the locator proxy implemented by the process hosting this
-            finder object. The proxy might point to several replicas.
+             Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+             replicas.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.

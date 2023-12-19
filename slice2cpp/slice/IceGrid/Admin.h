@@ -103,15 +103,12 @@ enum class ServerState : unsigned char
      */
     Inactive,
     /**
-     * The server is being activated and will change to the active
-     * state when the registered server object adapters are activated
-     * or to the activation timed out state if the activation timeout
-     * expires.
+     * The server is being activated and will change to the active state when the registered server object adapters
+     * are activated or to the activation timed out state if the activation timeout expires.
      */
     Activating,
     /**
-     * The activation timed out state indicates that the server
-     * activation timed out.
+     * The activation timed out state indicates that the server activation timed out.
      */
     ActivationTimedOut,
     /**
@@ -182,8 +179,7 @@ struct AdapterInfo
      */
     ::std::shared_ptr<::Ice::ObjectPrx> proxy;
     /**
-     * The replica group id of the object adapter, or empty if the
-     * adapter doesn't belong to a replica group.
+     * The replica group id of the object adapter, or empty if the adapter doesn't belong to a replica group.
      */
     ::std::string replicaGroupId;
 
@@ -258,8 +254,7 @@ struct NodeInfo
      */
     ::std::string os;
     /**
-     * The network name of the host running this node (as defined in
-     * uname()).
+     * The network name of the host running this node (as defined in uname()).
      */
     ::std::string hostname;
     /**
@@ -275,9 +270,8 @@ struct NodeInfo
      */
     ::std::string machine;
     /**
-     * The number of processor threads on the node.
-     * For example, nProcessors is 8 on a computer with a single quad-core
-     * processor and two HT threads per core.
+     * The number of processor threads on the node. For example, nProcessors is 8 on a computer with a single
+     * quad-core processor and two HT threads per core.
      */
     int nProcessors;
     /**
@@ -306,8 +300,7 @@ struct RegistryInfo
      */
     ::std::string name;
     /**
-     * The network name of the host running this registry (as defined in
-     * uname()).
+     * The network name of the host running this registry (as defined in uname()).
      */
     ::std::string hostname;
 
@@ -553,10 +546,8 @@ namespace IceGrid
 {
 
 /**
- * The IceGrid administrative interface.
- * <p class="Warning">Allowing access to this interface
- * is a security risk! Please see the IceGrid documentation
- * for further information.
+ * The IceGrid administrative interface. <p class="Warning">Allowing access to this interface is a security risk!
+ * Please see the IceGrid documentation for further information.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API Admin : public virtual ::Ice::Object
@@ -597,11 +588,9 @@ public:
      * Add an application to IceGrid.
      * @param descriptor The application descriptor.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     virtual void addApplication(ApplicationDescriptor descriptor, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -609,18 +598,14 @@ public:
     /// \endcond
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor.
      * @param descriptor The application descriptor.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     virtual void syncApplication(ApplicationDescriptor descriptor, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -628,17 +613,13 @@ public:
     /// \endcond
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor.
+     * Update a deployed application with the given update application descriptor.
      * @param descriptor The update descriptor.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     virtual void updateApplication(ApplicationUpdateDescriptor descriptor, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -646,21 +627,15 @@ public:
     /// \endcond
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor only if no server restarts are
-     * necessary for the update of the application. If some servers
-     * need to be restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
      * @param descriptor The application descriptor.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     virtual void syncApplicationWithoutRestart(ApplicationDescriptor descriptor, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -668,20 +643,15 @@ public:
     /// \endcond
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor only if no server restarts are necessary for the
-     * update of the application. If some servers need to be
-     * restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Update a deployed application with the given update application descriptor only if no server restarts are
+     * necessary for the update of the application. If some servers need to be restarted, the synchronization is
+     * rejected with a DeploymentException.
      * @param descriptor The update descriptor.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     virtual void updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -692,11 +662,9 @@ public:
      * Remove an application from IceGrid.
      * @param name The application name.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     virtual void removeApplication(::std::string name, const ::Ice::Current& current) = 0;
@@ -705,20 +673,15 @@ public:
     /// \endcond
 
     /**
-     * Instantiate a server template from an application on the given
-     * node.
+     * Instantiate a server template from an application on the given node.
      * @param application The application name.
-     * @param node The name of the node where the server will be
-     * deployed.
+     * @param node The name of the node where the server will be deployed.
      * @param desc The descriptor of the server instance to deploy.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if server instantiation
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if server instantiation failed.
      */
     virtual void instantiateServer(::std::string application, ::std::string node, ServerInstanceDescriptor desc, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -728,13 +691,11 @@ public:
     /**
      * Patch the given application data.
      * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to
-     * patch will be shut down if necessary.
+     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      * @throws IceGrid::PatchException Raised if the patch failed.
      */
     virtual void patchApplicationAsync(::std::string name, bool shutdown, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
@@ -747,8 +708,7 @@ public:
      * @param name The application name.
      * @param current The Current object for the invocation.
      * @return The application descriptor.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      */
     virtual ApplicationInfo getApplicationInfo(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -759,8 +719,7 @@ public:
      * Get the default application descriptor.
      * @param current The Current object for the invocation.
      * @return The default application descriptor.
-     * @throws IceGrid::DeploymentException Raised if the default application
-     * descriptor can't be accessed or is invalid.
+     * @throws IceGrid::DeploymentException Raised if the default application descriptor can't be accessed or is invalid.
      */
     virtual ApplicationDescriptor getDefaultApplicationDescriptor(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -794,10 +753,8 @@ public:
      * @param id The server id.
      * @param current The Current object for the invocation.
      * @return The server state.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     virtual ServerState getServerState(::std::string id, const ::Ice::Current& current) const = 0;
@@ -806,15 +763,12 @@ public:
     /// \endcond
 
     /**
-     * Get a server's system process id. The process id is operating
-     * system dependent.
+     * Get a server's system process id. The process id is operating system dependent.
      * @param id The server id.
      * @param current The Current object for the invocation.
      * @return The server's process id.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     virtual int getServerPid(::std::string id, const ::Ice::Current& current) const = 0;
@@ -823,9 +777,8 @@ public:
     /// \endcond
 
     /**
-     * Get the category for server admin objects. You can manufacture a server admin
-     * proxy from the admin proxy by changing its identity: use the server ID as name
-     * and the returned category as category.
+     * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+     * changing its identity: use the server ID as name and the returned category as category.
      * @param current The Current object for the invocation.
      * @return The category for server admin objects.
      */
@@ -839,10 +792,8 @@ public:
      * @param id The server id.
      * @param current The Current object for the invocation.
      * @return A proxy to the server's admin object
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     virtual ::std::shared_ptr<::Ice::ObjectPrx> getServerAdmin(::std::string id, const ::Ice::Current& current) const = 0;
@@ -851,17 +802,13 @@ public:
     /// \endcond
 
     /**
-     * Enable or disable a server. A disabled server can't be started
-     * on demand or administratively. The enable state of the server
-     * is not persistent: if the node is shut down and restarted, the
-     * server will be enabled by default.
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
      * @param id The server id.
      * @param enabled True to enable the server, false to disable it.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     virtual void enableServer(::std::string id, bool enabled, const ::Ice::Current& current) = 0;
@@ -874,12 +821,9 @@ public:
      * @param id The server id.
      * @param current The Current object for the invocation.
      * @return True if the server is enabled.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     virtual bool isServerEnabled(::std::string id, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -892,14 +836,10 @@ public:
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
-     * @throws IceGrid::ServerStartException Raised if the server couldn't be
-     * started.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
+     * @throws IceGrid::ServerStartException Raised if the server couldn't be started.
      */
     virtual void startServerAsync(::std::string id, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -912,14 +852,10 @@ public:
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
-     * @throws IceGrid::ServerStopException Raised if the server couldn't be
-     * stopped.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
+     * @throws IceGrid::ServerStopException Raised if the server couldn't be stopped.
      */
     virtual void stopServerAsync(::std::string id, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -929,18 +865,14 @@ public:
     /**
      * Patch a server.
      * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch
-     * will be shut down if necessary.
+     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::PatchException Raised if the patch failed.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     virtual void patchServerAsync(::std::string id, bool shutdown, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -952,14 +884,10 @@ public:
      * @param id The server id.
      * @param signal The signal, for example SIGTERM or 15.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::BadSignalException Raised if the signal is not recognized
-     * by the target server.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::BadSignalException Raised if the signal is not recognized by the target server.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     virtual void sendSignal(::std::string id, ::std::string signal, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -977,17 +905,13 @@ public:
     /// \endcond
 
     /**
-     * Get the adapter information for the replica group or adapter
-     * with the given id.
+     * Get the adapter information for the replica group or adapter with the given id.
      * @param id The adapter id.
      * @param current The Current object for the invocation.
-     * @return A sequence of adapter information structures. If the
-     * given id refers to an adapter, this sequence will contain only
-     * one element. If the given id refers to a replica group, the
-     * sequence will contain the adapter information of each member of
-     * the replica group.
-     * @throws IceGrid::AdapterNotExistException Raised if the adapter or
-     * replica group doesn't exist.
+     * @return A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
+     * contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
+     * information of each member of the replica group.
+     * @throws IceGrid::AdapterNotExistException Raised if the adapter or replica group doesn't exist.
      */
     virtual AdapterInfoSeq getAdapterInfo(::std::string id, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -998,8 +922,7 @@ public:
      * Remove the adapter with the given id.
      * @param id The adapter id.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AdapterNotExistException Raised if the adapter doesn't
-     * exist.
+     * @throws IceGrid::AdapterNotExistException Raised if the adapter doesn't exist.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     virtual void removeAdapter(::std::string id, const ::Ice::Current& current) = 0;
@@ -1018,16 +941,13 @@ public:
     /// \endcond
 
     /**
-     * Add an object to the object registry. IceGrid will get the
-     * object type by calling <code>ice_id</code> on the given proxy. The object
-     * must be reachable.
+     * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
+     * given proxy. The object must be reachable.
      * @param obj The object to be added to the registry.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::DeploymentException Raised if the object can't be
-     * added. This might be raised if the invocation on the proxy to
-     * get the object type failed.
-     * @throws IceGrid::ObjectExistsException Raised if the object is already
-     * registered.
+     * @throws IceGrid::DeploymentException Raised if the object can't be added. This might be raised if the invocation on the
+     * proxy to get the object type failed.
+     * @throws IceGrid::ObjectExistsException Raised if the object is already registered.
      */
     virtual void addObject(::std::shared_ptr<::Ice::ObjectPrx> obj, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1035,17 +955,13 @@ public:
     /// \endcond
 
     /**
-     * Update an object in the object registry. Only objects added
-     * with this interface can be updated with this operation. Objects
-     * added with deployment descriptors should be updated with the
-     * deployment mechanism.
+     * Update an object in the object registry. Only objects added with this interface can be updated with this
+     * operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
      * @param obj The object to be updated to the registry.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::DeploymentException Raised if the object can't be
-     * updated. This might happen if the object was added with a
-     * deployment descriptor.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws IceGrid::DeploymentException Raised if the object can't be updated. This might happen if the object was added
+     * with a deployment descriptor.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      */
     virtual void updateObject(::std::shared_ptr<::Ice::ObjectPrx> obj, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1053,14 +969,12 @@ public:
     /// \endcond
 
     /**
-     * Add an object to the object registry and explicitly specify
-     * its type.
+     * Add an object to the object registry and explicitly specify its type.
      * @param obj The object to be added to the registry.
      * @param type The object type.
      * @param current The Current object for the invocation.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
-     * @throws IceGrid::ObjectExistsException Raised if the object is already
-     * registered.
+     * @throws IceGrid::ObjectExistsException Raised if the object is already registered.
      */
     virtual void addObjectWithType(::std::shared_ptr<::Ice::ObjectPrx> obj, ::std::string type, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1068,18 +982,13 @@ public:
     /// \endcond
 
     /**
-     * Remove an object from the object registry. Only objects added
-     * with this interface can be removed with this operation. Objects
-     * added with deployment descriptors should be removed with the
-     * deployment mechanism.
-     * @param id The identity of the object to be removed from the
-     * registry.
+     * Remove an object from the object registry. Only objects added with this interface can be removed with this
+     * operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
+     * @param id The identity of the object to be removed from the registry.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::DeploymentException Raised if the object can't be
-     * removed. This might happen if the object was added with a
-     * deployment descriptor.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws IceGrid::DeploymentException Raised if the object can't be removed. This might happen if the object was added
+     * with a deployment descriptor.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      */
     virtual void removeObject(::Ice::Identity id, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1091,8 +1000,7 @@ public:
      * @param id The identity of the object.
      * @param current The Current object for the invocation.
      * @return The object info.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      */
     virtual ObjectInfo getObjectInfo(::Ice::Identity id, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -1100,8 +1008,7 @@ public:
     /// \endcond
 
     /**
-     * Get the object info of all the registered objects with the
-     * given type.
+     * Get the object info of all the registered objects with the given type.
      * @param type The type of the object.
      * @param current The Current object for the invocation.
      * @return The object infos.
@@ -1112,14 +1019,11 @@ public:
     /// \endcond
 
     /**
-     * Get the object info of all the registered objects whose stringified
-     * identities match the given expression.
-     * @param expr The expression to match against the stringified
-     * identities of registered objects. The expression may contain
-     * a trailing wildcard (<code>*</code>) character.
+     * Get the object info of all the registered objects whose stringified identities match the given expression.
+     * @param expr The expression to match against the stringified identities of registered objects. The expression
+     * may contain a trailing wildcard (<code>*</code>) character.
      * @param current The Current object for the invocation.
-     * @return All the object infos with a stringified identity
-     * matching the given expression.
+     * @return All the object infos with a stringified identity matching the given expression.
      */
     virtual ObjectInfoSeq getAllObjectInfos(::std::string expr, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -1144,8 +1048,7 @@ public:
      * @param current The Current object for the invocation.
      * @return The node load information.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     virtual LoadInfo getNodeLoad(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -1158,8 +1061,7 @@ public:
      * @param current The Current object for the invocation.
      * @return The node information.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     virtual NodeInfo getNodeInfo(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -1172,8 +1074,7 @@ public:
      * @param current The Current object for the invocation.
      * @return A proxy to the IceGrid node's admin object
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     virtual ::std::shared_ptr<::Ice::ObjectPrx> getNodeAdmin(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -1181,20 +1082,14 @@ public:
     /// \endcond
 
     /**
-     * Get the number of physical processor sockets for the machine
-     * running the node with the given name.
-     *
-     * Note that this method will return 1 on operating systems where
-     * this can't be automatically determined and where the
-     * IceGrid.Node.ProcessorSocketCount property for the node is not
-     * set.
+     * Get the number of physical processor sockets for the machine running the node with the given name.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
+     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
      * @param name The node name.
      * @param current The Current object for the invocation.
-     * @return The number of processor sockets or 1 if the number of
-     * sockets can't determined.
+     * @return The number of processor sockets or 1 if the number of sockets can't determined.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     virtual int getNodeProcessorSocketCount(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -1206,8 +1101,7 @@ public:
      * @param name The node name.
      * @param current The Current object for the invocation.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     virtual void shutdownNode(::std::string name, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1220,8 +1114,7 @@ public:
      * @param current The Current object for the invocation.
      * @return The node hostname.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     virtual ::std::string getNodeHostname(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -1256,8 +1149,7 @@ public:
      * @param current The Current object for the invocation.
      * @return The registry information.
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be
-     * reached.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
     virtual RegistryInfo getRegistryInfo(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -1281,8 +1173,7 @@ public:
      * @param name The registry name.
      * @param current The Current object for the invocation.
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be
-     * reached.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
     virtual void shutdownRegistry(::std::string name, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1364,18 +1255,14 @@ public:
 
     /**
      * Read lines from the log file.
-     * @param size Specifies the maximum number of bytes to be
-     * received. The server will ensure that the returned message
-     * doesn't exceed the given size.
-     * @param lines The lines read from the file. If there was nothing to
-     * read from the file since the last call to read, an empty
-     * sequence is returned. The last line of the sequence is always
-     * incomplete (and therefore no '\n' should be added when writing
-     * the last line to the to the output device).
+     * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
+     * message doesn't exceed the given size.
+     * @param lines The lines read from the file. If there was nothing to read from the file since the last call to
+     * read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n'
+     * should be added when writing the last line to the to the output device).
      * @param current The Current object for the invocation.
      * @return True if EOF is encountered.
-     * @throws IceGrid::FileNotAvailableException Raised if there was a problem
-     * to read lines from the file.
+     * @throws IceGrid::FileNotAvailableException Raised if there was a problem to read lines from the file.
      */
     virtual bool read(int size, ::Ice::StringSeq& lines, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1397,8 +1284,7 @@ public:
 };
 
 /**
- * This interface allows applications to monitor changes the state
- * of the registry.
+ * This interface allows applications to monitor changes the state of the registry.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API RegistryObserver : public virtual ::Ice::Object
@@ -1436,8 +1322,8 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * The <code>registryInit</code> operation is called after registration of
-     * an observer to indicate the state of the registries.
+     * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
+     * the registries.
      * @param registries The current state of the registries.
      * @param current The Current object for the invocation.
      */
@@ -1447,8 +1333,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param current The Current object for the invocation.
      */
@@ -1458,8 +1343,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param current The Current object for the invocation.
      */
@@ -1474,9 +1358,8 @@ public:
 };
 
 /**
- * The node observer interface. Observers should implement this
- * interface to receive information about the state of the IceGrid
- * nodes.
+ * The node observer interface. Observers should implement this interface to receive information about the state of
+ * the IceGrid nodes.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API NodeObserver : public virtual ::Ice::Object
@@ -1514,8 +1397,8 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * The <code>nodeInit</code> operation indicates the current state
-     * of nodes. It is called after the registration of an observer.
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
+     * of an observer.
      * @param nodes The current state of the nodes.
      * @param current The Current object for the invocation.
      */
@@ -1525,8 +1408,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param current The Current object for the invocation.
      */
@@ -1536,8 +1418,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param current The Current object for the invocation.
      */
@@ -1547,8 +1428,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>updateServer</code> operation is called to notify an observer that
-     * the state of a server changed.
+     * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
      * @param node The node hosting the server.
      * @param updatedInfo The new server state.
      * @param current The Current object for the invocation.
@@ -1559,8 +1439,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that
-     * the state of an adapter changed.
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
      * @param node The node hosting the adapter.
      * @param updatedInfo The new adapter state.
      * @param current The Current object for the invocation.
@@ -1576,9 +1455,8 @@ public:
 };
 
 /**
- * The database observer interface. Observers should implement this
- * interface to receive information about the state of the IceGrid
- * registry database.
+ * The database observer interface. Observers should implement this interface to receive information about the state
+ * of the IceGrid registry database.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API ApplicationObserver : public virtual ::Ice::Object
@@ -1616,13 +1494,11 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * <code>applicationInit</code> is called after the registration
-     * of an observer to indicate the state of the registry.
-     * @param serial The current serial number of the registry
-     * database. This serial number allows observers to make sure that
-     * their internal state is synchronized with the registry.
-     * @param applications The applications currently registered with
-     * the registry.
+     * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param serial The current serial number of the registry database. This serial number allows observers to make
+     * sure that their internal state is synchronized with the registry.
+     * @param applications The applications currently registered with the registry.
      * @param current The Current object for the invocation.
      */
     virtual void applicationInit(int serial, ApplicationInfoSeq applications, const ::Ice::Current& current) = 0;
@@ -1631,8 +1507,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>applicationAdded</code> operation is called to notify an observer
-     * that an application was added.
+     * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the new application.
      * @param current The Current object for the invocation.
@@ -1643,8 +1518,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>applicationRemoved</code> operation is called to notify an observer
-     * that an application was removed.
+     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
      * @param serial The new serial number of the registry database.
      * @param name The name of the application that was removed.
      * @param current The Current object for the invocation.
@@ -1655,8 +1529,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>applicationUpdated</code> operation is called to notify an observer
-     * that an application was updated.
+     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the update.
      * @param current The Current object for the invocation.
@@ -1672,8 +1545,7 @@ public:
 };
 
 /**
- * This interface allows applications to monitor the state of object
- * adapters that are registered with IceGrid.
+ * This interface allows applications to monitor the state of object adapters that are registered with IceGrid.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API AdapterObserver : public virtual ::Ice::Object
@@ -1711,10 +1583,9 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * <code>adapterInit</code> is called after registration of
-     * an observer to indicate the state of the registry.
-     * @param adpts The adapters that were dynamically registered
-     * with the registry (not through the deployment mechanism).
+     * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
+     * @param adpts The adapters that were dynamically registered with the registry (not through the deployment
+     * mechanism).
      * @param current The Current object for the invocation.
      */
     virtual void adapterInit(AdapterInfoSeq adpts, const ::Ice::Current& current) = 0;
@@ -1723,8 +1594,8 @@ public:
     /// \endcond
 
     /**
-     * The <code>adapterAdded</code> operation is called to notify an observer when
-     * a dynamically-registered adapter was added.
+     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
+     * was added.
      * @param info The details of the new adapter.
      * @param current The Current object for the invocation.
      */
@@ -1734,8 +1605,7 @@ public:
     /// \endcond
 
     /**
-     * The adapterUpdated operation is called to notify an observer when
-     * a dynamically-registered adapter was updated.
+     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
      * @param info The details of the updated adapter.
      * @param current The Current object for the invocation.
      */
@@ -1745,8 +1615,7 @@ public:
     /// \endcond
 
     /**
-     * The adapterRemoved operation is called to notify an observer when
-     * a dynamically-registered adapter was removed.
+     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
      * @param id The ID of the removed adapter.
      * @param current The Current object for the invocation.
      */
@@ -1799,10 +1668,8 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * <code>objectInit</code> is called after the registration of
-     * an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin}
-     * interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
      * @param current The Current object for the invocation.
      */
     virtual void objectInit(ObjectInfoSeq objects, const ::Ice::Current& current) = 0;
@@ -1811,8 +1678,8 @@ public:
     /// \endcond
 
     /**
-     * The <code>objectAdded</code> operation is called to notify an observer when an
-     * object was added to the {@link Admin} interface.
+     * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
+     * {@link Admin} interface.
      * @param info The details of the added object.
      * @param current The Current object for the invocation.
      */
@@ -1822,8 +1689,8 @@ public:
     /// \endcond
 
     /**
-     * <code>objectUpdated</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was updated.
+     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was updated.
      * @param info The details of the updated object.
      * @param current The Current object for the invocation.
      */
@@ -1833,8 +1700,8 @@ public:
     /// \endcond
 
     /**
-     * <code>objectRemoved</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was removed.
+     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was removed.
      * @param id The identity of the removed object.
      * @param current The Current object for the invocation.
      */
@@ -1849,10 +1716,9 @@ public:
 };
 
 /**
- * Used by administrative clients to view,
- * update, and receive observer updates from the IceGrid
- * registry. Admin sessions are created either via the {@link Registry}
- * object or via the registry admin <code>SessionManager</code> object.
+ * Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
+ * sessions are created either via the {@link Registry} object or via the registry admin <code>SessionManager</code>
+ * object.
  * @see Registry
  * \headerfile IceGrid/IceGrid.h
  */
@@ -1891,8 +1757,8 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param current The Current object for the invocation.
      * @see Registry#getSessionTimeout
      */
@@ -1902,8 +1768,7 @@ public:
     /// \endcond
 
     /**
-     * Get the admin interface. The admin object returned by this
-     * operation can only be accessed by the session.
+     * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
      * @param current The Current object for the invocation.
      * @return The admin interface proxy.
      */
@@ -1913,13 +1778,10 @@ public:
     /// \endcond
 
     /**
-     * Get a "template" proxy for admin callback objects.
-     * An Admin client uses this proxy to set the category of its callback
-     * objects, and the published endpoints of the object adapter hosting
-     * the admin callback objects.
+     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
      * @param current The Current object for the invocation.
-     * @return A template proxy. The returned proxy is null when the Admin
-     * session was established using Glacier2.
+     * @return A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
      */
     virtual ::std::shared_ptr<::Ice::ObjectPrx> getAdminCallbackTemplate(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -1927,17 +1789,14 @@ public:
     /// \endcond
 
     /**
-     * Set the observer proxies that receive
-     * notifications when the state of the registry
-     * or nodes changes.
+     * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
      * @param registryObs The registry observer.
      * @param nodeObs The node observer.
      * @param appObs The application observer.
      * @param adptObs The adapter observer.
      * @param objObs The object observer.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an
-     * observer is already registered with this registry.
+     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
      */
     virtual void setObservers(::std::shared_ptr<RegistryObserverPrx> registryObs, ::std::shared_ptr<NodeObserverPrx> nodeObs, ::std::shared_ptr<ApplicationObserverPrx> appObs, ::std::shared_ptr<AdapterObserverPrx> adptObs, ::std::shared_ptr<ObjectObserverPrx> objObs, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1945,19 +1804,15 @@ public:
     /// \endcond
 
     /**
-     * Set the observer identities that receive
-     * notifications the state of the registry
-     * or nodes changes. This operation should be used by clients that
-     * are using a bidirectional connection to communicate with the
-     * session.
+     * Set the observer identities that receive notifications the state of the registry or nodes changes. This
+     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
      * @param registryObs The registry observer identity.
      * @param nodeObs The node observer identity.
      * @param appObs The application observer.
      * @param adptObs The adapter observer.
      * @param objObs The object observer.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an
-     * observer is already registered with this registry.
+     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
      */
     virtual void setObserversByIdentity(::Ice::Identity registryObs, ::Ice::Identity nodeObs, ::Ice::Identity appObs, ::Ice::Identity adptObs, ::Ice::Identity objObs, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1968,9 +1823,8 @@ public:
      * Acquires an exclusive lock to start updating the registry applications.
      * @param current The Current object for the invocation.
      * @return The current serial.
-     * @throws IceGrid::AccessDeniedException Raised if the exclusive lock can't be
-     * acquired. This might happen if the lock is currently acquired by
-     * another session.
+     * @throws IceGrid::AccessDeniedException Raised if the exclusive lock can't be acquired. This might happen if the lock is
+     * currently acquired by another session.
      */
     virtual int startUpdate(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1980,8 +1834,7 @@ public:
     /**
      * Finish updating the registry and release the exclusive lock.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the
-     * exclusive lock.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock.
      */
     virtual void finishUpdate(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1999,25 +1852,18 @@ public:
     /// \endcond
 
     /**
-     * Open the given server log file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server log file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param path The path of the log file. A log file can be opened
-     * only if it's declared in the server or service deployment
-     * descriptor.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
+     * deployment descriptor.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     virtual ::std::shared_ptr<FileIteratorPrx> openServerLog(::std::string id, ::std::string path, int count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -2025,22 +1871,16 @@ public:
     /// \endcond
 
     /**
-     * Open the given server stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stderr file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     virtual ::std::shared_ptr<FileIteratorPrx> openServerStdErr(::std::string id, int count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -2048,22 +1888,16 @@ public:
     /// \endcond
 
     /**
-     * Open the given server stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stdout file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
+     * If 0 or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     virtual ::std::shared_ptr<FileIteratorPrx> openServerStdOut(::std::string id, int count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -2071,19 +1905,15 @@ public:
     /// \endcond
 
     /**
-     * Open the given node stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stderr file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     virtual ::std::shared_ptr<FileIteratorPrx> openNodeStdErr(::std::string name, int count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -2091,19 +1921,15 @@ public:
     /// \endcond
 
     /**
-     * Open the given node stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stdout file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     virtual ::std::shared_ptr<FileIteratorPrx> openNodeStdOut(::std::string name, int count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -2111,20 +1937,15 @@ public:
     /// \endcond
 
     /**
-     * Open the given registry stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::RegistryNotExistException Raised if the registry
-     * doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry
-     * could not be reached.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
     virtual ::std::shared_ptr<FileIteratorPrx> openRegistryStdErr(::std::string name, int count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -2132,20 +1953,15 @@ public:
     /// \endcond
 
     /**
-     * Open the given registry stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::RegistryNotExistException Raised if the registry
-     * doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry
-     * could not be reached.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
     virtual ::std::shared_ptr<FileIteratorPrx> openRegistryStdOut(::std::string name, int count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -2163,10 +1979,8 @@ namespace IceGrid
 {
 
 /**
- * The IceGrid administrative interface.
- * <p class="Warning">Allowing access to this interface
- * is a security risk! Please see the IceGrid documentation
- * for further information.
+ * The IceGrid administrative interface. <p class="Warning">Allowing access to this interface is a security risk!
+ * Please see the IceGrid documentation for further information.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) AdminPrx : public virtual ::Ice::Proxy<AdminPrx, ::Ice::ObjectPrx>
@@ -2177,11 +1991,9 @@ public:
      * Add an application to IceGrid.
      * @param descriptor The application descriptor.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     void addApplication(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -2225,18 +2037,14 @@ public:
     /// \endcond
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor.
      * @param descriptor The application descriptor.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     void syncApplication(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -2244,9 +2052,8 @@ public:
     }
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor.
      * @param descriptor The application descriptor.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -2259,9 +2066,8 @@ public:
     }
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor.
      * @param descriptor The application descriptor.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -2284,17 +2090,13 @@ public:
     /// \endcond
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor.
+     * Update a deployed application with the given update application descriptor.
      * @param descriptor The update descriptor.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     void updateApplication(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -2302,8 +2104,7 @@ public:
     }
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor.
+     * Update a deployed application with the given update application descriptor.
      * @param descriptor The update descriptor.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -2316,8 +2117,7 @@ public:
     }
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor.
+     * Update a deployed application with the given update application descriptor.
      * @param descriptor The update descriptor.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -2340,21 +2140,15 @@ public:
     /// \endcond
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor only if no server restarts are
-     * necessary for the update of the application. If some servers
-     * need to be restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
      * @param descriptor The application descriptor.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     void syncApplicationWithoutRestart(const ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -2362,12 +2156,9 @@ public:
     }
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor only if no server restarts are
-     * necessary for the update of the application. If some servers
-     * need to be restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
      * @param descriptor The application descriptor.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -2380,12 +2171,9 @@ public:
     }
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor only if no server restarts are
-     * necessary for the update of the application. If some servers
-     * need to be restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
      * @param descriptor The application descriptor.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -2408,20 +2196,15 @@ public:
     /// \endcond
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor only if no server restarts are necessary for the
-     * update of the application. If some servers need to be
-     * restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Update a deployed application with the given update application descriptor only if no server restarts are
+     * necessary for the update of the application. If some servers need to be restarted, the synchronization is
+     * rejected with a DeploymentException.
      * @param descriptor The update descriptor.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     void updateApplicationWithoutRestart(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -2429,11 +2212,9 @@ public:
     }
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor only if no server restarts are necessary for the
-     * update of the application. If some servers need to be
-     * restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Update a deployed application with the given update application descriptor only if no server restarts are
+     * necessary for the update of the application. If some servers need to be restarted, the synchronization is
+     * rejected with a DeploymentException.
      * @param descriptor The update descriptor.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -2446,11 +2227,9 @@ public:
     }
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor only if no server restarts are necessary for the
-     * update of the application. If some servers need to be
-     * restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Update a deployed application with the given update application descriptor only if no server restarts are
+     * necessary for the update of the application. If some servers need to be restarted, the synchronization is
+     * rejected with a DeploymentException.
      * @param descriptor The update descriptor.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -2476,11 +2255,9 @@ public:
      * Remove an application from IceGrid.
      * @param name The application name.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     void removeApplication(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2525,20 +2302,15 @@ public:
     /// \endcond
 
     /**
-     * Instantiate a server template from an application on the given
-     * node.
+     * Instantiate a server template from an application on the given node.
      * @param application The application name.
-     * @param node The name of the node where the server will be
-     * deployed.
+     * @param node The name of the node where the server will be deployed.
      * @param desc The descriptor of the server instance to deploy.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if server instantiation
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if server instantiation failed.
      */
     void instantiateServer(const ::std::string& application, const ::std::string& node, const ServerInstanceDescriptor& desc, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -2546,11 +2318,9 @@ public:
     }
 
     /**
-     * Instantiate a server template from an application on the given
-     * node.
+     * Instantiate a server template from an application on the given node.
      * @param application The application name.
-     * @param node The name of the node where the server will be
-     * deployed.
+     * @param node The name of the node where the server will be deployed.
      * @param desc The descriptor of the server instance to deploy.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -2563,11 +2333,9 @@ public:
     }
 
     /**
-     * Instantiate a server template from an application on the given
-     * node.
+     * Instantiate a server template from an application on the given node.
      * @param application The application name.
-     * @param node The name of the node where the server will be
-     * deployed.
+     * @param node The name of the node where the server will be deployed.
      * @param desc The descriptor of the server instance to deploy.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -2592,11 +2360,9 @@ public:
     /**
      * Patch the given application data.
      * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to
-     * patch will be shut down if necessary.
+     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      * @throws IceGrid::PatchException Raised if the patch failed.
      */
     void patchApplication(const ::std::string& name, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2607,8 +2373,7 @@ public:
     /**
      * Patch the given application data.
      * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to
-     * patch will be shut down if necessary.
+     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -2622,8 +2387,7 @@ public:
     /**
      * Patch the given application data.
      * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to
-     * patch will be shut down if necessary.
+     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -2649,8 +2413,7 @@ public:
      * @param name The application name.
      * @param context The Context map to send with the invocation.
      * @return The application descriptor.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      */
     ApplicationInfo getApplicationInfo(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -2697,8 +2460,7 @@ public:
      * Get the default application descriptor.
      * @param context The Context map to send with the invocation.
      * @return The default application descriptor.
-     * @throws IceGrid::DeploymentException Raised if the default application
-     * descriptor can't be accessed or is invalid.
+     * @throws IceGrid::DeploymentException Raised if the default application descriptor can't be accessed or is invalid.
      */
     ApplicationDescriptor getDefaultApplicationDescriptor(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -2834,10 +2596,8 @@ public:
      * @param id The server id.
      * @param context The Context map to send with the invocation.
      * @return The server state.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ServerState getServerState(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2882,15 +2642,12 @@ public:
     /// \endcond
 
     /**
-     * Get a server's system process id. The process id is operating
-     * system dependent.
+     * Get a server's system process id. The process id is operating system dependent.
      * @param id The server id.
      * @param context The Context map to send with the invocation.
      * @return The server's process id.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     int getServerPid(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2899,8 +2656,7 @@ public:
     }
 
     /**
-     * Get a server's system process id. The process id is operating
-     * system dependent.
+     * Get a server's system process id. The process id is operating system dependent.
      * @param id The server id.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -2913,8 +2669,7 @@ public:
     }
 
     /**
-     * Get a server's system process id. The process id is operating
-     * system dependent.
+     * Get a server's system process id. The process id is operating system dependent.
      * @param id The server id.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -2937,9 +2692,8 @@ public:
     /// \endcond
 
     /**
-     * Get the category for server admin objects. You can manufacture a server admin
-     * proxy from the admin proxy by changing its identity: use the server ID as name
-     * and the returned category as category.
+     * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+     * changing its identity: use the server ID as name and the returned category as category.
      * @param context The Context map to send with the invocation.
      * @return The category for server admin objects.
      */
@@ -2949,9 +2703,8 @@ public:
     }
 
     /**
-     * Get the category for server admin objects. You can manufacture a server admin
-     * proxy from the admin proxy by changing its identity: use the server ID as name
-     * and the returned category as category.
+     * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+     * changing its identity: use the server ID as name and the returned category as category.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -2963,9 +2716,8 @@ public:
     }
 
     /**
-     * Get the category for server admin objects. You can manufacture a server admin
-     * proxy from the admin proxy by changing its identity: use the server ID as name
-     * and the returned category as category.
+     * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+     * changing its identity: use the server ID as name and the returned category as category.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -2990,10 +2742,8 @@ public:
      * @param id The server id.
      * @param context The Context map to send with the invocation.
      * @return A proxy to the server's admin object
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ::std::shared_ptr<::Ice::ObjectPrx> getServerAdmin(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -3038,17 +2788,13 @@ public:
     /// \endcond
 
     /**
-     * Enable or disable a server. A disabled server can't be started
-     * on demand or administratively. The enable state of the server
-     * is not persistent: if the node is shut down and restarted, the
-     * server will be enabled by default.
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
      * @param id The server id.
      * @param enabled True to enable the server, false to disable it.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     void enableServer(const ::std::string& id, bool enabled, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -3057,10 +2803,8 @@ public:
     }
 
     /**
-     * Enable or disable a server. A disabled server can't be started
-     * on demand or administratively. The enable state of the server
-     * is not persistent: if the node is shut down and restarted, the
-     * server will be enabled by default.
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
      * @param id The server id.
      * @param enabled True to enable the server, false to disable it.
      * @param context The Context map to send with the invocation.
@@ -3074,10 +2818,8 @@ public:
     }
 
     /**
-     * Enable or disable a server. A disabled server can't be started
-     * on demand or administratively. The enable state of the server
-     * is not persistent: if the node is shut down and restarted, the
-     * server will be enabled by default.
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
      * @param id The server id.
      * @param enabled True to enable the server, false to disable it.
      * @param response The response callback.
@@ -3105,12 +2847,9 @@ public:
      * @param id The server id.
      * @param context The Context map to send with the invocation.
      * @return True if the server is enabled.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     bool isServerEnabled(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -3157,14 +2896,10 @@ public:
      * Start a server and wait for its activation.
      * @param id The server id.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
-     * @throws IceGrid::ServerStartException Raised if the server couldn't be
-     * started.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
+     * @throws IceGrid::ServerStartException Raised if the server couldn't be started.
      */
     void startServer(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -3211,14 +2946,10 @@ public:
      * Stop a server.
      * @param id The server id.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
-     * @throws IceGrid::ServerStopException Raised if the server couldn't be
-     * stopped.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
+     * @throws IceGrid::ServerStopException Raised if the server couldn't be stopped.
      */
     void stopServer(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -3264,16 +2995,12 @@ public:
     /**
      * Patch a server.
      * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch
-     * will be shut down if necessary.
+     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::PatchException Raised if the patch failed.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     void patchServer(const ::std::string& id, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -3283,8 +3010,7 @@ public:
     /**
      * Patch a server.
      * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch
-     * will be shut down if necessary.
+     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -3298,8 +3024,7 @@ public:
     /**
      * Patch a server.
      * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch
-     * will be shut down if necessary.
+     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -3325,14 +3050,10 @@ public:
      * @param id The server id.
      * @param signal The signal, for example SIGTERM or 15.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::BadSignalException Raised if the signal is not recognized
-     * by the target server.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::BadSignalException Raised if the signal is not recognized by the target server.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     void sendSignal(const ::std::string& id, const ::std::string& signal, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -3421,17 +3142,13 @@ public:
     /// \endcond
 
     /**
-     * Get the adapter information for the replica group or adapter
-     * with the given id.
+     * Get the adapter information for the replica group or adapter with the given id.
      * @param id The adapter id.
      * @param context The Context map to send with the invocation.
-     * @return A sequence of adapter information structures. If the
-     * given id refers to an adapter, this sequence will contain only
-     * one element. If the given id refers to a replica group, the
-     * sequence will contain the adapter information of each member of
-     * the replica group.
-     * @throws IceGrid::AdapterNotExistException Raised if the adapter or
-     * replica group doesn't exist.
+     * @return A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
+     * contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
+     * information of each member of the replica group.
+     * @throws IceGrid::AdapterNotExistException Raised if the adapter or replica group doesn't exist.
      */
     AdapterInfoSeq getAdapterInfo(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -3439,8 +3156,7 @@ public:
     }
 
     /**
-     * Get the adapter information for the replica group or adapter
-     * with the given id.
+     * Get the adapter information for the replica group or adapter with the given id.
      * @param id The adapter id.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -3453,8 +3169,7 @@ public:
     }
 
     /**
-     * Get the adapter information for the replica group or adapter
-     * with the given id.
+     * Get the adapter information for the replica group or adapter with the given id.
      * @param id The adapter id.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -3480,8 +3195,7 @@ public:
      * Remove the adapter with the given id.
      * @param id The adapter id.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AdapterNotExistException Raised if the adapter doesn't
-     * exist.
+     * @throws IceGrid::AdapterNotExistException Raised if the adapter doesn't exist.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     void removeAdapter(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -3569,16 +3283,13 @@ public:
     /// \endcond
 
     /**
-     * Add an object to the object registry. IceGrid will get the
-     * object type by calling <code>ice_id</code> on the given proxy. The object
-     * must be reachable.
+     * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
+     * given proxy. The object must be reachable.
      * @param obj The object to be added to the registry.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if the object can't be
-     * added. This might be raised if the invocation on the proxy to
-     * get the object type failed.
-     * @throws IceGrid::ObjectExistsException Raised if the object is already
-     * registered.
+     * @throws IceGrid::DeploymentException Raised if the object can't be added. This might be raised if the invocation on the
+     * proxy to get the object type failed.
+     * @throws IceGrid::ObjectExistsException Raised if the object is already registered.
      */
     void addObject(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -3586,9 +3297,8 @@ public:
     }
 
     /**
-     * Add an object to the object registry. IceGrid will get the
-     * object type by calling <code>ice_id</code> on the given proxy. The object
-     * must be reachable.
+     * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
+     * given proxy. The object must be reachable.
      * @param obj The object to be added to the registry.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -3601,9 +3311,8 @@ public:
     }
 
     /**
-     * Add an object to the object registry. IceGrid will get the
-     * object type by calling <code>ice_id</code> on the given proxy. The object
-     * must be reachable.
+     * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
+     * given proxy. The object must be reachable.
      * @param obj The object to be added to the registry.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -3626,17 +3335,13 @@ public:
     /// \endcond
 
     /**
-     * Update an object in the object registry. Only objects added
-     * with this interface can be updated with this operation. Objects
-     * added with deployment descriptors should be updated with the
-     * deployment mechanism.
+     * Update an object in the object registry. Only objects added with this interface can be updated with this
+     * operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
      * @param obj The object to be updated to the registry.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if the object can't be
-     * updated. This might happen if the object was added with a
-     * deployment descriptor.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws IceGrid::DeploymentException Raised if the object can't be updated. This might happen if the object was added
+     * with a deployment descriptor.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      */
     void updateObject(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -3644,10 +3349,8 @@ public:
     }
 
     /**
-     * Update an object in the object registry. Only objects added
-     * with this interface can be updated with this operation. Objects
-     * added with deployment descriptors should be updated with the
-     * deployment mechanism.
+     * Update an object in the object registry. Only objects added with this interface can be updated with this
+     * operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
      * @param obj The object to be updated to the registry.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -3660,10 +3363,8 @@ public:
     }
 
     /**
-     * Update an object in the object registry. Only objects added
-     * with this interface can be updated with this operation. Objects
-     * added with deployment descriptors should be updated with the
-     * deployment mechanism.
+     * Update an object in the object registry. Only objects added with this interface can be updated with this
+     * operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
      * @param obj The object to be updated to the registry.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -3686,14 +3387,12 @@ public:
     /// \endcond
 
     /**
-     * Add an object to the object registry and explicitly specify
-     * its type.
+     * Add an object to the object registry and explicitly specify its type.
      * @param obj The object to be added to the registry.
      * @param type The object type.
      * @param context The Context map to send with the invocation.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
-     * @throws IceGrid::ObjectExistsException Raised if the object is already
-     * registered.
+     * @throws IceGrid::ObjectExistsException Raised if the object is already registered.
      */
     void addObjectWithType(const ::std::shared_ptr<::Ice::ObjectPrx>& obj, const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -3701,8 +3400,7 @@ public:
     }
 
     /**
-     * Add an object to the object registry and explicitly specify
-     * its type.
+     * Add an object to the object registry and explicitly specify its type.
      * @param obj The object to be added to the registry.
      * @param type The object type.
      * @param context The Context map to send with the invocation.
@@ -3716,8 +3414,7 @@ public:
     }
 
     /**
-     * Add an object to the object registry and explicitly specify
-     * its type.
+     * Add an object to the object registry and explicitly specify its type.
      * @param obj The object to be added to the registry.
      * @param type The object type.
      * @param response The response callback.
@@ -3741,18 +3438,13 @@ public:
     /// \endcond
 
     /**
-     * Remove an object from the object registry. Only objects added
-     * with this interface can be removed with this operation. Objects
-     * added with deployment descriptors should be removed with the
-     * deployment mechanism.
-     * @param id The identity of the object to be removed from the
-     * registry.
+     * Remove an object from the object registry. Only objects added with this interface can be removed with this
+     * operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
+     * @param id The identity of the object to be removed from the registry.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if the object can't be
-     * removed. This might happen if the object was added with a
-     * deployment descriptor.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws IceGrid::DeploymentException Raised if the object can't be removed. This might happen if the object was added
+     * with a deployment descriptor.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      */
     void removeObject(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -3760,12 +3452,9 @@ public:
     }
 
     /**
-     * Remove an object from the object registry. Only objects added
-     * with this interface can be removed with this operation. Objects
-     * added with deployment descriptors should be removed with the
-     * deployment mechanism.
-     * @param id The identity of the object to be removed from the
-     * registry.
+     * Remove an object from the object registry. Only objects added with this interface can be removed with this
+     * operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
+     * @param id The identity of the object to be removed from the registry.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -3777,12 +3466,9 @@ public:
     }
 
     /**
-     * Remove an object from the object registry. Only objects added
-     * with this interface can be removed with this operation. Objects
-     * added with deployment descriptors should be removed with the
-     * deployment mechanism.
-     * @param id The identity of the object to be removed from the
-     * registry.
+     * Remove an object from the object registry. Only objects added with this interface can be removed with this
+     * operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
+     * @param id The identity of the object to be removed from the registry.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -3808,8 +3494,7 @@ public:
      * @param id The identity of the object.
      * @param context The Context map to send with the invocation.
      * @return The object info.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      */
     ObjectInfo getObjectInfo(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -3853,8 +3538,7 @@ public:
     /// \endcond
 
     /**
-     * Get the object info of all the registered objects with the
-     * given type.
+     * Get the object info of all the registered objects with the given type.
      * @param type The type of the object.
      * @param context The Context map to send with the invocation.
      * @return The object infos.
@@ -3865,8 +3549,7 @@ public:
     }
 
     /**
-     * Get the object info of all the registered objects with the
-     * given type.
+     * Get the object info of all the registered objects with the given type.
      * @param type The type of the object.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -3879,8 +3562,7 @@ public:
     }
 
     /**
-     * Get the object info of all the registered objects with the
-     * given type.
+     * Get the object info of all the registered objects with the given type.
      * @param type The type of the object.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -3903,14 +3585,11 @@ public:
     /// \endcond
 
     /**
-     * Get the object info of all the registered objects whose stringified
-     * identities match the given expression.
-     * @param expr The expression to match against the stringified
-     * identities of registered objects. The expression may contain
-     * a trailing wildcard (<code>*</code>) character.
+     * Get the object info of all the registered objects whose stringified identities match the given expression.
+     * @param expr The expression to match against the stringified identities of registered objects. The expression
+     * may contain a trailing wildcard (<code>*</code>) character.
      * @param context The Context map to send with the invocation.
-     * @return All the object infos with a stringified identity
-     * matching the given expression.
+     * @return All the object infos with a stringified identity matching the given expression.
      */
     ObjectInfoSeq getAllObjectInfos(const ::std::string& expr, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -3918,11 +3597,9 @@ public:
     }
 
     /**
-     * Get the object info of all the registered objects whose stringified
-     * identities match the given expression.
-     * @param expr The expression to match against the stringified
-     * identities of registered objects. The expression may contain
-     * a trailing wildcard (<code>*</code>) character.
+     * Get the object info of all the registered objects whose stringified identities match the given expression.
+     * @param expr The expression to match against the stringified identities of registered objects. The expression
+     * may contain a trailing wildcard (<code>*</code>) character.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -3934,11 +3611,9 @@ public:
     }
 
     /**
-     * Get the object info of all the registered objects whose stringified
-     * identities match the given expression.
-     * @param expr The expression to match against the stringified
-     * identities of registered objects. The expression may contain
-     * a trailing wildcard (<code>*</code>) character.
+     * Get the object info of all the registered objects whose stringified identities match the given expression.
+     * @param expr The expression to match against the stringified identities of registered objects. The expression
+     * may contain a trailing wildcard (<code>*</code>) character.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -4013,8 +3688,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The node load information.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     LoadInfo getNodeLoad(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -4063,8 +3737,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The node information.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     NodeInfo getNodeInfo(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -4113,8 +3786,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return A proxy to the IceGrid node's admin object
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     ::std::shared_ptr<::Ice::ObjectPrx> getNodeAdmin(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -4158,20 +3830,14 @@ public:
     /// \endcond
 
     /**
-     * Get the number of physical processor sockets for the machine
-     * running the node with the given name.
-     *
-     * Note that this method will return 1 on operating systems where
-     * this can't be automatically determined and where the
-     * IceGrid.Node.ProcessorSocketCount property for the node is not
-     * set.
+     * Get the number of physical processor sockets for the machine running the node with the given name.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
+     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
-     * @return The number of processor sockets or 1 if the number of
-     * sockets can't determined.
+     * @return The number of processor sockets or 1 if the number of sockets can't determined.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     int getNodeProcessorSocketCount(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -4179,13 +3845,9 @@ public:
     }
 
     /**
-     * Get the number of physical processor sockets for the machine
-     * running the node with the given name.
-     *
-     * Note that this method will return 1 on operating systems where
-     * this can't be automatically determined and where the
-     * IceGrid.Node.ProcessorSocketCount property for the node is not
-     * set.
+     * Get the number of physical processor sockets for the machine running the node with the given name.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
+     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -4198,13 +3860,9 @@ public:
     }
 
     /**
-     * Get the number of physical processor sockets for the machine
-     * running the node with the given name.
-     *
-     * Note that this method will return 1 on operating systems where
-     * this can't be automatically determined and where the
-     * IceGrid.Node.ProcessorSocketCount property for the node is not
-     * set.
+     * Get the number of physical processor sockets for the machine running the node with the given name.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
+     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
      * @param name The node name.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -4231,8 +3889,7 @@ public:
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     void shutdownNode(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -4281,8 +3938,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The node hostname.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     ::std::string getNodeHostname(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -4422,8 +4078,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The registry information.
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be
-     * reached.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
     RegistryInfo getRegistryInfo(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -4519,8 +4174,7 @@ public:
      * @param name The registry name.
      * @param context The Context map to send with the invocation.
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be
-     * reached.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
     void shutdownRegistry(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -4674,18 +4328,14 @@ public:
 
     /**
      * Read lines from the log file.
-     * @param size Specifies the maximum number of bytes to be
-     * received. The server will ensure that the returned message
-     * doesn't exceed the given size.
-     * @param lines The lines read from the file. If there was nothing to
-     * read from the file since the last call to read, an empty
-     * sequence is returned. The last line of the sequence is always
-     * incomplete (and therefore no '\n' should be added when writing
-     * the last line to the to the output device).
+     * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
+     * message doesn't exceed the given size.
+     * @param lines The lines read from the file. If there was nothing to read from the file since the last call to
+     * read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n'
+     * should be added when writing the last line to the to the output device).
      * @param context The Context map to send with the invocation.
      * @return True if EOF is encountered.
-     * @throws IceGrid::FileNotAvailableException Raised if there was a problem
-     * to read lines from the file.
+     * @throws IceGrid::FileNotAvailableException Raised if there was a problem to read lines from the file.
      */
     bool read(int size, ::Ice::StringSeq& lines, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -4696,9 +4346,8 @@ public:
 
     /**
      * Read lines from the log file.
-     * @param size Specifies the maximum number of bytes to be
-     * received. The server will ensure that the returned message
-     * doesn't exceed the given size.
+     * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
+     * message doesn't exceed the given size.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -4711,9 +4360,8 @@ public:
 
     /**
      * Read lines from the log file.
-     * @param size Specifies the maximum number of bytes to be
-     * received. The server will ensure that the returned message
-     * doesn't exceed the given size.
+     * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
+     * message doesn't exceed the given size.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -4797,8 +4445,7 @@ protected:
 };
 
 /**
- * This interface allows applications to monitor changes the state
- * of the registry.
+ * This interface allows applications to monitor changes the state of the registry.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) RegistryObserverPrx : public virtual ::Ice::Proxy<RegistryObserverPrx, ::Ice::ObjectPrx>
@@ -4806,8 +4453,8 @@ class ICE_CLASS(ICEGRID_API) RegistryObserverPrx : public virtual ::Ice::Proxy<R
 public:
 
     /**
-     * The <code>registryInit</code> operation is called after registration of
-     * an observer to indicate the state of the registries.
+     * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
+     * the registries.
      * @param registries The current state of the registries.
      * @param context The Context map to send with the invocation.
      */
@@ -4817,8 +4464,8 @@ public:
     }
 
     /**
-     * The <code>registryInit</code> operation is called after registration of
-     * an observer to indicate the state of the registries.
+     * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
+     * the registries.
      * @param registries The current state of the registries.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -4831,8 +4478,8 @@ public:
     }
 
     /**
-     * The <code>registryInit</code> operation is called after registration of
-     * an observer to indicate the state of the registries.
+     * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
+     * the registries.
      * @param registries The current state of the registries.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -4855,8 +4502,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param context The Context map to send with the invocation.
      */
@@ -4866,8 +4512,7 @@ public:
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -4880,8 +4525,7 @@ public:
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -4904,8 +4548,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      */
@@ -4915,8 +4558,7 @@ public:
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -4929,8 +4571,7 @@ public:
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -4969,9 +4610,8 @@ protected:
 };
 
 /**
- * The node observer interface. Observers should implement this
- * interface to receive information about the state of the IceGrid
- * nodes.
+ * The node observer interface. Observers should implement this interface to receive information about the state of
+ * the IceGrid nodes.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) NodeObserverPrx : public virtual ::Ice::Proxy<NodeObserverPrx, ::Ice::ObjectPrx>
@@ -4979,8 +4619,8 @@ class ICE_CLASS(ICEGRID_API) NodeObserverPrx : public virtual ::Ice::Proxy<NodeO
 public:
 
     /**
-     * The <code>nodeInit</code> operation indicates the current state
-     * of nodes. It is called after the registration of an observer.
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
+     * of an observer.
      * @param nodes The current state of the nodes.
      * @param context The Context map to send with the invocation.
      */
@@ -4990,8 +4630,8 @@ public:
     }
 
     /**
-     * The <code>nodeInit</code> operation indicates the current state
-     * of nodes. It is called after the registration of an observer.
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
+     * of an observer.
      * @param nodes The current state of the nodes.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -5004,8 +4644,8 @@ public:
     }
 
     /**
-     * The <code>nodeInit</code> operation indicates the current state
-     * of nodes. It is called after the registration of an observer.
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
+     * of an observer.
      * @param nodes The current state of the nodes.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -5028,8 +4668,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param context The Context map to send with the invocation.
      */
@@ -5039,8 +4678,7 @@ public:
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -5053,8 +4691,7 @@ public:
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -5077,8 +4714,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      */
@@ -5088,8 +4724,7 @@ public:
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -5102,8 +4737,7 @@ public:
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -5126,8 +4760,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>updateServer</code> operation is called to notify an observer that
-     * the state of a server changed.
+     * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
      * @param node The node hosting the server.
      * @param updatedInfo The new server state.
      * @param context The Context map to send with the invocation.
@@ -5138,8 +4771,7 @@ public:
     }
 
     /**
-     * The <code>updateServer</code> operation is called to notify an observer that
-     * the state of a server changed.
+     * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
      * @param node The node hosting the server.
      * @param updatedInfo The new server state.
      * @param context The Context map to send with the invocation.
@@ -5153,8 +4785,7 @@ public:
     }
 
     /**
-     * The <code>updateServer</code> operation is called to notify an observer that
-     * the state of a server changed.
+     * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
      * @param node The node hosting the server.
      * @param updatedInfo The new server state.
      * @param response The response callback.
@@ -5178,8 +4809,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that
-     * the state of an adapter changed.
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
      * @param node The node hosting the adapter.
      * @param updatedInfo The new adapter state.
      * @param context The Context map to send with the invocation.
@@ -5190,8 +4820,7 @@ public:
     }
 
     /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that
-     * the state of an adapter changed.
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
      * @param node The node hosting the adapter.
      * @param updatedInfo The new adapter state.
      * @param context The Context map to send with the invocation.
@@ -5205,8 +4834,7 @@ public:
     }
 
     /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that
-     * the state of an adapter changed.
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
      * @param node The node hosting the adapter.
      * @param updatedInfo The new adapter state.
      * @param response The response callback.
@@ -5246,9 +4874,8 @@ protected:
 };
 
 /**
- * The database observer interface. Observers should implement this
- * interface to receive information about the state of the IceGrid
- * registry database.
+ * The database observer interface. Observers should implement this interface to receive information about the state
+ * of the IceGrid registry database.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) ApplicationObserverPrx : public virtual ::Ice::Proxy<ApplicationObserverPrx, ::Ice::ObjectPrx>
@@ -5256,13 +4883,11 @@ class ICE_CLASS(ICEGRID_API) ApplicationObserverPrx : public virtual ::Ice::Prox
 public:
 
     /**
-     * <code>applicationInit</code> is called after the registration
-     * of an observer to indicate the state of the registry.
-     * @param serial The current serial number of the registry
-     * database. This serial number allows observers to make sure that
-     * their internal state is synchronized with the registry.
-     * @param applications The applications currently registered with
-     * the registry.
+     * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param serial The current serial number of the registry database. This serial number allows observers to make
+     * sure that their internal state is synchronized with the registry.
+     * @param applications The applications currently registered with the registry.
      * @param context The Context map to send with the invocation.
      */
     void applicationInit(int serial, const ApplicationInfoSeq& applications, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -5271,13 +4896,11 @@ public:
     }
 
     /**
-     * <code>applicationInit</code> is called after the registration
-     * of an observer to indicate the state of the registry.
-     * @param serial The current serial number of the registry
-     * database. This serial number allows observers to make sure that
-     * their internal state is synchronized with the registry.
-     * @param applications The applications currently registered with
-     * the registry.
+     * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param serial The current serial number of the registry database. This serial number allows observers to make
+     * sure that their internal state is synchronized with the registry.
+     * @param applications The applications currently registered with the registry.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -5289,13 +4912,11 @@ public:
     }
 
     /**
-     * <code>applicationInit</code> is called after the registration
-     * of an observer to indicate the state of the registry.
-     * @param serial The current serial number of the registry
-     * database. This serial number allows observers to make sure that
-     * their internal state is synchronized with the registry.
-     * @param applications The applications currently registered with
-     * the registry.
+     * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param serial The current serial number of the registry database. This serial number allows observers to make
+     * sure that their internal state is synchronized with the registry.
+     * @param applications The applications currently registered with the registry.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -5317,8 +4938,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>applicationAdded</code> operation is called to notify an observer
-     * that an application was added.
+     * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the new application.
      * @param context The Context map to send with the invocation.
@@ -5329,8 +4949,7 @@ public:
     }
 
     /**
-     * The <code>applicationAdded</code> operation is called to notify an observer
-     * that an application was added.
+     * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the new application.
      * @param context The Context map to send with the invocation.
@@ -5344,8 +4963,7 @@ public:
     }
 
     /**
-     * The <code>applicationAdded</code> operation is called to notify an observer
-     * that an application was added.
+     * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the new application.
      * @param response The response callback.
@@ -5369,8 +4987,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>applicationRemoved</code> operation is called to notify an observer
-     * that an application was removed.
+     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
      * @param serial The new serial number of the registry database.
      * @param name The name of the application that was removed.
      * @param context The Context map to send with the invocation.
@@ -5381,8 +4998,7 @@ public:
     }
 
     /**
-     * The <code>applicationRemoved</code> operation is called to notify an observer
-     * that an application was removed.
+     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
      * @param serial The new serial number of the registry database.
      * @param name The name of the application that was removed.
      * @param context The Context map to send with the invocation.
@@ -5396,8 +5012,7 @@ public:
     }
 
     /**
-     * The <code>applicationRemoved</code> operation is called to notify an observer
-     * that an application was removed.
+     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
      * @param serial The new serial number of the registry database.
      * @param name The name of the application that was removed.
      * @param response The response callback.
@@ -5421,8 +5036,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>applicationUpdated</code> operation is called to notify an observer
-     * that an application was updated.
+     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the update.
      * @param context The Context map to send with the invocation.
@@ -5433,8 +5047,7 @@ public:
     }
 
     /**
-     * The <code>applicationUpdated</code> operation is called to notify an observer
-     * that an application was updated.
+     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the update.
      * @param context The Context map to send with the invocation.
@@ -5448,8 +5061,7 @@ public:
     }
 
     /**
-     * The <code>applicationUpdated</code> operation is called to notify an observer
-     * that an application was updated.
+     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the update.
      * @param response The response callback.
@@ -5489,8 +5101,7 @@ protected:
 };
 
 /**
- * This interface allows applications to monitor the state of object
- * adapters that are registered with IceGrid.
+ * This interface allows applications to monitor the state of object adapters that are registered with IceGrid.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) AdapterObserverPrx : public virtual ::Ice::Proxy<AdapterObserverPrx, ::Ice::ObjectPrx>
@@ -5498,10 +5109,9 @@ class ICE_CLASS(ICEGRID_API) AdapterObserverPrx : public virtual ::Ice::Proxy<Ad
 public:
 
     /**
-     * <code>adapterInit</code> is called after registration of
-     * an observer to indicate the state of the registry.
-     * @param adpts The adapters that were dynamically registered
-     * with the registry (not through the deployment mechanism).
+     * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
+     * @param adpts The adapters that were dynamically registered with the registry (not through the deployment
+     * mechanism).
      * @param context The Context map to send with the invocation.
      */
     void adapterInit(const AdapterInfoSeq& adpts, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -5510,10 +5120,9 @@ public:
     }
 
     /**
-     * <code>adapterInit</code> is called after registration of
-     * an observer to indicate the state of the registry.
-     * @param adpts The adapters that were dynamically registered
-     * with the registry (not through the deployment mechanism).
+     * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
+     * @param adpts The adapters that were dynamically registered with the registry (not through the deployment
+     * mechanism).
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -5525,10 +5134,9 @@ public:
     }
 
     /**
-     * <code>adapterInit</code> is called after registration of
-     * an observer to indicate the state of the registry.
-     * @param adpts The adapters that were dynamically registered
-     * with the registry (not through the deployment mechanism).
+     * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
+     * @param adpts The adapters that were dynamically registered with the registry (not through the deployment
+     * mechanism).
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -5550,8 +5158,8 @@ public:
     /// \endcond
 
     /**
-     * The <code>adapterAdded</code> operation is called to notify an observer when
-     * a dynamically-registered adapter was added.
+     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
+     * was added.
      * @param info The details of the new adapter.
      * @param context The Context map to send with the invocation.
      */
@@ -5561,8 +5169,8 @@ public:
     }
 
     /**
-     * The <code>adapterAdded</code> operation is called to notify an observer when
-     * a dynamically-registered adapter was added.
+     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
+     * was added.
      * @param info The details of the new adapter.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -5575,8 +5183,8 @@ public:
     }
 
     /**
-     * The <code>adapterAdded</code> operation is called to notify an observer when
-     * a dynamically-registered adapter was added.
+     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
+     * was added.
      * @param info The details of the new adapter.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -5599,8 +5207,7 @@ public:
     /// \endcond
 
     /**
-     * The adapterUpdated operation is called to notify an observer when
-     * a dynamically-registered adapter was updated.
+     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
      * @param info The details of the updated adapter.
      * @param context The Context map to send with the invocation.
      */
@@ -5610,8 +5217,7 @@ public:
     }
 
     /**
-     * The adapterUpdated operation is called to notify an observer when
-     * a dynamically-registered adapter was updated.
+     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
      * @param info The details of the updated adapter.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -5624,8 +5230,7 @@ public:
     }
 
     /**
-     * The adapterUpdated operation is called to notify an observer when
-     * a dynamically-registered adapter was updated.
+     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
      * @param info The details of the updated adapter.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -5648,8 +5253,7 @@ public:
     /// \endcond
 
     /**
-     * The adapterRemoved operation is called to notify an observer when
-     * a dynamically-registered adapter was removed.
+     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
      * @param id The ID of the removed adapter.
      * @param context The Context map to send with the invocation.
      */
@@ -5659,8 +5263,7 @@ public:
     }
 
     /**
-     * The adapterRemoved operation is called to notify an observer when
-     * a dynamically-registered adapter was removed.
+     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
      * @param id The ID of the removed adapter.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -5673,8 +5276,7 @@ public:
     }
 
     /**
-     * The adapterRemoved operation is called to notify an observer when
-     * a dynamically-registered adapter was removed.
+     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
      * @param id The ID of the removed adapter.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -5721,10 +5323,8 @@ class ICE_CLASS(ICEGRID_API) ObjectObserverPrx : public virtual ::Ice::Proxy<Obj
 public:
 
     /**
-     * <code>objectInit</code> is called after the registration of
-     * an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin}
-     * interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
      * @param context The Context map to send with the invocation.
      */
     void objectInit(const ObjectInfoSeq& objects, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -5733,10 +5333,8 @@ public:
     }
 
     /**
-     * <code>objectInit</code> is called after the registration of
-     * an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin}
-     * interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -5748,10 +5346,8 @@ public:
     }
 
     /**
-     * <code>objectInit</code> is called after the registration of
-     * an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin}
-     * interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -5773,8 +5369,8 @@ public:
     /// \endcond
 
     /**
-     * The <code>objectAdded</code> operation is called to notify an observer when an
-     * object was added to the {@link Admin} interface.
+     * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
+     * {@link Admin} interface.
      * @param info The details of the added object.
      * @param context The Context map to send with the invocation.
      */
@@ -5784,8 +5380,8 @@ public:
     }
 
     /**
-     * The <code>objectAdded</code> operation is called to notify an observer when an
-     * object was added to the {@link Admin} interface.
+     * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
+     * {@link Admin} interface.
      * @param info The details of the added object.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -5798,8 +5394,8 @@ public:
     }
 
     /**
-     * The <code>objectAdded</code> operation is called to notify an observer when an
-     * object was added to the {@link Admin} interface.
+     * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
+     * {@link Admin} interface.
      * @param info The details of the added object.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -5822,8 +5418,8 @@ public:
     /// \endcond
 
     /**
-     * <code>objectUpdated</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was updated.
+     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was updated.
      * @param info The details of the updated object.
      * @param context The Context map to send with the invocation.
      */
@@ -5833,8 +5429,8 @@ public:
     }
 
     /**
-     * <code>objectUpdated</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was updated.
+     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was updated.
      * @param info The details of the updated object.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -5847,8 +5443,8 @@ public:
     }
 
     /**
-     * <code>objectUpdated</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was updated.
+     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was updated.
      * @param info The details of the updated object.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -5871,8 +5467,8 @@ public:
     /// \endcond
 
     /**
-     * <code>objectRemoved</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was removed.
+     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was removed.
      * @param id The identity of the removed object.
      * @param context The Context map to send with the invocation.
      */
@@ -5882,8 +5478,8 @@ public:
     }
 
     /**
-     * <code>objectRemoved</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was removed.
+     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was removed.
      * @param id The identity of the removed object.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -5896,8 +5492,8 @@ public:
     }
 
     /**
-     * <code>objectRemoved</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was removed.
+     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was removed.
      * @param id The identity of the removed object.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -5936,10 +5532,9 @@ protected:
 };
 
 /**
- * Used by administrative clients to view,
- * update, and receive observer updates from the IceGrid
- * registry. Admin sessions are created either via the {@link Registry}
- * object or via the registry admin <code>SessionManager</code> object.
+ * Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
+ * sessions are created either via the {@link Registry} object or via the registry admin <code>SessionManager</code>
+ * object.
  * @see Registry
  * \headerfile IceGrid/IceGrid.h
  */
@@ -5948,8 +5543,8 @@ class ICE_CLASS(ICEGRID_API) AdminSessionPrx : public virtual ::Ice::Proxy<Admin
 public:
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param context The Context map to send with the invocation.
      * @see Registry#getSessionTimeout
      */
@@ -5959,8 +5554,8 @@ public:
     }
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      * @see Registry#getSessionTimeout
@@ -5973,8 +5568,8 @@ public:
     }
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -5996,8 +5591,7 @@ public:
     /// \endcond
 
     /**
-     * Get the admin interface. The admin object returned by this
-     * operation can only be accessed by the session.
+     * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
      * @param context The Context map to send with the invocation.
      * @return The admin interface proxy.
      */
@@ -6007,8 +5601,7 @@ public:
     }
 
     /**
-     * Get the admin interface. The admin object returned by this
-     * operation can only be accessed by the session.
+     * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -6020,8 +5613,7 @@ public:
     }
 
     /**
-     * Get the admin interface. The admin object returned by this
-     * operation can only be accessed by the session.
+     * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -6042,13 +5634,10 @@ public:
     /// \endcond
 
     /**
-     * Get a "template" proxy for admin callback objects.
-     * An Admin client uses this proxy to set the category of its callback
-     * objects, and the published endpoints of the object adapter hosting
-     * the admin callback objects.
+     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
      * @param context The Context map to send with the invocation.
-     * @return A template proxy. The returned proxy is null when the Admin
-     * session was established using Glacier2.
+     * @return A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
      */
     ::std::shared_ptr<::Ice::ObjectPrx> getAdminCallbackTemplate(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -6056,10 +5645,8 @@ public:
     }
 
     /**
-     * Get a "template" proxy for admin callback objects.
-     * An Admin client uses this proxy to set the category of its callback
-     * objects, and the published endpoints of the object adapter hosting
-     * the admin callback objects.
+     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -6071,10 +5658,8 @@ public:
     }
 
     /**
-     * Get a "template" proxy for admin callback objects.
-     * An Admin client uses this proxy to set the category of its callback
-     * objects, and the published endpoints of the object adapter hosting
-     * the admin callback objects.
+     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -6095,17 +5680,14 @@ public:
     /// \endcond
 
     /**
-     * Set the observer proxies that receive
-     * notifications when the state of the registry
-     * or nodes changes.
+     * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
      * @param registryObs The registry observer.
      * @param nodeObs The node observer.
      * @param appObs The application observer.
      * @param adptObs The adapter observer.
      * @param objObs The object observer.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an
-     * observer is already registered with this registry.
+     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
      */
     void setObservers(const ::std::shared_ptr<RegistryObserverPrx>& registryObs, const ::std::shared_ptr<NodeObserverPrx>& nodeObs, const ::std::shared_ptr<ApplicationObserverPrx>& appObs, const ::std::shared_ptr<AdapterObserverPrx>& adptObs, const ::std::shared_ptr<ObjectObserverPrx>& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -6113,9 +5695,7 @@ public:
     }
 
     /**
-     * Set the observer proxies that receive
-     * notifications when the state of the registry
-     * or nodes changes.
+     * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
      * @param registryObs The registry observer.
      * @param nodeObs The node observer.
      * @param appObs The application observer.
@@ -6132,9 +5712,7 @@ public:
     }
 
     /**
-     * Set the observer proxies that receive
-     * notifications when the state of the registry
-     * or nodes changes.
+     * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
      * @param registryObs The registry observer.
      * @param nodeObs The node observer.
      * @param appObs The application observer.
@@ -6161,19 +5739,15 @@ public:
     /// \endcond
 
     /**
-     * Set the observer identities that receive
-     * notifications the state of the registry
-     * or nodes changes. This operation should be used by clients that
-     * are using a bidirectional connection to communicate with the
-     * session.
+     * Set the observer identities that receive notifications the state of the registry or nodes changes. This
+     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
      * @param registryObs The registry observer identity.
      * @param nodeObs The node observer identity.
      * @param appObs The application observer.
      * @param adptObs The adapter observer.
      * @param objObs The object observer.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an
-     * observer is already registered with this registry.
+     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
      */
     void setObserversByIdentity(const ::Ice::Identity& registryObs, const ::Ice::Identity& nodeObs, const ::Ice::Identity& appObs, const ::Ice::Identity& adptObs, const ::Ice::Identity& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -6181,11 +5755,8 @@ public:
     }
 
     /**
-     * Set the observer identities that receive
-     * notifications the state of the registry
-     * or nodes changes. This operation should be used by clients that
-     * are using a bidirectional connection to communicate with the
-     * session.
+     * Set the observer identities that receive notifications the state of the registry or nodes changes. This
+     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
      * @param registryObs The registry observer identity.
      * @param nodeObs The node observer identity.
      * @param appObs The application observer.
@@ -6202,11 +5773,8 @@ public:
     }
 
     /**
-     * Set the observer identities that receive
-     * notifications the state of the registry
-     * or nodes changes. This operation should be used by clients that
-     * are using a bidirectional connection to communicate with the
-     * session.
+     * Set the observer identities that receive notifications the state of the registry or nodes changes. This
+     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
      * @param registryObs The registry observer identity.
      * @param nodeObs The node observer identity.
      * @param appObs The application observer.
@@ -6236,9 +5804,8 @@ public:
      * Acquires an exclusive lock to start updating the registry applications.
      * @param context The Context map to send with the invocation.
      * @return The current serial.
-     * @throws IceGrid::AccessDeniedException Raised if the exclusive lock can't be
-     * acquired. This might happen if the lock is currently acquired by
-     * another session.
+     * @throws IceGrid::AccessDeniedException Raised if the exclusive lock can't be acquired. This might happen if the lock is
+     * currently acquired by another session.
      */
     int startUpdate(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -6281,8 +5848,7 @@ public:
     /**
      * Finish updating the registry and release the exclusive lock.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the
-     * exclusive lock.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock.
      */
     void finishUpdate(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -6366,25 +5932,18 @@ public:
     /// \endcond
 
     /**
-     * Open the given server log file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server log file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param path The path of the log file. A log file can be opened
-     * only if it's declared in the server or service deployment
-     * descriptor.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
+     * deployment descriptor.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ::std::shared_ptr<FileIteratorPrx> openServerLog(const ::std::string& id, const ::std::string& path, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -6392,15 +5951,12 @@ public:
     }
 
     /**
-     * Open the given server log file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server log file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param path The path of the log file. A log file can be opened
-     * only if it's declared in the server or service deployment
-     * descriptor.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
+     * deployment descriptor.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -6412,15 +5968,12 @@ public:
     }
 
     /**
-     * Open the given server log file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server log file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param path The path of the log file. A log file can be opened
-     * only if it's declared in the server or service deployment
-     * descriptor.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
+     * deployment descriptor.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -6442,22 +5995,16 @@ public:
     /// \endcond
 
     /**
-     * Open the given server stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stderr file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ::std::shared_ptr<FileIteratorPrx> openServerStdErr(const ::std::string& id, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -6465,12 +6012,10 @@ public:
     }
 
     /**
-     * Open the given server stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stderr file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -6482,12 +6027,10 @@ public:
     }
 
     /**
-     * Open the given server stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stderr file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -6509,22 +6052,16 @@ public:
     /// \endcond
 
     /**
-     * Open the given server stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stdout file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
+     * If 0 or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ::std::shared_ptr<FileIteratorPrx> openServerStdOut(const ::std::string& id, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -6532,12 +6069,10 @@ public:
     }
 
     /**
-     * Open the given server stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stdout file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
+     * If 0 or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -6549,12 +6084,10 @@ public:
     }
 
     /**
-     * Open the given server stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stdout file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
+     * If 0 or positive, the file is read from the last <code>count</code> lines.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -6576,19 +6109,15 @@ public:
     /// \endcond
 
     /**
-     * Open the given node stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stderr file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     ::std::shared_ptr<FileIteratorPrx> openNodeStdErr(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -6596,12 +6125,10 @@ public:
     }
 
     /**
-     * Open the given node stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stderr file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -6613,12 +6140,10 @@ public:
     }
 
     /**
-     * Open the given node stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stderr file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -6640,19 +6165,15 @@ public:
     /// \endcond
 
     /**
-     * Open the given node stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stdout file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     ::std::shared_ptr<FileIteratorPrx> openNodeStdOut(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -6660,12 +6181,10 @@ public:
     }
 
     /**
-     * Open the given node stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stdout file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -6677,12 +6196,10 @@ public:
     }
 
     /**
-     * Open the given node stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stdout file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -6704,20 +6221,15 @@ public:
     /// \endcond
 
     /**
-     * Open the given registry stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::RegistryNotExistException Raised if the registry
-     * doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry
-     * could not be reached.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
     ::std::shared_ptr<FileIteratorPrx> openRegistryStdErr(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -6725,12 +6237,10 @@ public:
     }
 
     /**
-     * Open the given registry stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -6742,12 +6252,10 @@ public:
     }
 
     /**
-     * Open the given registry stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -6769,20 +6277,15 @@ public:
     /// \endcond
 
     /**
-     * Open the given registry stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::RegistryNotExistException Raised if the registry
-     * doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry
-     * could not be reached.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
     ::std::shared_ptr<FileIteratorPrx> openRegistryStdOut(const ::std::string& name, int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -6790,12 +6293,10 @@ public:
     }
 
     /**
-     * Open the given registry stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -6807,12 +6308,10 @@ public:
     }
 
     /**
-     * Open the given registry stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -7252,15 +6751,12 @@ enum ServerState
      */
     Inactive,
     /**
-     * The server is being activated and will change to the active
-     * state when the registered server object adapters are activated
-     * or to the activation timed out state if the activation timeout
-     * expires.
+     * The server is being activated and will change to the active state when the registered server object adapters
+     * are activated or to the activation timed out state if the activation timeout expires.
      */
     Activating,
     /**
-     * The activation timed out state indicates that the server
-     * activation timed out.
+     * The activation timed out state indicates that the server activation timed out.
      */
     ActivationTimedOut,
     /**
@@ -7381,8 +6877,7 @@ struct AdapterInfo
      */
     ::Ice::ObjectPrx proxy;
     /**
-     * The replica group id of the object adapter, or empty if the
-     * adapter doesn't belong to a replica group.
+     * The replica group id of the object adapter, or empty if the adapter doesn't belong to a replica group.
      */
     ::std::string replicaGroupId;
 
@@ -7510,8 +7005,7 @@ struct NodeInfo
      */
     ::std::string os;
     /**
-     * The network name of the host running this node (as defined in
-     * uname()).
+     * The network name of the host running this node (as defined in uname()).
      */
     ::std::string hostname;
     /**
@@ -7527,9 +7021,8 @@ struct NodeInfo
      */
     ::std::string machine;
     /**
-     * The number of processor threads on the node.
-     * For example, nProcessors is 8 on a computer with a single quad-core
-     * processor and two HT threads per core.
+     * The number of processor threads on the node. For example, nProcessors is 8 on a computer with a single
+     * quad-core processor and two HT threads per core.
      */
     ::Ice::Int nProcessors;
     /**
@@ -7680,8 +7173,7 @@ struct RegistryInfo
      */
     ::std::string name;
     /**
-     * The network name of the host running this registry (as defined in
-     * uname()).
+     * The network name of the host running this registry (as defined in uname()).
      */
     ::std::string hostname;
 
@@ -8851,11 +8343,9 @@ public:
      * Add an application to IceGrid.
      * @param descriptor The application descriptor.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     ICE_MEMBER(ICEGRID_API) void addApplication(const ::IceGrid::ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -8926,11 +8416,9 @@ public:
     /**
      * Completes an invocation of begin_addApplication.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     ICE_MEMBER(ICEGRID_API) void end_addApplication(const ::Ice::AsyncResultPtr& result);
 
@@ -8941,18 +8429,14 @@ private:
 public:
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor.
      * @param descriptor The application descriptor.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     ICE_MEMBER(ICEGRID_API) void syncApplication(const ::IceGrid::ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -8960,9 +8444,8 @@ public:
     }
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor.
      * @param descriptor The application descriptor.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -8973,9 +8456,8 @@ public:
     }
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor.
      * @param descriptor The application descriptor.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -8987,9 +8469,8 @@ public:
     }
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor.
      * @param descriptor The application descriptor.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -9002,9 +8483,8 @@ public:
     }
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor.
      * @param descriptor The application descriptor.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -9016,9 +8496,8 @@ public:
     }
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor.
      * @param descriptor The application descriptor.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -9033,13 +8512,10 @@ public:
     /**
      * Completes an invocation of begin_syncApplication.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     ICE_MEMBER(ICEGRID_API) void end_syncApplication(const ::Ice::AsyncResultPtr& result);
 
@@ -9050,17 +8526,13 @@ private:
 public:
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor.
+     * Update a deployed application with the given update application descriptor.
      * @param descriptor The update descriptor.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     ICE_MEMBER(ICEGRID_API) void updateApplication(const ::IceGrid::ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -9068,8 +8540,7 @@ public:
     }
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor.
+     * Update a deployed application with the given update application descriptor.
      * @param descriptor The update descriptor.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -9080,8 +8551,7 @@ public:
     }
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor.
+     * Update a deployed application with the given update application descriptor.
      * @param descriptor The update descriptor.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -9093,8 +8563,7 @@ public:
     }
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor.
+     * Update a deployed application with the given update application descriptor.
      * @param descriptor The update descriptor.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -9107,8 +8576,7 @@ public:
     }
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor.
+     * Update a deployed application with the given update application descriptor.
      * @param descriptor The update descriptor.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -9120,8 +8588,7 @@ public:
     }
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor.
+     * Update a deployed application with the given update application descriptor.
      * @param descriptor The update descriptor.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -9136,13 +8603,10 @@ public:
     /**
      * Completes an invocation of begin_updateApplication.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     ICE_MEMBER(ICEGRID_API) void end_updateApplication(const ::Ice::AsyncResultPtr& result);
 
@@ -9153,21 +8617,15 @@ private:
 public:
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor only if no server restarts are
-     * necessary for the update of the application. If some servers
-     * need to be restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
      * @param descriptor The application descriptor.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     ICE_MEMBER(ICEGRID_API) void syncApplicationWithoutRestart(const ::IceGrid::ApplicationDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -9175,12 +8633,9 @@ public:
     }
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor only if no server restarts are
-     * necessary for the update of the application. If some servers
-     * need to be restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
      * @param descriptor The application descriptor.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -9191,12 +8646,9 @@ public:
     }
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor only if no server restarts are
-     * necessary for the update of the application. If some servers
-     * need to be restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
      * @param descriptor The application descriptor.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -9208,12 +8660,9 @@ public:
     }
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor only if no server restarts are
-     * necessary for the update of the application. If some servers
-     * need to be restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
      * @param descriptor The application descriptor.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -9226,12 +8675,9 @@ public:
     }
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor only if no server restarts are
-     * necessary for the update of the application. If some servers
-     * need to be restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
      * @param descriptor The application descriptor.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -9243,12 +8689,9 @@ public:
     }
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor only if no server restarts are
-     * necessary for the update of the application. If some servers
-     * need to be restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
      * @param descriptor The application descriptor.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -9263,13 +8706,10 @@ public:
     /**
      * Completes an invocation of begin_syncApplicationWithoutRestart.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     ICE_MEMBER(ICEGRID_API) void end_syncApplicationWithoutRestart(const ::Ice::AsyncResultPtr& result);
 
@@ -9280,20 +8720,15 @@ private:
 public:
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor only if no server restarts are necessary for the
-     * update of the application. If some servers need to be
-     * restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Update a deployed application with the given update application descriptor only if no server restarts are
+     * necessary for the update of the application. If some servers need to be restarted, the synchronization is
+     * rejected with a DeploymentException.
      * @param descriptor The update descriptor.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     ICE_MEMBER(ICEGRID_API) void updateApplicationWithoutRestart(const ::IceGrid::ApplicationUpdateDescriptor& descriptor, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -9301,11 +8736,9 @@ public:
     }
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor only if no server restarts are necessary for the
-     * update of the application. If some servers need to be
-     * restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Update a deployed application with the given update application descriptor only if no server restarts are
+     * necessary for the update of the application. If some servers need to be restarted, the synchronization is
+     * rejected with a DeploymentException.
      * @param descriptor The update descriptor.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -9316,11 +8749,9 @@ public:
     }
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor only if no server restarts are necessary for the
-     * update of the application. If some servers need to be
-     * restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Update a deployed application with the given update application descriptor only if no server restarts are
+     * necessary for the update of the application. If some servers need to be restarted, the synchronization is
+     * rejected with a DeploymentException.
      * @param descriptor The update descriptor.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -9332,11 +8763,9 @@ public:
     }
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor only if no server restarts are necessary for the
-     * update of the application. If some servers need to be
-     * restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Update a deployed application with the given update application descriptor only if no server restarts are
+     * necessary for the update of the application. If some servers need to be restarted, the synchronization is
+     * rejected with a DeploymentException.
      * @param descriptor The update descriptor.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -9349,11 +8778,9 @@ public:
     }
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor only if no server restarts are necessary for the
-     * update of the application. If some servers need to be
-     * restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Update a deployed application with the given update application descriptor only if no server restarts are
+     * necessary for the update of the application. If some servers need to be restarted, the synchronization is
+     * rejected with a DeploymentException.
      * @param descriptor The update descriptor.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -9365,11 +8792,9 @@ public:
     }
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor only if no server restarts are necessary for the
-     * update of the application. If some servers need to be
-     * restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Update a deployed application with the given update application descriptor only if no server restarts are
+     * necessary for the update of the application. If some servers need to be restarted, the synchronization is
+     * rejected with a DeploymentException.
      * @param descriptor The update descriptor.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -9384,13 +8809,10 @@ public:
     /**
      * Completes an invocation of begin_updateApplicationWithoutRestart.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     ICE_MEMBER(ICEGRID_API) void end_updateApplicationWithoutRestart(const ::Ice::AsyncResultPtr& result);
 
@@ -9404,11 +8826,9 @@ public:
      * Remove an application from IceGrid.
      * @param name The application name.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     ICE_MEMBER(ICEGRID_API) void removeApplication(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -9480,11 +8900,9 @@ public:
     /**
      * Completes an invocation of begin_removeApplication.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     ICE_MEMBER(ICEGRID_API) void end_removeApplication(const ::Ice::AsyncResultPtr& result);
@@ -9496,20 +8914,15 @@ private:
 public:
 
     /**
-     * Instantiate a server template from an application on the given
-     * node.
+     * Instantiate a server template from an application on the given node.
      * @param application The application name.
-     * @param node The name of the node where the server will be
-     * deployed.
+     * @param node The name of the node where the server will be deployed.
      * @param desc The descriptor of the server instance to deploy.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if server instantiation
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if server instantiation failed.
      */
     ICE_MEMBER(ICEGRID_API) void instantiateServer(const ::std::string& application, const ::std::string& node, const ::IceGrid::ServerInstanceDescriptor& desc, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -9517,11 +8930,9 @@ public:
     }
 
     /**
-     * Instantiate a server template from an application on the given
-     * node.
+     * Instantiate a server template from an application on the given node.
      * @param application The application name.
-     * @param node The name of the node where the server will be
-     * deployed.
+     * @param node The name of the node where the server will be deployed.
      * @param desc The descriptor of the server instance to deploy.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -9532,11 +8943,9 @@ public:
     }
 
     /**
-     * Instantiate a server template from an application on the given
-     * node.
+     * Instantiate a server template from an application on the given node.
      * @param application The application name.
-     * @param node The name of the node where the server will be
-     * deployed.
+     * @param node The name of the node where the server will be deployed.
      * @param desc The descriptor of the server instance to deploy.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -9548,11 +8957,9 @@ public:
     }
 
     /**
-     * Instantiate a server template from an application on the given
-     * node.
+     * Instantiate a server template from an application on the given node.
      * @param application The application name.
-     * @param node The name of the node where the server will be
-     * deployed.
+     * @param node The name of the node where the server will be deployed.
      * @param desc The descriptor of the server instance to deploy.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -9565,11 +8972,9 @@ public:
     }
 
     /**
-     * Instantiate a server template from an application on the given
-     * node.
+     * Instantiate a server template from an application on the given node.
      * @param application The application name.
-     * @param node The name of the node where the server will be
-     * deployed.
+     * @param node The name of the node where the server will be deployed.
      * @param desc The descriptor of the server instance to deploy.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -9581,11 +8986,9 @@ public:
     }
 
     /**
-     * Instantiate a server template from an application on the given
-     * node.
+     * Instantiate a server template from an application on the given node.
      * @param application The application name.
-     * @param node The name of the node where the server will be
-     * deployed.
+     * @param node The name of the node where the server will be deployed.
      * @param desc The descriptor of the server instance to deploy.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -9600,13 +9003,10 @@ public:
     /**
      * Completes an invocation of begin_instantiateServer.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if server instantiation
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if server instantiation failed.
      */
     ICE_MEMBER(ICEGRID_API) void end_instantiateServer(const ::Ice::AsyncResultPtr& result);
 
@@ -9619,11 +9019,9 @@ public:
     /**
      * Patch the given application data.
      * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to
-     * patch will be shut down if necessary.
+     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      * @throws IceGrid::PatchException Raised if the patch failed.
      */
     ICE_MEMBER(ICEGRID_API) void patchApplication(const ::std::string& name, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -9634,8 +9032,7 @@ public:
     /**
      * Patch the given application data.
      * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to
-     * patch will be shut down if necessary.
+     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -9647,8 +9044,7 @@ public:
     /**
      * Patch the given application data.
      * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to
-     * patch will be shut down if necessary.
+     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -9661,8 +9057,7 @@ public:
     /**
      * Patch the given application data.
      * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to
-     * patch will be shut down if necessary.
+     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -9676,8 +9071,7 @@ public:
     /**
      * Patch the given application data.
      * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to
-     * patch will be shut down if necessary.
+     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -9690,8 +9084,7 @@ public:
     /**
      * Patch the given application data.
      * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to
-     * patch will be shut down if necessary.
+     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -9705,8 +9098,7 @@ public:
     /**
      * Completes an invocation of begin_patchApplication.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      * @throws IceGrid::PatchException Raised if the patch failed.
      */
     ICE_MEMBER(ICEGRID_API) void end_patchApplication(const ::Ice::AsyncResultPtr& result);
@@ -9722,8 +9114,7 @@ public:
      * @param name The application name.
      * @param context The Context map to send with the invocation.
      * @return The application descriptor.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::ApplicationInfo getApplicationInfo(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -9795,8 +9186,7 @@ public:
      * Completes an invocation of begin_getApplicationInfo.
      * @param result The asynchronous result object for the invocation.
      * @return The application descriptor.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::ApplicationInfo end_getApplicationInfo(const ::Ice::AsyncResultPtr& result);
 
@@ -9810,8 +9200,7 @@ public:
      * Get the default application descriptor.
      * @param context The Context map to send with the invocation.
      * @return The default application descriptor.
-     * @throws IceGrid::DeploymentException Raised if the default application
-     * descriptor can't be accessed or is invalid.
+     * @throws IceGrid::DeploymentException Raised if the default application descriptor can't be accessed or is invalid.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::ApplicationDescriptor getDefaultApplicationDescriptor(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -9878,8 +9267,7 @@ public:
      * Completes an invocation of begin_getDefaultApplicationDescriptor.
      * @param result The asynchronous result object for the invocation.
      * @return The default application descriptor.
-     * @throws IceGrid::DeploymentException Raised if the default application
-     * descriptor can't be accessed or is invalid.
+     * @throws IceGrid::DeploymentException Raised if the default application descriptor can't be accessed or is invalid.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::ApplicationDescriptor end_getDefaultApplicationDescriptor(const ::Ice::AsyncResultPtr& result);
 
@@ -10060,10 +9448,8 @@ public:
      * @param id The server id.
      * @param context The Context map to send with the invocation.
      * @return The server state.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::ServerState getServerState(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -10136,10 +9522,8 @@ public:
      * Completes an invocation of begin_getServerState.
      * @param result The asynchronous result object for the invocation.
      * @return The server state.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::ServerState end_getServerState(const ::Ice::AsyncResultPtr& result);
@@ -10151,15 +9535,12 @@ private:
 public:
 
     /**
-     * Get a server's system process id. The process id is operating
-     * system dependent.
+     * Get a server's system process id. The process id is operating system dependent.
      * @param id The server id.
      * @param context The Context map to send with the invocation.
      * @return The server's process id.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) ::Ice::Int getServerPid(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -10168,8 +9549,7 @@ public:
     }
 
     /**
-     * Get a server's system process id. The process id is operating
-     * system dependent.
+     * Get a server's system process id. The process id is operating system dependent.
      * @param id The server id.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -10180,8 +9560,7 @@ public:
     }
 
     /**
-     * Get a server's system process id. The process id is operating
-     * system dependent.
+     * Get a server's system process id. The process id is operating system dependent.
      * @param id The server id.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -10193,8 +9572,7 @@ public:
     }
 
     /**
-     * Get a server's system process id. The process id is operating
-     * system dependent.
+     * Get a server's system process id. The process id is operating system dependent.
      * @param id The server id.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -10207,8 +9585,7 @@ public:
     }
 
     /**
-     * Get a server's system process id. The process id is operating
-     * system dependent.
+     * Get a server's system process id. The process id is operating system dependent.
      * @param id The server id.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -10220,8 +9597,7 @@ public:
     }
 
     /**
-     * Get a server's system process id. The process id is operating
-     * system dependent.
+     * Get a server's system process id. The process id is operating system dependent.
      * @param id The server id.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -10237,10 +9613,8 @@ public:
      * Completes an invocation of begin_getServerPid.
      * @param result The asynchronous result object for the invocation.
      * @return The server's process id.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) ::Ice::Int end_getServerPid(const ::Ice::AsyncResultPtr& result);
@@ -10252,9 +9626,8 @@ private:
 public:
 
     /**
-     * Get the category for server admin objects. You can manufacture a server admin
-     * proxy from the admin proxy by changing its identity: use the server ID as name
-     * and the returned category as category.
+     * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+     * changing its identity: use the server ID as name and the returned category as category.
      * @param context The Context map to send with the invocation.
      * @return The category for server admin objects.
      */
@@ -10264,9 +9637,8 @@ public:
     }
 
     /**
-     * Get the category for server admin objects. You can manufacture a server admin
-     * proxy from the admin proxy by changing its identity: use the server ID as name
-     * and the returned category as category.
+     * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+     * changing its identity: use the server ID as name and the returned category as category.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -10276,9 +9648,8 @@ public:
     }
 
     /**
-     * Get the category for server admin objects. You can manufacture a server admin
-     * proxy from the admin proxy by changing its identity: use the server ID as name
-     * and the returned category as category.
+     * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+     * changing its identity: use the server ID as name and the returned category as category.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -10289,9 +9660,8 @@ public:
     }
 
     /**
-     * Get the category for server admin objects. You can manufacture a server admin
-     * proxy from the admin proxy by changing its identity: use the server ID as name
-     * and the returned category as category.
+     * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+     * changing its identity: use the server ID as name and the returned category as category.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -10303,9 +9673,8 @@ public:
     }
 
     /**
-     * Get the category for server admin objects. You can manufacture a server admin
-     * proxy from the admin proxy by changing its identity: use the server ID as name
-     * and the returned category as category.
+     * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+     * changing its identity: use the server ID as name and the returned category as category.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -10316,9 +9685,8 @@ public:
     }
 
     /**
-     * Get the category for server admin objects. You can manufacture a server admin
-     * proxy from the admin proxy by changing its identity: use the server ID as name
-     * and the returned category as category.
+     * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+     * changing its identity: use the server ID as name and the returned category as category.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -10347,10 +9715,8 @@ public:
      * @param id The server id.
      * @param context The Context map to send with the invocation.
      * @return A proxy to the server's admin object
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) ::Ice::ObjectPrx getServerAdmin(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -10423,10 +9789,8 @@ public:
      * Completes an invocation of begin_getServerAdmin.
      * @param result The asynchronous result object for the invocation.
      * @return A proxy to the server's admin object
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) ::Ice::ObjectPrx end_getServerAdmin(const ::Ice::AsyncResultPtr& result);
@@ -10438,17 +9802,13 @@ private:
 public:
 
     /**
-     * Enable or disable a server. A disabled server can't be started
-     * on demand or administratively. The enable state of the server
-     * is not persistent: if the node is shut down and restarted, the
-     * server will be enabled by default.
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
      * @param id The server id.
      * @param enabled True to enable the server, false to disable it.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) void enableServer(const ::std::string& id, bool enabled, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -10457,10 +9817,8 @@ public:
     }
 
     /**
-     * Enable or disable a server. A disabled server can't be started
-     * on demand or administratively. The enable state of the server
-     * is not persistent: if the node is shut down and restarted, the
-     * server will be enabled by default.
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
      * @param id The server id.
      * @param enabled True to enable the server, false to disable it.
      * @param context The Context map to send with the invocation.
@@ -10472,10 +9830,8 @@ public:
     }
 
     /**
-     * Enable or disable a server. A disabled server can't be started
-     * on demand or administratively. The enable state of the server
-     * is not persistent: if the node is shut down and restarted, the
-     * server will be enabled by default.
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
      * @param id The server id.
      * @param enabled True to enable the server, false to disable it.
      * @param cb Asynchronous callback object.
@@ -10488,10 +9844,8 @@ public:
     }
 
     /**
-     * Enable or disable a server. A disabled server can't be started
-     * on demand or administratively. The enable state of the server
-     * is not persistent: if the node is shut down and restarted, the
-     * server will be enabled by default.
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
      * @param id The server id.
      * @param enabled True to enable the server, false to disable it.
      * @param context The Context map to send with the invocation.
@@ -10505,10 +9859,8 @@ public:
     }
 
     /**
-     * Enable or disable a server. A disabled server can't be started
-     * on demand or administratively. The enable state of the server
-     * is not persistent: if the node is shut down and restarted, the
-     * server will be enabled by default.
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
      * @param id The server id.
      * @param enabled True to enable the server, false to disable it.
      * @param cb Asynchronous callback object.
@@ -10521,10 +9873,8 @@ public:
     }
 
     /**
-     * Enable or disable a server. A disabled server can't be started
-     * on demand or administratively. The enable state of the server
-     * is not persistent: if the node is shut down and restarted, the
-     * server will be enabled by default.
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
      * @param id The server id.
      * @param enabled True to enable the server, false to disable it.
      * @param context The Context map to send with the invocation.
@@ -10540,10 +9890,8 @@ public:
     /**
      * Completes an invocation of begin_enableServer.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) void end_enableServer(const ::Ice::AsyncResultPtr& result);
@@ -10559,12 +9907,9 @@ public:
      * @param id The server id.
      * @param context The Context map to send with the invocation.
      * @return True if the server is enabled.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) bool isServerEnabled(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -10636,12 +9981,9 @@ public:
      * Completes an invocation of begin_isServerEnabled.
      * @param result The asynchronous result object for the invocation.
      * @return True if the server is enabled.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) bool end_isServerEnabled(const ::Ice::AsyncResultPtr& result);
 
@@ -10655,14 +9997,10 @@ public:
      * Start a server and wait for its activation.
      * @param id The server id.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
-     * @throws IceGrid::ServerStartException Raised if the server couldn't be
-     * started.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
+     * @throws IceGrid::ServerStartException Raised if the server couldn't be started.
      */
     ICE_MEMBER(ICEGRID_API) void startServer(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -10733,14 +10071,10 @@ public:
     /**
      * Completes an invocation of begin_startServer.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
-     * @throws IceGrid::ServerStartException Raised if the server couldn't be
-     * started.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
+     * @throws IceGrid::ServerStartException Raised if the server couldn't be started.
      */
     ICE_MEMBER(ICEGRID_API) void end_startServer(const ::Ice::AsyncResultPtr& result);
 
@@ -10754,14 +10088,10 @@ public:
      * Stop a server.
      * @param id The server id.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
-     * @throws IceGrid::ServerStopException Raised if the server couldn't be
-     * stopped.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
+     * @throws IceGrid::ServerStopException Raised if the server couldn't be stopped.
      */
     ICE_MEMBER(ICEGRID_API) void stopServer(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -10832,14 +10162,10 @@ public:
     /**
      * Completes an invocation of begin_stopServer.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
-     * @throws IceGrid::ServerStopException Raised if the server couldn't be
-     * stopped.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
+     * @throws IceGrid::ServerStopException Raised if the server couldn't be stopped.
      */
     ICE_MEMBER(ICEGRID_API) void end_stopServer(const ::Ice::AsyncResultPtr& result);
 
@@ -10852,16 +10178,12 @@ public:
     /**
      * Patch a server.
      * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch
-     * will be shut down if necessary.
+     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::PatchException Raised if the patch failed.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) void patchServer(const ::std::string& id, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -10871,8 +10193,7 @@ public:
     /**
      * Patch a server.
      * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch
-     * will be shut down if necessary.
+     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -10884,8 +10205,7 @@ public:
     /**
      * Patch a server.
      * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch
-     * will be shut down if necessary.
+     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -10898,8 +10218,7 @@ public:
     /**
      * Patch a server.
      * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch
-     * will be shut down if necessary.
+     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -10913,8 +10232,7 @@ public:
     /**
      * Patch a server.
      * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch
-     * will be shut down if necessary.
+     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -10927,8 +10245,7 @@ public:
     /**
      * Patch a server.
      * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch
-     * will be shut down if necessary.
+     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -10942,13 +10259,10 @@ public:
     /**
      * Completes an invocation of begin_patchServer.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::PatchException Raised if the patch failed.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) void end_patchServer(const ::Ice::AsyncResultPtr& result);
 
@@ -10963,14 +10277,10 @@ public:
      * @param id The server id.
      * @param signal The signal, for example SIGTERM or 15.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::BadSignalException Raised if the signal is not recognized
-     * by the target server.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::BadSignalException Raised if the signal is not recognized by the target server.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) void sendSignal(const ::std::string& id, const ::std::string& signal, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -11046,14 +10356,10 @@ public:
     /**
      * Completes an invocation of begin_sendSignal.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceGrid::BadSignalException Raised if the signal is not recognized
-     * by the target server.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::BadSignalException Raised if the signal is not recognized by the target server.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) void end_sendSignal(const ::Ice::AsyncResultPtr& result);
 
@@ -11143,17 +10449,13 @@ private:
 public:
 
     /**
-     * Get the adapter information for the replica group or adapter
-     * with the given id.
+     * Get the adapter information for the replica group or adapter with the given id.
      * @param id The adapter id.
      * @param context The Context map to send with the invocation.
-     * @return A sequence of adapter information structures. If the
-     * given id refers to an adapter, this sequence will contain only
-     * one element. If the given id refers to a replica group, the
-     * sequence will contain the adapter information of each member of
-     * the replica group.
-     * @throws IceGrid::AdapterNotExistException Raised if the adapter or
-     * replica group doesn't exist.
+     * @return A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
+     * contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
+     * information of each member of the replica group.
+     * @throws IceGrid::AdapterNotExistException Raised if the adapter or replica group doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::AdapterInfoSeq getAdapterInfo(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -11161,8 +10463,7 @@ public:
     }
 
     /**
-     * Get the adapter information for the replica group or adapter
-     * with the given id.
+     * Get the adapter information for the replica group or adapter with the given id.
      * @param id The adapter id.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -11173,8 +10474,7 @@ public:
     }
 
     /**
-     * Get the adapter information for the replica group or adapter
-     * with the given id.
+     * Get the adapter information for the replica group or adapter with the given id.
      * @param id The adapter id.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -11186,8 +10486,7 @@ public:
     }
 
     /**
-     * Get the adapter information for the replica group or adapter
-     * with the given id.
+     * Get the adapter information for the replica group or adapter with the given id.
      * @param id The adapter id.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -11200,8 +10499,7 @@ public:
     }
 
     /**
-     * Get the adapter information for the replica group or adapter
-     * with the given id.
+     * Get the adapter information for the replica group or adapter with the given id.
      * @param id The adapter id.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -11213,8 +10511,7 @@ public:
     }
 
     /**
-     * Get the adapter information for the replica group or adapter
-     * with the given id.
+     * Get the adapter information for the replica group or adapter with the given id.
      * @param id The adapter id.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -11229,13 +10526,10 @@ public:
     /**
      * Completes an invocation of begin_getAdapterInfo.
      * @param result The asynchronous result object for the invocation.
-     * @return A sequence of adapter information structures. If the
-     * given id refers to an adapter, this sequence will contain only
-     * one element. If the given id refers to a replica group, the
-     * sequence will contain the adapter information of each member of
-     * the replica group.
-     * @throws IceGrid::AdapterNotExistException Raised if the adapter or
-     * replica group doesn't exist.
+     * @return A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
+     * contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
+     * information of each member of the replica group.
+     * @throws IceGrid::AdapterNotExistException Raised if the adapter or replica group doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::AdapterInfoSeq end_getAdapterInfo(const ::Ice::AsyncResultPtr& result);
 
@@ -11249,8 +10543,7 @@ public:
      * Remove the adapter with the given id.
      * @param id The adapter id.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AdapterNotExistException Raised if the adapter doesn't
-     * exist.
+     * @throws IceGrid::AdapterNotExistException Raised if the adapter doesn't exist.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     ICE_MEMBER(ICEGRID_API) void removeAdapter(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -11322,8 +10615,7 @@ public:
     /**
      * Completes an invocation of begin_removeAdapter.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceGrid::AdapterNotExistException Raised if the adapter doesn't
-     * exist.
+     * @throws IceGrid::AdapterNotExistException Raised if the adapter doesn't exist.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     ICE_MEMBER(ICEGRID_API) void end_removeAdapter(const ::Ice::AsyncResultPtr& result);
@@ -11414,16 +10706,13 @@ private:
 public:
 
     /**
-     * Add an object to the object registry. IceGrid will get the
-     * object type by calling <code>ice_id</code> on the given proxy. The object
-     * must be reachable.
+     * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
+     * given proxy. The object must be reachable.
      * @param obj The object to be added to the registry.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if the object can't be
-     * added. This might be raised if the invocation on the proxy to
-     * get the object type failed.
-     * @throws IceGrid::ObjectExistsException Raised if the object is already
-     * registered.
+     * @throws IceGrid::DeploymentException Raised if the object can't be added. This might be raised if the invocation on the
+     * proxy to get the object type failed.
+     * @throws IceGrid::ObjectExistsException Raised if the object is already registered.
      */
     ICE_MEMBER(ICEGRID_API) void addObject(const ::Ice::ObjectPrx& obj, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -11431,9 +10720,8 @@ public:
     }
 
     /**
-     * Add an object to the object registry. IceGrid will get the
-     * object type by calling <code>ice_id</code> on the given proxy. The object
-     * must be reachable.
+     * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
+     * given proxy. The object must be reachable.
      * @param obj The object to be added to the registry.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -11444,9 +10732,8 @@ public:
     }
 
     /**
-     * Add an object to the object registry. IceGrid will get the
-     * object type by calling <code>ice_id</code> on the given proxy. The object
-     * must be reachable.
+     * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
+     * given proxy. The object must be reachable.
      * @param obj The object to be added to the registry.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -11458,9 +10745,8 @@ public:
     }
 
     /**
-     * Add an object to the object registry. IceGrid will get the
-     * object type by calling <code>ice_id</code> on the given proxy. The object
-     * must be reachable.
+     * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
+     * given proxy. The object must be reachable.
      * @param obj The object to be added to the registry.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -11473,9 +10759,8 @@ public:
     }
 
     /**
-     * Add an object to the object registry. IceGrid will get the
-     * object type by calling <code>ice_id</code> on the given proxy. The object
-     * must be reachable.
+     * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
+     * given proxy. The object must be reachable.
      * @param obj The object to be added to the registry.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -11487,9 +10772,8 @@ public:
     }
 
     /**
-     * Add an object to the object registry. IceGrid will get the
-     * object type by calling <code>ice_id</code> on the given proxy. The object
-     * must be reachable.
+     * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
+     * given proxy. The object must be reachable.
      * @param obj The object to be added to the registry.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -11504,11 +10788,9 @@ public:
     /**
      * Completes an invocation of begin_addObject.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceGrid::DeploymentException Raised if the object can't be
-     * added. This might be raised if the invocation on the proxy to
-     * get the object type failed.
-     * @throws IceGrid::ObjectExistsException Raised if the object is already
-     * registered.
+     * @throws IceGrid::DeploymentException Raised if the object can't be added. This might be raised if the invocation on the
+     * proxy to get the object type failed.
+     * @throws IceGrid::ObjectExistsException Raised if the object is already registered.
      */
     ICE_MEMBER(ICEGRID_API) void end_addObject(const ::Ice::AsyncResultPtr& result);
 
@@ -11519,17 +10801,13 @@ private:
 public:
 
     /**
-     * Update an object in the object registry. Only objects added
-     * with this interface can be updated with this operation. Objects
-     * added with deployment descriptors should be updated with the
-     * deployment mechanism.
+     * Update an object in the object registry. Only objects added with this interface can be updated with this
+     * operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
      * @param obj The object to be updated to the registry.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if the object can't be
-     * updated. This might happen if the object was added with a
-     * deployment descriptor.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws IceGrid::DeploymentException Raised if the object can't be updated. This might happen if the object was added
+     * with a deployment descriptor.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      */
     ICE_MEMBER(ICEGRID_API) void updateObject(const ::Ice::ObjectPrx& obj, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -11537,10 +10815,8 @@ public:
     }
 
     /**
-     * Update an object in the object registry. Only objects added
-     * with this interface can be updated with this operation. Objects
-     * added with deployment descriptors should be updated with the
-     * deployment mechanism.
+     * Update an object in the object registry. Only objects added with this interface can be updated with this
+     * operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
      * @param obj The object to be updated to the registry.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -11551,10 +10827,8 @@ public:
     }
 
     /**
-     * Update an object in the object registry. Only objects added
-     * with this interface can be updated with this operation. Objects
-     * added with deployment descriptors should be updated with the
-     * deployment mechanism.
+     * Update an object in the object registry. Only objects added with this interface can be updated with this
+     * operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
      * @param obj The object to be updated to the registry.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -11566,10 +10840,8 @@ public:
     }
 
     /**
-     * Update an object in the object registry. Only objects added
-     * with this interface can be updated with this operation. Objects
-     * added with deployment descriptors should be updated with the
-     * deployment mechanism.
+     * Update an object in the object registry. Only objects added with this interface can be updated with this
+     * operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
      * @param obj The object to be updated to the registry.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -11582,10 +10854,8 @@ public:
     }
 
     /**
-     * Update an object in the object registry. Only objects added
-     * with this interface can be updated with this operation. Objects
-     * added with deployment descriptors should be updated with the
-     * deployment mechanism.
+     * Update an object in the object registry. Only objects added with this interface can be updated with this
+     * operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
      * @param obj The object to be updated to the registry.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -11597,10 +10867,8 @@ public:
     }
 
     /**
-     * Update an object in the object registry. Only objects added
-     * with this interface can be updated with this operation. Objects
-     * added with deployment descriptors should be updated with the
-     * deployment mechanism.
+     * Update an object in the object registry. Only objects added with this interface can be updated with this
+     * operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
      * @param obj The object to be updated to the registry.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -11615,11 +10883,9 @@ public:
     /**
      * Completes an invocation of begin_updateObject.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceGrid::DeploymentException Raised if the object can't be
-     * updated. This might happen if the object was added with a
-     * deployment descriptor.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws IceGrid::DeploymentException Raised if the object can't be updated. This might happen if the object was added
+     * with a deployment descriptor.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      */
     ICE_MEMBER(ICEGRID_API) void end_updateObject(const ::Ice::AsyncResultPtr& result);
 
@@ -11630,14 +10896,12 @@ private:
 public:
 
     /**
-     * Add an object to the object registry and explicitly specify
-     * its type.
+     * Add an object to the object registry and explicitly specify its type.
      * @param obj The object to be added to the registry.
      * @param type The object type.
      * @param context The Context map to send with the invocation.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
-     * @throws IceGrid::ObjectExistsException Raised if the object is already
-     * registered.
+     * @throws IceGrid::ObjectExistsException Raised if the object is already registered.
      */
     ICE_MEMBER(ICEGRID_API) void addObjectWithType(const ::Ice::ObjectPrx& obj, const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -11645,8 +10909,7 @@ public:
     }
 
     /**
-     * Add an object to the object registry and explicitly specify
-     * its type.
+     * Add an object to the object registry and explicitly specify its type.
      * @param obj The object to be added to the registry.
      * @param type The object type.
      * @param context The Context map to send with the invocation.
@@ -11658,8 +10921,7 @@ public:
     }
 
     /**
-     * Add an object to the object registry and explicitly specify
-     * its type.
+     * Add an object to the object registry and explicitly specify its type.
      * @param obj The object to be added to the registry.
      * @param type The object type.
      * @param cb Asynchronous callback object.
@@ -11672,8 +10934,7 @@ public:
     }
 
     /**
-     * Add an object to the object registry and explicitly specify
-     * its type.
+     * Add an object to the object registry and explicitly specify its type.
      * @param obj The object to be added to the registry.
      * @param type The object type.
      * @param context The Context map to send with the invocation.
@@ -11687,8 +10948,7 @@ public:
     }
 
     /**
-     * Add an object to the object registry and explicitly specify
-     * its type.
+     * Add an object to the object registry and explicitly specify its type.
      * @param obj The object to be added to the registry.
      * @param type The object type.
      * @param cb Asynchronous callback object.
@@ -11701,8 +10961,7 @@ public:
     }
 
     /**
-     * Add an object to the object registry and explicitly specify
-     * its type.
+     * Add an object to the object registry and explicitly specify its type.
      * @param obj The object to be added to the registry.
      * @param type The object type.
      * @param context The Context map to send with the invocation.
@@ -11719,8 +10978,7 @@ public:
      * Completes an invocation of begin_addObjectWithType.
      * @param result The asynchronous result object for the invocation.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
-     * @throws IceGrid::ObjectExistsException Raised if the object is already
-     * registered.
+     * @throws IceGrid::ObjectExistsException Raised if the object is already registered.
      */
     ICE_MEMBER(ICEGRID_API) void end_addObjectWithType(const ::Ice::AsyncResultPtr& result);
 
@@ -11731,18 +10989,13 @@ private:
 public:
 
     /**
-     * Remove an object from the object registry. Only objects added
-     * with this interface can be removed with this operation. Objects
-     * added with deployment descriptors should be removed with the
-     * deployment mechanism.
-     * @param id The identity of the object to be removed from the
-     * registry.
+     * Remove an object from the object registry. Only objects added with this interface can be removed with this
+     * operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
+     * @param id The identity of the object to be removed from the registry.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if the object can't be
-     * removed. This might happen if the object was added with a
-     * deployment descriptor.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws IceGrid::DeploymentException Raised if the object can't be removed. This might happen if the object was added
+     * with a deployment descriptor.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      */
     ICE_MEMBER(ICEGRID_API) void removeObject(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -11750,12 +11003,9 @@ public:
     }
 
     /**
-     * Remove an object from the object registry. Only objects added
-     * with this interface can be removed with this operation. Objects
-     * added with deployment descriptors should be removed with the
-     * deployment mechanism.
-     * @param id The identity of the object to be removed from the
-     * registry.
+     * Remove an object from the object registry. Only objects added with this interface can be removed with this
+     * operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
+     * @param id The identity of the object to be removed from the registry.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -11765,12 +11015,9 @@ public:
     }
 
     /**
-     * Remove an object from the object registry. Only objects added
-     * with this interface can be removed with this operation. Objects
-     * added with deployment descriptors should be removed with the
-     * deployment mechanism.
-     * @param id The identity of the object to be removed from the
-     * registry.
+     * Remove an object from the object registry. Only objects added with this interface can be removed with this
+     * operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
+     * @param id The identity of the object to be removed from the registry.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -11781,12 +11028,9 @@ public:
     }
 
     /**
-     * Remove an object from the object registry. Only objects added
-     * with this interface can be removed with this operation. Objects
-     * added with deployment descriptors should be removed with the
-     * deployment mechanism.
-     * @param id The identity of the object to be removed from the
-     * registry.
+     * Remove an object from the object registry. Only objects added with this interface can be removed with this
+     * operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
+     * @param id The identity of the object to be removed from the registry.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -11798,12 +11042,9 @@ public:
     }
 
     /**
-     * Remove an object from the object registry. Only objects added
-     * with this interface can be removed with this operation. Objects
-     * added with deployment descriptors should be removed with the
-     * deployment mechanism.
-     * @param id The identity of the object to be removed from the
-     * registry.
+     * Remove an object from the object registry. Only objects added with this interface can be removed with this
+     * operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
+     * @param id The identity of the object to be removed from the registry.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -11814,12 +11055,9 @@ public:
     }
 
     /**
-     * Remove an object from the object registry. Only objects added
-     * with this interface can be removed with this operation. Objects
-     * added with deployment descriptors should be removed with the
-     * deployment mechanism.
-     * @param id The identity of the object to be removed from the
-     * registry.
+     * Remove an object from the object registry. Only objects added with this interface can be removed with this
+     * operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
+     * @param id The identity of the object to be removed from the registry.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -11833,11 +11071,9 @@ public:
     /**
      * Completes an invocation of begin_removeObject.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceGrid::DeploymentException Raised if the object can't be
-     * removed. This might happen if the object was added with a
-     * deployment descriptor.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws IceGrid::DeploymentException Raised if the object can't be removed. This might happen if the object was added
+     * with a deployment descriptor.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      */
     ICE_MEMBER(ICEGRID_API) void end_removeObject(const ::Ice::AsyncResultPtr& result);
 
@@ -11852,8 +11088,7 @@ public:
      * @param id The identity of the object.
      * @param context The Context map to send with the invocation.
      * @return The object info.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::ObjectInfo getObjectInfo(const ::Ice::Identity& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -11925,8 +11160,7 @@ public:
      * Completes an invocation of begin_getObjectInfo.
      * @param result The asynchronous result object for the invocation.
      * @return The object info.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::ObjectInfo end_getObjectInfo(const ::Ice::AsyncResultPtr& result);
 
@@ -11937,8 +11171,7 @@ private:
 public:
 
     /**
-     * Get the object info of all the registered objects with the
-     * given type.
+     * Get the object info of all the registered objects with the given type.
      * @param type The type of the object.
      * @param context The Context map to send with the invocation.
      * @return The object infos.
@@ -11949,8 +11182,7 @@ public:
     }
 
     /**
-     * Get the object info of all the registered objects with the
-     * given type.
+     * Get the object info of all the registered objects with the given type.
      * @param type The type of the object.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -11961,8 +11193,7 @@ public:
     }
 
     /**
-     * Get the object info of all the registered objects with the
-     * given type.
+     * Get the object info of all the registered objects with the given type.
      * @param type The type of the object.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -11974,8 +11205,7 @@ public:
     }
 
     /**
-     * Get the object info of all the registered objects with the
-     * given type.
+     * Get the object info of all the registered objects with the given type.
      * @param type The type of the object.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -11988,8 +11218,7 @@ public:
     }
 
     /**
-     * Get the object info of all the registered objects with the
-     * given type.
+     * Get the object info of all the registered objects with the given type.
      * @param type The type of the object.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -12001,8 +11230,7 @@ public:
     }
 
     /**
-     * Get the object info of all the registered objects with the
-     * given type.
+     * Get the object info of all the registered objects with the given type.
      * @param type The type of the object.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -12028,14 +11256,11 @@ private:
 public:
 
     /**
-     * Get the object info of all the registered objects whose stringified
-     * identities match the given expression.
-     * @param expr The expression to match against the stringified
-     * identities of registered objects. The expression may contain
-     * a trailing wildcard (<code>*</code>) character.
+     * Get the object info of all the registered objects whose stringified identities match the given expression.
+     * @param expr The expression to match against the stringified identities of registered objects. The expression
+     * may contain a trailing wildcard (<code>*</code>) character.
      * @param context The Context map to send with the invocation.
-     * @return All the object infos with a stringified identity
-     * matching the given expression.
+     * @return All the object infos with a stringified identity matching the given expression.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::ObjectInfoSeq getAllObjectInfos(const ::std::string& expr, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -12043,11 +11268,9 @@ public:
     }
 
     /**
-     * Get the object info of all the registered objects whose stringified
-     * identities match the given expression.
-     * @param expr The expression to match against the stringified
-     * identities of registered objects. The expression may contain
-     * a trailing wildcard (<code>*</code>) character.
+     * Get the object info of all the registered objects whose stringified identities match the given expression.
+     * @param expr The expression to match against the stringified identities of registered objects. The expression
+     * may contain a trailing wildcard (<code>*</code>) character.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -12057,11 +11280,9 @@ public:
     }
 
     /**
-     * Get the object info of all the registered objects whose stringified
-     * identities match the given expression.
-     * @param expr The expression to match against the stringified
-     * identities of registered objects. The expression may contain
-     * a trailing wildcard (<code>*</code>) character.
+     * Get the object info of all the registered objects whose stringified identities match the given expression.
+     * @param expr The expression to match against the stringified identities of registered objects. The expression
+     * may contain a trailing wildcard (<code>*</code>) character.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -12072,11 +11293,9 @@ public:
     }
 
     /**
-     * Get the object info of all the registered objects whose stringified
-     * identities match the given expression.
-     * @param expr The expression to match against the stringified
-     * identities of registered objects. The expression may contain
-     * a trailing wildcard (<code>*</code>) character.
+     * Get the object info of all the registered objects whose stringified identities match the given expression.
+     * @param expr The expression to match against the stringified identities of registered objects. The expression
+     * may contain a trailing wildcard (<code>*</code>) character.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -12088,11 +11307,9 @@ public:
     }
 
     /**
-     * Get the object info of all the registered objects whose stringified
-     * identities match the given expression.
-     * @param expr The expression to match against the stringified
-     * identities of registered objects. The expression may contain
-     * a trailing wildcard (<code>*</code>) character.
+     * Get the object info of all the registered objects whose stringified identities match the given expression.
+     * @param expr The expression to match against the stringified identities of registered objects. The expression
+     * may contain a trailing wildcard (<code>*</code>) character.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -12103,11 +11320,9 @@ public:
     }
 
     /**
-     * Get the object info of all the registered objects whose stringified
-     * identities match the given expression.
-     * @param expr The expression to match against the stringified
-     * identities of registered objects. The expression may contain
-     * a trailing wildcard (<code>*</code>) character.
+     * Get the object info of all the registered objects whose stringified identities match the given expression.
+     * @param expr The expression to match against the stringified identities of registered objects. The expression
+     * may contain a trailing wildcard (<code>*</code>) character.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -12121,8 +11336,7 @@ public:
     /**
      * Completes an invocation of begin_getAllObjectInfos.
      * @param result The asynchronous result object for the invocation.
-     * @return All the object infos with a stringified identity
-     * matching the given expression.
+     * @return All the object infos with a stringified identity matching the given expression.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::ObjectInfoSeq end_getAllObjectInfos(const ::Ice::AsyncResultPtr& result);
 
@@ -12225,8 +11439,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The node load information.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::LoadInfo getNodeLoad(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -12299,8 +11512,7 @@ public:
      * @param result The asynchronous result object for the invocation.
      * @return The node load information.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::LoadInfo end_getNodeLoad(const ::Ice::AsyncResultPtr& result);
 
@@ -12316,8 +11528,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The node information.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::NodeInfo getNodeInfo(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -12390,8 +11601,7 @@ public:
      * @param result The asynchronous result object for the invocation.
      * @return The node information.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::NodeInfo end_getNodeInfo(const ::Ice::AsyncResultPtr& result);
 
@@ -12407,8 +11617,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return A proxy to the IceGrid node's admin object
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) ::Ice::ObjectPrx getNodeAdmin(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -12481,8 +11690,7 @@ public:
      * @param result The asynchronous result object for the invocation.
      * @return A proxy to the IceGrid node's admin object
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) ::Ice::ObjectPrx end_getNodeAdmin(const ::Ice::AsyncResultPtr& result);
 
@@ -12493,20 +11701,14 @@ private:
 public:
 
     /**
-     * Get the number of physical processor sockets for the machine
-     * running the node with the given name.
-     *
-     * Note that this method will return 1 on operating systems where
-     * this can't be automatically determined and where the
-     * IceGrid.Node.ProcessorSocketCount property for the node is not
-     * set.
+     * Get the number of physical processor sockets for the machine running the node with the given name.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
+     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
-     * @return The number of processor sockets or 1 if the number of
-     * sockets can't determined.
+     * @return The number of processor sockets or 1 if the number of sockets can't determined.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) ::Ice::Int getNodeProcessorSocketCount(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -12514,13 +11716,9 @@ public:
     }
 
     /**
-     * Get the number of physical processor sockets for the machine
-     * running the node with the given name.
-     *
-     * Note that this method will return 1 on operating systems where
-     * this can't be automatically determined and where the
-     * IceGrid.Node.ProcessorSocketCount property for the node is not
-     * set.
+     * Get the number of physical processor sockets for the machine running the node with the given name.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
+     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -12531,13 +11729,9 @@ public:
     }
 
     /**
-     * Get the number of physical processor sockets for the machine
-     * running the node with the given name.
-     *
-     * Note that this method will return 1 on operating systems where
-     * this can't be automatically determined and where the
-     * IceGrid.Node.ProcessorSocketCount property for the node is not
-     * set.
+     * Get the number of physical processor sockets for the machine running the node with the given name.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
+     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
      * @param name The node name.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -12549,13 +11743,9 @@ public:
     }
 
     /**
-     * Get the number of physical processor sockets for the machine
-     * running the node with the given name.
-     *
-     * Note that this method will return 1 on operating systems where
-     * this can't be automatically determined and where the
-     * IceGrid.Node.ProcessorSocketCount property for the node is not
-     * set.
+     * Get the number of physical processor sockets for the machine running the node with the given name.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
+     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -12568,13 +11758,9 @@ public:
     }
 
     /**
-     * Get the number of physical processor sockets for the machine
-     * running the node with the given name.
-     *
-     * Note that this method will return 1 on operating systems where
-     * this can't be automatically determined and where the
-     * IceGrid.Node.ProcessorSocketCount property for the node is not
-     * set.
+     * Get the number of physical processor sockets for the machine running the node with the given name.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
+     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
      * @param name The node name.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -12586,13 +11772,9 @@ public:
     }
 
     /**
-     * Get the number of physical processor sockets for the machine
-     * running the node with the given name.
-     *
-     * Note that this method will return 1 on operating systems where
-     * this can't be automatically determined and where the
-     * IceGrid.Node.ProcessorSocketCount property for the node is not
-     * set.
+     * Get the number of physical processor sockets for the machine running the node with the given name.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
+     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -12607,11 +11789,9 @@ public:
     /**
      * Completes an invocation of begin_getNodeProcessorSocketCount.
      * @param result The asynchronous result object for the invocation.
-     * @return The number of processor sockets or 1 if the number of
-     * sockets can't determined.
+     * @return The number of processor sockets or 1 if the number of sockets can't determined.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) ::Ice::Int end_getNodeProcessorSocketCount(const ::Ice::AsyncResultPtr& result);
 
@@ -12626,8 +11806,7 @@ public:
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) void shutdownNode(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -12699,8 +11878,7 @@ public:
      * Completes an invocation of begin_shutdownNode.
      * @param result The asynchronous result object for the invocation.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) void end_shutdownNode(const ::Ice::AsyncResultPtr& result);
 
@@ -12716,8 +11894,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The node hostname.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) ::std::string getNodeHostname(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -12790,8 +11967,7 @@ public:
      * @param result The asynchronous result object for the invocation.
      * @return The node hostname.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) ::std::string end_getNodeHostname(const ::Ice::AsyncResultPtr& result);
 
@@ -12973,8 +12149,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The registry information.
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be
-     * reached.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::RegistryInfo getRegistryInfo(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -13047,8 +12222,7 @@ public:
      * @param result The asynchronous result object for the invocation.
      * @return The registry information.
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be
-     * reached.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::RegistryInfo end_getRegistryInfo(const ::Ice::AsyncResultPtr& result);
 
@@ -13150,8 +12324,7 @@ public:
      * @param name The registry name.
      * @param context The Context map to send with the invocation.
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be
-     * reached.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) void shutdownRegistry(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -13223,8 +12396,7 @@ public:
      * Completes an invocation of begin_shutdownRegistry.
      * @param result The asynchronous result object for the invocation.
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be
-     * reached.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) void end_shutdownRegistry(const ::Ice::AsyncResultPtr& result);
 
@@ -13409,18 +12581,14 @@ public:
 
     /**
      * Read lines from the log file.
-     * @param size Specifies the maximum number of bytes to be
-     * received. The server will ensure that the returned message
-     * doesn't exceed the given size.
-     * @param lines The lines read from the file. If there was nothing to
-     * read from the file since the last call to read, an empty
-     * sequence is returned. The last line of the sequence is always
-     * incomplete (and therefore no '\n' should be added when writing
-     * the last line to the to the output device).
+     * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
+     * message doesn't exceed the given size.
+     * @param lines The lines read from the file. If there was nothing to read from the file since the last call to
+     * read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n'
+     * should be added when writing the last line to the to the output device).
      * @param context The Context map to send with the invocation.
      * @return True if EOF is encountered.
-     * @throws IceGrid::FileNotAvailableException Raised if there was a problem
-     * to read lines from the file.
+     * @throws IceGrid::FileNotAvailableException Raised if there was a problem to read lines from the file.
      */
     ICE_MEMBER(ICEGRID_API) bool read(::Ice::Int size, ::Ice::StringSeq& lines, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -13429,9 +12597,8 @@ public:
 
     /**
      * Read lines from the log file.
-     * @param size Specifies the maximum number of bytes to be
-     * received. The server will ensure that the returned message
-     * doesn't exceed the given size.
+     * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
+     * message doesn't exceed the given size.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -13442,9 +12609,8 @@ public:
 
     /**
      * Read lines from the log file.
-     * @param size Specifies the maximum number of bytes to be
-     * received. The server will ensure that the returned message
-     * doesn't exceed the given size.
+     * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
+     * message doesn't exceed the given size.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -13456,9 +12622,8 @@ public:
 
     /**
      * Read lines from the log file.
-     * @param size Specifies the maximum number of bytes to be
-     * received. The server will ensure that the returned message
-     * doesn't exceed the given size.
+     * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
+     * message doesn't exceed the given size.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -13471,9 +12636,8 @@ public:
 
     /**
      * Read lines from the log file.
-     * @param size Specifies the maximum number of bytes to be
-     * received. The server will ensure that the returned message
-     * doesn't exceed the given size.
+     * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
+     * message doesn't exceed the given size.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -13485,9 +12649,8 @@ public:
 
     /**
      * Read lines from the log file.
-     * @param size Specifies the maximum number of bytes to be
-     * received. The server will ensure that the returned message
-     * doesn't exceed the given size.
+     * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
+     * message doesn't exceed the given size.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -13500,15 +12663,12 @@ public:
 
     /**
      * Completes an invocation of begin_read.
-     * @param lines The lines read from the file. If there was nothing to
-     * read from the file since the last call to read, an empty
-     * sequence is returned. The last line of the sequence is always
-     * incomplete (and therefore no '\n' should be added when writing
-     * the last line to the to the output device).
+     * @param lines The lines read from the file. If there was nothing to read from the file since the last call to
+     * read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n'
+     * should be added when writing the last line to the to the output device).
      * @param result The asynchronous result object for the invocation.
      * @return True if EOF is encountered.
-     * @throws IceGrid::FileNotAvailableException Raised if there was a problem
-     * to read lines from the file.
+     * @throws IceGrid::FileNotAvailableException Raised if there was a problem to read lines from the file.
      */
     ICE_MEMBER(ICEGRID_API) bool end_read(::Ice::StringSeq& lines, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
@@ -13617,8 +12777,8 @@ class ICE_CLASS(ICEGRID_API) RegistryObserver : public virtual ::Ice::Proxy<Regi
 public:
 
     /**
-     * The <code>registryInit</code> operation is called after registration of
-     * an observer to indicate the state of the registries.
+     * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
+     * the registries.
      * @param registries The current state of the registries.
      * @param context The Context map to send with the invocation.
      */
@@ -13628,8 +12788,8 @@ public:
     }
 
     /**
-     * The <code>registryInit</code> operation is called after registration of
-     * an observer to indicate the state of the registries.
+     * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
+     * the registries.
      * @param registries The current state of the registries.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -13640,8 +12800,8 @@ public:
     }
 
     /**
-     * The <code>registryInit</code> operation is called after registration of
-     * an observer to indicate the state of the registries.
+     * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
+     * the registries.
      * @param registries The current state of the registries.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -13653,8 +12813,8 @@ public:
     }
 
     /**
-     * The <code>registryInit</code> operation is called after registration of
-     * an observer to indicate the state of the registries.
+     * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
+     * the registries.
      * @param registries The current state of the registries.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -13667,8 +12827,8 @@ public:
     }
 
     /**
-     * The <code>registryInit</code> operation is called after registration of
-     * an observer to indicate the state of the registries.
+     * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
+     * the registries.
      * @param registries The current state of the registries.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -13680,8 +12840,8 @@ public:
     }
 
     /**
-     * The <code>registryInit</code> operation is called after registration of
-     * an observer to indicate the state of the registries.
+     * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
+     * the registries.
      * @param registries The current state of the registries.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -13706,8 +12866,7 @@ private:
 public:
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param context The Context map to send with the invocation.
      */
@@ -13717,8 +12876,7 @@ public:
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -13729,8 +12887,7 @@ public:
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -13742,8 +12899,7 @@ public:
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -13756,8 +12912,7 @@ public:
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -13769,8 +12924,7 @@ public:
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -13795,8 +12949,7 @@ private:
 public:
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      */
@@ -13806,8 +12959,7 @@ public:
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -13818,8 +12970,7 @@ public:
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -13831,8 +12982,7 @@ public:
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -13845,8 +12995,7 @@ public:
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -13858,8 +13007,7 @@ public:
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -13901,8 +13049,8 @@ class ICE_CLASS(ICEGRID_API) NodeObserver : public virtual ::Ice::Proxy<NodeObse
 public:
 
     /**
-     * The <code>nodeInit</code> operation indicates the current state
-     * of nodes. It is called after the registration of an observer.
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
+     * of an observer.
      * @param nodes The current state of the nodes.
      * @param context The Context map to send with the invocation.
      */
@@ -13912,8 +13060,8 @@ public:
     }
 
     /**
-     * The <code>nodeInit</code> operation indicates the current state
-     * of nodes. It is called after the registration of an observer.
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
+     * of an observer.
      * @param nodes The current state of the nodes.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -13924,8 +13072,8 @@ public:
     }
 
     /**
-     * The <code>nodeInit</code> operation indicates the current state
-     * of nodes. It is called after the registration of an observer.
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
+     * of an observer.
      * @param nodes The current state of the nodes.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -13937,8 +13085,8 @@ public:
     }
 
     /**
-     * The <code>nodeInit</code> operation indicates the current state
-     * of nodes. It is called after the registration of an observer.
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
+     * of an observer.
      * @param nodes The current state of the nodes.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -13951,8 +13099,8 @@ public:
     }
 
     /**
-     * The <code>nodeInit</code> operation indicates the current state
-     * of nodes. It is called after the registration of an observer.
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
+     * of an observer.
      * @param nodes The current state of the nodes.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -13964,8 +13112,8 @@ public:
     }
 
     /**
-     * The <code>nodeInit</code> operation indicates the current state
-     * of nodes. It is called after the registration of an observer.
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
+     * of an observer.
      * @param nodes The current state of the nodes.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -13990,8 +13138,7 @@ private:
 public:
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param context The Context map to send with the invocation.
      */
@@ -14001,8 +13148,7 @@ public:
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -14013,8 +13159,7 @@ public:
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -14026,8 +13171,7 @@ public:
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -14040,8 +13184,7 @@ public:
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -14053,8 +13196,7 @@ public:
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -14079,8 +13221,7 @@ private:
 public:
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      */
@@ -14090,8 +13231,7 @@ public:
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -14102,8 +13242,7 @@ public:
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -14115,8 +13254,7 @@ public:
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -14129,8 +13267,7 @@ public:
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -14142,8 +13279,7 @@ public:
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -14168,8 +13304,7 @@ private:
 public:
 
     /**
-     * The <code>updateServer</code> operation is called to notify an observer that
-     * the state of a server changed.
+     * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
      * @param node The node hosting the server.
      * @param updatedInfo The new server state.
      * @param context The Context map to send with the invocation.
@@ -14180,8 +13315,7 @@ public:
     }
 
     /**
-     * The <code>updateServer</code> operation is called to notify an observer that
-     * the state of a server changed.
+     * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
      * @param node The node hosting the server.
      * @param updatedInfo The new server state.
      * @param context The Context map to send with the invocation.
@@ -14193,8 +13327,7 @@ public:
     }
 
     /**
-     * The <code>updateServer</code> operation is called to notify an observer that
-     * the state of a server changed.
+     * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
      * @param node The node hosting the server.
      * @param updatedInfo The new server state.
      * @param cb Asynchronous callback object.
@@ -14207,8 +13340,7 @@ public:
     }
 
     /**
-     * The <code>updateServer</code> operation is called to notify an observer that
-     * the state of a server changed.
+     * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
      * @param node The node hosting the server.
      * @param updatedInfo The new server state.
      * @param context The Context map to send with the invocation.
@@ -14222,8 +13354,7 @@ public:
     }
 
     /**
-     * The <code>updateServer</code> operation is called to notify an observer that
-     * the state of a server changed.
+     * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
      * @param node The node hosting the server.
      * @param updatedInfo The new server state.
      * @param cb Asynchronous callback object.
@@ -14236,8 +13367,7 @@ public:
     }
 
     /**
-     * The <code>updateServer</code> operation is called to notify an observer that
-     * the state of a server changed.
+     * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
      * @param node The node hosting the server.
      * @param updatedInfo The new server state.
      * @param context The Context map to send with the invocation.
@@ -14263,8 +13393,7 @@ private:
 public:
 
     /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that
-     * the state of an adapter changed.
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
      * @param node The node hosting the adapter.
      * @param updatedInfo The new adapter state.
      * @param context The Context map to send with the invocation.
@@ -14275,8 +13404,7 @@ public:
     }
 
     /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that
-     * the state of an adapter changed.
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
      * @param node The node hosting the adapter.
      * @param updatedInfo The new adapter state.
      * @param context The Context map to send with the invocation.
@@ -14288,8 +13416,7 @@ public:
     }
 
     /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that
-     * the state of an adapter changed.
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
      * @param node The node hosting the adapter.
      * @param updatedInfo The new adapter state.
      * @param cb Asynchronous callback object.
@@ -14302,8 +13429,7 @@ public:
     }
 
     /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that
-     * the state of an adapter changed.
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
      * @param node The node hosting the adapter.
      * @param updatedInfo The new adapter state.
      * @param context The Context map to send with the invocation.
@@ -14317,8 +13443,7 @@ public:
     }
 
     /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that
-     * the state of an adapter changed.
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
      * @param node The node hosting the adapter.
      * @param updatedInfo The new adapter state.
      * @param cb Asynchronous callback object.
@@ -14331,8 +13456,7 @@ public:
     }
 
     /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that
-     * the state of an adapter changed.
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
      * @param node The node hosting the adapter.
      * @param updatedInfo The new adapter state.
      * @param context The Context map to send with the invocation.
@@ -14375,13 +13499,11 @@ class ICE_CLASS(ICEGRID_API) ApplicationObserver : public virtual ::Ice::Proxy<A
 public:
 
     /**
-     * <code>applicationInit</code> is called after the registration
-     * of an observer to indicate the state of the registry.
-     * @param serial The current serial number of the registry
-     * database. This serial number allows observers to make sure that
-     * their internal state is synchronized with the registry.
-     * @param applications The applications currently registered with
-     * the registry.
+     * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param serial The current serial number of the registry database. This serial number allows observers to make
+     * sure that their internal state is synchronized with the registry.
+     * @param applications The applications currently registered with the registry.
      * @param context The Context map to send with the invocation.
      */
     ICE_MEMBER(ICEGRID_API) void applicationInit(::Ice::Int serial, const ::IceGrid::ApplicationInfoSeq& applications, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -14390,13 +13512,11 @@ public:
     }
 
     /**
-     * <code>applicationInit</code> is called after the registration
-     * of an observer to indicate the state of the registry.
-     * @param serial The current serial number of the registry
-     * database. This serial number allows observers to make sure that
-     * their internal state is synchronized with the registry.
-     * @param applications The applications currently registered with
-     * the registry.
+     * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param serial The current serial number of the registry database. This serial number allows observers to make
+     * sure that their internal state is synchronized with the registry.
+     * @param applications The applications currently registered with the registry.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -14406,13 +13526,11 @@ public:
     }
 
     /**
-     * <code>applicationInit</code> is called after the registration
-     * of an observer to indicate the state of the registry.
-     * @param serial The current serial number of the registry
-     * database. This serial number allows observers to make sure that
-     * their internal state is synchronized with the registry.
-     * @param applications The applications currently registered with
-     * the registry.
+     * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param serial The current serial number of the registry database. This serial number allows observers to make
+     * sure that their internal state is synchronized with the registry.
+     * @param applications The applications currently registered with the registry.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -14423,13 +13541,11 @@ public:
     }
 
     /**
-     * <code>applicationInit</code> is called after the registration
-     * of an observer to indicate the state of the registry.
-     * @param serial The current serial number of the registry
-     * database. This serial number allows observers to make sure that
-     * their internal state is synchronized with the registry.
-     * @param applications The applications currently registered with
-     * the registry.
+     * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param serial The current serial number of the registry database. This serial number allows observers to make
+     * sure that their internal state is synchronized with the registry.
+     * @param applications The applications currently registered with the registry.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -14441,13 +13557,11 @@ public:
     }
 
     /**
-     * <code>applicationInit</code> is called after the registration
-     * of an observer to indicate the state of the registry.
-     * @param serial The current serial number of the registry
-     * database. This serial number allows observers to make sure that
-     * their internal state is synchronized with the registry.
-     * @param applications The applications currently registered with
-     * the registry.
+     * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param serial The current serial number of the registry database. This serial number allows observers to make
+     * sure that their internal state is synchronized with the registry.
+     * @param applications The applications currently registered with the registry.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -14458,13 +13572,11 @@ public:
     }
 
     /**
-     * <code>applicationInit</code> is called after the registration
-     * of an observer to indicate the state of the registry.
-     * @param serial The current serial number of the registry
-     * database. This serial number allows observers to make sure that
-     * their internal state is synchronized with the registry.
-     * @param applications The applications currently registered with
-     * the registry.
+     * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param serial The current serial number of the registry database. This serial number allows observers to make
+     * sure that their internal state is synchronized with the registry.
+     * @param applications The applications currently registered with the registry.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -14488,8 +13600,7 @@ private:
 public:
 
     /**
-     * The <code>applicationAdded</code> operation is called to notify an observer
-     * that an application was added.
+     * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the new application.
      * @param context The Context map to send with the invocation.
@@ -14500,8 +13611,7 @@ public:
     }
 
     /**
-     * The <code>applicationAdded</code> operation is called to notify an observer
-     * that an application was added.
+     * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the new application.
      * @param context The Context map to send with the invocation.
@@ -14513,8 +13623,7 @@ public:
     }
 
     /**
-     * The <code>applicationAdded</code> operation is called to notify an observer
-     * that an application was added.
+     * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the new application.
      * @param cb Asynchronous callback object.
@@ -14527,8 +13636,7 @@ public:
     }
 
     /**
-     * The <code>applicationAdded</code> operation is called to notify an observer
-     * that an application was added.
+     * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the new application.
      * @param context The Context map to send with the invocation.
@@ -14542,8 +13650,7 @@ public:
     }
 
     /**
-     * The <code>applicationAdded</code> operation is called to notify an observer
-     * that an application was added.
+     * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the new application.
      * @param cb Asynchronous callback object.
@@ -14556,8 +13663,7 @@ public:
     }
 
     /**
-     * The <code>applicationAdded</code> operation is called to notify an observer
-     * that an application was added.
+     * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the new application.
      * @param context The Context map to send with the invocation.
@@ -14583,8 +13689,7 @@ private:
 public:
 
     /**
-     * The <code>applicationRemoved</code> operation is called to notify an observer
-     * that an application was removed.
+     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
      * @param serial The new serial number of the registry database.
      * @param name The name of the application that was removed.
      * @param context The Context map to send with the invocation.
@@ -14595,8 +13700,7 @@ public:
     }
 
     /**
-     * The <code>applicationRemoved</code> operation is called to notify an observer
-     * that an application was removed.
+     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
      * @param serial The new serial number of the registry database.
      * @param name The name of the application that was removed.
      * @param context The Context map to send with the invocation.
@@ -14608,8 +13712,7 @@ public:
     }
 
     /**
-     * The <code>applicationRemoved</code> operation is called to notify an observer
-     * that an application was removed.
+     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
      * @param serial The new serial number of the registry database.
      * @param name The name of the application that was removed.
      * @param cb Asynchronous callback object.
@@ -14622,8 +13725,7 @@ public:
     }
 
     /**
-     * The <code>applicationRemoved</code> operation is called to notify an observer
-     * that an application was removed.
+     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
      * @param serial The new serial number of the registry database.
      * @param name The name of the application that was removed.
      * @param context The Context map to send with the invocation.
@@ -14637,8 +13739,7 @@ public:
     }
 
     /**
-     * The <code>applicationRemoved</code> operation is called to notify an observer
-     * that an application was removed.
+     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
      * @param serial The new serial number of the registry database.
      * @param name The name of the application that was removed.
      * @param cb Asynchronous callback object.
@@ -14651,8 +13752,7 @@ public:
     }
 
     /**
-     * The <code>applicationRemoved</code> operation is called to notify an observer
-     * that an application was removed.
+     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
      * @param serial The new serial number of the registry database.
      * @param name The name of the application that was removed.
      * @param context The Context map to send with the invocation.
@@ -14678,8 +13778,7 @@ private:
 public:
 
     /**
-     * The <code>applicationUpdated</code> operation is called to notify an observer
-     * that an application was updated.
+     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the update.
      * @param context The Context map to send with the invocation.
@@ -14690,8 +13789,7 @@ public:
     }
 
     /**
-     * The <code>applicationUpdated</code> operation is called to notify an observer
-     * that an application was updated.
+     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the update.
      * @param context The Context map to send with the invocation.
@@ -14703,8 +13801,7 @@ public:
     }
 
     /**
-     * The <code>applicationUpdated</code> operation is called to notify an observer
-     * that an application was updated.
+     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the update.
      * @param cb Asynchronous callback object.
@@ -14717,8 +13814,7 @@ public:
     }
 
     /**
-     * The <code>applicationUpdated</code> operation is called to notify an observer
-     * that an application was updated.
+     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the update.
      * @param context The Context map to send with the invocation.
@@ -14732,8 +13828,7 @@ public:
     }
 
     /**
-     * The <code>applicationUpdated</code> operation is called to notify an observer
-     * that an application was updated.
+     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the update.
      * @param cb Asynchronous callback object.
@@ -14746,8 +13841,7 @@ public:
     }
 
     /**
-     * The <code>applicationUpdated</code> operation is called to notify an observer
-     * that an application was updated.
+     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the update.
      * @param context The Context map to send with the invocation.
@@ -14790,10 +13884,9 @@ class ICE_CLASS(ICEGRID_API) AdapterObserver : public virtual ::Ice::Proxy<Adapt
 public:
 
     /**
-     * <code>adapterInit</code> is called after registration of
-     * an observer to indicate the state of the registry.
-     * @param adpts The adapters that were dynamically registered
-     * with the registry (not through the deployment mechanism).
+     * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
+     * @param adpts The adapters that were dynamically registered with the registry (not through the deployment
+     * mechanism).
      * @param context The Context map to send with the invocation.
      */
     ICE_MEMBER(ICEGRID_API) void adapterInit(const ::IceGrid::AdapterInfoSeq& adpts, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -14802,10 +13895,9 @@ public:
     }
 
     /**
-     * <code>adapterInit</code> is called after registration of
-     * an observer to indicate the state of the registry.
-     * @param adpts The adapters that were dynamically registered
-     * with the registry (not through the deployment mechanism).
+     * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
+     * @param adpts The adapters that were dynamically registered with the registry (not through the deployment
+     * mechanism).
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -14815,10 +13907,9 @@ public:
     }
 
     /**
-     * <code>adapterInit</code> is called after registration of
-     * an observer to indicate the state of the registry.
-     * @param adpts The adapters that were dynamically registered
-     * with the registry (not through the deployment mechanism).
+     * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
+     * @param adpts The adapters that were dynamically registered with the registry (not through the deployment
+     * mechanism).
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -14829,10 +13920,9 @@ public:
     }
 
     /**
-     * <code>adapterInit</code> is called after registration of
-     * an observer to indicate the state of the registry.
-     * @param adpts The adapters that were dynamically registered
-     * with the registry (not through the deployment mechanism).
+     * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
+     * @param adpts The adapters that were dynamically registered with the registry (not through the deployment
+     * mechanism).
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -14844,10 +13934,9 @@ public:
     }
 
     /**
-     * <code>adapterInit</code> is called after registration of
-     * an observer to indicate the state of the registry.
-     * @param adpts The adapters that were dynamically registered
-     * with the registry (not through the deployment mechanism).
+     * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
+     * @param adpts The adapters that were dynamically registered with the registry (not through the deployment
+     * mechanism).
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -14858,10 +13947,9 @@ public:
     }
 
     /**
-     * <code>adapterInit</code> is called after registration of
-     * an observer to indicate the state of the registry.
-     * @param adpts The adapters that were dynamically registered
-     * with the registry (not through the deployment mechanism).
+     * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
+     * @param adpts The adapters that were dynamically registered with the registry (not through the deployment
+     * mechanism).
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -14885,8 +13973,8 @@ private:
 public:
 
     /**
-     * The <code>adapterAdded</code> operation is called to notify an observer when
-     * a dynamically-registered adapter was added.
+     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
+     * was added.
      * @param info The details of the new adapter.
      * @param context The Context map to send with the invocation.
      */
@@ -14896,8 +13984,8 @@ public:
     }
 
     /**
-     * The <code>adapterAdded</code> operation is called to notify an observer when
-     * a dynamically-registered adapter was added.
+     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
+     * was added.
      * @param info The details of the new adapter.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -14908,8 +13996,8 @@ public:
     }
 
     /**
-     * The <code>adapterAdded</code> operation is called to notify an observer when
-     * a dynamically-registered adapter was added.
+     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
+     * was added.
      * @param info The details of the new adapter.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -14921,8 +14009,8 @@ public:
     }
 
     /**
-     * The <code>adapterAdded</code> operation is called to notify an observer when
-     * a dynamically-registered adapter was added.
+     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
+     * was added.
      * @param info The details of the new adapter.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -14935,8 +14023,8 @@ public:
     }
 
     /**
-     * The <code>adapterAdded</code> operation is called to notify an observer when
-     * a dynamically-registered adapter was added.
+     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
+     * was added.
      * @param info The details of the new adapter.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -14948,8 +14036,8 @@ public:
     }
 
     /**
-     * The <code>adapterAdded</code> operation is called to notify an observer when
-     * a dynamically-registered adapter was added.
+     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
+     * was added.
      * @param info The details of the new adapter.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -14974,8 +14062,7 @@ private:
 public:
 
     /**
-     * The adapterUpdated operation is called to notify an observer when
-     * a dynamically-registered adapter was updated.
+     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
      * @param info The details of the updated adapter.
      * @param context The Context map to send with the invocation.
      */
@@ -14985,8 +14072,7 @@ public:
     }
 
     /**
-     * The adapterUpdated operation is called to notify an observer when
-     * a dynamically-registered adapter was updated.
+     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
      * @param info The details of the updated adapter.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -14997,8 +14083,7 @@ public:
     }
 
     /**
-     * The adapterUpdated operation is called to notify an observer when
-     * a dynamically-registered adapter was updated.
+     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
      * @param info The details of the updated adapter.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -15010,8 +14095,7 @@ public:
     }
 
     /**
-     * The adapterUpdated operation is called to notify an observer when
-     * a dynamically-registered adapter was updated.
+     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
      * @param info The details of the updated adapter.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -15024,8 +14108,7 @@ public:
     }
 
     /**
-     * The adapterUpdated operation is called to notify an observer when
-     * a dynamically-registered adapter was updated.
+     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
      * @param info The details of the updated adapter.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -15037,8 +14120,7 @@ public:
     }
 
     /**
-     * The adapterUpdated operation is called to notify an observer when
-     * a dynamically-registered adapter was updated.
+     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
      * @param info The details of the updated adapter.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -15063,8 +14145,7 @@ private:
 public:
 
     /**
-     * The adapterRemoved operation is called to notify an observer when
-     * a dynamically-registered adapter was removed.
+     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
      * @param id The ID of the removed adapter.
      * @param context The Context map to send with the invocation.
      */
@@ -15074,8 +14155,7 @@ public:
     }
 
     /**
-     * The adapterRemoved operation is called to notify an observer when
-     * a dynamically-registered adapter was removed.
+     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
      * @param id The ID of the removed adapter.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -15086,8 +14166,7 @@ public:
     }
 
     /**
-     * The adapterRemoved operation is called to notify an observer when
-     * a dynamically-registered adapter was removed.
+     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
      * @param id The ID of the removed adapter.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -15099,8 +14178,7 @@ public:
     }
 
     /**
-     * The adapterRemoved operation is called to notify an observer when
-     * a dynamically-registered adapter was removed.
+     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
      * @param id The ID of the removed adapter.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -15113,8 +14191,7 @@ public:
     }
 
     /**
-     * The adapterRemoved operation is called to notify an observer when
-     * a dynamically-registered adapter was removed.
+     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
      * @param id The ID of the removed adapter.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -15126,8 +14203,7 @@ public:
     }
 
     /**
-     * The adapterRemoved operation is called to notify an observer when
-     * a dynamically-registered adapter was removed.
+     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
      * @param id The ID of the removed adapter.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -15169,10 +14245,8 @@ class ICE_CLASS(ICEGRID_API) ObjectObserver : public virtual ::Ice::Proxy<Object
 public:
 
     /**
-     * <code>objectInit</code> is called after the registration of
-     * an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin}
-     * interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
      * @param context The Context map to send with the invocation.
      */
     ICE_MEMBER(ICEGRID_API) void objectInit(const ::IceGrid::ObjectInfoSeq& objects, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -15181,10 +14255,8 @@ public:
     }
 
     /**
-     * <code>objectInit</code> is called after the registration of
-     * an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin}
-     * interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -15194,10 +14266,8 @@ public:
     }
 
     /**
-     * <code>objectInit</code> is called after the registration of
-     * an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin}
-     * interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -15208,10 +14278,8 @@ public:
     }
 
     /**
-     * <code>objectInit</code> is called after the registration of
-     * an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin}
-     * interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -15223,10 +14291,8 @@ public:
     }
 
     /**
-     * <code>objectInit</code> is called after the registration of
-     * an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin}
-     * interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -15237,10 +14303,8 @@ public:
     }
 
     /**
-     * <code>objectInit</code> is called after the registration of
-     * an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin}
-     * interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -15264,8 +14328,8 @@ private:
 public:
 
     /**
-     * The <code>objectAdded</code> operation is called to notify an observer when an
-     * object was added to the {@link Admin} interface.
+     * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
+     * {@link Admin} interface.
      * @param info The details of the added object.
      * @param context The Context map to send with the invocation.
      */
@@ -15275,8 +14339,8 @@ public:
     }
 
     /**
-     * The <code>objectAdded</code> operation is called to notify an observer when an
-     * object was added to the {@link Admin} interface.
+     * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
+     * {@link Admin} interface.
      * @param info The details of the added object.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -15287,8 +14351,8 @@ public:
     }
 
     /**
-     * The <code>objectAdded</code> operation is called to notify an observer when an
-     * object was added to the {@link Admin} interface.
+     * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
+     * {@link Admin} interface.
      * @param info The details of the added object.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -15300,8 +14364,8 @@ public:
     }
 
     /**
-     * The <code>objectAdded</code> operation is called to notify an observer when an
-     * object was added to the {@link Admin} interface.
+     * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
+     * {@link Admin} interface.
      * @param info The details of the added object.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -15314,8 +14378,8 @@ public:
     }
 
     /**
-     * The <code>objectAdded</code> operation is called to notify an observer when an
-     * object was added to the {@link Admin} interface.
+     * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
+     * {@link Admin} interface.
      * @param info The details of the added object.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -15327,8 +14391,8 @@ public:
     }
 
     /**
-     * The <code>objectAdded</code> operation is called to notify an observer when an
-     * object was added to the {@link Admin} interface.
+     * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
+     * {@link Admin} interface.
      * @param info The details of the added object.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -15353,8 +14417,8 @@ private:
 public:
 
     /**
-     * <code>objectUpdated</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was updated.
+     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was updated.
      * @param info The details of the updated object.
      * @param context The Context map to send with the invocation.
      */
@@ -15364,8 +14428,8 @@ public:
     }
 
     /**
-     * <code>objectUpdated</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was updated.
+     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was updated.
      * @param info The details of the updated object.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -15376,8 +14440,8 @@ public:
     }
 
     /**
-     * <code>objectUpdated</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was updated.
+     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was updated.
      * @param info The details of the updated object.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -15389,8 +14453,8 @@ public:
     }
 
     /**
-     * <code>objectUpdated</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was updated.
+     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was updated.
      * @param info The details of the updated object.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -15403,8 +14467,8 @@ public:
     }
 
     /**
-     * <code>objectUpdated</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was updated.
+     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was updated.
      * @param info The details of the updated object.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -15416,8 +14480,8 @@ public:
     }
 
     /**
-     * <code>objectUpdated</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was updated.
+     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was updated.
      * @param info The details of the updated object.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -15442,8 +14506,8 @@ private:
 public:
 
     /**
-     * <code>objectRemoved</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was removed.
+     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was removed.
      * @param id The identity of the removed object.
      * @param context The Context map to send with the invocation.
      */
@@ -15453,8 +14517,8 @@ public:
     }
 
     /**
-     * <code>objectRemoved</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was removed.
+     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was removed.
      * @param id The identity of the removed object.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -15465,8 +14529,8 @@ public:
     }
 
     /**
-     * <code>objectRemoved</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was removed.
+     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was removed.
      * @param id The identity of the removed object.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -15478,8 +14542,8 @@ public:
     }
 
     /**
-     * <code>objectRemoved</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was removed.
+     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was removed.
      * @param id The identity of the removed object.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -15492,8 +14556,8 @@ public:
     }
 
     /**
-     * <code>objectRemoved</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was removed.
+     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was removed.
      * @param id The identity of the removed object.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -15505,8 +14569,8 @@ public:
     }
 
     /**
-     * <code>objectRemoved</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was removed.
+     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was removed.
      * @param id The identity of the removed object.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -15548,8 +14612,8 @@ class ICE_CLASS(ICEGRID_API) AdminSession : public virtual ::Ice::Proxy<AdminSes
 public:
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param context The Context map to send with the invocation.
      * @see Registry#getSessionTimeout
      */
@@ -15559,8 +14623,8 @@ public:
     }
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      * @see Registry#getSessionTimeout
@@ -15571,8 +14635,8 @@ public:
     }
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -15584,8 +14648,8 @@ public:
     }
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -15598,8 +14662,8 @@ public:
     }
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -15611,8 +14675,8 @@ public:
     }
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -15637,8 +14701,7 @@ private:
 public:
 
     /**
-     * Get the admin interface. The admin object returned by this
-     * operation can only be accessed by the session.
+     * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
      * @param context The Context map to send with the invocation.
      * @return The admin interface proxy.
      */
@@ -15648,8 +14711,7 @@ public:
     }
 
     /**
-     * Get the admin interface. The admin object returned by this
-     * operation can only be accessed by the session.
+     * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -15659,8 +14721,7 @@ public:
     }
 
     /**
-     * Get the admin interface. The admin object returned by this
-     * operation can only be accessed by the session.
+     * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -15671,8 +14732,7 @@ public:
     }
 
     /**
-     * Get the admin interface. The admin object returned by this
-     * operation can only be accessed by the session.
+     * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -15684,8 +14744,7 @@ public:
     }
 
     /**
-     * Get the admin interface. The admin object returned by this
-     * operation can only be accessed by the session.
+     * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -15696,8 +14755,7 @@ public:
     }
 
     /**
-     * Get the admin interface. The admin object returned by this
-     * operation can only be accessed by the session.
+     * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -15722,13 +14780,10 @@ private:
 public:
 
     /**
-     * Get a "template" proxy for admin callback objects.
-     * An Admin client uses this proxy to set the category of its callback
-     * objects, and the published endpoints of the object adapter hosting
-     * the admin callback objects.
+     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
      * @param context The Context map to send with the invocation.
-     * @return A template proxy. The returned proxy is null when the Admin
-     * session was established using Glacier2.
+     * @return A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
      */
     ICE_MEMBER(ICEGRID_API) ::Ice::ObjectPrx getAdminCallbackTemplate(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -15736,10 +14791,8 @@ public:
     }
 
     /**
-     * Get a "template" proxy for admin callback objects.
-     * An Admin client uses this proxy to set the category of its callback
-     * objects, and the published endpoints of the object adapter hosting
-     * the admin callback objects.
+     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -15749,10 +14802,8 @@ public:
     }
 
     /**
-     * Get a "template" proxy for admin callback objects.
-     * An Admin client uses this proxy to set the category of its callback
-     * objects, and the published endpoints of the object adapter hosting
-     * the admin callback objects.
+     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -15763,10 +14814,8 @@ public:
     }
 
     /**
-     * Get a "template" proxy for admin callback objects.
-     * An Admin client uses this proxy to set the category of its callback
-     * objects, and the published endpoints of the object adapter hosting
-     * the admin callback objects.
+     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -15778,10 +14827,8 @@ public:
     }
 
     /**
-     * Get a "template" proxy for admin callback objects.
-     * An Admin client uses this proxy to set the category of its callback
-     * objects, and the published endpoints of the object adapter hosting
-     * the admin callback objects.
+     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -15792,10 +14839,8 @@ public:
     }
 
     /**
-     * Get a "template" proxy for admin callback objects.
-     * An Admin client uses this proxy to set the category of its callback
-     * objects, and the published endpoints of the object adapter hosting
-     * the admin callback objects.
+     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -15809,8 +14854,7 @@ public:
     /**
      * Completes an invocation of begin_getAdminCallbackTemplate.
      * @param result The asynchronous result object for the invocation.
-     * @return A template proxy. The returned proxy is null when the Admin
-     * session was established using Glacier2.
+     * @return A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
      */
     ICE_MEMBER(ICEGRID_API) ::Ice::ObjectPrx end_getAdminCallbackTemplate(const ::Ice::AsyncResultPtr& result);
 
@@ -15821,17 +14865,14 @@ private:
 public:
 
     /**
-     * Set the observer proxies that receive
-     * notifications when the state of the registry
-     * or nodes changes.
+     * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
      * @param registryObs The registry observer.
      * @param nodeObs The node observer.
      * @param appObs The application observer.
      * @param adptObs The adapter observer.
      * @param objObs The object observer.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an
-     * observer is already registered with this registry.
+     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
      */
     ICE_MEMBER(ICEGRID_API) void setObservers(const ::IceGrid::RegistryObserverPrx& registryObs, const ::IceGrid::NodeObserverPrx& nodeObs, const ::IceGrid::ApplicationObserverPrx& appObs, const ::IceGrid::AdapterObserverPrx& adptObs, const ::IceGrid::ObjectObserverPrx& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -15839,9 +14880,7 @@ public:
     }
 
     /**
-     * Set the observer proxies that receive
-     * notifications when the state of the registry
-     * or nodes changes.
+     * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
      * @param registryObs The registry observer.
      * @param nodeObs The node observer.
      * @param appObs The application observer.
@@ -15856,9 +14895,7 @@ public:
     }
 
     /**
-     * Set the observer proxies that receive
-     * notifications when the state of the registry
-     * or nodes changes.
+     * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
      * @param registryObs The registry observer.
      * @param nodeObs The node observer.
      * @param appObs The application observer.
@@ -15874,9 +14911,7 @@ public:
     }
 
     /**
-     * Set the observer proxies that receive
-     * notifications when the state of the registry
-     * or nodes changes.
+     * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
      * @param registryObs The registry observer.
      * @param nodeObs The node observer.
      * @param appObs The application observer.
@@ -15893,9 +14928,7 @@ public:
     }
 
     /**
-     * Set the observer proxies that receive
-     * notifications when the state of the registry
-     * or nodes changes.
+     * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
      * @param registryObs The registry observer.
      * @param nodeObs The node observer.
      * @param appObs The application observer.
@@ -15911,9 +14944,7 @@ public:
     }
 
     /**
-     * Set the observer proxies that receive
-     * notifications when the state of the registry
-     * or nodes changes.
+     * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
      * @param registryObs The registry observer.
      * @param nodeObs The node observer.
      * @param appObs The application observer.
@@ -15932,8 +14963,7 @@ public:
     /**
      * Completes an invocation of begin_setObservers.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an
-     * observer is already registered with this registry.
+     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
      */
     ICE_MEMBER(ICEGRID_API) void end_setObservers(const ::Ice::AsyncResultPtr& result);
 
@@ -15944,19 +14974,15 @@ private:
 public:
 
     /**
-     * Set the observer identities that receive
-     * notifications the state of the registry
-     * or nodes changes. This operation should be used by clients that
-     * are using a bidirectional connection to communicate with the
-     * session.
+     * Set the observer identities that receive notifications the state of the registry or nodes changes. This
+     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
      * @param registryObs The registry observer identity.
      * @param nodeObs The node observer identity.
      * @param appObs The application observer.
      * @param adptObs The adapter observer.
      * @param objObs The object observer.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an
-     * observer is already registered with this registry.
+     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
      */
     ICE_MEMBER(ICEGRID_API) void setObserversByIdentity(const ::Ice::Identity& registryObs, const ::Ice::Identity& nodeObs, const ::Ice::Identity& appObs, const ::Ice::Identity& adptObs, const ::Ice::Identity& objObs, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -15964,11 +14990,8 @@ public:
     }
 
     /**
-     * Set the observer identities that receive
-     * notifications the state of the registry
-     * or nodes changes. This operation should be used by clients that
-     * are using a bidirectional connection to communicate with the
-     * session.
+     * Set the observer identities that receive notifications the state of the registry or nodes changes. This
+     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
      * @param registryObs The registry observer identity.
      * @param nodeObs The node observer identity.
      * @param appObs The application observer.
@@ -15983,11 +15006,8 @@ public:
     }
 
     /**
-     * Set the observer identities that receive
-     * notifications the state of the registry
-     * or nodes changes. This operation should be used by clients that
-     * are using a bidirectional connection to communicate with the
-     * session.
+     * Set the observer identities that receive notifications the state of the registry or nodes changes. This
+     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
      * @param registryObs The registry observer identity.
      * @param nodeObs The node observer identity.
      * @param appObs The application observer.
@@ -16003,11 +15023,8 @@ public:
     }
 
     /**
-     * Set the observer identities that receive
-     * notifications the state of the registry
-     * or nodes changes. This operation should be used by clients that
-     * are using a bidirectional connection to communicate with the
-     * session.
+     * Set the observer identities that receive notifications the state of the registry or nodes changes. This
+     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
      * @param registryObs The registry observer identity.
      * @param nodeObs The node observer identity.
      * @param appObs The application observer.
@@ -16024,11 +15041,8 @@ public:
     }
 
     /**
-     * Set the observer identities that receive
-     * notifications the state of the registry
-     * or nodes changes. This operation should be used by clients that
-     * are using a bidirectional connection to communicate with the
-     * session.
+     * Set the observer identities that receive notifications the state of the registry or nodes changes. This
+     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
      * @param registryObs The registry observer identity.
      * @param nodeObs The node observer identity.
      * @param appObs The application observer.
@@ -16044,11 +15058,8 @@ public:
     }
 
     /**
-     * Set the observer identities that receive
-     * notifications the state of the registry
-     * or nodes changes. This operation should be used by clients that
-     * are using a bidirectional connection to communicate with the
-     * session.
+     * Set the observer identities that receive notifications the state of the registry or nodes changes. This
+     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
      * @param registryObs The registry observer identity.
      * @param nodeObs The node observer identity.
      * @param appObs The application observer.
@@ -16067,8 +15078,7 @@ public:
     /**
      * Completes an invocation of begin_setObserversByIdentity.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an
-     * observer is already registered with this registry.
+     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
      */
     ICE_MEMBER(ICEGRID_API) void end_setObserversByIdentity(const ::Ice::AsyncResultPtr& result);
 
@@ -16082,9 +15092,8 @@ public:
      * Acquires an exclusive lock to start updating the registry applications.
      * @param context The Context map to send with the invocation.
      * @return The current serial.
-     * @throws IceGrid::AccessDeniedException Raised if the exclusive lock can't be
-     * acquired. This might happen if the lock is currently acquired by
-     * another session.
+     * @throws IceGrid::AccessDeniedException Raised if the exclusive lock can't be acquired. This might happen if the lock is
+     * currently acquired by another session.
      */
     ICE_MEMBER(ICEGRID_API) ::Ice::Int startUpdate(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -16151,9 +15160,8 @@ public:
      * Completes an invocation of begin_startUpdate.
      * @param result The asynchronous result object for the invocation.
      * @return The current serial.
-     * @throws IceGrid::AccessDeniedException Raised if the exclusive lock can't be
-     * acquired. This might happen if the lock is currently acquired by
-     * another session.
+     * @throws IceGrid::AccessDeniedException Raised if the exclusive lock can't be acquired. This might happen if the lock is
+     * currently acquired by another session.
      */
     ICE_MEMBER(ICEGRID_API) ::Ice::Int end_startUpdate(const ::Ice::AsyncResultPtr& result);
 
@@ -16166,8 +15174,7 @@ public:
     /**
      * Finish updating the registry and release the exclusive lock.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the
-     * exclusive lock.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock.
      */
     ICE_MEMBER(ICEGRID_API) void finishUpdate(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -16233,8 +15240,7 @@ public:
     /**
      * Completes an invocation of begin_finishUpdate.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the
-     * exclusive lock.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock.
      */
     ICE_MEMBER(ICEGRID_API) void end_finishUpdate(const ::Ice::AsyncResultPtr& result);
 
@@ -16324,25 +15330,18 @@ private:
 public:
 
     /**
-     * Open the given server log file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server log file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param path The path of the log file. A log file can be opened
-     * only if it's declared in the server or service deployment
-     * descriptor.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
+     * deployment descriptor.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::FileIteratorPrx openServerLog(const ::std::string& id, const ::std::string& path, ::Ice::Int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -16350,15 +15349,12 @@ public:
     }
 
     /**
-     * Open the given server log file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server log file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param path The path of the log file. A log file can be opened
-     * only if it's declared in the server or service deployment
-     * descriptor.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
+     * deployment descriptor.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -16368,15 +15364,12 @@ public:
     }
 
     /**
-     * Open the given server log file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server log file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param path The path of the log file. A log file can be opened
-     * only if it's declared in the server or service deployment
-     * descriptor.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
+     * deployment descriptor.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -16387,15 +15380,12 @@ public:
     }
 
     /**
-     * Open the given server log file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server log file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param path The path of the log file. A log file can be opened
-     * only if it's declared in the server or service deployment
-     * descriptor.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
+     * deployment descriptor.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -16407,15 +15397,12 @@ public:
     }
 
     /**
-     * Open the given server log file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server log file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param path The path of the log file. A log file can be opened
-     * only if it's declared in the server or service deployment
-     * descriptor.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
+     * deployment descriptor.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -16426,15 +15413,12 @@ public:
     }
 
     /**
-     * Open the given server log file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server log file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param path The path of the log file. A log file can be opened
-     * only if it's declared in the server or service deployment
-     * descriptor.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
+     * deployment descriptor.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -16449,14 +15433,10 @@ public:
      * Completes an invocation of begin_openServerLog.
      * @param result The asynchronous result object for the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::FileIteratorPrx end_openServerLog(const ::Ice::AsyncResultPtr& result);
 
@@ -16467,22 +15447,16 @@ private:
 public:
 
     /**
-     * Open the given server stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stderr file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::FileIteratorPrx openServerStdErr(const ::std::string& id, ::Ice::Int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -16490,12 +15464,10 @@ public:
     }
 
     /**
-     * Open the given server stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stderr file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -16505,12 +15477,10 @@ public:
     }
 
     /**
-     * Open the given server stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stderr file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -16521,12 +15491,10 @@ public:
     }
 
     /**
-     * Open the given server stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stderr file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -16538,12 +15506,10 @@ public:
     }
 
     /**
-     * Open the given server stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stderr file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -16554,12 +15520,10 @@ public:
     }
 
     /**
-     * Open the given server stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stderr file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -16574,14 +15538,10 @@ public:
      * Completes an invocation of begin_openServerStdErr.
      * @param result The asynchronous result object for the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::FileIteratorPrx end_openServerStdErr(const ::Ice::AsyncResultPtr& result);
 
@@ -16592,22 +15552,16 @@ private:
 public:
 
     /**
-     * Open the given server stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stdout file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
+     * If 0 or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::FileIteratorPrx openServerStdOut(const ::std::string& id, ::Ice::Int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -16615,12 +15569,10 @@ public:
     }
 
     /**
-     * Open the given server stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stdout file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
+     * If 0 or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -16630,12 +15582,10 @@ public:
     }
 
     /**
-     * Open the given server stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stdout file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
+     * If 0 or positive, the file is read from the last <code>count</code> lines.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -16646,12 +15596,10 @@ public:
     }
 
     /**
-     * Open the given server stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stdout file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
+     * If 0 or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -16663,12 +15611,10 @@ public:
     }
 
     /**
-     * Open the given server stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stdout file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
+     * If 0 or positive, the file is read from the last <code>count</code> lines.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -16679,12 +15625,10 @@ public:
     }
 
     /**
-     * Open the given server stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stdout file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
+     * If 0 or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -16699,14 +15643,10 @@ public:
      * Completes an invocation of begin_openServerStdOut.
      * @param result The asynchronous result object for the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::FileIteratorPrx end_openServerStdOut(const ::Ice::AsyncResultPtr& result);
 
@@ -16717,19 +15657,15 @@ private:
 public:
 
     /**
-     * Open the given node stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stderr file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::FileIteratorPrx openNodeStdErr(const ::std::string& name, ::Ice::Int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -16737,12 +15673,10 @@ public:
     }
 
     /**
-     * Open the given node stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stderr file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -16752,12 +15686,10 @@ public:
     }
 
     /**
-     * Open the given node stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stderr file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -16768,12 +15700,10 @@ public:
     }
 
     /**
-     * Open the given node stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stderr file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -16785,12 +15715,10 @@ public:
     }
 
     /**
-     * Open the given node stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stderr file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -16801,12 +15729,10 @@ public:
     }
 
     /**
-     * Open the given node stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stderr file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -16821,11 +15747,9 @@ public:
      * Completes an invocation of begin_openNodeStdErr.
      * @param result The asynchronous result object for the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::FileIteratorPrx end_openNodeStdErr(const ::Ice::AsyncResultPtr& result);
 
@@ -16836,19 +15760,15 @@ private:
 public:
 
     /**
-     * Open the given node stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stdout file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::FileIteratorPrx openNodeStdOut(const ::std::string& name, ::Ice::Int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -16856,12 +15776,10 @@ public:
     }
 
     /**
-     * Open the given node stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stdout file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -16871,12 +15789,10 @@ public:
     }
 
     /**
-     * Open the given node stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stdout file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -16887,12 +15803,10 @@ public:
     }
 
     /**
-     * Open the given node stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stdout file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -16904,12 +15818,10 @@ public:
     }
 
     /**
-     * Open the given node stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stdout file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -16920,12 +15832,10 @@ public:
     }
 
     /**
-     * Open the given node stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stdout file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -16940,11 +15850,9 @@ public:
      * Completes an invocation of begin_openNodeStdOut.
      * @param result The asynchronous result object for the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::FileIteratorPrx end_openNodeStdOut(const ::Ice::AsyncResultPtr& result);
 
@@ -16955,20 +15863,15 @@ private:
 public:
 
     /**
-     * Open the given registry stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::RegistryNotExistException Raised if the registry
-     * doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry
-     * could not be reached.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::FileIteratorPrx openRegistryStdErr(const ::std::string& name, ::Ice::Int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -16976,12 +15879,10 @@ public:
     }
 
     /**
-     * Open the given registry stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -16991,12 +15892,10 @@ public:
     }
 
     /**
-     * Open the given registry stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -17007,12 +15906,10 @@ public:
     }
 
     /**
-     * Open the given registry stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -17024,12 +15921,10 @@ public:
     }
 
     /**
-     * Open the given registry stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -17040,12 +15935,10 @@ public:
     }
 
     /**
-     * Open the given registry stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -17060,12 +15953,9 @@ public:
      * Completes an invocation of begin_openRegistryStdErr.
      * @param result The asynchronous result object for the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::RegistryNotExistException Raised if the registry
-     * doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry
-     * could not be reached.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::FileIteratorPrx end_openRegistryStdErr(const ::Ice::AsyncResultPtr& result);
 
@@ -17076,20 +15966,15 @@ private:
 public:
 
     /**
-     * Open the given registry stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::RegistryNotExistException Raised if the registry
-     * doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry
-     * could not be reached.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::FileIteratorPrx openRegistryStdOut(const ::std::string& name, ::Ice::Int count, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -17097,12 +15982,10 @@ public:
     }
 
     /**
-     * Open the given registry stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -17112,12 +15995,10 @@ public:
     }
 
     /**
-     * Open the given registry stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -17128,12 +16009,10 @@ public:
     }
 
     /**
-     * Open the given registry stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -17145,12 +16024,10 @@ public:
     }
 
     /**
-     * Open the given registry stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -17161,12 +16038,10 @@ public:
     }
 
     /**
-     * Open the given registry stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -17181,12 +16056,9 @@ public:
      * Completes an invocation of begin_openRegistryStdOut.
      * @param result The asynchronous result object for the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::RegistryNotExistException Raised if the registry
-     * doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry
-     * could not be reached.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::FileIteratorPrx end_openRegistryStdOut(const ::Ice::AsyncResultPtr& result);
 
@@ -17217,10 +16089,8 @@ namespace IceGrid
 {
 
 /**
- * The IceGrid administrative interface.
- * <p class="Warning">Allowing access to this interface
- * is a security risk! Please see the IceGrid documentation
- * for further information.
+ * The IceGrid administrative interface. <p class="Warning">Allowing access to this interface is a security risk!
+ * Please see the IceGrid documentation for further information.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API Admin : public virtual ::Ice::Object
@@ -17270,11 +16140,9 @@ public:
      * Add an application to IceGrid.
      * @param descriptor The application descriptor.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     virtual void addApplication(const ApplicationDescriptor& descriptor, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -17282,18 +16150,14 @@ public:
     /// \endcond
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor.
      * @param descriptor The application descriptor.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     virtual void syncApplication(const ApplicationDescriptor& descriptor, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -17301,17 +16165,13 @@ public:
     /// \endcond
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor.
+     * Update a deployed application with the given update application descriptor.
      * @param descriptor The update descriptor.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     virtual void updateApplication(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -17319,21 +16179,15 @@ public:
     /// \endcond
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor only if no server restarts are
-     * necessary for the update of the application. If some servers
-     * need to be restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
      * @param descriptor The application descriptor.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     virtual void syncApplicationWithoutRestart(const ApplicationDescriptor& descriptor, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -17341,20 +16195,15 @@ public:
     /// \endcond
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor only if no server restarts are necessary for the
-     * update of the application. If some servers need to be
-     * restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Update a deployed application with the given update application descriptor only if no server restarts are
+     * necessary for the update of the application. If some servers need to be restarted, the synchronization is
+     * rejected with a DeploymentException.
      * @param descriptor The update descriptor.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if application deployment
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     virtual void updateApplicationWithoutRestart(const ApplicationUpdateDescriptor& descriptor, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -17365,11 +16214,9 @@ public:
      * Remove an application from IceGrid.
      * @param name The application name.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     virtual void removeApplication(const ::std::string& name, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
@@ -17378,20 +16225,15 @@ public:
     /// \endcond
 
     /**
-     * Instantiate a server template from an application on the given
-     * node.
+     * Instantiate a server template from an application on the given node.
      * @param application The application name.
-     * @param node The name of the node where the server will be
-     * deployed.
+     * @param node The name of the node where the server will be deployed.
      * @param desc The descriptor of the server instance to deploy.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws IceGrid::DeploymentException Raised if server instantiation
-     * failed.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws IceGrid::DeploymentException Raised if server instantiation failed.
      */
     virtual void instantiateServer(const ::std::string& application, const ::std::string& node, const ServerInstanceDescriptor& desc, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -17402,11 +16244,9 @@ public:
      * Patch the given application data.
      * @param cb The AMD callback object for the invocation.
      * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to
-     * patch will be shut down if necessary.
+     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      * @throws IceGrid::PatchException Raised if the patch failed.
      */
     virtual void patchApplication_async(const ::IceGrid::AMD_Admin_patchApplicationPtr& cb, const ::std::string& name, bool shutdown, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
@@ -17419,8 +16259,7 @@ public:
      * @param name The application name.
      * @param current The Current object for the invocation.
      * @return The application descriptor.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      */
     virtual ApplicationInfo getApplicationInfo(const ::std::string& name, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
     /// \cond INTERNAL
@@ -17431,8 +16270,7 @@ public:
      * Get the default application descriptor.
      * @param current The Current object for the invocation.
      * @return The default application descriptor.
-     * @throws IceGrid::DeploymentException Raised if the default application
-     * descriptor can't be accessed or is invalid.
+     * @throws IceGrid::DeploymentException Raised if the default application descriptor can't be accessed or is invalid.
      */
     virtual ApplicationDescriptor getDefaultApplicationDescriptor(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
     /// \cond INTERNAL
@@ -17466,10 +16304,8 @@ public:
      * @param id The server id.
      * @param current The Current object for the invocation.
      * @return The server state.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     virtual ServerState getServerState(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
@@ -17478,15 +16314,12 @@ public:
     /// \endcond
 
     /**
-     * Get a server's system process id. The process id is operating
-     * system dependent.
+     * Get a server's system process id. The process id is operating system dependent.
      * @param id The server id.
      * @param current The Current object for the invocation.
      * @return The server's process id.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     virtual ::Ice::Int getServerPid(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
@@ -17495,9 +16328,8 @@ public:
     /// \endcond
 
     /**
-     * Get the category for server admin objects. You can manufacture a server admin
-     * proxy from the admin proxy by changing its identity: use the server ID as name
-     * and the returned category as category.
+     * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+     * changing its identity: use the server ID as name and the returned category as category.
      * @param current The Current object for the invocation.
      * @return The category for server admin objects.
      */
@@ -17511,10 +16343,8 @@ public:
      * @param id The server id.
      * @param current The Current object for the invocation.
      * @return A proxy to the server's admin object
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     virtual ::Ice::ObjectPrx getServerAdmin(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
@@ -17523,17 +16353,13 @@ public:
     /// \endcond
 
     /**
-     * Enable or disable a server. A disabled server can't be started
-     * on demand or administratively. The enable state of the server
-     * is not persistent: if the node is shut down and restarted, the
-     * server will be enabled by default.
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
      * @param id The server id.
      * @param enabled True to enable the server, false to disable it.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     virtual void enableServer(const ::std::string& id, bool enabled, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
@@ -17546,12 +16372,9 @@ public:
      * @param id The server id.
      * @param current The Current object for the invocation.
      * @return True if the server is enabled.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     virtual bool isServerEnabled(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
     /// \cond INTERNAL
@@ -17563,14 +16386,10 @@ public:
      * @param cb The AMD callback object for the invocation.
      * @param id The server id.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
-     * @throws IceGrid::ServerStartException Raised if the server couldn't be
-     * started.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
+     * @throws IceGrid::ServerStartException Raised if the server couldn't be started.
      */
     virtual void startServer_async(const ::IceGrid::AMD_Admin_startServerPtr& cb, const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -17582,14 +16401,10 @@ public:
      * @param cb The AMD callback object for the invocation.
      * @param id The server id.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
-     * @throws IceGrid::ServerStopException Raised if the server couldn't be
-     * stopped.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
+     * @throws IceGrid::ServerStopException Raised if the server couldn't be stopped.
      */
     virtual void stopServer_async(const ::IceGrid::AMD_Admin_stopServerPtr& cb, const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -17600,16 +16415,12 @@ public:
      * Patch a server.
      * @param cb The AMD callback object for the invocation.
      * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch
-     * will be shut down if necessary.
+     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::PatchException Raised if the patch failed.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     virtual void patchServer_async(const ::IceGrid::AMD_Admin_patchServerPtr& cb, const ::std::string& id, bool shutdown, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -17621,14 +16432,10 @@ public:
      * @param id The server id.
      * @param signal The signal, for example SIGTERM or 15.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::BadSignalException Raised if the signal is not recognized
-     * by the target server.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::BadSignalException Raised if the signal is not recognized by the target server.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     virtual void sendSignal(const ::std::string& id, const ::std::string& signal, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -17646,17 +16453,13 @@ public:
     /// \endcond
 
     /**
-     * Get the adapter information for the replica group or adapter
-     * with the given id.
+     * Get the adapter information for the replica group or adapter with the given id.
      * @param id The adapter id.
      * @param current The Current object for the invocation.
-     * @return A sequence of adapter information structures. If the
-     * given id refers to an adapter, this sequence will contain only
-     * one element. If the given id refers to a replica group, the
-     * sequence will contain the adapter information of each member of
-     * the replica group.
-     * @throws IceGrid::AdapterNotExistException Raised if the adapter or
-     * replica group doesn't exist.
+     * @return A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
+     * contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
+     * information of each member of the replica group.
+     * @throws IceGrid::AdapterNotExistException Raised if the adapter or replica group doesn't exist.
      */
     virtual AdapterInfoSeq getAdapterInfo(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
     /// \cond INTERNAL
@@ -17667,8 +16470,7 @@ public:
      * Remove the adapter with the given id.
      * @param id The adapter id.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AdapterNotExistException Raised if the adapter doesn't
-     * exist.
+     * @throws IceGrid::AdapterNotExistException Raised if the adapter doesn't exist.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
     virtual void removeAdapter(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
@@ -17687,16 +16489,13 @@ public:
     /// \endcond
 
     /**
-     * Add an object to the object registry. IceGrid will get the
-     * object type by calling <code>ice_id</code> on the given proxy. The object
-     * must be reachable.
+     * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
+     * given proxy. The object must be reachable.
      * @param obj The object to be added to the registry.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::DeploymentException Raised if the object can't be
-     * added. This might be raised if the invocation on the proxy to
-     * get the object type failed.
-     * @throws IceGrid::ObjectExistsException Raised if the object is already
-     * registered.
+     * @throws IceGrid::DeploymentException Raised if the object can't be added. This might be raised if the invocation on the
+     * proxy to get the object type failed.
+     * @throws IceGrid::ObjectExistsException Raised if the object is already registered.
      */
     virtual void addObject(const ::Ice::ObjectPrx& obj, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -17704,17 +16503,13 @@ public:
     /// \endcond
 
     /**
-     * Update an object in the object registry. Only objects added
-     * with this interface can be updated with this operation. Objects
-     * added with deployment descriptors should be updated with the
-     * deployment mechanism.
+     * Update an object in the object registry. Only objects added with this interface can be updated with this
+     * operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
      * @param obj The object to be updated to the registry.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::DeploymentException Raised if the object can't be
-     * updated. This might happen if the object was added with a
-     * deployment descriptor.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws IceGrid::DeploymentException Raised if the object can't be updated. This might happen if the object was added
+     * with a deployment descriptor.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      */
     virtual void updateObject(const ::Ice::ObjectPrx& obj, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -17722,14 +16517,12 @@ public:
     /// \endcond
 
     /**
-     * Add an object to the object registry and explicitly specify
-     * its type.
+     * Add an object to the object registry and explicitly specify its type.
      * @param obj The object to be added to the registry.
      * @param type The object type.
      * @param current The Current object for the invocation.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
-     * @throws IceGrid::ObjectExistsException Raised if the object is already
-     * registered.
+     * @throws IceGrid::ObjectExistsException Raised if the object is already registered.
      */
     virtual void addObjectWithType(const ::Ice::ObjectPrx& obj, const ::std::string& type, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -17737,18 +16530,13 @@ public:
     /// \endcond
 
     /**
-     * Remove an object from the object registry. Only objects added
-     * with this interface can be removed with this operation. Objects
-     * added with deployment descriptors should be removed with the
-     * deployment mechanism.
-     * @param id The identity of the object to be removed from the
-     * registry.
+     * Remove an object from the object registry. Only objects added with this interface can be removed with this
+     * operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
+     * @param id The identity of the object to be removed from the registry.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::DeploymentException Raised if the object can't be
-     * removed. This might happen if the object was added with a
-     * deployment descriptor.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws IceGrid::DeploymentException Raised if the object can't be removed. This might happen if the object was added
+     * with a deployment descriptor.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      */
     virtual void removeObject(const ::Ice::Identity& id, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -17760,8 +16548,7 @@ public:
      * @param id The identity of the object.
      * @param current The Current object for the invocation.
      * @return The object info.
-     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws IceGrid::ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      */
     virtual ObjectInfo getObjectInfo(const ::Ice::Identity& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
     /// \cond INTERNAL
@@ -17769,8 +16556,7 @@ public:
     /// \endcond
 
     /**
-     * Get the object info of all the registered objects with the
-     * given type.
+     * Get the object info of all the registered objects with the given type.
      * @param type The type of the object.
      * @param current The Current object for the invocation.
      * @return The object infos.
@@ -17781,14 +16567,11 @@ public:
     /// \endcond
 
     /**
-     * Get the object info of all the registered objects whose stringified
-     * identities match the given expression.
-     * @param expr The expression to match against the stringified
-     * identities of registered objects. The expression may contain
-     * a trailing wildcard (<code>*</code>) character.
+     * Get the object info of all the registered objects whose stringified identities match the given expression.
+     * @param expr The expression to match against the stringified identities of registered objects. The expression
+     * may contain a trailing wildcard (<code>*</code>) character.
      * @param current The Current object for the invocation.
-     * @return All the object infos with a stringified identity
-     * matching the given expression.
+     * @return All the object infos with a stringified identity matching the given expression.
      */
     virtual ObjectInfoSeq getAllObjectInfos(const ::std::string& expr, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
     /// \cond INTERNAL
@@ -17813,8 +16596,7 @@ public:
      * @param current The Current object for the invocation.
      * @return The node load information.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     virtual LoadInfo getNodeLoad(const ::std::string& name, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
     /// \cond INTERNAL
@@ -17827,8 +16609,7 @@ public:
      * @param current The Current object for the invocation.
      * @return The node information.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     virtual NodeInfo getNodeInfo(const ::std::string& name, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
     /// \cond INTERNAL
@@ -17841,8 +16622,7 @@ public:
      * @param current The Current object for the invocation.
      * @return A proxy to the IceGrid node's admin object
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     virtual ::Ice::ObjectPrx getNodeAdmin(const ::std::string& name, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
     /// \cond INTERNAL
@@ -17850,20 +16630,14 @@ public:
     /// \endcond
 
     /**
-     * Get the number of physical processor sockets for the machine
-     * running the node with the given name.
-     *
-     * Note that this method will return 1 on operating systems where
-     * this can't be automatically determined and where the
-     * IceGrid.Node.ProcessorSocketCount property for the node is not
-     * set.
+     * Get the number of physical processor sockets for the machine running the node with the given name.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
+     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
      * @param name The node name.
      * @param current The Current object for the invocation.
-     * @return The number of processor sockets or 1 if the number of
-     * sockets can't determined.
+     * @return The number of processor sockets or 1 if the number of sockets can't determined.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     virtual ::Ice::Int getNodeProcessorSocketCount(const ::std::string& name, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
     /// \cond INTERNAL
@@ -17875,8 +16649,7 @@ public:
      * @param name The node name.
      * @param current The Current object for the invocation.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     virtual void shutdownNode(const ::std::string& name, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -17889,8 +16662,7 @@ public:
      * @param current The Current object for the invocation.
      * @return The node hostname.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     virtual ::std::string getNodeHostname(const ::std::string& name, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
     /// \cond INTERNAL
@@ -17925,8 +16697,7 @@ public:
      * @param current The Current object for the invocation.
      * @return The registry information.
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be
-     * reached.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
     virtual RegistryInfo getRegistryInfo(const ::std::string& name, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
     /// \cond INTERNAL
@@ -17950,8 +16721,7 @@ public:
      * @param name The registry name.
      * @param current The Current object for the invocation.
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be
-     * reached.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
     virtual void shutdownRegistry(const ::std::string& name, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -18050,18 +16820,14 @@ public:
 
     /**
      * Read lines from the log file.
-     * @param size Specifies the maximum number of bytes to be
-     * received. The server will ensure that the returned message
-     * doesn't exceed the given size.
-     * @param lines The lines read from the file. If there was nothing to
-     * read from the file since the last call to read, an empty
-     * sequence is returned. The last line of the sequence is always
-     * incomplete (and therefore no '\n' should be added when writing
-     * the last line to the to the output device).
+     * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
+     * message doesn't exceed the given size.
+     * @param lines The lines read from the file. If there was nothing to read from the file since the last call to
+     * read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n'
+     * should be added when writing the last line to the to the output device).
      * @param current The Current object for the invocation.
      * @return True if EOF is encountered.
-     * @throws IceGrid::FileNotAvailableException Raised if there was a problem
-     * to read lines from the file.
+     * @throws IceGrid::FileNotAvailableException Raised if there was a problem to read lines from the file.
      */
     virtual bool read(::Ice::Int size, ::Ice::StringSeq& lines, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -18102,8 +16868,7 @@ inline bool operator<(const FileIterator& lhs, const FileIterator& rhs)
 /// \endcond
 
 /**
- * This interface allows applications to monitor changes the state
- * of the registry.
+ * This interface allows applications to monitor changes the state of the registry.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API RegistryObserver : public virtual ::Ice::Object
@@ -18150,8 +16915,8 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * The <code>registryInit</code> operation is called after registration of
-     * an observer to indicate the state of the registries.
+     * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
+     * the registries.
      * @param registries The current state of the registries.
      * @param current The Current object for the invocation.
      */
@@ -18161,8 +16926,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param current The Current object for the invocation.
      */
@@ -18172,8 +16936,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param current The Current object for the invocation.
      */
@@ -18207,9 +16970,8 @@ inline bool operator<(const RegistryObserver& lhs, const RegistryObserver& rhs)
 /// \endcond
 
 /**
- * The node observer interface. Observers should implement this
- * interface to receive information about the state of the IceGrid
- * nodes.
+ * The node observer interface. Observers should implement this interface to receive information about the state of
+ * the IceGrid nodes.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API NodeObserver : public virtual ::Ice::Object
@@ -18256,8 +17018,8 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * The <code>nodeInit</code> operation indicates the current state
-     * of nodes. It is called after the registration of an observer.
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
+     * of an observer.
      * @param nodes The current state of the nodes.
      * @param current The Current object for the invocation.
      */
@@ -18267,8 +17029,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param current The Current object for the invocation.
      */
@@ -18278,8 +17039,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param current The Current object for the invocation.
      */
@@ -18289,8 +17049,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>updateServer</code> operation is called to notify an observer that
-     * the state of a server changed.
+     * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
      * @param node The node hosting the server.
      * @param updatedInfo The new server state.
      * @param current The Current object for the invocation.
@@ -18301,8 +17060,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that
-     * the state of an adapter changed.
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
      * @param node The node hosting the adapter.
      * @param updatedInfo The new adapter state.
      * @param current The Current object for the invocation.
@@ -18337,9 +17095,8 @@ inline bool operator<(const NodeObserver& lhs, const NodeObserver& rhs)
 /// \endcond
 
 /**
- * The database observer interface. Observers should implement this
- * interface to receive information about the state of the IceGrid
- * registry database.
+ * The database observer interface. Observers should implement this interface to receive information about the state
+ * of the IceGrid registry database.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API ApplicationObserver : public virtual ::Ice::Object
@@ -18386,13 +17143,11 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * <code>applicationInit</code> is called after the registration
-     * of an observer to indicate the state of the registry.
-     * @param serial The current serial number of the registry
-     * database. This serial number allows observers to make sure that
-     * their internal state is synchronized with the registry.
-     * @param applications The applications currently registered with
-     * the registry.
+     * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param serial The current serial number of the registry database. This serial number allows observers to make
+     * sure that their internal state is synchronized with the registry.
+     * @param applications The applications currently registered with the registry.
      * @param current The Current object for the invocation.
      */
     virtual void applicationInit(::Ice::Int serial, const ApplicationInfoSeq& applications, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
@@ -18401,8 +17156,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>applicationAdded</code> operation is called to notify an observer
-     * that an application was added.
+     * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the new application.
      * @param current The Current object for the invocation.
@@ -18413,8 +17167,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>applicationRemoved</code> operation is called to notify an observer
-     * that an application was removed.
+     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
      * @param serial The new serial number of the registry database.
      * @param name The name of the application that was removed.
      * @param current The Current object for the invocation.
@@ -18425,8 +17178,7 @@ public:
     /// \endcond
 
     /**
-     * The <code>applicationUpdated</code> operation is called to notify an observer
-     * that an application was updated.
+     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the update.
      * @param current The Current object for the invocation.
@@ -18461,8 +17213,7 @@ inline bool operator<(const ApplicationObserver& lhs, const ApplicationObserver&
 /// \endcond
 
 /**
- * This interface allows applications to monitor the state of object
- * adapters that are registered with IceGrid.
+ * This interface allows applications to monitor the state of object adapters that are registered with IceGrid.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API AdapterObserver : public virtual ::Ice::Object
@@ -18509,10 +17260,9 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * <code>adapterInit</code> is called after registration of
-     * an observer to indicate the state of the registry.
-     * @param adpts The adapters that were dynamically registered
-     * with the registry (not through the deployment mechanism).
+     * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
+     * @param adpts The adapters that were dynamically registered with the registry (not through the deployment
+     * mechanism).
      * @param current The Current object for the invocation.
      */
     virtual void adapterInit(const AdapterInfoSeq& adpts, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
@@ -18521,8 +17271,8 @@ public:
     /// \endcond
 
     /**
-     * The <code>adapterAdded</code> operation is called to notify an observer when
-     * a dynamically-registered adapter was added.
+     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
+     * was added.
      * @param info The details of the new adapter.
      * @param current The Current object for the invocation.
      */
@@ -18532,8 +17282,7 @@ public:
     /// \endcond
 
     /**
-     * The adapterUpdated operation is called to notify an observer when
-     * a dynamically-registered adapter was updated.
+     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
      * @param info The details of the updated adapter.
      * @param current The Current object for the invocation.
      */
@@ -18543,8 +17292,7 @@ public:
     /// \endcond
 
     /**
-     * The adapterRemoved operation is called to notify an observer when
-     * a dynamically-registered adapter was removed.
+     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
      * @param id The ID of the removed adapter.
      * @param current The Current object for the invocation.
      */
@@ -18625,10 +17373,8 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * <code>objectInit</code> is called after the registration of
-     * an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin}
-     * interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
      * @param current The Current object for the invocation.
      */
     virtual void objectInit(const ObjectInfoSeq& objects, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
@@ -18637,8 +17383,8 @@ public:
     /// \endcond
 
     /**
-     * The <code>objectAdded</code> operation is called to notify an observer when an
-     * object was added to the {@link Admin} interface.
+     * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
+     * {@link Admin} interface.
      * @param info The details of the added object.
      * @param current The Current object for the invocation.
      */
@@ -18648,8 +17394,8 @@ public:
     /// \endcond
 
     /**
-     * <code>objectUpdated</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was updated.
+     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was updated.
      * @param info The details of the updated object.
      * @param current The Current object for the invocation.
      */
@@ -18659,8 +17405,8 @@ public:
     /// \endcond
 
     /**
-     * <code>objectRemoved</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was removed.
+     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was removed.
      * @param id The identity of the removed object.
      * @param current The Current object for the invocation.
      */
@@ -18694,10 +17440,9 @@ inline bool operator<(const ObjectObserver& lhs, const ObjectObserver& rhs)
 /// \endcond
 
 /**
- * Used by administrative clients to view,
- * update, and receive observer updates from the IceGrid
- * registry. Admin sessions are created either via the {@link Registry}
- * object or via the registry admin <code>SessionManager</code> object.
+ * Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
+ * sessions are created either via the {@link Registry} object or via the registry admin <code>SessionManager</code>
+ * object.
  * @see Registry
  * \headerfile IceGrid/IceGrid.h
  */
@@ -18745,8 +17490,8 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param current The Current object for the invocation.
      * @see Registry#getSessionTimeout
      */
@@ -18756,8 +17501,7 @@ public:
     /// \endcond
 
     /**
-     * Get the admin interface. The admin object returned by this
-     * operation can only be accessed by the session.
+     * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
      * @param current The Current object for the invocation.
      * @return The admin interface proxy.
      */
@@ -18767,13 +17511,10 @@ public:
     /// \endcond
 
     /**
-     * Get a "template" proxy for admin callback objects.
-     * An Admin client uses this proxy to set the category of its callback
-     * objects, and the published endpoints of the object adapter hosting
-     * the admin callback objects.
+     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
      * @param current The Current object for the invocation.
-     * @return A template proxy. The returned proxy is null when the Admin
-     * session was established using Glacier2.
+     * @return A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
      */
     virtual ::Ice::ObjectPrx getAdminCallbackTemplate(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
     /// \cond INTERNAL
@@ -18781,17 +17522,14 @@ public:
     /// \endcond
 
     /**
-     * Set the observer proxies that receive
-     * notifications when the state of the registry
-     * or nodes changes.
+     * Set the observer proxies that receive notifications when the state of the registry or nodes changes.
      * @param registryObs The registry observer.
      * @param nodeObs The node observer.
      * @param appObs The application observer.
      * @param adptObs The adapter observer.
      * @param objObs The object observer.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an
-     * observer is already registered with this registry.
+     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
      */
     virtual void setObservers(const RegistryObserverPrx& registryObs, const NodeObserverPrx& nodeObs, const ApplicationObserverPrx& appObs, const AdapterObserverPrx& adptObs, const ObjectObserverPrx& objObs, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -18799,19 +17537,15 @@ public:
     /// \endcond
 
     /**
-     * Set the observer identities that receive
-     * notifications the state of the registry
-     * or nodes changes. This operation should be used by clients that
-     * are using a bidirectional connection to communicate with the
-     * session.
+     * Set the observer identities that receive notifications the state of the registry or nodes changes. This
+     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
      * @param registryObs The registry observer identity.
      * @param nodeObs The node observer identity.
      * @param appObs The application observer.
      * @param adptObs The adapter observer.
      * @param objObs The object observer.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an
-     * observer is already registered with this registry.
+     * @throws IceGrid::ObserverAlreadyRegisteredException Raised if an observer is already registered with this registry.
      */
     virtual void setObserversByIdentity(const ::Ice::Identity& registryObs, const ::Ice::Identity& nodeObs, const ::Ice::Identity& appObs, const ::Ice::Identity& adptObs, const ::Ice::Identity& objObs, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -18822,9 +17556,8 @@ public:
      * Acquires an exclusive lock to start updating the registry applications.
      * @param current The Current object for the invocation.
      * @return The current serial.
-     * @throws IceGrid::AccessDeniedException Raised if the exclusive lock can't be
-     * acquired. This might happen if the lock is currently acquired by
-     * another session.
+     * @throws IceGrid::AccessDeniedException Raised if the exclusive lock can't be acquired. This might happen if the lock is
+     * currently acquired by another session.
      */
     virtual ::Ice::Int startUpdate(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -18834,8 +17567,7 @@ public:
     /**
      * Finish updating the registry and release the exclusive lock.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the
-     * exclusive lock.
+     * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock.
      */
     virtual void finishUpdate(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -18853,25 +17585,18 @@ public:
     /// \endcond
 
     /**
-     * Open the given server log file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server log file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param path The path of the log file. A log file can be opened
-     * only if it's declared in the server or service deployment
-     * descriptor.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
+     * deployment descriptor.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     virtual FileIteratorPrx openServerLog(const ::std::string& id, const ::std::string& path, ::Ice::Int count, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -18879,22 +17604,16 @@ public:
     /// \endcond
 
     /**
-     * Open the given server stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stderr file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     virtual FileIteratorPrx openServerStdErr(const ::std::string& id, ::Ice::Int count, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -18902,22 +17621,16 @@ public:
     /// \endcond
 
     /**
-     * Open the given server stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given server stdout file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
+     * If 0 or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
+     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
     virtual FileIteratorPrx openServerStdOut(const ::std::string& id, ::Ice::Int count, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -18925,19 +17638,15 @@ public:
     /// \endcond
 
     /**
-     * Open the given node stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stderr file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     virtual FileIteratorPrx openNodeStdErr(const ::std::string& name, ::Ice::Int count, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -18945,19 +17654,15 @@ public:
     /// \endcond
 
     /**
-     * Open the given node stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given node stdout file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
     virtual FileIteratorPrx openNodeStdOut(const ::std::string& name, ::Ice::Int count, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -18965,20 +17670,15 @@ public:
     /// \endcond
 
     /**
-     * Open the given registry stderr file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::RegistryNotExistException Raised if the registry
-     * doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry
-     * could not be reached.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
     virtual FileIteratorPrx openRegistryStdErr(const ::std::string& name, ::Ice::Int count, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -18986,20 +17686,15 @@ public:
     /// \endcond
 
     /**
-     * Open the given registry stdout file for reading. The file can be
-     * read with the returned file iterator.
+     * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If
-     * negative, the file is read from the begining. If 0 or positive,
-     * the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+     * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
      * @return An iterator to read the file.
-     * @throws IceGrid::FileNotAvailableException Raised if the file can't be
-     * read.
-     * @throws IceGrid::RegistryNotExistException Raised if the registry
-     * doesn't exist.
-     * @throws IceGrid::RegistryUnreachableException Raised if the registry
-     * could not be reached.
+     * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
+     * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
+     * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
     virtual FileIteratorPrx openRegistryStdOut(const ::std::string& name, ::Ice::Int count, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL

@@ -16,8 +16,7 @@
 package com.zeroc.Ice;
 
 /**
- * A generic exception base for all kinds of protocol error
- * conditions.
+ * A generic exception base for all kinds of protocol error conditions.
  **/
 public class ProtocolException extends LocalException
 {

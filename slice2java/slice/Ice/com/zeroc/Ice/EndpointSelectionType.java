@@ -16,8 +16,7 @@
 package com.zeroc.Ice;
 
 /**
- * Determines the order in which the Ice run time uses the endpoints
- * in a proxy when establishing a connection.
+ * Determines the order in which the Ice run time uses the endpoints in a proxy when establishing a connection.
  **/
 public enum EndpointSelectionType
 {
@@ -26,8 +25,7 @@ public enum EndpointSelectionType
      **/
     Random(0),
     /**
-     * <code>Ordered</code> forces the Ice run time to use the endpoints in the
-     * order they appeared in the proxy.
+     * <code>Ordered</code> forces the Ice run time to use the endpoints in the order they appeared in the proxy.
      **/
     Ordered(1);
 

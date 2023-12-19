@@ -16,11 +16,9 @@
 classdef AdapterPrx < Ice.ObjectPrx
     methods
         function result = activate(obj, varargin)
-            % activate   Activate this adapter. If this adapter can be activated, this
-            % will activate the adapter and return the direct proxy of the
-            % adapter once it's active. If this adapter can be activated on
-            % demand, this will return 0 if the adapter is inactive or the
-            % adapter direct proxy it's active.
+            % activate   Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+            % proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+            % adapter is inactive or the adapter direct proxy it's active.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -33,11 +31,9 @@ classdef AdapterPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = activateAsync(obj, varargin)
-            % activateAsync   Activate this adapter. If this adapter can be activated, this
-            % will activate the adapter and return the direct proxy of the
-            % adapter once it's active. If this adapter can be activated on
-            % demand, this will return 0 if the adapter is inactive or the
-            % adapter direct proxy it's active.
+            % activateAsync   Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+            % proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+            % adapter is inactive or the adapter direct proxy it's active.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -53,15 +49,13 @@ classdef AdapterPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('activate', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getDirectProxy(obj, varargin)
-            % getDirectProxy   Get the adapter direct proxy. The adapter direct proxy is a
-            % proxy created with the object adapter. The proxy contains the
-            % last known adapter endpoints.
+            % getDirectProxy   Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+            % contains the last known adapter endpoints.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (Ice.ObjectPrx) - A direct proxy containing the last known adapter
-            % endpoints if the adapter is already active.
+            % Returns (Ice.ObjectPrx) - A direct proxy containing the last known adapter endpoints if the adapter is already active.
             
             is_ = obj.iceInvoke('getDirectProxy', 1, true, [], true, IceGrid.AdapterPrx.getDirectProxy_ex_, varargin{:});
             is_.startEncapsulation();
@@ -69,9 +63,8 @@ classdef AdapterPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getDirectProxyAsync(obj, varargin)
-            % getDirectProxyAsync   Get the adapter direct proxy. The adapter direct proxy is a
-            % proxy created with the object adapter. The proxy contains the
-            % last known adapter endpoints.
+            % getDirectProxyAsync   Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+            % contains the last known adapter endpoints.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -94,9 +87,8 @@ classdef AdapterPrx < Ice.ObjectPrx
             %   context (containers.Map) - Optional request context.
             %
             % Exceptions:
-            %   IceGrid.AdapterActiveException - The adapter is already
-            %     active. It's not possible to override the direct proxy of an
-            %     active adapter.
+            %   IceGrid.AdapterActiveException - The adapter is already active. It's not possible to override the direct proxy of
+            %     an active adapter.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(proxy);
@@ -113,9 +105,8 @@ classdef AdapterPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.AdapterActiveException - The adapter is already
-            %     active. It's not possible to override the direct proxy of an
-            %     active adapter.
+            %   IceGrid.AdapterActiveException - The adapter is already active. It's not possible to override the direct proxy of
+            %     an active adapter.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(proxy);

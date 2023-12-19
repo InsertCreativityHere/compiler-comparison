@@ -35,11 +35,9 @@ public interface FileIterator extends com.zeroc.Ice.Object
         /**
          * This constructor makes shallow copies of the results for operation Read.
          * @param returnValue True if EOF is encountered.
-         * @param lines The lines read from the file. If there was nothing to
-         * read from the file since the last call to read, an empty
-         * sequence is returned. The last line of the sequence is always
-         * incomplete (and therefore no '\n' should be added when writing
-         * the last line to the to the output device).
+         * @param lines The lines read from the file. If there was nothing to read from the file since the last call to
+         * read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n'
+         * should be added when writing the last line to the to the output device).
          **/
         public ReadResult(boolean returnValue, String[] lines)
         {
@@ -52,11 +50,9 @@ public interface FileIterator extends com.zeroc.Ice.Object
          **/
         public boolean returnValue;
         /**
-         * The lines read from the file. If there was nothing to
-         * read from the file since the last call to read, an empty
-         * sequence is returned. The last line of the sequence is always
-         * incomplete (and therefore no '\n' should be added when writing
-         * the last line to the to the output device).
+         * The lines read from the file. If there was nothing to read from the file since the last call to
+         * read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n'
+         * should be added when writing the last line to the to the output device).
          **/
         public String[] lines;
 
@@ -75,13 +71,11 @@ public interface FileIterator extends com.zeroc.Ice.Object
 
     /**
      * Read lines from the log file.
-     * @param size Specifies the maximum number of bytes to be
-     * received. The server will ensure that the returned message
-     * doesn't exceed the given size.
+     * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
+     * message doesn't exceed the given size.
      * @param current The Current object for the invocation.
      * @return An instance of FileIterator.ReadResult.
-     * @throws FileNotAvailableException Raised if there was a problem
-     * to read lines from the file.
+     * @throws FileNotAvailableException Raised if there was a problem to read lines from the file.
      **/
     FileIterator.ReadResult read(int size, com.zeroc.Ice.Current current)
         throws FileNotAvailableException;

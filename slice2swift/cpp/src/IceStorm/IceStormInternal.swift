@@ -231,8 +231,7 @@ public struct TopicManagerInternalTraits: Ice.SliceTraits {
     public static let staticId = "::IceStorm::TopicManagerInternal"
 }
 
-/// The TopicLink interface. This is used to forward events between
-/// federated Topic instances.
+/// The TopicLink interface. This is used to forward events between federated Topic instances.
 ///
 /// TopicLinkPrx Methods:
 ///
@@ -314,8 +313,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// The TopicLink interface. This is used to forward events between
-/// federated Topic instances.
+/// The TopicLink interface. This is used to forward events between federated Topic instances.
 ///
 /// TopicLinkPrx Methods:
 ///
@@ -658,8 +656,7 @@ public extension TopicManagerInternalPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `IceStormElection.NodePrx?` - The replica proxy, or null if this instance is not
-    /// replicated.
+    /// - returns: `IceStormElection.NodePrx?` - The replica proxy, or null if this instance is not replicated.
     func getReplicaNode(context: Ice.Context? = nil) throws -> IceStormElection.NodePrx? {
         return try _impl._invoke(operation: "getReplicaNode",
                                  mode: .Idempotent,
@@ -726,8 +723,7 @@ public struct TopicLinkDisp: Ice.Disp {
     }
 }
 
-/// The TopicLink interface. This is used to forward events between
-/// federated Topic instances.
+/// The TopicLink interface. This is used to forward events between federated Topic instances.
 public protocol TopicLink {
     /// Forward a sequence of events.
     ///
@@ -850,13 +846,11 @@ public protocol TopicManagerInternal: TopicManager {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `IceStormElection.NodePrx?` - The replica proxy, or null if this instance is not
-    /// replicated.
+    /// - returns: `IceStormElection.NodePrx?` - The replica proxy, or null if this instance is not replicated.
     func getReplicaNode(current: Ice.Current) throws -> IceStormElection.NodePrx?
 }
 
-/// The TopicLink interface. This is used to forward events between
-/// federated Topic instances.
+/// The TopicLink interface. This is used to forward events between federated Topic instances.
 ///
 /// TopicLink Methods:
 ///

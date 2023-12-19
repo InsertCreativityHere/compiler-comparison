@@ -1,7 +1,6 @@
 % ObserverAlreadyRegisteredException   Summary of ObserverAlreadyRegisteredException
 %
-% This exception is raised if an observer is already registered with
-% the registry.
+% This exception is raised if an observer is already registered with the registry.
 %
 % ObserverAlreadyRegisteredException Properties:
 %   id - The identity of the observer.

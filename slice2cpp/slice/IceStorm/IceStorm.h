@@ -118,8 +118,7 @@ using LinkInfoSeq = ::std::vector<LinkInfo>;
 using QoS = ::std::map<::std::string, ::std::string>;
 
 /**
- * This exception indicates that an attempt was made to create a link
- * that already exists.
+ * This exception indicates that an attempt was made to create a link that already exists.
  * \headerfile IceStorm/IceStorm.h
  */
 class ICE_CLASS(ICESTORM_API) LinkExists : public ::Ice::UserExceptionHelper<LinkExists, ::Ice::UserException>
@@ -167,8 +166,7 @@ static LinkExists _iceS_LinkExists_init;
 /// \endcond
 
 /**
- * This exception indicates that an attempt was made to remove a
- * link that does not exist.
+ * This exception indicates that an attempt was made to remove a link that does not exist.
  * \headerfile IceStorm/IceStorm.h
  */
 class ICE_CLASS(ICESTORM_API) NoSuchLink : public ::Ice::UserExceptionHelper<NoSuchLink, ::Ice::UserException>
@@ -212,8 +210,7 @@ public:
 };
 
 /**
- * This exception indicates that an attempt was made to subscribe
- * a proxy for which a subscription already exists.
+ * This exception indicates that an attempt was made to subscribe a proxy for which a subscription already exists.
  * \headerfile IceStorm/IceStorm.h
  */
 class ICE_CLASS(ICESTORM_API) AlreadySubscribed : public ::Ice::UserExceptionHelper<AlreadySubscribed, ::Ice::UserException>
@@ -243,8 +240,7 @@ public:
 };
 
 /**
- * This exception indicates that an attempt was made to subscribe
- * a proxy that is null.
+ * This exception indicates that an attempt was made to subscribe a proxy that is null.
  * \headerfile IceStorm/IceStorm.h
  */
 class ICE_CLASS(ICESTORM_API) InvalidSubscriber : public ::Ice::UserExceptionHelper<InvalidSubscriber, ::Ice::UserException>
@@ -288,8 +284,7 @@ public:
 };
 
 /**
- * This exception indicates that a subscription failed due to an
- * invalid QoS.
+ * This exception indicates that a subscription failed due to an invalid QoS.
  * \headerfile IceStorm/IceStorm.h
  */
 class ICE_CLASS(ICESTORM_API) BadQoS : public ::Ice::UserExceptionHelper<BadQoS, ::Ice::UserException>
@@ -338,8 +333,7 @@ public:
 using TopicDict = ::std::map<::std::string, ::std::shared_ptr<TopicPrx>>;
 
 /**
- * This exception indicates that an attempt was made to create a topic
- * that already exists.
+ * This exception indicates that an attempt was made to create a topic that already exists.
  * \headerfile IceStorm/IceStorm.h
  */
 class ICE_CLASS(ICESTORM_API) TopicExists : public ::Ice::UserExceptionHelper<TopicExists, ::Ice::UserException>
@@ -383,8 +377,7 @@ public:
 };
 
 /**
- * This exception indicates that an attempt was made to retrieve a
- * topic that does not exist.
+ * This exception indicates that an attempt was made to retrieve a topic that does not exist.
  * \headerfile IceStorm/IceStorm.h
  */
 class ICE_CLASS(ICESTORM_API) NoSuchTopic : public ::Ice::UserExceptionHelper<NoSuchTopic, ::Ice::UserException>
@@ -440,8 +433,7 @@ namespace IceStorm
 {
 
 /**
- * Publishers publish information on a particular topic. A topic
- * logically represents a type.
+ * Publishers publish information on a particular topic. A topic logically represents a type. A
  * @see TopicManager
  * \headerfile IceStorm/IceStorm.h
  */
@@ -491,11 +483,9 @@ public:
     /// \endcond
 
     /**
-     * Get a proxy to a publisher object for this topic. To publish
-     * data to a topic, the publisher calls getPublisher and then
-     * casts to the topic type. An unchecked cast must be used on this
-     * proxy. If a replicated IceStorm deployment is used this call
-     * may return a replicated proxy.
+     * Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+     * and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
+     * deployment is used this call may return a replicated proxy.
      * @param current The Current object for the invocation.
      * @return A proxy to publish data on this topic.
      */
@@ -505,10 +495,8 @@ public:
     /// \endcond
 
     /**
-     * Get a non-replicated proxy to a publisher object for this
-     * topic. To publish data to a topic, the publisher calls
-     * getPublisher and then casts to the topic type. An unchecked
-     * cast must be used on this proxy.
+     * Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+     * calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
      * @param current The Current object for the invocation.
      * @return A proxy to publish data on this topic.
      */
@@ -518,17 +506,13 @@ public:
     /// \endcond
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A
-     * per-subscriber publisher object is returned.
-     * @param theQoS The quality of service parameters for this
-     * subscription.
+     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy.
      * @param current The Current object for the invocation.
      * @return The per-subscriber publisher object.
-     * @throws IceStorm::AlreadySubscribed Raised if the subscriber object is
-     * already subscribed.
-     * @throws IceStorm::BadQoS Raised if the requested quality of service
-     * is unavailable or invalid.
+     * @throws IceStorm::AlreadySubscribed Raised if the subscriber object is already subscribed.
+     * @throws IceStorm::BadQoS Raised if the requested quality of service is unavailable or invalid.
      * @throws IceStorm::InvalidSubscriber Raised if the subscriber object is null.
      * @see #unsubscribe
      */
@@ -549,13 +533,12 @@ public:
     /// \endcond
 
     /**
-     * Create a link to the given topic. All events originating
-     * on this topic will also be sent to <code>linkTo</code>.
+     * Create a link to the given topic. All events originating on this topic will also be sent to
+     * <code>linkTo</code>.
      * @param linkTo The topic to link to.
      * @param cost The cost to the linked topic.
      * @param current The Current object for the invocation.
-     * @throws IceStorm::LinkExists Raised if a link to the same topic already
-     * exists.
+     * @throws IceStorm::LinkExists Raised if a link to the same topic already exists.
      */
     virtual void link(::std::shared_ptr<TopicPrx> linkTo, int cost, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -651,8 +634,7 @@ public:
      * @param name The name of the topic.
      * @param current The Current object for the invocation.
      * @return A proxy to the topic instance.
-     * @throws IceStorm::TopicExists Raised if a topic with the same name already
-     * exists.
+     * @throws IceStorm::TopicExists Raised if a topic with the same name already exists.
      */
     virtual ::std::shared_ptr<TopicPrx> create(::std::string name, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -687,10 +669,8 @@ public:
 };
 
 /**
- * This interface is advertised by the IceStorm service through the
- * Ice object with the identity `IceStorm/Finder'. This allows clients
- * to retrieve the topic manager with just the endpoint information of
- * the IceStorm service.
+ * This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+ * This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
  * \headerfile IceStorm/IceStorm.h
  */
 class ICESTORM_API Finder : public virtual ::Ice::Object
@@ -728,8 +708,7 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Get the topic manager proxy. The proxy might point to several
-     * replicas.
+     * Get the topic manager proxy. The proxy might point to several replicas.
      * @param current The Current object for the invocation.
      * @return The topic manager proxy.
      */
@@ -749,8 +728,7 @@ namespace IceStorm
 {
 
 /**
- * Publishers publish information on a particular topic. A topic
- * logically represents a type.
+ * Publishers publish information on a particular topic. A topic logically represents a type. A
  * @see TopicManager
  * \headerfile IceStorm/IceStorm.h
  */
@@ -805,11 +783,9 @@ public:
     /// \endcond
 
     /**
-     * Get a proxy to a publisher object for this topic. To publish
-     * data to a topic, the publisher calls getPublisher and then
-     * casts to the topic type. An unchecked cast must be used on this
-     * proxy. If a replicated IceStorm deployment is used this call
-     * may return a replicated proxy.
+     * Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+     * and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
+     * deployment is used this call may return a replicated proxy.
      * @param context The Context map to send with the invocation.
      * @return A proxy to publish data on this topic.
      */
@@ -819,11 +795,9 @@ public:
     }
 
     /**
-     * Get a proxy to a publisher object for this topic. To publish
-     * data to a topic, the publisher calls getPublisher and then
-     * casts to the topic type. An unchecked cast must be used on this
-     * proxy. If a replicated IceStorm deployment is used this call
-     * may return a replicated proxy.
+     * Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+     * and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
+     * deployment is used this call may return a replicated proxy.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -835,11 +809,9 @@ public:
     }
 
     /**
-     * Get a proxy to a publisher object for this topic. To publish
-     * data to a topic, the publisher calls getPublisher and then
-     * casts to the topic type. An unchecked cast must be used on this
-     * proxy. If a replicated IceStorm deployment is used this call
-     * may return a replicated proxy.
+     * Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+     * and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
+     * deployment is used this call may return a replicated proxy.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -860,10 +832,8 @@ public:
     /// \endcond
 
     /**
-     * Get a non-replicated proxy to a publisher object for this
-     * topic. To publish data to a topic, the publisher calls
-     * getPublisher and then casts to the topic type. An unchecked
-     * cast must be used on this proxy.
+     * Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+     * calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
      * @param context The Context map to send with the invocation.
      * @return A proxy to publish data on this topic.
      */
@@ -873,10 +843,8 @@ public:
     }
 
     /**
-     * Get a non-replicated proxy to a publisher object for this
-     * topic. To publish data to a topic, the publisher calls
-     * getPublisher and then casts to the topic type. An unchecked
-     * cast must be used on this proxy.
+     * Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+     * calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -888,10 +856,8 @@ public:
     }
 
     /**
-     * Get a non-replicated proxy to a publisher object for this
-     * topic. To publish data to a topic, the publisher calls
-     * getPublisher and then casts to the topic type. An unchecked
-     * cast must be used on this proxy.
+     * Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+     * calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -912,17 +878,13 @@ public:
     /// \endcond
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A
-     * per-subscriber publisher object is returned.
-     * @param theQoS The quality of service parameters for this
-     * subscription.
+     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy.
      * @param context The Context map to send with the invocation.
      * @return The per-subscriber publisher object.
-     * @throws IceStorm::AlreadySubscribed Raised if the subscriber object is
-     * already subscribed.
-     * @throws IceStorm::BadQoS Raised if the requested quality of service
-     * is unavailable or invalid.
+     * @throws IceStorm::AlreadySubscribed Raised if the subscriber object is already subscribed.
+     * @throws IceStorm::BadQoS Raised if the requested quality of service is unavailable or invalid.
      * @throws IceStorm::InvalidSubscriber Raised if the subscriber object is null.
      * @see #unsubscribe
      */
@@ -932,10 +894,8 @@ public:
     }
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A
-     * per-subscriber publisher object is returned.
-     * @param theQoS The quality of service parameters for this
-     * subscription.
+     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -949,10 +909,8 @@ public:
     }
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A
-     * per-subscriber publisher object is returned.
-     * @param theQoS The quality of service parameters for this
-     * subscription.
+     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -1025,13 +983,12 @@ public:
     /// \endcond
 
     /**
-     * Create a link to the given topic. All events originating
-     * on this topic will also be sent to <code>linkTo</code>.
+     * Create a link to the given topic. All events originating on this topic will also be sent to
+     * <code>linkTo</code>.
      * @param linkTo The topic to link to.
      * @param cost The cost to the linked topic.
      * @param context The Context map to send with the invocation.
-     * @throws IceStorm::LinkExists Raised if a link to the same topic already
-     * exists.
+     * @throws IceStorm::LinkExists Raised if a link to the same topic already exists.
      */
     void link(const ::std::shared_ptr<TopicPrx>& linkTo, int cost, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -1039,8 +996,8 @@ public:
     }
 
     /**
-     * Create a link to the given topic. All events originating
-     * on this topic will also be sent to <code>linkTo</code>.
+     * Create a link to the given topic. All events originating on this topic will also be sent to
+     * <code>linkTo</code>.
      * @param linkTo The topic to link to.
      * @param cost The cost to the linked topic.
      * @param context The Context map to send with the invocation.
@@ -1054,8 +1011,8 @@ public:
     }
 
     /**
-     * Create a link to the given topic. All events originating
-     * on this topic will also be sent to <code>linkTo</code>.
+     * Create a link to the given topic. All events originating on this topic will also be sent to
+     * <code>linkTo</code>.
      * @param linkTo The topic to link to.
      * @param cost The cost to the linked topic.
      * @param response The response callback.
@@ -1283,8 +1240,7 @@ public:
      * @param name The name of the topic.
      * @param context The Context map to send with the invocation.
      * @return A proxy to the topic instance.
-     * @throws IceStorm::TopicExists Raised if a topic with the same name already
-     * exists.
+     * @throws IceStorm::TopicExists Raised if a topic with the same name already exists.
      */
     ::std::shared_ptr<TopicPrx> create(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -1435,10 +1391,8 @@ protected:
 };
 
 /**
- * This interface is advertised by the IceStorm service through the
- * Ice object with the identity `IceStorm/Finder'. This allows clients
- * to retrieve the topic manager with just the endpoint information of
- * the IceStorm service.
+ * This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+ * This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
  * \headerfile IceStorm/IceStorm.h
  */
 class ICE_CLASS(ICESTORM_API) FinderPrx : public virtual ::Ice::Proxy<FinderPrx, ::Ice::ObjectPrx>
@@ -1446,8 +1400,7 @@ class ICE_CLASS(ICESTORM_API) FinderPrx : public virtual ::Ice::Proxy<FinderPrx,
 public:
 
     /**
-     * Get the topic manager proxy. The proxy might point to several
-     * replicas.
+     * Get the topic manager proxy. The proxy might point to several replicas.
      * @param context The Context map to send with the invocation.
      * @return The topic manager proxy.
      */
@@ -1457,8 +1410,7 @@ public:
     }
 
     /**
-     * Get the topic manager proxy. The proxy might point to several
-     * replicas.
+     * Get the topic manager proxy. The proxy might point to several replicas.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -1470,8 +1422,7 @@ public:
     }
 
     /**
-     * Get the topic manager proxy. The proxy might point to several
-     * replicas.
+     * Get the topic manager proxy. The proxy might point to several replicas.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -1706,8 +1657,7 @@ typedef ::std::vector<LinkInfo> LinkInfoSeq;
 typedef ::std::map< ::std::string, ::std::string> QoS;
 
 /**
- * This exception indicates that an attempt was made to create a link
- * that already exists.
+ * This exception indicates that an attempt was made to create a link that already exists.
  * \headerfile IceStorm/IceStorm.h
  */
 class ICESTORM_API LinkExists : public ::Ice::UserException
@@ -1761,8 +1711,7 @@ static LinkExists _iceS_LinkExists_init;
 /// \endcond
 
 /**
- * This exception indicates that an attempt was made to remove a
- * link that does not exist.
+ * This exception indicates that an attempt was made to remove a link that does not exist.
  * \headerfile IceStorm/IceStorm.h
  */
 class ICESTORM_API NoSuchLink : public ::Ice::UserException
@@ -1812,8 +1761,7 @@ protected:
 };
 
 /**
- * This exception indicates that an attempt was made to subscribe
- * a proxy for which a subscription already exists.
+ * This exception indicates that an attempt was made to subscribe a proxy for which a subscription already exists.
  * \headerfile IceStorm/IceStorm.h
  */
 class ICESTORM_API AlreadySubscribed : public ::Ice::UserException
@@ -1853,8 +1801,7 @@ protected:
 };
 
 /**
- * This exception indicates that an attempt was made to subscribe
- * a proxy that is null.
+ * This exception indicates that an attempt was made to subscribe a proxy that is null.
  * \headerfile IceStorm/IceStorm.h
  */
 class ICESTORM_API InvalidSubscriber : public ::Ice::UserException
@@ -1904,8 +1851,7 @@ protected:
 };
 
 /**
- * This exception indicates that a subscription failed due to an
- * invalid QoS.
+ * This exception indicates that a subscription failed due to an invalid QoS.
  * \headerfile IceStorm/IceStorm.h
  */
 class ICESTORM_API BadQoS : public ::Ice::UserException
@@ -1960,8 +1906,7 @@ protected:
 typedef ::std::map< ::std::string, TopicPrx> TopicDict;
 
 /**
- * This exception indicates that an attempt was made to create a topic
- * that already exists.
+ * This exception indicates that an attempt was made to create a topic that already exists.
  * \headerfile IceStorm/IceStorm.h
  */
 class ICESTORM_API TopicExists : public ::Ice::UserException
@@ -2011,8 +1956,7 @@ protected:
 };
 
 /**
- * This exception indicates that an attempt was made to retrieve a
- * topic that does not exist.
+ * This exception indicates that an attempt was made to retrieve a topic that does not exist.
  * \headerfile IceStorm/IceStorm.h
  */
 class ICESTORM_API NoSuchTopic : public ::Ice::UserException
@@ -2276,11 +2220,9 @@ private:
 public:
 
     /**
-     * Get a proxy to a publisher object for this topic. To publish
-     * data to a topic, the publisher calls getPublisher and then
-     * casts to the topic type. An unchecked cast must be used on this
-     * proxy. If a replicated IceStorm deployment is used this call
-     * may return a replicated proxy.
+     * Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+     * and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
+     * deployment is used this call may return a replicated proxy.
      * @param context The Context map to send with the invocation.
      * @return A proxy to publish data on this topic.
      */
@@ -2290,11 +2232,9 @@ public:
     }
 
     /**
-     * Get a proxy to a publisher object for this topic. To publish
-     * data to a topic, the publisher calls getPublisher and then
-     * casts to the topic type. An unchecked cast must be used on this
-     * proxy. If a replicated IceStorm deployment is used this call
-     * may return a replicated proxy.
+     * Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+     * and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
+     * deployment is used this call may return a replicated proxy.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -2304,11 +2244,9 @@ public:
     }
 
     /**
-     * Get a proxy to a publisher object for this topic. To publish
-     * data to a topic, the publisher calls getPublisher and then
-     * casts to the topic type. An unchecked cast must be used on this
-     * proxy. If a replicated IceStorm deployment is used this call
-     * may return a replicated proxy.
+     * Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+     * and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
+     * deployment is used this call may return a replicated proxy.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2319,11 +2257,9 @@ public:
     }
 
     /**
-     * Get a proxy to a publisher object for this topic. To publish
-     * data to a topic, the publisher calls getPublisher and then
-     * casts to the topic type. An unchecked cast must be used on this
-     * proxy. If a replicated IceStorm deployment is used this call
-     * may return a replicated proxy.
+     * Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+     * and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
+     * deployment is used this call may return a replicated proxy.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2335,11 +2271,9 @@ public:
     }
 
     /**
-     * Get a proxy to a publisher object for this topic. To publish
-     * data to a topic, the publisher calls getPublisher and then
-     * casts to the topic type. An unchecked cast must be used on this
-     * proxy. If a replicated IceStorm deployment is used this call
-     * may return a replicated proxy.
+     * Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+     * and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
+     * deployment is used this call may return a replicated proxy.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2350,11 +2284,9 @@ public:
     }
 
     /**
-     * Get a proxy to a publisher object for this topic. To publish
-     * data to a topic, the publisher calls getPublisher and then
-     * casts to the topic type. An unchecked cast must be used on this
-     * proxy. If a replicated IceStorm deployment is used this call
-     * may return a replicated proxy.
+     * Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+     * and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
+     * deployment is used this call may return a replicated proxy.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2379,10 +2311,8 @@ private:
 public:
 
     /**
-     * Get a non-replicated proxy to a publisher object for this
-     * topic. To publish data to a topic, the publisher calls
-     * getPublisher and then casts to the topic type. An unchecked
-     * cast must be used on this proxy.
+     * Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+     * calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
      * @param context The Context map to send with the invocation.
      * @return A proxy to publish data on this topic.
      */
@@ -2392,10 +2322,8 @@ public:
     }
 
     /**
-     * Get a non-replicated proxy to a publisher object for this
-     * topic. To publish data to a topic, the publisher calls
-     * getPublisher and then casts to the topic type. An unchecked
-     * cast must be used on this proxy.
+     * Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+     * calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -2405,10 +2333,8 @@ public:
     }
 
     /**
-     * Get a non-replicated proxy to a publisher object for this
-     * topic. To publish data to a topic, the publisher calls
-     * getPublisher and then casts to the topic type. An unchecked
-     * cast must be used on this proxy.
+     * Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+     * calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2419,10 +2345,8 @@ public:
     }
 
     /**
-     * Get a non-replicated proxy to a publisher object for this
-     * topic. To publish data to a topic, the publisher calls
-     * getPublisher and then casts to the topic type. An unchecked
-     * cast must be used on this proxy.
+     * Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+     * calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2434,10 +2358,8 @@ public:
     }
 
     /**
-     * Get a non-replicated proxy to a publisher object for this
-     * topic. To publish data to a topic, the publisher calls
-     * getPublisher and then casts to the topic type. An unchecked
-     * cast must be used on this proxy.
+     * Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+     * calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2448,10 +2370,8 @@ public:
     }
 
     /**
-     * Get a non-replicated proxy to a publisher object for this
-     * topic. To publish data to a topic, the publisher calls
-     * getPublisher and then casts to the topic type. An unchecked
-     * cast must be used on this proxy.
+     * Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+     * calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2476,17 +2396,13 @@ private:
 public:
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A
-     * per-subscriber publisher object is returned.
-     * @param theQoS The quality of service parameters for this
-     * subscription.
+     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy.
      * @param context The Context map to send with the invocation.
      * @return The per-subscriber publisher object.
-     * @throws IceStorm::AlreadySubscribed Raised if the subscriber object is
-     * already subscribed.
-     * @throws IceStorm::BadQoS Raised if the requested quality of service
-     * is unavailable or invalid.
+     * @throws IceStorm::AlreadySubscribed Raised if the subscriber object is already subscribed.
+     * @throws IceStorm::BadQoS Raised if the requested quality of service is unavailable or invalid.
      * @throws IceStorm::InvalidSubscriber Raised if the subscriber object is null.
      * @see #unsubscribe
      */
@@ -2496,10 +2412,8 @@ public:
     }
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A
-     * per-subscriber publisher object is returned.
-     * @param theQoS The quality of service parameters for this
-     * subscription.
+     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2511,10 +2425,8 @@ public:
     }
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A
-     * per-subscriber publisher object is returned.
-     * @param theQoS The quality of service parameters for this
-     * subscription.
+     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2527,10 +2439,8 @@ public:
     }
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A
-     * per-subscriber publisher object is returned.
-     * @param theQoS The quality of service parameters for this
-     * subscription.
+     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -2544,10 +2454,8 @@ public:
     }
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A
-     * per-subscriber publisher object is returned.
-     * @param theQoS The quality of service parameters for this
-     * subscription.
+     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2560,10 +2468,8 @@ public:
     }
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A
-     * per-subscriber publisher object is returned.
-     * @param theQoS The quality of service parameters for this
-     * subscription.
+     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -2580,10 +2486,8 @@ public:
      * Completes an invocation of begin_subscribeAndGetPublisher.
      * @param result The asynchronous result object for the invocation.
      * @return The per-subscriber publisher object.
-     * @throws IceStorm::AlreadySubscribed Raised if the subscriber object is
-     * already subscribed.
-     * @throws IceStorm::BadQoS Raised if the requested quality of service
-     * is unavailable or invalid.
+     * @throws IceStorm::AlreadySubscribed Raised if the subscriber object is already subscribed.
+     * @throws IceStorm::BadQoS Raised if the requested quality of service is unavailable or invalid.
      * @throws IceStorm::InvalidSubscriber Raised if the subscriber object is null.
      */
     ICE_MEMBER(ICESTORM_API) ::Ice::ObjectPrx end_subscribeAndGetPublisher(const ::Ice::AsyncResultPtr& result);
@@ -2684,13 +2588,12 @@ private:
 public:
 
     /**
-     * Create a link to the given topic. All events originating
-     * on this topic will also be sent to <code>linkTo</code>.
+     * Create a link to the given topic. All events originating on this topic will also be sent to
+     * <code>linkTo</code>.
      * @param linkTo The topic to link to.
      * @param cost The cost to the linked topic.
      * @param context The Context map to send with the invocation.
-     * @throws IceStorm::LinkExists Raised if a link to the same topic already
-     * exists.
+     * @throws IceStorm::LinkExists Raised if a link to the same topic already exists.
      */
     ICE_MEMBER(ICESTORM_API) void link(const ::IceStorm::TopicPrx& linkTo, ::Ice::Int cost, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -2698,8 +2601,8 @@ public:
     }
 
     /**
-     * Create a link to the given topic. All events originating
-     * on this topic will also be sent to <code>linkTo</code>.
+     * Create a link to the given topic. All events originating on this topic will also be sent to
+     * <code>linkTo</code>.
      * @param linkTo The topic to link to.
      * @param cost The cost to the linked topic.
      * @param context The Context map to send with the invocation.
@@ -2711,8 +2614,8 @@ public:
     }
 
     /**
-     * Create a link to the given topic. All events originating
-     * on this topic will also be sent to <code>linkTo</code>.
+     * Create a link to the given topic. All events originating on this topic will also be sent to
+     * <code>linkTo</code>.
      * @param linkTo The topic to link to.
      * @param cost The cost to the linked topic.
      * @param cb Asynchronous callback object.
@@ -2725,8 +2628,8 @@ public:
     }
 
     /**
-     * Create a link to the given topic. All events originating
-     * on this topic will also be sent to <code>linkTo</code>.
+     * Create a link to the given topic. All events originating on this topic will also be sent to
+     * <code>linkTo</code>.
      * @param linkTo The topic to link to.
      * @param cost The cost to the linked topic.
      * @param context The Context map to send with the invocation.
@@ -2740,8 +2643,8 @@ public:
     }
 
     /**
-     * Create a link to the given topic. All events originating
-     * on this topic will also be sent to <code>linkTo</code>.
+     * Create a link to the given topic. All events originating on this topic will also be sent to
+     * <code>linkTo</code>.
      * @param linkTo The topic to link to.
      * @param cost The cost to the linked topic.
      * @param cb Asynchronous callback object.
@@ -2754,8 +2657,8 @@ public:
     }
 
     /**
-     * Create a link to the given topic. All events originating
-     * on this topic will also be sent to <code>linkTo</code>.
+     * Create a link to the given topic. All events originating on this topic will also be sent to
+     * <code>linkTo</code>.
      * @param linkTo The topic to link to.
      * @param cost The cost to the linked topic.
      * @param context The Context map to send with the invocation.
@@ -2771,8 +2674,7 @@ public:
     /**
      * Completes an invocation of begin_link.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceStorm::LinkExists Raised if a link to the same topic already
-     * exists.
+     * @throws IceStorm::LinkExists Raised if a link to the same topic already exists.
      */
     ICE_MEMBER(ICESTORM_API) void end_link(const ::Ice::AsyncResultPtr& result);
 
@@ -3124,8 +3026,7 @@ public:
      * @param name The name of the topic.
      * @param context The Context map to send with the invocation.
      * @return A proxy to the topic instance.
-     * @throws IceStorm::TopicExists Raised if a topic with the same name already
-     * exists.
+     * @throws IceStorm::TopicExists Raised if a topic with the same name already exists.
      */
     ICE_MEMBER(ICESTORM_API) ::IceStorm::TopicPrx create(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -3197,8 +3098,7 @@ public:
      * Completes an invocation of begin_create.
      * @param result The asynchronous result object for the invocation.
      * @return A proxy to the topic instance.
-     * @throws IceStorm::TopicExists Raised if a topic with the same name already
-     * exists.
+     * @throws IceStorm::TopicExists Raised if a topic with the same name already exists.
      */
     ICE_MEMBER(ICESTORM_API) ::IceStorm::TopicPrx end_create(const ::Ice::AsyncResultPtr& result);
 
@@ -3392,8 +3292,7 @@ class ICE_CLASS(ICESTORM_API) Finder : public virtual ::Ice::Proxy<Finder, ::Ice
 public:
 
     /**
-     * Get the topic manager proxy. The proxy might point to several
-     * replicas.
+     * Get the topic manager proxy. The proxy might point to several replicas.
      * @param context The Context map to send with the invocation.
      * @return The topic manager proxy.
      */
@@ -3403,8 +3302,7 @@ public:
     }
 
     /**
-     * Get the topic manager proxy. The proxy might point to several
-     * replicas.
+     * Get the topic manager proxy. The proxy might point to several replicas.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -3414,8 +3312,7 @@ public:
     }
 
     /**
-     * Get the topic manager proxy. The proxy might point to several
-     * replicas.
+     * Get the topic manager proxy. The proxy might point to several replicas.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -3426,8 +3323,7 @@ public:
     }
 
     /**
-     * Get the topic manager proxy. The proxy might point to several
-     * replicas.
+     * Get the topic manager proxy. The proxy might point to several replicas.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -3439,8 +3335,7 @@ public:
     }
 
     /**
-     * Get the topic manager proxy. The proxy might point to several
-     * replicas.
+     * Get the topic manager proxy. The proxy might point to several replicas.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -3451,8 +3346,7 @@ public:
     }
 
     /**
-     * Get the topic manager proxy. The proxy might point to several
-     * replicas.
+     * Get the topic manager proxy. The proxy might point to several replicas.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -3497,8 +3391,7 @@ namespace IceStorm
 {
 
 /**
- * Publishers publish information on a particular topic. A topic
- * logically represents a type.
+ * Publishers publish information on a particular topic. A topic logically represents a type. A
  * @see TopicManager
  * \headerfile IceStorm/IceStorm.h
  */
@@ -3557,11 +3450,9 @@ public:
     /// \endcond
 
     /**
-     * Get a proxy to a publisher object for this topic. To publish
-     * data to a topic, the publisher calls getPublisher and then
-     * casts to the topic type. An unchecked cast must be used on this
-     * proxy. If a replicated IceStorm deployment is used this call
-     * may return a replicated proxy.
+     * Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+     * and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
+     * deployment is used this call may return a replicated proxy.
      * @param current The Current object for the invocation.
      * @return A proxy to publish data on this topic.
      */
@@ -3571,10 +3462,8 @@ public:
     /// \endcond
 
     /**
-     * Get a non-replicated proxy to a publisher object for this
-     * topic. To publish data to a topic, the publisher calls
-     * getPublisher and then casts to the topic type. An unchecked
-     * cast must be used on this proxy.
+     * Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+     * calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
      * @param current The Current object for the invocation.
      * @return A proxy to publish data on this topic.
      */
@@ -3584,17 +3473,13 @@ public:
     /// \endcond
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A
-     * per-subscriber publisher object is returned.
-     * @param theQoS The quality of service parameters for this
-     * subscription.
+     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy.
      * @param current The Current object for the invocation.
      * @return The per-subscriber publisher object.
-     * @throws IceStorm::AlreadySubscribed Raised if the subscriber object is
-     * already subscribed.
-     * @throws IceStorm::BadQoS Raised if the requested quality of service
-     * is unavailable or invalid.
+     * @throws IceStorm::AlreadySubscribed Raised if the subscriber object is already subscribed.
+     * @throws IceStorm::BadQoS Raised if the requested quality of service is unavailable or invalid.
      * @throws IceStorm::InvalidSubscriber Raised if the subscriber object is null.
      * @see #unsubscribe
      */
@@ -3615,13 +3500,12 @@ public:
     /// \endcond
 
     /**
-     * Create a link to the given topic. All events originating
-     * on this topic will also be sent to <code>linkTo</code>.
+     * Create a link to the given topic. All events originating on this topic will also be sent to
+     * <code>linkTo</code>.
      * @param linkTo The topic to link to.
      * @param cost The cost to the linked topic.
      * @param current The Current object for the invocation.
-     * @throws IceStorm::LinkExists Raised if a link to the same topic already
-     * exists.
+     * @throws IceStorm::LinkExists Raised if a link to the same topic already exists.
      */
     virtual void link(const TopicPrx& linkTo, ::Ice::Int cost, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -3745,8 +3629,7 @@ public:
      * @param name The name of the topic.
      * @param current The Current object for the invocation.
      * @return A proxy to the topic instance.
-     * @throws IceStorm::TopicExists Raised if a topic with the same name already
-     * exists.
+     * @throws IceStorm::TopicExists Raised if a topic with the same name already exists.
      */
     virtual TopicPrx create(const ::std::string& name, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -3800,10 +3683,8 @@ inline bool operator<(const TopicManager& lhs, const TopicManager& rhs)
 /// \endcond
 
 /**
- * This interface is advertised by the IceStorm service through the
- * Ice object with the identity `IceStorm/Finder'. This allows clients
- * to retrieve the topic manager with just the endpoint information of
- * the IceStorm service.
+ * This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+ * This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
  * \headerfile IceStorm/IceStorm.h
  */
 class ICESTORM_API Finder : public virtual ::Ice::Object
@@ -3850,8 +3731,7 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Get the topic manager proxy. The proxy might point to several
-     * replicas.
+     * Get the topic manager proxy. The proxy might point to several replicas.
      * @param current The Current object for the invocation.
      * @return The topic manager proxy.
      */

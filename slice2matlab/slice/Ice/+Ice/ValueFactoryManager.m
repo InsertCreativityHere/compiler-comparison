@@ -1,8 +1,7 @@
 % ValueFactoryManager   Summary of ValueFactoryManager
 %
-% A value factory manager maintains a collection of value factories.
-% An application can supply a custom implementation during communicator
-% initialization, otherwise Ice provides a default implementation.
+% A value factory manager maintains a collection of value factories. An application can supply a custom
+% implementation during communicator initialization, otherwise Ice provides a default implementation.
 %
 % See also Ice.ValueFactory
 

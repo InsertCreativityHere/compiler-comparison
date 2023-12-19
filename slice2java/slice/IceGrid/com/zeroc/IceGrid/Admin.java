@@ -16,10 +16,8 @@
 package com.zeroc.IceGrid;
 
 /**
- * The IceGrid administrative interface.
- * <p class="Warning">Allowing access to this interface
- * is a security risk! Please see the IceGrid documentation
- * for further information.
+ * The IceGrid administrative interface. <p class="Warning">Allowing access to this interface is a security risk!
+ * Please see the IceGrid documentation for further information.
  **/
 public interface Admin extends com.zeroc.Ice.Object
 {
@@ -27,29 +25,23 @@ public interface Admin extends com.zeroc.Ice.Object
      * Add an application to IceGrid.
      * @param descriptor The application descriptor.
      * @param current The Current object for the invocation.
-     * @throws AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws DeploymentException Raised if application deployment
-     * failed.
+     * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws DeploymentException Raised if application deployment failed.
      **/
     void addApplication(ApplicationDescriptor descriptor, com.zeroc.Ice.Current current)
         throws AccessDeniedException,
                DeploymentException;
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor.
      * @param descriptor The application descriptor.
      * @param current The Current object for the invocation.
-     * @throws AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws DeploymentException Raised if application deployment
-     * failed.
+     * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws DeploymentException Raised if application deployment failed.
      **/
     void syncApplication(ApplicationDescriptor descriptor, com.zeroc.Ice.Current current)
         throws AccessDeniedException,
@@ -57,17 +49,13 @@ public interface Admin extends com.zeroc.Ice.Object
                DeploymentException;
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor.
+     * Update a deployed application with the given update application descriptor.
      * @param descriptor The update descriptor.
      * @param current The Current object for the invocation.
-     * @throws AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws DeploymentException Raised if application deployment
-     * failed.
+     * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws DeploymentException Raised if application deployment failed.
      **/
     void updateApplication(ApplicationUpdateDescriptor descriptor, com.zeroc.Ice.Current current)
         throws AccessDeniedException,
@@ -75,21 +63,15 @@ public interface Admin extends com.zeroc.Ice.Object
                DeploymentException;
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor only if no server restarts are
-     * necessary for the update of the application. If some servers
-     * need to be restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
      * @param descriptor The application descriptor.
      * @param current The Current object for the invocation.
-     * @throws AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws DeploymentException Raised if application deployment
-     * failed.
+     * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws DeploymentException Raised if application deployment failed.
      **/
     void syncApplicationWithoutRestart(ApplicationDescriptor descriptor, com.zeroc.Ice.Current current)
         throws AccessDeniedException,
@@ -97,20 +79,15 @@ public interface Admin extends com.zeroc.Ice.Object
                DeploymentException;
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor only if no server restarts are necessary for the
-     * update of the application. If some servers need to be
-     * restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Update a deployed application with the given update application descriptor only if no server restarts are
+     * necessary for the update of the application. If some servers need to be restarted, the synchronization is
+     * rejected with a DeploymentException.
      * @param descriptor The update descriptor.
      * @param current The Current object for the invocation.
-     * @throws AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws DeploymentException Raised if application deployment
-     * failed.
+     * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws DeploymentException Raised if application deployment failed.
      **/
     void updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor, com.zeroc.Ice.Current current)
         throws AccessDeniedException,
@@ -121,11 +98,9 @@ public interface Admin extends com.zeroc.Ice.Object
      * Remove an application from IceGrid.
      * @param name The application name.
      * @param current The Current object for the invocation.
-     * @throws AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
      * @throws DeploymentException Raised if application deployment failed.
      **/
     void removeApplication(String name, com.zeroc.Ice.Current current)
@@ -134,20 +109,15 @@ public interface Admin extends com.zeroc.Ice.Object
                DeploymentException;
 
     /**
-     * Instantiate a server template from an application on the given
-     * node.
+     * Instantiate a server template from an application on the given node.
      * @param application The application name.
-     * @param node The name of the node where the server will be
-     * deployed.
+     * @param node The name of the node where the server will be deployed.
      * @param desc The descriptor of the server instance to deploy.
      * @param current The Current object for the invocation.
-     * @throws AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws DeploymentException Raised if server instantiation
-     * failed.
+     * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws DeploymentException Raised if server instantiation failed.
      **/
     void instantiateServer(String application, String node, ServerInstanceDescriptor desc, com.zeroc.Ice.Current current)
         throws AccessDeniedException,
@@ -157,12 +127,10 @@ public interface Admin extends com.zeroc.Ice.Object
     /**
      * Patch the given application data.
      * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to
-     * patch will be shut down if necessary.
+     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
      * @param current The Current object for the invocation.
      * @return A completion stage that the servant will complete when the invocation completes.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
      * @throws PatchException Raised if the patch failed.
      **/
     java.util.concurrent.CompletionStage<Void> patchApplicationAsync(String name, boolean shutdown, com.zeroc.Ice.Current current)
@@ -174,8 +142,7 @@ public interface Admin extends com.zeroc.Ice.Object
      * @param name The application name.
      * @param current The Current object for the invocation.
      * @return The application descriptor.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
      **/
     ApplicationInfo getApplicationInfo(String name, com.zeroc.Ice.Current current)
         throws ApplicationNotExistException;
@@ -184,8 +151,7 @@ public interface Admin extends com.zeroc.Ice.Object
      * Get the default application descriptor.
      * @param current The Current object for the invocation.
      * @return The default application descriptor.
-     * @throws DeploymentException Raised if the default application
-     * descriptor can't be accessed or is invalid.
+     * @throws DeploymentException Raised if the default application descriptor can't be accessed or is invalid.
      **/
     ApplicationDescriptor getDefaultApplicationDescriptor(com.zeroc.Ice.Current current)
         throws DeploymentException;
@@ -212,10 +178,8 @@ public interface Admin extends com.zeroc.Ice.Object
      * @param id The server id.
      * @param current The Current object for the invocation.
      * @return The server state.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     ServerState getServerState(String id, com.zeroc.Ice.Current current)
@@ -224,15 +188,12 @@ public interface Admin extends com.zeroc.Ice.Object
                ServerNotExistException;
 
     /**
-     * Get a server's system process id. The process id is operating
-     * system dependent.
+     * Get a server's system process id. The process id is operating system dependent.
      * @param id The server id.
      * @param current The Current object for the invocation.
      * @return The server's process id.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     int getServerPid(String id, com.zeroc.Ice.Current current)
@@ -241,9 +202,8 @@ public interface Admin extends com.zeroc.Ice.Object
                ServerNotExistException;
 
     /**
-     * Get the category for server admin objects. You can manufacture a server admin
-     * proxy from the admin proxy by changing its identity: use the server ID as name
-     * and the returned category as category.
+     * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+     * changing its identity: use the server ID as name and the returned category as category.
      * @param current The Current object for the invocation.
      * @return The category for server admin objects.
      **/
@@ -254,10 +214,8 @@ public interface Admin extends com.zeroc.Ice.Object
      * @param id The server id.
      * @param current The Current object for the invocation.
      * @return A proxy to the server's admin object
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     com.zeroc.Ice.ObjectPrx getServerAdmin(String id, com.zeroc.Ice.Current current)
@@ -266,17 +224,13 @@ public interface Admin extends com.zeroc.Ice.Object
                ServerNotExistException;
 
     /**
-     * Enable or disable a server. A disabled server can't be started
-     * on demand or administratively. The enable state of the server
-     * is not persistent: if the node is shut down and restarted, the
-     * server will be enabled by default.
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
      * @param id The server id.
      * @param enabled True to enable the server, false to disable it.
      * @param current The Current object for the invocation.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     void enableServer(String id, boolean enabled, com.zeroc.Ice.Current current)
@@ -289,12 +243,9 @@ public interface Admin extends com.zeroc.Ice.Object
      * @param id The server id.
      * @param current The Current object for the invocation.
      * @return True if the server is enabled.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
+     * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     boolean isServerEnabled(String id, com.zeroc.Ice.Current current)
         throws DeploymentException,
@@ -306,14 +257,10 @@ public interface Admin extends com.zeroc.Ice.Object
      * @param id The server id.
      * @param current The Current object for the invocation.
      * @return A completion stage that the servant will complete when the invocation completes.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws ServerNotExistException Raised if the server doesn't
-     * exist.
-     * @throws ServerStartException Raised if the server couldn't be
-     * started.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
+     * @throws ServerNotExistException Raised if the server doesn't exist.
+     * @throws ServerStartException Raised if the server couldn't be started.
      **/
     java.util.concurrent.CompletionStage<Void> startServerAsync(String id, com.zeroc.Ice.Current current)
         throws DeploymentException,
@@ -326,14 +273,10 @@ public interface Admin extends com.zeroc.Ice.Object
      * @param id The server id.
      * @param current The Current object for the invocation.
      * @return A completion stage that the servant will complete when the invocation completes.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
-     * @throws ServerNotExistException Raised if the server doesn't
-     * exist.
-     * @throws ServerStopException Raised if the server couldn't be
-     * stopped.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
+     * @throws ServerNotExistException Raised if the server doesn't exist.
+     * @throws ServerStopException Raised if the server couldn't be stopped.
      **/
     java.util.concurrent.CompletionStage<Void> stopServerAsync(String id, com.zeroc.Ice.Current current)
         throws DeploymentException,
@@ -344,17 +287,13 @@ public interface Admin extends com.zeroc.Ice.Object
     /**
      * Patch a server.
      * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch
-     * will be shut down if necessary.
+     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
      * @param current The Current object for the invocation.
      * @return A completion stage that the servant will complete when the invocation completes.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      * @throws PatchException Raised if the patch failed.
-     * @throws ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     java.util.concurrent.CompletionStage<Void> patchServerAsync(String id, boolean shutdown, com.zeroc.Ice.Current current)
         throws DeploymentException,
@@ -367,14 +306,10 @@ public interface Admin extends com.zeroc.Ice.Object
      * @param id The server id.
      * @param signal The signal, for example SIGTERM or 15.
      * @param current The Current object for the invocation.
-     * @throws BadSignalException Raised if the signal is not recognized
-     * by the target server.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
-     * @throws ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws BadSignalException Raised if the signal is not recognized by the target server.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
+     * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     void sendSignal(String id, String signal, com.zeroc.Ice.Current current)
         throws BadSignalException,
@@ -390,17 +325,13 @@ public interface Admin extends com.zeroc.Ice.Object
     String[] getAllServerIds(com.zeroc.Ice.Current current);
 
     /**
-     * Get the adapter information for the replica group or adapter
-     * with the given id.
+     * Get the adapter information for the replica group or adapter with the given id.
      * @param id The adapter id.
      * @param current The Current object for the invocation.
-     * @return A sequence of adapter information structures. If the
-     * given id refers to an adapter, this sequence will contain only
-     * one element. If the given id refers to a replica group, the
-     * sequence will contain the adapter information of each member of
-     * the replica group.
-     * @throws AdapterNotExistException Raised if the adapter or
-     * replica group doesn't exist.
+     * @return A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
+     * contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
+     * information of each member of the replica group.
+     * @throws AdapterNotExistException Raised if the adapter or replica group doesn't exist.
      **/
     AdapterInfo[] getAdapterInfo(String id, com.zeroc.Ice.Current current)
         throws AdapterNotExistException;
@@ -409,8 +340,7 @@ public interface Admin extends com.zeroc.Ice.Object
      * Remove the adapter with the given id.
      * @param id The adapter id.
      * @param current The Current object for the invocation.
-     * @throws AdapterNotExistException Raised if the adapter doesn't
-     * exist.
+     * @throws AdapterNotExistException Raised if the adapter doesn't exist.
      * @throws DeploymentException Raised if application deployment failed.
      **/
     void removeAdapter(String id, com.zeroc.Ice.Current current)
@@ -425,65 +355,51 @@ public interface Admin extends com.zeroc.Ice.Object
     String[] getAllAdapterIds(com.zeroc.Ice.Current current);
 
     /**
-     * Add an object to the object registry. IceGrid will get the
-     * object type by calling <code>ice_id</code> on the given proxy. The object
-     * must be reachable.
+     * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
+     * given proxy. The object must be reachable.
      * @param obj The object to be added to the registry.
      * @param current The Current object for the invocation.
-     * @throws DeploymentException Raised if the object can't be
-     * added. This might be raised if the invocation on the proxy to
-     * get the object type failed.
-     * @throws ObjectExistsException Raised if the object is already
-     * registered.
+     * @throws DeploymentException Raised if the object can't be added. This might be raised if the invocation on the
+     * proxy to get the object type failed.
+     * @throws ObjectExistsException Raised if the object is already registered.
      **/
     void addObject(com.zeroc.Ice.ObjectPrx obj, com.zeroc.Ice.Current current)
         throws DeploymentException,
                ObjectExistsException;
 
     /**
-     * Update an object in the object registry. Only objects added
-     * with this interface can be updated with this operation. Objects
-     * added with deployment descriptors should be updated with the
-     * deployment mechanism.
+     * Update an object in the object registry. Only objects added with this interface can be updated with this
+     * operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
      * @param obj The object to be updated to the registry.
      * @param current The Current object for the invocation.
-     * @throws DeploymentException Raised if the object can't be
-     * updated. This might happen if the object was added with a
-     * deployment descriptor.
-     * @throws ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws DeploymentException Raised if the object can't be updated. This might happen if the object was added
+     * with a deployment descriptor.
+     * @throws ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      **/
     void updateObject(com.zeroc.Ice.ObjectPrx obj, com.zeroc.Ice.Current current)
         throws DeploymentException,
                ObjectNotRegisteredException;
 
     /**
-     * Add an object to the object registry and explicitly specify
-     * its type.
+     * Add an object to the object registry and explicitly specify its type.
      * @param obj The object to be added to the registry.
      * @param type The object type.
      * @param current The Current object for the invocation.
      * @throws DeploymentException Raised if application deployment failed.
-     * @throws ObjectExistsException Raised if the object is already
-     * registered.
+     * @throws ObjectExistsException Raised if the object is already registered.
      **/
     void addObjectWithType(com.zeroc.Ice.ObjectPrx obj, String type, com.zeroc.Ice.Current current)
         throws DeploymentException,
                ObjectExistsException;
 
     /**
-     * Remove an object from the object registry. Only objects added
-     * with this interface can be removed with this operation. Objects
-     * added with deployment descriptors should be removed with the
-     * deployment mechanism.
-     * @param id The identity of the object to be removed from the
-     * registry.
+     * Remove an object from the object registry. Only objects added with this interface can be removed with this
+     * operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
+     * @param id The identity of the object to be removed from the registry.
      * @param current The Current object for the invocation.
-     * @throws DeploymentException Raised if the object can't be
-     * removed. This might happen if the object was added with a
-     * deployment descriptor.
-     * @throws ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws DeploymentException Raised if the object can't be removed. This might happen if the object was added
+     * with a deployment descriptor.
+     * @throws ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      **/
     void removeObject(com.zeroc.Ice.Identity id, com.zeroc.Ice.Current current)
         throws DeploymentException,
@@ -494,15 +410,13 @@ public interface Admin extends com.zeroc.Ice.Object
      * @param id The identity of the object.
      * @param current The Current object for the invocation.
      * @return The object info.
-     * @throws ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      **/
     ObjectInfo getObjectInfo(com.zeroc.Ice.Identity id, com.zeroc.Ice.Current current)
         throws ObjectNotRegisteredException;
 
     /**
-     * Get the object info of all the registered objects with the
-     * given type.
+     * Get the object info of all the registered objects with the given type.
      * @param type The type of the object.
      * @param current The Current object for the invocation.
      * @return The object infos.
@@ -510,14 +424,11 @@ public interface Admin extends com.zeroc.Ice.Object
     ObjectInfo[] getObjectInfosByType(String type, com.zeroc.Ice.Current current);
 
     /**
-     * Get the object info of all the registered objects whose stringified
-     * identities match the given expression.
-     * @param expr The expression to match against the stringified
-     * identities of registered objects. The expression may contain
-     * a trailing wildcard (<code>*</code>) character.
+     * Get the object info of all the registered objects whose stringified identities match the given expression.
+     * @param expr The expression to match against the stringified identities of registered objects. The expression
+     * may contain a trailing wildcard (<code>*</code>) character.
      * @param current The Current object for the invocation.
-     * @return All the object infos with a stringified identity
-     * matching the given expression.
+     * @return All the object infos with a stringified identity matching the given expression.
      **/
     ObjectInfo[] getAllObjectInfos(String expr, com.zeroc.Ice.Current current);
 
@@ -537,8 +448,7 @@ public interface Admin extends com.zeroc.Ice.Object
      * @param current The Current object for the invocation.
      * @return The node load information.
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     LoadInfo getNodeLoad(String name, com.zeroc.Ice.Current current)
         throws NodeNotExistException,
@@ -550,8 +460,7 @@ public interface Admin extends com.zeroc.Ice.Object
      * @param current The Current object for the invocation.
      * @return The node information.
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     NodeInfo getNodeInfo(String name, com.zeroc.Ice.Current current)
         throws NodeNotExistException,
@@ -563,28 +472,21 @@ public interface Admin extends com.zeroc.Ice.Object
      * @param current The Current object for the invocation.
      * @return A proxy to the IceGrid node's admin object
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     com.zeroc.Ice.ObjectPrx getNodeAdmin(String name, com.zeroc.Ice.Current current)
         throws NodeNotExistException,
                NodeUnreachableException;
 
     /**
-     * Get the number of physical processor sockets for the machine
-     * running the node with the given name.
-     *
-     * Note that this method will return 1 on operating systems where
-     * this can't be automatically determined and where the
-     * IceGrid.Node.ProcessorSocketCount property for the node is not
-     * set.
+     * Get the number of physical processor sockets for the machine running the node with the given name.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
+     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
      * @param name The node name.
      * @param current The Current object for the invocation.
-     * @return The number of processor sockets or 1 if the number of
-     * sockets can't determined.
+     * @return The number of processor sockets or 1 if the number of sockets can't determined.
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     int getNodeProcessorSocketCount(String name, com.zeroc.Ice.Current current)
         throws NodeNotExistException,
@@ -595,8 +497,7 @@ public interface Admin extends com.zeroc.Ice.Object
      * @param name The node name.
      * @param current The Current object for the invocation.
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     void shutdownNode(String name, com.zeroc.Ice.Current current)
         throws NodeNotExistException,
@@ -608,8 +509,7 @@ public interface Admin extends com.zeroc.Ice.Object
      * @param current The Current object for the invocation.
      * @return The node hostname.
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     String getNodeHostname(String name, com.zeroc.Ice.Current current)
         throws NodeNotExistException,
@@ -638,8 +538,7 @@ public interface Admin extends com.zeroc.Ice.Object
      * @param current The Current object for the invocation.
      * @return The registry information.
      * @throws RegistryNotExistException Raised if the registry doesn't exist.
-     * @throws RegistryUnreachableException Raised if the registry could not be
-     * reached.
+     * @throws RegistryUnreachableException Raised if the registry could not be reached.
      **/
     RegistryInfo getRegistryInfo(String name, com.zeroc.Ice.Current current)
         throws RegistryNotExistException,
@@ -660,8 +559,7 @@ public interface Admin extends com.zeroc.Ice.Object
      * @param name The registry name.
      * @param current The Current object for the invocation.
      * @throws RegistryNotExistException Raised if the registry doesn't exist.
-     * @throws RegistryUnreachableException Raised if the registry could not be
-     * reached.
+     * @throws RegistryUnreachableException Raised if the registry could not be reached.
      **/
     void shutdownRegistry(String name, com.zeroc.Ice.Current current)
         throws RegistryNotExistException,

@@ -27,8 +27,7 @@ public interface TopicManager extends com.zeroc.Ice.Object
      * @param name The name of the topic.
      * @param current The Current object for the invocation.
      * @return A proxy to the topic instance.
-     * @throws TopicExists Raised if a topic with the same name already
-     * exists.
+     * @throws TopicExists Raised if a topic with the same name already exists.
      **/
     TopicPrx create(String name, com.zeroc.Ice.Current current)
         throws TopicExists;

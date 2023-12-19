@@ -1,7 +1,6 @@
 % NodeUpdateDescriptor   Summary of NodeUpdateDescriptor
 %
-% A node update descriptor to describe the updates to apply to a
-% node of a deployed application.
+% A node update descriptor to describe the updates to apply to a node of a deployed application.
 %
 % NodeUpdateDescriptor Properties:
 %   name - The name of the node to update.
@@ -22,8 +21,7 @@ classdef NodeUpdateDescriptor
     properties
         % name - The name of the node to update.
         name char
-        % description - The updated description (or null if the description wasn't
-        % updated.)
+        % description - The updated description (or null if the description wasn't updated.)
         description
         % variables - The variables to update.
         variables containers.Map
@@ -39,8 +37,7 @@ classdef NodeUpdateDescriptor
         servers
         % removeServers - The ids of the servers to remove.
         removeServers
-        % loadFactor - The updated load factor of the node (or null if the load factor
-        % was not updated).
+        % loadFactor - The updated load factor of the node (or null if the load factor was not updated).
         loadFactor
     end
     methods

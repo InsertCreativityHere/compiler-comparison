@@ -1,7 +1,6 @@
 % ProxyParseException   Summary of ProxyParseException
 %
-% This exception is raised if there was an error while parsing a
-% stringified proxy.
+% This exception is raised if there was an error while parsing a stringified proxy.
 %
 % ProxyParseException Properties:
 %   str - Describes the failure and includes the string that could not be parsed.

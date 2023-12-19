@@ -48,8 +48,7 @@ public class NoEndpointException extends LocalException
     }
 
     /**
-     * The stringified proxy for which no suitable endpoint is
-     * available.
+     * The stringified proxy for which no suitable endpoint is available.
      **/
     public String proxy;
 

@@ -1,12 +1,11 @@
 % RouterPrx   Summary of RouterPrx
 %
-% The Ice router interface. Routers can be set either globally with
-% Communicator.setDefaultRouter, or with ice_router on specific
-% proxies.
+% The Ice router interface. Routers can be set either globally with Communicator.setDefaultRouter, or with
+% ice_router on specific proxies.
 %
 % RouterPrx Methods:
-%   getClientProxy - Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
-%   getClientProxyAsync - Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+%   getClientProxy - Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router. If a null proxy is returned, the client will forward requests to the router's endpoints.
+%   getClientProxyAsync - Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router. If a null proxy is returned, the client will forward requests to the router's endpoints.
 %   getServerProxy - Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
 %   getServerProxyAsync - Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
 %   addProxies - Add new proxy information to the router's routing table.
@@ -20,22 +19,18 @@
 classdef RouterPrx < Ice.ObjectPrx
     methods
         function [result, hasRoutingTable] = getClientProxy(obj, varargin)
-            % getClientProxy   Get the router's client proxy, i.e., the proxy to use for
-            % forwarding requests from the client to the router.
-            %
-            % If a null proxy is returned, the client will forward requests
-            % to the router's endpoints.
+            % getClientProxy   Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+            % If a null proxy is returned, the client will forward requests to the router's endpoints.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
             % Returns:
             %   result (Ice.ObjectPrx) - The router's client proxy.
-            %   hasRoutingTable (logical) - Indicates whether or not the router supports a routing
-            %     table. If it is supported, the Ice runtime will call addProxies to populate the
-            %     routing table. This out parameter is only supported starting with Ice 3.7.
-            %     The Ice runtime assumes the router has a routing table if the optional is not
-            %     set.
+            %   hasRoutingTable (logical) - Indicates whether or not the router supports a routing table. If it is supported, the
+            %     Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
+            %     with Ice 3.7.
+            %     The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
             
             is_ = obj.iceInvoke('getClientProxy', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
@@ -44,11 +39,8 @@ classdef RouterPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getClientProxyAsync(obj, varargin)
-            % getClientProxyAsync   Get the router's client proxy, i.e., the proxy to use for
-            % forwarding requests from the client to the router.
-            %
-            % If a null proxy is returned, the client will forward requests
-            % to the router's endpoints.
+            % getClientProxyAsync   Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+            % If a null proxy is returned, the client will forward requests to the router's endpoints.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -66,8 +58,7 @@ classdef RouterPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('getClientProxy', 1, true, [], 2, @unmarshal, {}, varargin{:});
         end
         function result = getServerProxy(obj, varargin)
-            % getServerProxy   Get the router's server proxy, i.e., the proxy to use for
-            % forwarding requests from the server to the router.
+            % getServerProxy   Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -80,8 +71,7 @@ classdef RouterPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getServerProxyAsync(obj, varargin)
-            % getServerProxyAsync   Get the router's server proxy, i.e., the proxy to use for
-            % forwarding requests from the server to the router.
+            % getServerProxyAsync   Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.

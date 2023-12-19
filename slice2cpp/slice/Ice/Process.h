@@ -70,14 +70,10 @@ namespace Ice
 {
 
 /**
- * An administrative interface for process management. Managed servers must
- * implement this interface.
- *
- * <p class="Note">A servant implementing this interface is a potential target
- * for denial-of-service attacks, therefore proper security precautions
- * should be taken. For example, the servant can use a UUID to make its
- * identity harder to guess, and be registered in an object adapter with
- * a secured endpoint.
+ * An administrative interface for process management. Managed servers must implement this interface.
+ * <p class="Note">A servant implementing this interface is a potential target for denial-of-service attacks,
+ * therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
+ * identity harder to guess, and be registered in an object adapter with a secured endpoint.
  * \headerfile Ice/Ice.h
  */
 class ICE_API Process : public virtual Object
@@ -146,14 +142,10 @@ namespace Ice
 {
 
 /**
- * An administrative interface for process management. Managed servers must
- * implement this interface.
- *
- * <p class="Note">A servant implementing this interface is a potential target
- * for denial-of-service attacks, therefore proper security precautions
- * should be taken. For example, the servant can use a UUID to make its
- * identity harder to guess, and be registered in an object adapter with
- * a secured endpoint.
+ * An administrative interface for process management. Managed servers must implement this interface.
+ * <p class="Note">A servant implementing this interface is a potential target for denial-of-service attacks,
+ * therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
+ * identity harder to guess, and be registered in an object adapter with a secured endpoint.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) ProcessPrx : public virtual Proxy<ProcessPrx, ObjectPrx>
@@ -547,14 +539,10 @@ namespace Ice
 {
 
 /**
- * An administrative interface for process management. Managed servers must
- * implement this interface.
- *
- * <p class="Note">A servant implementing this interface is a potential target
- * for denial-of-service attacks, therefore proper security precautions
- * should be taken. For example, the servant can use a UUID to make its
- * identity harder to guess, and be registered in an object adapter with
- * a secured endpoint.
+ * An administrative interface for process management. Managed servers must implement this interface.
+ * <p class="Note">A servant implementing this interface is a potential target for denial-of-service attacks,
+ * therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
+ * identity harder to guess, and be registered in an object adapter with a secured endpoint.
  * \headerfile Ice/Ice.h
  */
 class ICE_API Process : public virtual Object

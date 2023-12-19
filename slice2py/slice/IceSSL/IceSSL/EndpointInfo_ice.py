@@ -25,14 +25,14 @@ _M_Ice = Ice.openModule('Ice')
 _M_IceSSL = Ice.openModule('IceSSL')
 __name__ = 'IceSSL'
 _M_IceSSL.__doc__ = """
-IceSSL provides a secure transport for Ice.
+ IceSSL provides a secure transport for Ice.
 """
 
 if 'EndpointInfo' not in _M_IceSSL.__dict__:
     _M_IceSSL.EndpointInfo = Ice.createTempClass()
     class EndpointInfo(_M_Ice.EndpointInfo):
         """
-        Provides access to an SSL endpoint information.
+         Provides access to an SSL endpoint information.
         """
         def __init__(self, underlying=None, timeout=0, compress=False):
             if Ice.getType(self) == _M_IceSSL.EndpointInfo:

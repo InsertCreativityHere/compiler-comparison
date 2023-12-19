@@ -15,7 +15,7 @@
 
 import Foundation
 
-/// Provides access to the connection details of an IAP connection
+/// Provides access to the connection details of an IAP connection.
 public protocol IAPConnectionInfo: ConnectionInfo {
     /// The accessory name.
     var name: Swift.String { get set }

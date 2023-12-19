@@ -16,8 +16,7 @@
 package com.zeroc.Glacier2;
 
 /**
- * An object for managing the set of identity constraints for specific
- * parts of object identity on a
+ * An object for managing the set of identity constraints for specific parts of object identity on a
  * {@link Session}.
  *
  * @see Session
@@ -26,8 +25,8 @@ package com.zeroc.Glacier2;
 public interface StringSetPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
-     * Add a sequence of strings to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+     * removed.
      * @param additions The sequence of strings to be added.
      **/
     default void add(String[] additions)
@@ -36,8 +35,8 @@ public interface StringSetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Add a sequence of strings to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+     * removed.
      * @param additions The sequence of strings to be added.
      * @param context The Context map to send with the invocation.
      **/
@@ -47,8 +46,8 @@ public interface StringSetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Add a sequence of strings to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+     * removed.
      * @param additions The sequence of strings to be added.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -58,8 +57,8 @@ public interface StringSetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Add a sequence of strings to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+     * removed.
      * @param additions The sequence of strings to be added.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -86,8 +85,7 @@ public interface StringSetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Remove a sequence of strings from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
      * @param deletions The sequence of strings to be removed.
      **/
     default void remove(String[] deletions)
@@ -96,8 +94,7 @@ public interface StringSetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Remove a sequence of strings from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
      * @param deletions The sequence of strings to be removed.
      * @param context The Context map to send with the invocation.
      **/
@@ -107,8 +104,7 @@ public interface StringSetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Remove a sequence of strings from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
      * @param deletions The sequence of strings to be removed.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -118,8 +114,7 @@ public interface StringSetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Remove a sequence of strings from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
      * @param deletions The sequence of strings to be removed.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -146,8 +141,7 @@ public interface StringSetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Returns a sequence of strings describing the constraints in this
-     * set.
+     * Returns a sequence of strings describing the constraints in this set.
      * @return The sequence of strings for this set.
      **/
     default String[] get()
@@ -156,8 +150,7 @@ public interface StringSetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Returns a sequence of strings describing the constraints in this
-     * set.
+     * Returns a sequence of strings describing the constraints in this set.
      * @param context The Context map to send with the invocation.
      * @return The sequence of strings for this set.
      **/
@@ -167,8 +160,7 @@ public interface StringSetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Returns a sequence of strings describing the constraints in this
-     * set.
+     * Returns a sequence of strings describing the constraints in this set.
      * @return The sequence of strings for this set.
      **/
     default java.util.concurrent.CompletableFuture<String[]> getAsync()
@@ -177,8 +169,7 @@ public interface StringSetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Returns a sequence of strings describing the constraints in this
-     * set.
+     * Returns a sequence of strings describing the constraints in this set.
      * @param context The Context map to send with the invocation.
      * @return The sequence of strings for this set.
      **/

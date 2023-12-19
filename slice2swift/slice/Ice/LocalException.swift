@@ -44,8 +44,7 @@ open class InitializationException: LocalException {
     }
 }
 
-/// This exception indicates that a failure occurred while initializing
-/// a plug-in.
+/// This exception indicates that a failure occurred while initializing a plug-in.
 open class PluginInitializationException: LocalException {
     /// The reason for the failure.
     public var reason: Swift.String = ""
@@ -74,8 +73,7 @@ open class PluginInitializationException: LocalException {
     }
 }
 
-/// This exception is raised if a feature is requested that is not
-/// supported with collocation optimization.
+/// This exception is raised if a feature is requested that is not supported with collocation optimization.
 ///
 /// ## Deprecated
 /// This exception is no longer used by the Ice run time
@@ -95,17 +93,12 @@ open class CollocationOptimizationException: LocalException {
     }
 }
 
-/// An attempt was made to register something more than once with
-/// the Ice run time.
-///
-/// This exception is raised if an attempt is made to register a
-/// servant, servant locator, facet, value factory, plug-in, object
-/// adapter, object, or user exception factory more than once for the
-/// same ID.
+/// An attempt was made to register something more than once with the Ice run time. This exception is raised if an
+/// attempt is made to register a servant, servant locator, facet, value factory, plug-in, object adapter, object, or
+/// user exception factory more than once for the same ID.
 open class AlreadyRegisteredException: LocalException {
-    /// The kind of object that could not be removed: "servant", "facet",
-    /// "object", "default servant", "servant locator", "value factory", "plugin",
-    /// "object adapter", "object adapter with router", "replica group".
+    /// The kind of object that could not be removed: "servant", "facet", "object", "default servant",
+    /// "servant locator", "value factory", "plugin", "object adapter", "object adapter with router", "replica group".
     public var kindOfObject: Swift.String = ""
     /// The ID (or name) of the object that is registered already.
     public var id: Swift.String = ""
@@ -135,20 +128,14 @@ open class AlreadyRegisteredException: LocalException {
     }
 }
 
-/// An attempt was made to find or deregister something that is not
-/// registered with the Ice run time or Ice locator.
-///
-/// This exception is raised if an attempt is made to remove a servant,
-/// servant locator, facet, value factory, plug-in, object adapter,
-/// object, or user exception factory that is not currently registered.
-///
-/// It's also raised if the Ice locator can't find an object or object
-/// adapter when resolving an indirect proxy or when an object adapter
-/// is activated.
+/// An attempt was made to find or deregister something that is not registered with the Ice run time or Ice locator.
+/// This exception is raised if an attempt is made to remove a servant, servant locator, facet, value factory, plug-in,
+/// object adapter, object, or user exception factory that is not currently registered. It's also raised if the Ice
+/// locator can't find an object or object adapter when resolving an indirect proxy or when an object adapter is
+/// activated.
 open class NotRegisteredException: LocalException {
-    /// The kind of object that could not be removed: "servant", "facet",
-    /// "object", "default servant", "servant locator", "value factory", "plugin",
-    /// "object adapter", "object adapter with router", "replica group".
+    /// The kind of object that could not be removed: "servant", "facet", "object", "default servant",
+    /// "servant locator", "value factory", "plugin", "object adapter", "object adapter with router", "replica group".
     public var kindOfObject: Swift.String = ""
     /// The ID (or name) of the object that could not be removed.
     public var id: Swift.String = ""
@@ -178,12 +165,9 @@ open class NotRegisteredException: LocalException {
     }
 }
 
-/// The operation can only be invoked with a twoway request.
-///
-/// This exception is raised if an attempt is made to invoke an
-/// operation with ice_oneway, ice_batchOneway, ice_datagram,
-/// or ice_batchDatagram and the operation has a return value,
-/// out-parameters, or an exception specification.
+/// The operation can only be invoked with a twoway request. This exception is raised if an attempt is made to invoke
+/// an operation with ice_oneway, ice_batchOneway, ice_datagram, or
+/// ice_batchDatagram and the operation has a return value, out-parameters, or an exception specification.
 open class TwowayOnlyException: LocalException {
     /// The name of the operation that was invoked.
     public var operation: Swift.String = ""
@@ -212,13 +196,10 @@ open class TwowayOnlyException: LocalException {
     }
 }
 
-/// An attempt was made to clone a class that does not support
-/// cloning.
-///
-/// This exception is raised if ice_clone is called on
-/// a class that is derived from an abstract Slice class (that is,
-/// a class containing operations), and the derived class does not
-/// provide an implementation of the ice_clone operation (C++ only).
+/// An attempt was made to clone a class that does not support cloning. This exception is raised if
+/// ice_clone is called on a class that is derived from an abstract Slice class (that is, a class
+/// containing operations), and the derived class does not provide an implementation of the ice_clone
+/// operation (C++ only).
 open class CloneNotImplementedException: LocalException {
     /// Returns the Slice type ID of this exception.
     ///
@@ -235,14 +216,11 @@ open class CloneNotImplementedException: LocalException {
     }
 }
 
-/// This exception is raised if an operation call on a server raises an
-/// unknown exception. For example, for C++, this exception is raised
-/// if the server throws a C++ exception that is not directly or
-/// indirectly derived from Ice::LocalException or
-/// Ice::UserException.
+/// This exception is raised if an operation call on a server raises an unknown exception. For example, for C++, this
+/// exception is raised if the server throws a C++ exception that is not directly or indirectly derived from
+/// Ice::LocalException or Ice::UserException.
 open class UnknownException: LocalException {
-    /// This field is set to the textual representation of the unknown
-    /// exception if available.
+    /// This field is set to the textual representation of the unknown exception if available.
     public var unknown: Swift.String = ""
 
     public required init() {
@@ -269,13 +247,11 @@ open class UnknownException: LocalException {
     }
 }
 
-/// This exception is raised if an operation call on a server raises a
-/// local exception. Because local exceptions are not transmitted by
-/// the Ice protocol, the client receives all local exceptions raised
-/// by the server as UnknownLocalException. The only exception to this
-/// rule are all exceptions derived from RequestFailedException,
-/// which are transmitted by the Ice protocol even though they are
-/// declared local.
+/// This exception is raised if an operation call on a server raises a  local exception. Because local exceptions are
+/// not transmitted by the Ice protocol, the client receives all local exceptions raised by the server as
+/// UnknownLocalException. The only exception to this rule are all exceptions derived from
+/// RequestFailedException, which are transmitted by the Ice protocol even though they are declared
+/// local.
 open class UnknownLocalException: UnknownException {
     /// Returns the Slice type ID of this exception.
     ///
@@ -292,17 +268,11 @@ open class UnknownLocalException: UnknownException {
     }
 }
 
-/// An operation raised an incorrect user exception.
-///
-/// This exception is raised if an operation raises a
-/// user exception that is not declared in the exception's
-/// throws clause. Such undeclared exceptions are
-/// not transmitted from the server to the client by the Ice
-/// protocol, but instead the client just gets an
-/// UnknownUserException. This is necessary in order to not violate
-/// the contract established by an operation's signature: Only local
-/// exceptions and user exceptions declared in the
-/// throws clause can be raised.
+/// An operation raised an incorrect user exception. This exception is raised if an operation raises a user exception
+/// that is not declared in the exception's throws clause. Such undeclared exceptions are not transmitted
+/// from the server to the client by the Ice protocol, but instead the client just gets an UnknownUserException.
+/// This is necessary in order to not violate the contract established by an operation's signature: Only local
+/// exceptions and user exceptions declared in the throws clause can be raised.
 open class UnknownUserException: UnknownException {
     /// Returns the Slice type ID of this exception.
     ///
@@ -319,8 +289,7 @@ open class UnknownUserException: UnknownException {
     }
 }
 
-/// This exception is raised if the Ice library version does not match
-/// the version in the Ice header files.
+/// This exception is raised if the Ice library version does not match the version in the Ice header files.
 open class VersionMismatchException: LocalException {
     /// Returns the Slice type ID of this exception.
     ///
@@ -354,8 +323,7 @@ open class CommunicatorDestroyedException: LocalException {
     }
 }
 
-/// This exception is raised if an attempt is made to use a deactivated
-/// ObjectAdapter.
+/// This exception is raised if an attempt is made to use a deactivated ObjectAdapter.
 open class ObjectAdapterDeactivatedException: LocalException {
     /// Name of the adapter.
     public var name: Swift.String = ""
@@ -384,10 +352,8 @@ open class ObjectAdapterDeactivatedException: LocalException {
     }
 }
 
-/// This exception is raised if an ObjectAdapter cannot be activated.
-///
-/// This happens if the Locator detects another active ObjectAdapter with
-/// the same adapter id.
+/// This exception is raised if an ObjectAdapter cannot be activated. This happens if the Locator
+/// detects another active ObjectAdapter with the same adapter id.
 open class ObjectAdapterIdInUseException: LocalException {
     /// Adapter ID.
     public var id: Swift.String = ""
@@ -418,8 +384,7 @@ open class ObjectAdapterIdInUseException: LocalException {
 
 /// This exception is raised if no suitable endpoint is available.
 open class NoEndpointException: LocalException {
-    /// The stringified proxy for which no suitable endpoint is
-    /// available.
+    /// The stringified proxy for which no suitable endpoint is available.
     public var proxy: Swift.String = ""
 
     public required init() {
@@ -446,8 +411,7 @@ open class NoEndpointException: LocalException {
     }
 }
 
-/// This exception is raised if there was an error while parsing an
-/// endpoint.
+/// This exception is raised if there was an error while parsing an endpoint.
 open class EndpointParseException: LocalException {
     /// Describes the failure and includes the string that could not be parsed.
     public var str: Swift.String = ""
@@ -476,8 +440,7 @@ open class EndpointParseException: LocalException {
     }
 }
 
-/// This exception is raised if there was an error while parsing an
-/// endpoint selection type.
+/// This exception is raised if there was an error while parsing an endpoint selection type.
 open class EndpointSelectionTypeParseException: LocalException {
     /// Describes the failure and includes the string that could not be parsed.
     public var str: Swift.String = ""
@@ -506,8 +469,7 @@ open class EndpointSelectionTypeParseException: LocalException {
     }
 }
 
-/// This exception is raised if there was an error while parsing a
-/// version.
+/// This exception is raised if there was an error while parsing a version.
 open class VersionParseException: LocalException {
     /// Describes the failure and includes the string that could not be parsed.
     public var str: Swift.String = ""
@@ -536,8 +498,7 @@ open class VersionParseException: LocalException {
     }
 }
 
-/// This exception is raised if there was an error while parsing a
-/// stringified identity.
+/// This exception is raised if there was an error while parsing a stringified identity.
 open class IdentityParseException: LocalException {
     /// Describes the failure and includes the string that could not be parsed.
     public var str: Swift.String = ""
@@ -566,8 +527,7 @@ open class IdentityParseException: LocalException {
     }
 }
 
-/// This exception is raised if there was an error while parsing a
-/// stringified proxy.
+/// This exception is raised if there was an error while parsing a stringified proxy.
 open class ProxyParseException: LocalException {
     /// Describes the failure and includes the string that could not be parsed.
     public var str: Swift.String = ""
@@ -625,8 +585,7 @@ open class IllegalIdentityException: LocalException {
     }
 }
 
-/// This exception is raised to reject an illegal servant (typically
-/// a null servant)
+/// This exception is raised to reject an illegal servant (typically a null servant).
 open class IllegalServantException: LocalException {
     /// Describes why this servant is illegal.
     public var reason: Swift.String = ""
@@ -655,9 +614,8 @@ open class IllegalServantException: LocalException {
     }
 }
 
-/// This exception is raised if a request failed. This exception, and
-/// all exceptions derived from RequestFailedException, are
-/// transmitted by the Ice protocol, even though they are declared
+/// This exception is raised if a request failed. This exception, and all exceptions derived from
+/// RequestFailedException, are transmitted by the Ice protocol, even though they are declared
 /// local.
 open class RequestFailedException: LocalException {
     /// The identity of the Ice Object to which the request was sent.
@@ -693,8 +651,8 @@ open class RequestFailedException: LocalException {
     }
 }
 
-/// This exception is raised if an object does not exist on the server,
-/// that is, if no facets with the given identity exist.
+/// This exception is raised if an object does not exist on the server, that is, if no facets with the given identity
+/// exist.
 open class ObjectNotExistException: RequestFailedException {
     /// Returns the Slice type ID of this exception.
     ///
@@ -711,8 +669,8 @@ open class ObjectNotExistException: RequestFailedException {
     }
 }
 
-/// This exception is raised if no facet with the given name exists,
-/// but at least one facet with the given identity exists.
+/// This exception is raised if no facet with the given name exists, but at least one facet with the given identity
+/// exists.
 open class FacetNotExistException: RequestFailedException {
     /// Returns the Slice type ID of this exception.
     ///
@@ -729,9 +687,8 @@ open class FacetNotExistException: RequestFailedException {
     }
 }
 
-/// This exception is raised if an operation for a given object does
-/// not exist on the server. Typically this is caused by either the
-/// client or the server using an outdated Slice specification.
+/// This exception is raised if an operation for a given object does not exist on the server. Typically this is caused
+/// by either the client or the server using an outdated Slice specification.
 open class OperationNotExistException: RequestFailedException {
     /// Returns the Slice type ID of this exception.
     ///
@@ -748,15 +705,11 @@ open class OperationNotExistException: RequestFailedException {
     }
 }
 
-/// This exception is raised if a system error occurred in the server
-/// or client process. There are many possible causes for such a system
-/// exception. For details on the cause, SyscallException.error
-/// should be inspected.
+/// This exception is raised if a system error occurred in the server or client process. There are many possible causes
+/// for such a system exception. For details on the cause, SyscallException.error should be inspected.
 open class SyscallException: LocalException {
-    /// The error number describing the system exception. For C++ and
-    /// Unix, this is equivalent to errno. For C++
-    /// and Windows, this is the value returned by
-    /// GetLastError() or
+    /// The error number describing the system exception. For C++ and Unix, this is equivalent to errno.
+    /// For C++ and Windows, this is the value returned by GetLastError() or
     /// WSAGetLastError().
     public var error: Swift.Int32 = 0
 
@@ -876,8 +829,7 @@ open class ConnectFailedException: SocketException {
     }
 }
 
-/// This exception indicates a connection failure for which
-/// the server host actively refuses a connection.
+/// This exception indicates a connection failure for which the server host actively refuses a connection.
 open class ConnectionRefusedException: ConnectFailedException {
     /// Returns the Slice type ID of this exception.
     ///
@@ -911,13 +863,10 @@ open class ConnectionLostException: SocketException {
     }
 }
 
-/// This exception indicates a DNS problem. For details on the cause,
-/// DNSException.error should be inspected.
+/// This exception indicates a DNS problem. For details on the cause, DNSException.error should be inspected.
 open class DNSException: LocalException {
-    /// The error number describing the DNS problem. For C++ and Unix,
-    /// this is equivalent to h_errno. For C++ and
-    /// Windows, this is the value returned by
-    /// WSAGetLastError().
+    /// The error number describing the DNS problem. For C++ and Unix, this is equivalent to h_errno. For
+    /// C++ and Windows, this is the value returned by WSAGetLastError().
     public var error: Swift.Int32 = 0
     /// The host name that could not be resolved.
     public var host: Swift.String = ""
@@ -1015,8 +964,7 @@ open class CloseTimeoutException: TimeoutException {
     }
 }
 
-/// This exception indicates that a connection has been shut down because it has been
-/// idle for some time.
+/// This exception indicates that a connection has been shut down because it has been idle for some time.
 open class ConnectionTimeoutException: TimeoutException {
     /// Returns the Slice type ID of this exception.
     ///
@@ -1033,8 +981,7 @@ open class ConnectionTimeoutException: TimeoutException {
     }
 }
 
-/// This exception indicates that an invocation failed because it timed
-/// out.
+/// This exception indicates that an invocation failed because it timed out.
 open class InvocationTimeoutException: TimeoutException {
     /// Returns the Slice type ID of this exception.
     ///
@@ -1051,8 +998,7 @@ open class InvocationTimeoutException: TimeoutException {
     }
 }
 
-/// This exception indicates that an asynchronous invocation failed
-/// because it was canceled explicitly by the user.
+/// This exception indicates that an asynchronous invocation failed because it was canceled explicitly by the user.
 open class InvocationCanceledException: LocalException {
     /// Returns the Slice type ID of this exception.
     ///
@@ -1069,8 +1015,7 @@ open class InvocationCanceledException: LocalException {
     }
 }
 
-/// A generic exception base for all kinds of protocol error
-/// conditions.
+/// A generic exception base for all kinds of protocol error conditions.
 open class ProtocolException: LocalException {
     /// The reason for the failure.
     public var reason: Swift.String = ""
@@ -1099,8 +1044,7 @@ open class ProtocolException: LocalException {
     }
 }
 
-/// This exception indicates that a message did not start with the expected
-/// magic number ('I', 'c', 'e', 'P').
+/// This exception indicates that a message did not start with the expected magic number ('I', 'c', 'e', 'P').
 open class BadMagicException: ProtocolException {
     /// A sequence containing the first four bytes of the incorrect message.
     public var badMagic: ByteSeq = ByteSeq()
@@ -1210,8 +1154,7 @@ open class UnknownMessageException: ProtocolException {
     }
 }
 
-/// This exception is raised if a message is received over a connection
-/// that is not yet validated.
+/// This exception is raised if a message is received over a connection that is not yet validated.
 open class ConnectionNotValidatedException: ProtocolException {
     /// Returns the Slice type ID of this exception.
     ///
@@ -1228,8 +1171,7 @@ open class ConnectionNotValidatedException: ProtocolException {
     }
 }
 
-/// This exception indicates that a response for an unknown request ID has been
-/// received.
+/// This exception indicates that a response for an unknown request ID has been received.
 open class UnknownRequestIdException: ProtocolException {
     /// Returns the Slice type ID of this exception.
     ///
@@ -1263,14 +1205,11 @@ open class UnknownReplyStatusException: ProtocolException {
     }
 }
 
-/// This exception indicates that the connection has been gracefully shut down by the
-/// server. The operation call that caused this exception has not been
-/// executed by the server. In most cases you will not get this
-/// exception, because the client will automatically retry the
-/// operation call in case the server shut down the connection. However,
-/// if upon retry the server shuts down the connection again, and the
-/// retry limit has been reached, then this exception is propagated to
-/// the application code.
+/// This exception indicates that the connection has been gracefully shut down by the server. The operation call that
+/// caused this exception has not been executed by the server. In most cases you will not get this exception, because
+/// the client will automatically retry the operation call in case the server shut down the connection. However, if
+/// upon retry the server shuts down the connection again, and the retry limit has been reached, then this exception is
+/// propagated to the application code.
 open class CloseConnectionException: ProtocolException {
     /// Returns the Slice type ID of this exception.
     ///
@@ -1287,8 +1226,8 @@ open class CloseConnectionException: ProtocolException {
     }
 }
 
-/// This exception is raised by an operation call if the application
-/// closes the connection locally using Connection.close.
+/// This exception is raised by an operation call if the application closes the connection locally using
+/// Connection.close.
 open class ConnectionManuallyClosedException: LocalException {
     /// True if the connection was closed gracefully, false otherwise.
     public var graceful: Swift.Bool = false
@@ -1317,8 +1256,7 @@ open class ConnectionManuallyClosedException: LocalException {
     }
 }
 
-/// This exception indicates that a message size is less
-/// than the minimum required size.
+/// This exception indicates that a message size is less than the minimum required size.
 open class IllegalMessageSizeException: ProtocolException {
     /// Returns the Slice type ID of this exception.
     ///
@@ -1352,10 +1290,8 @@ open class CompressionException: ProtocolException {
     }
 }
 
-/// A datagram exceeds the configured size.
-///
-/// This exception is raised if a datagram exceeds the configured send or receive buffer
-/// size, or exceeds the maximum payload size of a UDP packet (65507 bytes).
+/// A datagram exceeds the configured size. This exception is raised if a datagram exceeds the configured send or
+/// receive buffer size, or exceeds the maximum payload size of a UDP packet (65507 bytes).
 open class DatagramLimitException: ProtocolException {
     /// Returns the Slice type ID of this exception.
     ///
@@ -1423,11 +1359,9 @@ open class UnmarshalOutOfBoundsException: MarshalException {
     }
 }
 
-/// This exception is raised if no suitable value factory was found during
-/// unmarshaling of a Slice class instance.
+/// This exception is raised if no suitable value factory was found during unmarshaling of a Slice class instance.
 open class NoValueFactoryException: MarshalException {
-    /// The Slice type ID of the class instance for which no
-    /// no factory could be found.
+    /// The Slice type ID of the class instance for which no factory could be found.
     public var `type`: Swift.String = ""
 
     public required init() {
@@ -1454,13 +1388,10 @@ open class NoValueFactoryException: MarshalException {
     }
 }
 
-/// This exception is raised if the type of an unmarshaled Slice class instance does
-/// not match its expected type.
-/// This can happen if client and server are compiled with mismatched Slice
-/// definitions or if a class of the wrong type is passed as a parameter
-/// or return value using dynamic invocation. This exception can also be
-/// raised if IceStorm is used to send Slice class instances and
-/// an operation is subscribed to the wrong topic.
+/// This exception is raised if the type of an unmarshaled Slice class instance does not match its expected type. This
+/// can happen if client and server are compiled with mismatched Slice definitions or if a class of the wrong type is
+/// passed as a parameter or return value using dynamic invocation. This exception can also be raised if IceStorm is
+/// used to send Slice class instances and an operation is subscribed to the wrong topic.
 open class UnexpectedObjectException: MarshalException {
     /// The Slice type ID of the class instance that was unmarshaled.
     public var `type`: Swift.String = ""
@@ -1492,8 +1423,7 @@ open class UnexpectedObjectException: MarshalException {
     }
 }
 
-/// This exception is raised when Ice receives a request or reply
-/// message whose size exceeds the limit specified by the
+/// This exception is raised when Ice receives a request or reply message whose size exceeds the limit specified by the
 /// Ice.MessageSizeMax property.
 open class MemoryLimitException: MarshalException {
     /// Returns the Slice type ID of this exception.
@@ -1511,8 +1441,7 @@ open class MemoryLimitException: MarshalException {
     }
 }
 
-/// This exception is raised when a string conversion to or from UTF-8
-/// fails during marshaling or unmarshaling.
+/// This exception is raised when a string conversion to or from UTF-8 fails during marshaling or unmarshaling.
 open class StringConversionException: MarshalException {
     /// Returns the Slice type ID of this exception.
     ///
@@ -1546,9 +1475,8 @@ open class EncapsulationException: MarshalException {
     }
 }
 
-/// This exception is raised if an unsupported feature is used. The
-/// unsupported feature string contains the name of the unsupported
-/// feature
+/// This exception is raised if an unsupported feature is used. The unsupported feature string contains the name of the
+/// unsupported feature.
 open class FeatureNotSupportedException: LocalException {
     /// The name of the unsupported feature.
     public var unsupportedFeature: Swift.String = ""
@@ -1577,8 +1505,7 @@ open class FeatureNotSupportedException: LocalException {
     }
 }
 
-/// This exception indicates a failure in a security subsystem,
-/// such as the IceSSL plug-in.
+/// This exception indicates a failure in a security subsystem, such as the IceSSL plug-in.
 open class SecurityException: LocalException {
     /// The reason for the failure.
     public var reason: Swift.String = ""
@@ -1607,8 +1534,7 @@ open class SecurityException: LocalException {
     }
 }
 
-/// This exception indicates that an attempt has been made to
-/// change the connection properties of a fixed proxy.
+/// This exception indicates that an attempt has been made to change the connection properties of a fixed proxy.
 open class FixedProxyException: LocalException {
     /// Returns the Slice type ID of this exception.
     ///
@@ -1625,8 +1551,7 @@ open class FixedProxyException: LocalException {
     }
 }
 
-/// Indicates that the response to a request has already been sent;
-/// re-dispatching such a request is not possible.
+/// Indicates that the response to a request has already been sent; re-dispatching such a request is not possible.
 open class ResponseSentException: LocalException {
     /// Returns the Slice type ID of this exception.
     ///

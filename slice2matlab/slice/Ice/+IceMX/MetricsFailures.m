@@ -1,7 +1,6 @@
 % MetricsFailures   Summary of MetricsFailures
 %
-% A structure to keep track of failures associated with a given
-% metrics.
+% A structure to keep track of failures associated with a given metrics.
 %
 % MetricsFailures Properties:
 %   id - The identifier of the metrics object associated to the failures.
@@ -12,8 +11,7 @@
 
 classdef MetricsFailures
     properties
-        % id - The identifier of the metrics object associated to the
-        % failures.
+        % id - The identifier of the metrics object associated to the failures.
         id char
         % failures - The failures observed for this metrics.
         failures containers.Map

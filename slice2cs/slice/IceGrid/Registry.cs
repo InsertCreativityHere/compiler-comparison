@@ -153,8 +153,8 @@ namespace IceGrid
 {
     /// <summary>
     /// The IceGrid query interface.
-    /// This interface is accessible to
-    /// Ice clients who wish to look up well-known objects.
+    /// This interface is accessible to Ice clients who wish to look up well-known
+    ///  objects.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -164,8 +164,7 @@ namespace IceGrid
         /// Find a well-known object by identity.
         /// </summary>
         /// <param name="id">The identity.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The proxy or null if no such object has been found.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -175,8 +174,7 @@ namespace IceGrid
         /// Find a well-known object by identity.
         /// </summary>
         /// <param name="id">The identity.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -187,8 +185,7 @@ namespace IceGrid
         /// Find a well-known object by identity.
         /// </summary>
         /// <param name="id">The identity.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Query_findObjectById> begin_findObjectById(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -197,8 +194,7 @@ namespace IceGrid
         /// Find a well-known object by identity.
         /// </summary>
         /// <param name="id">The identity.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -208,8 +204,7 @@ namespace IceGrid
         /// Find a well-known object by identity.
         /// </summary>
         /// <param name="id">The identity.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -225,14 +220,11 @@ namespace IceGrid
 
         /// <summary>
         /// Find a well-known object by type.
-        /// If there are several objects
-        /// registered for the given type, the object is randomly
-        /// selected.
-        ///
+        /// If there are several objects registered for the given type, the object is
+        ///  randomly selected.
         /// </summary>
-        /// <param name="type">The object type.
-        ///
-        /// </param>
+        ///  <param name="type">The object type.
+        ///  </param>
         /// <returns>The proxy or null, if no such object has been found.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -240,11 +232,10 @@ namespace IceGrid
 
         /// <summary>
         /// Find a well-known object by type.
-        /// If there are several objects
+        /// If there are several objects registered for the given type, the object is
         /// </summary>
-        /// <param name="type">The object type.
-        ///
-        /// </param>
+        ///  <param name="type">The object type.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -253,22 +244,20 @@ namespace IceGrid
 
         /// <summary>
         /// Find a well-known object by type.
-        /// If there are several objects
+        /// If there are several objects registered for the given type, the object is
         /// </summary>
-        /// <param name="type">The object type.
-        ///
-        /// </param>
+        ///  <param name="type">The object type.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Query_findObjectByType> begin_findObjectByType(string type, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Find a well-known object by type.
-        /// If there are several objects
+        /// If there are several objects registered for the given type, the object is
         /// </summary>
-        /// <param name="type">The object type.
-        ///
-        /// </param>
+        ///  <param name="type">The object type.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -276,11 +265,10 @@ namespace IceGrid
 
         /// <summary>
         /// Find a well-known object by type.
-        /// If there are several objects
+        /// If there are several objects registered for the given type, the object is
         /// </summary>
-        /// <param name="type">The object type.
-        ///
-        /// </param>
+        ///  <param name="type">The object type.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -289,7 +277,7 @@ namespace IceGrid
 
         /// <summary>
         /// Find a well-known object by type.
-        /// If there are several objects
+        /// If there are several objects registered for the given type, the object is
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The proxy or null, if no such object has been found.</returns>
@@ -297,19 +285,14 @@ namespace IceGrid
 
         /// <summary>
         /// Find a well-known object by type on the least-loaded node.
-        /// If
-        /// the registry does not know which node hosts the object
-        /// (for example, because the object was registered with a direct proxy), the
-        /// registry assumes the object is hosted on a node that has a load
-        /// average of 1.0.
-        ///
+        /// If the registry does not know which node hosts
+        ///  the object (for example, because the object was registered with a direct proxy), the registry assumes the
+        ///  object is hosted on a node that has a load average of 1.0.
         /// </summary>
-        /// <param name="type">The object type.
-        ///
-        /// </param>
+        ///  <param name="type">The object type.
+        ///  </param>
         /// <param name="sample">The sampling interval.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The proxy or null, if no such object has been found.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -317,14 +300,12 @@ namespace IceGrid
 
         /// <summary>
         /// Find a well-known object by type on the least-loaded node.
-        /// If
+        /// If the registry does not know which node hosts
         /// </summary>
-        /// <param name="type">The object type.
-        ///
-        /// </param>
+        ///  <param name="type">The object type.
+        ///  </param>
         /// <param name="sample">The sampling interval.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -333,28 +314,24 @@ namespace IceGrid
 
         /// <summary>
         /// Find a well-known object by type on the least-loaded node.
-        /// If
+        /// If the registry does not know which node hosts
         /// </summary>
-        /// <param name="type">The object type.
-        ///
-        /// </param>
+        ///  <param name="type">The object type.
+        ///  </param>
         /// <param name="sample">The sampling interval.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Query_findObjectByTypeOnLeastLoadedNode> begin_findObjectByTypeOnLeastLoadedNode(string type, LoadSample sample, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Find a well-known object by type on the least-loaded node.
-        /// If
+        /// If the registry does not know which node hosts
         /// </summary>
-        /// <param name="type">The object type.
-        ///
-        /// </param>
+        ///  <param name="type">The object type.
+        ///  </param>
         /// <param name="sample">The sampling interval.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -362,14 +339,12 @@ namespace IceGrid
 
         /// <summary>
         /// Find a well-known object by type on the least-loaded node.
-        /// If
+        /// If the registry does not know which node hosts
         /// </summary>
-        /// <param name="type">The object type.
-        ///
-        /// </param>
+        ///  <param name="type">The object type.
+        ///  </param>
         /// <param name="sample">The sampling interval.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -378,7 +353,7 @@ namespace IceGrid
 
         /// <summary>
         /// Find a well-known object by type on the least-loaded node.
-        /// If
+        /// If the registry does not know which node hosts
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The proxy or null, if no such object has been found.</returns>
@@ -388,10 +363,8 @@ namespace IceGrid
         /// Find all the well-known objects with the given type.
         /// </summary>
         /// <param name="type">The object type.
-        ///
-        /// </param>
-        /// <returns>The proxies or an empty sequence, if no such objects
-        /// have been found.</returns>
+        ///  </param>
+        /// <returns>The proxies or an empty sequence, if no such objects have been found.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         global::Ice.ObjectPrx[] findAllObjectsByType(string type, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -400,8 +373,7 @@ namespace IceGrid
         /// Find all the well-known objects with the given type.
         /// </summary>
         /// <param name="type">The object type.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -412,8 +384,7 @@ namespace IceGrid
         /// Find all the well-known objects with the given type.
         /// </summary>
         /// <param name="type">The object type.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Query_findAllObjectsByType> begin_findAllObjectsByType(string type, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -422,8 +393,7 @@ namespace IceGrid
         /// Find all the well-known objects with the given type.
         /// </summary>
         /// <param name="type">The object type.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -433,8 +403,7 @@ namespace IceGrid
         /// Find all the well-known objects with the given type.
         /// </summary>
         /// <param name="type">The object type.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -445,34 +414,28 @@ namespace IceGrid
         /// Find all the well-known objects with the given type.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The proxies or an empty sequence, if no such objects
-        /// have been found.</returns>
+        /// <returns>The proxies or an empty sequence, if no such objects have been found.</returns>
         global::Ice.ObjectPrx[] end_findAllObjectsByType(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// Find all the object replicas associated with the given
-        /// proxy.
-        /// If the given proxy is not an indirect proxy from a
-        /// replica group, an empty sequence is returned.
-        ///
+        /// Find all the object replicas associated with the given proxy.
+        /// If the given proxy is not an indirect proxy
+        ///  from a replica group, an empty sequence is returned.
         /// </summary>
-        /// <param name="proxy">The object proxy.
-        ///
-        /// </param>
-        /// <returns>The proxies of each object replica or an empty sequence,
-        /// if the given proxy is not from a replica group.</returns>
+        ///  <param name="proxy">The object proxy.
+        ///  </param>
+        /// <returns>The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
+        ///  group.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         global::Ice.ObjectPrx[] findAllReplicas(global::Ice.ObjectPrx proxy, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Find all the object replicas associated with the given
-        /// proxy.
-        /// If the given proxy is not an indirect proxy from a
+        /// Find all the object replicas associated with the given proxy.
+        /// If the given proxy is not an indirect proxy
         /// </summary>
-        /// <param name="proxy">The object proxy.
-        ///
-        /// </param>
+        ///  <param name="proxy">The object proxy.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -480,38 +443,32 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx[]> findAllReplicasAsync(global::Ice.ObjectPrx proxy, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Find all the object replicas associated with the given
-        /// proxy.
-        /// If the given proxy is not an indirect proxy from a
+        /// Find all the object replicas associated with the given proxy.
+        /// If the given proxy is not an indirect proxy
         /// </summary>
-        /// <param name="proxy">The object proxy.
-        ///
-        /// </param>
+        ///  <param name="proxy">The object proxy.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Query_findAllReplicas> begin_findAllReplicas(global::Ice.ObjectPrx proxy, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Find all the object replicas associated with the given
-        /// proxy.
-        /// If the given proxy is not an indirect proxy from a
+        /// Find all the object replicas associated with the given proxy.
+        /// If the given proxy is not an indirect proxy
         /// </summary>
-        /// <param name="proxy">The object proxy.
-        ///
-        /// </param>
+        ///  <param name="proxy">The object proxy.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult begin_findAllReplicas(global::Ice.ObjectPrx proxy, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Find all the object replicas associated with the given
-        /// proxy.
-        /// If the given proxy is not an indirect proxy from a
+        /// Find all the object replicas associated with the given proxy.
+        /// If the given proxy is not an indirect proxy
         /// </summary>
-        /// <param name="proxy">The object proxy.
-        ///
-        /// </param>
+        ///  <param name="proxy">The object proxy.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -519,19 +476,17 @@ namespace IceGrid
         global::Ice.AsyncResult begin_findAllReplicas(global::Ice.ObjectPrx proxy, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Find all the object replicas associated with the given
-        /// proxy.
-        /// If the given proxy is not an indirect proxy from a
+        /// Find all the object replicas associated with the given proxy.
+        /// If the given proxy is not an indirect proxy
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The proxies of each object replica or an empty sequence,
-        /// if the given proxy is not from a replica group.</returns>
+        /// <returns>The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
+        ///  group.</returns>
         global::Ice.ObjectPrx[] end_findAllReplicas(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
-    /// The IceGrid registry allows clients create sessions
-    /// directly with the registry.
+    /// The IceGrid registry allows clients create sessions directly with the registry.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -540,18 +495,14 @@ namespace IceGrid
         /// <summary>
         /// Create a client session.
         /// </summary>
-        /// <returns>A proxy for the newly created session.
-        ///
-        /// </returns>
         /// <param name="userId">The user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="password">The password for the given user id.
-        ///
-        /// </param>
-        /// <exception name="PermissionDeniedException">Raised if the password for
-        /// the given user id is not correct, or if the user is not allowed
-        /// access.</exception>
+        ///  </param>
+        /// <returns>A proxy for the newly created session.
+        ///  </returns>
+        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
+        ///  user is not allowed access.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         SessionPrx createSession(string userId, string password, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -560,11 +511,9 @@ namespace IceGrid
         /// Create a client session.
         /// </summary>
         /// <param name="userId">The user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="password">The password for the given user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -575,11 +524,9 @@ namespace IceGrid
         /// Create a client session.
         /// </summary>
         /// <param name="userId">The user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="password">The password for the given user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Registry_createSession> begin_createSession(string userId, string password, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -588,11 +535,9 @@ namespace IceGrid
         /// Create a client session.
         /// </summary>
         /// <param name="userId">The user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="password">The password for the given user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -602,11 +547,9 @@ namespace IceGrid
         /// Create a client session.
         /// </summary>
         /// <param name="userId">The user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="password">The password for the given user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -618,25 +561,20 @@ namespace IceGrid
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>A proxy for the newly created session.
-        ///
-        /// </returns>
+        ///  </returns>
         SessionPrx end_createSession(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Create an administrative session.
         /// </summary>
         /// <returns>A proxy for the newly created session.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <param name="userId">The user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="password">The password for the given user id.
-        ///
-        /// </param>
-        /// <exception name="PermissionDeniedException">Raised if the password for
-        /// the given user id is not correct, or if the user is not allowed
-        /// access.</exception>
+        ///  </param>
+        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
+        ///  user is not allowed access.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         AdminSessionPrx createAdminSession(string userId, string password, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -645,11 +583,9 @@ namespace IceGrid
         /// Create an administrative session.
         /// </summary>
         /// <param name="userId">The user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="password">The password for the given user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -660,11 +596,9 @@ namespace IceGrid
         /// Create an administrative session.
         /// </summary>
         /// <param name="userId">The user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="password">The password for the given user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Registry_createAdminSession> begin_createAdminSession(string userId, string password, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -673,11 +607,9 @@ namespace IceGrid
         /// Create an administrative session.
         /// </summary>
         /// <param name="userId">The user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="password">The password for the given user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -687,11 +619,9 @@ namespace IceGrid
         /// Create an administrative session.
         /// </summary>
         /// <param name="userId">The user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="password">The password for the given user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -703,19 +633,16 @@ namespace IceGrid
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>A proxy for the newly created session.
-        ///
-        /// </returns>
+        ///  </returns>
         AdminSessionPrx end_createAdminSession(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Create a client session from a secure connection.
         /// </summary>
         /// <returns>A proxy for the newly created session.
-        ///
-        /// </returns>
-        /// <exception name="PermissionDeniedException">Raised if the password for
-        /// the given user id is not correct, or if the user is not allowed
-        /// access.</exception>
+        ///  </returns>
+        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
+        ///  user is not allowed access.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         SessionPrx createSessionFromSecureConnection(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -758,19 +685,16 @@ namespace IceGrid
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>A proxy for the newly created session.
-        ///
-        /// </returns>
+        ///  </returns>
         SessionPrx end_createSessionFromSecureConnection(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Create an administrative session from a secure connection.
         /// </summary>
         /// <returns>A proxy for the newly created session.
-        ///
-        /// </returns>
-        /// <exception name="PermissionDeniedException">Raised if the password for
-        /// the given user id is not correct, or if the user is not allowed
-        /// access.</exception>
+        ///  </returns>
+        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
+        ///  user is not allowed access.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         AdminSessionPrx createAdminSessionFromSecureConnection(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -813,25 +737,22 @@ namespace IceGrid
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>A proxy for the newly created session.
-        ///
-        /// </returns>
+        ///  </returns>
         AdminSessionPrx end_createAdminSessionFromSecureConnection(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get the session timeout.
-        /// If a client or administrative client
-        /// doesn't call the session keepAlive method in the time interval
-        /// defined by this timeout, IceGrid might reap the session.
-        ///
+        /// If a client or administrative client doesn't call the session keepAlive method in
+        ///  the time interval defined by this timeout, IceGrid might reap the session.
         /// </summary>
-        /// <returns>The timeout (in seconds).</returns>
+        ///  <returns>The timeout (in seconds).</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         int getSessionTimeout(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Get the session timeout.
-        /// If a client or administrative client
+        /// If a client or administrative client doesn't call the session keepAlive method in
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -841,7 +762,7 @@ namespace IceGrid
 
         /// <summary>
         /// Get the session timeout.
-        /// If a client or administrative client
+        /// If a client or administrative client doesn't call the session keepAlive method in
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -849,7 +770,7 @@ namespace IceGrid
 
         /// <summary>
         /// Get the session timeout.
-        /// If a client or administrative client
+        /// If a client or administrative client doesn't call the session keepAlive method in
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -858,7 +779,7 @@ namespace IceGrid
 
         /// <summary>
         /// Get the session timeout.
-        /// If a client or administrative client
+        /// If a client or administrative client doesn't call the session keepAlive method in
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -868,7 +789,7 @@ namespace IceGrid
 
         /// <summary>
         /// Get the session timeout.
-        /// If a client or administrative client
+        /// If a client or administrative client doesn't call the session keepAlive method in
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The timeout (in seconds).</returns>
@@ -876,21 +797,17 @@ namespace IceGrid
 
         /// <summary>
         /// Get the value of the ACM timeout.
-        /// Clients supporting ACM
-        /// connection heartbeats can enable them instead of explicitly
-        /// sending keep alives requests.
-        ///
-        /// NOTE: This method is only available since Ice 3.6.
-        ///
+        /// Clients supporting ACM connection heartbeats can enable them instead of
+        ///  explicitly sending keep alives requests. This method is only available since Ice 3.6.
         /// </summary>
-        /// <returns>The timeout (in seconds).</returns>
+        ///  <returns>The timeout (in seconds).</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         int getACMTimeout(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Get the value of the ACM timeout.
-        /// Clients supporting ACM
+        /// Clients supporting ACM connection heartbeats can enable them instead of
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -900,7 +817,7 @@ namespace IceGrid
 
         /// <summary>
         /// Get the value of the ACM timeout.
-        /// Clients supporting ACM
+        /// Clients supporting ACM connection heartbeats can enable them instead of
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -908,7 +825,7 @@ namespace IceGrid
 
         /// <summary>
         /// Get the value of the ACM timeout.
-        /// Clients supporting ACM
+        /// Clients supporting ACM connection heartbeats can enable them instead of
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -917,7 +834,7 @@ namespace IceGrid
 
         /// <summary>
         /// Get the value of the ACM timeout.
-        /// Clients supporting ACM
+        /// Clients supporting ACM connection heartbeats can enable them instead of
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -927,7 +844,7 @@ namespace IceGrid
 
         /// <summary>
         /// Get the value of the ACM timeout.
-        /// Clients supporting ACM
+        /// Clients supporting ACM connection heartbeats can enable them instead of
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The timeout (in seconds).</returns>
@@ -935,16 +852,15 @@ namespace IceGrid
     }
 
     /// <summary>
-    /// The IceGrid locator interface provides access to the Query
-    /// and Registry object of the IceGrid registry.
+    /// The IceGrid locator interface provides access to the Query and Registry object of the IceGrid
+    ///  registry.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface LocatorPrx : global::Ice.LocatorPrx
     {
         /// <summary>
-        /// Get the proxy of the registry object hosted by this IceGrid
-        /// registry.
+        /// Get the proxy of the registry object hosted by this IceGrid registry.
         /// </summary>
         /// <returns>The proxy of the registry object.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -952,8 +868,7 @@ namespace IceGrid
         RegistryPrx getLocalRegistry(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Get the proxy of the registry object hosted by this IceGrid
-        /// registry.
+        /// Get the proxy of the registry object hosted by this IceGrid registry.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -962,16 +877,14 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<RegistryPrx> getLocalRegistryAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the proxy of the registry object hosted by this IceGrid
-        /// registry.
+        /// Get the proxy of the registry object hosted by this IceGrid registry.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Locator_getLocalRegistry> begin_getLocalRegistry(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Get the proxy of the registry object hosted by this IceGrid
-        /// registry.
+        /// Get the proxy of the registry object hosted by this IceGrid registry.
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -979,8 +892,7 @@ namespace IceGrid
         global::Ice.AsyncResult begin_getLocalRegistry(global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Get the proxy of the registry object hosted by this IceGrid
-        /// registry.
+        /// Get the proxy of the registry object hosted by this IceGrid registry.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -989,16 +901,14 @@ namespace IceGrid
         global::Ice.AsyncResult begin_getLocalRegistry(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Get the proxy of the registry object hosted by this IceGrid
-        /// registry.
+        /// Get the proxy of the registry object hosted by this IceGrid registry.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The proxy of the registry object.</returns>
         RegistryPrx end_getLocalRegistry(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// Get the proxy of the query object hosted by this IceGrid
-        /// registry.
+        /// Get the proxy of the query object hosted by this IceGrid registry.
         /// </summary>
         /// <returns>The proxy of the query object.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -1006,8 +916,7 @@ namespace IceGrid
         QueryPrx getLocalQuery(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Get the proxy of the query object hosted by this IceGrid
-        /// registry.
+        /// Get the proxy of the query object hosted by this IceGrid registry.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -1016,16 +925,14 @@ namespace IceGrid
         global::System.Threading.Tasks.Task<QueryPrx> getLocalQueryAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the proxy of the query object hosted by this IceGrid
-        /// registry.
+        /// Get the proxy of the query object hosted by this IceGrid registry.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Locator_getLocalQuery> begin_getLocalQuery(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Get the proxy of the query object hosted by this IceGrid
-        /// registry.
+        /// Get the proxy of the query object hosted by this IceGrid registry.
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1033,8 +940,7 @@ namespace IceGrid
         global::Ice.AsyncResult begin_getLocalQuery(global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Get the proxy of the query object hosted by this IceGrid
-        /// registry.
+        /// Get the proxy of the query object hosted by this IceGrid registry.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -1043,8 +949,7 @@ namespace IceGrid
         global::Ice.AsyncResult begin_getLocalQuery(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Get the proxy of the query object hosted by this IceGrid
-        /// registry.
+        /// Get the proxy of the query object hosted by this IceGrid registry.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The proxy of the query object.</returns>
@@ -1056,8 +961,8 @@ namespace IceGrid
 {
     /// <summary>
     /// The IceGrid query interface.
-    /// This interface is accessible to
-    /// Ice clients who wish to look up well-known objects.
+    /// This interface is accessible to Ice clients who wish to look up well-known
+    ///  objects.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1067,8 +972,7 @@ namespace IceGrid
         /// Find a well-known object by identity.
         /// </summary>
         /// <param name="id">The identity.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The proxy or null if no such object has been found.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -1077,14 +981,11 @@ namespace IceGrid
 
         /// <summary>
         /// Find a well-known object by type.
-        /// If there are several objects
-        /// registered for the given type, the object is randomly
-        /// selected.
-        ///
+        /// If there are several objects registered for the given type, the object is
+        ///  randomly selected.
         /// </summary>
-        /// <param name="type">The object type.
-        ///
-        /// </param>
+        ///  <param name="type">The object type.
+        ///  </param>
         /// <returns>The proxy or null, if no such object has been found.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -1093,19 +994,14 @@ namespace IceGrid
 
         /// <summary>
         /// Find a well-known object by type on the least-loaded node.
-        /// If
-        /// the registry does not know which node hosts the object
-        /// (for example, because the object was registered with a direct proxy), the
-        /// registry assumes the object is hosted on a node that has a load
-        /// average of 1.0.
-        ///
+        /// If the registry does not know which node hosts
+        ///  the object (for example, because the object was registered with a direct proxy), the registry assumes the
+        ///  object is hosted on a node that has a load average of 1.0.
         /// </summary>
-        /// <param name="type">The object type.
-        ///
-        /// </param>
+        ///  <param name="type">The object type.
+        ///  </param>
         /// <param name="sample">The sampling interval.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The proxy or null, if no such object has been found.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -1116,27 +1012,22 @@ namespace IceGrid
         /// Find all the well-known objects with the given type.
         /// </summary>
         /// <param name="type">The object type.
-        ///
-        /// </param>
-        /// <returns>The proxies or an empty sequence, if no such objects
-        /// have been found.</returns>
+        ///  </param>
+        /// <returns>The proxies or an empty sequence, if no such objects have been found.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         global::Ice.ObjectPrx[] findAllObjectsByType(string type, global::Ice.Current current = null);
 
         /// <summary>
-        /// Find all the object replicas associated with the given
-        /// proxy.
-        /// If the given proxy is not an indirect proxy from a
-        /// replica group, an empty sequence is returned.
-        ///
+        /// Find all the object replicas associated with the given proxy.
+        /// If the given proxy is not an indirect proxy
+        ///  from a replica group, an empty sequence is returned.
         /// </summary>
-        /// <param name="proxy">The object proxy.
-        ///
-        /// </param>
-        /// <returns>The proxies of each object replica or an empty sequence,
-        /// if the given proxy is not from a replica group.</returns>
+        ///  <param name="proxy">The object proxy.
+        ///  </param>
+        /// <returns>The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
+        ///  group.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1144,8 +1035,7 @@ namespace IceGrid
     }
 
     /// <summary>
-    /// The IceGrid registry allows clients create sessions
-    /// directly with the registry.
+    /// The IceGrid registry allows clients create sessions directly with the registry.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1154,18 +1044,14 @@ namespace IceGrid
         /// <summary>
         /// Create a client session.
         /// </summary>
-        /// <returns>A proxy for the newly created session.
-        ///
-        /// </returns>
         /// <param name="userId">The user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="password">The password for the given user id.
-        ///
-        /// </param>
-        /// <exception name="PermissionDeniedException">Raised if the password for
-        /// the given user id is not correct, or if the user is not allowed
-        /// access.</exception>
+        ///  </param>
+        /// <returns>A proxy for the newly created session.
+        ///  </returns>
+        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
+        ///  user is not allowed access.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1175,17 +1061,13 @@ namespace IceGrid
         /// Create an administrative session.
         /// </summary>
         /// <returns>A proxy for the newly created session.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <param name="userId">The user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="password">The password for the given user id.
-        ///
-        /// </param>
-        /// <exception name="PermissionDeniedException">Raised if the password for
-        /// the given user id is not correct, or if the user is not allowed
-        /// access.</exception>
+        ///  </param>
+        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
+        ///  user is not allowed access.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1195,11 +1077,9 @@ namespace IceGrid
         /// Create a client session from a secure connection.
         /// </summary>
         /// <returns>A proxy for the newly created session.
-        ///
-        /// </returns>
-        /// <exception name="PermissionDeniedException">Raised if the password for
-        /// the given user id is not correct, or if the user is not allowed
-        /// access.</exception>
+        ///  </returns>
+        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
+        ///  user is not allowed access.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1209,11 +1089,9 @@ namespace IceGrid
         /// Create an administrative session from a secure connection.
         /// </summary>
         /// <returns>A proxy for the newly created session.
-        ///
-        /// </returns>
-        /// <exception name="PermissionDeniedException">Raised if the password for
-        /// the given user id is not correct, or if the user is not allowed
-        /// access.</exception>
+        ///  </returns>
+        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
+        ///  user is not allowed access.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1221,12 +1099,10 @@ namespace IceGrid
 
         /// <summary>
         /// Get the session timeout.
-        /// If a client or administrative client
-        /// doesn't call the session keepAlive method in the time interval
-        /// defined by this timeout, IceGrid might reap the session.
-        ///
+        /// If a client or administrative client doesn't call the session keepAlive method in
+        ///  the time interval defined by this timeout, IceGrid might reap the session.
         /// </summary>
-        /// <returns>The timeout (in seconds).</returns>
+        ///  <returns>The timeout (in seconds).</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1234,14 +1110,10 @@ namespace IceGrid
 
         /// <summary>
         /// Get the value of the ACM timeout.
-        /// Clients supporting ACM
-        /// connection heartbeats can enable them instead of explicitly
-        /// sending keep alives requests.
-        ///
-        /// NOTE: This method is only available since Ice 3.6.
-        ///
+        /// Clients supporting ACM connection heartbeats can enable them instead of
+        ///  explicitly sending keep alives requests. This method is only available since Ice 3.6.
         /// </summary>
-        /// <returns>The timeout (in seconds).</returns>
+        ///  <returns>The timeout (in seconds).</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1249,16 +1121,15 @@ namespace IceGrid
     }
 
     /// <summary>
-    /// The IceGrid locator interface provides access to the Query
-    /// and Registry object of the IceGrid registry.
+    /// The IceGrid locator interface provides access to the Query and Registry object of the IceGrid
+    ///  registry.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface LocatorOperations_ : global::Ice.LocatorOperations_
     {
         /// <summary>
-        /// Get the proxy of the registry object hosted by this IceGrid
-        /// registry.
+        /// Get the proxy of the registry object hosted by this IceGrid registry.
         /// </summary>
         /// <returns>The proxy of the registry object.</returns>
         /// <param name="current">The Current object for the invocation.</param>
@@ -1267,8 +1138,7 @@ namespace IceGrid
         RegistryPrx getLocalRegistry(global::Ice.Current current = null);
 
         /// <summary>
-        /// Get the proxy of the query object hosted by this IceGrid
-        /// registry.
+        /// Get the proxy of the query object hosted by this IceGrid registry.
         /// </summary>
         /// <returns>The proxy of the query object.</returns>
         /// <param name="current">The Current object for the invocation.</param>

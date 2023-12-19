@@ -66,12 +66,9 @@ namespace Ice
 {
 
 /**
- * A communicator plug-in. A plug-in generally adds a feature to a
- * communicator, such as support for a protocol.
- *
- * The communicator loads its plug-ins in two stages: the first stage
- * creates the plug-ins, and the second stage invokes {@link Plugin#initialize} on
- * each one.
+ * A communicator plug-in. A plug-in generally adds a feature to a communicator, such as support for a protocol.
+ * The communicator loads its plug-ins in two stages: the first stage creates the plug-ins, and the second stage
+ * invokes {@link Plugin#initialize} on each one.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) Plugin
@@ -92,8 +89,7 @@ public:
 };
 
 /**
- * Each communicator has a plug-in manager to administer the set of
- * plug-ins.
+ * Each communicator has a plug-in manager to administer the set of plug-ins.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) PluginManager
@@ -103,13 +99,11 @@ public:
     ICE_MEMBER(ICE_API) virtual ~PluginManager();
 
     /**
-     * Initialize the configured plug-ins. The communicator automatically initializes
-     * the plug-ins by default, but an application may need to interact directly with
-     * a plug-in prior to initialization. In this case, the application must set
-     * <code>Ice.InitPlugins=0</code> and then invoke {@link #initializePlugins}
-     * manually. The plug-ins are initialized in the order in which they are loaded.
-     * If a plug-in raises an exception during initialization, the communicator
-     * invokes destroy on the plug-ins that have already been initialized.
+     * Initialize the configured plug-ins. The communicator automatically initializes the plug-ins by default, but an
+     * application may need to interact directly with a plug-in prior to initialization. In this case, the application
+     * must set <code>Ice.InitPlugins=0</code> and then invoke {@link #initializePlugins} manually. The plug-ins are
+     * initialized in the order in which they are loaded. If a plug-in raises an exception during initialization, the
+     * communicator invokes destroy on the plug-ins that have already been initialized.
      * @throws InitializationException Raised if the plug-ins have already been initialized.
      */
     virtual void initializePlugins() = 0;
@@ -186,12 +180,9 @@ namespace Ice
 {
 
 /**
- * A communicator plug-in. A plug-in generally adds a feature to a
- * communicator, such as support for a protocol.
- *
- * The communicator loads its plug-ins in two stages: the first stage
- * creates the plug-ins, and the second stage invokes {@link Plugin#initialize} on
- * each one.
+ * A communicator plug-in. A plug-in generally adds a feature to a communicator, such as support for a protocol.
+ * The communicator loads its plug-ins in two stages: the first stage creates the plug-ins, and the second stage
+ * invokes {@link Plugin#initialize} on each one.
  * \headerfile Ice/Ice.h
  */
 class ICE_API Plugin : public virtual LocalObject
@@ -232,8 +223,7 @@ inline bool operator<(const Plugin& lhs, const Plugin& rhs)
 /// \endcond
 
 /**
- * Each communicator has a plug-in manager to administer the set of
- * plug-ins.
+ * Each communicator has a plug-in manager to administer the set of plug-ins.
  * \headerfile Ice/Ice.h
  */
 class ICE_API PluginManager : public virtual LocalObject
@@ -251,13 +241,11 @@ public:
 #endif
 
     /**
-     * Initialize the configured plug-ins. The communicator automatically initializes
-     * the plug-ins by default, but an application may need to interact directly with
-     * a plug-in prior to initialization. In this case, the application must set
-     * <code>Ice.InitPlugins=0</code> and then invoke {@link #initializePlugins}
-     * manually. The plug-ins are initialized in the order in which they are loaded.
-     * If a plug-in raises an exception during initialization, the communicator
-     * invokes destroy on the plug-ins that have already been initialized.
+     * Initialize the configured plug-ins. The communicator automatically initializes the plug-ins by default, but an
+     * application may need to interact directly with a plug-in prior to initialization. In this case, the application
+     * must set <code>Ice.InitPlugins=0</code> and then invoke {@link #initializePlugins} manually. The plug-ins are
+     * initialized in the order in which they are loaded. If a plug-in raises an exception during initialization, the
+     * communicator invokes destroy on the plug-ins that have already been initialized.
      * @throws InitializationException Raised if the plug-ins have already been initialized.
      */
     virtual void initializePlugins() = 0;

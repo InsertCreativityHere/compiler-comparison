@@ -21,8 +21,7 @@ using _System = global::System;
 namespace Ice
 {
     /// <summary>
-    /// Determines the order in which the Ice run time uses the endpoints
-    /// in a proxy when establishing a connection.
+    /// Determines the order in which the Ice run time uses the endpoints in a proxy when establishing a connection.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -34,8 +33,7 @@ namespace Ice
 
         Random,
         /// <summary>
-        /// Ordered forces the Ice run time to use the endpoints in the
-        /// order they appeared in the proxy.
+        /// Ordered forces the Ice run time to use the endpoints in the order they appeared in the proxy.
         /// </summary>
 
         Ordered

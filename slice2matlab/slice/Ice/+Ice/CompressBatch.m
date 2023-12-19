@@ -16,8 +16,7 @@ classdef CompressBatch < uint8
         Yes (0)
         % Don't compress the batch requests.
         No (1)
-        % Compress the batch requests if at least one request was
-        % made on a compressed proxy.
+        % Compress the batch requests if at least one request was made on a compressed proxy.
         BasedOnProxy (2)
     end
     methods(Static)

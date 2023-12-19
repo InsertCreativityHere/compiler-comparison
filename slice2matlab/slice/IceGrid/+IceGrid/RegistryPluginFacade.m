@@ -1,9 +1,8 @@
 % RegistryPluginFacade   Summary of RegistryPluginFacade
 %
-% The RegistryPluginFacade is implemented by IceGrid and can be used
-% by plugins and filter implementations to retrieve information from
-% IceGrid about the well-known objects or adapters. It's also used to
-% register/unregister replica group and type filters.
+% The RegistryPluginFacade is implemented by IceGrid and can be used by plugins and filter implementations to
+% retrieve information from IceGrid about the well-known objects or adapters. It's also used to register/unregister
+% replica group and type filters.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from PluginFacade.ice by slice2matlab version 3.7.10

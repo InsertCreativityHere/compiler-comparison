@@ -16,8 +16,7 @@
 package com.zeroc.Ice.Instrumentation;
 
 /**
- * The child invocation observer to instrument remote or collocated
- * invocations.
+ * The child invocation observer to instrument remote or collocated invocations.
  **/
 public interface ChildInvocationObserver extends Observer
 {

@@ -61,10 +61,16 @@ class CustomPrx;
 namespace Test
 {
 
+/**
+ * By default, sequence<byte> is received as a string.
+ */
 using ByteString = ::std::vector<::Ice::Byte>;
 
 using ByteList = ::std::vector<::Ice::Byte>;
 
+/**
+ * By default, a sequence is received as a list.
+ */
 using StringList = ::std::vector<::std::string>;
 
 using StringTuple = ::std::vector<::std::string>;
@@ -1438,10 +1444,16 @@ void _icePatchObjectPtr(CustomPtr&, const ::Ice::ObjectPtr&);
 namespace Test
 {
 
+/**
+ * By default, sequence<byte> is received as a string.
+ */
 typedef ::std::vector< ::Ice::Byte> ByteString;
 
 typedef ::std::vector< ::Ice::Byte> ByteList;
 
+/**
+ * By default, a sequence is received as a list.
+ */
 typedef ::std::vector< ::std::string> StringList;
 
 typedef ::std::vector< ::std::string> StringTuple;

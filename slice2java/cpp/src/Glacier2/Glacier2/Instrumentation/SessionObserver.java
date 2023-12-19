@@ -18,8 +18,7 @@ package Glacier2.Instrumentation;
 public interface SessionObserver extends com.zeroc.Ice.Instrumentation.Observer
 {
     /**
-     * Notification of a forwarded request. This also implies removing
-     * the event from the queue.
+     * Notification of a forwarded request. This also implies removing the event from the queue.
      * @param client True if client request, false if server request.
      **/
     void forwarded(boolean client);
@@ -31,8 +30,7 @@ public interface SessionObserver extends com.zeroc.Ice.Instrumentation.Observer
     void queued(boolean client);
 
     /**
-     * Notification of a overridden request. This implies adding and
-     * removing an event to the queue.
+     * Notification of a overridden request. This implies adding and removing an event to the queue.
      * @param client True if client request, false if server request.
      **/
     void overridden(boolean client);

@@ -49,14 +49,10 @@ namespace Ice
 {
     /// <summary>
     /// An administrative interface for process management.
-    /// Managed servers must
-    /// implement this interface.
-    ///
-    /// &lt;p class="Note"&gt;A servant implementing this interface is a potential target
-    /// for denial-of-service attacks, therefore proper security precautions
-    /// should be taken. For example, the servant can use a UUID to make its
-    /// identity harder to guess, and be registered in an object adapter with
-    /// a secured endpoint.
+    /// Managed servers must implement this interface.
+    ///  &lt;p class="Note"&gt;A servant implementing this interface is a potential target for denial-of-service attacks,
+    ///  therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
+    ///  identity harder to guess, and be registered in an object adapter with a secured endpoint.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -112,8 +108,7 @@ namespace Ice
         /// Write a message on the process' stdout or stderr.
         /// </summary>
         /// <param name="message">The message.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="fd">1 for stdout, 2 for stderr.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -123,8 +118,7 @@ namespace Ice
         /// Write a message on the process' stdout or stderr.
         /// </summary>
         /// <param name="message">The message.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="fd">1 for stdout, 2 for stderr.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -136,8 +130,7 @@ namespace Ice
         /// Write a message on the process' stdout or stderr.
         /// </summary>
         /// <param name="message">The message.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="fd">1 for stdout, 2 for stderr.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -147,8 +140,7 @@ namespace Ice
         /// Write a message on the process' stdout or stderr.
         /// </summary>
         /// <param name="message">The message.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="fd">1 for stdout, 2 for stderr.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -159,8 +151,7 @@ namespace Ice
         /// Write a message on the process' stdout or stderr.
         /// </summary>
         /// <param name="message">The message.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="fd">1 for stdout, 2 for stderr.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -180,14 +171,10 @@ namespace Ice
 {
     /// <summary>
     /// An administrative interface for process management.
-    /// Managed servers must
-    /// implement this interface.
-    ///
-    /// &lt;p class="Note"&gt;A servant implementing this interface is a potential target
-    /// for denial-of-service attacks, therefore proper security precautions
-    /// should be taken. For example, the servant can use a UUID to make its
-    /// identity harder to guess, and be registered in an object adapter with
-    /// a secured endpoint.
+    /// Managed servers must implement this interface.
+    ///  &lt;p class="Note"&gt;A servant implementing this interface is a potential target for denial-of-service attacks,
+    ///  therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
+    ///  identity harder to guess, and be registered in an object adapter with a secured endpoint.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -205,8 +192,7 @@ namespace Ice
         /// Write a message on the process' stdout or stderr.
         /// </summary>
         /// <param name="message">The message.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="fd">1 for stdout, 2 for stderr.</param>
         /// <param name="current">The Current object for the invocation.</param>
 

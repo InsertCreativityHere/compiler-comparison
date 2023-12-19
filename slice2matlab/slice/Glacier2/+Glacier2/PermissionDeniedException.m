@@ -1,7 +1,6 @@
 % PermissionDeniedException   Summary of PermissionDeniedException
 %
-% This exception is raised if a client is denied the ability to create
-% a session with the router.
+% This exception is raised if a client is denied the ability to create a session with the router.
 %
 % PermissionDeniedException Properties:
 %   reason - The reason why permission was denied.

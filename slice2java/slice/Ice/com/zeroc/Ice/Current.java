@@ -16,9 +16,8 @@
 package com.zeroc.Ice;
 
 /**
- * Information about the current method invocation for servers. Each
- * operation on the server has a <code>Current</code> as its implicit final
- * parameter. <code>Current</code> is mostly used for Ice services. Most
+ * Information about the current method invocation for servers. Each operation on the server has a
+ * <code>Current</code> as its implicit final parameter. <code>Current</code> is mostly used for Ice services. Most
  * applications ignore this parameter.
  **/
 public class Current implements java.lang.Cloneable
@@ -29,9 +28,8 @@ public class Current implements java.lang.Cloneable
     public ObjectAdapter adapter;
 
     /**
-     * Information about the connection over which the current method
-     * invocation was received. If the invocation is direct due to
-     * collocation optimization, this value is set to null.
+     * Information about the connection over which the current method invocation was received. If the invocation is
+     * direct due to collocation optimization, this value is set to null.
      **/
     public Connection con;
 

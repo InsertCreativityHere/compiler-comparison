@@ -24,15 +24,13 @@ public interface ReplicaObserver extends com.zeroc.Ice.Object
     void replicaInit(InternalRegistryPrx[] replicas, com.zeroc.Ice.Current current);
 
     /**
-     * Notification that a replica has been added. The node should
-     * establish a session with this new replica.
+     * Notification that a replica has been added. The node should establish a session with this new replica.
      * @param current The Current object for the invocation.
      **/
     void replicaAdded(InternalRegistryPrx replica, com.zeroc.Ice.Current current);
 
     /**
-     * Notification that a replica has been removed. The node should
-     * destroy the session to this replica.
+     * Notification that a replica has been removed. The node should destroy the session to this replica.
      * @param current The Current object for the invocation.
      **/
     void replicaRemoved(InternalRegistryPrx replica, com.zeroc.Ice.Current current);

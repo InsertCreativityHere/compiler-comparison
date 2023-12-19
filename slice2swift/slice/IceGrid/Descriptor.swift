@@ -359,9 +359,8 @@ public struct ObjectDescriptor: Swift.Hashable {
     public var id: Ice.Identity = Ice.Identity()
     /// The object type.
     public var `type`: Swift.String = ""
-    /// Proxy options to use with the proxy created for this Ice object. If empty,
-    /// the proxy will be created with the proxy options specified on the object
-    /// adapter or replica group.
+    /// Proxy options to use with the proxy created for this Ice object. If empty, the proxy will be created with the
+    /// proxy options specified on the object adapter or replica group.
     public var proxyOptions: Swift.String = ""
 
     public init() {}
@@ -504,16 +503,14 @@ public struct AdapterDescriptor: Swift.Hashable {
     public var id: Swift.String = ""
     /// The replica id of this adapter.
     public var replicaGroupId: Swift.String = ""
-    /// The adapter priority. This is eventually used when the adapter
-    /// is member of a replica group to sort the adapter endpoints by
-    /// priority.
+    /// The adapter priority. This is eventually used when the adapter is member of a replica group to sort the adapter
+    /// endpoints by priority.
     public var priority: Swift.String = ""
     /// Flag to specify if the object adapter will register a process object.
     public var registerProcess: Swift.Bool = false
-    /// If true the lifetime of this object adapter is the same of the
-    /// server lifetime. This information is used by the IceGrid node
-    /// to figure out the server state: the server is active only if
-    /// all its "server lifetime" adapters are active.
+    /// If true the lifetime of this object adapter is the same of the server lifetime. This information is used by the
+    /// IceGrid node to figure out the server state: the server is active only if all its "server lifetime" adapters
+    /// are active.
     public var serverLifetime: Swift.Bool = false
     /// The well-known object descriptors associated with this object adapter.
     public var objects: ObjectDescriptorSeq = ObjectDescriptorSeq()
@@ -674,8 +671,7 @@ public struct CommunicatorDescriptorTraits: Ice.SliceTraits {
     public static let staticId = "::IceGrid::CommunicatorDescriptor"
 }
 
-/// A distribution descriptor defines an IcePatch2 server and the
-/// directories to retrieve from the patch server.
+/// A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
 public struct DistributionDescriptor: Swift.Hashable {
     /// The proxy of the IcePatch2 server.
     public var icepatch: Swift.String = ""
@@ -896,8 +892,8 @@ public struct ServerInstanceDescriptor {
     public var parameterValues: StringStringDict = StringStringDict()
     /// The property set.
     public var propertySet: PropertySetDescriptor = PropertySetDescriptor()
-    /// The services property sets. It's only valid to set these
-    /// property sets if the template is an IceBox server template.
+    /// The services property sets. It's only valid to set these property sets if the template is an IceBox server
+    /// template.
     public var servicePropertySets: PropertySetDescriptorDict = PropertySetDescriptorDict()
 
     public init() {}
@@ -1179,8 +1175,7 @@ public class ServiceInstanceDescriptor {
     public var template: Swift.String = ""
     /// The template parameter values.
     public var parameterValues: StringStringDict = StringStringDict()
-    /// The service definition if the instance isn't a template
-    /// instance (i.e.: if the template attribute is empty).
+    /// The service definition if the instance isn't a template instance (i.e.: if the template attribute is empty).
     public var descriptor: ServiceDescriptor? = nil
     /// The property set.
     public var propertySet: PropertySetDescriptor = PropertySetDescriptor()
@@ -1838,13 +1833,11 @@ public struct BoxedStringTraits: Ice.SliceTraits {
     public static let staticId = "::IceGrid::BoxedString"
 }
 
-/// A node update descriptor to describe the updates to apply to a
-/// node of a deployed application.
+/// A node update descriptor to describe the updates to apply to a node of a deployed application.
 public class NodeUpdateDescriptor {
     /// The name of the node to update.
     public var name: Swift.String = ""
-    /// The updated description (or null if the description wasn't
-    /// updated.)
+    /// The updated description (or null if the description wasn't updated.)
     public var description: BoxedString? = nil
     /// The variables to update.
     public var variables: StringStringDict = StringStringDict()
@@ -1860,8 +1853,7 @@ public class NodeUpdateDescriptor {
     public var servers: ServerDescriptorSeq = ServerDescriptorSeq()
     /// The ids of the servers to remove.
     public var removeServers: Ice.StringSeq = Ice.StringSeq()
-    /// The updated load factor of the node (or null if the load factor
-    /// was not updated).
+    /// The updated load factor of the node (or null if the load factor was not updated).
     public var loadFactor: BoxedString? = nil
 
     public init() {}
@@ -2021,13 +2013,11 @@ public struct BoxedDistributionDescriptorTraits: Ice.SliceTraits {
     public static let staticId = "::IceGrid::BoxedDistributionDescriptor"
 }
 
-/// An application update descriptor to describe the updates to apply
-/// to a deployed application.
+/// An application update descriptor to describe the updates to apply to a deployed application.
 public class ApplicationUpdateDescriptor {
     /// The name of the application to update.
     public var name: Swift.String = ""
-    /// The updated description (or null if the description wasn't
-    /// updated.)
+    /// The updated description (or null if the description wasn't updated.)
     public var description: BoxedString? = nil
     /// The updated distribution application descriptor.
     public var distrib: BoxedDistributionDescriptor? = nil
@@ -2240,10 +2230,8 @@ open class ServerDescriptor: CommunicatorDescriptor {
     public var id: Swift.String = ""
     /// The path of the server executable.
     public var exe: Swift.String = ""
-    /// The Ice version used by this server. This is only required if
-    /// backward compatibility with servers using old Ice versions is
-    /// needed (otherwise the registry will assume the server is using
-    /// the same Ice version).
+    /// The Ice version used by this server. This is only required if backward compatibility with servers using old
+    /// Ice versions is needed (otherwise the registry will assume the server is using the same Ice version).
     /// For example "3.1.1", "3.2", "3.3.0".
     public var iceVersion: Swift.String = ""
     /// The path to the server working directory.
@@ -2252,17 +2240,13 @@ open class ServerDescriptor: CommunicatorDescriptor {
     public var options: Ice.StringSeq = Ice.StringSeq()
     /// The server environment variables.
     public var envs: Ice.StringSeq = Ice.StringSeq()
-    /// The server activation mode (possible values are "on-demand" or
-    /// "manual").
+    /// / The server activation mode (possible values are "on-demand" or "manual").
     public var activation: Swift.String = ""
-    /// The activation timeout (an integer value representing the
-    /// number of seconds to wait for activation).
+    /// The activation timeout (an integer value representing the number of seconds to wait for activation).
     public var activationTimeout: Swift.String = ""
-    /// The deactivation timeout (an integer value representing the
-    /// number of seconds to wait for deactivation).
+    /// The deactivation timeout (an integer value representing the number of seconds to wait for deactivation).
     public var deactivationTimeout: Swift.String = ""
-    /// Specifies if the server depends on the application
-    /// distribution.
+    /// Specifies if the server depends on the application distribution.
     public var applicationDistrib: Swift.Bool = false
     /// The distribution descriptor.
     public var distrib: DistributionDescriptor = DistributionDescriptor()
@@ -2477,8 +2461,7 @@ public extension Ice.ClassResolver {
 
 /// A base class for load balancing policies.
 open class LoadBalancingPolicy: Ice.Value {
-    /// The number of replicas that will be used to gather the
-    /// endpoints of a replica group.
+    /// The number of replicas that will be used to gather the endpoints of a replica group.
     public var nReplicas: Swift.String = ""
 
     public required init() {}
@@ -2655,10 +2638,8 @@ public extension Ice.ClassResolver {
 
 /// Adaptive load balancing policy.
 open class AdaptiveLoadBalancingPolicy: LoadBalancingPolicy {
-    /// The load sample to use for the load balancing. The allowed
-    /// values for this attribute are "1", "5" and "15", representing
-    /// respectively the load average over the past minute, the past 5
-    /// minutes and the past 15 minutes.
+    /// The load sample to use for the load balancing. The allowed values for this attribute are "1", "5" and "15",
+    /// representing respectively the load average over the past minute, the past 5 minutes and the past 15 minutes.
     public var loadSample: Swift.String = ""
 
     public required init() {

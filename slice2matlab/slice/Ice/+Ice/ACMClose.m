@@ -18,13 +18,13 @@ classdef ACMClose < uint8
         CloseOff (0)
         % Gracefully closes a connection that has been idle for the configured timeout period.
         CloseOnIdle (1)
-        % Forcefully closes a connection that has been idle for the configured timeout period,
-        % but only if the connection has pending invocations.
+        % Forcefully closes a connection that has been idle for the configured timeout period, but only if the connection
+        % has pending invocations.
         CloseOnInvocation (2)
         % Combines the behaviors of CloseOnIdle and CloseOnInvocation.
         CloseOnInvocationAndIdle (3)
-        % Forcefully closes a connection that has been idle for the configured timeout period,
-        % regardless of whether the connection has pending invocations or dispatch.
+        % Forcefully closes a connection that has been idle for the configured timeout period, regardless of whether the
+        % connection has pending invocations or dispatch.
         CloseOnIdleForceful (4)
     end
     methods(Static)

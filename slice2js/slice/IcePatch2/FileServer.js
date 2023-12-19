@@ -37,8 +37,7 @@ const Slice = Ice.Slice;
 Slice.defineSequence(IcePatch2, "ByteSeqSeqHelper", "Ice.ByteSeqHelper", false);
 
 /**
- * A <code>partition</code> argument was not in the range 0-255.
- *
+ *  A <code>partition</code> argument was not in the range 0-255.
  **/
 IcePatch2.PartitionOutOfRangeException = class extends Ice.UserException
 {
@@ -64,8 +63,7 @@ IcePatch2.PartitionOutOfRangeException = class extends Ice.UserException
 };
 
 /**
- * This exception is raised if a file's contents cannot be read.
- *
+ *  This exception is raised if a file's contents cannot be read.
  **/
 IcePatch2.FileAccessException = class extends Ice.UserException
 {
@@ -102,9 +100,8 @@ IcePatch2.FileAccessException = class extends Ice.UserException
 };
 
 /**
- * This exception is raised if an operation tries to use a file whose size is
- * larger than 2.1 GB. Use the "large" versions of the operations instead.
- *
+ *  This exception is raised if an operation tries to use a file whose size is larger than 2.1 GB. Use the "large"
+ *  versions of the operations instead.
  **/
 IcePatch2.FileSizeRangeException = class extends IcePatch2.FileAccessException
 {
@@ -135,8 +132,7 @@ const iceC_IcePatch2_FileServer_ids = [
 ];
 
 /**
- * The interface that provides access to files.
- *
+ *  The interface that provides access to files.
  **/
 IcePatch2.FileServer = class extends Ice.Object
 {

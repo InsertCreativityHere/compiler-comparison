@@ -25,9 +25,8 @@ _M_Ice = Ice.openModule('Ice')
 _M_IceMX = Ice.openModule('IceMX')
 __name__ = 'IceMX'
 _M_IceMX.__doc__ = """
-The Ice Management eXtension facility. It provides the
-IceMX#MetricsAdmin interface for management clients to
-retrieve metrics from Ice applications.
+ The Ice Management eXtension facility. It provides the IceMX#MetricsAdmin interface for management clients
+ to retrieve metrics from Ice applications.
 """
 
 if '_t_StringIntDict' not in _M_IceMX.__dict__:
@@ -37,18 +36,15 @@ if 'Metrics' not in _M_IceMX.__dict__:
     _M_IceMX.Metrics = Ice.createTempClass()
     class Metrics(Ice.Value):
         """
-        The base class for metrics. A metrics object represents a
-        collection of measurements associated to a given a system.
+         The base class for metrics. A metrics object represents a collection of measurements associated to a given a system.
         Members:
-        id -- The metrics identifier.
-        total -- The total number of objects observed by this metrics. This includes
-        the number of currently observed objects and the number of objects
-        observed in the past.
-        current -- The number of objects currently observed by this metrics.
-        totalLifetime -- The sum of the lifetime of each observed objects. This does not
-        include the lifetime of objects which are currently observed,
-        only the objects observed in the past.
-        failures -- The number of failures observed.
+        id --  The metrics identifier.
+        total --  The total number of objects observed by this metrics. This includes the number of currently observed objects
+         and the number of objects observed in the past.
+        current --  The number of objects currently observed by this metrics.
+        totalLifetime --  The sum of the lifetime of each observed objects. This does not include the lifetime of objects which are
+         currently observed, only the objects observed in the past.
+        failures --  The number of failures observed.
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0):
             self.id = id
@@ -85,12 +81,10 @@ if 'MetricsFailures' not in _M_IceMX.__dict__:
     _M_IceMX.MetricsFailures = Ice.createTempClass()
     class MetricsFailures(object):
         """
-        A structure to keep track of failures associated with a given
-        metrics.
+         A structure to keep track of failures associated with a given metrics.
         Members:
-        id -- The identifier of the metrics object associated to the
-        failures.
-        failures -- The failures observed for this metrics.
+        id --  The identifier of the metrics object associated to the failures.
+        failures --  The failures observed for this metrics.
         """
         def __init__(self, id='', failures=None):
             self.id = id
@@ -137,7 +131,7 @@ if 'UnknownMetricsView' not in _M_IceMX.__dict__:
     _M_IceMX.UnknownMetricsView = Ice.createTempClass()
     class UnknownMetricsView(Ice.UserException):
         """
-        Raised if a metrics view cannot be found.
+         Raised if a metrics view cannot be found.
         """
         def __init__(self):
             pass
@@ -162,7 +156,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
     class MetricsAdminPrx(Ice.ObjectPrx):
 
         """
-        Get the names of enabled and disabled metrics.
+         Get the names of enabled and disabled metrics.
         Arguments:
         context -- The request context for the invocation.
         Returns a tuple containing the following:
@@ -173,7 +167,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             return _M_IceMX.MetricsAdmin._op_getMetricsViewNames.invoke(self, ((), context))
 
         """
-        Get the names of enabled and disabled metrics.
+         Get the names of enabled and disabled metrics.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -182,7 +176,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             return _M_IceMX.MetricsAdmin._op_getMetricsViewNames.invokeAsync(self, ((), context))
 
         """
-        Get the names of enabled and disabled metrics.
+         Get the names of enabled and disabled metrics.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -194,7 +188,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             return _M_IceMX.MetricsAdmin._op_getMetricsViewNames.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Get the names of enabled and disabled metrics.
+         Get the names of enabled and disabled metrics.
         Arguments:
         Returns a tuple containing the following:
         _retval -- The name of the enabled views.
@@ -204,7 +198,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             return _M_IceMX.MetricsAdmin._op_getMetricsViewNames.end(self, _r)
 
         """
-        Enables a metrics view.
+         Enables a metrics view.
         Arguments:
         name -- The metrics view name.
         context -- The request context for the invocation.
@@ -215,7 +209,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             return _M_IceMX.MetricsAdmin._op_enableMetricsView.invoke(self, ((name, ), context))
 
         """
-        Enables a metrics view.
+         Enables a metrics view.
         Arguments:
         name -- The metrics view name.
         context -- The request context for the invocation.
@@ -225,7 +219,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             return _M_IceMX.MetricsAdmin._op_enableMetricsView.invokeAsync(self, ((name, ), context))
 
         """
-        Enables a metrics view.
+         Enables a metrics view.
         Arguments:
         name -- The metrics view name.
         _response -- The asynchronous response callback.
@@ -238,7 +232,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             return _M_IceMX.MetricsAdmin._op_enableMetricsView.begin(self, ((name, ), _response, _ex, _sent, context))
 
         """
-        Enables a metrics view.
+         Enables a metrics view.
         Arguments:
         name -- The metrics view name.
         Throws:
@@ -248,7 +242,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             return _M_IceMX.MetricsAdmin._op_enableMetricsView.end(self, _r)
 
         """
-        Disable a metrics view.
+         Disable a metrics view.
         Arguments:
         name -- The metrics view name.
         context -- The request context for the invocation.
@@ -259,7 +253,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             return _M_IceMX.MetricsAdmin._op_disableMetricsView.invoke(self, ((name, ), context))
 
         """
-        Disable a metrics view.
+         Disable a metrics view.
         Arguments:
         name -- The metrics view name.
         context -- The request context for the invocation.
@@ -269,7 +263,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             return _M_IceMX.MetricsAdmin._op_disableMetricsView.invokeAsync(self, ((name, ), context))
 
         """
-        Disable a metrics view.
+         Disable a metrics view.
         Arguments:
         name -- The metrics view name.
         _response -- The asynchronous response callback.
@@ -282,7 +276,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             return _M_IceMX.MetricsAdmin._op_disableMetricsView.begin(self, ((name, ), _response, _ex, _sent, context))
 
         """
-        Disable a metrics view.
+         Disable a metrics view.
         Arguments:
         name -- The metrics view name.
         Throws:
@@ -292,11 +286,9 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             return _M_IceMX.MetricsAdmin._op_disableMetricsView.end(self, _r)
 
         """
-        Get the metrics objects for the given metrics view. This
-        returns a dictionary of metric maps for each metrics class
-        configured with the view. The timestamp allows the client to
-        compute averages which are not dependent of the invocation
-        latency for this operation.
+         Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+         class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+         the invocation latency for this operation.
         Arguments:
         view -- The name of the metrics view.
         context -- The request context for the invocation.
@@ -310,11 +302,9 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             return _M_IceMX.MetricsAdmin._op_getMetricsView.invoke(self, ((view, ), context))
 
         """
-        Get the metrics objects for the given metrics view. This
-        returns a dictionary of metric maps for each metrics class
-        configured with the view. The timestamp allows the client to
-        compute averages which are not dependent of the invocation
-        latency for this operation.
+         Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+         class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+         the invocation latency for this operation.
         Arguments:
         view -- The name of the metrics view.
         context -- The request context for the invocation.
@@ -324,11 +314,9 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             return _M_IceMX.MetricsAdmin._op_getMetricsView.invokeAsync(self, ((view, ), context))
 
         """
-        Get the metrics objects for the given metrics view. This
-        returns a dictionary of metric maps for each metrics class
-        configured with the view. The timestamp allows the client to
-        compute averages which are not dependent of the invocation
-        latency for this operation.
+         Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+         class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+         the invocation latency for this operation.
         Arguments:
         view -- The name of the metrics view.
         _response -- The asynchronous response callback.
@@ -341,11 +329,9 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             return _M_IceMX.MetricsAdmin._op_getMetricsView.begin(self, ((view, ), _response, _ex, _sent, context))
 
         """
-        Get the metrics objects for the given metrics view. This
-        returns a dictionary of metric maps for each metrics class
-        configured with the view. The timestamp allows the client to
-        compute averages which are not dependent of the invocation
-        latency for this operation.
+         Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+         class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+         the invocation latency for this operation.
         Arguments:
         view -- The name of the metrics view.
         Returns a tuple containing the following:
@@ -358,7 +344,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             return _M_IceMX.MetricsAdmin._op_getMetricsView.end(self, _r)
 
         """
-        Get the metrics failures associated with the given view and map.
+         Get the metrics failures associated with the given view and map.
         Arguments:
         view -- The name of the metrics view.
         map -- The name of the metrics map.
@@ -371,7 +357,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             return _M_IceMX.MetricsAdmin._op_getMapMetricsFailures.invoke(self, ((view, map), context))
 
         """
-        Get the metrics failures associated with the given view and map.
+         Get the metrics failures associated with the given view and map.
         Arguments:
         view -- The name of the metrics view.
         map -- The name of the metrics map.
@@ -382,7 +368,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             return _M_IceMX.MetricsAdmin._op_getMapMetricsFailures.invokeAsync(self, ((view, map), context))
 
         """
-        Get the metrics failures associated with the given view and map.
+         Get the metrics failures associated with the given view and map.
         Arguments:
         view -- The name of the metrics view.
         map -- The name of the metrics map.
@@ -396,7 +382,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             return _M_IceMX.MetricsAdmin._op_getMapMetricsFailures.begin(self, ((view, map), _response, _ex, _sent, context))
 
         """
-        Get the metrics failures associated with the given view and map.
+         Get the metrics failures associated with the given view and map.
         Arguments:
         view -- The name of the metrics view.
         map -- The name of the metrics map.
@@ -408,7 +394,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             return _M_IceMX.MetricsAdmin._op_getMapMetricsFailures.end(self, _r)
 
         """
-        Get the metrics failure associated for the given metrics.
+         Get the metrics failure associated for the given metrics.
         Arguments:
         view -- The name of the metrics view.
         map -- The name of the metrics map.
@@ -422,7 +408,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             return _M_IceMX.MetricsAdmin._op_getMetricsFailures.invoke(self, ((view, map, id), context))
 
         """
-        Get the metrics failure associated for the given metrics.
+         Get the metrics failure associated for the given metrics.
         Arguments:
         view -- The name of the metrics view.
         map -- The name of the metrics map.
@@ -434,7 +420,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             return _M_IceMX.MetricsAdmin._op_getMetricsFailures.invokeAsync(self, ((view, map, id), context))
 
         """
-        Get the metrics failure associated for the given metrics.
+         Get the metrics failure associated for the given metrics.
         Arguments:
         view -- The name of the metrics view.
         map -- The name of the metrics map.
@@ -449,7 +435,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
             return _M_IceMX.MetricsAdmin._op_getMetricsFailures.begin(self, ((view, map, id), _response, _ex, _sent, context))
 
         """
-        Get the metrics failure associated for the given metrics.
+         Get the metrics failure associated for the given metrics.
         Arguments:
         view -- The name of the metrics view.
         map -- The name of the metrics map.
@@ -492,7 +478,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
 
         def getMetricsViewNames(self, current=None):
             """
-            Get the names of enabled and disabled metrics.
+             Get the names of enabled and disabled metrics.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -501,7 +487,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
 
         def enableMetricsView(self, name, current=None):
             """
-            Enables a metrics view.
+             Enables a metrics view.
             Arguments:
             name -- The metrics view name.
             current -- The Current object for the invocation.
@@ -513,7 +499,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
 
         def disableMetricsView(self, name, current=None):
             """
-            Disable a metrics view.
+             Disable a metrics view.
             Arguments:
             name -- The metrics view name.
             current -- The Current object for the invocation.
@@ -525,11 +511,9 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
 
         def getMetricsView(self, view, current=None):
             """
-            Get the metrics objects for the given metrics view. This
-            returns a dictionary of metric maps for each metrics class
-            configured with the view. The timestamp allows the client to
-            compute averages which are not dependent of the invocation
-            latency for this operation.
+             Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+             class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+             the invocation latency for this operation.
             Arguments:
             view -- The name of the metrics view.
             current -- The Current object for the invocation.
@@ -541,7 +525,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
 
         def getMapMetricsFailures(self, view, map, current=None):
             """
-            Get the metrics failures associated with the given view and map.
+             Get the metrics failures associated with the given view and map.
             Arguments:
             view -- The name of the metrics view.
             map -- The name of the metrics map.
@@ -554,7 +538,7 @@ if 'MetricsAdminPrx' not in _M_IceMX.__dict__:
 
         def getMetricsFailures(self, view, map, id, current=None):
             """
-            Get the metrics failure associated for the given metrics.
+             Get the metrics failure associated for the given metrics.
             Arguments:
             view -- The name of the metrics view.
             map -- The name of the metrics map.
@@ -588,17 +572,12 @@ if 'ThreadMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.ThreadMetrics = Ice.createTempClass()
     class ThreadMetrics(_M_IceMX.Metrics):
         """
-        Provides information on the number of threads currently in use and
-        their activity.
+         Provides information on the number of threads currently in use and their activity.
         Members:
-        inUseForIO -- The number of threads which are currently performing socket
-        read or writes.
-        inUseForUser -- The number of threads which are currently calling user code
-        (servant dispatch, AMI callbacks, etc).
-        inUseForOther -- The number of threads which are currently performing other
-        activities. These are all other that are not counted with
-        inUseForUser or inUseForIO, such as DNS
-        lookups, garbage collection).
+        inUseForIO --  The number of threads which are currently performing socket read or writes.
+        inUseForUser --  The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
+        inUseForOther --  The number of threads which are currently performing other activities. These are all other that are not counted
+         with inUseForUser or inUseForIO, such as DNS lookups, garbage collection).
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, inUseForIO=0, inUseForUser=0, inUseForOther=0):
             _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
@@ -632,13 +611,11 @@ if 'DispatchMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.DispatchMetrics = Ice.createTempClass()
     class DispatchMetrics(_M_IceMX.Metrics):
         """
-        Provides information on servant dispatch.
+         Provides information on servant dispatch.
         Members:
-        userException -- The number of dispatch that failed with a user exception.
-        size -- The size of the dispatch. This corresponds to the size of the
-        marshalled input parameters.
-        replySize -- The size of the dispatch reply. This corresponds to the size of
-        the marshalled output and return parameters.
+        userException --  The number of dispatch that failed with a user exception.
+        size --  The size of the dispatch. This corresponds to the size of the marshalled input parameters.
+        replySize --  The size of the dispatch reply. This corresponds to the size of the marshalled output and return parameters.
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, userException=0, size=0, replySize=0):
             _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
@@ -672,16 +649,12 @@ if 'ChildInvocationMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.ChildInvocationMetrics = Ice.createTempClass()
     class ChildInvocationMetrics(_M_IceMX.Metrics):
         """
-        Provides information on child invocations. A child invocation is
-        either remote (sent over an Ice connection) or collocated. An
-        invocation can have multiple child invocation if it is
-        retried. Child invocation metrics are embedded within
-        InvocationMetrics.
+         Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
+         collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
+         embedded within InvocationMetrics.
         Members:
-        size -- The size of the invocation. This corresponds to the size of the
-        marshalled input parameters.
-        replySize -- The size of the invocation reply. This corresponds to the size
-        of the marshalled output and return parameters.
+        size --  The size of the invocation. This corresponds to the size of the marshalled input parameters.
+        replySize --  The size of the invocation reply. This corresponds to the size of the marshalled output and return parameters.
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, size=0, replySize=0):
             _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
@@ -713,8 +686,8 @@ if 'CollocatedMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.CollocatedMetrics = Ice.createTempClass()
     class CollocatedMetrics(_M_IceMX.ChildInvocationMetrics):
         """
-        Provides information on invocations that are collocated. Collocated
-        metrics are embedded within InvocationMetrics.
+         Provides information on invocations that are collocated. Collocated metrics are embedded within
+         InvocationMetrics.
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, size=0, replySize=0):
             _M_IceMX.ChildInvocationMetrics.__init__(self, id, total, current, totalLifetime, failures, size, replySize)
@@ -741,8 +714,8 @@ if 'RemoteMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.RemoteMetrics = Ice.createTempClass()
     class RemoteMetrics(_M_IceMX.ChildInvocationMetrics):
         """
-        Provides information on invocations that are specifically sent over
-        Ice connections. Remote metrics are embedded within InvocationMetrics.
+         Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
+         within InvocationMetrics.
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, size=0, replySize=0):
             _M_IceMX.ChildInvocationMetrics.__init__(self, id, total, current, totalLifetime, failures, size, replySize)
@@ -769,13 +742,12 @@ if 'InvocationMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.InvocationMetrics = Ice.createTempClass()
     class InvocationMetrics(_M_IceMX.Metrics):
         """
-        Provide measurements for proxy invocations. Proxy invocations can
-        either be sent over the wire or be collocated.
+         Provide measurements for proxy invocations. Proxy invocations can either be sent over the wire or be collocated.
         Members:
-        retry -- The number of retries for the invocation(s).
-        userException -- The number of invocations that failed with a user exception.
-        remotes -- The remote invocation metrics map.
-        collocated -- The collocated invocation metrics map.
+        retry --  The number of retries for the invocation(s).
+        userException --  The number of invocations that failed with a user exception.
+        remotes --  The remote invocation metrics map.
+        collocated --  The collocated invocation metrics map.
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, retry=0, userException=0, remotes=None, collocated=None):
             _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
@@ -813,11 +785,10 @@ if 'ConnectionMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.ConnectionMetrics = Ice.createTempClass()
     class ConnectionMetrics(_M_IceMX.Metrics):
         """
-        Provides information on the data sent and received over Ice
-        connections.
+         Provides information on the data sent and received over Ice connections.
         Members:
-        receivedBytes -- The number of bytes received by the connection.
-        sentBytes -- The number of bytes sent by the connection.
+        receivedBytes --  The number of bytes received by the connection.
+        sentBytes --  The number of bytes sent by the connection.
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, receivedBytes=0, sentBytes=0):
             _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)

@@ -16,8 +16,7 @@
 package com.zeroc.Ice;
 
 /**
- * This exception is raised if no suitable value factory was found during
- * unmarshaling of a Slice class instance.
+ * This exception is raised if no suitable value factory was found during unmarshaling of a Slice class instance.
  *
  * @see ValueFactory
  * @see Communicator#getValueFactoryManager
@@ -56,8 +55,7 @@ public class NoValueFactoryException extends MarshalException
     }
 
     /**
-     * The Slice type ID of the class instance for which no
-     * no factory could be found.
+     * The Slice type ID of the class instance for which no factory could be found.
      **/
     public String type;
 

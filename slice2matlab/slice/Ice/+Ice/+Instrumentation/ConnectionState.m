@@ -20,11 +20,10 @@ classdef ConnectionState < uint8
         ConnectionStateHolding (1)
         % The connection is active and can send and receive messages.
         ConnectionStateActive (2)
-        % The connection is being gracefully shutdown and waits for the
-        % peer to close its end of the connection.
+        % The connection is being gracefully shutdown and waits for the peer to close its end of the connection.
         ConnectionStateClosing (3)
-        % The connection is closed and waits for potential dispatch to be
-        % finished before being destroyed and detached from the observer.
+        % The connection is closed and waits for potential dispatch to be finished before being destroyed and detached
+        % from the observer.
         ConnectionStateClosed (4)
     end
     methods(Static)

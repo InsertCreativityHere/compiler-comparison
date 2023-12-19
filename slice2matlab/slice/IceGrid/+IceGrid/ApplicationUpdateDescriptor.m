@@ -1,7 +1,6 @@
 % ApplicationUpdateDescriptor   Summary of ApplicationUpdateDescriptor
 %
-% An application update descriptor to describe the updates to apply
-% to a deployed application.
+% An application update descriptor to describe the updates to apply to a deployed application.
 %
 % ApplicationUpdateDescriptor Properties:
 %   name - The name of the application to update.
@@ -27,8 +26,7 @@ classdef ApplicationUpdateDescriptor
     properties
         % name - The name of the application to update.
         name char
-        % description - The updated description (or null if the description wasn't
-        % updated.)
+        % description - The updated description (or null if the description wasn't updated.)
         description
         % distrib - The updated distribution application descriptor.
         distrib

@@ -1,8 +1,7 @@
 % ApplicationObserverPrx   Summary of ApplicationObserverPrx
 %
-% The database observer interface. Observers should implement this
-% interface to receive information about the state of the IceGrid
-% registry database.
+% The database observer interface. Observers should implement this interface to receive information about the state
+% of the IceGrid registry database.
 %
 % ApplicationObserverPrx Methods:
 %   applicationInit - applicationInit is called after the registration of an observer to indicate the state of the registry.
@@ -22,15 +21,13 @@
 classdef ApplicationObserverPrx < Ice.ObjectPrx
     methods
         function applicationInit(obj, serial, applications, varargin)
-            % applicationInit   applicationInit is called after the registration
-            % of an observer to indicate the state of the registry.
+            % applicationInit   applicationInit is called after the registration of an observer to indicate the state of the
+            % registry.
             %
             % Parameters:
-            %   serial (int32) - The current serial number of the registry
-            %     database. This serial number allows observers to make sure that
-            %     their internal state is synchronized with the registry.
-            %   applications (IceGrid.ApplicationInfoSeq) - The applications currently registered with
-            %     the registry.
+            %   serial (int32) - The current serial number of the registry database. This serial number allows observers to make
+            %     sure that their internal state is synchronized with the registry.
+            %   applications (IceGrid.ApplicationInfoSeq) - The applications currently registered with the registry.
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
@@ -41,15 +38,13 @@ classdef ApplicationObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('applicationInit', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = applicationInitAsync(obj, serial, applications, varargin)
-            % applicationInitAsync   applicationInit is called after the registration
-            % of an observer to indicate the state of the registry.
+            % applicationInitAsync   applicationInit is called after the registration of an observer to indicate the state of the
+            % registry.
             %
             % Parameters:
-            %   serial (int32) - The current serial number of the registry
-            %     database. This serial number allows observers to make sure that
-            %     their internal state is synchronized with the registry.
-            %   applications (IceGrid.ApplicationInfoSeq) - The applications currently registered with
-            %     the registry.
+            %   serial (int32) - The current serial number of the registry database. This serial number allows observers to make
+            %     sure that their internal state is synchronized with the registry.
+            %   applications (IceGrid.ApplicationInfoSeq) - The applications currently registered with the registry.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -62,8 +57,7 @@ classdef ApplicationObserverPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('applicationInit', 0, false, os_, 0, [], {}, varargin{:});
         end
         function applicationAdded(obj, serial, desc, varargin)
-            % applicationAdded   The applicationAdded operation is called to notify an observer
-            % that an application was added.
+            % applicationAdded   The applicationAdded operation is called to notify an observer that an application was added.
             %
             % Parameters:
             %   serial (int32) - The new serial number of the registry database.
@@ -78,8 +72,7 @@ classdef ApplicationObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('applicationAdded', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = applicationAddedAsync(obj, serial, desc, varargin)
-            % applicationAddedAsync   The applicationAdded operation is called to notify an observer
-            % that an application was added.
+            % applicationAddedAsync   The applicationAdded operation is called to notify an observer that an application was added.
             %
             % Parameters:
             %   serial (int32) - The new serial number of the registry database.
@@ -96,8 +89,7 @@ classdef ApplicationObserverPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('applicationAdded', 0, false, os_, 0, [], {}, varargin{:});
         end
         function applicationRemoved(obj, serial, name, varargin)
-            % applicationRemoved   The applicationRemoved operation is called to notify an observer
-            % that an application was removed.
+            % applicationRemoved   The applicationRemoved operation is called to notify an observer that an application was removed.
             %
             % Parameters:
             %   serial (int32) - The new serial number of the registry database.
@@ -111,8 +103,7 @@ classdef ApplicationObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('applicationRemoved', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = applicationRemovedAsync(obj, serial, name, varargin)
-            % applicationRemovedAsync   The applicationRemoved operation is called to notify an observer
-            % that an application was removed.
+            % applicationRemovedAsync   The applicationRemoved operation is called to notify an observer that an application was removed.
             %
             % Parameters:
             %   serial (int32) - The new serial number of the registry database.
@@ -128,8 +119,7 @@ classdef ApplicationObserverPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('applicationRemoved', 0, false, os_, 0, [], {}, varargin{:});
         end
         function applicationUpdated(obj, serial, desc, varargin)
-            % applicationUpdated   The applicationUpdated operation is called to notify an observer
-            % that an application was updated.
+            % applicationUpdated   The applicationUpdated operation is called to notify an observer that an application was updated.
             %
             % Parameters:
             %   serial (int32) - The new serial number of the registry database.
@@ -144,8 +134,7 @@ classdef ApplicationObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('applicationUpdated', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = applicationUpdatedAsync(obj, serial, desc, varargin)
-            % applicationUpdatedAsync   The applicationUpdated operation is called to notify an observer
-            % that an application was updated.
+            % applicationUpdatedAsync   The applicationUpdated operation is called to notify an observer that an application was updated.
             %
             % Parameters:
             %   serial (int32) - The new serial number of the registry database.

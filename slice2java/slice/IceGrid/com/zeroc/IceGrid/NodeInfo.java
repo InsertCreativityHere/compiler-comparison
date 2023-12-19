@@ -32,8 +32,7 @@ public class NodeInfo implements java.lang.Cloneable,
     public String os;
 
     /**
-     * The network name of the host running this node (as defined in
-     * uname()).
+     * The network name of the host running this node (as defined in uname()).
      **/
     public String hostname;
 
@@ -53,9 +52,8 @@ public class NodeInfo implements java.lang.Cloneable,
     public String machine;
 
     /**
-     * The number of processor threads on the node.
-     * For example, nProcessors is 8 on a computer with a single quad-core
-     * processor and two HT threads per core.
+     * The number of processor threads on the node. For example, nProcessors is 8 on a computer with a single
+     * quad-core processor and two HT threads per core.
      **/
     public int nProcessors;
 

@@ -24,8 +24,7 @@ public interface TopicManagerInternalPrx extends com.zeroc.IceStorm.TopicManager
 {
     /**
      * Return the replica node proxy for this topic manager.
-     * @return The replica proxy, or null if this instance is not
-     * replicated.
+     * @return The replica proxy, or null if this instance is not replicated.
      **/
     default IceStormElection.NodePrx getReplicaNode()
     {
@@ -35,8 +34,7 @@ public interface TopicManagerInternalPrx extends com.zeroc.IceStorm.TopicManager
     /**
      * Return the replica node proxy for this topic manager.
      * @param context The Context map to send with the invocation.
-     * @return The replica proxy, or null if this instance is not
-     * replicated.
+     * @return The replica proxy, or null if this instance is not replicated.
      **/
     default IceStormElection.NodePrx getReplicaNode(java.util.Map<String, String> context)
     {
@@ -45,8 +43,7 @@ public interface TopicManagerInternalPrx extends com.zeroc.IceStorm.TopicManager
 
     /**
      * Return the replica node proxy for this topic manager.
-     * @return The replica proxy, or null if this instance is not
-     * replicated.
+     * @return The replica proxy, or null if this instance is not replicated.
      **/
     default java.util.concurrent.CompletableFuture<IceStormElection.NodePrx> getReplicaNodeAsync()
     {
@@ -56,8 +53,7 @@ public interface TopicManagerInternalPrx extends com.zeroc.IceStorm.TopicManager
     /**
      * Return the replica node proxy for this topic manager.
      * @param context The Context map to send with the invocation.
-     * @return The replica proxy, or null if this instance is not
-     * replicated.
+     * @return The replica proxy, or null if this instance is not replicated.
      **/
     default java.util.concurrent.CompletableFuture<IceStormElection.NodePrx> getReplicaNodeAsync(java.util.Map<String, String> context)
     {

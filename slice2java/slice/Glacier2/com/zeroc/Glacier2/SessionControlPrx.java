@@ -16,16 +16,14 @@
 package com.zeroc.Glacier2;
 
 /**
- * An administrative session control object, which is tied to the
- * lifecycle of a {@link Session}.
+ * An administrative session control object, which is tied to the lifecycle of a {@link Session}.
  *
  * @see Session
  **/
 public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
-     * Access the object that manages the allowable categories
-     * for object identities for this session.
+     * Access the object that manages the allowable categories for object identities for this session.
      * @return A StringSet object.
      **/
     default StringSetPrx categories()
@@ -34,8 +32,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Access the object that manages the allowable categories
-     * for object identities for this session.
+     * Access the object that manages the allowable categories for object identities for this session.
      * @param context The Context map to send with the invocation.
      * @return A StringSet object.
      **/
@@ -45,8 +42,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Access the object that manages the allowable categories
-     * for object identities for this session.
+     * Access the object that manages the allowable categories for object identities for this session.
      * @return A StringSet object.
      **/
     default java.util.concurrent.CompletableFuture<StringSetPrx> categoriesAsync()
@@ -55,8 +51,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Access the object that manages the allowable categories
-     * for object identities for this session.
+     * Access the object that manages the allowable categories for object identities for this session.
      * @param context The Context map to send with the invocation.
      * @return A StringSet object.
      **/
@@ -83,8 +78,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Access the object that manages the allowable adapter identities
-     * for objects for this session.
+     * Access the object that manages the allowable adapter identities for objects for this session.
      * @return A StringSet object.
      **/
     default StringSetPrx adapterIds()
@@ -93,8 +87,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Access the object that manages the allowable adapter identities
-     * for objects for this session.
+     * Access the object that manages the allowable adapter identities for objects for this session.
      * @param context The Context map to send with the invocation.
      * @return A StringSet object.
      **/
@@ -104,8 +97,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Access the object that manages the allowable adapter identities
-     * for objects for this session.
+     * Access the object that manages the allowable adapter identities for objects for this session.
      * @return A StringSet object.
      **/
     default java.util.concurrent.CompletableFuture<StringSetPrx> adapterIdsAsync()
@@ -114,8 +106,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Access the object that manages the allowable adapter identities
-     * for objects for this session.
+     * Access the object that manages the allowable adapter identities for objects for this session.
      * @param context The Context map to send with the invocation.
      * @return A StringSet object.
      **/
@@ -142,8 +133,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Access the object that manages the allowable object identities
-     * for this session.
+     * Access the object that manages the allowable object identities for this session.
      * @return An IdentitySet object.
      **/
     default IdentitySetPrx identities()
@@ -152,8 +142,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Access the object that manages the allowable object identities
-     * for this session.
+     * Access the object that manages the allowable object identities for this session.
      * @param context The Context map to send with the invocation.
      * @return An IdentitySet object.
      **/
@@ -163,8 +152,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Access the object that manages the allowable object identities
-     * for this session.
+     * Access the object that manages the allowable object identities for this session.
      * @return An IdentitySet object.
      **/
     default java.util.concurrent.CompletableFuture<IdentitySetPrx> identitiesAsync()
@@ -173,8 +161,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Access the object that manages the allowable object identities
-     * for this session.
+     * Access the object that manages the allowable object identities for this session.
      * @param context The Context map to send with the invocation.
      * @return An IdentitySet object.
      **/

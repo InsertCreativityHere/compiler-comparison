@@ -16,21 +16,17 @@
 package com.zeroc.IceGrid;
 
 /**
- * The IceGrid administrative interface.
- * <p class="Warning">Allowing access to this interface
- * is a security risk! Please see the IceGrid documentation
- * for further information.
+ * The IceGrid administrative interface. <p class="Warning">Allowing access to this interface is a security risk!
+ * Please see the IceGrid documentation for further information.
  **/
 public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
      * Add an application to IceGrid.
      * @param descriptor The application descriptor.
-     * @throws AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws DeploymentException Raised if application deployment
-     * failed.
+     * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws DeploymentException Raised if application deployment failed.
      **/
     default void addApplication(ApplicationDescriptor descriptor)
         throws AccessDeniedException,
@@ -43,11 +39,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * Add an application to IceGrid.
      * @param descriptor The application descriptor.
      * @param context The Context map to send with the invocation.
-     * @throws AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws DeploymentException Raised if application deployment
-     * failed.
+     * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws DeploymentException Raised if application deployment failed.
      **/
     default void addApplication(ApplicationDescriptor descriptor, java.util.Map<String, String> context)
         throws AccessDeniedException,
@@ -117,17 +111,13 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor.
      * @param descriptor The application descriptor.
-     * @throws AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws DeploymentException Raised if application deployment
-     * failed.
+     * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws DeploymentException Raised if application deployment failed.
      **/
     default void syncApplication(ApplicationDescriptor descriptor)
         throws AccessDeniedException,
@@ -138,18 +128,14 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor.
      * @param descriptor The application descriptor.
      * @param context The Context map to send with the invocation.
-     * @throws AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws DeploymentException Raised if application deployment
-     * failed.
+     * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws DeploymentException Raised if application deployment failed.
      **/
     default void syncApplication(ApplicationDescriptor descriptor, java.util.Map<String, String> context)
         throws AccessDeniedException,
@@ -179,9 +165,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor.
      * @param descriptor The application descriptor.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -191,9 +176,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor.
      * @param descriptor The application descriptor.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -229,16 +213,12 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor.
+     * Update a deployed application with the given update application descriptor.
      * @param descriptor The update descriptor.
-     * @throws AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws DeploymentException Raised if application deployment
-     * failed.
+     * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws DeploymentException Raised if application deployment failed.
      **/
     default void updateApplication(ApplicationUpdateDescriptor descriptor)
         throws AccessDeniedException,
@@ -249,17 +229,13 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor.
+     * Update a deployed application with the given update application descriptor.
      * @param descriptor The update descriptor.
      * @param context The Context map to send with the invocation.
-     * @throws AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws DeploymentException Raised if application deployment
-     * failed.
+     * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws DeploymentException Raised if application deployment failed.
      **/
     default void updateApplication(ApplicationUpdateDescriptor descriptor, java.util.Map<String, String> context)
         throws AccessDeniedException,
@@ -289,8 +265,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor.
+     * Update a deployed application with the given update application descriptor.
      * @param descriptor The update descriptor.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -300,8 +275,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor.
+     * Update a deployed application with the given update application descriptor.
      * @param descriptor The update descriptor.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -337,20 +311,14 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor only if no server restarts are
-     * necessary for the update of the application. If some servers
-     * need to be restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
      * @param descriptor The application descriptor.
-     * @throws AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws DeploymentException Raised if application deployment
-     * failed.
+     * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws DeploymentException Raised if application deployment failed.
      **/
     default void syncApplicationWithoutRestart(ApplicationDescriptor descriptor)
         throws AccessDeniedException,
@@ -361,21 +329,15 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor only if no server restarts are
-     * necessary for the update of the application. If some servers
-     * need to be restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
      * @param descriptor The application descriptor.
      * @param context The Context map to send with the invocation.
-     * @throws AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws DeploymentException Raised if application deployment
-     * failed.
+     * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws DeploymentException Raised if application deployment failed.
      **/
     default void syncApplicationWithoutRestart(ApplicationDescriptor descriptor, java.util.Map<String, String> context)
         throws AccessDeniedException,
@@ -405,12 +367,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor only if no server restarts are
-     * necessary for the update of the application. If some servers
-     * need to be restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
      * @param descriptor The application descriptor.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -420,12 +379,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Synchronize a deployed application with the given application
-     * descriptor. This operation will replace the current descriptor
-     * with this new descriptor only if no server restarts are
-     * necessary for the update of the application. If some servers
-     * need to be restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Synchronize a deployed application with the given application descriptor. This operation will replace the
+     * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
      * @param descriptor The application descriptor.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -461,19 +417,14 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor only if no server restarts are necessary for the
-     * update of the application. If some servers need to be
-     * restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Update a deployed application with the given update application descriptor only if no server restarts are
+     * necessary for the update of the application. If some servers need to be restarted, the synchronization is
+     * rejected with a DeploymentException.
      * @param descriptor The update descriptor.
-     * @throws AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws DeploymentException Raised if application deployment
-     * failed.
+     * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws DeploymentException Raised if application deployment failed.
      **/
     default void updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor)
         throws AccessDeniedException,
@@ -484,20 +435,15 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor only if no server restarts are necessary for the
-     * update of the application. If some servers need to be
-     * restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Update a deployed application with the given update application descriptor only if no server restarts are
+     * necessary for the update of the application. If some servers need to be restarted, the synchronization is
+     * rejected with a DeploymentException.
      * @param descriptor The update descriptor.
      * @param context The Context map to send with the invocation.
-     * @throws AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws DeploymentException Raised if application deployment
-     * failed.
+     * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws DeploymentException Raised if application deployment failed.
      **/
     default void updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor, java.util.Map<String, String> context)
         throws AccessDeniedException,
@@ -527,11 +473,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor only if no server restarts are necessary for the
-     * update of the application. If some servers need to be
-     * restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Update a deployed application with the given update application descriptor only if no server restarts are
+     * necessary for the update of the application. If some servers need to be restarted, the synchronization is
+     * rejected with a DeploymentException.
      * @param descriptor The update descriptor.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -541,11 +485,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Update a deployed application with the given update application
-     * descriptor only if no server restarts are necessary for the
-     * update of the application. If some servers need to be
-     * restarted, the synchronization is rejected with a
-     * DeploymentException.
+     * Update a deployed application with the given update application descriptor only if no server restarts are
+     * necessary for the update of the application. If some servers need to be restarted, the synchronization is
+     * rejected with a DeploymentException.
      * @param descriptor The update descriptor.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -583,11 +525,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Remove an application from IceGrid.
      * @param name The application name.
-     * @throws AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
      * @throws DeploymentException Raised if application deployment failed.
      **/
     default void removeApplication(String name)
@@ -602,11 +542,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * Remove an application from IceGrid.
      * @param name The application name.
      * @param context The Context map to send with the invocation.
-     * @throws AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
      * @throws DeploymentException Raised if application deployment failed.
      **/
     default void removeApplication(String name, java.util.Map<String, String> context)
@@ -682,19 +620,14 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     /**
-     * Instantiate a server template from an application on the given
-     * node.
+     * Instantiate a server template from an application on the given node.
      * @param application The application name.
-     * @param node The name of the node where the server will be
-     * deployed.
+     * @param node The name of the node where the server will be deployed.
      * @param desc The descriptor of the server instance to deploy.
-     * @throws AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws DeploymentException Raised if server instantiation
-     * failed.
+     * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws DeploymentException Raised if server instantiation failed.
      **/
     default void instantiateServer(String application, String node, ServerInstanceDescriptor desc)
         throws AccessDeniedException,
@@ -705,20 +638,15 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Instantiate a server template from an application on the given
-     * node.
+     * Instantiate a server template from an application on the given node.
      * @param application The application name.
-     * @param node The name of the node where the server will be
-     * deployed.
+     * @param node The name of the node where the server will be deployed.
      * @param desc The descriptor of the server instance to deploy.
      * @param context The Context map to send with the invocation.
-     * @throws AccessDeniedException Raised if the session doesn't
-     * hold the exclusive lock or if another session is holding the
-     * lock.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
-     * @throws DeploymentException Raised if server instantiation
-     * failed.
+     * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
+     * holding the lock.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
+     * @throws DeploymentException Raised if server instantiation failed.
      **/
     default void instantiateServer(String application, String node, ServerInstanceDescriptor desc, java.util.Map<String, String> context)
         throws AccessDeniedException,
@@ -748,11 +676,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Instantiate a server template from an application on the given
-     * node.
+     * Instantiate a server template from an application on the given node.
      * @param application The application name.
-     * @param node The name of the node where the server will be
-     * deployed.
+     * @param node The name of the node where the server will be deployed.
      * @param desc The descriptor of the server instance to deploy.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -762,11 +688,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Instantiate a server template from an application on the given
-     * node.
+     * Instantiate a server template from an application on the given node.
      * @param application The application name.
-     * @param node The name of the node where the server will be
-     * deployed.
+     * @param node The name of the node where the server will be deployed.
      * @param desc The descriptor of the server instance to deploy.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -807,10 +731,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Patch the given application data.
      * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to
-     * patch will be shut down if necessary.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
      * @throws PatchException Raised if the patch failed.
      **/
     default void patchApplication(String name, boolean shutdown)
@@ -823,11 +745,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Patch the given application data.
      * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to
-     * patch will be shut down if necessary.
+     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
      * @param context The Context map to send with the invocation.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
      * @throws PatchException Raised if the patch failed.
      **/
     default void patchApplication(String name, boolean shutdown, java.util.Map<String, String> context)
@@ -855,8 +775,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Patch the given application data.
      * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to
-     * patch will be shut down if necessary.
+     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> patchApplicationAsync(String name, boolean shutdown)
@@ -867,8 +786,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Patch the given application data.
      * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to
-     * patch will be shut down if necessary.
+     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -906,8 +824,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * Get an application descriptor.
      * @param name The application name.
      * @return The application descriptor.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
      **/
     default ApplicationInfo getApplicationInfo(String name)
         throws ApplicationNotExistException
@@ -920,8 +837,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param name The application name.
      * @param context The Context map to send with the invocation.
      * @return The application descriptor.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
      **/
     default ApplicationInfo getApplicationInfo(String name, java.util.Map<String, String> context)
         throws ApplicationNotExistException
@@ -991,8 +907,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Get the default application descriptor.
      * @return The default application descriptor.
-     * @throws DeploymentException Raised if the default application
-     * descriptor can't be accessed or is invalid.
+     * @throws DeploymentException Raised if the default application descriptor can't be accessed or is invalid.
      **/
     default ApplicationDescriptor getDefaultApplicationDescriptor()
         throws DeploymentException
@@ -1004,8 +919,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * Get the default application descriptor.
      * @param context The Context map to send with the invocation.
      * @return The default application descriptor.
-     * @throws DeploymentException Raised if the default application
-     * descriptor can't be accessed or is invalid.
+     * @throws DeploymentException Raised if the default application descriptor can't be accessed or is invalid.
      **/
     default ApplicationDescriptor getDefaultApplicationDescriptor(java.util.Map<String, String> context)
         throws DeploymentException
@@ -1210,10 +1124,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * Get a server's state.
      * @param id The server id.
      * @return The server state.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default ServerState getServerState(String id)
@@ -1229,10 +1141,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param id The server id.
      * @param context The Context map to send with the invocation.
      * @return The server state.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default ServerState getServerState(String id, java.util.Map<String, String> context)
@@ -1312,14 +1222,11 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     /**
-     * Get a server's system process id. The process id is operating
-     * system dependent.
+     * Get a server's system process id. The process id is operating system dependent.
      * @param id The server id.
      * @return The server's process id.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default int getServerPid(String id)
@@ -1331,15 +1238,12 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get a server's system process id. The process id is operating
-     * system dependent.
+     * Get a server's system process id. The process id is operating system dependent.
      * @param id The server id.
      * @param context The Context map to send with the invocation.
      * @return The server's process id.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default int getServerPid(String id, java.util.Map<String, String> context)
@@ -1370,8 +1274,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get a server's system process id. The process id is operating
-     * system dependent.
+     * Get a server's system process id. The process id is operating system dependent.
      * @param id The server id.
      * @return The server's process id.
      **/
@@ -1381,8 +1284,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get a server's system process id. The process id is operating
-     * system dependent.
+     * Get a server's system process id. The process id is operating system dependent.
      * @param id The server id.
      * @param context The Context map to send with the invocation.
      * @return The server's process id.
@@ -1421,9 +1323,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     /**
-     * Get the category for server admin objects. You can manufacture a server admin
-     * proxy from the admin proxy by changing its identity: use the server ID as name
-     * and the returned category as category.
+     * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+     * changing its identity: use the server ID as name and the returned category as category.
      * @return The category for server admin objects.
      **/
     default String getServerAdminCategory()
@@ -1432,9 +1333,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the category for server admin objects. You can manufacture a server admin
-     * proxy from the admin proxy by changing its identity: use the server ID as name
-     * and the returned category as category.
+     * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+     * changing its identity: use the server ID as name and the returned category as category.
      * @param context The Context map to send with the invocation.
      * @return The category for server admin objects.
      **/
@@ -1444,9 +1344,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the category for server admin objects. You can manufacture a server admin
-     * proxy from the admin proxy by changing its identity: use the server ID as name
-     * and the returned category as category.
+     * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+     * changing its identity: use the server ID as name and the returned category as category.
      * @return The category for server admin objects.
      **/
     default java.util.concurrent.CompletableFuture<java.lang.String> getServerAdminCategoryAsync()
@@ -1455,9 +1354,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the category for server admin objects. You can manufacture a server admin
-     * proxy from the admin proxy by changing its identity: use the server ID as name
-     * and the returned category as category.
+     * Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+     * changing its identity: use the server ID as name and the returned category as category.
      * @param context The Context map to send with the invocation.
      * @return The category for server admin objects.
      **/
@@ -1487,10 +1385,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * Get a proxy to the server's admin object.
      * @param id The server id.
      * @return A proxy to the server's admin object
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default com.zeroc.Ice.ObjectPrx getServerAdmin(String id)
@@ -1506,10 +1402,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param id The server id.
      * @param context The Context map to send with the invocation.
      * @return A proxy to the server's admin object
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default com.zeroc.Ice.ObjectPrx getServerAdmin(String id, java.util.Map<String, String> context)
@@ -1589,16 +1483,12 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     /**
-     * Enable or disable a server. A disabled server can't be started
-     * on demand or administratively. The enable state of the server
-     * is not persistent: if the node is shut down and restarted, the
-     * server will be enabled by default.
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
      * @param id The server id.
      * @param enabled True to enable the server, false to disable it.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default void enableServer(String id, boolean enabled)
@@ -1610,17 +1500,13 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Enable or disable a server. A disabled server can't be started
-     * on demand or administratively. The enable state of the server
-     * is not persistent: if the node is shut down and restarted, the
-     * server will be enabled by default.
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
      * @param id The server id.
      * @param enabled True to enable the server, false to disable it.
      * @param context The Context map to send with the invocation.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not
-     * be reached.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default void enableServer(String id, boolean enabled, java.util.Map<String, String> context)
@@ -1651,10 +1537,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Enable or disable a server. A disabled server can't be started
-     * on demand or administratively. The enable state of the server
-     * is not persistent: if the node is shut down and restarted, the
-     * server will be enabled by default.
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
      * @param id The server id.
      * @param enabled True to enable the server, false to disable it.
      * @return A future that will be completed when the invocation completes.
@@ -1665,10 +1549,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Enable or disable a server. A disabled server can't be started
-     * on demand or administratively. The enable state of the server
-     * is not persistent: if the node is shut down and restarted, the
-     * server will be enabled by default.
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
      * @param id The server id.
      * @param enabled True to enable the server, false to disable it.
      * @param context The Context map to send with the invocation.
@@ -1709,12 +1591,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * Check if the server is enabled or disabled.
      * @param id The server id.
      * @return True if the server is enabled.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
+     * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default boolean isServerEnabled(String id)
         throws DeploymentException,
@@ -1729,12 +1608,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param id The server id.
      * @param context The Context map to send with the invocation.
      * @return True if the server is enabled.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
+     * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default boolean isServerEnabled(String id, java.util.Map<String, String> context)
         throws DeploymentException,
@@ -1815,14 +1691,10 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Start a server and wait for its activation.
      * @param id The server id.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws ServerNotExistException Raised if the server doesn't
-     * exist.
-     * @throws ServerStartException Raised if the server couldn't be
-     * started.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
+     * @throws ServerNotExistException Raised if the server doesn't exist.
+     * @throws ServerStartException Raised if the server couldn't be started.
      **/
     default void startServer(String id)
         throws DeploymentException,
@@ -1837,14 +1709,10 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * Start a server and wait for its activation.
      * @param id The server id.
      * @param context The Context map to send with the invocation.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not
-     * be reached.
-     * @throws ServerNotExistException Raised if the server doesn't
-     * exist.
-     * @throws ServerStartException Raised if the server couldn't be
-     * started.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
+     * @throws ServerNotExistException Raised if the server doesn't exist.
+     * @throws ServerStartException Raised if the server couldn't be started.
      **/
     default void startServer(String id, java.util.Map<String, String> context)
         throws DeploymentException,
@@ -1927,14 +1795,10 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Stop a server.
      * @param id The server id.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
-     * @throws ServerNotExistException Raised if the server doesn't
-     * exist.
-     * @throws ServerStopException Raised if the server couldn't be
-     * stopped.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
+     * @throws ServerNotExistException Raised if the server doesn't exist.
+     * @throws ServerStopException Raised if the server couldn't be stopped.
      **/
     default void stopServer(String id)
         throws DeploymentException,
@@ -1949,14 +1813,10 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * Stop a server.
      * @param id The server id.
      * @param context The Context map to send with the invocation.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
-     * @throws ServerNotExistException Raised if the server doesn't
-     * exist.
-     * @throws ServerStopException Raised if the server couldn't be
-     * stopped.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
+     * @throws ServerNotExistException Raised if the server doesn't exist.
+     * @throws ServerStopException Raised if the server couldn't be stopped.
      **/
     default void stopServer(String id, java.util.Map<String, String> context)
         throws DeploymentException,
@@ -2039,15 +1899,11 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Patch a server.
      * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch
-     * will be shut down if necessary.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      * @throws PatchException Raised if the patch failed.
-     * @throws ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default void patchServer(String id, boolean shutdown)
         throws DeploymentException,
@@ -2061,16 +1917,12 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Patch a server.
      * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch
-     * will be shut down if necessary.
+     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
      * @param context The Context map to send with the invocation.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      * @throws PatchException Raised if the patch failed.
-     * @throws ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default void patchServer(String id, boolean shutdown, java.util.Map<String, String> context)
         throws DeploymentException,
@@ -2107,8 +1959,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Patch a server.
      * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch
-     * will be shut down if necessary.
+     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> patchServerAsync(String id, boolean shutdown)
@@ -2119,8 +1970,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Patch a server.
      * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch
-     * will be shut down if necessary.
+     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -2160,14 +2010,10 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * Send signal to a server.
      * @param id The server id.
      * @param signal The signal, for example SIGTERM or 15.
-     * @throws BadSignalException Raised if the signal is not recognized
-     * by the target server.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
-     * @throws ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws BadSignalException Raised if the signal is not recognized by the target server.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
+     * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default void sendSignal(String id, String signal)
         throws BadSignalException,
@@ -2183,14 +2029,10 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param id The server id.
      * @param signal The signal, for example SIGTERM or 15.
      * @param context The Context map to send with the invocation.
-     * @throws BadSignalException Raised if the signal is not recognized
-     * by the target server.
-     * @throws DeploymentException Raised if the server couldn't be
-     * deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
-     * @throws ServerNotExistException Raised if the server doesn't
-     * exist.
+     * @throws BadSignalException Raised if the signal is not recognized by the target server.
+     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
+     * @throws ServerNotExistException Raised if the server doesn't exist.
      **/
     default void sendSignal(String id, String signal, java.util.Map<String, String> context)
         throws BadSignalException,
@@ -2330,16 +2172,12 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the adapter information for the replica group or adapter
-     * with the given id.
+     * Get the adapter information for the replica group or adapter with the given id.
      * @param id The adapter id.
-     * @return A sequence of adapter information structures. If the
-     * given id refers to an adapter, this sequence will contain only
-     * one element. If the given id refers to a replica group, the
-     * sequence will contain the adapter information of each member of
-     * the replica group.
-     * @throws AdapterNotExistException Raised if the adapter or
-     * replica group doesn't exist.
+     * @return A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
+     * contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
+     * information of each member of the replica group.
+     * @throws AdapterNotExistException Raised if the adapter or replica group doesn't exist.
      **/
     default AdapterInfo[] getAdapterInfo(String id)
         throws AdapterNotExistException
@@ -2348,17 +2186,13 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the adapter information for the replica group or adapter
-     * with the given id.
+     * Get the adapter information for the replica group or adapter with the given id.
      * @param id The adapter id.
      * @param context The Context map to send with the invocation.
-     * @return A sequence of adapter information structures. If the
-     * given id refers to an adapter, this sequence will contain only
-     * one element. If the given id refers to a replica group, the
-     * sequence will contain the adapter information of each member of
-     * the replica group.
-     * @throws AdapterNotExistException Raised if the adapter or
-     * replica group doesn't exist.
+     * @return A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
+     * contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
+     * information of each member of the replica group.
+     * @throws AdapterNotExistException Raised if the adapter or replica group doesn't exist.
      **/
     default AdapterInfo[] getAdapterInfo(String id, java.util.Map<String, String> context)
         throws AdapterNotExistException
@@ -2378,14 +2212,11 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the adapter information for the replica group or adapter
-     * with the given id.
+     * Get the adapter information for the replica group or adapter with the given id.
      * @param id The adapter id.
-     * @return A sequence of adapter information structures. If the
-     * given id refers to an adapter, this sequence will contain only
-     * one element. If the given id refers to a replica group, the
-     * sequence will contain the adapter information of each member of
-     * the replica group.
+     * @return A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
+     * contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
+     * information of each member of the replica group.
      **/
     default java.util.concurrent.CompletableFuture<AdapterInfo[]> getAdapterInfoAsync(String id)
     {
@@ -2393,15 +2224,12 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the adapter information for the replica group or adapter
-     * with the given id.
+     * Get the adapter information for the replica group or adapter with the given id.
      * @param id The adapter id.
      * @param context The Context map to send with the invocation.
-     * @return A sequence of adapter information structures. If the
-     * given id refers to an adapter, this sequence will contain only
-     * one element. If the given id refers to a replica group, the
-     * sequence will contain the adapter information of each member of
-     * the replica group.
+     * @return A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
+     * contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
+     * information of each member of the replica group.
      **/
     default java.util.concurrent.CompletableFuture<AdapterInfo[]> getAdapterInfoAsync(String id, java.util.Map<String, String> context)
     {
@@ -2437,8 +2265,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Remove the adapter with the given id.
      * @param id The adapter id.
-     * @throws AdapterNotExistException Raised if the adapter doesn't
-     * exist.
+     * @throws AdapterNotExistException Raised if the adapter doesn't exist.
      * @throws DeploymentException Raised if application deployment failed.
      **/
     default void removeAdapter(String id)
@@ -2452,8 +2279,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * Remove the adapter with the given id.
      * @param id The adapter id.
      * @param context The Context map to send with the invocation.
-     * @throws AdapterNotExistException Raised if the adapter doesn't
-     * exist.
+     * @throws AdapterNotExistException Raised if the adapter doesn't exist.
      * @throws DeploymentException Raised if application deployment failed.
      **/
     default void removeAdapter(String id, java.util.Map<String, String> context)
@@ -2578,15 +2404,12 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Add an object to the object registry. IceGrid will get the
-     * object type by calling <code>ice_id</code> on the given proxy. The object
-     * must be reachable.
+     * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
+     * given proxy. The object must be reachable.
      * @param obj The object to be added to the registry.
-     * @throws DeploymentException Raised if the object can't be
-     * added. This might be raised if the invocation on the proxy to
-     * get the object type failed.
-     * @throws ObjectExistsException Raised if the object is already
-     * registered.
+     * @throws DeploymentException Raised if the object can't be added. This might be raised if the invocation on the
+     * proxy to get the object type failed.
+     * @throws ObjectExistsException Raised if the object is already registered.
      **/
     default void addObject(com.zeroc.Ice.ObjectPrx obj)
         throws DeploymentException,
@@ -2596,16 +2419,13 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Add an object to the object registry. IceGrid will get the
-     * object type by calling <code>ice_id</code> on the given proxy. The object
-     * must be reachable.
+     * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
+     * given proxy. The object must be reachable.
      * @param obj The object to be added to the registry.
      * @param context The Context map to send with the invocation.
-     * @throws DeploymentException Raised if the object can't be
-     * added. This might be raised if the invocation on the proxy to
-     * get the object type failed.
-     * @throws ObjectExistsException Raised if the object is already
-     * registered.
+     * @throws DeploymentException Raised if the object can't be added. This might be raised if the invocation on the
+     * proxy to get the object type failed.
+     * @throws ObjectExistsException Raised if the object is already registered.
      **/
     default void addObject(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
         throws DeploymentException,
@@ -2630,9 +2450,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Add an object to the object registry. IceGrid will get the
-     * object type by calling <code>ice_id</code> on the given proxy. The object
-     * must be reachable.
+     * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
+     * given proxy. The object must be reachable.
      * @param obj The object to be added to the registry.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -2642,9 +2461,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Add an object to the object registry. IceGrid will get the
-     * object type by calling <code>ice_id</code> on the given proxy. The object
-     * must be reachable.
+     * Add an object to the object registry. IceGrid will get the object type by calling <code>ice_id</code> on the
+     * given proxy. The object must be reachable.
      * @param obj The object to be added to the registry.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -2678,16 +2496,12 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     /**
-     * Update an object in the object registry. Only objects added
-     * with this interface can be updated with this operation. Objects
-     * added with deployment descriptors should be updated with the
-     * deployment mechanism.
+     * Update an object in the object registry. Only objects added with this interface can be updated with this
+     * operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
      * @param obj The object to be updated to the registry.
-     * @throws DeploymentException Raised if the object can't be
-     * updated. This might happen if the object was added with a
-     * deployment descriptor.
-     * @throws ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws DeploymentException Raised if the object can't be updated. This might happen if the object was added
+     * with a deployment descriptor.
+     * @throws ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      **/
     default void updateObject(com.zeroc.Ice.ObjectPrx obj)
         throws DeploymentException,
@@ -2697,17 +2511,13 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Update an object in the object registry. Only objects added
-     * with this interface can be updated with this operation. Objects
-     * added with deployment descriptors should be updated with the
-     * deployment mechanism.
+     * Update an object in the object registry. Only objects added with this interface can be updated with this
+     * operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
      * @param obj The object to be updated to the registry.
      * @param context The Context map to send with the invocation.
-     * @throws DeploymentException Raised if the object can't be
-     * updated. This might happen if the object was added with a
-     * deployment descriptor.
-     * @throws ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws DeploymentException Raised if the object can't be updated. This might happen if the object was added
+     * with a deployment descriptor.
+     * @throws ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      **/
     default void updateObject(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
         throws DeploymentException,
@@ -2732,10 +2542,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Update an object in the object registry. Only objects added
-     * with this interface can be updated with this operation. Objects
-     * added with deployment descriptors should be updated with the
-     * deployment mechanism.
+     * Update an object in the object registry. Only objects added with this interface can be updated with this
+     * operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
      * @param obj The object to be updated to the registry.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -2745,10 +2553,8 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Update an object in the object registry. Only objects added
-     * with this interface can be updated with this operation. Objects
-     * added with deployment descriptors should be updated with the
-     * deployment mechanism.
+     * Update an object in the object registry. Only objects added with this interface can be updated with this
+     * operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
      * @param obj The object to be updated to the registry.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -2782,13 +2588,11 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     /**
-     * Add an object to the object registry and explicitly specify
-     * its type.
+     * Add an object to the object registry and explicitly specify its type.
      * @param obj The object to be added to the registry.
      * @param type The object type.
      * @throws DeploymentException Raised if application deployment failed.
-     * @throws ObjectExistsException Raised if the object is already
-     * registered.
+     * @throws ObjectExistsException Raised if the object is already registered.
      **/
     default void addObjectWithType(com.zeroc.Ice.ObjectPrx obj, String type)
         throws DeploymentException,
@@ -2798,14 +2602,12 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Add an object to the object registry and explicitly specify
-     * its type.
+     * Add an object to the object registry and explicitly specify its type.
      * @param obj The object to be added to the registry.
      * @param type The object type.
      * @param context The Context map to send with the invocation.
      * @throws DeploymentException Raised if application deployment failed.
-     * @throws ObjectExistsException Raised if the object is already
-     * registered.
+     * @throws ObjectExistsException Raised if the object is already registered.
      **/
     default void addObjectWithType(com.zeroc.Ice.ObjectPrx obj, String type, java.util.Map<String, String> context)
         throws DeploymentException,
@@ -2830,8 +2632,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Add an object to the object registry and explicitly specify
-     * its type.
+     * Add an object to the object registry and explicitly specify its type.
      * @param obj The object to be added to the registry.
      * @param type The object type.
      * @return A future that will be completed when the invocation completes.
@@ -2842,8 +2643,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Add an object to the object registry and explicitly specify
-     * its type.
+     * Add an object to the object registry and explicitly specify its type.
      * @param obj The object to be added to the registry.
      * @param type The object type.
      * @param context The Context map to send with the invocation.
@@ -2880,17 +2680,12 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     /**
-     * Remove an object from the object registry. Only objects added
-     * with this interface can be removed with this operation. Objects
-     * added with deployment descriptors should be removed with the
-     * deployment mechanism.
-     * @param id The identity of the object to be removed from the
-     * registry.
-     * @throws DeploymentException Raised if the object can't be
-     * removed. This might happen if the object was added with a
-     * deployment descriptor.
-     * @throws ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * Remove an object from the object registry. Only objects added with this interface can be removed with this
+     * operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
+     * @param id The identity of the object to be removed from the registry.
+     * @throws DeploymentException Raised if the object can't be removed. This might happen if the object was added
+     * with a deployment descriptor.
+     * @throws ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      **/
     default void removeObject(com.zeroc.Ice.Identity id)
         throws DeploymentException,
@@ -2900,18 +2695,13 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Remove an object from the object registry. Only objects added
-     * with this interface can be removed with this operation. Objects
-     * added with deployment descriptors should be removed with the
-     * deployment mechanism.
-     * @param id The identity of the object to be removed from the
-     * registry.
+     * Remove an object from the object registry. Only objects added with this interface can be removed with this
+     * operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
+     * @param id The identity of the object to be removed from the registry.
      * @param context The Context map to send with the invocation.
-     * @throws DeploymentException Raised if the object can't be
-     * removed. This might happen if the object was added with a
-     * deployment descriptor.
-     * @throws ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws DeploymentException Raised if the object can't be removed. This might happen if the object was added
+     * with a deployment descriptor.
+     * @throws ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      **/
     default void removeObject(com.zeroc.Ice.Identity id, java.util.Map<String, String> context)
         throws DeploymentException,
@@ -2936,12 +2726,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Remove an object from the object registry. Only objects added
-     * with this interface can be removed with this operation. Objects
-     * added with deployment descriptors should be removed with the
-     * deployment mechanism.
-     * @param id The identity of the object to be removed from the
-     * registry.
+     * Remove an object from the object registry. Only objects added with this interface can be removed with this
+     * operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
+     * @param id The identity of the object to be removed from the registry.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> removeObjectAsync(com.zeroc.Ice.Identity id)
@@ -2950,12 +2737,9 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Remove an object from the object registry. Only objects added
-     * with this interface can be removed with this operation. Objects
-     * added with deployment descriptors should be removed with the
-     * deployment mechanism.
-     * @param id The identity of the object to be removed from the
-     * registry.
+     * Remove an object from the object registry. Only objects added with this interface can be removed with this
+     * operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
+     * @param id The identity of the object to be removed from the registry.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -2991,8 +2775,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * Get the object info for the object with the given identity.
      * @param id The identity of the object.
      * @return The object info.
-     * @throws ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      **/
     default ObjectInfo getObjectInfo(com.zeroc.Ice.Identity id)
         throws ObjectNotRegisteredException
@@ -3005,8 +2788,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param id The identity of the object.
      * @param context The Context map to send with the invocation.
      * @return The object info.
-     * @throws ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      **/
     default ObjectInfo getObjectInfo(com.zeroc.Ice.Identity id, java.util.Map<String, String> context)
         throws ObjectNotRegisteredException
@@ -3073,8 +2855,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     /**
-     * Get the object info of all the registered objects with the
-     * given type.
+     * Get the object info of all the registered objects with the given type.
      * @param type The type of the object.
      * @return The object infos.
      **/
@@ -3084,8 +2865,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the object info of all the registered objects with the
-     * given type.
+     * Get the object info of all the registered objects with the given type.
      * @param type The type of the object.
      * @param context The Context map to send with the invocation.
      * @return The object infos.
@@ -3096,8 +2876,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the object info of all the registered objects with the
-     * given type.
+     * Get the object info of all the registered objects with the given type.
      * @param type The type of the object.
      * @return The object infos.
      **/
@@ -3107,8 +2886,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the object info of all the registered objects with the
-     * given type.
+     * Get the object info of all the registered objects with the given type.
      * @param type The type of the object.
      * @param context The Context map to send with the invocation.
      * @return The object infos.
@@ -3139,13 +2917,10 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the object info of all the registered objects whose stringified
-     * identities match the given expression.
-     * @param expr The expression to match against the stringified
-     * identities of registered objects. The expression may contain
-     * a trailing wildcard (<code>*</code>) character.
-     * @return All the object infos with a stringified identity
-     * matching the given expression.
+     * Get the object info of all the registered objects whose stringified identities match the given expression.
+     * @param expr The expression to match against the stringified identities of registered objects. The expression
+     * may contain a trailing wildcard (<code>*</code>) character.
+     * @return All the object infos with a stringified identity matching the given expression.
      **/
     default ObjectInfo[] getAllObjectInfos(String expr)
     {
@@ -3153,14 +2928,11 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the object info of all the registered objects whose stringified
-     * identities match the given expression.
-     * @param expr The expression to match against the stringified
-     * identities of registered objects. The expression may contain
-     * a trailing wildcard (<code>*</code>) character.
+     * Get the object info of all the registered objects whose stringified identities match the given expression.
+     * @param expr The expression to match against the stringified identities of registered objects. The expression
+     * may contain a trailing wildcard (<code>*</code>) character.
      * @param context The Context map to send with the invocation.
-     * @return All the object infos with a stringified identity
-     * matching the given expression.
+     * @return All the object infos with a stringified identity matching the given expression.
      **/
     default ObjectInfo[] getAllObjectInfos(String expr, java.util.Map<String, String> context)
     {
@@ -3168,13 +2940,10 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the object info of all the registered objects whose stringified
-     * identities match the given expression.
-     * @param expr The expression to match against the stringified
-     * identities of registered objects. The expression may contain
-     * a trailing wildcard (<code>*</code>) character.
-     * @return All the object infos with a stringified identity
-     * matching the given expression.
+     * Get the object info of all the registered objects whose stringified identities match the given expression.
+     * @param expr The expression to match against the stringified identities of registered objects. The expression
+     * may contain a trailing wildcard (<code>*</code>) character.
+     * @return All the object infos with a stringified identity matching the given expression.
      **/
     default java.util.concurrent.CompletableFuture<ObjectInfo[]> getAllObjectInfosAsync(String expr)
     {
@@ -3182,14 +2951,11 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the object info of all the registered objects whose stringified
-     * identities match the given expression.
-     * @param expr The expression to match against the stringified
-     * identities of registered objects. The expression may contain
-     * a trailing wildcard (<code>*</code>) character.
+     * Get the object info of all the registered objects whose stringified identities match the given expression.
+     * @param expr The expression to match against the stringified identities of registered objects. The expression
+     * may contain a trailing wildcard (<code>*</code>) character.
      * @param context The Context map to send with the invocation.
-     * @return All the object infos with a stringified identity
-     * matching the given expression.
+     * @return All the object infos with a stringified identity matching the given expression.
      **/
     default java.util.concurrent.CompletableFuture<ObjectInfo[]> getAllObjectInfosAsync(String expr, java.util.Map<String, String> context)
     {
@@ -3304,8 +3070,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param name The node name.
      * @return The node load information.
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     default LoadInfo getNodeLoad(String name)
         throws NodeNotExistException,
@@ -3320,8 +3085,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return The node load information.
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     default LoadInfo getNodeLoad(String name, java.util.Map<String, String> context)
         throws NodeNotExistException,
@@ -3398,8 +3162,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param name The node name.
      * @return The node information.
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     default NodeInfo getNodeInfo(String name)
         throws NodeNotExistException,
@@ -3414,8 +3177,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return The node information.
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     default NodeInfo getNodeInfo(String name, java.util.Map<String, String> context)
         throws NodeNotExistException,
@@ -3492,8 +3254,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param name The IceGrid node name
      * @return A proxy to the IceGrid node's admin object
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     default com.zeroc.Ice.ObjectPrx getNodeAdmin(String name)
         throws NodeNotExistException,
@@ -3508,8 +3269,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy to the IceGrid node's admin object
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     default com.zeroc.Ice.ObjectPrx getNodeAdmin(String name, java.util.Map<String, String> context)
         throws NodeNotExistException,
@@ -3582,19 +3342,13 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     /**
-     * Get the number of physical processor sockets for the machine
-     * running the node with the given name.
-     *
-     * Note that this method will return 1 on operating systems where
-     * this can't be automatically determined and where the
-     * IceGrid.Node.ProcessorSocketCount property for the node is not
-     * set.
+     * Get the number of physical processor sockets for the machine running the node with the given name.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
+     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
      * @param name The node name.
-     * @return The number of processor sockets or 1 if the number of
-     * sockets can't determined.
+     * @return The number of processor sockets or 1 if the number of sockets can't determined.
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     default int getNodeProcessorSocketCount(String name)
         throws NodeNotExistException,
@@ -3604,20 +3358,14 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the number of physical processor sockets for the machine
-     * running the node with the given name.
-     *
-     * Note that this method will return 1 on operating systems where
-     * this can't be automatically determined and where the
-     * IceGrid.Node.ProcessorSocketCount property for the node is not
-     * set.
+     * Get the number of physical processor sockets for the machine running the node with the given name.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
+     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
-     * @return The number of processor sockets or 1 if the number of
-     * sockets can't determined.
+     * @return The number of processor sockets or 1 if the number of sockets can't determined.
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     default int getNodeProcessorSocketCount(String name, java.util.Map<String, String> context)
         throws NodeNotExistException,
@@ -3642,16 +3390,11 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the number of physical processor sockets for the machine
-     * running the node with the given name.
-     *
-     * Note that this method will return 1 on operating systems where
-     * this can't be automatically determined and where the
-     * IceGrid.Node.ProcessorSocketCount property for the node is not
-     * set.
+     * Get the number of physical processor sockets for the machine running the node with the given name.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
+     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
      * @param name The node name.
-     * @return The number of processor sockets or 1 if the number of
-     * sockets can't determined.
+     * @return The number of processor sockets or 1 if the number of sockets can't determined.
      **/
     default java.util.concurrent.CompletableFuture<java.lang.Integer> getNodeProcessorSocketCountAsync(String name)
     {
@@ -3659,17 +3402,12 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the number of physical processor sockets for the machine
-     * running the node with the given name.
-     *
-     * Note that this method will return 1 on operating systems where
-     * this can't be automatically determined and where the
-     * IceGrid.Node.ProcessorSocketCount property for the node is not
-     * set.
+     * Get the number of physical processor sockets for the machine running the node with the given name.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
+     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
-     * @return The number of processor sockets or 1 if the number of
-     * sockets can't determined.
+     * @return The number of processor sockets or 1 if the number of sockets can't determined.
      **/
     default java.util.concurrent.CompletableFuture<java.lang.Integer> getNodeProcessorSocketCountAsync(String name, java.util.Map<String, String> context)
     {
@@ -3707,8 +3445,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * Shutdown an IceGrid node.
      * @param name The node name.
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     default void shutdownNode(String name)
         throws NodeNotExistException,
@@ -3722,8 +3459,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     default void shutdownNode(String name, java.util.Map<String, String> context)
         throws NodeNotExistException,
@@ -3796,8 +3532,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param name The node name.
      * @return The node hostname.
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     default String getNodeHostname(String name)
         throws NodeNotExistException,
@@ -3812,8 +3547,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return The node hostname.
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     default String getNodeHostname(String name, java.util.Map<String, String> context)
         throws NodeNotExistException,
@@ -4028,8 +3762,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param name The registry name.
      * @return The registry information.
      * @throws RegistryNotExistException Raised if the registry doesn't exist.
-     * @throws RegistryUnreachableException Raised if the registry could not be
-     * reached.
+     * @throws RegistryUnreachableException Raised if the registry could not be reached.
      **/
     default RegistryInfo getRegistryInfo(String name)
         throws RegistryNotExistException,
@@ -4044,8 +3777,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param context The Context map to send with the invocation.
      * @return The registry information.
      * @throws RegistryNotExistException Raised if the registry doesn't exist.
-     * @throws RegistryUnreachableException Raised if the registry could not be
-     * reached.
+     * @throws RegistryUnreachableException Raised if the registry could not be reached.
      **/
     default RegistryInfo getRegistryInfo(String name, java.util.Map<String, String> context)
         throws RegistryNotExistException,
@@ -4204,8 +3936,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * Shutdown an IceGrid registry.
      * @param name The registry name.
      * @throws RegistryNotExistException Raised if the registry doesn't exist.
-     * @throws RegistryUnreachableException Raised if the registry could not be
-     * reached.
+     * @throws RegistryUnreachableException Raised if the registry could not be reached.
      **/
     default void shutdownRegistry(String name)
         throws RegistryNotExistException,
@@ -4219,8 +3950,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param name The registry name.
      * @param context The Context map to send with the invocation.
      * @throws RegistryNotExistException Raised if the registry doesn't exist.
-     * @throws RegistryUnreachableException Raised if the registry could not be
-     * reached.
+     * @throws RegistryUnreachableException Raised if the registry could not be reached.
      **/
     default void shutdownRegistry(String name, java.util.Map<String, String> context)
         throws RegistryNotExistException,

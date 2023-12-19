@@ -16,8 +16,7 @@
 package com.zeroc.IceGrid;
 
 /**
- * This exception is raised if a registry lock wasn't
- * acquired or is already held by a session.
+ * his exception is raised if a registry lock wasn't acquired or is already held by a session.
  **/
 public class AccessDeniedException extends com.zeroc.Ice.UserException
 {

@@ -25,7 +25,7 @@ if 'ProtocolVersion' not in _M_Ice.__dict__:
     _M_Ice.ProtocolVersion = Ice.createTempClass()
     class ProtocolVersion(object):
         """
-        A version structure for the protocol version.
+         A version structure for the protocol version.
         """
         def __init__(self, major=0, minor=0):
             self.major = major
@@ -120,7 +120,7 @@ if 'EncodingVersion' not in _M_Ice.__dict__:
     _M_Ice.EncodingVersion = Ice.createTempClass()
     class EncodingVersion(object):
         """
-        A version structure for the encoding version.
+         A version structure for the encoding version.
         """
         def __init__(self, major=0, minor=0):
             self.major = major

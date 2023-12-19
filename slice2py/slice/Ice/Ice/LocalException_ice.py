@@ -30,9 +30,9 @@ if 'InitializationException' not in _M_Ice.__dict__:
     _M_Ice.InitializationException = Ice.createTempClass()
     class InitializationException(Ice.LocalException):
         """
-        This exception is raised when a failure occurs during initialization.
+         This exception is raised when a failure occurs during initialization.
         Members:
-        reason -- The reason for the failure.
+        reason --  The reason for the failure.
         """
         def __init__(self, reason=''):
             self.reason = reason
@@ -54,10 +54,9 @@ if 'PluginInitializationException' not in _M_Ice.__dict__:
     _M_Ice.PluginInitializationException = Ice.createTempClass()
     class PluginInitializationException(Ice.LocalException):
         """
-        This exception indicates that a failure occurred while initializing
-        a plug-in.
+         This exception indicates that a failure occurred while initializing a plug-in.
         Members:
-        reason -- The reason for the failure.
+        reason --  The reason for the failure.
         """
         def __init__(self, reason=''):
             self.reason = reason
@@ -79,8 +78,7 @@ if 'CollocationOptimizationException' not in _M_Ice.__dict__:
     _M_Ice.CollocationOptimizationException = Ice.createTempClass()
     class CollocationOptimizationException(Ice.LocalException):
         """
-        This exception is raised if a feature is requested that is not
-        supported with collocation optimization.
+         This exception is raised if a feature is requested that is not supported with collocation optimization.
         """
         def __init__(self):
             pass
@@ -102,17 +100,13 @@ if 'AlreadyRegisteredException' not in _M_Ice.__dict__:
     _M_Ice.AlreadyRegisteredException = Ice.createTempClass()
     class AlreadyRegisteredException(Ice.LocalException):
         """
-        An attempt was made to register something more than once with
-        the Ice run time.
-        This exception is raised if an attempt is made to register a
-        servant, servant locator, facet, value factory, plug-in, object
-        adapter, object, or user exception factory more than once for the
-        same ID.
+         An attempt was made to register something more than once with the Ice run time. This exception is raised if an
+         attempt is made to register a servant, servant locator, facet, value factory, plug-in, object adapter, object, or
+         user exception factory more than once for the same ID.
         Members:
-        kindOfObject -- The kind of object that could not be removed: "servant", "facet",
-        "object", "default servant", "servant locator", "value factory", "plugin",
-        "object adapter", "object adapter with router", "replica group".
-        id -- The ID (or name) of the object that is registered already.
+        kindOfObject --  The kind of object that could not be removed: "servant", "facet", "object", "default servant",
+         "servant locator", "value factory", "plugin", "object adapter", "object adapter with router", "replica group".
+        id --  The ID (or name) of the object that is registered already.
         """
         def __init__(self, kindOfObject='', id=''):
             self.kindOfObject = kindOfObject
@@ -138,19 +132,15 @@ if 'NotRegisteredException' not in _M_Ice.__dict__:
     _M_Ice.NotRegisteredException = Ice.createTempClass()
     class NotRegisteredException(Ice.LocalException):
         """
-        An attempt was made to find or deregister something that is not
-        registered with the Ice run time or Ice locator.
-        This exception is raised if an attempt is made to remove a servant,
-        servant locator, facet, value factory, plug-in, object adapter,
-        object, or user exception factory that is not currently registered.
-        It's also raised if the Ice locator can't find an object or object
-        adapter when resolving an indirect proxy or when an object adapter
-        is activated.
+         An attempt was made to find or deregister something that is not registered with the Ice run time or Ice locator.
+         This exception is raised if an attempt is made to remove a servant, servant locator, facet, value factory, plug-in,
+         object adapter, object, or user exception factory that is not currently registered. It's also raised if the Ice
+         locator can't find an object or object adapter when resolving an indirect proxy or when an object adapter is
+         activated.
         Members:
-        kindOfObject -- The kind of object that could not be removed: "servant", "facet",
-        "object", "default servant", "servant locator", "value factory", "plugin",
-        "object adapter", "object adapter with router", "replica group".
-        id -- The ID (or name) of the object that could not be removed.
+        kindOfObject --  The kind of object that could not be removed: "servant", "facet", "object", "default servant",
+         "servant locator", "value factory", "plugin", "object adapter", "object adapter with router", "replica group".
+        id --  The ID (or name) of the object that could not be removed.
         """
         def __init__(self, kindOfObject='', id=''):
             self.kindOfObject = kindOfObject
@@ -176,13 +166,11 @@ if 'TwowayOnlyException' not in _M_Ice.__dict__:
     _M_Ice.TwowayOnlyException = Ice.createTempClass()
     class TwowayOnlyException(Ice.LocalException):
         """
-        The operation can only be invoked with a twoway request.
-        This exception is raised if an attempt is made to invoke an
-        operation with ice_oneway, ice_batchOneway, ice_datagram,
-        or ice_batchDatagram and the operation has a return value,
-        out-parameters, or an exception specification.
+         The operation can only be invoked with a twoway request. This exception is raised if an attempt is made to invoke
+         an operation with ice_oneway, ice_batchOneway, ice_datagram, or
+         ice_batchDatagram and the operation has a return value, out-parameters, or an exception specification.
         Members:
-        operation -- The name of the operation that was invoked.
+        operation --  The name of the operation that was invoked.
         """
         def __init__(self, operation=''):
             self.operation = operation
@@ -204,12 +192,10 @@ if 'CloneNotImplementedException' not in _M_Ice.__dict__:
     _M_Ice.CloneNotImplementedException = Ice.createTempClass()
     class CloneNotImplementedException(Ice.LocalException):
         """
-        An attempt was made to clone a class that does not support
-        cloning.
-        This exception is raised if ice_clone is called on
-        a class that is derived from an abstract Slice class (that is,
-        a class containing operations), and the derived class does not
-        provide an implementation of the ice_clone operation (C++ only).
+         An attempt was made to clone a class that does not support cloning. This exception is raised if
+         ice_clone is called on a class that is derived from an abstract Slice class (that is, a class
+         containing operations), and the derived class does not provide an implementation of the ice_clone
+         operation (C++ only).
         """
         def __init__(self):
             pass
@@ -231,14 +217,11 @@ if 'UnknownException' not in _M_Ice.__dict__:
     _M_Ice.UnknownException = Ice.createTempClass()
     class UnknownException(Ice.LocalException):
         """
-        This exception is raised if an operation call on a server raises an
-        unknown exception. For example, for C++, this exception is raised
-        if the server throws a C++ exception that is not directly or
-        indirectly derived from Ice::LocalException or
-        Ice::UserException.
+         This exception is raised if an operation call on a server raises an unknown exception. For example, for C++, this
+         exception is raised if the server throws a C++ exception that is not directly or indirectly derived from
+         Ice::LocalException or Ice::UserException.
         Members:
-        unknown -- This field is set to the textual representation of the unknown
-        exception if available.
+        unknown --  This field is set to the textual representation of the unknown exception if available.
         """
         def __init__(self, unknown=''):
             self.unknown = unknown
@@ -260,13 +243,11 @@ if 'UnknownLocalException' not in _M_Ice.__dict__:
     _M_Ice.UnknownLocalException = Ice.createTempClass()
     class UnknownLocalException(_M_Ice.UnknownException):
         """
-        This exception is raised if an operation call on a server raises a
-        local exception. Because local exceptions are not transmitted by
-        the Ice protocol, the client receives all local exceptions raised
-        by the server as UnknownLocalException. The only exception to this
-        rule are all exceptions derived from RequestFailedException,
-        which are transmitted by the Ice protocol even though they are
-        declared local.
+         This exception is raised if an operation call on a server raises a  local exception. Because local exceptions are
+         not transmitted by the Ice protocol, the client receives all local exceptions raised by the server as
+         UnknownLocalException. The only exception to this rule are all exceptions derived from
+         RequestFailedException, which are transmitted by the Ice protocol even though they are declared
+         local.
         """
         def __init__(self, unknown=''):
             _M_Ice.UnknownException.__init__(self, unknown)
@@ -288,16 +269,11 @@ if 'UnknownUserException' not in _M_Ice.__dict__:
     _M_Ice.UnknownUserException = Ice.createTempClass()
     class UnknownUserException(_M_Ice.UnknownException):
         """
-        An operation raised an incorrect user exception.
-        This exception is raised if an operation raises a
-        user exception that is not declared in the exception's
-        throws clause. Such undeclared exceptions are
-        not transmitted from the server to the client by the Ice
-        protocol, but instead the client just gets an
-        UnknownUserException. This is necessary in order to not violate
-        the contract established by an operation's signature: Only local
-        exceptions and user exceptions declared in the
-        throws clause can be raised.
+         An operation raised an incorrect user exception. This exception is raised if an operation raises a user exception
+         that is not declared in the exception's throws clause. Such undeclared exceptions are not transmitted
+         from the server to the client by the Ice protocol, but instead the client just gets an UnknownUserException.
+         This is necessary in order to not violate the contract established by an operation's signature: Only local
+         exceptions and user exceptions declared in the throws clause can be raised.
         """
         def __init__(self, unknown=''):
             _M_Ice.UnknownException.__init__(self, unknown)
@@ -319,8 +295,7 @@ if 'VersionMismatchException' not in _M_Ice.__dict__:
     _M_Ice.VersionMismatchException = Ice.createTempClass()
     class VersionMismatchException(Ice.LocalException):
         """
-        This exception is raised if the Ice library version does not match
-        the version in the Ice header files.
+         This exception is raised if the Ice library version does not match the version in the Ice header files.
         """
         def __init__(self):
             pass
@@ -342,7 +317,7 @@ if 'CommunicatorDestroyedException' not in _M_Ice.__dict__:
     _M_Ice.CommunicatorDestroyedException = Ice.createTempClass()
     class CommunicatorDestroyedException(Ice.LocalException):
         """
-        This exception is raised if the Communicator has been destroyed.
+         This exception is raised if the Communicator has been destroyed.
         """
         def __init__(self):
             pass
@@ -364,10 +339,9 @@ if 'ObjectAdapterDeactivatedException' not in _M_Ice.__dict__:
     _M_Ice.ObjectAdapterDeactivatedException = Ice.createTempClass()
     class ObjectAdapterDeactivatedException(Ice.LocalException):
         """
-        This exception is raised if an attempt is made to use a deactivated
-        ObjectAdapter.
+         This exception is raised if an attempt is made to use a deactivated ObjectAdapter.
         Members:
-        name -- Name of the adapter.
+        name --  Name of the adapter.
         """
         def __init__(self, name=''):
             self.name = name
@@ -389,11 +363,10 @@ if 'ObjectAdapterIdInUseException' not in _M_Ice.__dict__:
     _M_Ice.ObjectAdapterIdInUseException = Ice.createTempClass()
     class ObjectAdapterIdInUseException(Ice.LocalException):
         """
-        This exception is raised if an ObjectAdapter cannot be activated.
-        This happens if the Locator detects another active ObjectAdapter with
-        the same adapter id.
+         This exception is raised if an ObjectAdapter cannot be activated. This happens if the Locator
+         detects another active ObjectAdapter with the same adapter id.
         Members:
-        id -- Adapter ID.
+        id --  Adapter ID.
         """
         def __init__(self, id=''):
             self.id = id
@@ -415,10 +388,9 @@ if 'NoEndpointException' not in _M_Ice.__dict__:
     _M_Ice.NoEndpointException = Ice.createTempClass()
     class NoEndpointException(Ice.LocalException):
         """
-        This exception is raised if no suitable endpoint is available.
+         This exception is raised if no suitable endpoint is available.
         Members:
-        proxy -- The stringified proxy for which no suitable endpoint is
-        available.
+        proxy --  The stringified proxy for which no suitable endpoint is available.
         """
         def __init__(self, proxy=''):
             self.proxy = proxy
@@ -440,10 +412,9 @@ if 'EndpointParseException' not in _M_Ice.__dict__:
     _M_Ice.EndpointParseException = Ice.createTempClass()
     class EndpointParseException(Ice.LocalException):
         """
-        This exception is raised if there was an error while parsing an
-        endpoint.
+         This exception is raised if there was an error while parsing an endpoint.
         Members:
-        str -- Describes the failure and includes the string that could not be parsed.
+        str --  Describes the failure and includes the string that could not be parsed.
         """
         def __init__(self, str=''):
             self.str = str
@@ -465,10 +436,9 @@ if 'EndpointSelectionTypeParseException' not in _M_Ice.__dict__:
     _M_Ice.EndpointSelectionTypeParseException = Ice.createTempClass()
     class EndpointSelectionTypeParseException(Ice.LocalException):
         """
-        This exception is raised if there was an error while parsing an
-        endpoint selection type.
+         This exception is raised if there was an error while parsing an endpoint selection type.
         Members:
-        str -- Describes the failure and includes the string that could not be parsed.
+        str --  Describes the failure and includes the string that could not be parsed.
         """
         def __init__(self, str=''):
             self.str = str
@@ -490,10 +460,9 @@ if 'VersionParseException' not in _M_Ice.__dict__:
     _M_Ice.VersionParseException = Ice.createTempClass()
     class VersionParseException(Ice.LocalException):
         """
-        This exception is raised if there was an error while parsing a
-        version.
+         This exception is raised if there was an error while parsing a version.
         Members:
-        str -- Describes the failure and includes the string that could not be parsed.
+        str --  Describes the failure and includes the string that could not be parsed.
         """
         def __init__(self, str=''):
             self.str = str
@@ -515,10 +484,9 @@ if 'IdentityParseException' not in _M_Ice.__dict__:
     _M_Ice.IdentityParseException = Ice.createTempClass()
     class IdentityParseException(Ice.LocalException):
         """
-        This exception is raised if there was an error while parsing a
-        stringified identity.
+         This exception is raised if there was an error while parsing a stringified identity.
         Members:
-        str -- Describes the failure and includes the string that could not be parsed.
+        str --  Describes the failure and includes the string that could not be parsed.
         """
         def __init__(self, str=''):
             self.str = str
@@ -540,10 +508,9 @@ if 'ProxyParseException' not in _M_Ice.__dict__:
     _M_Ice.ProxyParseException = Ice.createTempClass()
     class ProxyParseException(Ice.LocalException):
         """
-        This exception is raised if there was an error while parsing a
-        stringified proxy.
+         This exception is raised if there was an error while parsing a stringified proxy.
         Members:
-        str -- Describes the failure and includes the string that could not be parsed.
+        str --  Describes the failure and includes the string that could not be parsed.
         """
         def __init__(self, str=''):
             self.str = str
@@ -565,9 +532,9 @@ if 'IllegalIdentityException' not in _M_Ice.__dict__:
     _M_Ice.IllegalIdentityException = Ice.createTempClass()
     class IllegalIdentityException(Ice.LocalException):
         """
-        This exception is raised if an illegal identity is encountered.
+          This exception is raised if an illegal identity is encountered.
         Members:
-        id -- The illegal identity.
+        id --  The illegal identity.
         """
         def __init__(self, id=Ice._struct_marker):
             if id is Ice._struct_marker:
@@ -592,10 +559,9 @@ if 'IllegalServantException' not in _M_Ice.__dict__:
     _M_Ice.IllegalServantException = Ice.createTempClass()
     class IllegalServantException(Ice.LocalException):
         """
-        This exception is raised to reject an illegal servant (typically
-        a null servant)
+         This exception is raised to reject an illegal servant (typically a null servant).
         Members:
-        reason -- Describes why this servant is illegal.
+        reason --  Describes why this servant is illegal.
         """
         def __init__(self, reason=''):
             self.reason = reason
@@ -617,14 +583,13 @@ if 'RequestFailedException' not in _M_Ice.__dict__:
     _M_Ice.RequestFailedException = Ice.createTempClass()
     class RequestFailedException(Ice.LocalException):
         """
-        This exception is raised if a request failed. This exception, and
-        all exceptions derived from RequestFailedException, are
-        transmitted by the Ice protocol, even though they are declared
-        local.
+         This exception is raised if a request failed. This exception, and all exceptions derived from
+         RequestFailedException, are transmitted by the Ice protocol, even though they are declared
+         local.
         Members:
-        id -- The identity of the Ice Object to which the request was sent.
-        facet -- The facet to which the request was sent.
-        operation -- The operation name of the request.
+        id --  The identity of the Ice Object to which the request was sent.
+        facet --  The facet to which the request was sent.
+        operation --  The operation name of the request.
         """
         def __init__(self, id=Ice._struct_marker, facet='', operation=''):
             if id is Ice._struct_marker:
@@ -655,8 +620,8 @@ if 'ObjectNotExistException' not in _M_Ice.__dict__:
     _M_Ice.ObjectNotExistException = Ice.createTempClass()
     class ObjectNotExistException(_M_Ice.RequestFailedException):
         """
-        This exception is raised if an object does not exist on the server,
-        that is, if no facets with the given identity exist.
+         This exception is raised if an object does not exist on the server, that is, if no facets with the given identity
+         exist.
         """
         def __init__(self, id=Ice._struct_marker, facet='', operation=''):
             _M_Ice.RequestFailedException.__init__(self, id, facet, operation)
@@ -678,8 +643,8 @@ if 'FacetNotExistException' not in _M_Ice.__dict__:
     _M_Ice.FacetNotExistException = Ice.createTempClass()
     class FacetNotExistException(_M_Ice.RequestFailedException):
         """
-        This exception is raised if no facet with the given name exists,
-        but at least one facet with the given identity exists.
+         This exception is raised if no facet with the given name exists, but at least one facet with the given identity
+         exists.
         """
         def __init__(self, id=Ice._struct_marker, facet='', operation=''):
             _M_Ice.RequestFailedException.__init__(self, id, facet, operation)
@@ -701,9 +666,8 @@ if 'OperationNotExistException' not in _M_Ice.__dict__:
     _M_Ice.OperationNotExistException = Ice.createTempClass()
     class OperationNotExistException(_M_Ice.RequestFailedException):
         """
-        This exception is raised if an operation for a given object does
-        not exist on the server. Typically this is caused by either the
-        client or the server using an outdated Slice specification.
+         This exception is raised if an operation for a given object does not exist on the server. Typically this is caused
+         by either the client or the server using an outdated Slice specification.
         """
         def __init__(self, id=Ice._struct_marker, facet='', operation=''):
             _M_Ice.RequestFailedException.__init__(self, id, facet, operation)
@@ -725,16 +689,12 @@ if 'SyscallException' not in _M_Ice.__dict__:
     _M_Ice.SyscallException = Ice.createTempClass()
     class SyscallException(Ice.LocalException):
         """
-        This exception is raised if a system error occurred in the server
-        or client process. There are many possible causes for such a system
-        exception. For details on the cause, SyscallException#error
-        should be inspected.
+         This exception is raised if a system error occurred in the server or client process. There are many possible causes
+         for such a system exception. For details on the cause, SyscallException#error should be inspected.
         Members:
-        error -- The error number describing the system exception. For C++ and
-        Unix, this is equivalent to errno. For C++
-        and Windows, this is the value returned by
-        GetLastError() or
-        WSAGetLastError().
+        error --  The error number describing the system exception. For C++ and Unix, this is equivalent to errno.
+         For C++ and Windows, this is the value returned by GetLastError() or
+         WSAGetLastError().
         """
         def __init__(self, error=0):
             self.error = error
@@ -756,7 +716,7 @@ if 'SocketException' not in _M_Ice.__dict__:
     _M_Ice.SocketException = Ice.createTempClass()
     class SocketException(_M_Ice.SyscallException):
         """
-        This exception indicates socket errors.
+         This exception indicates socket errors.
         """
         def __init__(self, error=0):
             _M_Ice.SyscallException.__init__(self, error)
@@ -778,9 +738,9 @@ if 'CFNetworkException' not in _M_Ice.__dict__:
     _M_Ice.CFNetworkException = Ice.createTempClass()
     class CFNetworkException(_M_Ice.SocketException):
         """
-        This exception indicates CFNetwork errors.
+         This exception indicates CFNetwork errors.
         Members:
-        domain -- The domain of the error.
+        domain --  The domain of the error.
         """
         def __init__(self, error=0, domain=''):
             _M_Ice.SocketException.__init__(self, error)
@@ -803,9 +763,9 @@ if 'FileException' not in _M_Ice.__dict__:
     _M_Ice.FileException = Ice.createTempClass()
     class FileException(_M_Ice.SyscallException):
         """
-        This exception indicates file errors.
+         This exception indicates file errors.
         Members:
-        path -- The path of the file responsible for the error.
+        path --  The path of the file responsible for the error.
         """
         def __init__(self, error=0, path=''):
             _M_Ice.SyscallException.__init__(self, error)
@@ -828,7 +788,7 @@ if 'ConnectFailedException' not in _M_Ice.__dict__:
     _M_Ice.ConnectFailedException = Ice.createTempClass()
     class ConnectFailedException(_M_Ice.SocketException):
         """
-        This exception indicates connection failures.
+         This exception indicates connection failures.
         """
         def __init__(self, error=0):
             _M_Ice.SocketException.__init__(self, error)
@@ -850,8 +810,7 @@ if 'ConnectionRefusedException' not in _M_Ice.__dict__:
     _M_Ice.ConnectionRefusedException = Ice.createTempClass()
     class ConnectionRefusedException(_M_Ice.ConnectFailedException):
         """
-        This exception indicates a connection failure for which
-        the server host actively refuses a connection.
+         This exception indicates a connection failure for which the server host actively refuses a connection.
         """
         def __init__(self, error=0):
             _M_Ice.ConnectFailedException.__init__(self, error)
@@ -873,7 +832,7 @@ if 'ConnectionLostException' not in _M_Ice.__dict__:
     _M_Ice.ConnectionLostException = Ice.createTempClass()
     class ConnectionLostException(_M_Ice.SocketException):
         """
-        This exception indicates a lost connection.
+         This exception indicates a lost connection.
         """
         def __init__(self, error=0):
             _M_Ice.SocketException.__init__(self, error)
@@ -895,14 +854,11 @@ if 'DNSException' not in _M_Ice.__dict__:
     _M_Ice.DNSException = Ice.createTempClass()
     class DNSException(Ice.LocalException):
         """
-        This exception indicates a DNS problem. For details on the cause,
-        DNSException#error should be inspected.
+         This exception indicates a DNS problem. For details on the cause, DNSException#error should be inspected.
         Members:
-        error -- The error number describing the DNS problem. For C++ and Unix,
-        this is equivalent to h_errno. For C++ and
-        Windows, this is the value returned by
-        WSAGetLastError().
-        host -- The host name that could not be resolved.
+        error --  The error number describing the DNS problem. For C++ and Unix, this is equivalent to h_errno. For
+         C++ and Windows, this is the value returned by WSAGetLastError().
+        host --  The host name that could not be resolved.
         """
         def __init__(self, error=0, host=''):
             self.error = error
@@ -928,7 +884,7 @@ if 'OperationInterruptedException' not in _M_Ice.__dict__:
     _M_Ice.OperationInterruptedException = Ice.createTempClass()
     class OperationInterruptedException(Ice.LocalException):
         """
-        This exception indicates a request was interrupted.
+         This exception indicates a request was interrupted.
         """
         def __init__(self):
             pass
@@ -950,7 +906,7 @@ if 'TimeoutException' not in _M_Ice.__dict__:
     _M_Ice.TimeoutException = Ice.createTempClass()
     class TimeoutException(Ice.LocalException):
         """
-        This exception indicates a timeout condition.
+         This exception indicates a timeout condition.
         """
         def __init__(self):
             pass
@@ -972,7 +928,7 @@ if 'ConnectTimeoutException' not in _M_Ice.__dict__:
     _M_Ice.ConnectTimeoutException = Ice.createTempClass()
     class ConnectTimeoutException(_M_Ice.TimeoutException):
         """
-        This exception indicates a connection establishment timeout condition.
+         This exception indicates a connection establishment timeout condition.
         """
         def __init__(self):
             _M_Ice.TimeoutException.__init__(self)
@@ -994,7 +950,7 @@ if 'CloseTimeoutException' not in _M_Ice.__dict__:
     _M_Ice.CloseTimeoutException = Ice.createTempClass()
     class CloseTimeoutException(_M_Ice.TimeoutException):
         """
-        This exception indicates a connection closure timeout condition.
+         This exception indicates a connection closure timeout condition.
         """
         def __init__(self):
             _M_Ice.TimeoutException.__init__(self)
@@ -1016,8 +972,7 @@ if 'ConnectionTimeoutException' not in _M_Ice.__dict__:
     _M_Ice.ConnectionTimeoutException = Ice.createTempClass()
     class ConnectionTimeoutException(_M_Ice.TimeoutException):
         """
-        This exception indicates that a connection has been shut down because it has been
-        idle for some time.
+         This exception indicates that a connection has been shut down because it has been idle for some time.
         """
         def __init__(self):
             _M_Ice.TimeoutException.__init__(self)
@@ -1039,8 +994,7 @@ if 'InvocationTimeoutException' not in _M_Ice.__dict__:
     _M_Ice.InvocationTimeoutException = Ice.createTempClass()
     class InvocationTimeoutException(_M_Ice.TimeoutException):
         """
-        This exception indicates that an invocation failed because it timed
-        out.
+         This exception indicates that an invocation failed because it timed out.
         """
         def __init__(self):
             _M_Ice.TimeoutException.__init__(self)
@@ -1062,8 +1016,7 @@ if 'InvocationCanceledException' not in _M_Ice.__dict__:
     _M_Ice.InvocationCanceledException = Ice.createTempClass()
     class InvocationCanceledException(Ice.LocalException):
         """
-        This exception indicates that an asynchronous invocation failed
-        because it was canceled explicitly by the user.
+         This exception indicates that an asynchronous invocation failed because it was canceled explicitly by the user.
         """
         def __init__(self):
             pass
@@ -1085,10 +1038,9 @@ if 'ProtocolException' not in _M_Ice.__dict__:
     _M_Ice.ProtocolException = Ice.createTempClass()
     class ProtocolException(Ice.LocalException):
         """
-        A generic exception base for all kinds of protocol error
-        conditions.
+         A generic exception base for all kinds of protocol error conditions.
         Members:
-        reason -- The reason for the failure.
+        reason --  The reason for the failure.
         """
         def __init__(self, reason=''):
             self.reason = reason
@@ -1110,10 +1062,9 @@ if 'BadMagicException' not in _M_Ice.__dict__:
     _M_Ice.BadMagicException = Ice.createTempClass()
     class BadMagicException(_M_Ice.ProtocolException):
         """
-        This exception indicates that a message did not start with the expected
-        magic number ('I', 'c', 'e', 'P').
+         This exception indicates that a message did not start with the expected magic number ('I', 'c', 'e', 'P').
         Members:
-        badMagic -- A sequence containing the first four bytes of the incorrect message.
+        badMagic --  A sequence containing the first four bytes of the incorrect message.
         """
         def __init__(self, reason='', badMagic=None):
             _M_Ice.ProtocolException.__init__(self, reason)
@@ -1136,10 +1087,10 @@ if 'UnsupportedProtocolException' not in _M_Ice.__dict__:
     _M_Ice.UnsupportedProtocolException = Ice.createTempClass()
     class UnsupportedProtocolException(_M_Ice.ProtocolException):
         """
-        This exception indicates an unsupported protocol version.
+         This exception indicates an unsupported protocol version.
         Members:
-        bad -- The version of the unsupported protocol.
-        supported -- The version of the protocol that is supported.
+        bad --  The version of the unsupported protocol.
+        supported --  The version of the protocol that is supported.
         """
         def __init__(self, reason='', bad=Ice._struct_marker, supported=Ice._struct_marker):
             _M_Ice.ProtocolException.__init__(self, reason)
@@ -1172,10 +1123,10 @@ if 'UnsupportedEncodingException' not in _M_Ice.__dict__:
     _M_Ice.UnsupportedEncodingException = Ice.createTempClass()
     class UnsupportedEncodingException(_M_Ice.ProtocolException):
         """
-        This exception indicates an unsupported data encoding version.
+         This exception indicates an unsupported data encoding version.
         Members:
-        bad -- The version of the unsupported encoding.
-        supported -- The version of the encoding that is supported.
+        bad --  The version of the unsupported encoding.
+        supported --  The version of the encoding that is supported.
         """
         def __init__(self, reason='', bad=Ice._struct_marker, supported=Ice._struct_marker):
             _M_Ice.ProtocolException.__init__(self, reason)
@@ -1208,7 +1159,7 @@ if 'UnknownMessageException' not in _M_Ice.__dict__:
     _M_Ice.UnknownMessageException = Ice.createTempClass()
     class UnknownMessageException(_M_Ice.ProtocolException):
         """
-        This exception indicates that an unknown protocol message has been received.
+         This exception indicates that an unknown protocol message has been received.
         """
         def __init__(self, reason=''):
             _M_Ice.ProtocolException.__init__(self, reason)
@@ -1230,8 +1181,7 @@ if 'ConnectionNotValidatedException' not in _M_Ice.__dict__:
     _M_Ice.ConnectionNotValidatedException = Ice.createTempClass()
     class ConnectionNotValidatedException(_M_Ice.ProtocolException):
         """
-        This exception is raised if a message is received over a connection
-        that is not yet validated.
+         This exception is raised if a message is received over a connection that is not yet validated.
         """
         def __init__(self, reason=''):
             _M_Ice.ProtocolException.__init__(self, reason)
@@ -1253,8 +1203,7 @@ if 'UnknownRequestIdException' not in _M_Ice.__dict__:
     _M_Ice.UnknownRequestIdException = Ice.createTempClass()
     class UnknownRequestIdException(_M_Ice.ProtocolException):
         """
-        This exception indicates that a response for an unknown request ID has been
-        received.
+         This exception indicates that a response for an unknown request ID has been received.
         """
         def __init__(self, reason=''):
             _M_Ice.ProtocolException.__init__(self, reason)
@@ -1276,7 +1225,7 @@ if 'UnknownReplyStatusException' not in _M_Ice.__dict__:
     _M_Ice.UnknownReplyStatusException = Ice.createTempClass()
     class UnknownReplyStatusException(_M_Ice.ProtocolException):
         """
-        This exception indicates that an unknown reply status has been received.
+         This exception indicates that an unknown reply status has been received.
         """
         def __init__(self, reason=''):
             _M_Ice.ProtocolException.__init__(self, reason)
@@ -1298,14 +1247,11 @@ if 'CloseConnectionException' not in _M_Ice.__dict__:
     _M_Ice.CloseConnectionException = Ice.createTempClass()
     class CloseConnectionException(_M_Ice.ProtocolException):
         """
-        This exception indicates that the connection has been gracefully shut down by the
-        server. The operation call that caused this exception has not been
-        executed by the server. In most cases you will not get this
-        exception, because the client will automatically retry the
-        operation call in case the server shut down the connection. However,
-        if upon retry the server shuts down the connection again, and the
-        retry limit has been reached, then this exception is propagated to
-        the application code.
+         This exception indicates that the connection has been gracefully shut down by the server. The operation call that
+         caused this exception has not been executed by the server. In most cases you will not get this exception, because
+         the client will automatically retry the operation call in case the server shut down the connection. However, if
+         upon retry the server shuts down the connection again, and the retry limit has been reached, then this exception is
+         propagated to the application code.
         """
         def __init__(self, reason=''):
             _M_Ice.ProtocolException.__init__(self, reason)
@@ -1327,10 +1273,10 @@ if 'ConnectionManuallyClosedException' not in _M_Ice.__dict__:
     _M_Ice.ConnectionManuallyClosedException = Ice.createTempClass()
     class ConnectionManuallyClosedException(Ice.LocalException):
         """
-        This exception is raised by an operation call if the application
-        closes the connection locally using Connection#close.
+         This exception is raised by an operation call if the application closes the connection locally using
+         Connection#close.
         Members:
-        graceful -- True if the connection was closed gracefully, false otherwise.
+        graceful --  True if the connection was closed gracefully, false otherwise.
         """
         def __init__(self, graceful=False):
             self.graceful = graceful
@@ -1352,8 +1298,7 @@ if 'IllegalMessageSizeException' not in _M_Ice.__dict__:
     _M_Ice.IllegalMessageSizeException = Ice.createTempClass()
     class IllegalMessageSizeException(_M_Ice.ProtocolException):
         """
-        This exception indicates that a message size is less
-        than the minimum required size.
+         This exception indicates that a message size is less than the minimum required size.
         """
         def __init__(self, reason=''):
             _M_Ice.ProtocolException.__init__(self, reason)
@@ -1375,7 +1320,7 @@ if 'CompressionException' not in _M_Ice.__dict__:
     _M_Ice.CompressionException = Ice.createTempClass()
     class CompressionException(_M_Ice.ProtocolException):
         """
-        This exception indicates a problem with compressing or uncompressing data.
+         This exception indicates a problem with compressing or uncompressing data.
         """
         def __init__(self, reason=''):
             _M_Ice.ProtocolException.__init__(self, reason)
@@ -1397,9 +1342,8 @@ if 'DatagramLimitException' not in _M_Ice.__dict__:
     _M_Ice.DatagramLimitException = Ice.createTempClass()
     class DatagramLimitException(_M_Ice.ProtocolException):
         """
-        A datagram exceeds the configured size.
-        This exception is raised if a datagram exceeds the configured send or receive buffer
-        size, or exceeds the maximum payload size of a UDP packet (65507 bytes).
+         A datagram exceeds the configured size. This exception is raised if a datagram exceeds the configured send or
+         receive buffer size, or exceeds the maximum payload size of a UDP packet (65507 bytes).
         """
         def __init__(self, reason=''):
             _M_Ice.ProtocolException.__init__(self, reason)
@@ -1421,7 +1365,7 @@ if 'MarshalException' not in _M_Ice.__dict__:
     _M_Ice.MarshalException = Ice.createTempClass()
     class MarshalException(_M_Ice.ProtocolException):
         """
-        This exception is raised for errors during marshaling or unmarshaling data.
+         This exception is raised for errors during marshaling or unmarshaling data.
         """
         def __init__(self, reason=''):
             _M_Ice.ProtocolException.__init__(self, reason)
@@ -1443,7 +1387,7 @@ if 'ProxyUnmarshalException' not in _M_Ice.__dict__:
     _M_Ice.ProxyUnmarshalException = Ice.createTempClass()
     class ProxyUnmarshalException(_M_Ice.MarshalException):
         """
-        This exception is raised if inconsistent data is received while unmarshaling a proxy.
+         This exception is raised if inconsistent data is received while unmarshaling a proxy.
         """
         def __init__(self, reason=''):
             _M_Ice.MarshalException.__init__(self, reason)
@@ -1465,7 +1409,7 @@ if 'UnmarshalOutOfBoundsException' not in _M_Ice.__dict__:
     _M_Ice.UnmarshalOutOfBoundsException = Ice.createTempClass()
     class UnmarshalOutOfBoundsException(_M_Ice.MarshalException):
         """
-        This exception is raised if an out-of-bounds condition occurs during unmarshaling.
+         This exception is raised if an out-of-bounds condition occurs during unmarshaling.
         """
         def __init__(self, reason=''):
             _M_Ice.MarshalException.__init__(self, reason)
@@ -1487,11 +1431,9 @@ if 'NoValueFactoryException' not in _M_Ice.__dict__:
     _M_Ice.NoValueFactoryException = Ice.createTempClass()
     class NoValueFactoryException(_M_Ice.MarshalException):
         """
-        This exception is raised if no suitable value factory was found during
-        unmarshaling of a Slice class instance.
+         This exception is raised if no suitable value factory was found during unmarshaling of a Slice class instance.
         Members:
-        type -- The Slice type ID of the class instance for which no
-        no factory could be found.
+        type --  The Slice type ID of the class instance for which no factory could be found.
         """
         def __init__(self, reason='', type=''):
             _M_Ice.MarshalException.__init__(self, reason)
@@ -1514,16 +1456,13 @@ if 'UnexpectedObjectException' not in _M_Ice.__dict__:
     _M_Ice.UnexpectedObjectException = Ice.createTempClass()
     class UnexpectedObjectException(_M_Ice.MarshalException):
         """
-        This exception is raised if the type of an unmarshaled Slice class instance does
-        not match its expected type.
-        This can happen if client and server are compiled with mismatched Slice
-        definitions or if a class of the wrong type is passed as a parameter
-        or return value using dynamic invocation. This exception can also be
-        raised if IceStorm is used to send Slice class instances and
-        an operation is subscribed to the wrong topic.
+         This exception is raised if the type of an unmarshaled Slice class instance does not match its expected type. This
+         can happen if client and server are compiled with mismatched Slice definitions or if a class of the wrong type is
+         passed as a parameter or return value using dynamic invocation. This exception can also be raised if IceStorm is
+         used to send Slice class instances and an operation is subscribed to the wrong topic.
         Members:
-        type -- The Slice type ID of the class instance that was unmarshaled.
-        expectedType -- The Slice type ID that was expected by the receiving operation.
+        type --  The Slice type ID of the class instance that was unmarshaled.
+        expectedType --  The Slice type ID that was expected by the receiving operation.
         """
         def __init__(self, reason='', type='', expectedType=''):
             _M_Ice.MarshalException.__init__(self, reason)
@@ -1550,9 +1489,8 @@ if 'MemoryLimitException' not in _M_Ice.__dict__:
     _M_Ice.MemoryLimitException = Ice.createTempClass()
     class MemoryLimitException(_M_Ice.MarshalException):
         """
-        This exception is raised when Ice receives a request or reply
-        message whose size exceeds the limit specified by the
-        Ice.MessageSizeMax property.
+         This exception is raised when Ice receives a request or reply message whose size exceeds the limit specified by the
+         Ice.MessageSizeMax property.
         """
         def __init__(self, reason=''):
             _M_Ice.MarshalException.__init__(self, reason)
@@ -1574,8 +1512,7 @@ if 'StringConversionException' not in _M_Ice.__dict__:
     _M_Ice.StringConversionException = Ice.createTempClass()
     class StringConversionException(_M_Ice.MarshalException):
         """
-        This exception is raised when a string conversion to or from UTF-8
-        fails during marshaling or unmarshaling.
+         This exception is raised when a string conversion to or from UTF-8 fails during marshaling or unmarshaling.
         """
         def __init__(self, reason=''):
             _M_Ice.MarshalException.__init__(self, reason)
@@ -1597,7 +1534,7 @@ if 'EncapsulationException' not in _M_Ice.__dict__:
     _M_Ice.EncapsulationException = Ice.createTempClass()
     class EncapsulationException(_M_Ice.MarshalException):
         """
-        This exception indicates a malformed data encapsulation.
+         This exception indicates a malformed data encapsulation.
         """
         def __init__(self, reason=''):
             _M_Ice.MarshalException.__init__(self, reason)
@@ -1619,11 +1556,10 @@ if 'FeatureNotSupportedException' not in _M_Ice.__dict__:
     _M_Ice.FeatureNotSupportedException = Ice.createTempClass()
     class FeatureNotSupportedException(Ice.LocalException):
         """
-        This exception is raised if an unsupported feature is used. The
-        unsupported feature string contains the name of the unsupported
-        feature
+         This exception is raised if an unsupported feature is used. The unsupported feature string contains the name of the
+         unsupported feature.
         Members:
-        unsupportedFeature -- The name of the unsupported feature.
+        unsupportedFeature --  The name of the unsupported feature.
         """
         def __init__(self, unsupportedFeature=''):
             self.unsupportedFeature = unsupportedFeature
@@ -1645,10 +1581,9 @@ if 'SecurityException' not in _M_Ice.__dict__:
     _M_Ice.SecurityException = Ice.createTempClass()
     class SecurityException(Ice.LocalException):
         """
-        This exception indicates a failure in a security subsystem,
-        such as the IceSSL plug-in.
+         This exception indicates a failure in a security subsystem, such as the IceSSL plug-in.
         Members:
-        reason -- The reason for the failure.
+        reason --  The reason for the failure.
         """
         def __init__(self, reason=''):
             self.reason = reason
@@ -1670,8 +1605,7 @@ if 'FixedProxyException' not in _M_Ice.__dict__:
     _M_Ice.FixedProxyException = Ice.createTempClass()
     class FixedProxyException(Ice.LocalException):
         """
-        This exception indicates that an attempt has been made to
-        change the connection properties of a fixed proxy.
+         This exception indicates that an attempt has been made to change the connection properties of a fixed proxy.
         """
         def __init__(self):
             pass
@@ -1693,8 +1627,7 @@ if 'ResponseSentException' not in _M_Ice.__dict__:
     _M_Ice.ResponseSentException = Ice.createTempClass()
     class ResponseSentException(Ice.LocalException):
         """
-        Indicates that the response to a request has already been sent;
-        re-dispatching such a request is not possible.
+         Indicates that the response to a request has already been sent; re-dispatching such a request is not possible.
         """
         def __init__(self):
             pass

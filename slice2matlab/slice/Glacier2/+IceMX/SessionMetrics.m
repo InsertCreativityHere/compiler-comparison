@@ -3,8 +3,8 @@
 % Provides information on Glacier2 sessions.
 %
 % SessionMetrics Properties:
-%   forwardedClient - Number of client requests forwared.
-%   forwardedServer - Number of server requests forwared.
+%   forwardedClient - Number of client requests forwarded.
+%   forwardedServer - Number of server requests forwarded.
 %   routingTableSize - The size of the routing table.
 %   queuedClient - Number of client requests queued.
 %   queuedServer - Number of server requests queued.
@@ -16,9 +16,9 @@
 
 classdef SessionMetrics < IceMX.Metrics
     properties
-        % forwardedClient - Number of client requests forwared.
+        % forwardedClient - Number of client requests forwarded.
         forwardedClient int32
-        % forwardedServer - Number of server requests forwared.
+        % forwardedServer - Number of server requests forwarded.
         forwardedServer int32
         % routingTableSize - The size of the routing table.
         routingTableSize int32

@@ -16,8 +16,7 @@
 import Foundation
 import Ice
 
-/// Information taken from an SSL connection used for permissions
-/// verification.
+/// Information taken from an SSL connection used for permissions verification.
 public struct SSLInfo: Swift.Hashable {
     /// The remote host.
     public var remoteHost: Swift.String = ""

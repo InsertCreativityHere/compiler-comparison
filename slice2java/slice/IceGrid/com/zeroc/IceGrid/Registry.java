@@ -16,8 +16,7 @@
 package com.zeroc.IceGrid;
 
 /**
- * The IceGrid registry allows clients create sessions
- * directly with the registry.
+ * The IceGrid registry allows clients create sessions directly with the registry.
  *
  * @see Session
  * @see AdminSession
@@ -30,9 +29,8 @@ public interface Registry extends com.zeroc.Ice.Object
      * @param password The password for the given user id.
      * @param current The Current object for the invocation.
      * @return A proxy for the newly created session.
-     * @throws PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      **/
     SessionPrx createSession(String userId, String password, com.zeroc.Ice.Current current)
         throws PermissionDeniedException;
@@ -43,9 +41,8 @@ public interface Registry extends com.zeroc.Ice.Object
      * @param password The password for the given user id.
      * @param current The Current object for the invocation.
      * @return A proxy for the newly created session.
-     * @throws PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      **/
     AdminSessionPrx createAdminSession(String userId, String password, com.zeroc.Ice.Current current)
         throws PermissionDeniedException;
@@ -54,9 +51,8 @@ public interface Registry extends com.zeroc.Ice.Object
      * Create a client session from a secure connection.
      * @param current The Current object for the invocation.
      * @return A proxy for the newly created session.
-     * @throws PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      **/
     SessionPrx createSessionFromSecureConnection(com.zeroc.Ice.Current current)
         throws PermissionDeniedException;
@@ -65,17 +61,15 @@ public interface Registry extends com.zeroc.Ice.Object
      * Create an administrative session from a secure connection.
      * @param current The Current object for the invocation.
      * @return A proxy for the newly created session.
-     * @throws PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      **/
     AdminSessionPrx createAdminSessionFromSecureConnection(com.zeroc.Ice.Current current)
         throws PermissionDeniedException;
 
     /**
-     * Get the session timeout. If a client or administrative client
-     * doesn't call the session keepAlive method in the time interval
-     * defined by this timeout, IceGrid might reap the session.
+     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+     * the time interval defined by this timeout, IceGrid might reap the session.
      * @param current The Current object for the invocation.
      * @return The timeout (in seconds).
      *
@@ -85,11 +79,8 @@ public interface Registry extends com.zeroc.Ice.Object
     int getSessionTimeout(com.zeroc.Ice.Current current);
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM
-     * connection heartbeats can enable them instead of explicitly
-     * sending keep alives requests.
-     *
-     * NOTE: This method is only available since Ice 3.6.
+     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
      * @param current The Current object for the invocation.
      * @return The timeout (in seconds).
      **/

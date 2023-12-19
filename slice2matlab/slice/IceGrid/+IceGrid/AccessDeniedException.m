@@ -1,7 +1,6 @@
 % AccessDeniedException   Summary of AccessDeniedException
 %
-% This exception is raised if a registry lock wasn't
-% acquired or is already held by a session.
+% his exception is raised if a registry lock wasn't acquired or is already held by a session.
 %
 % AccessDeniedException Properties:
 %   lockUserId - The id of the user holding the lock (if any).

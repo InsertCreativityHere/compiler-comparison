@@ -1,7 +1,6 @@
 % TopicPrx   Summary of TopicPrx
 %
-% Publishers publish information on a particular topic. A topic
-% logically represents a type.
+% Publishers publish information on a particular topic. A topic logically represents a type. A
 %
 % TopicPrx Methods:
 %   getName - Get the name of this topic.
@@ -68,11 +67,9 @@ classdef TopicPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('getName', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getPublisher(obj, varargin)
-            % getPublisher   Get a proxy to a publisher object for this topic. To publish
-            % data to a topic, the publisher calls getPublisher and then
-            % casts to the topic type. An unchecked cast must be used on this
-            % proxy. If a replicated IceStorm deployment is used this call
-            % may return a replicated proxy.
+            % getPublisher   Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+            % and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
+            % deployment is used this call may return a replicated proxy.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -85,11 +82,9 @@ classdef TopicPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getPublisherAsync(obj, varargin)
-            % getPublisherAsync   Get a proxy to a publisher object for this topic. To publish
-            % data to a topic, the publisher calls getPublisher and then
-            % casts to the topic type. An unchecked cast must be used on this
-            % proxy. If a replicated IceStorm deployment is used this call
-            % may return a replicated proxy.
+            % getPublisherAsync   Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+            % and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
+            % deployment is used this call may return a replicated proxy.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -105,10 +100,8 @@ classdef TopicPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('getPublisher', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getNonReplicatedPublisher(obj, varargin)
-            % getNonReplicatedPublisher   Get a non-replicated proxy to a publisher object for this
-            % topic. To publish data to a topic, the publisher calls
-            % getPublisher and then casts to the topic type. An unchecked
-            % cast must be used on this proxy.
+            % getNonReplicatedPublisher   Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+            % calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -121,10 +114,8 @@ classdef TopicPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getNonReplicatedPublisherAsync(obj, varargin)
-            % getNonReplicatedPublisherAsync   Get a non-replicated proxy to a publisher object for this
-            % topic. To publish data to a topic, the publisher calls
-            % getPublisher and then casts to the topic type. An unchecked
-            % cast must be used on this proxy.
+            % getNonReplicatedPublisherAsync   Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+            % calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -140,22 +131,18 @@ classdef TopicPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('getNonReplicatedPublisher', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = subscribeAndGetPublisher(obj, theQoS, subscriber, varargin)
-            % subscribeAndGetPublisher   Subscribe with the given qos to this topic.  A
-            % per-subscriber publisher object is returned.
+            % subscribeAndGetPublisher   Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
             %
             % Parameters:
-            %   theQoS (containers.Map) - The quality of service parameters for this
-            %     subscription.
+            %   theQoS (containers.Map) - The quality of service parameters for this subscription.
             %   subscriber (Ice.ObjectPrx) - The subscriber's proxy.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.ObjectPrx) - The per-subscriber publisher object.
             %
             % Exceptions:
-            %   IceStorm.AlreadySubscribed - Raised if the subscriber object is
-            %     already subscribed.
-            %   IceStorm.BadQoS - Raised if the requested quality of service
-            %     is unavailable or invalid.
+            %   IceStorm.AlreadySubscribed - Raised if the subscriber object is already subscribed.
+            %   IceStorm.BadQoS - Raised if the requested quality of service is unavailable or invalid.
             %   IceStorm.InvalidSubscriber - Raised if the subscriber object is null.
             %
             % See also unsubscribe
@@ -170,22 +157,18 @@ classdef TopicPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = subscribeAndGetPublisherAsync(obj, theQoS, subscriber, varargin)
-            % subscribeAndGetPublisherAsync   Subscribe with the given qos to this topic.  A
-            % per-subscriber publisher object is returned.
+            % subscribeAndGetPublisherAsync   Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
             %
             % Parameters:
-            %   theQoS (containers.Map) - The quality of service parameters for this
-            %     subscription.
+            %   theQoS (containers.Map) - The quality of service parameters for this subscription.
             %   subscriber (Ice.ObjectPrx) - The subscriber's proxy.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceStorm.AlreadySubscribed - Raised if the subscriber object is
-            %     already subscribed.
-            %   IceStorm.BadQoS - Raised if the requested quality of service
-            %     is unavailable or invalid.
+            %   IceStorm.AlreadySubscribed - Raised if the subscriber object is already subscribed.
+            %   IceStorm.BadQoS - Raised if the requested quality of service is unavailable or invalid.
             %   IceStorm.InvalidSubscriber - Raised if the subscriber object is null.
             %
             % See also unsubscribe
@@ -233,8 +216,8 @@ classdef TopicPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('unsubscribe', 2, false, os_, 0, [], {}, varargin{:});
         end
         function link(obj, linkTo, cost, varargin)
-            % link   Create a link to the given topic. All events originating
-            % on this topic will also be sent to linkTo.
+            % link   Create a link to the given topic. All events originating on this topic will also be sent to
+            % linkTo.
             %
             % Parameters:
             %   linkTo (IceStorm.TopicPrx) - The topic to link to.
@@ -242,8 +225,7 @@ classdef TopicPrx < Ice.ObjectPrx
             %   context (containers.Map) - Optional request context.
             %
             % Exceptions:
-            %   IceStorm.LinkExists - Raised if a link to the same topic already
-            %     exists.
+            %   IceStorm.LinkExists - Raised if a link to the same topic already exists.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(linkTo);
@@ -252,8 +234,8 @@ classdef TopicPrx < Ice.ObjectPrx
             obj.iceInvoke('link', 0, true, os_, false, IceStorm.TopicPrx.link_ex_, varargin{:});
         end
         function r_ = linkAsync(obj, linkTo, cost, varargin)
-            % linkAsync   Create a link to the given topic. All events originating
-            % on this topic will also be sent to linkTo.
+            % linkAsync   Create a link to the given topic. All events originating on this topic will also be sent to
+            % linkTo.
             %
             % Parameters:
             %   linkTo (IceStorm.TopicPrx) - The topic to link to.
@@ -263,8 +245,7 @@ classdef TopicPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceStorm.LinkExists - Raised if a link to the same topic already
-            %     exists.
+            %   IceStorm.LinkExists - Raised if a link to the same topic already exists.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(linkTo);

@@ -1,7 +1,6 @@
 % StringSetPrx   Summary of StringSetPrx
 %
-% An object for managing the set of identity constraints for specific
-% parts of object identity on a
+% An object for managing the set of identity constraints for specific parts of object identity on a
 % Session.
 %
 % StringSetPrx Methods:
@@ -22,8 +21,8 @@
 classdef StringSetPrx < Ice.ObjectPrx
     methods
         function add(obj, additions, varargin)
-            % add   Add a sequence of strings to this set of constraints. Order is
-            % not preserved and duplicates are implicitly removed.
+            % add   Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+            % removed.
             %
             % Parameters:
             %   additions (Ice.StringSeq) - The sequence of strings to be added.
@@ -35,8 +34,8 @@ classdef StringSetPrx < Ice.ObjectPrx
             obj.iceInvoke('add', 2, false, os_, false, {}, varargin{:});
         end
         function r_ = addAsync(obj, additions, varargin)
-            % addAsync   Add a sequence of strings to this set of constraints. Order is
-            % not preserved and duplicates are implicitly removed.
+            % addAsync   Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+            % removed.
             %
             % Parameters:
             %   additions (Ice.StringSeq) - The sequence of strings to be added.
@@ -50,8 +49,7 @@ classdef StringSetPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('add', 2, false, os_, 0, [], {}, varargin{:});
         end
         function remove(obj, deletions, varargin)
-            % remove   Remove a sequence of strings from this set of constraints. No
-            % errors are returned if an entry is not found.
+            % remove   Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
             %
             % Parameters:
             %   deletions (Ice.StringSeq) - The sequence of strings to be removed.
@@ -63,8 +61,7 @@ classdef StringSetPrx < Ice.ObjectPrx
             obj.iceInvoke('remove', 2, false, os_, false, {}, varargin{:});
         end
         function r_ = removeAsync(obj, deletions, varargin)
-            % removeAsync   Remove a sequence of strings from this set of constraints. No
-            % errors are returned if an entry is not found.
+            % removeAsync   Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
             %
             % Parameters:
             %   deletions (Ice.StringSeq) - The sequence of strings to be removed.
@@ -78,8 +75,7 @@ classdef StringSetPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('remove', 2, false, os_, 0, [], {}, varargin{:});
         end
         function result = get(obj, varargin)
-            % get   Returns a sequence of strings describing the constraints in this
-            % set.
+            % get   Returns a sequence of strings describing the constraints in this set.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -92,8 +88,7 @@ classdef StringSetPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getAsync(obj, varargin)
-            % getAsync   Returns a sequence of strings describing the constraints in this
-            % set.
+            % getAsync   Returns a sequence of strings describing the constraints in this set.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.

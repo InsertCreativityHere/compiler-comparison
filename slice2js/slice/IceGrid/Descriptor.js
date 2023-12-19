@@ -41,8 +41,7 @@ let IceGrid = _ModuleRegistry.module("IceGrid");
 Slice.defineDictionary(IceGrid, "StringStringDict", "StringStringDictHelper", "Ice.StringHelper", "Ice.StringHelper", false, undefined, undefined);
 
 /**
- * Property descriptor.
- *
+ *  Property descriptor.
  **/
 IceGrid.PropertyDescriptor = class
 {
@@ -75,8 +74,7 @@ Slice.defineStruct(IceGrid.PropertyDescriptor, true, true);
 Slice.defineSequence(IceGrid, "PropertyDescriptorSeqHelper", "IceGrid.PropertyDescriptor", false);
 
 /**
- * A property set descriptor.
- *
+ *  A property set descriptor.
  **/
 IceGrid.PropertySetDescriptor = class
 {
@@ -109,8 +107,7 @@ Slice.defineStruct(IceGrid.PropertySetDescriptor, true, true);
 Slice.defineDictionary(IceGrid, "PropertySetDescriptorDict", "PropertySetDescriptorDictHelper", "Ice.StringHelper", "IceGrid.PropertySetDescriptor", false, undefined, undefined);
 
 /**
- * An Ice object descriptor.
- *
+ *  An Ice object descriptor.
  **/
 IceGrid.ObjectDescriptor = class
 {
@@ -146,8 +143,7 @@ Slice.defineStruct(IceGrid.ObjectDescriptor, true, true);
 Slice.defineSequence(IceGrid, "ObjectDescriptorSeqHelper", "IceGrid.ObjectDescriptor", false);
 
 /**
- * An Ice object adapter descriptor.
- *
+ *  An Ice object adapter descriptor.
  **/
 IceGrid.AdapterDescriptor = class
 {
@@ -206,8 +202,7 @@ const iceC_IceGrid_CommunicatorDescriptor_ids = [
 ];
 
 /**
- * A communicator descriptor.
- *
+ *  A communicator descriptor.
  **/
 IceGrid.CommunicatorDescriptor = class extends Ice.Value
 {
@@ -240,9 +235,7 @@ IceGrid.CommunicatorDescriptor = class extends Ice.Value
 Slice.defineValue(IceGrid.CommunicatorDescriptor, iceC_IceGrid_CommunicatorDescriptor_ids[1], false);
 
 /**
- * A distribution descriptor defines an IcePatch2 server and the
- * directories to retrieve from the patch server.
- *
+ *  A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
  **/
 IceGrid.DistributionDescriptor = class
 {
@@ -279,8 +272,7 @@ const iceC_IceGrid_ServerDescriptor_ids = [
 ];
 
 /**
- * An Ice server descriptor.
- *
+ *  An Ice server descriptor.
  **/
 IceGrid.ServerDescriptor = class extends IceGrid.CommunicatorDescriptor
 {
@@ -348,8 +340,7 @@ const iceC_IceGrid_ServiceDescriptor_ids = [
 ];
 
 /**
- * An IceBox service descriptor.
- *
+ *  An IceBox service descriptor.
  **/
 IceGrid.ServiceDescriptor = class extends IceGrid.CommunicatorDescriptor
 {
@@ -378,8 +369,7 @@ Slice.defineValue(IceGrid.ServiceDescriptor, iceC_IceGrid_ServiceDescriptor_ids[
 Slice.defineSequence(IceGrid, "ServiceDescriptorSeqHelper", "Ice.ObjectHelper", false, "IceGrid.ServiceDescriptor");
 
 /**
- * A server template instance descriptor.
- *
+ *  A server template instance descriptor.
  **/
 IceGrid.ServerInstanceDescriptor = class
 {
@@ -418,8 +408,7 @@ Slice.defineStruct(IceGrid.ServerInstanceDescriptor, false, true);
 Slice.defineSequence(IceGrid, "ServerInstanceDescriptorSeqHelper", "IceGrid.ServerInstanceDescriptor", false);
 
 /**
- * A template descriptor for server or service templates.
- *
+ *  A template descriptor for server or service templates.
  **/
 IceGrid.TemplateDescriptor = class
 {
@@ -455,8 +444,7 @@ Slice.defineStruct(IceGrid.TemplateDescriptor, false, true);
 Slice.defineDictionary(IceGrid, "TemplateDescriptorDict", "TemplateDescriptorDictHelper", "Ice.StringHelper", "IceGrid.TemplateDescriptor", false, undefined, undefined);
 
 /**
- * A service template instance descriptor.
- *
+ *  A service template instance descriptor.
  **/
 IceGrid.ServiceInstanceDescriptor = class
 {
@@ -502,8 +490,7 @@ const iceC_IceGrid_IceBoxDescriptor_ids = [
 ];
 
 /**
- * An IceBox server descriptor.
- *
+ *  An IceBox server descriptor.
  **/
 IceGrid.IceBoxDescriptor = class extends IceGrid.ServerDescriptor
 {
@@ -527,8 +514,7 @@ IceGrid.IceBoxDescriptor = class extends IceGrid.ServerDescriptor
 Slice.defineValue(IceGrid.IceBoxDescriptor, iceC_IceGrid_IceBoxDescriptor_ids[2], false);
 
 /**
- * A node descriptor.
- *
+ *  A node descriptor.
  **/
 IceGrid.NodeDescriptor = class
 {
@@ -578,8 +564,7 @@ const iceC_IceGrid_LoadBalancingPolicy_ids = [
 ];
 
 /**
- * A base class for load balancing policies.
- *
+ *  A base class for load balancing policies.
  **/
 IceGrid.LoadBalancingPolicy = class extends Ice.Value
 {
@@ -609,8 +594,7 @@ const iceC_IceGrid_RandomLoadBalancingPolicy_ids = [
 ];
 
 /**
- * Random load balancing policy.
- *
+ *  Random load balancing policy.
  **/
 IceGrid.RandomLoadBalancingPolicy = class extends IceGrid.LoadBalancingPolicy
 {
@@ -629,8 +613,7 @@ const iceC_IceGrid_OrderedLoadBalancingPolicy_ids = [
 ];
 
 /**
- * Ordered load balancing policy.
- *
+ *  Ordered load balancing policy.
  **/
 IceGrid.OrderedLoadBalancingPolicy = class extends IceGrid.LoadBalancingPolicy
 {
@@ -649,8 +632,7 @@ const iceC_IceGrid_RoundRobinLoadBalancingPolicy_ids = [
 ];
 
 /**
- * Round robin load balancing policy.
- *
+ *  Round robin load balancing policy.
  **/
 IceGrid.RoundRobinLoadBalancingPolicy = class extends IceGrid.LoadBalancingPolicy
 {
@@ -669,8 +651,7 @@ const iceC_IceGrid_AdaptiveLoadBalancingPolicy_ids = [
 ];
 
 /**
- * Adaptive load balancing policy.
- *
+ *  Adaptive load balancing policy.
  **/
 IceGrid.AdaptiveLoadBalancingPolicy = class extends IceGrid.LoadBalancingPolicy
 {
@@ -694,8 +675,7 @@ IceGrid.AdaptiveLoadBalancingPolicy = class extends IceGrid.LoadBalancingPolicy
 Slice.defineValue(IceGrid.AdaptiveLoadBalancingPolicy, iceC_IceGrid_AdaptiveLoadBalancingPolicy_ids[1], false);
 
 /**
- * A replica group descriptor.
- *
+ *  A replica group descriptor.
  **/
 IceGrid.ReplicaGroupDescriptor = class
 {
@@ -740,8 +720,7 @@ Slice.defineStruct(IceGrid.ReplicaGroupDescriptor, false, true);
 Slice.defineSequence(IceGrid, "ReplicaGroupDescriptorSeqHelper", "IceGrid.ReplicaGroupDescriptor", false);
 
 /**
- * An application descriptor.
- *
+ *  An application descriptor.
  **/
 IceGrid.ApplicationDescriptor = class
 {
@@ -800,8 +779,7 @@ const iceC_IceGrid_BoxedString_ids = [
 ];
 
 /**
- * A "boxed" string.
- *
+ *  A "boxed" string.
  **/
 IceGrid.BoxedString = class extends Ice.Value
 {
@@ -825,9 +803,7 @@ IceGrid.BoxedString = class extends Ice.Value
 Slice.defineValue(IceGrid.BoxedString, iceC_IceGrid_BoxedString_ids[1], false);
 
 /**
- * A node update descriptor to describe the updates to apply to a
- * node of a deployed application.
- *
+ *  A node update descriptor to describe the updates to apply to a node of a deployed application.
  **/
 IceGrid.NodeUpdateDescriptor = class
 {
@@ -889,8 +865,7 @@ const iceC_IceGrid_BoxedDistributionDescriptor_ids = [
 ];
 
 /**
- * A "boxed" distribution descriptor.
- *
+ *  A "boxed" distribution descriptor.
  **/
 IceGrid.BoxedDistributionDescriptor = class extends Ice.Value
 {
@@ -914,9 +889,7 @@ IceGrid.BoxedDistributionDescriptor = class extends Ice.Value
 Slice.defineValue(IceGrid.BoxedDistributionDescriptor, iceC_IceGrid_BoxedDistributionDescriptor_ids[1], false);
 
 /**
- * An application update descriptor to describe the updates to apply
- * to a deployed application.
- *
+ *  An application update descriptor to describe the updates to apply to a deployed application.
  **/
 IceGrid.ApplicationUpdateDescriptor = class
 {

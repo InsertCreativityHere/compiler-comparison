@@ -28,10 +28,9 @@ if 'Properties' not in _M_Ice.__dict__:
     _M_Ice.Properties = Ice.createTempClass()
     class Properties(object):
         """
-        A property set used to configure Ice and Ice applications.
-        Properties are key/value pairs, with both keys and values
-        being strings. By convention, property keys should have the form
-        application-name[.category[.sub-category]].name.
+         A property set used to configure Ice and Ice applications. Properties are key/value pairs, with both keys and
+         values being strings. By convention, property keys should have the form
+         application-name[.category[.sub-category]].name.
         """
         def __init__(self):
             if Ice.getType(self) == _M_Ice.Properties:
@@ -39,8 +38,7 @@ if 'Properties' not in _M_Ice.__dict__:
 
         def getProperty(self, key):
             """
-            Get a property by key. If the property is not set, an empty
-            string is returned.
+             Get a property by key. If the property is not set, an empty string is returned.
             Arguments:
             key -- The property key.
             Returns: The property value.
@@ -49,8 +47,7 @@ if 'Properties' not in _M_Ice.__dict__:
 
         def getPropertyWithDefault(self, key, value):
             """
-            Get a property by key. If the property is not set, the
-            given default value is returned.
+             Get a property by key. If the property is not set, the given default value is returned.
             Arguments:
             key -- The property key.
             value -- The default value to use if the property does not exist.
@@ -60,8 +57,7 @@ if 'Properties' not in _M_Ice.__dict__:
 
         def getPropertyAsInt(self, key):
             """
-            Get a property as an integer. If the property is not set, 0
-            is returned.
+             Get a property as an integer. If the property is not set, 0 is returned.
             Arguments:
             key -- The property key.
             Returns: The property value interpreted as an integer.
@@ -70,8 +66,7 @@ if 'Properties' not in _M_Ice.__dict__:
 
         def getPropertyAsIntWithDefault(self, key, value):
             """
-            Get a property as an integer. If the property is not set, the
-            given default value is returned.
+             Get a property as an integer. If the property is not set, the given default value is returned.
             Arguments:
             key -- The property key.
             value -- The default value to use if the property does not exist.
@@ -81,14 +76,11 @@ if 'Properties' not in _M_Ice.__dict__:
 
         def getPropertyAsList(self, key):
             """
-            Get a property as a list of strings. The strings must be
-            separated by whitespace or comma. If the property is not set,
-            an empty list is returned. The strings in the list can contain
-            whitespace and commas if they are enclosed in single or double
-            quotes. If quotes are mismatched, an empty list is returned.
-            Within single quotes or double quotes, you can escape the
-            quote in question with a backslash, e.g. O'Reilly can be written as
-            O'Reilly, "O'Reilly" or 'O\'Reilly'.
+             Get a property as a list of strings. The strings must be separated by whitespace or comma. If the property is
+             not set, an empty list is returned. The strings in the list can contain whitespace and commas if they are
+             enclosed in single or double quotes. If quotes are mismatched, an empty list is returned. Within single quotes
+             or double quotes, you can escape the quote in question with a backslash, e.g. O'Reilly can be written as
+             O'Reilly, "O'Reilly" or 'O\'Reilly'.
             Arguments:
             key -- The property key.
             Returns: The property value interpreted as a list of strings.
@@ -97,14 +89,11 @@ if 'Properties' not in _M_Ice.__dict__:
 
         def getPropertyAsListWithDefault(self, key, value):
             """
-            Get a property as a list of strings.  The strings must be
-            separated by whitespace or comma. If the property is not set,
-            the default list is returned. The strings in the list can contain
-            whitespace and commas if they are enclosed in single or double
-            quotes. If quotes are mismatched, the default list is returned.
-            Within single quotes or double quotes, you can escape the
-            quote in question with a backslash, e.g. O'Reilly can be written as
-            O'Reilly, "O'Reilly" or 'O\'Reilly'.
+             Get a property as a list of strings.  The strings must be separated by whitespace or comma. If the property is
+             not set, the default list is returned. The strings in the list can contain whitespace and commas if they are
+             enclosed in single or double quotes. If quotes are mismatched, the default list is returned. Within single
+             quotes or double quotes, you can escape the quote in question with a backslash, e.g. O'Reilly can be written as
+             O'Reilly, "O'Reilly" or 'O\'Reilly'.
             Arguments:
             key -- The property key.
             value -- The default value to use if the property is not set.
@@ -114,10 +103,8 @@ if 'Properties' not in _M_Ice.__dict__:
 
         def getPropertiesForPrefix(self, prefix):
             """
-            Get all properties whose keys begins with
-            prefix. If
-            prefix is an empty string,
-            then all properties are returned.
+             Get all properties whose keys begins with prefix. If prefix is an empty string, then all
+             properties are returned.
             Arguments:
             prefix -- The prefix to search for (empty string if none).
             Returns: The matching property set.
@@ -126,8 +113,7 @@ if 'Properties' not in _M_Ice.__dict__:
 
         def setProperty(self, key, value):
             """
-            Set a property. To unset a property, set it to
-            the empty string.
+             Set a property. To unset a property, set it to the empty string.
             Arguments:
             key -- The property key.
             value -- The property value.
@@ -136,21 +122,17 @@ if 'Properties' not in _M_Ice.__dict__:
 
         def getCommandLineOptions(self):
             """
-            Get a sequence of command-line options that is equivalent to
-            this property set. Each element of the returned sequence is
-            a command-line option of the form
-            --key=value.
+             Get a sequence of command-line options that is equivalent to this property set. Each element of the returned
+             sequence is a command-line option of the form --key=value.
             Returns: The command line options for this property set.
             """
             raise NotImplementedError("method 'getCommandLineOptions' not implemented")
 
         def parseCommandLineOptions(self, prefix, options):
             """
-            Convert a sequence of command-line options into properties.
-            All options that begin with
-            --prefix. are
-            converted into properties. If the prefix is empty, all options
-            that begin with -- are converted to properties.
+             Convert a sequence of command-line options into properties. All options that begin with
+             --prefix. are converted into properties. If the prefix is empty, all options that begin with
+             -- are converted to properties.
             Arguments:
             prefix -- The property prefix, or an empty string to convert all options starting with --.
             options -- The command-line options.
@@ -160,10 +142,9 @@ if 'Properties' not in _M_Ice.__dict__:
 
         def parseIceCommandLineOptions(self, options):
             """
-            Convert a sequence of command-line options into properties.
-            All options that begin with one of the following prefixes
-            are converted into properties: --Ice, --IceBox, --IceGrid,
-            --IcePatch2, --IceSSL, --IceStorm, --Freeze, and --Glacier2.
+             Convert a sequence of command-line options into properties. All options that begin with one of the following
+             prefixes are converted into properties: --Ice, --IceBox, --IceGrid,
+             --IcePatch2, --IceSSL, --IceStorm, --Freeze, and --Glacier2.
             Arguments:
             options -- The command-line options.
             Returns: The command-line options that do not start with one of the listed prefixes, in their original order.
@@ -172,7 +153,7 @@ if 'Properties' not in _M_Ice.__dict__:
 
         def load(self, file):
             """
-            Load properties from a file.
+             Load properties from a file.
             Arguments:
             file -- The property file.
             """
@@ -180,7 +161,7 @@ if 'Properties' not in _M_Ice.__dict__:
 
         def clone(self):
             """
-            Create a copy of this property set.
+             Create a copy of this property set.
             Returns: A copy of this property set.
             """
             raise NotImplementedError("method 'clone' not implemented")

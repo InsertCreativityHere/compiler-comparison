@@ -184,8 +184,7 @@ namespace IceStorm
 {
 
 /**
- * The TopicLink interface. This is used to forward events between
- * federated Topic instances.
+ * The TopicLink interface. This is used to forward events between federated Topic instances.
  * @see TopicInternal
  */
 class TopicLink : public virtual ::Ice::Object
@@ -342,8 +341,7 @@ public:
     /**
      * Return the replica node proxy for this topic manager.
      * @param current The Current object for the invocation.
-     * @return The replica proxy, or null if this instance is not
-     * replicated.
+     * @return The replica proxy, or null if this instance is not replicated.
      */
     virtual ::std::shared_ptr<::IceStormElection::NodePrx> getReplicaNode(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -361,8 +359,7 @@ namespace IceStorm
 {
 
 /**
- * The TopicLink interface. This is used to forward events between
- * federated Topic instances.
+ * The TopicLink interface. This is used to forward events between federated Topic instances.
  * @see TopicInternal
  */
 class TopicLinkPrx : public virtual ::Ice::Proxy<TopicLinkPrx, ::Ice::ObjectPrx>
@@ -556,8 +553,7 @@ public:
     /**
      * Return the replica node proxy for this topic manager.
      * @param context The Context map to send with the invocation.
-     * @return The replica proxy, or null if this instance is not
-     * replicated.
+     * @return The replica proxy, or null if this instance is not replicated.
      */
     ::std::shared_ptr<::IceStormElection::NodePrx> getReplicaNode(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -1185,8 +1181,7 @@ public:
     /**
      * Return the replica node proxy for this topic manager.
      * @param context The Context map to send with the invocation.
-     * @return The replica proxy, or null if this instance is not
-     * replicated.
+     * @return The replica proxy, or null if this instance is not replicated.
      */
     ::IceStormElection::NodePrx getReplicaNode(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -1252,8 +1247,7 @@ public:
     /**
      * Completes an invocation of begin_getReplicaNode.
      * @param result The asynchronous result object for the invocation.
-     * @return The replica proxy, or null if this instance is not
-     * replicated.
+     * @return The replica proxy, or null if this instance is not replicated.
      */
     ::IceStormElection::NodePrx end_getReplicaNode(const ::Ice::AsyncResultPtr& result);
 
@@ -1284,8 +1278,7 @@ namespace IceStorm
 {
 
 /**
- * The TopicLink interface. This is used to forward events between
- * federated Topic instances.
+ * The TopicLink interface. This is used to forward events between federated Topic instances.
  * @see TopicInternal
  */
 class TopicLink : public virtual ::Ice::Object
@@ -1507,8 +1500,7 @@ public:
     /**
      * Return the replica node proxy for this topic manager.
      * @param current The Current object for the invocation.
-     * @return The replica proxy, or null if this instance is not
-     * replicated.
+     * @return The replica proxy, or null if this instance is not replicated.
      */
     virtual ::IceStormElection::NodePrx getReplicaNode(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
     /// \cond INTERNAL

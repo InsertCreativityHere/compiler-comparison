@@ -16,9 +16,8 @@
 package com.zeroc.Ice;
 
 /**
- * This exception is raised if an operation for a given object does
- * not exist on the server. Typically this is caused by either the
- * client or the server using an outdated Slice specification.
+ * This exception is raised if an operation for a given object does not exist on the server. Typically this is caused
+ * by either the client or the server using an outdated Slice specification.
  **/
 public class OperationNotExistException extends RequestFailedException
 {

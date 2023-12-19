@@ -373,8 +373,7 @@ public:
      * @param llu The log update token.
      * @param subscribers The identities of the subscribers to remove.
      * @param current The Current object for the invocation.
-     * @throws IceStormElection::ObserverInconsistencyException Raised if an
-     * inconsisency was detected.
+     * @throws IceStormElection::ObserverInconsistencyException Raised if an inconsisency was detected.
      */
     virtual void removeSubscriber(LogUpdate llu, ::std::string topic, ::Ice::IdentitySeq subscribers, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -488,8 +487,7 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Invite the node into a group with the given coordinator and
-     * group name.
+     * Invite the node into a group with the given coordinator and group name.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param current The Current object for the invocation.
@@ -500,13 +498,11 @@ public:
     /// \endcond
 
     /**
-     * Call from the group coordinator to a node to inform the node
-     * that the replica group is active.
+     * Call from the group coordinator to a node to inform the node that the replica group is active.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param coordinator The proxy to the coordinator.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param generation The current generation count.
      * @param current The Current object for the invocation.
      */
@@ -516,16 +512,13 @@ public:
     /// \endcond
 
     /**
-     * Called to accept an invitation into
-     * the given group.
+     * Called to accept an invitation into the given group.
      * @param j The id of the node accepting the invitation.
      * @param gn The group name.
-     * @param forwardedInvites The ids of the nodes to which
-     * invitations were forwarded.
+     * @param forwardedInvites The ids of the nodes to which invitations were forwarded.
      * @param observer The observer.
      * @param llu The last log update for the given node.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param current The Current object for the invocation.
      */
     virtual void accept(int j, ::std::string gn, ::Ice::IntSeq forwardedInvites, ::std::shared_ptr<::Ice::ObjectPrx> observer, LogUpdate llu, int max, const ::Ice::Current& current) = 0;
@@ -544,8 +537,7 @@ public:
     /// \endcond
 
     /**
-     * Determine if the node is a member of the given group with the
-     * given coordinator.
+     * Determine if the node is a member of the given group with the given coordinator.
      * @param gn The group name.
      * @param j The group coordinator.
      * @param current The Current object for the invocation.
@@ -569,8 +561,7 @@ public:
     /**
      * Get the replication group information.
      * @param current The Current object for the invocation.
-     * @return The set of configured nodes and the associated
-     * priority.
+     * @return The set of configured nodes and the associated priority.
      */
     virtual NodeInfoSeq nodes(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -816,8 +807,7 @@ public:
      * @param llu The log update token.
      * @param subscribers The identities of the subscribers to remove.
      * @param context The Context map to send with the invocation.
-     * @throws IceStormElection::ObserverInconsistencyException Raised if an
-     * inconsisency was detected.
+     * @throws IceStormElection::ObserverInconsistencyException Raised if an inconsisency was detected.
      */
     void removeSubscriber(const LogUpdate& llu, const ::std::string& topic, const ::Ice::IdentitySeq& subscribers, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -959,8 +949,7 @@ class NodePrx : public virtual ::Ice::Proxy<NodePrx, ::Ice::ObjectPrx>
 public:
 
     /**
-     * Invite the node into a group with the given coordinator and
-     * group name.
+     * Invite the node into a group with the given coordinator and group name.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param context The Context map to send with the invocation.
@@ -971,8 +960,7 @@ public:
     }
 
     /**
-     * Invite the node into a group with the given coordinator and
-     * group name.
+     * Invite the node into a group with the given coordinator and group name.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param context The Context map to send with the invocation.
@@ -986,8 +974,7 @@ public:
     }
 
     /**
-     * Invite the node into a group with the given coordinator and
-     * group name.
+     * Invite the node into a group with the given coordinator and group name.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param response The response callback.
@@ -1011,13 +998,11 @@ public:
     /// \endcond
 
     /**
-     * Call from the group coordinator to a node to inform the node
-     * that the replica group is active.
+     * Call from the group coordinator to a node to inform the node that the replica group is active.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param coordinator The proxy to the coordinator.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param generation The current generation count.
      * @param context The Context map to send with the invocation.
      */
@@ -1027,13 +1012,11 @@ public:
     }
 
     /**
-     * Call from the group coordinator to a node to inform the node
-     * that the replica group is active.
+     * Call from the group coordinator to a node to inform the node that the replica group is active.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param coordinator The proxy to the coordinator.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param generation The current generation count.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -1046,13 +1029,11 @@ public:
     }
 
     /**
-     * Call from the group coordinator to a node to inform the node
-     * that the replica group is active.
+     * Call from the group coordinator to a node to inform the node that the replica group is active.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param coordinator The proxy to the coordinator.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param generation The current generation count.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -1075,16 +1056,13 @@ public:
     /// \endcond
 
     /**
-     * Called to accept an invitation into
-     * the given group.
+     * Called to accept an invitation into the given group.
      * @param j The id of the node accepting the invitation.
      * @param gn The group name.
-     * @param forwardedInvites The ids of the nodes to which
-     * invitations were forwarded.
+     * @param forwardedInvites The ids of the nodes to which invitations were forwarded.
      * @param observer The observer.
      * @param llu The last log update for the given node.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param context The Context map to send with the invocation.
      */
     void accept(int j, const ::std::string& gn, const ::Ice::IntSeq& forwardedInvites, const ::std::shared_ptr<::Ice::ObjectPrx>& observer, const LogUpdate& llu, int max, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1093,16 +1071,13 @@ public:
     }
 
     /**
-     * Called to accept an invitation into
-     * the given group.
+     * Called to accept an invitation into the given group.
      * @param j The id of the node accepting the invitation.
      * @param gn The group name.
-     * @param forwardedInvites The ids of the nodes to which
-     * invitations were forwarded.
+     * @param forwardedInvites The ids of the nodes to which invitations were forwarded.
      * @param observer The observer.
      * @param llu The last log update for the given node.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -1114,16 +1089,13 @@ public:
     }
 
     /**
-     * Called to accept an invitation into
-     * the given group.
+     * Called to accept an invitation into the given group.
      * @param j The id of the node accepting the invitation.
      * @param gn The group name.
-     * @param forwardedInvites The ids of the nodes to which
-     * invitations were forwarded.
+     * @param forwardedInvites The ids of the nodes to which invitations were forwarded.
      * @param observer The observer.
      * @param llu The last log update for the given node.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -1188,8 +1160,7 @@ public:
     /// \endcond
 
     /**
-     * Determine if the node is a member of the given group with the
-     * given coordinator.
+     * Determine if the node is a member of the given group with the given coordinator.
      * @param gn The group name.
      * @param j The group coordinator.
      * @param context The Context map to send with the invocation.
@@ -1201,8 +1172,7 @@ public:
     }
 
     /**
-     * Determine if the node is a member of the given group with the
-     * given coordinator.
+     * Determine if the node is a member of the given group with the given coordinator.
      * @param gn The group name.
      * @param j The group coordinator.
      * @param context The Context map to send with the invocation.
@@ -1216,8 +1186,7 @@ public:
     }
 
     /**
-     * Determine if the node is a member of the given group with the
-     * given coordinator.
+     * Determine if the node is a member of the given group with the given coordinator.
      * @param gn The group name.
      * @param j The group coordinator.
      * @param response The response callback.
@@ -1286,8 +1255,7 @@ public:
     /**
      * Get the replication group information.
      * @param context The Context map to send with the invocation.
-     * @return The set of configured nodes and the associated
-     * priority.
+     * @return The set of configured nodes and the associated priority.
      */
     NodeInfoSeq nodes(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -2308,8 +2276,7 @@ public:
      * @param llu The log update token.
      * @param subscribers The identities of the subscribers to remove.
      * @param context The Context map to send with the invocation.
-     * @throws IceStormElection::ObserverInconsistencyException Raised if an
-     * inconsisency was detected.
+     * @throws IceStormElection::ObserverInconsistencyException Raised if an inconsisency was detected.
      */
     void removeSubscriber(const ::IceStormElection::LogUpdate& llu, const ::std::string& topic, const ::Ice::IdentitySeq& subscribers, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -2385,8 +2352,7 @@ public:
     /**
      * Completes an invocation of begin_removeSubscriber.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceStormElection::ObserverInconsistencyException Raised if an
-     * inconsisency was detected.
+     * @throws IceStormElection::ObserverInconsistencyException Raised if an inconsisency was detected.
      */
     void end_removeSubscriber(const ::Ice::AsyncResultPtr& result);
 
@@ -2516,8 +2482,7 @@ class Node : public virtual ::Ice::Proxy<Node, ::IceProxy::Ice::Object>
 public:
 
     /**
-     * Invite the node into a group with the given coordinator and
-     * group name.
+     * Invite the node into a group with the given coordinator and group name.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param context The Context map to send with the invocation.
@@ -2528,8 +2493,7 @@ public:
     }
 
     /**
-     * Invite the node into a group with the given coordinator and
-     * group name.
+     * Invite the node into a group with the given coordinator and group name.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param context The Context map to send with the invocation.
@@ -2541,8 +2505,7 @@ public:
     }
 
     /**
-     * Invite the node into a group with the given coordinator and
-     * group name.
+     * Invite the node into a group with the given coordinator and group name.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param cb Asynchronous callback object.
@@ -2555,8 +2518,7 @@ public:
     }
 
     /**
-     * Invite the node into a group with the given coordinator and
-     * group name.
+     * Invite the node into a group with the given coordinator and group name.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param context The Context map to send with the invocation.
@@ -2570,8 +2532,7 @@ public:
     }
 
     /**
-     * Invite the node into a group with the given coordinator and
-     * group name.
+     * Invite the node into a group with the given coordinator and group name.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param cb Asynchronous callback object.
@@ -2584,8 +2545,7 @@ public:
     }
 
     /**
-     * Invite the node into a group with the given coordinator and
-     * group name.
+     * Invite the node into a group with the given coordinator and group name.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param context The Context map to send with the invocation.
@@ -2611,13 +2571,11 @@ private:
 public:
 
     /**
-     * Call from the group coordinator to a node to inform the node
-     * that the replica group is active.
+     * Call from the group coordinator to a node to inform the node that the replica group is active.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param coordinator The proxy to the coordinator.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param generation The current generation count.
      * @param context The Context map to send with the invocation.
      */
@@ -2627,13 +2585,11 @@ public:
     }
 
     /**
-     * Call from the group coordinator to a node to inform the node
-     * that the replica group is active.
+     * Call from the group coordinator to a node to inform the node that the replica group is active.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param coordinator The proxy to the coordinator.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param generation The current generation count.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2644,13 +2600,11 @@ public:
     }
 
     /**
-     * Call from the group coordinator to a node to inform the node
-     * that the replica group is active.
+     * Call from the group coordinator to a node to inform the node that the replica group is active.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param coordinator The proxy to the coordinator.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param generation The current generation count.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2662,13 +2616,11 @@ public:
     }
 
     /**
-     * Call from the group coordinator to a node to inform the node
-     * that the replica group is active.
+     * Call from the group coordinator to a node to inform the node that the replica group is active.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param coordinator The proxy to the coordinator.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param generation The current generation count.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -2681,13 +2633,11 @@ public:
     }
 
     /**
-     * Call from the group coordinator to a node to inform the node
-     * that the replica group is active.
+     * Call from the group coordinator to a node to inform the node that the replica group is active.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param coordinator The proxy to the coordinator.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param generation The current generation count.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2699,13 +2649,11 @@ public:
     }
 
     /**
-     * Call from the group coordinator to a node to inform the node
-     * that the replica group is active.
+     * Call from the group coordinator to a node to inform the node that the replica group is active.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param coordinator The proxy to the coordinator.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param generation The current generation count.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -2730,16 +2678,13 @@ private:
 public:
 
     /**
-     * Called to accept an invitation into
-     * the given group.
+     * Called to accept an invitation into the given group.
      * @param j The id of the node accepting the invitation.
      * @param gn The group name.
-     * @param forwardedInvites The ids of the nodes to which
-     * invitations were forwarded.
+     * @param forwardedInvites The ids of the nodes to which invitations were forwarded.
      * @param observer The observer.
      * @param llu The last log update for the given node.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param context The Context map to send with the invocation.
      */
     void accept(::Ice::Int j, const ::std::string& gn, const ::Ice::IntSeq& forwardedInvites, const ::Ice::ObjectPrx& observer, const ::IceStormElection::LogUpdate& llu, ::Ice::Int max, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2748,16 +2693,13 @@ public:
     }
 
     /**
-     * Called to accept an invitation into
-     * the given group.
+     * Called to accept an invitation into the given group.
      * @param j The id of the node accepting the invitation.
      * @param gn The group name.
-     * @param forwardedInvites The ids of the nodes to which
-     * invitations were forwarded.
+     * @param forwardedInvites The ids of the nodes to which invitations were forwarded.
      * @param observer The observer.
      * @param llu The last log update for the given node.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -2767,16 +2709,13 @@ public:
     }
 
     /**
-     * Called to accept an invitation into
-     * the given group.
+     * Called to accept an invitation into the given group.
      * @param j The id of the node accepting the invitation.
      * @param gn The group name.
-     * @param forwardedInvites The ids of the nodes to which
-     * invitations were forwarded.
+     * @param forwardedInvites The ids of the nodes to which invitations were forwarded.
      * @param observer The observer.
      * @param llu The last log update for the given node.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2787,16 +2726,13 @@ public:
     }
 
     /**
-     * Called to accept an invitation into
-     * the given group.
+     * Called to accept an invitation into the given group.
      * @param j The id of the node accepting the invitation.
      * @param gn The group name.
-     * @param forwardedInvites The ids of the nodes to which
-     * invitations were forwarded.
+     * @param forwardedInvites The ids of the nodes to which invitations were forwarded.
      * @param observer The observer.
      * @param llu The last log update for the given node.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2808,16 +2744,13 @@ public:
     }
 
     /**
-     * Called to accept an invitation into
-     * the given group.
+     * Called to accept an invitation into the given group.
      * @param j The id of the node accepting the invitation.
      * @param gn The group name.
-     * @param forwardedInvites The ids of the nodes to which
-     * invitations were forwarded.
+     * @param forwardedInvites The ids of the nodes to which invitations were forwarded.
      * @param observer The observer.
      * @param llu The last log update for the given node.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2828,16 +2761,13 @@ public:
     }
 
     /**
-     * Called to accept an invitation into
-     * the given group.
+     * Called to accept an invitation into the given group.
      * @param j The id of the node accepting the invitation.
      * @param gn The group name.
-     * @param forwardedInvites The ids of the nodes to which
-     * invitations were forwarded.
+     * @param forwardedInvites The ids of the nodes to which invitations were forwarded.
      * @param observer The observer.
      * @param llu The last log update for the given node.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2940,8 +2870,7 @@ private:
 public:
 
     /**
-     * Determine if the node is a member of the given group with the
-     * given coordinator.
+     * Determine if the node is a member of the given group with the given coordinator.
      * @param gn The group name.
      * @param j The group coordinator.
      * @param context The Context map to send with the invocation.
@@ -2953,8 +2882,7 @@ public:
     }
 
     /**
-     * Determine if the node is a member of the given group with the
-     * given coordinator.
+     * Determine if the node is a member of the given group with the given coordinator.
      * @param gn The group name.
      * @param j The group coordinator.
      * @param context The Context map to send with the invocation.
@@ -2966,8 +2894,7 @@ public:
     }
 
     /**
-     * Determine if the node is a member of the given group with the
-     * given coordinator.
+     * Determine if the node is a member of the given group with the given coordinator.
      * @param gn The group name.
      * @param j The group coordinator.
      * @param cb Asynchronous callback object.
@@ -2980,8 +2907,7 @@ public:
     }
 
     /**
-     * Determine if the node is a member of the given group with the
-     * given coordinator.
+     * Determine if the node is a member of the given group with the given coordinator.
      * @param gn The group name.
      * @param j The group coordinator.
      * @param context The Context map to send with the invocation.
@@ -2995,8 +2921,7 @@ public:
     }
 
     /**
-     * Determine if the node is a member of the given group with the
-     * given coordinator.
+     * Determine if the node is a member of the given group with the given coordinator.
      * @param gn The group name.
      * @param j The group coordinator.
      * @param cb Asynchronous callback object.
@@ -3009,8 +2934,7 @@ public:
     }
 
     /**
-     * Determine if the node is a member of the given group with the
-     * given coordinator.
+     * Determine if the node is a member of the given group with the given coordinator.
      * @param gn The group name.
      * @param j The group coordinator.
      * @param context The Context map to send with the invocation.
@@ -3118,8 +3042,7 @@ public:
     /**
      * Get the replication group information.
      * @param context The Context map to send with the invocation.
-     * @return The set of configured nodes and the associated
-     * priority.
+     * @return The set of configured nodes and the associated priority.
      */
     ::IceStormElection::NodeInfoSeq nodes(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -3185,8 +3108,7 @@ public:
     /**
      * Completes an invocation of begin_nodes.
      * @param result The asynchronous result object for the invocation.
-     * @return The set of configured nodes and the associated
-     * priority.
+     * @return The set of configured nodes and the associated priority.
      */
     ::IceStormElection::NodeInfoSeq end_nodes(const ::Ice::AsyncResultPtr& result);
 
@@ -3399,8 +3321,7 @@ public:
      * @param llu The log update token.
      * @param subscribers The identities of the subscribers to remove.
      * @param current The Current object for the invocation.
-     * @throws IceStormElection::ObserverInconsistencyException Raised if an
-     * inconsisency was detected.
+     * @throws IceStormElection::ObserverInconsistencyException Raised if an inconsisency was detected.
      */
     virtual void removeSubscriber(const LogUpdate& llu, const ::std::string& topic, const ::Ice::IdentitySeq& subscribers, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -3559,8 +3480,7 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Invite the node into a group with the given coordinator and
-     * group name.
+     * Invite the node into a group with the given coordinator and group name.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param current The Current object for the invocation.
@@ -3571,13 +3491,11 @@ public:
     /// \endcond
 
     /**
-     * Call from the group coordinator to a node to inform the node
-     * that the replica group is active.
+     * Call from the group coordinator to a node to inform the node that the replica group is active.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param coordinator The proxy to the coordinator.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param generation The current generation count.
      * @param current The Current object for the invocation.
      */
@@ -3587,16 +3505,13 @@ public:
     /// \endcond
 
     /**
-     * Called to accept an invitation into
-     * the given group.
+     * Called to accept an invitation into the given group.
      * @param j The id of the node accepting the invitation.
      * @param gn The group name.
-     * @param forwardedInvites The ids of the nodes to which
-     * invitations were forwarded.
+     * @param forwardedInvites The ids of the nodes to which invitations were forwarded.
      * @param observer The observer.
      * @param llu The last log update for the given node.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param current The Current object for the invocation.
      */
     virtual void accept(::Ice::Int j, const ::std::string& gn, const ::Ice::IntSeq& forwardedInvites, const ::Ice::ObjectPrx& observer, const LogUpdate& llu, ::Ice::Int max, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
@@ -3615,8 +3530,7 @@ public:
     /// \endcond
 
     /**
-     * Determine if the node is a member of the given group with the
-     * given coordinator.
+     * Determine if the node is a member of the given group with the given coordinator.
      * @param gn The group name.
      * @param j The group coordinator.
      * @param current The Current object for the invocation.
@@ -3640,8 +3554,7 @@ public:
     /**
      * Get the replication group information.
      * @param current The Current object for the invocation.
-     * @return The set of configured nodes and the associated
-     * priority.
+     * @return The set of configured nodes and the associated priority.
      */
     virtual NodeInfoSeq nodes(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
     /// \cond INTERNAL

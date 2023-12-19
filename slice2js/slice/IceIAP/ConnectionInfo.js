@@ -37,8 +37,7 @@ let IceIAP = _ModuleRegistry.module("IceIAP");
 /* slice2js browser-bundle-skip-end */
 
 /**
- * Provides access to the connection details of an IAP connection
- *
+ *  Provides access to the connection details of an IAP connection.
  **/
 IceIAP.ConnectionInfo = class extends Ice.ConnectionInfo
 {

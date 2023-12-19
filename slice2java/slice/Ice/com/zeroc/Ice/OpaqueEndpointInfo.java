@@ -36,8 +36,7 @@ public abstract class OpaqueEndpointInfo extends EndpointInfo
     }
 
     /**
-     * The encoding version of the opaque endpoint (to decode or
-     * encode the rawBytes).
+     * The encoding version of the opaque endpoint (to decode or encode the rawBytes).
      **/
     public EncodingVersion rawEncoding;
 

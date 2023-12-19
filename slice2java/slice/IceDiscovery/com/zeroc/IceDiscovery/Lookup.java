@@ -16,29 +16,28 @@
 package com.zeroc.IceDiscovery;
 
 /**
- * The Lookup interface is used by IceDiscovery clients to look for objects
- * and adapters using UDP multicast.
+ * The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
  **/
 public interface Lookup extends com.zeroc.Ice.Object
 {
     /**
      * Request to find an Ice object
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The object identity.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching object is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * object is found.
      * @param current The Current object for the invocation.
      **/
     void findObjectById(String domainId, com.zeroc.Ice.Identity id, LookupReplyPrx reply, com.zeroc.Ice.Current current);
 
     /**
      * Request to find an object adapter
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The adapter ID.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching adapter is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * adapter is found.
      * @param current The Current object for the invocation.
      **/
     void findAdapterById(String domainId, String id, LookupReplyPrx reply, com.zeroc.Ice.Current current);

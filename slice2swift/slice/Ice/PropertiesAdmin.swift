@@ -16,8 +16,8 @@
 import Foundation
 import PromiseKit
 
-/// A simple collection of properties, represented as a dictionary of
-/// key/value pairs. Both key and value are strings.
+/// A simple collection of properties, represented as a dictionary of key/value pairs. Both key and value are
+/// strings.
 public typealias PropertyDict = [Swift.String: Swift.String]
 
 /// Helper class to read and write `PropertyDict` dictionary values from
@@ -91,8 +91,7 @@ public struct PropertiesAdminTraits: SliceTraits {
     public static let staticId = "::Ice::PropertiesAdmin"
 }
 
-/// The PropertiesAdmin interface provides remote access to the properties
-/// of a communicator.
+/// The PropertiesAdmin interface provides remote access to the properties of a communicator.
 ///
 /// PropertiesAdminPrx Methods:
 ///
@@ -182,8 +181,7 @@ public extension InputStream {
     }
 }
 
-/// The PropertiesAdmin interface provides remote access to the properties
-/// of a communicator.
+/// The PropertiesAdmin interface provides remote access to the properties of a communicator.
 ///
 /// PropertiesAdminPrx Methods:
 ///
@@ -199,8 +197,7 @@ public extension InputStream {
 ///
 ///  - setPropertiesAsync: Update the communicator's properties with the given property set.
 public extension PropertiesAdminPrx {
-    /// Get a property by key. If the property is not set, an empty
-    /// string is returned.
+    /// Get a property by key. If the property is not set, an empty string is returned.
     ///
     /// - parameter _: `Swift.String` The property key.
     ///
@@ -220,8 +217,7 @@ public extension PropertiesAdminPrx {
                                  context: context)
     }
 
-    /// Get a property by key. If the property is not set, an empty
-    /// string is returned.
+    /// Get a property by key. If the property is not set, an empty string is returned.
     ///
     /// - parameter _: `Swift.String` The property key.
     ///
@@ -252,8 +248,8 @@ public extension PropertiesAdminPrx {
                                   sent: sent)
     }
 
-    /// Get all properties whose keys begin with prefix. If
-    /// prefix is an empty string then all properties are returned.
+    /// Get all properties whose keys begin with prefix. If prefix is an empty string then all
+    /// properties are returned.
     ///
     /// - parameter _: `Swift.String` The prefix to search for (empty string if none).
     ///
@@ -273,8 +269,8 @@ public extension PropertiesAdminPrx {
                                  context: context)
     }
 
-    /// Get all properties whose keys begin with prefix. If
-    /// prefix is an empty string then all properties are returned.
+    /// Get all properties whose keys begin with prefix. If prefix is an empty string then all
+    /// properties are returned.
     ///
     /// - parameter _: `Swift.String` The prefix to search for (empty string if none).
     ///
@@ -305,14 +301,12 @@ public extension PropertiesAdminPrx {
                                   sent: sent)
     }
 
-    /// Update the communicator's properties with the given property set.
+    /// Update the communicator's properties with the given property set. If an entry in newProperties
+    /// matches the name of an existing property, that property's value is replaced with the new value. If the new
+    /// value is an empty string, the property is removed. Any existing properties that are not modified or removed
+    /// by the entries in newProperties are retained with their original values.
     ///
     /// - parameter _: `PropertyDict` Properties to be added, changed, or removed.
-    /// If an entry in newProperties matches the name of an existing property,
-    /// that property's value is replaced with the new value. If the new value
-    /// is an empty string, the property is removed. Any existing properties
-    /// that are not modified or removed by the entries in newProperties are
-    /// retained with their original values.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func setProperties(_ iceP_newProperties: PropertyDict, context: Context? = nil) throws {
@@ -324,14 +318,12 @@ public extension PropertiesAdminPrx {
                           context: context)
     }
 
-    /// Update the communicator's properties with the given property set.
+    /// Update the communicator's properties with the given property set. If an entry in newProperties
+    /// matches the name of an existing property, that property's value is replaced with the new value. If the new
+    /// value is an empty string, the property is removed. Any existing properties that are not modified or removed
+    /// by the entries in newProperties are retained with their original values.
     ///
     /// - parameter _: `PropertyDict` Properties to be added, changed, or removed.
-    /// If an entry in newProperties matches the name of an existing property,
-    /// that property's value is replaced with the new value. If the new value
-    /// is an empty string, the property is removed. Any existing properties
-    /// that are not modified or removed by the entries in newProperties are
-    /// retained with their original values.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -390,11 +382,9 @@ public struct PropertiesAdminDisp: Disp {
     }
 }
 
-/// The PropertiesAdmin interface provides remote access to the properties
-/// of a communicator.
+/// The PropertiesAdmin interface provides remote access to the properties of a communicator.
 public protocol PropertiesAdmin {
-    /// Get a property by key. If the property is not set, an empty
-    /// string is returned.
+    /// Get a property by key. If the property is not set, an empty string is returned.
     ///
     /// - parameter key: `Swift.String` The property key.
     ///
@@ -403,8 +393,8 @@ public protocol PropertiesAdmin {
     /// - returns: `Swift.String` - The property value.
     func getProperty(key: Swift.String, current: Current) throws -> Swift.String
 
-    /// Get all properties whose keys begin with prefix. If
-    /// prefix is an empty string then all properties are returned.
+    /// Get all properties whose keys begin with prefix. If prefix is an empty string then all
+    /// properties are returned.
     ///
     /// - parameter prefix: `Swift.String` The prefix to search for (empty string if none).
     ///
@@ -413,21 +403,18 @@ public protocol PropertiesAdmin {
     /// - returns: `PropertyDict` - The matching property set.
     func getPropertiesForPrefix(prefix: Swift.String, current: Current) throws -> PropertyDict
 
-    /// Update the communicator's properties with the given property set.
+    /// Update the communicator's properties with the given property set. If an entry in newProperties
+    /// matches the name of an existing property, that property's value is replaced with the new value. If the new
+    /// value is an empty string, the property is removed. Any existing properties that are not modified or removed
+    /// by the entries in newProperties are retained with their original values.
     ///
     /// - parameter newProperties: `PropertyDict` Properties to be added, changed, or removed.
-    /// If an entry in newProperties matches the name of an existing property,
-    /// that property's value is replaced with the new value. If the new value
-    /// is an empty string, the property is removed. Any existing properties
-    /// that are not modified or removed by the entries in newProperties are
-    /// retained with their original values.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func setProperties(newProperties: PropertyDict, current: Current) throws
 }
 
-/// The PropertiesAdmin interface provides remote access to the properties
-/// of a communicator.
+/// The PropertiesAdmin interface provides remote access to the properties of a communicator.
 ///
 /// PropertiesAdmin Methods:
 ///

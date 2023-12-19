@@ -57,12 +57,9 @@ namespace IceGrid
 namespace IceGrid
 {
     /// <summary>
-    /// A session object is used by IceGrid clients to allocate and
-    /// release objects.
-    /// Client sessions are created either via the
-    /// Registry object or via the registry client SessionManager
-    /// object.
-    ///
+    /// A session object is used by IceGrid clients to allocate and release objects.
+    /// Client sessions are created either
+    ///  via the Registry object or via the registry client SessionManager object.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -70,9 +67,8 @@ namespace IceGrid
     {
         /// <summary>
         /// Keep the session alive.
-        /// Clients should call this operation
-        /// regularly to prevent the server from reaping the session.
-        ///
+        /// Clients should call this operation regularly to prevent the server from reaping the
+        ///  session.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -80,7 +76,7 @@ namespace IceGrid
 
         /// <summary>
         /// Keep the session alive.
-        /// Clients should call this operation
+        /// Clients should call this operation regularly to prevent the server from reaping the
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -90,7 +86,7 @@ namespace IceGrid
 
         /// <summary>
         /// Keep the session alive.
-        /// Clients should call this operation
+        /// Clients should call this operation regularly to prevent the server from reaping the
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -98,7 +94,7 @@ namespace IceGrid
 
         /// <summary>
         /// Keep the session alive.
-        /// Clients should call this operation
+        /// Clients should call this operation regularly to prevent the server from reaping the
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -107,7 +103,7 @@ namespace IceGrid
 
         /// <summary>
         /// Keep the session alive.
-        /// Clients should call this operation
+        /// Clients should call this operation regularly to prevent the server from reaping the
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -117,43 +113,35 @@ namespace IceGrid
 
         /// <summary>
         /// Keep the session alive.
-        /// Clients should call this operation
+        /// Clients should call this operation regularly to prevent the server from reaping the
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_keepAlive(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Allocate an object.
-        /// Depending on the allocation timeout, this
-        /// operation might hang until the object is available or until the
-        /// timeout is reached.
-        ///
+        /// Depending on the allocation timeout, this operation might hang until the object is
+        ///  available or until the timeout is reached.
         /// </summary>
-        /// <param name="id">The identity of the object to allocate.
-        ///
-        /// </param>
+        ///  <param name="id">The identity of the object to allocate.
+        ///  </param>
         /// <returns>The proxy of the allocated object.
-        ///
-        /// </returns>
-        /// <exception name="ObjectNotRegisteredException">Raised if the object with
-        /// the given identity is not registered with the registry.
-        ///
-        /// </exception>
-        /// <exception name="AllocationException">Raised if the object can't be
-        /// allocated.
-        ///
-        /// </exception>
+        ///  </returns>
+        /// <exception name="ObjectNotRegisteredException">Raised if the object with the given identity is not registered with
+        ///  the registry.
+        ///  </exception>
+        /// <exception name="AllocationException">Raised if the object can't be allocated.
+        ///  </exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         global::Ice.ObjectPrx allocateObjectById(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Allocate an object.
-        /// Depending on the allocation timeout, this
+        /// Depending on the allocation timeout, this operation might hang until the object is
         /// </summary>
-        /// <param name="id">The identity of the object to allocate.
-        ///
-        /// </param>
+        ///  <param name="id">The identity of the object to allocate.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -162,22 +150,20 @@ namespace IceGrid
 
         /// <summary>
         /// Allocate an object.
-        /// Depending on the allocation timeout, this
+        /// Depending on the allocation timeout, this operation might hang until the object is
         /// </summary>
-        /// <param name="id">The identity of the object to allocate.
-        ///
-        /// </param>
+        ///  <param name="id">The identity of the object to allocate.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Session_allocateObjectById> begin_allocateObjectById(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Allocate an object.
-        /// Depending on the allocation timeout, this
+        /// Depending on the allocation timeout, this operation might hang until the object is
         /// </summary>
-        /// <param name="id">The identity of the object to allocate.
-        ///
-        /// </param>
+        ///  <param name="id">The identity of the object to allocate.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -185,11 +171,10 @@ namespace IceGrid
 
         /// <summary>
         /// Allocate an object.
-        /// Depending on the allocation timeout, this
+        /// Depending on the allocation timeout, this operation might hang until the object is
         /// </summary>
-        /// <param name="id">The identity of the object to allocate.
-        ///
-        /// </param>
+        ///  <param name="id">The identity of the object to allocate.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -198,41 +183,34 @@ namespace IceGrid
 
         /// <summary>
         /// Allocate an object.
-        /// Depending on the allocation timeout, this
+        /// Depending on the allocation timeout, this operation might hang until the object is
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The proxy of the allocated object.
-        ///
-        /// </returns>
+        ///  </returns>
         global::Ice.ObjectPrx end_allocateObjectById(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Allocate an object with the given type.
-        /// Depending on the
-        /// allocation timeout, this operation can block until an object
-        /// becomes available or until the timeout is reached.
-        ///
+        /// Depending on the allocation timeout, this operation can block until
+        ///  an object becomes available or until the timeout is reached.
         /// </summary>
-        /// <param name="type">The type of the object.
-        ///
-        /// </param>
+        ///  <param name="type">The type of the object.
+        ///  </param>
         /// <returns>The proxy of the allocated object.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="AllocationException">Raised if the object could not be allocated.
-        ///
-        /// </exception>
+        ///  </exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         global::Ice.ObjectPrx allocateObjectByType(string type, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Allocate an object with the given type.
-        /// Depending on the
+        /// Depending on the allocation timeout, this operation can block until
         /// </summary>
-        /// <param name="type">The type of the object.
-        ///
-        /// </param>
+        ///  <param name="type">The type of the object.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -241,22 +219,20 @@ namespace IceGrid
 
         /// <summary>
         /// Allocate an object with the given type.
-        /// Depending on the
+        /// Depending on the allocation timeout, this operation can block until
         /// </summary>
-        /// <param name="type">The type of the object.
-        ///
-        /// </param>
+        ///  <param name="type">The type of the object.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Session_allocateObjectByType> begin_allocateObjectByType(string type, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Allocate an object with the given type.
-        /// Depending on the
+        /// Depending on the allocation timeout, this operation can block until
         /// </summary>
-        /// <param name="type">The type of the object.
-        ///
-        /// </param>
+        ///  <param name="type">The type of the object.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -264,11 +240,10 @@ namespace IceGrid
 
         /// <summary>
         /// Allocate an object with the given type.
-        /// Depending on the
+        /// Depending on the allocation timeout, this operation can block until
         /// </summary>
-        /// <param name="type">The type of the object.
-        ///
-        /// </param>
+        ///  <param name="type">The type of the object.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -277,39 +252,34 @@ namespace IceGrid
 
         /// <summary>
         /// Allocate an object with the given type.
-        /// Depending on the
+        /// Depending on the allocation timeout, this operation can block until
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The proxy of the allocated object.
-        ///
-        /// </returns>
+        ///  </returns>
         global::Ice.ObjectPrx end_allocateObjectByType(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Release an object that was allocated using allocateObjectById or
-        /// allocateObjectByType.
+        ///  allocateObjectByType.
         /// </summary>
         /// <param name="id">The identity of the object to release.
-        ///
-        /// </param>
-        /// <exception name="ObjectNotRegisteredException">Raised if the object with
-        /// the given identity is not registered with the registry.
-        ///
-        /// </exception>
-        /// <exception name="AllocationException">Raised if the given object can't be
-        /// released. This might happen if the object isn't allocatable or
-        /// isn't allocated by the session.</exception>
+        ///  </param>
+        /// <exception name="ObjectNotRegisteredException">Raised if the object with the given identity is not registered with
+        ///  the registry.
+        ///  </exception>
+        /// <exception name="AllocationException">Raised if the given object can't be released. This might happen if the object
+        ///  isn't allocatable or isn't allocated by the session.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void releaseObject(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Release an object that was allocated using allocateObjectById or
-        /// allocateObjectByType.
+        ///  allocateObjectByType.
         /// </summary>
         /// <param name="id">The identity of the object to release.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -318,22 +288,20 @@ namespace IceGrid
 
         /// <summary>
         /// Release an object that was allocated using allocateObjectById or
-        /// allocateObjectByType.
+        ///  allocateObjectByType.
         /// </summary>
         /// <param name="id">The identity of the object to release.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Session_releaseObject> begin_releaseObject(global::Ice.Identity id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Release an object that was allocated using allocateObjectById or
-        /// allocateObjectByType.
+        ///  allocateObjectByType.
         /// </summary>
         /// <param name="id">The identity of the object to release.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -341,11 +309,10 @@ namespace IceGrid
 
         /// <summary>
         /// Release an object that was allocated using allocateObjectById or
-        /// allocateObjectByType.
+        ///  allocateObjectByType.
         /// </summary>
         /// <param name="id">The identity of the object to release.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -354,29 +321,27 @@ namespace IceGrid
 
         /// <summary>
         /// Release an object that was allocated using allocateObjectById or
-        /// allocateObjectByType.
+        ///  allocateObjectByType.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_releaseObject(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Set the allocation timeout.
-        /// If no objects are available for an
-        /// allocation request, a call to allocateObjectById or
-        /// allocateObjectByType will block for the duration of this
-        /// timeout.
-        ///
+        /// If no objects are available for an allocation request, a call to
+        ///  allocateObjectById or allocateObjectByType will block for the duration of this
+        ///  timeout.
         /// </summary>
-        /// <param name="timeout">The timeout in milliseconds.</param>
+        ///  <param name="timeout">The timeout in milliseconds.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void setAllocationTimeout(int timeout, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Set the allocation timeout.
-        /// If no objects are available for an
+        /// If no objects are available for an allocation request, a call to
         /// </summary>
-        /// <param name="timeout">The timeout in milliseconds.</param>
+        ///  <param name="timeout">The timeout in milliseconds.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -385,18 +350,18 @@ namespace IceGrid
 
         /// <summary>
         /// Set the allocation timeout.
-        /// If no objects are available for an
+        /// If no objects are available for an allocation request, a call to
         /// </summary>
-        /// <param name="timeout">The timeout in milliseconds.</param>
+        ///  <param name="timeout">The timeout in milliseconds.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Session_setAllocationTimeout> begin_setAllocationTimeout(int timeout, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Set the allocation timeout.
-        /// If no objects are available for an
+        /// If no objects are available for an allocation request, a call to
         /// </summary>
-        /// <param name="timeout">The timeout in milliseconds.</param>
+        ///  <param name="timeout">The timeout in milliseconds.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -404,9 +369,9 @@ namespace IceGrid
 
         /// <summary>
         /// Set the allocation timeout.
-        /// If no objects are available for an
+        /// If no objects are available for an allocation request, a call to
         /// </summary>
-        /// <param name="timeout">The timeout in milliseconds.</param>
+        ///  <param name="timeout">The timeout in milliseconds.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -415,7 +380,7 @@ namespace IceGrid
 
         /// <summary>
         /// Set the allocation timeout.
-        /// If no objects are available for an
+        /// If no objects are available for an allocation request, a call to
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_setAllocationTimeout(global::Ice.AsyncResult asyncResult);
@@ -425,12 +390,9 @@ namespace IceGrid
 namespace IceGrid
 {
     /// <summary>
-    /// A session object is used by IceGrid clients to allocate and
-    /// release objects.
-    /// Client sessions are created either via the
-    /// Registry object or via the registry client SessionManager
-    /// object.
-    ///
+    /// A session object is used by IceGrid clients to allocate and release objects.
+    /// Client sessions are created either
+    ///  via the Registry object or via the registry client SessionManager object.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -438,9 +400,8 @@ namespace IceGrid
     {
         /// <summary>
         /// Keep the session alive.
-        /// Clients should call this operation
-        /// regularly to prevent the server from reaping the session.
-        ///
+        /// Clients should call this operation regularly to prevent the server from reaping the
+        ///  session.
         /// </summary>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -449,11 +410,10 @@ namespace IceGrid
 
         /// <summary>
         /// Allocate an object.
-        /// Depending on the allocation timeout, this
+        /// Depending on the allocation timeout, this operation might hang until the object is
         /// </summary>
-        /// <param name="id">The identity of the object to allocate.
-        ///
-        /// </param>
+        ///  <param name="id">The identity of the object to allocate.
+        ///  </param>
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -461,11 +421,10 @@ namespace IceGrid
 
         /// <summary>
         /// Allocate an object with the given type.
-        /// Depending on the
+        /// Depending on the allocation timeout, this operation can block until
         /// </summary>
-        /// <param name="type">The type of the object.
-        ///
-        /// </param>
+        ///  <param name="type">The type of the object.
+        ///  </param>
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -473,18 +432,15 @@ namespace IceGrid
 
         /// <summary>
         /// Release an object that was allocated using allocateObjectById or
-        /// allocateObjectByType.
+        ///  allocateObjectByType.
         /// </summary>
         /// <param name="id">The identity of the object to release.
-        ///
-        /// </param>
-        /// <exception name="ObjectNotRegisteredException">Raised if the object with
-        /// the given identity is not registered with the registry.
-        ///
-        /// </exception>
-        /// <exception name="AllocationException">Raised if the given object can't be
-        /// released. This might happen if the object isn't allocatable or
-        /// isn't allocated by the session.</exception>
+        ///  </param>
+        /// <exception name="ObjectNotRegisteredException">Raised if the object with the given identity is not registered with
+        ///  the registry.
+        ///  </exception>
+        /// <exception name="AllocationException">Raised if the given object can't be released. This might happen if the object
+        ///  isn't allocatable or isn't allocated by the session.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -492,13 +448,11 @@ namespace IceGrid
 
         /// <summary>
         /// Set the allocation timeout.
-        /// If no objects are available for an
-        /// allocation request, a call to allocateObjectById or
-        /// allocateObjectByType will block for the duration of this
-        /// timeout.
-        ///
+        /// If no objects are available for an allocation request, a call to
+        ///  allocateObjectById or allocateObjectByType will block for the duration of this
+        ///  timeout.
         /// </summary>
-        /// <param name="timeout">The timeout in milliseconds.</param>
+        ///  <param name="timeout">The timeout in milliseconds.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]

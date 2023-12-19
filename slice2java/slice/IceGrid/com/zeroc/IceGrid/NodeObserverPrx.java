@@ -16,15 +16,14 @@
 package com.zeroc.IceGrid;
 
 /**
- * The node observer interface. Observers should implement this
- * interface to receive information about the state of the IceGrid
- * nodes.
+ * The node observer interface. Observers should implement this interface to receive information about the state of
+ * the IceGrid nodes.
  **/
 public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
-     * The <code>nodeInit</code> operation indicates the current state
-     * of nodes. It is called after the registration of an observer.
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
+     * of an observer.
      * @param nodes The current state of the nodes.
      **/
     default void nodeInit(NodeDynamicInfo[] nodes)
@@ -33,8 +32,8 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>nodeInit</code> operation indicates the current state
-     * of nodes. It is called after the registration of an observer.
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
+     * of an observer.
      * @param nodes The current state of the nodes.
      * @param context The Context map to send with the invocation.
      **/
@@ -44,8 +43,8 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>nodeInit</code> operation indicates the current state
-     * of nodes. It is called after the registration of an observer.
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
+     * of an observer.
      * @param nodes The current state of the nodes.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -55,8 +54,8 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>nodeInit</code> operation indicates the current state
-     * of nodes. It is called after the registration of an observer.
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
+     * of an observer.
      * @param nodes The current state of the nodes.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -83,8 +82,7 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      **/
     default void nodeUp(NodeDynamicInfo node)
@@ -93,8 +91,7 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param context The Context map to send with the invocation.
      **/
@@ -104,8 +101,7 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -115,8 +111,7 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -143,8 +138,7 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      **/
     default void nodeDown(String name)
@@ -153,8 +147,7 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      **/
@@ -164,8 +157,7 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -175,8 +167,7 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -203,8 +194,7 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>updateServer</code> operation is called to notify an observer that
-     * the state of a server changed.
+     * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
      * @param node The node hosting the server.
      * @param updatedInfo The new server state.
      **/
@@ -214,8 +204,7 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>updateServer</code> operation is called to notify an observer that
-     * the state of a server changed.
+     * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
      * @param node The node hosting the server.
      * @param updatedInfo The new server state.
      * @param context The Context map to send with the invocation.
@@ -226,8 +215,7 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>updateServer</code> operation is called to notify an observer that
-     * the state of a server changed.
+     * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
      * @param node The node hosting the server.
      * @param updatedInfo The new server state.
      * @return A future that will be completed when the invocation completes.
@@ -238,8 +226,7 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>updateServer</code> operation is called to notify an observer that
-     * the state of a server changed.
+     * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
      * @param node The node hosting the server.
      * @param updatedInfo The new server state.
      * @param context The Context map to send with the invocation.
@@ -269,8 +256,7 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that
-     * the state of an adapter changed.
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
      * @param node The node hosting the adapter.
      * @param updatedInfo The new adapter state.
      **/
@@ -280,8 +266,7 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that
-     * the state of an adapter changed.
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
      * @param node The node hosting the adapter.
      * @param updatedInfo The new adapter state.
      * @param context The Context map to send with the invocation.
@@ -292,8 +277,7 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that
-     * the state of an adapter changed.
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
      * @param node The node hosting the adapter.
      * @param updatedInfo The new adapter state.
      * @return A future that will be completed when the invocation completes.
@@ -304,8 +288,7 @@ public interface NodeObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that
-     * the state of an adapter changed.
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
      * @param node The node hosting the adapter.
      * @param updatedInfo The new adapter state.
      * @param context The Context map to send with the invocation.

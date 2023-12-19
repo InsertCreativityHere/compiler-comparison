@@ -22,10 +22,8 @@ namespace IceBox
 {
     /// <summary>
     /// This exception is a general failure notification.
-    /// It is thrown
-    /// for errors such as a service encountering an error during
-    /// initialization, or the service manager being unable
-    /// to load a service executable.
+    /// It is thrown for errors such as a service encountering an error
+    ///  during initialization, or the service manager being unable to load a service executable.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -97,8 +95,7 @@ namespace IceBox
     }
 
     /// <summary>
-    /// This exception is thrown if an attempt is made to start an
-    /// already-started service.
+    /// This exception is thrown if an attempt is made to start an already-started service.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -155,8 +152,7 @@ namespace IceBox
     }
 
     /// <summary>
-    /// This exception is thrown if an attempt is made to stop an
-    /// already-stopped service.
+    /// This exception is thrown if an attempt is made to stop an already-stopped service.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -213,8 +209,7 @@ namespace IceBox
     }
 
     /// <summary>
-    /// This exception is thrown if a service name does not refer
-    /// to an existing service.
+    /// This exception is thrown if a service name does not refer to an existing service.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -288,26 +283,16 @@ namespace IceBox
 
         /// <summary>
         /// Start the service.
-        /// The given communicator is created by the
-        /// ServiceManager for use by the service. This communicator may
-        /// also be used by other services, depending on the service
-        /// configuration.
-        ///
-        /// &lt;p class="Note"&gt;The ServiceManager owns this communicator, and is
-        /// responsible for destroying it.
-        ///
+        /// The given communicator is created by the ServiceManager for use by the service. This
+        ///  communicator may also be used by other services, depending on the service configuration.
+        ///  &lt;p class="Note"&gt;The ServiceManager owns this communicator, and is responsible for destroying it.
         /// </summary>
-        /// <param name="name">The service's name, as determined by the
-        /// configuration.
-        ///
-        /// </param>
+        ///  <param name="name">The service's name, as determined by the configuration.
+        ///  </param>
         /// <param name="communicator">A communicator for use by the service.
-        ///
-        /// </param>
-        /// <param name="args">The service arguments that were not converted into
-        /// properties.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="args">The service arguments that were not converted into properties.
+        ///  </param>
         /// <exception name="FailureException">Raised if start failed.</exception>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -379,8 +364,7 @@ namespace IceBox
 namespace IceBox
 {
     /// <summary>
-    /// An Observer interface implemented by admin clients interested in the status
-    /// of services.
+    /// An Observer interface implemented by admin clients interested in the status of services.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -500,10 +484,9 @@ namespace IceBox
         /// Start an individual service.
         /// </summary>
         /// <param name="service">The service name.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="AlreadyStartedException">If the service is already running.
-        /// </exception>
+        ///  </exception>
         /// <exception name="NoSuchServiceException">If no service could be found with the given name.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -513,8 +496,7 @@ namespace IceBox
         /// Start an individual service.
         /// </summary>
         /// <param name="service">The service name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -525,8 +507,7 @@ namespace IceBox
         /// Start an individual service.
         /// </summary>
         /// <param name="service">The service name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_ServiceManager_startService> begin_startService(string service, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -535,8 +516,7 @@ namespace IceBox
         /// Start an individual service.
         /// </summary>
         /// <param name="service">The service name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -546,8 +526,7 @@ namespace IceBox
         /// Start an individual service.
         /// </summary>
         /// <param name="service">The service name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -564,10 +543,9 @@ namespace IceBox
         /// Stop an individual service.
         /// </summary>
         /// <param name="service">The service name.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="AlreadyStoppedException">If the service is already stopped.
-        /// </exception>
+        ///  </exception>
         /// <exception name="NoSuchServiceException">If no service could be found with the given name.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -577,8 +555,7 @@ namespace IceBox
         /// Stop an individual service.
         /// </summary>
         /// <param name="service">The service name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -589,8 +566,7 @@ namespace IceBox
         /// Stop an individual service.
         /// </summary>
         /// <param name="service">The service name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_ServiceManager_stopService> begin_stopService(string service, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -599,8 +575,7 @@ namespace IceBox
         /// Stop an individual service.
         /// </summary>
         /// <param name="service">The service name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -610,8 +585,7 @@ namespace IceBox
         /// Stop an individual service.
         /// </summary>
         /// <param name="service">The service name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -732,8 +706,7 @@ namespace IceBox
 namespace IceBox
 {
     /// <summary>
-    /// An Observer interface implemented by admin clients interested in the status
-    /// of services.
+    /// An Observer interface implemented by admin clients interested in the status of services.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -769,10 +742,9 @@ namespace IceBox
         /// Start an individual service.
         /// </summary>
         /// <param name="service">The service name.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="AlreadyStartedException">If the service is already running.
-        /// </exception>
+        ///  </exception>
         /// <exception name="NoSuchServiceException">If no service could be found with the given name.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -783,10 +755,9 @@ namespace IceBox
         /// Stop an individual service.
         /// </summary>
         /// <param name="service">The service name.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="AlreadyStoppedException">If the service is already stopped.
-        /// </exception>
+        ///  </exception>
         /// <exception name="NoSuchServiceException">If no service could be found with the given name.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 

@@ -21,18 +21,39 @@ package IceStorm;
 public class SubscriberRecord implements java.lang.Cloneable,
                                          java.io.Serializable
 {
+    /**
+     * The name of the topic.
+     **/
     public String topicName;
 
+    /**
+     * The subscriber identity.
+     **/
     public com.zeroc.Ice.Identity id;
 
+    /**
+     * Is this a link record, or a subscriber record?
+     **/
     public boolean link;
 
+    /**
+     * The subscriber object.
+     **/
     public com.zeroc.Ice.ObjectPrx obj;
 
+    /**
+     * The QoS.
+     **/
     public java.util.Map<java.lang.String, java.lang.String> theQoS;
 
+    /**
+     * The cost.
+     **/
     public int cost;
 
+    /**
+     * The linked topic.
+     **/
     public com.zeroc.IceStorm.TopicPrx theTopic;
 
     public SubscriberRecord()

@@ -109,9 +109,8 @@ public interface Node extends FileReader,
     }
 
     /**
-     * Load the given server. If the server resources weren't already
-     * created (database environment directories, property files, etc),
-     * they will be created.
+     * Load the given server. If the server resources weren't already created (database environment directories,
+     * property files, etc), they will be created.
      * @param current The Current object for the invocation.
      * @return A completion stage that the servant will complete with an instance of Node.LoadServerResult.
      **/
@@ -119,11 +118,9 @@ public interface Node extends FileReader,
         throws com.zeroc.IceGrid.DeploymentException;
 
     /**
-     * Load the given server and ensure the server won't be
-     * restarted. If the server resources weren't already created
-     * (database environment directories, property files, etc), they
-     * will be created. If the server can't be updated without a
-     * restart, a DeploymentException is raised.
+     * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+     * (database environment directories, property files, etc), they will be created. If the server can't be updated
+     * without a restart, a DeploymentException is raised.
      * @param current The Current object for the invocation.
      * @return A completion stage that the servant will complete with an instance of Node.LoadServerWithoutRestartResult.
      **/
@@ -147,18 +144,16 @@ public interface Node extends FileReader,
         throws com.zeroc.IceGrid.DeploymentException;
 
     /**
-     * Patch application and server distributions. If some servers
-     * using a distribution directory to patch are active, this method
-     * will raise a PatchException unless shutdown is set to true. In
-     * which case the servers will be shutdown.
+     * Patch application and server distributions. If some servers using a distribution directory to patch are active,
+     * this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
+     * shutdown.
      * @param current The Current object for the invocation.
      * @return A completion stage that the servant will complete when the invocation completes.
      **/
     java.util.concurrent.CompletionStage<Void> patchAsync(PatcherFeedbackPrx feedback, String application, String server, InternalDistributionDescriptor appDistrib, boolean shutdown, com.zeroc.Ice.Current current);
 
     /**
-     * Establish a session to the given replica, this method only
-     * returns once the registration was attempted (unlike
+     * Establish a session to the given replica, this method only returns once the registration was attempted (unlike
      * replicaAdded below).
      * @param current The Current object for the invocation.
      **/
@@ -183,8 +178,7 @@ public interface Node extends FileReader,
     com.zeroc.IceGrid.LoadInfo getLoad(com.zeroc.Ice.Current current);
 
     /**
-     * Get the number of processor sockets for the machine where this
-     * node is running.
+     * Get the number of processor sockets for the machine where this node is running.
      * @param current The Current object for the invocation.
      **/
     int getProcessorSocketCount(com.zeroc.Ice.Current current);

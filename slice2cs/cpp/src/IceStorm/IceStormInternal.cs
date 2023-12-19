@@ -381,9 +381,7 @@ namespace IceStorm
 {
     /// <summary>
     /// The TopicLink interface.
-    /// This is used to forward events between
-    /// federated Topic instances.
-    ///
+    /// This is used to forward events between federated Topic instances.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -500,8 +498,7 @@ namespace IceStorm
         /// Reap the given identities.
         /// </summary>
         /// <param name="id">The sequence of identities.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="ReapWouldBlock">Raised if the reap call would block.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -511,8 +508,7 @@ namespace IceStorm
         /// Reap the given identities.
         /// </summary>
         /// <param name="id">The sequence of identities.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -523,8 +519,7 @@ namespace IceStorm
         /// Reap the given identities.
         /// </summary>
         /// <param name="id">The sequence of identities.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_TopicInternal_reap> begin_reap(global::Ice.Identity[] id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -533,8 +528,7 @@ namespace IceStorm
         /// Reap the given identities.
         /// </summary>
         /// <param name="id">The sequence of identities.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -544,8 +538,7 @@ namespace IceStorm
         /// Reap the given identities.
         /// </summary>
         /// <param name="id">The sequence of identities.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -569,8 +562,7 @@ namespace IceStorm
         /// <summary>
         /// Return the replica node proxy for this topic manager.
         /// </summary>
-        /// <returns>The replica proxy, or null if this instance is not
-        /// replicated.</returns>
+        /// <returns>The replica proxy, or null if this instance is not replicated.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         global::IceStormElection.NodePrx getReplicaNode(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -612,8 +604,7 @@ namespace IceStorm
         /// Return the replica node proxy for this topic manager.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The replica proxy, or null if this instance is not
-        /// replicated.</returns>
+        /// <returns>The replica proxy, or null if this instance is not replicated.</returns>
         global::IceStormElection.NodePrx end_getReplicaNode(global::Ice.AsyncResult asyncResult);
     }
 }
@@ -622,9 +613,7 @@ namespace IceStorm
 {
     /// <summary>
     /// The TopicLink interface.
-    /// This is used to forward events between
-    /// federated Topic instances.
-    ///
+    /// This is used to forward events between federated Topic instances.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -660,8 +649,7 @@ namespace IceStorm
         /// Reap the given identities.
         /// </summary>
         /// <param name="id">The sequence of identities.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="ReapWouldBlock">Raised if the reap call would block.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -679,8 +667,7 @@ namespace IceStorm
         /// <summary>
         /// Return the replica node proxy for this topic manager.
         /// </summary>
-        /// <returns>The replica proxy, or null if this instance is not
-        /// replicated.</returns>
+        /// <returns>The replica proxy, or null if this instance is not replicated.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]

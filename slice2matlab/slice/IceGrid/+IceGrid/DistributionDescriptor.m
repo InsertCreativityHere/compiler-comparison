@@ -1,7 +1,6 @@
 % DistributionDescriptor   Summary of DistributionDescriptor
 %
-% A distribution descriptor defines an IcePatch2 server and the
-% directories to retrieve from the patch server.
+% A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
 %
 % DistributionDescriptor Properties:
 %   icepatch - The proxy of the IcePatch2 server.

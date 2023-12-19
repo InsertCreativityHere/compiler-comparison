@@ -28,9 +28,8 @@
 classdef InternalRegistryPrx < IceGrid.FileReaderPrx
     methods
         function result = registerNode(obj, info, prx, loadInf, varargin)
-            % registerNode   Register a node with the registry. If a node with the same name
-            % is already registered, [registerNode] will overide the previous
-            % node only if it's not active.
+            % registerNode   Register a node with the registry. If a node with the same name is already registered, [registerNode] will
+            % overide the previous node only if it's not active.
             %
             % Parameters:
             %   info (IceGrid.InternalNodeInfo) - Some information on the node.
@@ -41,8 +40,7 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             % Returns (IceGrid.NodeSessionPrx) - The node session proxy.
             %
             % Exceptions:
-            %   IceGrid.NodeActiveException - Raised if the node is already
-            %     registered and currently active.
+            %   IceGrid.NodeActiveException - Raised if the node is already registered and currently active.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeValue(info);
@@ -56,9 +54,8 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             is_.endEncapsulation();
         end
         function r_ = registerNodeAsync(obj, info, prx, loadInf, varargin)
-            % registerNodeAsync   Register a node with the registry. If a node with the same name
-            % is already registered, [registerNode] will overide the previous
-            % node only if it's not active.
+            % registerNodeAsync   Register a node with the registry. If a node with the same name is already registered, [registerNode] will
+            % overide the previous node only if it's not active.
             %
             % Parameters:
             %   info (IceGrid.InternalNodeInfo) - Some information on the node.
@@ -69,8 +66,7 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.NodeActiveException - Raised if the node is already
-            %     registered and currently active.
+            %   IceGrid.NodeActiveException - Raised if the node is already registered and currently active.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeValue(info);
@@ -87,9 +83,8 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             r_ = obj.iceInvokeAsync('registerNode', 0, true, os_, 1, @unmarshal, IceGrid.InternalRegistryPrx.registerNode_ex_, varargin{:});
         end
         function result = registerReplica(obj, info, prx, varargin)
-            % registerReplica   Register a replica with the registry. If a replica with the
-            % same name is already registered, [registerReplica] will overide
-            % the previous replica only if it's not active.
+            % registerReplica   Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
+            % will overide the previous replica only if it's not active.
             %
             % Parameters:
             %   info (IceGrid.InternalReplicaInfo) - Some information on the replica.
@@ -99,8 +94,7 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             % Returns (IceGrid.ReplicaSessionPrx) - The replica session proxy.
             %
             % Exceptions:
-            %   IceGrid.ReplicaActiveException - Raised if the replica is already
-            %     registered and currently active.
+            %   IceGrid.ReplicaActiveException - Raised if the replica is already registered and currently active.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeValue(info);
@@ -113,9 +107,8 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             is_.endEncapsulation();
         end
         function r_ = registerReplicaAsync(obj, info, prx, varargin)
-            % registerReplicaAsync   Register a replica with the registry. If a replica with the
-            % same name is already registered, [registerReplica] will overide
-            % the previous replica only if it's not active.
+            % registerReplicaAsync   Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
+            % will overide the previous replica only if it's not active.
             %
             % Parameters:
             %   info (IceGrid.InternalReplicaInfo) - Some information on the replica.
@@ -125,8 +118,7 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.ReplicaActiveException - Raised if the replica is already
-            %     registered and currently active.
+            %   IceGrid.ReplicaActiveException - Raised if the replica is already registered and currently active.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeValue(info);
@@ -142,8 +134,8 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             r_ = obj.iceInvokeAsync('registerReplica', 0, true, os_, 1, @unmarshal, IceGrid.InternalRegistryPrx.registerReplica_ex_, varargin{:});
         end
         function registerWithReplica(obj, prx, varargin)
-            % registerWithReplica   Create a session with the given registry replica. This method
-            % returns only once the session creation has been attempted.
+            % registerWithReplica   Create a session with the given registry replica. This method returns only once the session creation has been
+            % attempted.
             %
             % Parameters:
             %   prx (IceGrid.InternalRegistryPrx)
@@ -155,8 +147,8 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             obj.iceInvoke('registerWithReplica', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = registerWithReplicaAsync(obj, prx, varargin)
-            % registerWithReplicaAsync   Create a session with the given registry replica. This method
-            % returns only once the session creation has been attempted.
+            % registerWithReplicaAsync   Create a session with the given registry replica. This method returns only once the session creation has been
+            % attempted.
             %
             % Parameters:
             %   prx (IceGrid.InternalRegistryPrx)
@@ -199,8 +191,7 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             r_ = obj.iceInvokeAsync('getNodes', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getReplicas(obj, varargin)
-            % getReplicas   Return the proxies of all the registry replicas known by this
-            % registry.
+            % getReplicas   Return the proxies of all the registry replicas known by this registry.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -213,8 +204,7 @@ classdef InternalRegistryPrx < IceGrid.FileReaderPrx
             is_.endEncapsulation();
         end
         function r_ = getReplicasAsync(obj, varargin)
-            % getReplicasAsync   Return the proxies of all the registry replicas known by this
-            % registry.
+            % getReplicasAsync   Return the proxies of all the registry replicas known by this registry.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.

@@ -30,8 +30,7 @@ const Slice = Ice.Slice;
 /* slice2js browser-bundle-skip-end */
 
 /**
- * A version structure for the protocol version.
- *
+ *  A version structure for the protocol version.
  **/
 Ice.ProtocolVersion = class
 {
@@ -62,8 +61,7 @@ Ice.ProtocolVersion = class
 Slice.defineStruct(Ice.ProtocolVersion, true, false);
 
 /**
- * A version structure for the encoding version.
- *
+ *  A version structure for the encoding version.
  **/
 Ice.EncodingVersion = class
 {

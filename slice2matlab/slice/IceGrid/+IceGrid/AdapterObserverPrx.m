@@ -1,7 +1,6 @@
 % AdapterObserverPrx   Summary of AdapterObserverPrx
 %
-% This interface allows applications to monitor the state of object
-% adapters that are registered with IceGrid.
+% This interface allows applications to monitor the state of object adapters that are registered with IceGrid.
 %
 % AdapterObserverPrx Methods:
 %   adapterInit - adapterInit is called after registration of an observer to indicate the state of the registry.
@@ -21,12 +20,11 @@
 classdef AdapterObserverPrx < Ice.ObjectPrx
     methods
         function adapterInit(obj, adpts, varargin)
-            % adapterInit   adapterInit is called after registration of
-            % an observer to indicate the state of the registry.
+            % adapterInit   adapterInit is called after registration of an observer to indicate the state of the registry.
             %
             % Parameters:
-            %   adpts (IceGrid.AdapterInfoSeq) - The adapters that were dynamically registered
-            %     with the registry (not through the deployment mechanism).
+            %   adpts (IceGrid.AdapterInfoSeq) - The adapters that were dynamically registered with the registry (not through the deployment
+            %     mechanism).
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
@@ -35,12 +33,11 @@ classdef AdapterObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('adapterInit', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = adapterInitAsync(obj, adpts, varargin)
-            % adapterInitAsync   adapterInit is called after registration of
-            % an observer to indicate the state of the registry.
+            % adapterInitAsync   adapterInit is called after registration of an observer to indicate the state of the registry.
             %
             % Parameters:
-            %   adpts (IceGrid.AdapterInfoSeq) - The adapters that were dynamically registered
-            %     with the registry (not through the deployment mechanism).
+            %   adpts (IceGrid.AdapterInfoSeq) - The adapters that were dynamically registered with the registry (not through the deployment
+            %     mechanism).
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -51,8 +48,8 @@ classdef AdapterObserverPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('adapterInit', 0, false, os_, 0, [], {}, varargin{:});
         end
         function adapterAdded(obj, info, varargin)
-            % adapterAdded   The adapterAdded operation is called to notify an observer when
-            % a dynamically-registered adapter was added.
+            % adapterAdded   The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
+            % was added.
             %
             % Parameters:
             %   info (IceGrid.AdapterInfo) - The details of the new adapter.
@@ -64,8 +61,8 @@ classdef AdapterObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('adapterAdded', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = adapterAddedAsync(obj, info, varargin)
-            % adapterAddedAsync   The adapterAdded operation is called to notify an observer when
-            % a dynamically-registered adapter was added.
+            % adapterAddedAsync   The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
+            % was added.
             %
             % Parameters:
             %   info (IceGrid.AdapterInfo) - The details of the new adapter.
@@ -79,8 +76,7 @@ classdef AdapterObserverPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('adapterAdded', 0, false, os_, 0, [], {}, varargin{:});
         end
         function adapterUpdated(obj, info, varargin)
-            % adapterUpdated   The adapterUpdated operation is called to notify an observer when
-            % a dynamically-registered adapter was updated.
+            % adapterUpdated   The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
             %
             % Parameters:
             %   info (IceGrid.AdapterInfo) - The details of the updated adapter.
@@ -92,8 +88,7 @@ classdef AdapterObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('adapterUpdated', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = adapterUpdatedAsync(obj, info, varargin)
-            % adapterUpdatedAsync   The adapterUpdated operation is called to notify an observer when
-            % a dynamically-registered adapter was updated.
+            % adapterUpdatedAsync   The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
             %
             % Parameters:
             %   info (IceGrid.AdapterInfo) - The details of the updated adapter.
@@ -107,8 +102,7 @@ classdef AdapterObserverPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('adapterUpdated', 0, false, os_, 0, [], {}, varargin{:});
         end
         function adapterRemoved(obj, id, varargin)
-            % adapterRemoved   The adapterRemoved operation is called to notify an observer when
-            % a dynamically-registered adapter was removed.
+            % adapterRemoved   The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
             %
             % Parameters:
             %   id (char) - The ID of the removed adapter.
@@ -120,8 +114,7 @@ classdef AdapterObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('adapterRemoved', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = adapterRemovedAsync(obj, id, varargin)
-            % adapterRemovedAsync   The adapterRemoved operation is called to notify an observer when
-            % a dynamically-registered adapter was removed.
+            % adapterRemovedAsync   The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
             %
             % Parameters:
             %   id (char) - The ID of the removed adapter.

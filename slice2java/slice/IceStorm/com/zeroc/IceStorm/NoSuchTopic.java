@@ -16,8 +16,7 @@
 package com.zeroc.IceStorm;
 
 /**
- * This exception indicates that an attempt was made to retrieve a
- * topic that does not exist.
+ * This exception indicates that an attempt was made to retrieve a topic that does not exist.
  **/
 public class NoSuchTopic extends com.zeroc.Ice.UserException
 {

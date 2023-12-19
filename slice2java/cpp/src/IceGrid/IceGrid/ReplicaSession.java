@@ -30,8 +30,7 @@ public interface ReplicaSession extends com.zeroc.Ice.Object
     int getTimeout(com.zeroc.Ice.Current current);
 
     /**
-     * Set the database observer. Once the observer is subscribed, it
-     * will receive the database and database updates.
+     * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      * @param current The Current object for the invocation.
      **/
     void setDatabaseObserver(DatabaseObserverPrx dbObs, java.util.Optional<java.util.Map<java.lang.String, java.lang.Long>> serials, com.zeroc.Ice.Current current)
@@ -39,9 +38,8 @@ public interface ReplicaSession extends com.zeroc.Ice.Object
                com.zeroc.IceGrid.ObserverAlreadyRegisteredException;
 
     /**
-     * This method sets the endpoints of the replica. This allows the
-     * master to create proxies with multiple endpoints for replicated
-     * objects (e.g.: IceGrid::Query object).
+     * This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+     * for replicated objects (e.g.: IceGrid::Query object).
      * @param current The Current object for the invocation.
      **/
     void setEndpoints(java.util.Map<java.lang.String, com.zeroc.Ice.ObjectPrx> endpoints, com.zeroc.Ice.Current current);
@@ -53,9 +51,8 @@ public interface ReplicaSession extends com.zeroc.Ice.Object
     void registerWellKnownObjects(com.zeroc.IceGrid.ObjectInfo[] objects, com.zeroc.Ice.Current current);
 
     /**
-     * Set the adapter direct proxy of the given adapter in the
-     * master. This is used to support dynamic registration with
-     * the locator registry interface.
+     * Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+     * with the locator registry interface.
      * @param current The Current object for the invocation.
      **/
     void setAdapterDirectProxy(String adapterId, String replicaGroupId, com.zeroc.Ice.ObjectPrx proxy, com.zeroc.Ice.Current current)
@@ -63,9 +60,8 @@ public interface ReplicaSession extends com.zeroc.Ice.Object
                com.zeroc.IceGrid.AdapterNotExistException;
 
     /**
-     * Notify the master that an update was received. The master might
-     * wait for replication updates to be received by all the replicas
-     * before to continue.
+     * Notify the master that an update was received. The master might wait for replication updates to be received by
+     * all the replicas before to continue.
      * @param current The Current object for the invocation.
      **/
     void receivedUpdate(TopicName name, int serial, String failure, com.zeroc.Ice.Current current);

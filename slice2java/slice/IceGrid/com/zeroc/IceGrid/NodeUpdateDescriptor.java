@@ -16,8 +16,7 @@
 package com.zeroc.IceGrid;
 
 /**
- * A node update descriptor to describe the updates to apply to a
- * node of a deployed application.
+ * A node update descriptor to describe the updates to apply to a node of a deployed application.
  **/
 public class NodeUpdateDescriptor implements java.lang.Cloneable,
                                              java.io.Serializable
@@ -28,8 +27,7 @@ public class NodeUpdateDescriptor implements java.lang.Cloneable,
     public String name;
 
     /**
-     * The updated description (or null if the description wasn't
-     * updated.)
+     * The updated description (or null if the description wasn't updated.)
      **/
     public BoxedString description;
 
@@ -69,8 +67,7 @@ public class NodeUpdateDescriptor implements java.lang.Cloneable,
     public String[] removeServers;
 
     /**
-     * The updated load factor of the node (or null if the load factor
-     * was not updated).
+     * The updated load factor of the node (or null if the load factor was not updated).
      **/
     public BoxedString loadFactor;
 

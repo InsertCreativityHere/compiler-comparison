@@ -16,8 +16,7 @@
 package com.zeroc.Ice;
 
 /**
- * This exception indicates that a message did not start with the expected
- * magic number ('I', 'c', 'e', 'P').
+ * This exception indicates that a message did not start with the expected magic number ('I', 'c', 'e', 'P').
  **/
 public class BadMagicException extends ProtocolException
 {

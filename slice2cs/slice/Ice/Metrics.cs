@@ -990,10 +990,8 @@ namespace IceMX
 {
     /// <summary>
     /// The metrics administrative facet interface.
-    /// This interface allows
-    /// remote administrative clients to access metrics of an application
-    /// that enabled the Ice administrative facility and configured some
-    /// metrics views.
+    /// This interface allows remote administrative clients to access metrics
+    ///  of an application that enabled the Ice administrative facility and configured some metrics views.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1003,8 +1001,7 @@ namespace IceMX
         /// Get the names of enabled and disabled metrics.
         /// </summary>
         /// <param name="disabledViews">The names of the disabled views.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The name of the enabled views.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -1047,8 +1044,7 @@ namespace IceMX
         /// Get the names of enabled and disabled metrics.
         /// </summary>
         /// <param name="disabledViews">The names of the disabled views.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The name of the enabled views.</returns>
         string[] end_getMetricsViewNames(out string[] disabledViews, global::Ice.AsyncResult asyncResult);
@@ -1057,10 +1053,8 @@ namespace IceMX
         /// Enables a metrics view.
         /// </summary>
         /// <param name="name">The metrics view name.
-        ///
-        /// </param>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be
-        /// found.</exception>
+        ///  </param>
+        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void enableMetricsView(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1069,8 +1063,7 @@ namespace IceMX
         /// Enables a metrics view.
         /// </summary>
         /// <param name="name">The metrics view name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -1081,8 +1074,7 @@ namespace IceMX
         /// Enables a metrics view.
         /// </summary>
         /// <param name="name">The metrics view name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_MetricsAdmin_enableMetricsView> begin_enableMetricsView(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1091,8 +1083,7 @@ namespace IceMX
         /// Enables a metrics view.
         /// </summary>
         /// <param name="name">The metrics view name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -1102,8 +1093,7 @@ namespace IceMX
         /// Enables a metrics view.
         /// </summary>
         /// <param name="name">The metrics view name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1120,10 +1110,8 @@ namespace IceMX
         /// Disable a metrics view.
         /// </summary>
         /// <param name="name">The metrics view name.
-        ///
-        /// </param>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be
-        /// found.</exception>
+        ///  </param>
+        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void disableMetricsView(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1132,8 +1120,7 @@ namespace IceMX
         /// Disable a metrics view.
         /// </summary>
         /// <param name="name">The metrics view name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -1144,8 +1131,7 @@ namespace IceMX
         /// Disable a metrics view.
         /// </summary>
         /// <param name="name">The metrics view name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_MetricsAdmin_disableMetricsView> begin_disableMetricsView(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1154,8 +1140,7 @@ namespace IceMX
         /// Disable a metrics view.
         /// </summary>
         /// <param name="name">The metrics view name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -1165,8 +1150,7 @@ namespace IceMX
         /// Disable a metrics view.
         /// </summary>
         /// <param name="name">The metrics view name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1181,36 +1165,27 @@ namespace IceMX
 
         /// <summary>
         /// Get the metrics objects for the given metrics view.
-        /// This
-        /// returns a dictionary of metric maps for each metrics class
-        /// configured with the view. The timestamp allows the client to
-        /// compute averages which are not dependent of the invocation
-        /// latency for this operation.
-        ///
+        /// This returns a dictionary of metric maps for each metrics
+        ///  class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+        ///  the invocation latency for this operation.
         /// </summary>
-        /// <param name="view">The name of the metrics view.
-        ///
-        /// </param>
-        /// <param name="timestamp">The local time of the process when the metrics
-        /// object were retrieved.
-        ///
-        /// </param>
+        ///  <param name="view">The name of the metrics view.
+        ///  </param>
+        /// <param name="timestamp">The local time of the process when the metrics object were retrieved.
+        ///  </param>
         /// <returns>The metrics view data.
-        ///
-        /// </returns>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be
-        /// found.</exception>
+        ///  </returns>
+        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         global::System.Collections.Generic.Dictionary<string, Metrics[]> getMetricsView(string view, out long timestamp, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Get the metrics objects for the given metrics view.
-        /// This
+        /// This returns a dictionary of metric maps for each metrics
         /// </summary>
-        /// <param name="view">The name of the metrics view.
-        ///
-        /// </param>
+        ///  <param name="view">The name of the metrics view.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -1219,22 +1194,20 @@ namespace IceMX
 
         /// <summary>
         /// Get the metrics objects for the given metrics view.
-        /// This
+        /// This returns a dictionary of metric maps for each metrics
         /// </summary>
-        /// <param name="view">The name of the metrics view.
-        ///
-        /// </param>
+        ///  <param name="view">The name of the metrics view.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_MetricsAdmin_getMetricsView> begin_getMetricsView(string view, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Get the metrics objects for the given metrics view.
-        /// This
+        /// This returns a dictionary of metric maps for each metrics
         /// </summary>
-        /// <param name="view">The name of the metrics view.
-        ///
-        /// </param>
+        ///  <param name="view">The name of the metrics view.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -1242,11 +1215,10 @@ namespace IceMX
 
         /// <summary>
         /// Get the metrics objects for the given metrics view.
-        /// This
+        /// This returns a dictionary of metric maps for each metrics
         /// </summary>
-        /// <param name="view">The name of the metrics view.
-        ///
-        /// </param>
+        ///  <param name="view">The name of the metrics view.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1255,32 +1227,25 @@ namespace IceMX
 
         /// <summary>
         /// Get the metrics objects for the given metrics view.
-        /// This
+        /// This returns a dictionary of metric maps for each metrics
         /// </summary>
-        /// <param name="timestamp">The local time of the process when the metrics
-        /// object were retrieved.
-        ///
-        /// </param>
+        /// <param name="timestamp">The local time of the process when the metrics object were retrieved.
+        ///  </param>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The metrics view data.
-        ///
-        /// </returns>
+        ///  </returns>
         global::System.Collections.Generic.Dictionary<string, Metrics[]> end_getMetricsView(out long timestamp, global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get the metrics failures associated with the given view and map.
         /// </summary>
         /// <param name="view">The name of the metrics view.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="map">The name of the metrics map.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The metrics failures associated with the map.
-        ///
-        /// </returns>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be
-        /// found.</exception>
+        ///  </returns>
+        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         MetricsFailures[] getMapMetricsFailures(string view, string map, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1289,11 +1254,9 @@ namespace IceMX
         /// Get the metrics failures associated with the given view and map.
         /// </summary>
         /// <param name="view">The name of the metrics view.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="map">The name of the metrics map.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -1304,11 +1267,9 @@ namespace IceMX
         /// Get the metrics failures associated with the given view and map.
         /// </summary>
         /// <param name="view">The name of the metrics view.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="map">The name of the metrics map.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_MetricsAdmin_getMapMetricsFailures> begin_getMapMetricsFailures(string view, string map, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1317,11 +1278,9 @@ namespace IceMX
         /// Get the metrics failures associated with the given view and map.
         /// </summary>
         /// <param name="view">The name of the metrics view.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="map">The name of the metrics map.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -1331,11 +1290,9 @@ namespace IceMX
         /// Get the metrics failures associated with the given view and map.
         /// </summary>
         /// <param name="view">The name of the metrics view.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="map">The name of the metrics map.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1347,27 +1304,21 @@ namespace IceMX
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The metrics failures associated with the map.
-        ///
-        /// </returns>
+        ///  </returns>
         MetricsFailures[] end_getMapMetricsFailures(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get the metrics failure associated for the given metrics.
         /// </summary>
         /// <param name="view">The name of the metrics view.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="map">The name of the metrics map.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="id">The ID of the metrics.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The metrics failures associated with the metrics.
-        ///
-        /// </returns>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be
-        /// found.</exception>
+        ///  </returns>
+        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         MetricsFailures getMetricsFailures(string view, string map, string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1376,14 +1327,11 @@ namespace IceMX
         /// Get the metrics failure associated for the given metrics.
         /// </summary>
         /// <param name="view">The name of the metrics view.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="map">The name of the metrics map.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="id">The ID of the metrics.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -1394,14 +1342,11 @@ namespace IceMX
         /// Get the metrics failure associated for the given metrics.
         /// </summary>
         /// <param name="view">The name of the metrics view.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="map">The name of the metrics map.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="id">The ID of the metrics.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_MetricsAdmin_getMetricsFailures> begin_getMetricsFailures(string view, string map, string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1410,14 +1355,11 @@ namespace IceMX
         /// Get the metrics failure associated for the given metrics.
         /// </summary>
         /// <param name="view">The name of the metrics view.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="map">The name of the metrics map.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="id">The ID of the metrics.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -1427,14 +1369,11 @@ namespace IceMX
         /// Get the metrics failure associated for the given metrics.
         /// </summary>
         /// <param name="view">The name of the metrics view.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="map">The name of the metrics map.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="id">The ID of the metrics.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1446,8 +1385,7 @@ namespace IceMX
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The metrics failures associated with the metrics.
-        ///
-        /// </returns>
+        ///  </returns>
         MetricsFailures end_getMetricsFailures(global::Ice.AsyncResult asyncResult);
     }
 }
@@ -1456,10 +1394,8 @@ namespace IceMX
 {
     /// <summary>
     /// The metrics administrative facet interface.
-    /// This interface allows
-    /// remote administrative clients to access metrics of an application
-    /// that enabled the Ice administrative facility and configured some
-    /// metrics views.
+    /// This interface allows remote administrative clients to access metrics
+    ///  of an application that enabled the Ice administrative facility and configured some metrics views.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1469,8 +1405,7 @@ namespace IceMX
         /// Get the names of enabled and disabled metrics.
         /// </summary>
         /// <param name="disabledViews">The names of the disabled views.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The name of the enabled views.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -1481,10 +1416,8 @@ namespace IceMX
         /// Enables a metrics view.
         /// </summary>
         /// <param name="name">The metrics view name.
-        ///
-        /// </param>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be
-        /// found.</exception>
+        ///  </param>
+        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1494,10 +1427,8 @@ namespace IceMX
         /// Disable a metrics view.
         /// </summary>
         /// <param name="name">The metrics view name.
-        ///
-        /// </param>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be
-        /// found.</exception>
+        ///  </param>
+        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1505,25 +1436,17 @@ namespace IceMX
 
         /// <summary>
         /// Get the metrics objects for the given metrics view.
-        /// This
-        /// returns a dictionary of metric maps for each metrics class
-        /// configured with the view. The timestamp allows the client to
-        /// compute averages which are not dependent of the invocation
-        /// latency for this operation.
-        ///
+        /// This returns a dictionary of metric maps for each metrics
+        ///  class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+        ///  the invocation latency for this operation.
         /// </summary>
-        /// <param name="view">The name of the metrics view.
-        ///
-        /// </param>
-        /// <param name="timestamp">The local time of the process when the metrics
-        /// object were retrieved.
-        ///
-        /// </param>
+        ///  <param name="view">The name of the metrics view.
+        ///  </param>
+        /// <param name="timestamp">The local time of the process when the metrics object were retrieved.
+        ///  </param>
         /// <returns>The metrics view data.
-        ///
-        /// </returns>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be
-        /// found.</exception>
+        ///  </returns>
+        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1533,16 +1456,12 @@ namespace IceMX
         /// Get the metrics failures associated with the given view and map.
         /// </summary>
         /// <param name="view">The name of the metrics view.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="map">The name of the metrics map.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The metrics failures associated with the map.
-        ///
-        /// </returns>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be
-        /// found.</exception>
+        ///  </returns>
+        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1552,19 +1471,14 @@ namespace IceMX
         /// Get the metrics failure associated for the given metrics.
         /// </summary>
         /// <param name="view">The name of the metrics view.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="map">The name of the metrics map.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="id">The ID of the metrics.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The metrics failures associated with the metrics.
-        ///
-        /// </returns>
-        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be
-        /// found.</exception>
+        ///  </returns>
+        /// <exception name="UnknownMetricsView">Raised if the metrics view cannot be found.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]

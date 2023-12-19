@@ -17,16 +17,20 @@ package IceStorm;
 
 /**
  * The key for persistent subscribers, or topics.
- *
- * If the subscriber identity is empty then the record is used as a
- * place holder for the creation of a topic, otherwise the record
- * holds a subscription record.
+ * If the subscriber identity is empty then the record is used as a place holder for the creation of a topic,
+ * otherwise the record holds a subscription record.
  **/
 public class SubscriberRecordKey implements java.lang.Cloneable,
                                             java.io.Serializable
 {
+    /**
+     * The topic identity.
+     **/
     public com.zeroc.Ice.Identity topic;
 
+    /**
+     * The identity of the subscriber. If this is empty then the key is a placeholder for a topic.
+     **/
     public com.zeroc.Ice.Identity id;
 
     public SubscriberRecordKey()

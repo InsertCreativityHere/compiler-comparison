@@ -112,6 +112,9 @@ if 'E2' not in _M_Test1.__dict__:
 if '_def' not in _M_Test1.__dict__:
     _M_Test1._def = Ice.createTempClass()
     class _def(Ice.UserException):
+        """
+        Test keyword escape.
+        """
         def __init__(self, i=0):
             self.i = i
 

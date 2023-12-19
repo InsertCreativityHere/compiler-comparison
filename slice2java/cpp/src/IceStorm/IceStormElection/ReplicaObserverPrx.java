@@ -370,8 +370,7 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
      * Remove a subscriber from a topic.
      * @param llu The log update token.
      * @param subscribers The identities of the subscribers to remove.
-     * @throws ObserverInconsistencyException Raised if an
-     * inconsisency was detected.
+     * @throws ObserverInconsistencyException Raised if an inconsisency was detected.
      **/
     default void removeSubscriber(LogUpdate llu, String topic, com.zeroc.Ice.Identity[] subscribers)
         throws ObserverInconsistencyException
@@ -384,8 +383,7 @@ public interface ReplicaObserverPrx extends com.zeroc.Ice.ObjectPrx
      * @param llu The log update token.
      * @param subscribers The identities of the subscribers to remove.
      * @param context The Context map to send with the invocation.
-     * @throws ObserverInconsistencyException Raised if an
-     * inconsisency was detected.
+     * @throws ObserverInconsistencyException Raised if an inconsisency was detected.
      **/
     default void removeSubscriber(LogUpdate llu, String topic, com.zeroc.Ice.Identity[] subscribers, java.util.Map<String, String> context)
         throws ObserverInconsistencyException

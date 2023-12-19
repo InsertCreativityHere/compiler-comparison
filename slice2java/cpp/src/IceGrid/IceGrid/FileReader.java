@@ -59,8 +59,7 @@ public interface FileReader extends com.zeroc.Ice.Object
     }
 
     /**
-     * Count the number of given lines from the end of the file and
-     * return the file offset.
+     * Count the number of given lines from the end of the file and return the file offset.
      * @param current The Current object for the invocation.
      **/
     long getOffsetFromEnd(String filename, int lines, com.zeroc.Ice.Current current)

@@ -70,8 +70,7 @@ public interface ReplicaObserver extends com.zeroc.Ice.Object
      * @param llu The log update token.
      * @param subscribers The identities of the subscribers to remove.
      * @param current The Current object for the invocation.
-     * @throws ObserverInconsistencyException Raised if an
-     * inconsisency was detected.
+     * @throws ObserverInconsistencyException Raised if an inconsisency was detected.
      **/
     void removeSubscriber(LogUpdate llu, String topic, com.zeroc.Ice.Identity[] subscribers, com.zeroc.Ice.Current current)
         throws ObserverInconsistencyException;

@@ -204,8 +204,7 @@ namespace IceStorm
     }
 
     /// <summary>
-    /// This exception indicates that an attempt was made to create a link
-    /// that already exists.
+    /// This exception indicates that an attempt was made to create a link that already exists.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -297,8 +296,7 @@ namespace IceStorm
     }
 
     /// <summary>
-    /// This exception indicates that an attempt was made to remove a
-    /// link that does not exist.
+    /// This exception indicates that an attempt was made to remove a link that does not exist.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -390,8 +388,7 @@ namespace IceStorm
     }
 
     /// <summary>
-    /// This exception indicates that an attempt was made to subscribe
-    /// a proxy for which a subscription already exists.
+    /// This exception indicates that an attempt was made to subscribe a proxy for which a subscription already exists.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -448,8 +445,7 @@ namespace IceStorm
     }
 
     /// <summary>
-    /// This exception indicates that an attempt was made to subscribe
-    /// a proxy that is null.
+    /// This exception indicates that an attempt was made to subscribe a proxy that is null.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -541,8 +537,7 @@ namespace IceStorm
     }
 
     /// <summary>
-    /// This exception indicates that a subscription failed due to an
-    /// invalid QoS.
+    /// This exception indicates that a subscription failed due to an invalid QoS.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -649,8 +644,7 @@ namespace IceStorm
     }
 
     /// <summary>
-    /// This exception indicates that an attempt was made to create a topic
-    /// that already exists.
+    /// This exception indicates that an attempt was made to create a topic that already exists.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -742,8 +736,7 @@ namespace IceStorm
     }
 
     /// <summary>
-    /// This exception indicates that an attempt was made to retrieve a
-    /// topic that does not exist.
+    /// This exception indicates that an attempt was made to retrieve a topic that does not exist.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -914,9 +907,7 @@ namespace IceStorm
 {
     /// <summary>
     /// Publishers publish information on a particular topic.
-    /// A topic
-    /// logically represents a type.
-    ///
+    /// A topic logically represents a type. A
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -926,8 +917,7 @@ namespace IceStorm
         /// Get the name of this topic.
         /// </summary>
         /// <returns>The name of the topic.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         string getName(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -970,27 +960,23 @@ namespace IceStorm
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The name of the topic.
-        ///
-        /// </returns>
+        ///  </returns>
         string end_getName(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Get a proxy to a publisher object for this topic.
-        /// To publish
-        /// data to a topic, the publisher calls getPublisher and then
-        /// casts to the topic type. An unchecked cast must be used on this
-        /// proxy. If a replicated IceStorm deployment is used this call
-        /// may return a replicated proxy.
-        ///
+        /// To publish data to a topic, the publisher calls getPublisher
+        ///  and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
+        ///  deployment is used this call may return a replicated proxy.
         /// </summary>
-        /// <returns>A proxy to publish data on this topic.</returns>
+        ///  <returns>A proxy to publish data on this topic.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         global::Ice.ObjectPrx getPublisher(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Get a proxy to a publisher object for this topic.
-        /// To publish
+        /// To publish data to a topic, the publisher calls getPublisher
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -1000,7 +986,7 @@ namespace IceStorm
 
         /// <summary>
         /// Get a proxy to a publisher object for this topic.
-        /// To publish
+        /// To publish data to a topic, the publisher calls getPublisher
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -1008,7 +994,7 @@ namespace IceStorm
 
         /// <summary>
         /// Get a proxy to a publisher object for this topic.
-        /// To publish
+        /// To publish data to a topic, the publisher calls getPublisher
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1017,7 +1003,7 @@ namespace IceStorm
 
         /// <summary>
         /// Get a proxy to a publisher object for this topic.
-        /// To publish
+        /// To publish data to a topic, the publisher calls getPublisher
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -1027,29 +1013,25 @@ namespace IceStorm
 
         /// <summary>
         /// Get a proxy to a publisher object for this topic.
-        /// To publish
+        /// To publish data to a topic, the publisher calls getPublisher
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>A proxy to publish data on this topic.</returns>
         global::Ice.ObjectPrx end_getPublisher(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// Get a non-replicated proxy to a publisher object for this
-        /// topic.
-        /// To publish data to a topic, the publisher calls
-        /// getPublisher and then casts to the topic type. An unchecked
-        /// cast must be used on this proxy.
-        ///
+        /// Get a non-replicated proxy to a publisher object for this topic.
+        /// To publish data to a topic, the publisher
+        ///  calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
         /// </summary>
-        /// <returns>A proxy to publish data on this topic.</returns>
+        ///  <returns>A proxy to publish data on this topic.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         global::Ice.ObjectPrx getNonReplicatedPublisher(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Get a non-replicated proxy to a publisher object for this
-        /// topic.
-        /// To publish data to a topic, the publisher calls
+        /// Get a non-replicated proxy to a publisher object for this topic.
+        /// To publish data to a topic, the publisher
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -1058,18 +1040,16 @@ namespace IceStorm
         global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> getNonReplicatedPublisherAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get a non-replicated proxy to a publisher object for this
-        /// topic.
-        /// To publish data to a topic, the publisher calls
+        /// Get a non-replicated proxy to a publisher object for this topic.
+        /// To publish data to a topic, the publisher
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Topic_getNonReplicatedPublisher> begin_getNonReplicatedPublisher(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Get a non-replicated proxy to a publisher object for this
-        /// topic.
-        /// To publish data to a topic, the publisher calls
+        /// Get a non-replicated proxy to a publisher object for this topic.
+        /// To publish data to a topic, the publisher
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1077,9 +1057,8 @@ namespace IceStorm
         global::Ice.AsyncResult begin_getNonReplicatedPublisher(global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Get a non-replicated proxy to a publisher object for this
-        /// topic.
-        /// To publish data to a topic, the publisher calls
+        /// Get a non-replicated proxy to a publisher object for this topic.
+        /// To publish data to a topic, the publisher
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -1088,9 +1067,8 @@ namespace IceStorm
         global::Ice.AsyncResult begin_getNonReplicatedPublisher(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Get a non-replicated proxy to a publisher object for this
-        /// topic.
-        /// To publish data to a topic, the publisher calls
+        /// Get a non-replicated proxy to a publisher object for this topic.
+        /// To publish data to a topic, the publisher
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>A proxy to publish data on this topic.</returns>
@@ -1098,46 +1076,32 @@ namespace IceStorm
 
         /// <summary>
         /// Subscribe with the given qos to this topic.
-        /// A
-        /// per-subscriber publisher object is returned.
-        ///
+        /// A per-subscriber publisher object is returned.
         /// </summary>
-        /// <param name="theQoS">The quality of service parameters for this
-        /// subscription.
-        ///
-        /// </param>
+        ///  <param name="theQoS">The quality of service parameters for this subscription.
+        ///  </param>
         /// <param name="subscriber">The subscriber's proxy.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The per-subscriber publisher object.
-        ///
-        /// </returns>
-        /// <exception name="AlreadySubscribed">Raised if the subscriber object is
-        /// already subscribed.
-        ///
-        /// </exception>
+        ///  </returns>
+        /// <exception name="AlreadySubscribed">Raised if the subscriber object is already subscribed.
+        ///  </exception>
         /// <exception name="InvalidSubscriber">Raised if the subscriber object is null.
-        ///
-        /// </exception>
-        /// <exception name="BadQoS">Raised if the requested quality of service
-        /// is unavailable or invalid.
-        ///
-        /// </exception>
+        ///  </exception>
+        /// <exception name="BadQoS">Raised if the requested quality of service is unavailable or invalid.
+        ///  </exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         global::Ice.ObjectPrx subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx subscriber, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Subscribe with the given qos to this topic.
-        /// A
+        /// A per-subscriber publisher object is returned.
         /// </summary>
-        /// <param name="theQoS">The quality of service parameters for this
-        /// subscription.
-        ///
-        /// </param>
+        ///  <param name="theQoS">The quality of service parameters for this subscription.
+        ///  </param>
         /// <param name="subscriber">The subscriber's proxy.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -1146,30 +1110,24 @@ namespace IceStorm
 
         /// <summary>
         /// Subscribe with the given qos to this topic.
-        /// A
+        /// A per-subscriber publisher object is returned.
         /// </summary>
-        /// <param name="theQoS">The quality of service parameters for this
-        /// subscription.
-        ///
-        /// </param>
+        ///  <param name="theQoS">The quality of service parameters for this subscription.
+        ///  </param>
         /// <param name="subscriber">The subscriber's proxy.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Topic_subscribeAndGetPublisher> begin_subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx subscriber, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Subscribe with the given qos to this topic.
-        /// A
+        /// A per-subscriber publisher object is returned.
         /// </summary>
-        /// <param name="theQoS">The quality of service parameters for this
-        /// subscription.
-        ///
-        /// </param>
+        ///  <param name="theQoS">The quality of service parameters for this subscription.
+        ///  </param>
         /// <param name="subscriber">The subscriber's proxy.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -1177,15 +1135,12 @@ namespace IceStorm
 
         /// <summary>
         /// Subscribe with the given qos to this topic.
-        /// A
+        /// A per-subscriber publisher object is returned.
         /// </summary>
-        /// <param name="theQoS">The quality of service parameters for this
-        /// subscription.
-        ///
-        /// </param>
+        ///  <param name="theQoS">The quality of service parameters for this subscription.
+        ///  </param>
         /// <param name="subscriber">The subscriber's proxy.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1194,20 +1149,18 @@ namespace IceStorm
 
         /// <summary>
         /// Subscribe with the given qos to this topic.
-        /// A
+        /// A per-subscriber publisher object is returned.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The per-subscriber publisher object.
-        ///
-        /// </returns>
+        ///  </returns>
         global::Ice.ObjectPrx end_subscribeAndGetPublisher(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Unsubscribe the given subscriber.
         /// </summary>
         /// <param name="subscriber">The proxy of an existing subscriber.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void unsubscribe(global::Ice.ObjectPrx subscriber, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1216,8 +1169,7 @@ namespace IceStorm
         /// Unsubscribe the given subscriber.
         /// </summary>
         /// <param name="subscriber">The proxy of an existing subscriber.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -1228,8 +1180,7 @@ namespace IceStorm
         /// Unsubscribe the given subscriber.
         /// </summary>
         /// <param name="subscriber">The proxy of an existing subscriber.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Topic_unsubscribe> begin_unsubscribe(global::Ice.ObjectPrx subscriber, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1238,8 +1189,7 @@ namespace IceStorm
         /// Unsubscribe the given subscriber.
         /// </summary>
         /// <param name="subscriber">The proxy of an existing subscriber.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -1249,8 +1199,7 @@ namespace IceStorm
         /// Unsubscribe the given subscriber.
         /// </summary>
         /// <param name="subscriber">The proxy of an existing subscriber.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1265,32 +1214,26 @@ namespace IceStorm
 
         /// <summary>
         /// Create a link to the given topic.
-        /// All events originating
-        /// on this topic will also be sent to linkTo.
-        ///
+        /// All events originating on this topic will also be sent to
+        ///  linkTo.
         /// </summary>
-        /// <param name="linkTo">The topic to link to.
-        ///
-        /// </param>
+        ///  <param name="linkTo">The topic to link to.
+        ///  </param>
         /// <param name="cost">The cost to the linked topic.
-        ///
-        /// </param>
-        /// <exception name="LinkExists">Raised if a link to the same topic already
-        /// exists.</exception>
+        ///  </param>
+        /// <exception name="LinkExists">Raised if a link to the same topic already exists.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void link(TopicPrx linkTo, int cost, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Create a link to the given topic.
-        /// All events originating
+        /// All events originating on this topic will also be sent to
         /// </summary>
-        /// <param name="linkTo">The topic to link to.
-        ///
-        /// </param>
+        ///  <param name="linkTo">The topic to link to.
+        ///  </param>
         /// <param name="cost">The cost to the linked topic.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -1299,28 +1242,24 @@ namespace IceStorm
 
         /// <summary>
         /// Create a link to the given topic.
-        /// All events originating
+        /// All events originating on this topic will also be sent to
         /// </summary>
-        /// <param name="linkTo">The topic to link to.
-        ///
-        /// </param>
+        ///  <param name="linkTo">The topic to link to.
+        ///  </param>
         /// <param name="cost">The cost to the linked topic.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Topic_link> begin_link(TopicPrx linkTo, int cost, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Create a link to the given topic.
-        /// All events originating
+        /// All events originating on this topic will also be sent to
         /// </summary>
-        /// <param name="linkTo">The topic to link to.
-        ///
-        /// </param>
+        ///  <param name="linkTo">The topic to link to.
+        ///  </param>
         /// <param name="cost">The cost to the linked topic.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -1328,14 +1267,12 @@ namespace IceStorm
 
         /// <summary>
         /// Create a link to the given topic.
-        /// All events originating
+        /// All events originating on this topic will also be sent to
         /// </summary>
-        /// <param name="linkTo">The topic to link to.
-        ///
-        /// </param>
+        ///  <param name="linkTo">The topic to link to.
+        ///  </param>
         /// <param name="cost">The cost to the linked topic.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1344,7 +1281,7 @@ namespace IceStorm
 
         /// <summary>
         /// Create a link to the given topic.
-        /// All events originating
+        /// All events originating on this topic will also be sent to
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_link(global::Ice.AsyncResult asyncResult);
@@ -1353,8 +1290,7 @@ namespace IceStorm
         /// Destroy the link from this topic to the given topic linkTo.
         /// </summary>
         /// <param name="linkTo">The topic to destroy the link to.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="NoSuchLink">Raised if a link to the topic does not exist.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -1364,8 +1300,7 @@ namespace IceStorm
         /// Destroy the link from this topic to the given topic linkTo.
         /// </summary>
         /// <param name="linkTo">The topic to destroy the link to.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -1376,8 +1311,7 @@ namespace IceStorm
         /// Destroy the link from this topic to the given topic linkTo.
         /// </summary>
         /// <param name="linkTo">The topic to destroy the link to.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Topic_unlink> begin_unlink(TopicPrx linkTo, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1386,8 +1320,7 @@ namespace IceStorm
         /// Destroy the link from this topic to the given topic linkTo.
         /// </summary>
         /// <param name="linkTo">The topic to destroy the link to.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -1397,8 +1330,7 @@ namespace IceStorm
         /// Destroy the link from this topic to the given topic linkTo.
         /// </summary>
         /// <param name="linkTo">The topic to destroy the link to.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1564,16 +1496,12 @@ namespace IceStorm
         /// <summary>
         /// Create a new topic.
         /// The topic name must be unique.
-        ///
         /// </summary>
-        /// <param name="name">The name of the topic.
-        ///
-        /// </param>
+        ///  <param name="name">The name of the topic.
+        ///  </param>
         /// <returns>A proxy to the topic instance.
-        ///
-        /// </returns>
-        /// <exception name="TopicExists">Raised if a topic with the same name already
-        /// exists.</exception>
+        ///  </returns>
+        /// <exception name="TopicExists">Raised if a topic with the same name already exists.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         TopicPrx create(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1582,9 +1510,8 @@ namespace IceStorm
         /// Create a new topic.
         /// The topic name must be unique.
         /// </summary>
-        /// <param name="name">The name of the topic.
-        ///
-        /// </param>
+        ///  <param name="name">The name of the topic.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -1595,9 +1522,8 @@ namespace IceStorm
         /// Create a new topic.
         /// The topic name must be unique.
         /// </summary>
-        /// <param name="name">The name of the topic.
-        ///
-        /// </param>
+        ///  <param name="name">The name of the topic.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_TopicManager_create> begin_create(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1606,9 +1532,8 @@ namespace IceStorm
         /// Create a new topic.
         /// The topic name must be unique.
         /// </summary>
-        /// <param name="name">The name of the topic.
-        ///
-        /// </param>
+        ///  <param name="name">The name of the topic.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -1618,9 +1543,8 @@ namespace IceStorm
         /// Create a new topic.
         /// The topic name must be unique.
         /// </summary>
-        /// <param name="name">The name of the topic.
-        ///
-        /// </param>
+        ///  <param name="name">The name of the topic.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1633,19 +1557,16 @@ namespace IceStorm
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>A proxy to the topic instance.
-        ///
-        /// </returns>
+        ///  </returns>
         TopicPrx end_create(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Retrieve a topic by name.
         /// </summary>
         /// <param name="name">The name of the topic.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>A proxy to the topic instance.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="NoSuchTopic">Raised if the topic does not exist.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -1655,8 +1576,7 @@ namespace IceStorm
         /// Retrieve a topic by name.
         /// </summary>
         /// <param name="name">The name of the topic.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -1667,8 +1587,7 @@ namespace IceStorm
         /// Retrieve a topic by name.
         /// </summary>
         /// <param name="name">The name of the topic.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_TopicManager_retrieve> begin_retrieve(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1677,8 +1596,7 @@ namespace IceStorm
         /// Retrieve a topic by name.
         /// </summary>
         /// <param name="name">The name of the topic.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -1688,8 +1606,7 @@ namespace IceStorm
         /// Retrieve a topic by name.
         /// </summary>
         /// <param name="name">The name of the topic.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1701,8 +1618,7 @@ namespace IceStorm
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>A proxy to the topic instance.
-        ///
-        /// </returns>
+        ///  </returns>
         TopicPrx end_retrieve(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
@@ -1755,11 +1671,8 @@ namespace IceStorm
     }
 
     /// <summary>
-    /// This interface is advertised by the IceStorm service through the
-    /// Ice object with the identity `IceStorm/Finder'.
-    /// This allows clients
-    /// to retrieve the topic manager with just the endpoint information of
-    /// the IceStorm service.
+    /// This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+    /// This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1767,18 +1680,16 @@ namespace IceStorm
     {
         /// <summary>
         /// Get the topic manager proxy.
-        /// The proxy might point to several
-        /// replicas.
-        ///
+        /// The proxy might point to several replicas.
         /// </summary>
-        /// <returns>The topic manager proxy.</returns>
+        ///  <returns>The topic manager proxy.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         TopicManagerPrx getTopicManager(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Get the topic manager proxy.
-        /// The proxy might point to several
+        /// The proxy might point to several replicas.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -1788,7 +1699,7 @@ namespace IceStorm
 
         /// <summary>
         /// Get the topic manager proxy.
-        /// The proxy might point to several
+        /// The proxy might point to several replicas.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -1796,7 +1707,7 @@ namespace IceStorm
 
         /// <summary>
         /// Get the topic manager proxy.
-        /// The proxy might point to several
+        /// The proxy might point to several replicas.
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1805,7 +1716,7 @@ namespace IceStorm
 
         /// <summary>
         /// Get the topic manager proxy.
-        /// The proxy might point to several
+        /// The proxy might point to several replicas.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -1815,7 +1726,7 @@ namespace IceStorm
 
         /// <summary>
         /// Get the topic manager proxy.
-        /// The proxy might point to several
+        /// The proxy might point to several replicas.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The topic manager proxy.</returns>
@@ -1827,9 +1738,7 @@ namespace IceStorm
 {
     /// <summary>
     /// Publishers publish information on a particular topic.
-    /// A topic
-    /// logically represents a type.
-    ///
+    /// A topic logically represents a type. A
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1839,8 +1748,7 @@ namespace IceStorm
         /// Get the name of this topic.
         /// </summary>
         /// <returns>The name of the topic.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1848,28 +1756,22 @@ namespace IceStorm
 
         /// <summary>
         /// Get a proxy to a publisher object for this topic.
-        /// To publish
-        /// data to a topic, the publisher calls getPublisher and then
-        /// casts to the topic type. An unchecked cast must be used on this
-        /// proxy. If a replicated IceStorm deployment is used this call
-        /// may return a replicated proxy.
-        ///
+        /// To publish data to a topic, the publisher calls getPublisher
+        ///  and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
+        ///  deployment is used this call may return a replicated proxy.
         /// </summary>
-        /// <returns>A proxy to publish data on this topic.</returns>
+        ///  <returns>A proxy to publish data on this topic.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         global::Ice.ObjectPrx getPublisher(global::Ice.Current current = null);
 
         /// <summary>
-        /// Get a non-replicated proxy to a publisher object for this
-        /// topic.
-        /// To publish data to a topic, the publisher calls
-        /// getPublisher and then casts to the topic type. An unchecked
-        /// cast must be used on this proxy.
-        ///
+        /// Get a non-replicated proxy to a publisher object for this topic.
+        /// To publish data to a topic, the publisher
+        ///  calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
         /// </summary>
-        /// <returns>A proxy to publish data on this topic.</returns>
+        ///  <returns>A proxy to publish data on this topic.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1877,31 +1779,20 @@ namespace IceStorm
 
         /// <summary>
         /// Subscribe with the given qos to this topic.
-        /// A
-        /// per-subscriber publisher object is returned.
-        ///
+        /// A per-subscriber publisher object is returned.
         /// </summary>
-        /// <param name="theQoS">The quality of service parameters for this
-        /// subscription.
-        ///
-        /// </param>
+        ///  <param name="theQoS">The quality of service parameters for this subscription.
+        ///  </param>
         /// <param name="subscriber">The subscriber's proxy.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The per-subscriber publisher object.
-        ///
-        /// </returns>
-        /// <exception name="AlreadySubscribed">Raised if the subscriber object is
-        /// already subscribed.
-        ///
-        /// </exception>
+        ///  </returns>
+        /// <exception name="AlreadySubscribed">Raised if the subscriber object is already subscribed.
+        ///  </exception>
         /// <exception name="InvalidSubscriber">Raised if the subscriber object is null.
-        ///
-        /// </exception>
-        /// <exception name="BadQoS">Raised if the requested quality of service
-        /// is unavailable or invalid.
-        ///
-        /// </exception>
+        ///  </exception>
+        /// <exception name="BadQoS">Raised if the requested quality of service is unavailable or invalid.
+        ///  </exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1911,8 +1802,7 @@ namespace IceStorm
         /// Unsubscribe the given subscriber.
         /// </summary>
         /// <param name="subscriber">The proxy of an existing subscriber.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1920,18 +1810,14 @@ namespace IceStorm
 
         /// <summary>
         /// Create a link to the given topic.
-        /// All events originating
-        /// on this topic will also be sent to linkTo.
-        ///
+        /// All events originating on this topic will also be sent to
+        ///  linkTo.
         /// </summary>
-        /// <param name="linkTo">The topic to link to.
-        ///
-        /// </param>
+        ///  <param name="linkTo">The topic to link to.
+        ///  </param>
         /// <param name="cost">The cost to the linked topic.
-        ///
-        /// </param>
-        /// <exception name="LinkExists">Raised if a link to the same topic already
-        /// exists.</exception>
+        ///  </param>
+        /// <exception name="LinkExists">Raised if a link to the same topic already exists.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1941,8 +1827,7 @@ namespace IceStorm
         /// Destroy the link from this topic to the given topic linkTo.
         /// </summary>
         /// <param name="linkTo">The topic to destroy the link to.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="NoSuchLink">Raised if a link to the topic does not exist.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -1986,16 +1871,12 @@ namespace IceStorm
         /// <summary>
         /// Create a new topic.
         /// The topic name must be unique.
-        ///
         /// </summary>
-        /// <param name="name">The name of the topic.
-        ///
-        /// </param>
+        ///  <param name="name">The name of the topic.
+        ///  </param>
         /// <returns>A proxy to the topic instance.
-        ///
-        /// </returns>
-        /// <exception name="TopicExists">Raised if a topic with the same name already
-        /// exists.</exception>
+        ///  </returns>
+        /// <exception name="TopicExists">Raised if a topic with the same name already exists.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -2005,11 +1886,9 @@ namespace IceStorm
         /// Retrieve a topic by name.
         /// </summary>
         /// <param name="name">The name of the topic.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>A proxy to the topic instance.
-        ///
-        /// </returns>
+        ///  </returns>
         /// <exception name="NoSuchTopic">Raised if the topic does not exist.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -2027,11 +1906,8 @@ namespace IceStorm
     }
 
     /// <summary>
-    /// This interface is advertised by the IceStorm service through the
-    /// Ice object with the identity `IceStorm/Finder'.
-    /// This allows clients
-    /// to retrieve the topic manager with just the endpoint information of
-    /// the IceStorm service.
+    /// This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+    /// This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -2039,11 +1915,9 @@ namespace IceStorm
     {
         /// <summary>
         /// Get the topic manager proxy.
-        /// The proxy might point to several
-        /// replicas.
-        ///
+        /// The proxy might point to several replicas.
         /// </summary>
-        /// <returns>The topic manager proxy.</returns>
+        ///  <returns>The topic manager proxy.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]

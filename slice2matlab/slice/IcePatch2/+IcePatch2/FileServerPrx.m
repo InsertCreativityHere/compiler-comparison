@@ -24,17 +24,14 @@
 classdef FileServerPrx < Ice.ObjectPrx
     methods
         function result = getFileInfoSeq(obj, partition, varargin)
-            % getFileInfoSeq   Return file information for the specified partition.
-            %
-            % This operation is deprecated and only present for
-            % compatibility with old Ice clients (older than version 3.6).
+            % getFileInfoSeq   Return file information for the specified partition.  This operation is deprecated and
+            % only present for compatibility with old Ice clients (older than version 3.6).
             %
             % Parameters:
             %   partition (int32) - The partition number in the range 0-255.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (IcePatch2.FileInfoSeq) - A sequence containing information about the files in the
-            % specified partition.
+            % Returns (IcePatch2.FileInfoSeq) - A sequence containing information about the files in the specified partition.
             %
             % Exceptions:
             %   IcePatch2.FileSizeRangeException - If a file is larger than 2.1GB.
@@ -51,10 +48,8 @@ classdef FileServerPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getFileInfoSeqAsync(obj, partition, varargin)
-            % getFileInfoSeqAsync   Return file information for the specified partition.
-            %
-            % This operation is deprecated and only present for
-            % compatibility with old Ice clients (older than version 3.6).
+            % getFileInfoSeqAsync   Return file information for the specified partition.  This operation is deprecated and
+            % only present for compatibility with old Ice clients (older than version 3.6).
             %
             % Parameters:
             %   partition (int32) - The partition number in the range 0-255.
@@ -86,8 +81,7 @@ classdef FileServerPrx < Ice.ObjectPrx
             %   partition (int32) - The partition number in the range 0-255.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (IcePatch2.LargeFileInfoSeq) - A sequence containing information about the files in the
-            % specified partition.
+            % Returns (IcePatch2.LargeFileInfoSeq) - A sequence containing information about the files in the specified partition.
             %
             % Exceptions:
             %   IcePatch2.PartitionOutOfRangeException - If the partition number is out of range.
@@ -129,11 +123,9 @@ classdef FileServerPrx < Ice.ObjectPrx
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (IcePatch2.ByteSeqSeq) - A sequence containing 256 checksums. Partitions with a
-            % checksum that differs from the previous checksum for the same
-            % partition contain updated files. Partitions with a checksum
-            % that is identical to the previous checksum do not contain
-            % updated files.
+            % Returns (IcePatch2.ByteSeqSeq) - A sequence containing 256 checksums. Partitions with a checksum that differs from the previous checksum
+            % for the same partition contain updated files. Partitions with a checksum that is identical to the previous
+            % checksum do not contain updated files.
             
             is_ = obj.iceInvoke('getChecksumSeq', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
@@ -157,8 +149,8 @@ classdef FileServerPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('getChecksumSeq', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getChecksum(obj, varargin)
-            % getChecksum   Return the master checksum for all partitions. If this checksum is the same
-            % as for a previous run, the entire file set is up-to-date.
+            % getChecksum   Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+            % file set is up-to-date.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -171,8 +163,8 @@ classdef FileServerPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getChecksumAsync(obj, varargin)
-            % getChecksumAsync   Return the master checksum for all partitions. If this checksum is the same
-            % as for a previous run, the entire file set is up-to-date.
+            % getChecksumAsync   Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+            % file set is up-to-date.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -188,15 +180,12 @@ classdef FileServerPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('getChecksum', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getFileCompressed(obj, path, pos, num, varargin)
-            % getFileCompressed   Read the specified file. This operation may only return fewer bytes than requested
-            % in case there was an end-of-file condition.
-            %
-            % This operation is deprecated and only present for
-            % compatibility with old Ice clients (older than version 3.6).
+            % getFileCompressed   Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+            % condition.  This operation is deprecated and only present for compatibility with old Ice
+            % clients (older than version 3.6).
             %
             % Parameters:
-            %   path (char) - The pathname (relative to the data directory) for
-            %     the file to be read.
+            %   path (char) - The pathname (relative to the data directory) for the file to be read.
             %   pos (int32) - The file offset at which to begin reading.
             %   num (int32) - The number of bytes to be read.
             %   context (containers.Map) - Optional request context.
@@ -220,15 +209,12 @@ classdef FileServerPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getFileCompressedAsync(obj, path, pos, num, varargin)
-            % getFileCompressedAsync   Read the specified file. This operation may only return fewer bytes than requested
-            % in case there was an end-of-file condition.
-            %
-            % This operation is deprecated and only present for
-            % compatibility with old Ice clients (older than version 3.6).
+            % getFileCompressedAsync   Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+            % condition.  This operation is deprecated and only present for compatibility with old Ice
+            % clients (older than version 3.6).
             %
             % Parameters:
-            %   path (char) - The pathname (relative to the data directory) for
-            %     the file to be read.
+            %   path (char) - The pathname (relative to the data directory) for the file to be read.
             %   pos (int32) - The file offset at which to begin reading.
             %   num (int32) - The number of bytes to be read.
             %   context (containers.Map) - Optional request context.
@@ -255,12 +241,11 @@ classdef FileServerPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('getFileCompressed', 1, true, os_, 1, @unmarshal, IcePatch2.FileServerPrx.getFileCompressed_ex_, varargin{:});
         end
         function result = getLargeFileCompressed(obj, path, pos, num, varargin)
-            % getLargeFileCompressed   Read the specified file. This operation may only return fewer bytes than requested
-            % in case there was an end-of-file condition.
+            % getLargeFileCompressed   Read the specified file. This operation may only return fewer bytes than requested in case there was an
+            % end-of-file condition.
             %
             % Parameters:
-            %   path (char) - The pathname (relative to the data directory) for
-            %     the file to be read.
+            %   path (char) - The pathname (relative to the data directory) for the file to be read.
             %   pos (int64) - The file offset at which to begin reading.
             %   num (int32) - The number of bytes to be read.
             %   context (containers.Map) - Optional request context.
@@ -281,12 +266,11 @@ classdef FileServerPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getLargeFileCompressedAsync(obj, path, pos, num, varargin)
-            % getLargeFileCompressedAsync   Read the specified file. This operation may only return fewer bytes than requested
-            % in case there was an end-of-file condition.
+            % getLargeFileCompressedAsync   Read the specified file. This operation may only return fewer bytes than requested in case there was an
+            % end-of-file condition.
             %
             % Parameters:
-            %   path (char) - The pathname (relative to the data directory) for
-            %     the file to be read.
+            %   path (char) - The pathname (relative to the data directory) for the file to be read.
             %   pos (int64) - The file offset at which to begin reading.
             %   num (int32) - The number of bytes to be read.
             %   context (containers.Map) - Optional request context.

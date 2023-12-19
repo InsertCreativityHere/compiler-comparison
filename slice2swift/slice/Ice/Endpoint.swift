@@ -44,14 +44,11 @@ public let iAPSEndpointType: Swift.Int16 = 9
 
 /// Base class providing access to the endpoint details.
 public protocol EndpointInfo:  Swift.AnyObject {
-    /// The information of the underyling endpoint of null if there's
-    /// no underlying endpoint.
+    /// The information of the underyling endpoint or null if there's no underlying endpoint.
     var underlying: EndpointInfo? { get set }
-    /// The timeout for the endpoint in milliseconds. 0 means
-    /// non-blocking, -1 means no timeout.
+    /// The timeout for the endpoint in milliseconds. 0 means non-blocking, -1 means no timeout.
     var timeout: Swift.Int32 { get set }
-    /// Specifies whether or not compression should be used if
-    /// available when using this endpoint.
+    /// Specifies whether or not compression should be used if available when using this endpoint.
     var compress: Swift.Bool { get set }
 
     /// Returns the type of the endpoint.
@@ -64,7 +61,6 @@ public protocol EndpointInfo:  Swift.AnyObject {
     /// - returns: `Swift.Bool` - True for a datagram endpoint.
     func datagram() -> Swift.Bool
 
-    /// Returns true if this endpoint is a secure endpoint.
     ///
     /// - returns: `Swift.Bool` - True for a secure endpoint.
     func secure() -> Swift.Bool
@@ -112,8 +108,7 @@ public protocol WSEndpointInfo: EndpointInfo {
 
 /// Provides access to the details of an opaque endpoint.
 public protocol OpaqueEndpointInfo: EndpointInfo {
-    /// The encoding version of the opaque endpoint (to decode or
-    /// encode the rawBytes).
+    /// The encoding version of the opaque endpoint (to decode or encode the rawBytes).
     var rawEncoding: EncodingVersion { get set }
     /// The raw encoding of the opaque endpoint.
     var rawBytes: ByteSeq { get set }

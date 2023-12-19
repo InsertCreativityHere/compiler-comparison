@@ -35,8 +35,7 @@ let IcePatch2 = _ModuleRegistry.module("IcePatch2");
 /* slice2js browser-bundle-skip-end */
 
 /**
- * Basic information about a single file.
- *
+ *  Basic information about a single file.
  **/
 IcePatch2.FileInfo = class
 {
@@ -75,8 +74,7 @@ Slice.defineStruct(IcePatch2.FileInfo, true, true);
 Slice.defineSequence(IcePatch2, "FileInfoSeqHelper", "IcePatch2.FileInfo", false);
 
 /**
- * Basic information about a single file.
- *
+ *  Basic information about a single file.
  **/
 IcePatch2.LargeFileInfo = class
 {

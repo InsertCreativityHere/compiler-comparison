@@ -386,9 +386,8 @@ namespace Ice
 {
     /// <summary>
     /// The Ice remote logger interface.
-    /// An application can implement a
-    /// RemoteLogger to receive the log messages sent to the local Logger
-    /// of another Ice application.
+    /// An application can implement a RemoteLogger to receive the log messages sent
+    ///  to the local Logger of another Ice application.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -398,8 +397,7 @@ namespace Ice
         /// init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
         /// </summary>
         /// <param name="prefix">The prefix of the associated local Logger.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="logMessages">Old log messages generated before "now".</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -409,8 +407,7 @@ namespace Ice
         /// init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
         /// </summary>
         /// <param name="prefix">The prefix of the associated local Logger.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="logMessages">Old log messages generated before "now".</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -422,8 +419,7 @@ namespace Ice
         /// init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
         /// </summary>
         /// <param name="prefix">The prefix of the associated local Logger.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="logMessages">Old log messages generated before "now".</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -433,8 +429,7 @@ namespace Ice
         /// init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
         /// </summary>
         /// <param name="prefix">The prefix of the associated local Logger.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="logMessages">Old log messages generated before "now".</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -445,8 +440,7 @@ namespace Ice
         /// init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
         /// </summary>
         /// <param name="prefix">The prefix of the associated local Logger.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="logMessages">Old log messages generated before "now".</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -463,9 +457,8 @@ namespace Ice
         /// <summary>
         /// Log a LogMessage.
         /// Note that log may be called by LoggerAdmin before init.
-        ///
         /// </summary>
-        /// <param name="message">The message to log.</param>
+        ///  <param name="message">The message to log.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void log(LogMessage message, OptionalContext context = new OptionalContext());
@@ -474,7 +467,7 @@ namespace Ice
         /// Log a LogMessage.
         /// Note that log may be called by LoggerAdmin before init.
         /// </summary>
-        /// <param name="message">The message to log.</param>
+        ///  <param name="message">The message to log.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -485,7 +478,7 @@ namespace Ice
         /// Log a LogMessage.
         /// Note that log may be called by LoggerAdmin before init.
         /// </summary>
-        /// <param name="message">The message to log.</param>
+        ///  <param name="message">The message to log.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         AsyncResult<Callback_RemoteLogger_log> begin_log(LogMessage message, OptionalContext context = new OptionalContext());
@@ -494,7 +487,7 @@ namespace Ice
         /// Log a LogMessage.
         /// Note that log may be called by LoggerAdmin before init.
         /// </summary>
-        /// <param name="message">The message to log.</param>
+        ///  <param name="message">The message to log.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -504,7 +497,7 @@ namespace Ice
         /// Log a LogMessage.
         /// Note that log may be called by LoggerAdmin before init.
         /// </summary>
-        /// <param name="message">The message to log.</param>
+        ///  <param name="message">The message to log.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -521,7 +514,7 @@ namespace Ice
 
     /// <summary>
     /// The interface of the admin object that allows an Ice application the attach its
-    /// RemoteLogger to the Logger of this admin object's Ice communicator.
+    ///  RemoteLogger to the Logger of this admin object's Ice communicator.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -529,51 +522,43 @@ namespace Ice
     {
         /// <summary>
         /// Attaches a RemoteLogger object to the local logger.
-        /// attachRemoteLogger calls init on the provided RemoteLogger proxy.
-        ///
+        /// attachRemoteLogger calls init on the provided
+        ///  RemoteLogger proxy.
         /// </summary>
-        /// <param name="prx">A proxy to the remote logger.
-        ///
-        /// </param>
-        /// <param name="messageTypes">The list of message types that the remote logger wishes to receive.
-        /// An empty list means no filtering (send all message types).
-        ///
-        /// </param>
-        /// <param name="traceCategories">The categories of traces that the remote logger wishes to receive.
-        /// This parameter is ignored if messageTypes is not empty and does not include trace.
-        /// An empty list means no filtering (send all trace categories).
-        ///
-        /// </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be provided
-        /// to init. A negative value requests all messages available.
-        ///
-        /// </param>
-        /// <exception name="RemoteLoggerAlreadyAttachedException">Raised if this remote logger is already
-        /// attached to this admin object.</exception>
+        ///  <param name="prx">A proxy to the remote logger.
+        ///  </param>
+        /// <param name="messageTypes">The list of message types that the remote logger wishes to receive. An empty list means
+        ///  no filtering (send all message types).
+        ///  </param>
+        /// <param name="traceCategories">The categories of traces that the remote logger wishes to receive. This parameter is
+        ///  ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+        ///  trace categories).
+        ///  </param>
+        /// <param name="messageMax">The maximum number of log messages (of all types) to be provided to init. A negative
+        ///  value requests all messages available.
+        ///  </param>
+        /// <exception name="RemoteLoggerAlreadyAttachedException">Raised if this remote logger is already attached to this admin
+        ///  object.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void attachRemoteLogger(RemoteLoggerPrx prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, OptionalContext context = new OptionalContext());
 
         /// <summary>
         /// Attaches a RemoteLogger object to the local logger.
-        /// attachRemoteLogger calls init on the provided RemoteLogger proxy.
+        /// attachRemoteLogger calls init on the provided
         /// </summary>
-        /// <param name="prx">A proxy to the remote logger.
-        ///
-        /// </param>
-        /// <param name="messageTypes">The list of message types that the remote logger wishes to receive.
-        /// An empty list means no filtering (send all message types).
-        ///
-        /// </param>
-        /// <param name="traceCategories">The categories of traces that the remote logger wishes to receive.
-        /// This parameter is ignored if messageTypes is not empty and does not include trace.
-        /// An empty list means no filtering (send all trace categories).
-        ///
-        /// </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be provided
-        /// to init. A negative value requests all messages available.
-        ///
-        /// </param>
+        ///  <param name="prx">A proxy to the remote logger.
+        ///  </param>
+        /// <param name="messageTypes">The list of message types that the remote logger wishes to receive. An empty list means
+        ///  no filtering (send all message types).
+        ///  </param>
+        /// <param name="traceCategories">The categories of traces that the remote logger wishes to receive. This parameter is
+        ///  ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+        ///  trace categories).
+        ///  </param>
+        /// <param name="messageMax">The maximum number of log messages (of all types) to be provided to init. A negative
+        ///  value requests all messages available.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -582,48 +567,40 @@ namespace Ice
 
         /// <summary>
         /// Attaches a RemoteLogger object to the local logger.
-        /// attachRemoteLogger calls init on the provided RemoteLogger proxy.
+        /// attachRemoteLogger calls init on the provided
         /// </summary>
-        /// <param name="prx">A proxy to the remote logger.
-        ///
-        /// </param>
-        /// <param name="messageTypes">The list of message types that the remote logger wishes to receive.
-        /// An empty list means no filtering (send all message types).
-        ///
-        /// </param>
-        /// <param name="traceCategories">The categories of traces that the remote logger wishes to receive.
-        /// This parameter is ignored if messageTypes is not empty and does not include trace.
-        /// An empty list means no filtering (send all trace categories).
-        ///
-        /// </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be provided
-        /// to init. A negative value requests all messages available.
-        ///
-        /// </param>
+        ///  <param name="prx">A proxy to the remote logger.
+        ///  </param>
+        /// <param name="messageTypes">The list of message types that the remote logger wishes to receive. An empty list means
+        ///  no filtering (send all message types).
+        ///  </param>
+        /// <param name="traceCategories">The categories of traces that the remote logger wishes to receive. This parameter is
+        ///  ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+        ///  trace categories).
+        ///  </param>
+        /// <param name="messageMax">The maximum number of log messages (of all types) to be provided to init. A negative
+        ///  value requests all messages available.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         AsyncResult<Callback_LoggerAdmin_attachRemoteLogger> begin_attachRemoteLogger(RemoteLoggerPrx prx, LogMessageType[] messageTypes, string[] traceCategories, int messageMax, OptionalContext context = new OptionalContext());
 
         /// <summary>
         /// Attaches a RemoteLogger object to the local logger.
-        /// attachRemoteLogger calls init on the provided RemoteLogger proxy.
+        /// attachRemoteLogger calls init on the provided
         /// </summary>
-        /// <param name="prx">A proxy to the remote logger.
-        ///
-        /// </param>
-        /// <param name="messageTypes">The list of message types that the remote logger wishes to receive.
-        /// An empty list means no filtering (send all message types).
-        ///
-        /// </param>
-        /// <param name="traceCategories">The categories of traces that the remote logger wishes to receive.
-        /// This parameter is ignored if messageTypes is not empty and does not include trace.
-        /// An empty list means no filtering (send all trace categories).
-        ///
-        /// </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be provided
-        /// to init. A negative value requests all messages available.
-        ///
-        /// </param>
+        ///  <param name="prx">A proxy to the remote logger.
+        ///  </param>
+        /// <param name="messageTypes">The list of message types that the remote logger wishes to receive. An empty list means
+        ///  no filtering (send all message types).
+        ///  </param>
+        /// <param name="traceCategories">The categories of traces that the remote logger wishes to receive. This parameter is
+        ///  ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+        ///  trace categories).
+        ///  </param>
+        /// <param name="messageMax">The maximum number of log messages (of all types) to be provided to init. A negative
+        ///  value requests all messages available.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -631,24 +608,20 @@ namespace Ice
 
         /// <summary>
         /// Attaches a RemoteLogger object to the local logger.
-        /// attachRemoteLogger calls init on the provided RemoteLogger proxy.
+        /// attachRemoteLogger calls init on the provided
         /// </summary>
-        /// <param name="prx">A proxy to the remote logger.
-        ///
-        /// </param>
-        /// <param name="messageTypes">The list of message types that the remote logger wishes to receive.
-        /// An empty list means no filtering (send all message types).
-        ///
-        /// </param>
-        /// <param name="traceCategories">The categories of traces that the remote logger wishes to receive.
-        /// This parameter is ignored if messageTypes is not empty and does not include trace.
-        /// An empty list means no filtering (send all trace categories).
-        ///
-        /// </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be provided
-        /// to init. A negative value requests all messages available.
-        ///
-        /// </param>
+        ///  <param name="prx">A proxy to the remote logger.
+        ///  </param>
+        /// <param name="messageTypes">The list of message types that the remote logger wishes to receive. An empty list means
+        ///  no filtering (send all message types).
+        ///  </param>
+        /// <param name="traceCategories">The categories of traces that the remote logger wishes to receive. This parameter is
+        ///  ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+        ///  trace categories).
+        ///  </param>
+        /// <param name="messageMax">The maximum number of log messages (of all types) to be provided to init. A negative
+        ///  value requests all messages available.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -657,7 +630,7 @@ namespace Ice
 
         /// <summary>
         /// Attaches a RemoteLogger object to the local logger.
-        /// attachRemoteLogger calls init on the provided RemoteLogger proxy.
+        /// attachRemoteLogger calls init on the provided
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_attachRemoteLogger(AsyncResult asyncResult);
@@ -666,8 +639,7 @@ namespace Ice
         /// Detaches a RemoteLogger object from the local logger.
         /// </summary>
         /// <param name="prx">A proxy to the remote logger.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>True if the provided remote logger proxy was detached, and false otherwise.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -677,8 +649,7 @@ namespace Ice
         /// Detaches a RemoteLogger object from the local logger.
         /// </summary>
         /// <param name="prx">A proxy to the remote logger.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -689,8 +660,7 @@ namespace Ice
         /// Detaches a RemoteLogger object from the local logger.
         /// </summary>
         /// <param name="prx">A proxy to the remote logger.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         AsyncResult<Callback_LoggerAdmin_detachRemoteLogger> begin_detachRemoteLogger(RemoteLoggerPrx prx, OptionalContext context = new OptionalContext());
@@ -699,8 +669,7 @@ namespace Ice
         /// Detaches a RemoteLogger object from the local logger.
         /// </summary>
         /// <param name="prx">A proxy to the remote logger.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -710,8 +679,7 @@ namespace Ice
         /// Detaches a RemoteLogger object from the local logger.
         /// </summary>
         /// <param name="prx">A proxy to the remote logger.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -728,22 +696,18 @@ namespace Ice
         /// <summary>
         /// Retrieves log messages recently logged.
         /// </summary>
-        /// <param name="messageTypes">The list of message types that the caller wishes to receive.
-        /// An empty list means no filtering (send all message types).
-        ///
-        /// </param>
-        /// <param name="traceCategories">The categories of traces that caller wish to receive.
-        /// This parameter is ignored if messageTypes is not empty and does not include trace.
-        /// An empty list means no filtering (send all trace categories).
-        ///
-        /// </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be returned.
-        /// A negative value requests all messages available.
-        ///
-        /// </param>
+        /// <param name="messageTypes">The list of message types that the caller wishes to receive. An empty list means no
+        ///  filtering (send all message types).
+        ///  </param>
+        /// <param name="traceCategories">The categories of traces that caller wish to receive. This parameter is ignored if
+        ///  messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+        ///  categories).
+        ///  </param>
+        /// <param name="messageMax">The maximum number of log messages (of all types) to be returned. A negative value
+        ///  requests all messages available.
+        ///  </param>
         /// <param name="prefix">The prefix of the associated local logger.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The Log messages.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -752,19 +716,16 @@ namespace Ice
         /// <summary>
         /// Retrieves log messages recently logged.
         /// </summary>
-        /// <param name="messageTypes">The list of message types that the caller wishes to receive.
-        /// An empty list means no filtering (send all message types).
-        ///
-        /// </param>
-        /// <param name="traceCategories">The categories of traces that caller wish to receive.
-        /// This parameter is ignored if messageTypes is not empty and does not include trace.
-        /// An empty list means no filtering (send all trace categories).
-        ///
-        /// </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be returned.
-        /// A negative value requests all messages available.
-        ///
-        /// </param>
+        /// <param name="messageTypes">The list of message types that the caller wishes to receive. An empty list means no
+        ///  filtering (send all message types).
+        ///  </param>
+        /// <param name="traceCategories">The categories of traces that caller wish to receive. This parameter is ignored if
+        ///  messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+        ///  categories).
+        ///  </param>
+        /// <param name="messageMax">The maximum number of log messages (of all types) to be returned. A negative value
+        ///  requests all messages available.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -774,19 +735,16 @@ namespace Ice
         /// <summary>
         /// Retrieves log messages recently logged.
         /// </summary>
-        /// <param name="messageTypes">The list of message types that the caller wishes to receive.
-        /// An empty list means no filtering (send all message types).
-        ///
-        /// </param>
-        /// <param name="traceCategories">The categories of traces that caller wish to receive.
-        /// This parameter is ignored if messageTypes is not empty and does not include trace.
-        /// An empty list means no filtering (send all trace categories).
-        ///
-        /// </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be returned.
-        /// A negative value requests all messages available.
-        ///
-        /// </param>
+        /// <param name="messageTypes">The list of message types that the caller wishes to receive. An empty list means no
+        ///  filtering (send all message types).
+        ///  </param>
+        /// <param name="traceCategories">The categories of traces that caller wish to receive. This parameter is ignored if
+        ///  messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+        ///  categories).
+        ///  </param>
+        /// <param name="messageMax">The maximum number of log messages (of all types) to be returned. A negative value
+        ///  requests all messages available.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         AsyncResult<Callback_LoggerAdmin_getLog> begin_getLog(LogMessageType[] messageTypes, string[] traceCategories, int messageMax, OptionalContext context = new OptionalContext());
@@ -794,19 +752,16 @@ namespace Ice
         /// <summary>
         /// Retrieves log messages recently logged.
         /// </summary>
-        /// <param name="messageTypes">The list of message types that the caller wishes to receive.
-        /// An empty list means no filtering (send all message types).
-        ///
-        /// </param>
-        /// <param name="traceCategories">The categories of traces that caller wish to receive.
-        /// This parameter is ignored if messageTypes is not empty and does not include trace.
-        /// An empty list means no filtering (send all trace categories).
-        ///
-        /// </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be returned.
-        /// A negative value requests all messages available.
-        ///
-        /// </param>
+        /// <param name="messageTypes">The list of message types that the caller wishes to receive. An empty list means no
+        ///  filtering (send all message types).
+        ///  </param>
+        /// <param name="traceCategories">The categories of traces that caller wish to receive. This parameter is ignored if
+        ///  messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+        ///  categories).
+        ///  </param>
+        /// <param name="messageMax">The maximum number of log messages (of all types) to be returned. A negative value
+        ///  requests all messages available.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -815,19 +770,16 @@ namespace Ice
         /// <summary>
         /// Retrieves log messages recently logged.
         /// </summary>
-        /// <param name="messageTypes">The list of message types that the caller wishes to receive.
-        /// An empty list means no filtering (send all message types).
-        ///
-        /// </param>
-        /// <param name="traceCategories">The categories of traces that caller wish to receive.
-        /// This parameter is ignored if messageTypes is not empty and does not include trace.
-        /// An empty list means no filtering (send all trace categories).
-        ///
-        /// </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be returned.
-        /// A negative value requests all messages available.
-        ///
-        /// </param>
+        /// <param name="messageTypes">The list of message types that the caller wishes to receive. An empty list means no
+        ///  filtering (send all message types).
+        ///  </param>
+        /// <param name="traceCategories">The categories of traces that caller wish to receive. This parameter is ignored if
+        ///  messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+        ///  categories).
+        ///  </param>
+        /// <param name="messageMax">The maximum number of log messages (of all types) to be returned. A negative value
+        ///  requests all messages available.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -838,8 +790,7 @@ namespace Ice
         /// Retrieves log messages recently logged.
         /// </summary>
         /// <param name="prefix">The prefix of the associated local logger.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The Log messages.</returns>
         LogMessage[] end_getLog(out string prefix, AsyncResult asyncResult);
@@ -850,9 +801,8 @@ namespace Ice
 {
     /// <summary>
     /// The Ice remote logger interface.
-    /// An application can implement a
-    /// RemoteLogger to receive the log messages sent to the local Logger
-    /// of another Ice application.
+    /// An application can implement a RemoteLogger to receive the log messages sent
+    ///  to the local Logger of another Ice application.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -862,8 +812,7 @@ namespace Ice
         /// init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
         /// </summary>
         /// <param name="prefix">The prefix of the associated local Logger.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="logMessages">Old log messages generated before "now".</param>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -873,9 +822,8 @@ namespace Ice
         /// <summary>
         /// Log a LogMessage.
         /// Note that log may be called by LoggerAdmin before init.
-        ///
         /// </summary>
-        /// <param name="message">The message to log.</param>
+        ///  <param name="message">The message to log.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -884,7 +832,7 @@ namespace Ice
 
     /// <summary>
     /// The interface of the admin object that allows an Ice application the attach its
-    /// RemoteLogger to the Logger of this admin object's Ice communicator.
+    ///  RemoteLogger to the Logger of this admin object's Ice communicator.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -892,27 +840,23 @@ namespace Ice
     {
         /// <summary>
         /// Attaches a RemoteLogger object to the local logger.
-        /// attachRemoteLogger calls init on the provided RemoteLogger proxy.
-        ///
+        /// attachRemoteLogger calls init on the provided
+        ///  RemoteLogger proxy.
         /// </summary>
-        /// <param name="prx">A proxy to the remote logger.
-        ///
-        /// </param>
-        /// <param name="messageTypes">The list of message types that the remote logger wishes to receive.
-        /// An empty list means no filtering (send all message types).
-        ///
-        /// </param>
-        /// <param name="traceCategories">The categories of traces that the remote logger wishes to receive.
-        /// This parameter is ignored if messageTypes is not empty and does not include trace.
-        /// An empty list means no filtering (send all trace categories).
-        ///
-        /// </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be provided
-        /// to init. A negative value requests all messages available.
-        ///
-        /// </param>
-        /// <exception name="RemoteLoggerAlreadyAttachedException">Raised if this remote logger is already
-        /// attached to this admin object.</exception>
+        ///  <param name="prx">A proxy to the remote logger.
+        ///  </param>
+        /// <param name="messageTypes">The list of message types that the remote logger wishes to receive. An empty list means
+        ///  no filtering (send all message types).
+        ///  </param>
+        /// <param name="traceCategories">The categories of traces that the remote logger wishes to receive. This parameter is
+        ///  ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+        ///  trace categories).
+        ///  </param>
+        /// <param name="messageMax">The maximum number of log messages (of all types) to be provided to init. A negative
+        ///  value requests all messages available.
+        ///  </param>
+        /// <exception name="RemoteLoggerAlreadyAttachedException">Raised if this remote logger is already attached to this admin
+        ///  object.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -922,8 +866,7 @@ namespace Ice
         /// Detaches a RemoteLogger object from the local logger.
         /// </summary>
         /// <param name="prx">A proxy to the remote logger.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>True if the provided remote logger proxy was detached, and false otherwise.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -933,22 +876,18 @@ namespace Ice
         /// <summary>
         /// Retrieves log messages recently logged.
         /// </summary>
-        /// <param name="messageTypes">The list of message types that the caller wishes to receive.
-        /// An empty list means no filtering (send all message types).
-        ///
-        /// </param>
-        /// <param name="traceCategories">The categories of traces that caller wish to receive.
-        /// This parameter is ignored if messageTypes is not empty and does not include trace.
-        /// An empty list means no filtering (send all trace categories).
-        ///
-        /// </param>
-        /// <param name="messageMax">The maximum number of log messages (of all types) to be returned.
-        /// A negative value requests all messages available.
-        ///
-        /// </param>
+        /// <param name="messageTypes">The list of message types that the caller wishes to receive. An empty list means no
+        ///  filtering (send all message types).
+        ///  </param>
+        /// <param name="traceCategories">The categories of traces that caller wish to receive. This parameter is ignored if
+        ///  messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+        ///  categories).
+        ///  </param>
+        /// <param name="messageMax">The maximum number of log messages (of all types) to be returned. A negative value
+        ///  requests all messages available.
+        ///  </param>
         /// <param name="prefix">The prefix of the associated local logger.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The Log messages.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 

@@ -1,7 +1,6 @@
 % ResponseSentException   Summary of ResponseSentException
 %
-% Indicates that the response to a request has already been sent;
-% re-dispatching such a request is not possible.
+% Indicates that the response to a request has already been sent; re-dispatching such a request is not possible.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from LocalException.ice by slice2matlab version 3.7.10

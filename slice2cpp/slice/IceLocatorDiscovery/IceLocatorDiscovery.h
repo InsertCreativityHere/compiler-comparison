@@ -65,9 +65,8 @@ namespace IceLocatorDiscovery
 {
 
 /**
- * The Ice lookup reply interface must be implemented by clients which
- * are searching for Ice locators. Ice locator implementations invoke
- * on this interface to provide their locator proxy.
+ * The Ice lookup reply interface must be implemented by clients which are searching for Ice locators. Ice locator
+ * implementations invoke on this interface to provide their locator proxy.
  * @see Lookup
  * \headerfile IceLocatorDiscovery/IceLocatorDiscovery.h
  */
@@ -106,8 +105,7 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * This method is called by the implementation of the Lookup
-     * interface to reply to a findLocator request.
+     * This method is called by the implementation of the Lookup interface to reply to a findLocator request.
      * @param prx The proxy of the locator.
      * @param current The Current object for the invocation.
      */
@@ -122,13 +120,10 @@ public:
 };
 
 /**
- * The Ice lookup interface is implemented by Ice locator
- * implementations and can be used by clients to find available Ice
- * locators on the network.
- *
- * Ice locator implementations provide a well-known `Ice/LocatorLookup'
- * object accessible through UDP multicast. Clients typically make a
- * multicast findLocator request to find the locator proxy.
+ * The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
+ * available Ice locators on the network.
+ * Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
+ * Clients typically make a multicast findLocator request to find the locator proxy.
  * @see LookupReply
  * \headerfile IceLocatorDiscovery/IceLocatorDiscovery.h
  */
@@ -168,9 +163,8 @@ public:
 
     /**
      * Find a locator proxy with the given instance name.
-     * @param instanceName Restrict the search to Ice registries
-     * configured with the given instance name. If empty, all the
-     * available registries will reply.
+     * @param instanceName Restrict the search to Ice registries configured with the given instance name. If
+     * empty, all the available registries will reply.
      * @param reply The reply object to use to send the reply.
      * @param current The Current object for the invocation.
      */
@@ -190,9 +184,8 @@ namespace IceLocatorDiscovery
 {
 
 /**
- * The Ice lookup reply interface must be implemented by clients which
- * are searching for Ice locators. Ice locator implementations invoke
- * on this interface to provide their locator proxy.
+ * The Ice lookup reply interface must be implemented by clients which are searching for Ice locators. Ice locator
+ * implementations invoke on this interface to provide their locator proxy.
  * @see Lookup
  * \headerfile IceLocatorDiscovery/IceLocatorDiscovery.h
  */
@@ -201,8 +194,7 @@ class LookupReplyPrx : public virtual ::Ice::Proxy<LookupReplyPrx, ::Ice::Object
 public:
 
     /**
-     * This method is called by the implementation of the Lookup
-     * interface to reply to a findLocator request.
+     * This method is called by the implementation of the Lookup interface to reply to a findLocator request.
      * @param prx The proxy of the locator.
      * @param context The Context map to send with the invocation.
      */
@@ -212,8 +204,7 @@ public:
     }
 
     /**
-     * This method is called by the implementation of the Lookup
-     * interface to reply to a findLocator request.
+     * This method is called by the implementation of the Lookup interface to reply to a findLocator request.
      * @param prx The proxy of the locator.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -226,8 +217,7 @@ public:
     }
 
     /**
-     * This method is called by the implementation of the Lookup
-     * interface to reply to a findLocator request.
+     * This method is called by the implementation of the Lookup interface to reply to a findLocator request.
      * @param prx The proxy of the locator.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -266,13 +256,10 @@ protected:
 };
 
 /**
- * The Ice lookup interface is implemented by Ice locator
- * implementations and can be used by clients to find available Ice
- * locators on the network.
- *
- * Ice locator implementations provide a well-known `Ice/LocatorLookup'
- * object accessible through UDP multicast. Clients typically make a
- * multicast findLocator request to find the locator proxy.
+ * The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
+ * available Ice locators on the network.
+ * Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
+ * Clients typically make a multicast findLocator request to find the locator proxy.
  * @see LookupReply
  * \headerfile IceLocatorDiscovery/IceLocatorDiscovery.h
  */
@@ -282,9 +269,8 @@ public:
 
     /**
      * Find a locator proxy with the given instance name.
-     * @param instanceName Restrict the search to Ice registries
-     * configured with the given instance name. If empty, all the
-     * available registries will reply.
+     * @param instanceName Restrict the search to Ice registries configured with the given instance name. If
+     * empty, all the available registries will reply.
      * @param reply The reply object to use to send the reply.
      * @param context The Context map to send with the invocation.
      */
@@ -295,9 +281,8 @@ public:
 
     /**
      * Find a locator proxy with the given instance name.
-     * @param instanceName Restrict the search to Ice registries
-     * configured with the given instance name. If empty, all the
-     * available registries will reply.
+     * @param instanceName Restrict the search to Ice registries configured with the given instance name. If
+     * empty, all the available registries will reply.
      * @param reply The reply object to use to send the reply.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -311,9 +296,8 @@ public:
 
     /**
      * Find a locator proxy with the given instance name.
-     * @param instanceName Restrict the search to Ice registries
-     * configured with the given instance name. If empty, all the
-     * available registries will reply.
+     * @param instanceName Restrict the search to Ice registries configured with the given instance name. If
+     * empty, all the available registries will reply.
      * @param reply The reply object to use to send the reply.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -463,8 +447,7 @@ class LookupReply : public virtual ::Ice::Proxy<LookupReply, ::IceProxy::Ice::Ob
 public:
 
     /**
-     * This method is called by the implementation of the Lookup
-     * interface to reply to a findLocator request.
+     * This method is called by the implementation of the Lookup interface to reply to a findLocator request.
      * @param prx The proxy of the locator.
      * @param context The Context map to send with the invocation.
      */
@@ -474,8 +457,7 @@ public:
     }
 
     /**
-     * This method is called by the implementation of the Lookup
-     * interface to reply to a findLocator request.
+     * This method is called by the implementation of the Lookup interface to reply to a findLocator request.
      * @param prx The proxy of the locator.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -486,8 +468,7 @@ public:
     }
 
     /**
-     * This method is called by the implementation of the Lookup
-     * interface to reply to a findLocator request.
+     * This method is called by the implementation of the Lookup interface to reply to a findLocator request.
      * @param prx The proxy of the locator.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -499,8 +480,7 @@ public:
     }
 
     /**
-     * This method is called by the implementation of the Lookup
-     * interface to reply to a findLocator request.
+     * This method is called by the implementation of the Lookup interface to reply to a findLocator request.
      * @param prx The proxy of the locator.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -513,8 +493,7 @@ public:
     }
 
     /**
-     * This method is called by the implementation of the Lookup
-     * interface to reply to a findLocator request.
+     * This method is called by the implementation of the Lookup interface to reply to a findLocator request.
      * @param prx The proxy of the locator.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -526,8 +505,7 @@ public:
     }
 
     /**
-     * This method is called by the implementation of the Lookup
-     * interface to reply to a findLocator request.
+     * This method is called by the implementation of the Lookup interface to reply to a findLocator request.
      * @param prx The proxy of the locator.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -570,9 +548,8 @@ public:
 
     /**
      * Find a locator proxy with the given instance name.
-     * @param instanceName Restrict the search to Ice registries
-     * configured with the given instance name. If empty, all the
-     * available registries will reply.
+     * @param instanceName Restrict the search to Ice registries configured with the given instance name. If
+     * empty, all the available registries will reply.
      * @param reply The reply object to use to send the reply.
      * @param context The Context map to send with the invocation.
      */
@@ -583,9 +560,8 @@ public:
 
     /**
      * Find a locator proxy with the given instance name.
-     * @param instanceName Restrict the search to Ice registries
-     * configured with the given instance name. If empty, all the
-     * available registries will reply.
+     * @param instanceName Restrict the search to Ice registries configured with the given instance name. If
+     * empty, all the available registries will reply.
      * @param reply The reply object to use to send the reply.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -597,9 +573,8 @@ public:
 
     /**
      * Find a locator proxy with the given instance name.
-     * @param instanceName Restrict the search to Ice registries
-     * configured with the given instance name. If empty, all the
-     * available registries will reply.
+     * @param instanceName Restrict the search to Ice registries configured with the given instance name. If
+     * empty, all the available registries will reply.
      * @param reply The reply object to use to send the reply.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -612,9 +587,8 @@ public:
 
     /**
      * Find a locator proxy with the given instance name.
-     * @param instanceName Restrict the search to Ice registries
-     * configured with the given instance name. If empty, all the
-     * available registries will reply.
+     * @param instanceName Restrict the search to Ice registries configured with the given instance name. If
+     * empty, all the available registries will reply.
      * @param reply The reply object to use to send the reply.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -628,9 +602,8 @@ public:
 
     /**
      * Find a locator proxy with the given instance name.
-     * @param instanceName Restrict the search to Ice registries
-     * configured with the given instance name. If empty, all the
-     * available registries will reply.
+     * @param instanceName Restrict the search to Ice registries configured with the given instance name. If
+     * empty, all the available registries will reply.
      * @param reply The reply object to use to send the reply.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -643,9 +616,8 @@ public:
 
     /**
      * Find a locator proxy with the given instance name.
-     * @param instanceName Restrict the search to Ice registries
-     * configured with the given instance name. If empty, all the
-     * available registries will reply.
+     * @param instanceName Restrict the search to Ice registries configured with the given instance name. If
+     * empty, all the available registries will reply.
      * @param reply The reply object to use to send the reply.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -690,9 +662,8 @@ namespace IceLocatorDiscovery
 {
 
 /**
- * The Ice lookup reply interface must be implemented by clients which
- * are searching for Ice locators. Ice locator implementations invoke
- * on this interface to provide their locator proxy.
+ * The Ice lookup reply interface must be implemented by clients which are searching for Ice locators. Ice locator
+ * implementations invoke on this interface to provide their locator proxy.
  * @see Lookup
  * \headerfile IceLocatorDiscovery/IceLocatorDiscovery.h
  */
@@ -740,8 +711,7 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * This method is called by the implementation of the Lookup
-     * interface to reply to a findLocator request.
+     * This method is called by the implementation of the Lookup interface to reply to a findLocator request.
      * @param prx The proxy of the locator.
      * @param current The Current object for the invocation.
      */
@@ -775,13 +745,10 @@ inline bool operator<(const LookupReply& lhs, const LookupReply& rhs)
 /// \endcond
 
 /**
- * The Ice lookup interface is implemented by Ice locator
- * implementations and can be used by clients to find available Ice
- * locators on the network.
- *
- * Ice locator implementations provide a well-known `Ice/LocatorLookup'
- * object accessible through UDP multicast. Clients typically make a
- * multicast findLocator request to find the locator proxy.
+ * The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
+ * available Ice locators on the network.
+ * Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
+ * Clients typically make a multicast findLocator request to find the locator proxy.
  * @see LookupReply
  * \headerfile IceLocatorDiscovery/IceLocatorDiscovery.h
  */
@@ -830,9 +797,8 @@ public:
 
     /**
      * Find a locator proxy with the given instance name.
-     * @param instanceName Restrict the search to Ice registries
-     * configured with the given instance name. If empty, all the
-     * available registries will reply.
+     * @param instanceName Restrict the search to Ice registries configured with the given instance name. If
+     * empty, all the available registries will reply.
      * @param reply The reply object to use to send the reply.
      * @param current The Current object for the invocation.
      */

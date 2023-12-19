@@ -39,20 +39,17 @@ public abstract class EndpointInfo extends com.zeroc.Ice.EndpointInfo
     }
 
     /**
-     * The accessory manufacturer or empty to not match against
-     * a manufacturer.
+     * The accessory manufacturer or empty to not match against a manufacturer.
      **/
     public String manufacturer;
 
     /**
-     * The accessory model number or empty to not match against
-     * a model number.
+     * The accessory model number or empty to not match against a model number.
      **/
     public String modelNumber;
 
     /**
-     * The accessory name or empty to not match against
-     * the accessory name.
+     * The accessory name or empty to not match against the accessory name.
      **/
     public String name;
 

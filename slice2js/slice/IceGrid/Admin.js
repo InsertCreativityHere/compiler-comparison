@@ -43,8 +43,7 @@ const Slice = Ice.Slice;
 /* slice2js browser-bundle-skip-end */
 
 /**
- * An enumeration representing the state of the server.
- *
+ *  An enumeration representing the state of the server.
  **/
 IceGrid.ServerState = Slice.defineEnum([
     ['Inactive', 0], ['Activating', 1], ['ActivationTimedOut', 2], ['Active', 3], ['Deactivating', 4],
@@ -53,8 +52,7 @@ IceGrid.ServerState = Slice.defineEnum([
 Slice.defineDictionary(IceGrid, "StringObjectProxyDict", "StringObjectProxyDictHelper", "Ice.StringHelper", "Ice.ObjectPrx", false, undefined, undefined);
 
 /**
- * Information about an Ice object.
- *
+ *  Information about an Ice object.
  **/
 IceGrid.ObjectInfo = class
 {
@@ -87,8 +85,7 @@ Slice.defineStruct(IceGrid.ObjectInfo, false, true);
 Slice.defineSequence(IceGrid, "ObjectInfoSeqHelper", "IceGrid.ObjectInfo", false);
 
 /**
- * Information about an adapter registered with the IceGrid registry.
- *
+ *  Information about an adapter registered with the IceGrid registry.
  **/
 IceGrid.AdapterInfo = class
 {
@@ -124,8 +121,7 @@ Slice.defineStruct(IceGrid.AdapterInfo, false, true);
 Slice.defineSequence(IceGrid, "AdapterInfoSeqHelper", "IceGrid.AdapterInfo", false);
 
 /**
- * Information about a server managed by an IceGrid node.
- *
+ *  Information about a server managed by an IceGrid node.
  **/
 IceGrid.ServerInfo = class
 {
@@ -168,8 +164,7 @@ IceGrid.ServerInfo = class
 Slice.defineStruct(IceGrid.ServerInfo, false, true);
 
 /**
- * Information about an IceGrid node.
- *
+ *  Information about an IceGrid node.
  **/
 IceGrid.NodeInfo = class
 {
@@ -218,8 +213,7 @@ IceGrid.NodeInfo = class
 Slice.defineStruct(IceGrid.NodeInfo, true, true);
 
 /**
- * Information about an IceGrid registry replica.
- *
+ *  Information about an IceGrid registry replica.
  **/
 IceGrid.RegistryInfo = class
 {
@@ -252,8 +246,7 @@ Slice.defineStruct(IceGrid.RegistryInfo, true, true);
 Slice.defineSequence(IceGrid, "RegistryInfoSeqHelper", "IceGrid.RegistryInfo", false);
 
 /**
- * Information about the load of a node.
- *
+ *  Information about the load of a node.
  **/
 IceGrid.LoadInfo = class
 {
@@ -287,8 +280,7 @@ IceGrid.LoadInfo = class
 Slice.defineStruct(IceGrid.LoadInfo, false, false);
 
 /**
- * Information about an IceGrid application.
- *
+ *  Information about an IceGrid application.
  **/
 IceGrid.ApplicationInfo = class
 {
@@ -336,8 +328,7 @@ Slice.defineStruct(IceGrid.ApplicationInfo, false, true);
 Slice.defineSequence(IceGrid, "ApplicationInfoSeqHelper", "IceGrid.ApplicationInfo", false);
 
 /**
- * Information about updates to an IceGrid application.
- *
+ *  Information about updates to an IceGrid application.
  **/
 IceGrid.ApplicationUpdateInfo = class
 {
@@ -379,11 +370,8 @@ const iceC_IceGrid_Admin_ids = [
 ];
 
 /**
- * The IceGrid administrative interface.
- * <p class="Warning">Allowing access to this interface
- * is a security risk! Please see the IceGrid documentation
- * for further information.
- *
+ *  The IceGrid administrative interface. <p class="Warning">Allowing access to this interface is a security risk!
+ *  Please see the IceGrid documentation for further information.
  **/
 IceGrid.Admin = class extends Ice.Object
 {
@@ -613,8 +601,7 @@ const iceC_IceGrid_FileIterator_ids = [
 ];
 
 /**
- * This interface provides access to IceGrid log file contents.
- *
+ *  This interface provides access to IceGrid log file contents.
  **/
 IceGrid.FileIterator = class extends Ice.Object
 {
@@ -634,8 +621,7 @@ Slice.defineOperations(IceGrid.FileIterator, IceGrid.FileIteratorPrx, iceC_IceGr
 });
 
 /**
- * Dynamic information about the state of a server.
- *
+ *  Dynamic information about the state of a server.
  **/
 IceGrid.ServerDynamicInfo = class
 {
@@ -674,8 +660,7 @@ Slice.defineStruct(IceGrid.ServerDynamicInfo, true, true);
 Slice.defineSequence(IceGrid, "ServerDynamicInfoSeqHelper", "IceGrid.ServerDynamicInfo", false);
 
 /**
- * Dynamic information about the state of an adapter.
- *
+ *  Dynamic information about the state of an adapter.
  **/
 IceGrid.AdapterDynamicInfo = class
 {
@@ -708,8 +693,7 @@ Slice.defineStruct(IceGrid.AdapterDynamicInfo, false, true);
 Slice.defineSequence(IceGrid, "AdapterDynamicInfoSeqHelper", "IceGrid.AdapterDynamicInfo", false);
 
 /**
- * Dynamic information about the state of a node.
- *
+ *  Dynamic information about the state of a node.
  **/
 IceGrid.NodeDynamicInfo = class
 {
@@ -748,9 +732,7 @@ const iceC_IceGrid_RegistryObserver_ids = [
 ];
 
 /**
- * This interface allows applications to monitor changes the state
- * of the registry.
- *
+ *  This interface allows applications to monitor changes the state of the registry.
  **/
 IceGrid.RegistryObserver = class extends Ice.Object
 {
@@ -775,10 +757,8 @@ const iceC_IceGrid_NodeObserver_ids = [
 ];
 
 /**
- * The node observer interface. Observers should implement this
- * interface to receive information about the state of the IceGrid
- * nodes.
- *
+ *  The node observer interface. Observers should implement this interface to receive information about the state of
+ *  the IceGrid nodes.
  **/
 IceGrid.NodeObserver = class extends Ice.Object
 {
@@ -803,10 +783,8 @@ const iceC_IceGrid_ApplicationObserver_ids = [
 ];
 
 /**
- * The database observer interface. Observers should implement this
- * interface to receive information about the state of the IceGrid
- * registry database.
- *
+ *  The database observer interface. Observers should implement this interface to receive information about the state
+ *  of the IceGrid registry database.
  **/
 IceGrid.ApplicationObserver = class extends Ice.Object
 {
@@ -830,9 +808,7 @@ const iceC_IceGrid_AdapterObserver_ids = [
 ];
 
 /**
- * This interface allows applications to monitor the state of object
- * adapters that are registered with IceGrid.
- *
+ *  This interface allows applications to monitor the state of object adapters that are registered with IceGrid.
  **/
 IceGrid.AdapterObserver = class extends Ice.Object
 {
@@ -856,8 +832,7 @@ const iceC_IceGrid_ObjectObserver_ids = [
 ];
 
 /**
- * This interface allows applications to monitor IceGrid well-known objects.
- *
+ *  This interface allows applications to monitor IceGrid well-known objects.
  **/
 IceGrid.ObjectObserver = class extends Ice.Object
 {
@@ -882,13 +857,10 @@ const iceC_IceGrid_AdminSession_ids = [
 ];
 
 /**
- * Used by administrative clients to view,
- * update, and receive observer updates from the IceGrid
- * registry. Admin sessions are created either via the {@link Registry}
- * object or via the registry admin <code>SessionManager</code> object.
- *
- * @see Registry
- *
+ *  Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
+ *  sessions are created either via the {@link Registry} object or via the registry admin <code>SessionManager</code>
+ *  object.
+ *  @see Registry
  **/
 IceGrid.AdminSession = class extends Ice.Object
 {

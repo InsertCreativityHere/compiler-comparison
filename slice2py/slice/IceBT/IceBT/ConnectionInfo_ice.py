@@ -29,15 +29,15 @@ if 'ConnectionInfo' not in _M_IceBT.__dict__:
     _M_IceBT.ConnectionInfo = Ice.createTempClass()
     class ConnectionInfo(_M_Ice.ConnectionInfo):
         """
-        Provides access to the details of a Bluetooth connection.
+         Provides access to the details of a Bluetooth connection.
         Members:
-        localAddress -- The local Bluetooth address.
-        localChannel -- The local RFCOMM channel.
-        remoteAddress -- The remote Bluetooth address.
-        remoteChannel -- The remote RFCOMM channel.
-        uuid -- The UUID of the service being offered (in a server) or targeted (in a client).
-        rcvSize -- The connection buffer receive size.
-        sndSize -- The connection buffer send size.
+        localAddress --  The local Bluetooth address.
+        localChannel --  The local RFCOMM channel.
+        remoteAddress --  The remote Bluetooth address.
+        remoteChannel --  The remote RFCOMM channel.
+        uuid --  The UUID of the service being offered (in a server) or targeted (in a client).
+        rcvSize --  The connection buffer receive size.
+        sndSize --  The connection buffer send size.
         """
         def __init__(self, underlying=None, incoming=False, adapterName='', connectionId='', localAddress="", localChannel=-1, remoteAddress="", remoteChannel=-1, uuid="", rcvSize=0, sndSize=0):
             _M_Ice.ConnectionInfo.__init__(self, underlying, incoming, adapterName, connectionId)

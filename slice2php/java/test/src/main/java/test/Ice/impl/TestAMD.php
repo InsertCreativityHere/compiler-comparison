@@ -1095,22 +1095,6 @@ namespace Test
 
 namespace Test
 {
-    if(!defined('\\Test\\ss4'))
-    {
-        define(__NAMESPACE__ . '\\ss4', "\\A\\");
-    }
-}
-
-namespace Test
-{
-    if(!defined('\\Test\\ss5'))
-    {
-        define(__NAMESPACE__ . '\\ss5', "\\u0041\\");
-    }
-}
-
-namespace Test
-{
     if(!defined('\\Test\\su0'))
     {
         define(__NAMESPACE__ . '\\su0', "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203");

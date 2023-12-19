@@ -139,13 +139,10 @@ public:
 };
 
 /**
- * The ObserverUpdater interface is implemented by IceStorm and an
- * instance of this interface is provided on initialization to the
- * TopicManagerObserver object.
- *
- * This interface can be used by add-ins imlementing the
- * TopicManagerObserver interface to update the obsevers of observed
- * objects.
+ * The ObserverUpdater interface is implemented by IceStorm and an instance of this interface is provided on
+ * initialization to the TopicManagerObserver object.
+ * This interface can be used by add-ins imlementing the TopicManagerObserver interface to update the obsevers of
+ * observed objects.
  */
 class ObserverUpdater
 {
@@ -155,30 +152,25 @@ public:
 
     /**
      * Update topic observers associated with each topics.
-     *
-     * When called, this method goes through all the topics and for
-     * each topic TopicManagerObserver::getTopicObserver is
-     * called. The implementation of getTopicObserver has the
-     * possibility to return an updated observer if necessary.
+     * When called, this method goes through all the topics and for each topic TopicManagerObserver::getTopicObserver
+     * is called. The implementation of getTopicObserver has the possibility to return an updated observer if
+     * necessary.
      */
     virtual void updateTopicObservers() = 0;
 
     /**
      * Update subscriber observers associated with each subscriber.
-     *
-     * When called, this method goes through all the subscribers and
-     * for each subscriber TopicManagerObserver::getSubscriberObserver
-     * is called. The implementation of getSubscriberObserver has the
+     * When called, this method goes through all the subscribers and for each subscriber
+     * TopicManagerObserver::getSubscriberObserver is called. The implementation of getSubscriberObserver has the
      * possibility to return an updated observer if necessary.
      */
     virtual void updateSubscriberObservers() = 0;
 };
 
 /**
- * The topic manager observer interface used by the Ice run-time to
- * obtain and update observers for its observeable objects. This
- * interface should be implemented by add-ins that wish to observe
- * IceStorm objects in order to collect statistics.
+ * The topic manager observer interface used by the Ice run-time to obtain and update observers for its observeable
+ * objects. This interface should be implemented by add-ins that wish to observe IceStorm objects in order to collect
+ * statistics.
  */
 class TopicManagerObserver
 {
@@ -190,25 +182,21 @@ public:
      * This method should return an observer for the given topic.
      * @param svc The service name.
      * @param name The topic name.
-     * @param old The previous observer, only set when updating an
-     * existing observer.
+     * @param old The previous observer, only set when updating an existing observer.
      */
     virtual ::std::shared_ptr<::IceStorm::Instrumentation::TopicObserver> getTopicObserver(const ::std::string& svc, const ::std::string& name, const ::std::shared_ptr<TopicObserver>& old) = 0;
 
     /**
      * This method should return an observer for the given subscriber.
      * @param topic The name of the topic subscribed.
-     * @param link The proxy of the linked topic if this subscriber
-     * forwards events to a linked topic.
-     * @param old The previous observer, only set when updating an
-     * existing observer.
+     * @param link The proxy of the linked topic if this subscriber forwards events to a linked topic.
+     * @param old The previous observer, only set when updating an existing observer.
      */
     virtual ::std::shared_ptr<::IceStorm::Instrumentation::SubscriberObserver> getSubscriberObserver(const ::std::string& svc, const ::std::string& topic, const ::std::shared_ptr<::Ice::ObjectPrx>& prx, const ::IceStorm::QoS& q, const ::std::shared_ptr<::IceStorm::TopicPrx>& link, SubscriberState s, const ::std::shared_ptr<SubscriberObserver>& old) = 0;
 
     /**
-     * IceStorm calls this method on initialization. The add-in
-     * implementing this interface can use this object to get IceStorm
-     * to re-obtain observers for topics and subscribers.
+     * IceStorm calls this method on initialization. The add-in implementing this interface can use this object to
+     * get IceStorm to re-obtain observers for topics and subscribers.
      * @param updater The observer updater object.
      */
     virtual void setObserverUpdater(const ::std::shared_ptr<ObserverUpdater>& updater) = 0;
@@ -415,13 +403,10 @@ inline bool operator<(const SubscriberObserver& lhs, const SubscriberObserver& r
 /// \endcond
 
 /**
- * The ObserverUpdater interface is implemented by IceStorm and an
- * instance of this interface is provided on initialization to the
- * TopicManagerObserver object.
- *
- * This interface can be used by add-ins imlementing the
- * TopicManagerObserver interface to update the obsevers of observed
- * objects.
+ * The ObserverUpdater interface is implemented by IceStorm and an instance of this interface is provided on
+ * initialization to the TopicManagerObserver object.
+ * This interface can be used by add-ins imlementing the TopicManagerObserver interface to update the obsevers of
+ * observed objects.
  */
 class ObserverUpdater : public virtual ::Ice::LocalObject
 {
@@ -439,20 +424,16 @@ public:
 
     /**
      * Update topic observers associated with each topics.
-     *
-     * When called, this method goes through all the topics and for
-     * each topic TopicManagerObserver::getTopicObserver is
-     * called. The implementation of getTopicObserver has the
-     * possibility to return an updated observer if necessary.
+     * When called, this method goes through all the topics and for each topic TopicManagerObserver::getTopicObserver
+     * is called. The implementation of getTopicObserver has the possibility to return an updated observer if
+     * necessary.
      */
     virtual void updateTopicObservers() = 0;
 
     /**
      * Update subscriber observers associated with each subscriber.
-     *
-     * When called, this method goes through all the subscribers and
-     * for each subscriber TopicManagerObserver::getSubscriberObserver
-     * is called. The implementation of getSubscriberObserver has the
+     * When called, this method goes through all the subscribers and for each subscriber
+     * TopicManagerObserver::getSubscriberObserver is called. The implementation of getSubscriberObserver has the
      * possibility to return an updated observer if necessary.
      */
     virtual void updateSubscriberObservers() = 0;
@@ -471,10 +452,9 @@ inline bool operator<(const ObserverUpdater& lhs, const ObserverUpdater& rhs)
 /// \endcond
 
 /**
- * The topic manager observer interface used by the Ice run-time to
- * obtain and update observers for its observeable objects. This
- * interface should be implemented by add-ins that wish to observe
- * IceStorm objects in order to collect statistics.
+ * The topic manager observer interface used by the Ice run-time to obtain and update observers for its observeable
+ * objects. This interface should be implemented by add-ins that wish to observe IceStorm objects in order to collect
+ * statistics.
  */
 class TopicManagerObserver : public virtual ::Ice::LocalObject
 {
@@ -494,25 +474,21 @@ public:
      * This method should return an observer for the given topic.
      * @param svc The service name.
      * @param name The topic name.
-     * @param old The previous observer, only set when updating an
-     * existing observer.
+     * @param old The previous observer, only set when updating an existing observer.
      */
     virtual TopicObserverPtr getTopicObserver(const ::std::string& svc, const ::std::string& name, const TopicObserverPtr& old) = 0;
 
     /**
      * This method should return an observer for the given subscriber.
      * @param topic The name of the topic subscribed.
-     * @param link The proxy of the linked topic if this subscriber
-     * forwards events to a linked topic.
-     * @param old The previous observer, only set when updating an
-     * existing observer.
+     * @param link The proxy of the linked topic if this subscriber forwards events to a linked topic.
+     * @param old The previous observer, only set when updating an existing observer.
      */
     virtual SubscriberObserverPtr getSubscriberObserver(const ::std::string& svc, const ::std::string& topic, const ::Ice::ObjectPrx& prx, const ::IceStorm::QoS& q, const ::IceStorm::TopicPrx& link, SubscriberState s, const SubscriberObserverPtr& old) = 0;
 
     /**
-     * IceStorm calls this method on initialization. The add-in
-     * implementing this interface can use this object to get IceStorm
-     * to re-obtain observers for topics and subscribers.
+     * IceStorm calls this method on initialization. The add-in implementing this interface can use this object to
+     * get IceStorm to re-obtain observers for topics and subscribers.
      * @param updater The observer updater object.
      */
     virtual void setObserverUpdater(const ObserverUpdaterPtr& updater) = 0;

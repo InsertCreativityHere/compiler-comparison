@@ -67,19 +67,19 @@ public interface LoggerAdmin extends Object
     }
 
     /**
-     * Attaches a RemoteLogger object to the local logger.
-     * attachRemoteLogger calls init on the provided RemoteLogger proxy.
+     * Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+     * RemoteLogger proxy.
      * @param prx A proxy to the remote logger.
-     * @param messageTypes The list of message types that the remote logger wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that the remote logger wishes to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be provided
-     * to init. A negative value requests all messages available.
+     * @param messageTypes The list of message types that the remote logger wishes to receive. An empty list means
+     * no filtering (send all message types).
+     * @param traceCategories The categories of traces that the remote logger wishes to receive. This parameter is
+     * ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+     * trace categories).
+     * @param messageMax The maximum number of log messages (of all types) to be provided to init. A negative
+     * value requests all messages available.
      * @param current The Current object for the invocation.
-     * @throws RemoteLoggerAlreadyAttachedException Raised if this remote logger is already
-     * attached to this admin object.
+     * @throws RemoteLoggerAlreadyAttachedException Raised if this remote logger is already attached to this admin
+     * object.
      **/
     void attachRemoteLogger(RemoteLoggerPrx prx, LogMessageType[] messageTypes, String[] traceCategories, int messageMax, Current current)
         throws RemoteLoggerAlreadyAttachedException;
@@ -94,13 +94,13 @@ public interface LoggerAdmin extends Object
 
     /**
      * Retrieves log messages recently logged.
-     * @param messageTypes The list of message types that the caller wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that caller wish to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be returned.
-     * A negative value requests all messages available.
+     * @param messageTypes The list of message types that the caller wishes to receive. An empty list means no
+     * filtering (send all message types).
+     * @param traceCategories The categories of traces that caller wish to receive. This parameter is ignored if
+     * messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+     * categories).
+     * @param messageMax The maximum number of log messages (of all types) to be returned. A negative value
+     * requests all messages available.
      * @param current The Current object for the invocation.
      * @return An instance of LoggerAdmin.GetLogResult.
      **/

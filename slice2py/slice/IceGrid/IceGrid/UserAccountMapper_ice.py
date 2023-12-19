@@ -25,8 +25,7 @@ if 'UserAccountNotFoundException' not in _M_IceGrid.__dict__:
     _M_IceGrid.UserAccountNotFoundException = Ice.createTempClass()
     class UserAccountNotFoundException(Ice.UserException):
         """
-        This exception is raised if a user account for a given session
-        identifier can't be found.
+         This exception is raised if a user account for a given session identifier can't be found.
         """
         def __init__(self):
             pass
@@ -51,9 +50,8 @@ if 'UserAccountMapperPrx' not in _M_IceGrid.__dict__:
     class UserAccountMapperPrx(Ice.ObjectPrx):
 
         """
-        Get the name of the user account for the given user. This is
-        used by IceGrid nodes to figure out the user account to use
-        to run servers.
+         Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+         account to use to run servers.
         Arguments:
         user -- The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
         context -- The request context for the invocation.
@@ -65,9 +63,8 @@ if 'UserAccountMapperPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.UserAccountMapper._op_getUserAccount.invoke(self, ((user, ), context))
 
         """
-        Get the name of the user account for the given user. This is
-        used by IceGrid nodes to figure out the user account to use
-        to run servers.
+         Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+         account to use to run servers.
         Arguments:
         user -- The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
         context -- The request context for the invocation.
@@ -77,9 +74,8 @@ if 'UserAccountMapperPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.UserAccountMapper._op_getUserAccount.invokeAsync(self, ((user, ), context))
 
         """
-        Get the name of the user account for the given user. This is
-        used by IceGrid nodes to figure out the user account to use
-        to run servers.
+         Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+         account to use to run servers.
         Arguments:
         user -- The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
         _response -- The asynchronous response callback.
@@ -92,9 +88,8 @@ if 'UserAccountMapperPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.UserAccountMapper._op_getUserAccount.begin(self, ((user, ), _response, _ex, _sent, context))
 
         """
-        Get the name of the user account for the given user. This is
-        used by IceGrid nodes to figure out the user account to use
-        to run servers.
+         Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+         account to use to run servers.
         Arguments:
         user -- The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
         Returns: The user account name.
@@ -135,9 +130,8 @@ if 'UserAccountMapperPrx' not in _M_IceGrid.__dict__:
 
         def getUserAccount(self, user, current=None):
             """
-            Get the name of the user account for the given user. This is
-            used by IceGrid nodes to figure out the user account to use
-            to run servers.
+             Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+             account to use to run servers.
             Arguments:
             user -- The value of the server descriptor's user attribute. If this attribute is not defined, and the server's activation mode is session, the default value of user is the session identifier.
             current -- The Current object for the invocation.

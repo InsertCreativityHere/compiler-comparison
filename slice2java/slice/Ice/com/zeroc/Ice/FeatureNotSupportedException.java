@@ -16,9 +16,8 @@
 package com.zeroc.Ice;
 
 /**
- * This exception is raised if an unsupported feature is used. The
- * unsupported feature string contains the name of the unsupported
- * feature
+ * This exception is raised if an unsupported feature is used. The unsupported feature string contains the name of the
+ * unsupported feature.
  **/
 public class FeatureNotSupportedException extends LocalException
 {

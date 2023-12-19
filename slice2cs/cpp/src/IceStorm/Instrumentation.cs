@@ -116,10 +116,9 @@ namespace IceStorm
 
             /// <summary>
             /// Update topic observers associated with each topics.
-            /// When called, this method goes through all the topics and for
-            /// each topic TopicManagerObserver::getTopicObserver is
-            /// called. The implementation of getTopicObserver has the
-            /// possibility to return an updated observer if necessary.
+            /// When called, this method goes through all the topics and for each topic TopicManagerObserver::getTopicObserver
+            ///  is called. The implementation of getTopicObserver has the possibility to return an updated observer if
+            ///  necessary.
             /// </summary>
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -128,10 +127,9 @@ namespace IceStorm
 
             /// <summary>
             /// Update subscriber observers associated with each subscriber.
-            /// When called, this method goes through all the subscribers and
-            /// for each subscriber TopicManagerObserver::getSubscriberObserver
-            /// is called. The implementation of getSubscriberObserver has the
-            /// possibility to return an updated observer if necessary.
+            /// When called, this method goes through all the subscribers and for each subscriber
+            ///  TopicManagerObserver::getSubscriberObserver is called. The implementation of getSubscriberObserver has the
+            ///  possibility to return an updated observer if necessary.
             /// </summary>
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -197,13 +195,10 @@ namespace IceStorm
             /// This method should return an observer for the given topic.
             /// </summary>
             /// <param name="svc">The service name.
-            ///
-            /// </param>
+            ///  </param>
             /// <param name="name">The topic name.
-            ///
-            /// </param>
-            /// <param name="old">The previous observer, only set when updating an
-            /// existing observer.</param>
+            ///  </param>
+            /// <param name="old">The previous observer, only set when updating an existing observer.</param>
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
             TopicObserver getTopicObserver(string svc, string name, TopicObserver old);
@@ -213,20 +208,14 @@ namespace IceStorm
             /// This method should return an observer for the given subscriber.
             /// </summary>
             /// <param name="topic">The name of the topic subscribed.
-            ///
-            /// </param>
+            ///  </param>
             /// <param name="subscriber">The proxy of the subscriber.
-            ///
-            /// </param>
+            ///  </param>
             /// <param name="qos">The QoS configured for the subscriber.
-            ///
-            /// </param>
-            /// <param name="link">The proxy of the linked topic if this subscriber
-            /// forwards events to a linked topic.
-            ///
-            /// </param>
-            /// <param name="old">The previous observer, only set when updating an
-            /// existing observer.</param>
+            ///  </param>
+            /// <param name="link">The proxy of the linked topic if this subscriber forwards events to a linked topic.
+            ///  </param>
+            /// <param name="old">The previous observer, only set when updating an existing observer.</param>
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
             SubscriberObserver getSubscriberObserver(string svc, string topic, global::Ice.ObjectPrx prx, global::System.Collections.Generic.Dictionary<string, string> q, global::IceStorm.TopicPrx link, SubscriberState s, SubscriberObserver old);
@@ -234,12 +223,10 @@ namespace IceStorm
 
             /// <summary>
             /// IceStorm calls this method on initialization.
-            /// The add-in
-            /// implementing this interface can use this object to get IceStorm
-            /// to re-obtain observers for topics and subscribers.
-            ///
+            /// The add-in implementing this interface can use this object to
+            ///  get IceStorm to re-obtain observers for topics and subscribers.
             /// </summary>
-            /// <param name="updater">The observer updater object.</param>
+            ///  <param name="updater">The observer updater object.</param>
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
             void setObserverUpdater(ObserverUpdater updater);

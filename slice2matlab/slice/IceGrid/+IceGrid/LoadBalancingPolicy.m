@@ -10,8 +10,7 @@
 
 classdef LoadBalancingPolicy < Ice.Value
     properties
-        % nReplicas - The number of replicas that will be used to gather the
-        % endpoints of a replica group.
+        % nReplicas - The number of replicas that will be used to gather the endpoints of a replica group.
         nReplicas char
     end
     methods

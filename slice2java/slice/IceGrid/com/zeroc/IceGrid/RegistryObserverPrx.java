@@ -16,14 +16,13 @@
 package com.zeroc.IceGrid;
 
 /**
- * This interface allows applications to monitor changes the state
- * of the registry.
+ * This interface allows applications to monitor changes the state of the registry.
  **/
 public interface RegistryObserverPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
-     * The <code>registryInit</code> operation is called after registration of
-     * an observer to indicate the state of the registries.
+     * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
+     * the registries.
      * @param registries The current state of the registries.
      **/
     default void registryInit(RegistryInfo[] registries)
@@ -32,8 +31,8 @@ public interface RegistryObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>registryInit</code> operation is called after registration of
-     * an observer to indicate the state of the registries.
+     * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
+     * the registries.
      * @param registries The current state of the registries.
      * @param context The Context map to send with the invocation.
      **/
@@ -43,8 +42,8 @@ public interface RegistryObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>registryInit</code> operation is called after registration of
-     * an observer to indicate the state of the registries.
+     * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
+     * the registries.
      * @param registries The current state of the registries.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -54,8 +53,8 @@ public interface RegistryObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>registryInit</code> operation is called after registration of
-     * an observer to indicate the state of the registries.
+     * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
+     * the registries.
      * @param registries The current state of the registries.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -82,8 +81,7 @@ public interface RegistryObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      **/
     default void registryUp(RegistryInfo node)
@@ -92,8 +90,7 @@ public interface RegistryObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param context The Context map to send with the invocation.
      **/
@@ -103,8 +100,7 @@ public interface RegistryObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -114,8 +110,7 @@ public interface RegistryObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>nodeUp</code> operation is called to notify an observer that a node
-     * came up.
+     * The <code>nodeUp</code> operation is called to notify an observer that a node came up.
      * @param node The node state.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -142,8 +137,7 @@ public interface RegistryObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      **/
     default void registryDown(String name)
@@ -152,8 +146,7 @@ public interface RegistryObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      **/
@@ -163,8 +156,7 @@ public interface RegistryObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -174,8 +166,7 @@ public interface RegistryObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>nodeDown</code> operation is called to notify an observer that a node
-     * went down.
+     * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.

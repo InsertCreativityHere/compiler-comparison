@@ -21,8 +21,7 @@ classdef NodeInfo
         name char
         % os - The operating system name.
         os char
-        % hostname - The network name of the host running this node (as defined in
-        % uname()).
+        % hostname - The network name of the host running this node (as defined in uname()).
         hostname char
         % release - The operation system release level (as defined in uname()).
         release char
@@ -30,9 +29,8 @@ classdef NodeInfo
         version char
         % machine - The machine hardware type (as defined in uname()).
         machine char
-        % nProcessors - The number of processor threads on the node.
-        % For example, nProcessors is 8 on a computer with a single quad-core
-        % processor and two HT threads per core.
+        % nProcessors - The number of processor threads on the node. For example, nProcessors is 8 on a computer with a single
+        % quad-core processor and two HT threads per core.
         nProcessors int32
         % dataDir - The path to the node data directory.
         dataDir char

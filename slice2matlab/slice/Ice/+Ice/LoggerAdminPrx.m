@@ -19,23 +19,23 @@
 classdef LoggerAdminPrx < Ice.ObjectPrx
     methods
         function attachRemoteLogger(obj, prx, messageTypes, traceCategories, messageMax, varargin)
-            % attachRemoteLogger   Attaches a RemoteLogger object to the local logger.
-            % attachRemoteLogger calls init on the provided RemoteLogger proxy.
+            % attachRemoteLogger   Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+            % RemoteLogger proxy.
             %
             % Parameters:
             %   prx (Ice.RemoteLoggerPrx) - A proxy to the remote logger.
-            %   messageTypes (Ice.LogMessageTypeSeq) - The list of message types that the remote logger wishes to receive.
-            %     An empty list means no filtering (send all message types).
-            %   traceCategories (Ice.StringSeq) - The categories of traces that the remote logger wishes to receive.
-            %     This parameter is ignored if messageTypes is not empty and does not include trace.
-            %     An empty list means no filtering (send all trace categories).
-            %   messageMax (int32) - The maximum number of log messages (of all types) to be provided
-            %     to init. A negative value requests all messages available.
+            %   messageTypes (Ice.LogMessageTypeSeq) - The list of message types that the remote logger wishes to receive. An empty list means
+            %     no filtering (send all message types).
+            %   traceCategories (Ice.StringSeq) - The categories of traces that the remote logger wishes to receive. This parameter is
+            %     ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+            %     trace categories).
+            %   messageMax (int32) - The maximum number of log messages (of all types) to be provided to init. A negative
+            %     value requests all messages available.
             %   context (containers.Map) - Optional request context.
             %
             % Exceptions:
-            %   Ice.RemoteLoggerAlreadyAttachedException - Raised if this remote logger is already
-            %     attached to this admin object.
+            %   Ice.RemoteLoggerAlreadyAttachedException - Raised if this remote logger is already attached to this admin
+            %     object.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(prx);
@@ -46,25 +46,25 @@ classdef LoggerAdminPrx < Ice.ObjectPrx
             obj.iceInvoke('attachRemoteLogger', 0, true, os_, false, Ice.LoggerAdminPrx.attachRemoteLogger_ex_, varargin{:});
         end
         function r_ = attachRemoteLoggerAsync(obj, prx, messageTypes, traceCategories, messageMax, varargin)
-            % attachRemoteLoggerAsync   Attaches a RemoteLogger object to the local logger.
-            % attachRemoteLogger calls init on the provided RemoteLogger proxy.
+            % attachRemoteLoggerAsync   Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+            % RemoteLogger proxy.
             %
             % Parameters:
             %   prx (Ice.RemoteLoggerPrx) - A proxy to the remote logger.
-            %   messageTypes (Ice.LogMessageTypeSeq) - The list of message types that the remote logger wishes to receive.
-            %     An empty list means no filtering (send all message types).
-            %   traceCategories (Ice.StringSeq) - The categories of traces that the remote logger wishes to receive.
-            %     This parameter is ignored if messageTypes is not empty and does not include trace.
-            %     An empty list means no filtering (send all trace categories).
-            %   messageMax (int32) - The maximum number of log messages (of all types) to be provided
-            %     to init. A negative value requests all messages available.
+            %   messageTypes (Ice.LogMessageTypeSeq) - The list of message types that the remote logger wishes to receive. An empty list means
+            %     no filtering (send all message types).
+            %   traceCategories (Ice.StringSeq) - The categories of traces that the remote logger wishes to receive. This parameter is
+            %     ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+            %     trace categories).
+            %   messageMax (int32) - The maximum number of log messages (of all types) to be provided to init. A negative
+            %     value requests all messages available.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   Ice.RemoteLoggerAlreadyAttachedException - Raised if this remote logger is already
-            %     attached to this admin object.
+            %   Ice.RemoteLoggerAlreadyAttachedException - Raised if this remote logger is already attached to this admin
+            %     object.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(prx);
@@ -115,13 +115,13 @@ classdef LoggerAdminPrx < Ice.ObjectPrx
             % getLog   Retrieves log messages recently logged.
             %
             % Parameters:
-            %   messageTypes (Ice.LogMessageTypeSeq) - The list of message types that the caller wishes to receive.
-            %     An empty list means no filtering (send all message types).
-            %   traceCategories (Ice.StringSeq) - The categories of traces that caller wish to receive.
-            %     This parameter is ignored if messageTypes is not empty and does not include trace.
-            %     An empty list means no filtering (send all trace categories).
-            %   messageMax (int32) - The maximum number of log messages (of all types) to be returned.
-            %     A negative value requests all messages available.
+            %   messageTypes (Ice.LogMessageTypeSeq) - The list of message types that the caller wishes to receive. An empty list means no
+            %     filtering (send all message types).
+            %   traceCategories (Ice.StringSeq) - The categories of traces that caller wish to receive. This parameter is ignored if
+            %     messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+            %     categories).
+            %   messageMax (int32) - The maximum number of log messages (of all types) to be returned. A negative value
+            %     requests all messages available.
             %   context (containers.Map) - Optional request context.
             %
             % Returns:
@@ -143,13 +143,13 @@ classdef LoggerAdminPrx < Ice.ObjectPrx
             % getLogAsync   Retrieves log messages recently logged.
             %
             % Parameters:
-            %   messageTypes (Ice.LogMessageTypeSeq) - The list of message types that the caller wishes to receive.
-            %     An empty list means no filtering (send all message types).
-            %   traceCategories (Ice.StringSeq) - The categories of traces that caller wish to receive.
-            %     This parameter is ignored if messageTypes is not empty and does not include trace.
-            %     An empty list means no filtering (send all trace categories).
-            %   messageMax (int32) - The maximum number of log messages (of all types) to be returned.
-            %     A negative value requests all messages available.
+            %   messageTypes (Ice.LogMessageTypeSeq) - The list of message types that the caller wishes to receive. An empty list means no
+            %     filtering (send all message types).
+            %   traceCategories (Ice.StringSeq) - The categories of traces that caller wish to receive. This parameter is ignored if
+            %     messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+            %     categories).
+            %   messageMax (int32) - The maximum number of log messages (of all types) to be returned. A negative value
+            %     requests all messages available.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.

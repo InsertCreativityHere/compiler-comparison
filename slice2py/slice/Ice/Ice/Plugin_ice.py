@@ -29,11 +29,9 @@ if 'Plugin' not in _M_Ice.__dict__:
     _M_Ice.Plugin = Ice.createTempClass()
     class Plugin(object):
         """
-        A communicator plug-in. A plug-in generally adds a feature to a
-        communicator, such as support for a protocol.
-        The communicator loads its plug-ins in two stages: the first stage
-        creates the plug-ins, and the second stage invokes Plugin#initialize on
-        each one.
+         A communicator plug-in. A plug-in generally adds a feature to a communicator, such as support for a protocol.
+         The communicator loads its plug-ins in two stages: the first stage creates the plug-ins, and the second stage
+         invokes Plugin#initialize on each one.
         """
         def __init__(self):
             if Ice.getType(self) == _M_Ice.Plugin:
@@ -41,13 +39,13 @@ if 'Plugin' not in _M_Ice.__dict__:
 
         def initialize(self):
             """
-            Perform any necessary initialization steps.
+             Perform any necessary initialization steps.
             """
             raise NotImplementedError("method 'initialize' not implemented")
 
         def destroy(self):
             """
-            Called when the communicator is being destroyed.
+             Called when the communicator is being destroyed.
             """
             raise NotImplementedError("method 'destroy' not implemented")
 
@@ -66,8 +64,7 @@ if 'PluginManager' not in _M_Ice.__dict__:
     _M_Ice.PluginManager = Ice.createTempClass()
     class PluginManager(object):
         """
-        Each communicator has a plug-in manager to administer the set of
-        plug-ins.
+         Each communicator has a plug-in manager to administer the set of plug-ins.
         """
         def __init__(self):
             if Ice.getType(self) == _M_Ice.PluginManager:
@@ -75,13 +72,11 @@ if 'PluginManager' not in _M_Ice.__dict__:
 
         def initializePlugins(self):
             """
-            Initialize the configured plug-ins. The communicator automatically initializes
-            the plug-ins by default, but an application may need to interact directly with
-            a plug-in prior to initialization. In this case, the application must set
-            Ice.InitPlugins=0 and then invoke initializePlugins
-            manually. The plug-ins are initialized in the order in which they are loaded.
-            If a plug-in raises an exception during initialization, the communicator
-            invokes destroy on the plug-ins that have already been initialized.
+             Initialize the configured plug-ins. The communicator automatically initializes the plug-ins by default, but an
+             application may need to interact directly with a plug-in prior to initialization. In this case, the application
+             must set Ice.InitPlugins=0 and then invoke initializePlugins manually. The plug-ins are
+             initialized in the order in which they are loaded. If a plug-in raises an exception during initialization, the
+             communicator invokes destroy on the plug-ins that have already been initialized.
             Throws:
             InitializationException -- Raised if the plug-ins have already been initialized.
             """
@@ -89,14 +84,14 @@ if 'PluginManager' not in _M_Ice.__dict__:
 
         def getPlugins(self):
             """
-            Get a list of plugins installed.
+             Get a list of plugins installed.
             Returns: The names of the plugins installed.
             """
             raise NotImplementedError("method 'getPlugins' not implemented")
 
         def getPlugin(self, name):
             """
-            Obtain a plug-in by name.
+             Obtain a plug-in by name.
             Arguments:
             name -- The plug-in's name.
             Returns: The plug-in.
@@ -107,7 +102,7 @@ if 'PluginManager' not in _M_Ice.__dict__:
 
         def addPlugin(self, name, pi):
             """
-            Install a new plug-in.
+             Install a new plug-in.
             Arguments:
             name -- The plug-in's name.
             pi -- The plug-in.
@@ -118,7 +113,7 @@ if 'PluginManager' not in _M_Ice.__dict__:
 
         def destroy(self):
             """
-            Called when the communicator is being destroyed.
+             Called when the communicator is being destroyed.
             """
             raise NotImplementedError("method 'destroy' not implemented")
 

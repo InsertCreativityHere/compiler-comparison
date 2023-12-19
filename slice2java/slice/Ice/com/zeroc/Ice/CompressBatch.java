@@ -29,8 +29,7 @@ public enum CompressBatch
      **/
     No(1),
     /**
-     * Compress the batch requests if at least one request was
-     * made on a compressed proxy.
+     * Compress the batch requests if at least one request was made on a compressed proxy.
      **/
     BasedOnProxy(2);
 

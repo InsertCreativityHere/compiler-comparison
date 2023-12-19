@@ -16,12 +16,9 @@
 package com.zeroc.Ice;
 
 /**
- * The operation can only be invoked with a twoway request.
- *
- * This exception is raised if an attempt is made to invoke an
- * operation with <code>ice_oneway</code>, <code>ice_batchOneway</code>, <code>ice_datagram</code>,
- * or <code>ice_batchDatagram</code> and the operation has a return value,
- * out-parameters, or an exception specification.
+ * The operation can only be invoked with a twoway request. This exception is raised if an attempt is made to invoke
+ * an operation with <code>ice_oneway</code>, <code>ice_batchOneway</code>, <code>ice_datagram</code>, or
+ * <code>ice_batchDatagram</code> and the operation has a return value, out-parameters, or an exception specification.
  **/
 public class TwowayOnlyException extends LocalException
 {

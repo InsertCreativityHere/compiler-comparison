@@ -1,9 +1,7 @@
 % ObjectAdapterIdInUseException   Summary of ObjectAdapterIdInUseException
 %
-% This exception is raised if an ObjectAdapter cannot be activated.
-%
-% This happens if the Locator detects another active ObjectAdapter with
-% the same adapter id.
+% This exception is raised if an ObjectAdapter cannot be activated. This happens if the Locator
+% detects another active ObjectAdapter with the same adapter id.
 %
 % ObjectAdapterIdInUseException Properties:
 %   id - Adapter ID.

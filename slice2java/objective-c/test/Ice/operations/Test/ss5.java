@@ -15,6 +15,9 @@
 
 package Test;
 
+/**
+ * \u0041\
+ **/
 public interface ss5
 {
     String value = "\\u0041\\";

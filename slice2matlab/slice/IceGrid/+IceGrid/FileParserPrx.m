@@ -1,8 +1,7 @@
 % FileParserPrx   Summary of FileParserPrx
 %
-% icegridadmin provides a FileParser
-% object to transform XML files into ApplicationDescriptor
-% objects.
+% icegridadmin provides a FileParser object to transform XML files into
+% ApplicationDescriptor objects.
 %
 % FileParserPrx Methods:
 %   parse - Parse a file.
@@ -20,8 +19,7 @@ classdef FileParserPrx < Ice.ObjectPrx
             %
             % Parameters:
             %   xmlFile (char) - Full pathname to the file.
-            %   adminProxy (IceGrid.AdminPrx) - An Admin proxy, used only to retrieve default
-            %     templates when needed. May be null.
+            %   adminProxy (IceGrid.AdminPrx) - An Admin proxy, used only to retrieve default templates when needed. May be null.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (IceGrid.ApplicationDescriptor) - The application descriptor.
@@ -45,8 +43,7 @@ classdef FileParserPrx < Ice.ObjectPrx
             %
             % Parameters:
             %   xmlFile (char) - Full pathname to the file.
-            %   adminProxy (IceGrid.AdminPrx) - An Admin proxy, used only to retrieve default
-            %     templates when needed. May be null.
+            %   adminProxy (IceGrid.AdminPrx) - An Admin proxy, used only to retrieve default templates when needed. May be null.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.

@@ -34,9 +34,9 @@ if 'ParseException' not in _M_IceGrid.__dict__:
     _M_IceGrid.ParseException = Ice.createTempClass()
     class ParseException(Ice.UserException):
         """
-        This exception is raised if an error occurs during parsing.
+         This exception is raised if an error occurs during parsing.
         Members:
-        reason -- The reason for the failure.
+        reason --  The reason for the failure.
         """
         def __init__(self, reason=''):
             self.reason = reason
@@ -61,7 +61,7 @@ if 'FileParserPrx' not in _M_IceGrid.__dict__:
     class FileParserPrx(Ice.ObjectPrx):
 
         """
-        Parse a file.
+         Parse a file.
         Arguments:
         xmlFile -- Full pathname to the file.
         adminProxy -- An Admin proxy, used only to retrieve default templates when needed. May be null.
@@ -74,7 +74,7 @@ if 'FileParserPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.FileParser._op_parse.invoke(self, ((xmlFile, adminProxy), context))
 
         """
-        Parse a file.
+         Parse a file.
         Arguments:
         xmlFile -- Full pathname to the file.
         adminProxy -- An Admin proxy, used only to retrieve default templates when needed. May be null.
@@ -85,7 +85,7 @@ if 'FileParserPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.FileParser._op_parse.invokeAsync(self, ((xmlFile, adminProxy), context))
 
         """
-        Parse a file.
+         Parse a file.
         Arguments:
         xmlFile -- Full pathname to the file.
         adminProxy -- An Admin proxy, used only to retrieve default templates when needed. May be null.
@@ -99,7 +99,7 @@ if 'FileParserPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.FileParser._op_parse.begin(self, ((xmlFile, adminProxy), _response, _ex, _sent, context))
 
         """
-        Parse a file.
+         Parse a file.
         Arguments:
         xmlFile -- Full pathname to the file.
         adminProxy -- An Admin proxy, used only to retrieve default templates when needed. May be null.
@@ -141,7 +141,7 @@ if 'FileParserPrx' not in _M_IceGrid.__dict__:
 
         def parse(self, xmlFile, adminProxy, current=None):
             """
-            Parse a file.
+             Parse a file.
             Arguments:
             xmlFile -- Full pathname to the file.
             adminProxy -- An Admin proxy, used only to retrieve default templates when needed. May be null.

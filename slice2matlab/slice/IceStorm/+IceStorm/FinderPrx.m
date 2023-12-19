@@ -1,9 +1,7 @@
 % FinderPrx   Summary of FinderPrx
 %
-% This interface is advertised by the IceStorm service through the
-% Ice object with the identity `IceStorm/Finder'. This allows clients
-% to retrieve the topic manager with just the endpoint information of
-% the IceStorm service.
+% This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+% This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
 %
 % FinderPrx Methods:
 %   getTopicManager - Get the topic manager proxy.
@@ -17,8 +15,7 @@
 classdef FinderPrx < Ice.ObjectPrx
     methods
         function result = getTopicManager(obj, varargin)
-            % getTopicManager   Get the topic manager proxy. The proxy might point to several
-            % replicas.
+            % getTopicManager   Get the topic manager proxy. The proxy might point to several replicas.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -31,8 +28,7 @@ classdef FinderPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getTopicManagerAsync(obj, varargin)
-            % getTopicManagerAsync   Get the topic manager proxy. The proxy might point to several
-            % replicas.
+            % getTopicManagerAsync   Get the topic manager proxy. The proxy might point to several replicas.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.

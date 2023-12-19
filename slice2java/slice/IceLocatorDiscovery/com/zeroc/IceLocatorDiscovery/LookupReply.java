@@ -16,17 +16,15 @@
 package com.zeroc.IceLocatorDiscovery;
 
 /**
- * The Ice lookup reply interface must be implemented by clients which
- * are searching for Ice locators. Ice locator implementations invoke
- * on this interface to provide their locator proxy.
+ * The Ice lookup reply interface must be implemented by clients which are searching for Ice locators. Ice locator
+ * implementations invoke on this interface to provide their locator proxy.
  *
  * @see Lookup
  **/
 public interface LookupReply extends com.zeroc.Ice.Object
 {
     /**
-     * This method is called by the implementation of the Lookup
-     * interface to reply to a findLocator request.
+     * This method is called by the implementation of the Lookup interface to reply to a findLocator request.
      * @param prx The proxy of the locator.
      * @param current The Current object for the invocation.
      **/

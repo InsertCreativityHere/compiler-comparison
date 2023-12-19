@@ -21,8 +21,7 @@ using _System = global::System;
 namespace Glacier2
 {
     /// <summary>
-    /// This exception is raised if a client is denied the ability to create
-    /// a session with the router.
+    /// This exception is raised if a client is denied the ability to create a session with the router.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -208,9 +207,7 @@ namespace Glacier2
 {
     /// <summary>
     /// The Glacier2 permissions verifier.
-    /// This is called through the
-    /// process of establishing a session.
-    ///
+    /// This is called through the process of establishing a session.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -220,20 +217,15 @@ namespace Glacier2
         /// Check whether a user has permission to access the router.
         /// </summary>
         /// <param name="userId">The user id for which to check permission.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="password">The user's password.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="reason">The reason why access was denied.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>True if access is granted, or false otherwise.
-        ///
-        /// </returns>
-        /// <exception name="PermissionDeniedException">Raised if the user access is
-        /// denied. This can be raised in place of returning false with a
-        /// reason set in the reason out parameter.</exception>
+        ///  </returns>
+        /// <exception name="PermissionDeniedException">Raised if the user access is denied. This can be raised in place of
+        ///  returning false with a reason set in the reason out parameter.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         bool checkPermissions(string userId, string password, out string reason, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -242,11 +234,9 @@ namespace Glacier2
         /// Check whether a user has permission to access the router.
         /// </summary>
         /// <param name="userId">The user id for which to check permission.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="password">The user's password.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -257,11 +247,9 @@ namespace Glacier2
         /// Check whether a user has permission to access the router.
         /// </summary>
         /// <param name="userId">The user id for which to check permission.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="password">The user's password.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_PermissionsVerifier_checkPermissions> begin_checkPermissions(string userId, string password, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -270,11 +258,9 @@ namespace Glacier2
         /// Check whether a user has permission to access the router.
         /// </summary>
         /// <param name="userId">The user id for which to check permission.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="password">The user's password.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -284,11 +270,9 @@ namespace Glacier2
         /// Check whether a user has permission to access the router.
         /// </summary>
         /// <param name="userId">The user id for which to check permission.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="password">The user's password.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -299,20 +283,16 @@ namespace Glacier2
         /// Check whether a user has permission to access the router.
         /// </summary>
         /// <param name="reason">The reason why access was denied.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>True if access is granted, or false otherwise.
-        ///
-        /// </returns>
+        ///  </returns>
         bool end_checkPermissions(out string reason, global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
     /// The SSL Glacier2 permissions verifier.
-    /// This is called through the
-    /// process of establishing a session.
-    ///
+    /// This is called through the process of establishing a session.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -322,19 +302,14 @@ namespace Glacier2
         /// Check whether a user has permission to access the router.
         /// </summary>
         /// <param name="info">The SSL information.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="reason">The reason why access was denied.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>True if access is granted, or false otherwise.
-        ///
-        /// </returns>
-        /// <exception name="PermissionDeniedException">Raised if the user access is
-        /// denied. This can be raised in place of returning false with a
-        /// reason set in the reason out parameter.
-        ///
-        /// </exception>
+        ///  </returns>
+        /// <exception name="PermissionDeniedException">Raised if the user access is denied. This can be raised in place of
+        ///  returning false with a reason set in the reason out parameter.
+        ///  </exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         bool authorize(SSLInfo info, out string reason, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -343,8 +318,7 @@ namespace Glacier2
         /// Check whether a user has permission to access the router.
         /// </summary>
         /// <param name="info">The SSL information.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -355,8 +329,7 @@ namespace Glacier2
         /// Check whether a user has permission to access the router.
         /// </summary>
         /// <param name="info">The SSL information.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_SSLPermissionsVerifier_authorize> begin_authorize(SSLInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -365,8 +338,7 @@ namespace Glacier2
         /// Check whether a user has permission to access the router.
         /// </summary>
         /// <param name="info">The SSL information.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -376,8 +348,7 @@ namespace Glacier2
         /// Check whether a user has permission to access the router.
         /// </summary>
         /// <param name="info">The SSL information.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -388,12 +359,10 @@ namespace Glacier2
         /// Check whether a user has permission to access the router.
         /// </summary>
         /// <param name="reason">The reason why access was denied.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>True if access is granted, or false otherwise.
-        ///
-        /// </returns>
+        ///  </returns>
         bool end_authorize(out string reason, global::Ice.AsyncResult asyncResult);
     }
 }
@@ -402,9 +371,7 @@ namespace Glacier2
 {
     /// <summary>
     /// The Glacier2 permissions verifier.
-    /// This is called through the
-    /// process of establishing a session.
-    ///
+    /// This is called through the process of establishing a session.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -414,20 +381,15 @@ namespace Glacier2
         /// Check whether a user has permission to access the router.
         /// </summary>
         /// <param name="userId">The user id for which to check permission.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="password">The user's password.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="reason">The reason why access was denied.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>True if access is granted, or false otherwise.
-        ///
-        /// </returns>
-        /// <exception name="PermissionDeniedException">Raised if the user access is
-        /// denied. This can be raised in place of returning false with a
-        /// reason set in the reason out parameter.</exception>
+        ///  </returns>
+        /// <exception name="PermissionDeniedException">Raised if the user access is denied. This can be raised in place of
+        ///  returning false with a reason set in the reason out parameter.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -436,9 +398,7 @@ namespace Glacier2
 
     /// <summary>
     /// The SSL Glacier2 permissions verifier.
-    /// This is called through the
-    /// process of establishing a session.
-    ///
+    /// This is called through the process of establishing a session.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -448,19 +408,14 @@ namespace Glacier2
         /// Check whether a user has permission to access the router.
         /// </summary>
         /// <param name="info">The SSL information.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="reason">The reason why access was denied.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>True if access is granted, or false otherwise.
-        ///
-        /// </returns>
-        /// <exception name="PermissionDeniedException">Raised if the user access is
-        /// denied. This can be raised in place of returning false with a
-        /// reason set in the reason out parameter.
-        ///
-        /// </exception>
+        ///  </returns>
+        /// <exception name="PermissionDeniedException">Raised if the user access is denied. This can be raised in place of
+        ///  returning false with a reason set in the reason out parameter.
+        ///  </exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]

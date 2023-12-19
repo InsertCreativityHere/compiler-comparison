@@ -101,35 +101,27 @@ public protocol InstrumentationSubscriberObserver: Ice.InstrumentationObserver {
     func delivered(_ count: Swift.Int32) throws
 }
 
-/// The ObserverUpdater interface is implemented by IceStorm and an
-/// instance of this interface is provided on initialization to the
-/// TopicManagerObserver object.
-///
-/// This interface can be used by add-ins imlementing the
-/// TopicManagerObserver interface to update the obsevers of observed
-/// objects.
+/// The ObserverUpdater interface is implemented by IceStorm and an instance of this interface is provided on
+/// initialization to the TopicManagerObserver object.
+/// This interface can be used by add-ins imlementing the TopicManagerObserver interface to update the obsevers of
+/// observed objects.
 public protocol InstrumentationObserverUpdater:  Swift.AnyObject {
     /// Update topic observers associated with each topics.
-    ///
-    /// When called, this method goes through all the topics and for
-    /// each topic TopicManagerObserver::getTopicObserver is
-    /// called. The implementation of getTopicObserver has the
-    /// possibility to return an updated observer if necessary.
+    /// When called, this method goes through all the topics and for each topic TopicManagerObserver::getTopicObserver
+    /// is called. The implementation of getTopicObserver has the possibility to return an updated observer if
+    /// necessary.
     func updateTopicObservers() throws
 
     /// Update subscriber observers associated with each subscriber.
-    ///
-    /// When called, this method goes through all the subscribers and
-    /// for each subscriber TopicManagerObserver::getSubscriberObserver
-    /// is called. The implementation of getSubscriberObserver has the
+    /// When called, this method goes through all the subscribers and for each subscriber
+    /// TopicManagerObserver::getSubscriberObserver is called. The implementation of getSubscriberObserver has the
     /// possibility to return an updated observer if necessary.
     func updateSubscriberObservers() throws
 }
 
-/// The topic manager observer interface used by the Ice run-time to
-/// obtain and update observers for its observeable objects. This
-/// interface should be implemented by add-ins that wish to observe
-/// IceStorm objects in order to collect statistics.
+/// The topic manager observer interface used by the Ice run-time to obtain and update observers for its observeable
+/// objects. This interface should be implemented by add-ins that wish to observe IceStorm objects in order to collect
+/// statistics.
 public protocol InstrumentationTopicManagerObserver:  Swift.AnyObject {
     /// This method should return an observer for the given topic.
     ///
@@ -137,8 +129,7 @@ public protocol InstrumentationTopicManagerObserver:  Swift.AnyObject {
     ///
     /// - parameter name: `Swift.String` The topic name.
     ///
-    /// - parameter old: `InstrumentationTopicObserver?` The previous observer, only set when updating an
-    /// existing observer.
+    /// - parameter old: `InstrumentationTopicObserver?` The previous observer, only set when updating an existing observer.
     ///
     /// - returns: `InstrumentationTopicObserver?`
     func getTopicObserver(svc: Swift.String, name: Swift.String, old: InstrumentationTopicObserver?) throws -> InstrumentationTopicObserver?
@@ -153,20 +144,17 @@ public protocol InstrumentationTopicManagerObserver:  Swift.AnyObject {
     ///
     /// - parameter q: `QoS`
     ///
-    /// - parameter link: `TopicPrx?` The proxy of the linked topic if this subscriber
-    /// forwards events to a linked topic.
+    /// - parameter link: `TopicPrx?` The proxy of the linked topic if this subscriber forwards events to a linked topic.
     ///
     /// - parameter s: `InstrumentationSubscriberState`
     ///
-    /// - parameter old: `InstrumentationSubscriberObserver?` The previous observer, only set when updating an
-    /// existing observer.
+    /// - parameter old: `InstrumentationSubscriberObserver?` The previous observer, only set when updating an existing observer.
     ///
     /// - returns: `InstrumentationSubscriberObserver?`
     func getSubscriberObserver(svc: Swift.String, topic: Swift.String, prx: Ice.ObjectPrx?, q: QoS, link: TopicPrx?, s: InstrumentationSubscriberState, old: InstrumentationSubscriberObserver?) throws -> InstrumentationSubscriberObserver?
 
-    /// IceStorm calls this method on initialization. The add-in
-    /// implementing this interface can use this object to get IceStorm
-    /// to re-obtain observers for topics and subscribers.
+    /// IceStorm calls this method on initialization. The add-in implementing this interface can use this object to
+    /// get IceStorm to re-obtain observers for topics and subscribers.
     ///
     /// - parameter _: `InstrumentationObserverUpdater?` The observer updater object.
     func setObserverUpdater(_ updater: InstrumentationObserverUpdater?) throws

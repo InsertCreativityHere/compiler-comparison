@@ -82,7 +82,7 @@ public:
 
     /**
      * One-shot constructor to initialize all data members.
-     * @param underlying The information of the underyling endpoint of null if there's no underlying endpoint.
+     * @param underlying The information of the underyling endpoint or null if there's no underlying endpoint.
      * @param timeout The timeout for the endpoint in milliseconds.
      * @param compress Specifies whether or not compression should be used if available when using this endpoint.
      * @param addr The address configured with the endpoint.
@@ -157,7 +157,7 @@ public:
 
     /**
      * One-shot constructor to initialize all data members.
-     * @param underlying The information of the underyling endpoint of null if there's no underlying endpoint.
+     * @param underlying The information of the underyling endpoint or null if there's no underlying endpoint.
      * @param timeout The timeout for the endpoint in milliseconds.
      * @param compress Specifies whether or not compression should be used if available when using this endpoint.
      * @param addr The address configured with the endpoint.

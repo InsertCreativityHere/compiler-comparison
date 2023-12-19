@@ -16,8 +16,7 @@
 package com.zeroc.IceMX;
 
 /**
- * Provide measurements for proxy invocations. Proxy invocations can
- * either be sent over the wire or be collocated.
+ * Provide measurements for proxy invocations. Proxy invocations can either be sent over the wire or be collocated.
  **/
 public class InvocationMetrics extends Metrics
 {

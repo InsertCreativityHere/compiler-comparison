@@ -1,9 +1,7 @@
 % DatagramLimitException   Summary of DatagramLimitException
 %
-% A datagram exceeds the configured size.
-%
-% This exception is raised if a datagram exceeds the configured send or receive buffer
-% size, or exceeds the maximum payload size of a UDP packet (65507 bytes).
+% A datagram exceeds the configured size. This exception is raised if a datagram exceeds the configured send or
+% receive buffer size, or exceeds the maximum payload size of a UDP packet (65507 bytes).
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from LocalException.ice by slice2matlab version 3.7.10

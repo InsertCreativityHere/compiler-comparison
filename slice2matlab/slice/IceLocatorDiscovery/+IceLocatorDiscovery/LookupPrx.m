@@ -1,12 +1,9 @@
 % LookupPrx   Summary of LookupPrx
 %
-% The Ice lookup interface is implemented by Ice locator
-% implementations and can be used by clients to find available Ice
-% locators on the network.
-%
-% Ice locator implementations provide a well-known `Ice/LocatorLookup'
-% object accessible through UDP multicast. Clients typically make a
-% multicast findLocator request to find the locator proxy.
+% The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
+% available Ice locators on the network.
+% Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
+% Clients typically make a multicast findLocator request to find the locator proxy.
 %
 % LookupPrx Methods:
 %   findLocator - Find a locator proxy with the given instance name.
@@ -25,9 +22,8 @@ classdef LookupPrx < Ice.ObjectPrx
             % findLocator   Find a locator proxy with the given instance name.
             %
             % Parameters:
-            %   instanceName (char) - Restrict the search to Ice registries
-            %     configured with the given instance name. If empty, all the
-            %     available registries will reply.
+            %   instanceName (char) - Restrict the search to Ice registries configured with the given instance name. If
+            %     empty, all the available registries will reply.
             %   reply (IceLocatorDiscovery.LookupReplyPrx) - The reply object to use to send the reply.
             %   context (containers.Map) - Optional request context.
             
@@ -41,9 +37,8 @@ classdef LookupPrx < Ice.ObjectPrx
             % findLocatorAsync   Find a locator proxy with the given instance name.
             %
             % Parameters:
-            %   instanceName (char) - Restrict the search to Ice registries
-            %     configured with the given instance name. If empty, all the
-            %     available registries will reply.
+            %   instanceName (char) - Restrict the search to Ice registries configured with the given instance name. If
+            %     empty, all the available registries will reply.
             %   reply (IceLocatorDiscovery.LookupReplyPrx) - The reply object to use to send the reply.
             %   context (containers.Map) - Optional request context.
             %

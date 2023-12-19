@@ -16,14 +16,12 @@
 package com.zeroc.Ice;
 
 /**
- * The PropertiesAdmin interface provides remote access to the properties
- * of a communicator.
+ * The PropertiesAdmin interface provides remote access to the properties of a communicator.
  **/
 public interface PropertiesAdminPrx extends ObjectPrx
 {
     /**
-     * Get a property by key. If the property is not set, an empty
-     * string is returned.
+     * Get a property by key. If the property is not set, an empty string is returned.
      * @param key The property key.
      * @return The property value.
      **/
@@ -33,8 +31,7 @@ public interface PropertiesAdminPrx extends ObjectPrx
     }
 
     /**
-     * Get a property by key. If the property is not set, an empty
-     * string is returned.
+     * Get a property by key. If the property is not set, an empty string is returned.
      * @param key The property key.
      * @param context The Context map to send with the invocation.
      * @return The property value.
@@ -45,8 +42,7 @@ public interface PropertiesAdminPrx extends ObjectPrx
     }
 
     /**
-     * Get a property by key. If the property is not set, an empty
-     * string is returned.
+     * Get a property by key. If the property is not set, an empty string is returned.
      * @param key The property key.
      * @return The property value.
      **/
@@ -56,8 +52,7 @@ public interface PropertiesAdminPrx extends ObjectPrx
     }
 
     /**
-     * Get a property by key. If the property is not set, an empty
-     * string is returned.
+     * Get a property by key. If the property is not set, an empty string is returned.
      * @param key The property key.
      * @param context The Context map to send with the invocation.
      * @return The property value.
@@ -88,8 +83,8 @@ public interface PropertiesAdminPrx extends ObjectPrx
     }
 
     /**
-     * Get all properties whose keys begin with <em>prefix</em>. If
-     * <em>prefix</em> is an empty string then all properties are returned.
+     * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
+     * properties are returned.
      * @param prefix The prefix to search for (empty string if none).
      * @return The matching property set.
      **/
@@ -99,8 +94,8 @@ public interface PropertiesAdminPrx extends ObjectPrx
     }
 
     /**
-     * Get all properties whose keys begin with <em>prefix</em>. If
-     * <em>prefix</em> is an empty string then all properties are returned.
+     * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
+     * properties are returned.
      * @param prefix The prefix to search for (empty string if none).
      * @param context The Context map to send with the invocation.
      * @return The matching property set.
@@ -111,8 +106,8 @@ public interface PropertiesAdminPrx extends ObjectPrx
     }
 
     /**
-     * Get all properties whose keys begin with <em>prefix</em>. If
-     * <em>prefix</em> is an empty string then all properties are returned.
+     * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
+     * properties are returned.
      * @param prefix The prefix to search for (empty string if none).
      * @return The matching property set.
      **/
@@ -122,8 +117,8 @@ public interface PropertiesAdminPrx extends ObjectPrx
     }
 
     /**
-     * Get all properties whose keys begin with <em>prefix</em>. If
-     * <em>prefix</em> is an empty string then all properties are returned.
+     * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
+     * properties are returned.
      * @param prefix The prefix to search for (empty string if none).
      * @param context The Context map to send with the invocation.
      * @return The matching property set.
@@ -163,13 +158,11 @@ public interface PropertiesAdminPrx extends ObjectPrx
     }
 
     /**
-     * Update the communicator's properties with the given property set.
+     * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
+     * matches the name of an existing property, that property's value is replaced with the new value. If the new
+     * value is an empty string, the property is removed. Any existing properties that are not modified or removed
+     * by the entries in newProperties are retained with their original values.
      * @param newProperties Properties to be added, changed, or removed.
-     * If an entry in <em>newProperties</em> matches the name of an existing property,
-     * that property's value is replaced with the new value. If the new value
-     * is an empty string, the property is removed. Any existing properties
-     * that are not modified or removed by the entries in newProperties are
-     * retained with their original values.
      **/
     default void setProperties(java.util.Map<java.lang.String, java.lang.String> newProperties)
     {
@@ -177,13 +170,11 @@ public interface PropertiesAdminPrx extends ObjectPrx
     }
 
     /**
-     * Update the communicator's properties with the given property set.
+     * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
+     * matches the name of an existing property, that property's value is replaced with the new value. If the new
+     * value is an empty string, the property is removed. Any existing properties that are not modified or removed
+     * by the entries in newProperties are retained with their original values.
      * @param newProperties Properties to be added, changed, or removed.
-     * If an entry in <em>newProperties</em> matches the name of an existing property,
-     * that property's value is replaced with the new value. If the new value
-     * is an empty string, the property is removed. Any existing properties
-     * that are not modified or removed by the entries in newProperties are
-     * retained with their original values.
      * @param context The Context map to send with the invocation.
      **/
     default void setProperties(java.util.Map<java.lang.String, java.lang.String> newProperties, java.util.Map<String, String> context)
@@ -192,13 +183,11 @@ public interface PropertiesAdminPrx extends ObjectPrx
     }
 
     /**
-     * Update the communicator's properties with the given property set.
+     * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
+     * matches the name of an existing property, that property's value is replaced with the new value. If the new
+     * value is an empty string, the property is removed. Any existing properties that are not modified or removed
+     * by the entries in newProperties are retained with their original values.
      * @param newProperties Properties to be added, changed, or removed.
-     * If an entry in <em>newProperties</em> matches the name of an existing property,
-     * that property's value is replaced with the new value. If the new value
-     * is an empty string, the property is removed. Any existing properties
-     * that are not modified or removed by the entries in newProperties are
-     * retained with their original values.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> setPropertiesAsync(java.util.Map<java.lang.String, java.lang.String> newProperties)
@@ -207,13 +196,11 @@ public interface PropertiesAdminPrx extends ObjectPrx
     }
 
     /**
-     * Update the communicator's properties with the given property set.
+     * Update the communicator's properties with the given property set. If an entry in <em>newProperties</em>
+     * matches the name of an existing property, that property's value is replaced with the new value. If the new
+     * value is an empty string, the property is removed. Any existing properties that are not modified or removed
+     * by the entries in newProperties are retained with their original values.
      * @param newProperties Properties to be added, changed, or removed.
-     * If an entry in <em>newProperties</em> matches the name of an existing property,
-     * that property's value is replaced with the new value. If the new value
-     * is an empty string, the property is removed. Any existing properties
-     * that are not modified or removed by the entries in newProperties are
-     * retained with their original values.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/

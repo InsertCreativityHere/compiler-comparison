@@ -34,33 +34,23 @@ if 'OperationMode' not in _M_Ice.__dict__:
     _M_Ice.OperationMode = Ice.createTempClass()
     class OperationMode(Ice.EnumBase):
         """
-        Determines the retry behavior an invocation in case of a (potentially) recoverable error.
+         Determines the retry behavior an invocation in case of a (potentially) recoverable error.
         Enumerators:
-        Normal -- Ordinary operations have Normal mode.  These operations
-        modify object state; invoking such an operation twice in a row
-        has different semantics than invoking it once. The Ice run time
-        guarantees that it will not violate at-most-once semantics for
-        Normal operations.
-        Nonmutating -- Operations that use the Slice nonmutating keyword must not
-        modify object state. For C++, nonmutating operations generate
-        const member functions in the skeleton. In addition, the Ice
-        run time will attempt to transparently recover from certain
-        run-time errors by re-issuing a failed request and propagate
-        the failure to the application only if the second attempt
-        fails.
-        Nonmutating is deprecated; Use the
-        idempotent keyword instead. For C++, to retain the mapping
-        of nonmutating operations to C++ const
-        member functions, use the ["cpp:const"] metadata
-        directive.
-        Idempotent -- Operations that use the Slice idempotent keyword can modify
-        object state, but invoking an operation twice in a row must
-        result in the same object state as invoking it once.  For
-        example, x = 1 is an idempotent statement,
-        whereas x += 1 is not. For idempotent
-        operations, the Ice run-time uses the same retry behavior
-        as for nonmutating operations in case of a potentially
-        recoverable error.
+        Normal --  Ordinary operations have Normal mode. These operations modify object state; invoking such an
+         operation twice in a row has different semantics than invoking it once. The Ice run time guarantees that it
+         will not violate at-most-once semantics for Normal operations.
+        Nonmutating --  Operations that use the Slice nonmutating keyword must not modify object state. For C++,
+         nonmutating operations generate const member functions in the skeleton. In addition, the Ice
+         run time will attempt to transparently recover from certain run-time errors by re-issuing a failed request and
+         propagate the failure to the application only if the second attempt fails.
+         Nonmutating is deprecated; Use the idempotent keyword instead.
+         For C++, to retain the mapping of nonmutating operations to C++ const member
+         functions, use the ["cpp:const"] metadata directive.
+        Idempotent --  Operations that use the Slice idempotent keyword can modify object state, but invoking an
+         operation twice in a row must result in the same object state as invoking it once. For example,
+         x = 1 is an idempotent statement, whereas x += 1 is not. For idempotent operations,
+         the Ice run-time uses the same retry behavior as for nonmutating operations in case of a potentially
+         recoverable error.
         """
 
         def __init__(self, _n, _v):
@@ -86,22 +76,20 @@ if 'Current' not in _M_Ice.__dict__:
     _M_Ice.Current = Ice.createTempClass()
     class Current(object):
         """
-        Information about the current method invocation for servers. Each
-        operation on the server has a Current as its implicit final
-        parameter. Current is mostly used for Ice services. Most
-        applications ignore this parameter.
+         Information about the current method invocation for servers. Each operation on the server has a
+         Current as its implicit final parameter. Current is mostly used for Ice services. Most
+         applications ignore this parameter.
         Members:
-        adapter -- The object adapter.
-        con -- Information about the connection over which the current method
-        invocation was received. If the invocation is direct due to
-        collocation optimization, this value is set to null.
-        id -- The Ice object identity.
-        facet -- The facet.
-        operation -- The operation name.
-        mode -- The mode of the operation.
-        ctx -- The request context, as received from the client.
-        requestId -- The request id unless oneway (0).
-        encoding -- The encoding version used to encode the input and output parameters.
+        adapter --  The object adapter.
+        con --  Information about the connection over which the current method invocation was received. If the invocation is
+         direct due to collocation optimization, this value is set to null.
+        id --  The Ice object identity.
+        facet --  The facet.
+        operation --  The operation name.
+        mode --  The mode of the operation.
+        ctx --  The request context, as received from the client.
+        requestId --  The request id unless oneway (0).
+        encoding --  The encoding version used to encode the input and output parameters.
         """
         def __init__(self, adapter=None, con=None, id=Ice._struct_marker, facet='', operation='', mode=_M_Ice.OperationMode.Normal, ctx=None, requestId=0, encoding=Ice._struct_marker):
             self.adapter = adapter

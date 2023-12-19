@@ -16,17 +16,15 @@
 package com.zeroc.IceGrid;
 
 /**
- * <code>icegridadmin</code> provides a {@link FileParser}
- * object to transform XML files into {@link ApplicationDescriptor}
- * objects.
+ * <code>icegridadmin</code> provides a {@link FileParser} object to transform XML files into
+ * {@link ApplicationDescriptor} objects.
  **/
 public interface FileParserPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
      * Parse a file.
      * @param xmlFile Full pathname to the file.
-     * @param adminProxy An Admin proxy, used only to retrieve default
-     * templates when needed. May be null.
+     * @param adminProxy An Admin proxy, used only to retrieve default templates when needed. May be null.
      * @return The application descriptor.
      * @throws ParseException Raised if an error occurred during parsing.
      **/
@@ -39,8 +37,7 @@ public interface FileParserPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Parse a file.
      * @param xmlFile Full pathname to the file.
-     * @param adminProxy An Admin proxy, used only to retrieve default
-     * templates when needed. May be null.
+     * @param adminProxy An Admin proxy, used only to retrieve default templates when needed. May be null.
      * @param context The Context map to send with the invocation.
      * @return The application descriptor.
      * @throws ParseException Raised if an error occurred during parsing.
@@ -65,8 +62,7 @@ public interface FileParserPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Parse a file.
      * @param xmlFile Full pathname to the file.
-     * @param adminProxy An Admin proxy, used only to retrieve default
-     * templates when needed. May be null.
+     * @param adminProxy An Admin proxy, used only to retrieve default templates when needed. May be null.
      * @return The application descriptor.
      **/
     default java.util.concurrent.CompletableFuture<ApplicationDescriptor> parseAsync(String xmlFile, AdminPrx adminProxy)
@@ -77,8 +73,7 @@ public interface FileParserPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Parse a file.
      * @param xmlFile Full pathname to the file.
-     * @param adminProxy An Admin proxy, used only to retrieve default
-     * templates when needed. May be null.
+     * @param adminProxy An Admin proxy, used only to retrieve default templates when needed. May be null.
      * @param context The Context map to send with the invocation.
      * @return The application descriptor.
      **/

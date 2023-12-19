@@ -15,6 +15,9 @@
 
 package Test1;
 
+/**
+ * Test keyword escape.
+ **/
 public class def extends com.zeroc.Ice.UserException
 {
     public def()

@@ -64,8 +64,7 @@ public extension ClassResolver {
     }
 }
 
-/// This exception is raised if the replica group provided by the
-/// server is invalid.
+/// This exception is raised if the replica group provided by the server is invalid.
 open class InvalidReplicaGroupIdException: UserException {
     public required init() {}
 
@@ -100,8 +99,7 @@ public extension ClassResolver {
     }
 }
 
-/// This exception is raised if a server tries to set endpoints for
-/// an adapter that is already active.
+/// This exception is raised if a server tries to set endpoints for an adapter that is already active.
 open class AdapterAlreadyActiveException: UserException {
     public required init() {}
 
@@ -211,14 +209,10 @@ public struct LocatorFinderTraits: SliceTraits {
     public static let staticId = "::Ice::LocatorFinder"
 }
 
-/// The Ice locator interface. This interface is used by clients to
-/// lookup adapters and objects. It is also used by servers to get the
-/// locator registry proxy.
-///
-/// The Locator interface is intended to be used by
-/// Ice internals and by locator implementations. Regular user code
-/// should not attempt to use any functionality of this interface
-/// directly.
+/// The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
+/// servers to get the locator registry proxy. The Locator interface is intended to be used by
+/// Ice internals and by locator implementations. Regular user code should not attempt to use any functionality of this
+/// interface directly.
 ///
 /// LocatorPrx Methods:
 ///
@@ -308,14 +302,10 @@ public extension InputStream {
     }
 }
 
-/// The Ice locator interface. This interface is used by clients to
-/// lookup adapters and objects. It is also used by servers to get the
-/// locator registry proxy.
-///
-/// The Locator interface is intended to be used by
-/// Ice internals and by locator implementations. Regular user code
-/// should not attempt to use any functionality of this interface
-/// directly.
+/// The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
+/// servers to get the locator registry proxy. The Locator interface is intended to be used by
+/// Ice internals and by locator implementations. Regular user code should not attempt to use any functionality of this
+/// interface directly.
 ///
 /// LocatorPrx Methods:
 ///
@@ -331,9 +321,8 @@ public extension InputStream {
 ///
 ///  - getRegistryAsync: Get the locator registry.
 public extension LocatorPrx {
-    /// Find an object by identity and return a proxy that contains
-    /// the adapter ID or endpoints which can be used to access the
-    /// object.
+    /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+    /// access the object.
     ///
     /// - parameter _: `Identity` The identity.
     ///
@@ -343,8 +332,7 @@ public extension LocatorPrx {
     ///
     /// - throws:
     ///
-    ///   - ObjectNotFoundException - Raised if the object cannot
-    ///     be found.
+    ///   - ObjectNotFoundException - Raised if the object cannot be found.
     func findObjectById(_ iceP_id: Identity, context: Context? = nil) throws -> ObjectPrx? {
         return try _impl._invoke(operation: "findObjectById",
                                  mode: .Nonmutating,
@@ -365,9 +353,8 @@ public extension LocatorPrx {
                                  context: context)
     }
 
-    /// Find an object by identity and return a proxy that contains
-    /// the adapter ID or endpoints which can be used to access the
-    /// object.
+    /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+    /// access the object.
     ///
     /// - parameter _: `Identity` The identity.
     ///
@@ -405,8 +392,7 @@ public extension LocatorPrx {
                                   sent: sent)
     }
 
-    /// Find an adapter by id and return a proxy that contains
-    /// its endpoints.
+    /// Find an adapter by id and return a proxy that contains its endpoints.
     ///
     /// - parameter _: `Swift.String` The adapter id.
     ///
@@ -416,8 +402,7 @@ public extension LocatorPrx {
     ///
     /// - throws:
     ///
-    ///   - AdapterNotFoundException - Raised if the adapter cannot be
-    ///     found.
+    ///   - AdapterNotFoundException - Raised if the adapter cannot be found.
     func findAdapterById(_ iceP_id: Swift.String, context: Context? = nil) throws -> ObjectPrx? {
         return try _impl._invoke(operation: "findAdapterById",
                                  mode: .Nonmutating,
@@ -438,8 +423,7 @@ public extension LocatorPrx {
                                  context: context)
     }
 
-    /// Find an adapter by id and return a proxy that contains
-    /// its endpoints.
+    /// Find an adapter by id and return a proxy that contains its endpoints.
     ///
     /// - parameter _: `Swift.String` The adapter id.
     ///
@@ -519,13 +503,9 @@ public extension LocatorPrx {
     }
 }
 
-/// The Ice locator registry interface. This interface is used by
-/// servers to register adapter endpoints with the locator.
-///
-/// The LocatorRegistry interface is intended to be used
-/// by Ice internals and by locator implementations. Regular user
-/// code should not attempt to use any functionality of this interface
-/// directly.
+/// The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
+/// locator.  The LocatorRegistry interface is intended to be used by Ice internals and by
+/// locator implementations. Regular user code should not attempt to use any functionality of this interface directly.
 ///
 /// LocatorRegistryPrx Methods:
 ///
@@ -615,13 +595,9 @@ public extension InputStream {
     }
 }
 
-/// The Ice locator registry interface. This interface is used by
-/// servers to register adapter endpoints with the locator.
-///
-/// The LocatorRegistry interface is intended to be used
-/// by Ice internals and by locator implementations. Regular user
-/// code should not attempt to use any functionality of this interface
-/// directly.
+/// The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
+/// locator.  The LocatorRegistry interface is intended to be used by Ice internals and by
+/// locator implementations. Regular user code should not attempt to use any functionality of this interface directly.
 ///
 /// LocatorRegistryPrx Methods:
 ///
@@ -641,21 +617,17 @@ public extension LocatorRegistryPrx {
     ///
     /// - parameter id: `Swift.String` The adapter id.
     ///
-    /// - parameter proxy: `ObjectPrx?` The adapter proxy (a dummy direct proxy created
-    /// by the adapter). The direct proxy contains the adapter
-    /// endpoints.
+    /// - parameter proxy: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+    /// adapter endpoints.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - throws:
     ///
-    ///   - AdapterAlreadyActiveException - Raised if an adapter with the same
-    ///     id is already active.
+    ///   - AdapterAlreadyActiveException - Raised if an adapter with the same id is already active.
     ///
-    ///   - AdapterNotFoundException - Raised if the adapter cannot
-    ///     be found, or if the locator only allows
-    ///     registered adapters to set their active proxy and the
-    ///     adapter is not registered with the locator.
+    ///   - AdapterNotFoundException - Raised if the adapter cannot be found, or if the locator only allows
+    ///     registered adapters to set their active proxy and the adapter is not registered with the locator.
     func setAdapterDirectProxy(id iceP_id: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil) throws {
         try _impl._invoke(operation: "setAdapterDirectProxy",
                           mode: .Idempotent,
@@ -679,9 +651,8 @@ public extension LocatorRegistryPrx {
     ///
     /// - parameter id: `Swift.String` The adapter id.
     ///
-    /// - parameter proxy: `ObjectPrx?` The adapter proxy (a dummy direct proxy created
-    /// by the adapter). The direct proxy contains the adapter
-    /// endpoints.
+    /// - parameter proxy: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+    /// adapter endpoints.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -722,25 +693,20 @@ public extension LocatorRegistryPrx {
     ///
     /// - parameter replicaGroupId: `Swift.String` The replica group id.
     ///
-    /// - parameter p: `ObjectPrx?` The adapter proxy (a dummy direct proxy created
-    /// by the adapter). The direct proxy contains the adapter
+    /// - parameter p: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
     /// endpoints.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - throws:
     ///
-    ///   - AdapterAlreadyActiveException - Raised if an adapter with the same
-    ///     id is already active.
+    ///   - AdapterAlreadyActiveException - Raised if an adapter with the same id is already active.
     ///
-    ///   - AdapterNotFoundException - Raised if the adapter cannot
-    ///     be found, or if the locator only allows registered adapters to
-    ///     set their active proxy and the adapter is not registered with
-    ///     the locator.
+    ///   - AdapterNotFoundException - Raised if the adapter cannot be found, or if the locator only allows
+    ///     registered adapters to set their active proxy and the adapter is not registered with the locator.
     ///
-    ///   - InvalidReplicaGroupIdException - Raised if the given
-    ///     replica group doesn't match the one registered with the
-    ///     locator registry for this object adapter.
+    ///   - InvalidReplicaGroupIdException - Raised if the given replica group doesn't match the one registered with
+    ///     the locator registry for this object adapter.
     func setReplicatedAdapterDirectProxy(adapterId iceP_adapterId: Swift.String, replicaGroupId iceP_replicaGroupId: Swift.String, p iceP_p: ObjectPrx?, context: Context? = nil) throws {
         try _impl._invoke(operation: "setReplicatedAdapterDirectProxy",
                           mode: .Idempotent,
@@ -769,8 +735,7 @@ public extension LocatorRegistryPrx {
     ///
     /// - parameter replicaGroupId: `Swift.String` The replica group id.
     ///
-    /// - parameter p: `ObjectPrx?` The adapter proxy (a dummy direct proxy created
-    /// by the adapter). The direct proxy contains the adapter
+    /// - parameter p: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
     /// endpoints.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
@@ -819,8 +784,7 @@ public extension LocatorRegistryPrx {
     ///
     /// - throws:
     ///
-    ///   - ServerNotFoundException - Raised if the server cannot
-    ///     be found.
+    ///   - ServerNotFoundException - Raised if the server cannot be found.
     func setServerProcessProxy(id iceP_id: Swift.String, proxy iceP_proxy: ProcessPrx?, context: Context? = nil) throws {
         try _impl._invoke(operation: "setServerProcessProxy",
                           mode: .Idempotent,
@@ -876,11 +840,9 @@ public extension LocatorRegistryPrx {
     }
 }
 
-/// This interface should be implemented by services implementing the
-/// Ice::Locator interface. It should be advertised through an Ice
-/// object with the identity `Ice/LocatorFinder'. This allows clients
-/// to retrieve the locator proxy with just the endpoint information of
-/// the service.
+/// This interface should be implemented by services implementing the Ice::Locator interface. It should be
+/// advertised through an Ice object with the identity `Ice/LocatorFinder'. This allows clients to
+/// retrieve the locator proxy with just the endpoint information of the service.
 ///
 /// LocatorFinderPrx Methods:
 ///
@@ -962,11 +924,9 @@ public extension InputStream {
     }
 }
 
-/// This interface should be implemented by services implementing the
-/// Ice::Locator interface. It should be advertised through an Ice
-/// object with the identity `Ice/LocatorFinder'. This allows clients
-/// to retrieve the locator proxy with just the endpoint information of
-/// the service.
+/// This interface should be implemented by services implementing the Ice::Locator interface. It should be
+/// advertised through an Ice object with the identity `Ice/LocatorFinder'. This allows clients to
+/// retrieve the locator proxy with just the endpoint information of the service.
 ///
 /// LocatorFinderPrx Methods:
 ///
@@ -974,8 +934,8 @@ public extension InputStream {
 ///
 ///  - getLocatorAsync: Get the locator proxy implemented by the process hosting this finder object.
 public extension LocatorFinderPrx {
-    /// Get the locator proxy implemented by the process hosting this
-    /// finder object. The proxy might point to several replicas.
+    /// Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+    /// replicas.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -990,8 +950,8 @@ public extension LocatorFinderPrx {
                                  context: context)
     }
 
-    /// Get the locator proxy implemented by the process hosting this
-    /// finder object. The proxy might point to several replicas.
+    /// Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+    /// replicas.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1051,18 +1011,13 @@ public struct LocatorDisp: Disp {
     }
 }
 
-/// The Ice locator interface. This interface is used by clients to
-/// lookup adapters and objects. It is also used by servers to get the
-/// locator registry proxy.
-///
-/// The Locator interface is intended to be used by
-/// Ice internals and by locator implementations. Regular user code
-/// should not attempt to use any functionality of this interface
-/// directly.
+/// The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
+/// servers to get the locator registry proxy. The Locator interface is intended to be used by
+/// Ice internals and by locator implementations. Regular user code should not attempt to use any functionality of this
+/// interface directly.
 public protocol Locator {
-    /// Find an object by identity and return a proxy that contains
-    /// the adapter ID or endpoints which can be used to access the
-    /// object.
+    /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+    /// access the object.
     ///
     /// - parameter id: `Identity` The identity.
     ///
@@ -1071,8 +1026,7 @@ public protocol Locator {
     /// - returns: `PromiseKit.Promise<ObjectPrx?>` - The result of the operation
     func findObjectByIdAsync(id: Identity, current: Current) -> PromiseKit.Promise<ObjectPrx?>
 
-    /// Find an adapter by id and return a proxy that contains
-    /// its endpoints.
+    /// Find an adapter by id and return a proxy that contains its endpoints.
     ///
     /// - parameter id: `Swift.String` The adapter id.
     ///
@@ -1122,21 +1076,16 @@ public struct LocatorRegistryDisp: Disp {
     }
 }
 
-/// The Ice locator registry interface. This interface is used by
-/// servers to register adapter endpoints with the locator.
-///
-/// The LocatorRegistry interface is intended to be used
-/// by Ice internals and by locator implementations. Regular user
-/// code should not attempt to use any functionality of this interface
-/// directly.
+/// The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
+/// locator.  The LocatorRegistry interface is intended to be used by Ice internals and by
+/// locator implementations. Regular user code should not attempt to use any functionality of this interface directly.
 public protocol LocatorRegistry {
     /// Set the adapter endpoints with the locator registry.
     ///
     /// - parameter id: `Swift.String` The adapter id.
     ///
-    /// - parameter proxy: `ObjectPrx?` The adapter proxy (a dummy direct proxy created
-    /// by the adapter). The direct proxy contains the adapter
-    /// endpoints.
+    /// - parameter proxy: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+    /// adapter endpoints.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -1149,8 +1098,7 @@ public protocol LocatorRegistry {
     ///
     /// - parameter replicaGroupId: `Swift.String` The replica group id.
     ///
-    /// - parameter p: `ObjectPrx?` The adapter proxy (a dummy direct proxy created
-    /// by the adapter). The direct proxy contains the adapter
+    /// - parameter p: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
     /// endpoints.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
@@ -1199,14 +1147,12 @@ public struct LocatorFinderDisp: Disp {
     }
 }
 
-/// This interface should be implemented by services implementing the
-/// Ice::Locator interface. It should be advertised through an Ice
-/// object with the identity `Ice/LocatorFinder'. This allows clients
-/// to retrieve the locator proxy with just the endpoint information of
-/// the service.
+/// This interface should be implemented by services implementing the Ice::Locator interface. It should be
+/// advertised through an Ice object with the identity `Ice/LocatorFinder'. This allows clients to
+/// retrieve the locator proxy with just the endpoint information of the service.
 public protocol LocatorFinder {
-    /// Get the locator proxy implemented by the process hosting this
-    /// finder object. The proxy might point to several replicas.
+    /// Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+    /// replicas.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -1214,14 +1160,10 @@ public protocol LocatorFinder {
     func getLocator(current: Current) throws -> LocatorPrx?
 }
 
-/// The Ice locator interface. This interface is used by clients to
-/// lookup adapters and objects. It is also used by servers to get the
-/// locator registry proxy.
-///
-/// The Locator interface is intended to be used by
-/// Ice internals and by locator implementations. Regular user code
-/// should not attempt to use any functionality of this interface
-/// directly.
+/// The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
+/// servers to get the locator registry proxy. The Locator interface is intended to be used by
+/// Ice internals and by locator implementations. Regular user code should not attempt to use any functionality of this
+/// interface directly.
 ///
 /// Locator Methods:
 ///
@@ -1266,13 +1208,9 @@ public extension Locator {
     }
 }
 
-/// The Ice locator registry interface. This interface is used by
-/// servers to register adapter endpoints with the locator.
-///
-/// The LocatorRegistry interface is intended to be used
-/// by Ice internals and by locator implementations. Regular user
-/// code should not attempt to use any functionality of this interface
-/// directly.
+/// The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
+/// locator.  The LocatorRegistry interface is intended to be used by Ice internals and by
+/// locator implementations. Regular user code should not attempt to use any functionality of this interface directly.
 ///
 /// LocatorRegistry Methods:
 ///
@@ -1314,11 +1252,9 @@ public extension LocatorRegistry {
     }
 }
 
-/// This interface should be implemented by services implementing the
-/// Ice::Locator interface. It should be advertised through an Ice
-/// object with the identity `Ice/LocatorFinder'. This allows clients
-/// to retrieve the locator proxy with just the endpoint information of
-/// the service.
+/// This interface should be implemented by services implementing the Ice::Locator interface. It should be
+/// advertised through an Ice object with the identity `Ice/LocatorFinder'. This allows clients to
+/// retrieve the locator proxy with just the endpoint information of the service.
 ///
 /// LocatorFinder Methods:
 ///

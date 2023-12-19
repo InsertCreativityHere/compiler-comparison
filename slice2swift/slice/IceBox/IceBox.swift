@@ -17,10 +17,8 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// This exception is a general failure notification. It is thrown
-/// for errors such as a service encountering an error during
-/// initialization, or the service manager being unable
-/// to load a service executable.
+/// This exception is a general failure notification. It is thrown for errors such as a service encountering an error
+/// during initialization, or the service manager being unable to load a service executable.
 open class FailureException: Ice.LocalException {
     /// The reason for the failure.
     public var reason: Swift.String = ""
@@ -62,8 +60,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-/// This exception is thrown if an attempt is made to start an
-/// already-started service.
+/// This exception is thrown if an attempt is made to start an already-started service.
 open class AlreadyStartedException: Ice.UserException {
     public required init() {}
 
@@ -98,8 +95,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-/// This exception is thrown if an attempt is made to stop an
-/// already-stopped service.
+/// This exception is thrown if an attempt is made to stop an already-stopped service.
 open class AlreadyStoppedException: Ice.UserException {
     public required init() {}
 
@@ -134,8 +130,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-/// This exception is thrown if a service name does not refer
-/// to an existing service.
+/// This exception is thrown if a service name does not refer to an existing service.
 open class NoSuchServiceException: Ice.UserException {
     public required init() {}
 
@@ -169,8 +164,7 @@ public struct ServiceManagerTraits: Ice.SliceTraits {
     public static let staticId = "::IceBox::ServiceManager"
 }
 
-/// An Observer interface implemented by admin clients interested in the status
-/// of services.
+/// An Observer interface implemented by admin clients interested in the status of services.
 ///
 /// ServiceObserverPrx Methods:
 ///
@@ -256,8 +250,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// An Observer interface implemented by admin clients interested in the status
-/// of services.
+/// An Observer interface implemented by admin clients interested in the status of services.
 ///
 /// ServiceObserverPrx Methods:
 ///
@@ -700,8 +693,7 @@ public struct ServiceObserverDisp: Ice.Disp {
     }
 }
 
-/// An Observer interface implemented by admin clients interested in the status
-/// of services.
+/// An Observer interface implemented by admin clients interested in the status of services.
 public protocol ServiceObserver {
     /// Receives the names of the services that were started.
     ///
@@ -794,8 +786,7 @@ public protocol ServiceManager {
     func shutdown(current: Ice.Current) throws
 }
 
-/// An Observer interface implemented by admin clients interested in the status
-/// of services.
+/// An Observer interface implemented by admin clients interested in the status of services.
 ///
 /// ServiceObserver Methods:
 ///
@@ -882,21 +873,15 @@ public extension ServiceManager {
 
 /// An application service managed by a ServiceManager.
 public protocol Service:  Swift.AnyObject {
-    /// Start the service. The given communicator is created by the
-    /// ServiceManager for use by the service. This communicator may
-    /// also be used by other services, depending on the service
-    /// configuration.
+    /// Start the service. The given communicator is created by the ServiceManager for use by the service. This
+    /// communicator may also be used by other services, depending on the service configuration.
+    /// The ServiceManager owns this communicator, and is responsible for destroying it.
     ///
-    /// The ServiceManager owns this communicator, and is
-    /// responsible for destroying it.
-    ///
-    /// - parameter name: `Swift.String` The service's name, as determined by the
-    /// configuration.
+    /// - parameter name: `Swift.String` The service's name, as determined by the configuration.
     ///
     /// - parameter communicator: `Ice.Communicator?` A communicator for use by the service.
     ///
-    /// - parameter args: `Ice.StringSeq` The service arguments that were not converted into
-    /// properties.
+    /// - parameter args: `Ice.StringSeq` The service arguments that were not converted into properties.
     ///
     /// - throws:
     ///

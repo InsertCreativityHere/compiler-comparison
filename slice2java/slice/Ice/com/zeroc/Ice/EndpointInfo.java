@@ -32,20 +32,17 @@ public abstract class EndpointInfo implements java.lang.Cloneable
     }
 
     /**
-     * The information of the underyling endpoint of null if there's
-     * no underlying endpoint.
+     * The information of the underyling endpoint or null if there's no underlying endpoint.
      **/
     public EndpointInfo underlying;
 
     /**
-     * The timeout for the endpoint in milliseconds. 0 means
-     * non-blocking, -1 means no timeout.
+     * The timeout for the endpoint in milliseconds. 0 means non-blocking, -1 means no timeout.
      **/
     public int timeout;
 
     /**
-     * Specifies whether or not compression should be used if
-     * available when using this endpoint.
+     * Specifies whether or not compression should be used if available when using this endpoint.
      **/
     public boolean compress;
 
@@ -62,7 +59,6 @@ public abstract class EndpointInfo implements java.lang.Cloneable
     public abstract boolean datagram();
 
     /**
-     * Returns true if this endpoint is a secure endpoint.
      * @return True for a secure endpoint.
      **/
     public abstract boolean secure();

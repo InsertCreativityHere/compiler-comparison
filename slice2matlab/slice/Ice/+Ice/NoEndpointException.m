@@ -10,8 +10,7 @@
 
 classdef NoEndpointException < Ice.LocalException
     properties
-        % proxy - The stringified proxy for which no suitable endpoint is
-        % available.
+        % proxy - The stringified proxy for which no suitable endpoint is available.
         proxy char
     end
     methods

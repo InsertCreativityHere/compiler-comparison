@@ -1,7 +1,6 @@
 % SSLInfo   Summary of SSLInfo
 %
-% Information taken from an SSL connection used for permissions
-% verification.
+% Information taken from an SSL connection used for permissions verification.
 %
 % SSLInfo Properties:
 %   remoteHost - The remote host.

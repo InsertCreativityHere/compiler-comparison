@@ -25,15 +25,12 @@ public enum ServerState implements java.io.Serializable
      **/
     Inactive(0),
     /**
-     * The server is being activated and will change to the active
-     * state when the registered server object adapters are activated
-     * or to the activation timed out state if the activation timeout
-     * expires.
+     * The server is being activated and will change to the active state when the registered server object adapters
+     * are activated or to the activation timed out state if the activation timeout expires.
      **/
     Activating(1),
     /**
-     * The activation timed out state indicates that the server
-     * activation timed out.
+     * The activation timed out state indicates that the server activation timed out.
      **/
     ActivationTimedOut(2),
     /**

@@ -33,8 +33,7 @@ const Slice = Ice.Slice;
 /* slice2js browser-bundle-skip-end */
 
 /**
- * This exception is raised when a failure occurs during initialization.
- *
+ *  This exception is raised when a failure occurs during initialization.
  **/
 Ice.InitializationException = class extends Ice.LocalException
 {
@@ -56,9 +55,7 @@ Ice.InitializationException = class extends Ice.LocalException
 };
 
 /**
- * This exception indicates that a failure occurred while initializing
- * a plug-in.
- *
+ *  This exception indicates that a failure occurred while initializing a plug-in.
  **/
 Ice.PluginInitializationException = class extends Ice.LocalException
 {
@@ -80,9 +77,7 @@ Ice.PluginInitializationException = class extends Ice.LocalException
 };
 
 /**
- * This exception is raised if a feature is requested that is not
- * supported with collocation optimization.
- *
+ *  This exception is raised if a feature is requested that is not supported with collocation optimization.
  * @deprecated This exception is no longer used by the Ice run time
  **/
 Ice.CollocationOptimizationException = class extends Ice.LocalException
@@ -104,14 +99,9 @@ Ice.CollocationOptimizationException = class extends Ice.LocalException
 };
 
 /**
- * An attempt was made to register something more than once with
- * the Ice run time.
- *
- * This exception is raised if an attempt is made to register a
- * servant, servant locator, facet, value factory, plug-in, object
- * adapter, object, or user exception factory more than once for the
- * same ID.
- *
+ *  An attempt was made to register something more than once with the Ice run time. This exception is raised if an
+ *  attempt is made to register a servant, servant locator, facet, value factory, plug-in, object adapter, object, or
+ *  user exception factory more than once for the same ID.
  **/
 Ice.AlreadyRegisteredException = class extends Ice.LocalException
 {
@@ -134,17 +124,11 @@ Ice.AlreadyRegisteredException = class extends Ice.LocalException
 };
 
 /**
- * An attempt was made to find or deregister something that is not
- * registered with the Ice run time or Ice locator.
- *
- * This exception is raised if an attempt is made to remove a servant,
- * servant locator, facet, value factory, plug-in, object adapter,
- * object, or user exception factory that is not currently registered.
- *
- * It's also raised if the Ice locator can't find an object or object
- * adapter when resolving an indirect proxy or when an object adapter
- * is activated.
- *
+ *  An attempt was made to find or deregister something that is not registered with the Ice run time or Ice locator.
+ *  This exception is raised if an attempt is made to remove a servant, servant locator, facet, value factory, plug-in,
+ *  object adapter, object, or user exception factory that is not currently registered. It's also raised if the Ice
+ *  locator can't find an object or object adapter when resolving an indirect proxy or when an object adapter is
+ *  activated.
  **/
 Ice.NotRegisteredException = class extends Ice.LocalException
 {
@@ -167,13 +151,9 @@ Ice.NotRegisteredException = class extends Ice.LocalException
 };
 
 /**
- * The operation can only be invoked with a twoway request.
- *
- * This exception is raised if an attempt is made to invoke an
- * operation with <code>ice_oneway</code>, <code>ice_batchOneway</code>, <code>ice_datagram</code>,
- * or <code>ice_batchDatagram</code> and the operation has a return value,
- * out-parameters, or an exception specification.
- *
+ *  The operation can only be invoked with a twoway request. This exception is raised if an attempt is made to invoke
+ *  an operation with <code>ice_oneway</code>, <code>ice_batchOneway</code>, <code>ice_datagram</code>, or
+ *  <code>ice_batchDatagram</code> and the operation has a return value, out-parameters, or an exception specification.
  **/
 Ice.TwowayOnlyException = class extends Ice.LocalException
 {
@@ -195,14 +175,10 @@ Ice.TwowayOnlyException = class extends Ice.LocalException
 };
 
 /**
- * An attempt was made to clone a class that does not support
- * cloning.
- *
- * This exception is raised if <code>ice_clone</code> is called on
- * a class that is derived from an abstract Slice class (that is,
- * a class containing operations), and the derived class does not
- * provide an implementation of the <code>ice_clone</code> operation (C++ only).
- *
+ *  An attempt was made to clone a class that does not support cloning. This exception is raised if
+ *  <code>ice_clone</code> is called on a class that is derived from an abstract Slice class (that is, a class
+ *  containing operations), and the derived class does not provide an implementation of the <code>ice_clone</code>
+ *  operation (C++ only).
  **/
 Ice.CloneNotImplementedException = class extends Ice.LocalException
 {
@@ -223,12 +199,9 @@ Ice.CloneNotImplementedException = class extends Ice.LocalException
 };
 
 /**
- * This exception is raised if an operation call on a server raises an
- * unknown exception. For example, for C++, this exception is raised
- * if the server throws a C++ exception that is not directly or
- * indirectly derived from <code>Ice::LocalException</code> or
- * <code>Ice::UserException</code>.
- *
+ *  This exception is raised if an operation call on a server raises an unknown exception. For example, for C++, this
+ *  exception is raised if the server throws a C++ exception that is not directly or indirectly derived from
+ *  <code>Ice::LocalException</code> or <code>Ice::UserException</code>.
  **/
 Ice.UnknownException = class extends Ice.LocalException
 {
@@ -250,14 +223,11 @@ Ice.UnknownException = class extends Ice.LocalException
 };
 
 /**
- * This exception is raised if an operation call on a server raises a
- * local exception. Because local exceptions are not transmitted by
- * the Ice protocol, the client receives all local exceptions raised
- * by the server as {@link UnknownLocalException}. The only exception to this
- * rule are all exceptions derived from {@link RequestFailedException},
- * which are transmitted by the Ice protocol even though they are
- * declared <code>local</code>.
- *
+ *  This exception is raised if an operation call on a server raises a  local exception. Because local exceptions are
+ *  not transmitted by the Ice protocol, the client receives all local exceptions raised by the server as
+ *  {@link UnknownLocalException}. The only exception to this rule are all exceptions derived from
+ *  {@link RequestFailedException}, which are transmitted by the Ice protocol even though they are declared
+ *  <code>local</code>.
  **/
 Ice.UnknownLocalException = class extends Ice.UnknownException
 {
@@ -278,18 +248,11 @@ Ice.UnknownLocalException = class extends Ice.UnknownException
 };
 
 /**
- * An operation raised an incorrect user exception.
- *
- * This exception is raised if an operation raises a
- * user exception that is not declared in the exception's
- * <code>throws</code> clause. Such undeclared exceptions are
- * not transmitted from the server to the client by the Ice
- * protocol, but instead the client just gets an
- * {@link UnknownUserException}. This is necessary in order to not violate
- * the contract established by an operation's signature: Only local
- * exceptions and user exceptions declared in the
- * <code>throws</code> clause can be raised.
- *
+ *  An operation raised an incorrect user exception. This exception is raised if an operation raises a user exception
+ *  that is not declared in the exception's <code>throws</code> clause. Such undeclared exceptions are not transmitted
+ *  from the server to the client by the Ice protocol, but instead the client just gets an {@link UnknownUserException}.
+ *  This is necessary in order to not violate the contract established by an operation's signature: Only local
+ *  exceptions and user exceptions declared in the <code>throws</code> clause can be raised.
  **/
 Ice.UnknownUserException = class extends Ice.UnknownException
 {
@@ -310,9 +273,7 @@ Ice.UnknownUserException = class extends Ice.UnknownException
 };
 
 /**
- * This exception is raised if the Ice library version does not match
- * the version in the Ice header files.
- *
+ *  This exception is raised if the Ice library version does not match the version in the Ice header files.
  **/
 Ice.VersionMismatchException = class extends Ice.LocalException
 {
@@ -333,10 +294,8 @@ Ice.VersionMismatchException = class extends Ice.LocalException
 };
 
 /**
- * This exception is raised if the {@link Communicator} has been destroyed.
- *
- * @see Communicator#destroy
- *
+ *  This exception is raised if the {@link Communicator} has been destroyed.
+ *  @see Communicator#destroy
  **/
 Ice.CommunicatorDestroyedException = class extends Ice.LocalException
 {
@@ -357,12 +316,9 @@ Ice.CommunicatorDestroyedException = class extends Ice.LocalException
 };
 
 /**
- * This exception is raised if an attempt is made to use a deactivated
- * {@link ObjectAdapter}.
- *
- * @see ObjectAdapter#deactivate
- * @see Communicator#shutdown
- *
+ *  This exception is raised if an attempt is made to use a deactivated {@link ObjectAdapter}.
+ *  @see ObjectAdapter#deactivate
+ *  @see Communicator#shutdown
  **/
 Ice.ObjectAdapterDeactivatedException = class extends Ice.LocalException
 {
@@ -384,11 +340,8 @@ Ice.ObjectAdapterDeactivatedException = class extends Ice.LocalException
 };
 
 /**
- * This exception is raised if an {@link ObjectAdapter} cannot be activated.
- *
- * This happens if the {@link Locator} detects another active {@link ObjectAdapter} with
- * the same adapter id.
- *
+ *  This exception is raised if an {@link ObjectAdapter} cannot be activated. This happens if the {@link Locator}
+ *  detects another active {@link ObjectAdapter} with the same adapter id.
  **/
 Ice.ObjectAdapterIdInUseException = class extends Ice.LocalException
 {
@@ -410,8 +363,7 @@ Ice.ObjectAdapterIdInUseException = class extends Ice.LocalException
 };
 
 /**
- * This exception is raised if no suitable endpoint is available.
- *
+ *  This exception is raised if no suitable endpoint is available.
  **/
 Ice.NoEndpointException = class extends Ice.LocalException
 {
@@ -433,9 +385,7 @@ Ice.NoEndpointException = class extends Ice.LocalException
 };
 
 /**
- * This exception is raised if there was an error while parsing an
- * endpoint.
- *
+ *  This exception is raised if there was an error while parsing an endpoint.
  **/
 Ice.EndpointParseException = class extends Ice.LocalException
 {
@@ -457,9 +407,7 @@ Ice.EndpointParseException = class extends Ice.LocalException
 };
 
 /**
- * This exception is raised if there was an error while parsing an
- * endpoint selection type.
- *
+ *  This exception is raised if there was an error while parsing an endpoint selection type.
  **/
 Ice.EndpointSelectionTypeParseException = class extends Ice.LocalException
 {
@@ -481,9 +429,7 @@ Ice.EndpointSelectionTypeParseException = class extends Ice.LocalException
 };
 
 /**
- * This exception is raised if there was an error while parsing a
- * version.
- *
+ *  This exception is raised if there was an error while parsing a version.
  **/
 Ice.VersionParseException = class extends Ice.LocalException
 {
@@ -505,9 +451,7 @@ Ice.VersionParseException = class extends Ice.LocalException
 };
 
 /**
- * This exception is raised if there was an error while parsing a
- * stringified identity.
- *
+ *  This exception is raised if there was an error while parsing a stringified identity.
  **/
 Ice.IdentityParseException = class extends Ice.LocalException
 {
@@ -529,9 +473,7 @@ Ice.IdentityParseException = class extends Ice.LocalException
 };
 
 /**
- * This exception is raised if there was an error while parsing a
- * stringified proxy.
- *
+ *  This exception is raised if there was an error while parsing a stringified proxy.
  **/
 Ice.ProxyParseException = class extends Ice.LocalException
 {
@@ -553,8 +495,7 @@ Ice.ProxyParseException = class extends Ice.LocalException
 };
 
 /**
- * This exception is raised if an illegal identity is encountered.
- *
+ *   This exception is raised if an illegal identity is encountered.
  **/
 Ice.IllegalIdentityException = class extends Ice.LocalException
 {
@@ -576,9 +517,7 @@ Ice.IllegalIdentityException = class extends Ice.LocalException
 };
 
 /**
- * This exception is raised to reject an illegal servant (typically
- * a null servant)
- *
+ *  This exception is raised to reject an illegal servant (typically a null servant).
  **/
 Ice.IllegalServantException = class extends Ice.LocalException
 {
@@ -600,11 +539,9 @@ Ice.IllegalServantException = class extends Ice.LocalException
 };
 
 /**
- * This exception is raised if a request failed. This exception, and
- * all exceptions derived from {@link RequestFailedException}, are
- * transmitted by the Ice protocol, even though they are declared
- * <code>local</code>.
- *
+ *  This exception is raised if a request failed. This exception, and all exceptions derived from
+ *  {@link RequestFailedException}, are transmitted by the Ice protocol, even though they are declared
+ *  <code>local</code>.
  **/
 Ice.RequestFailedException = class extends Ice.LocalException
 {
@@ -628,9 +565,8 @@ Ice.RequestFailedException = class extends Ice.LocalException
 };
 
 /**
- * This exception is raised if an object does not exist on the server,
- * that is, if no facets with the given identity exist.
- *
+ *  This exception is raised if an object does not exist on the server, that is, if no facets with the given identity
+ *  exist.
  **/
 Ice.ObjectNotExistException = class extends Ice.RequestFailedException
 {
@@ -651,9 +587,8 @@ Ice.ObjectNotExistException = class extends Ice.RequestFailedException
 };
 
 /**
- * This exception is raised if no facet with the given name exists,
- * but at least one facet with the given identity exists.
- *
+ *  This exception is raised if no facet with the given name exists, but at least one facet with the given identity
+ *  exists.
  **/
 Ice.FacetNotExistException = class extends Ice.RequestFailedException
 {
@@ -674,10 +609,8 @@ Ice.FacetNotExistException = class extends Ice.RequestFailedException
 };
 
 /**
- * This exception is raised if an operation for a given object does
- * not exist on the server. Typically this is caused by either the
- * client or the server using an outdated Slice specification.
- *
+ *  This exception is raised if an operation for a given object does not exist on the server. Typically this is caused
+ *  by either the client or the server using an outdated Slice specification.
  **/
 Ice.OperationNotExistException = class extends Ice.RequestFailedException
 {
@@ -698,11 +631,8 @@ Ice.OperationNotExistException = class extends Ice.RequestFailedException
 };
 
 /**
- * This exception is raised if a system error occurred in the server
- * or client process. There are many possible causes for such a system
- * exception. For details on the cause, {@link SyscallException#error}
- * should be inspected.
- *
+ *  This exception is raised if a system error occurred in the server or client process. There are many possible causes
+ *  for such a system exception. For details on the cause, {@link SyscallException#error} should be inspected.
  **/
 Ice.SyscallException = class extends Ice.LocalException
 {
@@ -724,8 +654,7 @@ Ice.SyscallException = class extends Ice.LocalException
 };
 
 /**
- * This exception indicates socket errors.
- *
+ *  This exception indicates socket errors.
  **/
 Ice.SocketException = class extends Ice.SyscallException
 {
@@ -746,8 +675,7 @@ Ice.SocketException = class extends Ice.SyscallException
 };
 
 /**
- * This exception indicates CFNetwork errors.
- *
+ *  This exception indicates CFNetwork errors.
  **/
 Ice.CFNetworkException = class extends Ice.SocketException
 {
@@ -769,8 +697,7 @@ Ice.CFNetworkException = class extends Ice.SocketException
 };
 
 /**
- * This exception indicates file errors.
- *
+ *  This exception indicates file errors.
  **/
 Ice.FileException = class extends Ice.SyscallException
 {
@@ -792,8 +719,7 @@ Ice.FileException = class extends Ice.SyscallException
 };
 
 /**
- * This exception indicates connection failures.
- *
+ *  This exception indicates connection failures.
  **/
 Ice.ConnectFailedException = class extends Ice.SocketException
 {
@@ -814,9 +740,7 @@ Ice.ConnectFailedException = class extends Ice.SocketException
 };
 
 /**
- * This exception indicates a connection failure for which
- * the server host actively refuses a connection.
- *
+ *  This exception indicates a connection failure for which the server host actively refuses a connection.
  **/
 Ice.ConnectionRefusedException = class extends Ice.ConnectFailedException
 {
@@ -837,8 +761,7 @@ Ice.ConnectionRefusedException = class extends Ice.ConnectFailedException
 };
 
 /**
- * This exception indicates a lost connection.
- *
+ *  This exception indicates a lost connection.
  **/
 Ice.ConnectionLostException = class extends Ice.SocketException
 {
@@ -859,9 +782,7 @@ Ice.ConnectionLostException = class extends Ice.SocketException
 };
 
 /**
- * This exception indicates a DNS problem. For details on the cause,
- * {@link DNSException#error} should be inspected.
- *
+ *  This exception indicates a DNS problem. For details on the cause, {@link DNSException#error} should be inspected.
  **/
 Ice.DNSException = class extends Ice.LocalException
 {
@@ -884,8 +805,7 @@ Ice.DNSException = class extends Ice.LocalException
 };
 
 /**
- * This exception indicates a request was interrupted.
- *
+ *  This exception indicates a request was interrupted.
  **/
 Ice.OperationInterruptedException = class extends Ice.LocalException
 {
@@ -906,8 +826,7 @@ Ice.OperationInterruptedException = class extends Ice.LocalException
 };
 
 /**
- * This exception indicates a timeout condition.
- *
+ *  This exception indicates a timeout condition.
  **/
 Ice.TimeoutException = class extends Ice.LocalException
 {
@@ -928,8 +847,7 @@ Ice.TimeoutException = class extends Ice.LocalException
 };
 
 /**
- * This exception indicates a connection establishment timeout condition.
- *
+ *  This exception indicates a connection establishment timeout condition.
  **/
 Ice.ConnectTimeoutException = class extends Ice.TimeoutException
 {
@@ -950,8 +868,7 @@ Ice.ConnectTimeoutException = class extends Ice.TimeoutException
 };
 
 /**
- * This exception indicates a connection closure timeout condition.
- *
+ *  This exception indicates a connection closure timeout condition.
  **/
 Ice.CloseTimeoutException = class extends Ice.TimeoutException
 {
@@ -972,9 +889,7 @@ Ice.CloseTimeoutException = class extends Ice.TimeoutException
 };
 
 /**
- * This exception indicates that a connection has been shut down because it has been
- * idle for some time.
- *
+ *  This exception indicates that a connection has been shut down because it has been idle for some time.
  **/
 Ice.ConnectionTimeoutException = class extends Ice.TimeoutException
 {
@@ -995,9 +910,7 @@ Ice.ConnectionTimeoutException = class extends Ice.TimeoutException
 };
 
 /**
- * This exception indicates that an invocation failed because it timed
- * out.
- *
+ *  This exception indicates that an invocation failed because it timed out.
  **/
 Ice.InvocationTimeoutException = class extends Ice.TimeoutException
 {
@@ -1018,9 +931,7 @@ Ice.InvocationTimeoutException = class extends Ice.TimeoutException
 };
 
 /**
- * This exception indicates that an asynchronous invocation failed
- * because it was canceled explicitly by the user.
- *
+ *  This exception indicates that an asynchronous invocation failed because it was canceled explicitly by the user.
  **/
 Ice.InvocationCanceledException = class extends Ice.LocalException
 {
@@ -1041,9 +952,7 @@ Ice.InvocationCanceledException = class extends Ice.LocalException
 };
 
 /**
- * A generic exception base for all kinds of protocol error
- * conditions.
- *
+ *  A generic exception base for all kinds of protocol error conditions.
  **/
 Ice.ProtocolException = class extends Ice.LocalException
 {
@@ -1065,9 +974,7 @@ Ice.ProtocolException = class extends Ice.LocalException
 };
 
 /**
- * This exception indicates that a message did not start with the expected
- * magic number ('I', 'c', 'e', 'P').
- *
+ *  This exception indicates that a message did not start with the expected magic number ('I', 'c', 'e', 'P').
  **/
 Ice.BadMagicException = class extends Ice.ProtocolException
 {
@@ -1089,8 +996,7 @@ Ice.BadMagicException = class extends Ice.ProtocolException
 };
 
 /**
- * This exception indicates an unsupported protocol version.
- *
+ *  This exception indicates an unsupported protocol version.
  **/
 Ice.UnsupportedProtocolException = class extends Ice.ProtocolException
 {
@@ -1113,8 +1019,7 @@ Ice.UnsupportedProtocolException = class extends Ice.ProtocolException
 };
 
 /**
- * This exception indicates an unsupported data encoding version.
- *
+ *  This exception indicates an unsupported data encoding version.
  **/
 Ice.UnsupportedEncodingException = class extends Ice.ProtocolException
 {
@@ -1137,8 +1042,7 @@ Ice.UnsupportedEncodingException = class extends Ice.ProtocolException
 };
 
 /**
- * This exception indicates that an unknown protocol message has been received.
- *
+ *  This exception indicates that an unknown protocol message has been received.
  **/
 Ice.UnknownMessageException = class extends Ice.ProtocolException
 {
@@ -1159,9 +1063,7 @@ Ice.UnknownMessageException = class extends Ice.ProtocolException
 };
 
 /**
- * This exception is raised if a message is received over a connection
- * that is not yet validated.
- *
+ *  This exception is raised if a message is received over a connection that is not yet validated.
  **/
 Ice.ConnectionNotValidatedException = class extends Ice.ProtocolException
 {
@@ -1182,9 +1084,7 @@ Ice.ConnectionNotValidatedException = class extends Ice.ProtocolException
 };
 
 /**
- * This exception indicates that a response for an unknown request ID has been
- * received.
- *
+ *  This exception indicates that a response for an unknown request ID has been received.
  **/
 Ice.UnknownRequestIdException = class extends Ice.ProtocolException
 {
@@ -1205,8 +1105,7 @@ Ice.UnknownRequestIdException = class extends Ice.ProtocolException
 };
 
 /**
- * This exception indicates that an unknown reply status has been received.
- *
+ *  This exception indicates that an unknown reply status has been received.
  **/
 Ice.UnknownReplyStatusException = class extends Ice.ProtocolException
 {
@@ -1227,15 +1126,11 @@ Ice.UnknownReplyStatusException = class extends Ice.ProtocolException
 };
 
 /**
- * This exception indicates that the connection has been gracefully shut down by the
- * server. The operation call that caused this exception has not been
- * executed by the server. In most cases you will not get this
- * exception, because the client will automatically retry the
- * operation call in case the server shut down the connection. However,
- * if upon retry the server shuts down the connection again, and the
- * retry limit has been reached, then this exception is propagated to
- * the application code.
- *
+ *  This exception indicates that the connection has been gracefully shut down by the server. The operation call that
+ *  caused this exception has not been executed by the server. In most cases you will not get this exception, because
+ *  the client will automatically retry the operation call in case the server shut down the connection. However, if
+ *  upon retry the server shuts down the connection again, and the retry limit has been reached, then this exception is
+ *  propagated to the application code.
  **/
 Ice.CloseConnectionException = class extends Ice.ProtocolException
 {
@@ -1256,11 +1151,9 @@ Ice.CloseConnectionException = class extends Ice.ProtocolException
 };
 
 /**
- * This exception is raised by an operation call if the application
- * closes the connection locally using {@link Connection#close}.
- *
- * @see Connection#close
- *
+ *  This exception is raised by an operation call if the application closes the connection locally using
+ *  {@link Connection#close}.
+ *  @see Connection#close
  **/
 Ice.ConnectionManuallyClosedException = class extends Ice.LocalException
 {
@@ -1282,9 +1175,7 @@ Ice.ConnectionManuallyClosedException = class extends Ice.LocalException
 };
 
 /**
- * This exception indicates that a message size is less
- * than the minimum required size.
- *
+ *  This exception indicates that a message size is less than the minimum required size.
  **/
 Ice.IllegalMessageSizeException = class extends Ice.ProtocolException
 {
@@ -1305,8 +1196,7 @@ Ice.IllegalMessageSizeException = class extends Ice.ProtocolException
 };
 
 /**
- * This exception indicates a problem with compressing or uncompressing data.
- *
+ *  This exception indicates a problem with compressing or uncompressing data.
  **/
 Ice.CompressionException = class extends Ice.ProtocolException
 {
@@ -1327,11 +1217,8 @@ Ice.CompressionException = class extends Ice.ProtocolException
 };
 
 /**
- * A datagram exceeds the configured size.
- *
- * This exception is raised if a datagram exceeds the configured send or receive buffer
- * size, or exceeds the maximum payload size of a UDP packet (65507 bytes).
- *
+ *  A datagram exceeds the configured size. This exception is raised if a datagram exceeds the configured send or
+ *  receive buffer size, or exceeds the maximum payload size of a UDP packet (65507 bytes).
  **/
 Ice.DatagramLimitException = class extends Ice.ProtocolException
 {
@@ -1352,8 +1239,7 @@ Ice.DatagramLimitException = class extends Ice.ProtocolException
 };
 
 /**
- * This exception is raised for errors during marshaling or unmarshaling data.
- *
+ *  This exception is raised for errors during marshaling or unmarshaling data.
  **/
 Ice.MarshalException = class extends Ice.ProtocolException
 {
@@ -1374,8 +1260,7 @@ Ice.MarshalException = class extends Ice.ProtocolException
 };
 
 /**
- * This exception is raised if inconsistent data is received while unmarshaling a proxy.
- *
+ *  This exception is raised if inconsistent data is received while unmarshaling a proxy.
  **/
 Ice.ProxyUnmarshalException = class extends Ice.MarshalException
 {
@@ -1396,8 +1281,7 @@ Ice.ProxyUnmarshalException = class extends Ice.MarshalException
 };
 
 /**
- * This exception is raised if an out-of-bounds condition occurs during unmarshaling.
- *
+ *  This exception is raised if an out-of-bounds condition occurs during unmarshaling.
  **/
 Ice.UnmarshalOutOfBoundsException = class extends Ice.MarshalException
 {
@@ -1418,14 +1302,11 @@ Ice.UnmarshalOutOfBoundsException = class extends Ice.MarshalException
 };
 
 /**
- * This exception is raised if no suitable value factory was found during
- * unmarshaling of a Slice class instance.
- *
- * @see ValueFactory
- * @see Communicator#getValueFactoryManager
- * @see ValueFactoryManager#add
- * @see ValueFactoryManager#find
- *
+ *  This exception is raised if no suitable value factory was found during unmarshaling of a Slice class instance.
+ *  @see ValueFactory
+ *  @see Communicator#getValueFactoryManager
+ *  @see ValueFactoryManager#add
+ *  @see ValueFactoryManager#find
  **/
 Ice.NoValueFactoryException = class extends Ice.MarshalException
 {
@@ -1447,14 +1328,10 @@ Ice.NoValueFactoryException = class extends Ice.MarshalException
 };
 
 /**
- * This exception is raised if the type of an unmarshaled Slice class instance does
- * not match its expected type.
- * This can happen if client and server are compiled with mismatched Slice
- * definitions or if a class of the wrong type is passed as a parameter
- * or return value using dynamic invocation. This exception can also be
- * raised if IceStorm is used to send Slice class instances and
- * an operation is subscribed to the wrong topic.
- *
+ *  This exception is raised if the type of an unmarshaled Slice class instance does not match its expected type. This
+ *  can happen if client and server are compiled with mismatched Slice definitions or if a class of the wrong type is
+ *  passed as a parameter or return value using dynamic invocation. This exception can also be raised if IceStorm is
+ *  used to send Slice class instances and an operation is subscribed to the wrong topic.
  **/
 Ice.UnexpectedObjectException = class extends Ice.MarshalException
 {
@@ -1477,10 +1354,8 @@ Ice.UnexpectedObjectException = class extends Ice.MarshalException
 };
 
 /**
- * This exception is raised when Ice receives a request or reply
- * message whose size exceeds the limit specified by the
- * <code>Ice.MessageSizeMax</code> property.
- *
+ *  This exception is raised when Ice receives a request or reply message whose size exceeds the limit specified by the
+ *  <code>Ice.MessageSizeMax</code> property.
  **/
 Ice.MemoryLimitException = class extends Ice.MarshalException
 {
@@ -1501,9 +1376,7 @@ Ice.MemoryLimitException = class extends Ice.MarshalException
 };
 
 /**
- * This exception is raised when a string conversion to or from UTF-8
- * fails during marshaling or unmarshaling.
- *
+ *  This exception is raised when a string conversion to or from UTF-8 fails during marshaling or unmarshaling.
  **/
 Ice.StringConversionException = class extends Ice.MarshalException
 {
@@ -1524,8 +1397,7 @@ Ice.StringConversionException = class extends Ice.MarshalException
 };
 
 /**
- * This exception indicates a malformed data encapsulation.
- *
+ *  This exception indicates a malformed data encapsulation.
  **/
 Ice.EncapsulationException = class extends Ice.MarshalException
 {
@@ -1546,10 +1418,8 @@ Ice.EncapsulationException = class extends Ice.MarshalException
 };
 
 /**
- * This exception is raised if an unsupported feature is used. The
- * unsupported feature string contains the name of the unsupported
- * feature
- *
+ *  This exception is raised if an unsupported feature is used. The unsupported feature string contains the name of the
+ *  unsupported feature.
  **/
 Ice.FeatureNotSupportedException = class extends Ice.LocalException
 {
@@ -1571,9 +1441,7 @@ Ice.FeatureNotSupportedException = class extends Ice.LocalException
 };
 
 /**
- * This exception indicates a failure in a security subsystem,
- * such as the IceSSL plug-in.
- *
+ *  This exception indicates a failure in a security subsystem, such as the IceSSL plug-in.
  **/
 Ice.SecurityException = class extends Ice.LocalException
 {
@@ -1595,9 +1463,7 @@ Ice.SecurityException = class extends Ice.LocalException
 };
 
 /**
- * This exception indicates that an attempt has been made to
- * change the connection properties of a fixed proxy.
- *
+ *  This exception indicates that an attempt has been made to change the connection properties of a fixed proxy.
  **/
 Ice.FixedProxyException = class extends Ice.LocalException
 {
@@ -1618,9 +1484,7 @@ Ice.FixedProxyException = class extends Ice.LocalException
 };
 
 /**
- * Indicates that the response to a request has already been sent;
- * re-dispatching such a request is not possible.
- *
+ *  Indicates that the response to a request has already been sent; re-dispatching such a request is not possible.
  **/
 Ice.ResponseSentException = class extends Ice.LocalException
 {

@@ -16,12 +16,10 @@
 package com.zeroc.IceGrid;
 
 /**
- * The ReplicaGroupFilter is used by IceGrid to filter adapters
- * returned to the client when it resolves a filtered replica group.
- *
- * IceGrid provides the list of available adapters. The implementation
- * of this method can use the provided context and connection to
- * filter and return the filtered set of adapters.
+ * The ReplicaGroupFilter is used by IceGrid to filter adapters returned to the client when it resolves a filtered
+ * replica group.
+ * IceGrid provides the list of available adapters. The implementationof this method can use the provided context and
+ * connection to filter and return the filtered set of adapters.
  **/
 public interface ReplicaGroupFilter
 {
@@ -29,10 +27,8 @@ public interface ReplicaGroupFilter
      * Filter the given set of adapters.
      * @param replicaGroupId The replica group ID.
      * @param adapterIds The adpater IDs to filter.
-     * @param con The connection from the Ice client which is
-     * resolving the replica group endpoints.
-     * @param ctx The context from the Ice client which is resolving
-     * the replica group endpoints.
+     * @param con The connection from the Ice client which is resolving the replica group endpoints.
+     * @param ctx The context from the Ice client which is resolving the replica group endpoints.
      * @return The filtered adapter IDs.
      **/
     String[] filter(String replicaGroupId, String[] adapterIds, com.zeroc.Ice.Connection con, java.util.Map<java.lang.String, java.lang.String> ctx);

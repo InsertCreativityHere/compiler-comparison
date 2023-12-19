@@ -1,7 +1,6 @@
 % BadSignalException   Summary of BadSignalException
 %
-% This exception is raised if an unknown signal was sent to
-% to a server.
+% This exception is raised if an unknown signal was sent to to a server.
 %
 % BadSignalException Properties:
 %   reason - The details of the unknown signal.

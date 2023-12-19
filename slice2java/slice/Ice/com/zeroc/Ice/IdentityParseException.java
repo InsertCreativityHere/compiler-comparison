@@ -16,8 +16,7 @@
 package com.zeroc.Ice;
 
 /**
- * This exception is raised if there was an error while parsing a
- * stringified identity.
+ * This exception is raised if there was an error while parsing a stringified identity.
  **/
 public class IdentityParseException extends LocalException
 {

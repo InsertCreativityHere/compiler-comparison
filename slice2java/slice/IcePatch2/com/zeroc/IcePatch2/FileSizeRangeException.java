@@ -16,8 +16,8 @@
 package com.zeroc.IcePatch2;
 
 /**
- * This exception is raised if an operation tries to use a file whose size is
- * larger than 2.1 GB. Use the "large" versions of the operations instead.
+ * This exception is raised if an operation tries to use a file whose size is larger than 2.1 GB. Use the "large"
+ * versions of the operations instead.
  **/
 public class FileSizeRangeException extends FileAccessException
 {

@@ -16,10 +16,8 @@
 package com.zeroc.Ice.Instrumentation;
 
 /**
- * The invocation observer to instrument invocations on proxies. A
- * proxy invocation can either result in a collocated or remote
- * invocation. If it results in a remote invocation, a sub-observer is
- * requested for the remote invocation.
+ * The invocation observer to instrument invocations on proxies. A proxy invocation can either result in a collocated
+ * or remote invocation. If it results in a remote invocation, a sub-observer is requested for the remote invocation.
  **/
 public interface InvocationObserver extends Observer
 {

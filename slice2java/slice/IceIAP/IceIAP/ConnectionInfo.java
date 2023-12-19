@@ -16,7 +16,7 @@
 package IceIAP;
 
 /**
- * Provides access to the connection details of an IAP connection
+ * Provides access to the connection details of an IAP connection.
  **/
 public class ConnectionInfo extends com.zeroc.Ice.ConnectionInfo
 {

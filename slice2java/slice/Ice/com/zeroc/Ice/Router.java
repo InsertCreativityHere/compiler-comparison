@@ -16,9 +16,8 @@
 package com.zeroc.Ice;
 
 /**
- * The Ice router interface. Routers can be set either globally with
- * {@link Communicator#setDefaultRouter}, or with <code>ice_router</code> on specific
- * proxies.
+ * The Ice router interface. Routers can be set either globally with {@link Communicator#setDefaultRouter}, or with
+ * <code>ice_router</code> on specific proxies.
  **/
 public interface Router extends Object
 {
@@ -37,11 +36,10 @@ public interface Router extends Object
         /**
          * This constructor makes shallow copies of the results for operation GetClientProxy.
          * @param returnValue The router's client proxy.
-         * @param hasRoutingTable Indicates whether or not the router supports a routing
-         * table. If it is supported, the Ice runtime will call addProxies to populate the
-         * routing table. This out parameter is only supported starting with Ice 3.7.
-         * The Ice runtime assumes the router has a routing table if the optional is not
-         * set.
+         * @param hasRoutingTable Indicates whether or not the router supports a routing table. If it is supported, the
+         * Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
+         * with Ice 3.7.
+         * The Ice runtime assumes the router has a routing table if the <code>hasRoutingTable</code> is not set.
          **/
         public GetClientProxyResult(ObjectPrx returnValue, java.util.Optional<java.lang.Boolean> hasRoutingTable)
         {
@@ -52,11 +50,10 @@ public interface Router extends Object
         /**
          * This constructor makes shallow copies of the results for operation GetClientProxy (overload without Optional parameters).
          * @param returnValue The router's client proxy.
-         * @param hasRoutingTable Indicates whether or not the router supports a routing
-         * table. If it is supported, the Ice runtime will call addProxies to populate the
-         * routing table. This out parameter is only supported starting with Ice 3.7.
-         * The Ice runtime assumes the router has a routing table if the optional is not
-         * set.
+         * @param hasRoutingTable Indicates whether or not the router supports a routing table. If it is supported, the
+         * Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
+         * with Ice 3.7.
+         * The Ice runtime assumes the router has a routing table if the <code>hasRoutingTable</code> is not set.
          **/
         public GetClientProxyResult(ObjectPrx returnValue, boolean hasRoutingTable)
         {
@@ -69,11 +66,10 @@ public interface Router extends Object
          **/
         public ObjectPrx returnValue;
         /**
-         * Indicates whether or not the router supports a routing
-         * table. If it is supported, the Ice runtime will call addProxies to populate the
-         * routing table. This out parameter is only supported starting with Ice 3.7.
-         * The Ice runtime assumes the router has a routing table if the optional is not
-         * set.
+         * Indicates whether or not the router supports a routing table. If it is supported, the
+         * Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
+         * with Ice 3.7.
+         * The Ice runtime assumes the router has a routing table if the <code>hasRoutingTable</code> is not set.
          **/
         public java.util.Optional<java.lang.Boolean> hasRoutingTable;
 
@@ -91,19 +87,15 @@ public interface Router extends Object
     }
 
     /**
-     * Get the router's client proxy, i.e., the proxy to use for
-     * forwarding requests from the client to the router.
-     *
-     * If a null proxy is returned, the client will forward requests
-     * to the router's endpoints.
+     * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+     * If a null proxy is returned, the client will forward requests to the router's endpoints.
      * @param current The Current object for the invocation.
      * @return An instance of Router.GetClientProxyResult.
      **/
     Router.GetClientProxyResult getClientProxy(Current current);
 
     /**
-     * Get the router's server proxy, i.e., the proxy to use for
-     * forwarding requests from the server to the router.
+     * Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
      * @param current The Current object for the invocation.
      * @return The router's server proxy.
      **/

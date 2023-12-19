@@ -27,8 +27,7 @@ public class RegistryInfo implements java.lang.Cloneable,
     public String name;
 
     /**
-     * The network name of the host running this registry (as defined in
-     * uname()).
+     * The network name of the host running this registry (as defined in uname()).
      **/
     public String hostname;
 

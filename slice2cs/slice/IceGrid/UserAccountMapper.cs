@@ -21,8 +21,7 @@ using _System = global::System;
 namespace IceGrid
 {
     /// <summary>
-    /// This exception is raised if a user account for a given session
-    /// identifier can't be found.
+    /// This exception is raised if a user account for a given session identifier can't be found.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -103,8 +102,7 @@ namespace IceGrid
 namespace IceGrid
 {
     /// <summary>
-    /// A user account mapper object is used by IceGrid nodes to map
-    /// session identifiers to user accounts.
+    /// A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -112,36 +110,28 @@ namespace IceGrid
     {
         /// <summary>
         /// Get the name of the user account for the given user.
-        /// This is
-        /// used by IceGrid nodes to figure out the user account to use
-        /// to run servers.
-        ///
+        /// This is used by IceGrid nodes to figure out the user
+        ///  account to use to run servers.
         /// </summary>
-        /// <param name="user">The value of the server descriptor's user
-        /// attribute. If this attribute is not defined, and the server's
-        /// activation mode is session, the default value of
-        /// user is the session identifier.
-        ///
-        /// </param>
+        ///  <param name="user">The value of the server descriptor's user attribute. If this attribute is not
+        ///  defined, and the server's activation mode is session, the default value of user
+        ///  is the session identifier.
+        ///  </param>
         /// <returns>The user account name.
-        ///
-        /// </returns>
-        /// <exception name="UserAccountNotFoundException">Raised if no user account
-        /// is found for the given user.</exception>
+        ///  </returns>
+        /// <exception name="UserAccountNotFoundException">Raised if no user account is found for the given user.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         string getUserAccount(string user, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Get the name of the user account for the given user.
-        /// This is
+        /// This is used by IceGrid nodes to figure out the user
         /// </summary>
-        /// <param name="user">The value of the server descriptor's user
-        /// attribute. If this attribute is not defined, and the server's
-        /// activation mode is session, the default value of
-        /// user is the session identifier.
-        ///
-        /// </param>
+        ///  <param name="user">The value of the server descriptor's user attribute. If this attribute is not
+        ///  defined, and the server's activation mode is session, the default value of user
+        ///  is the session identifier.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -150,28 +140,24 @@ namespace IceGrid
 
         /// <summary>
         /// Get the name of the user account for the given user.
-        /// This is
+        /// This is used by IceGrid nodes to figure out the user
         /// </summary>
-        /// <param name="user">The value of the server descriptor's user
-        /// attribute. If this attribute is not defined, and the server's
-        /// activation mode is session, the default value of
-        /// user is the session identifier.
-        ///
-        /// </param>
+        ///  <param name="user">The value of the server descriptor's user attribute. If this attribute is not
+        ///  defined, and the server's activation mode is session, the default value of user
+        ///  is the session identifier.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_UserAccountMapper_getUserAccount> begin_getUserAccount(string user, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Get the name of the user account for the given user.
-        /// This is
+        /// This is used by IceGrid nodes to figure out the user
         /// </summary>
-        /// <param name="user">The value of the server descriptor's user
-        /// attribute. If this attribute is not defined, and the server's
-        /// activation mode is session, the default value of
-        /// user is the session identifier.
-        ///
-        /// </param>
+        ///  <param name="user">The value of the server descriptor's user attribute. If this attribute is not
+        ///  defined, and the server's activation mode is session, the default value of user
+        ///  is the session identifier.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -179,14 +165,12 @@ namespace IceGrid
 
         /// <summary>
         /// Get the name of the user account for the given user.
-        /// This is
+        /// This is used by IceGrid nodes to figure out the user
         /// </summary>
-        /// <param name="user">The value of the server descriptor's user
-        /// attribute. If this attribute is not defined, and the server's
-        /// activation mode is session, the default value of
-        /// user is the session identifier.
-        ///
-        /// </param>
+        ///  <param name="user">The value of the server descriptor's user attribute. If this attribute is not
+        ///  defined, and the server's activation mode is session, the default value of user
+        ///  is the session identifier.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -195,12 +179,11 @@ namespace IceGrid
 
         /// <summary>
         /// Get the name of the user account for the given user.
-        /// This is
+        /// This is used by IceGrid nodes to figure out the user
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The user account name.
-        ///
-        /// </returns>
+        ///  </returns>
         string end_getUserAccount(global::Ice.AsyncResult asyncResult);
     }
 }
@@ -208,8 +191,7 @@ namespace IceGrid
 namespace IceGrid
 {
     /// <summary>
-    /// A user account mapper object is used by IceGrid nodes to map
-    /// session identifiers to user accounts.
+    /// A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -217,22 +199,16 @@ namespace IceGrid
     {
         /// <summary>
         /// Get the name of the user account for the given user.
-        /// This is
-        /// used by IceGrid nodes to figure out the user account to use
-        /// to run servers.
-        ///
+        /// This is used by IceGrid nodes to figure out the user
+        ///  account to use to run servers.
         /// </summary>
-        /// <param name="user">The value of the server descriptor's user
-        /// attribute. If this attribute is not defined, and the server's
-        /// activation mode is session, the default value of
-        /// user is the session identifier.
-        ///
-        /// </param>
+        ///  <param name="user">The value of the server descriptor's user attribute. If this attribute is not
+        ///  defined, and the server's activation mode is session, the default value of user
+        ///  is the session identifier.
+        ///  </param>
         /// <returns>The user account name.
-        ///
-        /// </returns>
-        /// <exception name="UserAccountNotFoundException">Raised if no user account
-        /// is found for the given user.</exception>
+        ///  </returns>
+        /// <exception name="UserAccountNotFoundException">Raised if no user account is found for the given user.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]

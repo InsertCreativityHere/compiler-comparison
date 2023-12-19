@@ -32,7 +32,7 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
     class LookupReplyPrx(Ice.ObjectPrx):
 
         """
-        Reply to the findObjectById request.
+         Reply to the findObjectById request.
         Arguments:
         id -- The identity of the object.
         prx -- The proxy of the object.
@@ -42,7 +42,7 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
             return _M_IceDiscovery.LookupReply._op_foundObjectById.invoke(self, ((id, prx), context))
 
         """
-        Reply to the findObjectById request.
+         Reply to the findObjectById request.
         Arguments:
         id -- The identity of the object.
         prx -- The proxy of the object.
@@ -53,7 +53,7 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
             return _M_IceDiscovery.LookupReply._op_foundObjectById.invokeAsync(self, ((id, prx), context))
 
         """
-        Reply to the findObjectById request.
+         Reply to the findObjectById request.
         Arguments:
         id -- The identity of the object.
         prx -- The proxy of the object.
@@ -67,7 +67,7 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
             return _M_IceDiscovery.LookupReply._op_foundObjectById.begin(self, ((id, prx), _response, _ex, _sent, context))
 
         """
-        Reply to the findObjectById request.
+         Reply to the findObjectById request.
         Arguments:
         id -- The identity of the object.
         prx -- The proxy of the object.
@@ -76,7 +76,7 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
             return _M_IceDiscovery.LookupReply._op_foundObjectById.end(self, _r)
 
         """
-        Reply to the findAdpaterById request.
+         Reply to the findAdpaterById request.
         Arguments:
         id -- The adapter ID.
         prx -- The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter endpoints.
@@ -87,7 +87,7 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
             return _M_IceDiscovery.LookupReply._op_foundAdapterById.invoke(self, ((id, prx, isReplicaGroup), context))
 
         """
-        Reply to the findAdpaterById request.
+         Reply to the findAdpaterById request.
         Arguments:
         id -- The adapter ID.
         prx -- The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter endpoints.
@@ -99,7 +99,7 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
             return _M_IceDiscovery.LookupReply._op_foundAdapterById.invokeAsync(self, ((id, prx, isReplicaGroup), context))
 
         """
-        Reply to the findAdpaterById request.
+         Reply to the findAdpaterById request.
         Arguments:
         id -- The adapter ID.
         prx -- The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter endpoints.
@@ -114,7 +114,7 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
             return _M_IceDiscovery.LookupReply._op_foundAdapterById.begin(self, ((id, prx, isReplicaGroup), _response, _ex, _sent, context))
 
         """
-        Reply to the findAdpaterById request.
+         Reply to the findAdpaterById request.
         Arguments:
         id -- The adapter ID.
         prx -- The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter endpoints.
@@ -154,7 +154,7 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
 
         def foundObjectById(self, id, prx, current=None):
             """
-            Reply to the findObjectById request.
+             Reply to the findObjectById request.
             Arguments:
             id -- The identity of the object.
             prx -- The proxy of the object.
@@ -165,7 +165,7 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
 
         def foundAdapterById(self, id, prx, isReplicaGroup, current=None):
             """
-            Reply to the findAdpaterById request.
+             Reply to the findAdpaterById request.
             Arguments:
             id -- The adapter ID.
             prx -- The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter endpoints.
@@ -196,7 +196,7 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
     class LookupPrx(Ice.ObjectPrx):
 
         """
-        Request to find an Ice object
+         Request to find an Ice object
         Arguments:
         domainId -- The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
         id -- The object identity.
@@ -207,7 +207,7 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
             return _M_IceDiscovery.Lookup._op_findObjectById.invoke(self, ((domainId, id, reply), context))
 
         """
-        Request to find an Ice object
+         Request to find an Ice object
         Arguments:
         domainId -- The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
         id -- The object identity.
@@ -219,7 +219,7 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
             return _M_IceDiscovery.Lookup._op_findObjectById.invokeAsync(self, ((domainId, id, reply), context))
 
         """
-        Request to find an Ice object
+         Request to find an Ice object
         Arguments:
         domainId -- The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
         id -- The object identity.
@@ -234,7 +234,7 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
             return _M_IceDiscovery.Lookup._op_findObjectById.begin(self, ((domainId, id, reply), _response, _ex, _sent, context))
 
         """
-        Request to find an Ice object
+         Request to find an Ice object
         Arguments:
         domainId -- The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
         id -- The object identity.
@@ -244,7 +244,7 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
             return _M_IceDiscovery.Lookup._op_findObjectById.end(self, _r)
 
         """
-        Request to find an object adapter
+         Request to find an object adapter
         Arguments:
         domainId -- The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
         id -- The adapter ID.
@@ -255,7 +255,7 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
             return _M_IceDiscovery.Lookup._op_findAdapterById.invoke(self, ((domainId, id, reply), context))
 
         """
-        Request to find an object adapter
+         Request to find an object adapter
         Arguments:
         domainId -- The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
         id -- The adapter ID.
@@ -267,7 +267,7 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
             return _M_IceDiscovery.Lookup._op_findAdapterById.invokeAsync(self, ((domainId, id, reply), context))
 
         """
-        Request to find an object adapter
+         Request to find an object adapter
         Arguments:
         domainId -- The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
         id -- The adapter ID.
@@ -282,7 +282,7 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
             return _M_IceDiscovery.Lookup._op_findAdapterById.begin(self, ((domainId, id, reply), _response, _ex, _sent, context))
 
         """
-        Request to find an object adapter
+         Request to find an object adapter
         Arguments:
         domainId -- The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
         id -- The adapter ID.
@@ -322,7 +322,7 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
 
         def findObjectById(self, domainId, id, reply, current=None):
             """
-            Request to find an Ice object
+             Request to find an Ice object
             Arguments:
             domainId -- The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
             id -- The object identity.
@@ -334,7 +334,7 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
 
         def findAdapterById(self, domainId, id, reply, current=None):
             """
-            Request to find an object adapter
+             Request to find an object adapter
             Arguments:
             domainId -- The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
             id -- The adapter ID.

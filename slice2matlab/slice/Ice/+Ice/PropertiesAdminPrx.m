@@ -1,7 +1,6 @@
 % PropertiesAdminPrx   Summary of PropertiesAdminPrx
 %
-% The PropertiesAdmin interface provides remote access to the properties
-% of a communicator.
+% The PropertiesAdmin interface provides remote access to the properties of a communicator.
 %
 % PropertiesAdminPrx Methods:
 %   getProperty - Get a property by key.
@@ -19,8 +18,7 @@
 classdef PropertiesAdminPrx < Ice.ObjectPrx
     methods
         function result = getProperty(obj, key, varargin)
-            % getProperty   Get a property by key. If the property is not set, an empty
-            % string is returned.
+            % getProperty   Get a property by key. If the property is not set, an empty string is returned.
             %
             % Parameters:
             %   key (char) - The property key.
@@ -37,8 +35,7 @@ classdef PropertiesAdminPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getPropertyAsync(obj, key, varargin)
-            % getPropertyAsync   Get a property by key. If the property is not set, an empty
-            % string is returned.
+            % getPropertyAsync   Get a property by key. If the property is not set, an empty string is returned.
             %
             % Parameters:
             %   key (char) - The property key.
@@ -58,8 +55,8 @@ classdef PropertiesAdminPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('getProperty', 0, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function result = getPropertiesForPrefix(obj, prefix, varargin)
-            % getPropertiesForPrefix   Get all properties whose keys begin with prefix. If
-            % prefix is an empty string then all properties are returned.
+            % getPropertiesForPrefix   Get all properties whose keys begin with prefix. If prefix is an empty string then all
+            % properties are returned.
             %
             % Parameters:
             %   prefix (char) - The prefix to search for (empty string if none).
@@ -76,8 +73,8 @@ classdef PropertiesAdminPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getPropertiesForPrefixAsync(obj, prefix, varargin)
-            % getPropertiesForPrefixAsync   Get all properties whose keys begin with prefix. If
-            % prefix is an empty string then all properties are returned.
+            % getPropertiesForPrefixAsync   Get all properties whose keys begin with prefix. If prefix is an empty string then all
+            % properties are returned.
             %
             % Parameters:
             %   prefix (char) - The prefix to search for (empty string if none).
@@ -97,15 +94,13 @@ classdef PropertiesAdminPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('getPropertiesForPrefix', 0, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function setProperties(obj, newProperties, varargin)
-            % setProperties   Update the communicator's properties with the given property set.
+            % setProperties   Update the communicator's properties with the given property set. If an entry in newProperties
+            % matches the name of an existing property, that property's value is replaced with the new value. If the new
+            % value is an empty string, the property is removed. Any existing properties that are not modified or removed
+            % by the entries in newProperties are retained with their original values.
             %
             % Parameters:
             %   newProperties (containers.Map) - Properties to be added, changed, or removed.
-            %     If an entry in newProperties matches the name of an existing property,
-            %     that property's value is replaced with the new value. If the new value
-            %     is an empty string, the property is removed. Any existing properties
-            %     that are not modified or removed by the entries in newProperties are
-            %     retained with their original values.
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
@@ -114,15 +109,13 @@ classdef PropertiesAdminPrx < Ice.ObjectPrx
             obj.iceInvoke('setProperties', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = setPropertiesAsync(obj, newProperties, varargin)
-            % setPropertiesAsync   Update the communicator's properties with the given property set.
+            % setPropertiesAsync   Update the communicator's properties with the given property set. If an entry in newProperties
+            % matches the name of an existing property, that property's value is replaced with the new value. If the new
+            % value is an empty string, the property is removed. Any existing properties that are not modified or removed
+            % by the entries in newProperties are retained with their original values.
             %
             % Parameters:
             %   newProperties (containers.Map) - Properties to be added, changed, or removed.
-            %     If an entry in newProperties matches the name of an existing property,
-            %     that property's value is replaced with the new value. If the new value
-            %     is an empty string, the property is removed. Any existing properties
-            %     that are not modified or removed by the entries in newProperties are
-            %     retained with their original values.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.

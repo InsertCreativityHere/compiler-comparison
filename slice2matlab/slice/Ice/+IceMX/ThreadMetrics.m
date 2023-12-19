@@ -1,7 +1,6 @@
 % ThreadMetrics   Summary of ThreadMetrics
 %
-% Provides information on the number of threads currently in use and
-% their activity.
+% Provides information on the number of threads currently in use and their activity.
 %
 % ThreadMetrics Properties:
 %   inUseForIO - The number of threads which are currently performing socket read or writes.
@@ -13,16 +12,12 @@
 
 classdef ThreadMetrics < IceMX.Metrics
     properties
-        % inUseForIO - The number of threads which are currently performing socket
-        % read or writes.
+        % inUseForIO - The number of threads which are currently performing socket read or writes.
         inUseForIO int32
-        % inUseForUser - The number of threads which are currently calling user code
-        % (servant dispatch, AMI callbacks, etc).
+        % inUseForUser - The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
         inUseForUser int32
-        % inUseForOther - The number of threads which are currently performing other
-        % activities. These are all other that are not counted with
-        % inUseForUser or inUseForIO, such as DNS
-        % lookups, garbage collection).
+        % inUseForOther - The number of threads which are currently performing other activities. These are all other that are not counted
+        % with inUseForUser or inUseForIO, such as DNS lookups, garbage collection).
         inUseForOther int32
     end
     methods

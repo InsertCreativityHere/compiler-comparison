@@ -18,11 +18,9 @@ package IceGrid;
 public interface AdapterPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
-     * Activate this adapter. If this adapter can be activated, this
-     * will activate the adapter and return the direct proxy of the
-     * adapter once it's active. If this adapter can be activated on
-     * demand, this will return 0 if the adapter is inactive or the
-     * adapter direct proxy it's active.
+     * Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+     * proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+     * adapter is inactive or the adapter direct proxy it's active.
      **/
     default com.zeroc.Ice.ObjectPrx activate()
     {
@@ -30,11 +28,9 @@ public interface AdapterPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Activate this adapter. If this adapter can be activated, this
-     * will activate the adapter and return the direct proxy of the
-     * adapter once it's active. If this adapter can be activated on
-     * demand, this will return 0 if the adapter is inactive or the
-     * adapter direct proxy it's active.
+     * Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+     * proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+     * adapter is inactive or the adapter direct proxy it's active.
      * @param context The Context map to send with the invocation.
      **/
     default com.zeroc.Ice.ObjectPrx activate(java.util.Map<String, String> context)
@@ -43,11 +39,9 @@ public interface AdapterPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Activate this adapter. If this adapter can be activated, this
-     * will activate the adapter and return the direct proxy of the
-     * adapter once it's active. If this adapter can be activated on
-     * demand, this will return 0 if the adapter is inactive or the
-     * adapter direct proxy it's active.
+     * Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+     * proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+     * adapter is inactive or the adapter direct proxy it's active.
      * @return A future that will be completed with the result.
      **/
     default java.util.concurrent.CompletableFuture<com.zeroc.Ice.ObjectPrx> activateAsync()
@@ -56,11 +50,9 @@ public interface AdapterPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Activate this adapter. If this adapter can be activated, this
-     * will activate the adapter and return the direct proxy of the
-     * adapter once it's active. If this adapter can be activated on
-     * demand, this will return 0 if the adapter is inactive or the
-     * adapter direct proxy it's active.
+     * Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+     * proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+     * adapter is inactive or the adapter direct proxy it's active.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed with the result.
      **/
@@ -87,11 +79,9 @@ public interface AdapterPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the adapter direct proxy. The adapter direct proxy is a
-     * proxy created with the object adapter. The proxy contains the
-     * last known adapter endpoints.
-     * @return A direct proxy containing the last known adapter
-     * endpoints if the adapter is already active.
+     * Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+     * contains the last known adapter endpoints.
+     * @return A direct proxy containing the last known adapter endpoints if the adapter is already active.
      **/
     default com.zeroc.Ice.ObjectPrx getDirectProxy()
         throws AdapterNotActiveException
@@ -100,12 +90,10 @@ public interface AdapterPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the adapter direct proxy. The adapter direct proxy is a
-     * proxy created with the object adapter. The proxy contains the
-     * last known adapter endpoints.
+     * Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+     * contains the last known adapter endpoints.
      * @param context The Context map to send with the invocation.
-     * @return A direct proxy containing the last known adapter
-     * endpoints if the adapter is already active.
+     * @return A direct proxy containing the last known adapter endpoints if the adapter is already active.
      **/
     default com.zeroc.Ice.ObjectPrx getDirectProxy(java.util.Map<String, String> context)
         throws AdapterNotActiveException
@@ -125,11 +113,9 @@ public interface AdapterPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the adapter direct proxy. The adapter direct proxy is a
-     * proxy created with the object adapter. The proxy contains the
-     * last known adapter endpoints.
-     * @return A direct proxy containing the last known adapter
-     * endpoints if the adapter is already active.
+     * Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+     * contains the last known adapter endpoints.
+     * @return A direct proxy containing the last known adapter endpoints if the adapter is already active.
      **/
     default java.util.concurrent.CompletableFuture<com.zeroc.Ice.ObjectPrx> getDirectProxyAsync()
     {
@@ -137,12 +123,10 @@ public interface AdapterPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the adapter direct proxy. The adapter direct proxy is a
-     * proxy created with the object adapter. The proxy contains the
-     * last known adapter endpoints.
+     * Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+     * contains the last known adapter endpoints.
      * @param context The Context map to send with the invocation.
-     * @return A direct proxy containing the last known adapter
-     * endpoints if the adapter is already active.
+     * @return A direct proxy containing the last known adapter endpoints if the adapter is already active.
      **/
     default java.util.concurrent.CompletableFuture<com.zeroc.Ice.ObjectPrx> getDirectProxyAsync(java.util.Map<String, String> context)
     {
@@ -174,9 +158,8 @@ public interface AdapterPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Set the direct proxy for this adapter.
-     * @throws AdapterActiveException The adapter is already
-     * active. It's not possible to override the direct proxy of an
-     * active adapter.
+     * @throws AdapterActiveException The adapter is already active. It's not possible to override the direct proxy of
+     * an active adapter.
      **/
     default void setDirectProxy(com.zeroc.Ice.ObjectPrx proxy)
         throws AdapterActiveException
@@ -187,9 +170,8 @@ public interface AdapterPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Set the direct proxy for this adapter.
      * @param context The Context map to send with the invocation.
-     * @throws AdapterActiveException The adapter is already
-     * active. It's not possible to override the direct proxy of an
-     * active adapter.
+     * @throws AdapterActiveException The adapter is already active. It's not possible to override the direct proxy of
+     * an active adapter.
      **/
     default void setDirectProxy(com.zeroc.Ice.ObjectPrx proxy, java.util.Map<String, String> context)
         throws AdapterActiveException

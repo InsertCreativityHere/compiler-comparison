@@ -335,9 +335,8 @@ namespace Glacier2
     }
 
     /// <summary>
-    /// An object for managing the set of identity constraints for specific
-    /// parts of object identity on a
-    /// Session.
+    /// An object for managing the set of identity constraints for specific parts of object identity on a
+    ///  Session.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -345,20 +344,19 @@ namespace Glacier2
     {
         /// <summary>
         /// Add a sequence of strings to this set of constraints.
-        /// Order is
-        /// not preserved and duplicates are implicitly removed.
-        ///
+        /// Order is not preserved and duplicates are implicitly
+        ///  removed.
         /// </summary>
-        /// <param name="additions">The sequence of strings to be added.</param>
+        ///  <param name="additions">The sequence of strings to be added.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void add(string[] additions, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Add a sequence of strings to this set of constraints.
-        /// Order is
+        /// Order is not preserved and duplicates are implicitly
         /// </summary>
-        /// <param name="additions">The sequence of strings to be added.</param>
+        ///  <param name="additions">The sequence of strings to be added.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -367,18 +365,18 @@ namespace Glacier2
 
         /// <summary>
         /// Add a sequence of strings to this set of constraints.
-        /// Order is
+        /// Order is not preserved and duplicates are implicitly
         /// </summary>
-        /// <param name="additions">The sequence of strings to be added.</param>
+        ///  <param name="additions">The sequence of strings to be added.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_StringSet_add> begin_add(string[] additions, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Add a sequence of strings to this set of constraints.
-        /// Order is
+        /// Order is not preserved and duplicates are implicitly
         /// </summary>
-        /// <param name="additions">The sequence of strings to be added.</param>
+        ///  <param name="additions">The sequence of strings to be added.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -386,9 +384,9 @@ namespace Glacier2
 
         /// <summary>
         /// Add a sequence of strings to this set of constraints.
-        /// Order is
+        /// Order is not preserved and duplicates are implicitly
         /// </summary>
-        /// <param name="additions">The sequence of strings to be added.</param>
+        ///  <param name="additions">The sequence of strings to be added.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -397,27 +395,25 @@ namespace Glacier2
 
         /// <summary>
         /// Add a sequence of strings to this set of constraints.
-        /// Order is
+        /// Order is not preserved and duplicates are implicitly
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_add(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Remove a sequence of strings from this set of constraints.
-        /// No
-        /// errors are returned if an entry is not found.
-        ///
+        /// No errors are returned if an entry is not found.
         /// </summary>
-        /// <param name="deletions">The sequence of strings to be removed.</param>
+        ///  <param name="deletions">The sequence of strings to be removed.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void remove(string[] deletions, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Remove a sequence of strings from this set of constraints.
-        /// No
+        /// No errors are returned if an entry is not found.
         /// </summary>
-        /// <param name="deletions">The sequence of strings to be removed.</param>
+        ///  <param name="deletions">The sequence of strings to be removed.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -426,18 +422,18 @@ namespace Glacier2
 
         /// <summary>
         /// Remove a sequence of strings from this set of constraints.
-        /// No
+        /// No errors are returned if an entry is not found.
         /// </summary>
-        /// <param name="deletions">The sequence of strings to be removed.</param>
+        ///  <param name="deletions">The sequence of strings to be removed.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_StringSet_remove> begin_remove(string[] deletions, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Remove a sequence of strings from this set of constraints.
-        /// No
+        /// No errors are returned if an entry is not found.
         /// </summary>
-        /// <param name="deletions">The sequence of strings to be removed.</param>
+        ///  <param name="deletions">The sequence of strings to be removed.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -445,9 +441,9 @@ namespace Glacier2
 
         /// <summary>
         /// Remove a sequence of strings from this set of constraints.
-        /// No
+        /// No errors are returned if an entry is not found.
         /// </summary>
-        /// <param name="deletions">The sequence of strings to be removed.</param>
+        ///  <param name="deletions">The sequence of strings to be removed.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -456,14 +452,13 @@ namespace Glacier2
 
         /// <summary>
         /// Remove a sequence of strings from this set of constraints.
-        /// No
+        /// No errors are returned if an entry is not found.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_remove(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// Returns a sequence of strings describing the constraints in this
-        /// set.
+        /// Returns a sequence of strings describing the constraints in this set.
         /// </summary>
         /// <returns>The sequence of strings for this set.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -471,8 +466,7 @@ namespace Glacier2
         string[] get(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Returns a sequence of strings describing the constraints in this
-        /// set.
+        /// Returns a sequence of strings describing the constraints in this set.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -481,16 +475,14 @@ namespace Glacier2
         global::System.Threading.Tasks.Task<string[]> getAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Returns a sequence of strings describing the constraints in this
-        /// set.
+        /// Returns a sequence of strings describing the constraints in this set.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_StringSet_get> begin_get(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Returns a sequence of strings describing the constraints in this
-        /// set.
+        /// Returns a sequence of strings describing the constraints in this set.
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -498,8 +490,7 @@ namespace Glacier2
         global::Ice.AsyncResult begin_get(global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Returns a sequence of strings describing the constraints in this
-        /// set.
+        /// Returns a sequence of strings describing the constraints in this set.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -508,8 +499,7 @@ namespace Glacier2
         global::Ice.AsyncResult begin_get(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Returns a sequence of strings describing the constraints in this
-        /// set.
+        /// Returns a sequence of strings describing the constraints in this set.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The sequence of strings for this set.</returns>
@@ -517,8 +507,7 @@ namespace Glacier2
     }
 
     /// <summary>
-    /// An object for managing the set of object identity constraints on a
-    /// Session.
+    /// An object for managing the set of object identity constraints on a Session.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -526,20 +515,19 @@ namespace Glacier2
     {
         /// <summary>
         /// Add a sequence of Ice identities to this set of constraints.
-        /// Order is
-        /// not preserved and duplicates are implicitly removed.
-        ///
+        /// Order is not preserved and duplicates are
+        ///  implicitly removed.
         /// </summary>
-        /// <param name="additions">The sequence of Ice identities to be added.</param>
+        ///  <param name="additions">The sequence of Ice identities to be added.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void add(global::Ice.Identity[] additions, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Add a sequence of Ice identities to this set of constraints.
-        /// Order is
+        /// Order is not preserved and duplicates are
         /// </summary>
-        /// <param name="additions">The sequence of Ice identities to be added.</param>
+        ///  <param name="additions">The sequence of Ice identities to be added.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -548,18 +536,18 @@ namespace Glacier2
 
         /// <summary>
         /// Add a sequence of Ice identities to this set of constraints.
-        /// Order is
+        /// Order is not preserved and duplicates are
         /// </summary>
-        /// <param name="additions">The sequence of Ice identities to be added.</param>
+        ///  <param name="additions">The sequence of Ice identities to be added.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_IdentitySet_add> begin_add(global::Ice.Identity[] additions, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Add a sequence of Ice identities to this set of constraints.
-        /// Order is
+        /// Order is not preserved and duplicates are
         /// </summary>
-        /// <param name="additions">The sequence of Ice identities to be added.</param>
+        ///  <param name="additions">The sequence of Ice identities to be added.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -567,9 +555,9 @@ namespace Glacier2
 
         /// <summary>
         /// Add a sequence of Ice identities to this set of constraints.
-        /// Order is
+        /// Order is not preserved and duplicates are
         /// </summary>
-        /// <param name="additions">The sequence of Ice identities to be added.</param>
+        ///  <param name="additions">The sequence of Ice identities to be added.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -578,27 +566,26 @@ namespace Glacier2
 
         /// <summary>
         /// Add a sequence of Ice identities to this set of constraints.
-        /// Order is
+        /// Order is not preserved and duplicates are
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_add(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Remove a sequence of identities from this set of constraints.
-        /// No
-        /// errors are returned if an entry is not found.
-        ///
+        /// No errors are returned if an entry is not
+        ///  found.
         /// </summary>
-        /// <param name="deletions">The sequence of Ice identities to be removed.</param>
+        ///  <param name="deletions">The sequence of Ice identities to be removed.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void remove(global::Ice.Identity[] deletions, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Remove a sequence of identities from this set of constraints.
-        /// No
+        /// No errors are returned if an entry is not
         /// </summary>
-        /// <param name="deletions">The sequence of Ice identities to be removed.</param>
+        ///  <param name="deletions">The sequence of Ice identities to be removed.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -607,18 +594,18 @@ namespace Glacier2
 
         /// <summary>
         /// Remove a sequence of identities from this set of constraints.
-        /// No
+        /// No errors are returned if an entry is not
         /// </summary>
-        /// <param name="deletions">The sequence of Ice identities to be removed.</param>
+        ///  <param name="deletions">The sequence of Ice identities to be removed.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_IdentitySet_remove> begin_remove(global::Ice.Identity[] deletions, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Remove a sequence of identities from this set of constraints.
-        /// No
+        /// No errors are returned if an entry is not
         /// </summary>
-        /// <param name="deletions">The sequence of Ice identities to be removed.</param>
+        ///  <param name="deletions">The sequence of Ice identities to be removed.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -626,9 +613,9 @@ namespace Glacier2
 
         /// <summary>
         /// Remove a sequence of identities from this set of constraints.
-        /// No
+        /// No errors are returned if an entry is not
         /// </summary>
-        /// <param name="deletions">The sequence of Ice identities to be removed.</param>
+        ///  <param name="deletions">The sequence of Ice identities to be removed.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -637,14 +624,13 @@ namespace Glacier2
 
         /// <summary>
         /// Remove a sequence of identities from this set of constraints.
-        /// No
+        /// No errors are returned if an entry is not
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_remove(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// Returns a sequence of identities describing the constraints in this
-        /// set.
+        /// Returns a sequence of identities describing the constraints in this set.
         /// </summary>
         /// <returns>The sequence of Ice identities for this set.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -652,8 +638,7 @@ namespace Glacier2
         global::Ice.Identity[] get(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Returns a sequence of identities describing the constraints in this
-        /// set.
+        /// Returns a sequence of identities describing the constraints in this set.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -662,16 +647,14 @@ namespace Glacier2
         global::System.Threading.Tasks.Task<global::Ice.Identity[]> getAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Returns a sequence of identities describing the constraints in this
-        /// set.
+        /// Returns a sequence of identities describing the constraints in this set.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_IdentitySet_get> begin_get(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Returns a sequence of identities describing the constraints in this
-        /// set.
+        /// Returns a sequence of identities describing the constraints in this set.
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -679,8 +662,7 @@ namespace Glacier2
         global::Ice.AsyncResult begin_get(global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Returns a sequence of identities describing the constraints in this
-        /// set.
+        /// Returns a sequence of identities describing the constraints in this set.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -689,8 +671,7 @@ namespace Glacier2
         global::Ice.AsyncResult begin_get(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Returns a sequence of identities describing the constraints in this
-        /// set.
+        /// Returns a sequence of identities describing the constraints in this set.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The sequence of Ice identities for this set.</returns>
@@ -698,16 +679,14 @@ namespace Glacier2
     }
 
     /// <summary>
-    /// An administrative session control object, which is tied to the
-    /// lifecycle of a Session.
+    /// An administrative session control object, which is tied to the lifecycle of a Session.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface SessionControlPrx : global::Ice.ObjectPrx
     {
         /// <summary>
-        /// Access the object that manages the allowable categories
-        /// for object identities for this session.
+        /// Access the object that manages the allowable categories for object identities for this session.
         /// </summary>
         /// <returns>A StringSet object.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -715,8 +694,7 @@ namespace Glacier2
         StringSetPrx categories(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Access the object that manages the allowable categories
-        /// for object identities for this session.
+        /// Access the object that manages the allowable categories for object identities for this session.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -725,16 +703,14 @@ namespace Glacier2
         global::System.Threading.Tasks.Task<StringSetPrx> categoriesAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Access the object that manages the allowable categories
-        /// for object identities for this session.
+        /// Access the object that manages the allowable categories for object identities for this session.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_SessionControl_categories> begin_categories(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Access the object that manages the allowable categories
-        /// for object identities for this session.
+        /// Access the object that manages the allowable categories for object identities for this session.
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -742,8 +718,7 @@ namespace Glacier2
         global::Ice.AsyncResult begin_categories(global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Access the object that manages the allowable categories
-        /// for object identities for this session.
+        /// Access the object that manages the allowable categories for object identities for this session.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -752,16 +727,14 @@ namespace Glacier2
         global::Ice.AsyncResult begin_categories(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Access the object that manages the allowable categories
-        /// for object identities for this session.
+        /// Access the object that manages the allowable categories for object identities for this session.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>A StringSet object.</returns>
         StringSetPrx end_categories(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// Access the object that manages the allowable adapter identities
-        /// for objects for this session.
+        /// Access the object that manages the allowable adapter identities for objects for this session.
         /// </summary>
         /// <returns>A StringSet object.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -769,8 +742,7 @@ namespace Glacier2
         StringSetPrx adapterIds(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Access the object that manages the allowable adapter identities
-        /// for objects for this session.
+        /// Access the object that manages the allowable adapter identities for objects for this session.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -779,16 +751,14 @@ namespace Glacier2
         global::System.Threading.Tasks.Task<StringSetPrx> adapterIdsAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Access the object that manages the allowable adapter identities
-        /// for objects for this session.
+        /// Access the object that manages the allowable adapter identities for objects for this session.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_SessionControl_adapterIds> begin_adapterIds(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Access the object that manages the allowable adapter identities
-        /// for objects for this session.
+        /// Access the object that manages the allowable adapter identities for objects for this session.
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -796,8 +766,7 @@ namespace Glacier2
         global::Ice.AsyncResult begin_adapterIds(global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Access the object that manages the allowable adapter identities
-        /// for objects for this session.
+        /// Access the object that manages the allowable adapter identities for objects for this session.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -806,16 +775,14 @@ namespace Glacier2
         global::Ice.AsyncResult begin_adapterIds(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Access the object that manages the allowable adapter identities
-        /// for objects for this session.
+        /// Access the object that manages the allowable adapter identities for objects for this session.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>A StringSet object.</returns>
         StringSetPrx end_adapterIds(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// Access the object that manages the allowable object identities
-        /// for this session.
+        /// Access the object that manages the allowable object identities for this session.
         /// </summary>
         /// <returns>An IdentitySet object.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -823,8 +790,7 @@ namespace Glacier2
         IdentitySetPrx identities(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Access the object that manages the allowable object identities
-        /// for this session.
+        /// Access the object that manages the allowable object identities for this session.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -833,16 +799,14 @@ namespace Glacier2
         global::System.Threading.Tasks.Task<IdentitySetPrx> identitiesAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Access the object that manages the allowable object identities
-        /// for this session.
+        /// Access the object that manages the allowable object identities for this session.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_SessionControl_identities> begin_identities(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Access the object that manages the allowable object identities
-        /// for this session.
+        /// Access the object that manages the allowable object identities for this session.
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -850,8 +814,7 @@ namespace Glacier2
         global::Ice.AsyncResult begin_identities(global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Access the object that manages the allowable object identities
-        /// for this session.
+        /// Access the object that manages the allowable object identities for this session.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -860,8 +823,7 @@ namespace Glacier2
         global::Ice.AsyncResult begin_identities(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Access the object that manages the allowable object identities
-        /// for this session.
+        /// Access the object that manages the allowable object identities for this session.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>An IdentitySet object.</returns>
@@ -963,13 +925,11 @@ namespace Glacier2
     }
 
     /// <summary>
-    /// The session manager for username/password authenticated users that
-    /// is responsible for managing Session objects.
-    /// New session objects
-    /// are created by the Router object calling on an application-provided
-    /// session manager. If no session manager is provided by the application,
-    /// no client-visible sessions are passed to the client.
-    ///
+    /// The session manager for username/password authenticated users that is responsible for managing Session
+    ///  objects.
+    /// New session objects are created by the Router object calling on an application-provided
+    ///  session manager. If no session manager is provided by the application, no client-visible sessions are passed to
+    ///  the client.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -979,16 +939,12 @@ namespace Glacier2
         /// Create a new session.
         /// </summary>
         /// <param name="userId">The user id for the session.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="control">A proxy to the session control object.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>A proxy to the newly created session.
-        ///
-        /// </returns>
-        /// <exception name="CannotCreateSessionException">Raised if the session
-        /// cannot be created.</exception>
+        ///  </returns>
+        /// <exception name="CannotCreateSessionException">Raised if the session cannot be created.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         SessionPrx create(string userId, SessionControlPrx control, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -997,11 +953,9 @@ namespace Glacier2
         /// Create a new session.
         /// </summary>
         /// <param name="userId">The user id for the session.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="control">A proxy to the session control object.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -1012,11 +966,9 @@ namespace Glacier2
         /// Create a new session.
         /// </summary>
         /// <param name="userId">The user id for the session.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="control">A proxy to the session control object.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_SessionManager_create> begin_create(string userId, SessionControlPrx control, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1025,11 +977,9 @@ namespace Glacier2
         /// Create a new session.
         /// </summary>
         /// <param name="userId">The user id for the session.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="control">A proxy to the session control object.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -1039,11 +989,9 @@ namespace Glacier2
         /// Create a new session.
         /// </summary>
         /// <param name="userId">The user id for the session.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="control">A proxy to the session control object.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1055,19 +1003,15 @@ namespace Glacier2
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>A proxy to the newly created session.
-        ///
-        /// </returns>
+        ///  </returns>
         SessionPrx end_create(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
-    /// The session manager for SSL authenticated users that is
-    /// responsible for managing Session objects.
-    /// New session objects are
-    /// created by the Router object calling on an application-provided
-    /// session manager. If no session manager is provided by the
-    /// application, no client-visible sessions are passed to the client.
-    ///
+    /// The session manager for SSL authenticated users that is responsible for managing Session objects.
+    /// New
+    ///  session objects are created by the Router object calling on an application-provided session manager. If
+    ///  no session manager is provided by the application, no client-visible sessions are passed to the client.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1077,16 +1021,12 @@ namespace Glacier2
         /// Create a new session.
         /// </summary>
         /// <param name="info">The SSL info.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="control">A proxy to the session control object.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>A proxy to the newly created session.
-        ///
-        /// </returns>
-        /// <exception name="CannotCreateSessionException">Raised if the session
-        /// cannot be created.</exception>
+        ///  </returns>
+        /// <exception name="CannotCreateSessionException">Raised if the session cannot be created.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         SessionPrx create(SSLInfo info, SessionControlPrx control, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1095,11 +1035,9 @@ namespace Glacier2
         /// Create a new session.
         /// </summary>
         /// <param name="info">The SSL info.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="control">A proxy to the session control object.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -1110,11 +1048,9 @@ namespace Glacier2
         /// Create a new session.
         /// </summary>
         /// <param name="info">The SSL info.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="control">A proxy to the session control object.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_SSLSessionManager_create> begin_create(SSLInfo info, SessionControlPrx control, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1123,11 +1059,9 @@ namespace Glacier2
         /// Create a new session.
         /// </summary>
         /// <param name="info">The SSL info.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="control">A proxy to the session control object.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -1137,11 +1071,9 @@ namespace Glacier2
         /// Create a new session.
         /// </summary>
         /// <param name="info">The SSL info.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="control">A proxy to the session control object.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1153,8 +1085,7 @@ namespace Glacier2
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>A proxy to the newly created session.
-        ///
-        /// </returns>
+        ///  </returns>
         SessionPrx end_create(global::Ice.AsyncResult asyncResult);
     }
 }
@@ -1179,9 +1110,8 @@ namespace Glacier2
     }
 
     /// <summary>
-    /// An object for managing the set of identity constraints for specific
-    /// parts of object identity on a
-    /// Session.
+    /// An object for managing the set of identity constraints for specific parts of object identity on a
+    ///  Session.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1189,11 +1119,10 @@ namespace Glacier2
     {
         /// <summary>
         /// Add a sequence of strings to this set of constraints.
-        /// Order is
-        /// not preserved and duplicates are implicitly removed.
-        ///
+        /// Order is not preserved and duplicates are implicitly
+        ///  removed.
         /// </summary>
-        /// <param name="additions">The sequence of strings to be added.</param>
+        ///  <param name="additions">The sequence of strings to be added.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1201,19 +1130,16 @@ namespace Glacier2
 
         /// <summary>
         /// Remove a sequence of strings from this set of constraints.
-        /// No
-        /// errors are returned if an entry is not found.
-        ///
+        /// No errors are returned if an entry is not found.
         /// </summary>
-        /// <param name="deletions">The sequence of strings to be removed.</param>
+        ///  <param name="deletions">The sequence of strings to be removed.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         void remove(string[] deletions, global::Ice.Current current = null);
 
         /// <summary>
-        /// Returns a sequence of strings describing the constraints in this
-        /// set.
+        /// Returns a sequence of strings describing the constraints in this set.
         /// </summary>
         /// <returns>The sequence of strings for this set.</returns>
         /// <param name="current">The Current object for the invocation.</param>
@@ -1223,8 +1149,7 @@ namespace Glacier2
     }
 
     /// <summary>
-    /// An object for managing the set of object identity constraints on a
-    /// Session.
+    /// An object for managing the set of object identity constraints on a Session.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1232,11 +1157,10 @@ namespace Glacier2
     {
         /// <summary>
         /// Add a sequence of Ice identities to this set of constraints.
-        /// Order is
-        /// not preserved and duplicates are implicitly removed.
-        ///
+        /// Order is not preserved and duplicates are
+        ///  implicitly removed.
         /// </summary>
-        /// <param name="additions">The sequence of Ice identities to be added.</param>
+        ///  <param name="additions">The sequence of Ice identities to be added.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1244,19 +1168,17 @@ namespace Glacier2
 
         /// <summary>
         /// Remove a sequence of identities from this set of constraints.
-        /// No
-        /// errors are returned if an entry is not found.
-        ///
+        /// No errors are returned if an entry is not
+        ///  found.
         /// </summary>
-        /// <param name="deletions">The sequence of Ice identities to be removed.</param>
+        ///  <param name="deletions">The sequence of Ice identities to be removed.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         void remove(global::Ice.Identity[] deletions, global::Ice.Current current = null);
 
         /// <summary>
-        /// Returns a sequence of identities describing the constraints in this
-        /// set.
+        /// Returns a sequence of identities describing the constraints in this set.
         /// </summary>
         /// <returns>The sequence of Ice identities for this set.</returns>
         /// <param name="current">The Current object for the invocation.</param>
@@ -1266,16 +1188,14 @@ namespace Glacier2
     }
 
     /// <summary>
-    /// An administrative session control object, which is tied to the
-    /// lifecycle of a Session.
+    /// An administrative session control object, which is tied to the lifecycle of a Session.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface SessionControlOperations_
     {
         /// <summary>
-        /// Access the object that manages the allowable categories
-        /// for object identities for this session.
+        /// Access the object that manages the allowable categories for object identities for this session.
         /// </summary>
         /// <returns>A StringSet object.</returns>
         /// <param name="current">The Current object for the invocation.</param>
@@ -1284,8 +1204,7 @@ namespace Glacier2
         StringSetPrx categories(global::Ice.Current current = null);
 
         /// <summary>
-        /// Access the object that manages the allowable adapter identities
-        /// for objects for this session.
+        /// Access the object that manages the allowable adapter identities for objects for this session.
         /// </summary>
         /// <returns>A StringSet object.</returns>
         /// <param name="current">The Current object for the invocation.</param>
@@ -1294,8 +1213,7 @@ namespace Glacier2
         StringSetPrx adapterIds(global::Ice.Current current = null);
 
         /// <summary>
-        /// Access the object that manages the allowable object identities
-        /// for this session.
+        /// Access the object that manages the allowable object identities for this session.
         /// </summary>
         /// <returns>An IdentitySet object.</returns>
         /// <param name="current">The Current object for the invocation.</param>
@@ -1322,13 +1240,11 @@ namespace Glacier2
     }
 
     /// <summary>
-    /// The session manager for username/password authenticated users that
-    /// is responsible for managing Session objects.
-    /// New session objects
-    /// are created by the Router object calling on an application-provided
-    /// session manager. If no session manager is provided by the application,
-    /// no client-visible sessions are passed to the client.
-    ///
+    /// The session manager for username/password authenticated users that is responsible for managing Session
+    ///  objects.
+    /// New session objects are created by the Router object calling on an application-provided
+    ///  session manager. If no session manager is provided by the application, no client-visible sessions are passed to
+    ///  the client.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1338,16 +1254,12 @@ namespace Glacier2
         /// Create a new session.
         /// </summary>
         /// <param name="userId">The user id for the session.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="control">A proxy to the session control object.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>A proxy to the newly created session.
-        ///
-        /// </returns>
-        /// <exception name="CannotCreateSessionException">Raised if the session
-        /// cannot be created.</exception>
+        ///  </returns>
+        /// <exception name="CannotCreateSessionException">Raised if the session cannot be created.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1355,13 +1267,10 @@ namespace Glacier2
     }
 
     /// <summary>
-    /// The session manager for SSL authenticated users that is
-    /// responsible for managing Session objects.
-    /// New session objects are
-    /// created by the Router object calling on an application-provided
-    /// session manager. If no session manager is provided by the
-    /// application, no client-visible sessions are passed to the client.
-    ///
+    /// The session manager for SSL authenticated users that is responsible for managing Session objects.
+    /// New
+    ///  session objects are created by the Router object calling on an application-provided session manager. If
+    ///  no session manager is provided by the application, no client-visible sessions are passed to the client.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1371,16 +1280,12 @@ namespace Glacier2
         /// Create a new session.
         /// </summary>
         /// <param name="info">The SSL info.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="control">A proxy to the session control object.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>A proxy to the newly created session.
-        ///
-        /// </returns>
-        /// <exception name="CannotCreateSessionException">Raised if the session
-        /// cannot be created.</exception>
+        ///  </returns>
+        /// <exception name="CannotCreateSessionException">Raised if the session cannot be created.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]

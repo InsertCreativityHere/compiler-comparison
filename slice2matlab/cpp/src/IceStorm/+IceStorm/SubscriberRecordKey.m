@@ -1,21 +1,21 @@
 % SubscriberRecordKey   Summary of SubscriberRecordKey
 %
 % The key for persistent subscribers, or topics.
-%
-% If the subscriber identity is empty then the record is used as a
-% place holder for the creation of a topic, otherwise the record
-% holds a subscription record.
+% If the subscriber identity is empty then the record is used as a place holder for the creation of a topic,
+% otherwise the record holds a subscription record.
 %
 % SubscriberRecordKey Properties:
-%   topic
-%   id
+%   topic - The topic identity.
+%   id - The identity of the subscriber.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from SubscriberRecord.ice by slice2matlab version 3.7.10
 
 classdef SubscriberRecordKey
     properties
+        % topic - The topic identity.
         topic Ice.Identity
+        % id - The identity of the subscriber. If this is empty then the key is a placeholder for a topic.
         id Ice.Identity
     end
     methods

@@ -16,8 +16,7 @@
 package com.zeroc.IceGrid;
 
 /**
- * The IceGrid registry allows clients create sessions
- * directly with the registry.
+ * The IceGrid registry allows clients create sessions directly with the registry.
  *
  * @see Session
  * @see AdminSession
@@ -29,9 +28,8 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
      * @param userId The user id.
      * @param password The password for the given user id.
      * @return A proxy for the newly created session.
-     * @throws PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      **/
     default SessionPrx createSession(String userId, String password)
         throws PermissionDeniedException
@@ -45,9 +43,8 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
      * @param password The password for the given user id.
      * @param context The Context map to send with the invocation.
      * @return A proxy for the newly created session.
-     * @throws PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      **/
     default SessionPrx createSession(String userId, String password, java.util.Map<String, String> context)
         throws PermissionDeniedException
@@ -122,9 +119,8 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
      * @param userId The user id.
      * @param password The password for the given user id.
      * @return A proxy for the newly created session.
-     * @throws PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      **/
     default AdminSessionPrx createAdminSession(String userId, String password)
         throws PermissionDeniedException
@@ -138,9 +134,8 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
      * @param password The password for the given user id.
      * @param context The Context map to send with the invocation.
      * @return A proxy for the newly created session.
-     * @throws PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      **/
     default AdminSessionPrx createAdminSession(String userId, String password, java.util.Map<String, String> context)
         throws PermissionDeniedException
@@ -213,9 +208,8 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Create a client session from a secure connection.
      * @return A proxy for the newly created session.
-     * @throws PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      **/
     default SessionPrx createSessionFromSecureConnection()
         throws PermissionDeniedException
@@ -227,9 +221,8 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
      * Create a client session from a secure connection.
      * @param context The Context map to send with the invocation.
      * @return A proxy for the newly created session.
-     * @throws PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      **/
     default SessionPrx createSessionFromSecureConnection(java.util.Map<String, String> context)
         throws PermissionDeniedException
@@ -293,9 +286,8 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Create an administrative session from a secure connection.
      * @return A proxy for the newly created session.
-     * @throws PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      **/
     default AdminSessionPrx createAdminSessionFromSecureConnection()
         throws PermissionDeniedException
@@ -307,9 +299,8 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
      * Create an administrative session from a secure connection.
      * @param context The Context map to send with the invocation.
      * @return A proxy for the newly created session.
-     * @throws PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      **/
     default AdminSessionPrx createAdminSessionFromSecureConnection(java.util.Map<String, String> context)
         throws PermissionDeniedException
@@ -371,9 +362,8 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     /**
-     * Get the session timeout. If a client or administrative client
-     * doesn't call the session keepAlive method in the time interval
-     * defined by this timeout, IceGrid might reap the session.
+     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+     * the time interval defined by this timeout, IceGrid might reap the session.
      * @return The timeout (in seconds).
      *
      * @see Session#keepAlive
@@ -385,9 +375,8 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the session timeout. If a client or administrative client
-     * doesn't call the session keepAlive method in the time interval
-     * defined by this timeout, IceGrid might reap the session.
+     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+     * the time interval defined by this timeout, IceGrid might reap the session.
      * @param context The Context map to send with the invocation.
      * @return The timeout (in seconds).
      *
@@ -400,9 +389,8 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the session timeout. If a client or administrative client
-     * doesn't call the session keepAlive method in the time interval
-     * defined by this timeout, IceGrid might reap the session.
+     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+     * the time interval defined by this timeout, IceGrid might reap the session.
      * @return The timeout (in seconds).
      *
      * @see Session#keepAlive
@@ -414,9 +402,8 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the session timeout. If a client or administrative client
-     * doesn't call the session keepAlive method in the time interval
-     * defined by this timeout, IceGrid might reap the session.
+     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+     * the time interval defined by this timeout, IceGrid might reap the session.
      * @param context The Context map to send with the invocation.
      * @return The timeout (in seconds).
      *
@@ -446,11 +433,8 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM
-     * connection heartbeats can enable them instead of explicitly
-     * sending keep alives requests.
-     *
-     * NOTE: This method is only available since Ice 3.6.
+     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
      * @return The timeout (in seconds).
      **/
     default int getACMTimeout()
@@ -459,11 +443,8 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM
-     * connection heartbeats can enable them instead of explicitly
-     * sending keep alives requests.
-     *
-     * NOTE: This method is only available since Ice 3.6.
+     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
      * @param context The Context map to send with the invocation.
      * @return The timeout (in seconds).
      **/
@@ -473,11 +454,8 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM
-     * connection heartbeats can enable them instead of explicitly
-     * sending keep alives requests.
-     *
-     * NOTE: This method is only available since Ice 3.6.
+     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
      * @return The timeout (in seconds).
      **/
     default java.util.concurrent.CompletableFuture<java.lang.Integer> getACMTimeoutAsync()
@@ -486,11 +464,8 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM
-     * connection heartbeats can enable them instead of explicitly
-     * sending keep alives requests.
-     *
-     * NOTE: This method is only available since Ice 3.6.
+     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
      * @param context The Context map to send with the invocation.
      * @return The timeout (in seconds).
      **/

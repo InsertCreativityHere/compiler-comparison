@@ -37,8 +37,7 @@ const Slice = Ice.Slice;
 /* slice2js browser-bundle-skip-end */
 
 /**
- * An enumeration representing the different types of log messages.
- *
+ *  An enumeration representing the different types of log messages.
  **/
 Ice.LogMessageType = Slice.defineEnum([
     ['PrintMessage', 0], ['TraceMessage', 1], ['WarningMessage', 2], ['ErrorMessage', 3]]);
@@ -46,8 +45,7 @@ Ice.LogMessageType = Slice.defineEnum([
 Slice.defineSequence(Ice, "LogMessageTypeSeqHelper", "Ice.LogMessageType._helper", false);
 
 /**
- * A complete log message.
- *
+ *  A complete log message.
  **/
 Ice.LogMessage = class
 {
@@ -91,10 +89,8 @@ const iceC_Ice_RemoteLogger_ids = [
 ];
 
 /**
- * The Ice remote logger interface. An application can implement a
- * RemoteLogger to receive the log messages sent to the local {@link Logger}
- * of another Ice application.
- *
+ *  The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
+ *  to the local {@link Logger} of another Ice application.
  **/
 Ice.RemoteLogger = class extends Ice.Object
 {
@@ -111,8 +107,7 @@ Slice.defineOperations(Ice.RemoteLogger, Ice.RemoteLoggerPrx, iceC_Ice_RemoteLog
 });
 
 /**
- * Thrown when the provided RemoteLogger was previously attached to a LoggerAdmin.
- *
+ *  Thrown when the provided RemoteLogger was previously attached to a LoggerAdmin.
  **/
 Ice.RemoteLoggerAlreadyAttachedException = class extends Ice.UserException
 {
@@ -143,9 +138,8 @@ const iceC_Ice_LoggerAdmin_ids = [
 ];
 
 /**
- * The interface of the admin object that allows an Ice application the attach its
- * {@link RemoteLogger} to the {@link Logger} of this admin object's Ice communicator.
- *
+ *  The interface of the admin object that allows an Ice application the attach its
+ *  {@link RemoteLogger} to the {@link Logger} of this admin object's Ice communicator.
  **/
 Ice.LoggerAdmin = class extends Ice.Object
 {

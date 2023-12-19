@@ -42,8 +42,7 @@ classdef ReplicaObserverPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('replicaInit', 0, false, os_, 0, [], {}, varargin{:});
         end
         function replicaAdded(obj, replica, varargin)
-            % replicaAdded   Notification that a replica has been added. The node should
-            % establish a session with this new replica.
+            % replicaAdded   Notification that a replica has been added. The node should establish a session with this new replica.
             %
             % Parameters:
             %   replica (IceGrid.InternalRegistryPrx)
@@ -55,8 +54,7 @@ classdef ReplicaObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('replicaAdded', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = replicaAddedAsync(obj, replica, varargin)
-            % replicaAddedAsync   Notification that a replica has been added. The node should
-            % establish a session with this new replica.
+            % replicaAddedAsync   Notification that a replica has been added. The node should establish a session with this new replica.
             %
             % Parameters:
             %   replica (IceGrid.InternalRegistryPrx)
@@ -70,8 +68,7 @@ classdef ReplicaObserverPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('replicaAdded', 0, false, os_, 0, [], {}, varargin{:});
         end
         function replicaRemoved(obj, replica, varargin)
-            % replicaRemoved   Notification that a replica has been removed. The node should
-            % destroy the session to this replica.
+            % replicaRemoved   Notification that a replica has been removed. The node should destroy the session to this replica.
             %
             % Parameters:
             %   replica (IceGrid.InternalRegistryPrx)
@@ -83,8 +80,7 @@ classdef ReplicaObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('replicaRemoved', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = replicaRemovedAsync(obj, replica, varargin)
-            % replicaRemovedAsync   Notification that a replica has been removed. The node should
-            % destroy the session to this replica.
+            % replicaRemovedAsync   Notification that a replica has been removed. The node should destroy the session to this replica.
             %
             % Parameters:
             %   replica (IceGrid.InternalRegistryPrx)

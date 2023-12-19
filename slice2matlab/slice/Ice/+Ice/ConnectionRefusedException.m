@@ -1,7 +1,6 @@
 % ConnectionRefusedException   Summary of ConnectionRefusedException
 %
-% This exception indicates a connection failure for which
-% the server host actively refuses a connection.
+% This exception indicates a connection failure for which the server host actively refuses a connection.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from LocalException.ice by slice2matlab version 3.7.10

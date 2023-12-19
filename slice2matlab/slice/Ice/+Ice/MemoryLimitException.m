@@ -1,7 +1,6 @@
 % MemoryLimitException   Summary of MemoryLimitException
 %
-% This exception is raised when Ice receives a request or reply
-% message whose size exceeds the limit specified by the
+% This exception is raised when Ice receives a request or reply message whose size exceeds the limit specified by the
 % Ice.MessageSizeMax property.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.

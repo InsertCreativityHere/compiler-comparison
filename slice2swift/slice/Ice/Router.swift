@@ -28,15 +28,14 @@ public struct RouterFinderTraits: SliceTraits {
     public static let staticId = "::Ice::RouterFinder"
 }
 
-/// The Ice router interface. Routers can be set either globally with
-/// Communicator.setDefaultRouter, or with ice_router on specific
-/// proxies.
+/// The Ice router interface. Routers can be set either globally with Communicator.setDefaultRouter, or with
+/// ice_router on specific proxies.
 ///
 /// RouterPrx Methods:
 ///
-///  - getClientProxy: Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+///  - getClientProxy: Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router. If a null proxy is returned, the client will forward requests to the router's endpoints.
 ///
-///  - getClientProxyAsync: Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+///  - getClientProxyAsync: Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router. If a null proxy is returned, the client will forward requests to the router's endpoints.
 ///
 ///  - getServerProxy: Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
 ///
@@ -120,15 +119,14 @@ public extension InputStream {
     }
 }
 
-/// The Ice router interface. Routers can be set either globally with
-/// Communicator.setDefaultRouter, or with ice_router on specific
-/// proxies.
+/// The Ice router interface. Routers can be set either globally with Communicator.setDefaultRouter, or with
+/// ice_router on specific proxies.
 ///
 /// RouterPrx Methods:
 ///
-///  - getClientProxy: Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+///  - getClientProxy: Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router. If a null proxy is returned, the client will forward requests to the router's endpoints.
 ///
-///  - getClientProxyAsync: Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+///  - getClientProxyAsync: Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router. If a null proxy is returned, the client will forward requests to the router's endpoints.
 ///
 ///  - getServerProxy: Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
 ///
@@ -138,11 +136,8 @@ public extension InputStream {
 ///
 ///  - addProxiesAsync: Add new proxy information to the router's routing table.
 public extension RouterPrx {
-    /// Get the router's client proxy, i.e., the proxy to use for
-    /// forwarding requests from the client to the router.
-    ///
-    /// If a null proxy is returned, the client will forward requests
-    /// to the router's endpoints.
+    /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+    /// If a null proxy is returned, the client will forward requests to the router's endpoints.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -150,11 +145,10 @@ public extension RouterPrx {
     ///
     ///   - returnValue: `ObjectPrx?` - The router's client proxy.
     ///
-    ///   - hasRoutingTable: `Swift.Bool?` - Indicates whether or not the router supports a routing
-    /// table. If it is supported, the Ice runtime will call addProxies to populate the
-    /// routing table. This out parameter is only supported starting with Ice 3.7.
-    /// The Ice runtime assumes the router has a routing table if the optional is not
-    /// set.
+    ///   - hasRoutingTable: `Swift.Bool?` - Indicates whether or not the router supports a routing table. If it is supported, the
+    /// Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
+    /// with Ice 3.7.
+    /// The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
     func getClientProxy(context: Context? = nil) throws -> (returnValue: ObjectPrx?, hasRoutingTable: Swift.Bool?) {
         return try _impl._invoke(operation: "getClientProxy",
                                  mode: .Nonmutating,
@@ -166,11 +160,8 @@ public extension RouterPrx {
                                  context: context)
     }
 
-    /// Get the router's client proxy, i.e., the proxy to use for
-    /// forwarding requests from the client to the router.
-    ///
-    /// If a null proxy is returned, the client will forward requests
-    /// to the router's endpoints.
+    /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+    /// If a null proxy is returned, the client will forward requests to the router's endpoints.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -197,8 +188,7 @@ public extension RouterPrx {
                                   sent: sent)
     }
 
-    /// Get the router's server proxy, i.e., the proxy to use for
-    /// forwarding requests from the server to the router.
+    /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -213,8 +203,7 @@ public extension RouterPrx {
                                  context: context)
     }
 
-    /// Get the router's server proxy, i.e., the proxy to use for
-    /// forwarding requests from the server to the router.
+    /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -292,11 +281,9 @@ public extension RouterPrx {
     }
 }
 
-/// This interface should be implemented by services implementing the
-/// Ice::Router interface. It should be advertised through an Ice
-/// object with the identity `Ice/RouterFinder'. This allows clients to
-/// retrieve the router proxy with just the endpoint information of the
-/// service.
+/// This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
+/// through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
+/// just the endpoint information of the service.
 ///
 /// RouterFinderPrx Methods:
 ///
@@ -378,11 +365,9 @@ public extension InputStream {
     }
 }
 
-/// This interface should be implemented by services implementing the
-/// Ice::Router interface. It should be advertised through an Ice
-/// object with the identity `Ice/RouterFinder'. This allows clients to
-/// retrieve the router proxy with just the endpoint information of the
-/// service.
+/// This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
+/// through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
+/// just the endpoint information of the service.
 ///
 /// RouterFinderPrx Methods:
 ///
@@ -390,8 +375,8 @@ public extension InputStream {
 ///
 ///  - getRouterAsync: Get the router proxy implemented by the process hosting this finder object.
 public extension RouterFinderPrx {
-    /// Get the router proxy implemented by the process hosting this
-    /// finder object. The proxy might point to several replicas.
+    /// Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+    /// replicas.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -406,8 +391,8 @@ public extension RouterFinderPrx {
                                  context: context)
     }
 
-    /// Get the router proxy implemented by the process hosting this
-    /// finder object. The proxy might point to several replicas.
+    /// Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+    /// replicas.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -467,15 +452,11 @@ public struct RouterDisp: Disp {
     }
 }
 
-/// The Ice router interface. Routers can be set either globally with
-/// Communicator.setDefaultRouter, or with ice_router on specific
-/// proxies.
+/// The Ice router interface. Routers can be set either globally with Communicator.setDefaultRouter, or with
+/// ice_router on specific proxies.
 public protocol Router {
-    /// Get the router's client proxy, i.e., the proxy to use for
-    /// forwarding requests from the client to the router.
-    ///
-    /// If a null proxy is returned, the client will forward requests
-    /// to the router's endpoints.
+    /// Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+    /// If a null proxy is returned, the client will forward requests to the router's endpoints.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -483,15 +464,13 @@ public protocol Router {
     ///
     ///   - returnValue: `ObjectPrx?` - The router's client proxy.
     ///
-    ///   - hasRoutingTable: `Swift.Bool?` - Indicates whether or not the router supports a routing
-    /// table. If it is supported, the Ice runtime will call addProxies to populate the
-    /// routing table. This out parameter is only supported starting with Ice 3.7.
-    /// The Ice runtime assumes the router has a routing table if the optional is not
-    /// set.
+    ///   - hasRoutingTable: `Swift.Bool?` - Indicates whether or not the router supports a routing table. If it is supported, the
+    /// Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
+    /// with Ice 3.7.
+    /// The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
     func getClientProxy(current: Current) throws -> (returnValue: ObjectPrx?, hasRoutingTable: Swift.Bool?)
 
-    /// Get the router's server proxy, i.e., the proxy to use for
-    /// forwarding requests from the server to the router.
+    /// Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -537,14 +516,12 @@ public struct RouterFinderDisp: Disp {
     }
 }
 
-/// This interface should be implemented by services implementing the
-/// Ice::Router interface. It should be advertised through an Ice
-/// object with the identity `Ice/RouterFinder'. This allows clients to
-/// retrieve the router proxy with just the endpoint information of the
-/// service.
+/// This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
+/// through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
+/// just the endpoint information of the service.
 public protocol RouterFinder {
-    /// Get the router proxy implemented by the process hosting this
-    /// finder object. The proxy might point to several replicas.
+    /// Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+    /// replicas.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -552,13 +529,12 @@ public protocol RouterFinder {
     func getRouter(current: Current) throws -> RouterPrx?
 }
 
-/// The Ice router interface. Routers can be set either globally with
-/// Communicator.setDefaultRouter, or with ice_router on specific
-/// proxies.
+/// The Ice router interface. Routers can be set either globally with Communicator.setDefaultRouter, or with
+/// ice_router on specific proxies.
 ///
 /// Router Methods:
 ///
-///  - getClientProxy: Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
+///  - getClientProxy: Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router. If a null proxy is returned, the client will forward requests to the router's endpoints.
 ///
 ///  - getServerProxy: Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
 ///
@@ -599,11 +575,9 @@ public extension Router {
     }
 }
 
-/// This interface should be implemented by services implementing the
-/// Ice::Router interface. It should be advertised through an Ice
-/// object with the identity `Ice/RouterFinder'. This allows clients to
-/// retrieve the router proxy with just the endpoint information of the
-/// service.
+/// This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
+/// through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
+/// just the endpoint information of the service.
 ///
 /// RouterFinder Methods:
 ///

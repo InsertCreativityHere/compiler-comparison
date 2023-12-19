@@ -1,7 +1,6 @@
 % LookupPrx   Summary of LookupPrx
 %
-% The Lookup interface is used by IceDiscovery clients to look for objects
-% and adapters using UDP multicast.
+% The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
 %
 % LookupPrx Methods:
 %   findObjectById - Request to find an Ice object
@@ -20,11 +19,11 @@ classdef LookupPrx < Ice.ObjectPrx
             % findObjectById   Request to find an Ice object
             %
             % Parameters:
-            %   domainId (char) - The IceDiscovery domain identifier. An IceDiscovery client only
-            %     replies to requests with a matching domain identifier.
+            %   domainId (char) - The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+            %     matching domain identifier.
             %   id (Ice.Identity) - The object identity.
-            %   reply (IceDiscovery.LookupReplyPrx) - The proxy of the LookupReply interface that should be used to send
-            %     the reply if a matching object is found.
+            %   reply (IceDiscovery.LookupReplyPrx) - The proxy of the LookupReply interface that should be used to send the reply if a matching
+            %     object is found.
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
@@ -38,11 +37,11 @@ classdef LookupPrx < Ice.ObjectPrx
             % findObjectByIdAsync   Request to find an Ice object
             %
             % Parameters:
-            %   domainId (char) - The IceDiscovery domain identifier. An IceDiscovery client only
-            %     replies to requests with a matching domain identifier.
+            %   domainId (char) - The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+            %     matching domain identifier.
             %   id (Ice.Identity) - The object identity.
-            %   reply (IceDiscovery.LookupReplyPrx) - The proxy of the LookupReply interface that should be used to send
-            %     the reply if a matching object is found.
+            %   reply (IceDiscovery.LookupReplyPrx) - The proxy of the LookupReply interface that should be used to send the reply if a matching
+            %     object is found.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -58,11 +57,11 @@ classdef LookupPrx < Ice.ObjectPrx
             % findAdapterById   Request to find an object adapter
             %
             % Parameters:
-            %   domainId (char) - The IceDiscovery domain identifier. An IceDiscovery client only
-            %     replies to requests with a matching domain identifier.
+            %   domainId (char) - The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+            %     matching domain identifier.
             %   id (char) - The adapter ID.
-            %   reply (IceDiscovery.LookupReplyPrx) - The proxy of the LookupReply interface that should be used to send
-            %     the reply if a matching adapter is found.
+            %   reply (IceDiscovery.LookupReplyPrx) - The proxy of the LookupReply interface that should be used to send the reply if a matching
+            %     adapter is found.
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
@@ -76,11 +75,11 @@ classdef LookupPrx < Ice.ObjectPrx
             % findAdapterByIdAsync   Request to find an object adapter
             %
             % Parameters:
-            %   domainId (char) - The IceDiscovery domain identifier. An IceDiscovery client only
-            %     replies to requests with a matching domain identifier.
+            %   domainId (char) - The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+            %     matching domain identifier.
             %   id (char) - The adapter ID.
-            %   reply (IceDiscovery.LookupReplyPrx) - The proxy of the LookupReply interface that should be used to send
-            %     the reply if a matching adapter is found.
+            %   reply (IceDiscovery.LookupReplyPrx) - The proxy of the LookupReply interface that should be used to send the reply if a matching
+            %     adapter is found.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.

@@ -1,9 +1,7 @@
 % SessionPrx   Summary of SessionPrx
 %
-% A session object is used by IceGrid clients to allocate and
-% release objects. Client sessions are created either via the
-% Registry object or via the registry client SessionManager
-% object.
+% A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
+% via the Registry object or via the registry client SessionManager object.
 %
 % SessionPrx Methods:
 %   keepAlive - Keep the session alive.
@@ -27,8 +25,8 @@
 classdef SessionPrx < Glacier2.SessionPrx
     methods
         function keepAlive(obj, varargin)
-            % keepAlive   Keep the session alive. Clients should call this operation
-            % regularly to prevent the server from reaping the session.
+            % keepAlive   Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+            % session.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -38,8 +36,8 @@ classdef SessionPrx < Glacier2.SessionPrx
             obj.iceInvoke('keepAlive', 2, false, [], false, {}, varargin{:});
         end
         function r_ = keepAliveAsync(obj, varargin)
-            % keepAliveAsync   Keep the session alive. Clients should call this operation
-            % regularly to prevent the server from reaping the session.
+            % keepAliveAsync   Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+            % session.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -51,9 +49,8 @@ classdef SessionPrx < Glacier2.SessionPrx
             r_ = obj.iceInvokeAsync('keepAlive', 2, false, [], 0, [], {}, varargin{:});
         end
         function result = allocateObjectById(obj, id, varargin)
-            % allocateObjectById   Allocate an object. Depending on the allocation timeout, this
-            % operation might hang until the object is available or until the
-            % timeout is reached.
+            % allocateObjectById   Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+            % available or until the timeout is reached.
             %
             % Parameters:
             %   id (Ice.Identity) - The identity of the object to allocate.
@@ -62,10 +59,9 @@ classdef SessionPrx < Glacier2.SessionPrx
             % Returns (Ice.ObjectPrx) - The proxy of the allocated object.
             %
             % Exceptions:
-            %   IceGrid.AllocationException - Raised if the object can't be
-            %     allocated.
-            %   IceGrid.ObjectNotRegisteredException - Raised if the object with
-            %     the given identity is not registered with the registry.
+            %   IceGrid.AllocationException - Raised if the object can't be allocated.
+            %   IceGrid.ObjectNotRegisteredException - Raised if the object with the given identity is not registered with
+            %     the registry.
             %
             % See also setAllocationTimeout, releaseObject
             
@@ -78,9 +74,8 @@ classdef SessionPrx < Glacier2.SessionPrx
             is_.endEncapsulation();
         end
         function r_ = allocateObjectByIdAsync(obj, id, varargin)
-            % allocateObjectByIdAsync   Allocate an object. Depending on the allocation timeout, this
-            % operation might hang until the object is available or until the
-            % timeout is reached.
+            % allocateObjectByIdAsync   Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+            % available or until the timeout is reached.
             %
             % Parameters:
             %   id (Ice.Identity) - The identity of the object to allocate.
@@ -89,10 +84,9 @@ classdef SessionPrx < Glacier2.SessionPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.AllocationException - Raised if the object can't be
-            %     allocated.
-            %   IceGrid.ObjectNotRegisteredException - Raised if the object with
-            %     the given identity is not registered with the registry.
+            %   IceGrid.AllocationException - Raised if the object can't be allocated.
+            %   IceGrid.ObjectNotRegisteredException - Raised if the object with the given identity is not registered with
+            %     the registry.
             %
             % See also setAllocationTimeout, releaseObject
             
@@ -108,9 +102,8 @@ classdef SessionPrx < Glacier2.SessionPrx
             r_ = obj.iceInvokeAsync('allocateObjectById', 0, true, os_, 1, @unmarshal, IceGrid.SessionPrx.allocateObjectById_ex_, varargin{:});
         end
         function result = allocateObjectByType(obj, type, varargin)
-            % allocateObjectByType   Allocate an object with the given type. Depending on the
-            % allocation timeout, this operation can block until an object
-            % becomes available or until the timeout is reached.
+            % allocateObjectByType   Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+            % an object becomes available or until the timeout is reached.
             %
             % Parameters:
             %   type (char) - The type of the object.
@@ -132,9 +125,8 @@ classdef SessionPrx < Glacier2.SessionPrx
             is_.endEncapsulation();
         end
         function r_ = allocateObjectByTypeAsync(obj, type, varargin)
-            % allocateObjectByTypeAsync   Allocate an object with the given type. Depending on the
-            % allocation timeout, this operation can block until an object
-            % becomes available or until the timeout is reached.
+            % allocateObjectByTypeAsync   Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+            % an object becomes available or until the timeout is reached.
             %
             % Parameters:
             %   type (char) - The type of the object.
@@ -167,11 +159,10 @@ classdef SessionPrx < Glacier2.SessionPrx
             %   context (containers.Map) - Optional request context.
             %
             % Exceptions:
-            %   IceGrid.AllocationException - Raised if the given object can't be
-            %     released. This might happen if the object isn't allocatable or
-            %     isn't allocated by the session.
-            %   IceGrid.ObjectNotRegisteredException - Raised if the object with
-            %     the given identity is not registered with the registry.
+            %   IceGrid.AllocationException - Raised if the given object can't be released. This might happen if the object
+            %     isn't allocatable or isn't allocated by the session.
+            %   IceGrid.ObjectNotRegisteredException - Raised if the object with the given identity is not registered with
+            %     the registry.
             
             os_ = obj.iceStartWriteParams([]);
             Ice.Identity.ice_write(os_, id);
@@ -189,11 +180,10 @@ classdef SessionPrx < Glacier2.SessionPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.AllocationException - Raised if the given object can't be
-            %     released. This might happen if the object isn't allocatable or
-            %     isn't allocated by the session.
-            %   IceGrid.ObjectNotRegisteredException - Raised if the object with
-            %     the given identity is not registered with the registry.
+            %   IceGrid.AllocationException - Raised if the given object can't be released. This might happen if the object
+            %     isn't allocatable or isn't allocated by the session.
+            %   IceGrid.ObjectNotRegisteredException - Raised if the object with the given identity is not registered with
+            %     the registry.
             
             os_ = obj.iceStartWriteParams([]);
             Ice.Identity.ice_write(os_, id);
@@ -201,9 +191,8 @@ classdef SessionPrx < Glacier2.SessionPrx
             r_ = obj.iceInvokeAsync('releaseObject', 0, true, os_, 0, [], IceGrid.SessionPrx.releaseObject_ex_, varargin{:});
         end
         function setAllocationTimeout(obj, timeout, varargin)
-            % setAllocationTimeout   Set the allocation timeout. If no objects are available for an
-            % allocation request, a call to allocateObjectById or
-            % allocateObjectByType will block for the duration of this
+            % setAllocationTimeout   Set the allocation timeout. If no objects are available for an allocation request, a call to
+            % allocateObjectById or allocateObjectByType will block for the duration of this
             % timeout.
             %
             % Parameters:
@@ -216,9 +205,8 @@ classdef SessionPrx < Glacier2.SessionPrx
             obj.iceInvoke('setAllocationTimeout', 2, false, os_, false, {}, varargin{:});
         end
         function r_ = setAllocationTimeoutAsync(obj, timeout, varargin)
-            % setAllocationTimeoutAsync   Set the allocation timeout. If no objects are available for an
-            % allocation request, a call to allocateObjectById or
-            % allocateObjectByType will block for the duration of this
+            % setAllocationTimeoutAsync   Set the allocation timeout. If no objects are available for an allocation request, a call to
+            % allocateObjectById or allocateObjectByType will block for the duration of this
             % timeout.
             %
             % Parameters:

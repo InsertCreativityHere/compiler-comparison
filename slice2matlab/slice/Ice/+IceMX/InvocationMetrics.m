@@ -1,7 +1,6 @@
 % InvocationMetrics   Summary of InvocationMetrics
 %
-% Provide measurements for proxy invocations. Proxy invocations can
-% either be sent over the wire or be collocated.
+% Provide measurements for proxy invocations. Proxy invocations can either be sent over the wire or be collocated.
 %
 % InvocationMetrics Properties:
 %   retry - The number of retries for the invocation(s).

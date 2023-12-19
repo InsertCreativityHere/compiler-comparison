@@ -353,8 +353,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-/// This exception is raised if an adapter with the same name already
-/// exists.
+/// This exception is raised if an adapter with the same name already exists.
 open class AdapterExistsException: Ice.UserException {
     public var id: Swift.String = ""
 
@@ -626,8 +625,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-/// This exception is raised if a node is already registered and
-/// active.
+/// This exception is raised if a node is already registered and active.
 open class NodeActiveException: Ice.UserException {
     public required init() {}
 
@@ -668,8 +666,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-/// This exception is raised if a replica is already registered and
-/// active.
+/// This exception is raised if a replica is already registered and active.
 open class ReplicaActiveException: Ice.UserException {
     public required init() {}
 
@@ -958,11 +955,9 @@ public extension Ice.InputStream {
 ///
 ///  - setDirectProxyAsync: Set the direct proxy for this adapter.
 public extension AdapterPrx {
-    /// Activate this adapter. If this adapter can be activated, this
-    /// will activate the adapter and return the direct proxy of the
-    /// adapter once it's active. If this adapter can be activated on
-    /// demand, this will return 0 if the adapter is inactive or the
-    /// adapter direct proxy it's active.
+    /// Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+    /// proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+    /// adapter is inactive or the adapter direct proxy it's active.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -977,11 +972,9 @@ public extension AdapterPrx {
                                  context: context)
     }
 
-    /// Activate this adapter. If this adapter can be activated, this
-    /// will activate the adapter and return the direct proxy of the
-    /// adapter once it's active. If this adapter can be activated on
-    /// demand, this will return 0 if the adapter is inactive or the
-    /// adapter direct proxy it's active.
+    /// Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+    /// proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+    /// adapter is inactive or the adapter direct proxy it's active.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1007,14 +1000,12 @@ public extension AdapterPrx {
                                   sent: sent)
     }
 
-    /// Get the adapter direct proxy. The adapter direct proxy is a
-    /// proxy created with the object adapter. The proxy contains the
-    /// last known adapter endpoints.
+    /// Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+    /// contains the last known adapter endpoints.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A direct proxy containing the last known adapter
-    /// endpoints if the adapter is already active.
+    /// - returns: `Ice.ObjectPrx?` - A direct proxy containing the last known adapter endpoints if the adapter is already active.
     func getDirectProxy(context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
         return try _impl._invoke(operation: "getDirectProxy",
                                  mode: .Nonmutating,
@@ -1032,9 +1023,8 @@ public extension AdapterPrx {
                                  context: context)
     }
 
-    /// Get the adapter direct proxy. The adapter direct proxy is a
-    /// proxy created with the object adapter. The proxy contains the
-    /// last known adapter endpoints.
+    /// Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+    /// contains the last known adapter endpoints.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1075,9 +1065,8 @@ public extension AdapterPrx {
     ///
     /// - throws:
     ///
-    ///   - AdapterActiveException - The adapter is already
-    ///     active. It's not possible to override the direct proxy of an
-    ///     active adapter.
+    ///   - AdapterActiveException - The adapter is already active. It's not possible to override the direct proxy of
+    ///     an active adapter.
     func setDirectProxy(_ iceP_proxy: Ice.ObjectPrx?, context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "setDirectProxy",
                           mode: .Normal,
@@ -1227,8 +1216,7 @@ public extension Ice.InputStream {
 ///
 ///  - readAsync: Read lines (or size bytes) at the specified position from the given file.
 public extension FileReaderPrx {
-    /// Count the number of given lines from the end of the file and
-    /// return the file offset.
+    /// Count the number of given lines from the end of the file and return the file offset.
     ///
     /// - parameter filename: `Swift.String`
     ///
@@ -1258,8 +1246,7 @@ public extension FileReaderPrx {
                                  context: context)
     }
 
-    /// Count the number of given lines from the end of the file and
-    /// return the file offset.
+    /// Count the number of given lines from the end of the file and return the file offset.
     ///
     /// - parameter filename: `Swift.String`
     ///
@@ -1595,9 +1582,8 @@ public extension ServerPrx {
                                   sent: sent)
     }
 
-    /// Stop the server. This methods returns only when the server is
-    /// deactivated. If the server doesn't stop after a configurable
-    /// amount of time, it will be killed.
+    /// Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+    /// configurable amount of time, it will be killed.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func stop(context: Ice.Context? = nil) throws {
@@ -1613,9 +1599,8 @@ public extension ServerPrx {
                           context: context)
     }
 
-    /// Stop the server. This methods returns only when the server is
-    /// deactivated. If the server doesn't stop after a configurable
-    /// amount of time, it will be killed.
+    /// Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+    /// configurable amount of time, it will be killed.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1946,10 +1931,8 @@ public extension ServerPrx {
                                   sent: sent)
     }
 
-    /// Get the server pid. Note that the value returned by this method
-    /// is system dependant. On Unix operating systems, it's the pid
-    /// value returned by the fork() system call and converted to an
-    /// integer.
+    /// Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+    /// it's the pid value returned by the fork() system call and converted to an integer.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1964,10 +1947,8 @@ public extension ServerPrx {
                                  context: context)
     }
 
-    /// Get the server pid. Note that the value returned by this method
-    /// is system dependant. On Unix operating systems, it's the pid
-    /// value returned by the fork() system call and converted to an
-    /// integer.
+    /// Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+    /// it's the pid value returned by the fork() system call and converted to an integer.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -2182,8 +2163,7 @@ public extension ReplicaObserverPrx {
                                   sent: sent)
     }
 
-    /// Notification that a replica has been added. The node should
-    /// establish a session with this new replica.
+    /// Notification that a replica has been added. The node should establish a session with this new replica.
     ///
     /// - parameter _: `InternalRegistryPrx?`
     ///
@@ -2197,8 +2177,7 @@ public extension ReplicaObserverPrx {
                           context: context)
     }
 
-    /// Notification that a replica has been added. The node should
-    /// establish a session with this new replica.
+    /// Notification that a replica has been added. The node should establish a session with this new replica.
     ///
     /// - parameter _: `InternalRegistryPrx?`
     ///
@@ -2225,8 +2204,7 @@ public extension ReplicaObserverPrx {
                                   sent: sent)
     }
 
-    /// Notification that a replica has been removed. The node should
-    /// destroy the session to this replica.
+    /// Notification that a replica has been removed. The node should destroy the session to this replica.
     ///
     /// - parameter _: `InternalRegistryPrx?`
     ///
@@ -2240,8 +2218,7 @@ public extension ReplicaObserverPrx {
                           context: context)
     }
 
-    /// Notification that a replica has been removed. The node should
-    /// destroy the session to this replica.
+    /// Notification that a replica has been removed. The node should destroy the session to this replica.
     ///
     /// - parameter _: `InternalRegistryPrx?`
     ///
@@ -2610,9 +2587,8 @@ public extension Ice.InputStream {
 ///
 ///  - shutdownAsync: Shutdown the node.
 public extension NodePrx {
-    /// Load the given server. If the server resources weren't already
-    /// created (database environment directories, property files, etc),
-    /// they will be created.
+    /// Load the given server. If the server resources weren't already created (database environment directories,
+    /// property files, etc), they will be created.
     ///
     /// - parameter svr: `InternalServerDescriptor?`
     ///
@@ -2654,9 +2630,8 @@ public extension NodePrx {
                                  context: context)
     }
 
-    /// Load the given server. If the server resources weren't already
-    /// created (database environment directories, property files, etc),
-    /// they will be created.
+    /// Load the given server. If the server resources weren't already created (database environment directories,
+    /// property files, etc), they will be created.
     ///
     /// - parameter svr: `InternalServerDescriptor?`
     ///
@@ -2701,11 +2676,9 @@ public extension NodePrx {
                                   sent: sent)
     }
 
-    /// Load the given server and ensure the server won't be
-    /// restarted. If the server resources weren't already created
-    /// (database environment directories, property files, etc), they
-    /// will be created. If the server can't be updated without a
-    /// restart, a DeploymentException is raised.
+    /// Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+    /// (database environment directories, property files, etc), they will be created. If the server can't be updated
+    /// without a restart, a DeploymentException is raised.
     ///
     /// - parameter svr: `InternalServerDescriptor?`
     ///
@@ -2747,11 +2720,9 @@ public extension NodePrx {
                                  context: context)
     }
 
-    /// Load the given server and ensure the server won't be
-    /// restarted. If the server resources weren't already created
-    /// (database environment directories, property files, etc), they
-    /// will be created. If the server can't be updated without a
-    /// restart, a DeploymentException is raised.
+    /// Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+    /// (database environment directories, property files, etc), they will be created. If the server can't be updated
+    /// without a restart, a DeploymentException is raised.
     ///
     /// - parameter svr: `InternalServerDescriptor?`
     ///
@@ -2942,10 +2913,9 @@ public extension NodePrx {
                                   sent: sent)
     }
 
-    /// Patch application and server distributions. If some servers
-    /// using a distribution directory to patch are active, this method
-    /// will raise a PatchException unless shutdown is set to true. In
-    /// which case the servers will be shutdown.
+    /// Patch application and server distributions. If some servers using a distribution directory to patch are active,
+    /// this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
+    /// shutdown.
     ///
     /// - parameter feedback: `PatcherFeedbackPrx?`
     ///
@@ -2972,10 +2942,9 @@ public extension NodePrx {
                           context: context)
     }
 
-    /// Patch application and server distributions. If some servers
-    /// using a distribution directory to patch are active, this method
-    /// will raise a PatchException unless shutdown is set to true. In
-    /// which case the servers will be shutdown.
+    /// Patch application and server distributions. If some servers using a distribution directory to patch are active,
+    /// this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
+    /// shutdown.
     ///
     /// - parameter feedback: `PatcherFeedbackPrx?`
     ///
@@ -3015,8 +2984,7 @@ public extension NodePrx {
                                   sent: sent)
     }
 
-    /// Establish a session to the given replica, this method only
-    /// returns once the registration was attempted (unlike
+    /// Establish a session to the given replica, this method only returns once the registration was attempted (unlike
     /// replicaAdded below).
     ///
     /// - parameter _: `InternalRegistryPrx?`
@@ -3031,8 +2999,7 @@ public extension NodePrx {
                           context: context)
     }
 
-    /// Establish a session to the given replica, this method only
-    /// returns once the registration was attempted (unlike
+    /// Establish a session to the given replica, this method only returns once the registration was attempted (unlike
     /// replicaAdded below).
     ///
     /// - parameter _: `InternalRegistryPrx?`
@@ -3183,8 +3150,7 @@ public extension NodePrx {
                                   sent: sent)
     }
 
-    /// Get the number of processor sockets for the machine where this
-    /// node is running.
+    /// Get the number of processor sockets for the machine where this node is running.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -3199,8 +3165,7 @@ public extension NodePrx {
                                  context: context)
     }
 
-    /// Get the number of processor sockets for the machine where this
-    /// node is running.
+    /// Get the number of processor sockets for the machine where this node is running.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -3445,9 +3410,8 @@ public extension NodeSessionPrx {
                                   sent: sent)
     }
 
-    /// Set the replica observer. The node calls this method when it's
-    /// ready to receive notifications for the replicas. It only calls
-    /// this for the session with the master.
+    /// Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+    /// It only calls this for the session with the master.
     ///
     /// - parameter _: `ReplicaObserverPrx?`
     ///
@@ -3461,9 +3425,8 @@ public extension NodeSessionPrx {
                           context: context)
     }
 
-    /// Set the replica observer. The node calls this method when it's
-    /// ready to receive notifications for the replicas. It only calls
-    /// this for the session with the master.
+    /// Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+    /// It only calls this for the session with the master.
     ///
     /// - parameter _: `ReplicaObserverPrx?`
     ///
@@ -3644,11 +3607,9 @@ public extension NodeSessionPrx {
                                   sent: sent)
     }
 
-    /// Wait for the application update to complete (the application is
-    /// completely updated once all the registry replicas have been
-    /// updated). This is used by the node to ensure that before to
-    /// start a server all the replicas have the up-to-date descriptor
-    /// of the server.
+    /// Wait for the application update to complete (the application is completely updated once all the registry
+    /// replicas have been updated). This is used by the node to ensure that before to start a server all the
+    /// replicas have the up-to-date descriptor of the server.
     ///
     /// - parameter application: `Swift.String`
     ///
@@ -3665,11 +3626,9 @@ public extension NodeSessionPrx {
                           context: context)
     }
 
-    /// Wait for the application update to complete (the application is
-    /// completely updated once all the registry replicas have been
-    /// updated). This is used by the node to ensure that before to
-    /// start a server all the replicas have the up-to-date descriptor
-    /// of the server.
+    /// Wait for the application update to complete (the application is completely updated once all the registry
+    /// replicas have been updated). This is used by the node to ensure that before to start a server all the
+    /// replicas have the up-to-date descriptor of the server.
     ///
     /// - parameter application: `Swift.String`
     ///
@@ -4028,8 +3987,7 @@ public extension ReplicaSessionPrx {
                                   sent: sent)
     }
 
-    /// Set the database observer. Once the observer is subscribed, it
-    /// will receive the database and database updates.
+    /// Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
     ///
     /// - parameter dbObs: `DatabaseObserverPrx?`
     ///
@@ -4055,8 +4013,7 @@ public extension ReplicaSessionPrx {
                           context: context)
     }
 
-    /// Set the database observer. Once the observer is subscribed, it
-    /// will receive the database and database updates.
+    /// Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
     ///
     /// - parameter dbObs: `DatabaseObserverPrx?`
     ///
@@ -4095,9 +4052,8 @@ public extension ReplicaSessionPrx {
                                   sent: sent)
     }
 
-    /// This method sets the endpoints of the replica. This allows the
-    /// master to create proxies with multiple endpoints for replicated
-    /// objects (e.g.: IceGrid::Query object).
+    /// This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+    /// for replicated objects (e.g.: IceGrid::Query object).
     ///
     /// - parameter _: `StringObjectProxyDict`
     ///
@@ -4111,9 +4067,8 @@ public extension ReplicaSessionPrx {
                           context: context)
     }
 
-    /// This method sets the endpoints of the replica. This allows the
-    /// master to create proxies with multiple endpoints for replicated
-    /// objects (e.g.: IceGrid::Query object).
+    /// This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+    /// for replicated objects (e.g.: IceGrid::Query object).
     ///
     /// - parameter _: `StringObjectProxyDict`
     ///
@@ -4181,9 +4136,8 @@ public extension ReplicaSessionPrx {
                                   sent: sent)
     }
 
-    /// Set the adapter direct proxy of the given adapter in the
-    /// master. This is used to support dynamic registration with
-    /// the locator registry interface.
+    /// Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+    /// with the locator registry interface.
     ///
     /// - parameter adapterId: `Swift.String`
     ///
@@ -4212,9 +4166,8 @@ public extension ReplicaSessionPrx {
                           context: context)
     }
 
-    /// Set the adapter direct proxy of the given adapter in the
-    /// master. This is used to support dynamic registration with
-    /// the locator registry interface.
+    /// Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+    /// with the locator registry interface.
     ///
     /// - parameter adapterId: `Swift.String`
     ///
@@ -4256,9 +4209,8 @@ public extension ReplicaSessionPrx {
                                   sent: sent)
     }
 
-    /// Notify the master that an update was received. The master might
-    /// wait for replication updates to be received by all the replicas
-    /// before to continue.
+    /// Notify the master that an update was received. The master might wait for replication updates to be received by
+    /// all the replicas before to continue.
     ///
     /// - parameter name: `TopicName`
     ///
@@ -4278,9 +4230,8 @@ public extension ReplicaSessionPrx {
                           context: context)
     }
 
-    /// Notify the master that an update was received. The master might
-    /// wait for replication updates to be received by all the replicas
-    /// before to continue.
+    /// Notify the master that an update was received. The master might wait for replication updates to be received by
+    /// all the replicas before to continue.
     ///
     /// - parameter name: `TopicName`
     ///
@@ -4499,9 +4450,8 @@ public extension Ice.InputStream {
 ///
 ///  - shutdownAsync: Shutdown this registry.
 public extension InternalRegistryPrx {
-    /// Register a node with the registry. If a node with the same name
-    /// is already registered, [registerNode] will overide the previous
-    /// node only if it's not active.
+    /// Register a node with the registry. If a node with the same name is already registered, [registerNode] will
+    /// overide the previous node only if it's not active.
     ///
     /// - parameter info: `InternalNodeInfo?` Some information on the node.
     ///
@@ -4515,8 +4465,7 @@ public extension InternalRegistryPrx {
     ///
     /// - throws:
     ///
-    ///   - NodeActiveException - Raised if the node is already
-    ///     registered and currently active.
+    ///   - NodeActiveException - Raised if the node is already registered and currently active.
     func registerNode(info iceP_info: InternalNodeInfo?, prx iceP_prx: NodePrx?, loadInf iceP_loadInf: LoadInfo, context: Ice.Context? = nil) throws -> NodeSessionPrx? {
         return try _impl._invoke(operation: "registerNode",
                                  mode: .Normal,
@@ -4542,9 +4491,8 @@ public extension InternalRegistryPrx {
                                  context: context)
     }
 
-    /// Register a node with the registry. If a node with the same name
-    /// is already registered, [registerNode] will overide the previous
-    /// node only if it's not active.
+    /// Register a node with the registry. If a node with the same name is already registered, [registerNode] will
+    /// overide the previous node only if it's not active.
     ///
     /// - parameter info: `InternalNodeInfo?` Some information on the node.
     ///
@@ -4591,9 +4539,8 @@ public extension InternalRegistryPrx {
                                   sent: sent)
     }
 
-    /// Register a replica with the registry. If a replica with the
-    /// same name is already registered, [registerReplica] will overide
-    /// the previous replica only if it's not active.
+    /// Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
+    /// will overide the previous replica only if it's not active.
     ///
     /// - parameter info: `InternalReplicaInfo?` Some information on the replica.
     ///
@@ -4605,8 +4552,7 @@ public extension InternalRegistryPrx {
     ///
     /// - throws:
     ///
-    ///   - ReplicaActiveException - Raised if the replica is already
-    ///     registered and currently active.
+    ///   - ReplicaActiveException - Raised if the replica is already registered and currently active.
     func registerReplica(info iceP_info: InternalReplicaInfo?, prx iceP_prx: InternalRegistryPrx?, context: Ice.Context? = nil) throws -> ReplicaSessionPrx? {
         return try _impl._invoke(operation: "registerReplica",
                                  mode: .Normal,
@@ -4631,9 +4577,8 @@ public extension InternalRegistryPrx {
                                  context: context)
     }
 
-    /// Register a replica with the registry. If a replica with the
-    /// same name is already registered, [registerReplica] will overide
-    /// the previous replica only if it's not active.
+    /// Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
+    /// will overide the previous replica only if it's not active.
     ///
     /// - parameter info: `InternalReplicaInfo?` Some information on the replica.
     ///
@@ -4677,8 +4622,8 @@ public extension InternalRegistryPrx {
                                   sent: sent)
     }
 
-    /// Create a session with the given registry replica. This method
-    /// returns only once the session creation has been attempted.
+    /// Create a session with the given registry replica. This method returns only once the session creation has been
+    /// attempted.
     ///
     /// - parameter _: `InternalRegistryPrx?`
     ///
@@ -4692,8 +4637,8 @@ public extension InternalRegistryPrx {
                           context: context)
     }
 
-    /// Create a session with the given registry replica. This method
-    /// returns only once the session creation has been attempted.
+    /// Create a session with the given registry replica. This method returns only once the session creation has been
+    /// attempted.
     ///
     /// - parameter _: `InternalRegistryPrx?`
     ///
@@ -4761,8 +4706,7 @@ public extension InternalRegistryPrx {
                                   sent: sent)
     }
 
-    /// Return the proxies of all the registry replicas known by this
-    /// registry.
+    /// Return the proxies of all the registry replicas known by this registry.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -4777,8 +4721,7 @@ public extension InternalRegistryPrx {
                                  context: context)
     }
 
-    /// Return the proxies of all the registry replicas known by this
-    /// registry.
+    /// Return the proxies of all the registry replicas known by this registry.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -5308,8 +5251,7 @@ open class InternalNodeInfo: Ice.Value {
     public var name: Swift.String = ""
     /// The operating system name.
     public var os: Swift.String = ""
-    /// The network name of the host running this node (as defined in
-    /// uname()).
+    /// The network name of the host running this node (as defined in uname()).
     public var hostname: Swift.String = ""
     /// The operation system release level (as defined in uname()).
     public var release: Swift.String = ""
@@ -5317,8 +5259,7 @@ open class InternalNodeInfo: Ice.Value {
     public var version: Swift.String = ""
     /// The machine hardware type (as defined in uname()).
     public var machine: Swift.String = ""
-    /// The number of processor threads (e.g. 8 on
-    /// system with 1 quad-core CPU, with 2 threads per core)
+    /// The number of processor threads (e.g. 8 on system with 1 quad-core CPU, with 2 threads per core)
     public var nProcessors: Swift.Int32 = 0
     /// The path to the node data directory.
     public var dataDir: Swift.String = ""
@@ -5394,8 +5335,7 @@ public extension Ice.ClassResolver {
 open class InternalReplicaInfo: Ice.Value {
     /// The name of the registry.
     public var name: Swift.String = ""
-    /// The network name of the host running this registry (as defined in
-    /// uname()).
+    /// The network name of the host running this registry (as defined in uname()).
     public var hostname: Swift.String = ""
 
     public required init() {}
@@ -5468,25 +5408,21 @@ public struct AdapterDisp: Ice.Disp {
 }
 
 public protocol Adapter {
-    /// Activate this adapter. If this adapter can be activated, this
-    /// will activate the adapter and return the direct proxy of the
-    /// adapter once it's active. If this adapter can be activated on
-    /// demand, this will return 0 if the adapter is inactive or the
-    /// adapter direct proxy it's active.
+    /// Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+    /// proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+    /// adapter is inactive or the adapter direct proxy it's active.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `PromiseKit.Promise<Ice.ObjectPrx?>` - The result of the operation
     func activateAsync(current: Ice.Current) -> PromiseKit.Promise<Ice.ObjectPrx?>
 
-    /// Get the adapter direct proxy. The adapter direct proxy is a
-    /// proxy created with the object adapter. The proxy contains the
-    /// last known adapter endpoints.
+    /// Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+    /// contains the last known adapter endpoints.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A direct proxy containing the last known adapter
-    /// endpoints if the adapter is already active.
+    /// - returns: `Ice.ObjectPrx?` - A direct proxy containing the last known adapter endpoints if the adapter is already active.
     func getDirectProxy(current: Ice.Current) throws -> Ice.ObjectPrx?
 
     /// Set the direct proxy for this adapter.
@@ -5497,9 +5433,8 @@ public protocol Adapter {
     ///
     /// - throws:
     ///
-    ///   - AdapterActiveException - The adapter is already
-    ///     active. It's not possible to override the direct proxy of an
-    ///     active adapter.
+    ///   - AdapterActiveException - The adapter is already active. It's not possible to override the direct proxy of
+    ///     an active adapter.
     func setDirectProxy(proxy: Ice.ObjectPrx?, current: Ice.Current) throws
 }
 
@@ -5535,8 +5470,7 @@ public struct FileReaderDisp: Ice.Disp {
 }
 
 public protocol FileReader {
-    /// Count the number of given lines from the end of the file and
-    /// return the file offset.
+    /// Count the number of given lines from the end of the file and return the file offset.
     ///
     /// - parameter filename: `Swift.String`
     ///
@@ -5626,9 +5560,8 @@ public protocol Server: FileReader {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func startAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
 
-    /// Stop the server. This methods returns only when the server is
-    /// deactivated. If the server doesn't stop after a configurable
-    /// amount of time, it will be killed.
+    /// Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+    /// configurable amount of time, it will be killed.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -5687,10 +5620,8 @@ public protocol Server: FileReader {
     /// - returns: `ServerState` - The server state.
     func getState(current: Ice.Current) throws -> ServerState
 
-    /// Get the server pid. Note that the value returned by this method
-    /// is system dependant. On Unix operating systems, it's the pid
-    /// value returned by the fork() system call and converted to an
-    /// integer.
+    /// Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+    /// it's the pid value returned by the fork() system call and converted to an integer.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -5748,16 +5679,14 @@ public protocol ReplicaObserver {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func replicaInit(replicas: InternalRegistryPrxSeq, current: Ice.Current) throws
 
-    /// Notification that a replica has been added. The node should
-    /// establish a session with this new replica.
+    /// Notification that a replica has been added. The node should establish a session with this new replica.
     ///
     /// - parameter replica: `InternalRegistryPrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func replicaAdded(replica: InternalRegistryPrx?, current: Ice.Current) throws
 
-    /// Notification that a replica has been removed. The node should
-    /// destroy the session to this replica.
+    /// Notification that a replica has been removed. The node should destroy the session to this replica.
     ///
     /// - parameter replica: `InternalRegistryPrx?`
     ///
@@ -5870,9 +5799,8 @@ public struct NodeDisp: Ice.Disp {
 }
 
 public protocol Node: FileReader, ReplicaObserver {
-    /// Load the given server. If the server resources weren't already
-    /// created (database environment directories, property files, etc),
-    /// they will be created.
+    /// Load the given server. If the server resources weren't already created (database environment directories,
+    /// property files, etc), they will be created.
     ///
     /// - parameter svr: `InternalServerDescriptor?`
     ///
@@ -5883,11 +5811,9 @@ public protocol Node: FileReader, ReplicaObserver {
     /// - returns: `PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, actTimeout: Swift.Int32, deactTimeout: Swift.Int32)>` - The result of the operation
     func loadServerAsync(svr: InternalServerDescriptor?, replicaName: Swift.String, current: Ice.Current) -> PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, actTimeout: Swift.Int32, deactTimeout: Swift.Int32)>
 
-    /// Load the given server and ensure the server won't be
-    /// restarted. If the server resources weren't already created
-    /// (database environment directories, property files, etc), they
-    /// will be created. If the server can't be updated without a
-    /// restart, a DeploymentException is raised.
+    /// Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+    /// (database environment directories, property files, etc), they will be created. If the server can't be updated
+    /// without a restart, a DeploymentException is raised.
     ///
     /// - parameter svr: `InternalServerDescriptor?`
     ///
@@ -5928,10 +5854,9 @@ public protocol Node: FileReader, ReplicaObserver {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func destroyServerWithoutRestartAsync(name: Swift.String, uuid: Swift.String, revision: Swift.Int32, replicaName: Swift.String, current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
 
-    /// Patch application and server distributions. If some servers
-    /// using a distribution directory to patch are active, this method
-    /// will raise a PatchException unless shutdown is set to true. In
-    /// which case the servers will be shutdown.
+    /// Patch application and server distributions. If some servers using a distribution directory to patch are active,
+    /// this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
+    /// shutdown.
     ///
     /// - parameter feedback: `PatcherFeedbackPrx?`
     ///
@@ -5948,8 +5873,7 @@ public protocol Node: FileReader, ReplicaObserver {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func patchAsync(feedback: PatcherFeedbackPrx?, application: Swift.String, server: Swift.String, appDistrib: InternalDistributionDescriptor?, shutdown: Swift.Bool, current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
 
-    /// Establish a session to the given replica, this method only
-    /// returns once the registration was attempted (unlike
+    /// Establish a session to the given replica, this method only returns once the registration was attempted (unlike
     /// replicaAdded below).
     ///
     /// - parameter replica: `InternalRegistryPrx?`
@@ -5978,8 +5902,7 @@ public protocol Node: FileReader, ReplicaObserver {
     /// - returns: `LoadInfo`
     func getLoad(current: Ice.Current) throws -> LoadInfo
 
-    /// Get the number of processor sockets for the machine where this
-    /// node is running.
+    /// Get the number of processor sockets for the machine where this node is running.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -6043,9 +5966,8 @@ public protocol NodeSession {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func keepAlive(load: LoadInfo, current: Ice.Current) throws
 
-    /// Set the replica observer. The node calls this method when it's
-    /// ready to receive notifications for the replicas. It only calls
-    /// this for the session with the master.
+    /// Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+    /// It only calls this for the session with the master.
     ///
     /// - parameter observer: `ReplicaObserverPrx?`
     ///
@@ -6080,11 +6002,9 @@ public protocol NodeSession {
     /// - returns: `Ice.StringSeq`
     func getServers(current: Ice.Current) throws -> Ice.StringSeq
 
-    /// Wait for the application update to complete (the application is
-    /// completely updated once all the registry replicas have been
-    /// updated). This is used by the node to ensure that before to
-    /// start a server all the replicas have the up-to-date descriptor
-    /// of the server.
+    /// Wait for the application update to complete (the application is completely updated once all the registry
+    /// replicas have been updated). This is used by the node to ensure that before to start a server all the
+    /// replicas have the up-to-date descriptor of the server.
     ///
     /// - parameter application: `Swift.String`
     ///
@@ -6210,8 +6130,7 @@ public protocol ReplicaSession {
     /// - returns: `Swift.Int32`
     func getTimeout(current: Ice.Current) throws -> Swift.Int32
 
-    /// Set the database observer. Once the observer is subscribed, it
-    /// will receive the database and database updates.
+    /// Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
     ///
     /// - parameter dbObs: `DatabaseObserverPrx?`
     ///
@@ -6220,9 +6139,8 @@ public protocol ReplicaSession {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func setDatabaseObserver(dbObs: DatabaseObserverPrx?, serials: StringLongDict?, current: Ice.Current) throws
 
-    /// This method sets the endpoints of the replica. This allows the
-    /// master to create proxies with multiple endpoints for replicated
-    /// objects (e.g.: IceGrid::Query object).
+    /// This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+    /// for replicated objects (e.g.: IceGrid::Query object).
     ///
     /// - parameter endpoints: `StringObjectProxyDict`
     ///
@@ -6236,9 +6154,8 @@ public protocol ReplicaSession {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func registerWellKnownObjects(objects: ObjectInfoSeq, current: Ice.Current) throws
 
-    /// Set the adapter direct proxy of the given adapter in the
-    /// master. This is used to support dynamic registration with
-    /// the locator registry interface.
+    /// Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+    /// with the locator registry interface.
     ///
     /// - parameter adapterId: `Swift.String`
     ///
@@ -6249,9 +6166,8 @@ public protocol ReplicaSession {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func setAdapterDirectProxy(adapterId: Swift.String, replicaGroupId: Swift.String, proxy: Ice.ObjectPrx?, current: Ice.Current) throws
 
-    /// Notify the master that an update was received. The master might
-    /// wait for replication updates to be received by all the replicas
-    /// before to continue.
+    /// Notify the master that an update was received. The master might wait for replication updates to be received by
+    /// all the replicas before to continue.
     ///
     /// - parameter name: `TopicName`
     ///
@@ -6318,9 +6234,8 @@ public struct InternalRegistryDisp: Ice.Disp {
 }
 
 public protocol InternalRegistry: FileReader {
-    /// Register a node with the registry. If a node with the same name
-    /// is already registered, [registerNode] will overide the previous
-    /// node only if it's not active.
+    /// Register a node with the registry. If a node with the same name is already registered, [registerNode] will
+    /// overide the previous node only if it's not active.
     ///
     /// - parameter info: `InternalNodeInfo?` Some information on the node.
     ///
@@ -6334,13 +6249,11 @@ public protocol InternalRegistry: FileReader {
     ///
     /// - throws:
     ///
-    ///   - NodeActiveException - Raised if the node is already
-    ///     registered and currently active.
+    ///   - NodeActiveException - Raised if the node is already registered and currently active.
     func registerNode(info: InternalNodeInfo?, prx: NodePrx?, loadInf: LoadInfo, current: Ice.Current) throws -> NodeSessionPrx?
 
-    /// Register a replica with the registry. If a replica with the
-    /// same name is already registered, [registerReplica] will overide
-    /// the previous replica only if it's not active.
+    /// Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
+    /// will overide the previous replica only if it's not active.
     ///
     /// - parameter info: `InternalReplicaInfo?` Some information on the replica.
     ///
@@ -6352,12 +6265,11 @@ public protocol InternalRegistry: FileReader {
     ///
     /// - throws:
     ///
-    ///   - ReplicaActiveException - Raised if the replica is already
-    ///     registered and currently active.
+    ///   - ReplicaActiveException - Raised if the replica is already registered and currently active.
     func registerReplica(info: InternalReplicaInfo?, prx: InternalRegistryPrx?, current: Ice.Current) throws -> ReplicaSessionPrx?
 
-    /// Create a session with the given registry replica. This method
-    /// returns only once the session creation has been attempted.
+    /// Create a session with the given registry replica. This method returns only once the session creation has been
+    /// attempted.
     ///
     /// - parameter prx: `InternalRegistryPrx?`
     ///
@@ -6371,8 +6283,7 @@ public protocol InternalRegistry: FileReader {
     /// - returns: `NodePrxSeq`
     func getNodes(current: Ice.Current) throws -> NodePrxSeq
 
-    /// Return the proxies of all the registry replicas known by this
-    /// registry.
+    /// Return the proxies of all the registry replicas known by this registry.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///

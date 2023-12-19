@@ -95,8 +95,8 @@ public:
      * @param current The number of objects currently observed by this metrics.
      * @param totalLifetime The sum of the lifetime of each observed objects.
      * @param failures The number of failures observed.
-     * @param forwardedClient Number of client requests forwared.
-     * @param forwardedServer Number of server requests forwared.
+     * @param forwardedClient Number of client requests forwarded.
+     * @param forwardedServer Number of server requests forwarded.
      * @param routingTableSize The size of the routing table.
      * @param queuedClient Number of client requests queued.
      * @param queuedServer Number of server requests queued.
@@ -131,11 +131,11 @@ public:
     ICE_MEMBER(GLACIER2_API) static const ::std::string& ice_staticId();
 
     /**
-     * Number of client requests forwared.
+     * Number of client requests forwarded.
      */
     int forwardedClient = 0;
     /**
-     * Number of server requests forwared.
+     * Number of server requests forwarded.
      */
     int forwardedServer = 0;
     /**
@@ -306,8 +306,8 @@ public:
      * @param current The number of objects currently observed by this metrics.
      * @param totalLifetime The sum of the lifetime of each observed objects.
      * @param failures The number of failures observed.
-     * @param forwardedClient Number of client requests forwared.
-     * @param forwardedServer Number of server requests forwared.
+     * @param forwardedClient Number of client requests forwarded.
+     * @param forwardedServer Number of server requests forwarded.
      * @param routingTableSize The size of the routing table.
      * @param queuedClient Number of client requests queued.
      * @param queuedServer Number of server requests queued.
@@ -381,11 +381,11 @@ protected:
 public:
 
     /**
-     * Number of client requests forwared.
+     * Number of client requests forwarded.
      */
     ::Ice::Int forwardedClient;
     /**
-     * Number of server requests forwared.
+     * Number of server requests forwarded.
      */
     ::Ice::Int forwardedServer;
     /**

@@ -16,8 +16,7 @@
 package IceGrid;
 
 /**
- * This exception is raised if an adapter with the same name already
- * exists.
+ * This exception is raised if an adapter with the same name already exists.
  **/
 public class AdapterExistsException extends com.zeroc.Ice.UserException
 {

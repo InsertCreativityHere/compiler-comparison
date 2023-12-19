@@ -36,11 +36,10 @@ if 'ReplicaGroupFilter' not in _M_IceGrid.__dict__:
     _M_IceGrid.ReplicaGroupFilter = Ice.createTempClass()
     class ReplicaGroupFilter(object):
         """
-        The ReplicaGroupFilter is used by IceGrid to filter adapters
-        returned to the client when it resolves a filtered replica group.
-        IceGrid provides the list of available adapters. The implementation
-        of this method can use the provided context and connection to
-        filter and return the filtered set of adapters.
+         The ReplicaGroupFilter is used by IceGrid to filter adapters returned to the client when it resolves a filtered
+         replica group.
+         IceGrid provides the list of available adapters. The implementationof this method can use the provided context and
+         connection to filter and return the filtered set of adapters.
         """
         def __init__(self):
             if Ice.getType(self) == _M_IceGrid.ReplicaGroupFilter:
@@ -48,7 +47,7 @@ if 'ReplicaGroupFilter' not in _M_IceGrid.__dict__:
 
         def filter(self, replicaGroupId, adapterIds, con, ctx):
             """
-            Filter the given set of adapters.
+             Filter the given set of adapters.
             Arguments:
             replicaGroupId -- The replica group ID.
             adapterIds -- The adpater IDs to filter.
@@ -73,12 +72,10 @@ if 'TypeFilter' not in _M_IceGrid.__dict__:
     _M_IceGrid.TypeFilter = Ice.createTempClass()
     class TypeFilter(object):
         """
-        The TypeFilter is used by IceGrid to filter well-known proxies
-        returned to the client when it searches a well-known object by
-        type.
-        IceGrid provides the list of available proxies. The implementation
-        of this method can use the provided context and connection to
-        filter and return the filtered set of proxies.
+         The TypeFilter is used by IceGrid to filter well-known proxies returned to the client when it searches a well-known
+         object by type.
+         IceGrid provides the list of available proxies. The implementation of this method can use the provided context and
+         connection to filter and return the filtered set of proxies.
         """
         def __init__(self):
             if Ice.getType(self) == _M_IceGrid.TypeFilter:
@@ -86,7 +83,7 @@ if 'TypeFilter' not in _M_IceGrid.__dict__:
 
         def filter(self, type, proxies, con, ctx):
             """
-            Filter the given set of proxies.
+             Filter the given set of proxies.
             Arguments:
             type -- The type.
             proxies -- The proxies to filter.
@@ -111,10 +108,9 @@ if 'RegistryPluginFacade' not in _M_IceGrid.__dict__:
     _M_IceGrid.RegistryPluginFacade = Ice.createTempClass()
     class RegistryPluginFacade(object):
         """
-        The RegistryPluginFacade is implemented by IceGrid and can be used
-        by plugins and filter implementations to retrieve information from
-        IceGrid about the well-known objects or adapters. It's also used to
-        register/unregister replica group and type filters.
+         The RegistryPluginFacade is implemented by IceGrid and can be used by plugins and filter implementations to
+         retrieve information from IceGrid about the well-known objects or adapters. It's also used to register/unregister
+         replica group and type filters.
         """
         def __init__(self):
             if Ice.getType(self) == _M_IceGrid.RegistryPluginFacade:
@@ -122,7 +118,7 @@ if 'RegistryPluginFacade' not in _M_IceGrid.__dict__:
 
         def getApplicationInfo(self, name):
             """
-            Get an application descriptor.
+             Get an application descriptor.
             Arguments:
             name -- The application name.
             Returns: The application descriptor.
@@ -133,7 +129,7 @@ if 'RegistryPluginFacade' not in _M_IceGrid.__dict__:
 
         def getServerInfo(self, id):
             """
-            Get the server information for the server with the given id.
+             Get the server information for the server with the given id.
             Arguments:
             id -- The server id.
             Returns: The server information.
@@ -144,7 +140,7 @@ if 'RegistryPluginFacade' not in _M_IceGrid.__dict__:
 
         def getAdapterServer(self, adapterId):
             """
-            Get the ID of the server to which the given adapter belongs.
+             Get the ID of the server to which the given adapter belongs.
             Arguments:
             adapterId -- The adapter ID.
             Returns: The server ID or the empty string if the given identifier is not associated to an object adapter defined with an application descriptor.
@@ -155,7 +151,7 @@ if 'RegistryPluginFacade' not in _M_IceGrid.__dict__:
 
         def getAdapterApplication(self, adapterId):
             """
-            Get the name of the application to which the given adapter belongs.
+             Get the name of the application to which the given adapter belongs.
             Arguments:
             adapterId -- The adapter ID.
             Returns: The application name or the empty string if the given identifier is not associated to a replica group or object adapter defined with an application descriptor.
@@ -166,7 +162,7 @@ if 'RegistryPluginFacade' not in _M_IceGrid.__dict__:
 
         def getAdapterNode(self, adapterId):
             """
-            Get the name of the node to which the given adapter belongs.
+             Get the name of the node to which the given adapter belongs.
             Arguments:
             adapterId -- The adapter ID.
             Returns: The node name or the empty string if the given identifier is not associated to an object adapter defined with an application descriptor.
@@ -177,8 +173,7 @@ if 'RegistryPluginFacade' not in _M_IceGrid.__dict__:
 
         def getAdapterInfo(self, id):
             """
-            Get the adapter information for the replica group or adapter
-            with the given id.
+             Get the adapter information for the replica group or adapter with the given id.
             Arguments:
             id -- The adapter id.
             Returns: A sequence of adapter information structures. If the given id refers to an adapter, this sequence will contain only one element. If the given id refers to a replica group, the sequence will contain the adapter information of each member of the replica group.
@@ -189,7 +184,7 @@ if 'RegistryPluginFacade' not in _M_IceGrid.__dict__:
 
         def getObjectInfo(self, id):
             """
-            Get the object info for the object with the given identity.
+             Get the object info for the object with the given identity.
             Arguments:
             id -- The identity of the object.
             Returns: The object info.
@@ -200,7 +195,7 @@ if 'RegistryPluginFacade' not in _M_IceGrid.__dict__:
 
         def getNodeInfo(self, name):
             """
-            Get the node information for the node with the given name.
+             Get the node information for the node with the given name.
             Arguments:
             name -- The node name.
             Returns: The node information.
@@ -212,7 +207,7 @@ if 'RegistryPluginFacade' not in _M_IceGrid.__dict__:
 
         def getNodeLoad(self, name):
             """
-            Get the load averages of the node.
+             Get the load averages of the node.
             Arguments:
             name -- The node name.
             Returns: The node load information.
@@ -224,9 +219,8 @@ if 'RegistryPluginFacade' not in _M_IceGrid.__dict__:
 
         def getPropertyForAdapter(self, adapterId, name):
             """
-            Get the property value for the given property and adapter. The
-            property is looked up in the server or service descriptor where
-            the adapter is defined.
+             Get the property value for the given property and adapter. The property is looked up in the server or service
+             descriptor where the adapter is defined.
             Arguments:
             adapterId -- The adapter ID
             name -- The name of the property.
@@ -238,7 +232,7 @@ if 'RegistryPluginFacade' not in _M_IceGrid.__dict__:
 
         def addReplicaGroupFilter(self, id, filter):
             """
-            Add a replica group filter.
+             Add a replica group filter.
             Arguments:
             id -- The identifier of the filter. This identifier must match the value of the "filter" attribute specified in the replica group descriptor. To filter dynamically registered replica groups, you should use the empty filter id.
             filter -- The filter implementation.
@@ -247,7 +241,7 @@ if 'RegistryPluginFacade' not in _M_IceGrid.__dict__:
 
         def removeReplicaGroupFilter(self, id, filter):
             """
-            Remove a replica group filter.
+             Remove a replica group filter.
             Arguments:
             id -- The identifier of the filter.
             filter -- The filter implementation.
@@ -257,7 +251,7 @@ if 'RegistryPluginFacade' not in _M_IceGrid.__dict__:
 
         def addTypeFilter(self, type, filter):
             """
-            Add a type filter.
+             Add a type filter.
             Arguments:
             type -- The type to register this filter with.
             filter -- The filter implementation.
@@ -266,7 +260,7 @@ if 'RegistryPluginFacade' not in _M_IceGrid.__dict__:
 
         def removeTypeFilter(self, type, filter):
             """
-            Remove a type filter.
+             Remove a type filter.
             Arguments:
             type -- The type to register this filter with.
             filter -- The filter implementation.

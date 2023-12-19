@@ -16,8 +16,7 @@
 package com.zeroc.IceStorm;
 
 /**
- * This exception indicates that an attempt was made to subscribe
- * a proxy that is null.
+ * This exception indicates that an attempt was made to subscribe a proxy that is null.
  **/
 public class InvalidSubscriber extends com.zeroc.Ice.UserException
 {

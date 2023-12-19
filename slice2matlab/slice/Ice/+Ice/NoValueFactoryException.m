@@ -1,10 +1,9 @@
 % NoValueFactoryException   Summary of NoValueFactoryException
 %
-% This exception is raised if no suitable value factory was found during
-% unmarshaling of a Slice class instance.
+% This exception is raised if no suitable value factory was found during unmarshaling of a Slice class instance.
 %
 % NoValueFactoryException Properties:
-%   type_ - The Slice type ID of the class instance for which no no factory could be found.
+%   type_ - The Slice type ID of the class instance for which no factory could be found.
 %
 % See also ValueFactory, Communicator.getValueFactoryManager, ValueFactoryManager.add, ValueFactoryManager.find
 
@@ -13,8 +12,7 @@
 
 classdef NoValueFactoryException < Ice.MarshalException
     properties
-        % type_ - The Slice type ID of the class instance for which no
-        % no factory could be found.
+        % type_ - The Slice type ID of the class instance for which no factory could be found.
         type_ char
     end
     methods

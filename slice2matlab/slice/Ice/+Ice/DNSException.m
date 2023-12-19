@@ -1,7 +1,6 @@
 % DNSException   Summary of DNSException
 %
-% This exception indicates a DNS problem. For details on the cause,
-% DNSException.error should be inspected.
+% This exception indicates a DNS problem. For details on the cause, DNSException.error should be inspected.
 %
 % DNSException Properties:
 %   error - The error number describing the DNS problem.
@@ -12,10 +11,8 @@
 
 classdef DNSException < Ice.LocalException
     properties
-        % error - The error number describing the DNS problem. For C++ and Unix,
-        % this is equivalent to h_errno. For C++ and
-        % Windows, this is the value returned by
-        % WSAGetLastError().
+        % error - The error number describing the DNS problem. For C++ and Unix, this is equivalent to h_errno. For
+        % C++ and Windows, this is the value returned by WSAGetLastError().
         error int32
         % host - The host name that could not be resolved.
         host char

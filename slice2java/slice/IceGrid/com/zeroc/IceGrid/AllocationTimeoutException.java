@@ -16,8 +16,7 @@
 package com.zeroc.IceGrid;
 
 /**
- * This exception is raised if the request to allocate an object times
- * out.
+ * This exception is raised if the request to allocate an object times out.
  **/
 public class AllocationTimeoutException extends AllocationException
 {

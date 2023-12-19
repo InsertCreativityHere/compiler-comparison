@@ -41,8 +41,7 @@ let IceStorm = _ModuleRegistry.module("IceStorm");
 /* slice2js browser-bundle-skip-end */
 
 /**
- * Information on the topic links.
- *
+ *   Information on the topic links.
  **/
 IceStorm.LinkInfo = class
 {
@@ -80,9 +79,7 @@ Slice.defineSequence(IceStorm, "LinkInfoSeqHelper", "IceStorm.LinkInfo", false);
 Slice.defineDictionary(IceStorm, "QoS", "QoSHelper", "Ice.StringHelper", "Ice.StringHelper", false, undefined, undefined);
 
 /**
- * This exception indicates that an attempt was made to create a link
- * that already exists.
- *
+ *  This exception indicates that an attempt was made to create a link that already exists.
  **/
 IceStorm.LinkExists = class extends Ice.UserException
 {
@@ -119,9 +116,7 @@ IceStorm.LinkExists = class extends Ice.UserException
 };
 
 /**
- * This exception indicates that an attempt was made to remove a
- * link that does not exist.
- *
+ *  This exception indicates that an attempt was made to remove a link that does not exist.
  **/
 IceStorm.NoSuchLink = class extends Ice.UserException
 {
@@ -158,9 +153,7 @@ IceStorm.NoSuchLink = class extends Ice.UserException
 };
 
 /**
- * This exception indicates that an attempt was made to subscribe
- * a proxy for which a subscription already exists.
- *
+ *   This exception indicates that an attempt was made to subscribe a proxy for which a subscription already exists.
  **/
 IceStorm.AlreadySubscribed = class extends Ice.UserException
 {
@@ -186,9 +179,7 @@ IceStorm.AlreadySubscribed = class extends Ice.UserException
 };
 
 /**
- * This exception indicates that an attempt was made to subscribe
- * a proxy that is null.
- *
+ *  This exception indicates that an attempt was made to subscribe a proxy that is null.
  **/
 IceStorm.InvalidSubscriber = class extends Ice.UserException
 {
@@ -225,9 +216,7 @@ IceStorm.InvalidSubscriber = class extends Ice.UserException
 };
 
 /**
- * This exception indicates that a subscription failed due to an
- * invalid QoS.
- *
+ *  This exception indicates that a subscription failed due to an invalid QoS.
  **/
 IceStorm.BadQoS = class extends Ice.UserException
 {
@@ -269,11 +258,8 @@ const iceC_IceStorm_Topic_ids = [
 ];
 
 /**
- * Publishers publish information on a particular topic. A topic
- * logically represents a type.
- *
- * @see TopicManager
- *
+ *  Publishers publish information on a particular topic. A topic logically represents a type. A
+ *  @see TopicManager
  **/
 IceStorm.Topic = class extends Ice.Object
 {
@@ -311,9 +297,7 @@ Slice.defineOperations(IceStorm.Topic, IceStorm.TopicPrx, iceC_IceStorm_Topic_id
 Slice.defineDictionary(IceStorm, "TopicDict", "TopicDictHelper", "Ice.StringHelper", "IceStorm.TopicPrx", false, undefined, undefined);
 
 /**
- * This exception indicates that an attempt was made to create a topic
- * that already exists.
- *
+ *  This exception indicates that an attempt was made to create a topic that already exists.
  **/
 IceStorm.TopicExists = class extends Ice.UserException
 {
@@ -350,9 +334,7 @@ IceStorm.TopicExists = class extends Ice.UserException
 };
 
 /**
- * This exception indicates that an attempt was made to retrieve a
- * topic that does not exist.
- *
+ *  This exception indicates that an attempt was made to retrieve a topic that does not exist.
  **/
 IceStorm.NoSuchTopic = class extends Ice.UserException
 {
@@ -394,10 +376,8 @@ const iceC_IceStorm_TopicManager_ids = [
 ];
 
 /**
- * A topic manager manages topics, and subscribers to topics.
- *
- * @see Topic
- *
+ *  A topic manager manages topics, and subscribers to topics.
+ *  @see Topic
  **/
 IceStorm.TopicManager = class extends Ice.Object
 {
@@ -426,11 +406,8 @@ const iceC_IceStorm_Finder_ids = [
 ];
 
 /**
- * This interface is advertised by the IceStorm service through the
- * Ice object with the identity `IceStorm/Finder'. This allows clients
- * to retrieve the topic manager with just the endpoint information of
- * the IceStorm service.
- *
+ *  This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+ *  This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
  **/
 IceStorm.Finder = class extends Ice.Object
 {

@@ -42,14 +42,12 @@ public class DispatchMetrics extends Metrics
     public int userException;
 
     /**
-     * The size of the dispatch. This corresponds to the size of the
-     * marshalled input parameters.
+     * The size of the dispatch. This corresponds to the size of the marshalled input parameters.
      **/
     public long size;
 
     /**
-     * The size of the dispatch reply. This corresponds to the size of
-     * the marshalled output and return parameters.
+     * The size of the dispatch reply. This corresponds to the size of the marshalled output and return parameters.
      **/
     public long replySize;
 

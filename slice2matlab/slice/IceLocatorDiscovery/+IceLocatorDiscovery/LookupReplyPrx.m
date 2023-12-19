@@ -1,8 +1,7 @@
 % LookupReplyPrx   Summary of LookupReplyPrx
 %
-% The Ice lookup reply interface must be implemented by clients which
-% are searching for Ice locators. Ice locator implementations invoke
-% on this interface to provide their locator proxy.
+% The Ice lookup reply interface must be implemented by clients which are searching for Ice locators. Ice locator
+% implementations invoke on this interface to provide their locator proxy.
 %
 % LookupReplyPrx Methods:
 %   foundLocator - This method is called by the implementation of the Lookup interface to reply to a findLocator request.
@@ -18,8 +17,7 @@
 classdef LookupReplyPrx < Ice.ObjectPrx
     methods
         function foundLocator(obj, prx, varargin)
-            % foundLocator   This method is called by the implementation of the Lookup
-            % interface to reply to a findLocator request.
+            % foundLocator   This method is called by the implementation of the Lookup interface to reply to a findLocator request.
             %
             % Parameters:
             %   prx (Ice.LocatorPrx) - The proxy of the locator.
@@ -31,8 +29,7 @@ classdef LookupReplyPrx < Ice.ObjectPrx
             obj.iceInvoke('foundLocator', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = foundLocatorAsync(obj, prx, varargin)
-            % foundLocatorAsync   This method is called by the implementation of the Lookup
-            % interface to reply to a findLocator request.
+            % foundLocatorAsync   This method is called by the implementation of the Lookup interface to reply to a findLocator request.
             %
             % Parameters:
             %   prx (Ice.LocatorPrx) - The proxy of the locator.

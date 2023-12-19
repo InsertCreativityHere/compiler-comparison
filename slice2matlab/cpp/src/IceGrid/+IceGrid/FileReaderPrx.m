@@ -14,8 +14,7 @@
 classdef FileReaderPrx < Ice.ObjectPrx
     methods
         function result = getOffsetFromEnd(obj, filename, lines, varargin)
-            % getOffsetFromEnd   Count the number of given lines from the end of the file and
-            % return the file offset.
+            % getOffsetFromEnd   Count the number of given lines from the end of the file and return the file offset.
             %
             % Parameters:
             %   filename (char)
@@ -34,8 +33,7 @@ classdef FileReaderPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getOffsetFromEndAsync(obj, filename, lines, varargin)
-            % getOffsetFromEndAsync   Count the number of given lines from the end of the file and
-            % return the file offset.
+            % getOffsetFromEndAsync   Count the number of given lines from the end of the file and return the file offset.
             %
             % Parameters:
             %   filename (char)

@@ -1,7 +1,6 @@
 % BadQoS   Summary of BadQoS
 %
-% This exception indicates that a subscription failed due to an
-% invalid QoS.
+% This exception indicates that a subscription failed due to an invalid QoS.
 %
 % BadQoS Properties:
 %   reason - The reason for the failure.

@@ -1,12 +1,8 @@
 % LocatorRegistryPrx   Summary of LocatorRegistryPrx
 %
-% The Ice locator registry interface. This interface is used by
-% servers to register adapter endpoints with the locator.
-%
-% The LocatorRegistry interface is intended to be used
-% by Ice internals and by locator implementations. Regular user
-% code should not attempt to use any functionality of this interface
-% directly.
+% The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
+% locator.  The LocatorRegistry interface is intended to be used by Ice internals and by
+% locator implementations. Regular user code should not attempt to use any functionality of this interface directly.
 %
 % LocatorRegistryPrx Methods:
 %   setAdapterDirectProxy - Set the adapter endpoints with the locator registry.
@@ -28,18 +24,14 @@ classdef LocatorRegistryPrx < Ice.ObjectPrx
             %
             % Parameters:
             %   id (char) - The adapter id.
-            %   proxy (Ice.ObjectPrx) - The adapter proxy (a dummy direct proxy created
-            %     by the adapter). The direct proxy contains the adapter
-            %     endpoints.
+            %   proxy (Ice.ObjectPrx) - The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+            %     adapter endpoints.
             %   context (containers.Map) - Optional request context.
             %
             % Exceptions:
-            %   Ice.AdapterAlreadyActiveException - Raised if an adapter with the same
-            %     id is already active.
-            %   Ice.AdapterNotFoundException - Raised if the adapter cannot
-            %     be found, or if the locator only allows
-            %     registered adapters to set their active proxy and the
-            %     adapter is not registered with the locator.
+            %   Ice.AdapterAlreadyActiveException - Raised if an adapter with the same id is already active.
+            %   Ice.AdapterNotFoundException - Raised if the adapter cannot be found, or if the locator only allows
+            %     registered adapters to set their active proxy and the adapter is not registered with the locator.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(id);
@@ -52,20 +44,16 @@ classdef LocatorRegistryPrx < Ice.ObjectPrx
             %
             % Parameters:
             %   id (char) - The adapter id.
-            %   proxy (Ice.ObjectPrx) - The adapter proxy (a dummy direct proxy created
-            %     by the adapter). The direct proxy contains the adapter
-            %     endpoints.
+            %   proxy (Ice.ObjectPrx) - The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+            %     adapter endpoints.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   Ice.AdapterAlreadyActiveException - Raised if an adapter with the same
-            %     id is already active.
-            %   Ice.AdapterNotFoundException - Raised if the adapter cannot
-            %     be found, or if the locator only allows
-            %     registered adapters to set their active proxy and the
-            %     adapter is not registered with the locator.
+            %   Ice.AdapterAlreadyActiveException - Raised if an adapter with the same id is already active.
+            %   Ice.AdapterNotFoundException - Raised if the adapter cannot be found, or if the locator only allows
+            %     registered adapters to set their active proxy and the adapter is not registered with the locator.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(id);
@@ -79,21 +67,16 @@ classdef LocatorRegistryPrx < Ice.ObjectPrx
             % Parameters:
             %   adapterId (char) - The adapter id.
             %   replicaGroupId (char) - The replica group id.
-            %   p (Ice.ObjectPrx) - The adapter proxy (a dummy direct proxy created
-            %     by the adapter). The direct proxy contains the adapter
+            %   p (Ice.ObjectPrx) - The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
             %     endpoints.
             %   context (containers.Map) - Optional request context.
             %
             % Exceptions:
-            %   Ice.AdapterAlreadyActiveException - Raised if an adapter with the same
-            %     id is already active.
-            %   Ice.AdapterNotFoundException - Raised if the adapter cannot
-            %     be found, or if the locator only allows registered adapters to
-            %     set their active proxy and the adapter is not registered with
-            %     the locator.
-            %   Ice.InvalidReplicaGroupIdException - Raised if the given
-            %     replica group doesn't match the one registered with the
-            %     locator registry for this object adapter.
+            %   Ice.AdapterAlreadyActiveException - Raised if an adapter with the same id is already active.
+            %   Ice.AdapterNotFoundException - Raised if the adapter cannot be found, or if the locator only allows
+            %     registered adapters to set their active proxy and the adapter is not registered with the locator.
+            %   Ice.InvalidReplicaGroupIdException - Raised if the given replica group doesn't match the one registered with
+            %     the locator registry for this object adapter.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(adapterId);
@@ -108,23 +91,18 @@ classdef LocatorRegistryPrx < Ice.ObjectPrx
             % Parameters:
             %   adapterId (char) - The adapter id.
             %   replicaGroupId (char) - The replica group id.
-            %   p (Ice.ObjectPrx) - The adapter proxy (a dummy direct proxy created
-            %     by the adapter). The direct proxy contains the adapter
+            %   p (Ice.ObjectPrx) - The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
             %     endpoints.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   Ice.AdapterAlreadyActiveException - Raised if an adapter with the same
-            %     id is already active.
-            %   Ice.AdapterNotFoundException - Raised if the adapter cannot
-            %     be found, or if the locator only allows registered adapters to
-            %     set their active proxy and the adapter is not registered with
-            %     the locator.
-            %   Ice.InvalidReplicaGroupIdException - Raised if the given
-            %     replica group doesn't match the one registered with the
-            %     locator registry for this object adapter.
+            %   Ice.AdapterAlreadyActiveException - Raised if an adapter with the same id is already active.
+            %   Ice.AdapterNotFoundException - Raised if the adapter cannot be found, or if the locator only allows
+            %     registered adapters to set their active proxy and the adapter is not registered with the locator.
+            %   Ice.InvalidReplicaGroupIdException - Raised if the given replica group doesn't match the one registered with
+            %     the locator registry for this object adapter.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(adapterId);
@@ -142,8 +120,7 @@ classdef LocatorRegistryPrx < Ice.ObjectPrx
             %   context (containers.Map) - Optional request context.
             %
             % Exceptions:
-            %   Ice.ServerNotFoundException - Raised if the server cannot
-            %     be found.
+            %   Ice.ServerNotFoundException - Raised if the server cannot be found.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(id);
@@ -162,8 +139,7 @@ classdef LocatorRegistryPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   Ice.ServerNotFoundException - Raised if the server cannot
-            %     be found.
+            %   Ice.ServerNotFoundException - Raised if the server cannot be found.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(id);

@@ -344,6 +344,10 @@ namespace NoNamespace
         #endregion
     }
 
+    /// <summary>
+    /// Test keyword escape.
+    /// </summary>
+
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]

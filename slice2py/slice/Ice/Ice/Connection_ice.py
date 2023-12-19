@@ -30,12 +30,11 @@ if 'CompressBatch' not in _M_Ice.__dict__:
     _M_Ice.CompressBatch = Ice.createTempClass()
     class CompressBatch(Ice.EnumBase):
         """
-        The batch compression option when flushing queued batch requests.
+         The batch compression option when flushing queued batch requests.
         Enumerators:
-        Yes -- Compress the batch requests.
-        No -- Don't compress the batch requests.
-        BasedOnProxy -- Compress the batch requests if at least one request was
-        made on a compressed proxy.
+        Yes --  Compress the batch requests.
+        No --  Don't compress the batch requests.
+        BasedOnProxy --  Compress the batch requests if at least one request was made on a compressed proxy.
         """
 
         def __init__(self, _n, _v):
@@ -61,14 +60,12 @@ if 'ConnectionInfo' not in _M_Ice.__dict__:
     _M_Ice.ConnectionInfo = Ice.createTempClass()
     class ConnectionInfo(object):
         """
-        Base class providing access to the connection details.
+         Base class providing access to the connection details.
         Members:
-        underlying -- The information of the underyling transport or null if there's
-        no underlying transport.
-        incoming -- Whether or not the connection is an incoming or outgoing
-        connection.
-        adapterName -- The name of the adapter associated with the connection.
-        connectionId -- The connection id.
+        underlying --  The information of the underyling transport or null if there's no underlying transport.
+        incoming --  Whether or not the connection is an incoming or outgoing connection.
+        adapterName --   The name of the adapter associated with the connection.
+        connectionId --  The connection id.
         """
         def __init__(self, underlying=None, incoming=False, adapterName='', connectionId=''):
             self.underlying = underlying
@@ -101,8 +98,7 @@ if 'CloseCallback' not in _M_Ice.__dict__:
     _M_Ice.CloseCallback = Ice.createTempClass()
     class CloseCallback(object):
         """
-        An application can implement this interface to receive notifications when
-        a connection closes.
+          An application can implement this interface to receive notifications when a connection closes.
         """
         def __init__(self):
             if Ice.getType(self) == _M_Ice.CloseCallback:
@@ -110,9 +106,8 @@ if 'CloseCallback' not in _M_Ice.__dict__:
 
         def closed(self, con):
             """
-            This method is called by the connection when the connection is
-            closed. If the callback needs more information about the closure,
-            it can call Connection#throwException.
+             This method is called by the connection when the connection is closed. If the callback needs more information
+             about the closure, it can call Connection#throwException.
             Arguments:
             con -- The connection that closed.
             """
@@ -133,8 +128,8 @@ if 'HeartbeatCallback' not in _M_Ice.__dict__:
     _M_Ice.HeartbeatCallback = Ice.createTempClass()
     class HeartbeatCallback(object):
         """
-        An application can implement this interface to receive notifications when
-        a connection receives a heartbeat message.
+         An application can implement this interface to receive notifications when a connection receives a heartbeat
+         message.
         """
         def __init__(self):
             if Ice.getType(self) == _M_Ice.HeartbeatCallback:
@@ -142,8 +137,7 @@ if 'HeartbeatCallback' not in _M_Ice.__dict__:
 
         def heartbeat(self, con):
             """
-            This method is called by the connection when a heartbeat is
-            received from the peer.
+             This method is called by the connection when a heartbeat is received from the peer.
             Arguments:
             con -- The connection on which a heartbeat was received.
             """
@@ -164,15 +158,15 @@ if 'ACMClose' not in _M_Ice.__dict__:
     _M_Ice.ACMClose = Ice.createTempClass()
     class ACMClose(Ice.EnumBase):
         """
-        Specifies the close semantics for Active Connection Management.
+         Specifies the close semantics for Active Connection Management.
         Enumerators:
-        CloseOff -- Disables automatic connection closure.
-        CloseOnIdle -- Gracefully closes a connection that has been idle for the configured timeout period.
-        CloseOnInvocation -- Forcefully closes a connection that has been idle for the configured timeout period,
-        but only if the connection has pending invocations.
-        CloseOnInvocationAndIdle -- Combines the behaviors of CloseOnIdle and CloseOnInvocation.
-        CloseOnIdleForceful -- Forcefully closes a connection that has been idle for the configured timeout period,
-        regardless of whether the connection has pending invocations or dispatch.
+        CloseOff --  Disables automatic connection closure.
+        CloseOnIdle --  Gracefully closes a connection that has been idle for the configured timeout period.
+        CloseOnInvocation --  Forcefully closes a connection that has been idle for the configured timeout period, but only if the connection
+         has pending invocations.
+        CloseOnInvocationAndIdle --  Combines the behaviors of CloseOnIdle and CloseOnInvocation.
+        CloseOnIdleForceful --  Forcefully closes a connection that has been idle for the configured timeout period, regardless of whether the
+         connection has pending invocations or dispatch.
         """
 
         def __init__(self, _n, _v):
@@ -200,12 +194,12 @@ if 'ACMHeartbeat' not in _M_Ice.__dict__:
     _M_Ice.ACMHeartbeat = Ice.createTempClass()
     class ACMHeartbeat(Ice.EnumBase):
         """
-        Specifies the heartbeat semantics for Active Connection Management.
+         Specifies the heartbeat semantics for Active Connection Management.
         Enumerators:
-        HeartbeatOff -- Disables heartbeats.
-        HeartbeatOnDispatch -- Send a heartbeat at regular intervals if the connection is idle and only if there are pending dispatch.
-        HeartbeatOnIdle -- Send a heartbeat at regular intervals when the connection is idle.
-        HeartbeatAlways -- Send a heartbeat at regular intervals until the connection is closed.
+        HeartbeatOff --  Disables heartbeats.
+        HeartbeatOnDispatch --  Send a heartbeat at regular intervals if the connection is idle and only if there are pending dispatch.
+        HeartbeatOnIdle --  Send a heartbeat at regular intervals when the connection is idle.
+        HeartbeatAlways --  Send a heartbeat at regular intervals until the connection is closed.
         """
 
         def __init__(self, _n, _v):
@@ -232,11 +226,11 @@ if 'ACM' not in _M_Ice.__dict__:
     _M_Ice.ACM = Ice.createTempClass()
     class ACM(object):
         """
-        A collection of Active Connection Management configuration settings.
+         A collection of Active Connection Management configuration settings.
         Members:
-        timeout -- A timeout value in seconds.
-        close -- The close semantics.
-        heartbeat -- The heartbeat semantics.
+        timeout --  A timeout value in seconds.
+        close --  The close semantics.
+        heartbeat --  The heartbeat semantics.
         """
         def __init__(self, timeout=0, close=_M_Ice.ACMClose.CloseOff, heartbeat=_M_Ice.ACMHeartbeat.HeartbeatOff):
             self.timeout = timeout
@@ -342,13 +336,13 @@ if 'ConnectionClose' not in _M_Ice.__dict__:
     _M_Ice.ConnectionClose = Ice.createTempClass()
     class ConnectionClose(Ice.EnumBase):
         """
-        Determines the behavior when manually closing a connection.
+         Determines the behavior when manually closing a connection.
         Enumerators:
-        Forcefully -- Close the connection immediately without sending a close connection protocol message to the peer
-        and waiting for the peer to acknowledge it.
-        Gracefully -- Close the connection by notifying the peer but do not wait for pending outgoing invocations to complete.
-        On the server side, the connection will not be closed until all incoming invocations have completed.
-        GracefullyWithWait -- Wait for all pending invocations to complete before closing the connection.
+        Forcefully --  Close the connection immediately without sending a close connection protocol message to the peer and waiting
+         for the peer to acknowledge it.
+        Gracefully --  Close the connection by notifying the peer but do not wait for pending outgoing invocations to complete. On the
+         server side, the connection will not be closed until all incoming invocations have completed.
+        GracefullyWithWait --  Wait for all pending invocations to complete before closing the connection.
         """
 
         def __init__(self, _n, _v):
@@ -374,7 +368,7 @@ if 'Connection' not in _M_Ice.__dict__:
     _M_Ice.Connection = Ice.createTempClass()
     class Connection(object):
         """
-        The user-level interface to a connection.
+         The user-level interface to a connection.
         """
         def __init__(self):
             if Ice.getType(self) == _M_Ice.Connection:
@@ -382,7 +376,7 @@ if 'Connection' not in _M_Ice.__dict__:
 
         def close(self, mode):
             """
-            Manually close the connection using the specified closure mode.
+             Manually close the connection using the specified closure mode.
             Arguments:
             mode -- Determines how the connection will be closed.
             """
@@ -390,12 +384,9 @@ if 'Connection' not in _M_Ice.__dict__:
 
         def createProxy(self, id):
             """
-            Create a special proxy that always uses this connection. This
-            can be used for callbacks from a server to a client if the
-            server cannot directly establish a connection to the client,
-            for example because of firewalls. In this case, the server
-            would create a proxy using an already established connection
-            from the client.
+             Create a special proxy that always uses this connection. This can be used for callbacks from a server to a
+             client if the server cannot directly establish a connection to the client, for example because of firewalls. In
+             this case, the server would create a proxy using an already established connection from the client.
             Arguments:
             id -- The identity for which a proxy is to be created.
             Returns: A proxy that matches the given identity and uses this connection.
@@ -404,13 +395,10 @@ if 'Connection' not in _M_Ice.__dict__:
 
         def setAdapter(self, adapter):
             """
-            Explicitly set an object adapter that dispatches requests that
-            are received over this connection. A client can invoke an
-            operation on a server using a proxy, and then set an object
-            adapter for the outgoing connection that is used by the proxy
-            in order to receive callbacks. This is useful if the server
-            cannot establish a connection back to the client, for example
-            because of firewalls.
+             Explicitly set an object adapter that dispatches requests that are received over this connection. A client can
+             invoke an operation on a server using a proxy, and then set an object adapter for the outgoing connection that
+             is used by the proxy in order to receive callbacks. This is useful if the server cannot establish a connection
+             back to the client, for example because of firewalls.
             Arguments:
             adapter -- The object adapter that should be used by this connection to dispatch requests. The object adapter must be activated. When the object adapter is deactivated, it is automatically removed from the connection. Attempts to use a deactivated object adapter raise ObjectAdapterDeactivatedException
             """
@@ -418,24 +406,22 @@ if 'Connection' not in _M_Ice.__dict__:
 
         def getAdapter(self):
             """
-            Get the object adapter that dispatches requests for this
-            connection.
+             Get the object adapter that dispatches requests for this connection.
             Returns: The object adapter that dispatches requests for the connection, or null if no adapter is set.
             """
             raise NotImplementedError("method 'getAdapter' not implemented")
 
         def getEndpoint(self):
             """
-            Get the endpoint from which the connection was created.
+             Get the endpoint from which the connection was created.
             Returns: The endpoint from which the connection was created.
             """
             raise NotImplementedError("method 'getEndpoint' not implemented")
 
         def flushBatchRequests(self, compress):
             """
-            Flush any pending batch requests for this connection.
-            This means all batch requests invoked on fixed proxies
-            associated with the connection.
+             Flush any pending batch requests for this connection. This means all batch requests invoked on fixed proxies
+             associated with the connection.
             Arguments:
             compress -- Specifies whether or not the queued batch requests should be compressed before being sent over the wire.
             """
@@ -443,10 +429,9 @@ if 'Connection' not in _M_Ice.__dict__:
 
         def setCloseCallback(self, callback):
             """
-            Set a close callback on the connection. The callback is called by the
-            connection when it's closed. The callback is called from the
-            Ice thread pool associated with the connection. If the callback needs
-            more information about the closure, it can call Connection#throwException.
+             Set a close callback on the connection. The callback is called by the connection when it's closed. The callback
+             is called from the Ice thread pool associated with the connection. If the callback needs more information about
+             the closure, it can call Connection#throwException.
             Arguments:
             callback -- The close callback object.
             """
@@ -454,9 +439,8 @@ if 'Connection' not in _M_Ice.__dict__:
 
         def setHeartbeatCallback(self, callback):
             """
-            Set a heartbeat callback on the connection. The callback is called by the
-            connection when a heartbeat is received. The callback is called
-            from the Ice thread pool associated with the connection.
+             Set a heartbeat callback on the connection. The callback is called by the connection when a heartbeat is
+             received. The callback is called from the Ice thread pool associated with the connection.
             Arguments:
             callback -- The heartbeat callback object.
             """
@@ -464,13 +448,13 @@ if 'Connection' not in _M_Ice.__dict__:
 
         def heartbeat(self):
             """
-            Send a heartbeat message.
+             Send a heartbeat message.
             """
             raise NotImplementedError("method 'heartbeat' not implemented")
 
         def setACM(self, timeout, close, heartbeat):
             """
-            Set the active connection management parameters.
+             Set the active connection management parameters.
             Arguments:
             timeout -- The timeout value in seconds, must be &gt;= 0.
             close -- The close condition
@@ -480,44 +464,42 @@ if 'Connection' not in _M_Ice.__dict__:
 
         def getACM(self):
             """
-            Get the ACM parameters.
+             Get the ACM parameters.
             Returns: The ACM parameters.
             """
             raise NotImplementedError("method 'getACM' not implemented")
 
         def type(self):
             """
-            Return the connection type. This corresponds to the endpoint
-            type, i.e., "tcp", "udp", etc.
+             Return the connection type. This corresponds to the endpoint type, i.e., "tcp", "udp", etc.
             Returns: The type of the connection.
             """
             raise NotImplementedError("method 'type' not implemented")
 
         def timeout(self):
             """
-            Get the timeout for the connection.
+             Get the timeout for the connection.
             Returns: The connection's timeout.
             """
             raise NotImplementedError("method 'timeout' not implemented")
 
         def toString(self):
             """
-            Return a description of the connection as human readable text,
-            suitable for logging or error messages.
+             Return a description of the connection as human readable text, suitable for logging or error messages.
             Returns: The description of the connection as human readable text.
             """
             raise NotImplementedError("method 'toString' not implemented")
 
         def getInfo(self):
             """
-            Returns the connection information.
+             Returns the connection information.
             Returns: The connection information.
             """
             raise NotImplementedError("method 'getInfo' not implemented")
 
         def setBufferSize(self, rcvSize, sndSize):
             """
-            Set the connection buffer receive/send size.
+             Set the connection buffer receive/send size.
             Arguments:
             rcvSize -- The connection receive buffer size.
             sndSize -- The connection send buffer size.
@@ -526,11 +508,10 @@ if 'Connection' not in _M_Ice.__dict__:
 
         def throwException(self):
             """
-            Throw an exception indicating the reason for connection closure. For example,
-            CloseConnectionException is raised if the connection was closed gracefully,
-            whereas ConnectionManuallyClosedException is raised if the connection was
-            manually closed by the application. This operation does nothing if the connection is
-            not yet closed.
+             Throw an exception indicating the reason for connection closure. For example,
+             CloseConnectionException is raised if the connection was closed gracefully, whereas
+             ConnectionManuallyClosedException is raised if the connection was manually closed by
+             the application. This operation does nothing if the connection is not yet closed.
             """
             raise NotImplementedError("method 'throwException' not implemented")
 
@@ -549,12 +530,12 @@ if 'IPConnectionInfo' not in _M_Ice.__dict__:
     _M_Ice.IPConnectionInfo = Ice.createTempClass()
     class IPConnectionInfo(_M_Ice.ConnectionInfo):
         """
-        Provides access to the connection details of an IP connection
+         Provides access to the connection details of an IP connection
         Members:
-        localAddress -- The local address.
-        localPort -- The local port.
-        remoteAddress -- The remote address.
-        remotePort -- The remote port.
+        localAddress --  The local address.
+        localPort --  The local port.
+        remoteAddress --  The remote address.
+        remotePort --  The remote port.
         """
         def __init__(self, underlying=None, incoming=False, adapterName='', connectionId='', localAddress="", localPort=-1, remoteAddress="", remotePort=-1):
             _M_Ice.ConnectionInfo.__init__(self, underlying, incoming, adapterName, connectionId)
@@ -585,10 +566,10 @@ if 'TCPConnectionInfo' not in _M_Ice.__dict__:
     _M_Ice.TCPConnectionInfo = Ice.createTempClass()
     class TCPConnectionInfo(_M_Ice.IPConnectionInfo):
         """
-        Provides access to the connection details of a TCP connection
+         Provides access to the connection details of a TCP connection
         Members:
-        rcvSize -- The connection buffer receive size.
-        sndSize -- The connection buffer send size.
+        rcvSize --  The connection buffer receive size.
+        sndSize --  The connection buffer send size.
         """
         def __init__(self, underlying=None, incoming=False, adapterName='', connectionId='', localAddress="", localPort=-1, remoteAddress="", remotePort=-1, rcvSize=0, sndSize=0):
             _M_Ice.IPConnectionInfo.__init__(self, underlying, incoming, adapterName, connectionId, localAddress, localPort, remoteAddress, remotePort)
@@ -615,12 +596,12 @@ if 'UDPConnectionInfo' not in _M_Ice.__dict__:
     _M_Ice.UDPConnectionInfo = Ice.createTempClass()
     class UDPConnectionInfo(_M_Ice.IPConnectionInfo):
         """
-        Provides access to the connection details of a UDP connection
+         Provides access to the connection details of a UDP connection
         Members:
-        mcastAddress -- The multicast address.
-        mcastPort -- The multicast port.
-        rcvSize -- The connection buffer receive size.
-        sndSize -- The connection buffer send size.
+        mcastAddress --  The multicast address.
+        mcastPort --  The multicast port.
+        rcvSize --  The connection buffer receive size.
+        sndSize --  The connection buffer send size.
         """
         def __init__(self, underlying=None, incoming=False, adapterName='', connectionId='', localAddress="", localPort=-1, remoteAddress="", remotePort=-1, mcastAddress='', mcastPort=-1, rcvSize=0, sndSize=0):
             _M_Ice.IPConnectionInfo.__init__(self, underlying, incoming, adapterName, connectionId, localAddress, localPort, remoteAddress, remotePort)
@@ -654,9 +635,9 @@ if 'WSConnectionInfo' not in _M_Ice.__dict__:
     _M_Ice.WSConnectionInfo = Ice.createTempClass()
     class WSConnectionInfo(_M_Ice.ConnectionInfo):
         """
-        Provides access to the connection details of a WebSocket connection
+         Provides access to the connection details of a WebSocket connection
         Members:
-        headers -- The headers from the HTTP upgrade request.
+        headers --  The headers from the HTTP upgrade request.
         """
         def __init__(self, underlying=None, incoming=False, adapterName='', connectionId='', headers=None):
             _M_Ice.ConnectionInfo.__init__(self, underlying, incoming, adapterName, connectionId)

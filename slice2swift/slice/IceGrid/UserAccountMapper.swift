@@ -30,8 +30,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-/// This exception is raised if a user account for a given session
-/// identifier can't be found.
+/// This exception is raised if a user account for a given session identifier can't be found.
 open class UserAccountNotFoundException: Ice.UserException {
     public required init() {}
 
@@ -59,8 +58,7 @@ public struct UserAccountMapperTraits: Ice.SliceTraits {
     public static let staticId = "::IceGrid::UserAccountMapper"
 }
 
-/// A user account mapper object is used by IceGrid nodes to map
-/// session identifiers to user accounts.
+/// A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
 ///
 /// UserAccountMapperPrx Methods:
 ///
@@ -142,8 +140,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// A user account mapper object is used by IceGrid nodes to map
-/// session identifiers to user accounts.
+/// A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
 ///
 /// UserAccountMapperPrx Methods:
 ///
@@ -151,14 +148,12 @@ public extension Ice.InputStream {
 ///
 ///  - getUserAccountAsync: Get the name of the user account for the given user.
 public extension UserAccountMapperPrx {
-    /// Get the name of the user account for the given user. This is
-    /// used by IceGrid nodes to figure out the user account to use
-    /// to run servers.
+    /// Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+    /// account to use to run servers.
     ///
-    /// - parameter _: `Swift.String` The value of the server descriptor's user
-    /// attribute. If this attribute is not defined, and the server's
-    /// activation mode is session, the default value of
-    /// user is the session identifier.
+    /// - parameter _: `Swift.String` The value of the server descriptor's user attribute. If this attribute is not
+    /// defined, and the server's activation mode is session, the default value of user
+    /// is the session identifier.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -166,8 +161,7 @@ public extension UserAccountMapperPrx {
     ///
     /// - throws:
     ///
-    ///   - UserAccountNotFoundException - Raised if no user account
-    ///     is found for the given user.
+    ///   - UserAccountNotFoundException - Raised if no user account is found for the given user.
     func getUserAccount(_ iceP_user: Swift.String, context: Ice.Context? = nil) throws -> Swift.String {
         return try _impl._invoke(operation: "getUserAccount",
                                  mode: .Normal,
@@ -188,14 +182,12 @@ public extension UserAccountMapperPrx {
                                  context: context)
     }
 
-    /// Get the name of the user account for the given user. This is
-    /// used by IceGrid nodes to figure out the user account to use
-    /// to run servers.
+    /// Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+    /// account to use to run servers.
     ///
-    /// - parameter _: `Swift.String` The value of the server descriptor's user
-    /// attribute. If this attribute is not defined, and the server's
-    /// activation mode is session, the default value of
-    /// user is the session identifier.
+    /// - parameter _: `Swift.String` The value of the server descriptor's user attribute. If this attribute is not
+    /// defined, and the server's activation mode is session, the default value of user
+    /// is the session identifier.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -261,17 +253,14 @@ public struct UserAccountMapperDisp: Ice.Disp {
     }
 }
 
-/// A user account mapper object is used by IceGrid nodes to map
-/// session identifiers to user accounts.
+/// A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
 public protocol UserAccountMapper {
-    /// Get the name of the user account for the given user. This is
-    /// used by IceGrid nodes to figure out the user account to use
-    /// to run servers.
+    /// Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+    /// account to use to run servers.
     ///
-    /// - parameter user: `Swift.String` The value of the server descriptor's user
-    /// attribute. If this attribute is not defined, and the server's
-    /// activation mode is session, the default value of
-    /// user is the session identifier.
+    /// - parameter user: `Swift.String` The value of the server descriptor's user attribute. If this attribute is not
+    /// defined, and the server's activation mode is session, the default value of user
+    /// is the session identifier.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -279,13 +268,11 @@ public protocol UserAccountMapper {
     ///
     /// - throws:
     ///
-    ///   - UserAccountNotFoundException - Raised if no user account
-    ///     is found for the given user.
+    ///   - UserAccountNotFoundException - Raised if no user account is found for the given user.
     func getUserAccount(user: Swift.String, current: Ice.Current) throws -> Swift.String
 }
 
-/// A user account mapper object is used by IceGrid nodes to map
-/// session identifiers to user accounts.
+/// A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
 ///
 /// UserAccountMapper Methods:
 ///

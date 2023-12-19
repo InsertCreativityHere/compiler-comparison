@@ -13,8 +13,7 @@ classdef RegistryInfo
     properties
         % name - The name of the registry.
         name char
-        % hostname - The network name of the host running this registry (as defined in
-        % uname()).
+        % hostname - The network name of the host running this registry (as defined in uname()).
         hostname char
     end
     methods

@@ -63,10 +63,8 @@ public class ServerDescriptor extends CommunicatorDescriptor
     public String exe;
 
     /**
-     * The Ice version used by this server. This is only required if
-     * backward compatibility with servers using old Ice versions is
-     * needed (otherwise the registry will assume the server is using
-     * the same Ice version).
+     * The Ice version used by this server. This is only required if backward compatibility with servers using old
+     * Ice versions is needed (otherwise the registry will assume the server is using the same Ice version).
      * For example "3.1.1", "3.2", "3.3.0".
      **/
     public String iceVersion;
@@ -87,26 +85,22 @@ public class ServerDescriptor extends CommunicatorDescriptor
     public java.util.List<java.lang.String> envs;
 
     /**
-     * The server activation mode (possible values are "on-demand" or
-     * "manual").
+     * / The server activation mode (possible values are "on-demand" or "manual").
      **/
     public String activation;
 
     /**
-     * The activation timeout (an integer value representing the
-     * number of seconds to wait for activation).
+     * The activation timeout (an integer value representing the number of seconds to wait for activation).
      **/
     public String activationTimeout;
 
     /**
-     * The deactivation timeout (an integer value representing the
-     * number of seconds to wait for deactivation).
+     * The deactivation timeout (an integer value representing the number of seconds to wait for deactivation).
      **/
     public String deactivationTimeout;
 
     /**
-     * Specifies if the server depends on the application
-     * distribution.
+     * Specifies if the server depends on the application distribution.
      **/
     public boolean applicationDistrib;
 

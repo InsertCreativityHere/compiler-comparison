@@ -16,17 +16,15 @@
 package com.zeroc.IceLocatorDiscovery;
 
 /**
- * The Ice lookup reply interface must be implemented by clients which
- * are searching for Ice locators. Ice locator implementations invoke
- * on this interface to provide their locator proxy.
+ * The Ice lookup reply interface must be implemented by clients which are searching for Ice locators. Ice locator
+ * implementations invoke on this interface to provide their locator proxy.
  *
  * @see Lookup
  **/
 public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
-     * This method is called by the implementation of the Lookup
-     * interface to reply to a findLocator request.
+     * This method is called by the implementation of the Lookup interface to reply to a findLocator request.
      * @param prx The proxy of the locator.
      **/
     default void foundLocator(com.zeroc.Ice.LocatorPrx prx)
@@ -35,8 +33,7 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * This method is called by the implementation of the Lookup
-     * interface to reply to a findLocator request.
+     * This method is called by the implementation of the Lookup interface to reply to a findLocator request.
      * @param prx The proxy of the locator.
      * @param context The Context map to send with the invocation.
      **/
@@ -46,8 +43,7 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * This method is called by the implementation of the Lookup
-     * interface to reply to a findLocator request.
+     * This method is called by the implementation of the Lookup interface to reply to a findLocator request.
      * @param prx The proxy of the locator.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -57,8 +53,7 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * This method is called by the implementation of the Lookup
-     * interface to reply to a findLocator request.
+     * This method is called by the implementation of the Lookup interface to reply to a findLocator request.
      * @param prx The proxy of the locator.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.

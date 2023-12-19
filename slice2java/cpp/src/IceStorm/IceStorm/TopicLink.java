@@ -16,8 +16,7 @@
 package IceStorm;
 
 /**
- * The TopicLink interface. This is used to forward events between
- * federated Topic instances.
+ * The TopicLink interface. This is used to forward events between federated Topic instances.
  *
  * @see TopicInternal
  **/

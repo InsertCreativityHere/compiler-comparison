@@ -31,10 +31,10 @@ if 'TopicMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.TopicMetrics = Ice.createTempClass()
     class TopicMetrics(_M_IceMX.Metrics):
         """
-        Provides information on IceStorm topics.
+         Provides information on IceStorm topics.
         Members:
-        published -- Number of events published on the topic by publishers.
-        forwarded -- Number of events forwarded on the topic by IceStorm topic links.
+        published --  Number of events published on the topic by publishers.
+        forwarded --  Number of events forwarded on the topic by IceStorm topic links.
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, published=0, forwarded=0):
             _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
@@ -66,11 +66,11 @@ if 'SubscriberMetrics' not in _M_IceMX.__dict__:
     _M_IceMX.SubscriberMetrics = Ice.createTempClass()
     class SubscriberMetrics(_M_IceMX.Metrics):
         """
-        Provides information on IceStorm subscribers.
+         Provides information on IceStorm subscribers.
         Members:
-        queued -- Number of queued events.
-        outstanding -- Number of outstanding events.
-        delivered -- Number of forwarded events.
+        queued --  Number of queued events.
+        outstanding --  Number of outstanding events.
+        delivered --  Number of forwarded events.
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, queued=0, outstanding=0, delivered=0):
             _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)

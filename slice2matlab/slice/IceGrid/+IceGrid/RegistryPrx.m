@@ -1,7 +1,6 @@
 % RegistryPrx   Summary of RegistryPrx
 %
-% The IceGrid registry allows clients create sessions
-% directly with the registry.
+% The IceGrid registry allows clients create sessions directly with the registry.
 %
 % RegistryPrx Methods:
 %   createSession - Create a client session.
@@ -37,9 +36,8 @@ classdef RegistryPrx < Ice.ObjectPrx
             % Returns (IceGrid.SessionPrx) - A proxy for the newly created session.
             %
             % Exceptions:
-            %   IceGrid.PermissionDeniedException - Raised if the password for
-            %     the given user id is not correct, or if the user is not allowed
-            %     access.
+            %   IceGrid.PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+            %     user is not allowed access.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(userId);
@@ -61,9 +59,8 @@ classdef RegistryPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.PermissionDeniedException - Raised if the password for
-            %     the given user id is not correct, or if the user is not allowed
-            %     access.
+            %   IceGrid.PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+            %     user is not allowed access.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(userId);
@@ -88,9 +85,8 @@ classdef RegistryPrx < Ice.ObjectPrx
             % Returns (IceGrid.AdminSessionPrx) - A proxy for the newly created session.
             %
             % Exceptions:
-            %   IceGrid.PermissionDeniedException - Raised if the password for
-            %     the given user id is not correct, or if the user is not allowed
-            %     access.
+            %   IceGrid.PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+            %     user is not allowed access.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(userId);
@@ -112,9 +108,8 @@ classdef RegistryPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.PermissionDeniedException - Raised if the password for
-            %     the given user id is not correct, or if the user is not allowed
-            %     access.
+            %   IceGrid.PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+            %     user is not allowed access.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(userId);
@@ -137,9 +132,8 @@ classdef RegistryPrx < Ice.ObjectPrx
             % Returns (IceGrid.SessionPrx) - A proxy for the newly created session.
             %
             % Exceptions:
-            %   IceGrid.PermissionDeniedException - Raised if the password for
-            %     the given user id is not correct, or if the user is not allowed
-            %     access.
+            %   IceGrid.PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+            %     user is not allowed access.
             
             is_ = obj.iceInvoke('createSessionFromSecureConnection', 0, true, [], true, IceGrid.RegistryPrx.createSessionFromSecureConnection_ex_, varargin{:});
             is_.startEncapsulation();
@@ -155,9 +149,8 @@ classdef RegistryPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.PermissionDeniedException - Raised if the password for
-            %     the given user id is not correct, or if the user is not allowed
-            %     access.
+            %   IceGrid.PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+            %     user is not allowed access.
             
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
@@ -176,9 +169,8 @@ classdef RegistryPrx < Ice.ObjectPrx
             % Returns (IceGrid.AdminSessionPrx) - A proxy for the newly created session.
             %
             % Exceptions:
-            %   IceGrid.PermissionDeniedException - Raised if the password for
-            %     the given user id is not correct, or if the user is not allowed
-            %     access.
+            %   IceGrid.PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+            %     user is not allowed access.
             
             is_ = obj.iceInvoke('createAdminSessionFromSecureConnection', 0, true, [], true, IceGrid.RegistryPrx.createAdminSessionFromSecureConnection_ex_, varargin{:});
             is_.startEncapsulation();
@@ -194,9 +186,8 @@ classdef RegistryPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.PermissionDeniedException - Raised if the password for
-            %     the given user id is not correct, or if the user is not allowed
-            %     access.
+            %   IceGrid.PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+            %     user is not allowed access.
             
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
@@ -207,9 +198,8 @@ classdef RegistryPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('createAdminSessionFromSecureConnection', 0, true, [], 1, @unmarshal, IceGrid.RegistryPrx.createAdminSessionFromSecureConnection_ex_, varargin{:});
         end
         function result = getSessionTimeout(obj, varargin)
-            % getSessionTimeout   Get the session timeout. If a client or administrative client
-            % doesn't call the session keepAlive method in the time interval
-            % defined by this timeout, IceGrid might reap the session.
+            % getSessionTimeout   Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+            % the time interval defined by this timeout, IceGrid might reap the session.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -224,9 +214,8 @@ classdef RegistryPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getSessionTimeoutAsync(obj, varargin)
-            % getSessionTimeoutAsync   Get the session timeout. If a client or administrative client
-            % doesn't call the session keepAlive method in the time interval
-            % defined by this timeout, IceGrid might reap the session.
+            % getSessionTimeoutAsync   Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+            % the time interval defined by this timeout, IceGrid might reap the session.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -244,11 +233,8 @@ classdef RegistryPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('getSessionTimeout', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getACMTimeout(obj, varargin)
-            % getACMTimeout   Get the value of the ACM timeout. Clients supporting ACM
-            % connection heartbeats can enable them instead of explicitly
-            % sending keep alives requests.
-            %
-            % NOTE: This method is only available since Ice 3.6.
+            % getACMTimeout   Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+            % explicitly sending keep alives requests. This method is only available since Ice 3.6.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -261,11 +247,8 @@ classdef RegistryPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getACMTimeoutAsync(obj, varargin)
-            % getACMTimeoutAsync   Get the value of the ACM timeout. Clients supporting ACM
-            % connection heartbeats can enable them instead of explicitly
-            % sending keep alives requests.
-            %
-            % NOTE: This method is only available since Ice 3.6.
+            % getACMTimeoutAsync   Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+            % explicitly sending keep alives requests. This method is only available since Ice 3.6.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.

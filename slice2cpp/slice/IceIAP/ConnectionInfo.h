@@ -65,7 +65,7 @@ namespace IceIAP
 {
 
 /**
- * Provides access to the connection details of an IAP connection
+ * Provides access to the connection details of an IAP connection.
  * \headerfile IceIAP/IceIAP.h
  */
 class ICE_CLASS(ICEIAP_API) ConnectionInfo : public ::Ice::ConnectionInfo
@@ -166,7 +166,7 @@ namespace IceIAP
 {
 
 /**
- * Provides access to the connection details of an IAP connection
+ * Provides access to the connection details of an IAP connection.
  * \headerfile IceIAP/IceIAP.h
  */
 class ICEIAP_API ConnectionInfo : public ::Ice::ConnectionInfo

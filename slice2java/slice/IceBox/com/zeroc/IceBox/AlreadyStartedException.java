@@ -16,8 +16,7 @@
 package com.zeroc.IceBox;
 
 /**
- * This exception is thrown if an attempt is made to start an
- * already-started service.
+ * This exception is thrown if an attempt is made to start an already-started service.
  **/
 public class AlreadyStartedException extends com.zeroc.Ice.UserException
 {

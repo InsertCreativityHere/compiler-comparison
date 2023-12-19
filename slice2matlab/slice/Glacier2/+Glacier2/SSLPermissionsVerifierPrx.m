@@ -1,7 +1,6 @@
 % SSLPermissionsVerifierPrx   Summary of SSLPermissionsVerifierPrx
 %
-% The SSL Glacier2 permissions verifier. This is called through the
-% process of establishing a session.
+% The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
 %
 % SSLPermissionsVerifierPrx Methods:
 %   authorize - Check whether a user has permission to access the router.
@@ -28,9 +27,8 @@ classdef SSLPermissionsVerifierPrx < Ice.ObjectPrx
             %   reason (char) - The reason why access was denied.
             %
             % Exceptions:
-            %   Glacier2.PermissionDeniedException - Raised if the user access is
-            %     denied. This can be raised in place of returning false with a
-            %     reason set in the reason out parameter.
+            %   Glacier2.PermissionDeniedException - Raised if the user access is denied. This can be raised in place of
+            %     returning false with a reason set in the reason out parameter.
             %
             % See also Glacier2.SSLInfo
             
@@ -53,9 +51,8 @@ classdef SSLPermissionsVerifierPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   Glacier2.PermissionDeniedException - Raised if the user access is
-            %     denied. This can be raised in place of returning false with a
-            %     reason set in the reason out parameter.
+            %   Glacier2.PermissionDeniedException - Raised if the user access is denied. This can be raised in place of
+            %     returning false with a reason set in the reason out parameter.
             %
             % See also Glacier2.SSLInfo
             

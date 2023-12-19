@@ -74,8 +74,7 @@ namespace IcePatch2
 {
 
 /**
- * A sequence of byte sequences. Each element is the checksum for a
- * partition.
+ * A sequence of byte sequences. Each element is the checksum for a partition.
  */
 using ByteSeqSeq = ::std::vector<::Ice::ByteSeq>;
 
@@ -158,8 +157,8 @@ public:
 };
 
 /**
- * This exception is raised if an operation tries to use a file whose size is
- * larger than 2.1 GB. Use the "large" versions of the operations instead.
+ * This exception is raised if an operation tries to use a file whose size is larger than 2.1 GB. Use the "large"
+ * versions of the operations instead.
  * \headerfile IcePatch2/IcePatch2.h
  */
 class ICE_CLASS(ICEPATCH2_API) FileSizeRangeException : public ::Ice::UserExceptionHelper<FileSizeRangeException, FileAccessException>
@@ -241,14 +240,11 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Return file information for the specified partition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
+     * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
+     * only present for compatibility with old Ice clients (older than version 3.6).
      * @param partition The partition number in the range 0-255.
      * @param current The Current object for the invocation.
-     * @return A sequence containing information about the files in the
-     * specified partition.
+     * @return A sequence containing information about the files in the specified partition.
      * @throws IcePatch2::FileSizeRangeException If a file is larger than 2.1GB.
      * @throws IcePatch2::PartitionOutOfRangeException If the partition number is out of range.
      *
@@ -263,8 +259,7 @@ public:
      * Returns file information for the specified partition.
      * @param partition The partition number in the range 0-255.
      * @param current The Current object for the invocation.
-     * @return A sequence containing information about the files in the
-     * specified partition.
+     * @return A sequence containing information about the files in the specified partition.
      * @throws IcePatch2::PartitionOutOfRangeException If the partition number is out of range.
      */
     virtual LargeFileInfoSeq getLargeFileInfoSeq(int partition, const ::Ice::Current& current) const = 0;
@@ -275,11 +270,9 @@ public:
     /**
      * Return the checksums for all partitions.
      * @param current The Current object for the invocation.
-     * @return A sequence containing 256 checksums. Partitions with a
-     * checksum that differs from the previous checksum for the same
-     * partition contain updated files. Partitions with a checksum
-     * that is identical to the previous checksum do not contain
-     * updated files.
+     * @return A sequence containing 256 checksums. Partitions with a checksum that differs from the previous checksum
+     * for the same partition contain updated files. Partitions with a checksum that is identical to the previous
+     * checksum do not contain updated files.
      */
     virtual ByteSeqSeq getChecksumSeq(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -287,8 +280,8 @@ public:
     /// \endcond
 
     /**
-     * Return the master checksum for all partitions. If this checksum is the same
-     * as for a previous run, the entire file set is up-to-date.
+     * Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+     * file set is up-to-date.
      * @param current The Current object for the invocation.
      * @return The master checksum for the file set.
      */
@@ -298,13 +291,10 @@ public:
     /// \endcond
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+     * condition. <p class="Deprecated"> This operation is deprecated and only present for compatibility with old Ice
+     * clients (older than version 3.6).
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param response The response callback.
@@ -321,10 +311,9 @@ public:
     /// \endcond
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an
+     * end-of-file condition.
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param response The response callback.
@@ -356,14 +345,11 @@ class ICE_CLASS(ICEPATCH2_API) FileServerPrx : public virtual ::Ice::Proxy<FileS
 public:
 
     /**
-     * Return file information for the specified partition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
+     * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
+     * only present for compatibility with old Ice clients (older than version 3.6).
      * @param partition The partition number in the range 0-255.
      * @param context The Context map to send with the invocation.
-     * @return A sequence containing information about the files in the
-     * specified partition.
+     * @return A sequence containing information about the files in the specified partition.
      * @throws IcePatch2::FileSizeRangeException If a file is larger than 2.1GB.
      * @throws IcePatch2::PartitionOutOfRangeException If the partition number is out of range.
      *
@@ -375,10 +361,8 @@ public:
     }
 
     /**
-     * Return file information for the specified partition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
+     * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
+     * only present for compatibility with old Ice clients (older than version 3.6).
      * @param partition The partition number in the range 0-255.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -393,10 +377,8 @@ public:
     }
 
     /**
-     * Return file information for the specified partition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
+     * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
+     * only present for compatibility with old Ice clients (older than version 3.6).
      * @param partition The partition number in the range 0-255.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -424,8 +406,7 @@ public:
      * Returns file information for the specified partition.
      * @param partition The partition number in the range 0-255.
      * @param context The Context map to send with the invocation.
-     * @return A sequence containing information about the files in the
-     * specified partition.
+     * @return A sequence containing information about the files in the specified partition.
      * @throws IcePatch2::PartitionOutOfRangeException If the partition number is out of range.
      */
     LargeFileInfoSeq getLargeFileInfoSeq(int partition, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -472,11 +453,9 @@ public:
     /**
      * Return the checksums for all partitions.
      * @param context The Context map to send with the invocation.
-     * @return A sequence containing 256 checksums. Partitions with a
-     * checksum that differs from the previous checksum for the same
-     * partition contain updated files. Partitions with a checksum
-     * that is identical to the previous checksum do not contain
-     * updated files.
+     * @return A sequence containing 256 checksums. Partitions with a checksum that differs from the previous checksum
+     * for the same partition contain updated files. Partitions with a checksum that is identical to the previous
+     * checksum do not contain updated files.
      */
     ByteSeqSeq getChecksumSeq(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -517,8 +496,8 @@ public:
     /// \endcond
 
     /**
-     * Return the master checksum for all partitions. If this checksum is the same
-     * as for a previous run, the entire file set is up-to-date.
+     * Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+     * file set is up-to-date.
      * @param context The Context map to send with the invocation.
      * @return The master checksum for the file set.
      */
@@ -528,8 +507,8 @@ public:
     }
 
     /**
-     * Return the master checksum for all partitions. If this checksum is the same
-     * as for a previous run, the entire file set is up-to-date.
+     * Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+     * file set is up-to-date.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -541,8 +520,8 @@ public:
     }
 
     /**
-     * Return the master checksum for all partitions. If this checksum is the same
-     * as for a previous run, the entire file set is up-to-date.
+     * Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+     * file set is up-to-date.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -563,13 +542,10 @@ public:
     /// \endcond
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+     * condition. <p class="Deprecated"> This operation is deprecated and only present for compatibility with old Ice
+     * clients (older than version 3.6).
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param context The Context map to send with the invocation.
@@ -585,13 +561,10 @@ public:
     }
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+     * condition. <p class="Deprecated"> This operation is deprecated and only present for compatibility with old Ice
+     * clients (older than version 3.6).
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param context The Context map to send with the invocation.
@@ -607,13 +580,10 @@ public:
     }
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+     * condition. <p class="Deprecated"> This operation is deprecated and only present for compatibility with old Ice
+     * clients (older than version 3.6).
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param response The response callback.
@@ -636,10 +606,9 @@ public:
     /// \endcond
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an
+     * end-of-file condition.
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param context The Context map to send with the invocation.
@@ -652,10 +621,9 @@ public:
     }
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an
+     * end-of-file condition.
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param context The Context map to send with the invocation.
@@ -669,10 +637,9 @@ public:
     }
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an
+     * end-of-file condition.
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param response The response callback.
@@ -790,8 +757,7 @@ namespace IcePatch2
 {
 
 /**
- * A sequence of byte sequences. Each element is the checksum for a
- * partition.
+ * A sequence of byte sequences. Each element is the checksum for a partition.
  */
 typedef ::std::vector< ::Ice::ByteSeq> ByteSeqSeq;
 
@@ -890,8 +856,8 @@ protected:
 };
 
 /**
- * This exception is raised if an operation tries to use a file whose size is
- * larger than 2.1 GB. Use the "large" versions of the operations instead.
+ * This exception is raised if an operation tries to use a file whose size is larger than 2.1 GB. Use the "large"
+ * versions of the operations instead.
  * \headerfile IcePatch2/IcePatch2.h
  */
 class ICEPATCH2_API FileSizeRangeException : public FileAccessException
@@ -1094,14 +1060,11 @@ class ICE_CLASS(ICEPATCH2_API) FileServer : public virtual ::Ice::Proxy<FileServ
 public:
 
     /**
-     * Return file information for the specified partition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
+     * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
+     * only present for compatibility with old Ice clients (older than version 3.6).
      * @param partition The partition number in the range 0-255.
      * @param context The Context map to send with the invocation.
-     * @return A sequence containing information about the files in the
-     * specified partition.
+     * @return A sequence containing information about the files in the specified partition.
      * @throws IcePatch2::FileSizeRangeException If a file is larger than 2.1GB.
      * @throws IcePatch2::PartitionOutOfRangeException If the partition number is out of range.
      *
@@ -1113,10 +1076,8 @@ public:
     }
 
     /**
-     * Return file information for the specified partition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
+     * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
+     * only present for compatibility with old Ice clients (older than version 3.6).
      * @param partition The partition number in the range 0-255.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -1129,10 +1090,8 @@ public:
     }
 
     /**
-     * Return file information for the specified partition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
+     * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
+     * only present for compatibility with old Ice clients (older than version 3.6).
      * @param partition The partition number in the range 0-255.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -1146,10 +1105,8 @@ public:
     }
 
     /**
-     * Return file information for the specified partition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
+     * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
+     * only present for compatibility with old Ice clients (older than version 3.6).
      * @param partition The partition number in the range 0-255.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -1164,10 +1121,8 @@ public:
     }
 
     /**
-     * Return file information for the specified partition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
+     * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
+     * only present for compatibility with old Ice clients (older than version 3.6).
      * @param partition The partition number in the range 0-255.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -1181,10 +1136,8 @@ public:
     }
 
     /**
-     * Return file information for the specified partition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
+     * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
+     * only present for compatibility with old Ice clients (older than version 3.6).
      * @param partition The partition number in the range 0-255.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -1201,8 +1154,7 @@ public:
     /**
      * Completes an invocation of begin_getFileInfoSeq.
      * @param result The asynchronous result object for the invocation.
-     * @return A sequence containing information about the files in the
-     * specified partition.
+     * @return A sequence containing information about the files in the specified partition.
      * @throws IcePatch2::FileSizeRangeException If a file is larger than 2.1GB.
      * @throws IcePatch2::PartitionOutOfRangeException If the partition number is out of range.
      */
@@ -1218,8 +1170,7 @@ public:
      * Returns file information for the specified partition.
      * @param partition The partition number in the range 0-255.
      * @param context The Context map to send with the invocation.
-     * @return A sequence containing information about the files in the
-     * specified partition.
+     * @return A sequence containing information about the files in the specified partition.
      * @throws IcePatch2::PartitionOutOfRangeException If the partition number is out of range.
      */
     ICE_MEMBER(ICEPATCH2_API) ::IcePatch2::LargeFileInfoSeq getLargeFileInfoSeq(::Ice::Int partition, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1291,8 +1242,7 @@ public:
     /**
      * Completes an invocation of begin_getLargeFileInfoSeq.
      * @param result The asynchronous result object for the invocation.
-     * @return A sequence containing information about the files in the
-     * specified partition.
+     * @return A sequence containing information about the files in the specified partition.
      * @throws IcePatch2::PartitionOutOfRangeException If the partition number is out of range.
      */
     ICE_MEMBER(ICEPATCH2_API) ::IcePatch2::LargeFileInfoSeq end_getLargeFileInfoSeq(const ::Ice::AsyncResultPtr& result);
@@ -1306,11 +1256,9 @@ public:
     /**
      * Return the checksums for all partitions.
      * @param context The Context map to send with the invocation.
-     * @return A sequence containing 256 checksums. Partitions with a
-     * checksum that differs from the previous checksum for the same
-     * partition contain updated files. Partitions with a checksum
-     * that is identical to the previous checksum do not contain
-     * updated files.
+     * @return A sequence containing 256 checksums. Partitions with a checksum that differs from the previous checksum
+     * for the same partition contain updated files. Partitions with a checksum that is identical to the previous
+     * checksum do not contain updated files.
      */
     ICE_MEMBER(ICEPATCH2_API) ::IcePatch2::ByteSeqSeq getChecksumSeq(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -1376,11 +1324,9 @@ public:
     /**
      * Completes an invocation of begin_getChecksumSeq.
      * @param result The asynchronous result object for the invocation.
-     * @return A sequence containing 256 checksums. Partitions with a
-     * checksum that differs from the previous checksum for the same
-     * partition contain updated files. Partitions with a checksum
-     * that is identical to the previous checksum do not contain
-     * updated files.
+     * @return A sequence containing 256 checksums. Partitions with a checksum that differs from the previous checksum
+     * for the same partition contain updated files. Partitions with a checksum that is identical to the previous
+     * checksum do not contain updated files.
      */
     ICE_MEMBER(ICEPATCH2_API) ::IcePatch2::ByteSeqSeq end_getChecksumSeq(const ::Ice::AsyncResultPtr& result);
 
@@ -1391,8 +1337,8 @@ private:
 public:
 
     /**
-     * Return the master checksum for all partitions. If this checksum is the same
-     * as for a previous run, the entire file set is up-to-date.
+     * Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+     * file set is up-to-date.
      * @param context The Context map to send with the invocation.
      * @return The master checksum for the file set.
      */
@@ -1402,8 +1348,8 @@ public:
     }
 
     /**
-     * Return the master checksum for all partitions. If this checksum is the same
-     * as for a previous run, the entire file set is up-to-date.
+     * Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+     * file set is up-to-date.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -1413,8 +1359,8 @@ public:
     }
 
     /**
-     * Return the master checksum for all partitions. If this checksum is the same
-     * as for a previous run, the entire file set is up-to-date.
+     * Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+     * file set is up-to-date.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -1425,8 +1371,8 @@ public:
     }
 
     /**
-     * Return the master checksum for all partitions. If this checksum is the same
-     * as for a previous run, the entire file set is up-to-date.
+     * Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+     * file set is up-to-date.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -1438,8 +1384,8 @@ public:
     }
 
     /**
-     * Return the master checksum for all partitions. If this checksum is the same
-     * as for a previous run, the entire file set is up-to-date.
+     * Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+     * file set is up-to-date.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -1450,8 +1396,8 @@ public:
     }
 
     /**
-     * Return the master checksum for all partitions. If this checksum is the same
-     * as for a previous run, the entire file set is up-to-date.
+     * Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+     * file set is up-to-date.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -1476,13 +1422,10 @@ private:
 public:
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+     * condition. <p class="Deprecated"> This operation is deprecated and only present for compatibility with old Ice
+     * clients (older than version 3.6).
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param context The Context map to send with the invocation.
@@ -1498,13 +1441,10 @@ public:
     }
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+     * condition. <p class="Deprecated"> This operation is deprecated and only present for compatibility with old Ice
+     * clients (older than version 3.6).
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param context The Context map to send with the invocation.
@@ -1518,13 +1458,10 @@ public:
     }
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+     * condition. <p class="Deprecated"> This operation is deprecated and only present for compatibility with old Ice
+     * clients (older than version 3.6).
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param cb Asynchronous callback object.
@@ -1539,13 +1476,10 @@ public:
     }
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+     * condition. <p class="Deprecated"> This operation is deprecated and only present for compatibility with old Ice
+     * clients (older than version 3.6).
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param context The Context map to send with the invocation.
@@ -1561,13 +1495,10 @@ public:
     }
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+     * condition. <p class="Deprecated"> This operation is deprecated and only present for compatibility with old Ice
+     * clients (older than version 3.6).
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param cb Asynchronous callback object.
@@ -1582,13 +1513,10 @@ public:
     }
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+     * condition. <p class="Deprecated"> This operation is deprecated and only present for compatibility with old Ice
+     * clients (older than version 3.6).
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param context The Context map to send with the invocation.
@@ -1623,10 +1551,9 @@ private:
 public:
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an
+     * end-of-file condition.
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param context The Context map to send with the invocation.
@@ -1639,10 +1566,9 @@ public:
     }
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an
+     * end-of-file condition.
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param context The Context map to send with the invocation.
@@ -1654,10 +1580,9 @@ public:
     }
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an
+     * end-of-file condition.
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param cb Asynchronous callback object.
@@ -1670,10 +1595,9 @@ public:
     }
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an
+     * end-of-file condition.
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param context The Context map to send with the invocation.
@@ -1687,10 +1611,9 @@ public:
     }
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an
+     * end-of-file condition.
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param cb Asynchronous callback object.
@@ -1703,10 +1626,9 @@ public:
     }
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an
+     * end-of-file condition.
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param context The Context map to send with the invocation.
@@ -1805,14 +1727,11 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Return file information for the specified partition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
+     * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
+     * only present for compatibility with old Ice clients (older than version 3.6).
      * @param partition The partition number in the range 0-255.
      * @param current The Current object for the invocation.
-     * @return A sequence containing information about the files in the
-     * specified partition.
+     * @return A sequence containing information about the files in the specified partition.
      * @throws IcePatch2::FileSizeRangeException If a file is larger than 2.1GB.
      * @throws IcePatch2::PartitionOutOfRangeException If the partition number is out of range.
      *
@@ -1827,8 +1746,7 @@ public:
      * Returns file information for the specified partition.
      * @param partition The partition number in the range 0-255.
      * @param current The Current object for the invocation.
-     * @return A sequence containing information about the files in the
-     * specified partition.
+     * @return A sequence containing information about the files in the specified partition.
      * @throws IcePatch2::PartitionOutOfRangeException If the partition number is out of range.
      */
     virtual LargeFileInfoSeq getLargeFileInfoSeq(::Ice::Int partition, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
@@ -1839,11 +1757,9 @@ public:
     /**
      * Return the checksums for all partitions.
      * @param current The Current object for the invocation.
-     * @return A sequence containing 256 checksums. Partitions with a
-     * checksum that differs from the previous checksum for the same
-     * partition contain updated files. Partitions with a checksum
-     * that is identical to the previous checksum do not contain
-     * updated files.
+     * @return A sequence containing 256 checksums. Partitions with a checksum that differs from the previous checksum
+     * for the same partition contain updated files. Partitions with a checksum that is identical to the previous
+     * checksum do not contain updated files.
      */
     virtual ByteSeqSeq getChecksumSeq(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
     /// \cond INTERNAL
@@ -1851,8 +1767,8 @@ public:
     /// \endcond
 
     /**
-     * Return the master checksum for all partitions. If this checksum is the same
-     * as for a previous run, the entire file set is up-to-date.
+     * Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+     * file set is up-to-date.
      * @param current The Current object for the invocation.
      * @return The master checksum for the file set.
      */
@@ -1862,14 +1778,11 @@ public:
     /// \endcond
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
-     *
-     * <p class="Deprecated"> This operation is deprecated and only present for
-     * compatibility with old Ice clients (older than version 3.6).
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+     * condition. <p class="Deprecated"> This operation is deprecated and only present for compatibility with old Ice
+     * clients (older than version 3.6).
      * @param cb The AMD callback object for the invocation.
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param current The Current object for the invocation.
@@ -1884,11 +1797,10 @@ public:
     /// \endcond
 
     /**
-     * Read the specified file. This operation may only return fewer bytes than requested
-     * in case there was an end-of-file condition.
+     * Read the specified file. This operation may only return fewer bytes than requested in case there was an
+     * end-of-file condition.
      * @param cb The AMD callback object for the invocation.
-     * @param path The pathname (relative to the data directory) for
-     * the file to be read.
+     * @param path The pathname (relative to the data directory) for the file to be read.
      * @param pos The file offset at which to begin reading.
      * @param num The number of bytes to be read.
      * @param current The Current object for the invocation.

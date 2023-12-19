@@ -16,20 +16,17 @@
 package com.zeroc.IceGrid;
 
 /**
- * The database observer interface. Observers should implement this
- * interface to receive information about the state of the IceGrid
- * registry database.
+ * The database observer interface. Observers should implement this interface to receive information about the state
+ * of the IceGrid registry database.
  **/
 public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
-     * <code>applicationInit</code> is called after the registration
-     * of an observer to indicate the state of the registry.
-     * @param serial The current serial number of the registry
-     * database. This serial number allows observers to make sure that
-     * their internal state is synchronized with the registry.
-     * @param applications The applications currently registered with
-     * the registry.
+     * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param serial The current serial number of the registry database. This serial number allows observers to make
+     * sure that their internal state is synchronized with the registry.
+     * @param applications The applications currently registered with the registry.
      **/
     default void applicationInit(int serial, java.util.List<ApplicationInfo> applications)
     {
@@ -37,13 +34,11 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * <code>applicationInit</code> is called after the registration
-     * of an observer to indicate the state of the registry.
-     * @param serial The current serial number of the registry
-     * database. This serial number allows observers to make sure that
-     * their internal state is synchronized with the registry.
-     * @param applications The applications currently registered with
-     * the registry.
+     * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param serial The current serial number of the registry database. This serial number allows observers to make
+     * sure that their internal state is synchronized with the registry.
+     * @param applications The applications currently registered with the registry.
      * @param context The Context map to send with the invocation.
      **/
     default void applicationInit(int serial, java.util.List<ApplicationInfo> applications, java.util.Map<String, String> context)
@@ -52,13 +47,11 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * <code>applicationInit</code> is called after the registration
-     * of an observer to indicate the state of the registry.
-     * @param serial The current serial number of the registry
-     * database. This serial number allows observers to make sure that
-     * their internal state is synchronized with the registry.
-     * @param applications The applications currently registered with
-     * the registry.
+     * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param serial The current serial number of the registry database. This serial number allows observers to make
+     * sure that their internal state is synchronized with the registry.
+     * @param applications The applications currently registered with the registry.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> applicationInitAsync(int serial, java.util.List<ApplicationInfo> applications)
@@ -67,13 +60,11 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * <code>applicationInit</code> is called after the registration
-     * of an observer to indicate the state of the registry.
-     * @param serial The current serial number of the registry
-     * database. This serial number allows observers to make sure that
-     * their internal state is synchronized with the registry.
-     * @param applications The applications currently registered with
-     * the registry.
+     * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param serial The current serial number of the registry database. This serial number allows observers to make
+     * sure that their internal state is synchronized with the registry.
+     * @param applications The applications currently registered with the registry.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -102,8 +93,7 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>applicationAdded</code> operation is called to notify an observer
-     * that an application was added.
+     * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the new application.
      **/
@@ -113,8 +103,7 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>applicationAdded</code> operation is called to notify an observer
-     * that an application was added.
+     * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the new application.
      * @param context The Context map to send with the invocation.
@@ -125,8 +114,7 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>applicationAdded</code> operation is called to notify an observer
-     * that an application was added.
+     * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the new application.
      * @return A future that will be completed when the invocation completes.
@@ -137,8 +125,7 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>applicationAdded</code> operation is called to notify an observer
-     * that an application was added.
+     * The <code>applicationAdded</code> operation is called to notify an observer that an application was added.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the new application.
      * @param context The Context map to send with the invocation.
@@ -169,8 +156,7 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>applicationRemoved</code> operation is called to notify an observer
-     * that an application was removed.
+     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
      * @param serial The new serial number of the registry database.
      * @param name The name of the application that was removed.
      **/
@@ -180,8 +166,7 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>applicationRemoved</code> operation is called to notify an observer
-     * that an application was removed.
+     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
      * @param serial The new serial number of the registry database.
      * @param name The name of the application that was removed.
      * @param context The Context map to send with the invocation.
@@ -192,8 +177,7 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>applicationRemoved</code> operation is called to notify an observer
-     * that an application was removed.
+     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
      * @param serial The new serial number of the registry database.
      * @param name The name of the application that was removed.
      * @return A future that will be completed when the invocation completes.
@@ -204,8 +188,7 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>applicationRemoved</code> operation is called to notify an observer
-     * that an application was removed.
+     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
      * @param serial The new serial number of the registry database.
      * @param name The name of the application that was removed.
      * @param context The Context map to send with the invocation.
@@ -235,8 +218,7 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>applicationUpdated</code> operation is called to notify an observer
-     * that an application was updated.
+     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the update.
      **/
@@ -246,8 +228,7 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>applicationUpdated</code> operation is called to notify an observer
-     * that an application was updated.
+     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the update.
      * @param context The Context map to send with the invocation.
@@ -258,8 +239,7 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>applicationUpdated</code> operation is called to notify an observer
-     * that an application was updated.
+     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the update.
      * @return A future that will be completed when the invocation completes.
@@ -270,8 +250,7 @@ public interface ApplicationObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>applicationUpdated</code> operation is called to notify an observer
-     * that an application was updated.
+     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the update.
      * @param context The Context map to send with the invocation.

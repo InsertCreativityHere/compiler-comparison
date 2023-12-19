@@ -16,8 +16,7 @@
 package com.zeroc.Glacier2;
 
 /**
- * The SSL Glacier2 permissions verifier. This is called through the
- * process of establishing a session.
+ * The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
  *
  * @see Router
  **/
@@ -27,9 +26,8 @@ public interface SSLPermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx
      * Check whether a user has permission to access the router.
      * @param info The SSL information.
      * @return An instance of SSLPermissionsVerifier.AuthorizeResult.
-     * @throws PermissionDeniedException Raised if the user access is
-     * denied. This can be raised in place of returning false with a
-     * reason set in the reason out parameter.
+     * @throws PermissionDeniedException Raised if the user access is denied. This can be raised in place of
+     * returning false with a reason set in the reason out parameter.
      *
      * @see SSLInfo
      **/
@@ -44,9 +42,8 @@ public interface SSLPermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx
      * @param info The SSL information.
      * @param context The Context map to send with the invocation.
      * @return An instance of SSLPermissionsVerifier.AuthorizeResult.
-     * @throws PermissionDeniedException Raised if the user access is
-     * denied. This can be raised in place of returning false with a
-     * reason set in the reason out parameter.
+     * @throws PermissionDeniedException Raised if the user access is denied. This can be raised in place of
+     * returning false with a reason set in the reason out parameter.
      *
      * @see SSLInfo
      **/

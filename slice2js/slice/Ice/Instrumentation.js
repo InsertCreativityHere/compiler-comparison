@@ -40,16 +40,13 @@ Ice.Instrumentation = _ModuleRegistry.module("Ice.Instrumentation");
 /* slice2js browser-bundle-skip-end */
 
 /**
- * The thread state enumeration keeps track of the different possible
- * states of Ice threads.
- *
+ *  The thread state enumeration keeps track of the different possible states of Ice threads.
  **/
 Ice.Instrumentation.ThreadState = Slice.defineEnum([
     ['ThreadStateIdle', 0], ['ThreadStateInUseForIO', 1], ['ThreadStateInUseForUser', 2], ['ThreadStateInUseForOther', 3]]);
 
 /**
- * The state of an Ice connection.
- *
+ *  The state of an Ice connection.
  **/
 Ice.Instrumentation.ConnectionState = Slice.defineEnum([
     ['ConnectionStateValidating', 0], ['ConnectionStateHolding', 1], ['ConnectionStateActive', 2], ['ConnectionStateClosing', 3], ['ConnectionStateClosed', 4]]);

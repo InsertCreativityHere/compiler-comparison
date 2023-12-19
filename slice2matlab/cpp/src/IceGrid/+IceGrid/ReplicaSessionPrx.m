@@ -73,8 +73,7 @@ classdef ReplicaSessionPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('getTimeout', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function setDatabaseObserver(obj, dbObs, serials, varargin)
-            % setDatabaseObserver   Set the database observer. Once the observer is subscribed, it
-            % will receive the database and database updates.
+            % setDatabaseObserver   Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
             %
             % Parameters:
             %   dbObs (IceGrid.DatabaseObserverPrx)
@@ -88,8 +87,7 @@ classdef ReplicaSessionPrx < Ice.ObjectPrx
             obj.iceInvoke('setDatabaseObserver', 2, true, os_, false, IceGrid.ReplicaSessionPrx.setDatabaseObserver_ex_, varargin{:});
         end
         function r_ = setDatabaseObserverAsync(obj, dbObs, serials, varargin)
-            % setDatabaseObserverAsync   Set the database observer. Once the observer is subscribed, it
-            % will receive the database and database updates.
+            % setDatabaseObserverAsync   Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
             %
             % Parameters:
             %   dbObs (IceGrid.DatabaseObserverPrx)
@@ -105,9 +103,8 @@ classdef ReplicaSessionPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('setDatabaseObserver', 2, true, os_, 0, [], IceGrid.ReplicaSessionPrx.setDatabaseObserver_ex_, varargin{:});
         end
         function setEndpoints(obj, endpoints, varargin)
-            % setEndpoints   This method sets the endpoints of the replica. This allows the
-            % master to create proxies with multiple endpoints for replicated
-            % objects (e.g.: IceGrid::Query object).
+            % setEndpoints   This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+            % for replicated objects (e.g.: IceGrid::Query object).
             %
             % Parameters:
             %   endpoints (containers.Map)
@@ -119,9 +116,8 @@ classdef ReplicaSessionPrx < Ice.ObjectPrx
             obj.iceInvoke('setEndpoints', 2, false, os_, false, {}, varargin{:});
         end
         function r_ = setEndpointsAsync(obj, endpoints, varargin)
-            % setEndpointsAsync   This method sets the endpoints of the replica. This allows the
-            % master to create proxies with multiple endpoints for replicated
-            % objects (e.g.: IceGrid::Query object).
+            % setEndpointsAsync   This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+            % for replicated objects (e.g.: IceGrid::Query object).
             %
             % Parameters:
             %   endpoints (containers.Map)
@@ -161,9 +157,8 @@ classdef ReplicaSessionPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('registerWellKnownObjects', 2, false, os_, 0, [], {}, varargin{:});
         end
         function setAdapterDirectProxy(obj, adapterId, replicaGroupId, proxy, varargin)
-            % setAdapterDirectProxy   Set the adapter direct proxy of the given adapter in the
-            % master. This is used to support dynamic registration with
-            % the locator registry interface.
+            % setAdapterDirectProxy   Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+            % with the locator registry interface.
             %
             % Parameters:
             %   adapterId (char)
@@ -179,9 +174,8 @@ classdef ReplicaSessionPrx < Ice.ObjectPrx
             obj.iceInvoke('setAdapterDirectProxy', 2, true, os_, false, IceGrid.ReplicaSessionPrx.setAdapterDirectProxy_ex_, varargin{:});
         end
         function r_ = setAdapterDirectProxyAsync(obj, adapterId, replicaGroupId, proxy, varargin)
-            % setAdapterDirectProxyAsync   Set the adapter direct proxy of the given adapter in the
-            % master. This is used to support dynamic registration with
-            % the locator registry interface.
+            % setAdapterDirectProxyAsync   Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+            % with the locator registry interface.
             %
             % Parameters:
             %   adapterId (char)
@@ -199,9 +193,8 @@ classdef ReplicaSessionPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('setAdapterDirectProxy', 2, true, os_, 0, [], IceGrid.ReplicaSessionPrx.setAdapterDirectProxy_ex_, varargin{:});
         end
         function receivedUpdate(obj, name, serial, failure, varargin)
-            % receivedUpdate   Notify the master that an update was received. The master might
-            % wait for replication updates to be received by all the replicas
-            % before to continue.
+            % receivedUpdate   Notify the master that an update was received. The master might wait for replication updates to be received by
+            % all the replicas before to continue.
             %
             % Parameters:
             %   name (IceGrid.TopicName)
@@ -217,9 +210,8 @@ classdef ReplicaSessionPrx < Ice.ObjectPrx
             obj.iceInvoke('receivedUpdate', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = receivedUpdateAsync(obj, name, serial, failure, varargin)
-            % receivedUpdateAsync   Notify the master that an update was received. The master might
-            % wait for replication updates to be received by all the replicas
-            % before to continue.
+            % receivedUpdateAsync   Notify the master that an update was received. The master might wait for replication updates to be received by
+            % all the replicas before to continue.
             %
             % Parameters:
             %   name (IceGrid.TopicName)

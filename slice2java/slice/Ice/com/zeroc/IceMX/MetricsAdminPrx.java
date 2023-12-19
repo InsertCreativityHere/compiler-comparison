@@ -16,10 +16,8 @@
 package com.zeroc.IceMX;
 
 /**
- * The metrics administrative facet interface. This interface allows
- * remote administrative clients to access metrics of an application
- * that enabled the Ice administrative facility and configured some
- * metrics views.
+ * The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
+ * of an application that enabled the Ice administrative facility and configured some metrics views.
  **/
 public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
 {
@@ -81,8 +79,7 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Enables a metrics view.
      * @param name The metrics view name.
-     * @throws UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws UnknownMetricsView Raised if the metrics view cannot be found.
      **/
     default void enableMetricsView(String name)
         throws UnknownMetricsView
@@ -94,8 +91,7 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
      * Enables a metrics view.
      * @param name The metrics view name.
      * @param context The Context map to send with the invocation.
-     * @throws UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws UnknownMetricsView Raised if the metrics view cannot be found.
      **/
     default void enableMetricsView(String name, java.util.Map<String, String> context)
         throws UnknownMetricsView
@@ -160,8 +156,7 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Disable a metrics view.
      * @param name The metrics view name.
-     * @throws UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws UnknownMetricsView Raised if the metrics view cannot be found.
      **/
     default void disableMetricsView(String name)
         throws UnknownMetricsView
@@ -173,8 +168,7 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
      * Disable a metrics view.
      * @param name The metrics view name.
      * @param context The Context map to send with the invocation.
-     * @throws UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws UnknownMetricsView Raised if the metrics view cannot be found.
      **/
     default void disableMetricsView(String name, java.util.Map<String, String> context)
         throws UnknownMetricsView
@@ -237,15 +231,12 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     /**
-     * Get the metrics objects for the given metrics view. This
-     * returns a dictionary of metric maps for each metrics class
-     * configured with the view. The timestamp allows the client to
-     * compute averages which are not dependent of the invocation
-     * latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+     * the invocation latency for this operation.
      * @param view The name of the metrics view.
      * @return An instance of MetricsAdmin.GetMetricsViewResult.
-     * @throws UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws UnknownMetricsView Raised if the metrics view cannot be found.
      **/
     default MetricsAdmin.GetMetricsViewResult getMetricsView(String view)
         throws UnknownMetricsView
@@ -254,16 +245,13 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the metrics objects for the given metrics view. This
-     * returns a dictionary of metric maps for each metrics class
-     * configured with the view. The timestamp allows the client to
-     * compute averages which are not dependent of the invocation
-     * latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+     * the invocation latency for this operation.
      * @param view The name of the metrics view.
      * @param context The Context map to send with the invocation.
      * @return An instance of MetricsAdmin.GetMetricsViewResult.
-     * @throws UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws UnknownMetricsView Raised if the metrics view cannot be found.
      **/
     default MetricsAdmin.GetMetricsViewResult getMetricsView(String view, java.util.Map<String, String> context)
         throws UnknownMetricsView
@@ -283,11 +271,9 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the metrics objects for the given metrics view. This
-     * returns a dictionary of metric maps for each metrics class
-     * configured with the view. The timestamp allows the client to
-     * compute averages which are not dependent of the invocation
-     * latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+     * the invocation latency for this operation.
      * @param view The name of the metrics view.
      * @return A future that will be completed with an instance of MetricsAdmin.GetMetricsViewResult.
      **/
@@ -297,11 +283,9 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the metrics objects for the given metrics view. This
-     * returns a dictionary of metric maps for each metrics class
-     * configured with the view. The timestamp allows the client to
-     * compute averages which are not dependent of the invocation
-     * latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+     * the invocation latency for this operation.
      * @param view The name of the metrics view.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed with an instance of MetricsAdmin.GetMetricsViewResult.
@@ -343,8 +327,7 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param view The name of the metrics view.
      * @param map The name of the metrics map.
      * @return The metrics failures associated with the map.
-     * @throws UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws UnknownMetricsView Raised if the metrics view cannot be found.
      **/
     default MetricsFailures[] getMapMetricsFailures(String view, String map)
         throws UnknownMetricsView
@@ -358,8 +341,7 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param map The name of the metrics map.
      * @param context The Context map to send with the invocation.
      * @return The metrics failures associated with the map.
-     * @throws UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws UnknownMetricsView Raised if the metrics view cannot be found.
      **/
     default MetricsFailures[] getMapMetricsFailures(String view, String map, java.util.Map<String, String> context)
         throws UnknownMetricsView
@@ -435,8 +417,7 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param map The name of the metrics map.
      * @param id The ID of the metrics.
      * @return The metrics failures associated with the metrics.
-     * @throws UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws UnknownMetricsView Raised if the metrics view cannot be found.
      **/
     default MetricsFailures getMetricsFailures(String view, String map, String id)
         throws UnknownMetricsView
@@ -451,8 +432,7 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
      * @param id The ID of the metrics.
      * @param context The Context map to send with the invocation.
      * @return The metrics failures associated with the metrics.
-     * @throws UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws UnknownMetricsView Raised if the metrics view cannot be found.
      **/
     default MetricsFailures getMetricsFailures(String view, String map, String id, java.util.Map<String, String> context)
         throws UnknownMetricsView

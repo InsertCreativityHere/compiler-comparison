@@ -38,8 +38,7 @@ namespace Ice
 
         No,
         /// <summary>
-        /// Compress the batch requests if at least one request was
-        /// made on a compressed proxy.
+        /// Compress the batch requests if at least one request was made on a compressed proxy.
         /// </summary>
 
         BasedOnProxy
@@ -123,8 +122,8 @@ namespace Ice
 
         CloseOnIdle,
         /// <summary>
-        /// Forcefully closes a connection that has been idle for the configured timeout period,
-        /// but only if the connection has pending invocations.
+        /// Forcefully closes a connection that has been idle for the configured timeout period, but only if the connection
+        ///  has pending invocations.
         /// </summary>
 
         CloseOnInvocation,
@@ -134,8 +133,8 @@ namespace Ice
 
         CloseOnInvocationAndIdle,
         /// <summary>
-        /// Forcefully closes a connection that has been idle for the configured timeout period,
-        /// regardless of whether the connection has pending invocations or dispatch.
+        /// Forcefully closes a connection that has been idle for the configured timeout period, regardless of whether the
+        ///  connection has pending invocations or dispatch.
         /// </summary>
 
         CloseOnIdleForceful
@@ -273,14 +272,15 @@ namespace Ice
     public enum ConnectionClose
     {
         /// <summary>
-        /// Close the connection immediately without sending a close connection protocol message to the peer
-        /// and waiting for the peer to acknowledge it.
+        /// Close the connection immediately without sending a close connection protocol message to the peer and waiting
+        ///  for the peer to acknowledge it.
         /// </summary>
 
         Forcefully,
         /// <summary>
         /// Close the connection by notifying the peer but do not wait for pending outgoing invocations to complete.
-        /// On the server side, the connection will not be closed until all incoming invocations have completed.
+        /// On the
+        ///  server side, the connection will not be closed until all incoming invocations have completed.
         /// </summary>
 
         Gracefully,
@@ -311,8 +311,7 @@ namespace Ice
         /// Manually close the connection using the specified closure mode.
         /// </summary>
         /// <param name="mode">Determines how the connection will be closed.
-        ///
-        /// </param>
+        ///  </param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         void close(ConnectionClose mode);
@@ -320,57 +319,40 @@ namespace Ice
 
         /// <summary>
         /// Create a special proxy that always uses this connection.
-        /// This
-        /// can be used for callbacks from a server to a client if the
-        /// server cannot directly establish a connection to the client,
-        /// for example because of firewalls. In this case, the server
-        /// would create a proxy using an already established connection
-        /// from the client.
-        ///
+        /// This can be used for callbacks from a server to a
+        ///  client if the server cannot directly establish a connection to the client, for example because of firewalls. In
+        ///  this case, the server would create a proxy using an already established connection from the client.
         /// </summary>
-        /// <param name="id">The identity for which a proxy is to be created.
-        ///
-        /// </param>
-        /// <returns>A proxy that matches the given identity and uses this
-        /// connection.
-        ///
-        /// </returns>
+        ///  <param name="id">The identity for which a proxy is to be created.
+        ///  </param>
+        /// <returns>A proxy that matches the given identity and uses this connection.
+        ///  </returns>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         ObjectPrx createProxy(Identity id);
 
 
         /// <summary>
-        /// Explicitly set an object adapter that dispatches requests that
-        /// are received over this connection.
-        /// A client can invoke an
-        /// operation on a server using a proxy, and then set an object
-        /// adapter for the outgoing connection that is used by the proxy
-        /// in order to receive callbacks. This is useful if the server
-        /// cannot establish a connection back to the client, for example
-        /// because of firewalls.
-        ///
+        /// Explicitly set an object adapter that dispatches requests that are received over this connection.
+        /// A client can
+        ///  invoke an operation on a server using a proxy, and then set an object adapter for the outgoing connection that
+        ///  is used by the proxy in order to receive callbacks. This is useful if the server cannot establish a connection
+        ///  back to the client, for example because of firewalls.
         /// </summary>
-        /// <param name="adapter">The object adapter that should be used by this
-        /// connection to dispatch requests. The object adapter must be
-        /// activated. When the object adapter is deactivated, it is
-        /// automatically removed from the connection. Attempts to use a
-        /// deactivated object adapter raise ObjectAdapterDeactivatedException
-        ///
-        /// </param>
+        ///  <param name="adapter">The object adapter that should be used by this connection to dispatch requests. The object
+        ///  adapter must be activated. When the object adapter is deactivated, it is automatically removed from the
+        ///  connection. Attempts to use a deactivated object adapter raise ObjectAdapterDeactivatedException
+        ///  </param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         void setAdapter(ObjectAdapter adapter);
 
 
         /// <summary>
-        /// Get the object adapter that dispatches requests for this
-        /// connection.
+        /// Get the object adapter that dispatches requests for this connection.
         /// </summary>
-        /// <returns>The object adapter that dispatches requests for the
-        /// connection, or null if no adapter is set.
-        ///
-        /// </returns>
+        /// <returns>The object adapter that dispatches requests for the connection, or null if no adapter is set.
+        ///  </returns>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         ObjectAdapter getAdapter();
@@ -388,11 +370,10 @@ namespace Ice
         /// <summary>
         /// Flush any pending batch requests for this connection.
         /// This means all batch requests invoked on fixed proxies
-        /// associated with the connection.
-        ///
+        ///  associated with the connection.
         /// </summary>
-        /// <param name="compress">Specifies whether or not the queued batch requests
-        /// should be compressed before being sent over the wire.</param>
+        ///  <param name="compress">Specifies whether or not the queued batch requests should be compressed before being sent over
+        ///  the wire.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         void flushBatchRequests(CompressBatch compress);
@@ -409,13 +390,11 @@ namespace Ice
 
         /// <summary>
         /// Set a close callback on the connection.
-        /// The callback is called by the
-        /// connection when it's closed. The callback is called from the
-        /// Ice thread pool associated with the connection. If the callback needs
-        /// more information about the closure, it can call Connection.throwException.
-        ///
+        /// The callback is called by the connection when it's closed. The callback
+        ///  is called from the Ice thread pool associated with the connection. If the callback needs more information about
+        ///  the closure, it can call Connection.throwException.
         /// </summary>
-        /// <param name="callback">The close callback object.</param>
+        ///  <param name="callback">The close callback object.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         void setCloseCallback(CloseCallback callback);
@@ -423,12 +402,10 @@ namespace Ice
 
         /// <summary>
         /// Set a heartbeat callback on the connection.
-        /// The callback is called by the
-        /// connection when a heartbeat is received. The callback is called
-        /// from the Ice thread pool associated with the connection.
-        ///
+        /// The callback is called by the connection when a heartbeat is
+        ///  received. The callback is called from the Ice thread pool associated with the connection.
         /// </summary>
-        /// <param name="callback">The heartbeat callback object.</param>
+        ///  <param name="callback">The heartbeat callback object.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         void setHeartbeatCallback(HeartbeatCallback callback);
@@ -455,11 +432,9 @@ namespace Ice
         /// Set the active connection management parameters.
         /// </summary>
         /// <param name="timeout">The timeout value in seconds, must be &gt;= 0.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="close">The close condition
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="heartbeat">The hertbeat condition</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -477,11 +452,9 @@ namespace Ice
 
         /// <summary>
         /// Return the connection type.
-        /// This corresponds to the endpoint
-        /// type, i.e., "tcp", "udp", etc.
-        ///
+        /// This corresponds to the endpoint type, i.e., "tcp", "udp", etc.
         /// </summary>
-        /// <returns>The type of the connection.</returns>
+        ///  <returns>The type of the connection.</returns>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         string type();
@@ -497,11 +470,9 @@ namespace Ice
 
 
         /// <summary>
-        /// Return a description of the connection as human readable text,
-        /// suitable for logging or error messages.
+        /// Return a description of the connection as human readable text, suitable for logging or error messages.
         /// </summary>
-        /// <returns>The description of the connection as human readable
-        /// text.</returns>
+        /// <returns>The description of the connection as human readable text.</returns>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         string ice_toString_();
@@ -520,7 +491,7 @@ namespace Ice
         /// Set the connection buffer receive/send size.
         /// </summary>
         /// <param name="rcvSize">The connection receive buffer size.
-        /// </param>
+        ///  </param>
         /// <param name="sndSize">The connection send buffer size.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -530,10 +501,9 @@ namespace Ice
         /// <summary>
         /// Throw an exception indicating the reason for connection closure.
         /// For example,
-        /// CloseConnectionException is raised if the connection was closed gracefully,
-        /// whereas ConnectionManuallyClosedException is raised if the connection was
-        /// manually closed by the application. This operation does nothing if the connection is
-        /// not yet closed.
+        ///  CloseConnectionException is raised if the connection was closed gracefully, whereas
+        ///  ConnectionManuallyClosedException is raised if the connection was manually closed by
+        ///  the application. This operation does nothing if the connection is not yet closed.
         /// </summary>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]

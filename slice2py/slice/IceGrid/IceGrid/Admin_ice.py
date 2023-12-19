@@ -39,19 +39,16 @@ if 'ServerState' not in _M_IceGrid.__dict__:
     _M_IceGrid.ServerState = Ice.createTempClass()
     class ServerState(Ice.EnumBase):
         """
-        An enumeration representing the state of the server.
+         An enumeration representing the state of the server.
         Enumerators:
-        Inactive -- The server is not running.
-        Activating -- The server is being activated and will change to the active
-        state when the registered server object adapters are activated
-        or to the activation timed out state if the activation timeout
-        expires.
-        ActivationTimedOut -- The activation timed out state indicates that the server
-        activation timed out.
-        Active -- The server is running.
-        Deactivating -- The server is being deactivated.
-        Destroying -- The server is being destroyed.
-        Destroyed -- The server is destroyed.
+        Inactive --  The server is not running.
+        Activating --  The server is being activated and will change to the active state when the registered server object adapters
+         are activated or to the activation timed out state if the activation timeout expires.
+        ActivationTimedOut --  The activation timed out state indicates that the server activation timed out.
+        Active --  The server is running.
+        Deactivating --  The server is being deactivated.
+        Destroying --  The server is being destroyed.
+        Destroyed --  The server is destroyed.
         """
 
         def __init__(self, _n, _v):
@@ -84,10 +81,10 @@ if 'ObjectInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.ObjectInfo = Ice.createTempClass()
     class ObjectInfo(object):
         """
-        Information about an Ice object.
+         Information about an Ice object.
         Members:
-        proxy -- The proxy of the object.
-        type -- The type of the object.
+        proxy --  The proxy of the object.
+        type --  The type of the object.
         """
         def __init__(self, proxy=None, type=''):
             self.proxy = proxy
@@ -128,12 +125,11 @@ if 'AdapterInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.AdapterInfo = Ice.createTempClass()
     class AdapterInfo(object):
         """
-        Information about an adapter registered with the IceGrid registry.
+         Information about an adapter registered with the IceGrid registry.
         Members:
-        id -- The id of the adapter.
-        proxy -- A dummy direct proxy that contains the adapter endpoints.
-        replicaGroupId -- The replica group id of the object adapter, or empty if the
-        adapter doesn't belong to a replica group.
+        id --  The id of the adapter.
+        proxy --  A dummy direct proxy that contains the adapter endpoints.
+        replicaGroupId --  The replica group id of the object adapter, or empty if the adapter doesn't belong to a replica group.
         """
         def __init__(self, id='', proxy=None, replicaGroupId=''):
             self.id = id
@@ -178,14 +174,14 @@ if 'ServerInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.ServerInfo = Ice.createTempClass()
     class ServerInfo(object):
         """
-        Information about a server managed by an IceGrid node.
+         Information about a server managed by an IceGrid node.
         Members:
-        application -- The server application.
-        uuid -- The application uuid.
-        revision -- The application revision.
-        node -- The server node.
-        descriptor -- The server descriptor.
-        sessionId -- The id of the session which allocated the server.
+        application --  The server application.
+        uuid --  The application uuid.
+        revision --  The application revision.
+        node --  The server node.
+        descriptor --  The server descriptor.
+        sessionId --  The id of the session which allocated the server.
         """
         def __init__(self, application='', uuid='', revision=0, node='', descriptor=None, sessionId=''):
             self.application = application
@@ -239,19 +235,17 @@ if 'NodeInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.NodeInfo = Ice.createTempClass()
     class NodeInfo(object):
         """
-        Information about an IceGrid node.
+         Information about an IceGrid node.
         Members:
-        name -- The name of the node.
-        os -- The operating system name.
-        hostname -- The network name of the host running this node (as defined in
-        uname()).
-        release -- The operation system release level (as defined in uname()).
-        version -- The operation system version (as defined in uname()).
-        machine -- The machine hardware type (as defined in uname()).
-        nProcessors -- The number of processor threads on the node.
-        For example, nProcessors is 8 on a computer with a single quad-core
-        processor and two HT threads per core.
-        dataDir -- The path to the node data directory.
+        name --  The name of the node.
+        os --  The operating system name.
+        hostname --  The network name of the host running this node (as defined in uname()).
+        release --  The operation system release level (as defined in uname()).
+        version --  The operation system version (as defined in uname()).
+        machine --  The machine hardware type (as defined in uname()).
+        nProcessors --  The number of processor threads on the node. For example, nProcessors is 8 on a computer with a single
+         quad-core processor and two HT threads per core.
+        dataDir --  The path to the node data directory.
         """
         def __init__(self, name='', os='', hostname='', release='', version='', machine='', nProcessors=0, dataDir=''):
             self.name = name
@@ -412,11 +406,10 @@ if 'RegistryInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.RegistryInfo = Ice.createTempClass()
     class RegistryInfo(object):
         """
-        Information about an IceGrid registry replica.
+         Information about an IceGrid registry replica.
         Members:
-        name -- The name of the registry.
-        hostname -- The network name of the host running this registry (as defined in
-        uname()).
+        name --  The name of the registry.
+        hostname --  The network name of the host running this registry (as defined in uname()).
         """
         def __init__(self, name='', hostname=''):
             self.name = name
@@ -514,11 +507,11 @@ if 'LoadInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.LoadInfo = Ice.createTempClass()
     class LoadInfo(object):
         """
-        Information about the load of a node.
+         Information about the load of a node.
         Members:
-        avg1 -- The load average over the past minute.
-        avg5 -- The load average over the past 5 minutes.
-        avg15 -- The load average over the past 15 minutes.
+        avg1 --  The load average over the past minute.
+        avg5 --  The load average over the past 5 minutes.
+        avg15 --  The load average over the past 15 minutes.
         """
         def __init__(self, avg1=0.0, avg5=0.0, avg15=0.0):
             self.avg1 = avg1
@@ -560,15 +553,15 @@ if 'ApplicationInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.ApplicationInfo = Ice.createTempClass()
     class ApplicationInfo(object):
         """
-        Information about an IceGrid application.
+         Information about an IceGrid application.
         Members:
-        uuid -- Unique application identifier.
-        createTime -- The creation time.
-        createUser -- The user who created the application.
-        updateTime -- The update time.
-        updateUser -- The user who updated the application.
-        revision -- The application revision number.
-        descriptor -- The application descriptor
+        uuid --  Unique application identifier.
+        createTime --  The creation time.
+        createUser --  The user who created the application.
+        updateTime --  The update time.
+        updateUser --  The user who updated the application.
+        revision --  The application revision number.
+        descriptor --  The application descriptor
         """
         def __init__(self, uuid='', createTime=0, createUser='', updateTime=0, updateUser='', revision=0, descriptor=Ice._struct_marker):
             self.uuid = uuid
@@ -632,12 +625,12 @@ if 'ApplicationUpdateInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.ApplicationUpdateInfo = Ice.createTempClass()
     class ApplicationUpdateInfo(object):
         """
-        Information about updates to an IceGrid application.
+         Information about updates to an IceGrid application.
         Members:
-        updateTime -- The update time.
-        updateUser -- The user who updated the application.
-        revision -- The application revision number.
-        descriptor -- The update descriptor.
+        updateTime --  The update time.
+        updateUser --  The user who updated the application.
+        revision --  The application revision number.
+        descriptor --  The update descriptor.
         """
         def __init__(self, updateTime=0, updateUser='', revision=0, descriptor=Ice._struct_marker):
             self.updateTime = updateTime
@@ -689,7 +682,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
     class AdminPrx(Ice.ObjectPrx):
 
         """
-        Add an application to IceGrid.
+         Add an application to IceGrid.
         Arguments:
         descriptor -- The application descriptor.
         context -- The request context for the invocation.
@@ -701,7 +694,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_addApplication.invoke(self, ((descriptor, ), context))
 
         """
-        Add an application to IceGrid.
+         Add an application to IceGrid.
         Arguments:
         descriptor -- The application descriptor.
         context -- The request context for the invocation.
@@ -711,7 +704,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_addApplication.invokeAsync(self, ((descriptor, ), context))
 
         """
-        Add an application to IceGrid.
+         Add an application to IceGrid.
         Arguments:
         descriptor -- The application descriptor.
         _response -- The asynchronous response callback.
@@ -724,7 +717,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_addApplication.begin(self, ((descriptor, ), _response, _ex, _sent, context))
 
         """
-        Add an application to IceGrid.
+         Add an application to IceGrid.
         Arguments:
         descriptor -- The application descriptor.
         Throws:
@@ -735,9 +728,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_addApplication.end(self, _r)
 
         """
-        Synchronize a deployed application with the given application
-        descriptor. This operation will replace the current descriptor
-        with this new descriptor.
+         Synchronize a deployed application with the given application descriptor. This operation will replace the
+         current descriptor with this new descriptor.
         Arguments:
         descriptor -- The application descriptor.
         context -- The request context for the invocation.
@@ -750,9 +742,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_syncApplication.invoke(self, ((descriptor, ), context))
 
         """
-        Synchronize a deployed application with the given application
-        descriptor. This operation will replace the current descriptor
-        with this new descriptor.
+         Synchronize a deployed application with the given application descriptor. This operation will replace the
+         current descriptor with this new descriptor.
         Arguments:
         descriptor -- The application descriptor.
         context -- The request context for the invocation.
@@ -762,9 +753,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_syncApplication.invokeAsync(self, ((descriptor, ), context))
 
         """
-        Synchronize a deployed application with the given application
-        descriptor. This operation will replace the current descriptor
-        with this new descriptor.
+         Synchronize a deployed application with the given application descriptor. This operation will replace the
+         current descriptor with this new descriptor.
         Arguments:
         descriptor -- The application descriptor.
         _response -- The asynchronous response callback.
@@ -777,9 +767,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_syncApplication.begin(self, ((descriptor, ), _response, _ex, _sent, context))
 
         """
-        Synchronize a deployed application with the given application
-        descriptor. This operation will replace the current descriptor
-        with this new descriptor.
+         Synchronize a deployed application with the given application descriptor. This operation will replace the
+         current descriptor with this new descriptor.
         Arguments:
         descriptor -- The application descriptor.
         Throws:
@@ -791,8 +780,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_syncApplication.end(self, _r)
 
         """
-        Update a deployed application with the given update application
-        descriptor.
+         Update a deployed application with the given update application descriptor.
         Arguments:
         descriptor -- The update descriptor.
         context -- The request context for the invocation.
@@ -805,8 +793,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_updateApplication.invoke(self, ((descriptor, ), context))
 
         """
-        Update a deployed application with the given update application
-        descriptor.
+         Update a deployed application with the given update application descriptor.
         Arguments:
         descriptor -- The update descriptor.
         context -- The request context for the invocation.
@@ -816,8 +803,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_updateApplication.invokeAsync(self, ((descriptor, ), context))
 
         """
-        Update a deployed application with the given update application
-        descriptor.
+         Update a deployed application with the given update application descriptor.
         Arguments:
         descriptor -- The update descriptor.
         _response -- The asynchronous response callback.
@@ -830,8 +816,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_updateApplication.begin(self, ((descriptor, ), _response, _ex, _sent, context))
 
         """
-        Update a deployed application with the given update application
-        descriptor.
+         Update a deployed application with the given update application descriptor.
         Arguments:
         descriptor -- The update descriptor.
         Throws:
@@ -843,12 +828,9 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_updateApplication.end(self, _r)
 
         """
-        Synchronize a deployed application with the given application
-        descriptor. This operation will replace the current descriptor
-        with this new descriptor only if no server restarts are
-        necessary for the update of the application. If some servers
-        need to be restarted, the synchronization is rejected with a
-        DeploymentException.
+         Synchronize a deployed application with the given application descriptor. This operation will replace the
+         current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+         application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
         Arguments:
         descriptor -- The application descriptor.
         context -- The request context for the invocation.
@@ -861,12 +843,9 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_syncApplicationWithoutRestart.invoke(self, ((descriptor, ), context))
 
         """
-        Synchronize a deployed application with the given application
-        descriptor. This operation will replace the current descriptor
-        with this new descriptor only if no server restarts are
-        necessary for the update of the application. If some servers
-        need to be restarted, the synchronization is rejected with a
-        DeploymentException.
+         Synchronize a deployed application with the given application descriptor. This operation will replace the
+         current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+         application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
         Arguments:
         descriptor -- The application descriptor.
         context -- The request context for the invocation.
@@ -876,12 +855,9 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_syncApplicationWithoutRestart.invokeAsync(self, ((descriptor, ), context))
 
         """
-        Synchronize a deployed application with the given application
-        descriptor. This operation will replace the current descriptor
-        with this new descriptor only if no server restarts are
-        necessary for the update of the application. If some servers
-        need to be restarted, the synchronization is rejected with a
-        DeploymentException.
+         Synchronize a deployed application with the given application descriptor. This operation will replace the
+         current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+         application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
         Arguments:
         descriptor -- The application descriptor.
         _response -- The asynchronous response callback.
@@ -894,12 +870,9 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_syncApplicationWithoutRestart.begin(self, ((descriptor, ), _response, _ex, _sent, context))
 
         """
-        Synchronize a deployed application with the given application
-        descriptor. This operation will replace the current descriptor
-        with this new descriptor only if no server restarts are
-        necessary for the update of the application. If some servers
-        need to be restarted, the synchronization is rejected with a
-        DeploymentException.
+         Synchronize a deployed application with the given application descriptor. This operation will replace the
+         current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+         application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
         Arguments:
         descriptor -- The application descriptor.
         Throws:
@@ -911,11 +884,9 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_syncApplicationWithoutRestart.end(self, _r)
 
         """
-        Update a deployed application with the given update application
-        descriptor only if no server restarts are necessary for the
-        update of the application. If some servers need to be
-        restarted, the synchronization is rejected with a
-        DeploymentException.
+         Update a deployed application with the given update application descriptor only if no server restarts are
+         necessary for the update of the application. If some servers need to be restarted, the synchronization is
+         rejected with a DeploymentException.
         Arguments:
         descriptor -- The update descriptor.
         context -- The request context for the invocation.
@@ -928,11 +899,9 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_updateApplicationWithoutRestart.invoke(self, ((descriptor, ), context))
 
         """
-        Update a deployed application with the given update application
-        descriptor only if no server restarts are necessary for the
-        update of the application. If some servers need to be
-        restarted, the synchronization is rejected with a
-        DeploymentException.
+         Update a deployed application with the given update application descriptor only if no server restarts are
+         necessary for the update of the application. If some servers need to be restarted, the synchronization is
+         rejected with a DeploymentException.
         Arguments:
         descriptor -- The update descriptor.
         context -- The request context for the invocation.
@@ -942,11 +911,9 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_updateApplicationWithoutRestart.invokeAsync(self, ((descriptor, ), context))
 
         """
-        Update a deployed application with the given update application
-        descriptor only if no server restarts are necessary for the
-        update of the application. If some servers need to be
-        restarted, the synchronization is rejected with a
-        DeploymentException.
+         Update a deployed application with the given update application descriptor only if no server restarts are
+         necessary for the update of the application. If some servers need to be restarted, the synchronization is
+         rejected with a DeploymentException.
         Arguments:
         descriptor -- The update descriptor.
         _response -- The asynchronous response callback.
@@ -959,11 +926,9 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_updateApplicationWithoutRestart.begin(self, ((descriptor, ), _response, _ex, _sent, context))
 
         """
-        Update a deployed application with the given update application
-        descriptor only if no server restarts are necessary for the
-        update of the application. If some servers need to be
-        restarted, the synchronization is rejected with a
-        DeploymentException.
+         Update a deployed application with the given update application descriptor only if no server restarts are
+         necessary for the update of the application. If some servers need to be restarted, the synchronization is
+         rejected with a DeploymentException.
         Arguments:
         descriptor -- The update descriptor.
         Throws:
@@ -975,7 +940,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_updateApplicationWithoutRestart.end(self, _r)
 
         """
-        Remove an application from IceGrid.
+         Remove an application from IceGrid.
         Arguments:
         name -- The application name.
         context -- The request context for the invocation.
@@ -988,7 +953,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_removeApplication.invoke(self, ((name, ), context))
 
         """
-        Remove an application from IceGrid.
+         Remove an application from IceGrid.
         Arguments:
         name -- The application name.
         context -- The request context for the invocation.
@@ -998,7 +963,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_removeApplication.invokeAsync(self, ((name, ), context))
 
         """
-        Remove an application from IceGrid.
+         Remove an application from IceGrid.
         Arguments:
         name -- The application name.
         _response -- The asynchronous response callback.
@@ -1011,7 +976,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_removeApplication.begin(self, ((name, ), _response, _ex, _sent, context))
 
         """
-        Remove an application from IceGrid.
+         Remove an application from IceGrid.
         Arguments:
         name -- The application name.
         Throws:
@@ -1023,8 +988,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_removeApplication.end(self, _r)
 
         """
-        Instantiate a server template from an application on the given
-        node.
+         Instantiate a server template from an application on the given node.
         Arguments:
         application -- The application name.
         node -- The name of the node where the server will be deployed.
@@ -1039,8 +1003,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_instantiateServer.invoke(self, ((application, node, desc), context))
 
         """
-        Instantiate a server template from an application on the given
-        node.
+         Instantiate a server template from an application on the given node.
         Arguments:
         application -- The application name.
         node -- The name of the node where the server will be deployed.
@@ -1052,8 +1015,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_instantiateServer.invokeAsync(self, ((application, node, desc), context))
 
         """
-        Instantiate a server template from an application on the given
-        node.
+         Instantiate a server template from an application on the given node.
         Arguments:
         application -- The application name.
         node -- The name of the node where the server will be deployed.
@@ -1068,8 +1030,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_instantiateServer.begin(self, ((application, node, desc), _response, _ex, _sent, context))
 
         """
-        Instantiate a server template from an application on the given
-        node.
+         Instantiate a server template from an application on the given node.
         Arguments:
         application -- The application name.
         node -- The name of the node where the server will be deployed.
@@ -1083,7 +1044,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_instantiateServer.end(self, _r)
 
         """
-        Patch the given application data.
+         Patch the given application data.
         Arguments:
         name -- The application name.
         shutdown -- If true, the servers depending on the data to patch will be shut down if necessary.
@@ -1096,7 +1057,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_patchApplication.invoke(self, ((name, shutdown), context))
 
         """
-        Patch the given application data.
+         Patch the given application data.
         Arguments:
         name -- The application name.
         shutdown -- If true, the servers depending on the data to patch will be shut down if necessary.
@@ -1107,7 +1068,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_patchApplication.invokeAsync(self, ((name, shutdown), context))
 
         """
-        Patch the given application data.
+         Patch the given application data.
         Arguments:
         name -- The application name.
         shutdown -- If true, the servers depending on the data to patch will be shut down if necessary.
@@ -1121,7 +1082,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_patchApplication.begin(self, ((name, shutdown), _response, _ex, _sent, context))
 
         """
-        Patch the given application data.
+         Patch the given application data.
         Arguments:
         name -- The application name.
         shutdown -- If true, the servers depending on the data to patch will be shut down if necessary.
@@ -1133,7 +1094,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_patchApplication.end(self, _r)
 
         """
-        Get an application descriptor.
+         Get an application descriptor.
         Arguments:
         name -- The application name.
         context -- The request context for the invocation.
@@ -1145,7 +1106,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getApplicationInfo.invoke(self, ((name, ), context))
 
         """
-        Get an application descriptor.
+         Get an application descriptor.
         Arguments:
         name -- The application name.
         context -- The request context for the invocation.
@@ -1155,7 +1116,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getApplicationInfo.invokeAsync(self, ((name, ), context))
 
         """
-        Get an application descriptor.
+         Get an application descriptor.
         Arguments:
         name -- The application name.
         _response -- The asynchronous response callback.
@@ -1168,7 +1129,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getApplicationInfo.begin(self, ((name, ), _response, _ex, _sent, context))
 
         """
-        Get an application descriptor.
+         Get an application descriptor.
         Arguments:
         name -- The application name.
         Returns: The application descriptor.
@@ -1179,7 +1140,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getApplicationInfo.end(self, _r)
 
         """
-        Get the default application descriptor.
+         Get the default application descriptor.
         Arguments:
         context -- The request context for the invocation.
         Returns: The default application descriptor.
@@ -1190,7 +1151,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getDefaultApplicationDescriptor.invoke(self, ((), context))
 
         """
-        Get the default application descriptor.
+         Get the default application descriptor.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -1199,7 +1160,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getDefaultApplicationDescriptor.invokeAsync(self, ((), context))
 
         """
-        Get the default application descriptor.
+         Get the default application descriptor.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -1211,7 +1172,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getDefaultApplicationDescriptor.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Get the default application descriptor.
+         Get the default application descriptor.
         Arguments:
         Returns: The default application descriptor.
         Throws:
@@ -1221,7 +1182,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getDefaultApplicationDescriptor.end(self, _r)
 
         """
-        Get all the IceGrid applications currently registered.
+         Get all the IceGrid applications currently registered.
         Arguments:
         context -- The request context for the invocation.
         Returns: The application names.
@@ -1230,7 +1191,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllApplicationNames.invoke(self, ((), context))
 
         """
-        Get all the IceGrid applications currently registered.
+         Get all the IceGrid applications currently registered.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -1239,7 +1200,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllApplicationNames.invokeAsync(self, ((), context))
 
         """
-        Get all the IceGrid applications currently registered.
+         Get all the IceGrid applications currently registered.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -1251,7 +1212,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllApplicationNames.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Get all the IceGrid applications currently registered.
+         Get all the IceGrid applications currently registered.
         Arguments:
         Returns: The application names.
         """
@@ -1259,7 +1220,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllApplicationNames.end(self, _r)
 
         """
-        Get the server information for the server with the given id.
+         Get the server information for the server with the given id.
         Arguments:
         id -- The server id.
         context -- The request context for the invocation.
@@ -1271,7 +1232,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getServerInfo.invoke(self, ((id, ), context))
 
         """
-        Get the server information for the server with the given id.
+         Get the server information for the server with the given id.
         Arguments:
         id -- The server id.
         context -- The request context for the invocation.
@@ -1281,7 +1242,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getServerInfo.invokeAsync(self, ((id, ), context))
 
         """
-        Get the server information for the server with the given id.
+         Get the server information for the server with the given id.
         Arguments:
         id -- The server id.
         _response -- The asynchronous response callback.
@@ -1294,7 +1255,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getServerInfo.begin(self, ((id, ), _response, _ex, _sent, context))
 
         """
-        Get the server information for the server with the given id.
+         Get the server information for the server with the given id.
         Arguments:
         id -- The server id.
         Returns: The server information.
@@ -1305,7 +1266,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getServerInfo.end(self, _r)
 
         """
-        Get a server's state.
+         Get a server's state.
         Arguments:
         id -- The server id.
         context -- The request context for the invocation.
@@ -1319,7 +1280,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getServerState.invoke(self, ((id, ), context))
 
         """
-        Get a server's state.
+         Get a server's state.
         Arguments:
         id -- The server id.
         context -- The request context for the invocation.
@@ -1329,7 +1290,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getServerState.invokeAsync(self, ((id, ), context))
 
         """
-        Get a server's state.
+         Get a server's state.
         Arguments:
         id -- The server id.
         _response -- The asynchronous response callback.
@@ -1342,7 +1303,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getServerState.begin(self, ((id, ), _response, _ex, _sent, context))
 
         """
-        Get a server's state.
+         Get a server's state.
         Arguments:
         id -- The server id.
         Returns: The server state.
@@ -1355,8 +1316,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getServerState.end(self, _r)
 
         """
-        Get a server's system process id. The process id is operating
-        system dependent.
+         Get a server's system process id. The process id is operating system dependent.
         Arguments:
         id -- The server id.
         context -- The request context for the invocation.
@@ -1370,8 +1330,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getServerPid.invoke(self, ((id, ), context))
 
         """
-        Get a server's system process id. The process id is operating
-        system dependent.
+         Get a server's system process id. The process id is operating system dependent.
         Arguments:
         id -- The server id.
         context -- The request context for the invocation.
@@ -1381,8 +1340,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getServerPid.invokeAsync(self, ((id, ), context))
 
         """
-        Get a server's system process id. The process id is operating
-        system dependent.
+         Get a server's system process id. The process id is operating system dependent.
         Arguments:
         id -- The server id.
         _response -- The asynchronous response callback.
@@ -1395,8 +1353,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getServerPid.begin(self, ((id, ), _response, _ex, _sent, context))
 
         """
-        Get a server's system process id. The process id is operating
-        system dependent.
+         Get a server's system process id. The process id is operating system dependent.
         Arguments:
         id -- The server id.
         Returns: The server's process id.
@@ -1409,9 +1366,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getServerPid.end(self, _r)
 
         """
-        Get the category for server admin objects. You can manufacture a server admin
-        proxy from the admin proxy by changing its identity: use the server ID as name
-        and the returned category as category.
+         Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+         changing its identity: use the server ID as name and the returned category as category.
         Arguments:
         context -- The request context for the invocation.
         Returns: The category for server admin objects.
@@ -1420,9 +1376,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getServerAdminCategory.invoke(self, ((), context))
 
         """
-        Get the category for server admin objects. You can manufacture a server admin
-        proxy from the admin proxy by changing its identity: use the server ID as name
-        and the returned category as category.
+         Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+         changing its identity: use the server ID as name and the returned category as category.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -1431,9 +1386,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getServerAdminCategory.invokeAsync(self, ((), context))
 
         """
-        Get the category for server admin objects. You can manufacture a server admin
-        proxy from the admin proxy by changing its identity: use the server ID as name
-        and the returned category as category.
+         Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+         changing its identity: use the server ID as name and the returned category as category.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -1445,9 +1399,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getServerAdminCategory.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Get the category for server admin objects. You can manufacture a server admin
-        proxy from the admin proxy by changing its identity: use the server ID as name
-        and the returned category as category.
+         Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+         changing its identity: use the server ID as name and the returned category as category.
         Arguments:
         Returns: The category for server admin objects.
         """
@@ -1455,7 +1408,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getServerAdminCategory.end(self, _r)
 
         """
-        Get a proxy to the server's admin object.
+         Get a proxy to the server's admin object.
         Arguments:
         id -- The server id.
         context -- The request context for the invocation.
@@ -1469,7 +1422,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getServerAdmin.invoke(self, ((id, ), context))
 
         """
-        Get a proxy to the server's admin object.
+         Get a proxy to the server's admin object.
         Arguments:
         id -- The server id.
         context -- The request context for the invocation.
@@ -1479,7 +1432,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getServerAdmin.invokeAsync(self, ((id, ), context))
 
         """
-        Get a proxy to the server's admin object.
+         Get a proxy to the server's admin object.
         Arguments:
         id -- The server id.
         _response -- The asynchronous response callback.
@@ -1492,7 +1445,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getServerAdmin.begin(self, ((id, ), _response, _ex, _sent, context))
 
         """
-        Get a proxy to the server's admin object.
+         Get a proxy to the server's admin object.
         Arguments:
         id -- The server id.
         Returns: A proxy to the server's admin object
@@ -1505,10 +1458,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getServerAdmin.end(self, _r)
 
         """
-        Enable or disable a server. A disabled server can't be started
-        on demand or administratively. The enable state of the server
-        is not persistent: if the node is shut down and restarted, the
-        server will be enabled by default.
+         Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+         of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
         Arguments:
         id -- The server id.
         enabled -- True to enable the server, false to disable it.
@@ -1522,10 +1473,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_enableServer.invoke(self, ((id, enabled), context))
 
         """
-        Enable or disable a server. A disabled server can't be started
-        on demand or administratively. The enable state of the server
-        is not persistent: if the node is shut down and restarted, the
-        server will be enabled by default.
+         Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+         of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
         Arguments:
         id -- The server id.
         enabled -- True to enable the server, false to disable it.
@@ -1536,10 +1485,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_enableServer.invokeAsync(self, ((id, enabled), context))
 
         """
-        Enable or disable a server. A disabled server can't be started
-        on demand or administratively. The enable state of the server
-        is not persistent: if the node is shut down and restarted, the
-        server will be enabled by default.
+         Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+         of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
         Arguments:
         id -- The server id.
         enabled -- True to enable the server, false to disable it.
@@ -1553,10 +1500,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_enableServer.begin(self, ((id, enabled), _response, _ex, _sent, context))
 
         """
-        Enable or disable a server. A disabled server can't be started
-        on demand or administratively. The enable state of the server
-        is not persistent: if the node is shut down and restarted, the
-        server will be enabled by default.
+         Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+         of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
         Arguments:
         id -- The server id.
         enabled -- True to enable the server, false to disable it.
@@ -1569,7 +1514,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_enableServer.end(self, _r)
 
         """
-        Check if the server is enabled or disabled.
+         Check if the server is enabled or disabled.
         Arguments:
         id -- The server id.
         context -- The request context for the invocation.
@@ -1583,7 +1528,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_isServerEnabled.invoke(self, ((id, ), context))
 
         """
-        Check if the server is enabled or disabled.
+         Check if the server is enabled or disabled.
         Arguments:
         id -- The server id.
         context -- The request context for the invocation.
@@ -1593,7 +1538,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_isServerEnabled.invokeAsync(self, ((id, ), context))
 
         """
-        Check if the server is enabled or disabled.
+         Check if the server is enabled or disabled.
         Arguments:
         id -- The server id.
         _response -- The asynchronous response callback.
@@ -1606,7 +1551,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_isServerEnabled.begin(self, ((id, ), _response, _ex, _sent, context))
 
         """
-        Check if the server is enabled or disabled.
+         Check if the server is enabled or disabled.
         Arguments:
         id -- The server id.
         Returns: True if the server is enabled.
@@ -1619,7 +1564,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_isServerEnabled.end(self, _r)
 
         """
-        Start a server and wait for its activation.
+         Start a server and wait for its activation.
         Arguments:
         id -- The server id.
         context -- The request context for the invocation.
@@ -1633,7 +1578,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_startServer.invoke(self, ((id, ), context))
 
         """
-        Start a server and wait for its activation.
+         Start a server and wait for its activation.
         Arguments:
         id -- The server id.
         context -- The request context for the invocation.
@@ -1643,7 +1588,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_startServer.invokeAsync(self, ((id, ), context))
 
         """
-        Start a server and wait for its activation.
+         Start a server and wait for its activation.
         Arguments:
         id -- The server id.
         _response -- The asynchronous response callback.
@@ -1656,7 +1601,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_startServer.begin(self, ((id, ), _response, _ex, _sent, context))
 
         """
-        Start a server and wait for its activation.
+         Start a server and wait for its activation.
         Arguments:
         id -- The server id.
         Throws:
@@ -1669,7 +1614,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_startServer.end(self, _r)
 
         """
-        Stop a server.
+         Stop a server.
         Arguments:
         id -- The server id.
         context -- The request context for the invocation.
@@ -1683,7 +1628,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_stopServer.invoke(self, ((id, ), context))
 
         """
-        Stop a server.
+         Stop a server.
         Arguments:
         id -- The server id.
         context -- The request context for the invocation.
@@ -1693,7 +1638,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_stopServer.invokeAsync(self, ((id, ), context))
 
         """
-        Stop a server.
+         Stop a server.
         Arguments:
         id -- The server id.
         _response -- The asynchronous response callback.
@@ -1706,7 +1651,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_stopServer.begin(self, ((id, ), _response, _ex, _sent, context))
 
         """
-        Stop a server.
+         Stop a server.
         Arguments:
         id -- The server id.
         Throws:
@@ -1719,7 +1664,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_stopServer.end(self, _r)
 
         """
-        Patch a server.
+         Patch a server.
         Arguments:
         id -- The server id.
         shutdown -- If true, servers depending on the data to patch will be shut down if necessary.
@@ -1734,7 +1679,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_patchServer.invoke(self, ((id, shutdown), context))
 
         """
-        Patch a server.
+         Patch a server.
         Arguments:
         id -- The server id.
         shutdown -- If true, servers depending on the data to patch will be shut down if necessary.
@@ -1745,7 +1690,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_patchServer.invokeAsync(self, ((id, shutdown), context))
 
         """
-        Patch a server.
+         Patch a server.
         Arguments:
         id -- The server id.
         shutdown -- If true, servers depending on the data to patch will be shut down if necessary.
@@ -1759,7 +1704,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_patchServer.begin(self, ((id, shutdown), _response, _ex, _sent, context))
 
         """
-        Patch a server.
+         Patch a server.
         Arguments:
         id -- The server id.
         shutdown -- If true, servers depending on the data to patch will be shut down if necessary.
@@ -1773,7 +1718,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_patchServer.end(self, _r)
 
         """
-        Send signal to a server.
+         Send signal to a server.
         Arguments:
         id -- The server id.
         signal -- The signal, for example SIGTERM or 15.
@@ -1788,7 +1733,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_sendSignal.invoke(self, ((id, signal), context))
 
         """
-        Send signal to a server.
+         Send signal to a server.
         Arguments:
         id -- The server id.
         signal -- The signal, for example SIGTERM or 15.
@@ -1799,7 +1744,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_sendSignal.invokeAsync(self, ((id, signal), context))
 
         """
-        Send signal to a server.
+         Send signal to a server.
         Arguments:
         id -- The server id.
         signal -- The signal, for example SIGTERM or 15.
@@ -1813,7 +1758,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_sendSignal.begin(self, ((id, signal), _response, _ex, _sent, context))
 
         """
-        Send signal to a server.
+         Send signal to a server.
         Arguments:
         id -- The server id.
         signal -- The signal, for example SIGTERM or 15.
@@ -1827,7 +1772,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_sendSignal.end(self, _r)
 
         """
-        Get all the server ids registered with IceGrid.
+         Get all the server ids registered with IceGrid.
         Arguments:
         context -- The request context for the invocation.
         Returns: The server ids.
@@ -1836,7 +1781,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllServerIds.invoke(self, ((), context))
 
         """
-        Get all the server ids registered with IceGrid.
+         Get all the server ids registered with IceGrid.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -1845,7 +1790,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllServerIds.invokeAsync(self, ((), context))
 
         """
-        Get all the server ids registered with IceGrid.
+         Get all the server ids registered with IceGrid.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -1857,7 +1802,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllServerIds.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Get all the server ids registered with IceGrid.
+         Get all the server ids registered with IceGrid.
         Arguments:
         Returns: The server ids.
         """
@@ -1865,8 +1810,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllServerIds.end(self, _r)
 
         """
-        Get the adapter information for the replica group or adapter
-        with the given id.
+         Get the adapter information for the replica group or adapter with the given id.
         Arguments:
         id -- The adapter id.
         context -- The request context for the invocation.
@@ -1878,8 +1822,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAdapterInfo.invoke(self, ((id, ), context))
 
         """
-        Get the adapter information for the replica group or adapter
-        with the given id.
+         Get the adapter information for the replica group or adapter with the given id.
         Arguments:
         id -- The adapter id.
         context -- The request context for the invocation.
@@ -1889,8 +1832,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAdapterInfo.invokeAsync(self, ((id, ), context))
 
         """
-        Get the adapter information for the replica group or adapter
-        with the given id.
+         Get the adapter information for the replica group or adapter with the given id.
         Arguments:
         id -- The adapter id.
         _response -- The asynchronous response callback.
@@ -1903,8 +1845,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAdapterInfo.begin(self, ((id, ), _response, _ex, _sent, context))
 
         """
-        Get the adapter information for the replica group or adapter
-        with the given id.
+         Get the adapter information for the replica group or adapter with the given id.
         Arguments:
         id -- The adapter id.
         Returns: A sequence of adapter information structures. If the given id refers to an adapter, this sequence will contain only one element. If the given id refers to a replica group, the sequence will contain the adapter information of each member of the replica group.
@@ -1915,7 +1856,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAdapterInfo.end(self, _r)
 
         """
-        Remove the adapter with the given id.
+         Remove the adapter with the given id.
         Arguments:
         id -- The adapter id.
         context -- The request context for the invocation.
@@ -1927,7 +1868,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_removeAdapter.invoke(self, ((id, ), context))
 
         """
-        Remove the adapter with the given id.
+         Remove the adapter with the given id.
         Arguments:
         id -- The adapter id.
         context -- The request context for the invocation.
@@ -1937,7 +1878,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_removeAdapter.invokeAsync(self, ((id, ), context))
 
         """
-        Remove the adapter with the given id.
+         Remove the adapter with the given id.
         Arguments:
         id -- The adapter id.
         _response -- The asynchronous response callback.
@@ -1950,7 +1891,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_removeAdapter.begin(self, ((id, ), _response, _ex, _sent, context))
 
         """
-        Remove the adapter with the given id.
+         Remove the adapter with the given id.
         Arguments:
         id -- The adapter id.
         Throws:
@@ -1961,7 +1902,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_removeAdapter.end(self, _r)
 
         """
-        Get all the adapter ids registered with IceGrid.
+         Get all the adapter ids registered with IceGrid.
         Arguments:
         context -- The request context for the invocation.
         Returns: The adapter ids.
@@ -1970,7 +1911,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllAdapterIds.invoke(self, ((), context))
 
         """
-        Get all the adapter ids registered with IceGrid.
+         Get all the adapter ids registered with IceGrid.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -1979,7 +1920,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllAdapterIds.invokeAsync(self, ((), context))
 
         """
-        Get all the adapter ids registered with IceGrid.
+         Get all the adapter ids registered with IceGrid.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -1991,7 +1932,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllAdapterIds.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Get all the adapter ids registered with IceGrid.
+         Get all the adapter ids registered with IceGrid.
         Arguments:
         Returns: The adapter ids.
         """
@@ -1999,9 +1940,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllAdapterIds.end(self, _r)
 
         """
-        Add an object to the object registry. IceGrid will get the
-        object type by calling ice_id on the given proxy. The object
-        must be reachable.
+         Add an object to the object registry. IceGrid will get the object type by calling ice_id on the
+         given proxy. The object must be reachable.
         Arguments:
         obj -- The object to be added to the registry.
         context -- The request context for the invocation.
@@ -2013,9 +1953,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_addObject.invoke(self, ((obj, ), context))
 
         """
-        Add an object to the object registry. IceGrid will get the
-        object type by calling ice_id on the given proxy. The object
-        must be reachable.
+         Add an object to the object registry. IceGrid will get the object type by calling ice_id on the
+         given proxy. The object must be reachable.
         Arguments:
         obj -- The object to be added to the registry.
         context -- The request context for the invocation.
@@ -2025,9 +1964,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_addObject.invokeAsync(self, ((obj, ), context))
 
         """
-        Add an object to the object registry. IceGrid will get the
-        object type by calling ice_id on the given proxy. The object
-        must be reachable.
+         Add an object to the object registry. IceGrid will get the object type by calling ice_id on the
+         given proxy. The object must be reachable.
         Arguments:
         obj -- The object to be added to the registry.
         _response -- The asynchronous response callback.
@@ -2040,9 +1978,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_addObject.begin(self, ((obj, ), _response, _ex, _sent, context))
 
         """
-        Add an object to the object registry. IceGrid will get the
-        object type by calling ice_id on the given proxy. The object
-        must be reachable.
+         Add an object to the object registry. IceGrid will get the object type by calling ice_id on the
+         given proxy. The object must be reachable.
         Arguments:
         obj -- The object to be added to the registry.
         Throws:
@@ -2053,10 +1990,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_addObject.end(self, _r)
 
         """
-        Update an object in the object registry. Only objects added
-        with this interface can be updated with this operation. Objects
-        added with deployment descriptors should be updated with the
-        deployment mechanism.
+         Update an object in the object registry. Only objects added with this interface can be updated with this
+         operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
         Arguments:
         obj -- The object to be updated to the registry.
         context -- The request context for the invocation.
@@ -2068,10 +2003,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_updateObject.invoke(self, ((obj, ), context))
 
         """
-        Update an object in the object registry. Only objects added
-        with this interface can be updated with this operation. Objects
-        added with deployment descriptors should be updated with the
-        deployment mechanism.
+         Update an object in the object registry. Only objects added with this interface can be updated with this
+         operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
         Arguments:
         obj -- The object to be updated to the registry.
         context -- The request context for the invocation.
@@ -2081,10 +2014,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_updateObject.invokeAsync(self, ((obj, ), context))
 
         """
-        Update an object in the object registry. Only objects added
-        with this interface can be updated with this operation. Objects
-        added with deployment descriptors should be updated with the
-        deployment mechanism.
+         Update an object in the object registry. Only objects added with this interface can be updated with this
+         operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
         Arguments:
         obj -- The object to be updated to the registry.
         _response -- The asynchronous response callback.
@@ -2097,10 +2028,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_updateObject.begin(self, ((obj, ), _response, _ex, _sent, context))
 
         """
-        Update an object in the object registry. Only objects added
-        with this interface can be updated with this operation. Objects
-        added with deployment descriptors should be updated with the
-        deployment mechanism.
+         Update an object in the object registry. Only objects added with this interface can be updated with this
+         operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
         Arguments:
         obj -- The object to be updated to the registry.
         Throws:
@@ -2111,8 +2040,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_updateObject.end(self, _r)
 
         """
-        Add an object to the object registry and explicitly specify
-        its type.
+         Add an object to the object registry and explicitly specify its type.
         Arguments:
         obj -- The object to be added to the registry.
         type -- The object type.
@@ -2125,8 +2053,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_addObjectWithType.invoke(self, ((obj, type), context))
 
         """
-        Add an object to the object registry and explicitly specify
-        its type.
+         Add an object to the object registry and explicitly specify its type.
         Arguments:
         obj -- The object to be added to the registry.
         type -- The object type.
@@ -2137,8 +2064,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_addObjectWithType.invokeAsync(self, ((obj, type), context))
 
         """
-        Add an object to the object registry and explicitly specify
-        its type.
+         Add an object to the object registry and explicitly specify its type.
         Arguments:
         obj -- The object to be added to the registry.
         type -- The object type.
@@ -2152,8 +2078,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_addObjectWithType.begin(self, ((obj, type), _response, _ex, _sent, context))
 
         """
-        Add an object to the object registry and explicitly specify
-        its type.
+         Add an object to the object registry and explicitly specify its type.
         Arguments:
         obj -- The object to be added to the registry.
         type -- The object type.
@@ -2165,10 +2090,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_addObjectWithType.end(self, _r)
 
         """
-        Remove an object from the object registry. Only objects added
-        with this interface can be removed with this operation. Objects
-        added with deployment descriptors should be removed with the
-        deployment mechanism.
+         Remove an object from the object registry. Only objects added with this interface can be removed with this
+         operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
         Arguments:
         id -- The identity of the object to be removed from the registry.
         context -- The request context for the invocation.
@@ -2180,10 +2103,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_removeObject.invoke(self, ((id, ), context))
 
         """
-        Remove an object from the object registry. Only objects added
-        with this interface can be removed with this operation. Objects
-        added with deployment descriptors should be removed with the
-        deployment mechanism.
+         Remove an object from the object registry. Only objects added with this interface can be removed with this
+         operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
         Arguments:
         id -- The identity of the object to be removed from the registry.
         context -- The request context for the invocation.
@@ -2193,10 +2114,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_removeObject.invokeAsync(self, ((id, ), context))
 
         """
-        Remove an object from the object registry. Only objects added
-        with this interface can be removed with this operation. Objects
-        added with deployment descriptors should be removed with the
-        deployment mechanism.
+         Remove an object from the object registry. Only objects added with this interface can be removed with this
+         operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
         Arguments:
         id -- The identity of the object to be removed from the registry.
         _response -- The asynchronous response callback.
@@ -2209,10 +2128,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_removeObject.begin(self, ((id, ), _response, _ex, _sent, context))
 
         """
-        Remove an object from the object registry. Only objects added
-        with this interface can be removed with this operation. Objects
-        added with deployment descriptors should be removed with the
-        deployment mechanism.
+         Remove an object from the object registry. Only objects added with this interface can be removed with this
+         operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
         Arguments:
         id -- The identity of the object to be removed from the registry.
         Throws:
@@ -2223,7 +2140,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_removeObject.end(self, _r)
 
         """
-        Get the object info for the object with the given identity.
+         Get the object info for the object with the given identity.
         Arguments:
         id -- The identity of the object.
         context -- The request context for the invocation.
@@ -2235,7 +2152,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getObjectInfo.invoke(self, ((id, ), context))
 
         """
-        Get the object info for the object with the given identity.
+         Get the object info for the object with the given identity.
         Arguments:
         id -- The identity of the object.
         context -- The request context for the invocation.
@@ -2245,7 +2162,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getObjectInfo.invokeAsync(self, ((id, ), context))
 
         """
-        Get the object info for the object with the given identity.
+         Get the object info for the object with the given identity.
         Arguments:
         id -- The identity of the object.
         _response -- The asynchronous response callback.
@@ -2258,7 +2175,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getObjectInfo.begin(self, ((id, ), _response, _ex, _sent, context))
 
         """
-        Get the object info for the object with the given identity.
+         Get the object info for the object with the given identity.
         Arguments:
         id -- The identity of the object.
         Returns: The object info.
@@ -2269,8 +2186,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getObjectInfo.end(self, _r)
 
         """
-        Get the object info of all the registered objects with the
-        given type.
+         Get the object info of all the registered objects with the given type.
         Arguments:
         type -- The type of the object.
         context -- The request context for the invocation.
@@ -2280,8 +2196,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getObjectInfosByType.invoke(self, ((type, ), context))
 
         """
-        Get the object info of all the registered objects with the
-        given type.
+         Get the object info of all the registered objects with the given type.
         Arguments:
         type -- The type of the object.
         context -- The request context for the invocation.
@@ -2291,8 +2206,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getObjectInfosByType.invokeAsync(self, ((type, ), context))
 
         """
-        Get the object info of all the registered objects with the
-        given type.
+         Get the object info of all the registered objects with the given type.
         Arguments:
         type -- The type of the object.
         _response -- The asynchronous response callback.
@@ -2305,8 +2219,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getObjectInfosByType.begin(self, ((type, ), _response, _ex, _sent, context))
 
         """
-        Get the object info of all the registered objects with the
-        given type.
+         Get the object info of all the registered objects with the given type.
         Arguments:
         type -- The type of the object.
         Returns: The object infos.
@@ -2315,8 +2228,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getObjectInfosByType.end(self, _r)
 
         """
-        Get the object info of all the registered objects whose stringified
-        identities match the given expression.
+         Get the object info of all the registered objects whose stringified identities match the given expression.
         Arguments:
         expr -- The expression to match against the stringified identities of registered objects. The expression may contain a trailing wildcard (*) character.
         context -- The request context for the invocation.
@@ -2326,8 +2238,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllObjectInfos.invoke(self, ((expr, ), context))
 
         """
-        Get the object info of all the registered objects whose stringified
-        identities match the given expression.
+         Get the object info of all the registered objects whose stringified identities match the given expression.
         Arguments:
         expr -- The expression to match against the stringified identities of registered objects. The expression may contain a trailing wildcard (*) character.
         context -- The request context for the invocation.
@@ -2337,8 +2248,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllObjectInfos.invokeAsync(self, ((expr, ), context))
 
         """
-        Get the object info of all the registered objects whose stringified
-        identities match the given expression.
+         Get the object info of all the registered objects whose stringified identities match the given expression.
         Arguments:
         expr -- The expression to match against the stringified identities of registered objects. The expression may contain a trailing wildcard (*) character.
         _response -- The asynchronous response callback.
@@ -2351,8 +2261,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllObjectInfos.begin(self, ((expr, ), _response, _ex, _sent, context))
 
         """
-        Get the object info of all the registered objects whose stringified
-        identities match the given expression.
+         Get the object info of all the registered objects whose stringified identities match the given expression.
         Arguments:
         expr -- The expression to match against the stringified identities of registered objects. The expression may contain a trailing wildcard (*) character.
         Returns: All the object infos with a stringified identity matching the given expression.
@@ -2361,7 +2270,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllObjectInfos.end(self, _r)
 
         """
-        Ping an IceGrid node to see if it is active.
+         Ping an IceGrid node to see if it is active.
         Arguments:
         name -- The node name.
         context -- The request context for the invocation.
@@ -2373,7 +2282,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_pingNode.invoke(self, ((name, ), context))
 
         """
-        Ping an IceGrid node to see if it is active.
+         Ping an IceGrid node to see if it is active.
         Arguments:
         name -- The node name.
         context -- The request context for the invocation.
@@ -2383,7 +2292,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_pingNode.invokeAsync(self, ((name, ), context))
 
         """
-        Ping an IceGrid node to see if it is active.
+         Ping an IceGrid node to see if it is active.
         Arguments:
         name -- The node name.
         _response -- The asynchronous response callback.
@@ -2396,7 +2305,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_pingNode.begin(self, ((name, ), _response, _ex, _sent, context))
 
         """
-        Ping an IceGrid node to see if it is active.
+         Ping an IceGrid node to see if it is active.
         Arguments:
         name -- The node name.
         Returns: true if the node ping succeeded, false otherwise.
@@ -2407,7 +2316,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_pingNode.end(self, _r)
 
         """
-        Get the load averages of the node.
+         Get the load averages of the node.
         Arguments:
         name -- The node name.
         context -- The request context for the invocation.
@@ -2420,7 +2329,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getNodeLoad.invoke(self, ((name, ), context))
 
         """
-        Get the load averages of the node.
+         Get the load averages of the node.
         Arguments:
         name -- The node name.
         context -- The request context for the invocation.
@@ -2430,7 +2339,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getNodeLoad.invokeAsync(self, ((name, ), context))
 
         """
-        Get the load averages of the node.
+         Get the load averages of the node.
         Arguments:
         name -- The node name.
         _response -- The asynchronous response callback.
@@ -2443,7 +2352,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getNodeLoad.begin(self, ((name, ), _response, _ex, _sent, context))
 
         """
-        Get the load averages of the node.
+         Get the load averages of the node.
         Arguments:
         name -- The node name.
         Returns: The node load information.
@@ -2455,7 +2364,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getNodeLoad.end(self, _r)
 
         """
-        Get the node information for the node with the given name.
+         Get the node information for the node with the given name.
         Arguments:
         name -- The node name.
         context -- The request context for the invocation.
@@ -2468,7 +2377,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getNodeInfo.invoke(self, ((name, ), context))
 
         """
-        Get the node information for the node with the given name.
+         Get the node information for the node with the given name.
         Arguments:
         name -- The node name.
         context -- The request context for the invocation.
@@ -2478,7 +2387,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getNodeInfo.invokeAsync(self, ((name, ), context))
 
         """
-        Get the node information for the node with the given name.
+         Get the node information for the node with the given name.
         Arguments:
         name -- The node name.
         _response -- The asynchronous response callback.
@@ -2491,7 +2400,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getNodeInfo.begin(self, ((name, ), _response, _ex, _sent, context))
 
         """
-        Get the node information for the node with the given name.
+         Get the node information for the node with the given name.
         Arguments:
         name -- The node name.
         Returns: The node information.
@@ -2503,7 +2412,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getNodeInfo.end(self, _r)
 
         """
-        Get a proxy to the IceGrid node's admin object.
+         Get a proxy to the IceGrid node's admin object.
         Arguments:
         name -- The IceGrid node name
         context -- The request context for the invocation.
@@ -2516,7 +2425,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getNodeAdmin.invoke(self, ((name, ), context))
 
         """
-        Get a proxy to the IceGrid node's admin object.
+         Get a proxy to the IceGrid node's admin object.
         Arguments:
         name -- The IceGrid node name
         context -- The request context for the invocation.
@@ -2526,7 +2435,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getNodeAdmin.invokeAsync(self, ((name, ), context))
 
         """
-        Get a proxy to the IceGrid node's admin object.
+         Get a proxy to the IceGrid node's admin object.
         Arguments:
         name -- The IceGrid node name
         _response -- The asynchronous response callback.
@@ -2539,7 +2448,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getNodeAdmin.begin(self, ((name, ), _response, _ex, _sent, context))
 
         """
-        Get a proxy to the IceGrid node's admin object.
+         Get a proxy to the IceGrid node's admin object.
         Arguments:
         name -- The IceGrid node name
         Returns: A proxy to the IceGrid node's admin object
@@ -2551,12 +2460,9 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getNodeAdmin.end(self, _r)
 
         """
-        Get the number of physical processor sockets for the machine
-        running the node with the given name.
-        Note that this method will return 1 on operating systems where
-        this can't be automatically determined and where the
-        IceGrid.Node.ProcessorSocketCount property for the node is not
-        set.
+         Get the number of physical processor sockets for the machine running the node with the given name.
+         Note that this method will return 1 on operating systems where this can't be automatically determined and where
+         the IceGrid.Node.ProcessorSocketCount property for the node is not set.
         Arguments:
         name -- The node name.
         context -- The request context for the invocation.
@@ -2569,12 +2475,9 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getNodeProcessorSocketCount.invoke(self, ((name, ), context))
 
         """
-        Get the number of physical processor sockets for the machine
-        running the node with the given name.
-        Note that this method will return 1 on operating systems where
-        this can't be automatically determined and where the
-        IceGrid.Node.ProcessorSocketCount property for the node is not
-        set.
+         Get the number of physical processor sockets for the machine running the node with the given name.
+         Note that this method will return 1 on operating systems where this can't be automatically determined and where
+         the IceGrid.Node.ProcessorSocketCount property for the node is not set.
         Arguments:
         name -- The node name.
         context -- The request context for the invocation.
@@ -2584,12 +2487,9 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getNodeProcessorSocketCount.invokeAsync(self, ((name, ), context))
 
         """
-        Get the number of physical processor sockets for the machine
-        running the node with the given name.
-        Note that this method will return 1 on operating systems where
-        this can't be automatically determined and where the
-        IceGrid.Node.ProcessorSocketCount property for the node is not
-        set.
+         Get the number of physical processor sockets for the machine running the node with the given name.
+         Note that this method will return 1 on operating systems where this can't be automatically determined and where
+         the IceGrid.Node.ProcessorSocketCount property for the node is not set.
         Arguments:
         name -- The node name.
         _response -- The asynchronous response callback.
@@ -2602,12 +2502,9 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getNodeProcessorSocketCount.begin(self, ((name, ), _response, _ex, _sent, context))
 
         """
-        Get the number of physical processor sockets for the machine
-        running the node with the given name.
-        Note that this method will return 1 on operating systems where
-        this can't be automatically determined and where the
-        IceGrid.Node.ProcessorSocketCount property for the node is not
-        set.
+         Get the number of physical processor sockets for the machine running the node with the given name.
+         Note that this method will return 1 on operating systems where this can't be automatically determined and where
+         the IceGrid.Node.ProcessorSocketCount property for the node is not set.
         Arguments:
         name -- The node name.
         Returns: The number of processor sockets or 1 if the number of sockets can't determined.
@@ -2619,7 +2516,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getNodeProcessorSocketCount.end(self, _r)
 
         """
-        Shutdown an IceGrid node.
+         Shutdown an IceGrid node.
         Arguments:
         name -- The node name.
         context -- The request context for the invocation.
@@ -2631,7 +2528,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_shutdownNode.invoke(self, ((name, ), context))
 
         """
-        Shutdown an IceGrid node.
+         Shutdown an IceGrid node.
         Arguments:
         name -- The node name.
         context -- The request context for the invocation.
@@ -2641,7 +2538,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_shutdownNode.invokeAsync(self, ((name, ), context))
 
         """
-        Shutdown an IceGrid node.
+         Shutdown an IceGrid node.
         Arguments:
         name -- The node name.
         _response -- The asynchronous response callback.
@@ -2654,7 +2551,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_shutdownNode.begin(self, ((name, ), _response, _ex, _sent, context))
 
         """
-        Shutdown an IceGrid node.
+         Shutdown an IceGrid node.
         Arguments:
         name -- The node name.
         Throws:
@@ -2665,7 +2562,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_shutdownNode.end(self, _r)
 
         """
-        Get the hostname of this node.
+         Get the hostname of this node.
         Arguments:
         name -- The node name.
         context -- The request context for the invocation.
@@ -2678,7 +2575,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getNodeHostname.invoke(self, ((name, ), context))
 
         """
-        Get the hostname of this node.
+         Get the hostname of this node.
         Arguments:
         name -- The node name.
         context -- The request context for the invocation.
@@ -2688,7 +2585,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getNodeHostname.invokeAsync(self, ((name, ), context))
 
         """
-        Get the hostname of this node.
+         Get the hostname of this node.
         Arguments:
         name -- The node name.
         _response -- The asynchronous response callback.
@@ -2701,7 +2598,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getNodeHostname.begin(self, ((name, ), _response, _ex, _sent, context))
 
         """
-        Get the hostname of this node.
+         Get the hostname of this node.
         Arguments:
         name -- The node name.
         Returns: The node hostname.
@@ -2713,7 +2610,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getNodeHostname.end(self, _r)
 
         """
-        Get all the IceGrid nodes currently registered.
+         Get all the IceGrid nodes currently registered.
         Arguments:
         context -- The request context for the invocation.
         Returns: The node names.
@@ -2722,7 +2619,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllNodeNames.invoke(self, ((), context))
 
         """
-        Get all the IceGrid nodes currently registered.
+         Get all the IceGrid nodes currently registered.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -2731,7 +2628,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllNodeNames.invokeAsync(self, ((), context))
 
         """
-        Get all the IceGrid nodes currently registered.
+         Get all the IceGrid nodes currently registered.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -2743,7 +2640,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllNodeNames.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Get all the IceGrid nodes currently registered.
+         Get all the IceGrid nodes currently registered.
         Arguments:
         Returns: The node names.
         """
@@ -2751,7 +2648,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllNodeNames.end(self, _r)
 
         """
-        Ping an IceGrid registry to see if it is active.
+         Ping an IceGrid registry to see if it is active.
         Arguments:
         name -- The registry name.
         context -- The request context for the invocation.
@@ -2763,7 +2660,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_pingRegistry.invoke(self, ((name, ), context))
 
         """
-        Ping an IceGrid registry to see if it is active.
+         Ping an IceGrid registry to see if it is active.
         Arguments:
         name -- The registry name.
         context -- The request context for the invocation.
@@ -2773,7 +2670,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_pingRegistry.invokeAsync(self, ((name, ), context))
 
         """
-        Ping an IceGrid registry to see if it is active.
+         Ping an IceGrid registry to see if it is active.
         Arguments:
         name -- The registry name.
         _response -- The asynchronous response callback.
@@ -2786,7 +2683,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_pingRegistry.begin(self, ((name, ), _response, _ex, _sent, context))
 
         """
-        Ping an IceGrid registry to see if it is active.
+         Ping an IceGrid registry to see if it is active.
         Arguments:
         name -- The registry name.
         Returns: true if the registry ping succeeded, false otherwise.
@@ -2797,7 +2694,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_pingRegistry.end(self, _r)
 
         """
-        Get the registry information for the registry with the given name.
+         Get the registry information for the registry with the given name.
         Arguments:
         name -- The registry name.
         context -- The request context for the invocation.
@@ -2810,7 +2707,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getRegistryInfo.invoke(self, ((name, ), context))
 
         """
-        Get the registry information for the registry with the given name.
+         Get the registry information for the registry with the given name.
         Arguments:
         name -- The registry name.
         context -- The request context for the invocation.
@@ -2820,7 +2717,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getRegistryInfo.invokeAsync(self, ((name, ), context))
 
         """
-        Get the registry information for the registry with the given name.
+         Get the registry information for the registry with the given name.
         Arguments:
         name -- The registry name.
         _response -- The asynchronous response callback.
@@ -2833,7 +2730,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getRegistryInfo.begin(self, ((name, ), _response, _ex, _sent, context))
 
         """
-        Get the registry information for the registry with the given name.
+         Get the registry information for the registry with the given name.
         Arguments:
         name -- The registry name.
         Returns: The registry information.
@@ -2845,7 +2742,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getRegistryInfo.end(self, _r)
 
         """
-        Get a proxy to the IceGrid registry's admin object.
+         Get a proxy to the IceGrid registry's admin object.
         Arguments:
         name -- The registry name
         context -- The request context for the invocation.
@@ -2857,7 +2754,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getRegistryAdmin.invoke(self, ((name, ), context))
 
         """
-        Get a proxy to the IceGrid registry's admin object.
+         Get a proxy to the IceGrid registry's admin object.
         Arguments:
         name -- The registry name
         context -- The request context for the invocation.
@@ -2867,7 +2764,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getRegistryAdmin.invokeAsync(self, ((name, ), context))
 
         """
-        Get a proxy to the IceGrid registry's admin object.
+         Get a proxy to the IceGrid registry's admin object.
         Arguments:
         name -- The registry name
         _response -- The asynchronous response callback.
@@ -2880,7 +2777,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getRegistryAdmin.begin(self, ((name, ), _response, _ex, _sent, context))
 
         """
-        Get a proxy to the IceGrid registry's admin object.
+         Get a proxy to the IceGrid registry's admin object.
         Arguments:
         name -- The registry name
         Returns: A proxy to the IceGrid registry's admin object
@@ -2891,7 +2788,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getRegistryAdmin.end(self, _r)
 
         """
-        Shutdown an IceGrid registry.
+         Shutdown an IceGrid registry.
         Arguments:
         name -- The registry name.
         context -- The request context for the invocation.
@@ -2903,7 +2800,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_shutdownRegistry.invoke(self, ((name, ), context))
 
         """
-        Shutdown an IceGrid registry.
+         Shutdown an IceGrid registry.
         Arguments:
         name -- The registry name.
         context -- The request context for the invocation.
@@ -2913,7 +2810,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_shutdownRegistry.invokeAsync(self, ((name, ), context))
 
         """
-        Shutdown an IceGrid registry.
+         Shutdown an IceGrid registry.
         Arguments:
         name -- The registry name.
         _response -- The asynchronous response callback.
@@ -2926,7 +2823,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_shutdownRegistry.begin(self, ((name, ), _response, _ex, _sent, context))
 
         """
-        Shutdown an IceGrid registry.
+         Shutdown an IceGrid registry.
         Arguments:
         name -- The registry name.
         Throws:
@@ -2937,7 +2834,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_shutdownRegistry.end(self, _r)
 
         """
-        Get all the IceGrid registries currently registered.
+         Get all the IceGrid registries currently registered.
         Arguments:
         context -- The request context for the invocation.
         Returns: The registry names.
@@ -2946,7 +2843,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllRegistryNames.invoke(self, ((), context))
 
         """
-        Get all the IceGrid registries currently registered.
+         Get all the IceGrid registries currently registered.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -2955,7 +2852,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllRegistryNames.invokeAsync(self, ((), context))
 
         """
-        Get all the IceGrid registries currently registered.
+         Get all the IceGrid registries currently registered.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -2967,7 +2864,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllRegistryNames.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Get all the IceGrid registries currently registered.
+         Get all the IceGrid registries currently registered.
         Arguments:
         Returns: The registry names.
         """
@@ -2975,7 +2872,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getAllRegistryNames.end(self, _r)
 
         """
-        Shut down the IceGrid registry.
+         Shut down the IceGrid registry.
         Arguments:
         context -- The request context for the invocation.
         """
@@ -2983,7 +2880,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_shutdown.invoke(self, ((), context))
 
         """
-        Shut down the IceGrid registry.
+         Shut down the IceGrid registry.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -2992,7 +2889,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_shutdown.invokeAsync(self, ((), context))
 
         """
-        Shut down the IceGrid registry.
+         Shut down the IceGrid registry.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -3004,7 +2901,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Shut down the IceGrid registry.
+         Shut down the IceGrid registry.
         Arguments:
         """
         def end_shutdown(self, _r):
@@ -3041,7 +2938,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def addApplication(self, descriptor, current=None):
             """
-            Add an application to IceGrid.
+             Add an application to IceGrid.
             Arguments:
             descriptor -- The application descriptor.
             current -- The Current object for the invocation.
@@ -3054,9 +2951,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def syncApplication(self, descriptor, current=None):
             """
-            Synchronize a deployed application with the given application
-            descriptor. This operation will replace the current descriptor
-            with this new descriptor.
+             Synchronize a deployed application with the given application descriptor. This operation will replace the
+             current descriptor with this new descriptor.
             Arguments:
             descriptor -- The application descriptor.
             current -- The Current object for the invocation.
@@ -3070,8 +2966,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def updateApplication(self, descriptor, current=None):
             """
-            Update a deployed application with the given update application
-            descriptor.
+             Update a deployed application with the given update application descriptor.
             Arguments:
             descriptor -- The update descriptor.
             current -- The Current object for the invocation.
@@ -3085,12 +2980,9 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def syncApplicationWithoutRestart(self, descriptor, current=None):
             """
-            Synchronize a deployed application with the given application
-            descriptor. This operation will replace the current descriptor
-            with this new descriptor only if no server restarts are
-            necessary for the update of the application. If some servers
-            need to be restarted, the synchronization is rejected with a
-            DeploymentException.
+             Synchronize a deployed application with the given application descriptor. This operation will replace the
+             current descriptor with this new descriptor only if no server restarts are necessary for the update of the
+             application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
             Arguments:
             descriptor -- The application descriptor.
             current -- The Current object for the invocation.
@@ -3104,11 +2996,9 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def updateApplicationWithoutRestart(self, descriptor, current=None):
             """
-            Update a deployed application with the given update application
-            descriptor only if no server restarts are necessary for the
-            update of the application. If some servers need to be
-            restarted, the synchronization is rejected with a
-            DeploymentException.
+             Update a deployed application with the given update application descriptor only if no server restarts are
+             necessary for the update of the application. If some servers need to be restarted, the synchronization is
+             rejected with a DeploymentException.
             Arguments:
             descriptor -- The update descriptor.
             current -- The Current object for the invocation.
@@ -3122,7 +3012,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def removeApplication(self, name, current=None):
             """
-            Remove an application from IceGrid.
+             Remove an application from IceGrid.
             Arguments:
             name -- The application name.
             current -- The Current object for the invocation.
@@ -3136,8 +3026,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def instantiateServer(self, application, node, desc, current=None):
             """
-            Instantiate a server template from an application on the given
-            node.
+             Instantiate a server template from an application on the given node.
             Arguments:
             application -- The application name.
             node -- The name of the node where the server will be deployed.
@@ -3153,7 +3042,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def patchApplication(self, name, shutdown, current=None):
             """
-            Patch the given application data.
+             Patch the given application data.
             Arguments:
             name -- The application name.
             shutdown -- If true, the servers depending on the data to patch will be shut down if necessary.
@@ -3167,7 +3056,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def getApplicationInfo(self, name, current=None):
             """
-            Get an application descriptor.
+             Get an application descriptor.
             Arguments:
             name -- The application name.
             current -- The Current object for the invocation.
@@ -3179,7 +3068,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def getDefaultApplicationDescriptor(self, current=None):
             """
-            Get the default application descriptor.
+             Get the default application descriptor.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -3190,7 +3079,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def getAllApplicationNames(self, current=None):
             """
-            Get all the IceGrid applications currently registered.
+             Get all the IceGrid applications currently registered.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -3199,7 +3088,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def getServerInfo(self, id, current=None):
             """
-            Get the server information for the server with the given id.
+             Get the server information for the server with the given id.
             Arguments:
             id -- The server id.
             current -- The Current object for the invocation.
@@ -3211,7 +3100,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def getServerState(self, id, current=None):
             """
-            Get a server's state.
+             Get a server's state.
             Arguments:
             id -- The server id.
             current -- The Current object for the invocation.
@@ -3225,8 +3114,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def getServerPid(self, id, current=None):
             """
-            Get a server's system process id. The process id is operating
-            system dependent.
+             Get a server's system process id. The process id is operating system dependent.
             Arguments:
             id -- The server id.
             current -- The Current object for the invocation.
@@ -3240,9 +3128,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def getServerAdminCategory(self, current=None):
             """
-            Get the category for server admin objects. You can manufacture a server admin
-            proxy from the admin proxy by changing its identity: use the server ID as name
-            and the returned category as category.
+             Get the category for server admin objects. You can manufacture a server admin proxy from the admin proxy by
+             changing its identity: use the server ID as name and the returned category as category.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -3251,7 +3138,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def getServerAdmin(self, id, current=None):
             """
-            Get a proxy to the server's admin object.
+             Get a proxy to the server's admin object.
             Arguments:
             id -- The server id.
             current -- The Current object for the invocation.
@@ -3265,10 +3152,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def enableServer(self, id, enabled, current=None):
             """
-            Enable or disable a server. A disabled server can't be started
-            on demand or administratively. The enable state of the server
-            is not persistent: if the node is shut down and restarted, the
-            server will be enabled by default.
+             Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
+             of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
             Arguments:
             id -- The server id.
             enabled -- True to enable the server, false to disable it.
@@ -3283,7 +3168,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def isServerEnabled(self, id, current=None):
             """
-            Check if the server is enabled or disabled.
+             Check if the server is enabled or disabled.
             Arguments:
             id -- The server id.
             current -- The Current object for the invocation.
@@ -3297,7 +3182,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def startServer(self, id, current=None):
             """
-            Start a server and wait for its activation.
+             Start a server and wait for its activation.
             Arguments:
             id -- The server id.
             current -- The Current object for the invocation.
@@ -3312,7 +3197,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def stopServer(self, id, current=None):
             """
-            Stop a server.
+             Stop a server.
             Arguments:
             id -- The server id.
             current -- The Current object for the invocation.
@@ -3327,7 +3212,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def patchServer(self, id, shutdown, current=None):
             """
-            Patch a server.
+             Patch a server.
             Arguments:
             id -- The server id.
             shutdown -- If true, servers depending on the data to patch will be shut down if necessary.
@@ -3343,7 +3228,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def sendSignal(self, id, signal, current=None):
             """
-            Send signal to a server.
+             Send signal to a server.
             Arguments:
             id -- The server id.
             signal -- The signal, for example SIGTERM or 15.
@@ -3359,7 +3244,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def getAllServerIds(self, current=None):
             """
-            Get all the server ids registered with IceGrid.
+             Get all the server ids registered with IceGrid.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -3368,8 +3253,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def getAdapterInfo(self, id, current=None):
             """
-            Get the adapter information for the replica group or adapter
-            with the given id.
+             Get the adapter information for the replica group or adapter with the given id.
             Arguments:
             id -- The adapter id.
             current -- The Current object for the invocation.
@@ -3381,7 +3265,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def removeAdapter(self, id, current=None):
             """
-            Remove the adapter with the given id.
+             Remove the adapter with the given id.
             Arguments:
             id -- The adapter id.
             current -- The Current object for the invocation.
@@ -3394,7 +3278,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def getAllAdapterIds(self, current=None):
             """
-            Get all the adapter ids registered with IceGrid.
+             Get all the adapter ids registered with IceGrid.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -3403,9 +3287,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def addObject(self, obj, current=None):
             """
-            Add an object to the object registry. IceGrid will get the
-            object type by calling ice_id on the given proxy. The object
-            must be reachable.
+             Add an object to the object registry. IceGrid will get the object type by calling ice_id on the
+             given proxy. The object must be reachable.
             Arguments:
             obj -- The object to be added to the registry.
             current -- The Current object for the invocation.
@@ -3418,10 +3301,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def updateObject(self, obj, current=None):
             """
-            Update an object in the object registry. Only objects added
-            with this interface can be updated with this operation. Objects
-            added with deployment descriptors should be updated with the
-            deployment mechanism.
+             Update an object in the object registry. Only objects added with this interface can be updated with this
+             operation. Objects added with deployment descriptors should be updated with the deployment mechanism.
             Arguments:
             obj -- The object to be updated to the registry.
             current -- The Current object for the invocation.
@@ -3434,8 +3315,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def addObjectWithType(self, obj, type, current=None):
             """
-            Add an object to the object registry and explicitly specify
-            its type.
+             Add an object to the object registry and explicitly specify its type.
             Arguments:
             obj -- The object to be added to the registry.
             type -- The object type.
@@ -3449,10 +3329,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def removeObject(self, id, current=None):
             """
-            Remove an object from the object registry. Only objects added
-            with this interface can be removed with this operation. Objects
-            added with deployment descriptors should be removed with the
-            deployment mechanism.
+             Remove an object from the object registry. Only objects added with this interface can be removed with this
+             operation. Objects added with deployment descriptors should be removed with the deployment mechanism.
             Arguments:
             id -- The identity of the object to be removed from the registry.
             current -- The Current object for the invocation.
@@ -3465,7 +3343,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def getObjectInfo(self, id, current=None):
             """
-            Get the object info for the object with the given identity.
+             Get the object info for the object with the given identity.
             Arguments:
             id -- The identity of the object.
             current -- The Current object for the invocation.
@@ -3477,8 +3355,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def getObjectInfosByType(self, type, current=None):
             """
-            Get the object info of all the registered objects with the
-            given type.
+             Get the object info of all the registered objects with the given type.
             Arguments:
             type -- The type of the object.
             current -- The Current object for the invocation.
@@ -3488,8 +3365,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def getAllObjectInfos(self, expr, current=None):
             """
-            Get the object info of all the registered objects whose stringified
-            identities match the given expression.
+             Get the object info of all the registered objects whose stringified identities match the given expression.
             Arguments:
             expr -- The expression to match against the stringified identities of registered objects. The expression may contain a trailing wildcard (*) character.
             current -- The Current object for the invocation.
@@ -3499,7 +3375,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def pingNode(self, name, current=None):
             """
-            Ping an IceGrid node to see if it is active.
+             Ping an IceGrid node to see if it is active.
             Arguments:
             name -- The node name.
             current -- The Current object for the invocation.
@@ -3511,7 +3387,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def getNodeLoad(self, name, current=None):
             """
-            Get the load averages of the node.
+             Get the load averages of the node.
             Arguments:
             name -- The node name.
             current -- The Current object for the invocation.
@@ -3524,7 +3400,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def getNodeInfo(self, name, current=None):
             """
-            Get the node information for the node with the given name.
+             Get the node information for the node with the given name.
             Arguments:
             name -- The node name.
             current -- The Current object for the invocation.
@@ -3537,7 +3413,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def getNodeAdmin(self, name, current=None):
             """
-            Get a proxy to the IceGrid node's admin object.
+             Get a proxy to the IceGrid node's admin object.
             Arguments:
             name -- The IceGrid node name
             current -- The Current object for the invocation.
@@ -3550,12 +3426,9 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def getNodeProcessorSocketCount(self, name, current=None):
             """
-            Get the number of physical processor sockets for the machine
-            running the node with the given name.
-            Note that this method will return 1 on operating systems where
-            this can't be automatically determined and where the
-            IceGrid.Node.ProcessorSocketCount property for the node is not
-            set.
+             Get the number of physical processor sockets for the machine running the node with the given name.
+             Note that this method will return 1 on operating systems where this can't be automatically determined and where
+             the IceGrid.Node.ProcessorSocketCount property for the node is not set.
             Arguments:
             name -- The node name.
             current -- The Current object for the invocation.
@@ -3568,7 +3441,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def shutdownNode(self, name, current=None):
             """
-            Shutdown an IceGrid node.
+             Shutdown an IceGrid node.
             Arguments:
             name -- The node name.
             current -- The Current object for the invocation.
@@ -3581,7 +3454,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def getNodeHostname(self, name, current=None):
             """
-            Get the hostname of this node.
+             Get the hostname of this node.
             Arguments:
             name -- The node name.
             current -- The Current object for the invocation.
@@ -3594,7 +3467,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def getAllNodeNames(self, current=None):
             """
-            Get all the IceGrid nodes currently registered.
+             Get all the IceGrid nodes currently registered.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -3603,7 +3476,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def pingRegistry(self, name, current=None):
             """
-            Ping an IceGrid registry to see if it is active.
+             Ping an IceGrid registry to see if it is active.
             Arguments:
             name -- The registry name.
             current -- The Current object for the invocation.
@@ -3615,7 +3488,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def getRegistryInfo(self, name, current=None):
             """
-            Get the registry information for the registry with the given name.
+             Get the registry information for the registry with the given name.
             Arguments:
             name -- The registry name.
             current -- The Current object for the invocation.
@@ -3628,7 +3501,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def getRegistryAdmin(self, name, current=None):
             """
-            Get a proxy to the IceGrid registry's admin object.
+             Get a proxy to the IceGrid registry's admin object.
             Arguments:
             name -- The registry name
             current -- The Current object for the invocation.
@@ -3640,7 +3513,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def shutdownRegistry(self, name, current=None):
             """
-            Shutdown an IceGrid registry.
+             Shutdown an IceGrid registry.
             Arguments:
             name -- The registry name.
             current -- The Current object for the invocation.
@@ -3653,7 +3526,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def getAllRegistryNames(self, current=None):
             """
-            Get all the IceGrid registries currently registered.
+             Get all the IceGrid registries currently registered.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -3662,7 +3535,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def shutdown(self, current=None):
             """
-            Shut down the IceGrid registry.
+             Shut down the IceGrid registry.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -3735,7 +3608,7 @@ if 'FileIteratorPrx' not in _M_IceGrid.__dict__:
     class FileIteratorPrx(Ice.ObjectPrx):
 
         """
-        Read lines from the log file.
+         Read lines from the log file.
         Arguments:
         size -- Specifies the maximum number of bytes to be received. The server will ensure that the returned message doesn't exceed the given size.
         context -- The request context for the invocation.
@@ -3749,7 +3622,7 @@ if 'FileIteratorPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.FileIterator._op_read.invoke(self, ((size, ), context))
 
         """
-        Read lines from the log file.
+         Read lines from the log file.
         Arguments:
         size -- Specifies the maximum number of bytes to be received. The server will ensure that the returned message doesn't exceed the given size.
         context -- The request context for the invocation.
@@ -3759,7 +3632,7 @@ if 'FileIteratorPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.FileIterator._op_read.invokeAsync(self, ((size, ), context))
 
         """
-        Read lines from the log file.
+         Read lines from the log file.
         Arguments:
         size -- Specifies the maximum number of bytes to be received. The server will ensure that the returned message doesn't exceed the given size.
         _response -- The asynchronous response callback.
@@ -3772,7 +3645,7 @@ if 'FileIteratorPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.FileIterator._op_read.begin(self, ((size, ), _response, _ex, _sent, context))
 
         """
-        Read lines from the log file.
+         Read lines from the log file.
         Arguments:
         size -- Specifies the maximum number of bytes to be received. The server will ensure that the returned message doesn't exceed the given size.
         Returns a tuple containing the following:
@@ -3785,7 +3658,7 @@ if 'FileIteratorPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.FileIterator._op_read.end(self, _r)
 
         """
-        Destroy the iterator.
+         Destroy the iterator.
         Arguments:
         context -- The request context for the invocation.
         """
@@ -3793,7 +3666,7 @@ if 'FileIteratorPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.FileIterator._op_destroy.invoke(self, ((), context))
 
         """
-        Destroy the iterator.
+         Destroy the iterator.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -3802,7 +3675,7 @@ if 'FileIteratorPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.FileIterator._op_destroy.invokeAsync(self, ((), context))
 
         """
-        Destroy the iterator.
+         Destroy the iterator.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -3814,7 +3687,7 @@ if 'FileIteratorPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.FileIterator._op_destroy.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Destroy the iterator.
+         Destroy the iterator.
         Arguments:
         """
         def end_destroy(self, _r):
@@ -3851,7 +3724,7 @@ if 'FileIteratorPrx' not in _M_IceGrid.__dict__:
 
         def read(self, size, current=None):
             """
-            Read lines from the log file.
+             Read lines from the log file.
             Arguments:
             size -- Specifies the maximum number of bytes to be received. The server will ensure that the returned message doesn't exceed the given size.
             current -- The Current object for the invocation.
@@ -3863,7 +3736,7 @@ if 'FileIteratorPrx' not in _M_IceGrid.__dict__:
 
         def destroy(self, current=None):
             """
-            Destroy the iterator.
+             Destroy the iterator.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -3888,12 +3761,12 @@ if 'ServerDynamicInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.ServerDynamicInfo = Ice.createTempClass()
     class ServerDynamicInfo(object):
         """
-        Dynamic information about the state of a server.
+         Dynamic information about the state of a server.
         Members:
-        id -- The id of the server.
-        state -- The state of the server.
-        pid -- The process id of the server.
-        enabled -- Indicates whether the server is enabled.
+        id --  The id of the server.
+        state --  The state of the server.
+        pid --  The process id of the server.
+        enabled --  Indicates whether the server is enabled.
         """
         def __init__(self, id='', state=_M_IceGrid.ServerState.Inactive, pid=0, enabled=False):
             self.id = id
@@ -4013,10 +3886,10 @@ if 'AdapterDynamicInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.AdapterDynamicInfo = Ice.createTempClass()
     class AdapterDynamicInfo(object):
         """
-        Dynamic information about the state of an adapter.
+         Dynamic information about the state of an adapter.
         Members:
-        id -- The id of the adapter.
-        proxy -- The direct proxy containing the adapter endpoints.
+        id --  The id of the adapter.
+        proxy --  The direct proxy containing the adapter endpoints.
         """
         def __init__(self, id='', proxy=None):
             self.id = id
@@ -4057,11 +3930,11 @@ if 'NodeDynamicInfo' not in _M_IceGrid.__dict__:
     _M_IceGrid.NodeDynamicInfo = Ice.createTempClass()
     class NodeDynamicInfo(object):
         """
-        Dynamic information about the state of a node.
+         Dynamic information about the state of a node.
         Members:
-        info -- Some static information about the node.
-        servers -- The dynamic information of the servers deployed on this node.
-        adapters -- The dynamic information of the adapters deployed on this node.
+        info --  Some static information about the node.
+        servers --  The dynamic information of the servers deployed on this node.
+        adapters --  The dynamic information of the adapters deployed on this node.
         """
         def __init__(self, info=Ice._struct_marker, servers=None, adapters=None):
             if info is Ice._struct_marker:
@@ -4109,8 +3982,8 @@ if 'RegistryObserverPrx' not in _M_IceGrid.__dict__:
     class RegistryObserverPrx(Ice.ObjectPrx):
 
         """
-        The registryInit operation is called after registration of
-        an observer to indicate the state of the registries.
+         The registryInit operation is called after registration of an observer to indicate the state of
+         the registries.
         Arguments:
         registries -- The current state of the registries.
         context -- The request context for the invocation.
@@ -4119,8 +3992,8 @@ if 'RegistryObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.RegistryObserver._op_registryInit.invoke(self, ((registries, ), context))
 
         """
-        The registryInit operation is called after registration of
-        an observer to indicate the state of the registries.
+         The registryInit operation is called after registration of an observer to indicate the state of
+         the registries.
         Arguments:
         registries -- The current state of the registries.
         context -- The request context for the invocation.
@@ -4130,8 +4003,8 @@ if 'RegistryObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.RegistryObserver._op_registryInit.invokeAsync(self, ((registries, ), context))
 
         """
-        The registryInit operation is called after registration of
-        an observer to indicate the state of the registries.
+         The registryInit operation is called after registration of an observer to indicate the state of
+         the registries.
         Arguments:
         registries -- The current state of the registries.
         _response -- The asynchronous response callback.
@@ -4144,8 +4017,8 @@ if 'RegistryObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.RegistryObserver._op_registryInit.begin(self, ((registries, ), _response, _ex, _sent, context))
 
         """
-        The registryInit operation is called after registration of
-        an observer to indicate the state of the registries.
+         The registryInit operation is called after registration of an observer to indicate the state of
+         the registries.
         Arguments:
         registries -- The current state of the registries.
         """
@@ -4153,8 +4026,7 @@ if 'RegistryObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.RegistryObserver._op_registryInit.end(self, _r)
 
         """
-        The nodeUp operation is called to notify an observer that a node
-        came up.
+         The nodeUp operation is called to notify an observer that a node came up.
         Arguments:
         node -- The node state.
         context -- The request context for the invocation.
@@ -4163,8 +4035,7 @@ if 'RegistryObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.RegistryObserver._op_registryUp.invoke(self, ((node, ), context))
 
         """
-        The nodeUp operation is called to notify an observer that a node
-        came up.
+         The nodeUp operation is called to notify an observer that a node came up.
         Arguments:
         node -- The node state.
         context -- The request context for the invocation.
@@ -4174,8 +4045,7 @@ if 'RegistryObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.RegistryObserver._op_registryUp.invokeAsync(self, ((node, ), context))
 
         """
-        The nodeUp operation is called to notify an observer that a node
-        came up.
+         The nodeUp operation is called to notify an observer that a node came up.
         Arguments:
         node -- The node state.
         _response -- The asynchronous response callback.
@@ -4188,8 +4058,7 @@ if 'RegistryObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.RegistryObserver._op_registryUp.begin(self, ((node, ), _response, _ex, _sent, context))
 
         """
-        The nodeUp operation is called to notify an observer that a node
-        came up.
+         The nodeUp operation is called to notify an observer that a node came up.
         Arguments:
         node -- The node state.
         """
@@ -4197,8 +4066,7 @@ if 'RegistryObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.RegistryObserver._op_registryUp.end(self, _r)
 
         """
-        The nodeDown operation is called to notify an observer that a node
-        went down.
+         The nodeDown operation is called to notify an observer that a node went down.
         Arguments:
         name -- The node name.
         context -- The request context for the invocation.
@@ -4207,8 +4075,7 @@ if 'RegistryObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.RegistryObserver._op_registryDown.invoke(self, ((name, ), context))
 
         """
-        The nodeDown operation is called to notify an observer that a node
-        went down.
+         The nodeDown operation is called to notify an observer that a node went down.
         Arguments:
         name -- The node name.
         context -- The request context for the invocation.
@@ -4218,8 +4085,7 @@ if 'RegistryObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.RegistryObserver._op_registryDown.invokeAsync(self, ((name, ), context))
 
         """
-        The nodeDown operation is called to notify an observer that a node
-        went down.
+         The nodeDown operation is called to notify an observer that a node went down.
         Arguments:
         name -- The node name.
         _response -- The asynchronous response callback.
@@ -4232,8 +4098,7 @@ if 'RegistryObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.RegistryObserver._op_registryDown.begin(self, ((name, ), _response, _ex, _sent, context))
 
         """
-        The nodeDown operation is called to notify an observer that a node
-        went down.
+         The nodeDown operation is called to notify an observer that a node went down.
         Arguments:
         name -- The node name.
         """
@@ -4271,8 +4136,8 @@ if 'RegistryObserverPrx' not in _M_IceGrid.__dict__:
 
         def registryInit(self, registries, current=None):
             """
-            The registryInit operation is called after registration of
-            an observer to indicate the state of the registries.
+             The registryInit operation is called after registration of an observer to indicate the state of
+             the registries.
             Arguments:
             registries -- The current state of the registries.
             current -- The Current object for the invocation.
@@ -4282,8 +4147,7 @@ if 'RegistryObserverPrx' not in _M_IceGrid.__dict__:
 
         def registryUp(self, node, current=None):
             """
-            The nodeUp operation is called to notify an observer that a node
-            came up.
+             The nodeUp operation is called to notify an observer that a node came up.
             Arguments:
             node -- The node state.
             current -- The Current object for the invocation.
@@ -4293,8 +4157,7 @@ if 'RegistryObserverPrx' not in _M_IceGrid.__dict__:
 
         def registryDown(self, name, current=None):
             """
-            The nodeDown operation is called to notify an observer that a node
-            went down.
+             The nodeDown operation is called to notify an observer that a node went down.
             Arguments:
             name -- The node name.
             current -- The Current object for the invocation.
@@ -4327,8 +4190,8 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
     class NodeObserverPrx(Ice.ObjectPrx):
 
         """
-        The nodeInit operation indicates the current state
-        of nodes. It is called after the registration of an observer.
+         The nodeInit operation indicates the current state of nodes. It is called after the registration
+         of an observer.
         Arguments:
         nodes -- The current state of the nodes.
         context -- The request context for the invocation.
@@ -4337,8 +4200,8 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.NodeObserver._op_nodeInit.invoke(self, ((nodes, ), context))
 
         """
-        The nodeInit operation indicates the current state
-        of nodes. It is called after the registration of an observer.
+         The nodeInit operation indicates the current state of nodes. It is called after the registration
+         of an observer.
         Arguments:
         nodes -- The current state of the nodes.
         context -- The request context for the invocation.
@@ -4348,8 +4211,8 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.NodeObserver._op_nodeInit.invokeAsync(self, ((nodes, ), context))
 
         """
-        The nodeInit operation indicates the current state
-        of nodes. It is called after the registration of an observer.
+         The nodeInit operation indicates the current state of nodes. It is called after the registration
+         of an observer.
         Arguments:
         nodes -- The current state of the nodes.
         _response -- The asynchronous response callback.
@@ -4362,8 +4225,8 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.NodeObserver._op_nodeInit.begin(self, ((nodes, ), _response, _ex, _sent, context))
 
         """
-        The nodeInit operation indicates the current state
-        of nodes. It is called after the registration of an observer.
+         The nodeInit operation indicates the current state of nodes. It is called after the registration
+         of an observer.
         Arguments:
         nodes -- The current state of the nodes.
         """
@@ -4371,8 +4234,7 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.NodeObserver._op_nodeInit.end(self, _r)
 
         """
-        The nodeUp operation is called to notify an observer that a node
-        came up.
+         The nodeUp operation is called to notify an observer that a node came up.
         Arguments:
         node -- The node state.
         context -- The request context for the invocation.
@@ -4381,8 +4243,7 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.NodeObserver._op_nodeUp.invoke(self, ((node, ), context))
 
         """
-        The nodeUp operation is called to notify an observer that a node
-        came up.
+         The nodeUp operation is called to notify an observer that a node came up.
         Arguments:
         node -- The node state.
         context -- The request context for the invocation.
@@ -4392,8 +4253,7 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.NodeObserver._op_nodeUp.invokeAsync(self, ((node, ), context))
 
         """
-        The nodeUp operation is called to notify an observer that a node
-        came up.
+         The nodeUp operation is called to notify an observer that a node came up.
         Arguments:
         node -- The node state.
         _response -- The asynchronous response callback.
@@ -4406,8 +4266,7 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.NodeObserver._op_nodeUp.begin(self, ((node, ), _response, _ex, _sent, context))
 
         """
-        The nodeUp operation is called to notify an observer that a node
-        came up.
+         The nodeUp operation is called to notify an observer that a node came up.
         Arguments:
         node -- The node state.
         """
@@ -4415,8 +4274,7 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.NodeObserver._op_nodeUp.end(self, _r)
 
         """
-        The nodeDown operation is called to notify an observer that a node
-        went down.
+         The nodeDown operation is called to notify an observer that a node went down.
         Arguments:
         name -- The node name.
         context -- The request context for the invocation.
@@ -4425,8 +4283,7 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.NodeObserver._op_nodeDown.invoke(self, ((name, ), context))
 
         """
-        The nodeDown operation is called to notify an observer that a node
-        went down.
+         The nodeDown operation is called to notify an observer that a node went down.
         Arguments:
         name -- The node name.
         context -- The request context for the invocation.
@@ -4436,8 +4293,7 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.NodeObserver._op_nodeDown.invokeAsync(self, ((name, ), context))
 
         """
-        The nodeDown operation is called to notify an observer that a node
-        went down.
+         The nodeDown operation is called to notify an observer that a node went down.
         Arguments:
         name -- The node name.
         _response -- The asynchronous response callback.
@@ -4450,8 +4306,7 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.NodeObserver._op_nodeDown.begin(self, ((name, ), _response, _ex, _sent, context))
 
         """
-        The nodeDown operation is called to notify an observer that a node
-        went down.
+         The nodeDown operation is called to notify an observer that a node went down.
         Arguments:
         name -- The node name.
         """
@@ -4459,8 +4314,7 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.NodeObserver._op_nodeDown.end(self, _r)
 
         """
-        The updateServer operation is called to notify an observer that
-        the state of a server changed.
+         The updateServer operation is called to notify an observer that the state of a server changed.
         Arguments:
         node -- The node hosting the server.
         updatedInfo -- The new server state.
@@ -4470,8 +4324,7 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.NodeObserver._op_updateServer.invoke(self, ((node, updatedInfo), context))
 
         """
-        The updateServer operation is called to notify an observer that
-        the state of a server changed.
+         The updateServer operation is called to notify an observer that the state of a server changed.
         Arguments:
         node -- The node hosting the server.
         updatedInfo -- The new server state.
@@ -4482,8 +4335,7 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.NodeObserver._op_updateServer.invokeAsync(self, ((node, updatedInfo), context))
 
         """
-        The updateServer operation is called to notify an observer that
-        the state of a server changed.
+         The updateServer operation is called to notify an observer that the state of a server changed.
         Arguments:
         node -- The node hosting the server.
         updatedInfo -- The new server state.
@@ -4497,8 +4349,7 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.NodeObserver._op_updateServer.begin(self, ((node, updatedInfo), _response, _ex, _sent, context))
 
         """
-        The updateServer operation is called to notify an observer that
-        the state of a server changed.
+         The updateServer operation is called to notify an observer that the state of a server changed.
         Arguments:
         node -- The node hosting the server.
         updatedInfo -- The new server state.
@@ -4507,8 +4358,7 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.NodeObserver._op_updateServer.end(self, _r)
 
         """
-        The updateAdapter operation is called to notify an observer that
-        the state of an adapter changed.
+         The updateAdapter operation is called to notify an observer that the state of an adapter changed.
         Arguments:
         node -- The node hosting the adapter.
         updatedInfo -- The new adapter state.
@@ -4518,8 +4368,7 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.NodeObserver._op_updateAdapter.invoke(self, ((node, updatedInfo), context))
 
         """
-        The updateAdapter operation is called to notify an observer that
-        the state of an adapter changed.
+         The updateAdapter operation is called to notify an observer that the state of an adapter changed.
         Arguments:
         node -- The node hosting the adapter.
         updatedInfo -- The new adapter state.
@@ -4530,8 +4379,7 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.NodeObserver._op_updateAdapter.invokeAsync(self, ((node, updatedInfo), context))
 
         """
-        The updateAdapter operation is called to notify an observer that
-        the state of an adapter changed.
+         The updateAdapter operation is called to notify an observer that the state of an adapter changed.
         Arguments:
         node -- The node hosting the adapter.
         updatedInfo -- The new adapter state.
@@ -4545,8 +4393,7 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.NodeObserver._op_updateAdapter.begin(self, ((node, updatedInfo), _response, _ex, _sent, context))
 
         """
-        The updateAdapter operation is called to notify an observer that
-        the state of an adapter changed.
+         The updateAdapter operation is called to notify an observer that the state of an adapter changed.
         Arguments:
         node -- The node hosting the adapter.
         updatedInfo -- The new adapter state.
@@ -4585,8 +4432,8 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
 
         def nodeInit(self, nodes, current=None):
             """
-            The nodeInit operation indicates the current state
-            of nodes. It is called after the registration of an observer.
+             The nodeInit operation indicates the current state of nodes. It is called after the registration
+             of an observer.
             Arguments:
             nodes -- The current state of the nodes.
             current -- The Current object for the invocation.
@@ -4596,8 +4443,7 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
 
         def nodeUp(self, node, current=None):
             """
-            The nodeUp operation is called to notify an observer that a node
-            came up.
+             The nodeUp operation is called to notify an observer that a node came up.
             Arguments:
             node -- The node state.
             current -- The Current object for the invocation.
@@ -4607,8 +4453,7 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
 
         def nodeDown(self, name, current=None):
             """
-            The nodeDown operation is called to notify an observer that a node
-            went down.
+             The nodeDown operation is called to notify an observer that a node went down.
             Arguments:
             name -- The node name.
             current -- The Current object for the invocation.
@@ -4618,8 +4463,7 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
 
         def updateServer(self, node, updatedInfo, current=None):
             """
-            The updateServer operation is called to notify an observer that
-            the state of a server changed.
+             The updateServer operation is called to notify an observer that the state of a server changed.
             Arguments:
             node -- The node hosting the server.
             updatedInfo -- The new server state.
@@ -4630,8 +4474,7 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
 
         def updateAdapter(self, node, updatedInfo, current=None):
             """
-            The updateAdapter operation is called to notify an observer that
-            the state of an adapter changed.
+             The updateAdapter operation is called to notify an observer that the state of an adapter changed.
             Arguments:
             node -- The node hosting the adapter.
             updatedInfo -- The new adapter state.
@@ -4664,8 +4507,8 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
     class ApplicationObserverPrx(Ice.ObjectPrx):
 
         """
-        applicationInit is called after the registration
-        of an observer to indicate the state of the registry.
+         applicationInit is called after the registration of an observer to indicate the state of the
+         registry.
         Arguments:
         serial -- The current serial number of the registry database. This serial number allows observers to make sure that their internal state is synchronized with the registry.
         applications -- The applications currently registered with the registry.
@@ -4675,8 +4518,8 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ApplicationObserver._op_applicationInit.invoke(self, ((serial, applications), context))
 
         """
-        applicationInit is called after the registration
-        of an observer to indicate the state of the registry.
+         applicationInit is called after the registration of an observer to indicate the state of the
+         registry.
         Arguments:
         serial -- The current serial number of the registry database. This serial number allows observers to make sure that their internal state is synchronized with the registry.
         applications -- The applications currently registered with the registry.
@@ -4687,8 +4530,8 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ApplicationObserver._op_applicationInit.invokeAsync(self, ((serial, applications), context))
 
         """
-        applicationInit is called after the registration
-        of an observer to indicate the state of the registry.
+         applicationInit is called after the registration of an observer to indicate the state of the
+         registry.
         Arguments:
         serial -- The current serial number of the registry database. This serial number allows observers to make sure that their internal state is synchronized with the registry.
         applications -- The applications currently registered with the registry.
@@ -4702,8 +4545,8 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ApplicationObserver._op_applicationInit.begin(self, ((serial, applications), _response, _ex, _sent, context))
 
         """
-        applicationInit is called after the registration
-        of an observer to indicate the state of the registry.
+         applicationInit is called after the registration of an observer to indicate the state of the
+         registry.
         Arguments:
         serial -- The current serial number of the registry database. This serial number allows observers to make sure that their internal state is synchronized with the registry.
         applications -- The applications currently registered with the registry.
@@ -4712,8 +4555,7 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ApplicationObserver._op_applicationInit.end(self, _r)
 
         """
-        The applicationAdded operation is called to notify an observer
-        that an application was added.
+         The applicationAdded operation is called to notify an observer that an application was added.
         Arguments:
         serial -- The new serial number of the registry database.
         desc -- The descriptor of the new application.
@@ -4723,8 +4565,7 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ApplicationObserver._op_applicationAdded.invoke(self, ((serial, desc), context))
 
         """
-        The applicationAdded operation is called to notify an observer
-        that an application was added.
+         The applicationAdded operation is called to notify an observer that an application was added.
         Arguments:
         serial -- The new serial number of the registry database.
         desc -- The descriptor of the new application.
@@ -4735,8 +4576,7 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ApplicationObserver._op_applicationAdded.invokeAsync(self, ((serial, desc), context))
 
         """
-        The applicationAdded operation is called to notify an observer
-        that an application was added.
+         The applicationAdded operation is called to notify an observer that an application was added.
         Arguments:
         serial -- The new serial number of the registry database.
         desc -- The descriptor of the new application.
@@ -4750,8 +4590,7 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ApplicationObserver._op_applicationAdded.begin(self, ((serial, desc), _response, _ex, _sent, context))
 
         """
-        The applicationAdded operation is called to notify an observer
-        that an application was added.
+         The applicationAdded operation is called to notify an observer that an application was added.
         Arguments:
         serial -- The new serial number of the registry database.
         desc -- The descriptor of the new application.
@@ -4760,8 +4599,7 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ApplicationObserver._op_applicationAdded.end(self, _r)
 
         """
-        The applicationRemoved operation is called to notify an observer
-        that an application was removed.
+         The applicationRemoved operation is called to notify an observer that an application was removed.
         Arguments:
         serial -- The new serial number of the registry database.
         name -- The name of the application that was removed.
@@ -4771,8 +4609,7 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ApplicationObserver._op_applicationRemoved.invoke(self, ((serial, name), context))
 
         """
-        The applicationRemoved operation is called to notify an observer
-        that an application was removed.
+         The applicationRemoved operation is called to notify an observer that an application was removed.
         Arguments:
         serial -- The new serial number of the registry database.
         name -- The name of the application that was removed.
@@ -4783,8 +4620,7 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ApplicationObserver._op_applicationRemoved.invokeAsync(self, ((serial, name), context))
 
         """
-        The applicationRemoved operation is called to notify an observer
-        that an application was removed.
+         The applicationRemoved operation is called to notify an observer that an application was removed.
         Arguments:
         serial -- The new serial number of the registry database.
         name -- The name of the application that was removed.
@@ -4798,8 +4634,7 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ApplicationObserver._op_applicationRemoved.begin(self, ((serial, name), _response, _ex, _sent, context))
 
         """
-        The applicationRemoved operation is called to notify an observer
-        that an application was removed.
+         The applicationRemoved operation is called to notify an observer that an application was removed.
         Arguments:
         serial -- The new serial number of the registry database.
         name -- The name of the application that was removed.
@@ -4808,8 +4643,7 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ApplicationObserver._op_applicationRemoved.end(self, _r)
 
         """
-        The applicationUpdated operation is called to notify an observer
-        that an application was updated.
+         The applicationUpdated operation is called to notify an observer that an application was updated.
         Arguments:
         serial -- The new serial number of the registry database.
         desc -- The descriptor of the update.
@@ -4819,8 +4653,7 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ApplicationObserver._op_applicationUpdated.invoke(self, ((serial, desc), context))
 
         """
-        The applicationUpdated operation is called to notify an observer
-        that an application was updated.
+         The applicationUpdated operation is called to notify an observer that an application was updated.
         Arguments:
         serial -- The new serial number of the registry database.
         desc -- The descriptor of the update.
@@ -4831,8 +4664,7 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ApplicationObserver._op_applicationUpdated.invokeAsync(self, ((serial, desc), context))
 
         """
-        The applicationUpdated operation is called to notify an observer
-        that an application was updated.
+         The applicationUpdated operation is called to notify an observer that an application was updated.
         Arguments:
         serial -- The new serial number of the registry database.
         desc -- The descriptor of the update.
@@ -4846,8 +4678,7 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ApplicationObserver._op_applicationUpdated.begin(self, ((serial, desc), _response, _ex, _sent, context))
 
         """
-        The applicationUpdated operation is called to notify an observer
-        that an application was updated.
+         The applicationUpdated operation is called to notify an observer that an application was updated.
         Arguments:
         serial -- The new serial number of the registry database.
         desc -- The descriptor of the update.
@@ -4886,8 +4717,8 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
 
         def applicationInit(self, serial, applications, current=None):
             """
-            applicationInit is called after the registration
-            of an observer to indicate the state of the registry.
+             applicationInit is called after the registration of an observer to indicate the state of the
+             registry.
             Arguments:
             serial -- The current serial number of the registry database. This serial number allows observers to make sure that their internal state is synchronized with the registry.
             applications -- The applications currently registered with the registry.
@@ -4898,8 +4729,7 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
 
         def applicationAdded(self, serial, desc, current=None):
             """
-            The applicationAdded operation is called to notify an observer
-            that an application was added.
+             The applicationAdded operation is called to notify an observer that an application was added.
             Arguments:
             serial -- The new serial number of the registry database.
             desc -- The descriptor of the new application.
@@ -4910,8 +4740,7 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
 
         def applicationRemoved(self, serial, name, current=None):
             """
-            The applicationRemoved operation is called to notify an observer
-            that an application was removed.
+             The applicationRemoved operation is called to notify an observer that an application was removed.
             Arguments:
             serial -- The new serial number of the registry database.
             name -- The name of the application that was removed.
@@ -4922,8 +4751,7 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
 
         def applicationUpdated(self, serial, desc, current=None):
             """
-            The applicationUpdated operation is called to notify an observer
-            that an application was updated.
+             The applicationUpdated operation is called to notify an observer that an application was updated.
             Arguments:
             serial -- The new serial number of the registry database.
             desc -- The descriptor of the update.
@@ -4955,8 +4783,7 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
     class AdapterObserverPrx(Ice.ObjectPrx):
 
         """
-        adapterInit is called after registration of
-        an observer to indicate the state of the registry.
+         adapterInit is called after registration of an observer to indicate the state of the registry.
         Arguments:
         adpts -- The adapters that were dynamically registered with the registry (not through the deployment mechanism).
         context -- The request context for the invocation.
@@ -4965,8 +4792,7 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdapterObserver._op_adapterInit.invoke(self, ((adpts, ), context))
 
         """
-        adapterInit is called after registration of
-        an observer to indicate the state of the registry.
+         adapterInit is called after registration of an observer to indicate the state of the registry.
         Arguments:
         adpts -- The adapters that were dynamically registered with the registry (not through the deployment mechanism).
         context -- The request context for the invocation.
@@ -4976,8 +4802,7 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdapterObserver._op_adapterInit.invokeAsync(self, ((adpts, ), context))
 
         """
-        adapterInit is called after registration of
-        an observer to indicate the state of the registry.
+         adapterInit is called after registration of an observer to indicate the state of the registry.
         Arguments:
         adpts -- The adapters that were dynamically registered with the registry (not through the deployment mechanism).
         _response -- The asynchronous response callback.
@@ -4990,8 +4815,7 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdapterObserver._op_adapterInit.begin(self, ((adpts, ), _response, _ex, _sent, context))
 
         """
-        adapterInit is called after registration of
-        an observer to indicate the state of the registry.
+         adapterInit is called after registration of an observer to indicate the state of the registry.
         Arguments:
         adpts -- The adapters that were dynamically registered with the registry (not through the deployment mechanism).
         """
@@ -4999,8 +4823,8 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdapterObserver._op_adapterInit.end(self, _r)
 
         """
-        The adapterAdded operation is called to notify an observer when
-        a dynamically-registered adapter was added.
+         The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
+         was added.
         Arguments:
         info -- The details of the new adapter.
         context -- The request context for the invocation.
@@ -5009,8 +4833,8 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdapterObserver._op_adapterAdded.invoke(self, ((info, ), context))
 
         """
-        The adapterAdded operation is called to notify an observer when
-        a dynamically-registered adapter was added.
+         The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
+         was added.
         Arguments:
         info -- The details of the new adapter.
         context -- The request context for the invocation.
@@ -5020,8 +4844,8 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdapterObserver._op_adapterAdded.invokeAsync(self, ((info, ), context))
 
         """
-        The adapterAdded operation is called to notify an observer when
-        a dynamically-registered adapter was added.
+         The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
+         was added.
         Arguments:
         info -- The details of the new adapter.
         _response -- The asynchronous response callback.
@@ -5034,8 +4858,8 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdapterObserver._op_adapterAdded.begin(self, ((info, ), _response, _ex, _sent, context))
 
         """
-        The adapterAdded operation is called to notify an observer when
-        a dynamically-registered adapter was added.
+         The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
+         was added.
         Arguments:
         info -- The details of the new adapter.
         """
@@ -5043,8 +4867,7 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdapterObserver._op_adapterAdded.end(self, _r)
 
         """
-        The adapterUpdated operation is called to notify an observer when
-        a dynamically-registered adapter was updated.
+         The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
         Arguments:
         info -- The details of the updated adapter.
         context -- The request context for the invocation.
@@ -5053,8 +4876,7 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdapterObserver._op_adapterUpdated.invoke(self, ((info, ), context))
 
         """
-        The adapterUpdated operation is called to notify an observer when
-        a dynamically-registered adapter was updated.
+         The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
         Arguments:
         info -- The details of the updated adapter.
         context -- The request context for the invocation.
@@ -5064,8 +4886,7 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdapterObserver._op_adapterUpdated.invokeAsync(self, ((info, ), context))
 
         """
-        The adapterUpdated operation is called to notify an observer when
-        a dynamically-registered adapter was updated.
+         The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
         Arguments:
         info -- The details of the updated adapter.
         _response -- The asynchronous response callback.
@@ -5078,8 +4899,7 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdapterObserver._op_adapterUpdated.begin(self, ((info, ), _response, _ex, _sent, context))
 
         """
-        The adapterUpdated operation is called to notify an observer when
-        a dynamically-registered adapter was updated.
+         The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
         Arguments:
         info -- The details of the updated adapter.
         """
@@ -5087,8 +4907,7 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdapterObserver._op_adapterUpdated.end(self, _r)
 
         """
-        The adapterRemoved operation is called to notify an observer when
-        a dynamically-registered adapter was removed.
+         The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
         Arguments:
         id -- The ID of the removed adapter.
         context -- The request context for the invocation.
@@ -5097,8 +4916,7 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdapterObserver._op_adapterRemoved.invoke(self, ((id, ), context))
 
         """
-        The adapterRemoved operation is called to notify an observer when
-        a dynamically-registered adapter was removed.
+         The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
         Arguments:
         id -- The ID of the removed adapter.
         context -- The request context for the invocation.
@@ -5108,8 +4926,7 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdapterObserver._op_adapterRemoved.invokeAsync(self, ((id, ), context))
 
         """
-        The adapterRemoved operation is called to notify an observer when
-        a dynamically-registered adapter was removed.
+         The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
         Arguments:
         id -- The ID of the removed adapter.
         _response -- The asynchronous response callback.
@@ -5122,8 +4939,7 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdapterObserver._op_adapterRemoved.begin(self, ((id, ), _response, _ex, _sent, context))
 
         """
-        The adapterRemoved operation is called to notify an observer when
-        a dynamically-registered adapter was removed.
+         The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
         Arguments:
         id -- The ID of the removed adapter.
         """
@@ -5161,8 +4977,7 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
 
         def adapterInit(self, adpts, current=None):
             """
-            adapterInit is called after registration of
-            an observer to indicate the state of the registry.
+             adapterInit is called after registration of an observer to indicate the state of the registry.
             Arguments:
             adpts -- The adapters that were dynamically registered with the registry (not through the deployment mechanism).
             current -- The Current object for the invocation.
@@ -5172,8 +4987,8 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
 
         def adapterAdded(self, info, current=None):
             """
-            The adapterAdded operation is called to notify an observer when
-            a dynamically-registered adapter was added.
+             The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
+             was added.
             Arguments:
             info -- The details of the new adapter.
             current -- The Current object for the invocation.
@@ -5183,8 +4998,7 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
 
         def adapterUpdated(self, info, current=None):
             """
-            The adapterUpdated operation is called to notify an observer when
-            a dynamically-registered adapter was updated.
+             The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
             Arguments:
             info -- The details of the updated adapter.
             current -- The Current object for the invocation.
@@ -5194,8 +5008,7 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
 
         def adapterRemoved(self, id, current=None):
             """
-            The adapterRemoved operation is called to notify an observer when
-            a dynamically-registered adapter was removed.
+             The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
             Arguments:
             id -- The ID of the removed adapter.
             current -- The Current object for the invocation.
@@ -5226,8 +5039,7 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
     class ObjectObserverPrx(Ice.ObjectPrx):
 
         """
-        objectInit is called after the registration of
-        an observer to indicate the state of the registry.
+         objectInit is called after the registration of an observer to indicate the state of the registry.
         Arguments:
         objects -- The objects registered with the Admin interface (not through the deployment mechanism).
         context -- The request context for the invocation.
@@ -5236,8 +5048,7 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ObjectObserver._op_objectInit.invoke(self, ((objects, ), context))
 
         """
-        objectInit is called after the registration of
-        an observer to indicate the state of the registry.
+         objectInit is called after the registration of an observer to indicate the state of the registry.
         Arguments:
         objects -- The objects registered with the Admin interface (not through the deployment mechanism).
         context -- The request context for the invocation.
@@ -5247,8 +5058,7 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ObjectObserver._op_objectInit.invokeAsync(self, ((objects, ), context))
 
         """
-        objectInit is called after the registration of
-        an observer to indicate the state of the registry.
+         objectInit is called after the registration of an observer to indicate the state of the registry.
         Arguments:
         objects -- The objects registered with the Admin interface (not through the deployment mechanism).
         _response -- The asynchronous response callback.
@@ -5261,8 +5071,7 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ObjectObserver._op_objectInit.begin(self, ((objects, ), _response, _ex, _sent, context))
 
         """
-        objectInit is called after the registration of
-        an observer to indicate the state of the registry.
+         objectInit is called after the registration of an observer to indicate the state of the registry.
         Arguments:
         objects -- The objects registered with the Admin interface (not through the deployment mechanism).
         """
@@ -5270,8 +5079,8 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ObjectObserver._op_objectInit.end(self, _r)
 
         """
-        The objectAdded operation is called to notify an observer when an
-        object was added to the Admin interface.
+         The objectAdded operation is called to notify an observer when an object was added to the
+         Admin interface.
         Arguments:
         info -- The details of the added object.
         context -- The request context for the invocation.
@@ -5280,8 +5089,8 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ObjectObserver._op_objectAdded.invoke(self, ((info, ), context))
 
         """
-        The objectAdded operation is called to notify an observer when an
-        object was added to the Admin interface.
+         The objectAdded operation is called to notify an observer when an object was added to the
+         Admin interface.
         Arguments:
         info -- The details of the added object.
         context -- The request context for the invocation.
@@ -5291,8 +5100,8 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ObjectObserver._op_objectAdded.invokeAsync(self, ((info, ), context))
 
         """
-        The objectAdded operation is called to notify an observer when an
-        object was added to the Admin interface.
+         The objectAdded operation is called to notify an observer when an object was added to the
+         Admin interface.
         Arguments:
         info -- The details of the added object.
         _response -- The asynchronous response callback.
@@ -5305,8 +5114,8 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ObjectObserver._op_objectAdded.begin(self, ((info, ), _response, _ex, _sent, context))
 
         """
-        The objectAdded operation is called to notify an observer when an
-        object was added to the Admin interface.
+         The objectAdded operation is called to notify an observer when an object was added to the
+         Admin interface.
         Arguments:
         info -- The details of the added object.
         """
@@ -5314,8 +5123,8 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ObjectObserver._op_objectAdded.end(self, _r)
 
         """
-        objectUpdated is called to notify an observer when
-        an object registered with the Admin interface was updated.
+         objectUpdated is called to notify an observer when an object registered with the Admin
+         interface was updated.
         Arguments:
         info -- The details of the updated object.
         context -- The request context for the invocation.
@@ -5324,8 +5133,8 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ObjectObserver._op_objectUpdated.invoke(self, ((info, ), context))
 
         """
-        objectUpdated is called to notify an observer when
-        an object registered with the Admin interface was updated.
+         objectUpdated is called to notify an observer when an object registered with the Admin
+         interface was updated.
         Arguments:
         info -- The details of the updated object.
         context -- The request context for the invocation.
@@ -5335,8 +5144,8 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ObjectObserver._op_objectUpdated.invokeAsync(self, ((info, ), context))
 
         """
-        objectUpdated is called to notify an observer when
-        an object registered with the Admin interface was updated.
+         objectUpdated is called to notify an observer when an object registered with the Admin
+         interface was updated.
         Arguments:
         info -- The details of the updated object.
         _response -- The asynchronous response callback.
@@ -5349,8 +5158,8 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ObjectObserver._op_objectUpdated.begin(self, ((info, ), _response, _ex, _sent, context))
 
         """
-        objectUpdated is called to notify an observer when
-        an object registered with the Admin interface was updated.
+         objectUpdated is called to notify an observer when an object registered with the Admin
+         interface was updated.
         Arguments:
         info -- The details of the updated object.
         """
@@ -5358,8 +5167,8 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ObjectObserver._op_objectUpdated.end(self, _r)
 
         """
-        objectRemoved is called to notify an observer when
-        an object registered with the Admin interface was removed.
+         objectRemoved is called to notify an observer when an object registered with the Admin
+         interface was removed.
         Arguments:
         id -- The identity of the removed object.
         context -- The request context for the invocation.
@@ -5368,8 +5177,8 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ObjectObserver._op_objectRemoved.invoke(self, ((id, ), context))
 
         """
-        objectRemoved is called to notify an observer when
-        an object registered with the Admin interface was removed.
+         objectRemoved is called to notify an observer when an object registered with the Admin
+         interface was removed.
         Arguments:
         id -- The identity of the removed object.
         context -- The request context for the invocation.
@@ -5379,8 +5188,8 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ObjectObserver._op_objectRemoved.invokeAsync(self, ((id, ), context))
 
         """
-        objectRemoved is called to notify an observer when
-        an object registered with the Admin interface was removed.
+         objectRemoved is called to notify an observer when an object registered with the Admin
+         interface was removed.
         Arguments:
         id -- The identity of the removed object.
         _response -- The asynchronous response callback.
@@ -5393,8 +5202,8 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ObjectObserver._op_objectRemoved.begin(self, ((id, ), _response, _ex, _sent, context))
 
         """
-        objectRemoved is called to notify an observer when
-        an object registered with the Admin interface was removed.
+         objectRemoved is called to notify an observer when an object registered with the Admin
+         interface was removed.
         Arguments:
         id -- The identity of the removed object.
         """
@@ -5432,8 +5241,7 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
 
         def objectInit(self, objects, current=None):
             """
-            objectInit is called after the registration of
-            an observer to indicate the state of the registry.
+             objectInit is called after the registration of an observer to indicate the state of the registry.
             Arguments:
             objects -- The objects registered with the Admin interface (not through the deployment mechanism).
             current -- The Current object for the invocation.
@@ -5443,8 +5251,8 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
 
         def objectAdded(self, info, current=None):
             """
-            The objectAdded operation is called to notify an observer when an
-            object was added to the Admin interface.
+             The objectAdded operation is called to notify an observer when an object was added to the
+             Admin interface.
             Arguments:
             info -- The details of the added object.
             current -- The Current object for the invocation.
@@ -5454,8 +5262,8 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
 
         def objectUpdated(self, info, current=None):
             """
-            objectUpdated is called to notify an observer when
-            an object registered with the Admin interface was updated.
+             objectUpdated is called to notify an observer when an object registered with the Admin
+             interface was updated.
             Arguments:
             info -- The details of the updated object.
             current -- The Current object for the invocation.
@@ -5465,8 +5273,8 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
 
         def objectRemoved(self, id, current=None):
             """
-            objectRemoved is called to notify an observer when
-            an object registered with the Admin interface was removed.
+             objectRemoved is called to notify an observer when an object registered with the Admin
+             interface was removed.
             Arguments:
             id -- The identity of the removed object.
             current -- The Current object for the invocation.
@@ -5497,8 +5305,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
     class AdminSessionPrx(_M_Glacier2.SessionPrx):
 
         """
-        Keep the session alive. Clients should call this operation
-        regularly to prevent the server from reaping the session.
+         Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+         session.
         Arguments:
         context -- The request context for the invocation.
         """
@@ -5506,8 +5314,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_keepAlive.invoke(self, ((), context))
 
         """
-        Keep the session alive. Clients should call this operation
-        regularly to prevent the server from reaping the session.
+         Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+         session.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -5516,8 +5324,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_keepAlive.invokeAsync(self, ((), context))
 
         """
-        Keep the session alive. Clients should call this operation
-        regularly to prevent the server from reaping the session.
+         Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+         session.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -5529,16 +5337,15 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_keepAlive.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Keep the session alive. Clients should call this operation
-        regularly to prevent the server from reaping the session.
+         Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+         session.
         Arguments:
         """
         def end_keepAlive(self, _r):
             return _M_IceGrid.AdminSession._op_keepAlive.end(self, _r)
 
         """
-        Get the admin interface. The admin object returned by this
-        operation can only be accessed by the session.
+         Get the admin interface. The admin object returned by this operation can only be accessed by the session.
         Arguments:
         context -- The request context for the invocation.
         Returns: The admin interface proxy.
@@ -5547,8 +5354,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_getAdmin.invoke(self, ((), context))
 
         """
-        Get the admin interface. The admin object returned by this
-        operation can only be accessed by the session.
+         Get the admin interface. The admin object returned by this operation can only be accessed by the session.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -5557,8 +5363,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_getAdmin.invokeAsync(self, ((), context))
 
         """
-        Get the admin interface. The admin object returned by this
-        operation can only be accessed by the session.
+         Get the admin interface. The admin object returned by this operation can only be accessed by the session.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -5570,8 +5375,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_getAdmin.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Get the admin interface. The admin object returned by this
-        operation can only be accessed by the session.
+         Get the admin interface. The admin object returned by this operation can only be accessed by the session.
         Arguments:
         Returns: The admin interface proxy.
         """
@@ -5579,10 +5383,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_getAdmin.end(self, _r)
 
         """
-        Get a "template" proxy for admin callback objects.
-        An Admin client uses this proxy to set the category of its callback
-        objects, and the published endpoints of the object adapter hosting
-        the admin callback objects.
+         Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+         callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
         Arguments:
         context -- The request context for the invocation.
         Returns: A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
@@ -5591,10 +5393,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_getAdminCallbackTemplate.invoke(self, ((), context))
 
         """
-        Get a "template" proxy for admin callback objects.
-        An Admin client uses this proxy to set the category of its callback
-        objects, and the published endpoints of the object adapter hosting
-        the admin callback objects.
+         Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+         callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -5603,10 +5403,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_getAdminCallbackTemplate.invokeAsync(self, ((), context))
 
         """
-        Get a "template" proxy for admin callback objects.
-        An Admin client uses this proxy to set the category of its callback
-        objects, and the published endpoints of the object adapter hosting
-        the admin callback objects.
+         Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+         callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -5618,10 +5416,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_getAdminCallbackTemplate.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Get a "template" proxy for admin callback objects.
-        An Admin client uses this proxy to set the category of its callback
-        objects, and the published endpoints of the object adapter hosting
-        the admin callback objects.
+         Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+         callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
         Arguments:
         Returns: A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
         """
@@ -5629,9 +5425,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_getAdminCallbackTemplate.end(self, _r)
 
         """
-        Set the observer proxies that receive
-        notifications when the state of the registry
-        or nodes changes.
+         Set the observer proxies that receive notifications when the state of the registry or nodes changes.
         Arguments:
         registryObs -- The registry observer.
         nodeObs -- The node observer.
@@ -5646,9 +5440,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_setObservers.invoke(self, ((registryObs, nodeObs, appObs, adptObs, objObs), context))
 
         """
-        Set the observer proxies that receive
-        notifications when the state of the registry
-        or nodes changes.
+         Set the observer proxies that receive notifications when the state of the registry or nodes changes.
         Arguments:
         registryObs -- The registry observer.
         nodeObs -- The node observer.
@@ -5662,9 +5454,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_setObservers.invokeAsync(self, ((registryObs, nodeObs, appObs, adptObs, objObs), context))
 
         """
-        Set the observer proxies that receive
-        notifications when the state of the registry
-        or nodes changes.
+         Set the observer proxies that receive notifications when the state of the registry or nodes changes.
         Arguments:
         registryObs -- The registry observer.
         nodeObs -- The node observer.
@@ -5681,9 +5471,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_setObservers.begin(self, ((registryObs, nodeObs, appObs, adptObs, objObs), _response, _ex, _sent, context))
 
         """
-        Set the observer proxies that receive
-        notifications when the state of the registry
-        or nodes changes.
+         Set the observer proxies that receive notifications when the state of the registry or nodes changes.
         Arguments:
         registryObs -- The registry observer.
         nodeObs -- The node observer.
@@ -5697,11 +5485,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_setObservers.end(self, _r)
 
         """
-        Set the observer identities that receive
-        notifications the state of the registry
-        or nodes changes. This operation should be used by clients that
-        are using a bidirectional connection to communicate with the
-        session.
+         Set the observer identities that receive notifications the state of the registry or nodes changes. This
+         operation should be used by clients that are using a bidirectional connection to communicate with the session.
         Arguments:
         registryObs -- The registry observer identity.
         nodeObs -- The node observer identity.
@@ -5716,11 +5501,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_setObserversByIdentity.invoke(self, ((registryObs, nodeObs, appObs, adptObs, objObs), context))
 
         """
-        Set the observer identities that receive
-        notifications the state of the registry
-        or nodes changes. This operation should be used by clients that
-        are using a bidirectional connection to communicate with the
-        session.
+         Set the observer identities that receive notifications the state of the registry or nodes changes. This
+         operation should be used by clients that are using a bidirectional connection to communicate with the session.
         Arguments:
         registryObs -- The registry observer identity.
         nodeObs -- The node observer identity.
@@ -5734,11 +5516,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_setObserversByIdentity.invokeAsync(self, ((registryObs, nodeObs, appObs, adptObs, objObs), context))
 
         """
-        Set the observer identities that receive
-        notifications the state of the registry
-        or nodes changes. This operation should be used by clients that
-        are using a bidirectional connection to communicate with the
-        session.
+         Set the observer identities that receive notifications the state of the registry or nodes changes. This
+         operation should be used by clients that are using a bidirectional connection to communicate with the session.
         Arguments:
         registryObs -- The registry observer identity.
         nodeObs -- The node observer identity.
@@ -5755,11 +5534,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_setObserversByIdentity.begin(self, ((registryObs, nodeObs, appObs, adptObs, objObs), _response, _ex, _sent, context))
 
         """
-        Set the observer identities that receive
-        notifications the state of the registry
-        or nodes changes. This operation should be used by clients that
-        are using a bidirectional connection to communicate with the
-        session.
+         Set the observer identities that receive notifications the state of the registry or nodes changes. This
+         operation should be used by clients that are using a bidirectional connection to communicate with the session.
         Arguments:
         registryObs -- The registry observer identity.
         nodeObs -- The node observer identity.
@@ -5773,7 +5549,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_setObserversByIdentity.end(self, _r)
 
         """
-        Acquires an exclusive lock to start updating the registry applications.
+         Acquires an exclusive lock to start updating the registry applications.
         Arguments:
         context -- The request context for the invocation.
         Returns: The current serial.
@@ -5784,7 +5560,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_startUpdate.invoke(self, ((), context))
 
         """
-        Acquires an exclusive lock to start updating the registry applications.
+         Acquires an exclusive lock to start updating the registry applications.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -5793,7 +5569,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_startUpdate.invokeAsync(self, ((), context))
 
         """
-        Acquires an exclusive lock to start updating the registry applications.
+         Acquires an exclusive lock to start updating the registry applications.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -5805,7 +5581,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_startUpdate.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Acquires an exclusive lock to start updating the registry applications.
+         Acquires an exclusive lock to start updating the registry applications.
         Arguments:
         Returns: The current serial.
         Throws:
@@ -5815,7 +5591,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_startUpdate.end(self, _r)
 
         """
-        Finish updating the registry and release the exclusive lock.
+         Finish updating the registry and release the exclusive lock.
         Arguments:
         context -- The request context for the invocation.
         Throws:
@@ -5825,7 +5601,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_finishUpdate.invoke(self, ((), context))
 
         """
-        Finish updating the registry and release the exclusive lock.
+         Finish updating the registry and release the exclusive lock.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -5834,7 +5610,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_finishUpdate.invokeAsync(self, ((), context))
 
         """
-        Finish updating the registry and release the exclusive lock.
+         Finish updating the registry and release the exclusive lock.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -5846,7 +5622,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_finishUpdate.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Finish updating the registry and release the exclusive lock.
+         Finish updating the registry and release the exclusive lock.
         Arguments:
         Throws:
         AccessDeniedException -- Raised if the session doesn't hold the exclusive lock.
@@ -5855,7 +5631,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_finishUpdate.end(self, _r)
 
         """
-        Get the name of the registry replica hosting this session.
+         Get the name of the registry replica hosting this session.
         Arguments:
         context -- The request context for the invocation.
         Returns: The replica name of the registry.
@@ -5864,7 +5640,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_getReplicaName.invoke(self, ((), context))
 
         """
-        Get the name of the registry replica hosting this session.
+         Get the name of the registry replica hosting this session.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -5873,7 +5649,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_getReplicaName.invokeAsync(self, ((), context))
 
         """
-        Get the name of the registry replica hosting this session.
+         Get the name of the registry replica hosting this session.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -5885,7 +5661,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_getReplicaName.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Get the name of the registry replica hosting this session.
+         Get the name of the registry replica hosting this session.
         Arguments:
         Returns: The replica name of the registry.
         """
@@ -5893,8 +5669,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_getReplicaName.end(self, _r)
 
         """
-        Open the given server log file for reading. The file can be
-        read with the returned file iterator.
+         Open the given server log file for reading. The file can be read with the returned file iterator.
         Arguments:
         id -- The server id.
         path -- The path of the log file. A log file can be opened only if it's declared in the server or service deployment descriptor.
@@ -5911,8 +5686,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openServerLog.invoke(self, ((id, path, count), context))
 
         """
-        Open the given server log file for reading. The file can be
-        read with the returned file iterator.
+         Open the given server log file for reading. The file can be read with the returned file iterator.
         Arguments:
         id -- The server id.
         path -- The path of the log file. A log file can be opened only if it's declared in the server or service deployment descriptor.
@@ -5924,8 +5698,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openServerLog.invokeAsync(self, ((id, path, count), context))
 
         """
-        Open the given server log file for reading. The file can be
-        read with the returned file iterator.
+         Open the given server log file for reading. The file can be read with the returned file iterator.
         Arguments:
         id -- The server id.
         path -- The path of the log file. A log file can be opened only if it's declared in the server or service deployment descriptor.
@@ -5940,8 +5713,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openServerLog.begin(self, ((id, path, count), _response, _ex, _sent, context))
 
         """
-        Open the given server log file for reading. The file can be
-        read with the returned file iterator.
+         Open the given server log file for reading. The file can be read with the returned file iterator.
         Arguments:
         id -- The server id.
         path -- The path of the log file. A log file can be opened only if it's declared in the server or service deployment descriptor.
@@ -5957,8 +5729,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openServerLog.end(self, _r)
 
         """
-        Open the given server stderr file for reading. The file can be
-        read with the returned file iterator.
+         Open the given server stderr file for reading. The file can be read with the returned file iterator.
         Arguments:
         id -- The server id.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -5974,8 +5745,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openServerStdErr.invoke(self, ((id, count), context))
 
         """
-        Open the given server stderr file for reading. The file can be
-        read with the returned file iterator.
+         Open the given server stderr file for reading. The file can be read with the returned file iterator.
         Arguments:
         id -- The server id.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -5986,8 +5756,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openServerStdErr.invokeAsync(self, ((id, count), context))
 
         """
-        Open the given server stderr file for reading. The file can be
-        read with the returned file iterator.
+         Open the given server stderr file for reading. The file can be read with the returned file iterator.
         Arguments:
         id -- The server id.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6001,8 +5770,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openServerStdErr.begin(self, ((id, count), _response, _ex, _sent, context))
 
         """
-        Open the given server stderr file for reading. The file can be
-        read with the returned file iterator.
+         Open the given server stderr file for reading. The file can be read with the returned file iterator.
         Arguments:
         id -- The server id.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6017,8 +5785,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openServerStdErr.end(self, _r)
 
         """
-        Open the given server stdout file for reading. The file can be
-        read with the returned file iterator.
+         Open the given server stdout file for reading. The file can be read with the returned file iterator.
         Arguments:
         id -- The server id.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6034,8 +5801,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openServerStdOut.invoke(self, ((id, count), context))
 
         """
-        Open the given server stdout file for reading. The file can be
-        read with the returned file iterator.
+         Open the given server stdout file for reading. The file can be read with the returned file iterator.
         Arguments:
         id -- The server id.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6046,8 +5812,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openServerStdOut.invokeAsync(self, ((id, count), context))
 
         """
-        Open the given server stdout file for reading. The file can be
-        read with the returned file iterator.
+         Open the given server stdout file for reading. The file can be read with the returned file iterator.
         Arguments:
         id -- The server id.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6061,8 +5826,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openServerStdOut.begin(self, ((id, count), _response, _ex, _sent, context))
 
         """
-        Open the given server stdout file for reading. The file can be
-        read with the returned file iterator.
+         Open the given server stdout file for reading. The file can be read with the returned file iterator.
         Arguments:
         id -- The server id.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6077,8 +5841,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openServerStdOut.end(self, _r)
 
         """
-        Open the given node stderr file for reading. The file can be
-        read with the returned file iterator.
+         Open the given node stderr file for reading. The file can be read with the returned file iterator.
         Arguments:
         name -- The node name.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6093,8 +5856,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openNodeStdErr.invoke(self, ((name, count), context))
 
         """
-        Open the given node stderr file for reading. The file can be
-        read with the returned file iterator.
+         Open the given node stderr file for reading. The file can be read with the returned file iterator.
         Arguments:
         name -- The node name.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6105,8 +5867,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openNodeStdErr.invokeAsync(self, ((name, count), context))
 
         """
-        Open the given node stderr file for reading. The file can be
-        read with the returned file iterator.
+         Open the given node stderr file for reading. The file can be read with the returned file iterator.
         Arguments:
         name -- The node name.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6120,8 +5881,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openNodeStdErr.begin(self, ((name, count), _response, _ex, _sent, context))
 
         """
-        Open the given node stderr file for reading. The file can be
-        read with the returned file iterator.
+         Open the given node stderr file for reading. The file can be read with the returned file iterator.
         Arguments:
         name -- The node name.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6135,8 +5895,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openNodeStdErr.end(self, _r)
 
         """
-        Open the given node stdout file for reading. The file can be
-        read with the returned file iterator.
+         Open the given node stdout file for reading. The file can be read with the returned file iterator.
         Arguments:
         name -- The node name.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6151,8 +5910,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openNodeStdOut.invoke(self, ((name, count), context))
 
         """
-        Open the given node stdout file for reading. The file can be
-        read with the returned file iterator.
+         Open the given node stdout file for reading. The file can be read with the returned file iterator.
         Arguments:
         name -- The node name.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6163,8 +5921,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openNodeStdOut.invokeAsync(self, ((name, count), context))
 
         """
-        Open the given node stdout file for reading. The file can be
-        read with the returned file iterator.
+         Open the given node stdout file for reading. The file can be read with the returned file iterator.
         Arguments:
         name -- The node name.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6178,8 +5935,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openNodeStdOut.begin(self, ((name, count), _response, _ex, _sent, context))
 
         """
-        Open the given node stdout file for reading. The file can be
-        read with the returned file iterator.
+         Open the given node stdout file for reading. The file can be read with the returned file iterator.
         Arguments:
         name -- The node name.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6193,8 +5949,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openNodeStdOut.end(self, _r)
 
         """
-        Open the given registry stderr file for reading. The file can be
-        read with the returned file iterator.
+         Open the given registry stderr file for reading. The file can be read with the returned file iterator.
         Arguments:
         name -- The registry name.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6209,8 +5964,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openRegistryStdErr.invoke(self, ((name, count), context))
 
         """
-        Open the given registry stderr file for reading. The file can be
-        read with the returned file iterator.
+         Open the given registry stderr file for reading. The file can be read with the returned file iterator.
         Arguments:
         name -- The registry name.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6221,8 +5975,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openRegistryStdErr.invokeAsync(self, ((name, count), context))
 
         """
-        Open the given registry stderr file for reading. The file can be
-        read with the returned file iterator.
+         Open the given registry stderr file for reading. The file can be read with the returned file iterator.
         Arguments:
         name -- The registry name.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6236,8 +5989,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openRegistryStdErr.begin(self, ((name, count), _response, _ex, _sent, context))
 
         """
-        Open the given registry stderr file for reading. The file can be
-        read with the returned file iterator.
+         Open the given registry stderr file for reading. The file can be read with the returned file iterator.
         Arguments:
         name -- The registry name.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6251,8 +6003,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openRegistryStdErr.end(self, _r)
 
         """
-        Open the given registry stdout file for reading. The file can be
-        read with the returned file iterator.
+         Open the given registry stdout file for reading. The file can be read with the returned file iterator.
         Arguments:
         name -- The registry name.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6267,8 +6018,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openRegistryStdOut.invoke(self, ((name, count), context))
 
         """
-        Open the given registry stdout file for reading. The file can be
-        read with the returned file iterator.
+         Open the given registry stdout file for reading. The file can be read with the returned file iterator.
         Arguments:
         name -- The registry name.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6279,8 +6029,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openRegistryStdOut.invokeAsync(self, ((name, count), context))
 
         """
-        Open the given registry stdout file for reading. The file can be
-        read with the returned file iterator.
+         Open the given registry stdout file for reading. The file can be read with the returned file iterator.
         Arguments:
         name -- The registry name.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6294,8 +6043,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_openRegistryStdOut.begin(self, ((name, count), _response, _ex, _sent, context))
 
         """
-        Open the given registry stdout file for reading. The file can be
-        read with the returned file iterator.
+         Open the given registry stdout file for reading. The file can be read with the returned file iterator.
         Arguments:
         name -- The registry name.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6339,8 +6087,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
 
         def keepAlive(self, current=None):
             """
-            Keep the session alive. Clients should call this operation
-            regularly to prevent the server from reaping the session.
+             Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+             session.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -6349,8 +6097,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
 
         def getAdmin(self, current=None):
             """
-            Get the admin interface. The admin object returned by this
-            operation can only be accessed by the session.
+             Get the admin interface. The admin object returned by this operation can only be accessed by the session.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -6359,10 +6106,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
 
         def getAdminCallbackTemplate(self, current=None):
             """
-            Get a "template" proxy for admin callback objects.
-            An Admin client uses this proxy to set the category of its callback
-            objects, and the published endpoints of the object adapter hosting
-            the admin callback objects.
+             Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+             callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -6371,9 +6116,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
 
         def setObservers(self, registryObs, nodeObs, appObs, adptObs, objObs, current=None):
             """
-            Set the observer proxies that receive
-            notifications when the state of the registry
-            or nodes changes.
+             Set the observer proxies that receive notifications when the state of the registry or nodes changes.
             Arguments:
             registryObs -- The registry observer.
             nodeObs -- The node observer.
@@ -6389,11 +6132,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
 
         def setObserversByIdentity(self, registryObs, nodeObs, appObs, adptObs, objObs, current=None):
             """
-            Set the observer identities that receive
-            notifications the state of the registry
-            or nodes changes. This operation should be used by clients that
-            are using a bidirectional connection to communicate with the
-            session.
+             Set the observer identities that receive notifications the state of the registry or nodes changes. This
+             operation should be used by clients that are using a bidirectional connection to communicate with the session.
             Arguments:
             registryObs -- The registry observer identity.
             nodeObs -- The node observer identity.
@@ -6409,7 +6149,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
 
         def startUpdate(self, current=None):
             """
-            Acquires an exclusive lock to start updating the registry applications.
+             Acquires an exclusive lock to start updating the registry applications.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -6420,7 +6160,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
 
         def finishUpdate(self, current=None):
             """
-            Finish updating the registry and release the exclusive lock.
+             Finish updating the registry and release the exclusive lock.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -6431,7 +6171,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
 
         def getReplicaName(self, current=None):
             """
-            Get the name of the registry replica hosting this session.
+             Get the name of the registry replica hosting this session.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -6440,8 +6180,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
 
         def openServerLog(self, id, path, count, current=None):
             """
-            Open the given server log file for reading. The file can be
-            read with the returned file iterator.
+             Open the given server log file for reading. The file can be read with the returned file iterator.
             Arguments:
             id -- The server id.
             path -- The path of the log file. A log file can be opened only if it's declared in the server or service deployment descriptor.
@@ -6458,8 +6197,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
 
         def openServerStdErr(self, id, count, current=None):
             """
-            Open the given server stderr file for reading. The file can be
-            read with the returned file iterator.
+             Open the given server stderr file for reading. The file can be read with the returned file iterator.
             Arguments:
             id -- The server id.
             count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6475,8 +6213,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
 
         def openServerStdOut(self, id, count, current=None):
             """
-            Open the given server stdout file for reading. The file can be
-            read with the returned file iterator.
+             Open the given server stdout file for reading. The file can be read with the returned file iterator.
             Arguments:
             id -- The server id.
             count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6492,8 +6229,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
 
         def openNodeStdErr(self, name, count, current=None):
             """
-            Open the given node stderr file for reading. The file can be
-            read with the returned file iterator.
+             Open the given node stderr file for reading. The file can be read with the returned file iterator.
             Arguments:
             name -- The node name.
             count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6508,8 +6244,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
 
         def openNodeStdOut(self, name, count, current=None):
             """
-            Open the given node stdout file for reading. The file can be
-            read with the returned file iterator.
+             Open the given node stdout file for reading. The file can be read with the returned file iterator.
             Arguments:
             name -- The node name.
             count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6524,8 +6259,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
 
         def openRegistryStdErr(self, name, count, current=None):
             """
-            Open the given registry stderr file for reading. The file can be
-            read with the returned file iterator.
+             Open the given registry stderr file for reading. The file can be read with the returned file iterator.
             Arguments:
             name -- The registry name.
             count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
@@ -6540,8 +6274,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
 
         def openRegistryStdOut(self, name, count, current=None):
             """
-            Open the given registry stdout file for reading. The file can be
-            read with the returned file iterator.
+             Open the given registry stdout file for reading. The file can be read with the returned file iterator.
             Arguments:
             name -- The registry name.
             count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.

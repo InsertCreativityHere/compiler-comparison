@@ -150,11 +150,10 @@ public struct LogMessageTypeSeqHelper {
 public struct LogMessage: Swift.Hashable {
     /// The type of message sent to the Logger.
     public var `type`: LogMessageType = .PrintMessage
-    /// The date and time when the Logger received this message, expressed
-    /// as the number of microseconds since the Unix Epoch (00:00:00 UTC on 1 January 1970)
+    /// The date and time when the Logger received this message, expressed as the number of microseconds
+    /// since the Unix Epoch (00:00:00 UTC on 1 January 1970)
     public var timestamp: Swift.Int64 = 0
-    /// For a message of type trace, the trace category of this log message;
-    /// otherwise, the empty string.
+    /// For a message of type trace, the trace category of this log message; otherwise, the empty string.
     public var traceCategory: Swift.String = ""
     /// The log message itself.
     public var message: Swift.String = ""
@@ -339,9 +338,8 @@ public struct LoggerAdminTraits: SliceTraits {
     public static let staticId = "::Ice::LoggerAdmin"
 }
 
-/// The Ice remote logger interface. An application can implement a
-/// RemoteLogger to receive the log messages sent to the local Logger
-/// of another Ice application.
+/// The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
+/// to the local Logger of another Ice application.
 ///
 /// RemoteLoggerPrx Methods:
 ///
@@ -427,9 +425,8 @@ public extension InputStream {
     }
 }
 
-/// The Ice remote logger interface. An application can implement a
-/// RemoteLogger to receive the log messages sent to the local Logger
-/// of another Ice application.
+/// The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
+/// to the local Logger of another Ice application.
 ///
 /// RemoteLoggerPrx Methods:
 ///
@@ -638,27 +635,27 @@ public extension InputStream {
 ///
 ///  - getLogAsync: Retrieves log messages recently logged.
 public extension LoggerAdminPrx {
-    /// Attaches a RemoteLogger object to the local logger.
-    /// attachRemoteLogger calls init on the provided RemoteLogger proxy.
+    /// Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+    /// RemoteLogger proxy.
     ///
     /// - parameter prx: `RemoteLoggerPrx?` A proxy to the remote logger.
     ///
-    /// - parameter messageTypes: `LogMessageTypeSeq` The list of message types that the remote logger wishes to receive.
-    /// An empty list means no filtering (send all message types).
+    /// - parameter messageTypes: `LogMessageTypeSeq` The list of message types that the remote logger wishes to receive. An empty list means
+    /// no filtering (send all message types).
     ///
-    /// - parameter traceCategories: `StringSeq` The categories of traces that the remote logger wishes to receive.
-    /// This parameter is ignored if messageTypes is not empty and does not include trace.
-    /// An empty list means no filtering (send all trace categories).
+    /// - parameter traceCategories: `StringSeq` The categories of traces that the remote logger wishes to receive. This parameter is
+    /// ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+    /// trace categories).
     ///
-    /// - parameter messageMax: `Swift.Int32` The maximum number of log messages (of all types) to be provided
-    /// to init. A negative value requests all messages available.
+    /// - parameter messageMax: `Swift.Int32` The maximum number of log messages (of all types) to be provided to init. A negative
+    /// value requests all messages available.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - throws:
     ///
-    ///   - RemoteLoggerAlreadyAttachedException - Raised if this remote logger is already
-    ///     attached to this admin object.
+    ///   - RemoteLoggerAlreadyAttachedException - Raised if this remote logger is already attached to this admin
+    ///     object.
     func attachRemoteLogger(prx iceP_prx: RemoteLoggerPrx?, messageTypes iceP_messageTypes: LogMessageTypeSeq, traceCategories iceP_traceCategories: StringSeq, messageMax iceP_messageMax: Swift.Int32, context: Context? = nil) throws {
         try _impl._invoke(operation: "attachRemoteLogger",
                           mode: .Normal,
@@ -678,20 +675,20 @@ public extension LoggerAdminPrx {
                           context: context)
     }
 
-    /// Attaches a RemoteLogger object to the local logger.
-    /// attachRemoteLogger calls init on the provided RemoteLogger proxy.
+    /// Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+    /// RemoteLogger proxy.
     ///
     /// - parameter prx: `RemoteLoggerPrx?` A proxy to the remote logger.
     ///
-    /// - parameter messageTypes: `LogMessageTypeSeq` The list of message types that the remote logger wishes to receive.
-    /// An empty list means no filtering (send all message types).
+    /// - parameter messageTypes: `LogMessageTypeSeq` The list of message types that the remote logger wishes to receive. An empty list means
+    /// no filtering (send all message types).
     ///
-    /// - parameter traceCategories: `StringSeq` The categories of traces that the remote logger wishes to receive.
-    /// This parameter is ignored if messageTypes is not empty and does not include trace.
-    /// An empty list means no filtering (send all trace categories).
+    /// - parameter traceCategories: `StringSeq` The categories of traces that the remote logger wishes to receive. This parameter is
+    /// ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+    /// trace categories).
     ///
-    /// - parameter messageMax: `Swift.Int32` The maximum number of log messages (of all types) to be provided
-    /// to init. A negative value requests all messages available.
+    /// - parameter messageMax: `Swift.Int32` The maximum number of log messages (of all types) to be provided to init. A negative
+    /// value requests all messages available.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -779,15 +776,15 @@ public extension LoggerAdminPrx {
 
     /// Retrieves log messages recently logged.
     ///
-    /// - parameter messageTypes: `LogMessageTypeSeq` The list of message types that the caller wishes to receive.
-    /// An empty list means no filtering (send all message types).
+    /// - parameter messageTypes: `LogMessageTypeSeq` The list of message types that the caller wishes to receive. An empty list means no
+    /// filtering (send all message types).
     ///
-    /// - parameter traceCategories: `StringSeq` The categories of traces that caller wish to receive.
-    /// This parameter is ignored if messageTypes is not empty and does not include trace.
-    /// An empty list means no filtering (send all trace categories).
+    /// - parameter traceCategories: `StringSeq` The categories of traces that caller wish to receive. This parameter is ignored if
+    /// messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+    /// categories).
     ///
-    /// - parameter messageMax: `Swift.Int32` The maximum number of log messages (of all types) to be returned.
-    /// A negative value requests all messages available.
+    /// - parameter messageMax: `Swift.Int32` The maximum number of log messages (of all types) to be returned. A negative value
+    /// requests all messages available.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -814,15 +811,15 @@ public extension LoggerAdminPrx {
 
     /// Retrieves log messages recently logged.
     ///
-    /// - parameter messageTypes: `LogMessageTypeSeq` The list of message types that the caller wishes to receive.
-    /// An empty list means no filtering (send all message types).
+    /// - parameter messageTypes: `LogMessageTypeSeq` The list of message types that the caller wishes to receive. An empty list means no
+    /// filtering (send all message types).
     ///
-    /// - parameter traceCategories: `StringSeq` The categories of traces that caller wish to receive.
-    /// This parameter is ignored if messageTypes is not empty and does not include trace.
-    /// An empty list means no filtering (send all trace categories).
+    /// - parameter traceCategories: `StringSeq` The categories of traces that caller wish to receive. This parameter is ignored if
+    /// messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+    /// categories).
     ///
-    /// - parameter messageMax: `Swift.Int32` The maximum number of log messages (of all types) to be returned.
-    /// A negative value requests all messages available.
+    /// - parameter messageMax: `Swift.Int32` The maximum number of log messages (of all types) to be returned. A negative value
+    /// requests all messages available.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -886,9 +883,8 @@ public struct RemoteLoggerDisp: Disp {
     }
 }
 
-/// The Ice remote logger interface. An application can implement a
-/// RemoteLogger to receive the log messages sent to the local Logger
-/// of another Ice application.
+/// The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
+/// to the local Logger of another Ice application.
 public protocol RemoteLogger {
     /// init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
     ///
@@ -943,27 +939,27 @@ public struct LoggerAdminDisp: Disp {
 /// The interface of the admin object that allows an Ice application the attach its
 /// RemoteLogger to the Logger of this admin object's Ice communicator.
 public protocol LoggerAdmin {
-    /// Attaches a RemoteLogger object to the local logger.
-    /// attachRemoteLogger calls init on the provided RemoteLogger proxy.
+    /// Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+    /// RemoteLogger proxy.
     ///
     /// - parameter prx: `RemoteLoggerPrx?` A proxy to the remote logger.
     ///
-    /// - parameter messageTypes: `LogMessageTypeSeq` The list of message types that the remote logger wishes to receive.
-    /// An empty list means no filtering (send all message types).
+    /// - parameter messageTypes: `LogMessageTypeSeq` The list of message types that the remote logger wishes to receive. An empty list means
+    /// no filtering (send all message types).
     ///
-    /// - parameter traceCategories: `StringSeq` The categories of traces that the remote logger wishes to receive.
-    /// This parameter is ignored if messageTypes is not empty and does not include trace.
-    /// An empty list means no filtering (send all trace categories).
+    /// - parameter traceCategories: `StringSeq` The categories of traces that the remote logger wishes to receive. This parameter is
+    /// ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+    /// trace categories).
     ///
-    /// - parameter messageMax: `Swift.Int32` The maximum number of log messages (of all types) to be provided
-    /// to init. A negative value requests all messages available.
+    /// - parameter messageMax: `Swift.Int32` The maximum number of log messages (of all types) to be provided to init. A negative
+    /// value requests all messages available.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - throws:
     ///
-    ///   - RemoteLoggerAlreadyAttachedException - Raised if this remote logger is already
-    ///     attached to this admin object.
+    ///   - RemoteLoggerAlreadyAttachedException - Raised if this remote logger is already attached to this admin
+    ///     object.
     func attachRemoteLogger(prx: RemoteLoggerPrx?, messageTypes: LogMessageTypeSeq, traceCategories: StringSeq, messageMax: Swift.Int32, current: Current) throws
 
     /// Detaches a RemoteLogger object from the local logger.
@@ -977,15 +973,15 @@ public protocol LoggerAdmin {
 
     /// Retrieves log messages recently logged.
     ///
-    /// - parameter messageTypes: `LogMessageTypeSeq` The list of message types that the caller wishes to receive.
-    /// An empty list means no filtering (send all message types).
+    /// - parameter messageTypes: `LogMessageTypeSeq` The list of message types that the caller wishes to receive. An empty list means no
+    /// filtering (send all message types).
     ///
-    /// - parameter traceCategories: `StringSeq` The categories of traces that caller wish to receive.
-    /// This parameter is ignored if messageTypes is not empty and does not include trace.
-    /// An empty list means no filtering (send all trace categories).
+    /// - parameter traceCategories: `StringSeq` The categories of traces that caller wish to receive. This parameter is ignored if
+    /// messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+    /// categories).
     ///
-    /// - parameter messageMax: `Swift.Int32` The maximum number of log messages (of all types) to be returned.
-    /// A negative value requests all messages available.
+    /// - parameter messageMax: `Swift.Int32` The maximum number of log messages (of all types) to be returned. A negative value
+    /// requests all messages available.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -997,9 +993,8 @@ public protocol LoggerAdmin {
     func getLog(messageTypes: LogMessageTypeSeq, traceCategories: StringSeq, messageMax: Swift.Int32, current: Current) throws -> (returnValue: LogMessageSeq, prefix: Swift.String)
 }
 
-/// The Ice remote logger interface. An application can implement a
-/// RemoteLogger to receive the log messages sent to the local Logger
-/// of another Ice application.
+/// The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
+/// to the local Logger of another Ice application.
 ///
 /// RemoteLogger Methods:
 ///

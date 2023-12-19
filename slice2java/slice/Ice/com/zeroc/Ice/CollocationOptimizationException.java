@@ -16,8 +16,7 @@
 package com.zeroc.Ice;
 
 /**
- * This exception is raised if a feature is requested that is not
- * supported with collocation optimization.
+ * This exception is raised if a feature is requested that is not supported with collocation optimization.
  * @deprecated This exception is no longer used by the Ice run time
  **/
 @Deprecated

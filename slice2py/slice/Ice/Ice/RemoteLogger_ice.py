@@ -28,12 +28,12 @@ if 'LogMessageType' not in _M_Ice.__dict__:
     _M_Ice.LogMessageType = Ice.createTempClass()
     class LogMessageType(Ice.EnumBase):
         """
-        An enumeration representing the different types of log messages.
+         An enumeration representing the different types of log messages.
         Enumerators:
-        PrintMessage -- The Logger received a print message.
-        TraceMessage -- The Logger received a trace message.
-        WarningMessage -- The Logger received a warning message.
-        ErrorMessage -- The Logger received an error message.
+        PrintMessage --  The Logger received a print message.
+        TraceMessage --  The Logger received a trace message.
+        WarningMessage --  The Logger received a warning message.
+        ErrorMessage --  The Logger received an error message.
         """
 
         def __init__(self, _n, _v):
@@ -63,14 +63,13 @@ if 'LogMessage' not in _M_Ice.__dict__:
     _M_Ice.LogMessage = Ice.createTempClass()
     class LogMessage(object):
         """
-        A complete log message.
+         A complete log message.
         Members:
-        type -- The type of message sent to the Logger.
-        timestamp -- The date and time when the Logger received this message, expressed
-        as the number of microseconds since the Unix Epoch (00:00:00 UTC on 1 January 1970)
-        traceCategory -- For a message of type trace, the trace category of this log message;
-        otherwise, the empty string.
-        message -- The log message itself.
+        type --  The type of message sent to the Logger.
+        timestamp --  The date and time when the Logger received this message, expressed as the number of microseconds
+         since the Unix Epoch (00:00:00 UTC on 1 January 1970)
+        traceCategory --  For a message of type trace, the trace category of this log message; otherwise, the empty string.
+        message --  The log message itself.
         """
         def __init__(self, type=_M_Ice.LogMessageType.PrintMessage, timestamp=0, traceCategory='', message=''):
             self.type = type
@@ -193,7 +192,7 @@ if 'RemoteLoggerPrx' not in _M_Ice.__dict__:
     class RemoteLoggerPrx(Ice.ObjectPrx):
 
         """
-        init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
+         init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
         Arguments:
         prefix -- The prefix of the associated local Logger.
         logMessages -- Old log messages generated before "now".
@@ -203,7 +202,7 @@ if 'RemoteLoggerPrx' not in _M_Ice.__dict__:
             return _M_Ice.RemoteLogger._op_init.invoke(self, ((prefix, logMessages), context))
 
         """
-        init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
+         init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
         Arguments:
         prefix -- The prefix of the associated local Logger.
         logMessages -- Old log messages generated before "now".
@@ -214,7 +213,7 @@ if 'RemoteLoggerPrx' not in _M_Ice.__dict__:
             return _M_Ice.RemoteLogger._op_init.invokeAsync(self, ((prefix, logMessages), context))
 
         """
-        init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
+         init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
         Arguments:
         prefix -- The prefix of the associated local Logger.
         logMessages -- Old log messages generated before "now".
@@ -228,7 +227,7 @@ if 'RemoteLoggerPrx' not in _M_Ice.__dict__:
             return _M_Ice.RemoteLogger._op_init.begin(self, ((prefix, logMessages), _response, _ex, _sent, context))
 
         """
-        init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
+         init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
         Arguments:
         prefix -- The prefix of the associated local Logger.
         logMessages -- Old log messages generated before "now".
@@ -237,7 +236,7 @@ if 'RemoteLoggerPrx' not in _M_Ice.__dict__:
             return _M_Ice.RemoteLogger._op_init.end(self, _r)
 
         """
-        Log a LogMessage. Note that log may be called by LoggerAdmin before init.
+         Log a LogMessage. Note that log may be called by LoggerAdmin before init.
         Arguments:
         message -- The message to log.
         context -- The request context for the invocation.
@@ -246,7 +245,7 @@ if 'RemoteLoggerPrx' not in _M_Ice.__dict__:
             return _M_Ice.RemoteLogger._op_log.invoke(self, ((message, ), context))
 
         """
-        Log a LogMessage. Note that log may be called by LoggerAdmin before init.
+         Log a LogMessage. Note that log may be called by LoggerAdmin before init.
         Arguments:
         message -- The message to log.
         context -- The request context for the invocation.
@@ -256,7 +255,7 @@ if 'RemoteLoggerPrx' not in _M_Ice.__dict__:
             return _M_Ice.RemoteLogger._op_log.invokeAsync(self, ((message, ), context))
 
         """
-        Log a LogMessage. Note that log may be called by LoggerAdmin before init.
+         Log a LogMessage. Note that log may be called by LoggerAdmin before init.
         Arguments:
         message -- The message to log.
         _response -- The asynchronous response callback.
@@ -269,7 +268,7 @@ if 'RemoteLoggerPrx' not in _M_Ice.__dict__:
             return _M_Ice.RemoteLogger._op_log.begin(self, ((message, ), _response, _ex, _sent, context))
 
         """
-        Log a LogMessage. Note that log may be called by LoggerAdmin before init.
+         Log a LogMessage. Note that log may be called by LoggerAdmin before init.
         Arguments:
         message -- The message to log.
         """
@@ -307,7 +306,7 @@ if 'RemoteLoggerPrx' not in _M_Ice.__dict__:
 
         def init(self, prefix, logMessages, current=None):
             """
-            init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
+             init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
             Arguments:
             prefix -- The prefix of the associated local Logger.
             logMessages -- Old log messages generated before "now".
@@ -318,7 +317,7 @@ if 'RemoteLoggerPrx' not in _M_Ice.__dict__:
 
         def log(self, message, current=None):
             """
-            Log a LogMessage. Note that log may be called by LoggerAdmin before init.
+             Log a LogMessage. Note that log may be called by LoggerAdmin before init.
             Arguments:
             message -- The message to log.
             current -- The Current object for the invocation.
@@ -344,7 +343,7 @@ if 'RemoteLoggerAlreadyAttachedException' not in _M_Ice.__dict__:
     _M_Ice.RemoteLoggerAlreadyAttachedException = Ice.createTempClass()
     class RemoteLoggerAlreadyAttachedException(Ice.UserException):
         """
-        Thrown when the provided RemoteLogger was previously attached to a LoggerAdmin.
+         Thrown when the provided RemoteLogger was previously attached to a LoggerAdmin.
         """
         def __init__(self):
             pass
@@ -369,8 +368,8 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
     class LoggerAdminPrx(Ice.ObjectPrx):
 
         """
-        Attaches a RemoteLogger object to the local logger.
-        attachRemoteLogger calls init on the provided RemoteLogger proxy.
+         Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+         RemoteLogger proxy.
         Arguments:
         prx -- A proxy to the remote logger.
         messageTypes -- The list of message types that the remote logger wishes to receive. An empty list means no filtering (send all message types).
@@ -384,8 +383,8 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
             return _M_Ice.LoggerAdmin._op_attachRemoteLogger.invoke(self, ((prx, messageTypes, traceCategories, messageMax), context))
 
         """
-        Attaches a RemoteLogger object to the local logger.
-        attachRemoteLogger calls init on the provided RemoteLogger proxy.
+         Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+         RemoteLogger proxy.
         Arguments:
         prx -- A proxy to the remote logger.
         messageTypes -- The list of message types that the remote logger wishes to receive. An empty list means no filtering (send all message types).
@@ -398,8 +397,8 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
             return _M_Ice.LoggerAdmin._op_attachRemoteLogger.invokeAsync(self, ((prx, messageTypes, traceCategories, messageMax), context))
 
         """
-        Attaches a RemoteLogger object to the local logger.
-        attachRemoteLogger calls init on the provided RemoteLogger proxy.
+         Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+         RemoteLogger proxy.
         Arguments:
         prx -- A proxy to the remote logger.
         messageTypes -- The list of message types that the remote logger wishes to receive. An empty list means no filtering (send all message types).
@@ -415,8 +414,8 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
             return _M_Ice.LoggerAdmin._op_attachRemoteLogger.begin(self, ((prx, messageTypes, traceCategories, messageMax), _response, _ex, _sent, context))
 
         """
-        Attaches a RemoteLogger object to the local logger.
-        attachRemoteLogger calls init on the provided RemoteLogger proxy.
+         Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+         RemoteLogger proxy.
         Arguments:
         prx -- A proxy to the remote logger.
         messageTypes -- The list of message types that the remote logger wishes to receive. An empty list means no filtering (send all message types).
@@ -429,7 +428,7 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
             return _M_Ice.LoggerAdmin._op_attachRemoteLogger.end(self, _r)
 
         """
-        Detaches a RemoteLogger object from the local logger.
+         Detaches a RemoteLogger object from the local logger.
         Arguments:
         prx -- A proxy to the remote logger.
         context -- The request context for the invocation.
@@ -439,7 +438,7 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
             return _M_Ice.LoggerAdmin._op_detachRemoteLogger.invoke(self, ((prx, ), context))
 
         """
-        Detaches a RemoteLogger object from the local logger.
+         Detaches a RemoteLogger object from the local logger.
         Arguments:
         prx -- A proxy to the remote logger.
         context -- The request context for the invocation.
@@ -449,7 +448,7 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
             return _M_Ice.LoggerAdmin._op_detachRemoteLogger.invokeAsync(self, ((prx, ), context))
 
         """
-        Detaches a RemoteLogger object from the local logger.
+         Detaches a RemoteLogger object from the local logger.
         Arguments:
         prx -- A proxy to the remote logger.
         _response -- The asynchronous response callback.
@@ -462,7 +461,7 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
             return _M_Ice.LoggerAdmin._op_detachRemoteLogger.begin(self, ((prx, ), _response, _ex, _sent, context))
 
         """
-        Detaches a RemoteLogger object from the local logger.
+         Detaches a RemoteLogger object from the local logger.
         Arguments:
         prx -- A proxy to the remote logger.
         Returns: True if the provided remote logger proxy was detached, and false otherwise.
@@ -471,7 +470,7 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
             return _M_Ice.LoggerAdmin._op_detachRemoteLogger.end(self, _r)
 
         """
-        Retrieves log messages recently logged.
+         Retrieves log messages recently logged.
         Arguments:
         messageTypes -- The list of message types that the caller wishes to receive. An empty list means no filtering (send all message types).
         traceCategories -- The categories of traces that caller wish to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
@@ -485,7 +484,7 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
             return _M_Ice.LoggerAdmin._op_getLog.invoke(self, ((messageTypes, traceCategories, messageMax), context))
 
         """
-        Retrieves log messages recently logged.
+         Retrieves log messages recently logged.
         Arguments:
         messageTypes -- The list of message types that the caller wishes to receive. An empty list means no filtering (send all message types).
         traceCategories -- The categories of traces that caller wish to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
@@ -497,7 +496,7 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
             return _M_Ice.LoggerAdmin._op_getLog.invokeAsync(self, ((messageTypes, traceCategories, messageMax), context))
 
         """
-        Retrieves log messages recently logged.
+         Retrieves log messages recently logged.
         Arguments:
         messageTypes -- The list of message types that the caller wishes to receive. An empty list means no filtering (send all message types).
         traceCategories -- The categories of traces that caller wish to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
@@ -512,7 +511,7 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
             return _M_Ice.LoggerAdmin._op_getLog.begin(self, ((messageTypes, traceCategories, messageMax), _response, _ex, _sent, context))
 
         """
-        Retrieves log messages recently logged.
+         Retrieves log messages recently logged.
         Arguments:
         messageTypes -- The list of message types that the caller wishes to receive. An empty list means no filtering (send all message types).
         traceCategories -- The categories of traces that caller wish to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).
@@ -555,8 +554,8 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
 
         def attachRemoteLogger(self, prx, messageTypes, traceCategories, messageMax, current=None):
             """
-            Attaches a RemoteLogger object to the local logger.
-            attachRemoteLogger calls init on the provided RemoteLogger proxy.
+             Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+             RemoteLogger proxy.
             Arguments:
             prx -- A proxy to the remote logger.
             messageTypes -- The list of message types that the remote logger wishes to receive. An empty list means no filtering (send all message types).
@@ -571,7 +570,7 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
 
         def detachRemoteLogger(self, prx, current=None):
             """
-            Detaches a RemoteLogger object from the local logger.
+             Detaches a RemoteLogger object from the local logger.
             Arguments:
             prx -- A proxy to the remote logger.
             current -- The Current object for the invocation.
@@ -581,7 +580,7 @@ if 'LoggerAdminPrx' not in _M_Ice.__dict__:
 
         def getLog(self, messageTypes, traceCategories, messageMax, current=None):
             """
-            Retrieves log messages recently logged.
+             Retrieves log messages recently logged.
             Arguments:
             messageTypes -- The list of message types that the caller wishes to receive. An empty list means no filtering (send all message types).
             traceCategories -- The categories of traces that caller wish to receive. This parameter is ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace categories).

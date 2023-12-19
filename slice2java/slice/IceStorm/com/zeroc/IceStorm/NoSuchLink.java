@@ -16,8 +16,7 @@
 package com.zeroc.IceStorm;
 
 /**
- * This exception indicates that an attempt was made to remove a
- * link that does not exist.
+ * This exception indicates that an attempt was made to remove a link that does not exist.
  **/
 public class NoSuchLink extends com.zeroc.Ice.UserException
 {

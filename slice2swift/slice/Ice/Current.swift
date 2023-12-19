@@ -15,10 +15,9 @@
 
 import Foundation
 
-/// A request context. Context is used to transmit metadata about a
-/// request from the server to the client, such as Quality-of-Service
-/// (QoS) parameters. Each operation on the client has a Context as
-/// its implicit final parameter.
+/// A request context. Context is used to transmit metadata about a request from the server to the client,
+/// such as Quality-of-Service (QoS) parameters. Each operation on the client has a Context as its
+/// implicit final parameter.
 public typealias Context = [Swift.String: Swift.String]
 
 /// Helper class to read and write `Context` dictionary values from
@@ -88,33 +87,22 @@ public struct ContextHelper {
 
 /// Determines the retry behavior an invocation in case of a (potentially) recoverable error.
 public enum OperationMode: Swift.UInt8 {
-    /// Normal Ordinary operations have Normal mode.  These operations
-    /// modify object state; invoking such an operation twice in a row
-    /// has different semantics than invoking it once. The Ice run time
-    /// guarantees that it will not violate at-most-once semantics for
-    /// Normal operations.
+    /// Normal Ordinary operations have Normal mode. These operations modify object state; invoking such an
+    /// operation twice in a row has different semantics than invoking it once. The Ice run time guarantees that it
+    /// will not violate at-most-once semantics for Normal operations.
     case Normal = 0
-    /// `Nonmutating` Operations that use the Slice nonmutating keyword must not
-    /// modify object state. For C++, nonmutating operations generate
-    /// const member functions in the skeleton. In addition, the Ice
-    /// run time will attempt to transparently recover from certain
-    /// run-time errors by re-issuing a failed request and propagate
-    /// the failure to the application only if the second attempt
-    /// fails.
-    ///
-    /// Nonmutating is deprecated; Use the
-    /// idempotent keyword instead. For C++, to retain the mapping
-    /// of nonmutating operations to C++ const
-    /// member functions, use the ["cpp:const"] metadata
-    /// directive.
+    /// `Nonmutating` Operations that use the Slice nonmutating keyword must not modify object state. For C++,
+    /// nonmutating operations generate const member functions in the skeleton. In addition, the Ice
+    /// run time will attempt to transparently recover from certain run-time errors by re-issuing a failed request and
+    /// propagate the failure to the application only if the second attempt fails.
+    /// Nonmutating is deprecated; Use the idempotent keyword instead.
+    /// For C++, to retain the mapping of nonmutating operations to C++ const member
+    /// functions, use the ["cpp:const"] metadata directive.
     case `Nonmutating` = 1
-    /// Idempotent Operations that use the Slice idempotent keyword can modify
-    /// object state, but invoking an operation twice in a row must
-    /// result in the same object state as invoking it once.  For
-    /// example, x = 1 is an idempotent statement,
-    /// whereas x += 1 is not. For idempotent
-    /// operations, the Ice run-time uses the same retry behavior
-    /// as for nonmutating operations in case of a potentially
+    /// Idempotent Operations that use the Slice idempotent keyword can modify object state, but invoking an
+    /// operation twice in a row must result in the same object state as invoking it once. For example,
+    /// x = 1 is an idempotent statement, whereas x += 1 is not. For idempotent operations,
+    /// the Ice run-time uses the same retry behavior as for nonmutating operations in case of a potentially
     /// recoverable error.
     case Idempotent = 2
     public init() {
@@ -170,16 +158,14 @@ public extension OutputStream {
     }
 }
 
-/// Information about the current method invocation for servers. Each
-/// operation on the server has a Current as its implicit final
-/// parameter. Current is mostly used for Ice services. Most
+/// Information about the current method invocation for servers. Each operation on the server has a
+/// Current as its implicit final parameter. Current is mostly used for Ice services. Most
 /// applications ignore this parameter.
 public class Current {
     /// The object adapter.
     public var adapter: ObjectAdapter? = nil
-    /// Information about the connection over which the current method
-    /// invocation was received. If the invocation is direct due to
-    /// collocation optimization, this value is set to null.
+    /// Information about the connection over which the current method invocation was received. If the invocation is
+    /// direct due to collocation optimization, this value is set to null.
     public var con: Connection? = nil
     /// The Ice object identity.
     public var id: Identity = Identity()

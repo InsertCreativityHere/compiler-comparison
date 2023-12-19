@@ -71,8 +71,8 @@
 %   throwUnknownDerivedAsBaseAsync
 %   throwPreservedException
 %   throwPreservedExceptionAsync
-%   useForward
-%   useForwardAsync
+%   useForward - Use of forward-declared class to verify that code is generated correctly.
+%   useForwardAsync - Use of forward-declared class to verify that code is generated correctly.
 %   shutdown
 %   shutdownAsync
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
@@ -1299,7 +1299,7 @@ classdef TestIntfPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('throwPreservedException', 0, true, [], 0, [], Test.TestIntfPrx.throwPreservedException_ex_, varargin{:});
         end
         function f = useForward(obj, varargin)
-            % useForward
+            % useForward   Use of forward-declared class to verify that code is generated correctly.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -1315,7 +1315,7 @@ classdef TestIntfPrx < Ice.ObjectPrx
             f = f_h_.value;
         end
         function r_ = useForwardAsync(obj, varargin)
-            % useForwardAsync
+            % useForwardAsync   Use of forward-declared class to verify that code is generated correctly.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.

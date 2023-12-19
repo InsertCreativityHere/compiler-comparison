@@ -29,8 +29,8 @@ public enum ACMClose
      **/
     CloseOnIdle(1),
     /**
-     * Forcefully closes a connection that has been idle for the configured timeout period,
-     * but only if the connection has pending invocations.
+     * Forcefully closes a connection that has been idle for the configured timeout period, but only if the connection
+     * has pending invocations.
      **/
     CloseOnInvocation(2),
     /**
@@ -38,8 +38,8 @@ public enum ACMClose
      **/
     CloseOnInvocationAndIdle(3),
     /**
-     * Forcefully closes a connection that has been idle for the configured timeout period,
-     * regardless of whether the connection has pending invocations or dispatch.
+     * Forcefully closes a connection that has been idle for the configured timeout period, regardless of whether the
+     * connection has pending invocations or dispatch.
      **/
     CloseOnIdleForceful(4);
 

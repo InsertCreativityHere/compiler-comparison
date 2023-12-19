@@ -119,8 +119,7 @@ public:
 };
 
 /**
- * This exception indicates that a failure occurred while initializing
- * a plug-in.
+ * This exception indicates that a failure occurred while initializing a plug-in.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) PluginInitializationException : public LocalExceptionHelper<PluginInitializationException, LocalException>
@@ -179,8 +178,7 @@ public:
 };
 
 /**
- * This exception is raised if a feature is requested that is not
- * supported with collocation optimization.
+ * This exception is raised if a feature is requested that is not supported with collocation optimization.
  *
  * @deprecated This exception is no longer used by the Ice run time
  * \headerfile Ice/Ice.h
@@ -224,13 +222,9 @@ public:
 };
 
 /**
- * An attempt was made to register something more than once with
- * the Ice run time.
- *
- * This exception is raised if an attempt is made to register a
- * servant, servant locator, facet, value factory, plug-in, object
- * adapter, object, or user exception factory more than once for the
- * same ID.
+ * An attempt was made to register something more than once with the Ice run time. This exception is raised if an
+ * attempt is made to register a servant, servant locator, facet, value factory, plug-in, object adapter, object, or
+ * user exception factory more than once for the same ID.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) AlreadyRegisteredException : public LocalExceptionHelper<AlreadyRegisteredException, LocalException>
@@ -285,9 +279,8 @@ public:
     ICE_MEMBER(ICE_API) virtual void ice_print(::std::ostream& stream) const override;
 
     /**
-     * The kind of object that could not be removed: "servant", "facet",
-     * "object", "default servant", "servant locator", "value factory", "plugin",
-     * "object adapter", "object adapter with router", "replica group".
+     * The kind of object that could not be removed: "servant", "facet", "object", "default servant",
+     * "servant locator", "value factory", "plugin", "object adapter", "object adapter with router", "replica group".
      */
     ::std::string kindOfObject;
     /**
@@ -297,16 +290,11 @@ public:
 };
 
 /**
- * An attempt was made to find or deregister something that is not
- * registered with the Ice run time or Ice locator.
- *
- * This exception is raised if an attempt is made to remove a servant,
- * servant locator, facet, value factory, plug-in, object adapter,
- * object, or user exception factory that is not currently registered.
- *
- * It's also raised if the Ice locator can't find an object or object
- * adapter when resolving an indirect proxy or when an object adapter
- * is activated.
+ * An attempt was made to find or deregister something that is not registered with the Ice run time or Ice locator.
+ * This exception is raised if an attempt is made to remove a servant, servant locator, facet, value factory, plug-in,
+ * object adapter, object, or user exception factory that is not currently registered. It's also raised if the Ice
+ * locator can't find an object or object adapter when resolving an indirect proxy or when an object adapter is
+ * activated.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) NotRegisteredException : public LocalExceptionHelper<NotRegisteredException, LocalException>
@@ -361,9 +349,8 @@ public:
     ICE_MEMBER(ICE_API) virtual void ice_print(::std::ostream& stream) const override;
 
     /**
-     * The kind of object that could not be removed: "servant", "facet",
-     * "object", "default servant", "servant locator", "value factory", "plugin",
-     * "object adapter", "object adapter with router", "replica group".
+     * The kind of object that could not be removed: "servant", "facet", "object", "default servant",
+     * "servant locator", "value factory", "plugin", "object adapter", "object adapter with router", "replica group".
      */
     ::std::string kindOfObject;
     /**
@@ -373,12 +360,9 @@ public:
 };
 
 /**
- * The operation can only be invoked with a twoway request.
- *
- * This exception is raised if an attempt is made to invoke an
- * operation with <code>ice_oneway</code>, <code>ice_batchOneway</code>, <code>ice_datagram</code>,
- * or <code>ice_batchDatagram</code> and the operation has a return value,
- * out-parameters, or an exception specification.
+ * The operation can only be invoked with a twoway request. This exception is raised if an attempt is made to invoke
+ * an operation with <code>ice_oneway</code>, <code>ice_batchOneway</code>, <code>ice_datagram</code>, or
+ * <code>ice_batchDatagram</code> and the operation has a return value, out-parameters, or an exception specification.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) TwowayOnlyException : public LocalExceptionHelper<TwowayOnlyException, LocalException>
@@ -437,13 +421,10 @@ public:
 };
 
 /**
- * An attempt was made to clone a class that does not support
- * cloning.
- *
- * This exception is raised if <code>ice_clone</code> is called on
- * a class that is derived from an abstract Slice class (that is,
- * a class containing operations), and the derived class does not
- * provide an implementation of the <code>ice_clone</code> operation (C++ only).
+ * An attempt was made to clone a class that does not support cloning. This exception is raised if
+ * <code>ice_clone</code> is called on a class that is derived from an abstract Slice class (that is, a class
+ * containing operations), and the derived class does not provide an implementation of the <code>ice_clone</code>
+ * operation (C++ only).
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) CloneNotImplementedException : public LocalExceptionHelper<CloneNotImplementedException, LocalException>
@@ -485,11 +466,9 @@ public:
 };
 
 /**
- * This exception is raised if an operation call on a server raises an
- * unknown exception. For example, for C++, this exception is raised
- * if the server throws a C++ exception that is not directly or
- * indirectly derived from <code>Ice::LocalException</code> or
- * <code>Ice::UserException</code>.
+ * This exception is raised if an operation call on a server raises an unknown exception. For example, for C++, this
+ * exception is raised if the server throws a C++ exception that is not directly or indirectly derived from
+ * <code>Ice::LocalException</code> or <code>Ice::UserException</code>.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) UnknownException : public LocalExceptionHelper<UnknownException, LocalException>
@@ -542,20 +521,17 @@ public:
     ICE_MEMBER(ICE_API) virtual void ice_print(::std::ostream& stream) const override;
 
     /**
-     * This field is set to the textual representation of the unknown
-     * exception if available.
+     * This field is set to the textual representation of the unknown exception if available.
      */
     ::std::string unknown;
 };
 
 /**
- * This exception is raised if an operation call on a server raises a
- * local exception. Because local exceptions are not transmitted by
- * the Ice protocol, the client receives all local exceptions raised
- * by the server as {@link UnknownLocalException}. The only exception to this
- * rule are all exceptions derived from {@link RequestFailedException},
- * which are transmitted by the Ice protocol even though they are
- * declared <code>local</code>.
+ * This exception is raised if an operation call on a server raises a  local exception. Because local exceptions are
+ * not transmitted by the Ice protocol, the client receives all local exceptions raised by the server as
+ * {@link UnknownLocalException}. The only exception to this rule are all exceptions derived from
+ * {@link RequestFailedException}, which are transmitted by the Ice protocol even though they are declared
+ * <code>local</code>.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) UnknownLocalException : public LocalExceptionHelper<UnknownLocalException, UnknownException>
@@ -609,17 +585,11 @@ public:
 };
 
 /**
- * An operation raised an incorrect user exception.
- *
- * This exception is raised if an operation raises a
- * user exception that is not declared in the exception's
- * <code>throws</code> clause. Such undeclared exceptions are
- * not transmitted from the server to the client by the Ice
- * protocol, but instead the client just gets an
- * {@link UnknownUserException}. This is necessary in order to not violate
- * the contract established by an operation's signature: Only local
- * exceptions and user exceptions declared in the
- * <code>throws</code> clause can be raised.
+ * An operation raised an incorrect user exception. This exception is raised if an operation raises a user exception
+ * that is not declared in the exception's <code>throws</code> clause. Such undeclared exceptions are not transmitted
+ * from the server to the client by the Ice protocol, but instead the client just gets an {@link UnknownUserException}.
+ * This is necessary in order to not violate the contract established by an operation's signature: Only local
+ * exceptions and user exceptions declared in the <code>throws</code> clause can be raised.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) UnknownUserException : public LocalExceptionHelper<UnknownUserException, UnknownException>
@@ -673,8 +643,7 @@ public:
 };
 
 /**
- * This exception is raised if the Ice library version does not match
- * the version in the Ice header files.
+ * This exception is raised if the Ice library version does not match the version in the Ice header files.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) VersionMismatchException : public LocalExceptionHelper<VersionMismatchException, LocalException>
@@ -759,8 +728,7 @@ public:
 };
 
 /**
- * This exception is raised if an attempt is made to use a deactivated
- * {@link ObjectAdapter}.
+ * This exception is raised if an attempt is made to use a deactivated {@link ObjectAdapter}.
  * @see ObjectAdapter#deactivate
  * @see Communicator#shutdown
  * \headerfile Ice/Ice.h
@@ -821,10 +789,8 @@ public:
 };
 
 /**
- * This exception is raised if an {@link ObjectAdapter} cannot be activated.
- *
- * This happens if the {@link Locator} detects another active {@link ObjectAdapter} with
- * the same adapter id.
+ * This exception is raised if an {@link ObjectAdapter} cannot be activated. This happens if the {@link Locator}
+ * detects another active {@link ObjectAdapter} with the same adapter id.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) ObjectAdapterIdInUseException : public LocalExceptionHelper<ObjectAdapterIdInUseException, LocalException>
@@ -936,15 +902,13 @@ public:
     ICE_MEMBER(ICE_API) virtual void ice_print(::std::ostream& stream) const override;
 
     /**
-     * The stringified proxy for which no suitable endpoint is
-     * available.
+     * The stringified proxy for which no suitable endpoint is available.
      */
     ::std::string proxy;
 };
 
 /**
- * This exception is raised if there was an error while parsing an
- * endpoint.
+ * This exception is raised if there was an error while parsing an endpoint.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) EndpointParseException : public LocalExceptionHelper<EndpointParseException, LocalException>
@@ -1003,8 +967,7 @@ public:
 };
 
 /**
- * This exception is raised if there was an error while parsing an
- * endpoint selection type.
+ * This exception is raised if there was an error while parsing an endpoint selection type.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) EndpointSelectionTypeParseException : public LocalExceptionHelper<EndpointSelectionTypeParseException, LocalException>
@@ -1063,8 +1026,7 @@ public:
 };
 
 /**
- * This exception is raised if there was an error while parsing a
- * version.
+ * This exception is raised if there was an error while parsing a version.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) VersionParseException : public LocalExceptionHelper<VersionParseException, LocalException>
@@ -1123,8 +1085,7 @@ public:
 };
 
 /**
- * This exception is raised if there was an error while parsing a
- * stringified identity.
+ * This exception is raised if there was an error while parsing a stringified identity.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) IdentityParseException : public LocalExceptionHelper<IdentityParseException, LocalException>
@@ -1183,8 +1144,7 @@ public:
 };
 
 /**
- * This exception is raised if there was an error while parsing a
- * stringified proxy.
+ * This exception is raised if there was an error while parsing a stringified proxy.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) ProxyParseException : public LocalExceptionHelper<ProxyParseException, LocalException>
@@ -1302,8 +1262,7 @@ public:
 };
 
 /**
- * This exception is raised to reject an illegal servant (typically
- * a null servant)
+ * This exception is raised to reject an illegal servant (typically a null servant).
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) IllegalServantException : public LocalExceptionHelper<IllegalServantException, LocalException>
@@ -1362,9 +1321,8 @@ public:
 };
 
 /**
- * This exception is raised if a request failed. This exception, and
- * all exceptions derived from {@link RequestFailedException}, are
- * transmitted by the Ice protocol, even though they are declared
+ * This exception is raised if a request failed. This exception, and all exceptions derived from
+ * {@link RequestFailedException}, are transmitted by the Ice protocol, even though they are declared
  * <code>local</code>.
  * \headerfile Ice/Ice.h
  */
@@ -1436,8 +1394,8 @@ public:
 };
 
 /**
- * This exception is raised if an object does not exist on the server,
- * that is, if no facets with the given identity exist.
+ * This exception is raised if an object does not exist on the server, that is, if no facets with the given identity
+ * exist.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) ObjectNotExistException : public LocalExceptionHelper<ObjectNotExistException, RequestFailedException>
@@ -1493,8 +1451,8 @@ public:
 };
 
 /**
- * This exception is raised if no facet with the given name exists,
- * but at least one facet with the given identity exists.
+ * This exception is raised if no facet with the given name exists, but at least one facet with the given identity
+ * exists.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) FacetNotExistException : public LocalExceptionHelper<FacetNotExistException, RequestFailedException>
@@ -1550,9 +1508,8 @@ public:
 };
 
 /**
- * This exception is raised if an operation for a given object does
- * not exist on the server. Typically this is caused by either the
- * client or the server using an outdated Slice specification.
+ * This exception is raised if an operation for a given object does not exist on the server. Typically this is caused
+ * by either the client or the server using an outdated Slice specification.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) OperationNotExistException : public LocalExceptionHelper<OperationNotExistException, RequestFailedException>
@@ -1608,10 +1565,8 @@ public:
 };
 
 /**
- * This exception is raised if a system error occurred in the server
- * or client process. There are many possible causes for such a system
- * exception. For details on the cause, {@link SyscallException#error}
- * should be inspected.
+ * This exception is raised if a system error occurred in the server or client process. There are many possible causes
+ * for such a system exception. For details on the cause, {@link SyscallException#error} should be inspected.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) SyscallException : public LocalExceptionHelper<SyscallException, LocalException>
@@ -1664,10 +1619,8 @@ public:
     ICE_MEMBER(ICE_API) virtual void ice_print(::std::ostream& stream) const override;
 
     /**
-     * The error number describing the system exception. For C++ and
-     * Unix, this is equivalent to <code>errno</code>. For C++
-     * and Windows, this is the value returned by
-     * <code>GetLastError()</code> or
+     * The error number describing the system exception. For C++ and Unix, this is equivalent to <code>errno</code>.
+     * For C++ and Windows, this is the value returned by <code>GetLastError()</code> or
      * <code>WSAGetLastError()</code>.
      */
     int error = 0;
@@ -1904,8 +1857,7 @@ public:
 };
 
 /**
- * This exception indicates a connection failure for which
- * the server host actively refuses a connection.
+ * This exception indicates a connection failure for which the server host actively refuses a connection.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) ConnectionRefusedException : public LocalExceptionHelper<ConnectionRefusedException, ConnectFailedException>
@@ -2013,8 +1965,7 @@ public:
 };
 
 /**
- * This exception indicates a DNS problem. For details on the cause,
- * {@link DNSException#error} should be inspected.
+ * This exception indicates a DNS problem. For details on the cause, {@link DNSException#error} should be inspected.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) DNSException : public LocalExceptionHelper<DNSException, LocalException>
@@ -2069,10 +2020,8 @@ public:
     ICE_MEMBER(ICE_API) virtual void ice_print(::std::ostream& stream) const override;
 
     /**
-     * The error number describing the DNS problem. For C++ and Unix,
-     * this is equivalent to <code>h_errno</code>. For C++ and
-     * Windows, this is the value returned by
-     * <code>WSAGetLastError()</code>.
+     * The error number describing the DNS problem. For C++ and Unix, this is equivalent to <code>h_errno</code>. For
+     * C++ and Windows, this is the value returned by <code>WSAGetLastError()</code>.
      */
     int error = 0;
     /**
@@ -2250,8 +2199,7 @@ public:
 };
 
 /**
- * This exception indicates that a connection has been shut down because it has been
- * idle for some time.
+ * This exception indicates that a connection has been shut down because it has been idle for some time.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) ConnectionTimeoutException : public LocalExceptionHelper<ConnectionTimeoutException, TimeoutException>
@@ -2293,8 +2241,7 @@ public:
 };
 
 /**
- * This exception indicates that an invocation failed because it timed
- * out.
+ * This exception indicates that an invocation failed because it timed out.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) InvocationTimeoutException : public LocalExceptionHelper<InvocationTimeoutException, TimeoutException>
@@ -2336,8 +2283,7 @@ public:
 };
 
 /**
- * This exception indicates that an asynchronous invocation failed
- * because it was canceled explicitly by the user.
+ * This exception indicates that an asynchronous invocation failed because it was canceled explicitly by the user.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) InvocationCanceledException : public LocalExceptionHelper<InvocationCanceledException, LocalException>
@@ -2379,8 +2325,7 @@ public:
 };
 
 /**
- * A generic exception base for all kinds of protocol error
- * conditions.
+ * A generic exception base for all kinds of protocol error conditions.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) ProtocolException : public LocalExceptionHelper<ProtocolException, LocalException>
@@ -2439,8 +2384,7 @@ public:
 };
 
 /**
- * This exception indicates that a message did not start with the expected
- * magic number ('I', 'c', 'e', 'P').
+ * This exception indicates that a message did not start with the expected magic number ('I', 'c', 'e', 'P').
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) BadMagicException : public LocalExceptionHelper<BadMagicException, ProtocolException>
@@ -2689,8 +2633,7 @@ public:
 };
 
 /**
- * This exception is raised if a message is received over a connection
- * that is not yet validated.
+ * This exception is raised if a message is received over a connection that is not yet validated.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) ConnectionNotValidatedException : public LocalExceptionHelper<ConnectionNotValidatedException, ProtocolException>
@@ -2744,8 +2687,7 @@ public:
 };
 
 /**
- * This exception indicates that a response for an unknown request ID has been
- * received.
+ * This exception indicates that a response for an unknown request ID has been received.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) UnknownRequestIdException : public LocalExceptionHelper<UnknownRequestIdException, ProtocolException>
@@ -2853,14 +2795,11 @@ public:
 };
 
 /**
- * This exception indicates that the connection has been gracefully shut down by the
- * server. The operation call that caused this exception has not been
- * executed by the server. In most cases you will not get this
- * exception, because the client will automatically retry the
- * operation call in case the server shut down the connection. However,
- * if upon retry the server shuts down the connection again, and the
- * retry limit has been reached, then this exception is propagated to
- * the application code.
+ * This exception indicates that the connection has been gracefully shut down by the server. The operation call that
+ * caused this exception has not been executed by the server. In most cases you will not get this exception, because
+ * the client will automatically retry the operation call in case the server shut down the connection. However, if
+ * upon retry the server shuts down the connection again, and the retry limit has been reached, then this exception is
+ * propagated to the application code.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) CloseConnectionException : public LocalExceptionHelper<CloseConnectionException, ProtocolException>
@@ -2914,8 +2853,8 @@ public:
 };
 
 /**
- * This exception is raised by an operation call if the application
- * closes the connection locally using {@link Connection#close}.
+ * This exception is raised by an operation call if the application closes the connection locally using
+ * {@link Connection#close}.
  * @see Connection#close
  * \headerfile Ice/Ice.h
  */
@@ -2975,8 +2914,7 @@ public:
 };
 
 /**
- * This exception indicates that a message size is less
- * than the minimum required size.
+ * This exception indicates that a message size is less than the minimum required size.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) IllegalMessageSizeException : public LocalExceptionHelper<IllegalMessageSizeException, ProtocolException>
@@ -3084,10 +3022,8 @@ public:
 };
 
 /**
- * A datagram exceeds the configured size.
- *
- * This exception is raised if a datagram exceeds the configured send or receive buffer
- * size, or exceeds the maximum payload size of a UDP packet (65507 bytes).
+ * A datagram exceeds the configured size. This exception is raised if a datagram exceeds the configured send or
+ * receive buffer size, or exceeds the maximum payload size of a UDP packet (65507 bytes).
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) DatagramLimitException : public LocalExceptionHelper<DatagramLimitException, ProtocolException>
@@ -3303,8 +3239,7 @@ public:
 };
 
 /**
- * This exception is raised if no suitable value factory was found during
- * unmarshaling of a Slice class instance.
+ * This exception is raised if no suitable value factory was found during unmarshaling of a Slice class instance.
  * @see ValueFactory
  * @see Communicator#getValueFactoryManager
  * @see ValueFactoryManager#add
@@ -3334,7 +3269,7 @@ public:
      * @param file The file name in which the exception was raised, typically __FILE__.
      * @param line The line number at which the exception was raised, typically __LINE__.
      * @param reason The reason for the failure.
-     * @param type The Slice type ID of the class instance for which no no factory could be found.
+     * @param type The Slice type ID of the class instance for which no factory could be found.
      */
     NoValueFactoryException(const char* file, int line, const ::std::string& reason, const ::std::string& type) :
         LocalExceptionHelper<NoValueFactoryException, MarshalException>(file, line, reason),
@@ -3363,20 +3298,16 @@ public:
     ICE_MEMBER(ICE_API) virtual void ice_print(::std::ostream& stream) const override;
 
     /**
-     * The Slice type ID of the class instance for which no
-     * no factory could be found.
+     * The Slice type ID of the class instance for which no factory could be found.
      */
     ::std::string type;
 };
 
 /**
- * This exception is raised if the type of an unmarshaled Slice class instance does
- * not match its expected type.
- * This can happen if client and server are compiled with mismatched Slice
- * definitions or if a class of the wrong type is passed as a parameter
- * or return value using dynamic invocation. This exception can also be
- * raised if IceStorm is used to send Slice class instances and
- * an operation is subscribed to the wrong topic.
+ * This exception is raised if the type of an unmarshaled Slice class instance does not match its expected type. This
+ * can happen if client and server are compiled with mismatched Slice definitions or if a class of the wrong type is
+ * passed as a parameter or return value using dynamic invocation. This exception can also be raised if IceStorm is
+ * used to send Slice class instances and an operation is subscribed to the wrong topic.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) UnexpectedObjectException : public LocalExceptionHelper<UnexpectedObjectException, MarshalException>
@@ -3443,8 +3374,7 @@ public:
 };
 
 /**
- * This exception is raised when Ice receives a request or reply
- * message whose size exceeds the limit specified by the
+ * This exception is raised when Ice receives a request or reply message whose size exceeds the limit specified by the
  * <code>Ice.MessageSizeMax</code> property.
  * \headerfile Ice/Ice.h
  */
@@ -3499,8 +3429,7 @@ public:
 };
 
 /**
- * This exception is raised when a string conversion to or from UTF-8
- * fails during marshaling or unmarshaling.
+ * This exception is raised when a string conversion to or from UTF-8 fails during marshaling or unmarshaling.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) StringConversionException : public LocalExceptionHelper<StringConversionException, MarshalException>
@@ -3608,9 +3537,8 @@ public:
 };
 
 /**
- * This exception is raised if an unsupported feature is used. The
- * unsupported feature string contains the name of the unsupported
- * feature
+ * This exception is raised if an unsupported feature is used. The unsupported feature string contains the name of the
+ * unsupported feature.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) FeatureNotSupportedException : public LocalExceptionHelper<FeatureNotSupportedException, LocalException>
@@ -3669,8 +3597,7 @@ public:
 };
 
 /**
- * This exception indicates a failure in a security subsystem,
- * such as the IceSSL plug-in.
+ * This exception indicates a failure in a security subsystem, such as the IceSSL plug-in.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) SecurityException : public LocalExceptionHelper<SecurityException, LocalException>
@@ -3729,8 +3656,7 @@ public:
 };
 
 /**
- * This exception indicates that an attempt has been made to
- * change the connection properties of a fixed proxy.
+ * This exception indicates that an attempt has been made to change the connection properties of a fixed proxy.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) FixedProxyException : public LocalExceptionHelper<FixedProxyException, LocalException>
@@ -3772,8 +3698,7 @@ public:
 };
 
 /**
- * Indicates that the response to a request has already been sent;
- * re-dispatching such a request is not possible.
+ * Indicates that the response to a request has already been sent; re-dispatching such a request is not possible.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) ResponseSentException : public LocalExceptionHelper<ResponseSentException, LocalException>
@@ -3885,8 +3810,7 @@ public:
 };
 
 /**
- * This exception indicates that a failure occurred while initializing
- * a plug-in.
+ * This exception indicates that a failure occurred while initializing a plug-in.
  * \headerfile Ice/Ice.h
  */
 class ICE_API PluginInitializationException : public LocalException
@@ -3942,8 +3866,7 @@ public:
 };
 
 /**
- * This exception is raised if a feature is requested that is not
- * supported with collocation optimization.
+ * This exception is raised if a feature is requested that is not supported with collocation optimization.
  *
  * @deprecated This exception is no longer used by the Ice run time
  * \headerfile Ice/Ice.h
@@ -3988,13 +3911,9 @@ public:
 };
 
 /**
- * An attempt was made to register something more than once with
- * the Ice run time.
- *
- * This exception is raised if an attempt is made to register a
- * servant, servant locator, facet, value factory, plug-in, object
- * adapter, object, or user exception factory more than once for the
- * same ID.
+ * An attempt was made to register something more than once with the Ice run time. This exception is raised if an
+ * attempt is made to register a servant, servant locator, facet, value factory, plug-in, object adapter, object, or
+ * user exception factory more than once for the same ID.
  * \headerfile Ice/Ice.h
  */
 class ICE_API AlreadyRegisteredException : public LocalException
@@ -4045,9 +3964,8 @@ public:
     virtual void ice_throw() const;
 
     /**
-     * The kind of object that could not be removed: "servant", "facet",
-     * "object", "default servant", "servant locator", "value factory", "plugin",
-     * "object adapter", "object adapter with router", "replica group".
+     * The kind of object that could not be removed: "servant", "facet", "object", "default servant",
+     * "servant locator", "value factory", "plugin", "object adapter", "object adapter with router", "replica group".
      */
     ::std::string kindOfObject;
     /**
@@ -4057,16 +3975,11 @@ public:
 };
 
 /**
- * An attempt was made to find or deregister something that is not
- * registered with the Ice run time or Ice locator.
- *
- * This exception is raised if an attempt is made to remove a servant,
- * servant locator, facet, value factory, plug-in, object adapter,
- * object, or user exception factory that is not currently registered.
- *
- * It's also raised if the Ice locator can't find an object or object
- * adapter when resolving an indirect proxy or when an object adapter
- * is activated.
+ * An attempt was made to find or deregister something that is not registered with the Ice run time or Ice locator.
+ * This exception is raised if an attempt is made to remove a servant, servant locator, facet, value factory, plug-in,
+ * object adapter, object, or user exception factory that is not currently registered. It's also raised if the Ice
+ * locator can't find an object or object adapter when resolving an indirect proxy or when an object adapter is
+ * activated.
  * \headerfile Ice/Ice.h
  */
 class ICE_API NotRegisteredException : public LocalException
@@ -4117,9 +4030,8 @@ public:
     virtual void ice_throw() const;
 
     /**
-     * The kind of object that could not be removed: "servant", "facet",
-     * "object", "default servant", "servant locator", "value factory", "plugin",
-     * "object adapter", "object adapter with router", "replica group".
+     * The kind of object that could not be removed: "servant", "facet", "object", "default servant",
+     * "servant locator", "value factory", "plugin", "object adapter", "object adapter with router", "replica group".
      */
     ::std::string kindOfObject;
     /**
@@ -4129,12 +4041,9 @@ public:
 };
 
 /**
- * The operation can only be invoked with a twoway request.
- *
- * This exception is raised if an attempt is made to invoke an
- * operation with <code>ice_oneway</code>, <code>ice_batchOneway</code>, <code>ice_datagram</code>,
- * or <code>ice_batchDatagram</code> and the operation has a return value,
- * out-parameters, or an exception specification.
+ * The operation can only be invoked with a twoway request. This exception is raised if an attempt is made to invoke
+ * an operation with <code>ice_oneway</code>, <code>ice_batchOneway</code>, <code>ice_datagram</code>, or
+ * <code>ice_batchDatagram</code> and the operation has a return value, out-parameters, or an exception specification.
  * \headerfile Ice/Ice.h
  */
 class ICE_API TwowayOnlyException : public LocalException
@@ -4190,13 +4099,10 @@ public:
 };
 
 /**
- * An attempt was made to clone a class that does not support
- * cloning.
- *
- * This exception is raised if <code>ice_clone</code> is called on
- * a class that is derived from an abstract Slice class (that is,
- * a class containing operations), and the derived class does not
- * provide an implementation of the <code>ice_clone</code> operation (C++ only).
+ * An attempt was made to clone a class that does not support cloning. This exception is raised if
+ * <code>ice_clone</code> is called on a class that is derived from an abstract Slice class (that is, a class
+ * containing operations), and the derived class does not provide an implementation of the <code>ice_clone</code>
+ * operation (C++ only).
  * \headerfile Ice/Ice.h
  */
 class ICE_API CloneNotImplementedException : public LocalException
@@ -4239,11 +4145,9 @@ public:
 };
 
 /**
- * This exception is raised if an operation call on a server raises an
- * unknown exception. For example, for C++, this exception is raised
- * if the server throws a C++ exception that is not directly or
- * indirectly derived from <code>Ice::LocalException</code> or
- * <code>Ice::UserException</code>.
+ * This exception is raised if an operation call on a server raises an unknown exception. For example, for C++, this
+ * exception is raised if the server throws a C++ exception that is not directly or indirectly derived from
+ * <code>Ice::LocalException</code> or <code>Ice::UserException</code>.
  * \headerfile Ice/Ice.h
  */
 class ICE_API UnknownException : public LocalException
@@ -4293,20 +4197,17 @@ public:
     virtual void ice_throw() const;
 
     /**
-     * This field is set to the textual representation of the unknown
-     * exception if available.
+     * This field is set to the textual representation of the unknown exception if available.
      */
     ::std::string unknown;
 };
 
 /**
- * This exception is raised if an operation call on a server raises a
- * local exception. Because local exceptions are not transmitted by
- * the Ice protocol, the client receives all local exceptions raised
- * by the server as {@link UnknownLocalException}. The only exception to this
- * rule are all exceptions derived from {@link RequestFailedException},
- * which are transmitted by the Ice protocol even though they are
- * declared <code>local</code>.
+ * This exception is raised if an operation call on a server raises a  local exception. Because local exceptions are
+ * not transmitted by the Ice protocol, the client receives all local exceptions raised by the server as
+ * {@link UnknownLocalException}. The only exception to this rule are all exceptions derived from
+ * {@link RequestFailedException}, which are transmitted by the Ice protocol even though they are declared
+ * <code>local</code>.
  * \headerfile Ice/Ice.h
  */
 class ICE_API UnknownLocalException : public UnknownException
@@ -4357,17 +4258,11 @@ public:
 };
 
 /**
- * An operation raised an incorrect user exception.
- *
- * This exception is raised if an operation raises a
- * user exception that is not declared in the exception's
- * <code>throws</code> clause. Such undeclared exceptions are
- * not transmitted from the server to the client by the Ice
- * protocol, but instead the client just gets an
- * {@link UnknownUserException}. This is necessary in order to not violate
- * the contract established by an operation's signature: Only local
- * exceptions and user exceptions declared in the
- * <code>throws</code> clause can be raised.
+ * An operation raised an incorrect user exception. This exception is raised if an operation raises a user exception
+ * that is not declared in the exception's <code>throws</code> clause. Such undeclared exceptions are not transmitted
+ * from the server to the client by the Ice protocol, but instead the client just gets an {@link UnknownUserException}.
+ * This is necessary in order to not violate the contract established by an operation's signature: Only local
+ * exceptions and user exceptions declared in the <code>throws</code> clause can be raised.
  * \headerfile Ice/Ice.h
  */
 class ICE_API UnknownUserException : public UnknownException
@@ -4418,8 +4313,7 @@ public:
 };
 
 /**
- * This exception is raised if the Ice library version does not match
- * the version in the Ice header files.
+ * This exception is raised if the Ice library version does not match the version in the Ice header files.
  * \headerfile Ice/Ice.h
  */
 class ICE_API VersionMismatchException : public LocalException
@@ -4506,8 +4400,7 @@ public:
 };
 
 /**
- * This exception is raised if an attempt is made to use a deactivated
- * {@link ObjectAdapter}.
+ * This exception is raised if an attempt is made to use a deactivated {@link ObjectAdapter}.
  * @see ObjectAdapter#deactivate
  * @see Communicator#shutdown
  * \headerfile Ice/Ice.h
@@ -4565,10 +4458,8 @@ public:
 };
 
 /**
- * This exception is raised if an {@link ObjectAdapter} cannot be activated.
- *
- * This happens if the {@link Locator} detects another active {@link ObjectAdapter} with
- * the same adapter id.
+ * This exception is raised if an {@link ObjectAdapter} cannot be activated. This happens if the {@link Locator}
+ * detects another active {@link ObjectAdapter} with the same adapter id.
  * \headerfile Ice/Ice.h
  */
 class ICE_API ObjectAdapterIdInUseException : public LocalException
@@ -4674,15 +4565,13 @@ public:
     virtual void ice_throw() const;
 
     /**
-     * The stringified proxy for which no suitable endpoint is
-     * available.
+     * The stringified proxy for which no suitable endpoint is available.
      */
     ::std::string proxy;
 };
 
 /**
- * This exception is raised if there was an error while parsing an
- * endpoint.
+ * This exception is raised if there was an error while parsing an endpoint.
  * \headerfile Ice/Ice.h
  */
 class ICE_API EndpointParseException : public LocalException
@@ -4738,8 +4627,7 @@ public:
 };
 
 /**
- * This exception is raised if there was an error while parsing an
- * endpoint selection type.
+ * This exception is raised if there was an error while parsing an endpoint selection type.
  * \headerfile Ice/Ice.h
  */
 class ICE_API EndpointSelectionTypeParseException : public LocalException
@@ -4795,8 +4683,7 @@ public:
 };
 
 /**
- * This exception is raised if there was an error while parsing a
- * version.
+ * This exception is raised if there was an error while parsing a version.
  * \headerfile Ice/Ice.h
  */
 class ICE_API VersionParseException : public LocalException
@@ -4852,8 +4739,7 @@ public:
 };
 
 /**
- * This exception is raised if there was an error while parsing a
- * stringified identity.
+ * This exception is raised if there was an error while parsing a stringified identity.
  * \headerfile Ice/Ice.h
  */
 class ICE_API IdentityParseException : public LocalException
@@ -4909,8 +4795,7 @@ public:
 };
 
 /**
- * This exception is raised if there was an error while parsing a
- * stringified proxy.
+ * This exception is raised if there was an error while parsing a stringified proxy.
  * \headerfile Ice/Ice.h
  */
 class ICE_API ProxyParseException : public LocalException
@@ -5022,8 +4907,7 @@ public:
 };
 
 /**
- * This exception is raised to reject an illegal servant (typically
- * a null servant)
+ * This exception is raised to reject an illegal servant (typically a null servant).
  * \headerfile Ice/Ice.h
  */
 class ICE_API IllegalServantException : public LocalException
@@ -5079,9 +4963,8 @@ public:
 };
 
 /**
- * This exception is raised if a request failed. This exception, and
- * all exceptions derived from {@link RequestFailedException}, are
- * transmitted by the Ice protocol, even though they are declared
+ * This exception is raised if a request failed. This exception, and all exceptions derived from
+ * {@link RequestFailedException}, are transmitted by the Ice protocol, even though they are declared
  * <code>local</code>.
  * \headerfile Ice/Ice.h
  */
@@ -5148,8 +5031,8 @@ public:
 };
 
 /**
- * This exception is raised if an object does not exist on the server,
- * that is, if no facets with the given identity exist.
+ * This exception is raised if an object does not exist on the server, that is, if no facets with the given identity
+ * exist.
  * \headerfile Ice/Ice.h
  */
 class ICE_API ObjectNotExistException : public RequestFailedException
@@ -5202,8 +5085,8 @@ public:
 };
 
 /**
- * This exception is raised if no facet with the given name exists,
- * but at least one facet with the given identity exists.
+ * This exception is raised if no facet with the given name exists, but at least one facet with the given identity
+ * exists.
  * \headerfile Ice/Ice.h
  */
 class ICE_API FacetNotExistException : public RequestFailedException
@@ -5256,9 +5139,8 @@ public:
 };
 
 /**
- * This exception is raised if an operation for a given object does
- * not exist on the server. Typically this is caused by either the
- * client or the server using an outdated Slice specification.
+ * This exception is raised if an operation for a given object does not exist on the server. Typically this is caused
+ * by either the client or the server using an outdated Slice specification.
  * \headerfile Ice/Ice.h
  */
 class ICE_API OperationNotExistException : public RequestFailedException
@@ -5311,10 +5193,8 @@ public:
 };
 
 /**
- * This exception is raised if a system error occurred in the server
- * or client process. There are many possible causes for such a system
- * exception. For details on the cause, {@link SyscallException#error}
- * should be inspected.
+ * This exception is raised if a system error occurred in the server or client process. There are many possible causes
+ * for such a system exception. For details on the cause, {@link SyscallException#error} should be inspected.
  * \headerfile Ice/Ice.h
  */
 class ICE_API SyscallException : public LocalException
@@ -5364,10 +5244,8 @@ public:
     virtual void ice_throw() const;
 
     /**
-     * The error number describing the system exception. For C++ and
-     * Unix, this is equivalent to <code>errno</code>. For C++
-     * and Windows, this is the value returned by
-     * <code>GetLastError()</code> or
+     * The error number describing the system exception. For C++ and Unix, this is equivalent to <code>errno</code>.
+     * For C++ and Windows, this is the value returned by <code>GetLastError()</code> or
      * <code>WSAGetLastError()</code>.
      */
     ::Ice::Int error;
@@ -5590,8 +5468,7 @@ public:
 };
 
 /**
- * This exception indicates a connection failure for which
- * the server host actively refuses a connection.
+ * This exception indicates a connection failure for which the server host actively refuses a connection.
  * \headerfile Ice/Ice.h
  */
 class ICE_API ConnectionRefusedException : public ConnectFailedException
@@ -5693,8 +5570,7 @@ public:
 };
 
 /**
- * This exception indicates a DNS problem. For details on the cause,
- * {@link DNSException#error} should be inspected.
+ * This exception indicates a DNS problem. For details on the cause, {@link DNSException#error} should be inspected.
  * \headerfile Ice/Ice.h
  */
 class ICE_API DNSException : public LocalException
@@ -5745,10 +5621,8 @@ public:
     virtual void ice_throw() const;
 
     /**
-     * The error number describing the DNS problem. For C++ and Unix,
-     * this is equivalent to <code>h_errno</code>. For C++ and
-     * Windows, this is the value returned by
-     * <code>WSAGetLastError()</code>.
+     * The error number describing the DNS problem. For C++ and Unix, this is equivalent to <code>h_errno</code>. For
+     * C++ and Windows, this is the value returned by <code>WSAGetLastError()</code>.
      */
     ::Ice::Int error;
     /**
@@ -5930,8 +5804,7 @@ public:
 };
 
 /**
- * This exception indicates that a connection has been shut down because it has been
- * idle for some time.
+ * This exception indicates that a connection has been shut down because it has been idle for some time.
  * \headerfile Ice/Ice.h
  */
 class ICE_API ConnectionTimeoutException : public TimeoutException
@@ -5974,8 +5847,7 @@ public:
 };
 
 /**
- * This exception indicates that an invocation failed because it timed
- * out.
+ * This exception indicates that an invocation failed because it timed out.
  * \headerfile Ice/Ice.h
  */
 class ICE_API InvocationTimeoutException : public TimeoutException
@@ -6018,8 +5890,7 @@ public:
 };
 
 /**
- * This exception indicates that an asynchronous invocation failed
- * because it was canceled explicitly by the user.
+ * This exception indicates that an asynchronous invocation failed because it was canceled explicitly by the user.
  * \headerfile Ice/Ice.h
  */
 class ICE_API InvocationCanceledException : public LocalException
@@ -6062,8 +5933,7 @@ public:
 };
 
 /**
- * A generic exception base for all kinds of protocol error
- * conditions.
+ * A generic exception base for all kinds of protocol error conditions.
  * \headerfile Ice/Ice.h
  */
 class ICE_API ProtocolException : public LocalException
@@ -6119,8 +5989,7 @@ public:
 };
 
 /**
- * This exception indicates that a message did not start with the expected
- * magic number ('I', 'c', 'e', 'P').
+ * This exception indicates that a message did not start with the expected magic number ('I', 'c', 'e', 'P').
  * \headerfile Ice/Ice.h
  */
 class ICE_API BadMagicException : public ProtocolException
@@ -6352,8 +6221,7 @@ public:
 };
 
 /**
- * This exception is raised if a message is received over a connection
- * that is not yet validated.
+ * This exception is raised if a message is received over a connection that is not yet validated.
  * \headerfile Ice/Ice.h
  */
 class ICE_API ConnectionNotValidatedException : public ProtocolException
@@ -6404,8 +6272,7 @@ public:
 };
 
 /**
- * This exception indicates that a response for an unknown request ID has been
- * received.
+ * This exception indicates that a response for an unknown request ID has been received.
  * \headerfile Ice/Ice.h
  */
 class ICE_API UnknownRequestIdException : public ProtocolException
@@ -6507,14 +6374,11 @@ public:
 };
 
 /**
- * This exception indicates that the connection has been gracefully shut down by the
- * server. The operation call that caused this exception has not been
- * executed by the server. In most cases you will not get this
- * exception, because the client will automatically retry the
- * operation call in case the server shut down the connection. However,
- * if upon retry the server shuts down the connection again, and the
- * retry limit has been reached, then this exception is propagated to
- * the application code.
+ * This exception indicates that the connection has been gracefully shut down by the server. The operation call that
+ * caused this exception has not been executed by the server. In most cases you will not get this exception, because
+ * the client will automatically retry the operation call in case the server shut down the connection. However, if
+ * upon retry the server shuts down the connection again, and the retry limit has been reached, then this exception is
+ * propagated to the application code.
  * \headerfile Ice/Ice.h
  */
 class ICE_API CloseConnectionException : public ProtocolException
@@ -6565,8 +6429,8 @@ public:
 };
 
 /**
- * This exception is raised by an operation call if the application
- * closes the connection locally using {@link Connection#close}.
+ * This exception is raised by an operation call if the application closes the connection locally using
+ * {@link Connection#close}.
  * @see Connection#close
  * \headerfile Ice/Ice.h
  */
@@ -6623,8 +6487,7 @@ public:
 };
 
 /**
- * This exception indicates that a message size is less
- * than the minimum required size.
+ * This exception indicates that a message size is less than the minimum required size.
  * \headerfile Ice/Ice.h
  */
 class ICE_API IllegalMessageSizeException : public ProtocolException
@@ -6726,10 +6589,8 @@ public:
 };
 
 /**
- * A datagram exceeds the configured size.
- *
- * This exception is raised if a datagram exceeds the configured send or receive buffer
- * size, or exceeds the maximum payload size of a UDP packet (65507 bytes).
+ * A datagram exceeds the configured size. This exception is raised if a datagram exceeds the configured send or
+ * receive buffer size, or exceeds the maximum payload size of a UDP packet (65507 bytes).
  * \headerfile Ice/Ice.h
  */
 class ICE_API DatagramLimitException : public ProtocolException
@@ -6933,8 +6794,7 @@ public:
 };
 
 /**
- * This exception is raised if no suitable value factory was found during
- * unmarshaling of a Slice class instance.
+ * This exception is raised if no suitable value factory was found during unmarshaling of a Slice class instance.
  * @see ValueFactory
  * @see Communicator#getValueFactoryManager
  * @see ValueFactoryManager#add
@@ -6957,7 +6817,7 @@ public:
      * @param file The file name in which the exception was raised, typically __FILE__.
      * @param line The line number at which the exception was raised, typically __LINE__.
      * @param reason The reason for the failure.
-     * @param type The Slice type ID of the class instance for which no no factory could be found.
+     * @param type The Slice type ID of the class instance for which no factory could be found.
      */
     NoValueFactoryException(const char* file, int line, const ::std::string& reason, const ::std::string& type);
 
@@ -6989,20 +6849,16 @@ public:
     virtual void ice_throw() const;
 
     /**
-     * The Slice type ID of the class instance for which no
-     * no factory could be found.
+     * The Slice type ID of the class instance for which no factory could be found.
      */
     ::std::string type;
 };
 
 /**
- * This exception is raised if the type of an unmarshaled Slice class instance does
- * not match its expected type.
- * This can happen if client and server are compiled with mismatched Slice
- * definitions or if a class of the wrong type is passed as a parameter
- * or return value using dynamic invocation. This exception can also be
- * raised if IceStorm is used to send Slice class instances and
- * an operation is subscribed to the wrong topic.
+ * This exception is raised if the type of an unmarshaled Slice class instance does not match its expected type. This
+ * can happen if client and server are compiled with mismatched Slice definitions or if a class of the wrong type is
+ * passed as a parameter or return value using dynamic invocation. This exception can also be raised if IceStorm is
+ * used to send Slice class instances and an operation is subscribed to the wrong topic.
  * \headerfile Ice/Ice.h
  */
 class ICE_API UnexpectedObjectException : public MarshalException
@@ -7064,8 +6920,7 @@ public:
 };
 
 /**
- * This exception is raised when Ice receives a request or reply
- * message whose size exceeds the limit specified by the
+ * This exception is raised when Ice receives a request or reply message whose size exceeds the limit specified by the
  * <code>Ice.MessageSizeMax</code> property.
  * \headerfile Ice/Ice.h
  */
@@ -7117,8 +6972,7 @@ public:
 };
 
 /**
- * This exception is raised when a string conversion to or from UTF-8
- * fails during marshaling or unmarshaling.
+ * This exception is raised when a string conversion to or from UTF-8 fails during marshaling or unmarshaling.
  * \headerfile Ice/Ice.h
  */
 class ICE_API StringConversionException : public MarshalException
@@ -7220,9 +7074,8 @@ public:
 };
 
 /**
- * This exception is raised if an unsupported feature is used. The
- * unsupported feature string contains the name of the unsupported
- * feature
+ * This exception is raised if an unsupported feature is used. The unsupported feature string contains the name of the
+ * unsupported feature.
  * \headerfile Ice/Ice.h
  */
 class ICE_API FeatureNotSupportedException : public LocalException
@@ -7278,8 +7131,7 @@ public:
 };
 
 /**
- * This exception indicates a failure in a security subsystem,
- * such as the IceSSL plug-in.
+ * This exception indicates a failure in a security subsystem, such as the IceSSL plug-in.
  * \headerfile Ice/Ice.h
  */
 class ICE_API SecurityException : public LocalException
@@ -7335,8 +7187,7 @@ public:
 };
 
 /**
- * This exception indicates that an attempt has been made to
- * change the connection properties of a fixed proxy.
+ * This exception indicates that an attempt has been made to change the connection properties of a fixed proxy.
  * \headerfile Ice/Ice.h
  */
 class ICE_API FixedProxyException : public LocalException
@@ -7379,8 +7230,7 @@ public:
 };
 
 /**
- * Indicates that the response to a request has already been sent;
- * re-dispatching such a request is not possible.
+ * Indicates that the response to a request has already been sent; re-dispatching such a request is not possible.
  * \headerfile Ice/Ice.h
  */
 class ICE_API ResponseSentException : public LocalException

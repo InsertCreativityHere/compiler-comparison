@@ -1,7 +1,6 @@
 % ObjectAdapterDeactivatedException   Summary of ObjectAdapterDeactivatedException
 %
-% This exception is raised if an attempt is made to use a deactivated
-% ObjectAdapter.
+% This exception is raised if an attempt is made to use a deactivated ObjectAdapter.
 %
 % ObjectAdapterDeactivatedException Properties:
 %   name - Name of the adapter.

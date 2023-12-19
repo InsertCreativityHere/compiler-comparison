@@ -1,8 +1,7 @@
 % RequestFailedException   Summary of RequestFailedException
 %
-% This exception is raised if a request failed. This exception, and
-% all exceptions derived from RequestFailedException, are
-% transmitted by the Ice protocol, even though they are declared
+% This exception is raised if a request failed. This exception, and all exceptions derived from
+% RequestFailedException, are transmitted by the Ice protocol, even though they are declared
 % local.
 %
 % RequestFailedException Properties:

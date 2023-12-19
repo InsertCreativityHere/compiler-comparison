@@ -16,8 +16,7 @@
 package com.zeroc.Ice;
 
 /**
- * This exception is raised if an attempt is made to use a deactivated
- * {@link ObjectAdapter}.
+ * This exception is raised if an attempt is made to use a deactivated {@link ObjectAdapter}.
  *
  * @see ObjectAdapter#deactivate
  * @see Communicator#shutdown

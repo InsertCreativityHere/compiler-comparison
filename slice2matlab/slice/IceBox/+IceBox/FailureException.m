@@ -1,9 +1,7 @@
 % FailureException   Summary of FailureException
 %
-% This exception is a general failure notification. It is thrown
-% for errors such as a service encountering an error during
-% initialization, or the service manager being unable
-% to load a service executable.
+% This exception is a general failure notification. It is thrown for errors such as a service encountering an error
+% during initialization, or the service manager being unable to load a service executable.
 %
 % FailureException Properties:
 %   reason - The reason for the failure.

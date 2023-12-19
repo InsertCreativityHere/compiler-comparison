@@ -1,7 +1,6 @@
 % ConnectionTimeoutException   Summary of ConnectionTimeoutException
 %
-% This exception indicates that a connection has been shut down because it has been
-% idle for some time.
+% This exception indicates that a connection has been shut down because it has been idle for some time.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from LocalException.ice by slice2matlab version 3.7.10

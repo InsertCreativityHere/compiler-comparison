@@ -30,8 +30,7 @@ public extension Ice.ClassResolver {
     }
 }
 
-/// This exception is raised if a client is denied the ability to create
-/// a session with the router.
+/// This exception is raised if a client is denied the ability to create a session with the router.
 open class PermissionDeniedException: Ice.UserException {
     /// The reason why permission was denied.
     public var reason: Swift.String = ""
@@ -95,8 +94,7 @@ public struct SSLPermissionsVerifierTraits: Ice.SliceTraits {
     public static let staticId = "::Glacier2::SSLPermissionsVerifier"
 }
 
-/// The Glacier2 permissions verifier. This is called through the
-/// process of establishing a session.
+/// The Glacier2 permissions verifier. This is called through the process of establishing a session.
 ///
 /// PermissionsVerifierPrx Methods:
 ///
@@ -178,8 +176,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// The Glacier2 permissions verifier. This is called through the
-/// process of establishing a session.
+/// The Glacier2 permissions verifier. This is called through the process of establishing a session.
 ///
 /// PermissionsVerifierPrx Methods:
 ///
@@ -203,9 +200,8 @@ public extension PermissionsVerifierPrx {
     ///
     /// - throws:
     ///
-    ///   - PermissionDeniedException - Raised if the user access is
-    ///     denied. This can be raised in place of returning false with a
-    ///     reason set in the reason out parameter.
+    ///   - PermissionDeniedException - Raised if the user access is denied. This can be raised in place of
+    ///     returning false with a reason set in the reason out parameter.
     func checkPermissions(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil) throws -> (returnValue: Swift.Bool, reason: Swift.String) {
         return try _impl._invoke(operation: "checkPermissions",
                                  mode: .Nonmutating,
@@ -273,8 +269,7 @@ public extension PermissionsVerifierPrx {
     }
 }
 
-/// The SSL Glacier2 permissions verifier. This is called through the
-/// process of establishing a session.
+/// The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
 ///
 /// SSLPermissionsVerifierPrx Methods:
 ///
@@ -356,8 +351,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// The SSL Glacier2 permissions verifier. This is called through the
-/// process of establishing a session.
+/// The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
 ///
 /// SSLPermissionsVerifierPrx Methods:
 ///
@@ -379,9 +373,8 @@ public extension SSLPermissionsVerifierPrx {
     ///
     /// - throws:
     ///
-    ///   - PermissionDeniedException - Raised if the user access is
-    ///     denied. This can be raised in place of returning false with a
-    ///     reason set in the reason out parameter.
+    ///   - PermissionDeniedException - Raised if the user access is denied. This can be raised in place of
+    ///     returning false with a reason set in the reason out parameter.
     func authorize(_ iceP_info: SSLInfo, context: Ice.Context? = nil) throws -> (returnValue: Swift.Bool, reason: Swift.String) {
         return try _impl._invoke(operation: "authorize",
                                  mode: .Nonmutating,
@@ -474,8 +467,7 @@ public struct PermissionsVerifierDisp: Ice.Disp {
     }
 }
 
-/// The Glacier2 permissions verifier. This is called through the
-/// process of establishing a session.
+/// The Glacier2 permissions verifier. This is called through the process of establishing a session.
 public protocol PermissionsVerifier {
     /// Check whether a user has permission to access the router.
     ///
@@ -493,9 +485,8 @@ public protocol PermissionsVerifier {
     ///
     /// - throws:
     ///
-    ///   - PermissionDeniedException - Raised if the user access is
-    ///     denied. This can be raised in place of returning false with a
-    ///     reason set in the reason out parameter.
+    ///   - PermissionDeniedException - Raised if the user access is denied. This can be raised in place of
+    ///     returning false with a reason set in the reason out parameter.
     func checkPermissions(userId: Swift.String, password: Swift.String, current: Ice.Current) throws -> (returnValue: Swift.Bool, reason: Swift.String)
 }
 
@@ -528,8 +519,7 @@ public struct SSLPermissionsVerifierDisp: Ice.Disp {
     }
 }
 
-/// The SSL Glacier2 permissions verifier. This is called through the
-/// process of establishing a session.
+/// The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
 public protocol SSLPermissionsVerifier {
     /// Check whether a user has permission to access the router.
     ///
@@ -545,14 +535,12 @@ public protocol SSLPermissionsVerifier {
     ///
     /// - throws:
     ///
-    ///   - PermissionDeniedException - Raised if the user access is
-    ///     denied. This can be raised in place of returning false with a
-    ///     reason set in the reason out parameter.
+    ///   - PermissionDeniedException - Raised if the user access is denied. This can be raised in place of
+    ///     returning false with a reason set in the reason out parameter.
     func authorize(info: SSLInfo, current: Ice.Current) throws -> (returnValue: Swift.Bool, reason: Swift.String)
 }
 
-/// The Glacier2 permissions verifier. This is called through the
-/// process of establishing a session.
+/// The Glacier2 permissions verifier. This is called through the process of establishing a session.
 ///
 /// PermissionsVerifier Methods:
 ///
@@ -575,8 +563,7 @@ public extension PermissionsVerifier {
     }
 }
 
-/// The SSL Glacier2 permissions verifier. This is called through the
-/// process of establishing a session.
+/// The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
 ///
 /// SSLPermissionsVerifier Methods:
 ///

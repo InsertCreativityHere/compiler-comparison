@@ -45,12 +45,12 @@ public class SessionMetrics extends Metrics
     }
 
     /**
-     * Number of client requests forwared.
+     * Number of client requests forwarded.
      **/
     public int forwardedClient;
 
     /**
-     * Number of server requests forwared.
+     * Number of server requests forwarded.
      **/
     public int forwardedServer;
 

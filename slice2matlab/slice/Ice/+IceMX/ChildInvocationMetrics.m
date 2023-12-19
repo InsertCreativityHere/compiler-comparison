@@ -1,10 +1,8 @@
 % ChildInvocationMetrics   Summary of ChildInvocationMetrics
 %
-% Provides information on child invocations. A child invocation is
-% either remote (sent over an Ice connection) or collocated. An
-% invocation can have multiple child invocation if it is
-% retried. Child invocation metrics are embedded within
-% InvocationMetrics.
+% Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
+% collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
+% embedded within InvocationMetrics.
 %
 % ChildInvocationMetrics Properties:
 %   size - The size of the invocation.
@@ -15,11 +13,9 @@
 
 classdef ChildInvocationMetrics < IceMX.Metrics
     properties
-        % size - The size of the invocation. This corresponds to the size of the
-        % marshalled input parameters.
+        % size - The size of the invocation. This corresponds to the size of the marshalled input parameters.
         size int64
-        % replySize - The size of the invocation reply. This corresponds to the size
-        % of the marshalled output and return parameters.
+        % replySize - The size of the invocation reply. This corresponds to the size of the marshalled output and return parameters.
         replySize int64
     end
     methods

@@ -37,8 +37,7 @@ let IceSSL = _ModuleRegistry.module("IceSSL");
 /* slice2js browser-bundle-skip-end */
 
 /**
- * Provides access to the connection details of an SSL connection
- *
+ *  Provides access to the connection details of an SSL connection
  **/
 IceSSL.ConnectionInfo = class extends Ice.ConnectionInfo
 {

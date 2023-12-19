@@ -16,8 +16,7 @@
 package com.zeroc.Ice;
 
 /**
- * Indicates that the response to a request has already been sent;
- * re-dispatching such a request is not possible.
+ * Indicates that the response to a request has already been sent; re-dispatching such a request is not possible.
  **/
 public class ResponseSentException extends LocalException
 {

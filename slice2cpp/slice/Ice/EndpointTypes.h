@@ -56,8 +56,7 @@ namespace Ice
 {
 
 /**
- * Determines the order in which the Ice run time uses the endpoints
- * in a proxy when establishing a connection.
+ * Determines the order in which the Ice run time uses the endpoints in a proxy when establishing a connection.
  */
 enum class EndpointSelectionType : unsigned char
 {
@@ -66,8 +65,7 @@ enum class EndpointSelectionType : unsigned char
      */
     Random,
     /**
-     * <code>Ordered</code> forces the Ice run time to use the endpoints in the
-     * order they appeared in the proxy.
+     * <code>Ordered</code> forces the Ice run time to use the endpoints in the order they appeared in the proxy.
      */
     Ordered
 };
@@ -87,8 +85,7 @@ namespace Ice
 {
 
 /**
- * Determines the order in which the Ice run time uses the endpoints
- * in a proxy when establishing a connection.
+ * Determines the order in which the Ice run time uses the endpoints in a proxy when establishing a connection.
  */
 enum EndpointSelectionType
 {
@@ -97,8 +94,7 @@ enum EndpointSelectionType
      */
     Random,
     /**
-     * <code>Ordered</code> forces the Ice run time to use the endpoints in the
-     * order they appeared in the proxy.
+     * <code>Ordered</code> forces the Ice run time to use the endpoints in the order they appeared in the proxy.
      */
     Ordered
 };

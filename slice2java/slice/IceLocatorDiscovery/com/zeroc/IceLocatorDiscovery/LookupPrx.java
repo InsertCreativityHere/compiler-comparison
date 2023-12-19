@@ -16,13 +16,10 @@
 package com.zeroc.IceLocatorDiscovery;
 
 /**
- * The Ice lookup interface is implemented by Ice locator
- * implementations and can be used by clients to find available Ice
- * locators on the network.
- *
- * Ice locator implementations provide a well-known `Ice/LocatorLookup'
- * object accessible through UDP multicast. Clients typically make a
- * multicast findLocator request to find the locator proxy.
+ * The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
+ * available Ice locators on the network.
+ * Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
+ * Clients typically make a multicast findLocator request to find the locator proxy.
  *
  * @see LookupReply
  **/
@@ -30,9 +27,8 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
      * Find a locator proxy with the given instance name.
-     * @param instanceName Restrict the search to Ice registries
-     * configured with the given instance name. If empty, all the
-     * available registries will reply.
+     * @param instanceName Restrict the search to Ice registries configured with the given instance name. If
+     * empty, all the available registries will reply.
      * @param reply The reply object to use to send the reply.
      **/
     default void findLocator(String instanceName, LookupReplyPrx reply)
@@ -42,9 +38,8 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Find a locator proxy with the given instance name.
-     * @param instanceName Restrict the search to Ice registries
-     * configured with the given instance name. If empty, all the
-     * available registries will reply.
+     * @param instanceName Restrict the search to Ice registries configured with the given instance name. If
+     * empty, all the available registries will reply.
      * @param reply The reply object to use to send the reply.
      * @param context The Context map to send with the invocation.
      **/
@@ -55,9 +50,8 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Find a locator proxy with the given instance name.
-     * @param instanceName Restrict the search to Ice registries
-     * configured with the given instance name. If empty, all the
-     * available registries will reply.
+     * @param instanceName Restrict the search to Ice registries configured with the given instance name. If
+     * empty, all the available registries will reply.
      * @param reply The reply object to use to send the reply.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -68,9 +62,8 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Find a locator proxy with the given instance name.
-     * @param instanceName Restrict the search to Ice registries
-     * configured with the given instance name. If empty, all the
-     * available registries will reply.
+     * @param instanceName Restrict the search to Ice registries configured with the given instance name. If
+     * empty, all the available registries will reply.
      * @param reply The reply object to use to send the reply.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.

@@ -34,8 +34,7 @@ if 'PropertiesAdminPrx' not in _M_Ice.__dict__:
     class PropertiesAdminPrx(Ice.ObjectPrx):
 
         """
-        Get a property by key. If the property is not set, an empty
-        string is returned.
+         Get a property by key. If the property is not set, an empty string is returned.
         Arguments:
         key -- The property key.
         context -- The request context for the invocation.
@@ -45,8 +44,7 @@ if 'PropertiesAdminPrx' not in _M_Ice.__dict__:
             return _M_Ice.PropertiesAdmin._op_getProperty.invoke(self, ((key, ), context))
 
         """
-        Get a property by key. If the property is not set, an empty
-        string is returned.
+         Get a property by key. If the property is not set, an empty string is returned.
         Arguments:
         key -- The property key.
         context -- The request context for the invocation.
@@ -56,8 +54,7 @@ if 'PropertiesAdminPrx' not in _M_Ice.__dict__:
             return _M_Ice.PropertiesAdmin._op_getProperty.invokeAsync(self, ((key, ), context))
 
         """
-        Get a property by key. If the property is not set, an empty
-        string is returned.
+         Get a property by key. If the property is not set, an empty string is returned.
         Arguments:
         key -- The property key.
         _response -- The asynchronous response callback.
@@ -70,8 +67,7 @@ if 'PropertiesAdminPrx' not in _M_Ice.__dict__:
             return _M_Ice.PropertiesAdmin._op_getProperty.begin(self, ((key, ), _response, _ex, _sent, context))
 
         """
-        Get a property by key. If the property is not set, an empty
-        string is returned.
+         Get a property by key. If the property is not set, an empty string is returned.
         Arguments:
         key -- The property key.
         Returns: The property value.
@@ -80,8 +76,8 @@ if 'PropertiesAdminPrx' not in _M_Ice.__dict__:
             return _M_Ice.PropertiesAdmin._op_getProperty.end(self, _r)
 
         """
-        Get all properties whose keys begin with prefix. If
-        prefix is an empty string then all properties are returned.
+         Get all properties whose keys begin with prefix. If prefix is an empty string then all
+         properties are returned.
         Arguments:
         prefix -- The prefix to search for (empty string if none).
         context -- The request context for the invocation.
@@ -91,8 +87,8 @@ if 'PropertiesAdminPrx' not in _M_Ice.__dict__:
             return _M_Ice.PropertiesAdmin._op_getPropertiesForPrefix.invoke(self, ((prefix, ), context))
 
         """
-        Get all properties whose keys begin with prefix. If
-        prefix is an empty string then all properties are returned.
+         Get all properties whose keys begin with prefix. If prefix is an empty string then all
+         properties are returned.
         Arguments:
         prefix -- The prefix to search for (empty string if none).
         context -- The request context for the invocation.
@@ -102,8 +98,8 @@ if 'PropertiesAdminPrx' not in _M_Ice.__dict__:
             return _M_Ice.PropertiesAdmin._op_getPropertiesForPrefix.invokeAsync(self, ((prefix, ), context))
 
         """
-        Get all properties whose keys begin with prefix. If
-        prefix is an empty string then all properties are returned.
+         Get all properties whose keys begin with prefix. If prefix is an empty string then all
+         properties are returned.
         Arguments:
         prefix -- The prefix to search for (empty string if none).
         _response -- The asynchronous response callback.
@@ -116,8 +112,8 @@ if 'PropertiesAdminPrx' not in _M_Ice.__dict__:
             return _M_Ice.PropertiesAdmin._op_getPropertiesForPrefix.begin(self, ((prefix, ), _response, _ex, _sent, context))
 
         """
-        Get all properties whose keys begin with prefix. If
-        prefix is an empty string then all properties are returned.
+         Get all properties whose keys begin with prefix. If prefix is an empty string then all
+         properties are returned.
         Arguments:
         prefix -- The prefix to search for (empty string if none).
         Returns: The matching property set.
@@ -126,18 +122,24 @@ if 'PropertiesAdminPrx' not in _M_Ice.__dict__:
             return _M_Ice.PropertiesAdmin._op_getPropertiesForPrefix.end(self, _r)
 
         """
-        Update the communicator's properties with the given property set.
+         Update the communicator's properties with the given property set. If an entry in newProperties
+         matches the name of an existing property, that property's value is replaced with the new value. If the new
+         value is an empty string, the property is removed. Any existing properties that are not modified or removed
+         by the entries in newProperties are retained with their original values.
         Arguments:
-        newProperties -- Properties to be added, changed, or removed. If an entry in newProperties matches the name of an existing property, that property's value is replaced with the new value. If the new value is an empty string, the property is removed. Any existing properties that are not modified or removed by the entries in newProperties are retained with their original values.
+        newProperties -- Properties to be added, changed, or removed.
         context -- The request context for the invocation.
         """
         def setProperties(self, newProperties, context=None):
             return _M_Ice.PropertiesAdmin._op_setProperties.invoke(self, ((newProperties, ), context))
 
         """
-        Update the communicator's properties with the given property set.
+         Update the communicator's properties with the given property set. If an entry in newProperties
+         matches the name of an existing property, that property's value is replaced with the new value. If the new
+         value is an empty string, the property is removed. Any existing properties that are not modified or removed
+         by the entries in newProperties are retained with their original values.
         Arguments:
-        newProperties -- Properties to be added, changed, or removed. If an entry in newProperties matches the name of an existing property, that property's value is replaced with the new value. If the new value is an empty string, the property is removed. Any existing properties that are not modified or removed by the entries in newProperties are retained with their original values.
+        newProperties -- Properties to be added, changed, or removed.
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
@@ -145,9 +147,12 @@ if 'PropertiesAdminPrx' not in _M_Ice.__dict__:
             return _M_Ice.PropertiesAdmin._op_setProperties.invokeAsync(self, ((newProperties, ), context))
 
         """
-        Update the communicator's properties with the given property set.
+         Update the communicator's properties with the given property set. If an entry in newProperties
+         matches the name of an existing property, that property's value is replaced with the new value. If the new
+         value is an empty string, the property is removed. Any existing properties that are not modified or removed
+         by the entries in newProperties are retained with their original values.
         Arguments:
-        newProperties -- Properties to be added, changed, or removed. If an entry in newProperties matches the name of an existing property, that property's value is replaced with the new value. If the new value is an empty string, the property is removed. Any existing properties that are not modified or removed by the entries in newProperties are retained with their original values.
+        newProperties -- Properties to be added, changed, or removed.
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
         _sent -- The asynchronous sent callback.
@@ -158,9 +163,12 @@ if 'PropertiesAdminPrx' not in _M_Ice.__dict__:
             return _M_Ice.PropertiesAdmin._op_setProperties.begin(self, ((newProperties, ), _response, _ex, _sent, context))
 
         """
-        Update the communicator's properties with the given property set.
+         Update the communicator's properties with the given property set. If an entry in newProperties
+         matches the name of an existing property, that property's value is replaced with the new value. If the new
+         value is an empty string, the property is removed. Any existing properties that are not modified or removed
+         by the entries in newProperties are retained with their original values.
         Arguments:
-        newProperties -- Properties to be added, changed, or removed. If an entry in newProperties matches the name of an existing property, that property's value is replaced with the new value. If the new value is an empty string, the property is removed. Any existing properties that are not modified or removed by the entries in newProperties are retained with their original values.
+        newProperties -- Properties to be added, changed, or removed.
         """
         def end_setProperties(self, _r):
             return _M_Ice.PropertiesAdmin._op_setProperties.end(self, _r)
@@ -196,8 +204,7 @@ if 'PropertiesAdminPrx' not in _M_Ice.__dict__:
 
         def getProperty(self, key, current=None):
             """
-            Get a property by key. If the property is not set, an empty
-            string is returned.
+             Get a property by key. If the property is not set, an empty string is returned.
             Arguments:
             key -- The property key.
             current -- The Current object for the invocation.
@@ -207,8 +214,8 @@ if 'PropertiesAdminPrx' not in _M_Ice.__dict__:
 
         def getPropertiesForPrefix(self, prefix, current=None):
             """
-            Get all properties whose keys begin with prefix. If
-            prefix is an empty string then all properties are returned.
+             Get all properties whose keys begin with prefix. If prefix is an empty string then all
+             properties are returned.
             Arguments:
             prefix -- The prefix to search for (empty string if none).
             current -- The Current object for the invocation.
@@ -218,9 +225,12 @@ if 'PropertiesAdminPrx' not in _M_Ice.__dict__:
 
         def setProperties(self, newProperties, current=None):
             """
-            Update the communicator's properties with the given property set.
+             Update the communicator's properties with the given property set. If an entry in newProperties
+             matches the name of an existing property, that property's value is replaced with the new value. If the new
+             value is an empty string, the property is removed. Any existing properties that are not modified or removed
+             by the entries in newProperties are retained with their original values.
             Arguments:
-            newProperties -- Properties to be added, changed, or removed. If an entry in newProperties matches the name of an existing property, that property's value is replaced with the new value. If the new value is an empty string, the property is removed. Any existing properties that are not modified or removed by the entries in newProperties are retained with their original values.
+            newProperties -- Properties to be added, changed, or removed.
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
             """

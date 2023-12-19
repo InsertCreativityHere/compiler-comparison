@@ -37,9 +37,9 @@ public extension Ice.ClassResolver {
 
 /// Provides information on Glacier2 sessions.
 open class MXSessionMetrics: Ice.MXMetrics {
-    /// Number of client requests forwared.
+    /// Number of client requests forwarded.
     public var forwardedClient: Swift.Int32 = 0
-    /// Number of server requests forwared.
+    /// Number of server requests forwarded.
     public var forwardedServer: Swift.Int32 = 0
     /// The size of the routing table.
     public var routingTableSize: Swift.Int32 = 0

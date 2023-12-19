@@ -16,8 +16,7 @@
 package IceGrid;
 
 /**
- * This exception is raised if a replica is already registered and
- * active.
+ * This exception is raised if a replica is already registered and active.
  **/
 public class ReplicaActiveException extends com.zeroc.Ice.UserException
 {

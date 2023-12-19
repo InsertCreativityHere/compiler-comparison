@@ -63,8 +63,8 @@ namespace Ice
 {
 
 /**
- * The Ice message logger. Applications can provide their own logger
- * by implementing this interface and installing it in a communicator.
+ * The Ice message logger. Applications can provide their own logger by implementing this interface and installing it
+ * in a communicator.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) Logger
@@ -74,8 +74,8 @@ public:
     ICE_MEMBER(ICE_API) virtual ~Logger();
 
     /**
-     * Print a message. The message is printed literally, without
-     * any decorations such as executable name or time stamp.
+     * Print a message. The message is printed literally, without any decorations such as executable name or time
+     * stamp.
      * @param message The message to log.
      */
     virtual void print(const ::std::string& message) = 0;
@@ -150,8 +150,8 @@ namespace Ice
 {
 
 /**
- * The Ice message logger. Applications can provide their own logger
- * by implementing this interface and installing it in a communicator.
+ * The Ice message logger. Applications can provide their own logger by implementing this interface and installing it
+ * in a communicator.
  * \headerfile Ice/Ice.h
  */
 class ICE_API Logger : public virtual LocalObject
@@ -169,8 +169,8 @@ public:
 #endif
 
     /**
-     * Print a message. The message is printed literally, without
-     * any decorations such as executable name or time stamp.
+     * Print a message. The message is printed literally, without any decorations such as executable name or time
+     * stamp.
      * @param message The message to log.
      */
     virtual void print(const ::std::string& message) = 0;

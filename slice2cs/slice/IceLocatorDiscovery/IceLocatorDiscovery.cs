@@ -63,19 +63,16 @@ namespace IceLocatorDiscovery
 namespace IceLocatorDiscovery
 {
     /// <summary>
-    /// The Ice lookup reply interface must be implemented by clients which
-    /// are searching for Ice locators.
-    /// Ice locator implementations invoke
-    /// on this interface to provide their locator proxy.
-    ///
+    /// The Ice lookup reply interface must be implemented by clients which are searching for Ice locators.
+    /// Ice locator
+    ///  implementations invoke on this interface to provide their locator proxy.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface LookupReplyPrx : global::Ice.ObjectPrx
     {
         /// <summary>
-        /// This method is called by the implementation of the Lookup
-        /// interface to reply to a findLocator request.
+        /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
         /// </summary>
         /// <param name="prx">The proxy of the locator.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -83,8 +80,7 @@ namespace IceLocatorDiscovery
         void foundLocator(global::Ice.LocatorPrx prx, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// This method is called by the implementation of the Lookup
-        /// interface to reply to a findLocator request.
+        /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
         /// </summary>
         /// <param name="prx">The proxy of the locator.</param>
         /// <param name="context">Context map to send with the invocation.</param>
@@ -94,8 +90,7 @@ namespace IceLocatorDiscovery
         global::System.Threading.Tasks.Task foundLocatorAsync(global::Ice.LocatorPrx prx, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// This method is called by the implementation of the Lookup
-        /// interface to reply to a findLocator request.
+        /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
         /// </summary>
         /// <param name="prx">The proxy of the locator.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -103,8 +98,7 @@ namespace IceLocatorDiscovery
         global::Ice.AsyncResult<Callback_LookupReply_foundLocator> begin_foundLocator(global::Ice.LocatorPrx prx, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// This method is called by the implementation of the Lookup
-        /// interface to reply to a findLocator request.
+        /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
         /// </summary>
         /// <param name="prx">The proxy of the locator.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -113,8 +107,7 @@ namespace IceLocatorDiscovery
         global::Ice.AsyncResult begin_foundLocator(global::Ice.LocatorPrx prx, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// This method is called by the implementation of the Lookup
-        /// interface to reply to a findLocator request.
+        /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
         /// </summary>
         /// <param name="prx">The proxy of the locator.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -124,21 +117,17 @@ namespace IceLocatorDiscovery
         global::Ice.AsyncResult begin_foundLocator(global::Ice.LocatorPrx prx, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// This method is called by the implementation of the Lookup
-        /// interface to reply to a findLocator request.
+        /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_foundLocator(global::Ice.AsyncResult asyncResult);
     }
 
     /// <summary>
-    /// The Ice lookup interface is implemented by Ice locator
-    /// implementations and can be used by clients to find available Ice
-    /// locators on the network.
-    /// Ice locator implementations provide a well-known `Ice/LocatorLookup'
-    /// object accessible through UDP multicast. Clients typically make a
-    /// multicast findLocator request to find the locator proxy.
-    ///
+    /// The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
+    ///  available Ice locators on the network.
+    /// Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
+    ///  Clients typically make a multicast findLocator request to find the locator proxy.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -147,11 +136,9 @@ namespace IceLocatorDiscovery
         /// <summary>
         /// Find a locator proxy with the given instance name.
         /// </summary>
-        /// <param name="instanceName">Restrict the search to Ice registries
-        /// configured with the given instance name. If empty, all the
-        /// available registries will reply.
-        ///
-        /// </param>
+        /// <param name="instanceName">Restrict the search to Ice registries configured with the given instance name. If
+        ///  empty, all the available registries will reply.
+        ///  </param>
         /// <param name="reply">The reply object to use to send the reply.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -160,11 +147,9 @@ namespace IceLocatorDiscovery
         /// <summary>
         /// Find a locator proxy with the given instance name.
         /// </summary>
-        /// <param name="instanceName">Restrict the search to Ice registries
-        /// configured with the given instance name. If empty, all the
-        /// available registries will reply.
-        ///
-        /// </param>
+        /// <param name="instanceName">Restrict the search to Ice registries configured with the given instance name. If
+        ///  empty, all the available registries will reply.
+        ///  </param>
         /// <param name="reply">The reply object to use to send the reply.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -175,11 +160,9 @@ namespace IceLocatorDiscovery
         /// <summary>
         /// Find a locator proxy with the given instance name.
         /// </summary>
-        /// <param name="instanceName">Restrict the search to Ice registries
-        /// configured with the given instance name. If empty, all the
-        /// available registries will reply.
-        ///
-        /// </param>
+        /// <param name="instanceName">Restrict the search to Ice registries configured with the given instance name. If
+        ///  empty, all the available registries will reply.
+        ///  </param>
         /// <param name="reply">The reply object to use to send the reply.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -188,11 +171,9 @@ namespace IceLocatorDiscovery
         /// <summary>
         /// Find a locator proxy with the given instance name.
         /// </summary>
-        /// <param name="instanceName">Restrict the search to Ice registries
-        /// configured with the given instance name. If empty, all the
-        /// available registries will reply.
-        ///
-        /// </param>
+        /// <param name="instanceName">Restrict the search to Ice registries configured with the given instance name. If
+        ///  empty, all the available registries will reply.
+        ///  </param>
         /// <param name="reply">The reply object to use to send the reply.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -202,11 +183,9 @@ namespace IceLocatorDiscovery
         /// <summary>
         /// Find a locator proxy with the given instance name.
         /// </summary>
-        /// <param name="instanceName">Restrict the search to Ice registries
-        /// configured with the given instance name. If empty, all the
-        /// available registries will reply.
-        ///
-        /// </param>
+        /// <param name="instanceName">Restrict the search to Ice registries configured with the given instance name. If
+        ///  empty, all the available registries will reply.
+        ///  </param>
         /// <param name="reply">The reply object to use to send the reply.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -225,19 +204,16 @@ namespace IceLocatorDiscovery
 namespace IceLocatorDiscovery
 {
     /// <summary>
-    /// The Ice lookup reply interface must be implemented by clients which
-    /// are searching for Ice locators.
-    /// Ice locator implementations invoke
-    /// on this interface to provide their locator proxy.
-    ///
+    /// The Ice lookup reply interface must be implemented by clients which are searching for Ice locators.
+    /// Ice locator
+    ///  implementations invoke on this interface to provide their locator proxy.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface LookupReplyOperations_
     {
         /// <summary>
-        /// This method is called by the implementation of the Lookup
-        /// interface to reply to a findLocator request.
+        /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
         /// </summary>
         /// <param name="prx">The proxy of the locator.</param>
         /// <param name="current">The Current object for the invocation.</param>
@@ -247,13 +223,10 @@ namespace IceLocatorDiscovery
     }
 
     /// <summary>
-    /// The Ice lookup interface is implemented by Ice locator
-    /// implementations and can be used by clients to find available Ice
-    /// locators on the network.
-    /// Ice locator implementations provide a well-known `Ice/LocatorLookup'
-    /// object accessible through UDP multicast. Clients typically make a
-    /// multicast findLocator request to find the locator proxy.
-    ///
+    /// The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
+    ///  available Ice locators on the network.
+    /// Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
+    ///  Clients typically make a multicast findLocator request to find the locator proxy.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -262,11 +235,9 @@ namespace IceLocatorDiscovery
         /// <summary>
         /// Find a locator proxy with the given instance name.
         /// </summary>
-        /// <param name="instanceName">Restrict the search to Ice registries
-        /// configured with the given instance name. If empty, all the
-        /// available registries will reply.
-        ///
-        /// </param>
+        /// <param name="instanceName">Restrict the search to Ice registries configured with the given instance name. If
+        ///  empty, all the available registries will reply.
+        ///  </param>
         /// <param name="reply">The reply object to use to send the reply.</param>
         /// <param name="current">The Current object for the invocation.</param>
 

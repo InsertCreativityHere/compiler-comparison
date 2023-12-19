@@ -106,8 +106,8 @@ namespace IceGrid
 {
 
 /**
- * The IceGrid query interface. This interface is accessible to
- * Ice clients who wish to look up well-known objects.
+ * The IceGrid query interface. This interface is accessible to Ice clients who wish to look up well-known
+ * objects.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API Query : public virtual ::Ice::Object
@@ -156,9 +156,8 @@ public:
     /// \endcond
 
     /**
-     * Find a well-known object by type. If there are several objects
-     * registered for the given type, the object is randomly
-     * selected.
+     * Find a well-known object by type. If there are several objects registered for the given type, the object is
+     * randomly selected.
      * @param type The object type.
      * @param current The Current object for the invocation.
      * @return The proxy or null, if no such object has been found.
@@ -169,11 +168,9 @@ public:
     /// \endcond
 
     /**
-     * Find a well-known object by type on the least-loaded node. If
-     * the registry does not know which node hosts the object
-     * (for example, because the object was registered with a direct proxy), the
-     * registry assumes the object is hosted on a node that has a load
-     * average of 1.0.
+     * Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+     * the object (for example, because the object was registered with a direct proxy), the registry assumes the
+     * object is hosted on a node that has a load average of 1.0.
      * @param type The object type.
      * @param sample The sampling interval.
      * @param current The Current object for the invocation.
@@ -188,8 +185,7 @@ public:
      * Find all the well-known objects with the given type.
      * @param type The object type.
      * @param current The Current object for the invocation.
-     * @return The proxies or an empty sequence, if no such objects
-     * have been found.
+     * @return The proxies or an empty sequence, if no such objects have been found.
      */
     virtual ::Ice::ObjectProxySeq findAllObjectsByType(::std::string type, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -197,13 +193,12 @@ public:
     /// \endcond
 
     /**
-     * Find all the object replicas associated with the given
-     * proxy. If the given proxy is not an indirect proxy from a
-     * replica group, an empty sequence is returned.
+     * Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+     * from a replica group, an empty sequence is returned.
      * @param proxy The object proxy.
      * @param current The Current object for the invocation.
-     * @return The proxies of each object replica or an empty sequence,
-     * if the given proxy is not from a replica group.
+     * @return The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
+     * group.
      */
     virtual ::Ice::ObjectProxySeq findAllReplicas(::std::shared_ptr<::Ice::ObjectPrx> proxy, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -216,8 +211,7 @@ public:
 };
 
 /**
- * The IceGrid registry allows clients create sessions
- * directly with the registry.
+ * The IceGrid registry allows clients create sessions directly with the registry.
  * @see Session
  * @see AdminSession
  * \headerfile IceGrid/IceGrid.h
@@ -262,9 +256,8 @@ public:
      * @param password The password for the given user id.
      * @param current The Current object for the invocation.
      * @return A proxy for the newly created session.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      */
     virtual ::std::shared_ptr<SessionPrx> createSession(::std::string userId, ::std::string password, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -277,9 +270,8 @@ public:
      * @param password The password for the given user id.
      * @param current The Current object for the invocation.
      * @return A proxy for the newly created session.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      */
     virtual ::std::shared_ptr<AdminSessionPrx> createAdminSession(::std::string userId, ::std::string password, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -290,9 +282,8 @@ public:
      * Create a client session from a secure connection.
      * @param current The Current object for the invocation.
      * @return A proxy for the newly created session.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      */
     virtual ::std::shared_ptr<SessionPrx> createSessionFromSecureConnection(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -303,9 +294,8 @@ public:
      * Create an administrative session from a secure connection.
      * @param current The Current object for the invocation.
      * @return A proxy for the newly created session.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      */
     virtual ::std::shared_ptr<AdminSessionPrx> createAdminSessionFromSecureConnection(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -313,9 +303,8 @@ public:
     /// \endcond
 
     /**
-     * Get the session timeout. If a client or administrative client
-     * doesn't call the session keepAlive method in the time interval
-     * defined by this timeout, IceGrid might reap the session.
+     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+     * the time interval defined by this timeout, IceGrid might reap the session.
      * @param current The Current object for the invocation.
      * @return The timeout (in seconds).
      * @see Session#keepAlive
@@ -327,11 +316,8 @@ public:
     /// \endcond
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM
-     * connection heartbeats can enable them instead of explicitly
-     * sending keep alives requests.
-     *
-     * NOTE: This method is only available since Ice 3.6.
+     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
      * @param current The Current object for the invocation.
      * @return The timeout (in seconds).
      */
@@ -346,8 +332,8 @@ public:
 };
 
 /**
- * The IceGrid locator interface provides access to the {@link Query}
- * and {@link Registry} object of the IceGrid registry.
+ * The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
+ * registry.
  * @see Query
  * @see Registry
  * \headerfile IceGrid/IceGrid.h
@@ -387,8 +373,7 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Get the proxy of the registry object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the registry object hosted by this IceGrid registry.
      * @param current The Current object for the invocation.
      * @return The proxy of the registry object.
      */
@@ -398,8 +383,7 @@ public:
     /// \endcond
 
     /**
-     * Get the proxy of the query object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the query object hosted by this IceGrid registry.
      * @param current The Current object for the invocation.
      * @return The proxy of the query object.
      */
@@ -419,8 +403,8 @@ namespace IceGrid
 {
 
 /**
- * The IceGrid query interface. This interface is accessible to
- * Ice clients who wish to look up well-known objects.
+ * The IceGrid query interface. This interface is accessible to Ice clients who wish to look up well-known
+ * objects.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) QueryPrx : public virtual ::Ice::Proxy<QueryPrx, ::Ice::ObjectPrx>
@@ -475,9 +459,8 @@ public:
     /// \endcond
 
     /**
-     * Find a well-known object by type. If there are several objects
-     * registered for the given type, the object is randomly
-     * selected.
+     * Find a well-known object by type. If there are several objects registered for the given type, the object is
+     * randomly selected.
      * @param type The object type.
      * @param context The Context map to send with the invocation.
      * @return The proxy or null, if no such object has been found.
@@ -488,9 +471,8 @@ public:
     }
 
     /**
-     * Find a well-known object by type. If there are several objects
-     * registered for the given type, the object is randomly
-     * selected.
+     * Find a well-known object by type. If there are several objects registered for the given type, the object is
+     * randomly selected.
      * @param type The object type.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -503,9 +485,8 @@ public:
     }
 
     /**
-     * Find a well-known object by type. If there are several objects
-     * registered for the given type, the object is randomly
-     * selected.
+     * Find a well-known object by type. If there are several objects registered for the given type, the object is
+     * randomly selected.
      * @param type The object type.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -528,11 +509,9 @@ public:
     /// \endcond
 
     /**
-     * Find a well-known object by type on the least-loaded node. If
-     * the registry does not know which node hosts the object
-     * (for example, because the object was registered with a direct proxy), the
-     * registry assumes the object is hosted on a node that has a load
-     * average of 1.0.
+     * Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+     * the object (for example, because the object was registered with a direct proxy), the registry assumes the
+     * object is hosted on a node that has a load average of 1.0.
      * @param type The object type.
      * @param sample The sampling interval.
      * @param context The Context map to send with the invocation.
@@ -544,11 +523,9 @@ public:
     }
 
     /**
-     * Find a well-known object by type on the least-loaded node. If
-     * the registry does not know which node hosts the object
-     * (for example, because the object was registered with a direct proxy), the
-     * registry assumes the object is hosted on a node that has a load
-     * average of 1.0.
+     * Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+     * the object (for example, because the object was registered with a direct proxy), the registry assumes the
+     * object is hosted on a node that has a load average of 1.0.
      * @param type The object type.
      * @param sample The sampling interval.
      * @param context The Context map to send with the invocation.
@@ -562,11 +539,9 @@ public:
     }
 
     /**
-     * Find a well-known object by type on the least-loaded node. If
-     * the registry does not know which node hosts the object
-     * (for example, because the object was registered with a direct proxy), the
-     * registry assumes the object is hosted on a node that has a load
-     * average of 1.0.
+     * Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+     * the object (for example, because the object was registered with a direct proxy), the registry assumes the
+     * object is hosted on a node that has a load average of 1.0.
      * @param type The object type.
      * @param sample The sampling interval.
      * @param response The response callback.
@@ -593,8 +568,7 @@ public:
      * Find all the well-known objects with the given type.
      * @param type The object type.
      * @param context The Context map to send with the invocation.
-     * @return The proxies or an empty sequence, if no such objects
-     * have been found.
+     * @return The proxies or an empty sequence, if no such objects have been found.
      */
     ::Ice::ObjectProxySeq findAllObjectsByType(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -638,13 +612,12 @@ public:
     /// \endcond
 
     /**
-     * Find all the object replicas associated with the given
-     * proxy. If the given proxy is not an indirect proxy from a
-     * replica group, an empty sequence is returned.
+     * Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+     * from a replica group, an empty sequence is returned.
      * @param proxy The object proxy.
      * @param context The Context map to send with the invocation.
-     * @return The proxies of each object replica or an empty sequence,
-     * if the given proxy is not from a replica group.
+     * @return The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
+     * group.
      */
     ::Ice::ObjectProxySeq findAllReplicas(const ::std::shared_ptr<::Ice::ObjectPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -652,9 +625,8 @@ public:
     }
 
     /**
-     * Find all the object replicas associated with the given
-     * proxy. If the given proxy is not an indirect proxy from a
-     * replica group, an empty sequence is returned.
+     * Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+     * from a replica group, an empty sequence is returned.
      * @param proxy The object proxy.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -667,9 +639,8 @@ public:
     }
 
     /**
-     * Find all the object replicas associated with the given
-     * proxy. If the given proxy is not an indirect proxy from a
-     * replica group, an empty sequence is returned.
+     * Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+     * from a replica group, an empty sequence is returned.
      * @param proxy The object proxy.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -708,8 +679,7 @@ protected:
 };
 
 /**
- * The IceGrid registry allows clients create sessions
- * directly with the registry.
+ * The IceGrid registry allows clients create sessions directly with the registry.
  * @see Session
  * @see AdminSession
  * \headerfile IceGrid/IceGrid.h
@@ -724,9 +694,8 @@ public:
      * @param password The password for the given user id.
      * @param context The Context map to send with the invocation.
      * @return A proxy for the newly created session.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      */
     ::std::shared_ptr<SessionPrx> createSession(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -777,9 +746,8 @@ public:
      * @param password The password for the given user id.
      * @param context The Context map to send with the invocation.
      * @return A proxy for the newly created session.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      */
     ::std::shared_ptr<AdminSessionPrx> createAdminSession(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -828,9 +796,8 @@ public:
      * Create a client session from a secure connection.
      * @param context The Context map to send with the invocation.
      * @return A proxy for the newly created session.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      */
     ::std::shared_ptr<SessionPrx> createSessionFromSecureConnection(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -874,9 +841,8 @@ public:
      * Create an administrative session from a secure connection.
      * @param context The Context map to send with the invocation.
      * @return A proxy for the newly created session.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      */
     ::std::shared_ptr<AdminSessionPrx> createAdminSessionFromSecureConnection(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -917,9 +883,8 @@ public:
     /// \endcond
 
     /**
-     * Get the session timeout. If a client or administrative client
-     * doesn't call the session keepAlive method in the time interval
-     * defined by this timeout, IceGrid might reap the session.
+     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+     * the time interval defined by this timeout, IceGrid might reap the session.
      * @param context The Context map to send with the invocation.
      * @return The timeout (in seconds).
      * @see Session#keepAlive
@@ -931,9 +896,8 @@ public:
     }
 
     /**
-     * Get the session timeout. If a client or administrative client
-     * doesn't call the session keepAlive method in the time interval
-     * defined by this timeout, IceGrid might reap the session.
+     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+     * the time interval defined by this timeout, IceGrid might reap the session.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      * @see Session#keepAlive
@@ -947,9 +911,8 @@ public:
     }
 
     /**
-     * Get the session timeout. If a client or administrative client
-     * doesn't call the session keepAlive method in the time interval
-     * defined by this timeout, IceGrid might reap the session.
+     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+     * the time interval defined by this timeout, IceGrid might reap the session.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -972,11 +935,8 @@ public:
     /// \endcond
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM
-     * connection heartbeats can enable them instead of explicitly
-     * sending keep alives requests.
-     *
-     * NOTE: This method is only available since Ice 3.6.
+     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
      * @param context The Context map to send with the invocation.
      * @return The timeout (in seconds).
      */
@@ -986,11 +946,8 @@ public:
     }
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM
-     * connection heartbeats can enable them instead of explicitly
-     * sending keep alives requests.
-     *
-     * NOTE: This method is only available since Ice 3.6.
+     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -1002,11 +959,8 @@ public:
     }
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM
-     * connection heartbeats can enable them instead of explicitly
-     * sending keep alives requests.
-     *
-     * NOTE: This method is only available since Ice 3.6.
+     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -1043,8 +997,8 @@ protected:
 };
 
 /**
- * The IceGrid locator interface provides access to the {@link Query}
- * and {@link Registry} object of the IceGrid registry.
+ * The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
+ * registry.
  * @see Query
  * @see Registry
  * \headerfile IceGrid/IceGrid.h
@@ -1054,8 +1008,7 @@ class ICE_CLASS(ICEGRID_API) LocatorPrx : public virtual ::Ice::Proxy<LocatorPrx
 public:
 
     /**
-     * Get the proxy of the registry object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the registry object hosted by this IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @return The proxy of the registry object.
      */
@@ -1065,8 +1018,7 @@ public:
     }
 
     /**
-     * Get the proxy of the registry object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the registry object hosted by this IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -1078,8 +1030,7 @@ public:
     }
 
     /**
-     * Get the proxy of the registry object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the registry object hosted by this IceGrid registry.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -1100,8 +1051,7 @@ public:
     /// \endcond
 
     /**
-     * Get the proxy of the query object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the query object hosted by this IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @return The proxy of the query object.
      */
@@ -1111,8 +1061,7 @@ public:
     }
 
     /**
-     * Get the proxy of the query object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the query object hosted by this IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -1124,8 +1073,7 @@ public:
     }
 
     /**
-     * Get the proxy of the query object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the query object hosted by this IceGrid registry.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -1500,9 +1448,8 @@ private:
 public:
 
     /**
-     * Find a well-known object by type. If there are several objects
-     * registered for the given type, the object is randomly
-     * selected.
+     * Find a well-known object by type. If there are several objects registered for the given type, the object is
+     * randomly selected.
      * @param type The object type.
      * @param context The Context map to send with the invocation.
      * @return The proxy or null, if no such object has been found.
@@ -1513,9 +1460,8 @@ public:
     }
 
     /**
-     * Find a well-known object by type. If there are several objects
-     * registered for the given type, the object is randomly
-     * selected.
+     * Find a well-known object by type. If there are several objects registered for the given type, the object is
+     * randomly selected.
      * @param type The object type.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -1526,9 +1472,8 @@ public:
     }
 
     /**
-     * Find a well-known object by type. If there are several objects
-     * registered for the given type, the object is randomly
-     * selected.
+     * Find a well-known object by type. If there are several objects registered for the given type, the object is
+     * randomly selected.
      * @param type The object type.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -1540,9 +1485,8 @@ public:
     }
 
     /**
-     * Find a well-known object by type. If there are several objects
-     * registered for the given type, the object is randomly
-     * selected.
+     * Find a well-known object by type. If there are several objects registered for the given type, the object is
+     * randomly selected.
      * @param type The object type.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -1555,9 +1499,8 @@ public:
     }
 
     /**
-     * Find a well-known object by type. If there are several objects
-     * registered for the given type, the object is randomly
-     * selected.
+     * Find a well-known object by type. If there are several objects registered for the given type, the object is
+     * randomly selected.
      * @param type The object type.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -1569,9 +1512,8 @@ public:
     }
 
     /**
-     * Find a well-known object by type. If there are several objects
-     * registered for the given type, the object is randomly
-     * selected.
+     * Find a well-known object by type. If there are several objects registered for the given type, the object is
+     * randomly selected.
      * @param type The object type.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -1597,11 +1539,9 @@ private:
 public:
 
     /**
-     * Find a well-known object by type on the least-loaded node. If
-     * the registry does not know which node hosts the object
-     * (for example, because the object was registered with a direct proxy), the
-     * registry assumes the object is hosted on a node that has a load
-     * average of 1.0.
+     * Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+     * the object (for example, because the object was registered with a direct proxy), the registry assumes the
+     * object is hosted on a node that has a load average of 1.0.
      * @param type The object type.
      * @param sample The sampling interval.
      * @param context The Context map to send with the invocation.
@@ -1613,11 +1553,9 @@ public:
     }
 
     /**
-     * Find a well-known object by type on the least-loaded node. If
-     * the registry does not know which node hosts the object
-     * (for example, because the object was registered with a direct proxy), the
-     * registry assumes the object is hosted on a node that has a load
-     * average of 1.0.
+     * Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+     * the object (for example, because the object was registered with a direct proxy), the registry assumes the
+     * object is hosted on a node that has a load average of 1.0.
      * @param type The object type.
      * @param sample The sampling interval.
      * @param context The Context map to send with the invocation.
@@ -1629,11 +1567,9 @@ public:
     }
 
     /**
-     * Find a well-known object by type on the least-loaded node. If
-     * the registry does not know which node hosts the object
-     * (for example, because the object was registered with a direct proxy), the
-     * registry assumes the object is hosted on a node that has a load
-     * average of 1.0.
+     * Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+     * the object (for example, because the object was registered with a direct proxy), the registry assumes the
+     * object is hosted on a node that has a load average of 1.0.
      * @param type The object type.
      * @param sample The sampling interval.
      * @param cb Asynchronous callback object.
@@ -1646,11 +1582,9 @@ public:
     }
 
     /**
-     * Find a well-known object by type on the least-loaded node. If
-     * the registry does not know which node hosts the object
-     * (for example, because the object was registered with a direct proxy), the
-     * registry assumes the object is hosted on a node that has a load
-     * average of 1.0.
+     * Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+     * the object (for example, because the object was registered with a direct proxy), the registry assumes the
+     * object is hosted on a node that has a load average of 1.0.
      * @param type The object type.
      * @param sample The sampling interval.
      * @param context The Context map to send with the invocation.
@@ -1664,11 +1598,9 @@ public:
     }
 
     /**
-     * Find a well-known object by type on the least-loaded node. If
-     * the registry does not know which node hosts the object
-     * (for example, because the object was registered with a direct proxy), the
-     * registry assumes the object is hosted on a node that has a load
-     * average of 1.0.
+     * Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+     * the object (for example, because the object was registered with a direct proxy), the registry assumes the
+     * object is hosted on a node that has a load average of 1.0.
      * @param type The object type.
      * @param sample The sampling interval.
      * @param cb Asynchronous callback object.
@@ -1681,11 +1613,9 @@ public:
     }
 
     /**
-     * Find a well-known object by type on the least-loaded node. If
-     * the registry does not know which node hosts the object
-     * (for example, because the object was registered with a direct proxy), the
-     * registry assumes the object is hosted on a node that has a load
-     * average of 1.0.
+     * Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+     * the object (for example, because the object was registered with a direct proxy), the registry assumes the
+     * object is hosted on a node that has a load average of 1.0.
      * @param type The object type.
      * @param sample The sampling interval.
      * @param context The Context map to send with the invocation.
@@ -1715,8 +1645,7 @@ public:
      * Find all the well-known objects with the given type.
      * @param type The object type.
      * @param context The Context map to send with the invocation.
-     * @return The proxies or an empty sequence, if no such objects
-     * have been found.
+     * @return The proxies or an empty sequence, if no such objects have been found.
      */
     ICE_MEMBER(ICEGRID_API) ::Ice::ObjectProxySeq findAllObjectsByType(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -1787,8 +1716,7 @@ public:
     /**
      * Completes an invocation of begin_findAllObjectsByType.
      * @param result The asynchronous result object for the invocation.
-     * @return The proxies or an empty sequence, if no such objects
-     * have been found.
+     * @return The proxies or an empty sequence, if no such objects have been found.
      */
     ICE_MEMBER(ICEGRID_API) ::Ice::ObjectProxySeq end_findAllObjectsByType(const ::Ice::AsyncResultPtr& result);
 
@@ -1799,13 +1727,12 @@ private:
 public:
 
     /**
-     * Find all the object replicas associated with the given
-     * proxy. If the given proxy is not an indirect proxy from a
-     * replica group, an empty sequence is returned.
+     * Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+     * from a replica group, an empty sequence is returned.
      * @param proxy The object proxy.
      * @param context The Context map to send with the invocation.
-     * @return The proxies of each object replica or an empty sequence,
-     * if the given proxy is not from a replica group.
+     * @return The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
+     * group.
      */
     ICE_MEMBER(ICEGRID_API) ::Ice::ObjectProxySeq findAllReplicas(const ::Ice::ObjectPrx& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -1813,9 +1740,8 @@ public:
     }
 
     /**
-     * Find all the object replicas associated with the given
-     * proxy. If the given proxy is not an indirect proxy from a
-     * replica group, an empty sequence is returned.
+     * Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+     * from a replica group, an empty sequence is returned.
      * @param proxy The object proxy.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -1826,9 +1752,8 @@ public:
     }
 
     /**
-     * Find all the object replicas associated with the given
-     * proxy. If the given proxy is not an indirect proxy from a
-     * replica group, an empty sequence is returned.
+     * Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+     * from a replica group, an empty sequence is returned.
      * @param proxy The object proxy.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -1840,9 +1765,8 @@ public:
     }
 
     /**
-     * Find all the object replicas associated with the given
-     * proxy. If the given proxy is not an indirect proxy from a
-     * replica group, an empty sequence is returned.
+     * Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+     * from a replica group, an empty sequence is returned.
      * @param proxy The object proxy.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -1855,9 +1779,8 @@ public:
     }
 
     /**
-     * Find all the object replicas associated with the given
-     * proxy. If the given proxy is not an indirect proxy from a
-     * replica group, an empty sequence is returned.
+     * Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+     * from a replica group, an empty sequence is returned.
      * @param proxy The object proxy.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -1869,9 +1792,8 @@ public:
     }
 
     /**
-     * Find all the object replicas associated with the given
-     * proxy. If the given proxy is not an indirect proxy from a
-     * replica group, an empty sequence is returned.
+     * Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+     * from a replica group, an empty sequence is returned.
      * @param proxy The object proxy.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -1886,8 +1808,8 @@ public:
     /**
      * Completes an invocation of begin_findAllReplicas.
      * @param result The asynchronous result object for the invocation.
-     * @return The proxies of each object replica or an empty sequence,
-     * if the given proxy is not from a replica group.
+     * @return The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
+     * group.
      */
     ICE_MEMBER(ICEGRID_API) ::Ice::ObjectProxySeq end_findAllReplicas(const ::Ice::AsyncResultPtr& result);
 
@@ -1920,9 +1842,8 @@ public:
      * @param password The password for the given user id.
      * @param context The Context map to send with the invocation.
      * @return A proxy for the newly created session.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::SessionPrx createSession(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -1999,9 +1920,8 @@ public:
      * Completes an invocation of begin_createSession.
      * @param result The asynchronous result object for the invocation.
      * @return A proxy for the newly created session.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::SessionPrx end_createSession(const ::Ice::AsyncResultPtr& result);
 
@@ -2017,9 +1937,8 @@ public:
      * @param password The password for the given user id.
      * @param context The Context map to send with the invocation.
      * @return A proxy for the newly created session.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::AdminSessionPrx createAdminSession(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -2096,9 +2015,8 @@ public:
      * Completes an invocation of begin_createAdminSession.
      * @param result The asynchronous result object for the invocation.
      * @return A proxy for the newly created session.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::AdminSessionPrx end_createAdminSession(const ::Ice::AsyncResultPtr& result);
 
@@ -2112,9 +2030,8 @@ public:
      * Create a client session from a secure connection.
      * @param context The Context map to send with the invocation.
      * @return A proxy for the newly created session.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::SessionPrx createSessionFromSecureConnection(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -2181,9 +2098,8 @@ public:
      * Completes an invocation of begin_createSessionFromSecureConnection.
      * @param result The asynchronous result object for the invocation.
      * @return A proxy for the newly created session.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::SessionPrx end_createSessionFromSecureConnection(const ::Ice::AsyncResultPtr& result);
 
@@ -2197,9 +2113,8 @@ public:
      * Create an administrative session from a secure connection.
      * @param context The Context map to send with the invocation.
      * @return A proxy for the newly created session.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::AdminSessionPrx createAdminSessionFromSecureConnection(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -2266,9 +2181,8 @@ public:
      * Completes an invocation of begin_createAdminSessionFromSecureConnection.
      * @param result The asynchronous result object for the invocation.
      * @return A proxy for the newly created session.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      */
     ICE_MEMBER(ICEGRID_API) ::IceGrid::AdminSessionPrx end_createAdminSessionFromSecureConnection(const ::Ice::AsyncResultPtr& result);
 
@@ -2279,9 +2193,8 @@ private:
 public:
 
     /**
-     * Get the session timeout. If a client or administrative client
-     * doesn't call the session keepAlive method in the time interval
-     * defined by this timeout, IceGrid might reap the session.
+     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+     * the time interval defined by this timeout, IceGrid might reap the session.
      * @param context The Context map to send with the invocation.
      * @return The timeout (in seconds).
      * @see Session#keepAlive
@@ -2293,9 +2206,8 @@ public:
     }
 
     /**
-     * Get the session timeout. If a client or administrative client
-     * doesn't call the session keepAlive method in the time interval
-     * defined by this timeout, IceGrid might reap the session.
+     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+     * the time interval defined by this timeout, IceGrid might reap the session.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      * @see Session#keepAlive
@@ -2307,9 +2219,8 @@ public:
     }
 
     /**
-     * Get the session timeout. If a client or administrative client
-     * doesn't call the session keepAlive method in the time interval
-     * defined by this timeout, IceGrid might reap the session.
+     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+     * the time interval defined by this timeout, IceGrid might reap the session.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2322,9 +2233,8 @@ public:
     }
 
     /**
-     * Get the session timeout. If a client or administrative client
-     * doesn't call the session keepAlive method in the time interval
-     * defined by this timeout, IceGrid might reap the session.
+     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+     * the time interval defined by this timeout, IceGrid might reap the session.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2338,9 +2248,8 @@ public:
     }
 
     /**
-     * Get the session timeout. If a client or administrative client
-     * doesn't call the session keepAlive method in the time interval
-     * defined by this timeout, IceGrid might reap the session.
+     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+     * the time interval defined by this timeout, IceGrid might reap the session.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2353,9 +2262,8 @@ public:
     }
 
     /**
-     * Get the session timeout. If a client or administrative client
-     * doesn't call the session keepAlive method in the time interval
-     * defined by this timeout, IceGrid might reap the session.
+     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+     * the time interval defined by this timeout, IceGrid might reap the session.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2382,11 +2290,8 @@ private:
 public:
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM
-     * connection heartbeats can enable them instead of explicitly
-     * sending keep alives requests.
-     *
-     * NOTE: This method is only available since Ice 3.6.
+     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
      * @param context The Context map to send with the invocation.
      * @return The timeout (in seconds).
      */
@@ -2396,11 +2301,8 @@ public:
     }
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM
-     * connection heartbeats can enable them instead of explicitly
-     * sending keep alives requests.
-     *
-     * NOTE: This method is only available since Ice 3.6.
+     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -2410,11 +2312,8 @@ public:
     }
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM
-     * connection heartbeats can enable them instead of explicitly
-     * sending keep alives requests.
-     *
-     * NOTE: This method is only available since Ice 3.6.
+     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2425,11 +2324,8 @@ public:
     }
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM
-     * connection heartbeats can enable them instead of explicitly
-     * sending keep alives requests.
-     *
-     * NOTE: This method is only available since Ice 3.6.
+     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2441,11 +2337,8 @@ public:
     }
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM
-     * connection heartbeats can enable them instead of explicitly
-     * sending keep alives requests.
-     *
-     * NOTE: This method is only available since Ice 3.6.
+     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2456,11 +2349,8 @@ public:
     }
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM
-     * connection heartbeats can enable them instead of explicitly
-     * sending keep alives requests.
-     *
-     * NOTE: This method is only available since Ice 3.6.
+     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2502,8 +2392,7 @@ class ICE_CLASS(ICEGRID_API) Locator : public virtual ::Ice::Proxy<Locator, ::Ic
 public:
 
     /**
-     * Get the proxy of the registry object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the registry object hosted by this IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @return The proxy of the registry object.
      */
@@ -2513,8 +2402,7 @@ public:
     }
 
     /**
-     * Get the proxy of the registry object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the registry object hosted by this IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -2524,8 +2412,7 @@ public:
     }
 
     /**
-     * Get the proxy of the registry object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the registry object hosted by this IceGrid registry.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2536,8 +2423,7 @@ public:
     }
 
     /**
-     * Get the proxy of the registry object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the registry object hosted by this IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2549,8 +2435,7 @@ public:
     }
 
     /**
-     * Get the proxy of the registry object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the registry object hosted by this IceGrid registry.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2561,8 +2446,7 @@ public:
     }
 
     /**
-     * Get the proxy of the registry object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the registry object hosted by this IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2587,8 +2471,7 @@ private:
 public:
 
     /**
-     * Get the proxy of the query object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the query object hosted by this IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @return The proxy of the query object.
      */
@@ -2598,8 +2481,7 @@ public:
     }
 
     /**
-     * Get the proxy of the query object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the query object hosted by this IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -2609,8 +2491,7 @@ public:
     }
 
     /**
-     * Get the proxy of the query object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the query object hosted by this IceGrid registry.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2621,8 +2502,7 @@ public:
     }
 
     /**
-     * Get the proxy of the query object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the query object hosted by this IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2634,8 +2514,7 @@ public:
     }
 
     /**
-     * Get the proxy of the query object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the query object hosted by this IceGrid registry.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2646,8 +2525,7 @@ public:
     }
 
     /**
-     * Get the proxy of the query object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the query object hosted by this IceGrid registry.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2692,8 +2570,8 @@ namespace IceGrid
 {
 
 /**
- * The IceGrid query interface. This interface is accessible to
- * Ice clients who wish to look up well-known objects.
+ * The IceGrid query interface. This interface is accessible to Ice clients who wish to look up well-known
+ * objects.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API Query : public virtual ::Ice::Object
@@ -2751,9 +2629,8 @@ public:
     /// \endcond
 
     /**
-     * Find a well-known object by type. If there are several objects
-     * registered for the given type, the object is randomly
-     * selected.
+     * Find a well-known object by type. If there are several objects registered for the given type, the object is
+     * randomly selected.
      * @param type The object type.
      * @param current The Current object for the invocation.
      * @return The proxy or null, if no such object has been found.
@@ -2764,11 +2641,9 @@ public:
     /// \endcond
 
     /**
-     * Find a well-known object by type on the least-loaded node. If
-     * the registry does not know which node hosts the object
-     * (for example, because the object was registered with a direct proxy), the
-     * registry assumes the object is hosted on a node that has a load
-     * average of 1.0.
+     * Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+     * the object (for example, because the object was registered with a direct proxy), the registry assumes the
+     * object is hosted on a node that has a load average of 1.0.
      * @param type The object type.
      * @param sample The sampling interval.
      * @param current The Current object for the invocation.
@@ -2783,8 +2658,7 @@ public:
      * Find all the well-known objects with the given type.
      * @param type The object type.
      * @param current The Current object for the invocation.
-     * @return The proxies or an empty sequence, if no such objects
-     * have been found.
+     * @return The proxies or an empty sequence, if no such objects have been found.
      */
     virtual ::Ice::ObjectProxySeq findAllObjectsByType(const ::std::string& type, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
     /// \cond INTERNAL
@@ -2792,13 +2666,12 @@ public:
     /// \endcond
 
     /**
-     * Find all the object replicas associated with the given
-     * proxy. If the given proxy is not an indirect proxy from a
-     * replica group, an empty sequence is returned.
+     * Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+     * from a replica group, an empty sequence is returned.
      * @param proxy The object proxy.
      * @param current The Current object for the invocation.
-     * @return The proxies of each object replica or an empty sequence,
-     * if the given proxy is not from a replica group.
+     * @return The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
+     * group.
      */
     virtual ::Ice::ObjectProxySeq findAllReplicas(const ::Ice::ObjectPrx& proxy, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
     /// \cond INTERNAL
@@ -2830,8 +2703,7 @@ inline bool operator<(const Query& lhs, const Query& rhs)
 /// \endcond
 
 /**
- * The IceGrid registry allows clients create sessions
- * directly with the registry.
+ * The IceGrid registry allows clients create sessions directly with the registry.
  * @see Session
  * @see AdminSession
  * \headerfile IceGrid/IceGrid.h
@@ -2885,9 +2757,8 @@ public:
      * @param password The password for the given user id.
      * @param current The Current object for the invocation.
      * @return A proxy for the newly created session.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      */
     virtual SessionPrx createSession(const ::std::string& userId, const ::std::string& password, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -2900,9 +2771,8 @@ public:
      * @param password The password for the given user id.
      * @param current The Current object for the invocation.
      * @return A proxy for the newly created session.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      */
     virtual AdminSessionPrx createAdminSession(const ::std::string& userId, const ::std::string& password, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -2913,9 +2783,8 @@ public:
      * Create a client session from a secure connection.
      * @param current The Current object for the invocation.
      * @return A proxy for the newly created session.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      */
     virtual SessionPrx createSessionFromSecureConnection(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -2926,9 +2795,8 @@ public:
      * Create an administrative session from a secure connection.
      * @param current The Current object for the invocation.
      * @return A proxy for the newly created session.
-     * @throws IceGrid::PermissionDeniedException Raised if the password for
-     * the given user id is not correct, or if the user is not allowed
-     * access.
+     * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      */
     virtual AdminSessionPrx createAdminSessionFromSecureConnection(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -2936,9 +2804,8 @@ public:
     /// \endcond
 
     /**
-     * Get the session timeout. If a client or administrative client
-     * doesn't call the session keepAlive method in the time interval
-     * defined by this timeout, IceGrid might reap the session.
+     * Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+     * the time interval defined by this timeout, IceGrid might reap the session.
      * @param current The Current object for the invocation.
      * @return The timeout (in seconds).
      * @see Session#keepAlive
@@ -2950,11 +2817,8 @@ public:
     /// \endcond
 
     /**
-     * Get the value of the ACM timeout. Clients supporting ACM
-     * connection heartbeats can enable them instead of explicitly
-     * sending keep alives requests.
-     *
-     * NOTE: This method is only available since Ice 3.6.
+     * Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+     * explicitly sending keep alives requests. This method is only available since Ice 3.6.
      * @param current The Current object for the invocation.
      * @return The timeout (in seconds).
      */
@@ -2988,8 +2852,8 @@ inline bool operator<(const Registry& lhs, const Registry& rhs)
 /// \endcond
 
 /**
- * The IceGrid locator interface provides access to the {@link Query}
- * and {@link Registry} object of the IceGrid registry.
+ * The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
+ * registry.
  * @see Query
  * @see Registry
  * \headerfile IceGrid/IceGrid.h
@@ -3038,8 +2902,7 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Get the proxy of the registry object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the registry object hosted by this IceGrid registry.
      * @param current The Current object for the invocation.
      * @return The proxy of the registry object.
      */
@@ -3049,8 +2912,7 @@ public:
     /// \endcond
 
     /**
-     * Get the proxy of the query object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the query object hosted by this IceGrid registry.
      * @param current The Current object for the invocation.
      * @return The proxy of the query object.
      */

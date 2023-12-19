@@ -25,12 +25,10 @@ if 'EndpointSelectionType' not in _M_Ice.__dict__:
     _M_Ice.EndpointSelectionType = Ice.createTempClass()
     class EndpointSelectionType(Ice.EnumBase):
         """
-        Determines the order in which the Ice run time uses the endpoints
-        in a proxy when establishing a connection.
+         Determines the order in which the Ice run time uses the endpoints in a proxy when establishing a connection.
         Enumerators:
-        Random -- Random causes the endpoints to be arranged in a random order.
-        Ordered -- Ordered forces the Ice run time to use the endpoints in the
-        order they appeared in the proxy.
+        Random --  Random causes the endpoints to be arranged in a random order.
+        Ordered --  Ordered forces the Ice run time to use the endpoints in the order they appeared in the proxy.
         """
 
         def __init__(self, _n, _v):

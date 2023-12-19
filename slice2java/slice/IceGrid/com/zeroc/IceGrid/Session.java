@@ -16,18 +16,16 @@
 package com.zeroc.IceGrid;
 
 /**
- * A session object is used by IceGrid clients to allocate and
- * release objects. Client sessions are created either via the
- * {@link Registry} object or via the registry client <code>SessionManager</code>
- * object.
+ * A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
+ * via the {@link Registry} object or via the registry client <code>SessionManager</code> object.
  *
  * @see Registry
  **/
 public interface Session extends com.zeroc.Glacier2.Session
 {
     /**
-     * Keep the session alive. Clients should call this operation
-     * regularly to prevent the server from reaping the session.
+     * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+     * session.
      * @param current The Current object for the invocation.
      *
      * @see Registry#getSessionTimeout
@@ -35,16 +33,14 @@ public interface Session extends com.zeroc.Glacier2.Session
     void keepAlive(com.zeroc.Ice.Current current);
 
     /**
-     * Allocate an object. Depending on the allocation timeout, this
-     * operation might hang until the object is available or until the
-     * timeout is reached.
+     * Allocate an object. Depending on the allocation timeout, this operation might hang until the object is
+     * available or until the timeout is reached.
      * @param id The identity of the object to allocate.
      * @param current The Current object for the invocation.
      * @return The proxy of the allocated object.
-     * @throws AllocationException Raised if the object can't be
-     * allocated.
-     * @throws ObjectNotRegisteredException Raised if the object with
-     * the given identity is not registered with the registry.
+     * @throws AllocationException Raised if the object can't be allocated.
+     * @throws ObjectNotRegisteredException Raised if the object with the given identity is not registered with
+     * the registry.
      *
      * @see #setAllocationTimeout
      * @see #releaseObject
@@ -54,9 +50,8 @@ public interface Session extends com.zeroc.Glacier2.Session
                ObjectNotRegisteredException;
 
     /**
-     * Allocate an object with the given type. Depending on the
-     * allocation timeout, this operation can block until an object
-     * becomes available or until the timeout is reached.
+     * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
+     * an object becomes available or until the timeout is reached.
      * @param type The type of the object.
      * @param current The Current object for the invocation.
      * @return The proxy of the allocated object.
@@ -73,20 +68,18 @@ public interface Session extends com.zeroc.Glacier2.Session
      * <code>allocateObjectByType</code>.
      * @param id The identity of the object to release.
      * @param current The Current object for the invocation.
-     * @throws AllocationException Raised if the given object can't be
-     * released. This might happen if the object isn't allocatable or
-     * isn't allocated by the session.
-     * @throws ObjectNotRegisteredException Raised if the object with
-     * the given identity is not registered with the registry.
+     * @throws AllocationException Raised if the given object can't be released. This might happen if the object
+     * isn't allocatable or isn't allocated by the session.
+     * @throws ObjectNotRegisteredException Raised if the object with the given identity is not registered with
+     * the registry.
      **/
     void releaseObject(com.zeroc.Ice.Identity id, com.zeroc.Ice.Current current)
         throws AllocationException,
                ObjectNotRegisteredException;
 
     /**
-     * Set the allocation timeout. If no objects are available for an
-     * allocation request, a call to <code>allocateObjectById</code> or
-     * <code>allocateObjectByType</code> will block for the duration of this
+     * Set the allocation timeout. If no objects are available for an allocation request, a call to
+     * <code>allocateObjectById</code> or <code>allocateObjectByType</code> will block for the duration of this
      * timeout.
      * @param timeout The timeout in milliseconds.
      * @param current The Current object for the invocation.

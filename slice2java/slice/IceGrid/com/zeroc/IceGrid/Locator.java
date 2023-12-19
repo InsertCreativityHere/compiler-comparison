@@ -16,8 +16,8 @@
 package com.zeroc.IceGrid;
 
 /**
- * The IceGrid locator interface provides access to the {@link Query}
- * and {@link Registry} object of the IceGrid registry.
+ * The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
+ * registry.
  *
  * @see Query
  * @see Registry
@@ -25,16 +25,14 @@ package com.zeroc.IceGrid;
 public interface Locator extends com.zeroc.Ice.Locator
 {
     /**
-     * Get the proxy of the registry object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the registry object hosted by this IceGrid registry.
      * @param current The Current object for the invocation.
      * @return The proxy of the registry object.
      **/
     RegistryPrx getLocalRegistry(com.zeroc.Ice.Current current);
 
     /**
-     * Get the proxy of the query object hosted by this IceGrid
-     * registry.
+     * Get the proxy of the query object hosted by this IceGrid registry.
      * @param current The Current object for the invocation.
      * @return The proxy of the query object.
      **/

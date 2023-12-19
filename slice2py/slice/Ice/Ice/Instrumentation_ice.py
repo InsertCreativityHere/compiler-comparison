@@ -30,16 +30,15 @@ __name__ = 'Ice'
 _M_Ice.Instrumentation = Ice.openModule('Ice.Instrumentation')
 __name__ = 'Ice.Instrumentation'
 _M_Ice.Instrumentation.__doc__ = """
-The Instrumentation local interfaces enable observing a number of
-Ice core internal components (threads, connections, etc).
+ The Instrumentation local interfaces enable observing a number of Ice core internal components (threads,
+ connections, etc).
 """
 
 if 'Observer' not in _M_Ice.Instrumentation.__dict__:
     _M_Ice.Instrumentation.Observer = Ice.createTempClass()
     class Observer(object):
         """
-        The object observer interface used by instrumented objects to
-        notify the observer of their existence.
+         The object observer interface used by instrumented objects to notify the observer of their existence.
         """
         def __init__(self):
             if Ice.getType(self) == _M_Ice.Instrumentation.Observer:
@@ -47,21 +46,21 @@ if 'Observer' not in _M_Ice.Instrumentation.__dict__:
 
         def attach(self):
             """
-            This method is called when the instrumented object is created
-            or when the observer is attached to an existing object.
+             This method is called when the instrumented object is created or when the observer is attached to an existing
+             object.
             """
             raise NotImplementedError("method 'attach' not implemented")
 
         def detach(self):
             """
-            This method is called when the instrumented object is destroyed
-            and as a result the observer detached from the object.
+             This method is called when the instrumented object is destroyed and as a result the observer detached from the
+             object.
             """
             raise NotImplementedError("method 'detach' not implemented")
 
         def failed(self, exceptionName):
             """
-            Notification of a failure.
+             Notification of a failure.
             Arguments:
             exceptionName -- The name of the exception.
             """
@@ -82,18 +81,14 @@ if 'ThreadState' not in _M_Ice.Instrumentation.__dict__:
     _M_Ice.Instrumentation.ThreadState = Ice.createTempClass()
     class ThreadState(Ice.EnumBase):
         """
-        The thread state enumeration keeps track of the different possible
-        states of Ice threads.
+         The thread state enumeration keeps track of the different possible states of Ice threads.
         Enumerators:
-        ThreadStateIdle -- The thread is idle.
-        ThreadStateInUseForIO -- The thread is in use performing reads or writes for Ice
-        connections. This state is only for threads from an Ice thread
-        pool.
-        ThreadStateInUseForUser -- The thread is calling user code (servant implementation, AMI
-        callbacks). This state is only for threads from an Ice thread
-        pool.
-        ThreadStateInUseForOther -- The thread is performing other internal activities (DNS
-        lookups, timer callbacks, etc).
+        ThreadStateIdle --  The thread is idle.
+        ThreadStateInUseForIO --  The thread is in use performing reads or writes for Ice connections. This state is only for threads from an Ice
+         thread pool.
+        ThreadStateInUseForUser --  The thread is calling user code (servant implementation, AMI callbacks). This state is only for threads from an
+         Ice thread pool.
+        ThreadStateInUseForOther --  The thread is performing other internal activities (DNS lookups, timer callbacks, etc).
         """
 
         def __init__(self, _n, _v):
@@ -120,9 +115,8 @@ if 'ThreadObserver' not in _M_Ice.Instrumentation.__dict__:
     _M_Ice.Instrumentation.ThreadObserver = Ice.createTempClass()
     class ThreadObserver(_M_Ice.Instrumentation.Observer):
         """
-        The thread observer interface to instrument Ice threads. This can
-        be threads from the Ice thread pool or utility threads used by the
-        Ice core.
+         The thread observer interface to instrument Ice threads. This can be threads from the Ice thread pool or utility
+         threads used by the Ice core.
         """
         def __init__(self):
             if Ice.getType(self) == _M_Ice.Instrumentation.ThreadObserver:
@@ -130,7 +124,7 @@ if 'ThreadObserver' not in _M_Ice.Instrumentation.__dict__:
 
         def stateChanged(self, oldState, newState):
             """
-            Notification of thread state change.
+             Notification of thread state change.
             Arguments:
             oldState -- The previous thread state.
             newState -- The new thread state.
@@ -152,15 +146,14 @@ if 'ConnectionState' not in _M_Ice.Instrumentation.__dict__:
     _M_Ice.Instrumentation.ConnectionState = Ice.createTempClass()
     class ConnectionState(Ice.EnumBase):
         """
-        The state of an Ice connection.
+         The state of an Ice connection.
         Enumerators:
-        ConnectionStateValidating -- The connection is being validated.
-        ConnectionStateHolding -- The connection is holding the reception of new messages.
-        ConnectionStateActive -- The connection is active and can send and receive messages.
-        ConnectionStateClosing -- The connection is being gracefully shutdown and waits for the
-        peer to close its end of the connection.
-        ConnectionStateClosed -- The connection is closed and waits for potential dispatch to be
-        finished before being destroyed and detached from the observer.
+        ConnectionStateValidating --  The connection is being validated.
+        ConnectionStateHolding --  The connection is holding the reception of new messages.
+        ConnectionStateActive --  The connection is active and can send and receive messages.
+        ConnectionStateClosing --  The connection is being gracefully shutdown and waits for the peer to close its end of the connection.
+        ConnectionStateClosed --  The connection is closed and waits for potential dispatch to be finished before being destroyed and detached
+         from the observer.
         """
 
         def __init__(self, _n, _v):
@@ -188,7 +181,7 @@ if 'ConnectionObserver' not in _M_Ice.Instrumentation.__dict__:
     _M_Ice.Instrumentation.ConnectionObserver = Ice.createTempClass()
     class ConnectionObserver(_M_Ice.Instrumentation.Observer):
         """
-        The connection observer interface to instrument Ice connections.
+         The connection observer interface to instrument Ice connections.
         """
         def __init__(self):
             if Ice.getType(self) == _M_Ice.Instrumentation.ConnectionObserver:
@@ -196,7 +189,7 @@ if 'ConnectionObserver' not in _M_Ice.Instrumentation.__dict__:
 
         def sentBytes(self, num):
             """
-            Notification of sent bytes over the connection.
+             Notification of sent bytes over the connection.
             Arguments:
             num -- The number of bytes sent.
             """
@@ -204,7 +197,7 @@ if 'ConnectionObserver' not in _M_Ice.Instrumentation.__dict__:
 
         def receivedBytes(self, num):
             """
-            Notification of received bytes over the connection.
+             Notification of received bytes over the connection.
             Arguments:
             num -- The number of bytes received.
             """
@@ -225,7 +218,7 @@ if 'DispatchObserver' not in _M_Ice.Instrumentation.__dict__:
     _M_Ice.Instrumentation.DispatchObserver = Ice.createTempClass()
     class DispatchObserver(_M_Ice.Instrumentation.Observer):
         """
-        The dispatch observer to instrument servant dispatch.
+         The dispatch observer to instrument servant dispatch.
         """
         def __init__(self):
             if Ice.getType(self) == _M_Ice.Instrumentation.DispatchObserver:
@@ -233,13 +226,13 @@ if 'DispatchObserver' not in _M_Ice.Instrumentation.__dict__:
 
         def userException(self):
             """
-            Notification of a user exception.
+             Notification of a user exception.
             """
             raise NotImplementedError("method 'userException' not implemented")
 
         def reply(self, size):
             """
-            Reply notification.
+             Reply notification.
             Arguments:
             size -- The size of the reply.
             """
@@ -260,8 +253,7 @@ if 'ChildInvocationObserver' not in _M_Ice.Instrumentation.__dict__:
     _M_Ice.Instrumentation.ChildInvocationObserver = Ice.createTempClass()
     class ChildInvocationObserver(_M_Ice.Instrumentation.Observer):
         """
-        The child invocation observer to instrument remote or collocated
-        invocations.
+         The child invocation observer to instrument remote or collocated invocations.
         """
         def __init__(self):
             if Ice.getType(self) == _M_Ice.Instrumentation.ChildInvocationObserver:
@@ -269,7 +261,7 @@ if 'ChildInvocationObserver' not in _M_Ice.Instrumentation.__dict__:
 
         def reply(self, size):
             """
-            Reply notification.
+             Reply notification.
             Arguments:
             size -- The size of the reply.
             """
@@ -290,8 +282,7 @@ if 'RemoteObserver' not in _M_Ice.Instrumentation.__dict__:
     _M_Ice.Instrumentation.RemoteObserver = Ice.createTempClass()
     class RemoteObserver(_M_Ice.Instrumentation.ChildInvocationObserver):
         """
-        The remote observer to instrument invocations that are sent over
-        the wire.
+         The remote observer to instrument invocations that are sent over the wire.
         """
         def __init__(self):
             if Ice.getType(self) == _M_Ice.Instrumentation.RemoteObserver:
@@ -312,8 +303,7 @@ if 'CollocatedObserver' not in _M_Ice.Instrumentation.__dict__:
     _M_Ice.Instrumentation.CollocatedObserver = Ice.createTempClass()
     class CollocatedObserver(_M_Ice.Instrumentation.ChildInvocationObserver):
         """
-        The collocated observer to instrument invocations that are
-        collocated.
+         The collocated observer to instrument invocations that are collocated.
         """
         def __init__(self):
             if Ice.getType(self) == _M_Ice.Instrumentation.CollocatedObserver:
@@ -334,10 +324,8 @@ if 'InvocationObserver' not in _M_Ice.Instrumentation.__dict__:
     _M_Ice.Instrumentation.InvocationObserver = Ice.createTempClass()
     class InvocationObserver(_M_Ice.Instrumentation.Observer):
         """
-        The invocation observer to instrument invocations on proxies. A
-        proxy invocation can either result in a collocated or remote
-        invocation. If it results in a remote invocation, a sub-observer is
-        requested for the remote invocation.
+         The invocation observer to instrument invocations on proxies. A proxy invocation can either result in a collocated
+         or remote invocation. If it results in a remote invocation, a sub-observer is requested for the remote invocation.
         """
         def __init__(self):
             if Ice.getType(self) == _M_Ice.Instrumentation.InvocationObserver:
@@ -345,19 +333,19 @@ if 'InvocationObserver' not in _M_Ice.Instrumentation.__dict__:
 
         def retried(self):
             """
-            Notification of the invocation being retried.
+             Notification of the invocation being retried.
             """
             raise NotImplementedError("method 'retried' not implemented")
 
         def userException(self):
             """
-            Notification of a user exception.
+             Notification of a user exception.
             """
             raise NotImplementedError("method 'userException' not implemented")
 
         def getRemoteObserver(self, con, endpt, requestId, size):
             """
-            Get a remote observer for this invocation.
+             Get a remote observer for this invocation.
             Arguments:
             con -- The connection information.
             endpt -- The connection endpoint.
@@ -369,7 +357,7 @@ if 'InvocationObserver' not in _M_Ice.Instrumentation.__dict__:
 
         def getCollocatedObserver(self, adapter, requestId, size):
             """
-            Get a collocated observer for this invocation.
+             Get a collocated observer for this invocation.
             Arguments:
             adapter -- The object adapter hosting the collocated Ice object.
             requestId -- The ID of the invocation.
@@ -393,16 +381,12 @@ if 'ObserverUpdater' not in _M_Ice.Instrumentation.__dict__:
     _M_Ice.Instrumentation.ObserverUpdater = Ice.createTempClass()
     class ObserverUpdater(object):
         """
-        The observer updater interface. This interface is implemented by
-        the Ice run-time and an instance of this interface is provided by
-        the Ice communicator on initialization to the
-        CommunicatorObserver object set with the communicator
-        initialization data. The Ice communicator calls
-        CommunicatorObserver#setObserverUpdater to provide the observer
-        updater.
-        This interface can be used by add-ins implementing the
-        CommunicatorObserver interface to update the observers of
-        connections and threads.
+         The observer updater interface. This interface is implemented by the Ice run-time and an instance of this interface
+         is provided by the Ice communicator on initialization to the CommunicatorObserver object set with the
+         communicator initialization data. The Ice communicator calls CommunicatorObserver#setObserverUpdater to
+         provide the observer updater.
+         This interface can be used by add-ins implementing the CommunicatorObserver interface to update the
+         observers of connections and threads.
         """
         def __init__(self):
             if Ice.getType(self) == _M_Ice.Instrumentation.ObserverUpdater:
@@ -410,23 +394,20 @@ if 'ObserverUpdater' not in _M_Ice.Instrumentation.__dict__:
 
         def updateConnectionObservers(self):
             """
-            Update connection observers associated with each of the Ice
-            connection from the communicator and its object adapters.
-            When called, this method goes through all the connections and
-            for each connection CommunicatorObserver#getConnectionObserver
-            is called. The implementation of getConnectionObserver has the
-            possibility to return an updated observer if necessary.
+             Update connection observers associated with each of the Ice connection from the communicator and its object
+             adapters.
+             When called, this method goes through all the connections and for each connection
+             CommunicatorObserver#getConnectionObserver is called. The implementation of getConnectionObserver has
+             the possibility to return an updated observer if necessary.
             """
             raise NotImplementedError("method 'updateConnectionObservers' not implemented")
 
         def updateThreadObservers(self):
             """
-            Update thread observers associated with each of the Ice thread
-            from the communicator and its object adapters.
-            When called, this method goes through all the threads and for
-            each thread CommunicatorObserver#getThreadObserver is
-            called. The implementation of getThreadObserver has the
-            possibility to return an updated observer if necessary.
+             Update thread observers associated with each of the Ice thread from the communicator and its object adapters.
+             When called, this method goes through all the threads and for each thread
+             CommunicatorObserver#getThreadObserver is called. The implementation of getThreadObserver has the
+             possibility to return an updated observer if necessary.
             """
             raise NotImplementedError("method 'updateThreadObservers' not implemented")
 
@@ -445,12 +426,10 @@ if 'CommunicatorObserver' not in _M_Ice.Instrumentation.__dict__:
     _M_Ice.Instrumentation.CommunicatorObserver = Ice.createTempClass()
     class CommunicatorObserver(object):
         """
-        The communicator observer interface used by the Ice run-time to
-        obtain and update observers for its observable objects. This
-        interface should be implemented by add-ins that wish to observe Ice
-        objects in order to collect statistics. An instance of this
-        interface can be provided to the Ice run-time through the Ice
-        communicator initialization data.
+         The communicator observer interface used by the Ice run-time to obtain and update observers for its observable
+         objects. This interface should be implemented by add-ins that wish to observe Ice objects in order to collect
+         statistics. An instance of this interface can be provided to the Ice run-time through the Ice communicator
+         initialization data.
         """
         def __init__(self):
             if Ice.getType(self) == _M_Ice.Instrumentation.CommunicatorObserver:
@@ -458,9 +437,8 @@ if 'CommunicatorObserver' not in _M_Ice.Instrumentation.__dict__:
 
         def getConnectionEstablishmentObserver(self, endpt, connector):
             """
-            This method should return an observer for the given endpoint
-            information and connector. The Ice run-time calls this method
-            for each connection establishment attempt.
+             This method should return an observer for the given endpoint information and connector. The Ice run-time calls
+             this method for each connection establishment attempt.
             Arguments:
             endpt -- The endpoint.
             connector -- The description of the connector. For IP transports, this is typically the IP address to connect to.
@@ -470,11 +448,9 @@ if 'CommunicatorObserver' not in _M_Ice.Instrumentation.__dict__:
 
         def getEndpointLookupObserver(self, endpt):
             """
-            This method should return an observer for the given endpoint
-            information. The Ice run-time calls this method to resolve an
-            endpoint and obtain the list of connectors.
-            For IP endpoints, this typically involves doing a DNS lookup to
-            obtain the IP addresses associated with the DNS name.
+             This method should return an observer for the given endpoint information. The Ice run-time calls this method to
+             resolve an endpoint and obtain the list of connectors. For IP endpoints, this typically involves doing a DNS
+             lookup to obtain the IP addresses associated with the DNS name.
             Arguments:
             endpt -- The endpoint.
             Returns: The observer to instrument the endpoint lookup.
@@ -483,10 +459,9 @@ if 'CommunicatorObserver' not in _M_Ice.Instrumentation.__dict__:
 
         def getConnectionObserver(self, c, e, s, o):
             """
-            This method should return a connection observer for the given
-            connection. The Ice run-time calls this method for each new
-            connection and for all the Ice communicator connections when
-            ObserverUpdater#updateConnectionObservers is called.
+             This method should return a connection observer for the given connection. The Ice run-time calls this method
+             for each new connection and for all the Ice communicator connections when
+             ObserverUpdater#updateConnectionObservers is called.
             Arguments:
             c -- The connection information.
             e -- The connection endpoint.
@@ -498,10 +473,9 @@ if 'CommunicatorObserver' not in _M_Ice.Instrumentation.__dict__:
 
         def getThreadObserver(self, parent, id, s, o):
             """
-            This method should return a thread observer for the given
-            thread. The Ice run-time calls this method for each new thread
-            and for all the Ice communicator threads when
-            ObserverUpdater#updateThreadObservers is called.
+             This method should return a thread observer for the given thread. The Ice run-time calls this method for each
+             new thread and for all the Ice communicator threads when ObserverUpdater#updateThreadObservers is
+             called.
             Arguments:
             parent -- The parent of the thread.
             id -- The ID of the thread to observe.
@@ -513,12 +487,11 @@ if 'CommunicatorObserver' not in _M_Ice.Instrumentation.__dict__:
 
         def getInvocationObserver(self, prx, operation, ctx):
             """
-            This method should return an invocation observer for the given
-            invocation. The Ice run-time calls this method for each new
-            invocation on a proxy.
+             This method should return an invocation observer for the given invocation. The Ice run-time calls this method
+             for each new invocation on a proxy.
             Arguments:
             prx -- The proxy used for the invocation.
-            operation -- The name of the invocation.
+            operation -- The name of the operation.
             ctx -- The context specified by the user.
             Returns: The invocation observer to instrument the invocation.
             """
@@ -526,10 +499,8 @@ if 'CommunicatorObserver' not in _M_Ice.Instrumentation.__dict__:
 
         def getDispatchObserver(self, c, size):
             """
-            This method should return a dispatch observer for the given
-            dispatch. The Ice run-time calls this method each time it
-            receives an incoming invocation to be dispatched for an Ice
-            object.
+             This method should return a dispatch observer for the given dispatch. The Ice run-time calls this method each
+             time it receives an incoming invocation to be dispatched for an Ice object.
             Arguments:
             c -- The current object as provided to the Ice servant dispatching the invocation.
             size -- The size of the dispatch.
@@ -539,10 +510,8 @@ if 'CommunicatorObserver' not in _M_Ice.Instrumentation.__dict__:
 
         def setObserverUpdater(self, updater):
             """
-            The Ice run-time calls this method when the communicator is
-            initialized. The add-in implementing this interface can use
-            this object to get the Ice run-time to re-obtain observers for
-            observed objects.
+             The Ice run-time calls this method when the communicator is initialized. The add-in implementing this
+             interface can use this object to get the Ice run-time to re-obtain observers for observed objects.
             Arguments:
             updater -- The observer updater object.
             """

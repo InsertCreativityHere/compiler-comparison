@@ -137,6 +137,9 @@ public:
     long long int l;
 };
 
+/**
+ * Test keyword escape.
+ */
 class def : public ::Ice::UserExceptionHelper<def, ::Ice::UserException>
 {
 public:
@@ -491,6 +494,9 @@ protected:
     /// \endcond
 };
 
+/**
+ * Test keyword escape.
+ */
 class def : public ::Ice::UserException
 {
 public:

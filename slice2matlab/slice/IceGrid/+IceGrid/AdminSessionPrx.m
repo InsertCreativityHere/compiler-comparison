@@ -1,9 +1,8 @@
 % AdminSessionPrx   Summary of AdminSessionPrx
 %
-% Used by administrative clients to view,
-% update, and receive observer updates from the IceGrid
-% registry. Admin sessions are created either via the Registry
-% object or via the registry admin SessionManager object.
+% Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
+% sessions are created either via the Registry object or via the registry admin SessionManager
+% object.
 %
 % AdminSessionPrx Methods:
 %   keepAlive - Keep the session alive.
@@ -47,8 +46,8 @@
 classdef AdminSessionPrx < Glacier2.SessionPrx
     methods
         function keepAlive(obj, varargin)
-            % keepAlive   Keep the session alive. Clients should call this operation
-            % regularly to prevent the server from reaping the session.
+            % keepAlive   Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+            % session.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -58,8 +57,8 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             obj.iceInvoke('keepAlive', 2, false, [], false, {}, varargin{:});
         end
         function r_ = keepAliveAsync(obj, varargin)
-            % keepAliveAsync   Keep the session alive. Clients should call this operation
-            % regularly to prevent the server from reaping the session.
+            % keepAliveAsync   Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
+            % session.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -71,8 +70,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             r_ = obj.iceInvokeAsync('keepAlive', 2, false, [], 0, [], {}, varargin{:});
         end
         function result = getAdmin(obj, varargin)
-            % getAdmin   Get the admin interface. The admin object returned by this
-            % operation can only be accessed by the session.
+            % getAdmin   Get the admin interface. The admin object returned by this operation can only be accessed by the session.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -85,8 +83,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             is_.endEncapsulation();
         end
         function r_ = getAdminAsync(obj, varargin)
-            % getAdminAsync   Get the admin interface. The admin object returned by this
-            % operation can only be accessed by the session.
+            % getAdminAsync   Get the admin interface. The admin object returned by this operation can only be accessed by the session.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -102,16 +99,13 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             r_ = obj.iceInvokeAsync('getAdmin', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getAdminCallbackTemplate(obj, varargin)
-            % getAdminCallbackTemplate   Get a "template" proxy for admin callback objects.
-            % An Admin client uses this proxy to set the category of its callback
-            % objects, and the published endpoints of the object adapter hosting
-            % the admin callback objects.
+            % getAdminCallbackTemplate   Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+            % callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (Ice.ObjectPrx) - A template proxy. The returned proxy is null when the Admin
-            % session was established using Glacier2.
+            % Returns (Ice.ObjectPrx) - A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
             
             is_ = obj.iceInvoke('getAdminCallbackTemplate', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
@@ -119,10 +113,8 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             is_.endEncapsulation();
         end
         function r_ = getAdminCallbackTemplateAsync(obj, varargin)
-            % getAdminCallbackTemplateAsync   Get a "template" proxy for admin callback objects.
-            % An Admin client uses this proxy to set the category of its callback
-            % objects, and the published endpoints of the object adapter hosting
-            % the admin callback objects.
+            % getAdminCallbackTemplateAsync   Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
+            % callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -138,9 +130,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             r_ = obj.iceInvokeAsync('getAdminCallbackTemplate', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function setObservers(obj, registryObs, nodeObs, appObs, adptObs, objObs, varargin)
-            % setObservers   Set the observer proxies that receive
-            % notifications when the state of the registry
-            % or nodes changes.
+            % setObservers   Set the observer proxies that receive notifications when the state of the registry or nodes changes.
             %
             % Parameters:
             %   registryObs (IceGrid.RegistryObserverPrx) - The registry observer.
@@ -151,8 +141,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %   context (containers.Map) - Optional request context.
             %
             % Exceptions:
-            %   IceGrid.ObserverAlreadyRegisteredException - Raised if an
-            %     observer is already registered with this registry.
+            %   IceGrid.ObserverAlreadyRegisteredException - Raised if an observer is already registered with this registry.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(registryObs);
@@ -164,9 +153,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             obj.iceInvoke('setObservers', 2, true, os_, false, IceGrid.AdminSessionPrx.setObservers_ex_, varargin{:});
         end
         function r_ = setObserversAsync(obj, registryObs, nodeObs, appObs, adptObs, objObs, varargin)
-            % setObserversAsync   Set the observer proxies that receive
-            % notifications when the state of the registry
-            % or nodes changes.
+            % setObserversAsync   Set the observer proxies that receive notifications when the state of the registry or nodes changes.
             %
             % Parameters:
             %   registryObs (IceGrid.RegistryObserverPrx) - The registry observer.
@@ -179,8 +166,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.ObserverAlreadyRegisteredException - Raised if an
-            %     observer is already registered with this registry.
+            %   IceGrid.ObserverAlreadyRegisteredException - Raised if an observer is already registered with this registry.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(registryObs);
@@ -192,11 +178,8 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             r_ = obj.iceInvokeAsync('setObservers', 2, true, os_, 0, [], IceGrid.AdminSessionPrx.setObservers_ex_, varargin{:});
         end
         function setObserversByIdentity(obj, registryObs, nodeObs, appObs, adptObs, objObs, varargin)
-            % setObserversByIdentity   Set the observer identities that receive
-            % notifications the state of the registry
-            % or nodes changes. This operation should be used by clients that
-            % are using a bidirectional connection to communicate with the
-            % session.
+            % setObserversByIdentity   Set the observer identities that receive notifications the state of the registry or nodes changes. This
+            % operation should be used by clients that are using a bidirectional connection to communicate with the session.
             %
             % Parameters:
             %   registryObs (Ice.Identity) - The registry observer identity.
@@ -207,8 +190,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %   context (containers.Map) - Optional request context.
             %
             % Exceptions:
-            %   IceGrid.ObserverAlreadyRegisteredException - Raised if an
-            %     observer is already registered with this registry.
+            %   IceGrid.ObserverAlreadyRegisteredException - Raised if an observer is already registered with this registry.
             
             os_ = obj.iceStartWriteParams([]);
             Ice.Identity.ice_write(os_, registryObs);
@@ -220,11 +202,8 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             obj.iceInvoke('setObserversByIdentity', 2, true, os_, false, IceGrid.AdminSessionPrx.setObserversByIdentity_ex_, varargin{:});
         end
         function r_ = setObserversByIdentityAsync(obj, registryObs, nodeObs, appObs, adptObs, objObs, varargin)
-            % setObserversByIdentityAsync   Set the observer identities that receive
-            % notifications the state of the registry
-            % or nodes changes. This operation should be used by clients that
-            % are using a bidirectional connection to communicate with the
-            % session.
+            % setObserversByIdentityAsync   Set the observer identities that receive notifications the state of the registry or nodes changes. This
+            % operation should be used by clients that are using a bidirectional connection to communicate with the session.
             %
             % Parameters:
             %   registryObs (Ice.Identity) - The registry observer identity.
@@ -237,8 +216,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.ObserverAlreadyRegisteredException - Raised if an
-            %     observer is already registered with this registry.
+            %   IceGrid.ObserverAlreadyRegisteredException - Raised if an observer is already registered with this registry.
             
             os_ = obj.iceStartWriteParams([]);
             Ice.Identity.ice_write(os_, registryObs);
@@ -258,9 +236,8 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             % Returns (int32) - The current serial.
             %
             % Exceptions:
-            %   IceGrid.AccessDeniedException - Raised if the exclusive lock can't be
-            %     acquired. This might happen if the lock is currently acquired by
-            %     another session.
+            %   IceGrid.AccessDeniedException - Raised if the exclusive lock can't be acquired. This might happen if the lock is
+            %     currently acquired by another session.
             
             is_ = obj.iceInvoke('startUpdate', 0, true, [], true, IceGrid.AdminSessionPrx.startUpdate_ex_, varargin{:});
             is_.startEncapsulation();
@@ -276,9 +253,8 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.AccessDeniedException - Raised if the exclusive lock can't be
-            %     acquired. This might happen if the lock is currently acquired by
-            %     another session.
+            %   IceGrid.AccessDeniedException - Raised if the exclusive lock can't be acquired. This might happen if the lock is
+            %     currently acquired by another session.
             
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
@@ -295,8 +271,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %   context (containers.Map) - Optional request context.
             %
             % Exceptions:
-            %   IceGrid.AccessDeniedException - Raised if the session doesn't hold the
-            %     exclusive lock.
+            %   IceGrid.AccessDeniedException - Raised if the session doesn't hold the exclusive lock.
             
             obj.iceInvoke('finishUpdate', 0, true, [], false, IceGrid.AdminSessionPrx.finishUpdate_ex_, varargin{:});
         end
@@ -309,8 +284,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.AccessDeniedException - Raised if the session doesn't hold the
-            %     exclusive lock.
+            %   IceGrid.AccessDeniedException - Raised if the session doesn't hold the exclusive lock.
             
             r_ = obj.iceInvokeAsync('finishUpdate', 0, true, [], 0, [], IceGrid.AdminSessionPrx.finishUpdate_ex_, varargin{:});
         end
@@ -344,30 +318,23 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             r_ = obj.iceInvokeAsync('getReplicaName', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = openServerLog(obj, id, path, count, varargin)
-            % openServerLog   Open the given server log file for reading. The file can be
-            % read with the returned file iterator.
+            % openServerLog   Open the given server log file for reading. The file can be read with the returned file iterator.
             %
             % Parameters:
             %   id (char) - The server id.
-            %   path (char) - The path of the log file. A log file can be opened
-            %     only if it's declared in the server or service deployment
-            %     descriptor.
-            %   count (int32) - Specifies where to start reading the file. If
-            %     negative, the file is read from the begining. If 0 or positive,
-            %     the file is read from the last count lines.
+            %   path (char) - The path of the log file. A log file can be opened only if it's declared in the server or service
+            %     deployment descriptor.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+            %     or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file.
             %
             % Exceptions:
-            %   IceGrid.DeploymentException - Raised if the server couldn't be
-            %     deployed on the node.
-            %   IceGrid.FileNotAvailableException - Raised if the file can't be
-            %     read.
-            %   IceGrid.NodeUnreachableException - Raised if the node could not
-            %     be reached.
-            %   IceGrid.ServerNotExistException - Raised if the server doesn't
-            %     exist.
+            %   IceGrid.DeploymentException - Raised if the server couldn't be deployed on the node.
+            %   IceGrid.FileNotAvailableException - Raised if the file can't be read.
+            %   IceGrid.NodeUnreachableException - Raised if the node could not be reached.
+            %   IceGrid.ServerNotExistException - Raised if the server doesn't exist.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(id);
@@ -380,30 +347,23 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             is_.endEncapsulation();
         end
         function r_ = openServerLogAsync(obj, id, path, count, varargin)
-            % openServerLogAsync   Open the given server log file for reading. The file can be
-            % read with the returned file iterator.
+            % openServerLogAsync   Open the given server log file for reading. The file can be read with the returned file iterator.
             %
             % Parameters:
             %   id (char) - The server id.
-            %   path (char) - The path of the log file. A log file can be opened
-            %     only if it's declared in the server or service deployment
-            %     descriptor.
-            %   count (int32) - Specifies where to start reading the file. If
-            %     negative, the file is read from the begining. If 0 or positive,
-            %     the file is read from the last count lines.
+            %   path (char) - The path of the log file. A log file can be opened only if it's declared in the server or service
+            %     deployment descriptor.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+            %     or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.DeploymentException - Raised if the server couldn't be
-            %     deployed on the node.
-            %   IceGrid.FileNotAvailableException - Raised if the file can't be
-            %     read.
-            %   IceGrid.NodeUnreachableException - Raised if the node could not
-            %     be reached.
-            %   IceGrid.ServerNotExistException - Raised if the server doesn't
-            %     exist.
+            %   IceGrid.DeploymentException - Raised if the server couldn't be deployed on the node.
+            %   IceGrid.FileNotAvailableException - Raised if the file can't be read.
+            %   IceGrid.NodeUnreachableException - Raised if the node could not be reached.
+            %   IceGrid.ServerNotExistException - Raised if the server doesn't exist.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(id);
@@ -419,27 +379,21 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             r_ = obj.iceInvokeAsync('openServerLog', 0, true, os_, 1, @unmarshal, IceGrid.AdminSessionPrx.openServerLog_ex_, varargin{:});
         end
         function result = openServerStdErr(obj, id, count, varargin)
-            % openServerStdErr   Open the given server stderr file for reading. The file can be
-            % read with the returned file iterator.
+            % openServerStdErr   Open the given server stderr file for reading. The file can be read with the returned file iterator.
             %
             % Parameters:
             %   id (char) - The server id.
-            %   count (int32) - Specifies where to start reading the file. If
-            %     negative, the file is read from the begining. If 0 or positive,
-            %     the file is read from the last count lines.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+            %     or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file.
             %
             % Exceptions:
-            %   IceGrid.DeploymentException - Raised if the server couldn't be
-            %     deployed on the node.
-            %   IceGrid.FileNotAvailableException - Raised if the file can't be
-            %     read.
-            %   IceGrid.NodeUnreachableException - Raised if the node could not
-            %     be reached.
-            %   IceGrid.ServerNotExistException - Raised if the server doesn't
-            %     exist.
+            %   IceGrid.DeploymentException - Raised if the server couldn't be deployed on the node.
+            %   IceGrid.FileNotAvailableException - Raised if the file can't be read.
+            %   IceGrid.NodeUnreachableException - Raised if the node could not be reached.
+            %   IceGrid.ServerNotExistException - Raised if the server doesn't exist.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(id);
@@ -451,27 +405,21 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             is_.endEncapsulation();
         end
         function r_ = openServerStdErrAsync(obj, id, count, varargin)
-            % openServerStdErrAsync   Open the given server stderr file for reading. The file can be
-            % read with the returned file iterator.
+            % openServerStdErrAsync   Open the given server stderr file for reading. The file can be read with the returned file iterator.
             %
             % Parameters:
             %   id (char) - The server id.
-            %   count (int32) - Specifies where to start reading the file. If
-            %     negative, the file is read from the begining. If 0 or positive,
-            %     the file is read from the last count lines.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+            %     or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.DeploymentException - Raised if the server couldn't be
-            %     deployed on the node.
-            %   IceGrid.FileNotAvailableException - Raised if the file can't be
-            %     read.
-            %   IceGrid.NodeUnreachableException - Raised if the node could not
-            %     be reached.
-            %   IceGrid.ServerNotExistException - Raised if the server doesn't
-            %     exist.
+            %   IceGrid.DeploymentException - Raised if the server couldn't be deployed on the node.
+            %   IceGrid.FileNotAvailableException - Raised if the file can't be read.
+            %   IceGrid.NodeUnreachableException - Raised if the node could not be reached.
+            %   IceGrid.ServerNotExistException - Raised if the server doesn't exist.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(id);
@@ -486,27 +434,21 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             r_ = obj.iceInvokeAsync('openServerStdErr', 0, true, os_, 1, @unmarshal, IceGrid.AdminSessionPrx.openServerStdErr_ex_, varargin{:});
         end
         function result = openServerStdOut(obj, id, count, varargin)
-            % openServerStdOut   Open the given server stdout file for reading. The file can be
-            % read with the returned file iterator.
+            % openServerStdOut   Open the given server stdout file for reading. The file can be read with the returned file iterator.
             %
             % Parameters:
             %   id (char) - The server id.
-            %   count (int32) - Specifies where to start reading the file. If
-            %     negative, the file is read from the begining. If 0 or positive,
-            %     the file is read from the last count lines.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining.
+            %     If 0 or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file.
             %
             % Exceptions:
-            %   IceGrid.DeploymentException - Raised if the server couldn't be
-            %     deployed on the node.
-            %   IceGrid.FileNotAvailableException - Raised if the file can't be
-            %     read.
-            %   IceGrid.NodeUnreachableException - Raised if the node could not
-            %     be reached.
-            %   IceGrid.ServerNotExistException - Raised if the server doesn't
-            %     exist.
+            %   IceGrid.DeploymentException - Raised if the server couldn't be deployed on the node.
+            %   IceGrid.FileNotAvailableException - Raised if the file can't be read.
+            %   IceGrid.NodeUnreachableException - Raised if the node could not be reached.
+            %   IceGrid.ServerNotExistException - Raised if the server doesn't exist.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(id);
@@ -518,27 +460,21 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             is_.endEncapsulation();
         end
         function r_ = openServerStdOutAsync(obj, id, count, varargin)
-            % openServerStdOutAsync   Open the given server stdout file for reading. The file can be
-            % read with the returned file iterator.
+            % openServerStdOutAsync   Open the given server stdout file for reading. The file can be read with the returned file iterator.
             %
             % Parameters:
             %   id (char) - The server id.
-            %   count (int32) - Specifies where to start reading the file. If
-            %     negative, the file is read from the begining. If 0 or positive,
-            %     the file is read from the last count lines.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining.
+            %     If 0 or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.DeploymentException - Raised if the server couldn't be
-            %     deployed on the node.
-            %   IceGrid.FileNotAvailableException - Raised if the file can't be
-            %     read.
-            %   IceGrid.NodeUnreachableException - Raised if the node could not
-            %     be reached.
-            %   IceGrid.ServerNotExistException - Raised if the server doesn't
-            %     exist.
+            %   IceGrid.DeploymentException - Raised if the server couldn't be deployed on the node.
+            %   IceGrid.FileNotAvailableException - Raised if the file can't be read.
+            %   IceGrid.NodeUnreachableException - Raised if the node could not be reached.
+            %   IceGrid.ServerNotExistException - Raised if the server doesn't exist.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(id);
@@ -553,24 +489,20 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             r_ = obj.iceInvokeAsync('openServerStdOut', 0, true, os_, 1, @unmarshal, IceGrid.AdminSessionPrx.openServerStdOut_ex_, varargin{:});
         end
         function result = openNodeStdErr(obj, name, count, varargin)
-            % openNodeStdErr   Open the given node stderr file for reading. The file can be
-            % read with the returned file iterator.
+            % openNodeStdErr   Open the given node stderr file for reading. The file can be read with the returned file iterator.
             %
             % Parameters:
             %   name (char) - The node name.
-            %   count (int32) - Specifies where to start reading the file. If
-            %     negative, the file is read from the begining. If 0 or positive,
-            %     the file is read from the last count lines.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+            %     or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file.
             %
             % Exceptions:
-            %   IceGrid.FileNotAvailableException - Raised if the file can't be
-            %     read.
+            %   IceGrid.FileNotAvailableException - Raised if the file can't be read.
             %   IceGrid.NodeNotExistException - Raised if the node doesn't exist.
-            %   IceGrid.NodeUnreachableException - Raised if the node could not
-            %     be reached.
+            %   IceGrid.NodeUnreachableException - Raised if the node could not be reached.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
@@ -582,24 +514,20 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             is_.endEncapsulation();
         end
         function r_ = openNodeStdErrAsync(obj, name, count, varargin)
-            % openNodeStdErrAsync   Open the given node stderr file for reading. The file can be
-            % read with the returned file iterator.
+            % openNodeStdErrAsync   Open the given node stderr file for reading. The file can be read with the returned file iterator.
             %
             % Parameters:
             %   name (char) - The node name.
-            %   count (int32) - Specifies where to start reading the file. If
-            %     negative, the file is read from the begining. If 0 or positive,
-            %     the file is read from the last count lines.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+            %     or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.FileNotAvailableException - Raised if the file can't be
-            %     read.
+            %   IceGrid.FileNotAvailableException - Raised if the file can't be read.
             %   IceGrid.NodeNotExistException - Raised if the node doesn't exist.
-            %   IceGrid.NodeUnreachableException - Raised if the node could not
-            %     be reached.
+            %   IceGrid.NodeUnreachableException - Raised if the node could not be reached.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
@@ -614,24 +542,20 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             r_ = obj.iceInvokeAsync('openNodeStdErr', 0, true, os_, 1, @unmarshal, IceGrid.AdminSessionPrx.openNodeStdErr_ex_, varargin{:});
         end
         function result = openNodeStdOut(obj, name, count, varargin)
-            % openNodeStdOut   Open the given node stdout file for reading. The file can be
-            % read with the returned file iterator.
+            % openNodeStdOut   Open the given node stdout file for reading. The file can be read with the returned file iterator.
             %
             % Parameters:
             %   name (char) - The node name.
-            %   count (int32) - Specifies where to start reading the file. If
-            %     negative, the file is read from the begining. If 0 or positive,
-            %     the file is read from the last count lines.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+            %     or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file.
             %
             % Exceptions:
-            %   IceGrid.FileNotAvailableException - Raised if the file can't be
-            %     read.
+            %   IceGrid.FileNotAvailableException - Raised if the file can't be read.
             %   IceGrid.NodeNotExistException - Raised if the node doesn't exist.
-            %   IceGrid.NodeUnreachableException - Raised if the node could not
-            %     be reached.
+            %   IceGrid.NodeUnreachableException - Raised if the node could not be reached.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
@@ -643,24 +567,20 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             is_.endEncapsulation();
         end
         function r_ = openNodeStdOutAsync(obj, name, count, varargin)
-            % openNodeStdOutAsync   Open the given node stdout file for reading. The file can be
-            % read with the returned file iterator.
+            % openNodeStdOutAsync   Open the given node stdout file for reading. The file can be read with the returned file iterator.
             %
             % Parameters:
             %   name (char) - The node name.
-            %   count (int32) - Specifies where to start reading the file. If
-            %     negative, the file is read from the begining. If 0 or positive,
-            %     the file is read from the last count lines.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+            %     or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.FileNotAvailableException - Raised if the file can't be
-            %     read.
+            %   IceGrid.FileNotAvailableException - Raised if the file can't be read.
             %   IceGrid.NodeNotExistException - Raised if the node doesn't exist.
-            %   IceGrid.NodeUnreachableException - Raised if the node could not
-            %     be reached.
+            %   IceGrid.NodeUnreachableException - Raised if the node could not be reached.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
@@ -675,25 +595,20 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             r_ = obj.iceInvokeAsync('openNodeStdOut', 0, true, os_, 1, @unmarshal, IceGrid.AdminSessionPrx.openNodeStdOut_ex_, varargin{:});
         end
         function result = openRegistryStdErr(obj, name, count, varargin)
-            % openRegistryStdErr   Open the given registry stderr file for reading. The file can be
-            % read with the returned file iterator.
+            % openRegistryStdErr   Open the given registry stderr file for reading. The file can be read with the returned file iterator.
             %
             % Parameters:
             %   name (char) - The registry name.
-            %   count (int32) - Specifies where to start reading the file. If
-            %     negative, the file is read from the begining. If 0 or positive,
-            %     the file is read from the last count lines.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+            %     or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file.
             %
             % Exceptions:
-            %   IceGrid.FileNotAvailableException - Raised if the file can't be
-            %     read.
-            %   IceGrid.RegistryNotExistException - Raised if the registry
-            %     doesn't exist.
-            %   IceGrid.RegistryUnreachableException - Raised if the registry
-            %     could not be reached.
+            %   IceGrid.FileNotAvailableException - Raised if the file can't be read.
+            %   IceGrid.RegistryNotExistException - Raised if the registry doesn't exist.
+            %   IceGrid.RegistryUnreachableException - Raised if the registry could not be reached.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
@@ -705,25 +620,20 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             is_.endEncapsulation();
         end
         function r_ = openRegistryStdErrAsync(obj, name, count, varargin)
-            % openRegistryStdErrAsync   Open the given registry stderr file for reading. The file can be
-            % read with the returned file iterator.
+            % openRegistryStdErrAsync   Open the given registry stderr file for reading. The file can be read with the returned file iterator.
             %
             % Parameters:
             %   name (char) - The registry name.
-            %   count (int32) - Specifies where to start reading the file. If
-            %     negative, the file is read from the begining. If 0 or positive,
-            %     the file is read from the last count lines.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+            %     or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.FileNotAvailableException - Raised if the file can't be
-            %     read.
-            %   IceGrid.RegistryNotExistException - Raised if the registry
-            %     doesn't exist.
-            %   IceGrid.RegistryUnreachableException - Raised if the registry
-            %     could not be reached.
+            %   IceGrid.FileNotAvailableException - Raised if the file can't be read.
+            %   IceGrid.RegistryNotExistException - Raised if the registry doesn't exist.
+            %   IceGrid.RegistryUnreachableException - Raised if the registry could not be reached.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
@@ -738,25 +648,20 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             r_ = obj.iceInvokeAsync('openRegistryStdErr', 0, true, os_, 1, @unmarshal, IceGrid.AdminSessionPrx.openRegistryStdErr_ex_, varargin{:});
         end
         function result = openRegistryStdOut(obj, name, count, varargin)
-            % openRegistryStdOut   Open the given registry stdout file for reading. The file can be
-            % read with the returned file iterator.
+            % openRegistryStdOut   Open the given registry stdout file for reading. The file can be read with the returned file iterator.
             %
             % Parameters:
             %   name (char) - The registry name.
-            %   count (int32) - Specifies where to start reading the file. If
-            %     negative, the file is read from the begining. If 0 or positive,
-            %     the file is read from the last count lines.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+            %     or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file.
             %
             % Exceptions:
-            %   IceGrid.FileNotAvailableException - Raised if the file can't be
-            %     read.
-            %   IceGrid.RegistryNotExistException - Raised if the registry
-            %     doesn't exist.
-            %   IceGrid.RegistryUnreachableException - Raised if the registry
-            %     could not be reached.
+            %   IceGrid.FileNotAvailableException - Raised if the file can't be read.
+            %   IceGrid.RegistryNotExistException - Raised if the registry doesn't exist.
+            %   IceGrid.RegistryUnreachableException - Raised if the registry could not be reached.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
@@ -768,25 +673,20 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             is_.endEncapsulation();
         end
         function r_ = openRegistryStdOutAsync(obj, name, count, varargin)
-            % openRegistryStdOutAsync   Open the given registry stdout file for reading. The file can be
-            % read with the returned file iterator.
+            % openRegistryStdOutAsync   Open the given registry stdout file for reading. The file can be read with the returned file iterator.
             %
             % Parameters:
             %   name (char) - The registry name.
-            %   count (int32) - Specifies where to start reading the file. If
-            %     negative, the file is read from the begining. If 0 or positive,
-            %     the file is read from the last count lines.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
+            %     or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.FileNotAvailableException - Raised if the file can't be
-            %     read.
-            %   IceGrid.RegistryNotExistException - Raised if the registry
-            %     doesn't exist.
-            %   IceGrid.RegistryUnreachableException - Raised if the registry
-            %     could not be reached.
+            %   IceGrid.FileNotAvailableException - Raised if the file can't be read.
+            %   IceGrid.RegistryNotExistException - Raised if the registry doesn't exist.
+            %   IceGrid.RegistryUnreachableException - Raised if the registry could not be reached.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);

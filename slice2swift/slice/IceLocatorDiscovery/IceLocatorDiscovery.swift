@@ -29,9 +29,8 @@ public struct LookupTraits: Ice.SliceTraits {
     public static let staticId = "::IceLocatorDiscovery::Lookup"
 }
 
-/// The Ice lookup reply interface must be implemented by clients which
-/// are searching for Ice locators. Ice locator implementations invoke
-/// on this interface to provide their locator proxy.
+/// The Ice lookup reply interface must be implemented by clients which are searching for Ice locators. Ice locator
+/// implementations invoke on this interface to provide their locator proxy.
 ///
 /// LookupReplyPrx Methods:
 ///
@@ -113,9 +112,8 @@ public extension Ice.InputStream {
     }
 }
 
-/// The Ice lookup reply interface must be implemented by clients which
-/// are searching for Ice locators. Ice locator implementations invoke
-/// on this interface to provide their locator proxy.
+/// The Ice lookup reply interface must be implemented by clients which are searching for Ice locators. Ice locator
+/// implementations invoke on this interface to provide their locator proxy.
 ///
 /// LookupReplyPrx Methods:
 ///
@@ -123,8 +121,7 @@ public extension Ice.InputStream {
 ///
 ///  - foundLocatorAsync: This method is called by the implementation of the Lookup interface to reply to a findLocator request.
 public extension LookupReplyPrx {
-    /// This method is called by the implementation of the Lookup
-    /// interface to reply to a findLocator request.
+    /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
     ///
     /// - parameter _: `Ice.LocatorPrx?` The proxy of the locator.
     ///
@@ -138,8 +135,7 @@ public extension LookupReplyPrx {
                           context: context)
     }
 
-    /// This method is called by the implementation of the Lookup
-    /// interface to reply to a findLocator request.
+    /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
     ///
     /// - parameter _: `Ice.LocatorPrx?` The proxy of the locator.
     ///
@@ -167,13 +163,10 @@ public extension LookupReplyPrx {
     }
 }
 
-/// The Ice lookup interface is implemented by Ice locator
-/// implementations and can be used by clients to find available Ice
-/// locators on the network.
-///
-/// Ice locator implementations provide a well-known `Ice/LocatorLookup'
-/// object accessible through UDP multicast. Clients typically make a
-/// multicast findLocator request to find the locator proxy.
+/// The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
+/// available Ice locators on the network.
+/// Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
+/// Clients typically make a multicast findLocator request to find the locator proxy.
 ///
 /// LookupPrx Methods:
 ///
@@ -255,13 +248,10 @@ public extension Ice.InputStream {
     }
 }
 
-/// The Ice lookup interface is implemented by Ice locator
-/// implementations and can be used by clients to find available Ice
-/// locators on the network.
-///
-/// Ice locator implementations provide a well-known `Ice/LocatorLookup'
-/// object accessible through UDP multicast. Clients typically make a
-/// multicast findLocator request to find the locator proxy.
+/// The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
+/// available Ice locators on the network.
+/// Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
+/// Clients typically make a multicast findLocator request to find the locator proxy.
 ///
 /// LookupPrx Methods:
 ///
@@ -271,9 +261,8 @@ public extension Ice.InputStream {
 public extension LookupPrx {
     /// Find a locator proxy with the given instance name.
     ///
-    /// - parameter instanceName: `Swift.String` Restrict the search to Ice registries
-    /// configured with the given instance name. If empty, all the
-    /// available registries will reply.
+    /// - parameter instanceName: `Swift.String` Restrict the search to Ice registries configured with the given instance name. If
+    /// empty, all the available registries will reply.
     ///
     /// - parameter reply: `LookupReplyPrx?` The reply object to use to send the reply.
     ///
@@ -290,9 +279,8 @@ public extension LookupPrx {
 
     /// Find a locator proxy with the given instance name.
     ///
-    /// - parameter instanceName: `Swift.String` Restrict the search to Ice registries
-    /// configured with the given instance name. If empty, all the
-    /// available registries will reply.
+    /// - parameter instanceName: `Swift.String` Restrict the search to Ice registries configured with the given instance name. If
+    /// empty, all the available registries will reply.
     ///
     /// - parameter reply: `LookupReplyPrx?` The reply object to use to send the reply.
     ///
@@ -350,12 +338,10 @@ public struct LookupReplyDisp: Ice.Disp {
     }
 }
 
-/// The Ice lookup reply interface must be implemented by clients which
-/// are searching for Ice locators. Ice locator implementations invoke
-/// on this interface to provide their locator proxy.
+/// The Ice lookup reply interface must be implemented by clients which are searching for Ice locators. Ice locator
+/// implementations invoke on this interface to provide their locator proxy.
 public protocol LookupReply {
-    /// This method is called by the implementation of the Lookup
-    /// interface to reply to a findLocator request.
+    /// This method is called by the implementation of the Lookup interface to reply to a findLocator request.
     ///
     /// - parameter prx: `Ice.LocatorPrx?` The proxy of the locator.
     ///
@@ -392,19 +378,15 @@ public struct LookupDisp: Ice.Disp {
     }
 }
 
-/// The Ice lookup interface is implemented by Ice locator
-/// implementations and can be used by clients to find available Ice
-/// locators on the network.
-///
-/// Ice locator implementations provide a well-known `Ice/LocatorLookup'
-/// object accessible through UDP multicast. Clients typically make a
-/// multicast findLocator request to find the locator proxy.
+/// The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
+/// available Ice locators on the network.
+/// Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
+/// Clients typically make a multicast findLocator request to find the locator proxy.
 public protocol Lookup {
     /// Find a locator proxy with the given instance name.
     ///
-    /// - parameter instanceName: `Swift.String` Restrict the search to Ice registries
-    /// configured with the given instance name. If empty, all the
-    /// available registries will reply.
+    /// - parameter instanceName: `Swift.String` Restrict the search to Ice registries configured with the given instance name. If
+    /// empty, all the available registries will reply.
     ///
     /// - parameter reply: `LookupReplyPrx?` The reply object to use to send the reply.
     ///
@@ -412,9 +394,8 @@ public protocol Lookup {
     func findLocator(instanceName: Swift.String, reply: LookupReplyPrx?, current: Ice.Current) throws
 }
 
-/// The Ice lookup reply interface must be implemented by clients which
-/// are searching for Ice locators. Ice locator implementations invoke
-/// on this interface to provide their locator proxy.
+/// The Ice lookup reply interface must be implemented by clients which are searching for Ice locators. Ice locator
+/// implementations invoke on this interface to provide their locator proxy.
 ///
 /// LookupReply Methods:
 ///
@@ -432,13 +413,10 @@ public extension LookupReply {
     }
 }
 
-/// The Ice lookup interface is implemented by Ice locator
-/// implementations and can be used by clients to find available Ice
-/// locators on the network.
-///
-/// Ice locator implementations provide a well-known `Ice/LocatorLookup'
-/// object accessible through UDP multicast. Clients typically make a
-/// multicast findLocator request to find the locator proxy.
+/// The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
+/// available Ice locators on the network.
+/// Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
+/// Clients typically make a multicast findLocator request to find the locator proxy.
 ///
 /// Lookup Methods:
 ///

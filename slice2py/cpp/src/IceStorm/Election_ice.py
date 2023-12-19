@@ -40,10 +40,10 @@ if 'TopicContent' not in _M_IceStormElection.__dict__:
     _M_IceStormElection.TopicContent = Ice.createTempClass()
     class TopicContent(object):
         """
-        The contents of topic.
+         The contents of topic.
         Members:
-        id -- The topic identity.
-        records -- The topic subscribers.
+        id --  The topic identity.
+        records --  The topic subscribers.
         """
         def __init__(self, id=Ice._struct_marker, records=None):
             if id is Ice._struct_marker:
@@ -87,9 +87,9 @@ if 'ObserverInconsistencyException' not in _M_IceStormElection.__dict__:
     _M_IceStormElection.ObserverInconsistencyException = Ice.createTempClass()
     class ObserverInconsistencyException(Ice.UserException):
         """
-        Thrown if an observer detects an inconsistency.
+         Thrown if an observer detects an inconsistency.
         Members:
-        reason -- The reason for the inconsistency.
+        reason --  The reason for the inconsistency.
         """
         def __init__(self, reason=''):
             self.reason = reason
@@ -114,7 +114,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
     class ReplicaObserverPrx(Ice.ObjectPrx):
 
         """
-        Initialize the observer.
+         Initialize the observer.
         Arguments:
         llu -- The last log update seen by the master.
         content -- The topic content.
@@ -126,7 +126,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.ReplicaObserver._op_init.invoke(self, ((llu, content), context))
 
         """
-        Initialize the observer.
+         Initialize the observer.
         Arguments:
         llu -- The last log update seen by the master.
         content -- The topic content.
@@ -137,7 +137,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.ReplicaObserver._op_init.invokeAsync(self, ((llu, content), context))
 
         """
-        Initialize the observer.
+         Initialize the observer.
         Arguments:
         llu -- The last log update seen by the master.
         content -- The topic content.
@@ -151,7 +151,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.ReplicaObserver._op_init.begin(self, ((llu, content), _response, _ex, _sent, context))
 
         """
-        Initialize the observer.
+         Initialize the observer.
         Arguments:
         llu -- The last log update seen by the master.
         content -- The topic content.
@@ -162,7 +162,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.ReplicaObserver._op_init.end(self, _r)
 
         """
-        Create the topic with the given name.
+         Create the topic with the given name.
         Arguments:
         llu -- The log update token.
         name -- The topic name.
@@ -174,7 +174,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.ReplicaObserver._op_createTopic.invoke(self, ((llu, name), context))
 
         """
-        Create the topic with the given name.
+         Create the topic with the given name.
         Arguments:
         llu -- The log update token.
         name -- The topic name.
@@ -185,7 +185,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.ReplicaObserver._op_createTopic.invokeAsync(self, ((llu, name), context))
 
         """
-        Create the topic with the given name.
+         Create the topic with the given name.
         Arguments:
         llu -- The log update token.
         name -- The topic name.
@@ -199,7 +199,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.ReplicaObserver._op_createTopic.begin(self, ((llu, name), _response, _ex, _sent, context))
 
         """
-        Create the topic with the given name.
+         Create the topic with the given name.
         Arguments:
         llu -- The log update token.
         name -- The topic name.
@@ -210,7 +210,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.ReplicaObserver._op_createTopic.end(self, _r)
 
         """
-        Destroy the topic with the given name.
+         Destroy the topic with the given name.
         Arguments:
         llu -- The log update token.
         name -- The topic name.
@@ -222,7 +222,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.ReplicaObserver._op_destroyTopic.invoke(self, ((llu, name), context))
 
         """
-        Destroy the topic with the given name.
+         Destroy the topic with the given name.
         Arguments:
         llu -- The log update token.
         name -- The topic name.
@@ -233,7 +233,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.ReplicaObserver._op_destroyTopic.invokeAsync(self, ((llu, name), context))
 
         """
-        Destroy the topic with the given name.
+         Destroy the topic with the given name.
         Arguments:
         llu -- The log update token.
         name -- The topic name.
@@ -247,7 +247,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.ReplicaObserver._op_destroyTopic.begin(self, ((llu, name), _response, _ex, _sent, context))
 
         """
-        Destroy the topic with the given name.
+         Destroy the topic with the given name.
         Arguments:
         llu -- The log update token.
         name -- The topic name.
@@ -258,7 +258,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.ReplicaObserver._op_destroyTopic.end(self, _r)
 
         """
-        Add a subscriber to a topic.
+         Add a subscriber to a topic.
         Arguments:
         llu -- The log update token.
         topic -- The topic name to which to add the subscriber.
@@ -271,7 +271,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.ReplicaObserver._op_addSubscriber.invoke(self, ((llu, topic, record), context))
 
         """
-        Add a subscriber to a topic.
+         Add a subscriber to a topic.
         Arguments:
         llu -- The log update token.
         topic -- The topic name to which to add the subscriber.
@@ -283,7 +283,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.ReplicaObserver._op_addSubscriber.invokeAsync(self, ((llu, topic, record), context))
 
         """
-        Add a subscriber to a topic.
+         Add a subscriber to a topic.
         Arguments:
         llu -- The log update token.
         topic -- The topic name to which to add the subscriber.
@@ -298,7 +298,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.ReplicaObserver._op_addSubscriber.begin(self, ((llu, topic, record), _response, _ex, _sent, context))
 
         """
-        Add a subscriber to a topic.
+         Add a subscriber to a topic.
         Arguments:
         llu -- The log update token.
         topic -- The topic name to which to add the subscriber.
@@ -310,7 +310,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.ReplicaObserver._op_addSubscriber.end(self, _r)
 
         """
-        Remove a subscriber from a topic.
+         Remove a subscriber from a topic.
         Arguments:
         llu -- The log update token.
         topic -- 
@@ -323,7 +323,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.ReplicaObserver._op_removeSubscriber.invoke(self, ((llu, topic, subscribers), context))
 
         """
-        Remove a subscriber from a topic.
+         Remove a subscriber from a topic.
         Arguments:
         llu -- The log update token.
         topic -- 
@@ -335,7 +335,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.ReplicaObserver._op_removeSubscriber.invokeAsync(self, ((llu, topic, subscribers), context))
 
         """
-        Remove a subscriber from a topic.
+         Remove a subscriber from a topic.
         Arguments:
         llu -- The log update token.
         topic -- 
@@ -350,7 +350,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.ReplicaObserver._op_removeSubscriber.begin(self, ((llu, topic, subscribers), _response, _ex, _sent, context))
 
         """
-        Remove a subscriber from a topic.
+         Remove a subscriber from a topic.
         Arguments:
         llu -- The log update token.
         topic -- 
@@ -392,7 +392,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
 
         def init(self, llu, content, current=None):
             """
-            Initialize the observer.
+             Initialize the observer.
             Arguments:
             llu -- The last log update seen by the master.
             content -- The topic content.
@@ -405,7 +405,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
 
         def createTopic(self, llu, name, current=None):
             """
-            Create the topic with the given name.
+             Create the topic with the given name.
             Arguments:
             llu -- The log update token.
             name -- The topic name.
@@ -418,7 +418,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
 
         def destroyTopic(self, llu, name, current=None):
             """
-            Destroy the topic with the given name.
+             Destroy the topic with the given name.
             Arguments:
             llu -- The log update token.
             name -- The topic name.
@@ -431,7 +431,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
 
         def addSubscriber(self, llu, topic, record, current=None):
             """
-            Add a subscriber to a topic.
+             Add a subscriber to a topic.
             Arguments:
             llu -- The log update token.
             topic -- The topic name to which to add the subscriber.
@@ -445,7 +445,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
 
         def removeSubscriber(self, llu, topic, subscribers, current=None):
             """
-            Remove a subscriber from a topic.
+             Remove a subscriber from a topic.
             Arguments:
             llu -- The log update token.
             topic -- 
@@ -481,7 +481,7 @@ if 'TopicManagerSyncPrx' not in _M_IceStormElection.__dict__:
     class TopicManagerSyncPrx(Ice.ObjectPrx):
 
         """
-        Retrieve the topic content.
+         Retrieve the topic content.
         Arguments:
         context -- The request context for the invocation.
         Returns a tuple containing the following:
@@ -492,7 +492,7 @@ if 'TopicManagerSyncPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.TopicManagerSync._op_getContent.invoke(self, ((), context))
 
         """
-        Retrieve the topic content.
+         Retrieve the topic content.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -501,7 +501,7 @@ if 'TopicManagerSyncPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.TopicManagerSync._op_getContent.invokeAsync(self, ((), context))
 
         """
-        Retrieve the topic content.
+         Retrieve the topic content.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -513,7 +513,7 @@ if 'TopicManagerSyncPrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.TopicManagerSync._op_getContent.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Retrieve the topic content.
+         Retrieve the topic content.
         Arguments:
         Returns a tuple containing the following:
         llu -- The last log update token.
@@ -553,7 +553,7 @@ if 'TopicManagerSyncPrx' not in _M_IceStormElection.__dict__:
 
         def getContent(self, current=None):
             """
-            Retrieve the topic content.
+             Retrieve the topic content.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -577,12 +577,12 @@ if 'NodeState' not in _M_IceStormElection.__dict__:
     _M_IceStormElection.NodeState = Ice.createTempClass()
     class NodeState(Ice.EnumBase):
         """
-        The node state.
+         The node state.
         Enumerators:
-        NodeStateInactive -- The node is inactive and awaiting an election.
-        NodeStateElection -- The node is electing a leader.
-        NodeStateReorganization -- The replica group is reorganizing.
-        NodeStateNormal -- The replica group is active & replicating.
+        NodeStateInactive --  The node is inactive and awaiting an election.
+        NodeStateElection --  The node is electing a leader.
+        NodeStateReorganization --  The replica group is reorganizing.
+        NodeStateNormal --  The replica group is active & replicating.
         """
 
         def __init__(self, _n, _v):
@@ -613,10 +613,10 @@ if 'NodeInfo' not in _M_IceStormElection.__dict__:
     _M_IceStormElection.NodeInfo = Ice.createTempClass()
     class NodeInfo(object):
         """
-        All nodes in the replication group.
+         All nodes in the replication group.
         Members:
-        id -- The identity of the node.
-        n -- The node proxy.
+        id --  The identity of the node.
+        n --  The node proxy.
         """
         def __init__(self, id=0, n=None):
             self.id = id
@@ -657,10 +657,10 @@ if 'GroupInfo' not in _M_IceStormElection.__dict__:
     _M_IceStormElection.GroupInfo = Ice.createTempClass()
     class GroupInfo(object):
         """
-        The group info.
+         The group info.
         Members:
-        id -- The identity of the node.
-        llu -- The last known log update for this node.
+        id --  The identity of the node.
+        llu --  The last known log update for this node.
         """
         def __init__(self, id=0, llu=Ice._struct_marker):
             self.id = id
@@ -819,8 +819,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
     class NodePrx(Ice.ObjectPrx):
 
         """
-        Invite the node into a group with the given coordinator and
-        group name.
+         Invite the node into a group with the given coordinator and group name.
         Arguments:
         j -- The group coordinator.
         gn -- The group name.
@@ -830,8 +829,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_invitation.invoke(self, ((j, gn), context))
 
         """
-        Invite the node into a group with the given coordinator and
-        group name.
+         Invite the node into a group with the given coordinator and group name.
         Arguments:
         j -- The group coordinator.
         gn -- The group name.
@@ -842,8 +840,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_invitation.invokeAsync(self, ((j, gn), context))
 
         """
-        Invite the node into a group with the given coordinator and
-        group name.
+         Invite the node into a group with the given coordinator and group name.
         Arguments:
         j -- The group coordinator.
         gn -- The group name.
@@ -857,8 +854,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_invitation.begin(self, ((j, gn), _response, _ex, _sent, context))
 
         """
-        Invite the node into a group with the given coordinator and
-        group name.
+         Invite the node into a group with the given coordinator and group name.
         Arguments:
         j -- The group coordinator.
         gn -- The group name.
@@ -867,8 +863,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_invitation.end(self, _r)
 
         """
-        Call from the group coordinator to a node to inform the node
-        that the replica group is active.
+         Call from the group coordinator to a node to inform the node that the replica group is active.
         Arguments:
         j -- The group coordinator.
         gn -- The group name.
@@ -881,8 +876,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_ready.invoke(self, ((j, gn, coordinator, max, generation), context))
 
         """
-        Call from the group coordinator to a node to inform the node
-        that the replica group is active.
+         Call from the group coordinator to a node to inform the node that the replica group is active.
         Arguments:
         j -- The group coordinator.
         gn -- The group name.
@@ -896,8 +890,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_ready.invokeAsync(self, ((j, gn, coordinator, max, generation), context))
 
         """
-        Call from the group coordinator to a node to inform the node
-        that the replica group is active.
+         Call from the group coordinator to a node to inform the node that the replica group is active.
         Arguments:
         j -- The group coordinator.
         gn -- The group name.
@@ -914,8 +907,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_ready.begin(self, ((j, gn, coordinator, max, generation), _response, _ex, _sent, context))
 
         """
-        Call from the group coordinator to a node to inform the node
-        that the replica group is active.
+         Call from the group coordinator to a node to inform the node that the replica group is active.
         Arguments:
         j -- The group coordinator.
         gn -- The group name.
@@ -927,8 +919,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_ready.end(self, _r)
 
         """
-        Called to accept an invitation into
-        the given group.
+         Called to accept an invitation into the given group.
         Arguments:
         j -- The id of the node accepting the invitation.
         gn -- The group name.
@@ -942,8 +933,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_accept.invoke(self, ((j, gn, forwardedInvites, observer, llu, max), context))
 
         """
-        Called to accept an invitation into
-        the given group.
+         Called to accept an invitation into the given group.
         Arguments:
         j -- The id of the node accepting the invitation.
         gn -- The group name.
@@ -958,8 +948,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_accept.invokeAsync(self, ((j, gn, forwardedInvites, observer, llu, max), context))
 
         """
-        Called to accept an invitation into
-        the given group.
+         Called to accept an invitation into the given group.
         Arguments:
         j -- The id of the node accepting the invitation.
         gn -- The group name.
@@ -977,8 +966,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_accept.begin(self, ((j, gn, forwardedInvites, observer, llu, max), _response, _ex, _sent, context))
 
         """
-        Called to accept an invitation into
-        the given group.
+         Called to accept an invitation into the given group.
         Arguments:
         j -- The id of the node accepting the invitation.
         gn -- The group name.
@@ -991,7 +979,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_accept.end(self, _r)
 
         """
-        Determine if this node is a coordinator.
+         Determine if this node is a coordinator.
         Arguments:
         context -- The request context for the invocation.
         Returns: True if the node is a coordinator, false otherwise.
@@ -1000,7 +988,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_areYouCoordinator.invoke(self, ((), context))
 
         """
-        Determine if this node is a coordinator.
+         Determine if this node is a coordinator.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -1009,7 +997,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_areYouCoordinator.invokeAsync(self, ((), context))
 
         """
-        Determine if this node is a coordinator.
+         Determine if this node is a coordinator.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -1021,7 +1009,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_areYouCoordinator.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Determine if this node is a coordinator.
+         Determine if this node is a coordinator.
         Arguments:
         Returns: True if the node is a coordinator, false otherwise.
         """
@@ -1029,8 +1017,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_areYouCoordinator.end(self, _r)
 
         """
-        Determine if the node is a member of the given group with the
-        given coordinator.
+         Determine if the node is a member of the given group with the given coordinator.
         Arguments:
         gn -- The group name.
         j -- The group coordinator.
@@ -1041,8 +1028,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_areYouThere.invoke(self, ((gn, j), context))
 
         """
-        Determine if the node is a member of the given group with the
-        given coordinator.
+         Determine if the node is a member of the given group with the given coordinator.
         Arguments:
         gn -- The group name.
         j -- The group coordinator.
@@ -1053,8 +1039,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_areYouThere.invokeAsync(self, ((gn, j), context))
 
         """
-        Determine if the node is a member of the given group with the
-        given coordinator.
+         Determine if the node is a member of the given group with the given coordinator.
         Arguments:
         gn -- The group name.
         j -- The group coordinator.
@@ -1068,8 +1053,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_areYouThere.begin(self, ((gn, j), _response, _ex, _sent, context))
 
         """
-        Determine if the node is a member of the given group with the
-        given coordinator.
+         Determine if the node is a member of the given group with the given coordinator.
         Arguments:
         gn -- The group name.
         j -- The group coordinator.
@@ -1079,7 +1063,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_areYouThere.end(self, _r)
 
         """
-        Get the sync object for the replica hosted by this node.
+         Get the sync object for the replica hosted by this node.
         Arguments:
         context -- The request context for the invocation.
         Returns: The sync object.
@@ -1088,7 +1072,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_sync.invoke(self, ((), context))
 
         """
-        Get the sync object for the replica hosted by this node.
+         Get the sync object for the replica hosted by this node.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -1097,7 +1081,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_sync.invokeAsync(self, ((), context))
 
         """
-        Get the sync object for the replica hosted by this node.
+         Get the sync object for the replica hosted by this node.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -1109,7 +1093,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_sync.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Get the sync object for the replica hosted by this node.
+         Get the sync object for the replica hosted by this node.
         Arguments:
         Returns: The sync object.
         """
@@ -1117,7 +1101,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_sync.end(self, _r)
 
         """
-        Get the replication group information.
+         Get the replication group information.
         Arguments:
         context -- The request context for the invocation.
         Returns: The set of configured nodes and the associated priority.
@@ -1126,7 +1110,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_nodes.invoke(self, ((), context))
 
         """
-        Get the replication group information.
+         Get the replication group information.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -1135,7 +1119,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_nodes.invokeAsync(self, ((), context))
 
         """
-        Get the replication group information.
+         Get the replication group information.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -1147,7 +1131,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_nodes.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Get the replication group information.
+         Get the replication group information.
         Arguments:
         Returns: The set of configured nodes and the associated priority.
         """
@@ -1155,7 +1139,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_nodes.end(self, _r)
 
         """
-        Get the query information for the given node.
+         Get the query information for the given node.
         Arguments:
         context -- The request context for the invocation.
         Returns: The query information.
@@ -1164,7 +1148,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_query.invoke(self, ((), context))
 
         """
-        Get the query information for the given node.
+         Get the query information for the given node.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -1173,7 +1157,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_query.invokeAsync(self, ((), context))
 
         """
-        Get the query information for the given node.
+         Get the query information for the given node.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -1185,7 +1169,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
             return _M_IceStormElection.Node._op_query.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Get the query information for the given node.
+         Get the query information for the given node.
         Arguments:
         Returns: The query information.
         """
@@ -1223,8 +1207,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
 
         def invitation(self, j, gn, current=None):
             """
-            Invite the node into a group with the given coordinator and
-            group name.
+             Invite the node into a group with the given coordinator and group name.
             Arguments:
             j -- The group coordinator.
             gn -- The group name.
@@ -1235,8 +1218,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
 
         def ready(self, j, gn, coordinator, max, generation, current=None):
             """
-            Call from the group coordinator to a node to inform the node
-            that the replica group is active.
+             Call from the group coordinator to a node to inform the node that the replica group is active.
             Arguments:
             j -- The group coordinator.
             gn -- The group name.
@@ -1250,8 +1232,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
 
         def accept(self, j, gn, forwardedInvites, observer, llu, max, current=None):
             """
-            Called to accept an invitation into
-            the given group.
+             Called to accept an invitation into the given group.
             Arguments:
             j -- The id of the node accepting the invitation.
             gn -- The group name.
@@ -1266,7 +1247,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
 
         def areYouCoordinator(self, current=None):
             """
-            Determine if this node is a coordinator.
+             Determine if this node is a coordinator.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -1275,8 +1256,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
 
         def areYouThere(self, gn, j, current=None):
             """
-            Determine if the node is a member of the given group with the
-            given coordinator.
+             Determine if the node is a member of the given group with the given coordinator.
             Arguments:
             gn -- The group name.
             j -- The group coordinator.
@@ -1287,7 +1267,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
 
         def sync(self, current=None):
             """
-            Get the sync object for the replica hosted by this node.
+             Get the sync object for the replica hosted by this node.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -1296,7 +1276,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
 
         def nodes(self, current=None):
             """
-            Get the replication group information.
+             Get the replication group information.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -1305,7 +1285,7 @@ if 'NodePrx' not in _M_IceStormElection.__dict__:
 
         def query(self, current=None):
             """
-            Get the query information for the given node.
+             Get the query information for the given node.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.

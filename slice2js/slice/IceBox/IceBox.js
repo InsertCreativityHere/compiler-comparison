@@ -41,11 +41,8 @@ let IceBox = _ModuleRegistry.module("IceBox");
 /* slice2js browser-bundle-skip-end */
 
 /**
- * This exception is a general failure notification. It is thrown
- * for errors such as a service encountering an error during
- * initialization, or the service manager being unable
- * to load a service executable.
- *
+ *  This exception is a general failure notification. It is thrown for errors such as a service encountering an error
+ *  during initialization, or the service manager being unable to load a service executable.
  **/
 IceBox.FailureException = class extends Ice.LocalException
 {
@@ -67,9 +64,7 @@ IceBox.FailureException = class extends Ice.LocalException
 };
 
 /**
- * This exception is thrown if an attempt is made to start an
- * already-started service.
- *
+ *  This exception is thrown if an attempt is made to start an already-started service.
  **/
 IceBox.AlreadyStartedException = class extends Ice.UserException
 {
@@ -95,9 +90,7 @@ IceBox.AlreadyStartedException = class extends Ice.UserException
 };
 
 /**
- * This exception is thrown if an attempt is made to stop an
- * already-stopped service.
- *
+ *  This exception is thrown if an attempt is made to stop an already-stopped service.
  **/
 IceBox.AlreadyStoppedException = class extends Ice.UserException
 {
@@ -123,9 +116,7 @@ IceBox.AlreadyStoppedException = class extends Ice.UserException
 };
 
 /**
- * This exception is thrown if a service name does not refer
- * to an existing service.
- *
+ *  This exception is thrown if a service name does not refer to an existing service.
  **/
 IceBox.NoSuchServiceException = class extends Ice.UserException
 {
@@ -156,11 +147,8 @@ const iceC_IceBox_ServiceObserver_ids = [
 ];
 
 /**
- * An Observer interface implemented by admin clients interested in the status
- * of services.
- *
- * @see ServiceManager
- *
+ *  An Observer interface implemented by admin clients interested in the status of services.
+ *  @see ServiceManager
  **/
 IceBox.ServiceObserver = class extends Ice.Object
 {
@@ -182,10 +170,8 @@ const iceC_IceBox_ServiceManager_ids = [
 ];
 
 /**
- * Administers a set of {@link Service} instances.
- *
- * @see Service
- *
+ *  Administers a set of {@link Service} instances.
+ *  @see Service
  **/
 IceBox.ServiceManager = class extends Ice.Object
 {

@@ -21,16 +21,16 @@ import Ice, IcePy
 _M_IceBT = Ice.openModule('IceBT')
 __name__ = 'IceBT'
 _M_IceBT.__doc__ = """
-IceBT provides a Bluetooth transport for Ice.
+ IceBT provides a Bluetooth transport for Ice.
 """
 
 if 'BluetoothException' not in _M_IceBT.__dict__:
     _M_IceBT.BluetoothException = Ice.createTempClass()
     class BluetoothException(Ice.LocalException):
         """
-        Indicates a failure in the Bluetooth plug-in.
+         Indicates a failure in the Bluetooth plug-in.
         Members:
-        reason -- Provides more information about the failure.
+        reason --  Provides more information about the failure.
         """
         def __init__(self, reason=''):
             self.reason = reason

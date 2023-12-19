@@ -16,8 +16,8 @@
 package com.zeroc.Ice;
 
 /**
- * This exception is raised by an operation call if the application
- * closes the connection locally using {@link Connection#close}.
+ * This exception is raised by an operation call if the application closes the connection locally using
+ * {@link Connection#close}.
  *
  * @see Connection#close
  **/

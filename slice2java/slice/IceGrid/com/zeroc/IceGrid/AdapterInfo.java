@@ -32,8 +32,7 @@ public class AdapterInfo implements java.lang.Cloneable,
     public com.zeroc.Ice.ObjectPrx proxy;
 
     /**
-     * The replica group id of the object adapter, or empty if the
-     * adapter doesn't belong to a replica group.
+     * The replica group id of the object adapter, or empty if the adapter doesn't belong to a replica group.
      **/
     public String replicaGroupId;
 

@@ -16,10 +16,9 @@
 package com.zeroc.IceGrid;
 
 /**
- * The RegistryPluginFacade is implemented by IceGrid and can be used
- * by plugins and filter implementations to retrieve information from
- * IceGrid about the well-known objects or adapters. It's also used to
- * register/unregister replica group and type filters.
+ * The RegistryPluginFacade is implemented by IceGrid and can be used by plugins and filter implementations to
+ * retrieve information from IceGrid about the well-known objects or adapters. It's also used to register/unregister
+ * replica group and type filters.
  **/
 public interface RegistryPluginFacade
 {
@@ -27,8 +26,7 @@ public interface RegistryPluginFacade
      * Get an application descriptor.
      * @param name The application name.
      * @return The application descriptor.
-     * @throws ApplicationNotExistException Raised if the application
-     * doesn't exist.
+     * @throws ApplicationNotExistException Raised if the application doesn't exist.
      **/
     ApplicationInfo getApplicationInfo(String name)
         throws ApplicationNotExistException;
@@ -45,11 +43,9 @@ public interface RegistryPluginFacade
     /**
      * Get the ID of the server to which the given adapter belongs.
      * @param adapterId The adapter ID.
-     * @return The server ID or the empty string if the given
-     * identifier is not associated to an object adapter defined with
-     * an application descriptor.
-     * @throws AdapterNotExistException Raised if the adapter doesn't
-     * exist.
+     * @return The server ID or the empty string if the given identifier is not associated to an object adapter
+     * defined with an application descriptor.
+     * @throws AdapterNotExistException Raised if the adapter doesn't exist.
      **/
     String getAdapterServer(String adapterId)
         throws AdapterNotExistException;
@@ -57,11 +53,9 @@ public interface RegistryPluginFacade
     /**
      * Get the name of the application to which the given adapter belongs.
      * @param adapterId The adapter ID.
-     * @return The application name or the empty string if the given
-     * identifier is not associated to a replica group or object
-     * adapter defined with an application descriptor.
-     * @throws AdapterNotExistException Raised if the adapter doesn't
-     * exist.
+     * @return The application name or the empty string if the given identifier is not associated to a replica group
+     * or object adapter defined with an application descriptor.
+     * @throws AdapterNotExistException Raised if the adapter doesn't exist.
      **/
     String getAdapterApplication(String adapterId)
         throws AdapterNotExistException;
@@ -69,26 +63,20 @@ public interface RegistryPluginFacade
     /**
      * Get the name of the node to which the given adapter belongs.
      * @param adapterId The adapter ID.
-     * @return The node name or the empty string if the given
-     * identifier is not associated to an object adapter defined with
-     * an application descriptor.
-     * @throws AdapterNotExistException Raised if the adapter doesn't
-     * exist.
+     * @return The node name or the empty string if the given identifier is not associated to an object adapter
+     * defined with an application descriptor.
+     * @throws AdapterNotExistException Raised if the adapter doesn't exist.
      **/
     String getAdapterNode(String adapterId)
         throws AdapterNotExistException;
 
     /**
-     * Get the adapter information for the replica group or adapter
-     * with the given id.
+     * Get the adapter information for the replica group or adapter with the given id.
      * @param id The adapter id.
-     * @return A sequence of adapter information structures. If the
-     * given id refers to an adapter, this sequence will contain only
-     * one element. If the given id refers to a replica group, the
-     * sequence will contain the adapter information of each member of
-     * the replica group.
-     * @throws AdapterNotExistException Raised if the adapter or
-     * replica group doesn't exist.
+     * @return A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
+     * contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
+     * information of each member of the replica group.
+     * @throws AdapterNotExistException Raised if the adapter or replica group doesn't exist.
      **/
     AdapterInfo[] getAdapterInfo(String id)
         throws AdapterNotExistException;
@@ -97,8 +85,7 @@ public interface RegistryPluginFacade
      * Get the object info for the object with the given identity.
      * @param id The identity of the object.
      * @return The object info.
-     * @throws ObjectNotRegisteredException Raised if the object isn't
-     * registered with the registry.
+     * @throws ObjectNotRegisteredException Raised if the object isn't registered with the registry.
      **/
     ObjectInfo getObjectInfo(com.zeroc.Ice.Identity id)
         throws ObjectNotRegisteredException;
@@ -108,8 +95,7 @@ public interface RegistryPluginFacade
      * @param name The node name.
      * @return The node information.
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     NodeInfo getNodeInfo(String name)
         throws NodeNotExistException,
@@ -120,17 +106,15 @@ public interface RegistryPluginFacade
      * @param name The node name.
      * @return The node load information.
      * @throws NodeNotExistException Raised if the node doesn't exist.
-     * @throws NodeUnreachableException Raised if the node could not be
-     * reached.
+     * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
     LoadInfo getNodeLoad(String name)
         throws NodeNotExistException,
                NodeUnreachableException;
 
     /**
-     * Get the property value for the given property and adapter. The
-     * property is looked up in the server or service descriptor where
-     * the adapter is defined.
+     * Get the property value for the given property and adapter. The property is looked up in the server or service
+     * descriptor where the adapter is defined.
      * @param adapterId The adapter ID
      * @param name The name of the property.
      * @return The property value.
@@ -141,10 +125,9 @@ public interface RegistryPluginFacade
 
     /**
      * Add a replica group filter.
-     * @param id The identifier of the filter. This identifier must
-     * match the value of the "filter" attribute specified in the
-     * replica group descriptor. To filter dynamically registered
-     * replica groups, you should use the empty filter id.
+     * @param id The identifier of the filter. This identifier must match the value of the "filter" attribute
+     * specified in the replica group descriptor. To filter dynamically registered replica groups, you should use the
+     * empty filter id.
      * @param filter The filter implementation.
      **/
     void addReplicaGroupFilter(String id, ReplicaGroupFilter filter);

@@ -240,8 +240,7 @@ public extension SessionPrx {
     }
 }
 
-/// An object for managing the set of identity constraints for specific
-/// parts of object identity on a
+/// An object for managing the set of identity constraints for specific parts of object identity on a
 /// Session.
 ///
 /// StringSetPrx Methods:
@@ -332,8 +331,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// An object for managing the set of identity constraints for specific
-/// parts of object identity on a
+/// An object for managing the set of identity constraints for specific parts of object identity on a
 /// Session.
 ///
 /// StringSetPrx Methods:
@@ -350,8 +348,8 @@ public extension Ice.InputStream {
 ///
 ///  - getAsync: Returns a sequence of strings describing the constraints in this set.
 public extension StringSetPrx {
-    /// Add a sequence of strings to this set of constraints. Order is
-    /// not preserved and duplicates are implicitly removed.
+    /// Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+    /// removed.
     ///
     /// - parameter _: `Ice.StringSeq` The sequence of strings to be added.
     ///
@@ -365,8 +363,8 @@ public extension StringSetPrx {
                           context: context)
     }
 
-    /// Add a sequence of strings to this set of constraints. Order is
-    /// not preserved and duplicates are implicitly removed.
+    /// Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+    /// removed.
     ///
     /// - parameter _: `Ice.StringSeq` The sequence of strings to be added.
     ///
@@ -393,8 +391,7 @@ public extension StringSetPrx {
                                   sent: sent)
     }
 
-    /// Remove a sequence of strings from this set of constraints. No
-    /// errors are returned if an entry is not found.
+    /// Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
     ///
     /// - parameter _: `Ice.StringSeq` The sequence of strings to be removed.
     ///
@@ -408,8 +405,7 @@ public extension StringSetPrx {
                           context: context)
     }
 
-    /// Remove a sequence of strings from this set of constraints. No
-    /// errors are returned if an entry is not found.
+    /// Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
     ///
     /// - parameter _: `Ice.StringSeq` The sequence of strings to be removed.
     ///
@@ -436,8 +432,7 @@ public extension StringSetPrx {
                                   sent: sent)
     }
 
-    /// Returns a sequence of strings describing the constraints in this
-    /// set.
+    /// Returns a sequence of strings describing the constraints in this set.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -452,8 +447,7 @@ public extension StringSetPrx {
                                  context: context)
     }
 
-    /// Returns a sequence of strings describing the constraints in this
-    /// set.
+    /// Returns a sequence of strings describing the constraints in this set.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -480,8 +474,7 @@ public extension StringSetPrx {
     }
 }
 
-/// An object for managing the set of object identity constraints on a
-/// Session.
+/// An object for managing the set of object identity constraints on a Session.
 ///
 /// IdentitySetPrx Methods:
 ///
@@ -571,8 +564,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// An object for managing the set of object identity constraints on a
-/// Session.
+/// An object for managing the set of object identity constraints on a Session.
 ///
 /// IdentitySetPrx Methods:
 ///
@@ -588,8 +580,8 @@ public extension Ice.InputStream {
 ///
 ///  - getAsync: Returns a sequence of identities describing the constraints in this set.
 public extension IdentitySetPrx {
-    /// Add a sequence of Ice identities to this set of constraints. Order is
-    /// not preserved and duplicates are implicitly removed.
+    /// Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+    /// implicitly removed.
     ///
     /// - parameter _: `Ice.IdentitySeq` The sequence of Ice identities to be added.
     ///
@@ -603,8 +595,8 @@ public extension IdentitySetPrx {
                           context: context)
     }
 
-    /// Add a sequence of Ice identities to this set of constraints. Order is
-    /// not preserved and duplicates are implicitly removed.
+    /// Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+    /// implicitly removed.
     ///
     /// - parameter _: `Ice.IdentitySeq` The sequence of Ice identities to be added.
     ///
@@ -631,8 +623,8 @@ public extension IdentitySetPrx {
                                   sent: sent)
     }
 
-    /// Remove a sequence of identities from this set of constraints. No
-    /// errors are returned if an entry is not found.
+    /// Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+    /// found.
     ///
     /// - parameter _: `Ice.IdentitySeq` The sequence of Ice identities to be removed.
     ///
@@ -646,8 +638,8 @@ public extension IdentitySetPrx {
                           context: context)
     }
 
-    /// Remove a sequence of identities from this set of constraints. No
-    /// errors are returned if an entry is not found.
+    /// Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+    /// found.
     ///
     /// - parameter _: `Ice.IdentitySeq` The sequence of Ice identities to be removed.
     ///
@@ -674,8 +666,7 @@ public extension IdentitySetPrx {
                                   sent: sent)
     }
 
-    /// Returns a sequence of identities describing the constraints in this
-    /// set.
+    /// Returns a sequence of identities describing the constraints in this set.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -690,8 +681,7 @@ public extension IdentitySetPrx {
                                  context: context)
     }
 
-    /// Returns a sequence of identities describing the constraints in this
-    /// set.
+    /// Returns a sequence of identities describing the constraints in this set.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -718,8 +708,7 @@ public extension IdentitySetPrx {
     }
 }
 
-/// An administrative session control object, which is tied to the
-/// lifecycle of a Session.
+/// An administrative session control object, which is tied to the lifecycle of a Session.
 ///
 /// SessionControlPrx Methods:
 ///
@@ -817,8 +806,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// An administrative session control object, which is tied to the
-/// lifecycle of a Session.
+/// An administrative session control object, which is tied to the lifecycle of a Session.
 ///
 /// SessionControlPrx Methods:
 ///
@@ -842,8 +830,7 @@ public extension Ice.InputStream {
 ///
 ///  - destroyAsync: Destroy the associated session.
 public extension SessionControlPrx {
-    /// Access the object that manages the allowable categories
-    /// for object identities for this session.
+    /// Access the object that manages the allowable categories for object identities for this session.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -858,8 +845,7 @@ public extension SessionControlPrx {
                                  context: context)
     }
 
-    /// Access the object that manages the allowable categories
-    /// for object identities for this session.
+    /// Access the object that manages the allowable categories for object identities for this session.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -885,8 +871,7 @@ public extension SessionControlPrx {
                                   sent: sent)
     }
 
-    /// Access the object that manages the allowable adapter identities
-    /// for objects for this session.
+    /// Access the object that manages the allowable adapter identities for objects for this session.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -901,8 +886,7 @@ public extension SessionControlPrx {
                                  context: context)
     }
 
-    /// Access the object that manages the allowable adapter identities
-    /// for objects for this session.
+    /// Access the object that manages the allowable adapter identities for objects for this session.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -928,8 +912,7 @@ public extension SessionControlPrx {
                                   sent: sent)
     }
 
-    /// Access the object that manages the allowable object identities
-    /// for this session.
+    /// Access the object that manages the allowable object identities for this session.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -944,8 +927,7 @@ public extension SessionControlPrx {
                                  context: context)
     }
 
-    /// Access the object that manages the allowable object identities
-    /// for this session.
+    /// Access the object that manages the allowable object identities for this session.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1044,11 +1026,10 @@ public extension SessionControlPrx {
     }
 }
 
-/// The session manager for username/password authenticated users that
-/// is responsible for managing Session objects. New session objects
-/// are created by the Router object calling on an application-provided
-/// session manager. If no session manager is provided by the application,
-/// no client-visible sessions are passed to the client.
+/// The session manager for username/password authenticated users that is responsible for managing Session
+/// objects. New session objects are created by the Router object calling on an application-provided
+/// session manager. If no session manager is provided by the application, no client-visible sessions are passed to
+/// the client.
 ///
 /// SessionManagerPrx Methods:
 ///
@@ -1130,11 +1111,10 @@ public extension Ice.InputStream {
     }
 }
 
-/// The session manager for username/password authenticated users that
-/// is responsible for managing Session objects. New session objects
-/// are created by the Router object calling on an application-provided
-/// session manager. If no session manager is provided by the application,
-/// no client-visible sessions are passed to the client.
+/// The session manager for username/password authenticated users that is responsible for managing Session
+/// objects. New session objects are created by the Router object calling on an application-provided
+/// session manager. If no session manager is provided by the application, no client-visible sessions are passed to
+/// the client.
 ///
 /// SessionManagerPrx Methods:
 ///
@@ -1154,8 +1134,7 @@ public extension SessionManagerPrx {
     ///
     /// - throws:
     ///
-    ///   - CannotCreateSessionException - Raised if the session
-    ///     cannot be created.
+    ///   - CannotCreateSessionException - Raised if the session cannot be created.
     func create(userId iceP_userId: Swift.String, control iceP_control: SessionControlPrx?, context: Ice.Context? = nil) throws -> SessionPrx? {
         return try _impl._invoke(operation: "create",
                                  mode: .Normal,
@@ -1221,11 +1200,9 @@ public extension SessionManagerPrx {
     }
 }
 
-/// The session manager for SSL authenticated users that is
-/// responsible for managing Session objects. New session objects are
-/// created by the Router object calling on an application-provided
-/// session manager. If no session manager is provided by the
-/// application, no client-visible sessions are passed to the client.
+/// The session manager for SSL authenticated users that is responsible for managing Session objects. New
+/// session objects are created by the Router object calling on an application-provided session manager. If
+/// no session manager is provided by the application, no client-visible sessions are passed to the client.
 ///
 /// SSLSessionManagerPrx Methods:
 ///
@@ -1307,11 +1284,9 @@ public extension Ice.InputStream {
     }
 }
 
-/// The session manager for SSL authenticated users that is
-/// responsible for managing Session objects. New session objects are
-/// created by the Router object calling on an application-provided
-/// session manager. If no session manager is provided by the
-/// application, no client-visible sessions are passed to the client.
+/// The session manager for SSL authenticated users that is responsible for managing Session objects. New
+/// session objects are created by the Router object calling on an application-provided session manager. If
+/// no session manager is provided by the application, no client-visible sessions are passed to the client.
 ///
 /// SSLSessionManagerPrx Methods:
 ///
@@ -1331,8 +1306,7 @@ public extension SSLSessionManagerPrx {
     ///
     /// - throws:
     ///
-    ///   - CannotCreateSessionException - Raised if the session
-    ///     cannot be created.
+    ///   - CannotCreateSessionException - Raised if the session cannot be created.
     func create(info iceP_info: SSLInfo, control iceP_control: SessionControlPrx?, context: Ice.Context? = nil) throws -> SessionPrx? {
         return try _impl._invoke(operation: "create",
                                  mode: .Normal,
@@ -1468,28 +1442,25 @@ public struct StringSetDisp: Ice.Disp {
     }
 }
 
-/// An object for managing the set of identity constraints for specific
-/// parts of object identity on a
+/// An object for managing the set of identity constraints for specific parts of object identity on a
 /// Session.
 public protocol StringSet {
-    /// Add a sequence of strings to this set of constraints. Order is
-    /// not preserved and duplicates are implicitly removed.
+    /// Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+    /// removed.
     ///
     /// - parameter additions: `Ice.StringSeq` The sequence of strings to be added.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func add(additions: Ice.StringSeq, current: Ice.Current) throws
 
-    /// Remove a sequence of strings from this set of constraints. No
-    /// errors are returned if an entry is not found.
+    /// Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
     ///
     /// - parameter deletions: `Ice.StringSeq` The sequence of strings to be removed.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func remove(deletions: Ice.StringSeq, current: Ice.Current) throws
 
-    /// Returns a sequence of strings describing the constraints in this
-    /// set.
+    /// Returns a sequence of strings describing the constraints in this set.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -1530,27 +1501,25 @@ public struct IdentitySetDisp: Ice.Disp {
     }
 }
 
-/// An object for managing the set of object identity constraints on a
-/// Session.
+/// An object for managing the set of object identity constraints on a Session.
 public protocol IdentitySet {
-    /// Add a sequence of Ice identities to this set of constraints. Order is
-    /// not preserved and duplicates are implicitly removed.
+    /// Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+    /// implicitly removed.
     ///
     /// - parameter additions: `Ice.IdentitySeq` The sequence of Ice identities to be added.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func add(additions: Ice.IdentitySeq, current: Ice.Current) throws
 
-    /// Remove a sequence of identities from this set of constraints. No
-    /// errors are returned if an entry is not found.
+    /// Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+    /// found.
     ///
     /// - parameter deletions: `Ice.IdentitySeq` The sequence of Ice identities to be removed.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func remove(deletions: Ice.IdentitySeq, current: Ice.Current) throws
 
-    /// Returns a sequence of identities describing the constraints in this
-    /// set.
+    /// Returns a sequence of identities describing the constraints in this set.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -1595,27 +1564,23 @@ public struct SessionControlDisp: Ice.Disp {
     }
 }
 
-/// An administrative session control object, which is tied to the
-/// lifecycle of a Session.
+/// An administrative session control object, which is tied to the lifecycle of a Session.
 public protocol SessionControl {
-    /// Access the object that manages the allowable categories
-    /// for object identities for this session.
+    /// Access the object that manages the allowable categories for object identities for this session.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `StringSetPrx?` - A StringSet object.
     func categories(current: Ice.Current) throws -> StringSetPrx?
 
-    /// Access the object that manages the allowable adapter identities
-    /// for objects for this session.
+    /// Access the object that manages the allowable adapter identities for objects for this session.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `StringSetPrx?` - A StringSet object.
     func adapterIds(current: Ice.Current) throws -> StringSetPrx?
 
-    /// Access the object that manages the allowable object identities
-    /// for this session.
+    /// Access the object that manages the allowable object identities for this session.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -1664,11 +1629,10 @@ public struct SessionManagerDisp: Ice.Disp {
     }
 }
 
-/// The session manager for username/password authenticated users that
-/// is responsible for managing Session objects. New session objects
-/// are created by the Router object calling on an application-provided
-/// session manager. If no session manager is provided by the application,
-/// no client-visible sessions are passed to the client.
+/// The session manager for username/password authenticated users that is responsible for managing Session
+/// objects. New session objects are created by the Router object calling on an application-provided
+/// session manager. If no session manager is provided by the application, no client-visible sessions are passed to
+/// the client.
 public protocol SessionManager {
     /// Create a new session.
     ///
@@ -1682,8 +1646,7 @@ public protocol SessionManager {
     ///
     /// - throws:
     ///
-    ///   - CannotCreateSessionException - Raised if the session
-    ///     cannot be created.
+    ///   - CannotCreateSessionException - Raised if the session cannot be created.
     func create(userId: Swift.String, control: SessionControlPrx?, current: Ice.Current) throws -> SessionPrx?
 }
 
@@ -1716,11 +1679,9 @@ public struct SSLSessionManagerDisp: Ice.Disp {
     }
 }
 
-/// The session manager for SSL authenticated users that is
-/// responsible for managing Session objects. New session objects are
-/// created by the Router object calling on an application-provided
-/// session manager. If no session manager is provided by the
-/// application, no client-visible sessions are passed to the client.
+/// The session manager for SSL authenticated users that is responsible for managing Session objects. New
+/// session objects are created by the Router object calling on an application-provided session manager. If
+/// no session manager is provided by the application, no client-visible sessions are passed to the client.
 public protocol SSLSessionManager {
     /// Create a new session.
     ///
@@ -1734,8 +1695,7 @@ public protocol SSLSessionManager {
     ///
     /// - throws:
     ///
-    ///   - CannotCreateSessionException - Raised if the session
-    ///     cannot be created.
+    ///   - CannotCreateSessionException - Raised if the session cannot be created.
     func create(info: SSLInfo, control: SessionControlPrx?, current: Ice.Current) throws -> SessionPrx?
 }
 
@@ -1754,8 +1714,7 @@ public extension Session {
     }
 }
 
-/// An object for managing the set of identity constraints for specific
-/// parts of object identity on a
+/// An object for managing the set of identity constraints for specific parts of object identity on a
 /// Session.
 ///
 /// StringSet Methods:
@@ -1799,8 +1758,7 @@ public extension StringSet {
     }
 }
 
-/// An object for managing the set of object identity constraints on a
-/// Session.
+/// An object for managing the set of object identity constraints on a Session.
 ///
 /// IdentitySet Methods:
 ///
@@ -1843,8 +1801,7 @@ public extension IdentitySet {
     }
 }
 
-/// An administrative session control object, which is tied to the
-/// lifecycle of a Session.
+/// An administrative session control object, which is tied to the lifecycle of a Session.
 ///
 /// SessionControl Methods:
 ///
@@ -1907,11 +1864,10 @@ public extension SessionControl {
     }
 }
 
-/// The session manager for username/password authenticated users that
-/// is responsible for managing Session objects. New session objects
-/// are created by the Router object calling on an application-provided
-/// session manager. If no session manager is provided by the application,
-/// no client-visible sessions are passed to the client.
+/// The session manager for username/password authenticated users that is responsible for managing Session
+/// objects. New session objects are created by the Router object calling on an application-provided
+/// session manager. If no session manager is provided by the application, no client-visible sessions are passed to
+/// the client.
 ///
 /// SessionManager Methods:
 ///
@@ -1933,11 +1889,9 @@ public extension SessionManager {
     }
 }
 
-/// The session manager for SSL authenticated users that is
-/// responsible for managing Session objects. New session objects are
-/// created by the Router object calling on an application-provided
-/// session manager. If no session manager is provided by the
-/// application, no client-visible sessions are passed to the client.
+/// The session manager for SSL authenticated users that is responsible for managing Session objects. New
+/// session objects are created by the Router object calling on an application-provided session manager. If
+/// no session manager is provided by the application, no client-visible sessions are passed to the client.
 ///
 /// SSLSessionManager Methods:
 ///

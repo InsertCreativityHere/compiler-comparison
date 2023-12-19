@@ -29,11 +29,11 @@ if 'ConnectionInfo' not in _M_IceSSL.__dict__:
     _M_IceSSL.ConnectionInfo = Ice.createTempClass()
     class ConnectionInfo(_M_Ice.ConnectionInfo):
         """
-        Provides access to the connection details of an SSL connection
+         Provides access to the connection details of an SSL connection
         Members:
-        cipher -- The negotiated cipher suite.
-        certs -- The certificate chain.
-        verified -- The certificate chain verification status.
+        cipher --  The negotiated cipher suite.
+        certs --  The certificate chain.
+        verified --  The certificate chain verification status.
         """
         def __init__(self, underlying=None, incoming=False, adapterName='', connectionId='', cipher='', certs=None, verified=False):
             _M_Ice.ConnectionInfo.__init__(self, underlying, incoming, adapterName, connectionId)

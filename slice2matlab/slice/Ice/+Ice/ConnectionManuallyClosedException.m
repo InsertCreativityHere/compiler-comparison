@@ -1,7 +1,7 @@
 % ConnectionManuallyClosedException   Summary of ConnectionManuallyClosedException
 %
-% This exception is raised by an operation call if the application
-% closes the connection locally using Connection.close.
+% This exception is raised by an operation call if the application closes the connection locally using
+% Connection.close.
 %
 % ConnectionManuallyClosedException Properties:
 %   graceful - True if the connection was closed gracefully, false otherwise.

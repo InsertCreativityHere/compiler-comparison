@@ -82,7 +82,7 @@ public:
 
     /**
      * One-shot constructor to initialize all data members.
-     * @param underlying The information of the underyling endpoint of null if there's no underlying endpoint.
+     * @param underlying The information of the underyling endpoint or null if there's no underlying endpoint.
      * @param timeout The timeout for the endpoint in milliseconds.
      * @param compress Specifies whether or not compression should be used if available when using this endpoint.
      * @param manufacturer The accessory manufacturer or empty to not match against a manufacturer.
@@ -100,18 +100,15 @@ public:
     }
 
     /**
-     * The accessory manufacturer or empty to not match against
-     * a manufacturer.
+     * The accessory manufacturer or empty to not match against a manufacturer.
      */
     ::std::string manufacturer;
     /**
-     * The accessory model number or empty to not match against
-     * a model number.
+     * The accessory model number or empty to not match against a model number.
      */
     ::std::string modelNumber;
     /**
-     * The accessory name or empty to not match against
-     * the accessory name.
+     * The accessory name or empty to not match against the accessory name.
      */
     ::std::string name;
     /**
@@ -172,7 +169,7 @@ public:
 
     /**
      * One-shot constructor to initialize all data members.
-     * @param underlying The information of the underyling endpoint of null if there's no underlying endpoint.
+     * @param underlying The information of the underyling endpoint or null if there's no underlying endpoint.
      * @param timeout The timeout for the endpoint in milliseconds.
      * @param compress Specifies whether or not compression should be used if available when using this endpoint.
      * @param manufacturer The accessory manufacturer or empty to not match against a manufacturer.
@@ -195,18 +192,15 @@ public:
 #endif
 
     /**
-     * The accessory manufacturer or empty to not match against
-     * a manufacturer.
+     * The accessory manufacturer or empty to not match against a manufacturer.
      */
     ::std::string manufacturer;
     /**
-     * The accessory model number or empty to not match against
-     * a model number.
+     * The accessory model number or empty to not match against a model number.
      */
     ::std::string modelNumber;
     /**
-     * The accessory name or empty to not match against
-     * the accessory name.
+     * The accessory name or empty to not match against the accessory name.
      */
     ::std::string name;
     /**

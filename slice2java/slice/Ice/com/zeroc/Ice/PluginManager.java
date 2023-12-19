@@ -16,19 +16,16 @@
 package com.zeroc.Ice;
 
 /**
- * Each communicator has a plug-in manager to administer the set of
- * plug-ins.
+ * Each communicator has a plug-in manager to administer the set of plug-ins.
  **/
 public interface PluginManager
 {
     /**
-     * Initialize the configured plug-ins. The communicator automatically initializes
-     * the plug-ins by default, but an application may need to interact directly with
-     * a plug-in prior to initialization. In this case, the application must set
-     * <code>Ice.InitPlugins=0</code> and then invoke {@link #initializePlugins}
-     * manually. The plug-ins are initialized in the order in which they are loaded.
-     * If a plug-in raises an exception during initialization, the communicator
-     * invokes destroy on the plug-ins that have already been initialized.
+     * Initialize the configured plug-ins. The communicator automatically initializes the plug-ins by default, but an
+     * application may need to interact directly with a plug-in prior to initialization. In this case, the application
+     * must set <code>Ice.InitPlugins=0</code> and then invoke {@link #initializePlugins} manually. The plug-ins are
+     * initialized in the order in which they are loaded. If a plug-in raises an exception during initialization, the
+     * communicator invokes destroy on the plug-ins that have already been initialized.
      * @throws InitializationException Raised if the plug-ins have already been initialized.
      **/
     void initializePlugins();

@@ -1,7 +1,6 @@
 % AdapterExistsException   Summary of AdapterExistsException
 %
-% This exception is raised if an adapter with the same name already
-% exists.
+% This exception is raised if an adapter with the same name already exists.
 %
 % AdapterExistsException Properties:
 %   id

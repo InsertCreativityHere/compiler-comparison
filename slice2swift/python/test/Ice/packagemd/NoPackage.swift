@@ -130,6 +130,7 @@ public extension Ice.ClassResolver {
     }
 }
 
+/// Test keyword escape.
 open class def: Ice.UserException {
     public var i: Swift.Int32 = 0
 

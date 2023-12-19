@@ -3,25 +3,32 @@
 % Used to store persistent information for persistent subscribers.
 %
 % SubscriberRecord Properties:
-%   topicName
-%   id
-%   link
-%   obj
-%   theQoS
-%   cost
-%   theTopic
+%   topicName - The name of the topic.
+%   id - The subscriber identity.
+%   link - Is this a link record, or a subscriber record?
+%   obj - The subscriber object.
+%   theQoS - The QoS.
+%   cost - The cost.
+%   theTopic - The linked topic.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from SubscriberRecord.ice by slice2matlab version 3.7.10
 
 classdef SubscriberRecord
     properties
+        % topicName - The name of the topic.
         topicName char
+        % id - The subscriber identity.
         id Ice.Identity
+        % link - Is this a link record, or a subscriber record?
         link logical
+        % obj - The subscriber object.
         obj
+        % theQoS - The QoS.
         theQoS containers.Map
+        % cost - The cost.
         cost int32
+        % theTopic - The linked topic.
         theTopic
     end
     methods

@@ -21,8 +21,7 @@ package IceStormElection;
 public interface NodePrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
-     * Invite the node into a group with the given coordinator and
-     * group name.
+     * Invite the node into a group with the given coordinator and group name.
      * @param j The group coordinator.
      * @param gn The group name.
      **/
@@ -32,8 +31,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Invite the node into a group with the given coordinator and
-     * group name.
+     * Invite the node into a group with the given coordinator and group name.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param context The Context map to send with the invocation.
@@ -44,8 +42,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Invite the node into a group with the given coordinator and
-     * group name.
+     * Invite the node into a group with the given coordinator and group name.
      * @param j The group coordinator.
      * @param gn The group name.
      * @return A future that will be completed when the invocation completes.
@@ -56,8 +53,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Invite the node into a group with the given coordinator and
-     * group name.
+     * Invite the node into a group with the given coordinator and group name.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param context The Context map to send with the invocation.
@@ -87,13 +83,11 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Call from the group coordinator to a node to inform the node
-     * that the replica group is active.
+     * Call from the group coordinator to a node to inform the node that the replica group is active.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param coordinator The proxy to the coordinator.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param generation The current generation count.
      **/
     default void ready(int j, String gn, com.zeroc.Ice.ObjectPrx coordinator, int max, long generation)
@@ -102,13 +96,11 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Call from the group coordinator to a node to inform the node
-     * that the replica group is active.
+     * Call from the group coordinator to a node to inform the node that the replica group is active.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param coordinator The proxy to the coordinator.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param generation The current generation count.
      * @param context The Context map to send with the invocation.
      **/
@@ -118,13 +110,11 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Call from the group coordinator to a node to inform the node
-     * that the replica group is active.
+     * Call from the group coordinator to a node to inform the node that the replica group is active.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param coordinator The proxy to the coordinator.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param generation The current generation count.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -134,13 +124,11 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Call from the group coordinator to a node to inform the node
-     * that the replica group is active.
+     * Call from the group coordinator to a node to inform the node that the replica group is active.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param coordinator The proxy to the coordinator.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param generation The current generation count.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -175,16 +163,13 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Called to accept an invitation into
-     * the given group.
+     * Called to accept an invitation into the given group.
      * @param j The id of the node accepting the invitation.
      * @param gn The group name.
-     * @param forwardedInvites The ids of the nodes to which
-     * invitations were forwarded.
+     * @param forwardedInvites The ids of the nodes to which invitations were forwarded.
      * @param observer The observer.
      * @param llu The last log update for the given node.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      **/
     default void accept(int j, String gn, int[] forwardedInvites, com.zeroc.Ice.ObjectPrx observer, LogUpdate llu, int max)
     {
@@ -192,16 +177,13 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Called to accept an invitation into
-     * the given group.
+     * Called to accept an invitation into the given group.
      * @param j The id of the node accepting the invitation.
      * @param gn The group name.
-     * @param forwardedInvites The ids of the nodes to which
-     * invitations were forwarded.
+     * @param forwardedInvites The ids of the nodes to which invitations were forwarded.
      * @param observer The observer.
      * @param llu The last log update for the given node.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param context The Context map to send with the invocation.
      **/
     default void accept(int j, String gn, int[] forwardedInvites, com.zeroc.Ice.ObjectPrx observer, LogUpdate llu, int max, java.util.Map<String, String> context)
@@ -210,16 +192,13 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Called to accept an invitation into
-     * the given group.
+     * Called to accept an invitation into the given group.
      * @param j The id of the node accepting the invitation.
      * @param gn The group name.
-     * @param forwardedInvites The ids of the nodes to which
-     * invitations were forwarded.
+     * @param forwardedInvites The ids of the nodes to which invitations were forwarded.
      * @param observer The observer.
      * @param llu The last log update for the given node.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> acceptAsync(int j, String gn, int[] forwardedInvites, com.zeroc.Ice.ObjectPrx observer, LogUpdate llu, int max)
@@ -228,16 +207,13 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Called to accept an invitation into
-     * the given group.
+     * Called to accept an invitation into the given group.
      * @param j The id of the node accepting the invitation.
      * @param gn The group name.
-     * @param forwardedInvites The ids of the nodes to which
-     * invitations were forwarded.
+     * @param forwardedInvites The ids of the nodes to which invitations were forwarded.
      * @param observer The observer.
      * @param llu The last log update for the given node.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -328,8 +304,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Determine if the node is a member of the given group with the
-     * given coordinator.
+     * Determine if the node is a member of the given group with the given coordinator.
      * @param gn The group name.
      * @param j The group coordinator.
      * @return True if the node is a member, false otherwise.
@@ -340,8 +315,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Determine if the node is a member of the given group with the
-     * given coordinator.
+     * Determine if the node is a member of the given group with the given coordinator.
      * @param gn The group name.
      * @param j The group coordinator.
      * @param context The Context map to send with the invocation.
@@ -353,8 +327,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Determine if the node is a member of the given group with the
-     * given coordinator.
+     * Determine if the node is a member of the given group with the given coordinator.
      * @param gn The group name.
      * @param j The group coordinator.
      * @return True if the node is a member, false otherwise.
@@ -365,8 +338,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Determine if the node is a member of the given group with the
-     * given coordinator.
+     * Determine if the node is a member of the given group with the given coordinator.
      * @param gn The group name.
      * @param j The group coordinator.
      * @param context The Context map to send with the invocation.
@@ -456,8 +428,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Get the replication group information.
-     * @return The set of configured nodes and the associated
-     * priority.
+     * @return The set of configured nodes and the associated priority.
      **/
     default NodeInfo[] nodes()
     {
@@ -467,8 +438,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Get the replication group information.
      * @param context The Context map to send with the invocation.
-     * @return The set of configured nodes and the associated
-     * priority.
+     * @return The set of configured nodes and the associated priority.
      **/
     default NodeInfo[] nodes(java.util.Map<String, String> context)
     {
@@ -477,8 +447,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Get the replication group information.
-     * @return The set of configured nodes and the associated
-     * priority.
+     * @return The set of configured nodes and the associated priority.
      **/
     default java.util.concurrent.CompletableFuture<NodeInfo[]> nodesAsync()
     {
@@ -488,8 +457,7 @@ public interface NodePrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Get the replication group information.
      * @param context The Context map to send with the invocation.
-     * @return The set of configured nodes and the associated
-     * priority.
+     * @return The set of configured nodes and the associated priority.
      **/
     default java.util.concurrent.CompletableFuture<NodeInfo[]> nodesAsync(java.util.Map<String, String> context)
     {

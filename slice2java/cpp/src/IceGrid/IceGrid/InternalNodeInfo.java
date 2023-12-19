@@ -54,8 +54,7 @@ public class InternalNodeInfo extends com.zeroc.Ice.Value
     public String os;
 
     /**
-     * The network name of the host running this node (as defined in
-     * uname()).
+     * The network name of the host running this node (as defined in uname()).
      **/
     public String hostname;
 
@@ -75,8 +74,7 @@ public class InternalNodeInfo extends com.zeroc.Ice.Value
     public String machine;
 
     /**
-     * The number of processor threads (e.g. 8 on
-     * system with 1 quad-core CPU, with 2 threads per core)
+     * The number of processor threads (e.g. 8 on system with 1 quad-core CPU, with 2 threads per core)
      **/
     public int nProcessors;
 

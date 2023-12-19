@@ -16,8 +16,7 @@
 package com.zeroc.Glacier2;
 
 /**
- * An object for managing the set of identity constraints for specific
- * parts of object identity on a
+ * An object for managing the set of identity constraints for specific parts of object identity on a
  * {@link Session}.
  *
  * @see Session
@@ -26,24 +25,22 @@ package com.zeroc.Glacier2;
 public interface StringSet extends com.zeroc.Ice.Object
 {
     /**
-     * Add a sequence of strings to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+     * removed.
      * @param additions The sequence of strings to be added.
      * @param current The Current object for the invocation.
      **/
     void add(String[] additions, com.zeroc.Ice.Current current);
 
     /**
-     * Remove a sequence of strings from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
      * @param deletions The sequence of strings to be removed.
      * @param current The Current object for the invocation.
      **/
     void remove(String[] deletions, com.zeroc.Ice.Current current);
 
     /**
-     * Returns a sequence of strings describing the constraints in this
-     * set.
+     * Returns a sequence of strings describing the constraints in this set.
      * @param current The Current object for the invocation.
      * @return The sequence of strings for this set.
      **/

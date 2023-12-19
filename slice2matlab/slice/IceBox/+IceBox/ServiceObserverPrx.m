@@ -1,7 +1,6 @@
 % ServiceObserverPrx   Summary of ServiceObserverPrx
 %
-% An Observer interface implemented by admin clients interested in the status
-% of services.
+% An Observer interface implemented by admin clients interested in the status of services.
 %
 % ServiceObserverPrx Methods:
 %   servicesStarted - Receives the names of the services that were started.

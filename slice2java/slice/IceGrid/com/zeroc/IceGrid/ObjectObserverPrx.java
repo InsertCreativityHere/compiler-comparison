@@ -21,10 +21,8 @@ package com.zeroc.IceGrid;
 public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
-     * <code>objectInit</code> is called after the registration of
-     * an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin}
-     * interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
      **/
     default void objectInit(ObjectInfo[] objects)
     {
@@ -32,10 +30,8 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * <code>objectInit</code> is called after the registration of
-     * an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin}
-     * interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
      * @param context The Context map to send with the invocation.
      **/
     default void objectInit(ObjectInfo[] objects, java.util.Map<String, String> context)
@@ -44,10 +40,8 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * <code>objectInit</code> is called after the registration of
-     * an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin}
-     * interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> objectInitAsync(ObjectInfo[] objects)
@@ -56,10 +50,8 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * <code>objectInit</code> is called after the registration of
-     * an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin}
-     * interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -85,8 +77,8 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>objectAdded</code> operation is called to notify an observer when an
-     * object was added to the {@link Admin} interface.
+     * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
+     * {@link Admin} interface.
      * @param info The details of the added object.
      **/
     default void objectAdded(ObjectInfo info)
@@ -95,8 +87,8 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>objectAdded</code> operation is called to notify an observer when an
-     * object was added to the {@link Admin} interface.
+     * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
+     * {@link Admin} interface.
      * @param info The details of the added object.
      * @param context The Context map to send with the invocation.
      **/
@@ -106,8 +98,8 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>objectAdded</code> operation is called to notify an observer when an
-     * object was added to the {@link Admin} interface.
+     * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
+     * {@link Admin} interface.
      * @param info The details of the added object.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -117,8 +109,8 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * The <code>objectAdded</code> operation is called to notify an observer when an
-     * object was added to the {@link Admin} interface.
+     * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
+     * {@link Admin} interface.
      * @param info The details of the added object.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -145,8 +137,8 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * <code>objectUpdated</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was updated.
+     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was updated.
      * @param info The details of the updated object.
      **/
     default void objectUpdated(ObjectInfo info)
@@ -155,8 +147,8 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * <code>objectUpdated</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was updated.
+     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was updated.
      * @param info The details of the updated object.
      * @param context The Context map to send with the invocation.
      **/
@@ -166,8 +158,8 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * <code>objectUpdated</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was updated.
+     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was updated.
      * @param info The details of the updated object.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -177,8 +169,8 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * <code>objectUpdated</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was updated.
+     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was updated.
      * @param info The details of the updated object.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -205,8 +197,8 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * <code>objectRemoved</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was removed.
+     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was removed.
      * @param id The identity of the removed object.
      **/
     default void objectRemoved(com.zeroc.Ice.Identity id)
@@ -215,8 +207,8 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * <code>objectRemoved</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was removed.
+     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was removed.
      * @param id The identity of the removed object.
      * @param context The Context map to send with the invocation.
      **/
@@ -226,8 +218,8 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * <code>objectRemoved</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was removed.
+     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was removed.
      * @param id The identity of the removed object.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -237,8 +229,8 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * <code>objectRemoved</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was removed.
+     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was removed.
      * @param id The identity of the removed object.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.

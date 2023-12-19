@@ -25,9 +25,8 @@ if 'ObjectFactory' not in _M_Ice.__dict__:
     _M_Ice.ObjectFactory = Ice.createTempClass()
     class ObjectFactory(object):
         """
-        A factory for objects. Object factories are used when receiving "objects by value".
-        An object factory must be implemented by the application writer and registered
-        with the communicator.
+         A factory for objects. Object factories are used when receiving "objects by value". An object factory must be
+         implemented by the application writer and registered with the communicator.
         """
         def __init__(self):
             if Ice.getType(self) == _M_Ice.ObjectFactory:
@@ -35,12 +34,10 @@ if 'ObjectFactory' not in _M_Ice.__dict__:
 
         def create(self, type):
             """
-            Create a new object for a given object type. The type is the
-            absolute Slice type id, i.e., the id relative to the
-            unnamed top-level Slice module. For example, the absolute
-            Slice type id for interfaces of type Bar in the module
-            Foo is "::Foo::Bar".
-            The leading "::" is required.
+             Create a new object for a given object type. The type is the absolute Slice type id, i.e., the id relative to
+             the unnamed top-level Slice module. For example, the absolute Slice type id for interfaces of type
+             Bar in the module Foo is "::Foo::Bar".
+             The leading "::" is required.
             Arguments:
             type -- The object type.
             Returns: The object created for the given type, or nil if the factory is unable to create the object.
@@ -49,8 +46,7 @@ if 'ObjectFactory' not in _M_Ice.__dict__:
 
         def destroy(self):
             """
-            Called when the factory is removed from the communicator, or if
-            the communicator is destroyed.
+             Called when the factory is removed from the communicator, or if the communicator is destroyed.
             """
             raise NotImplementedError("method 'destroy' not implemented")
 

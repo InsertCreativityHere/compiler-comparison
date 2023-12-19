@@ -16,15 +16,13 @@
 package com.zeroc.IceMX;
 
 /**
- * A structure to keep track of failures associated with a given
- * metrics.
+ * A structure to keep track of failures associated with a given metrics.
  **/
 public class MetricsFailures implements java.lang.Cloneable,
                                         java.io.Serializable
 {
     /**
-     * The identifier of the metrics object associated to the
-     * failures.
+     * The identifier of the metrics object associated to the failures.
      **/
     public String id;
 

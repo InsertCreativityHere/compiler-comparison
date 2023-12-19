@@ -1,11 +1,8 @@
 % ObserverUpdater   Summary of ObserverUpdater
 %
-% The ObserverUpdater interface is implemented by Glacier2 and an
-% instance of this interface is provided on initialization to the
-% RouterObserver object.
-%
-% This interface can be used by add-ins imlementing the
-% RouterObserver interface to update the obsevers of observed
+% The ObserverUpdater interface is implemented by Glacier2 and an instance of this interface is provided on
+% initialization to the RouterObserver object.
+% This interface can be used by add-ins imlementing the RouterObserver interface to update the obsevers of observed
 % objects.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.

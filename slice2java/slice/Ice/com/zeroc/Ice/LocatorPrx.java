@@ -16,25 +16,19 @@
 package com.zeroc.Ice;
 
 /**
- * The Ice locator interface. This interface is used by clients to
- * lookup adapters and objects. It is also used by servers to get the
- * locator registry proxy.
- *
- * <p class="Note">The {@link Locator} interface is intended to be used by
- * Ice internals and by locator implementations. Regular user code
- * should not attempt to use any functionality of this interface
- * directly.
+ * The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
+ * servers to get the locator registry proxy. <p class="Note">The {@link Locator} interface is intended to be used by
+ * Ice internals and by locator implementations. Regular user code should not attempt to use any functionality of this
+ * interface directly.
  **/
 public interface LocatorPrx extends ObjectPrx
 {
     /**
-     * Find an object by identity and return a proxy that contains
-     * the adapter ID or endpoints which can be used to access the
-     * object.
+     * Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+     * access the object.
      * @param id The identity.
      * @return The proxy, or null if the object is not active.
-     * @throws ObjectNotFoundException Raised if the object cannot
-     * be found.
+     * @throws ObjectNotFoundException Raised if the object cannot be found.
      **/
     default ObjectPrx findObjectById(Identity id)
         throws ObjectNotFoundException
@@ -43,14 +37,12 @@ public interface LocatorPrx extends ObjectPrx
     }
 
     /**
-     * Find an object by identity and return a proxy that contains
-     * the adapter ID or endpoints which can be used to access the
-     * object.
+     * Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+     * access the object.
      * @param id The identity.
      * @param context The Context map to send with the invocation.
      * @return The proxy, or null if the object is not active.
-     * @throws ObjectNotFoundException Raised if the object cannot
-     * be found.
+     * @throws ObjectNotFoundException Raised if the object cannot be found.
      **/
     default ObjectPrx findObjectById(Identity id, java.util.Map<String, String> context)
         throws ObjectNotFoundException
@@ -70,9 +62,8 @@ public interface LocatorPrx extends ObjectPrx
     }
 
     /**
-     * Find an object by identity and return a proxy that contains
-     * the adapter ID or endpoints which can be used to access the
-     * object.
+     * Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+     * access the object.
      * @param id The identity.
      * @return The proxy, or null if the object is not active.
      **/
@@ -82,9 +73,8 @@ public interface LocatorPrx extends ObjectPrx
     }
 
     /**
-     * Find an object by identity and return a proxy that contains
-     * the adapter ID or endpoints which can be used to access the
-     * object.
+     * Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+     * access the object.
      * @param id The identity.
      * @param context The Context map to send with the invocation.
      * @return The proxy, or null if the object is not active.
@@ -121,12 +111,10 @@ public interface LocatorPrx extends ObjectPrx
     };
 
     /**
-     * Find an adapter by id and return a proxy that contains
-     * its endpoints.
+     * Find an adapter by id and return a proxy that contains its endpoints.
      * @param id The adapter id.
      * @return The adapter proxy, or null if the adapter is not active.
-     * @throws AdapterNotFoundException Raised if the adapter cannot be
-     * found.
+     * @throws AdapterNotFoundException Raised if the adapter cannot be found.
      **/
     default ObjectPrx findAdapterById(String id)
         throws AdapterNotFoundException
@@ -135,13 +123,11 @@ public interface LocatorPrx extends ObjectPrx
     }
 
     /**
-     * Find an adapter by id and return a proxy that contains
-     * its endpoints.
+     * Find an adapter by id and return a proxy that contains its endpoints.
      * @param id The adapter id.
      * @param context The Context map to send with the invocation.
      * @return The adapter proxy, or null if the adapter is not active.
-     * @throws AdapterNotFoundException Raised if the adapter cannot be
-     * found.
+     * @throws AdapterNotFoundException Raised if the adapter cannot be found.
      **/
     default ObjectPrx findAdapterById(String id, java.util.Map<String, String> context)
         throws AdapterNotFoundException
@@ -161,8 +147,7 @@ public interface LocatorPrx extends ObjectPrx
     }
 
     /**
-     * Find an adapter by id and return a proxy that contains
-     * its endpoints.
+     * Find an adapter by id and return a proxy that contains its endpoints.
      * @param id The adapter id.
      * @return The adapter proxy, or null if the adapter is not active.
      **/
@@ -172,8 +157,7 @@ public interface LocatorPrx extends ObjectPrx
     }
 
     /**
-     * Find an adapter by id and return a proxy that contains
-     * its endpoints.
+     * Find an adapter by id and return a proxy that contains its endpoints.
      * @param id The adapter id.
      * @param context The Context map to send with the invocation.
      * @return The adapter proxy, or null if the adapter is not active.

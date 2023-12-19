@@ -16,8 +16,7 @@
 package com.zeroc.IceGrid;
 
 /**
- * A distribution descriptor defines an IcePatch2 server and the
- * directories to retrieve from the patch server.
+ * A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
  **/
 public class DistributionDescriptor implements java.lang.Cloneable,
                                                java.io.Serializable

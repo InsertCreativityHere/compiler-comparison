@@ -40,11 +40,9 @@ namespace Glacier2
 
             /// <summary>
             /// Notification of a forwarded request.
-            /// This also implies removing
-            /// the event from the queue.
-            ///
+            /// This also implies removing the event from the queue.
             /// </summary>
-            /// <param name="client">True if client request, false if server request.</param>
+            ///  <param name="client">True if client request, false if server request.</param>
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
             void forwarded(bool client);
@@ -61,11 +59,9 @@ namespace Glacier2
 
             /// <summary>
             /// Notification of a overridden request.
-            /// This implies adding and
-            /// removing an event to the queue.
-            ///
+            /// This implies adding and removing an event to the queue.
             /// </summary>
-            /// <param name="client">True if client request, false if server request.</param>
+            ///  <param name="client">True if client request, false if server request.</param>
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
             void overridden(bool client);
@@ -100,10 +96,9 @@ namespace Glacier2
 
             /// <summary>
             /// Update the router sessions.
-            /// When called, this method goes through all the sessions and for
-            /// each session RouterObserver::getSessionObserver is
-            /// called. The implementation of getSessionObserver has the
-            /// possibility to return an updated observer if necessary.
+            /// When called, this method goes through all the sessions and for each session RouterObserver::getSessionObserver
+            ///  is called. The implementation of getSessionObserver has the possibility to return an updated observer if
+            ///  necessary.
             /// </summary>
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -132,17 +127,12 @@ namespace Glacier2
             /// This method should return an observer for the given session.
             /// </summary>
             /// <param name="id">The id of the session (the user id or the SSL DN).
-            ///
-            /// </param>
+            ///  </param>
             /// <param name="con">The connection associated to the session.
-            ///
-            /// </param>
-            /// <param name="routingTableSize">The size of the routing table for this
-            /// session.
-            ///
-            /// </param>
-            /// <param name="old">The previous observer, only set when updating an
-            /// existing observer.</param>
+            ///  </param>
+            /// <param name="routingTableSize">The size of the routing table for this session.
+            ///  </param>
+            /// <param name="old">The previous observer, only set when updating an existing observer.</param>
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
             SessionObserver getSessionObserver(string id, global::Ice.Connection con, int routingTableSize, SessionObserver old);
@@ -150,12 +140,10 @@ namespace Glacier2
 
             /// <summary>
             /// Glacier2 calls this method on initialization.
-            /// The add-in
-            /// implementing this interface can use this object to get Glacier2
-            /// to re-obtain observers for topics and subscribers.
-            ///
+            /// The add-in implementing this interface can use this object to get
+            ///  Glacier2 to re-obtain observers for topics and subscribers.
             /// </summary>
-            /// <param name="updater">The observer updater object.</param>
+            ///  <param name="updater">The observer updater object.</param>
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
             void setObserverUpdater(ObserverUpdater updater);

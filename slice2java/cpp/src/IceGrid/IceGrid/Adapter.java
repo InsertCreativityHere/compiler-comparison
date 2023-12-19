@@ -18,23 +18,19 @@ package IceGrid;
 public interface Adapter extends com.zeroc.Ice.Object
 {
     /**
-     * Activate this adapter. If this adapter can be activated, this
-     * will activate the adapter and return the direct proxy of the
-     * adapter once it's active. If this adapter can be activated on
-     * demand, this will return 0 if the adapter is inactive or the
-     * adapter direct proxy it's active.
+     * Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+     * proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+     * adapter is inactive or the adapter direct proxy it's active.
      * @param current The Current object for the invocation.
      * @return A completion stage that the servant will complete with the result.
      **/
     java.util.concurrent.CompletionStage<com.zeroc.Ice.ObjectPrx> activateAsync(com.zeroc.Ice.Current current);
 
     /**
-     * Get the adapter direct proxy. The adapter direct proxy is a
-     * proxy created with the object adapter. The proxy contains the
-     * last known adapter endpoints.
+     * Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+     * contains the last known adapter endpoints.
      * @param current The Current object for the invocation.
-     * @return A direct proxy containing the last known adapter
-     * endpoints if the adapter is already active.
+     * @return A direct proxy containing the last known adapter endpoints if the adapter is already active.
      **/
     com.zeroc.Ice.ObjectPrx getDirectProxy(com.zeroc.Ice.Current current)
         throws AdapterNotActiveException;
@@ -42,9 +38,8 @@ public interface Adapter extends com.zeroc.Ice.Object
     /**
      * Set the direct proxy for this adapter.
      * @param current The Current object for the invocation.
-     * @throws AdapterActiveException The adapter is already
-     * active. It's not possible to override the direct proxy of an
-     * active adapter.
+     * @throws AdapterActiveException The adapter is already active. It's not possible to override the direct proxy of
+     * an active adapter.
      **/
     void setDirectProxy(com.zeroc.Ice.ObjectPrx proxy, com.zeroc.Ice.Current current)
         throws AdapterActiveException;

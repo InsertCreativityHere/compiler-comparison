@@ -51,8 +51,7 @@ namespace Ice
 namespace Ice
 {
     /// <summary>
-    /// The PropertiesAdmin interface provides remote access to the properties
-    /// of a communicator.
+    /// The PropertiesAdmin interface provides remote access to the properties of a communicator.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -60,13 +59,10 @@ namespace Ice
     {
         /// <summary>
         /// Get a property by key.
-        /// If the property is not set, an empty
-        /// string is returned.
-        ///
+        /// If the property is not set, an empty string is returned.
         /// </summary>
-        /// <param name="key">The property key.
-        ///
-        /// </param>
+        ///  <param name="key">The property key.
+        ///  </param>
         /// <returns>The property value.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -74,11 +70,10 @@ namespace Ice
 
         /// <summary>
         /// Get a property by key.
-        /// If the property is not set, an empty
+        /// If the property is not set, an empty string is returned.
         /// </summary>
-        /// <param name="key">The property key.
-        ///
-        /// </param>
+        ///  <param name="key">The property key.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -87,22 +82,20 @@ namespace Ice
 
         /// <summary>
         /// Get a property by key.
-        /// If the property is not set, an empty
+        /// If the property is not set, an empty string is returned.
         /// </summary>
-        /// <param name="key">The property key.
-        ///
-        /// </param>
+        ///  <param name="key">The property key.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         AsyncResult<Callback_PropertiesAdmin_getProperty> begin_getProperty(string key, OptionalContext context = new OptionalContext());
 
         /// <summary>
         /// Get a property by key.
-        /// If the property is not set, an empty
+        /// If the property is not set, an empty string is returned.
         /// </summary>
-        /// <param name="key">The property key.
-        ///
-        /// </param>
+        ///  <param name="key">The property key.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -110,11 +103,10 @@ namespace Ice
 
         /// <summary>
         /// Get a property by key.
-        /// If the property is not set, an empty
+        /// If the property is not set, an empty string is returned.
         /// </summary>
-        /// <param name="key">The property key.
-        ///
-        /// </param>
+        ///  <param name="key">The property key.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -123,7 +115,7 @@ namespace Ice
 
         /// <summary>
         /// Get a property by key.
-        /// If the property is not set, an empty
+        /// If the property is not set, an empty string is returned.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The property value.</returns>
@@ -131,12 +123,11 @@ namespace Ice
 
         /// <summary>
         /// Get all properties whose keys begin with prefix.
-        /// If
-        /// prefix is an empty string then all properties are returned.
-        ///
+        /// If prefix is an empty string then all
+        ///  properties are returned.
         /// </summary>
-        /// <param name="prefix">The prefix to search for (empty string if none).
-        /// </param>
+        ///  <param name="prefix">The prefix to search for (empty string if none).
+        ///  </param>
         /// <returns>The matching property set.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -144,10 +135,10 @@ namespace Ice
 
         /// <summary>
         /// Get all properties whose keys begin with prefix.
-        /// If
+        /// If prefix is an empty string then all
         /// </summary>
-        /// <param name="prefix">The prefix to search for (empty string if none).
-        /// </param>
+        ///  <param name="prefix">The prefix to search for (empty string if none).
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -156,20 +147,20 @@ namespace Ice
 
         /// <summary>
         /// Get all properties whose keys begin with prefix.
-        /// If
+        /// If prefix is an empty string then all
         /// </summary>
-        /// <param name="prefix">The prefix to search for (empty string if none).
-        /// </param>
+        ///  <param name="prefix">The prefix to search for (empty string if none).
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         AsyncResult<Callback_PropertiesAdmin_getPropertiesForPrefix> begin_getPropertiesForPrefix(string prefix, OptionalContext context = new OptionalContext());
 
         /// <summary>
         /// Get all properties whose keys begin with prefix.
-        /// If
+        /// If prefix is an empty string then all
         /// </summary>
-        /// <param name="prefix">The prefix to search for (empty string if none).
-        /// </param>
+        ///  <param name="prefix">The prefix to search for (empty string if none).
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -177,10 +168,10 @@ namespace Ice
 
         /// <summary>
         /// Get all properties whose keys begin with prefix.
-        /// If
+        /// If prefix is an empty string then all
         /// </summary>
-        /// <param name="prefix">The prefix to search for (empty string if none).
-        /// </param>
+        ///  <param name="prefix">The prefix to search for (empty string if none).
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -189,7 +180,7 @@ namespace Ice
 
         /// <summary>
         /// Get all properties whose keys begin with prefix.
-        /// If
+        /// If prefix is an empty string then all
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The matching property set.</returns>
@@ -197,26 +188,21 @@ namespace Ice
 
         /// <summary>
         /// Update the communicator's properties with the given property set.
+        /// If an entry in newProperties
+        ///  matches the name of an existing property, that property's value is replaced with the new value. If the new
+        ///  value is an empty string, the property is removed. Any existing properties that are not modified or removed
+        ///  by the entries in newProperties are retained with their original values.
         /// </summary>
-        /// <param name="newProperties">Properties to be added, changed, or removed.
-        /// If an entry in newProperties matches the name of an existing property,
-        /// that property's value is replaced with the new value. If the new value
-        /// is an empty string, the property is removed. Any existing properties
-        /// that are not modified or removed by the entries in newProperties are
-        /// retained with their original values.</param>
+        ///  <param name="newProperties">Properties to be added, changed, or removed.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, OptionalContext context = new OptionalContext());
 
         /// <summary>
         /// Update the communicator's properties with the given property set.
+        /// If an entry in newProperties
         /// </summary>
-        /// <param name="newProperties">Properties to be added, changed, or removed.
-        /// If an entry in newProperties matches the name of an existing property,
-        /// that property's value is replaced with the new value. If the new value
-        /// is an empty string, the property is removed. Any existing properties
-        /// that are not modified or removed by the entries in newProperties are
-        /// retained with their original values.</param>
+        ///  <param name="newProperties">Properties to be added, changed, or removed.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -225,26 +211,18 @@ namespace Ice
 
         /// <summary>
         /// Update the communicator's properties with the given property set.
+        /// If an entry in newProperties
         /// </summary>
-        /// <param name="newProperties">Properties to be added, changed, or removed.
-        /// If an entry in newProperties matches the name of an existing property,
-        /// that property's value is replaced with the new value. If the new value
-        /// is an empty string, the property is removed. Any existing properties
-        /// that are not modified or removed by the entries in newProperties are
-        /// retained with their original values.</param>
+        ///  <param name="newProperties">Properties to be added, changed, or removed.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         AsyncResult<Callback_PropertiesAdmin_setProperties> begin_setProperties(global::System.Collections.Generic.Dictionary<string, string> newProperties, OptionalContext context = new OptionalContext());
 
         /// <summary>
         /// Update the communicator's properties with the given property set.
+        /// If an entry in newProperties
         /// </summary>
-        /// <param name="newProperties">Properties to be added, changed, or removed.
-        /// If an entry in newProperties matches the name of an existing property,
-        /// that property's value is replaced with the new value. If the new value
-        /// is an empty string, the property is removed. Any existing properties
-        /// that are not modified or removed by the entries in newProperties are
-        /// retained with their original values.</param>
+        ///  <param name="newProperties">Properties to be added, changed, or removed.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -252,13 +230,9 @@ namespace Ice
 
         /// <summary>
         /// Update the communicator's properties with the given property set.
+        /// If an entry in newProperties
         /// </summary>
-        /// <param name="newProperties">Properties to be added, changed, or removed.
-        /// If an entry in newProperties matches the name of an existing property,
-        /// that property's value is replaced with the new value. If the new value
-        /// is an empty string, the property is removed. Any existing properties
-        /// that are not modified or removed by the entries in newProperties are
-        /// retained with their original values.</param>
+        ///  <param name="newProperties">Properties to be added, changed, or removed.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -267,6 +241,7 @@ namespace Ice
 
         /// <summary>
         /// Update the communicator's properties with the given property set.
+        /// If an entry in newProperties
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_setProperties(AsyncResult asyncResult);
@@ -276,8 +251,7 @@ namespace Ice
 namespace Ice
 {
     /// <summary>
-    /// The PropertiesAdmin interface provides remote access to the properties
-    /// of a communicator.
+    /// The PropertiesAdmin interface provides remote access to the properties of a communicator.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -285,13 +259,10 @@ namespace Ice
     {
         /// <summary>
         /// Get a property by key.
-        /// If the property is not set, an empty
-        /// string is returned.
-        ///
+        /// If the property is not set, an empty string is returned.
         /// </summary>
-        /// <param name="key">The property key.
-        ///
-        /// </param>
+        ///  <param name="key">The property key.
+        ///  </param>
         /// <returns>The property value.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -300,12 +271,11 @@ namespace Ice
 
         /// <summary>
         /// Get all properties whose keys begin with prefix.
-        /// If
-        /// prefix is an empty string then all properties are returned.
-        ///
+        /// If prefix is an empty string then all
+        ///  properties are returned.
         /// </summary>
-        /// <param name="prefix">The prefix to search for (empty string if none).
-        /// </param>
+        ///  <param name="prefix">The prefix to search for (empty string if none).
+        ///  </param>
         /// <returns>The matching property set.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -314,13 +284,12 @@ namespace Ice
 
         /// <summary>
         /// Update the communicator's properties with the given property set.
+        /// If an entry in newProperties
+        ///  matches the name of an existing property, that property's value is replaced with the new value. If the new
+        ///  value is an empty string, the property is removed. Any existing properties that are not modified or removed
+        ///  by the entries in newProperties are retained with their original values.
         /// </summary>
-        /// <param name="newProperties">Properties to be added, changed, or removed.
-        /// If an entry in newProperties matches the name of an existing property,
-        /// that property's value is replaced with the new value. If the new value
-        /// is an empty string, the property is removed. Any existing properties
-        /// that are not modified or removed by the entries in newProperties are
-        /// retained with their original values.</param>
+        ///  <param name="newProperties">Properties to be added, changed, or removed.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]

@@ -16,10 +16,8 @@
 package Glacier2.Instrumentation;
 
 /**
- * The router observer interface used by Glacier2 to obtain and update
- * observers for its observeable objects. This interface should be
- * implemented by add-ins that wish to observe Glacier2 objects in
- * order to collect statistics.
+ * The router observer interface used by Glacier2 to obtain and update observers for its observeable objects. This
+ * interface should be implemented by add-ins that wish to observe Glacier2 objects in order to collect statistics.
  **/
 public interface RouterObserver
 {
@@ -27,17 +25,14 @@ public interface RouterObserver
      * This method should return an observer for the given session.
      * @param id The id of the session (the user id or the SSL DN).
      * @param con The connection associated to the session.
-     * @param routingTableSize The size of the routing table for this
-     * session.
-     * @param old The previous observer, only set when updating an
-     * existing observer.
+     * @param routingTableSize The size of the routing table for this session.
+     * @param old The previous observer, only set when updating an existing observer.
      **/
     SessionObserver getSessionObserver(String id, com.zeroc.Ice.Connection con, int routingTableSize, SessionObserver old);
 
     /**
-     * Glacier2 calls this method on initialization. The add-in
-     * implementing this interface can use this object to get Glacier2
-     * to re-obtain observers for topics and subscribers.
+     * Glacier2 calls this method on initialization. The add-in implementing this interface can use this object to get
+     * Glacier2 to re-obtain observers for topics and subscribers.
      * @param updater The observer updater object.
      **/
     void setObserverUpdater(ObserverUpdater updater);

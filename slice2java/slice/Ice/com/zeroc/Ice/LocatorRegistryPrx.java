@@ -16,28 +16,20 @@
 package com.zeroc.Ice;
 
 /**
- * The Ice locator registry interface. This interface is used by
- * servers to register adapter endpoints with the locator.
- *
- * <p class="Note"> The {@link LocatorRegistry} interface is intended to be used
- * by Ice internals and by locator implementations. Regular user
- * code should not attempt to use any functionality of this interface
- * directly.
+ * The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
+ * locator. <p class="Note"> The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
+ * locator implementations. Regular user code should not attempt to use any functionality of this interface directly.
  **/
 public interface LocatorRegistryPrx extends ObjectPrx
 {
     /**
      * Set the adapter endpoints with the locator registry.
      * @param id The adapter id.
-     * @param proxy The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
-     * endpoints.
-     * @throws AdapterAlreadyActiveException Raised if an adapter with the same
-     * id is already active.
-     * @throws AdapterNotFoundException Raised if the adapter cannot
-     * be found, or if the locator only allows
-     * registered adapters to set their active proxy and the
-     * adapter is not registered with the locator.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints.
+     * @throws AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
+     * @throws AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
+     * registered adapters to set their active proxy and the adapter is not registered with the locator.
      **/
     default void setAdapterDirectProxy(String id, ObjectPrx proxy)
         throws AdapterAlreadyActiveException,
@@ -49,16 +41,12 @@ public interface LocatorRegistryPrx extends ObjectPrx
     /**
      * Set the adapter endpoints with the locator registry.
      * @param id The adapter id.
-     * @param proxy The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
-     * endpoints.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints.
      * @param context The Context map to send with the invocation.
-     * @throws AdapterAlreadyActiveException Raised if an adapter with the same
-     * id is already active.
-     * @throws AdapterNotFoundException Raised if the adapter cannot
-     * be found, or if the locator only allows
-     * registered adapters to set their active proxy and the
-     * adapter is not registered with the locator.
+     * @throws AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
+     * @throws AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
+     * registered adapters to set their active proxy and the adapter is not registered with the locator.
      **/
     default void setAdapterDirectProxy(String id, ObjectPrx proxy, java.util.Map<String, String> context)
         throws AdapterAlreadyActiveException,
@@ -85,9 +73,8 @@ public interface LocatorRegistryPrx extends ObjectPrx
     /**
      * Set the adapter endpoints with the locator registry.
      * @param id The adapter id.
-     * @param proxy The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
-     * endpoints.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> setAdapterDirectProxyAsync(String id, ObjectPrx proxy)
@@ -98,9 +85,8 @@ public interface LocatorRegistryPrx extends ObjectPrx
     /**
      * Set the adapter endpoints with the locator registry.
      * @param id The adapter id.
-     * @param proxy The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
-     * endpoints.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -138,18 +124,13 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param p The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
+     * @param p The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
      * endpoints.
-     * @throws AdapterAlreadyActiveException Raised if an adapter with the same
-     * id is already active.
-     * @throws AdapterNotFoundException Raised if the adapter cannot
-     * be found, or if the locator only allows registered adapters to
-     * set their active proxy and the adapter is not registered with
-     * the locator.
-     * @throws InvalidReplicaGroupIdException Raised if the given
-     * replica group doesn't match the one registered with the
-     * locator registry for this object adapter.
+     * @throws AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
+     * @throws AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
+     * registered adapters to set their active proxy and the adapter is not registered with the locator.
+     * @throws InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered with
+     * the locator registry for this object adapter.
      **/
     default void setReplicatedAdapterDirectProxy(String adapterId, String replicaGroupId, ObjectPrx p)
         throws AdapterAlreadyActiveException,
@@ -163,19 +144,14 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param p The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
+     * @param p The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
      * endpoints.
      * @param context The Context map to send with the invocation.
-     * @throws AdapterAlreadyActiveException Raised if an adapter with the same
-     * id is already active.
-     * @throws AdapterNotFoundException Raised if the adapter cannot
-     * be found, or if the locator only allows registered adapters to
-     * set their active proxy and the adapter is not registered with
-     * the locator.
-     * @throws InvalidReplicaGroupIdException Raised if the given
-     * replica group doesn't match the one registered with the
-     * locator registry for this object adapter.
+     * @throws AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
+     * @throws AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
+     * registered adapters to set their active proxy and the adapter is not registered with the locator.
+     * @throws InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered with
+     * the locator registry for this object adapter.
      **/
     default void setReplicatedAdapterDirectProxy(String adapterId, String replicaGroupId, ObjectPrx p, java.util.Map<String, String> context)
         throws AdapterAlreadyActiveException,
@@ -208,8 +184,7 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param p The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
+     * @param p The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
      * endpoints.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -222,8 +197,7 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param p The adapter proxy (a dummy direct proxy created
-     * by the adapter). The direct proxy contains the adapter
+     * @param p The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
      * endpoints.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -265,8 +239,7 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * Set the process proxy for a server.
      * @param id The server id.
      * @param proxy The process proxy.
-     * @throws ServerNotFoundException Raised if the server cannot
-     * be found.
+     * @throws ServerNotFoundException Raised if the server cannot be found.
      **/
     default void setServerProcessProxy(String id, ProcessPrx proxy)
         throws ServerNotFoundException
@@ -279,8 +252,7 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * @param id The server id.
      * @param proxy The process proxy.
      * @param context The Context map to send with the invocation.
-     * @throws ServerNotFoundException Raised if the server cannot
-     * be found.
+     * @throws ServerNotFoundException Raised if the server cannot be found.
      **/
     default void setServerProcessProxy(String id, ProcessPrx proxy, java.util.Map<String, String> context)
         throws ServerNotFoundException

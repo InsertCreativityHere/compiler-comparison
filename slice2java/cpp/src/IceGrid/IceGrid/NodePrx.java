@@ -19,9 +19,8 @@ public interface NodePrx extends FileReaderPrx,
                                  ReplicaObserverPrx
 {
     /**
-     * Load the given server. If the server resources weren't already
-     * created (database environment directories, property files, etc),
-     * they will be created.
+     * Load the given server. If the server resources weren't already created (database environment directories,
+     * property files, etc), they will be created.
      * @return An instance of Node.LoadServerResult.
      **/
     default Node.LoadServerResult loadServer(InternalServerDescriptor svr, String replicaName)
@@ -31,9 +30,8 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
-     * Load the given server. If the server resources weren't already
-     * created (database environment directories, property files, etc),
-     * they will be created.
+     * Load the given server. If the server resources weren't already created (database environment directories,
+     * property files, etc), they will be created.
      * @param context The Context map to send with the invocation.
      * @return An instance of Node.LoadServerResult.
      **/
@@ -55,9 +53,8 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
-     * Load the given server. If the server resources weren't already
-     * created (database environment directories, property files, etc),
-     * they will be created.
+     * Load the given server. If the server resources weren't already created (database environment directories,
+     * property files, etc), they will be created.
      * @return A future that will be completed with an instance of Node.LoadServerResult.
      **/
     default java.util.concurrent.CompletableFuture<Node.LoadServerResult> loadServerAsync(InternalServerDescriptor svr, String replicaName)
@@ -66,9 +63,8 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
-     * Load the given server. If the server resources weren't already
-     * created (database environment directories, property files, etc),
-     * they will be created.
+     * Load the given server. If the server resources weren't already created (database environment directories,
+     * property files, etc), they will be created.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed with an instance of Node.LoadServerResult.
      **/
@@ -107,11 +103,9 @@ public interface NodePrx extends FileReaderPrx,
     };
 
     /**
-     * Load the given server and ensure the server won't be
-     * restarted. If the server resources weren't already created
-     * (database environment directories, property files, etc), they
-     * will be created. If the server can't be updated without a
-     * restart, a DeploymentException is raised.
+     * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+     * (database environment directories, property files, etc), they will be created. If the server can't be updated
+     * without a restart, a DeploymentException is raised.
      * @return An instance of Node.LoadServerWithoutRestartResult.
      **/
     default Node.LoadServerWithoutRestartResult loadServerWithoutRestart(InternalServerDescriptor svr, String replicaName)
@@ -121,11 +115,9 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
-     * Load the given server and ensure the server won't be
-     * restarted. If the server resources weren't already created
-     * (database environment directories, property files, etc), they
-     * will be created. If the server can't be updated without a
-     * restart, a DeploymentException is raised.
+     * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+     * (database environment directories, property files, etc), they will be created. If the server can't be updated
+     * without a restart, a DeploymentException is raised.
      * @param context The Context map to send with the invocation.
      * @return An instance of Node.LoadServerWithoutRestartResult.
      **/
@@ -147,11 +139,9 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
-     * Load the given server and ensure the server won't be
-     * restarted. If the server resources weren't already created
-     * (database environment directories, property files, etc), they
-     * will be created. If the server can't be updated without a
-     * restart, a DeploymentException is raised.
+     * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+     * (database environment directories, property files, etc), they will be created. If the server can't be updated
+     * without a restart, a DeploymentException is raised.
      * @return A future that will be completed with an instance of Node.LoadServerWithoutRestartResult.
      **/
     default java.util.concurrent.CompletableFuture<Node.LoadServerWithoutRestartResult> loadServerWithoutRestartAsync(InternalServerDescriptor svr, String replicaName)
@@ -160,11 +150,9 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
-     * Load the given server and ensure the server won't be
-     * restarted. If the server resources weren't already created
-     * (database environment directories, property files, etc), they
-     * will be created. If the server can't be updated without a
-     * restart, a DeploymentException is raised.
+     * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+     * (database environment directories, property files, etc), they will be created. If the server can't be updated
+     * without a restart, a DeploymentException is raised.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed with an instance of Node.LoadServerWithoutRestartResult.
      **/
@@ -357,10 +345,9 @@ public interface NodePrx extends FileReaderPrx,
     };
 
     /**
-     * Patch application and server distributions. If some servers
-     * using a distribution directory to patch are active, this method
-     * will raise a PatchException unless shutdown is set to true. In
-     * which case the servers will be shutdown.
+     * Patch application and server distributions. If some servers using a distribution directory to patch are active,
+     * this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
+     * shutdown.
      **/
     default void patch(PatcherFeedbackPrx feedback, String application, String server, InternalDistributionDescriptor appDistrib, boolean shutdown)
     {
@@ -368,10 +355,9 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
-     * Patch application and server distributions. If some servers
-     * using a distribution directory to patch are active, this method
-     * will raise a PatchException unless shutdown is set to true. In
-     * which case the servers will be shutdown.
+     * Patch application and server distributions. If some servers using a distribution directory to patch are active,
+     * this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
+     * shutdown.
      * @param context The Context map to send with the invocation.
      **/
     default void patch(PatcherFeedbackPrx feedback, String application, String server, InternalDistributionDescriptor appDistrib, boolean shutdown, java.util.Map<String, String> context)
@@ -380,10 +366,9 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
-     * Patch application and server distributions. If some servers
-     * using a distribution directory to patch are active, this method
-     * will raise a PatchException unless shutdown is set to true. In
-     * which case the servers will be shutdown.
+     * Patch application and server distributions. If some servers using a distribution directory to patch are active,
+     * this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
+     * shutdown.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> patchAsync(PatcherFeedbackPrx feedback, String application, String server, InternalDistributionDescriptor appDistrib, boolean shutdown)
@@ -392,10 +377,9 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
-     * Patch application and server distributions. If some servers
-     * using a distribution directory to patch are active, this method
-     * will raise a PatchException unless shutdown is set to true. In
-     * which case the servers will be shutdown.
+     * Patch application and server distributions. If some servers using a distribution directory to patch are active,
+     * this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
+     * shutdown.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -430,8 +414,7 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
-     * Establish a session to the given replica, this method only
-     * returns once the registration was attempted (unlike
+     * Establish a session to the given replica, this method only returns once the registration was attempted (unlike
      * replicaAdded below).
      **/
     default void registerWithReplica(InternalRegistryPrx replica)
@@ -440,8 +423,7 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
-     * Establish a session to the given replica, this method only
-     * returns once the registration was attempted (unlike
+     * Establish a session to the given replica, this method only returns once the registration was attempted (unlike
      * replicaAdded below).
      * @param context The Context map to send with the invocation.
      **/
@@ -451,8 +433,7 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
-     * Establish a session to the given replica, this method only
-     * returns once the registration was attempted (unlike
+     * Establish a session to the given replica, this method only returns once the registration was attempted (unlike
      * replicaAdded below).
      * @return A future that will be completed when the invocation completes.
      **/
@@ -462,8 +443,7 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
-     * Establish a session to the given replica, this method only
-     * returns once the registration was attempted (unlike
+     * Establish a session to the given replica, this method only returns once the registration was attempted (unlike
      * replicaAdded below).
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -649,8 +629,7 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
-     * Get the number of processor sockets for the machine where this
-     * node is running.
+     * Get the number of processor sockets for the machine where this node is running.
      **/
     default int getProcessorSocketCount()
     {
@@ -658,8 +637,7 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
-     * Get the number of processor sockets for the machine where this
-     * node is running.
+     * Get the number of processor sockets for the machine where this node is running.
      * @param context The Context map to send with the invocation.
      **/
     default int getProcessorSocketCount(java.util.Map<String, String> context)
@@ -668,8 +646,7 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
-     * Get the number of processor sockets for the machine where this
-     * node is running.
+     * Get the number of processor sockets for the machine where this node is running.
      * @return A future that will be completed with the result.
      **/
     default java.util.concurrent.CompletableFuture<java.lang.Integer> getProcessorSocketCountAsync()
@@ -678,8 +655,7 @@ public interface NodePrx extends FileReaderPrx,
     }
 
     /**
-     * Get the number of processor sockets for the machine where this
-     * node is running.
+     * Get the number of processor sockets for the machine where this node is running.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed with the result.
      **/

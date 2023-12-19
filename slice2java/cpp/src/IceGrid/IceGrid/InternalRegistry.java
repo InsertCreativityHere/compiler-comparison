@@ -123,39 +123,35 @@ public interface InternalRegistry extends FileReader
     }
 
     /**
-     * Register a node with the registry. If a node with the same name
-     * is already registered, [registerNode] will overide the previous
-     * node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
+     * overide the previous node only if it's not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
      * @param current The Current object for the invocation.
      * @return The node session proxy.
-     * @throws NodeActiveException Raised if the node is already
-     * registered and currently active.
+     * @throws NodeActiveException Raised if the node is already registered and currently active.
      **/
     NodeSessionPrx registerNode(InternalNodeInfo info, NodePrx prx, com.zeroc.IceGrid.LoadInfo loadInf, com.zeroc.Ice.Current current)
         throws NodeActiveException,
                com.zeroc.IceGrid.PermissionDeniedException;
 
     /**
-     * Register a replica with the registry. If a replica with the
-     * same name is already registered, [registerReplica] will overide
-     * the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
+     * will overide the previous replica only if it's not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @param current The Current object for the invocation.
      * @return The replica session proxy.
-     * @throws ReplicaActiveException Raised if the replica is already
-     * registered and currently active.
+     * @throws ReplicaActiveException Raised if the replica is already registered and currently active.
      **/
     ReplicaSessionPrx registerReplica(InternalReplicaInfo info, InternalRegistryPrx prx, com.zeroc.Ice.Current current)
         throws com.zeroc.IceGrid.PermissionDeniedException,
                ReplicaActiveException;
 
     /**
-     * Create a session with the given registry replica. This method
-     * returns only once the session creation has been attempted.
+     * Create a session with the given registry replica. This method returns only once the session creation has been
+     * attempted.
      * @param current The Current object for the invocation.
      **/
     void registerWithReplica(InternalRegistryPrx prx, com.zeroc.Ice.Current current);
@@ -167,8 +163,7 @@ public interface InternalRegistry extends FileReader
     NodePrx[] getNodes(com.zeroc.Ice.Current current);
 
     /**
-     * Return the proxies of all the registry replicas known by this
-     * registry.
+     * Return the proxies of all the registry replicas known by this registry.
      * @param current The Current object for the invocation.
      **/
     InternalRegistryPrx[] getReplicas(com.zeroc.Ice.Current current);

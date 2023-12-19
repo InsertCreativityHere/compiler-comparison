@@ -85,15 +85,13 @@ namespace IceMX
 using StringIntDict = ::std::map<::std::string, int>;
 
 /**
- * A structure to keep track of failures associated with a given
- * metrics.
+ * A structure to keep track of failures associated with a given metrics.
  * \headerfile Ice/Ice.h
  */
 struct MetricsFailures
 {
     /**
-     * The identifier of the metrics object associated to the
-     * failures.
+     * The identifier of the metrics object associated to the failures.
      */
     ::std::string id;
     /**
@@ -117,16 +115,14 @@ struct MetricsFailures
 using MetricsFailuresSeq = ::std::vector<MetricsFailures>;
 
 /**
- * A metrics map is a sequence of metrics. We use a sequence here
- * instead of a map because the ID of the metrics is already included
- * in the Metrics class and using sequences of metrics objects is more
- * efficient than using dictionaries since lookup is not necessary.
+ * A metrics map is a sequence of metrics. We use a sequence here instead of a map because the ID of the metrics is
+ * already included in the Metrics class and using sequences of metrics objects is more efficient than using
+ * dictionaries since lookup is not necessary.
  */
 using MetricsMap = ::std::vector<::std::shared_ptr<Metrics>>;
 
 /**
- * A metrics view is a dictionary of metrics map. The key of the
- * dictionary is the name of the metrics map.
+ * A metrics view is a dictionary of metrics map. The key of the dictionary is the name of the metrics map.
  */
 using MetricsView = ::std::map<::std::string, MetricsMap>;
 
@@ -177,10 +173,8 @@ namespace IceMX
 {
 
 /**
- * The metrics administrative facet interface. This interface allows
- * remote administrative clients to access metrics of an application
- * that enabled the Ice administrative facility and configured some
- * metrics views.
+ * The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
+ * of an application that enabled the Ice administrative facility and configured some metrics views.
  * \headerfile Ice/Ice.h
  */
 class ICE_API MetricsAdmin : public virtual ::Ice::Object
@@ -243,8 +237,7 @@ public:
      * Enables a metrics view.
      * @param name The metrics view name.
      * @param current The Current object for the invocation.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     virtual void enableMetricsView(::std::string name, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -255,8 +248,7 @@ public:
      * Disable a metrics view.
      * @param name The metrics view name.
      * @param current The Current object for the invocation.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     virtual void disableMetricsView(::std::string name, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -275,18 +267,14 @@ public:
     };
 
     /**
-     * Get the metrics objects for the given metrics view. This
-     * returns a dictionary of metric maps for each metrics class
-     * configured with the view. The timestamp allows the client to
-     * compute averages which are not dependent of the invocation
-     * latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+     * the invocation latency for this operation.
      * @param view The name of the metrics view.
-     * @param timestamp The local time of the process when the metrics
-     * object were retrieved.
+     * @param timestamp The local time of the process when the metrics object were retrieved.
      * @param current The Current object for the invocation.
      * @return The metrics view data.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     virtual MetricsView getMetricsView(::std::string view, long long int& timestamp, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -299,8 +287,7 @@ public:
      * @param map The name of the metrics map.
      * @param current The Current object for the invocation.
      * @return The metrics failures associated with the map.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     virtual MetricsFailuresSeq getMapMetricsFailures(::std::string view, ::std::string map, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -314,8 +301,7 @@ public:
      * @param id The ID of the metrics.
      * @param current The Current object for the invocation.
      * @return The metrics failures associated with the metrics.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     virtual MetricsFailures getMetricsFailures(::std::string view, ::std::string map, ::std::string id, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -333,8 +319,7 @@ namespace IceMX
 {
 
 /**
- * The base class for metrics. A metrics object represents a
- * collection of measurements associated to a given a system.
+ * The base class for metrics. A metrics object represents a collection of measurements associated to a given a system.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) Metrics : public ::Ice::ValueHelper<Metrics, ::Ice::Value>
@@ -387,9 +372,8 @@ public:
      */
     ::std::string id;
     /**
-     * The total number of objects observed by this metrics. This includes
-     * the number of currently observed objects and the number of objects
-     * observed in the past.
+     * The total number of objects observed by this metrics. This includes the number of currently observed objects
+     * and the number of objects observed in the past.
      */
     long long int total = 0LL;
     /**
@@ -397,9 +381,8 @@ public:
      */
     int current = 0;
     /**
-     * The sum of the lifetime of each observed objects. This does not
-     * include the lifetime of objects which are currently observed,
-     * only the objects observed in the past.
+     * The sum of the lifetime of each observed objects. This does not include the lifetime of objects which are
+     * currently observed, only the objects observed in the past.
      */
     long long int totalLifetime = 0LL;
     /**
@@ -413,8 +396,7 @@ static Metrics _iceS_Metrics_init;
 /// \endcond
 
 /**
- * Provides information on the number of threads currently in use and
- * their activity.
+ * Provides information on the number of threads currently in use and their activity.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) ThreadMetrics : public ::Ice::ValueHelper<ThreadMetrics, Metrics>
@@ -465,20 +447,16 @@ public:
     ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
 
     /**
-     * The number of threads which are currently performing socket
-     * read or writes.
+     * The number of threads which are currently performing socket read or writes.
      */
     int inUseForIO = 0;
     /**
-     * The number of threads which are currently calling user code
-     * (servant dispatch, AMI callbacks, etc).
+     * The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
      */
     int inUseForUser = 0;
     /**
-     * The number of threads which are currently performing other
-     * activities. These are all other that are not counted with
-     * {@link #inUseForUser} or {@link #inUseForIO}, such as DNS
-     * lookups, garbage collection).
+     * The number of threads which are currently performing other activities. These are all other that are not counted
+     * with {@link #inUseForUser} or {@link #inUseForIO}, such as DNS lookups, garbage collection).
      */
     int inUseForOther = 0;
 };
@@ -539,23 +517,19 @@ public:
      */
     int userException = 0;
     /**
-     * The size of the dispatch. This corresponds to the size of the
-     * marshalled input parameters.
+     * The size of the dispatch. This corresponds to the size of the marshalled input parameters.
      */
     long long int size = 0LL;
     /**
-     * The size of the dispatch reply. This corresponds to the size of
-     * the marshalled output and return parameters.
+     * The size of the dispatch reply. This corresponds to the size of the marshalled output and return parameters.
      */
     long long int replySize = 0LL;
 };
 
 /**
- * Provides information on child invocations. A child invocation is
- * either remote (sent over an Ice connection) or collocated. An
- * invocation can have multiple child invocation if it is
- * retried. Child invocation metrics are embedded within
- * {@link InvocationMetrics}.
+ * Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
+ * collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
+ * embedded within {@link InvocationMetrics}.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) ChildInvocationMetrics : public ::Ice::ValueHelper<ChildInvocationMetrics, Metrics>
@@ -604,20 +578,18 @@ public:
     ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
 
     /**
-     * The size of the invocation. This corresponds to the size of the
-     * marshalled input parameters.
+     * The size of the invocation. This corresponds to the size of the marshalled input parameters.
      */
     long long int size = 0LL;
     /**
-     * The size of the invocation reply. This corresponds to the size
-     * of the marshalled output and return parameters.
+     * The size of the invocation reply. This corresponds to the size of the marshalled output and return parameters.
      */
     long long int replySize = 0LL;
 };
 
 /**
- * Provides information on invocations that are collocated. Collocated
- * metrics are embedded within {@link InvocationMetrics}.
+ * Provides information on invocations that are collocated. Collocated metrics are embedded within
+ * {@link InvocationMetrics}.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) CollocatedMetrics : public ::Ice::ValueHelper<CollocatedMetrics, ChildInvocationMetrics>
@@ -665,8 +637,8 @@ public:
 };
 
 /**
- * Provides information on invocations that are specifically sent over
- * Ice connections. Remote metrics are embedded within {@link InvocationMetrics}.
+ * Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
+ * within {@link InvocationMetrics}.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) RemoteMetrics : public ::Ice::ValueHelper<RemoteMetrics, ChildInvocationMetrics>
@@ -714,8 +686,7 @@ public:
 };
 
 /**
- * Provide measurements for proxy invocations. Proxy invocations can
- * either be sent over the wire or be collocated.
+ * Provide measurements for proxy invocations. Proxy invocations can either be sent over the wire or be collocated.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) InvocationMetrics : public ::Ice::ValueHelper<InvocationMetrics, Metrics>
@@ -788,8 +759,7 @@ public:
 };
 
 /**
- * Provides information on the data sent and received over Ice
- * connections.
+ * Provides information on the data sent and received over Ice connections.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) ConnectionMetrics : public ::Ice::ValueHelper<ConnectionMetrics, Metrics>
@@ -853,10 +823,8 @@ namespace IceMX
 {
 
 /**
- * The metrics administrative facet interface. This interface allows
- * remote administrative clients to access metrics of an application
- * that enabled the Ice administrative facility and configured some
- * metrics views.
+ * The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
+ * of an application that enabled the Ice administrative facility and configured some metrics views.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) MetricsAdminPrx : public virtual ::Ice::Proxy<MetricsAdminPrx, ::Ice::ObjectPrx>
@@ -917,8 +885,7 @@ public:
      * Enables a metrics view.
      * @param name The metrics view name.
      * @param context The Context map to send with the invocation.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     void enableMetricsView(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -965,8 +932,7 @@ public:
      * Disable a metrics view.
      * @param name The metrics view name.
      * @param context The Context map to send with the invocation.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     void disableMetricsView(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -1010,18 +976,14 @@ public:
     /// \endcond
 
     /**
-     * Get the metrics objects for the given metrics view. This
-     * returns a dictionary of metric maps for each metrics class
-     * configured with the view. The timestamp allows the client to
-     * compute averages which are not dependent of the invocation
-     * latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+     * the invocation latency for this operation.
      * @param view The name of the metrics view.
-     * @param timestamp The local time of the process when the metrics
-     * object were retrieved.
+     * @param timestamp The local time of the process when the metrics object were retrieved.
      * @param context The Context map to send with the invocation.
      * @return The metrics view data.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     MetricsView getMetricsView(const ::std::string& view, long long int& timestamp, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -1031,11 +993,9 @@ public:
     }
 
     /**
-     * Get the metrics objects for the given metrics view. This
-     * returns a dictionary of metric maps for each metrics class
-     * configured with the view. The timestamp allows the client to
-     * compute averages which are not dependent of the invocation
-     * latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+     * the invocation latency for this operation.
      * @param view The name of the metrics view.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -1048,11 +1008,9 @@ public:
     }
 
     /**
-     * Get the metrics objects for the given metrics view. This
-     * returns a dictionary of metric maps for each metrics class
-     * configured with the view. The timestamp allows the client to
-     * compute averages which are not dependent of the invocation
-     * latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+     * the invocation latency for this operation.
      * @param view The name of the metrics view.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -1084,8 +1042,7 @@ public:
      * @param map The name of the metrics map.
      * @param context The Context map to send with the invocation.
      * @return The metrics failures associated with the map.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     MetricsFailuresSeq getMapMetricsFailures(const ::std::string& view, const ::std::string& map, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -1137,8 +1094,7 @@ public:
      * @param id The ID of the metrics.
      * @param context The Context map to send with the invocation.
      * @return The metrics failures associated with the metrics.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     MetricsFailures getMetricsFailures(const ::std::string& view, const ::std::string& map, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -1563,15 +1519,13 @@ namespace IceMX
 typedef ::std::map< ::std::string, ::Ice::Int> StringIntDict;
 
 /**
- * A structure to keep track of failures associated with a given
- * metrics.
+ * A structure to keep track of failures associated with a given metrics.
  * \headerfile Ice/Ice.h
  */
 struct MetricsFailures
 {
     /**
-     * The identifier of the metrics object associated to the
-     * failures.
+     * The identifier of the metrics object associated to the failures.
      */
     ::std::string id;
     /**
@@ -1586,16 +1540,14 @@ struct MetricsFailures
 typedef ::std::vector<MetricsFailures> MetricsFailuresSeq;
 
 /**
- * A metrics map is a sequence of metrics. We use a sequence here
- * instead of a map because the ID of the metrics is already included
- * in the Metrics class and using sequences of metrics objects is more
- * efficient than using dictionaries since lookup is not necessary.
+ * A metrics map is a sequence of metrics. We use a sequence here instead of a map because the ID of the metrics is
+ * already included in the Metrics class and using sequences of metrics objects is more efficient than using
+ * dictionaries since lookup is not necessary.
  */
 typedef ::std::vector<MetricsPtr> MetricsMap;
 
 /**
- * A metrics view is a dictionary of metrics map. The key of the
- * dictionary is the name of the metrics map.
+ * A metrics view is a dictionary of metrics map. The key of the dictionary is the name of the metrics map.
  */
 typedef ::std::map< ::std::string, MetricsMap> MetricsView;
 
@@ -1814,8 +1766,7 @@ public:
      * Enables a metrics view.
      * @param name The metrics view name.
      * @param context The Context map to send with the invocation.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     ICE_MEMBER(ICE_API) void enableMetricsView(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -1886,8 +1837,7 @@ public:
     /**
      * Completes an invocation of begin_enableMetricsView.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     ICE_MEMBER(ICE_API) void end_enableMetricsView(const ::Ice::AsyncResultPtr& result);
 
@@ -1901,8 +1851,7 @@ public:
      * Disable a metrics view.
      * @param name The metrics view name.
      * @param context The Context map to send with the invocation.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     ICE_MEMBER(ICE_API) void disableMetricsView(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -1973,8 +1922,7 @@ public:
     /**
      * Completes an invocation of begin_disableMetricsView.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     ICE_MEMBER(ICE_API) void end_disableMetricsView(const ::Ice::AsyncResultPtr& result);
 
@@ -1985,18 +1933,14 @@ private:
 public:
 
     /**
-     * Get the metrics objects for the given metrics view. This
-     * returns a dictionary of metric maps for each metrics class
-     * configured with the view. The timestamp allows the client to
-     * compute averages which are not dependent of the invocation
-     * latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+     * the invocation latency for this operation.
      * @param view The name of the metrics view.
-     * @param timestamp The local time of the process when the metrics
-     * object were retrieved.
+     * @param timestamp The local time of the process when the metrics object were retrieved.
      * @param context The Context map to send with the invocation.
      * @return The metrics view data.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     ICE_MEMBER(ICE_API) ::IceMX::MetricsView getMetricsView(const ::std::string& view, ::Ice::Long& timestamp, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -2004,11 +1948,9 @@ public:
     }
 
     /**
-     * Get the metrics objects for the given metrics view. This
-     * returns a dictionary of metric maps for each metrics class
-     * configured with the view. The timestamp allows the client to
-     * compute averages which are not dependent of the invocation
-     * latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+     * the invocation latency for this operation.
      * @param view The name of the metrics view.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2019,11 +1961,9 @@ public:
     }
 
     /**
-     * Get the metrics objects for the given metrics view. This
-     * returns a dictionary of metric maps for each metrics class
-     * configured with the view. The timestamp allows the client to
-     * compute averages which are not dependent of the invocation
-     * latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+     * the invocation latency for this operation.
      * @param view The name of the metrics view.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2035,11 +1975,9 @@ public:
     }
 
     /**
-     * Get the metrics objects for the given metrics view. This
-     * returns a dictionary of metric maps for each metrics class
-     * configured with the view. The timestamp allows the client to
-     * compute averages which are not dependent of the invocation
-     * latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+     * the invocation latency for this operation.
      * @param view The name of the metrics view.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -2052,11 +1990,9 @@ public:
     }
 
     /**
-     * Get the metrics objects for the given metrics view. This
-     * returns a dictionary of metric maps for each metrics class
-     * configured with the view. The timestamp allows the client to
-     * compute averages which are not dependent of the invocation
-     * latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+     * the invocation latency for this operation.
      * @param view The name of the metrics view.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2068,11 +2004,9 @@ public:
     }
 
     /**
-     * Get the metrics objects for the given metrics view. This
-     * returns a dictionary of metric maps for each metrics class
-     * configured with the view. The timestamp allows the client to
-     * compute averages which are not dependent of the invocation
-     * latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+     * the invocation latency for this operation.
      * @param view The name of the metrics view.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -2086,12 +2020,10 @@ public:
 
     /**
      * Completes an invocation of begin_getMetricsView.
-     * @param timestamp The local time of the process when the metrics
-     * object were retrieved.
+     * @param timestamp The local time of the process when the metrics object were retrieved.
      * @param result The asynchronous result object for the invocation.
      * @return The metrics view data.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     ICE_MEMBER(ICE_API) ::IceMX::MetricsView end_getMetricsView(::Ice::Long& timestamp, const ::Ice::AsyncResultPtr& result);
     /// \cond INTERNAL
@@ -2111,8 +2043,7 @@ public:
      * @param map The name of the metrics map.
      * @param context The Context map to send with the invocation.
      * @return The metrics failures associated with the map.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     ICE_MEMBER(ICE_API) ::IceMX::MetricsFailuresSeq getMapMetricsFailures(const ::std::string& view, const ::std::string& map, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -2189,8 +2120,7 @@ public:
      * Completes an invocation of begin_getMapMetricsFailures.
      * @param result The asynchronous result object for the invocation.
      * @return The metrics failures associated with the map.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     ICE_MEMBER(ICE_API) ::IceMX::MetricsFailuresSeq end_getMapMetricsFailures(const ::Ice::AsyncResultPtr& result);
 
@@ -2207,8 +2137,7 @@ public:
      * @param id The ID of the metrics.
      * @param context The Context map to send with the invocation.
      * @return The metrics failures associated with the metrics.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     ICE_MEMBER(ICE_API) ::IceMX::MetricsFailures getMetricsFailures(const ::std::string& view, const ::std::string& map, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -2290,8 +2219,7 @@ public:
      * Completes an invocation of begin_getMetricsFailures.
      * @param result The asynchronous result object for the invocation.
      * @return The metrics failures associated with the metrics.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     ICE_MEMBER(ICE_API) ::IceMX::MetricsFailures end_getMetricsFailures(const ::Ice::AsyncResultPtr& result);
 
@@ -2441,8 +2369,7 @@ namespace IceMX
 {
 
 /**
- * The base class for metrics. A metrics object represents a
- * collection of measurements associated to a given a system.
+ * The base class for metrics. A metrics object represents a collection of measurements associated to a given a system.
  * \headerfile Ice/Ice.h
  */
 class ICE_API Metrics : public virtual ::Ice::Object
@@ -2539,9 +2466,8 @@ public:
      */
     ::std::string id;
     /**
-     * The total number of objects observed by this metrics. This includes
-     * the number of currently observed objects and the number of objects
-     * observed in the past.
+     * The total number of objects observed by this metrics. This includes the number of currently observed objects
+     * and the number of objects observed in the past.
      */
     ::Ice::Long total;
     /**
@@ -2549,9 +2475,8 @@ public:
      */
     ::Ice::Int current;
     /**
-     * The sum of the lifetime of each observed objects. This does not
-     * include the lifetime of objects which are currently observed,
-     * only the objects observed in the past.
+     * The sum of the lifetime of each observed objects. This does not include the lifetime of objects which are
+     * currently observed, only the objects observed in the past.
      */
     ::Ice::Long totalLifetime;
     /**
@@ -2576,10 +2501,8 @@ inline bool operator<(const Metrics& lhs, const Metrics& rhs)
 /// \endcond
 
 /**
- * The metrics administrative facet interface. This interface allows
- * remote administrative clients to access metrics of an application
- * that enabled the Ice administrative facility and configured some
- * metrics views.
+ * The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
+ * of an application that enabled the Ice administrative facility and configured some metrics views.
  * \headerfile Ice/Ice.h
  */
 class ICE_API MetricsAdmin : public virtual ::Ice::Object
@@ -2640,8 +2563,7 @@ public:
      * Enables a metrics view.
      * @param name The metrics view name.
      * @param current The Current object for the invocation.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     virtual void enableMetricsView(const ::std::string& name, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -2652,8 +2574,7 @@ public:
      * Disable a metrics view.
      * @param name The metrics view name.
      * @param current The Current object for the invocation.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     virtual void disableMetricsView(const ::std::string& name, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -2661,18 +2582,14 @@ public:
     /// \endcond
 
     /**
-     * Get the metrics objects for the given metrics view. This
-     * returns a dictionary of metric maps for each metrics class
-     * configured with the view. The timestamp allows the client to
-     * compute averages which are not dependent of the invocation
-     * latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+     * the invocation latency for this operation.
      * @param view The name of the metrics view.
-     * @param timestamp The local time of the process when the metrics
-     * object were retrieved.
+     * @param timestamp The local time of the process when the metrics object were retrieved.
      * @param current The Current object for the invocation.
      * @return The metrics view data.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     virtual MetricsView getMetricsView(const ::std::string& view, ::Ice::Long& timestamp, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -2685,8 +2602,7 @@ public:
      * @param map The name of the metrics map.
      * @param current The Current object for the invocation.
      * @return The metrics failures associated with the map.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     virtual MetricsFailuresSeq getMapMetricsFailures(const ::std::string& view, const ::std::string& map, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -2700,8 +2616,7 @@ public:
      * @param id The ID of the metrics.
      * @param current The Current object for the invocation.
      * @return The metrics failures associated with the metrics.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
     virtual MetricsFailures getMetricsFailures(const ::std::string& view, const ::std::string& map, const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -2733,8 +2648,7 @@ inline bool operator<(const MetricsAdmin& lhs, const MetricsAdmin& rhs)
 /// \endcond
 
 /**
- * Provides information on the number of threads currently in use and
- * their activity.
+ * Provides information on the number of threads currently in use and their activity.
  * \headerfile Ice/Ice.h
  */
 class ICE_API ThreadMetrics : public Metrics
@@ -2828,20 +2742,16 @@ protected:
 public:
 
     /**
-     * The number of threads which are currently performing socket
-     * read or writes.
+     * The number of threads which are currently performing socket read or writes.
      */
     ::Ice::Int inUseForIO;
     /**
-     * The number of threads which are currently calling user code
-     * (servant dispatch, AMI callbacks, etc).
+     * The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
      */
     ::Ice::Int inUseForUser;
     /**
-     * The number of threads which are currently performing other
-     * activities. These are all other that are not counted with
-     * {@link #inUseForUser} or {@link #inUseForIO}, such as DNS
-     * lookups, garbage collection).
+     * The number of threads which are currently performing other activities. These are all other that are not counted
+     * with {@link #inUseForUser} or {@link #inUseForIO}, such as DNS lookups, garbage collection).
      */
     ::Ice::Int inUseForOther;
 };
@@ -2960,13 +2870,11 @@ public:
      */
     ::Ice::Int userException;
     /**
-     * The size of the dispatch. This corresponds to the size of the
-     * marshalled input parameters.
+     * The size of the dispatch. This corresponds to the size of the marshalled input parameters.
      */
     ::Ice::Long size;
     /**
-     * The size of the dispatch reply. This corresponds to the size of
-     * the marshalled output and return parameters.
+     * The size of the dispatch reply. This corresponds to the size of the marshalled output and return parameters.
      */
     ::Ice::Long replySize;
 };
@@ -2987,11 +2895,9 @@ inline bool operator<(const DispatchMetrics& lhs, const DispatchMetrics& rhs)
 /// \endcond
 
 /**
- * Provides information on child invocations. A child invocation is
- * either remote (sent over an Ice connection) or collocated. An
- * invocation can have multiple child invocation if it is
- * retried. Child invocation metrics are embedded within
- * {@link InvocationMetrics}.
+ * Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
+ * collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
+ * embedded within {@link InvocationMetrics}.
  * \headerfile Ice/Ice.h
  */
 class ICE_API ChildInvocationMetrics : public Metrics
@@ -3082,13 +2988,11 @@ protected:
 public:
 
     /**
-     * The size of the invocation. This corresponds to the size of the
-     * marshalled input parameters.
+     * The size of the invocation. This corresponds to the size of the marshalled input parameters.
      */
     ::Ice::Long size;
     /**
-     * The size of the invocation reply. This corresponds to the size
-     * of the marshalled output and return parameters.
+     * The size of the invocation reply. This corresponds to the size of the marshalled output and return parameters.
      */
     ::Ice::Long replySize;
 };
@@ -3109,8 +3013,8 @@ inline bool operator<(const ChildInvocationMetrics& lhs, const ChildInvocationMe
 /// \endcond
 
 /**
- * Provides information on invocations that are collocated. Collocated
- * metrics are embedded within {@link InvocationMetrics}.
+ * Provides information on invocations that are collocated. Collocated metrics are embedded within
+ * {@link InvocationMetrics}.
  * \headerfile Ice/Ice.h
  */
 class ICE_API CollocatedMetrics : public ChildInvocationMetrics
@@ -3210,8 +3114,8 @@ inline bool operator<(const CollocatedMetrics& lhs, const CollocatedMetrics& rhs
 /// \endcond
 
 /**
- * Provides information on invocations that are specifically sent over
- * Ice connections. Remote metrics are embedded within {@link InvocationMetrics}.
+ * Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
+ * within {@link InvocationMetrics}.
  * \headerfile Ice/Ice.h
  */
 class ICE_API RemoteMetrics : public ChildInvocationMetrics
@@ -3311,8 +3215,7 @@ inline bool operator<(const RemoteMetrics& lhs, const RemoteMetrics& rhs)
 /// \endcond
 
 /**
- * Provide measurements for proxy invocations. Proxy invocations can
- * either be sent over the wire or be collocated.
+ * Provide measurements for proxy invocations. Proxy invocations can either be sent over the wire or be collocated.
  * \headerfile Ice/Ice.h
  */
 class ICE_API InvocationMetrics : public Metrics, public ::IceInternal::GCObject
@@ -3445,8 +3348,7 @@ inline bool operator<(const InvocationMetrics& lhs, const InvocationMetrics& rhs
 /// \endcond
 
 /**
- * Provides information on the data sent and received over Ice
- * connections.
+ * Provides information on the data sent and received over Ice connections.
  * \headerfile Ice/Ice.h
  */
 class ICE_API ConnectionMetrics : public Metrics

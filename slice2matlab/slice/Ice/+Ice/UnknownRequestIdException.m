@@ -1,7 +1,6 @@
 % UnknownRequestIdException   Summary of UnknownRequestIdException
 %
-% This exception indicates that a response for an unknown request ID has been
-% received.
+% This exception indicates that a response for an unknown request ID has been received.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from LocalException.ice by slice2matlab version 3.7.10

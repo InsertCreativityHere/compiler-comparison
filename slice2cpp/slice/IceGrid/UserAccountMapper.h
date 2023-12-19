@@ -72,8 +72,7 @@ namespace IceGrid
 {
 
 /**
- * This exception is raised if a user account for a given session
- * identifier can't be found.
+ * This exception is raised if a user account for a given session identifier can't be found.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) UserAccountNotFoundException : public ::Ice::UserExceptionHelper<UserAccountNotFoundException, ::Ice::UserException>
@@ -112,8 +111,7 @@ namespace IceGrid
 {
 
 /**
- * A user account mapper object is used by IceGrid nodes to map
- * session identifiers to user accounts.
+ * A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API UserAccountMapper : public virtual ::Ice::Object
@@ -151,17 +149,14 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Get the name of the user account for the given user. This is
-     * used by IceGrid nodes to figure out the user account to use
-     * to run servers.
-     * @param user The value of the server descriptor's <code>user</code>
-     * attribute. If this attribute is not defined, and the server's
-     * activation mode is <code>session</code>, the default value of
-     * <code>user</code> is the session identifier.
+     * Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+     * account to use to run servers.
+     * @param user The value of the server descriptor's <code>user</code> attribute. If this attribute is not
+     * defined, and the server's activation mode is <code>session</code>, the default value of <code>user</code>
+     * is the session identifier.
      * @param current The Current object for the invocation.
      * @return The user account name.
-     * @throws IceGrid::UserAccountNotFoundException Raised if no user account
-     * is found for the given user.
+     * @throws IceGrid::UserAccountNotFoundException Raised if no user account is found for the given user.
      */
     virtual ::std::string getUserAccount(::std::string user, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -179,8 +174,7 @@ namespace IceGrid
 {
 
 /**
- * A user account mapper object is used by IceGrid nodes to map
- * session identifiers to user accounts.
+ * A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) UserAccountMapperPrx : public virtual ::Ice::Proxy<UserAccountMapperPrx, ::Ice::ObjectPrx>
@@ -188,17 +182,14 @@ class ICE_CLASS(ICEGRID_API) UserAccountMapperPrx : public virtual ::Ice::Proxy<
 public:
 
     /**
-     * Get the name of the user account for the given user. This is
-     * used by IceGrid nodes to figure out the user account to use
-     * to run servers.
-     * @param user The value of the server descriptor's <code>user</code>
-     * attribute. If this attribute is not defined, and the server's
-     * activation mode is <code>session</code>, the default value of
-     * <code>user</code> is the session identifier.
+     * Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+     * account to use to run servers.
+     * @param user The value of the server descriptor's <code>user</code> attribute. If this attribute is not
+     * defined, and the server's activation mode is <code>session</code>, the default value of <code>user</code>
+     * is the session identifier.
      * @param context The Context map to send with the invocation.
      * @return The user account name.
-     * @throws IceGrid::UserAccountNotFoundException Raised if no user account
-     * is found for the given user.
+     * @throws IceGrid::UserAccountNotFoundException Raised if no user account is found for the given user.
      */
     ::std::string getUserAccount(const ::std::string& user, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -206,13 +197,11 @@ public:
     }
 
     /**
-     * Get the name of the user account for the given user. This is
-     * used by IceGrid nodes to figure out the user account to use
-     * to run servers.
-     * @param user The value of the server descriptor's <code>user</code>
-     * attribute. If this attribute is not defined, and the server's
-     * activation mode is <code>session</code>, the default value of
-     * <code>user</code> is the session identifier.
+     * Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+     * account to use to run servers.
+     * @param user The value of the server descriptor's <code>user</code> attribute. If this attribute is not
+     * defined, and the server's activation mode is <code>session</code>, the default value of <code>user</code>
+     * is the session identifier.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -224,13 +213,11 @@ public:
     }
 
     /**
-     * Get the name of the user account for the given user. This is
-     * used by IceGrid nodes to figure out the user account to use
-     * to run servers.
-     * @param user The value of the server descriptor's <code>user</code>
-     * attribute. If this attribute is not defined, and the server's
-     * activation mode is <code>session</code>, the default value of
-     * <code>user</code> is the session identifier.
+     * Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+     * account to use to run servers.
+     * @param user The value of the server descriptor's <code>user</code> attribute. If this attribute is not
+     * defined, and the server's activation mode is <code>session</code>, the default value of <code>user</code>
+     * is the session identifier.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -324,8 +311,7 @@ namespace IceGrid
 {
 
 /**
- * This exception is raised if a user account for a given session
- * identifier can't be found.
+ * This exception is raised if a user account for a given session identifier can't be found.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API UserAccountNotFoundException : public ::Ice::UserException
@@ -394,17 +380,14 @@ class ICE_CLASS(ICEGRID_API) UserAccountMapper : public virtual ::Ice::Proxy<Use
 public:
 
     /**
-     * Get the name of the user account for the given user. This is
-     * used by IceGrid nodes to figure out the user account to use
-     * to run servers.
-     * @param user The value of the server descriptor's <code>user</code>
-     * attribute. If this attribute is not defined, and the server's
-     * activation mode is <code>session</code>, the default value of
-     * <code>user</code> is the session identifier.
+     * Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+     * account to use to run servers.
+     * @param user The value of the server descriptor's <code>user</code> attribute. If this attribute is not
+     * defined, and the server's activation mode is <code>session</code>, the default value of <code>user</code>
+     * is the session identifier.
      * @param context The Context map to send with the invocation.
      * @return The user account name.
-     * @throws IceGrid::UserAccountNotFoundException Raised if no user account
-     * is found for the given user.
+     * @throws IceGrid::UserAccountNotFoundException Raised if no user account is found for the given user.
      */
     ICE_MEMBER(ICEGRID_API) ::std::string getUserAccount(const ::std::string& user, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -412,13 +395,11 @@ public:
     }
 
     /**
-     * Get the name of the user account for the given user. This is
-     * used by IceGrid nodes to figure out the user account to use
-     * to run servers.
-     * @param user The value of the server descriptor's <code>user</code>
-     * attribute. If this attribute is not defined, and the server's
-     * activation mode is <code>session</code>, the default value of
-     * <code>user</code> is the session identifier.
+     * Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+     * account to use to run servers.
+     * @param user The value of the server descriptor's <code>user</code> attribute. If this attribute is not
+     * defined, and the server's activation mode is <code>session</code>, the default value of <code>user</code>
+     * is the session identifier.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -428,13 +409,11 @@ public:
     }
 
     /**
-     * Get the name of the user account for the given user. This is
-     * used by IceGrid nodes to figure out the user account to use
-     * to run servers.
-     * @param user The value of the server descriptor's <code>user</code>
-     * attribute. If this attribute is not defined, and the server's
-     * activation mode is <code>session</code>, the default value of
-     * <code>user</code> is the session identifier.
+     * Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+     * account to use to run servers.
+     * @param user The value of the server descriptor's <code>user</code> attribute. If this attribute is not
+     * defined, and the server's activation mode is <code>session</code>, the default value of <code>user</code>
+     * is the session identifier.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -445,13 +424,11 @@ public:
     }
 
     /**
-     * Get the name of the user account for the given user. This is
-     * used by IceGrid nodes to figure out the user account to use
-     * to run servers.
-     * @param user The value of the server descriptor's <code>user</code>
-     * attribute. If this attribute is not defined, and the server's
-     * activation mode is <code>session</code>, the default value of
-     * <code>user</code> is the session identifier.
+     * Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+     * account to use to run servers.
+     * @param user The value of the server descriptor's <code>user</code> attribute. If this attribute is not
+     * defined, and the server's activation mode is <code>session</code>, the default value of <code>user</code>
+     * is the session identifier.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -463,13 +440,11 @@ public:
     }
 
     /**
-     * Get the name of the user account for the given user. This is
-     * used by IceGrid nodes to figure out the user account to use
-     * to run servers.
-     * @param user The value of the server descriptor's <code>user</code>
-     * attribute. If this attribute is not defined, and the server's
-     * activation mode is <code>session</code>, the default value of
-     * <code>user</code> is the session identifier.
+     * Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+     * account to use to run servers.
+     * @param user The value of the server descriptor's <code>user</code> attribute. If this attribute is not
+     * defined, and the server's activation mode is <code>session</code>, the default value of <code>user</code>
+     * is the session identifier.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -480,13 +455,11 @@ public:
     }
 
     /**
-     * Get the name of the user account for the given user. This is
-     * used by IceGrid nodes to figure out the user account to use
-     * to run servers.
-     * @param user The value of the server descriptor's <code>user</code>
-     * attribute. If this attribute is not defined, and the server's
-     * activation mode is <code>session</code>, the default value of
-     * <code>user</code> is the session identifier.
+     * Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+     * account to use to run servers.
+     * @param user The value of the server descriptor's <code>user</code> attribute. If this attribute is not
+     * defined, and the server's activation mode is <code>session</code>, the default value of <code>user</code>
+     * is the session identifier.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -501,8 +474,7 @@ public:
      * Completes an invocation of begin_getUserAccount.
      * @param result The asynchronous result object for the invocation.
      * @return The user account name.
-     * @throws IceGrid::UserAccountNotFoundException Raised if no user account
-     * is found for the given user.
+     * @throws IceGrid::UserAccountNotFoundException Raised if no user account is found for the given user.
      */
     ICE_MEMBER(ICEGRID_API) ::std::string end_getUserAccount(const ::Ice::AsyncResultPtr& result);
 
@@ -533,8 +505,7 @@ namespace IceGrid
 {
 
 /**
- * A user account mapper object is used by IceGrid nodes to map
- * session identifiers to user accounts.
+ * A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API UserAccountMapper : public virtual ::Ice::Object
@@ -581,17 +552,14 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Get the name of the user account for the given user. This is
-     * used by IceGrid nodes to figure out the user account to use
-     * to run servers.
-     * @param user The value of the server descriptor's <code>user</code>
-     * attribute. If this attribute is not defined, and the server's
-     * activation mode is <code>session</code>, the default value of
-     * <code>user</code> is the session identifier.
+     * Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+     * account to use to run servers.
+     * @param user The value of the server descriptor's <code>user</code> attribute. If this attribute is not
+     * defined, and the server's activation mode is <code>session</code>, the default value of <code>user</code>
+     * is the session identifier.
      * @param current The Current object for the invocation.
      * @return The user account name.
-     * @throws IceGrid::UserAccountNotFoundException Raised if no user account
-     * is found for the given user.
+     * @throws IceGrid::UserAccountNotFoundException Raised if no user account is found for the given user.
      */
     virtual ::std::string getUserAccount(const ::std::string& user, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL

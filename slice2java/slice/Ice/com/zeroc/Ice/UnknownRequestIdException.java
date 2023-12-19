@@ -16,8 +16,7 @@
 package com.zeroc.Ice;
 
 /**
- * This exception indicates that a response for an unknown request ID has been
- * received.
+ * This exception indicates that a response for an unknown request ID has been received.
  **/
 public class UnknownRequestIdException extends ProtocolException
 {

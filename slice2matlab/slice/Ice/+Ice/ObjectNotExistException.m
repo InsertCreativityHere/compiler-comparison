@@ -1,7 +1,7 @@
 % ObjectNotExistException   Summary of ObjectNotExistException
 %
-% This exception is raised if an object does not exist on the server,
-% that is, if no facets with the given identity exist.
+% This exception is raised if an object does not exist on the server, that is, if no facets with the given identity
+% exist.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from LocalException.ice by slice2matlab version 3.7.10

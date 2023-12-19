@@ -667,8 +667,7 @@ public:
 };
 
 /**
- * This exception is raised if an unknown signal was sent to
- * to a server.
+ * This exception is raised if an unknown signal was sent to to a server.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) BadSignalException : public ::Ice::UserExceptionHelper<BadSignalException, ::Ice::UserException>
@@ -756,8 +755,7 @@ public:
 };
 
 /**
- * This exception is raised if a registry lock wasn't
- * acquired or is already held by a session.
+ * his exception is raised if a registry lock wasn't acquired or is already held by a session.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) AccessDeniedException : public ::Ice::UserExceptionHelper<AccessDeniedException, ::Ice::UserException>
@@ -845,8 +843,7 @@ public:
 };
 
 /**
- * This exception is raised if the request to allocate an object times
- * out.
+ * This exception is raised if the request to allocate an object times out.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) AllocationTimeoutException : public ::Ice::UserExceptionHelper<AllocationTimeoutException, AllocationException>
@@ -885,8 +882,7 @@ public:
 };
 
 /**
- * This exception is raised if a client is denied the ability to create
- * a session with IceGrid.
+ * This exception is raised if a client is denied the ability to create a session with IceGrid.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) PermissionDeniedException : public ::Ice::UserExceptionHelper<PermissionDeniedException, ::Ice::UserException>
@@ -930,8 +926,7 @@ public:
 };
 
 /**
- * This exception is raised if an observer is already registered with
- * the registry.
+ * This exception is raised if an observer is already registered with the registry.
  * @see AdminSession#setObservers
  * @see AdminSession#setObserversByIdentity
  * \headerfile IceGrid/IceGrid.h
@@ -1916,8 +1911,7 @@ protected:
 };
 
 /**
- * This exception is raised if an unknown signal was sent to
- * to a server.
+ * This exception is raised if an unknown signal was sent to to a server.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API BadSignalException : public ::Ice::UserException
@@ -2017,8 +2011,7 @@ protected:
 };
 
 /**
- * This exception is raised if a registry lock wasn't
- * acquired or is already held by a session.
+ * his exception is raised if a registry lock wasn't acquired or is already held by a session.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API AccessDeniedException : public ::Ice::UserException
@@ -2118,8 +2111,7 @@ protected:
 };
 
 /**
- * This exception is raised if the request to allocate an object times
- * out.
+ * This exception is raised if the request to allocate an object times out.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API AllocationTimeoutException : public AllocationException
@@ -2164,8 +2156,7 @@ protected:
 };
 
 /**
- * This exception is raised if a client is denied the ability to create
- * a session with IceGrid.
+ * This exception is raised if a client is denied the ability to create a session with IceGrid.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API PermissionDeniedException : public ::Ice::UserException
@@ -2215,8 +2206,7 @@ protected:
 };
 
 /**
- * This exception is raised if an observer is already registered with
- * the registry.
+ * This exception is raised if an observer is already registered with the registry.
  * @see AdminSession#setObservers
  * @see AdminSession#setObserversByIdentity
  * \headerfile IceGrid/IceGrid.h

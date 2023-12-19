@@ -16,8 +16,7 @@
 package com.zeroc.IceStorm;
 
 /**
- * Publishers publish information on a particular topic. A topic
- * logically represents a type.
+ * Publishers publish information on a particular topic. A topic logically represents a type. A
  *
  * @see TopicManager
  **/
@@ -87,11 +86,9 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get a proxy to a publisher object for this topic. To publish
-     * data to a topic, the publisher calls getPublisher and then
-     * casts to the topic type. An unchecked cast must be used on this
-     * proxy. If a replicated IceStorm deployment is used this call
-     * may return a replicated proxy.
+     * Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+     * and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
+     * deployment is used this call may return a replicated proxy.
      * @return A proxy to publish data on this topic.
      **/
     default com.zeroc.Ice.ObjectPrx getPublisher()
@@ -100,11 +97,9 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get a proxy to a publisher object for this topic. To publish
-     * data to a topic, the publisher calls getPublisher and then
-     * casts to the topic type. An unchecked cast must be used on this
-     * proxy. If a replicated IceStorm deployment is used this call
-     * may return a replicated proxy.
+     * Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+     * and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
+     * deployment is used this call may return a replicated proxy.
      * @param context The Context map to send with the invocation.
      * @return A proxy to publish data on this topic.
      **/
@@ -114,11 +109,9 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get a proxy to a publisher object for this topic. To publish
-     * data to a topic, the publisher calls getPublisher and then
-     * casts to the topic type. An unchecked cast must be used on this
-     * proxy. If a replicated IceStorm deployment is used this call
-     * may return a replicated proxy.
+     * Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+     * and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
+     * deployment is used this call may return a replicated proxy.
      * @return A proxy to publish data on this topic.
      **/
     default java.util.concurrent.CompletableFuture<com.zeroc.Ice.ObjectPrx> getPublisherAsync()
@@ -127,11 +120,9 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get a proxy to a publisher object for this topic. To publish
-     * data to a topic, the publisher calls getPublisher and then
-     * casts to the topic type. An unchecked cast must be used on this
-     * proxy. If a replicated IceStorm deployment is used this call
-     * may return a replicated proxy.
+     * Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+     * and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
+     * deployment is used this call may return a replicated proxy.
      * @param context The Context map to send with the invocation.
      * @return A proxy to publish data on this topic.
      **/
@@ -158,10 +149,8 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get a non-replicated proxy to a publisher object for this
-     * topic. To publish data to a topic, the publisher calls
-     * getPublisher and then casts to the topic type. An unchecked
-     * cast must be used on this proxy.
+     * Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+     * calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
      * @return A proxy to publish data on this topic.
      **/
     default com.zeroc.Ice.ObjectPrx getNonReplicatedPublisher()
@@ -170,10 +159,8 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get a non-replicated proxy to a publisher object for this
-     * topic. To publish data to a topic, the publisher calls
-     * getPublisher and then casts to the topic type. An unchecked
-     * cast must be used on this proxy.
+     * Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+     * calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
      * @param context The Context map to send with the invocation.
      * @return A proxy to publish data on this topic.
      **/
@@ -183,10 +170,8 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get a non-replicated proxy to a publisher object for this
-     * topic. To publish data to a topic, the publisher calls
-     * getPublisher and then casts to the topic type. An unchecked
-     * cast must be used on this proxy.
+     * Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+     * calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
      * @return A proxy to publish data on this topic.
      **/
     default java.util.concurrent.CompletableFuture<com.zeroc.Ice.ObjectPrx> getNonReplicatedPublisherAsync()
@@ -195,10 +180,8 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get a non-replicated proxy to a publisher object for this
-     * topic. To publish data to a topic, the publisher calls
-     * getPublisher and then casts to the topic type. An unchecked
-     * cast must be used on this proxy.
+     * Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+     * calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
      * @param context The Context map to send with the invocation.
      * @return A proxy to publish data on this topic.
      **/
@@ -225,16 +208,12 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A
-     * per-subscriber publisher object is returned.
-     * @param theQoS The quality of service parameters for this
-     * subscription.
+     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy.
      * @return The per-subscriber publisher object.
-     * @throws AlreadySubscribed Raised if the subscriber object is
-     * already subscribed.
-     * @throws BadQoS Raised if the requested quality of service
-     * is unavailable or invalid.
+     * @throws AlreadySubscribed Raised if the subscriber object is already subscribed.
+     * @throws BadQoS Raised if the requested quality of service is unavailable or invalid.
      * @throws InvalidSubscriber Raised if the subscriber object is null.
      *
      * @see #unsubscribe
@@ -248,17 +227,13 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A
-     * per-subscriber publisher object is returned.
-     * @param theQoS The quality of service parameters for this
-     * subscription.
+     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy.
      * @param context The Context map to send with the invocation.
      * @return The per-subscriber publisher object.
-     * @throws AlreadySubscribed Raised if the subscriber object is
-     * already subscribed.
-     * @throws BadQoS Raised if the requested quality of service
-     * is unavailable or invalid.
+     * @throws AlreadySubscribed Raised if the subscriber object is already subscribed.
+     * @throws BadQoS Raised if the requested quality of service is unavailable or invalid.
      * @throws InvalidSubscriber Raised if the subscriber object is null.
      *
      * @see #unsubscribe
@@ -291,10 +266,8 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A
-     * per-subscriber publisher object is returned.
-     * @param theQoS The quality of service parameters for this
-     * subscription.
+     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy.
      * @return The per-subscriber publisher object.
      *
@@ -306,10 +279,8 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A
-     * per-subscriber publisher object is returned.
-     * @param theQoS The quality of service parameters for this
-     * subscription.
+     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy.
      * @param context The Context map to send with the invocation.
      * @return The per-subscriber publisher object.
@@ -416,12 +387,11 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Create a link to the given topic. All events originating
-     * on this topic will also be sent to <code>linkTo</code>.
+     * Create a link to the given topic. All events originating on this topic will also be sent to
+     * <code>linkTo</code>.
      * @param linkTo The topic to link to.
      * @param cost The cost to the linked topic.
-     * @throws LinkExists Raised if a link to the same topic already
-     * exists.
+     * @throws LinkExists Raised if a link to the same topic already exists.
      **/
     default void link(TopicPrx linkTo, int cost)
         throws LinkExists
@@ -430,13 +400,12 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Create a link to the given topic. All events originating
-     * on this topic will also be sent to <code>linkTo</code>.
+     * Create a link to the given topic. All events originating on this topic will also be sent to
+     * <code>linkTo</code>.
      * @param linkTo The topic to link to.
      * @param cost The cost to the linked topic.
      * @param context The Context map to send with the invocation.
-     * @throws LinkExists Raised if a link to the same topic already
-     * exists.
+     * @throws LinkExists Raised if a link to the same topic already exists.
      **/
     default void link(TopicPrx linkTo, int cost, java.util.Map<String, String> context)
         throws LinkExists
@@ -456,8 +425,8 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Create a link to the given topic. All events originating
-     * on this topic will also be sent to <code>linkTo</code>.
+     * Create a link to the given topic. All events originating on this topic will also be sent to
+     * <code>linkTo</code>.
      * @param linkTo The topic to link to.
      * @param cost The cost to the linked topic.
      * @return A future that will be completed when the invocation completes.
@@ -468,8 +437,8 @@ public interface TopicPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Create a link to the given topic. All events originating
-     * on this topic will also be sent to <code>linkTo</code>.
+     * Create a link to the given topic. All events originating on this topic will also be sent to
+     * <code>linkTo</code>.
      * @param linkTo The topic to link to.
      * @param cost The cost to the linked topic.
      * @param context The Context map to send with the invocation.

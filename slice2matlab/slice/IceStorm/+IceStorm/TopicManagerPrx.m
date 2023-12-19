@@ -29,8 +29,7 @@ classdef TopicManagerPrx < Ice.ObjectPrx
             % Returns (IceStorm.TopicPrx) - A proxy to the topic instance.
             %
             % Exceptions:
-            %   IceStorm.TopicExists - Raised if a topic with the same name already
-            %     exists.
+            %   IceStorm.TopicExists - Raised if a topic with the same name already exists.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);
@@ -50,8 +49,7 @@ classdef TopicManagerPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceStorm.TopicExists - Raised if a topic with the same name already
-            %     exists.
+            %   IceStorm.TopicExists - Raised if a topic with the same name already exists.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(name);

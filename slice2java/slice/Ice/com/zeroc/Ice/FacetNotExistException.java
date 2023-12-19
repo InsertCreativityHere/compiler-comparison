@@ -16,8 +16,8 @@
 package com.zeroc.Ice;
 
 /**
- * This exception is raised if no facet with the given name exists,
- * but at least one facet with the given identity exists.
+ * This exception is raised if no facet with the given name exists, but at least one facet with the given identity
+ * exists.
  **/
 public class FacetNotExistException extends RequestFailedException
 {

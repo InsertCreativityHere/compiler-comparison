@@ -16,13 +16,10 @@
 package com.zeroc.Ice;
 
 /**
- * This exception is raised if the type of an unmarshaled Slice class instance does
- * not match its expected type.
- * This can happen if client and server are compiled with mismatched Slice
- * definitions or if a class of the wrong type is passed as a parameter
- * or return value using dynamic invocation. This exception can also be
- * raised if IceStorm is used to send Slice class instances and
- * an operation is subscribed to the wrong topic.
+ * This exception is raised if the type of an unmarshaled Slice class instance does not match its expected type. This
+ * can happen if client and server are compiled with mismatched Slice definitions or if a class of the wrong type is
+ * passed as a parameter or return value using dynamic invocation. This exception can also be raised if IceStorm is
+ * used to send Slice class instances and an operation is subscribed to the wrong topic.
  **/
 public class UnexpectedObjectException extends MarshalException
 {

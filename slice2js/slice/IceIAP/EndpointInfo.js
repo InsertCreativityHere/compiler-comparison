@@ -37,8 +37,7 @@ let IceIAP = _ModuleRegistry.module("IceIAP");
 /* slice2js browser-bundle-skip-end */
 
 /**
- * Provides access to an IAP endpoint information.
- *
+ *  Provides access to an IAP endpoint information.
  **/
 IceIAP.EndpointInfo = class extends Ice.EndpointInfo
 {

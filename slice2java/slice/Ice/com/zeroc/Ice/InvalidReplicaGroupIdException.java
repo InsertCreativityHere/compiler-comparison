@@ -16,8 +16,7 @@
 package com.zeroc.Ice;
 
 /**
- * This exception is raised if the replica group provided by the
- * server is invalid.
+ * This exception is raised if the replica group provided by the server is invalid.
  **/
 public class InvalidReplicaGroupIdException extends UserException
 {

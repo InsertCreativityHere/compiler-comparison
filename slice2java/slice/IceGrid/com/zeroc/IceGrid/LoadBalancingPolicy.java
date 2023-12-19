@@ -31,8 +31,7 @@ public class LoadBalancingPolicy extends com.zeroc.Ice.Value
     }
 
     /**
-     * The number of replicas that will be used to gather the
-     * endpoints of a replica group.
+     * The number of replicas that will be used to gather the endpoints of a replica group.
      **/
     public String nReplicas;
 

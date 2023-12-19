@@ -16,8 +16,8 @@
 package com.zeroc.Glacier2;
 
 /**
- * This exception is raised if a client tries to destroy a session
- * with a router, but no session exists for the client.
+ * This exception is raised if a client tries to destroy a session with a router, but no session exists for the
+ * client.
  *
  * @see Router#destroySession
  **/

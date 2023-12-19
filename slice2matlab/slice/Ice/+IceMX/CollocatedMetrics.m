@@ -1,7 +1,7 @@
 % CollocatedMetrics   Summary of CollocatedMetrics
 %
-% Provides information on invocations that are collocated. Collocated
-% metrics are embedded within InvocationMetrics.
+% Provides information on invocations that are collocated. Collocated metrics are embedded within
+% InvocationMetrics.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Metrics.ice by slice2matlab version 3.7.10

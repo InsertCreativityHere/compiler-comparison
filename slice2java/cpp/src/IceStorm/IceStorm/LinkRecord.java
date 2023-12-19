@@ -21,10 +21,19 @@ package IceStorm;
 public class LinkRecord implements java.lang.Cloneable,
                                    java.io.Serializable
 {
+    /**
+     * The topic link object.
+     **/
     public TopicLinkPrx obj;
 
+    /**
+     * The cost.
+     **/
     public int cost;
 
+    /**
+     * The linked topic for getLinkInfoSeq
+     **/
     public com.zeroc.IceStorm.TopicPrx theTopic;
 
     public LinkRecord()

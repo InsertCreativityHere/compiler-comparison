@@ -965,13 +965,11 @@ namespace IceStormElection
         /// Initialize the observer.
         /// </summary>
         /// <param name="llu">The last log update seen by the master.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="content">The topic content.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="ObserverInconsistencyException">Raised if an
-        /// inconsisency was detected.</exception>
+        ///  inconsisency was detected.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void init(LogUpdate llu, TopicContent[] content, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -980,11 +978,9 @@ namespace IceStormElection
         /// Initialize the observer.
         /// </summary>
         /// <param name="llu">The last log update seen by the master.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="content">The topic content.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -995,11 +991,9 @@ namespace IceStormElection
         /// Initialize the observer.
         /// </summary>
         /// <param name="llu">The last log update seen by the master.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="content">The topic content.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_ReplicaObserver_init> begin_init(LogUpdate llu, TopicContent[] content, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1008,11 +1002,9 @@ namespace IceStormElection
         /// Initialize the observer.
         /// </summary>
         /// <param name="llu">The last log update seen by the master.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="content">The topic content.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -1022,11 +1014,9 @@ namespace IceStormElection
         /// Initialize the observer.
         /// </summary>
         /// <param name="llu">The last log update seen by the master.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="content">The topic content.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1043,13 +1033,11 @@ namespace IceStormElection
         /// Create the topic with the given name.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="name">The topic name.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="ObserverInconsistencyException">Raised if an
-        /// inconsisency was detected.</exception>
+        ///  inconsisency was detected.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void createTopic(LogUpdate llu, string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1058,11 +1046,9 @@ namespace IceStormElection
         /// Create the topic with the given name.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="name">The topic name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -1073,11 +1059,9 @@ namespace IceStormElection
         /// Create the topic with the given name.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="name">The topic name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_ReplicaObserver_createTopic> begin_createTopic(LogUpdate llu, string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1086,11 +1070,9 @@ namespace IceStormElection
         /// Create the topic with the given name.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="name">The topic name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -1100,11 +1082,9 @@ namespace IceStormElection
         /// Create the topic with the given name.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="name">The topic name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1121,13 +1101,11 @@ namespace IceStormElection
         /// Destroy the topic with the given name.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="name">The topic name.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="ObserverInconsistencyException">Raised if an
-        /// inconsisency was detected.</exception>
+        ///  inconsisency was detected.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void destroyTopic(LogUpdate llu, string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1136,11 +1114,9 @@ namespace IceStormElection
         /// Destroy the topic with the given name.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="name">The topic name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -1151,11 +1127,9 @@ namespace IceStormElection
         /// Destroy the topic with the given name.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="name">The topic name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_ReplicaObserver_destroyTopic> begin_destroyTopic(LogUpdate llu, string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1164,11 +1138,9 @@ namespace IceStormElection
         /// Destroy the topic with the given name.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="name">The topic name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -1178,11 +1150,9 @@ namespace IceStormElection
         /// Destroy the topic with the given name.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="name">The topic name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1199,16 +1169,13 @@ namespace IceStormElection
         /// Add a subscriber to a topic.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="topic">The topic name to which to add the subscriber.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="record">The subscriber information.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="ObserverInconsistencyException">Raised if an
-        /// inconsisency was detected.</exception>
+        ///  inconsisency was detected.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1217,14 +1184,11 @@ namespace IceStormElection
         /// Add a subscriber to a topic.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="topic">The topic name to which to add the subscriber.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="record">The subscriber information.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -1235,14 +1199,11 @@ namespace IceStormElection
         /// Add a subscriber to a topic.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="topic">The topic name to which to add the subscriber.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="record">The subscriber information.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_ReplicaObserver_addSubscriber> begin_addSubscriber(LogUpdate llu, string topic, global::IceStorm.SubscriberRecord record, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1251,14 +1212,11 @@ namespace IceStormElection
         /// Add a subscriber to a topic.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="topic">The topic name to which to add the subscriber.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="record">The subscriber information.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -1268,14 +1226,11 @@ namespace IceStormElection
         /// Add a subscriber to a topic.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="topic">The topic name to which to add the subscriber.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="record">The subscriber information.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1292,16 +1247,12 @@ namespace IceStormElection
         /// Remove a subscriber from a topic.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="name">The topic name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="subscribers">The identities of the subscribers to remove.
-        ///
-        /// </param>
-        /// <exception name="ObserverInconsistencyException">Raised if an
-        /// inconsisency was detected.</exception>
+        ///  </param>
+        /// <exception name="ObserverInconsistencyException">Raised if an inconsisency was detected.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void removeSubscriber(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1310,11 +1261,9 @@ namespace IceStormElection
         /// Remove a subscriber from a topic.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="subscribers">The identities of the subscribers to remove.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -1325,11 +1274,9 @@ namespace IceStormElection
         /// Remove a subscriber from a topic.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="subscribers">The identities of the subscribers to remove.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_ReplicaObserver_removeSubscriber> begin_removeSubscriber(LogUpdate llu, string topic, global::Ice.Identity[] subscribers, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1338,11 +1285,9 @@ namespace IceStormElection
         /// Remove a subscriber from a topic.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="subscribers">The identities of the subscribers to remove.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -1352,11 +1297,9 @@ namespace IceStormElection
         /// Remove a subscriber from a topic.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="subscribers">The identities of the subscribers to remove.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1381,8 +1324,7 @@ namespace IceStormElection
         /// Retrieve the topic content.
         /// </summary>
         /// <param name="llu">The last log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="content">The topic content.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -1425,8 +1367,7 @@ namespace IceStormElection
         /// Retrieve the topic content.
         /// </summary>
         /// <param name="llu">The last log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="content">The topic content.</param>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_getContent(out LogUpdate llu, out TopicContent[] content, global::Ice.AsyncResult asyncResult);
@@ -1440,24 +1381,20 @@ namespace IceStormElection
     public interface NodePrx : global::Ice.ObjectPrx
     {
         /// <summary>
-        /// Invite the node into a group with the given coordinator and
-        /// group name.
+        /// Invite the node into a group with the given coordinator and group name.
         /// </summary>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="j">The group coordinator.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void invitation(int j, string gn, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Invite the node into a group with the given coordinator and
-        /// group name.
+        /// Invite the node into a group with the given coordinator and group name.
         /// </summary>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="j">The group coordinator.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -1466,24 +1403,20 @@ namespace IceStormElection
         global::System.Threading.Tasks.Task invitationAsync(int j, string gn, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Invite the node into a group with the given coordinator and
-        /// group name.
+        /// Invite the node into a group with the given coordinator and group name.
         /// </summary>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="j">The group coordinator.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Node_invitation> begin_invitation(int j, string gn, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Invite the node into a group with the given coordinator and
-        /// group name.
+        /// Invite the node into a group with the given coordinator and group name.
         /// </summary>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="j">The group coordinator.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1491,12 +1424,10 @@ namespace IceStormElection
         global::Ice.AsyncResult begin_invitation(int j, string gn, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Invite the node into a group with the given coordinator and
-        /// group name.
+        /// Invite the node into a group with the given coordinator and group name.
         /// </summary>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="j">The group coordinator.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -1505,51 +1436,38 @@ namespace IceStormElection
         global::Ice.AsyncResult begin_invitation(int j, string gn, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Invite the node into a group with the given coordinator and
-        /// group name.
+        /// Invite the node into a group with the given coordinator and group name.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_invitation(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// Call from the group coordinator to a node to inform the node
-        /// that the replica group is active.
+        /// Call from the group coordinator to a node to inform the node that the replica group is active.
         /// </summary>
         /// <param name="j">The group coordinator.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="coordinator">The proxy to the coordinator.
-        ///
-        /// </param>
-        /// <param name="max">The highest priority node seen by this replica
-        /// group.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="max">The highest priority node seen by this replica group.
+        ///  </param>
         /// <param name="generation">The current generation count.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void ready(int j, string gn, global::Ice.ObjectPrx coordinator, int max, long generation, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Call from the group coordinator to a node to inform the node
-        /// that the replica group is active.
+        /// Call from the group coordinator to a node to inform the node that the replica group is active.
         /// </summary>
         /// <param name="j">The group coordinator.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="coordinator">The proxy to the coordinator.
-        ///
-        /// </param>
-        /// <param name="max">The highest priority node seen by this replica
-        /// group.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="max">The highest priority node seen by this replica group.
+        ///  </param>
         /// <param name="generation">The current generation count.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -1558,44 +1476,32 @@ namespace IceStormElection
         global::System.Threading.Tasks.Task readyAsync(int j, string gn, global::Ice.ObjectPrx coordinator, int max, long generation, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Call from the group coordinator to a node to inform the node
-        /// that the replica group is active.
+        /// Call from the group coordinator to a node to inform the node that the replica group is active.
         /// </summary>
         /// <param name="j">The group coordinator.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="coordinator">The proxy to the coordinator.
-        ///
-        /// </param>
-        /// <param name="max">The highest priority node seen by this replica
-        /// group.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="max">The highest priority node seen by this replica group.
+        ///  </param>
         /// <param name="generation">The current generation count.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Node_ready> begin_ready(int j, string gn, global::Ice.ObjectPrx coordinator, int max, long generation, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Call from the group coordinator to a node to inform the node
-        /// that the replica group is active.
+        /// Call from the group coordinator to a node to inform the node that the replica group is active.
         /// </summary>
         /// <param name="j">The group coordinator.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="coordinator">The proxy to the coordinator.
-        ///
-        /// </param>
-        /// <param name="max">The highest priority node seen by this replica
-        /// group.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="max">The highest priority node seen by this replica group.
+        ///  </param>
         /// <param name="generation">The current generation count.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1603,22 +1509,16 @@ namespace IceStormElection
         global::Ice.AsyncResult begin_ready(int j, string gn, global::Ice.ObjectPrx coordinator, int max, long generation, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Call from the group coordinator to a node to inform the node
-        /// that the replica group is active.
+        /// Call from the group coordinator to a node to inform the node that the replica group is active.
         /// </summary>
         /// <param name="j">The group coordinator.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="coordinator">The proxy to the coordinator.
-        ///
-        /// </param>
-        /// <param name="max">The highest priority node seen by this replica
-        /// group.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="max">The highest priority node seen by this replica group.
+        ///  </param>
         /// <param name="generation">The current generation count.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -1627,60 +1527,43 @@ namespace IceStormElection
         global::Ice.AsyncResult begin_ready(int j, string gn, global::Ice.ObjectPrx coordinator, int max, long generation, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Call from the group coordinator to a node to inform the node
-        /// that the replica group is active.
+        /// Call from the group coordinator to a node to inform the node that the replica group is active.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_ready(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// Called to accept an invitation into
-        /// the given group.
+        /// Called to accept an invitation into the given group.
         /// </summary>
         /// <param name="j">The id of the node accepting the invitation.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="observer">The observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
-        /// <param name="forwardedInvites">The ids of the nodes to which
-        /// invitations were forwarded.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="forwardedInvites">The ids of the nodes to which invitations were forwarded.
+        ///  </param>
         /// <param name="llu">The last log update for the given node.
-        ///
-        /// </param>
-        /// <param name="max">The highest priority node seen by this replica
-        /// group.</param>
+        ///  </param>
+        /// <param name="max">The highest priority node seen by this replica group.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void accept(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx observer, LogUpdate llu, int max, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Called to accept an invitation into
-        /// the given group.
+        /// Called to accept an invitation into the given group.
         /// </summary>
         /// <param name="j">The id of the node accepting the invitation.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="observer">The observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
-        /// <param name="forwardedInvites">The ids of the nodes to which
-        /// invitations were forwarded.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="forwardedInvites">The ids of the nodes to which invitations were forwarded.
+        ///  </param>
         /// <param name="llu">The last log update for the given node.
-        ///
-        /// </param>
-        /// <param name="max">The highest priority node seen by this replica
-        /// group.</param>
+        ///  </param>
+        /// <param name="max">The highest priority node seen by this replica group.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -1688,80 +1571,56 @@ namespace IceStormElection
         global::System.Threading.Tasks.Task acceptAsync(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx observer, LogUpdate llu, int max, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Called to accept an invitation into
-        /// the given group.
+        /// Called to accept an invitation into the given group.
         /// </summary>
         /// <param name="j">The id of the node accepting the invitation.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="observer">The observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
-        /// <param name="forwardedInvites">The ids of the nodes to which
-        /// invitations were forwarded.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="forwardedInvites">The ids of the nodes to which invitations were forwarded.
+        ///  </param>
         /// <param name="llu">The last log update for the given node.
-        ///
-        /// </param>
-        /// <param name="max">The highest priority node seen by this replica
-        /// group.</param>
+        ///  </param>
+        /// <param name="max">The highest priority node seen by this replica group.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Node_accept> begin_accept(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx observer, LogUpdate llu, int max, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Called to accept an invitation into
-        /// the given group.
+        /// Called to accept an invitation into the given group.
         /// </summary>
         /// <param name="j">The id of the node accepting the invitation.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="observer">The observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
-        /// <param name="forwardedInvites">The ids of the nodes to which
-        /// invitations were forwarded.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="forwardedInvites">The ids of the nodes to which invitations were forwarded.
+        ///  </param>
         /// <param name="llu">The last log update for the given node.
-        ///
-        /// </param>
-        /// <param name="max">The highest priority node seen by this replica
-        /// group.</param>
+        ///  </param>
+        /// <param name="max">The highest priority node seen by this replica group.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult begin_accept(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx observer, LogUpdate llu, int max, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Called to accept an invitation into
-        /// the given group.
+        /// Called to accept an invitation into the given group.
         /// </summary>
         /// <param name="j">The id of the node accepting the invitation.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="observer">The observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
-        /// <param name="forwardedInvites">The ids of the nodes to which
-        /// invitations were forwarded.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="forwardedInvites">The ids of the nodes to which invitations were forwarded.
+        ///  </param>
         /// <param name="llu">The last log update for the given node.
-        ///
-        /// </param>
-        /// <param name="max">The highest priority node seen by this replica
-        /// group.</param>
+        ///  </param>
+        /// <param name="max">The highest priority node seen by this replica group.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1769,8 +1628,7 @@ namespace IceStormElection
         global::Ice.AsyncResult begin_accept(int j, string gn, int[] forwardedInvites, global::Ice.ObjectPrx observer, LogUpdate llu, int max, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Called to accept an invitation into
-        /// the given group.
+        /// Called to accept an invitation into the given group.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_accept(global::Ice.AsyncResult asyncResult);
@@ -1824,30 +1682,24 @@ namespace IceStormElection
         bool end_areYouCoordinator(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
-        /// Determine if the node is a member of the given group with the
-        /// given coordinator.
+        /// Determine if the node is a member of the given group with the given coordinator.
         /// </summary>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="j">The group coordinator.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>True if the node is a member, false otherwise.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         bool areYouThere(string gn, int j, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Determine if the node is a member of the given group with the
-        /// given coordinator.
+        /// Determine if the node is a member of the given group with the given coordinator.
         /// </summary>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="j">The group coordinator.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -1855,44 +1707,35 @@ namespace IceStormElection
         global::System.Threading.Tasks.Task<bool> areYouThereAsync(string gn, int j, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Determine if the node is a member of the given group with the
-        /// given coordinator.
+        /// Determine if the node is a member of the given group with the given coordinator.
         /// </summary>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="j">The group coordinator.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Node_areYouThere> begin_areYouThere(string gn, int j, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// Determine if the node is a member of the given group with the
-        /// given coordinator.
+        /// Determine if the node is a member of the given group with the given coordinator.
         /// </summary>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="j">The group coordinator.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult begin_areYouThere(string gn, int j, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Determine if the node is a member of the given group with the
-        /// given coordinator.
+        /// Determine if the node is a member of the given group with the given coordinator.
         /// </summary>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="j">The group coordinator.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -1900,8 +1743,7 @@ namespace IceStormElection
         global::Ice.AsyncResult begin_areYouThere(string gn, int j, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Determine if the node is a member of the given group with the
-        /// given coordinator.
+        /// Determine if the node is a member of the given group with the given coordinator.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>True if the node is a member, false otherwise.</returns>
@@ -1958,8 +1800,7 @@ namespace IceStormElection
         /// <summary>
         /// Get the replication group information.
         /// </summary>
-        /// <returns>The set of configured nodes and the associated
-        /// priority.</returns>
+        /// <returns>The set of configured nodes and the associated priority.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         NodeInfo[] nodes(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -2001,8 +1842,7 @@ namespace IceStormElection
         /// Get the replication group information.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>The set of configured nodes and the associated
-        /// priority.</returns>
+        /// <returns>The set of configured nodes and the associated priority.</returns>
         NodeInfo[] end_nodes(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
@@ -2068,13 +1908,11 @@ namespace IceStormElection
         /// Initialize the observer.
         /// </summary>
         /// <param name="llu">The last log update seen by the master.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="content">The topic content.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="ObserverInconsistencyException">Raised if an
-        /// inconsisency was detected.</exception>
+        ///  inconsisency was detected.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -2084,13 +1922,11 @@ namespace IceStormElection
         /// Create the topic with the given name.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="name">The topic name.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="ObserverInconsistencyException">Raised if an
-        /// inconsisency was detected.</exception>
+        ///  inconsisency was detected.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -2100,13 +1936,11 @@ namespace IceStormElection
         /// Destroy the topic with the given name.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="name">The topic name.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="ObserverInconsistencyException">Raised if an
-        /// inconsisency was detected.</exception>
+        ///  inconsisency was detected.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -2116,16 +1950,13 @@ namespace IceStormElection
         /// Add a subscriber to a topic.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="topic">The topic name to which to add the subscriber.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="record">The subscriber information.
-        ///
-        /// </param>
+        ///  </param>
         /// <exception name="ObserverInconsistencyException">Raised if an
-        /// inconsisency was detected.</exception>
+        ///  inconsisency was detected.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -2135,16 +1966,12 @@ namespace IceStormElection
         /// Remove a subscriber from a topic.
         /// </summary>
         /// <param name="llu">The log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="name">The topic name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="subscribers">The identities of the subscribers to remove.
-        ///
-        /// </param>
-        /// <exception name="ObserverInconsistencyException">Raised if an
-        /// inconsisency was detected.</exception>
+        ///  </param>
+        /// <exception name="ObserverInconsistencyException">Raised if an inconsisency was detected.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -2162,8 +1989,7 @@ namespace IceStormElection
         /// Retrieve the topic content.
         /// </summary>
         /// <param name="llu">The last log update token.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="content">The topic content.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -2179,12 +2005,10 @@ namespace IceStormElection
     public interface NodeOperations_
     {
         /// <summary>
-        /// Invite the node into a group with the given coordinator and
-        /// group name.
+        /// Invite the node into a group with the given coordinator and group name.
         /// </summary>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="j">The group coordinator.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -2192,22 +2016,16 @@ namespace IceStormElection
         void invitation(int j, string gn, global::Ice.Current current = null);
 
         /// <summary>
-        /// Call from the group coordinator to a node to inform the node
-        /// that the replica group is active.
+        /// Call from the group coordinator to a node to inform the node that the replica group is active.
         /// </summary>
         /// <param name="j">The group coordinator.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="coordinator">The proxy to the coordinator.
-        ///
-        /// </param>
-        /// <param name="max">The highest priority node seen by this replica
-        /// group.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="max">The highest priority node seen by this replica group.
+        ///  </param>
         /// <param name="generation">The current generation count.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -2215,27 +2033,19 @@ namespace IceStormElection
         void ready(int j, string gn, global::Ice.ObjectPrx coordinator, int max, long generation, global::Ice.Current current = null);
 
         /// <summary>
-        /// Called to accept an invitation into
-        /// the given group.
+        /// Called to accept an invitation into the given group.
         /// </summary>
         /// <param name="j">The id of the node accepting the invitation.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="observer">The observer.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
-        /// <param name="forwardedInvites">The ids of the nodes to which
-        /// invitations were forwarded.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="forwardedInvites">The ids of the nodes to which invitations were forwarded.
+        ///  </param>
         /// <param name="llu">The last log update for the given node.
-        ///
-        /// </param>
-        /// <param name="max">The highest priority node seen by this replica
-        /// group.</param>
+        ///  </param>
+        /// <param name="max">The highest priority node seen by this replica group.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -2251,15 +2061,12 @@ namespace IceStormElection
         bool areYouCoordinator(global::Ice.Current current = null);
 
         /// <summary>
-        /// Determine if the node is a member of the given group with the
-        /// given coordinator.
+        /// Determine if the node is a member of the given group with the given coordinator.
         /// </summary>
         /// <param name="gn">The group name.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="j">The group coordinator.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>True if the node is a member, false otherwise.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -2278,8 +2085,7 @@ namespace IceStormElection
         /// <summary>
         /// Get the replication group information.
         /// </summary>
-        /// <returns>The set of configured nodes and the associated
-        /// priority.</returns>
+        /// <returns>The set of configured nodes and the associated priority.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]

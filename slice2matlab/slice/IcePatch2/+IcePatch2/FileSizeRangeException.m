@@ -1,7 +1,7 @@
 % FileSizeRangeException   Summary of FileSizeRangeException
 %
-% This exception is raised if an operation tries to use a file whose size is
-% larger than 2.1 GB. Use the "large" versions of the operations instead.
+% This exception is raised if an operation tries to use a file whose size is larger than 2.1 GB. Use the "large"
+% versions of the operations instead.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from FileServer.ice by slice2matlab version 3.7.10

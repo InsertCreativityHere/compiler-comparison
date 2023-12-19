@@ -16,16 +16,13 @@
 package com.zeroc.IceStorm;
 
 /**
- * This interface is advertised by the IceStorm service through the
- * Ice object with the identity `IceStorm/Finder'. This allows clients
- * to retrieve the topic manager with just the endpoint information of
- * the IceStorm service.
+ * This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+ * This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
  **/
 public interface FinderPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
-     * Get the topic manager proxy. The proxy might point to several
-     * replicas.
+     * Get the topic manager proxy. The proxy might point to several replicas.
      * @return The topic manager proxy.
      **/
     default TopicManagerPrx getTopicManager()
@@ -34,8 +31,7 @@ public interface FinderPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the topic manager proxy. The proxy might point to several
-     * replicas.
+     * Get the topic manager proxy. The proxy might point to several replicas.
      * @param context The Context map to send with the invocation.
      * @return The topic manager proxy.
      **/
@@ -45,8 +41,7 @@ public interface FinderPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the topic manager proxy. The proxy might point to several
-     * replicas.
+     * Get the topic manager proxy. The proxy might point to several replicas.
      * @return The topic manager proxy.
      **/
     default java.util.concurrent.CompletableFuture<TopicManagerPrx> getTopicManagerAsync()
@@ -55,8 +50,7 @@ public interface FinderPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the topic manager proxy. The proxy might point to several
-     * replicas.
+     * Get the topic manager proxy. The proxy might point to several replicas.
      * @param context The Context map to send with the invocation.
      * @return The topic manager proxy.
      **/

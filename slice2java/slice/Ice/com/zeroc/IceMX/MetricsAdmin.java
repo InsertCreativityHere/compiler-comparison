@@ -16,10 +16,8 @@
 package com.zeroc.IceMX;
 
 /**
- * The metrics administrative facet interface. This interface allows
- * remote administrative clients to access metrics of an application
- * that enabled the Ice administrative facility and configured some
- * metrics views.
+ * The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
+ * of an application that enabled the Ice administrative facility and configured some metrics views.
  **/
 public interface MetricsAdmin extends com.zeroc.Ice.Object
 {
@@ -83,8 +81,7 @@ public interface MetricsAdmin extends com.zeroc.Ice.Object
         /**
          * This constructor makes shallow copies of the results for operation GetMetricsView.
          * @param returnValue The metrics view data.
-         * @param timestamp The local time of the process when the metrics
-         * object were retrieved.
+         * @param timestamp The local time of the process when the metrics object were retrieved.
          **/
         public GetMetricsViewResult(java.util.Map<java.lang.String, Metrics[]> returnValue, long timestamp)
         {
@@ -97,8 +94,7 @@ public interface MetricsAdmin extends com.zeroc.Ice.Object
          **/
         public java.util.Map<java.lang.String, Metrics[]> returnValue;
         /**
-         * The local time of the process when the metrics
-         * object were retrieved.
+         * The local time of the process when the metrics object were retrieved.
          **/
         public long timestamp;
 
@@ -126,8 +122,7 @@ public interface MetricsAdmin extends com.zeroc.Ice.Object
      * Enables a metrics view.
      * @param name The metrics view name.
      * @param current The Current object for the invocation.
-     * @throws UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws UnknownMetricsView Raised if the metrics view cannot be found.
      **/
     void enableMetricsView(String name, com.zeroc.Ice.Current current)
         throws UnknownMetricsView;
@@ -136,23 +131,19 @@ public interface MetricsAdmin extends com.zeroc.Ice.Object
      * Disable a metrics view.
      * @param name The metrics view name.
      * @param current The Current object for the invocation.
-     * @throws UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws UnknownMetricsView Raised if the metrics view cannot be found.
      **/
     void disableMetricsView(String name, com.zeroc.Ice.Current current)
         throws UnknownMetricsView;
 
     /**
-     * Get the metrics objects for the given metrics view. This
-     * returns a dictionary of metric maps for each metrics class
-     * configured with the view. The timestamp allows the client to
-     * compute averages which are not dependent of the invocation
-     * latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+     * the invocation latency for this operation.
      * @param view The name of the metrics view.
      * @param current The Current object for the invocation.
      * @return An instance of MetricsAdmin.GetMetricsViewResult.
-     * @throws UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws UnknownMetricsView Raised if the metrics view cannot be found.
      **/
     MetricsAdmin.GetMetricsViewResult getMetricsView(String view, com.zeroc.Ice.Current current)
         throws UnknownMetricsView;
@@ -163,8 +154,7 @@ public interface MetricsAdmin extends com.zeroc.Ice.Object
      * @param map The name of the metrics map.
      * @param current The Current object for the invocation.
      * @return The metrics failures associated with the map.
-     * @throws UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws UnknownMetricsView Raised if the metrics view cannot be found.
      **/
     MetricsFailures[] getMapMetricsFailures(String view, String map, com.zeroc.Ice.Current current)
         throws UnknownMetricsView;
@@ -176,8 +166,7 @@ public interface MetricsAdmin extends com.zeroc.Ice.Object
      * @param id The ID of the metrics.
      * @param current The Current object for the invocation.
      * @return The metrics failures associated with the metrics.
-     * @throws UnknownMetricsView Raised if the metrics view cannot be
-     * found.
+     * @throws UnknownMetricsView Raised if the metrics view cannot be found.
      **/
     MetricsFailures getMetricsFailures(String view, String map, String id, com.zeroc.Ice.Current current)
         throws UnknownMetricsView;

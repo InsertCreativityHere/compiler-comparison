@@ -22,12 +22,10 @@ public interface FileIteratorPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
      * Read lines from the log file.
-     * @param size Specifies the maximum number of bytes to be
-     * received. The server will ensure that the returned message
-     * doesn't exceed the given size.
+     * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
+     * message doesn't exceed the given size.
      * @return An instance of FileIterator.ReadResult.
-     * @throws FileNotAvailableException Raised if there was a problem
-     * to read lines from the file.
+     * @throws FileNotAvailableException Raised if there was a problem to read lines from the file.
      **/
     default FileIterator.ReadResult read(int size)
         throws FileNotAvailableException
@@ -37,13 +35,11 @@ public interface FileIteratorPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Read lines from the log file.
-     * @param size Specifies the maximum number of bytes to be
-     * received. The server will ensure that the returned message
-     * doesn't exceed the given size.
+     * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
+     * message doesn't exceed the given size.
      * @param context The Context map to send with the invocation.
      * @return An instance of FileIterator.ReadResult.
-     * @throws FileNotAvailableException Raised if there was a problem
-     * to read lines from the file.
+     * @throws FileNotAvailableException Raised if there was a problem to read lines from the file.
      **/
     default FileIterator.ReadResult read(int size, java.util.Map<String, String> context)
         throws FileNotAvailableException
@@ -64,9 +60,8 @@ public interface FileIteratorPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Read lines from the log file.
-     * @param size Specifies the maximum number of bytes to be
-     * received. The server will ensure that the returned message
-     * doesn't exceed the given size.
+     * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
+     * message doesn't exceed the given size.
      * @return A future that will be completed with an instance of FileIterator.ReadResult.
      **/
     default java.util.concurrent.CompletableFuture<FileIterator.ReadResult> readAsync(int size)
@@ -76,9 +71,8 @@ public interface FileIteratorPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Read lines from the log file.
-     * @param size Specifies the maximum number of bytes to be
-     * received. The server will ensure that the returned message
-     * doesn't exceed the given size.
+     * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
+     * message doesn't exceed the given size.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed with an instance of FileIterator.ReadResult.
      **/

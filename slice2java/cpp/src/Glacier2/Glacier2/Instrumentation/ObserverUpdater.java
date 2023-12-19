@@ -16,23 +16,18 @@
 package Glacier2.Instrumentation;
 
 /**
- * The ObserverUpdater interface is implemented by Glacier2 and an
- * instance of this interface is provided on initialization to the
- * RouterObserver object.
- *
- * This interface can be used by add-ins imlementing the
- * RouterObserver interface to update the obsevers of observed
+ * The ObserverUpdater interface is implemented by Glacier2 and an instance of this interface is provided on
+ * initialization to the RouterObserver object.
+ * This interface can be used by add-ins imlementing the RouterObserver interface to update the obsevers of observed
  * objects.
  **/
 public interface ObserverUpdater
 {
     /**
      * Update the router sessions.
-     *
-     * When called, this method goes through all the sessions and for
-     * each session RouterObserver::getSessionObserver is
-     * called. The implementation of getSessionObserver has the
-     * possibility to return an updated observer if necessary.
+     * When called, this method goes through all the sessions and for each session RouterObserver::getSessionObserver
+     * is called. The implementation of getSessionObserver has the possibility to return an updated observer if
+     * necessary.
      **/
     void updateSessionObservers();
 }

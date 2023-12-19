@@ -1,7 +1,6 @@
 % IllegalServantException   Summary of IllegalServantException
 %
-% This exception is raised to reject an illegal servant (typically
-% a null servant)
+% This exception is raised to reject an illegal servant (typically a null servant).
 %
 % IllegalServantException Properties:
 %   reason - Describes why this servant is illegal.

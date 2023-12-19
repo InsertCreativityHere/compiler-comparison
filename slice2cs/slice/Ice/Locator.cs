@@ -78,8 +78,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception is raised if the replica group provided by the
-    /// server is invalid.
+    /// This exception is raised if the replica group provided by the server is invalid.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -136,8 +135,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception is raised if a server tries to set endpoints for
-    /// an adapter that is already active.
+    /// This exception is raised if a server tries to set endpoints for an adapter that is already active.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -381,44 +379,34 @@ namespace Ice
 {
     /// <summary>
     /// The Ice locator interface.
-    /// This interface is used by clients to
-    /// lookup adapters and objects. It is also used by servers to get the
-    /// locator registry proxy.
-    ///
-    /// &lt;p class="Note"&gt;The Locator interface is intended to be used by
-    /// Ice internals and by locator implementations. Regular user code
-    /// should not attempt to use any functionality of this interface
-    /// directly.
+    /// This interface is used by clients to lookup adapters and objects. It is also used by
+    ///  servers to get the locator registry proxy. &lt;p class="Note"&gt;The Locator interface is intended to be used by
+    ///  Ice internals and by locator implementations. Regular user code should not attempt to use any functionality of this
+    ///  interface directly.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface LocatorPrx : ObjectPrx
     {
         /// <summary>
-        /// Find an object by identity and return a proxy that contains
-        /// the adapter ID or endpoints which can be used to access the
-        /// object.
+        /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+        ///  access the object.
         /// </summary>
         /// <param name="id">The identity.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The proxy, or null if the object is not active.
-        ///
-        /// </returns>
-        /// <exception name="ObjectNotFoundException">Raised if the object cannot
-        /// be found.</exception>
+        ///  </returns>
+        /// <exception name="ObjectNotFoundException">Raised if the object cannot be found.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         ObjectPrx findObjectById(Identity id, OptionalContext context = new OptionalContext());
 
         /// <summary>
-        /// Find an object by identity and return a proxy that contains
-        /// the adapter ID or endpoints which can be used to access the
-        /// object.
+        /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+        ///  access the object.
         /// </summary>
         /// <param name="id">The identity.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -426,38 +414,32 @@ namespace Ice
         global::System.Threading.Tasks.Task<ObjectPrx> findObjectByIdAsync(Identity id, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Find an object by identity and return a proxy that contains
-        /// the adapter ID or endpoints which can be used to access the
-        /// object.
+        /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+        ///  access the object.
         /// </summary>
         /// <param name="id">The identity.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         AsyncResult<Callback_Locator_findObjectById> begin_findObjectById(Identity id, OptionalContext context = new OptionalContext());
 
         /// <summary>
-        /// Find an object by identity and return a proxy that contains
-        /// the adapter ID or endpoints which can be used to access the
-        /// object.
+        /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+        ///  access the object.
         /// </summary>
         /// <param name="id">The identity.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
         AsyncResult begin_findObjectById(Identity id, AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Find an object by identity and return a proxy that contains
-        /// the adapter ID or endpoints which can be used to access the
-        /// object.
+        /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+        ///  access the object.
         /// </summary>
         /// <param name="id">The identity.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -465,39 +447,31 @@ namespace Ice
         AsyncResult begin_findObjectById(Identity id, OptionalContext context, AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Find an object by identity and return a proxy that contains
-        /// the adapter ID or endpoints which can be used to access the
-        /// object.
+        /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+        ///  access the object.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The proxy, or null if the object is not active.
-        ///
-        /// </returns>
+        ///  </returns>
         ObjectPrx end_findObjectById(AsyncResult asyncResult);
 
         /// <summary>
-        /// Find an adapter by id and return a proxy that contains
-        /// its endpoints.
+        /// Find an adapter by id and return a proxy that contains its endpoints.
         /// </summary>
         /// <param name="id">The adapter id.
-        ///
-        /// </param>
+        ///  </param>
         /// <returns>The adapter proxy, or null if the adapter is not active.
-        ///
-        /// </returns>
-        /// <exception name="AdapterNotFoundException">Raised if the adapter cannot be
-        /// found.</exception>
+        ///  </returns>
+        /// <exception name="AdapterNotFoundException">Raised if the adapter cannot be found.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         ObjectPrx findAdapterById(string id, OptionalContext context = new OptionalContext());
 
         /// <summary>
-        /// Find an adapter by id and return a proxy that contains
-        /// its endpoints.
+        /// Find an adapter by id and return a proxy that contains its endpoints.
         /// </summary>
         /// <param name="id">The adapter id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -505,35 +479,29 @@ namespace Ice
         global::System.Threading.Tasks.Task<ObjectPrx> findAdapterByIdAsync(string id, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Find an adapter by id and return a proxy that contains
-        /// its endpoints.
+        /// Find an adapter by id and return a proxy that contains its endpoints.
         /// </summary>
         /// <param name="id">The adapter id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         AsyncResult<Callback_Locator_findAdapterById> begin_findAdapterById(string id, OptionalContext context = new OptionalContext());
 
         /// <summary>
-        /// Find an adapter by id and return a proxy that contains
-        /// its endpoints.
+        /// Find an adapter by id and return a proxy that contains its endpoints.
         /// </summary>
         /// <param name="id">The adapter id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
         AsyncResult begin_findAdapterById(string id, AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Find an adapter by id and return a proxy that contains
-        /// its endpoints.
+        /// Find an adapter by id and return a proxy that contains its endpoints.
         /// </summary>
         /// <param name="id">The adapter id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -541,13 +509,11 @@ namespace Ice
         AsyncResult begin_findAdapterById(string id, OptionalContext context, AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Find an adapter by id and return a proxy that contains
-        /// its endpoints.
+        /// Find an adapter by id and return a proxy that contains its endpoints.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The adapter proxy, or null if the adapter is not active.
-        ///
-        /// </returns>
+        ///  </returns>
         ObjectPrx end_findAdapterById(AsyncResult asyncResult);
 
         /// <summary>
@@ -601,13 +567,9 @@ namespace Ice
 
     /// <summary>
     /// The Ice locator registry interface.
-    /// This interface is used by
-    /// servers to register adapter endpoints with the locator.
-    ///
-    /// &lt;p class="Note"&gt; The LocatorRegistry interface is intended to be used
-    /// by Ice internals and by locator implementations. Regular user
-    /// code should not attempt to use any functionality of this interface
-    /// directly.
+    /// This interface is used by servers to register adapter endpoints with the
+    ///  locator. &lt;p class="Note"&gt; The LocatorRegistry interface is intended to be used by Ice internals and by
+    ///  locator implementations. Regular user code should not attempt to use any functionality of this interface directly.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -617,21 +579,14 @@ namespace Ice
         /// Set the adapter endpoints with the locator registry.
         /// </summary>
         /// <param name="id">The adapter id.
-        ///
-        /// </param>
-        /// <param name="proxy">The adapter proxy (a dummy direct proxy created
-        /// by the adapter). The direct proxy contains the adapter
-        /// endpoints.
-        ///
-        /// </param>
-        /// <exception name="AdapterNotFoundException">Raised if the adapter cannot
-        /// be found, or if the locator only allows
-        /// registered adapters to set their active proxy and the
-        /// adapter is not registered with the locator.
-        ///
-        /// </exception>
-        /// <exception name="AdapterAlreadyActiveException">Raised if an adapter with the same
-        /// id is already active.</exception>
+        ///  </param>
+        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+        ///  adapter endpoints.
+        ///  </param>
+        /// <exception name="AdapterNotFoundException">Raised if the adapter cannot be found, or if the locator only allows
+        ///  registered adapters to set their active proxy and the adapter is not registered with the locator.
+        ///  </exception>
+        /// <exception name="AdapterAlreadyActiveException">Raised if an adapter with the same id is already active.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void setAdapterDirectProxy(string id, ObjectPrx proxy, OptionalContext context = new OptionalContext());
@@ -640,13 +595,10 @@ namespace Ice
         /// Set the adapter endpoints with the locator registry.
         /// </summary>
         /// <param name="id">The adapter id.
-        ///
-        /// </param>
-        /// <param name="proxy">The adapter proxy (a dummy direct proxy created
-        /// by the adapter). The direct proxy contains the adapter
-        /// endpoints.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+        ///  adapter endpoints.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -657,13 +609,10 @@ namespace Ice
         /// Set the adapter endpoints with the locator registry.
         /// </summary>
         /// <param name="id">The adapter id.
-        ///
-        /// </param>
-        /// <param name="proxy">The adapter proxy (a dummy direct proxy created
-        /// by the adapter). The direct proxy contains the adapter
-        /// endpoints.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+        ///  adapter endpoints.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         AsyncResult<Callback_LocatorRegistry_setAdapterDirectProxy> begin_setAdapterDirectProxy(string id, ObjectPrx proxy, OptionalContext context = new OptionalContext());
@@ -672,13 +621,10 @@ namespace Ice
         /// Set the adapter endpoints with the locator registry.
         /// </summary>
         /// <param name="id">The adapter id.
-        ///
-        /// </param>
-        /// <param name="proxy">The adapter proxy (a dummy direct proxy created
-        /// by the adapter). The direct proxy contains the adapter
-        /// endpoints.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+        ///  adapter endpoints.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -688,13 +634,10 @@ namespace Ice
         /// Set the adapter endpoints with the locator registry.
         /// </summary>
         /// <param name="id">The adapter id.
-        ///
-        /// </param>
-        /// <param name="proxy">The adapter proxy (a dummy direct proxy created
-        /// by the adapter). The direct proxy contains the adapter
-        /// endpoints.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+        ///  adapter endpoints.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -711,29 +654,19 @@ namespace Ice
         /// Set the adapter endpoints with the locator registry.
         /// </summary>
         /// <param name="adapterId">The adapter id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="replicaGroupId">The replica group id.
-        ///
-        /// </param>
-        /// <param name="p">The adapter proxy (a dummy direct proxy created
-        /// by the adapter). The direct proxy contains the adapter
-        /// endpoints.
-        ///
-        /// </param>
-        /// <exception name="AdapterNotFoundException">Raised if the adapter cannot
-        /// be found, or if the locator only allows registered adapters to
-        /// set their active proxy and the adapter is not registered with
-        /// the locator.
-        ///
-        /// </exception>
-        /// <exception name="AdapterAlreadyActiveException">Raised if an adapter with the same
-        /// id is already active.
-        ///
-        /// </exception>
-        /// <exception name="InvalidReplicaGroupIdException">Raised if the given
-        /// replica group doesn't match the one registered with the
-        /// locator registry for this object adapter.</exception>
+        ///  </param>
+        /// <param name="p">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
+        ///  endpoints.
+        ///  </param>
+        /// <exception name="AdapterNotFoundException">Raised if the adapter cannot be found, or if the locator only allows
+        ///  registered adapters to set their active proxy and the adapter is not registered with the locator.
+        ///  </exception>
+        /// <exception name="AdapterAlreadyActiveException">Raised if an adapter with the same id is already active.
+        ///  </exception>
+        /// <exception name="InvalidReplicaGroupIdException">Raised if the given replica group doesn't match the one registered with
+        ///  the locator registry for this object adapter.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void setReplicatedAdapterDirectProxy(string adapterId, string replicaGroupId, ObjectPrx p, OptionalContext context = new OptionalContext());
@@ -742,16 +675,12 @@ namespace Ice
         /// Set the adapter endpoints with the locator registry.
         /// </summary>
         /// <param name="adapterId">The adapter id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="replicaGroupId">The replica group id.
-        ///
-        /// </param>
-        /// <param name="p">The adapter proxy (a dummy direct proxy created
-        /// by the adapter). The direct proxy contains the adapter
-        /// endpoints.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="p">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
+        ///  endpoints.
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -762,16 +691,12 @@ namespace Ice
         /// Set the adapter endpoints with the locator registry.
         /// </summary>
         /// <param name="adapterId">The adapter id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="replicaGroupId">The replica group id.
-        ///
-        /// </param>
-        /// <param name="p">The adapter proxy (a dummy direct proxy created
-        /// by the adapter). The direct proxy contains the adapter
-        /// endpoints.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="p">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
+        ///  endpoints.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         AsyncResult<Callback_LocatorRegistry_setReplicatedAdapterDirectProxy> begin_setReplicatedAdapterDirectProxy(string adapterId, string replicaGroupId, ObjectPrx p, OptionalContext context = new OptionalContext());
@@ -780,16 +705,12 @@ namespace Ice
         /// Set the adapter endpoints with the locator registry.
         /// </summary>
         /// <param name="adapterId">The adapter id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="replicaGroupId">The replica group id.
-        ///
-        /// </param>
-        /// <param name="p">The adapter proxy (a dummy direct proxy created
-        /// by the adapter). The direct proxy contains the adapter
-        /// endpoints.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="p">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
+        ///  endpoints.
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -799,16 +720,12 @@ namespace Ice
         /// Set the adapter endpoints with the locator registry.
         /// </summary>
         /// <param name="adapterId">The adapter id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="replicaGroupId">The replica group id.
-        ///
-        /// </param>
-        /// <param name="p">The adapter proxy (a dummy direct proxy created
-        /// by the adapter). The direct proxy contains the adapter
-        /// endpoints.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="p">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
+        ///  endpoints.
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -825,13 +742,10 @@ namespace Ice
         /// Set the process proxy for a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="proxy">The process proxy.
-        ///
-        /// </param>
-        /// <exception name="ServerNotFoundException">Raised if the server cannot
-        /// be found.</exception>
+        ///  </param>
+        /// <exception name="ServerNotFoundException">Raised if the server cannot be found.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void setServerProcessProxy(string id, ProcessPrx proxy, OptionalContext context = new OptionalContext());
@@ -840,11 +754,9 @@ namespace Ice
         /// Set the process proxy for a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="proxy">The process proxy.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -855,11 +767,9 @@ namespace Ice
         /// Set the process proxy for a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="proxy">The process proxy.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         AsyncResult<Callback_LocatorRegistry_setServerProcessProxy> begin_setServerProcessProxy(string id, ProcessPrx proxy, OptionalContext context = new OptionalContext());
@@ -868,11 +778,9 @@ namespace Ice
         /// Set the process proxy for a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="proxy">The process proxy.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -882,11 +790,9 @@ namespace Ice
         /// Set the process proxy for a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="proxy">The process proxy.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -901,32 +807,28 @@ namespace Ice
     }
 
     /// <summary>
-    /// This interface should be implemented by services implementing the
-    /// Ice::Locator interface.
-    /// It should be advertised through an Ice
-    /// object with the identity `Ice/LocatorFinder'. This allows clients
-    /// to retrieve the locator proxy with just the endpoint information of
-    /// the service.
+    /// This interface should be implemented by services implementing the Ice::Locator interface.
+    /// It should be
+    ///  advertised through an Ice object with the identity `Ice/LocatorFinder'. This allows clients to
+    ///  retrieve the locator proxy with just the endpoint information of the service.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface LocatorFinderPrx : ObjectPrx
     {
         /// <summary>
-        /// Get the locator proxy implemented by the process hosting this
-        /// finder object.
-        /// The proxy might point to several replicas.
-        ///
+        /// Get the locator proxy implemented by the process hosting this finder object.
+        /// The proxy might point to several
+        ///  replicas.
         /// </summary>
-        /// <returns>The locator proxy.</returns>
+        ///  <returns>The locator proxy.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         LocatorPrx getLocator(OptionalContext context = new OptionalContext());
 
         /// <summary>
-        /// Get the locator proxy implemented by the process hosting this
-        /// finder object.
-        /// The proxy might point to several replicas.
+        /// Get the locator proxy implemented by the process hosting this finder object.
+        /// The proxy might point to several
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -935,18 +837,16 @@ namespace Ice
         global::System.Threading.Tasks.Task<LocatorPrx> getLocatorAsync(OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Get the locator proxy implemented by the process hosting this
-        /// finder object.
-        /// The proxy might point to several replicas.
+        /// Get the locator proxy implemented by the process hosting this finder object.
+        /// The proxy might point to several
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         AsyncResult<Callback_LocatorFinder_getLocator> begin_getLocator(OptionalContext context = new OptionalContext());
 
         /// <summary>
-        /// Get the locator proxy implemented by the process hosting this
-        /// finder object.
-        /// The proxy might point to several replicas.
+        /// Get the locator proxy implemented by the process hosting this finder object.
+        /// The proxy might point to several
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -954,9 +854,8 @@ namespace Ice
         AsyncResult begin_getLocator(AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Get the locator proxy implemented by the process hosting this
-        /// finder object.
-        /// The proxy might point to several replicas.
+        /// Get the locator proxy implemented by the process hosting this finder object.
+        /// The proxy might point to several
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -965,9 +864,8 @@ namespace Ice
         AsyncResult begin_getLocator(OptionalContext context, AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// Get the locator proxy implemented by the process hosting this
-        /// finder object.
-        /// The proxy might point to several replicas.
+        /// Get the locator proxy implemented by the process hosting this finder object.
+        /// The proxy might point to several
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The locator proxy.</returns>
@@ -979,39 +877,31 @@ namespace Ice
 {
     /// <summary>
     /// The Ice locator interface.
-    /// This interface is used by clients to
-    /// lookup adapters and objects. It is also used by servers to get the
-    /// locator registry proxy.
-    ///
-    /// &lt;p class="Note"&gt;The Locator interface is intended to be used by
-    /// Ice internals and by locator implementations. Regular user code
-    /// should not attempt to use any functionality of this interface
-    /// directly.
+    /// This interface is used by clients to lookup adapters and objects. It is also used by
+    ///  servers to get the locator registry proxy. &lt;p class="Note"&gt;The Locator interface is intended to be used by
+    ///  Ice internals and by locator implementations. Regular user code should not attempt to use any functionality of this
+    ///  interface directly.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface LocatorOperations_
     {
         /// <summary>
-        /// Find an object by identity and return a proxy that contains
-        /// the adapter ID or endpoints which can be used to access the
-        /// object.
+        /// Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+        ///  access the object.
         /// </summary>
         /// <param name="id">The identity.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         global::System.Threading.Tasks.Task<ObjectPrx> findObjectByIdAsync(Identity id, Current current = null);
 
         /// <summary>
-        /// Find an adapter by id and return a proxy that contains
-        /// its endpoints.
+        /// Find an adapter by id and return a proxy that contains its endpoints.
         /// </summary>
         /// <param name="id">The adapter id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1029,13 +919,9 @@ namespace Ice
 
     /// <summary>
     /// The Ice locator registry interface.
-    /// This interface is used by
-    /// servers to register adapter endpoints with the locator.
-    ///
-    /// &lt;p class="Note"&gt; The LocatorRegistry interface is intended to be used
-    /// by Ice internals and by locator implementations. Regular user
-    /// code should not attempt to use any functionality of this interface
-    /// directly.
+    /// This interface is used by servers to register adapter endpoints with the
+    ///  locator. &lt;p class="Note"&gt; The LocatorRegistry interface is intended to be used by Ice internals and by
+    ///  locator implementations. Regular user code should not attempt to use any functionality of this interface directly.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1045,13 +931,10 @@ namespace Ice
         /// Set the adapter endpoints with the locator registry.
         /// </summary>
         /// <param name="id">The adapter id.
-        ///
-        /// </param>
-        /// <param name="proxy">The adapter proxy (a dummy direct proxy created
-        /// by the adapter). The direct proxy contains the adapter
-        /// endpoints.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+        ///  adapter endpoints.
+        ///  </param>
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1061,16 +944,12 @@ namespace Ice
         /// Set the adapter endpoints with the locator registry.
         /// </summary>
         /// <param name="adapterId">The adapter id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="replicaGroupId">The replica group id.
-        ///
-        /// </param>
-        /// <param name="p">The adapter proxy (a dummy direct proxy created
-        /// by the adapter). The direct proxy contains the adapter
-        /// endpoints.
-        ///
-        /// </param>
+        ///  </param>
+        /// <param name="p">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
+        ///  endpoints.
+        ///  </param>
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1080,11 +959,9 @@ namespace Ice
         /// Set the process proxy for a server.
         /// </summary>
         /// <param name="id">The server id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="proxy">The process proxy.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -1092,24 +969,21 @@ namespace Ice
     }
 
     /// <summary>
-    /// This interface should be implemented by services implementing the
-    /// Ice::Locator interface.
-    /// It should be advertised through an Ice
-    /// object with the identity `Ice/LocatorFinder'. This allows clients
-    /// to retrieve the locator proxy with just the endpoint information of
-    /// the service.
+    /// This interface should be implemented by services implementing the Ice::Locator interface.
+    /// It should be
+    ///  advertised through an Ice object with the identity `Ice/LocatorFinder'. This allows clients to
+    ///  retrieve the locator proxy with just the endpoint information of the service.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface LocatorFinderOperations_
     {
         /// <summary>
-        /// Get the locator proxy implemented by the process hosting this
-        /// finder object.
-        /// The proxy might point to several replicas.
-        ///
+        /// Get the locator proxy implemented by the process hosting this finder object.
+        /// The proxy might point to several
+        ///  replicas.
         /// </summary>
-        /// <returns>The locator proxy.</returns>
+        ///  <returns>The locator proxy.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]

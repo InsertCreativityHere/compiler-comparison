@@ -32,10 +32,9 @@ public interface LookupReply extends com.zeroc.Ice.Object
     /**
      * Reply to the findAdpaterById request.
      * @param id The adapter ID.
-     * @param prx The adapter proxy (a dummy proxy created by the adapter).
-     * The proxy provides the adapter endpoints.
-     * @param isReplicaGroup True if the adapter is also a member of a
-     * replica group.
+     * @param prx The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+     * endpoints.
+     * @param isReplicaGroup True if the adapter is also a member of a replica group.
      * @param current The Current object for the invocation.
      **/
     void foundAdapterById(String id, com.zeroc.Ice.ObjectPrx prx, boolean isReplicaGroup, com.zeroc.Ice.Current current);

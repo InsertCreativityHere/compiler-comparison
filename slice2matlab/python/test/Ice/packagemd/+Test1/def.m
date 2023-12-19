@@ -1,5 +1,7 @@
 % def   Summary of def
 %
+% Test keyword escape.
+%
 % def Properties:
 %   i
 

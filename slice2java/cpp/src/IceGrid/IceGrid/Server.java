@@ -26,9 +26,8 @@ public interface Server extends FileReader
         throws com.zeroc.IceGrid.ServerStartException;
 
     /**
-     * Stop the server. This methods returns only when the server is
-     * deactivated. If the server doesn't stop after a configurable
-     * amount of time, it will be killed.
+     * Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+     * configurable amount of time, it will be killed.
      * @param current The Current object for the invocation.
      * @return A completion stage that the servant will complete when the invocation completes.
      **/
@@ -79,10 +78,8 @@ public interface Server extends FileReader
     com.zeroc.IceGrid.ServerState getState(com.zeroc.Ice.Current current);
 
     /**
-     * Get the server pid. Note that the value returned by this method
-     * is system dependant. On Unix operating systems, it's the pid
-     * value returned by the fork() system call and converted to an
-     * integer.
+     * Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+     * it's the pid value returned by the fork() system call and converted to an integer.
      * @param current The Current object for the invocation.
      **/
     int getPid(com.zeroc.Ice.Current current);

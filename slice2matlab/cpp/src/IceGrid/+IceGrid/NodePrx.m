@@ -32,9 +32,8 @@
 classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
     methods
         function [result, adapters, actTimeout, deactTimeout] = loadServer(obj, svr, replicaName, varargin)
-            % loadServer   Load the given server. If the server resources weren't already
-            % created (database environment directories, property files, etc),
-            % they will be created.
+            % loadServer   Load the given server. If the server resources weren't already created (database environment directories,
+            % property files, etc), they will be created.
             %
             % Parameters:
             %   svr (IceGrid.InternalServerDescriptor)
@@ -61,9 +60,8 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             is_.endEncapsulation();
         end
         function r_ = loadServerAsync(obj, svr, replicaName, varargin)
-            % loadServerAsync   Load the given server. If the server resources weren't already
-            % created (database environment directories, property files, etc),
-            % they will be created.
+            % loadServerAsync   Load the given server. If the server resources weren't already created (database environment directories,
+            % property files, etc), they will be created.
             %
             % Parameters:
             %   svr (IceGrid.InternalServerDescriptor)
@@ -92,11 +90,9 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             r_ = obj.iceInvokeAsync('loadServer', 2, true, os_, 4, @unmarshal, IceGrid.NodePrx.loadServer_ex_, varargin{:});
         end
         function [result, adapters, actTimeout, deactTimeout] = loadServerWithoutRestart(obj, svr, replicaName, varargin)
-            % loadServerWithoutRestart   Load the given server and ensure the server won't be
-            % restarted. If the server resources weren't already created
-            % (database environment directories, property files, etc), they
-            % will be created. If the server can't be updated without a
-            % restart, a DeploymentException is raised.
+            % loadServerWithoutRestart   Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+            % (database environment directories, property files, etc), they will be created. If the server can't be updated
+            % without a restart, a DeploymentException is raised.
             %
             % Parameters:
             %   svr (IceGrid.InternalServerDescriptor)
@@ -123,11 +119,9 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             is_.endEncapsulation();
         end
         function r_ = loadServerWithoutRestartAsync(obj, svr, replicaName, varargin)
-            % loadServerWithoutRestartAsync   Load the given server and ensure the server won't be
-            % restarted. If the server resources weren't already created
-            % (database environment directories, property files, etc), they
-            % will be created. If the server can't be updated without a
-            % restart, a DeploymentException is raised.
+            % loadServerWithoutRestartAsync   Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+            % (database environment directories, property files, etc), they will be created. If the server can't be updated
+            % without a restart, a DeploymentException is raised.
             %
             % Parameters:
             %   svr (IceGrid.InternalServerDescriptor)
@@ -232,10 +226,9 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             r_ = obj.iceInvokeAsync('destroyServerWithoutRestart', 2, true, os_, 0, [], IceGrid.NodePrx.destroyServerWithoutRestart_ex_, varargin{:});
         end
         function patch(obj, feedback, application, server, appDistrib, shutdown, varargin)
-            % patch   Patch application and server distributions. If some servers
-            % using a distribution directory to patch are active, this method
-            % will raise a PatchException unless shutdown is set to true. In
-            % which case the servers will be shutdown.
+            % patch   Patch application and server distributions. If some servers using a distribution directory to patch are active,
+            % this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
+            % shutdown.
             %
             % Parameters:
             %   feedback (IceGrid.PatcherFeedbackPrx)
@@ -256,10 +249,9 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             obj.iceInvoke('patch', 2, false, os_, false, {}, varargin{:});
         end
         function r_ = patchAsync(obj, feedback, application, server, appDistrib, shutdown, varargin)
-            % patchAsync   Patch application and server distributions. If some servers
-            % using a distribution directory to patch are active, this method
-            % will raise a PatchException unless shutdown is set to true. In
-            % which case the servers will be shutdown.
+            % patchAsync   Patch application and server distributions. If some servers using a distribution directory to patch are active,
+            % this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
+            % shutdown.
             %
             % Parameters:
             %   feedback (IceGrid.PatcherFeedbackPrx)
@@ -282,8 +274,7 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             r_ = obj.iceInvokeAsync('patch', 2, false, os_, 0, [], {}, varargin{:});
         end
         function registerWithReplica(obj, replica, varargin)
-            % registerWithReplica   Establish a session to the given replica, this method only
-            % returns once the registration was attempted (unlike
+            % registerWithReplica   Establish a session to the given replica, this method only returns once the registration was attempted (unlike
             % replicaAdded below).
             %
             % Parameters:
@@ -296,8 +287,7 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             obj.iceInvoke('registerWithReplica', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = registerWithReplicaAsync(obj, replica, varargin)
-            % registerWithReplicaAsync   Establish a session to the given replica, this method only
-            % returns once the registration was attempted (unlike
+            % registerWithReplicaAsync   Establish a session to the given replica, this method only returns once the registration was attempted (unlike
             % replicaAdded below).
             %
             % Parameters:
@@ -399,8 +389,7 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             r_ = obj.iceInvokeAsync('getLoad', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getProcessorSocketCount(obj, varargin)
-            % getProcessorSocketCount   Get the number of processor sockets for the machine where this
-            % node is running.
+            % getProcessorSocketCount   Get the number of processor sockets for the machine where this node is running.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -413,8 +402,7 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             is_.endEncapsulation();
         end
         function r_ = getProcessorSocketCountAsync(obj, varargin)
-            % getProcessorSocketCountAsync   Get the number of processor sockets for the machine where this
-            % node is running.
+            % getProcessorSocketCountAsync   Get the number of processor sockets for the machine where this node is running.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.

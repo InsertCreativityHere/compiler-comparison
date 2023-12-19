@@ -71,8 +71,7 @@ Object.defineProperty(Ice, 'iAPSEndpointType', {
 });
 
 /**
- * Base class providing access to the endpoint details.
- *
+ *  Base class providing access to the endpoint details.
  **/
 Ice.EndpointInfo = class
 {
@@ -86,10 +85,8 @@ Ice.EndpointInfo = class
 
 
 /**
- * Provides access to the address details of a IP endpoint.
- *
- * @see Endpoint
- *
+ *  Provides access to the address details of a IP endpoint.
+ *  @see Endpoint
  **/
 Ice.IPEndpointInfo = class extends Ice.EndpointInfo
 {
@@ -104,10 +101,8 @@ Ice.IPEndpointInfo = class extends Ice.EndpointInfo
 
 
 /**
- * Provides access to a TCP endpoint information.
- *
- * @see Endpoint
- *
+ *  Provides access to a TCP endpoint information.
+ *  @see Endpoint
  **/
 Ice.TCPEndpointInfo = class extends Ice.IPEndpointInfo
 {
@@ -119,10 +114,8 @@ Ice.TCPEndpointInfo = class extends Ice.IPEndpointInfo
 
 
 /**
- * Provides access to an UDP endpoint information.
- *
- * @see Endpoint
- *
+ *  Provides access to an UDP endpoint information.
+ *  @see Endpoint
  **/
 Ice.UDPEndpointInfo = class extends Ice.IPEndpointInfo
 {
@@ -136,8 +129,7 @@ Ice.UDPEndpointInfo = class extends Ice.IPEndpointInfo
 
 
 /**
- * Provides access to a WebSocket endpoint information.
- *
+ *  Provides access to a WebSocket endpoint information.
  **/
 Ice.WSEndpointInfo = class extends Ice.EndpointInfo
 {
@@ -150,10 +142,8 @@ Ice.WSEndpointInfo = class extends Ice.EndpointInfo
 
 
 /**
- * Provides access to the details of an opaque endpoint.
- *
- * @see Endpoint
- *
+ *  Provides access to the details of an opaque endpoint.
+ *  @see Endpoint
  **/
 Ice.OpaqueEndpointInfo = class extends Ice.EndpointInfo
 {

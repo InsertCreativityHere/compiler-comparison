@@ -15,6 +15,9 @@
 
 package Test;
 
+/**
+ * \\U\u\
+ **/
 public interface wss3
 {
     String value = "\\\\U\\u\\";

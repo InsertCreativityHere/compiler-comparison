@@ -33,10 +33,10 @@ if 'PropertyDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.PropertyDescriptor = Ice.createTempClass()
     class PropertyDescriptor(object):
         """
-        Property descriptor.
+         Property descriptor.
         Members:
-        name -- The name of the property.
-        value -- The value of the property.
+        name --  The name of the property.
+        value --  The value of the property.
         """
         def __init__(self, name='', value=''):
             self.name = name
@@ -134,10 +134,10 @@ if 'PropertySetDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.PropertySetDescriptor = Ice.createTempClass()
     class PropertySetDescriptor(object):
         """
-        A property set descriptor.
+         A property set descriptor.
         Members:
-        references -- References to named property sets.
-        properties -- The property set properties.
+        references --  References to named property sets.
+        properties --  The property set properties.
         """
         def __init__(self, references=None, properties=None):
             self.references = references
@@ -239,13 +239,12 @@ if 'ObjectDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.ObjectDescriptor = Ice.createTempClass()
     class ObjectDescriptor(object):
         """
-        An Ice object descriptor.
+         An Ice object descriptor.
         Members:
-        id -- The identity of the object.
-        type -- The object type.
-        proxyOptions -- Proxy options to use with the proxy created for this Ice object. If empty,
-        the proxy will be created with the proxy options specified on the object
-        adapter or replica group.
+        id --  The identity of the object.
+        type --  The object type.
+        proxyOptions --  Proxy options to use with the proxy created for this Ice object. If empty, the proxy will be created with the
+         proxy options specified on the object adapter or replica group.
         """
         def __init__(self, id=Ice._struct_marker, type='', proxyOptions=''):
             if id is Ice._struct_marker:
@@ -357,22 +356,20 @@ if 'AdapterDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.AdapterDescriptor = Ice.createTempClass()
     class AdapterDescriptor(object):
         """
-        An Ice object adapter descriptor.
+         An Ice object adapter descriptor.
         Members:
-        name -- The object adapter name.
-        description -- The description of this object adapter.
-        id -- The object adapter id.
-        replicaGroupId -- The replica id of this adapter.
-        priority -- The adapter priority. This is eventually used when the adapter
-        is member of a replica group to sort the adapter endpoints by
-        priority.
-        registerProcess -- Flag to specify if the object adapter will register a process object.
-        serverLifetime -- If true the lifetime of this object adapter is the same of the
-        server lifetime. This information is used by the IceGrid node
-        to figure out the server state: the server is active only if
-        all its "server lifetime" adapters are active.
-        objects -- The well-known object descriptors associated with this object adapter.
-        allocatables -- The allocatable object descriptors associated with this object adapter.
+        name --  The object adapter name.
+        description --  The description of this object adapter.
+        id --  The object adapter id.
+        replicaGroupId --  The replica id of this adapter.
+        priority --  The adapter priority. This is eventually used when the adapter is member of a replica group to sort the adapter
+         endpoints by priority.
+        registerProcess --  Flag to specify if the object adapter will register a process object.
+        serverLifetime --  If true the lifetime of this object adapter is the same of the server lifetime. This information is used by the
+         IceGrid node to figure out the server state: the server is active only if all its "server lifetime" adapters
+         are active.
+        objects --  The well-known object descriptors associated with this object adapter.
+        allocatables --  The allocatable object descriptors associated with this object adapter.
         """
         def __init__(self, name='', description='', id='', replicaGroupId='', priority='', registerProcess=False, serverLifetime=False, objects=None, allocatables=None):
             self.name = name
@@ -551,12 +548,12 @@ if 'CommunicatorDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.CommunicatorDescriptor = Ice.createTempClass()
     class CommunicatorDescriptor(Ice.Value):
         """
-        A communicator descriptor.
+         A communicator descriptor.
         Members:
-        adapters -- The object adapters.
-        propertySet -- The property set.
-        logs -- The path of each log file.
-        description -- A description of this descriptor.
+        adapters --  The object adapters.
+        propertySet --  The property set.
+        logs --  The path of each log file.
+        description --  A description of this descriptor.
         """
         def __init__(self, adapters=None, propertySet=Ice._struct_marker, logs=None, description=''):
             self.adapters = adapters
@@ -594,11 +591,10 @@ if 'DistributionDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.DistributionDescriptor = Ice.createTempClass()
     class DistributionDescriptor(object):
         """
-        A distribution descriptor defines an IcePatch2 server and the
-        directories to retrieve from the patch server.
+         A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
         Members:
-        icepatch -- The proxy of the IcePatch2 server.
-        directories -- The source directories.
+        icepatch --  The proxy of the IcePatch2 server.
+        directories --  The source directories.
         """
         def __init__(self, icepatch='', directories=None):
             self.icepatch = icepatch
@@ -695,29 +691,23 @@ if 'ServerDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.ServerDescriptor = Ice.createTempClass()
     class ServerDescriptor(_M_IceGrid.CommunicatorDescriptor):
         """
-        An Ice server descriptor.
+         An Ice server descriptor.
         Members:
-        id -- The server id.
-        exe -- The path of the server executable.
-        iceVersion -- The Ice version used by this server. This is only required if
-        backward compatibility with servers using old Ice versions is
-        needed (otherwise the registry will assume the server is using
-        the same Ice version).
-        For example "3.1.1", "3.2", "3.3.0".
-        pwd -- The path to the server working directory.
-        options -- The command line options to pass to the server executable.
-        envs -- The server environment variables.
-        activation -- The server activation mode (possible values are "on-demand" or
-        "manual").
-        activationTimeout -- The activation timeout (an integer value representing the
-        number of seconds to wait for activation).
-        deactivationTimeout -- The deactivation timeout (an integer value representing the
-        number of seconds to wait for deactivation).
-        applicationDistrib -- Specifies if the server depends on the application
-        distribution.
-        distrib -- The distribution descriptor.
-        allocatable -- Specifies if the server is allocatable.
-        user -- The user account used to run the server.
+        id --  The server id.
+        exe --  The path of the server executable.
+        iceVersion --  The Ice version used by this server. This is only required if backward compatibility with servers using old
+         Ice versions is needed (otherwise the registry will assume the server is using the same Ice version).
+         For example "3.1.1", "3.2", "3.3.0".
+        pwd --  The path to the server working directory.
+        options --  The command line options to pass to the server executable.
+        envs --  The server environment variables.
+        activation -- / The server activation mode (possible values are "on-demand" or "manual").
+        activationTimeout --  The activation timeout (an integer value representing the number of seconds to wait for activation).
+        deactivationTimeout --  The deactivation timeout (an integer value representing the number of seconds to wait for deactivation).
+        applicationDistrib --  Specifies if the server depends on the application distribution.
+        distrib --  The distribution descriptor.
+        allocatable --  Specifies if the server is allocatable.
+        user --  The user account used to run the server.
         """
         def __init__(self, adapters=None, propertySet=Ice._struct_marker, logs=None, description='', id='', exe='', iceVersion='', pwd='', options=None, envs=None, activation='', activationTimeout='', deactivationTimeout='', applicationDistrib=False, distrib=Ice._struct_marker, allocatable=False, user=''):
             _M_IceGrid.CommunicatorDescriptor.__init__(self, adapters, propertySet, logs, description)
@@ -777,10 +767,10 @@ if 'ServiceDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.ServiceDescriptor = Ice.createTempClass()
     class ServiceDescriptor(_M_IceGrid.CommunicatorDescriptor):
         """
-        An IceBox service descriptor.
+         An IceBox service descriptor.
         Members:
-        name -- The service name.
-        entry -- The entry point of the IceBox service.
+        name --  The service name.
+        entry --  The entry point of the IceBox service.
         """
         def __init__(self, adapters=None, propertySet=Ice._struct_marker, logs=None, description='', name='', entry=''):
             _M_IceGrid.CommunicatorDescriptor.__init__(self, adapters, propertySet, logs, description)
@@ -815,13 +805,13 @@ if 'ServerInstanceDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.ServerInstanceDescriptor = Ice.createTempClass()
     class ServerInstanceDescriptor(object):
         """
-        A server template instance descriptor.
+         A server template instance descriptor.
         Members:
-        template -- The template used by this instance.
-        parameterValues -- The template parameter values.
-        propertySet -- The property set.
-        servicePropertySets -- The services property sets. It's only valid to set these
-        property sets if the template is an IceBox server template.
+        template --  The template used by this instance.
+        parameterValues --  The template parameter values.
+        propertySet --  The property set.
+        servicePropertySets --  The services property sets. It's only valid to set these property sets if the template is an IceBox server
+         template.
         """
         def __init__(self, template='', parameterValues=None, propertySet=Ice._struct_marker, servicePropertySets=None):
             self.template = template
@@ -873,11 +863,11 @@ if 'TemplateDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.TemplateDescriptor = Ice.createTempClass()
     class TemplateDescriptor(object):
         """
-        A template descriptor for server or service templates.
+         A template descriptor for server or service templates.
         Members:
-        descriptor -- The template.
-        parameters -- The parameters required to instantiate the template.
-        parameterDefaults -- The parameters default values.
+        descriptor --  The template.
+        parameters --  The parameters required to instantiate the template.
+        parameterDefaults --  The parameters default values.
         """
         def __init__(self, descriptor=None, parameters=None, parameterDefaults=None):
             self.descriptor = descriptor
@@ -922,13 +912,12 @@ if 'ServiceInstanceDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.ServiceInstanceDescriptor = Ice.createTempClass()
     class ServiceInstanceDescriptor(object):
         """
-        A service template instance descriptor.
+         A service template instance descriptor.
         Members:
-        template -- The template used by this instance.
-        parameterValues -- The template parameter values.
-        descriptor -- The service definition if the instance isn't a template
-        instance (i.e.: if the template attribute is empty).
-        propertySet -- The property set.
+        template --  The template used by this instance.
+        parameterValues --  The template parameter values.
+        descriptor --  The service definition if the instance isn't a template instance (i.e.: if the template attribute is empty).
+        propertySet --  The property set.
         """
         def __init__(self, template='', parameterValues=None, descriptor=None, propertySet=Ice._struct_marker):
             self.template = template
@@ -980,9 +969,9 @@ if 'IceBoxDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.IceBoxDescriptor = Ice.createTempClass()
     class IceBoxDescriptor(_M_IceGrid.ServerDescriptor):
         """
-        An IceBox server descriptor.
+         An IceBox server descriptor.
         Members:
-        services -- The service instances.
+        services --  The service instances.
         """
         def __init__(self, adapters=None, propertySet=Ice._struct_marker, logs=None, description='', id='', exe='', iceVersion='', pwd='', options=None, envs=None, activation='', activationTimeout='', deactivationTimeout='', applicationDistrib=False, distrib=Ice._struct_marker, allocatable=False, user='', services=None):
             _M_IceGrid.ServerDescriptor.__init__(self, adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user)
@@ -1012,14 +1001,14 @@ if 'NodeDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.NodeDescriptor = Ice.createTempClass()
     class NodeDescriptor(object):
         """
-        A node descriptor.
+         A node descriptor.
         Members:
-        variables -- The variables defined for the node.
-        serverInstances -- The server instances.
-        servers -- Servers (which are not template instances).
-        loadFactor -- Load factor of the node.
-        description -- The description of this node.
-        propertySets -- Property set descriptors.
+        variables --  The variables defined for the node.
+        serverInstances --  The server instances.
+        servers --  Servers (which are not template instances).
+        loadFactor --  Load factor of the node.
+        description --  The description of this node.
+        propertySets --  Property set descriptors.
         """
         def __init__(self, variables=None, serverInstances=None, servers=None, loadFactor='', description='', propertySets=None):
             self.variables = variables
@@ -1076,10 +1065,9 @@ if 'LoadBalancingPolicy' not in _M_IceGrid.__dict__:
     _M_IceGrid.LoadBalancingPolicy = Ice.createTempClass()
     class LoadBalancingPolicy(Ice.Value):
         """
-        A base class for load balancing policies.
+         A base class for load balancing policies.
         Members:
-        nReplicas -- The number of replicas that will be used to gather the
-        endpoints of a replica group.
+        nReplicas --  The number of replicas that will be used to gather the endpoints of a replica group.
         """
         def __init__(self, nReplicas=''):
             self.nReplicas = nReplicas
@@ -1106,7 +1094,7 @@ if 'RandomLoadBalancingPolicy' not in _M_IceGrid.__dict__:
     _M_IceGrid.RandomLoadBalancingPolicy = Ice.createTempClass()
     class RandomLoadBalancingPolicy(_M_IceGrid.LoadBalancingPolicy):
         """
-        Random load balancing policy.
+         Random load balancing policy.
         """
         def __init__(self, nReplicas=''):
             _M_IceGrid.LoadBalancingPolicy.__init__(self, nReplicas)
@@ -1133,7 +1121,7 @@ if 'OrderedLoadBalancingPolicy' not in _M_IceGrid.__dict__:
     _M_IceGrid.OrderedLoadBalancingPolicy = Ice.createTempClass()
     class OrderedLoadBalancingPolicy(_M_IceGrid.LoadBalancingPolicy):
         """
-        Ordered load balancing policy.
+         Ordered load balancing policy.
         """
         def __init__(self, nReplicas=''):
             _M_IceGrid.LoadBalancingPolicy.__init__(self, nReplicas)
@@ -1160,7 +1148,7 @@ if 'RoundRobinLoadBalancingPolicy' not in _M_IceGrid.__dict__:
     _M_IceGrid.RoundRobinLoadBalancingPolicy = Ice.createTempClass()
     class RoundRobinLoadBalancingPolicy(_M_IceGrid.LoadBalancingPolicy):
         """
-        Round robin load balancing policy.
+         Round robin load balancing policy.
         """
         def __init__(self, nReplicas=''):
             _M_IceGrid.LoadBalancingPolicy.__init__(self, nReplicas)
@@ -1187,12 +1175,10 @@ if 'AdaptiveLoadBalancingPolicy' not in _M_IceGrid.__dict__:
     _M_IceGrid.AdaptiveLoadBalancingPolicy = Ice.createTempClass()
     class AdaptiveLoadBalancingPolicy(_M_IceGrid.LoadBalancingPolicy):
         """
-        Adaptive load balancing policy.
+         Adaptive load balancing policy.
         Members:
-        loadSample -- The load sample to use for the load balancing. The allowed
-        values for this attribute are "1", "5" and "15", representing
-        respectively the load average over the past minute, the past 5
-        minutes and the past 15 minutes.
+        loadSample --  The load sample to use for the load balancing. The allowed values for this attribute are "1", "5" and "15",
+         representing respectively the load average over the past minute, the past 5 minutes and the past 15 minutes.
         """
         def __init__(self, nReplicas='', loadSample=''):
             _M_IceGrid.LoadBalancingPolicy.__init__(self, nReplicas)
@@ -1220,14 +1206,14 @@ if 'ReplicaGroupDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.ReplicaGroupDescriptor = Ice.createTempClass()
     class ReplicaGroupDescriptor(object):
         """
-        A replica group descriptor.
+         A replica group descriptor.
         Members:
-        id -- The id of the replica group.
-        loadBalancing -- The load balancing policy.
-        proxyOptions -- Default options for proxies created for the replica group.
-        objects -- The object descriptors associated with this object adapter.
-        description -- The description of this replica group.
-        filter -- The filter to use for this replica group.
+        id --  The id of the replica group.
+        loadBalancing --  The load balancing policy.
+        proxyOptions --  Default options for proxies created for the replica group.
+        objects --  The object descriptors associated with this object adapter.
+        description --  The description of this replica group.
+        filter --  The filter to use for this replica group.
         """
         def __init__(self, id='', loadBalancing=None, proxyOptions='', objects=None, description='', filter=''):
             self.id = id
@@ -1284,17 +1270,17 @@ if 'ApplicationDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.ApplicationDescriptor = Ice.createTempClass()
     class ApplicationDescriptor(object):
         """
-        An application descriptor.
+         An application descriptor.
         Members:
-        name -- The application name.
-        variables -- The variables defined in the application descriptor.
-        replicaGroups -- The replica groups.
-        serverTemplates -- The server templates.
-        serviceTemplates -- The service templates.
-        nodes -- The application nodes.
-        distrib -- The application distribution.
-        description -- The description of this application.
-        propertySets -- Property set descriptors.
+        name --  The application name.
+        variables --  The variables defined in the application descriptor.
+        replicaGroups --  The replica groups.
+        serverTemplates --  The server templates.
+        serviceTemplates --  The service templates.
+        nodes --  The application nodes.
+        distrib --  The application distribution.
+        description --  The description of this application.
+        propertySets --  Property set descriptors.
         """
         def __init__(self, name='', variables=None, replicaGroups=None, serverTemplates=None, serviceTemplates=None, nodes=None, distrib=Ice._struct_marker, description='', propertySets=None):
             self.name = name
@@ -1366,9 +1352,9 @@ if 'BoxedString' not in _M_IceGrid.__dict__:
     _M_IceGrid.BoxedString = Ice.createTempClass()
     class BoxedString(Ice.Value):
         """
-        A "boxed" string.
+         A "boxed" string.
         Members:
-        value -- The value of the boxed string.
+        value --  The value of the boxed string.
         """
         def __init__(self, value=''):
             self.value = value
@@ -1395,21 +1381,18 @@ if 'NodeUpdateDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.NodeUpdateDescriptor = Ice.createTempClass()
     class NodeUpdateDescriptor(object):
         """
-        A node update descriptor to describe the updates to apply to a
-        node of a deployed application.
+         A node update descriptor to describe the updates to apply to a node of a deployed application.
         Members:
-        name -- The name of the node to update.
-        description -- The updated description (or null if the description wasn't
-        updated.)
-        variables -- The variables to update.
-        removeVariables -- The variables to remove.
-        propertySets -- The property sets to update.
-        removePropertySets -- The property sets to remove.
-        serverInstances -- The server instances to update.
-        servers -- The servers which are not template instances to update.
-        removeServers -- The ids of the servers to remove.
-        loadFactor -- The updated load factor of the node (or null if the load factor
-        was not updated).
+        name --  The name of the node to update.
+        description --  The updated description (or null if the description wasn't updated.)
+        variables --  The variables to update.
+        removeVariables --  The variables to remove.
+        propertySets --  The property sets to update.
+        removePropertySets --  The property sets to remove.
+        serverInstances --  The server instances to update.
+        servers --  The servers which are not template instances to update.
+        removeServers --  The ids of the servers to remove.
+        loadFactor --  The updated load factor of the node (or null if the load factor was not updated).
         """
         def __init__(self, name='', description=None, variables=None, removeVariables=None, propertySets=None, removePropertySets=None, serverInstances=None, servers=None, removeServers=None, loadFactor=None):
             self.name = name
@@ -1482,9 +1465,9 @@ if 'BoxedDistributionDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.BoxedDistributionDescriptor = Ice.createTempClass()
     class BoxedDistributionDescriptor(Ice.Value):
         """
-        A "boxed" distribution descriptor.
+         A "boxed" distribution descriptor.
         Members:
-        value -- The value of the boxed distribution descriptor.
+        value --  The value of the boxed distribution descriptor.
         """
         def __init__(self, value=Ice._struct_marker):
             if value is Ice._struct_marker:
@@ -1514,25 +1497,23 @@ if 'ApplicationUpdateDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.ApplicationUpdateDescriptor = Ice.createTempClass()
     class ApplicationUpdateDescriptor(object):
         """
-        An application update descriptor to describe the updates to apply
-        to a deployed application.
+         An application update descriptor to describe the updates to apply to a deployed application.
         Members:
-        name -- The name of the application to update.
-        description -- The updated description (or null if the description wasn't
-        updated.)
-        distrib -- The updated distribution application descriptor.
-        variables -- The variables to update.
-        removeVariables -- The variables to remove.
-        propertySets -- The property sets to update.
-        removePropertySets -- The property sets to remove.
-        replicaGroups -- The replica groups to update.
-        removeReplicaGroups -- The replica groups to remove.
-        serverTemplates -- The server templates to update.
-        removeServerTemplates -- The ids of the server template to remove.
-        serviceTemplates -- The service templates to update.
-        removeServiceTemplates -- The ids of the service template to remove.
-        nodes -- The application nodes to update.
-        removeNodes -- The nodes to remove.
+        name --  The name of the application to update.
+        description --  The updated description (or null if the description wasn't updated.)
+        distrib --  The updated distribution application descriptor.
+        variables --  The variables to update.
+        removeVariables --  The variables to remove.
+        propertySets --  The property sets to update.
+        removePropertySets --  The property sets to remove.
+        replicaGroups --  The replica groups to update.
+        removeReplicaGroups --  The replica groups to remove.
+        serverTemplates --  The server templates to update.
+        removeServerTemplates --  The ids of the server template to remove.
+        serviceTemplates --  The service templates to update.
+        removeServiceTemplates --  The ids of the service template to remove.
+        nodes --  The application nodes to update.
+        removeNodes --  The nodes to remove.
         """
         def __init__(self, name='', description=None, distrib=None, variables=None, removeVariables=None, propertySets=None, removePropertySets=None, replicaGroups=None, removeReplicaGroups=None, serverTemplates=None, removeServerTemplates=None, serviceTemplates=None, removeServiceTemplates=None, nodes=None, removeNodes=None):
             self.name = name

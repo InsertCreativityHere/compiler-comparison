@@ -18,15 +18,13 @@ package IceGrid;
 public interface InternalRegistryPrx extends FileReaderPrx
 {
     /**
-     * Register a node with the registry. If a node with the same name
-     * is already registered, [registerNode] will overide the previous
-     * node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
+     * overide the previous node only if it's not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
      * @return The node session proxy.
-     * @throws NodeActiveException Raised if the node is already
-     * registered and currently active.
+     * @throws NodeActiveException Raised if the node is already registered and currently active.
      **/
     default NodeSessionPrx registerNode(InternalNodeInfo info, NodePrx prx, com.zeroc.IceGrid.LoadInfo loadInf)
         throws NodeActiveException,
@@ -36,16 +34,14 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
-     * Register a node with the registry. If a node with the same name
-     * is already registered, [registerNode] will overide the previous
-     * node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
+     * overide the previous node only if it's not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
      * @param context The Context map to send with the invocation.
      * @return The node session proxy.
-     * @throws NodeActiveException Raised if the node is already
-     * registered and currently active.
+     * @throws NodeActiveException Raised if the node is already registered and currently active.
      **/
     default NodeSessionPrx registerNode(InternalNodeInfo info, NodePrx prx, com.zeroc.IceGrid.LoadInfo loadInf, java.util.Map<String, String> context)
         throws NodeActiveException,
@@ -70,9 +66,8 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
-     * Register a node with the registry. If a node with the same name
-     * is already registered, [registerNode] will overide the previous
-     * node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
+     * overide the previous node only if it's not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
@@ -84,9 +79,8 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
-     * Register a node with the registry. If a node with the same name
-     * is already registered, [registerNode] will overide the previous
-     * node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
+     * overide the previous node only if it's not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
@@ -131,14 +125,12 @@ public interface InternalRegistryPrx extends FileReaderPrx
     };
 
     /**
-     * Register a replica with the registry. If a replica with the
-     * same name is already registered, [registerReplica] will overide
-     * the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
+     * will overide the previous replica only if it's not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @return The replica session proxy.
-     * @throws ReplicaActiveException Raised if the replica is already
-     * registered and currently active.
+     * @throws ReplicaActiveException Raised if the replica is already registered and currently active.
      **/
     default ReplicaSessionPrx registerReplica(InternalReplicaInfo info, InternalRegistryPrx prx)
         throws com.zeroc.IceGrid.PermissionDeniedException,
@@ -148,15 +140,13 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
-     * Register a replica with the registry. If a replica with the
-     * same name is already registered, [registerReplica] will overide
-     * the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
+     * will overide the previous replica only if it's not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @param context The Context map to send with the invocation.
      * @return The replica session proxy.
-     * @throws ReplicaActiveException Raised if the replica is already
-     * registered and currently active.
+     * @throws ReplicaActiveException Raised if the replica is already registered and currently active.
      **/
     default ReplicaSessionPrx registerReplica(InternalReplicaInfo info, InternalRegistryPrx prx, java.util.Map<String, String> context)
         throws com.zeroc.IceGrid.PermissionDeniedException,
@@ -181,9 +171,8 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
-     * Register a replica with the registry. If a replica with the
-     * same name is already registered, [registerReplica] will overide
-     * the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
+     * will overide the previous replica only if it's not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @return The replica session proxy.
@@ -194,9 +183,8 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
-     * Register a replica with the registry. If a replica with the
-     * same name is already registered, [registerReplica] will overide
-     * the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
+     * will overide the previous replica only if it's not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @param context The Context map to send with the invocation.
@@ -238,8 +226,8 @@ public interface InternalRegistryPrx extends FileReaderPrx
     };
 
     /**
-     * Create a session with the given registry replica. This method
-     * returns only once the session creation has been attempted.
+     * Create a session with the given registry replica. This method returns only once the session creation has been
+     * attempted.
      **/
     default void registerWithReplica(InternalRegistryPrx prx)
     {
@@ -247,8 +235,8 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
-     * Create a session with the given registry replica. This method
-     * returns only once the session creation has been attempted.
+     * Create a session with the given registry replica. This method returns only once the session creation has been
+     * attempted.
      * @param context The Context map to send with the invocation.
      **/
     default void registerWithReplica(InternalRegistryPrx prx, java.util.Map<String, String> context)
@@ -257,8 +245,8 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
-     * Create a session with the given registry replica. This method
-     * returns only once the session creation has been attempted.
+     * Create a session with the given registry replica. This method returns only once the session creation has been
+     * attempted.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> registerWithReplicaAsync(InternalRegistryPrx prx)
@@ -267,8 +255,8 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
-     * Create a session with the given registry replica. This method
-     * returns only once the session creation has been attempted.
+     * Create a session with the given registry replica. This method returns only once the session creation has been
+     * attempted.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -347,8 +335,7 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
-     * Return the proxies of all the registry replicas known by this
-     * registry.
+     * Return the proxies of all the registry replicas known by this registry.
      **/
     default InternalRegistryPrx[] getReplicas()
     {
@@ -356,8 +343,7 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
-     * Return the proxies of all the registry replicas known by this
-     * registry.
+     * Return the proxies of all the registry replicas known by this registry.
      * @param context The Context map to send with the invocation.
      **/
     default InternalRegistryPrx[] getReplicas(java.util.Map<String, String> context)
@@ -366,8 +352,7 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
-     * Return the proxies of all the registry replicas known by this
-     * registry.
+     * Return the proxies of all the registry replicas known by this registry.
      * @return A future that will be completed with the result.
      **/
     default java.util.concurrent.CompletableFuture<InternalRegistryPrx[]> getReplicasAsync()
@@ -376,8 +361,7 @@ public interface InternalRegistryPrx extends FileReaderPrx
     }
 
     /**
-     * Return the proxies of all the registry replicas known by this
-     * registry.
+     * Return the proxies of all the registry replicas known by this registry.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed with the result.
      **/

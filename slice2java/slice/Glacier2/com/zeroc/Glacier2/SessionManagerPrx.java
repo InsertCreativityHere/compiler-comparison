@@ -16,11 +16,10 @@
 package com.zeroc.Glacier2;
 
 /**
- * The session manager for username/password authenticated users that
- * is responsible for managing {@link Session} objects. New session objects
- * are created by the {@link Router} object calling on an application-provided
- * session manager. If no session manager is provided by the application,
- * no client-visible sessions are passed to the client.
+ * The session manager for username/password authenticated users that is responsible for managing {@link Session}
+ * objects. New session objects are created by the {@link Router} object calling on an application-provided
+ * session manager. If no session manager is provided by the application, no client-visible sessions are passed to
+ * the client.
  *
  * @see Router
  * @see Session
@@ -32,8 +31,7 @@ public interface SessionManagerPrx extends com.zeroc.Ice.ObjectPrx
      * @param userId The user id for the session.
      * @param control A proxy to the session control object.
      * @return A proxy to the newly created session.
-     * @throws CannotCreateSessionException Raised if the session
-     * cannot be created.
+     * @throws CannotCreateSessionException Raised if the session cannot be created.
      **/
     default SessionPrx create(String userId, SessionControlPrx control)
         throws CannotCreateSessionException
@@ -47,8 +45,7 @@ public interface SessionManagerPrx extends com.zeroc.Ice.ObjectPrx
      * @param control A proxy to the session control object.
      * @param context The Context map to send with the invocation.
      * @return A proxy to the newly created session.
-     * @throws CannotCreateSessionException Raised if the session
-     * cannot be created.
+     * @throws CannotCreateSessionException Raised if the session cannot be created.
      **/
     default SessionPrx create(String userId, SessionControlPrx control, java.util.Map<String, String> context)
         throws CannotCreateSessionException

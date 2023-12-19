@@ -1,7 +1,6 @@
 % ProtocolException   Summary of ProtocolException
 %
-% A generic exception base for all kinds of protocol error
-% conditions.
+% A generic exception base for all kinds of protocol error conditions.
 %
 % ProtocolException Properties:
 %   reason - The reason for the failure.

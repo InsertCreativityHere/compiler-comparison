@@ -27,9 +27,8 @@ _M_IcePatch2 = Ice.openModule('IcePatch2')
 # Start of module IcePatch2
 __name__ = 'IcePatch2'
 _M_IcePatch2.__doc__ = """
-IcePatch can be used to update file hierarchies in a simple and
-efficient manner. Checksums ensure file integrity, and data is
-compressed before downloading.
+ IcePatch can be used to update file hierarchies in a simple and efficient manner. Checksums ensure file integrity,
+ and data is compressed before downloading.
 """
 
 if '_t_ByteSeqSeq' not in _M_IcePatch2.__dict__:
@@ -39,7 +38,7 @@ if 'PartitionOutOfRangeException' not in _M_IcePatch2.__dict__:
     _M_IcePatch2.PartitionOutOfRangeException = Ice.createTempClass()
     class PartitionOutOfRangeException(Ice.UserException):
         """
-        A partition argument was not in the range 0-255.
+         A partition argument was not in the range 0-255.
         """
         def __init__(self):
             pass
@@ -61,9 +60,9 @@ if 'FileAccessException' not in _M_IcePatch2.__dict__:
     _M_IcePatch2.FileAccessException = Ice.createTempClass()
     class FileAccessException(Ice.UserException):
         """
-        This exception is raised if a file's contents cannot be read.
+         This exception is raised if a file's contents cannot be read.
         Members:
-        reason -- An explanation of the reason for the failure.
+        reason --  An explanation of the reason for the failure.
         """
         def __init__(self, reason=''):
             self.reason = reason
@@ -85,8 +84,8 @@ if 'FileSizeRangeException' not in _M_IcePatch2.__dict__:
     _M_IcePatch2.FileSizeRangeException = Ice.createTempClass()
     class FileSizeRangeException(_M_IcePatch2.FileAccessException):
         """
-        This exception is raised if an operation tries to use a file whose size is
-        larger than 2.1 GB. Use the "large" versions of the operations instead.
+         This exception is raised if an operation tries to use a file whose size is larger than 2.1 GB. Use the "large"
+         versions of the operations instead.
         """
         def __init__(self, reason=''):
             _M_IcePatch2.FileAccessException.__init__(self, reason)
@@ -111,9 +110,8 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
     class FileServerPrx(Ice.ObjectPrx):
 
         """
-        Return file information for the specified partition.
-         This operation is deprecated and only present for
-        compatibility with old Ice clients (older than version 3.6).
+         Return file information for the specified partition.  This operation is deprecated and
+         only present for compatibility with old Ice clients (older than version 3.6).
         Arguments:
         partition -- The partition number in the range 0-255.
         context -- The request context for the invocation.
@@ -126,9 +124,8 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getFileInfoSeq.invoke(self, ((partition, ), context))
 
         """
-        Return file information for the specified partition.
-         This operation is deprecated and only present for
-        compatibility with old Ice clients (older than version 3.6).
+         Return file information for the specified partition.  This operation is deprecated and
+         only present for compatibility with old Ice clients (older than version 3.6).
         Arguments:
         partition -- The partition number in the range 0-255.
         context -- The request context for the invocation.
@@ -138,9 +135,8 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getFileInfoSeq.invokeAsync(self, ((partition, ), context))
 
         """
-        Return file information for the specified partition.
-         This operation is deprecated and only present for
-        compatibility with old Ice clients (older than version 3.6).
+         Return file information for the specified partition.  This operation is deprecated and
+         only present for compatibility with old Ice clients (older than version 3.6).
         Arguments:
         partition -- The partition number in the range 0-255.
         _response -- The asynchronous response callback.
@@ -153,9 +149,8 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getFileInfoSeq.begin(self, ((partition, ), _response, _ex, _sent, context))
 
         """
-        Return file information for the specified partition.
-         This operation is deprecated and only present for
-        compatibility with old Ice clients (older than version 3.6).
+         Return file information for the specified partition.  This operation is deprecated and
+         only present for compatibility with old Ice clients (older than version 3.6).
         Arguments:
         partition -- The partition number in the range 0-255.
         Returns: A sequence containing information about the files in the specified partition.
@@ -167,7 +162,7 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getFileInfoSeq.end(self, _r)
 
         """
-        Returns file information for the specified partition.
+         Returns file information for the specified partition.
         Arguments:
         partition -- The partition number in the range 0-255.
         context -- The request context for the invocation.
@@ -179,7 +174,7 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getLargeFileInfoSeq.invoke(self, ((partition, ), context))
 
         """
-        Returns file information for the specified partition.
+         Returns file information for the specified partition.
         Arguments:
         partition -- The partition number in the range 0-255.
         context -- The request context for the invocation.
@@ -189,7 +184,7 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getLargeFileInfoSeq.invokeAsync(self, ((partition, ), context))
 
         """
-        Returns file information for the specified partition.
+         Returns file information for the specified partition.
         Arguments:
         partition -- The partition number in the range 0-255.
         _response -- The asynchronous response callback.
@@ -202,7 +197,7 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getLargeFileInfoSeq.begin(self, ((partition, ), _response, _ex, _sent, context))
 
         """
-        Returns file information for the specified partition.
+         Returns file information for the specified partition.
         Arguments:
         partition -- The partition number in the range 0-255.
         Returns: A sequence containing information about the files in the specified partition.
@@ -213,7 +208,7 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getLargeFileInfoSeq.end(self, _r)
 
         """
-        Return the checksums for all partitions.
+         Return the checksums for all partitions.
         Arguments:
         context -- The request context for the invocation.
         Returns: A sequence containing 256 checksums. Partitions with a checksum that differs from the previous checksum for the same partition contain updated files. Partitions with a checksum that is identical to the previous checksum do not contain updated files.
@@ -222,7 +217,7 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getChecksumSeq.invoke(self, ((), context))
 
         """
-        Return the checksums for all partitions.
+         Return the checksums for all partitions.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -231,7 +226,7 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getChecksumSeq.invokeAsync(self, ((), context))
 
         """
-        Return the checksums for all partitions.
+         Return the checksums for all partitions.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -243,7 +238,7 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getChecksumSeq.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Return the checksums for all partitions.
+         Return the checksums for all partitions.
         Arguments:
         Returns: A sequence containing 256 checksums. Partitions with a checksum that differs from the previous checksum for the same partition contain updated files. Partitions with a checksum that is identical to the previous checksum do not contain updated files.
         """
@@ -251,8 +246,8 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getChecksumSeq.end(self, _r)
 
         """
-        Return the master checksum for all partitions. If this checksum is the same
-        as for a previous run, the entire file set is up-to-date.
+         Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+         file set is up-to-date.
         Arguments:
         context -- The request context for the invocation.
         Returns: The master checksum for the file set.
@@ -261,8 +256,8 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getChecksum.invoke(self, ((), context))
 
         """
-        Return the master checksum for all partitions. If this checksum is the same
-        as for a previous run, the entire file set is up-to-date.
+         Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+         file set is up-to-date.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -271,8 +266,8 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getChecksum.invokeAsync(self, ((), context))
 
         """
-        Return the master checksum for all partitions. If this checksum is the same
-        as for a previous run, the entire file set is up-to-date.
+         Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+         file set is up-to-date.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -284,8 +279,8 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getChecksum.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Return the master checksum for all partitions. If this checksum is the same
-        as for a previous run, the entire file set is up-to-date.
+         Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+         file set is up-to-date.
         Arguments:
         Returns: The master checksum for the file set.
         """
@@ -293,10 +288,9 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getChecksum.end(self, _r)
 
         """
-        Read the specified file. This operation may only return fewer bytes than requested
-        in case there was an end-of-file condition.
-         This operation is deprecated and only present for
-        compatibility with old Ice clients (older than version 3.6).
+         Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+         condition.  This operation is deprecated and only present for compatibility with old Ice
+         clients (older than version 3.6).
         Arguments:
         path -- The pathname (relative to the data directory) for the file to be read.
         pos -- The file offset at which to begin reading.
@@ -311,10 +305,9 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getFileCompressed.invoke(self, ((path, pos, num), context))
 
         """
-        Read the specified file. This operation may only return fewer bytes than requested
-        in case there was an end-of-file condition.
-         This operation is deprecated and only present for
-        compatibility with old Ice clients (older than version 3.6).
+         Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+         condition.  This operation is deprecated and only present for compatibility with old Ice
+         clients (older than version 3.6).
         Arguments:
         path -- The pathname (relative to the data directory) for the file to be read.
         pos -- The file offset at which to begin reading.
@@ -326,10 +319,9 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getFileCompressed.invokeAsync(self, ((path, pos, num), context))
 
         """
-        Read the specified file. This operation may only return fewer bytes than requested
-        in case there was an end-of-file condition.
-         This operation is deprecated and only present for
-        compatibility with old Ice clients (older than version 3.6).
+         Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+         condition.  This operation is deprecated and only present for compatibility with old Ice
+         clients (older than version 3.6).
         Arguments:
         path -- The pathname (relative to the data directory) for the file to be read.
         pos -- The file offset at which to begin reading.
@@ -344,10 +336,9 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getFileCompressed.begin(self, ((path, pos, num), _response, _ex, _sent, context))
 
         """
-        Read the specified file. This operation may only return fewer bytes than requested
-        in case there was an end-of-file condition.
-         This operation is deprecated and only present for
-        compatibility with old Ice clients (older than version 3.6).
+         Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+         condition.  This operation is deprecated and only present for compatibility with old Ice
+         clients (older than version 3.6).
         Arguments:
         path -- The pathname (relative to the data directory) for the file to be read.
         pos -- The file offset at which to begin reading.
@@ -361,8 +352,8 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getFileCompressed.end(self, _r)
 
         """
-        Read the specified file. This operation may only return fewer bytes than requested
-        in case there was an end-of-file condition.
+         Read the specified file. This operation may only return fewer bytes than requested in case there was an
+         end-of-file condition.
         Arguments:
         path -- The pathname (relative to the data directory) for the file to be read.
         pos -- The file offset at which to begin reading.
@@ -376,8 +367,8 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getLargeFileCompressed.invoke(self, ((path, pos, num), context))
 
         """
-        Read the specified file. This operation may only return fewer bytes than requested
-        in case there was an end-of-file condition.
+         Read the specified file. This operation may only return fewer bytes than requested in case there was an
+         end-of-file condition.
         Arguments:
         path -- The pathname (relative to the data directory) for the file to be read.
         pos -- The file offset at which to begin reading.
@@ -389,8 +380,8 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getLargeFileCompressed.invokeAsync(self, ((path, pos, num), context))
 
         """
-        Read the specified file. This operation may only return fewer bytes than requested
-        in case there was an end-of-file condition.
+         Read the specified file. This operation may only return fewer bytes than requested in case there was an
+         end-of-file condition.
         Arguments:
         path -- The pathname (relative to the data directory) for the file to be read.
         pos -- The file offset at which to begin reading.
@@ -405,8 +396,8 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getLargeFileCompressed.begin(self, ((path, pos, num), _response, _ex, _sent, context))
 
         """
-        Read the specified file. This operation may only return fewer bytes than requested
-        in case there was an end-of-file condition.
+         Read the specified file. This operation may only return fewer bytes than requested in case there was an
+         end-of-file condition.
         Arguments:
         path -- The pathname (relative to the data directory) for the file to be read.
         pos -- The file offset at which to begin reading.
@@ -449,9 +440,8 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
 
         def getFileInfoSeq(self, partition, current=None):
             """
-            Return file information for the specified partition.
-             This operation is deprecated and only present for
-            compatibility with old Ice clients (older than version 3.6).
+             Return file information for the specified partition.  This operation is deprecated and
+             only present for compatibility with old Ice clients (older than version 3.6).
             Arguments:
             partition -- The partition number in the range 0-255.
             current -- The Current object for the invocation.
@@ -464,7 +454,7 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
 
         def getLargeFileInfoSeq(self, partition, current=None):
             """
-            Returns file information for the specified partition.
+             Returns file information for the specified partition.
             Arguments:
             partition -- The partition number in the range 0-255.
             current -- The Current object for the invocation.
@@ -476,7 +466,7 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
 
         def getChecksumSeq(self, current=None):
             """
-            Return the checksums for all partitions.
+             Return the checksums for all partitions.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -485,8 +475,8 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
 
         def getChecksum(self, current=None):
             """
-            Return the master checksum for all partitions. If this checksum is the same
-            as for a previous run, the entire file set is up-to-date.
+             Return the master checksum for all partitions. If this checksum is the same as for a previous run, the entire
+             file set is up-to-date.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -495,10 +485,9 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
 
         def getFileCompressed(self, path, pos, num, current=None):
             """
-            Read the specified file. This operation may only return fewer bytes than requested
-            in case there was an end-of-file condition.
-             This operation is deprecated and only present for
-            compatibility with old Ice clients (older than version 3.6).
+             Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
+             condition.  This operation is deprecated and only present for compatibility with old Ice
+             clients (older than version 3.6).
             Arguments:
             path -- The pathname (relative to the data directory) for the file to be read.
             pos -- The file offset at which to begin reading.
@@ -513,8 +502,8 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
 
         def getLargeFileCompressed(self, path, pos, num, current=None):
             """
-            Read the specified file. This operation may only return fewer bytes than requested
-            in case there was an end-of-file condition.
+             Read the specified file. This operation may only return fewer bytes than requested in case there was an
+             end-of-file condition.
             Arguments:
             path -- The pathname (relative to the data directory) for the file to be read.
             pos -- The file offset at which to begin reading.

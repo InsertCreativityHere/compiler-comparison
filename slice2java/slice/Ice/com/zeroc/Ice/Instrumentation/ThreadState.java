@@ -16,8 +16,7 @@
 package com.zeroc.Ice.Instrumentation;
 
 /**
- * The thread state enumeration keeps track of the different possible
- * states of Ice threads.
+ * The thread state enumeration keeps track of the different possible states of Ice threads.
  **/
 public enum ThreadState
 {
@@ -26,20 +25,17 @@ public enum ThreadState
      **/
     ThreadStateIdle(0),
     /**
-     * The thread is in use performing reads or writes for Ice
-     * connections. This state is only for threads from an Ice thread
-     * pool.
+     * The thread is in use performing reads or writes for Ice connections. This state is only for threads from an Ice
+     * thread pool.
      **/
     ThreadStateInUseForIO(1),
     /**
-     * The thread is calling user code (servant implementation, AMI
-     * callbacks). This state is only for threads from an Ice thread
-     * pool.
+     * The thread is calling user code (servant implementation, AMI callbacks). This state is only for threads from an
+     * Ice thread pool.
      **/
     ThreadStateInUseForUser(2),
     /**
-     * The thread is performing other internal activities (DNS
-     * lookups, timer callbacks, etc).
+     * The thread is performing other internal activities (DNS lookups, timer callbacks, etc).
      **/
     ThreadStateInUseForOther(3);
 

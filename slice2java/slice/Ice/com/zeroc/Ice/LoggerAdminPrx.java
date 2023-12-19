@@ -22,18 +22,18 @@ package com.zeroc.Ice;
 public interface LoggerAdminPrx extends ObjectPrx
 {
     /**
-     * Attaches a RemoteLogger object to the local logger.
-     * attachRemoteLogger calls init on the provided RemoteLogger proxy.
+     * Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+     * RemoteLogger proxy.
      * @param prx A proxy to the remote logger.
-     * @param messageTypes The list of message types that the remote logger wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that the remote logger wishes to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be provided
-     * to init. A negative value requests all messages available.
-     * @throws RemoteLoggerAlreadyAttachedException Raised if this remote logger is already
-     * attached to this admin object.
+     * @param messageTypes The list of message types that the remote logger wishes to receive. An empty list means
+     * no filtering (send all message types).
+     * @param traceCategories The categories of traces that the remote logger wishes to receive. This parameter is
+     * ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+     * trace categories).
+     * @param messageMax The maximum number of log messages (of all types) to be provided to init. A negative
+     * value requests all messages available.
+     * @throws RemoteLoggerAlreadyAttachedException Raised if this remote logger is already attached to this admin
+     * object.
      **/
     default void attachRemoteLogger(RemoteLoggerPrx prx, LogMessageType[] messageTypes, String[] traceCategories, int messageMax)
         throws RemoteLoggerAlreadyAttachedException
@@ -42,19 +42,19 @@ public interface LoggerAdminPrx extends ObjectPrx
     }
 
     /**
-     * Attaches a RemoteLogger object to the local logger.
-     * attachRemoteLogger calls init on the provided RemoteLogger proxy.
+     * Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+     * RemoteLogger proxy.
      * @param prx A proxy to the remote logger.
-     * @param messageTypes The list of message types that the remote logger wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that the remote logger wishes to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be provided
-     * to init. A negative value requests all messages available.
+     * @param messageTypes The list of message types that the remote logger wishes to receive. An empty list means
+     * no filtering (send all message types).
+     * @param traceCategories The categories of traces that the remote logger wishes to receive. This parameter is
+     * ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+     * trace categories).
+     * @param messageMax The maximum number of log messages (of all types) to be provided to init. A negative
+     * value requests all messages available.
      * @param context The Context map to send with the invocation.
-     * @throws RemoteLoggerAlreadyAttachedException Raised if this remote logger is already
-     * attached to this admin object.
+     * @throws RemoteLoggerAlreadyAttachedException Raised if this remote logger is already attached to this admin
+     * object.
      **/
     default void attachRemoteLogger(RemoteLoggerPrx prx, LogMessageType[] messageTypes, String[] traceCategories, int messageMax, java.util.Map<String, String> context)
         throws RemoteLoggerAlreadyAttachedException
@@ -74,16 +74,16 @@ public interface LoggerAdminPrx extends ObjectPrx
     }
 
     /**
-     * Attaches a RemoteLogger object to the local logger.
-     * attachRemoteLogger calls init on the provided RemoteLogger proxy.
+     * Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+     * RemoteLogger proxy.
      * @param prx A proxy to the remote logger.
-     * @param messageTypes The list of message types that the remote logger wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that the remote logger wishes to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be provided
-     * to init. A negative value requests all messages available.
+     * @param messageTypes The list of message types that the remote logger wishes to receive. An empty list means
+     * no filtering (send all message types).
+     * @param traceCategories The categories of traces that the remote logger wishes to receive. This parameter is
+     * ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+     * trace categories).
+     * @param messageMax The maximum number of log messages (of all types) to be provided to init. A negative
+     * value requests all messages available.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> attachRemoteLoggerAsync(RemoteLoggerPrx prx, LogMessageType[] messageTypes, String[] traceCategories, int messageMax)
@@ -92,16 +92,16 @@ public interface LoggerAdminPrx extends ObjectPrx
     }
 
     /**
-     * Attaches a RemoteLogger object to the local logger.
-     * attachRemoteLogger calls init on the provided RemoteLogger proxy.
+     * Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided
+     * RemoteLogger proxy.
      * @param prx A proxy to the remote logger.
-     * @param messageTypes The list of message types that the remote logger wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that the remote logger wishes to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be provided
-     * to init. A negative value requests all messages available.
+     * @param messageTypes The list of message types that the remote logger wishes to receive. An empty list means
+     * no filtering (send all message types).
+     * @param traceCategories The categories of traces that the remote logger wishes to receive. This parameter is
+     * ignored if messageTypes is not empty and does not include trace. An empty list means no filtering (send all
+     * trace categories).
+     * @param messageMax The maximum number of log messages (of all types) to be provided to init. A negative
+     * value requests all messages available.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -202,13 +202,13 @@ public interface LoggerAdminPrx extends ObjectPrx
 
     /**
      * Retrieves log messages recently logged.
-     * @param messageTypes The list of message types that the caller wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that caller wish to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be returned.
-     * A negative value requests all messages available.
+     * @param messageTypes The list of message types that the caller wishes to receive. An empty list means no
+     * filtering (send all message types).
+     * @param traceCategories The categories of traces that caller wish to receive. This parameter is ignored if
+     * messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+     * categories).
+     * @param messageMax The maximum number of log messages (of all types) to be returned. A negative value
+     * requests all messages available.
      * @return An instance of LoggerAdmin.GetLogResult.
      **/
     default LoggerAdmin.GetLogResult getLog(LogMessageType[] messageTypes, String[] traceCategories, int messageMax)
@@ -218,13 +218,13 @@ public interface LoggerAdminPrx extends ObjectPrx
 
     /**
      * Retrieves log messages recently logged.
-     * @param messageTypes The list of message types that the caller wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that caller wish to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be returned.
-     * A negative value requests all messages available.
+     * @param messageTypes The list of message types that the caller wishes to receive. An empty list means no
+     * filtering (send all message types).
+     * @param traceCategories The categories of traces that caller wish to receive. This parameter is ignored if
+     * messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+     * categories).
+     * @param messageMax The maximum number of log messages (of all types) to be returned. A negative value
+     * requests all messages available.
      * @param context The Context map to send with the invocation.
      * @return An instance of LoggerAdmin.GetLogResult.
      **/
@@ -235,13 +235,13 @@ public interface LoggerAdminPrx extends ObjectPrx
 
     /**
      * Retrieves log messages recently logged.
-     * @param messageTypes The list of message types that the caller wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that caller wish to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be returned.
-     * A negative value requests all messages available.
+     * @param messageTypes The list of message types that the caller wishes to receive. An empty list means no
+     * filtering (send all message types).
+     * @param traceCategories The categories of traces that caller wish to receive. This parameter is ignored if
+     * messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+     * categories).
+     * @param messageMax The maximum number of log messages (of all types) to be returned. A negative value
+     * requests all messages available.
      * @return A future that will be completed with an instance of LoggerAdmin.GetLogResult.
      **/
     default java.util.concurrent.CompletableFuture<LoggerAdmin.GetLogResult> getLogAsync(LogMessageType[] messageTypes, String[] traceCategories, int messageMax)
@@ -251,13 +251,13 @@ public interface LoggerAdminPrx extends ObjectPrx
 
     /**
      * Retrieves log messages recently logged.
-     * @param messageTypes The list of message types that the caller wishes to receive.
-     * An empty list means no filtering (send all message types).
-     * @param traceCategories The categories of traces that caller wish to receive.
-     * This parameter is ignored if messageTypes is not empty and does not include trace.
-     * An empty list means no filtering (send all trace categories).
-     * @param messageMax The maximum number of log messages (of all types) to be returned.
-     * A negative value requests all messages available.
+     * @param messageTypes The list of message types that the caller wishes to receive. An empty list means no
+     * filtering (send all message types).
+     * @param traceCategories The categories of traces that caller wish to receive. This parameter is ignored if
+     * messageTypes is not empty and does not include trace. An empty list means no filtering (send all trace
+     * categories).
+     * @param messageMax The maximum number of log messages (of all types) to be returned. A negative value
+     * requests all messages available.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed with an instance of LoggerAdmin.GetLogResult.
      **/

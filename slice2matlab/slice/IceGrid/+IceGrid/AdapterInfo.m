@@ -16,8 +16,7 @@ classdef AdapterInfo
         id char
         % proxy - A dummy direct proxy that contains the adapter endpoints.
         proxy
-        % replicaGroupId - The replica group id of the object adapter, or empty if the
-        % adapter doesn't belong to a replica group.
+        % replicaGroupId - The replica group id of the object adapter, or empty if the adapter doesn't belong to a replica group.
         replicaGroupId char
     end
     methods

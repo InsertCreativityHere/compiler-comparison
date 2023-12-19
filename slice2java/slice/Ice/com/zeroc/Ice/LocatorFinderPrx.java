@@ -16,17 +16,15 @@
 package com.zeroc.Ice;
 
 /**
- * This interface should be implemented by services implementing the
- * Ice::Locator interface. It should be advertised through an Ice
- * object with the identity `Ice/LocatorFinder'. This allows clients
- * to retrieve the locator proxy with just the endpoint information of
- * the service.
+ * This interface should be implemented by services implementing the <code>Ice::Locator interface</code>. It should be
+ * advertised through an Ice object with the identity <code>`Ice/LocatorFinder'</code>. This allows clients to
+ * retrieve the locator proxy with just the endpoint information of the service.
  **/
 public interface LocatorFinderPrx extends ObjectPrx
 {
     /**
-     * Get the locator proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @return The locator proxy.
      **/
     default LocatorPrx getLocator()
@@ -35,8 +33,8 @@ public interface LocatorFinderPrx extends ObjectPrx
     }
 
     /**
-     * Get the locator proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param context The Context map to send with the invocation.
      * @return The locator proxy.
      **/
@@ -46,8 +44,8 @@ public interface LocatorFinderPrx extends ObjectPrx
     }
 
     /**
-     * Get the locator proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @return The locator proxy.
      **/
     default java.util.concurrent.CompletableFuture<LocatorPrx> getLocatorAsync()
@@ -56,8 +54,8 @@ public interface LocatorFinderPrx extends ObjectPrx
     }
 
     /**
-     * Get the locator proxy implemented by the process hosting this
-     * finder object. The proxy might point to several replicas.
+     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
+     * replicas.
      * @param context The Context map to send with the invocation.
      * @return The locator proxy.
      **/

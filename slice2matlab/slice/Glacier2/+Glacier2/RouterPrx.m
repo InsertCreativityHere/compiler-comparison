@@ -26,11 +26,9 @@
 classdef RouterPrx < Ice.RouterPrx
     methods
         function result = getCategoryForClient(obj, varargin)
-            % getCategoryForClient   This category must be used in the identities of all of the client's
-            % callback objects. This is necessary in order for the router to
-            % forward callback requests to the intended client. If the Glacier2
-            % server endpoints are not set, the returned category is an empty
-            % string.
+            % getCategoryForClient   This category must be used in the identities of all of the client's callback objects. This is necessary in
+            % order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
+            % are not set, the returned category is an empty string.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -43,11 +41,9 @@ classdef RouterPrx < Ice.RouterPrx
             is_.endEncapsulation();
         end
         function r_ = getCategoryForClientAsync(obj, varargin)
-            % getCategoryForClientAsync   This category must be used in the identities of all of the client's
-            % callback objects. This is necessary in order for the router to
-            % forward callback requests to the intended client. If the Glacier2
-            % server endpoints are not set, the returned category is an empty
-            % string.
+            % getCategoryForClientAsync   This category must be used in the identities of all of the client's callback objects. This is necessary in
+            % order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
+            % are not set, the returned category is an empty string.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -63,32 +59,24 @@ classdef RouterPrx < Ice.RouterPrx
             r_ = obj.iceInvokeAsync('getCategoryForClient', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = createSession(obj, userId, password, varargin)
-            % createSession   Create a per-client session with the router. If a
-            % SessionManager has been installed, a proxy to a Session
-            % object is returned to the client. Otherwise, null is returned
-            % and only an internal session (i.e., not visible to the client)
-            % is created.
-            %
-            % If a session proxy is returned, it must be configured to route
-            % through the router that created it. This will happen automatically
-            % if the router is configured as the client's default router at the
-            % time the session proxy is created in the client process, otherwise
-            % the client must configure the session proxy explicitly.
+            % createSession   Create a per-client session with the router. If a SessionManager has been installed, a proxy to a
+            % Session object is returned to the client. Otherwise, null is returned and only an internal session
+            % (i.e., not visible to the client) is created.
+            % If a session proxy is returned, it must be configured to route through the router that created it. This will
+            % happen automatically if the router is configured as the client's default router at the time the session proxy
+            % is created in the client process, otherwise the client must configure the session proxy explicitly.
             %
             % Parameters:
             %   userId (char) - The user id for which to check the password.
             %   password (char) - The password for the given user id.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (Glacier2.SessionPrx) - A proxy for the newly created session, or null if no
-            % SessionManager has been installed.
+            % Returns (Glacier2.SessionPrx) - A proxy for the newly created session, or null if no SessionManager has been installed.
             %
             % Exceptions:
-            %   Glacier2.CannotCreateSessionException - Raised if the session
-            %     cannot be created.
-            %   Glacier2.PermissionDeniedException - Raised if the password for
-            %     the given user id is not correct, or if the user is not allowed
-            %     access.
+            %   Glacier2.CannotCreateSessionException - Raised if the session cannot be created.
+            %   Glacier2.PermissionDeniedException - Raised if the password for the given user id is not correct, or if the user
+            %     is not allowed access.
             %
             % See also Glacier2.Session, Glacier2.SessionManager, Glacier2.PermissionsVerifier
             
@@ -102,17 +90,12 @@ classdef RouterPrx < Ice.RouterPrx
             is_.endEncapsulation();
         end
         function r_ = createSessionAsync(obj, userId, password, varargin)
-            % createSessionAsync   Create a per-client session with the router. If a
-            % SessionManager has been installed, a proxy to a Session
-            % object is returned to the client. Otherwise, null is returned
-            % and only an internal session (i.e., not visible to the client)
-            % is created.
-            %
-            % If a session proxy is returned, it must be configured to route
-            % through the router that created it. This will happen automatically
-            % if the router is configured as the client's default router at the
-            % time the session proxy is created in the client process, otherwise
-            % the client must configure the session proxy explicitly.
+            % createSessionAsync   Create a per-client session with the router. If a SessionManager has been installed, a proxy to a
+            % Session object is returned to the client. Otherwise, null is returned and only an internal session
+            % (i.e., not visible to the client) is created.
+            % If a session proxy is returned, it must be configured to route through the router that created it. This will
+            % happen automatically if the router is configured as the client's default router at the time the session proxy
+            % is created in the client process, otherwise the client must configure the session proxy explicitly.
             %
             % Parameters:
             %   userId (char) - The user id for which to check the password.
@@ -122,11 +105,9 @@ classdef RouterPrx < Ice.RouterPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   Glacier2.CannotCreateSessionException - Raised if the session
-            %     cannot be created.
-            %   Glacier2.PermissionDeniedException - Raised if the password for
-            %     the given user id is not correct, or if the user is not allowed
-            %     access.
+            %   Glacier2.CannotCreateSessionException - Raised if the session cannot be created.
+            %   Glacier2.PermissionDeniedException - Raised if the password for the given user id is not correct, or if the user
+            %     is not allowed access.
             %
             % See also Glacier2.Session, Glacier2.SessionManager, Glacier2.PermissionsVerifier
             
@@ -143,30 +124,23 @@ classdef RouterPrx < Ice.RouterPrx
             r_ = obj.iceInvokeAsync('createSession', 0, true, os_, 1, @unmarshal, Glacier2.RouterPrx.createSession_ex_, varargin{:});
         end
         function result = createSessionFromSecureConnection(obj, varargin)
-            % createSessionFromSecureConnection   Create a per-client session with the router. The user is
-            % authenticated through the SSL certificates that have been
-            % associated with the connection. If a SessionManager has been
-            % installed, a proxy to a Session object is returned to the
-            % client. Otherwise, null is returned and only an internal
-            % session (i.e., not visible to the client) is created.
-            %
-            % If a session proxy is returned, it must be configured to route
-            % through the router that created it. This will happen automatically
-            % if the router is configured as the client's default router at the
-            % time the session proxy is created in the client process, otherwise
-            % the client must configure the session proxy explicitly.
+            % createSessionFromSecureConnection   Create a per-client session with the router. The user is authenticated through the SSL certificates that have
+            % been associated with the connection. If a SessionManager has been installed, a proxy to a
+            % Session object is returned to the client. Otherwise, null is returned and only an internal session
+            % (i.e., not visible to the client) is created.
+            % If a session proxy is returned, it must be configured to route through the router that created it. This will
+            % happen automatically if the router is configured as the client's default router at the time the session proxy
+            % is created in the client process, otherwise the client must configure the session proxy explicitly.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (Glacier2.SessionPrx) - A proxy for the newly created session, or null if no
-            % SessionManager has been installed.
+            % Returns (Glacier2.SessionPrx) - A proxy for the newly created session, or null if no SessionManager has been installed.
             %
             % Exceptions:
-            %   Glacier2.CannotCreateSessionException - Raised if the session
-            %     cannot be created.
-            %   Glacier2.PermissionDeniedException - Raised if the user cannot be
-            %     authenticated or if the user is not allowed access.
+            %   Glacier2.CannotCreateSessionException - Raised if the session cannot be created.
+            %   Glacier2.PermissionDeniedException - Raised if the user cannot be authenticated or if the user is not allowed
+            %     access.
             %
             % See also Glacier2.Session, Glacier2.SessionManager, Glacier2.PermissionsVerifier
             
@@ -176,18 +150,13 @@ classdef RouterPrx < Ice.RouterPrx
             is_.endEncapsulation();
         end
         function r_ = createSessionFromSecureConnectionAsync(obj, varargin)
-            % createSessionFromSecureConnectionAsync   Create a per-client session with the router. The user is
-            % authenticated through the SSL certificates that have been
-            % associated with the connection. If a SessionManager has been
-            % installed, a proxy to a Session object is returned to the
-            % client. Otherwise, null is returned and only an internal
-            % session (i.e., not visible to the client) is created.
-            %
-            % If a session proxy is returned, it must be configured to route
-            % through the router that created it. This will happen automatically
-            % if the router is configured as the client's default router at the
-            % time the session proxy is created in the client process, otherwise
-            % the client must configure the session proxy explicitly.
+            % createSessionFromSecureConnectionAsync   Create a per-client session with the router. The user is authenticated through the SSL certificates that have
+            % been associated with the connection. If a SessionManager has been installed, a proxy to a
+            % Session object is returned to the client. Otherwise, null is returned and only an internal session
+            % (i.e., not visible to the client) is created.
+            % If a session proxy is returned, it must be configured to route through the router that created it. This will
+            % happen automatically if the router is configured as the client's default router at the time the session proxy
+            % is created in the client process, otherwise the client must configure the session proxy explicitly.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -195,10 +164,9 @@ classdef RouterPrx < Ice.RouterPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   Glacier2.CannotCreateSessionException - Raised if the session
-            %     cannot be created.
-            %   Glacier2.PermissionDeniedException - Raised if the user cannot be
-            %     authenticated or if the user is not allowed access.
+            %   Glacier2.CannotCreateSessionException - Raised if the session cannot be created.
+            %   Glacier2.PermissionDeniedException - Raised if the user cannot be authenticated or if the user is not allowed
+            %     access.
             %
             % See also Glacier2.Session, Glacier2.SessionManager, Glacier2.PermissionsVerifier
             
@@ -217,8 +185,7 @@ classdef RouterPrx < Ice.RouterPrx
             %   context (containers.Map) - Optional request context.
             %
             % Exceptions:
-            %   Glacier2.SessionNotExistException - Raised if no session exists
-            %     for the calling client.
+            %   Glacier2.SessionNotExistException - Raised if no session exists for the calling client.
             
             obj.iceInvoke('refreshSession', 0, true, [], false, Glacier2.RouterPrx.refreshSession_ex_, varargin{:});
         end
@@ -231,8 +198,7 @@ classdef RouterPrx < Ice.RouterPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   Glacier2.SessionNotExistException - Raised if no session exists
-            %     for the calling client.
+            %   Glacier2.SessionNotExistException - Raised if no session exists for the calling client.
             
             r_ = obj.iceInvokeAsync('refreshSession', 0, true, [], 0, [], Glacier2.RouterPrx.refreshSession_ex_, varargin{:});
         end
@@ -243,8 +209,7 @@ classdef RouterPrx < Ice.RouterPrx
             %   context (containers.Map) - Optional request context.
             %
             % Exceptions:
-            %   Glacier2.SessionNotExistException - Raised if no session exists
-            %     for the calling client.
+            %   Glacier2.SessionNotExistException - Raised if no session exists for the calling client.
             
             obj.iceInvoke('destroySession', 0, true, [], false, Glacier2.RouterPrx.destroySession_ex_, varargin{:});
         end
@@ -257,14 +222,12 @@ classdef RouterPrx < Ice.RouterPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   Glacier2.SessionNotExistException - Raised if no session exists
-            %     for the calling client.
+            %   Glacier2.SessionNotExistException - Raised if no session exists for the calling client.
             
             r_ = obj.iceInvokeAsync('destroySession', 0, true, [], 0, [], Glacier2.RouterPrx.destroySession_ex_, varargin{:});
         end
         function result = getSessionTimeout(obj, varargin)
-            % getSessionTimeout   Get the value of the session timeout. Sessions are destroyed
-            % if they see no activity for this period of time.
+            % getSessionTimeout   Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -277,8 +240,7 @@ classdef RouterPrx < Ice.RouterPrx
             is_.endEncapsulation();
         end
         function r_ = getSessionTimeoutAsync(obj, varargin)
-            % getSessionTimeoutAsync   Get the value of the session timeout. Sessions are destroyed
-            % if they see no activity for this period of time.
+            % getSessionTimeoutAsync   Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -294,11 +256,8 @@ classdef RouterPrx < Ice.RouterPrx
             r_ = obj.iceInvokeAsync('getSessionTimeout', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getACMTimeout(obj, varargin)
-            % getACMTimeout   Get the value of the ACM timeout. Clients supporting connection
-            % heartbeats can enable them instead of explicitly sending keep
-            % alives requests.
-            %
-            % NOTE: This method is only available since Ice 3.6.
+            % getACMTimeout   Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
+            % explicitly sending keep alives requests. This method is only available since Ice 3.6.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -311,11 +270,8 @@ classdef RouterPrx < Ice.RouterPrx
             is_.endEncapsulation();
         end
         function r_ = getACMTimeoutAsync(obj, varargin)
-            % getACMTimeoutAsync   Get the value of the ACM timeout. Clients supporting connection
-            % heartbeats can enable them instead of explicitly sending keep
-            % alives requests.
-            %
-            % NOTE: This method is only available since Ice 3.6.
+            % getACMTimeoutAsync   Get the value of the ACM timeout. Clients supporting connection heartbeats can enable them instead of
+            % explicitly sending keep alives requests. This method is only available since Ice 3.6.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.

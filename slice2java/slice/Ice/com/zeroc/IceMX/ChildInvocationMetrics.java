@@ -16,11 +16,9 @@
 package com.zeroc.IceMX;
 
 /**
- * Provides information on child invocations. A child invocation is
- * either remote (sent over an Ice connection) or collocated. An
- * invocation can have multiple child invocation if it is
- * retried. Child invocation metrics are embedded within
- * {@link InvocationMetrics}.
+ * Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
+ * collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
+ * embedded within {@link InvocationMetrics}.
  **/
 public class ChildInvocationMetrics extends Metrics
 {
@@ -39,14 +37,12 @@ public class ChildInvocationMetrics extends Metrics
     }
 
     /**
-     * The size of the invocation. This corresponds to the size of the
-     * marshalled input parameters.
+     * The size of the invocation. This corresponds to the size of the marshalled input parameters.
      **/
     public long size;
 
     /**
-     * The size of the invocation reply. This corresponds to the size
-     * of the marshalled output and return parameters.
+     * The size of the invocation reply. This corresponds to the size of the marshalled output and return parameters.
      **/
     public long replySize;
 

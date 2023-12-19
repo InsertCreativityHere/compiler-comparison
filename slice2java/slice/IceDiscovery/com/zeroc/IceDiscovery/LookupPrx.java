@@ -16,18 +16,17 @@
 package com.zeroc.IceDiscovery;
 
 /**
- * The Lookup interface is used by IceDiscovery clients to look for objects
- * and adapters using UDP multicast.
+ * The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
  **/
 public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
      * Request to find an Ice object
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The object identity.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching object is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * object is found.
      **/
     default void findObjectById(String domainId, com.zeroc.Ice.Identity id, LookupReplyPrx reply)
     {
@@ -36,11 +35,11 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Request to find an Ice object
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The object identity.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching object is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * object is found.
      * @param context The Context map to send with the invocation.
      **/
     default void findObjectById(String domainId, com.zeroc.Ice.Identity id, LookupReplyPrx reply, java.util.Map<String, String> context)
@@ -50,11 +49,11 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Request to find an Ice object
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The object identity.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching object is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * object is found.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> findObjectByIdAsync(String domainId, com.zeroc.Ice.Identity id, LookupReplyPrx reply)
@@ -64,11 +63,11 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Request to find an Ice object
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The object identity.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching object is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * object is found.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -99,11 +98,11 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Request to find an object adapter
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The adapter ID.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching adapter is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * adapter is found.
      **/
     default void findAdapterById(String domainId, String id, LookupReplyPrx reply)
     {
@@ -112,11 +111,11 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Request to find an object adapter
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The adapter ID.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching adapter is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * adapter is found.
      * @param context The Context map to send with the invocation.
      **/
     default void findAdapterById(String domainId, String id, LookupReplyPrx reply, java.util.Map<String, String> context)
@@ -126,11 +125,11 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Request to find an object adapter
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The adapter ID.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching adapter is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * adapter is found.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> findAdapterByIdAsync(String domainId, String id, LookupReplyPrx reply)
@@ -140,11 +139,11 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Request to find an object adapter
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The adapter ID.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching adapter is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * adapter is found.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/

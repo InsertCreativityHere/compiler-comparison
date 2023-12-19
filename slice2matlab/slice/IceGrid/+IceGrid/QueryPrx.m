@@ -1,7 +1,7 @@
 % QueryPrx   Summary of QueryPrx
 %
-% The IceGrid query interface. This interface is accessible to
-% Ice clients who wish to look up well-known objects.
+% The IceGrid query interface. This interface is accessible to Ice clients who wish to look up well-known
+% objects.
 %
 % QueryPrx Methods:
 %   findObjectById - Find a well-known object by identity.
@@ -60,9 +60,8 @@ classdef QueryPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('findObjectById', 1, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function result = findObjectByType(obj, type, varargin)
-            % findObjectByType   Find a well-known object by type. If there are several objects
-            % registered for the given type, the object is randomly
-            % selected.
+            % findObjectByType   Find a well-known object by type. If there are several objects registered for the given type, the object is
+            % randomly selected.
             %
             % Parameters:
             %   type (char) - The object type.
@@ -79,9 +78,8 @@ classdef QueryPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = findObjectByTypeAsync(obj, type, varargin)
-            % findObjectByTypeAsync   Find a well-known object by type. If there are several objects
-            % registered for the given type, the object is randomly
-            % selected.
+            % findObjectByTypeAsync   Find a well-known object by type. If there are several objects registered for the given type, the object is
+            % randomly selected.
             %
             % Parameters:
             %   type (char) - The object type.
@@ -101,11 +99,9 @@ classdef QueryPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('findObjectByType', 1, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function result = findObjectByTypeOnLeastLoadedNode(obj, type, sample, varargin)
-            % findObjectByTypeOnLeastLoadedNode   Find a well-known object by type on the least-loaded node. If
-            % the registry does not know which node hosts the object
-            % (for example, because the object was registered with a direct proxy), the
-            % registry assumes the object is hosted on a node that has a load
-            % average of 1.0.
+            % findObjectByTypeOnLeastLoadedNode   Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+            % the object (for example, because the object was registered with a direct proxy), the registry assumes the
+            % object is hosted on a node that has a load average of 1.0.
             %
             % Parameters:
             %   type (char) - The object type.
@@ -124,11 +120,9 @@ classdef QueryPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = findObjectByTypeOnLeastLoadedNodeAsync(obj, type, sample, varargin)
-            % findObjectByTypeOnLeastLoadedNodeAsync   Find a well-known object by type on the least-loaded node. If
-            % the registry does not know which node hosts the object
-            % (for example, because the object was registered with a direct proxy), the
-            % registry assumes the object is hosted on a node that has a load
-            % average of 1.0.
+            % findObjectByTypeOnLeastLoadedNodeAsync   Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+            % the object (for example, because the object was registered with a direct proxy), the registry assumes the
+            % object is hosted on a node that has a load average of 1.0.
             %
             % Parameters:
             %   type (char) - The object type.
@@ -156,8 +150,7 @@ classdef QueryPrx < Ice.ObjectPrx
             %   type (char) - The object type.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (Ice.ObjectProxySeq) - The proxies or an empty sequence, if no such objects
-            % have been found.
+            % Returns (Ice.ObjectProxySeq) - The proxies or an empty sequence, if no such objects have been found.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(type);
@@ -188,16 +181,15 @@ classdef QueryPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('findAllObjectsByType', 1, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function result = findAllReplicas(obj, proxy, varargin)
-            % findAllReplicas   Find all the object replicas associated with the given
-            % proxy. If the given proxy is not an indirect proxy from a
-            % replica group, an empty sequence is returned.
+            % findAllReplicas   Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+            % from a replica group, an empty sequence is returned.
             %
             % Parameters:
             %   proxy (Ice.ObjectPrx) - The object proxy.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (Ice.ObjectProxySeq) - The proxies of each object replica or an empty sequence,
-            % if the given proxy is not from a replica group.
+            % Returns (Ice.ObjectProxySeq) - The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
+            % group.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxy(proxy);
@@ -208,9 +200,8 @@ classdef QueryPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = findAllReplicasAsync(obj, proxy, varargin)
-            % findAllReplicasAsync   Find all the object replicas associated with the given
-            % proxy. If the given proxy is not an indirect proxy from a
-            % replica group, an empty sequence is returned.
+            % findAllReplicasAsync   Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+            % from a replica group, an empty sequence is returned.
             %
             % Parameters:
             %   proxy (Ice.ObjectPrx) - The object proxy.

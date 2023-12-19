@@ -16,8 +16,7 @@
 package com.zeroc.Ice;
 
 /**
- * This exception indicates a DNS problem. For details on the cause,
- * {@link DNSException#error} should be inspected.
+ * This exception indicates a DNS problem. For details on the cause, {@link DNSException#error} should be inspected.
  **/
 public class DNSException extends LocalException
 {
@@ -53,10 +52,8 @@ public class DNSException extends LocalException
     }
 
     /**
-     * The error number describing the DNS problem. For C++ and Unix,
-     * this is equivalent to <code>h_errno</code>. For C++ and
-     * Windows, this is the value returned by
-     * <code>WSAGetLastError()</code>.
+     * The error number describing the DNS problem. For C++ and Unix, this is equivalent to <code>h_errno</code>. For
+     * C++ and Windows, this is the value returned by <code>WSAGetLastError()</code>.
      **/
     public int error;
 

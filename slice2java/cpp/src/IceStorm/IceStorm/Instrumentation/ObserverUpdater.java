@@ -16,32 +16,25 @@
 package IceStorm.Instrumentation;
 
 /**
- * The ObserverUpdater interface is implemented by IceStorm and an
- * instance of this interface is provided on initialization to the
- * TopicManagerObserver object.
- *
- * This interface can be used by add-ins imlementing the
- * TopicManagerObserver interface to update the obsevers of observed
- * objects.
+ * The ObserverUpdater interface is implemented by IceStorm and an instance of this interface is provided on
+ * initialization to the TopicManagerObserver object.
+ * This interface can be used by add-ins imlementing the TopicManagerObserver interface to update the obsevers of
+ * observed objects.
  **/
 public interface ObserverUpdater
 {
     /**
      * Update topic observers associated with each topics.
-     *
-     * When called, this method goes through all the topics and for
-     * each topic TopicManagerObserver::getTopicObserver is
-     * called. The implementation of getTopicObserver has the
-     * possibility to return an updated observer if necessary.
+     * When called, this method goes through all the topics and for each topic TopicManagerObserver::getTopicObserver
+     * is called. The implementation of getTopicObserver has the possibility to return an updated observer if
+     * necessary.
      **/
     void updateTopicObservers();
 
     /**
      * Update subscriber observers associated with each subscriber.
-     *
-     * When called, this method goes through all the subscribers and
-     * for each subscriber TopicManagerObserver::getSubscriberObserver
-     * is called. The implementation of getSubscriberObserver has the
+     * When called, this method goes through all the subscribers and for each subscriber
+     * TopicManagerObserver::getSubscriberObserver is called. The implementation of getSubscriberObserver has the
      * possibility to return an updated observer if necessary.
      **/
     void updateSubscriberObservers();

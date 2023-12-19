@@ -29,22 +29,23 @@ if 'ImplicitContext' not in _M_Ice.__dict__:
     _M_Ice.ImplicitContext = Ice.createTempClass()
     class ImplicitContext(object):
         """
-        An interface to associate implict contexts with communicators.
-        When you make a remote invocation without an explicit context parameter,
-        Ice uses the per-proxy context (if any) combined with the ImplicitContext
-        associated with the communicator.
-        Ice provides several implementations of ImplicitContext. The implementation
-        used depends on the value of the Ice.ImplicitContext property.
-        None (default)
-        No implicit context at all.
-        PerThread
-        The implementation maintains a context per thread.
-        Shared
-        The implementation maintains a single context shared by all threads.
-        ImplicitContext also provides a number of operations to create, update or retrieve
-        an entry in the underlying context without first retrieving a copy of the entire
-        context. These operations correspond to a subset of the java.util.Map methods,
-        with java.lang.Object replaced by string and null replaced by the empty-string.
+         An interface to associate implict contexts with communicators. When you make a remote invocation without an
+         explicit context parameter, Ice uses the per-proxy context (if any) combined with the ImplicitContext
+         associated with the communicator.
+         Ice provides several implementations of ImplicitContext. The implementation used depends on the value
+         of the Ice.ImplicitContext property.
+         
+         None (default)
+         No implicit context at all.
+         PerThread
+         The implementation maintains a context per thread.
+         Shared
+         The implementation maintains a single context shared by all threads.
+         
+         ImplicitContext also provides a number of operations to create, update or retrieve an entry in the
+         underlying context without first retrieving a copy of the entire context. These operations correspond to a subset
+         of the java.util.Map methods, with java.lang.Object replaced by string and
+         null replaced by the empty-string.
         """
         def __init__(self):
             if Ice.getType(self) == _M_Ice.ImplicitContext:
@@ -52,14 +53,14 @@ if 'ImplicitContext' not in _M_Ice.__dict__:
 
         def getContext(self):
             """
-            Get a copy of the underlying context.
+             Get a copy of the underlying context.
             Returns: A copy of the underlying context.
             """
             raise NotImplementedError("method 'getContext' not implemented")
 
         def setContext(self, newContext):
             """
-            Set the underlying context.
+             Set the underlying context.
             Arguments:
             newContext -- The new context.
             """
@@ -67,7 +68,7 @@ if 'ImplicitContext' not in _M_Ice.__dict__:
 
         def containsKey(self, key):
             """
-            Check if this key has an associated value in the underlying context.
+             Check if this key has an associated value in the underlying context.
             Arguments:
             key -- The key.
             Returns: True if the key has an associated value, False otherwise.
@@ -76,10 +77,9 @@ if 'ImplicitContext' not in _M_Ice.__dict__:
 
         def get(self, key):
             """
-            Get the value associated with the given key in the underlying context.
-            Returns an empty string if no value is associated with the key.
-            containsKey allows you to distinguish between an empty-string value and
-            no value at all.
+             Get the value associated with the given key in the underlying context. Returns an empty string if no value is
+             associated with the key. containsKey allows you to distinguish between an empty-string value and no
+             value at all.
             Arguments:
             key -- The key.
             Returns: The value associated with the key.
@@ -88,7 +88,7 @@ if 'ImplicitContext' not in _M_Ice.__dict__:
 
         def put(self, key, value):
             """
-            Create or update a key/value entry in the underlying context.
+             Create or update a key/value entry in the underlying context.
             Arguments:
             key -- The key.
             value -- The value.
@@ -98,7 +98,7 @@ if 'ImplicitContext' not in _M_Ice.__dict__:
 
         def remove(self, key):
             """
-            Remove the entry for the given key in the underlying context.
+             Remove the entry for the given key in the underlying context.
             Arguments:
             key -- The key.
             Returns: The value associated with the key, if any.

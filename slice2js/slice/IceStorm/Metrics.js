@@ -39,8 +39,7 @@ const iceC_IceMX_TopicMetrics_ids = [
 ];
 
 /**
- * Provides information on IceStorm topics.
- *
+ *  Provides information on IceStorm topics.
  **/
 IceMX.TopicMetrics = class extends IceMX.Metrics
 {
@@ -73,8 +72,7 @@ const iceC_IceMX_SubscriberMetrics_ids = [
 ];
 
 /**
- * Provides information on IceStorm subscribers.
- *
+ *  Provides information on IceStorm subscribers.
  **/
 IceMX.SubscriberMetrics = class extends IceMX.Metrics
 {

@@ -21,8 +21,7 @@ classdef InternalNodeInfo < Ice.Value
         name char
         % os - The operating system name.
         os char
-        % hostname - The network name of the host running this node (as defined in
-        % uname()).
+        % hostname - The network name of the host running this node (as defined in uname()).
         hostname char
         % release - The operation system release level (as defined in uname()).
         release char
@@ -30,8 +29,7 @@ classdef InternalNodeInfo < Ice.Value
         version char
         % machine - The machine hardware type (as defined in uname()).
         machine char
-        % nProcessors - The number of processor threads (e.g. 8 on
-        % system with 1 quad-core CPU, with 2 threads per core)
+        % nProcessors - The number of processor threads (e.g. 8 on system with 1 quad-core CPU, with 2 threads per core)
         nProcessors int32
         % dataDir - The path to the node data directory.
         dataDir char

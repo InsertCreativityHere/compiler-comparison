@@ -41,20 +41,14 @@ namespace Ice
         ///
         /// <para>ObjectFactory has been deprecated, use ValueFactory instead.</para>
         ///
-        /// The type is the
-        /// absolute Slice type id, i.e., the id relative to the
-        /// unnamed top-level Slice module. For example, the absolute
-        /// Slice type id for interfaces of type Bar in the module
-        /// Foo is "::Foo::Bar".
-        ///
-        /// &lt;p class="Note"&gt;The leading "::" is required.
-        ///
+        /// The type is the absolute Slice type id, i.e., the id relative to
+        ///  the unnamed top-level Slice module. For example, the absolute Slice type id for interfaces of type
+        ///  Bar in the module Foo is "::Foo::Bar".
+        ///  &lt;p class="Note"&gt;The leading "::" is required.
         /// </summary>
-        /// <param name="type">The object type.
-        ///
-        /// </param>
-        /// <returns>The object created for the given type, or nil if the
-        /// factory is unable to create the object.</returns>
+        ///  <param name="type">The object type.
+        ///  </param>
+        /// <returns>The object created for the given type, or nil if the factory is unable to create the object.</returns>
 
         [global::System.Obsolete("ObjectFactory has been deprecated, use ValueFactory instead.")]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -62,8 +56,7 @@ namespace Ice
 
 
         /// <summary>
-        /// Called when the factory is removed from the communicator, or if
-        /// the communicator is destroyed.
+        /// Called when the factory is removed from the communicator, or if the communicator is destroyed.
         ///
         /// <para>ObjectFactory has been deprecated, use ValueFactory instead.</para>
         ///

@@ -1,13 +1,9 @@
 % LocatorPrx   Summary of LocatorPrx
 %
-% The Ice locator interface. This interface is used by clients to
-% lookup adapters and objects. It is also used by servers to get the
-% locator registry proxy.
-%
-% The Locator interface is intended to be used by
-% Ice internals and by locator implementations. Regular user code
-% should not attempt to use any functionality of this interface
-% directly.
+% The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
+% servers to get the locator registry proxy. The Locator interface is intended to be used by
+% Ice internals and by locator implementations. Regular user code should not attempt to use any functionality of this
+% interface directly.
 %
 % LocatorPrx Methods:
 %   findObjectById - Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to access the object.
@@ -25,9 +21,8 @@
 classdef LocatorPrx < Ice.ObjectPrx
     methods
         function result = findObjectById(obj, id, varargin)
-            % findObjectById   Find an object by identity and return a proxy that contains
-            % the adapter ID or endpoints which can be used to access the
-            % object.
+            % findObjectById   Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+            % access the object.
             %
             % Parameters:
             %   id (Ice.Identity) - The identity.
@@ -36,8 +31,7 @@ classdef LocatorPrx < Ice.ObjectPrx
             % Returns (Ice.ObjectPrx) - The proxy, or null if the object is not active.
             %
             % Exceptions:
-            %   Ice.ObjectNotFoundException - Raised if the object cannot
-            %     be found.
+            %   Ice.ObjectNotFoundException - Raised if the object cannot be found.
             
             os_ = obj.iceStartWriteParams([]);
             Ice.Identity.ice_write(os_, id);
@@ -48,9 +42,8 @@ classdef LocatorPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = findObjectByIdAsync(obj, id, varargin)
-            % findObjectByIdAsync   Find an object by identity and return a proxy that contains
-            % the adapter ID or endpoints which can be used to access the
-            % object.
+            % findObjectByIdAsync   Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
+            % access the object.
             %
             % Parameters:
             %   id (Ice.Identity) - The identity.
@@ -59,8 +52,7 @@ classdef LocatorPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   Ice.ObjectNotFoundException - Raised if the object cannot
-            %     be found.
+            %   Ice.ObjectNotFoundException - Raised if the object cannot be found.
             
             os_ = obj.iceStartWriteParams([]);
             Ice.Identity.ice_write(os_, id);
@@ -74,8 +66,7 @@ classdef LocatorPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('findObjectById', 1, true, os_, 1, @unmarshal, Ice.LocatorPrx.findObjectById_ex_, varargin{:});
         end
         function result = findAdapterById(obj, id, varargin)
-            % findAdapterById   Find an adapter by id and return a proxy that contains
-            % its endpoints.
+            % findAdapterById   Find an adapter by id and return a proxy that contains its endpoints.
             %
             % Parameters:
             %   id (char) - The adapter id.
@@ -84,8 +75,7 @@ classdef LocatorPrx < Ice.ObjectPrx
             % Returns (Ice.ObjectPrx) - The adapter proxy, or null if the adapter is not active.
             %
             % Exceptions:
-            %   Ice.AdapterNotFoundException - Raised if the adapter cannot be
-            %     found.
+            %   Ice.AdapterNotFoundException - Raised if the adapter cannot be found.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(id);
@@ -96,8 +86,7 @@ classdef LocatorPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = findAdapterByIdAsync(obj, id, varargin)
-            % findAdapterByIdAsync   Find an adapter by id and return a proxy that contains
-            % its endpoints.
+            % findAdapterByIdAsync   Find an adapter by id and return a proxy that contains its endpoints.
             %
             % Parameters:
             %   id (char) - The adapter id.
@@ -106,8 +95,7 @@ classdef LocatorPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   Ice.AdapterNotFoundException - Raised if the adapter cannot be
-            %     found.
+            %   Ice.AdapterNotFoundException - Raised if the adapter cannot be found.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(id);

@@ -21,8 +21,7 @@ package IceStormElection;
 public interface Node extends com.zeroc.Ice.Object
 {
     /**
-     * Invite the node into a group with the given coordinator and
-     * group name.
+     * Invite the node into a group with the given coordinator and group name.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param current The Current object for the invocation.
@@ -30,29 +29,24 @@ public interface Node extends com.zeroc.Ice.Object
     void invitation(int j, String gn, com.zeroc.Ice.Current current);
 
     /**
-     * Call from the group coordinator to a node to inform the node
-     * that the replica group is active.
+     * Call from the group coordinator to a node to inform the node that the replica group is active.
      * @param j The group coordinator.
      * @param gn The group name.
      * @param coordinator The proxy to the coordinator.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param generation The current generation count.
      * @param current The Current object for the invocation.
      **/
     void ready(int j, String gn, com.zeroc.Ice.ObjectPrx coordinator, int max, long generation, com.zeroc.Ice.Current current);
 
     /**
-     * Called to accept an invitation into
-     * the given group.
+     * Called to accept an invitation into the given group.
      * @param j The id of the node accepting the invitation.
      * @param gn The group name.
-     * @param forwardedInvites The ids of the nodes to which
-     * invitations were forwarded.
+     * @param forwardedInvites The ids of the nodes to which invitations were forwarded.
      * @param observer The observer.
      * @param llu The last log update for the given node.
-     * @param max The highest priority node seen by this replica
-     * group.
+     * @param max The highest priority node seen by this replica group.
      * @param current The Current object for the invocation.
      **/
     void accept(int j, String gn, int[] forwardedInvites, com.zeroc.Ice.ObjectPrx observer, LogUpdate llu, int max, com.zeroc.Ice.Current current);
@@ -65,8 +59,7 @@ public interface Node extends com.zeroc.Ice.Object
     boolean areYouCoordinator(com.zeroc.Ice.Current current);
 
     /**
-     * Determine if the node is a member of the given group with the
-     * given coordinator.
+     * Determine if the node is a member of the given group with the given coordinator.
      * @param gn The group name.
      * @param j The group coordinator.
      * @param current The Current object for the invocation.
@@ -84,8 +77,7 @@ public interface Node extends com.zeroc.Ice.Object
     /**
      * Get the replication group information.
      * @param current The Current object for the invocation.
-     * @return The set of configured nodes and the associated
-     * priority.
+     * @return The set of configured nodes and the associated priority.
      **/
     NodeInfo[] nodes(com.zeroc.Ice.Current current);
 

@@ -16,8 +16,7 @@
 package com.zeroc.Ice;
 
 /**
- * This exception is raised when Ice receives a request or reply
- * message whose size exceeds the limit specified by the
+ * This exception is raised when Ice receives a request or reply message whose size exceeds the limit specified by the
  * <code>Ice.MessageSizeMax</code> property.
  **/
 public class MemoryLimitException extends MarshalException

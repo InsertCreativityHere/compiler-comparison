@@ -206,8 +206,7 @@ public:
 };
 
 /**
- * This exception is raised if an adapter with the same name already
- * exists.
+ * This exception is raised if an adapter with the same name already exists.
  */
 class AdapterExistsException : public ::Ice::UserExceptionHelper<AdapterExistsException, ::Ice::UserException>
 {
@@ -252,8 +251,7 @@ using InternalRegistryPrxSeq = ::std::vector<::std::shared_ptr<InternalRegistryP
 using NodePrxSeq = ::std::vector<::std::shared_ptr<NodePrx>>;
 
 /**
- * This exception is raised if a node is already registered and
- * active.
+ * This exception is raised if a node is already registered and active.
  */
 class NodeActiveException : public ::Ice::UserExceptionHelper<NodeActiveException, ::Ice::UserException>
 {
@@ -282,8 +280,7 @@ public:
 };
 
 /**
- * This exception is raised if a replica is already registered and
- * active.
+ * This exception is raised if a replica is already registered and active.
  */
 class ReplicaActiveException : public ::Ice::UserExceptionHelper<ReplicaActiveException, ::Ice::UserException>
 {
@@ -362,11 +359,9 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Activate this adapter. If this adapter can be activated, this
-     * will activate the adapter and return the direct proxy of the
-     * adapter once it's active. If this adapter can be activated on
-     * demand, this will return 0 if the adapter is inactive or the
-     * adapter direct proxy it's active.
+     * Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+     * proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+     * adapter is inactive or the adapter direct proxy it's active.
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
@@ -377,12 +372,10 @@ public:
     /// \endcond
 
     /**
-     * Get the adapter direct proxy. The adapter direct proxy is a
-     * proxy created with the object adapter. The proxy contains the
-     * last known adapter endpoints.
+     * Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+     * contains the last known adapter endpoints.
      * @param current The Current object for the invocation.
-     * @return A direct proxy containing the last known adapter
-     * endpoints if the adapter is already active.
+     * @return A direct proxy containing the last known adapter endpoints if the adapter is already active.
      */
     virtual ::std::shared_ptr<::Ice::ObjectPrx> getDirectProxy(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -392,9 +385,8 @@ public:
     /**
      * Set the direct proxy for this adapter.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AdapterActiveException The adapter is already
-     * active. It's not possible to override the direct proxy of an
-     * active adapter.
+     * @throws IceGrid::AdapterActiveException The adapter is already active. It's not possible to override the direct proxy of
+     * an active adapter.
      */
     virtual void setDirectProxy(::std::shared_ptr<::Ice::ObjectPrx> proxy, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -441,8 +433,7 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Count the number of given lines from the end of the file and
-     * return the file offset.
+     * Count the number of given lines from the end of the file and return the file offset.
      * @param current The Current object for the invocation.
      */
     virtual long long int getOffsetFromEnd(::std::string filename, int lines, const ::Ice::Current& current) const = 0;
@@ -520,9 +511,8 @@ public:
     /// \endcond
 
     /**
-     * Stop the server. This methods returns only when the server is
-     * deactivated. If the server doesn't stop after a configurable
-     * amount of time, it will be killed.
+     * Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+     * configurable amount of time, it will be killed.
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
@@ -591,10 +581,8 @@ public:
     /// \endcond
 
     /**
-     * Get the server pid. Note that the value returned by this method
-     * is system dependant. On Unix operating systems, it's the pid
-     * value returned by the fork() system call and converted to an
-     * integer.
+     * Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+     * it's the pid value returned by the fork() system call and converted to an integer.
      * @param current The Current object for the invocation.
      */
     virtual int getPid(const ::Ice::Current& current) const = 0;
@@ -662,8 +650,7 @@ public:
     /// \endcond
 
     /**
-     * Notification that a replica has been added. The node should
-     * establish a session with this new replica.
+     * Notification that a replica has been added. The node should establish a session with this new replica.
      * @param current The Current object for the invocation.
      */
     virtual void replicaAdded(::std::shared_ptr<InternalRegistryPrx> replica, const ::Ice::Current& current) = 0;
@@ -672,8 +659,7 @@ public:
     /// \endcond
 
     /**
-     * Notification that a replica has been removed. The node should
-     * destroy the session to this replica.
+     * Notification that a replica has been removed. The node should destroy the session to this replica.
      * @param current The Current object for the invocation.
      */
     virtual void replicaRemoved(::std::shared_ptr<InternalRegistryPrx> replica, const ::Ice::Current& current) = 0;
@@ -790,9 +776,8 @@ public:
     };
 
     /**
-     * Load the given server. If the server resources weren't already
-     * created (database environment directories, property files, etc),
-     * they will be created.
+     * Load the given server. If the server resources weren't already created (database environment directories,
+     * property files, etc), they will be created.
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
@@ -814,11 +799,9 @@ public:
     };
 
     /**
-     * Load the given server and ensure the server won't be
-     * restarted. If the server resources weren't already created
-     * (database environment directories, property files, etc), they
-     * will be created. If the server can't be updated without a
-     * restart, a DeploymentException is raised.
+     * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+     * (database environment directories, property files, etc), they will be created. If the server can't be updated
+     * without a restart, a DeploymentException is raised.
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
@@ -851,10 +834,9 @@ public:
     /// \endcond
 
     /**
-     * Patch application and server distributions. If some servers
-     * using a distribution directory to patch are active, this method
-     * will raise a PatchException unless shutdown is set to true. In
-     * which case the servers will be shutdown.
+     * Patch application and server distributions. If some servers using a distribution directory to patch are active,
+     * this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
+     * shutdown.
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
@@ -865,8 +847,7 @@ public:
     /// \endcond
 
     /**
-     * Establish a session to the given replica, this method only
-     * returns once the registration was attempted (unlike
+     * Establish a session to the given replica, this method only returns once the registration was attempted (unlike
      * replicaAdded below).
      * @param current The Current object for the invocation.
      */
@@ -903,8 +884,7 @@ public:
     /// \endcond
 
     /**
-     * Get the number of processor sockets for the machine where this
-     * node is running.
+     * Get the number of processor sockets for the machine where this node is running.
      * @param current The Current object for the invocation.
      */
     virtual int getProcessorSocketCount(const ::Ice::Current& current) const = 0;
@@ -970,9 +950,8 @@ public:
     /// \endcond
 
     /**
-     * Set the replica observer. The node calls this method when it's
-     * ready to receive notifications for the replicas. It only calls
-     * this for the session with the master.
+     * Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+     * It only calls this for the session with the master.
      * @param current The Current object for the invocation.
      */
     virtual void setReplicaObserver(::std::shared_ptr<ReplicaObserverPrx> observer, const ::Ice::Current& current) = 0;
@@ -1019,11 +998,9 @@ public:
     /// \endcond
 
     /**
-     * Wait for the application update to complete (the application is
-     * completely updated once all the registry replicas have been
-     * updated). This is used by the node to ensure that before to
-     * start a server all the replicas have the up-to-date descriptor
-     * of the server.
+     * Wait for the application update to complete (the application is completely updated once all the registry
+     * replicas have been updated). This is used by the node to ensure that before to start a server all the
+     * replicas have the up-to-date descriptor of the server.
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
@@ -1141,8 +1118,7 @@ public:
     /// \endcond
 
     /**
-     * Set the database observer. Once the observer is subscribed, it
-     * will receive the database and database updates.
+     * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      * @param current The Current object for the invocation.
      */
     virtual void setDatabaseObserver(::std::shared_ptr<DatabaseObserverPrx> dbObs, Ice::optional<StringLongDict> serials, const ::Ice::Current& current) = 0;
@@ -1151,9 +1127,8 @@ public:
     /// \endcond
 
     /**
-     * This method sets the endpoints of the replica. This allows the
-     * master to create proxies with multiple endpoints for replicated
-     * objects (e.g.: IceGrid::Query object).
+     * This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+     * for replicated objects (e.g.: IceGrid::Query object).
      * @param current The Current object for the invocation.
      */
     virtual void setEndpoints(StringObjectProxyDict endpoints, const ::Ice::Current& current) = 0;
@@ -1171,9 +1146,8 @@ public:
     /// \endcond
 
     /**
-     * Set the adapter direct proxy of the given adapter in the
-     * master. This is used to support dynamic registration with
-     * the locator registry interface.
+     * Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+     * with the locator registry interface.
      * @param current The Current object for the invocation.
      */
     virtual void setAdapterDirectProxy(::std::string adapterId, ::std::string replicaGroupId, ::std::shared_ptr<::Ice::ObjectPrx> proxy, const ::Ice::Current& current) = 0;
@@ -1182,9 +1156,8 @@ public:
     /// \endcond
 
     /**
-     * Notify the master that an update was received. The master might
-     * wait for replication updates to be received by all the replicas
-     * before to continue.
+     * Notify the master that an update was received. The master might wait for replication updates to be received by
+     * all the replicas before to continue.
      * @param current The Current object for the invocation.
      */
     virtual void receivedUpdate(TopicName name, int serial, ::std::string failure, const ::Ice::Current& current) = 0;
@@ -1241,16 +1214,14 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Register a node with the registry. If a node with the same name
-     * is already registered, [registerNode] will overide the previous
-     * node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
+     * overide the previous node only if it's not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
      * @param current The Current object for the invocation.
      * @return The node session proxy.
-     * @throws IceGrid::NodeActiveException Raised if the node is already
-     * registered and currently active.
+     * @throws IceGrid::NodeActiveException Raised if the node is already registered and currently active.
      */
     virtual ::std::shared_ptr<NodeSessionPrx> registerNode(::std::shared_ptr<InternalNodeInfo> info, ::std::shared_ptr<NodePrx> prx, LoadInfo loadInf, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1258,15 +1229,13 @@ public:
     /// \endcond
 
     /**
-     * Register a replica with the registry. If a replica with the
-     * same name is already registered, [registerReplica] will overide
-     * the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
+     * will overide the previous replica only if it's not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @param current The Current object for the invocation.
      * @return The replica session proxy.
-     * @throws IceGrid::ReplicaActiveException Raised if the replica is already
-     * registered and currently active.
+     * @throws IceGrid::ReplicaActiveException Raised if the replica is already registered and currently active.
      */
     virtual ::std::shared_ptr<ReplicaSessionPrx> registerReplica(::std::shared_ptr<InternalReplicaInfo> info, ::std::shared_ptr<InternalRegistryPrx> prx, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1274,8 +1243,8 @@ public:
     /// \endcond
 
     /**
-     * Create a session with the given registry replica. This method
-     * returns only once the session creation has been attempted.
+     * Create a session with the given registry replica. This method returns only once the session creation has been
+     * attempted.
      * @param current The Current object for the invocation.
      */
     virtual void registerWithReplica(::std::shared_ptr<InternalRegistryPrx> prx, const ::Ice::Current& current) = 0;
@@ -1293,8 +1262,7 @@ public:
     /// \endcond
 
     /**
-     * Return the proxies of all the registry replicas known by this
-     * registry.
+     * Return the proxies of all the registry replicas known by this registry.
      * @param current The Current object for the invocation.
      */
     virtual InternalRegistryPrxSeq getReplicas(const ::Ice::Current& current) const = 0;
@@ -1740,8 +1708,7 @@ public:
      */
     ::std::string os;
     /**
-     * The network name of the host running this node (as defined in
-     * uname()).
+     * The network name of the host running this node (as defined in uname()).
      */
     ::std::string hostname;
     /**
@@ -1757,8 +1724,7 @@ public:
      */
     ::std::string machine;
     /**
-     * The number of processor threads (e.g. 8 on
-     * system with 1 quad-core CPU, with 2 threads per core)
+     * The number of processor threads (e.g. 8 on system with 1 quad-core CPU, with 2 threads per core)
      */
     int nProcessors;
     /**
@@ -1814,8 +1780,7 @@ public:
      */
     ::std::string name;
     /**
-     * The network name of the host running this registry (as defined in
-     * uname()).
+     * The network name of the host running this registry (as defined in uname()).
      */
     ::std::string hostname;
 };
@@ -1830,11 +1795,9 @@ class AdapterPrx : public virtual ::Ice::Proxy<AdapterPrx, ::Ice::ObjectPrx>
 public:
 
     /**
-     * Activate this adapter. If this adapter can be activated, this
-     * will activate the adapter and return the direct proxy of the
-     * adapter once it's active. If this adapter can be activated on
-     * demand, this will return 0 if the adapter is inactive or the
-     * adapter direct proxy it's active.
+     * Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+     * proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+     * adapter is inactive or the adapter direct proxy it's active.
      * @param context The Context map to send with the invocation.
      */
     ::std::shared_ptr<::Ice::ObjectPrx> activate(const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -1843,11 +1806,9 @@ public:
     }
 
     /**
-     * Activate this adapter. If this adapter can be activated, this
-     * will activate the adapter and return the direct proxy of the
-     * adapter once it's active. If this adapter can be activated on
-     * demand, this will return 0 if the adapter is inactive or the
-     * adapter direct proxy it's active.
+     * Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+     * proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+     * adapter is inactive or the adapter direct proxy it's active.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -1859,11 +1820,9 @@ public:
     }
 
     /**
-     * Activate this adapter. If this adapter can be activated, this
-     * will activate the adapter and return the direct proxy of the
-     * adapter once it's active. If this adapter can be activated on
-     * demand, this will return 0 if the adapter is inactive or the
-     * adapter direct proxy it's active.
+     * Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+     * proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+     * adapter is inactive or the adapter direct proxy it's active.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -1884,12 +1843,10 @@ public:
     /// \endcond
 
     /**
-     * Get the adapter direct proxy. The adapter direct proxy is a
-     * proxy created with the object adapter. The proxy contains the
-     * last known adapter endpoints.
+     * Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+     * contains the last known adapter endpoints.
      * @param context The Context map to send with the invocation.
-     * @return A direct proxy containing the last known adapter
-     * endpoints if the adapter is already active.
+     * @return A direct proxy containing the last known adapter endpoints if the adapter is already active.
      */
     ::std::shared_ptr<::Ice::ObjectPrx> getDirectProxy(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -1897,9 +1854,8 @@ public:
     }
 
     /**
-     * Get the adapter direct proxy. The adapter direct proxy is a
-     * proxy created with the object adapter. The proxy contains the
-     * last known adapter endpoints.
+     * Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+     * contains the last known adapter endpoints.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -1911,9 +1867,8 @@ public:
     }
 
     /**
-     * Get the adapter direct proxy. The adapter direct proxy is a
-     * proxy created with the object adapter. The proxy contains the
-     * last known adapter endpoints.
+     * Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+     * contains the last known adapter endpoints.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -1936,9 +1891,8 @@ public:
     /**
      * Set the direct proxy for this adapter.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AdapterActiveException The adapter is already
-     * active. It's not possible to override the direct proxy of an
-     * active adapter.
+     * @throws IceGrid::AdapterActiveException The adapter is already active. It's not possible to override the direct proxy of
+     * an active adapter.
      */
     void setDirectProxy(const ::std::shared_ptr<::Ice::ObjectPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -2000,8 +1954,7 @@ class FileReaderPrx : public virtual ::Ice::Proxy<FileReaderPrx, ::Ice::ObjectPr
 public:
 
     /**
-     * Count the number of given lines from the end of the file and
-     * return the file offset.
+     * Count the number of given lines from the end of the file and return the file offset.
      * @param context The Context map to send with the invocation.
      */
     long long int getOffsetFromEnd(const ::std::string& filename, int lines, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2010,8 +1963,7 @@ public:
     }
 
     /**
-     * Count the number of given lines from the end of the file and
-     * return the file offset.
+     * Count the number of given lines from the end of the file and return the file offset.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -2023,8 +1975,7 @@ public:
     }
 
     /**
-     * Count the number of given lines from the end of the file and
-     * return the file offset.
+     * Count the number of given lines from the end of the file and return the file offset.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -2158,9 +2109,8 @@ public:
     /// \endcond
 
     /**
-     * Stop the server. This methods returns only when the server is
-     * deactivated. If the server doesn't stop after a configurable
-     * amount of time, it will be killed.
+     * Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+     * configurable amount of time, it will be killed.
      * @param context The Context map to send with the invocation.
      */
     void stop(const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2169,9 +2119,8 @@ public:
     }
 
     /**
-     * Stop the server. This methods returns only when the server is
-     * deactivated. If the server doesn't stop after a configurable
-     * amount of time, it will be killed.
+     * Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+     * configurable amount of time, it will be killed.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -2183,9 +2132,8 @@ public:
     }
 
     /**
-     * Stop the server. This methods returns only when the server is
-     * deactivated. If the server doesn't stop after a configurable
-     * amount of time, it will be killed.
+     * Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+     * configurable amount of time, it will be killed.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -2468,10 +2416,8 @@ public:
     /// \endcond
 
     /**
-     * Get the server pid. Note that the value returned by this method
-     * is system dependant. On Unix operating systems, it's the pid
-     * value returned by the fork() system call and converted to an
-     * integer.
+     * Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+     * it's the pid value returned by the fork() system call and converted to an integer.
      * @param context The Context map to send with the invocation.
      */
     int getPid(const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2480,10 +2426,8 @@ public:
     }
 
     /**
-     * Get the server pid. Note that the value returned by this method
-     * is system dependant. On Unix operating systems, it's the pid
-     * value returned by the fork() system call and converted to an
-     * integer.
+     * Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+     * it's the pid value returned by the fork() system call and converted to an integer.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -2495,10 +2439,8 @@ public:
     }
 
     /**
-     * Get the server pid. Note that the value returned by this method
-     * is system dependant. On Unix operating systems, it's the pid
-     * value returned by the fork() system call and converted to an
-     * integer.
+     * Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+     * it's the pid value returned by the fork() system call and converted to an integer.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -2625,8 +2567,7 @@ public:
     /// \endcond
 
     /**
-     * Notification that a replica has been added. The node should
-     * establish a session with this new replica.
+     * Notification that a replica has been added. The node should establish a session with this new replica.
      * @param context The Context map to send with the invocation.
      */
     void replicaAdded(const ::std::shared_ptr<InternalRegistryPrx>& replica, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2635,8 +2576,7 @@ public:
     }
 
     /**
-     * Notification that a replica has been added. The node should
-     * establish a session with this new replica.
+     * Notification that a replica has been added. The node should establish a session with this new replica.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -2648,8 +2588,7 @@ public:
     }
 
     /**
-     * Notification that a replica has been added. The node should
-     * establish a session with this new replica.
+     * Notification that a replica has been added. The node should establish a session with this new replica.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -2671,8 +2610,7 @@ public:
     /// \endcond
 
     /**
-     * Notification that a replica has been removed. The node should
-     * destroy the session to this replica.
+     * Notification that a replica has been removed. The node should destroy the session to this replica.
      * @param context The Context map to send with the invocation.
      */
     void replicaRemoved(const ::std::shared_ptr<InternalRegistryPrx>& replica, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2681,8 +2619,7 @@ public:
     }
 
     /**
-     * Notification that a replica has been removed. The node should
-     * destroy the session to this replica.
+     * Notification that a replica has been removed. The node should destroy the session to this replica.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -2694,8 +2631,7 @@ public:
     }
 
     /**
-     * Notification that a replica has been removed. The node should
-     * destroy the session to this replica.
+     * Notification that a replica has been removed. The node should destroy the session to this replica.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -2842,9 +2778,8 @@ class NodePrx : public virtual ::Ice::Proxy<NodePrx, FileReaderPrx, ReplicaObser
 public:
 
     /**
-     * Load the given server. If the server resources weren't already
-     * created (database environment directories, property files, etc),
-     * they will be created.
+     * Load the given server. If the server resources weren't already created (database environment directories,
+     * property files, etc), they will be created.
      * @param context The Context map to send with the invocation.
      */
     ::std::shared_ptr<ServerPrx> loadServer(const ::std::shared_ptr<InternalServerDescriptor>& svr, const ::std::string& replicaName, AdapterPrxDict& adapters, int& actTimeout, int& deactTimeout, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2857,9 +2792,8 @@ public:
     }
 
     /**
-     * Load the given server. If the server resources weren't already
-     * created (database environment directories, property files, etc),
-     * they will be created.
+     * Load the given server. If the server resources weren't already created (database environment directories,
+     * property files, etc), they will be created.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -2871,9 +2805,8 @@ public:
     }
 
     /**
-     * Load the given server. If the server resources weren't already
-     * created (database environment directories, property files, etc),
-     * they will be created.
+     * Load the given server. If the server resources weren't already created (database environment directories,
+     * property files, etc), they will be created.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -2899,11 +2832,9 @@ public:
     /// \endcond
 
     /**
-     * Load the given server and ensure the server won't be
-     * restarted. If the server resources weren't already created
-     * (database environment directories, property files, etc), they
-     * will be created. If the server can't be updated without a
-     * restart, a DeploymentException is raised.
+     * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+     * (database environment directories, property files, etc), they will be created. If the server can't be updated
+     * without a restart, a DeploymentException is raised.
      * @param context The Context map to send with the invocation.
      */
     ::std::shared_ptr<ServerPrx> loadServerWithoutRestart(const ::std::shared_ptr<InternalServerDescriptor>& svr, const ::std::string& replicaName, AdapterPrxDict& adapters, int& actTimeout, int& deactTimeout, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -2916,11 +2847,9 @@ public:
     }
 
     /**
-     * Load the given server and ensure the server won't be
-     * restarted. If the server resources weren't already created
-     * (database environment directories, property files, etc), they
-     * will be created. If the server can't be updated without a
-     * restart, a DeploymentException is raised.
+     * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+     * (database environment directories, property files, etc), they will be created. If the server can't be updated
+     * without a restart, a DeploymentException is raised.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -2932,11 +2861,9 @@ public:
     }
 
     /**
-     * Load the given server and ensure the server won't be
-     * restarted. If the server resources weren't already created
-     * (database environment directories, property files, etc), they
-     * will be created. If the server can't be updated without a
-     * restart, a DeploymentException is raised.
+     * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+     * (database environment directories, property files, etc), they will be created. If the server can't be updated
+     * without a restart, a DeploymentException is raised.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -3048,10 +2975,9 @@ public:
     /// \endcond
 
     /**
-     * Patch application and server distributions. If some servers
-     * using a distribution directory to patch are active, this method
-     * will raise a PatchException unless shutdown is set to true. In
-     * which case the servers will be shutdown.
+     * Patch application and server distributions. If some servers using a distribution directory to patch are active,
+     * this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
+     * shutdown.
      * @param context The Context map to send with the invocation.
      */
     void patch(const ::std::shared_ptr<PatcherFeedbackPrx>& feedback, const ::std::string& application, const ::std::string& server, const ::std::shared_ptr<InternalDistributionDescriptor>& appDistrib, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -3060,10 +2986,9 @@ public:
     }
 
     /**
-     * Patch application and server distributions. If some servers
-     * using a distribution directory to patch are active, this method
-     * will raise a PatchException unless shutdown is set to true. In
-     * which case the servers will be shutdown.
+     * Patch application and server distributions. If some servers using a distribution directory to patch are active,
+     * this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
+     * shutdown.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -3075,10 +3000,9 @@ public:
     }
 
     /**
-     * Patch application and server distributions. If some servers
-     * using a distribution directory to patch are active, this method
-     * will raise a PatchException unless shutdown is set to true. In
-     * which case the servers will be shutdown.
+     * Patch application and server distributions. If some servers using a distribution directory to patch are active,
+     * this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
+     * shutdown.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -3100,8 +3024,7 @@ public:
     /// \endcond
 
     /**
-     * Establish a session to the given replica, this method only
-     * returns once the registration was attempted (unlike
+     * Establish a session to the given replica, this method only returns once the registration was attempted (unlike
      * replicaAdded below).
      * @param context The Context map to send with the invocation.
      */
@@ -3111,8 +3034,7 @@ public:
     }
 
     /**
-     * Establish a session to the given replica, this method only
-     * returns once the registration was attempted (unlike
+     * Establish a session to the given replica, this method only returns once the registration was attempted (unlike
      * replicaAdded below).
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -3125,8 +3047,7 @@ public:
     }
 
     /**
-     * Establish a session to the given replica, this method only
-     * returns once the registration was attempted (unlike
+     * Establish a session to the given replica, this method only returns once the registration was attempted (unlike
      * replicaAdded below).
      * @param response The response callback.
      * @param ex The exception callback.
@@ -3275,8 +3196,7 @@ public:
     /// \endcond
 
     /**
-     * Get the number of processor sockets for the machine where this
-     * node is running.
+     * Get the number of processor sockets for the machine where this node is running.
      * @param context The Context map to send with the invocation.
      */
     int getProcessorSocketCount(const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -3285,8 +3205,7 @@ public:
     }
 
     /**
-     * Get the number of processor sockets for the machine where this
-     * node is running.
+     * Get the number of processor sockets for the machine where this node is running.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -3298,8 +3217,7 @@ public:
     }
 
     /**
-     * Get the number of processor sockets for the machine where this
-     * node is running.
+     * Get the number of processor sockets for the machine where this node is running.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -3425,9 +3343,8 @@ public:
     /// \endcond
 
     /**
-     * Set the replica observer. The node calls this method when it's
-     * ready to receive notifications for the replicas. It only calls
-     * this for the session with the master.
+     * Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+     * It only calls this for the session with the master.
      * @param context The Context map to send with the invocation.
      */
     void setReplicaObserver(const ::std::shared_ptr<ReplicaObserverPrx>& observer, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -3436,9 +3353,8 @@ public:
     }
 
     /**
-     * Set the replica observer. The node calls this method when it's
-     * ready to receive notifications for the replicas. It only calls
-     * this for the session with the master.
+     * Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+     * It only calls this for the session with the master.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -3450,9 +3366,8 @@ public:
     }
 
     /**
-     * Set the replica observer. The node calls this method when it's
-     * ready to receive notifications for the replicas. It only calls
-     * this for the session with the master.
+     * Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+     * It only calls this for the session with the master.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -3642,11 +3557,9 @@ public:
     /// \endcond
 
     /**
-     * Wait for the application update to complete (the application is
-     * completely updated once all the registry replicas have been
-     * updated). This is used by the node to ensure that before to
-     * start a server all the replicas have the up-to-date descriptor
-     * of the server.
+     * Wait for the application update to complete (the application is completely updated once all the registry
+     * replicas have been updated). This is used by the node to ensure that before to start a server all the
+     * replicas have the up-to-date descriptor of the server.
      * @param context The Context map to send with the invocation.
      */
     void waitForApplicationUpdate(const ::std::string& application, int revision, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -3655,11 +3568,9 @@ public:
     }
 
     /**
-     * Wait for the application update to complete (the application is
-     * completely updated once all the registry replicas have been
-     * updated). This is used by the node to ensure that before to
-     * start a server all the replicas have the up-to-date descriptor
-     * of the server.
+     * Wait for the application update to complete (the application is completely updated once all the registry
+     * replicas have been updated). This is used by the node to ensure that before to start a server all the
+     * replicas have the up-to-date descriptor of the server.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -3671,11 +3582,9 @@ public:
     }
 
     /**
-     * Wait for the application update to complete (the application is
-     * completely updated once all the registry replicas have been
-     * updated). This is used by the node to ensure that before to
-     * start a server all the replicas have the up-to-date descriptor
-     * of the server.
+     * Wait for the application update to complete (the application is completely updated once all the registry
+     * replicas have been updated). This is used by the node to ensure that before to start a server all the
+     * replicas have the up-to-date descriptor of the server.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -3863,8 +3772,7 @@ public:
     /// \endcond
 
     /**
-     * Set the database observer. Once the observer is subscribed, it
-     * will receive the database and database updates.
+     * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      * @param context The Context map to send with the invocation.
      */
     void setDatabaseObserver(const ::std::shared_ptr<DatabaseObserverPrx>& dbObs, const Ice::optional<StringLongDict>& serials, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -3873,8 +3781,7 @@ public:
     }
 
     /**
-     * Set the database observer. Once the observer is subscribed, it
-     * will receive the database and database updates.
+     * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -3886,8 +3793,7 @@ public:
     }
 
     /**
-     * Set the database observer. Once the observer is subscribed, it
-     * will receive the database and database updates.
+     * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -3909,9 +3815,8 @@ public:
     /// \endcond
 
     /**
-     * This method sets the endpoints of the replica. This allows the
-     * master to create proxies with multiple endpoints for replicated
-     * objects (e.g.: IceGrid::Query object).
+     * This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+     * for replicated objects (e.g.: IceGrid::Query object).
      * @param context The Context map to send with the invocation.
      */
     void setEndpoints(const StringObjectProxyDict& endpoints, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -3920,9 +3825,8 @@ public:
     }
 
     /**
-     * This method sets the endpoints of the replica. This allows the
-     * master to create proxies with multiple endpoints for replicated
-     * objects (e.g.: IceGrid::Query object).
+     * This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+     * for replicated objects (e.g.: IceGrid::Query object).
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -3934,9 +3838,8 @@ public:
     }
 
     /**
-     * This method sets the endpoints of the replica. This allows the
-     * master to create proxies with multiple endpoints for replicated
-     * objects (e.g.: IceGrid::Query object).
+     * This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+     * for replicated objects (e.g.: IceGrid::Query object).
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -4001,9 +3904,8 @@ public:
     /// \endcond
 
     /**
-     * Set the adapter direct proxy of the given adapter in the
-     * master. This is used to support dynamic registration with
-     * the locator registry interface.
+     * Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+     * with the locator registry interface.
      * @param context The Context map to send with the invocation.
      */
     void setAdapterDirectProxy(const ::std::string& adapterId, const ::std::string& replicaGroupId, const ::std::shared_ptr<::Ice::ObjectPrx>& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -4012,9 +3914,8 @@ public:
     }
 
     /**
-     * Set the adapter direct proxy of the given adapter in the
-     * master. This is used to support dynamic registration with
-     * the locator registry interface.
+     * Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+     * with the locator registry interface.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -4026,9 +3927,8 @@ public:
     }
 
     /**
-     * Set the adapter direct proxy of the given adapter in the
-     * master. This is used to support dynamic registration with
-     * the locator registry interface.
+     * Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+     * with the locator registry interface.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -4050,9 +3950,8 @@ public:
     /// \endcond
 
     /**
-     * Notify the master that an update was received. The master might
-     * wait for replication updates to be received by all the replicas
-     * before to continue.
+     * Notify the master that an update was received. The master might wait for replication updates to be received by
+     * all the replicas before to continue.
      * @param context The Context map to send with the invocation.
      */
     void receivedUpdate(TopicName name, int serial, const ::std::string& failure, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -4061,9 +3960,8 @@ public:
     }
 
     /**
-     * Notify the master that an update was received. The master might
-     * wait for replication updates to be received by all the replicas
-     * before to continue.
+     * Notify the master that an update was received. The master might wait for replication updates to be received by
+     * all the replicas before to continue.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -4075,9 +3973,8 @@ public:
     }
 
     /**
-     * Notify the master that an update was received. The master might
-     * wait for replication updates to be received by all the replicas
-     * before to continue.
+     * Notify the master that an update was received. The master might wait for replication updates to be received by
+     * all the replicas before to continue.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -4161,16 +4058,14 @@ class InternalRegistryPrx : public virtual ::Ice::Proxy<InternalRegistryPrx, Fil
 public:
 
     /**
-     * Register a node with the registry. If a node with the same name
-     * is already registered, [registerNode] will overide the previous
-     * node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
+     * overide the previous node only if it's not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
      * @param context The Context map to send with the invocation.
      * @return The node session proxy.
-     * @throws IceGrid::NodeActiveException Raised if the node is already
-     * registered and currently active.
+     * @throws IceGrid::NodeActiveException Raised if the node is already registered and currently active.
      */
     ::std::shared_ptr<NodeSessionPrx> registerNode(const ::std::shared_ptr<InternalNodeInfo>& info, const ::std::shared_ptr<NodePrx>& prx, const LoadInfo& loadInf, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -4178,9 +4073,8 @@ public:
     }
 
     /**
-     * Register a node with the registry. If a node with the same name
-     * is already registered, [registerNode] will overide the previous
-     * node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
+     * overide the previous node only if it's not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
@@ -4195,9 +4089,8 @@ public:
     }
 
     /**
-     * Register a node with the registry. If a node with the same name
-     * is already registered, [registerNode] will overide the previous
-     * node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
+     * overide the previous node only if it's not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
@@ -4222,15 +4115,13 @@ public:
     /// \endcond
 
     /**
-     * Register a replica with the registry. If a replica with the
-     * same name is already registered, [registerReplica] will overide
-     * the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
+     * will overide the previous replica only if it's not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @param context The Context map to send with the invocation.
      * @return The replica session proxy.
-     * @throws IceGrid::ReplicaActiveException Raised if the replica is already
-     * registered and currently active.
+     * @throws IceGrid::ReplicaActiveException Raised if the replica is already registered and currently active.
      */
     ::std::shared_ptr<ReplicaSessionPrx> registerReplica(const ::std::shared_ptr<InternalReplicaInfo>& info, const ::std::shared_ptr<InternalRegistryPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -4238,9 +4129,8 @@ public:
     }
 
     /**
-     * Register a replica with the registry. If a replica with the
-     * same name is already registered, [registerReplica] will overide
-     * the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
+     * will overide the previous replica only if it's not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @param context The Context map to send with the invocation.
@@ -4254,9 +4144,8 @@ public:
     }
 
     /**
-     * Register a replica with the registry. If a replica with the
-     * same name is already registered, [registerReplica] will overide
-     * the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
+     * will overide the previous replica only if it's not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @param response The response callback.
@@ -4280,8 +4169,8 @@ public:
     /// \endcond
 
     /**
-     * Create a session with the given registry replica. This method
-     * returns only once the session creation has been attempted.
+     * Create a session with the given registry replica. This method returns only once the session creation has been
+     * attempted.
      * @param context The Context map to send with the invocation.
      */
     void registerWithReplica(const ::std::shared_ptr<InternalRegistryPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -4290,8 +4179,8 @@ public:
     }
 
     /**
-     * Create a session with the given registry replica. This method
-     * returns only once the session creation has been attempted.
+     * Create a session with the given registry replica. This method returns only once the session creation has been
+     * attempted.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -4303,8 +4192,8 @@ public:
     }
 
     /**
-     * Create a session with the given registry replica. This method
-     * returns only once the session creation has been attempted.
+     * Create a session with the given registry replica. This method returns only once the session creation has been
+     * attempted.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -4368,8 +4257,7 @@ public:
     /// \endcond
 
     /**
-     * Return the proxies of all the registry replicas known by this
-     * registry.
+     * Return the proxies of all the registry replicas known by this registry.
      * @param context The Context map to send with the invocation.
      */
     InternalRegistryPrxSeq getReplicas(const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -4378,8 +4266,7 @@ public:
     }
 
     /**
-     * Return the proxies of all the registry replicas known by this
-     * registry.
+     * Return the proxies of all the registry replicas known by this registry.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -4391,8 +4278,7 @@ public:
     }
 
     /**
-     * Return the proxies of all the registry replicas known by this
-     * registry.
+     * Return the proxies of all the registry replicas known by this registry.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -5153,8 +5039,7 @@ protected:
 };
 
 /**
- * This exception is raised if an adapter with the same name already
- * exists.
+ * This exception is raised if an adapter with the same name already exists.
  */
 class AdapterExistsException : public ::Ice::UserException
 {
@@ -5205,8 +5090,7 @@ typedef ::std::vector<InternalRegistryPrx> InternalRegistryPrxSeq;
 typedef ::std::vector<NodePrx> NodePrxSeq;
 
 /**
- * This exception is raised if a node is already registered and
- * active.
+ * This exception is raised if a node is already registered and active.
  */
 class NodeActiveException : public ::Ice::UserException
 {
@@ -5245,8 +5129,7 @@ protected:
 };
 
 /**
- * This exception is raised if a replica is already registered and
- * active.
+ * This exception is raised if a replica is already registered and active.
  */
 class ReplicaActiveException : public ::Ice::UserException
 {
@@ -6253,11 +6136,9 @@ class Adapter : public virtual ::Ice::Proxy<Adapter, ::IceProxy::Ice::Object>
 public:
 
     /**
-     * Activate this adapter. If this adapter can be activated, this
-     * will activate the adapter and return the direct proxy of the
-     * adapter once it's active. If this adapter can be activated on
-     * demand, this will return 0 if the adapter is inactive or the
-     * adapter direct proxy it's active.
+     * Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+     * proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+     * adapter is inactive or the adapter direct proxy it's active.
      * @param context The Context map to send with the invocation.
      */
     ::Ice::ObjectPrx activate(const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -6266,11 +6147,9 @@ public:
     }
 
     /**
-     * Activate this adapter. If this adapter can be activated, this
-     * will activate the adapter and return the direct proxy of the
-     * adapter once it's active. If this adapter can be activated on
-     * demand, this will return 0 if the adapter is inactive or the
-     * adapter direct proxy it's active.
+     * Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+     * proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+     * adapter is inactive or the adapter direct proxy it's active.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -6280,11 +6159,9 @@ public:
     }
 
     /**
-     * Activate this adapter. If this adapter can be activated, this
-     * will activate the adapter and return the direct proxy of the
-     * adapter once it's active. If this adapter can be activated on
-     * demand, this will return 0 if the adapter is inactive or the
-     * adapter direct proxy it's active.
+     * Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+     * proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+     * adapter is inactive or the adapter direct proxy it's active.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -6295,11 +6172,9 @@ public:
     }
 
     /**
-     * Activate this adapter. If this adapter can be activated, this
-     * will activate the adapter and return the direct proxy of the
-     * adapter once it's active. If this adapter can be activated on
-     * demand, this will return 0 if the adapter is inactive or the
-     * adapter direct proxy it's active.
+     * Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+     * proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+     * adapter is inactive or the adapter direct proxy it's active.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -6311,11 +6186,9 @@ public:
     }
 
     /**
-     * Activate this adapter. If this adapter can be activated, this
-     * will activate the adapter and return the direct proxy of the
-     * adapter once it's active. If this adapter can be activated on
-     * demand, this will return 0 if the adapter is inactive or the
-     * adapter direct proxy it's active.
+     * Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+     * proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+     * adapter is inactive or the adapter direct proxy it's active.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -6326,11 +6199,9 @@ public:
     }
 
     /**
-     * Activate this adapter. If this adapter can be activated, this
-     * will activate the adapter and return the direct proxy of the
-     * adapter once it's active. If this adapter can be activated on
-     * demand, this will return 0 if the adapter is inactive or the
-     * adapter direct proxy it's active.
+     * Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+     * proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+     * adapter is inactive or the adapter direct proxy it's active.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -6354,12 +6225,10 @@ private:
 public:
 
     /**
-     * Get the adapter direct proxy. The adapter direct proxy is a
-     * proxy created with the object adapter. The proxy contains the
-     * last known adapter endpoints.
+     * Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+     * contains the last known adapter endpoints.
      * @param context The Context map to send with the invocation.
-     * @return A direct proxy containing the last known adapter
-     * endpoints if the adapter is already active.
+     * @return A direct proxy containing the last known adapter endpoints if the adapter is already active.
      */
     ::Ice::ObjectPrx getDirectProxy(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -6367,9 +6236,8 @@ public:
     }
 
     /**
-     * Get the adapter direct proxy. The adapter direct proxy is a
-     * proxy created with the object adapter. The proxy contains the
-     * last known adapter endpoints.
+     * Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+     * contains the last known adapter endpoints.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -6379,9 +6247,8 @@ public:
     }
 
     /**
-     * Get the adapter direct proxy. The adapter direct proxy is a
-     * proxy created with the object adapter. The proxy contains the
-     * last known adapter endpoints.
+     * Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+     * contains the last known adapter endpoints.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -6392,9 +6259,8 @@ public:
     }
 
     /**
-     * Get the adapter direct proxy. The adapter direct proxy is a
-     * proxy created with the object adapter. The proxy contains the
-     * last known adapter endpoints.
+     * Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+     * contains the last known adapter endpoints.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -6406,9 +6272,8 @@ public:
     }
 
     /**
-     * Get the adapter direct proxy. The adapter direct proxy is a
-     * proxy created with the object adapter. The proxy contains the
-     * last known adapter endpoints.
+     * Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+     * contains the last known adapter endpoints.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -6419,9 +6284,8 @@ public:
     }
 
     /**
-     * Get the adapter direct proxy. The adapter direct proxy is a
-     * proxy created with the object adapter. The proxy contains the
-     * last known adapter endpoints.
+     * Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+     * contains the last known adapter endpoints.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -6435,8 +6299,7 @@ public:
     /**
      * Completes an invocation of begin_getDirectProxy.
      * @param result The asynchronous result object for the invocation.
-     * @return A direct proxy containing the last known adapter
-     * endpoints if the adapter is already active.
+     * @return A direct proxy containing the last known adapter endpoints if the adapter is already active.
      */
     ::Ice::ObjectPrx end_getDirectProxy(const ::Ice::AsyncResultPtr& result);
 
@@ -6449,9 +6312,8 @@ public:
     /**
      * Set the direct proxy for this adapter.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::AdapterActiveException The adapter is already
-     * active. It's not possible to override the direct proxy of an
-     * active adapter.
+     * @throws IceGrid::AdapterActiveException The adapter is already active. It's not possible to override the direct proxy of
+     * an active adapter.
      */
     void setDirectProxy(const ::Ice::ObjectPrx& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -6517,9 +6379,8 @@ public:
     /**
      * Completes an invocation of begin_setDirectProxy.
      * @param result The asynchronous result object for the invocation.
-     * @throws IceGrid::AdapterActiveException The adapter is already
-     * active. It's not possible to override the direct proxy of an
-     * active adapter.
+     * @throws IceGrid::AdapterActiveException The adapter is already active. It's not possible to override the direct proxy of
+     * an active adapter.
      */
     void end_setDirectProxy(const ::Ice::AsyncResultPtr& result);
 
@@ -6547,8 +6408,7 @@ class FileReader : public virtual ::Ice::Proxy<FileReader, ::IceProxy::Ice::Obje
 public:
 
     /**
-     * Count the number of given lines from the end of the file and
-     * return the file offset.
+     * Count the number of given lines from the end of the file and return the file offset.
      * @param context The Context map to send with the invocation.
      */
     ::Ice::Long getOffsetFromEnd(const ::std::string& filename, ::Ice::Int lines, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -6557,8 +6417,7 @@ public:
     }
 
     /**
-     * Count the number of given lines from the end of the file and
-     * return the file offset.
+     * Count the number of given lines from the end of the file and return the file offset.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -6568,8 +6427,7 @@ public:
     }
 
     /**
-     * Count the number of given lines from the end of the file and
-     * return the file offset.
+     * Count the number of given lines from the end of the file and return the file offset.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -6580,8 +6438,7 @@ public:
     }
 
     /**
-     * Count the number of given lines from the end of the file and
-     * return the file offset.
+     * Count the number of given lines from the end of the file and return the file offset.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -6593,8 +6450,7 @@ public:
     }
 
     /**
-     * Count the number of given lines from the end of the file and
-     * return the file offset.
+     * Count the number of given lines from the end of the file and return the file offset.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -6605,8 +6461,7 @@ public:
     }
 
     /**
-     * Count the number of given lines from the end of the file and
-     * return the file offset.
+     * Count the number of given lines from the end of the file and return the file offset.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -6805,9 +6660,8 @@ private:
 public:
 
     /**
-     * Stop the server. This methods returns only when the server is
-     * deactivated. If the server doesn't stop after a configurable
-     * amount of time, it will be killed.
+     * Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+     * configurable amount of time, it will be killed.
      * @param context The Context map to send with the invocation.
      */
     void stop(const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -6816,9 +6670,8 @@ public:
     }
 
     /**
-     * Stop the server. This methods returns only when the server is
-     * deactivated. If the server doesn't stop after a configurable
-     * amount of time, it will be killed.
+     * Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+     * configurable amount of time, it will be killed.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -6828,9 +6681,8 @@ public:
     }
 
     /**
-     * Stop the server. This methods returns only when the server is
-     * deactivated. If the server doesn't stop after a configurable
-     * amount of time, it will be killed.
+     * Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+     * configurable amount of time, it will be killed.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -6841,9 +6693,8 @@ public:
     }
 
     /**
-     * Stop the server. This methods returns only when the server is
-     * deactivated. If the server doesn't stop after a configurable
-     * amount of time, it will be killed.
+     * Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+     * configurable amount of time, it will be killed.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -6855,9 +6706,8 @@ public:
     }
 
     /**
-     * Stop the server. This methods returns only when the server is
-     * deactivated. If the server doesn't stop after a configurable
-     * amount of time, it will be killed.
+     * Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+     * configurable amount of time, it will be killed.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -6868,9 +6718,8 @@ public:
     }
 
     /**
-     * Stop the server. This methods returns only when the server is
-     * deactivated. If the server doesn't stop after a configurable
-     * amount of time, it will be killed.
+     * Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+     * configurable amount of time, it will be killed.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -7368,10 +7217,8 @@ private:
 public:
 
     /**
-     * Get the server pid. Note that the value returned by this method
-     * is system dependant. On Unix operating systems, it's the pid
-     * value returned by the fork() system call and converted to an
-     * integer.
+     * Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+     * it's the pid value returned by the fork() system call and converted to an integer.
      * @param context The Context map to send with the invocation.
      */
     ::Ice::Int getPid(const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -7380,10 +7227,8 @@ public:
     }
 
     /**
-     * Get the server pid. Note that the value returned by this method
-     * is system dependant. On Unix operating systems, it's the pid
-     * value returned by the fork() system call and converted to an
-     * integer.
+     * Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+     * it's the pid value returned by the fork() system call and converted to an integer.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -7393,10 +7238,8 @@ public:
     }
 
     /**
-     * Get the server pid. Note that the value returned by this method
-     * is system dependant. On Unix operating systems, it's the pid
-     * value returned by the fork() system call and converted to an
-     * integer.
+     * Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+     * it's the pid value returned by the fork() system call and converted to an integer.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -7407,10 +7250,8 @@ public:
     }
 
     /**
-     * Get the server pid. Note that the value returned by this method
-     * is system dependant. On Unix operating systems, it's the pid
-     * value returned by the fork() system call and converted to an
-     * integer.
+     * Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+     * it's the pid value returned by the fork() system call and converted to an integer.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -7422,10 +7263,8 @@ public:
     }
 
     /**
-     * Get the server pid. Note that the value returned by this method
-     * is system dependant. On Unix operating systems, it's the pid
-     * value returned by the fork() system call and converted to an
-     * integer.
+     * Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+     * it's the pid value returned by the fork() system call and converted to an integer.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -7436,10 +7275,8 @@ public:
     }
 
     /**
-     * Get the server pid. Note that the value returned by this method
-     * is system dependant. On Unix operating systems, it's the pid
-     * value returned by the fork() system call and converted to an
-     * integer.
+     * Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+     * it's the pid value returned by the fork() system call and converted to an integer.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -7634,8 +7471,7 @@ private:
 public:
 
     /**
-     * Notification that a replica has been added. The node should
-     * establish a session with this new replica.
+     * Notification that a replica has been added. The node should establish a session with this new replica.
      * @param context The Context map to send with the invocation.
      */
     void replicaAdded(const ::IceGrid::InternalRegistryPrx& replica, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -7644,8 +7480,7 @@ public:
     }
 
     /**
-     * Notification that a replica has been added. The node should
-     * establish a session with this new replica.
+     * Notification that a replica has been added. The node should establish a session with this new replica.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -7655,8 +7490,7 @@ public:
     }
 
     /**
-     * Notification that a replica has been added. The node should
-     * establish a session with this new replica.
+     * Notification that a replica has been added. The node should establish a session with this new replica.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -7667,8 +7501,7 @@ public:
     }
 
     /**
-     * Notification that a replica has been added. The node should
-     * establish a session with this new replica.
+     * Notification that a replica has been added. The node should establish a session with this new replica.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -7680,8 +7513,7 @@ public:
     }
 
     /**
-     * Notification that a replica has been added. The node should
-     * establish a session with this new replica.
+     * Notification that a replica has been added. The node should establish a session with this new replica.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -7692,8 +7524,7 @@ public:
     }
 
     /**
-     * Notification that a replica has been added. The node should
-     * establish a session with this new replica.
+     * Notification that a replica has been added. The node should establish a session with this new replica.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -7717,8 +7548,7 @@ private:
 public:
 
     /**
-     * Notification that a replica has been removed. The node should
-     * destroy the session to this replica.
+     * Notification that a replica has been removed. The node should destroy the session to this replica.
      * @param context The Context map to send with the invocation.
      */
     void replicaRemoved(const ::IceGrid::InternalRegistryPrx& replica, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -7727,8 +7557,7 @@ public:
     }
 
     /**
-     * Notification that a replica has been removed. The node should
-     * destroy the session to this replica.
+     * Notification that a replica has been removed. The node should destroy the session to this replica.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -7738,8 +7567,7 @@ public:
     }
 
     /**
-     * Notification that a replica has been removed. The node should
-     * destroy the session to this replica.
+     * Notification that a replica has been removed. The node should destroy the session to this replica.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -7750,8 +7578,7 @@ public:
     }
 
     /**
-     * Notification that a replica has been removed. The node should
-     * destroy the session to this replica.
+     * Notification that a replica has been removed. The node should destroy the session to this replica.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -7763,8 +7590,7 @@ public:
     }
 
     /**
-     * Notification that a replica has been removed. The node should
-     * destroy the session to this replica.
+     * Notification that a replica has been removed. The node should destroy the session to this replica.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -7775,8 +7601,7 @@ public:
     }
 
     /**
-     * Notification that a replica has been removed. The node should
-     * destroy the session to this replica.
+     * Notification that a replica has been removed. The node should destroy the session to this replica.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -8002,9 +7827,8 @@ class Node : public virtual ::Ice::Proxy<Node, _NodeBase>
 public:
 
     /**
-     * Load the given server. If the server resources weren't already
-     * created (database environment directories, property files, etc),
-     * they will be created.
+     * Load the given server. If the server resources weren't already created (database environment directories,
+     * property files, etc), they will be created.
      * @param context The Context map to send with the invocation.
      */
     ::IceGrid::ServerPrx loadServer(const ::IceGrid::InternalServerDescriptorPtr& svr, const ::std::string& replicaName, ::IceGrid::AdapterPrxDict& adapters, ::Ice::Int& actTimeout, ::Ice::Int& deactTimeout, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -8013,9 +7837,8 @@ public:
     }
 
     /**
-     * Load the given server. If the server resources weren't already
-     * created (database environment directories, property files, etc),
-     * they will be created.
+     * Load the given server. If the server resources weren't already created (database environment directories,
+     * property files, etc), they will be created.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -8025,9 +7848,8 @@ public:
     }
 
     /**
-     * Load the given server. If the server resources weren't already
-     * created (database environment directories, property files, etc),
-     * they will be created.
+     * Load the given server. If the server resources weren't already created (database environment directories,
+     * property files, etc), they will be created.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -8038,9 +7860,8 @@ public:
     }
 
     /**
-     * Load the given server. If the server resources weren't already
-     * created (database environment directories, property files, etc),
-     * they will be created.
+     * Load the given server. If the server resources weren't already created (database environment directories,
+     * property files, etc), they will be created.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -8052,9 +7873,8 @@ public:
     }
 
     /**
-     * Load the given server. If the server resources weren't already
-     * created (database environment directories, property files, etc),
-     * they will be created.
+     * Load the given server. If the server resources weren't already created (database environment directories,
+     * property files, etc), they will be created.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -8065,9 +7885,8 @@ public:
     }
 
     /**
-     * Load the given server. If the server resources weren't already
-     * created (database environment directories, property files, etc),
-     * they will be created.
+     * Load the given server. If the server resources weren't already created (database environment directories,
+     * property files, etc), they will be created.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -8095,11 +7914,9 @@ private:
 public:
 
     /**
-     * Load the given server and ensure the server won't be
-     * restarted. If the server resources weren't already created
-     * (database environment directories, property files, etc), they
-     * will be created. If the server can't be updated without a
-     * restart, a DeploymentException is raised.
+     * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+     * (database environment directories, property files, etc), they will be created. If the server can't be updated
+     * without a restart, a DeploymentException is raised.
      * @param context The Context map to send with the invocation.
      */
     ::IceGrid::ServerPrx loadServerWithoutRestart(const ::IceGrid::InternalServerDescriptorPtr& svr, const ::std::string& replicaName, ::IceGrid::AdapterPrxDict& adapters, ::Ice::Int& actTimeout, ::Ice::Int& deactTimeout, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -8108,11 +7925,9 @@ public:
     }
 
     /**
-     * Load the given server and ensure the server won't be
-     * restarted. If the server resources weren't already created
-     * (database environment directories, property files, etc), they
-     * will be created. If the server can't be updated without a
-     * restart, a DeploymentException is raised.
+     * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+     * (database environment directories, property files, etc), they will be created. If the server can't be updated
+     * without a restart, a DeploymentException is raised.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -8122,11 +7937,9 @@ public:
     }
 
     /**
-     * Load the given server and ensure the server won't be
-     * restarted. If the server resources weren't already created
-     * (database environment directories, property files, etc), they
-     * will be created. If the server can't be updated without a
-     * restart, a DeploymentException is raised.
+     * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+     * (database environment directories, property files, etc), they will be created. If the server can't be updated
+     * without a restart, a DeploymentException is raised.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -8137,11 +7950,9 @@ public:
     }
 
     /**
-     * Load the given server and ensure the server won't be
-     * restarted. If the server resources weren't already created
-     * (database environment directories, property files, etc), they
-     * will be created. If the server can't be updated without a
-     * restart, a DeploymentException is raised.
+     * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+     * (database environment directories, property files, etc), they will be created. If the server can't be updated
+     * without a restart, a DeploymentException is raised.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -8153,11 +7964,9 @@ public:
     }
 
     /**
-     * Load the given server and ensure the server won't be
-     * restarted. If the server resources weren't already created
-     * (database environment directories, property files, etc), they
-     * will be created. If the server can't be updated without a
-     * restart, a DeploymentException is raised.
+     * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+     * (database environment directories, property files, etc), they will be created. If the server can't be updated
+     * without a restart, a DeploymentException is raised.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -8168,11 +7977,9 @@ public:
     }
 
     /**
-     * Load the given server and ensure the server won't be
-     * restarted. If the server resources weren't already created
-     * (database environment directories, property files, etc), they
-     * will be created. If the server can't be updated without a
-     * restart, a DeploymentException is raised.
+     * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+     * (database environment directories, property files, etc), they will be created. If the server can't be updated
+     * without a restart, a DeploymentException is raised.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -8354,10 +8161,9 @@ private:
 public:
 
     /**
-     * Patch application and server distributions. If some servers
-     * using a distribution directory to patch are active, this method
-     * will raise a PatchException unless shutdown is set to true. In
-     * which case the servers will be shutdown.
+     * Patch application and server distributions. If some servers using a distribution directory to patch are active,
+     * this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
+     * shutdown.
      * @param context The Context map to send with the invocation.
      */
     void patch(const ::IceGrid::PatcherFeedbackPrx& feedback, const ::std::string& application, const ::std::string& server, const ::IceGrid::InternalDistributionDescriptorPtr& appDistrib, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -8366,10 +8172,9 @@ public:
     }
 
     /**
-     * Patch application and server distributions. If some servers
-     * using a distribution directory to patch are active, this method
-     * will raise a PatchException unless shutdown is set to true. In
-     * which case the servers will be shutdown.
+     * Patch application and server distributions. If some servers using a distribution directory to patch are active,
+     * this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
+     * shutdown.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -8379,10 +8184,9 @@ public:
     }
 
     /**
-     * Patch application and server distributions. If some servers
-     * using a distribution directory to patch are active, this method
-     * will raise a PatchException unless shutdown is set to true. In
-     * which case the servers will be shutdown.
+     * Patch application and server distributions. If some servers using a distribution directory to patch are active,
+     * this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
+     * shutdown.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -8393,10 +8197,9 @@ public:
     }
 
     /**
-     * Patch application and server distributions. If some servers
-     * using a distribution directory to patch are active, this method
-     * will raise a PatchException unless shutdown is set to true. In
-     * which case the servers will be shutdown.
+     * Patch application and server distributions. If some servers using a distribution directory to patch are active,
+     * this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
+     * shutdown.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -8408,10 +8211,9 @@ public:
     }
 
     /**
-     * Patch application and server distributions. If some servers
-     * using a distribution directory to patch are active, this method
-     * will raise a PatchException unless shutdown is set to true. In
-     * which case the servers will be shutdown.
+     * Patch application and server distributions. If some servers using a distribution directory to patch are active,
+     * this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
+     * shutdown.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -8422,10 +8224,9 @@ public:
     }
 
     /**
-     * Patch application and server distributions. If some servers
-     * using a distribution directory to patch are active, this method
-     * will raise a PatchException unless shutdown is set to true. In
-     * which case the servers will be shutdown.
+     * Patch application and server distributions. If some servers using a distribution directory to patch are active,
+     * this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
+     * shutdown.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -8449,8 +8250,7 @@ private:
 public:
 
     /**
-     * Establish a session to the given replica, this method only
-     * returns once the registration was attempted (unlike
+     * Establish a session to the given replica, this method only returns once the registration was attempted (unlike
      * replicaAdded below).
      * @param context The Context map to send with the invocation.
      */
@@ -8460,8 +8260,7 @@ public:
     }
 
     /**
-     * Establish a session to the given replica, this method only
-     * returns once the registration was attempted (unlike
+     * Establish a session to the given replica, this method only returns once the registration was attempted (unlike
      * replicaAdded below).
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -8472,8 +8271,7 @@ public:
     }
 
     /**
-     * Establish a session to the given replica, this method only
-     * returns once the registration was attempted (unlike
+     * Establish a session to the given replica, this method only returns once the registration was attempted (unlike
      * replicaAdded below).
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -8485,8 +8283,7 @@ public:
     }
 
     /**
-     * Establish a session to the given replica, this method only
-     * returns once the registration was attempted (unlike
+     * Establish a session to the given replica, this method only returns once the registration was attempted (unlike
      * replicaAdded below).
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -8499,8 +8296,7 @@ public:
     }
 
     /**
-     * Establish a session to the given replica, this method only
-     * returns once the registration was attempted (unlike
+     * Establish a session to the given replica, this method only returns once the registration was attempted (unlike
      * replicaAdded below).
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -8512,8 +8308,7 @@ public:
     }
 
     /**
-     * Establish a session to the given replica, this method only
-     * returns once the registration was attempted (unlike
+     * Establish a session to the given replica, this method only returns once the registration was attempted (unlike
      * replicaAdded below).
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -8769,8 +8564,7 @@ private:
 public:
 
     /**
-     * Get the number of processor sockets for the machine where this
-     * node is running.
+     * Get the number of processor sockets for the machine where this node is running.
      * @param context The Context map to send with the invocation.
      */
     ::Ice::Int getProcessorSocketCount(const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -8779,8 +8573,7 @@ public:
     }
 
     /**
-     * Get the number of processor sockets for the machine where this
-     * node is running.
+     * Get the number of processor sockets for the machine where this node is running.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -8790,8 +8583,7 @@ public:
     }
 
     /**
-     * Get the number of processor sockets for the machine where this
-     * node is running.
+     * Get the number of processor sockets for the machine where this node is running.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -8802,8 +8594,7 @@ public:
     }
 
     /**
-     * Get the number of processor sockets for the machine where this
-     * node is running.
+     * Get the number of processor sockets for the machine where this node is running.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -8815,8 +8606,7 @@ public:
     }
 
     /**
-     * Get the number of processor sockets for the machine where this
-     * node is running.
+     * Get the number of processor sockets for the machine where this node is running.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -8827,8 +8617,7 @@ public:
     }
 
     /**
-     * Get the number of processor sockets for the machine where this
-     * node is running.
+     * Get the number of processor sockets for the machine where this node is running.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -9023,9 +8812,8 @@ private:
 public:
 
     /**
-     * Set the replica observer. The node calls this method when it's
-     * ready to receive notifications for the replicas. It only calls
-     * this for the session with the master.
+     * Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+     * It only calls this for the session with the master.
      * @param context The Context map to send with the invocation.
      */
     void setReplicaObserver(const ::IceGrid::ReplicaObserverPrx& observer, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -9034,9 +8822,8 @@ public:
     }
 
     /**
-     * Set the replica observer. The node calls this method when it's
-     * ready to receive notifications for the replicas. It only calls
-     * this for the session with the master.
+     * Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+     * It only calls this for the session with the master.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -9046,9 +8833,8 @@ public:
     }
 
     /**
-     * Set the replica observer. The node calls this method when it's
-     * ready to receive notifications for the replicas. It only calls
-     * this for the session with the master.
+     * Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+     * It only calls this for the session with the master.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -9059,9 +8845,8 @@ public:
     }
 
     /**
-     * Set the replica observer. The node calls this method when it's
-     * ready to receive notifications for the replicas. It only calls
-     * this for the session with the master.
+     * Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+     * It only calls this for the session with the master.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -9073,9 +8858,8 @@ public:
     }
 
     /**
-     * Set the replica observer. The node calls this method when it's
-     * ready to receive notifications for the replicas. It only calls
-     * this for the session with the master.
+     * Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+     * It only calls this for the session with the master.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -9086,9 +8870,8 @@ public:
     }
 
     /**
-     * Set the replica observer. The node calls this method when it's
-     * ready to receive notifications for the replicas. It only calls
-     * this for the session with the master.
+     * Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+     * It only calls this for the session with the master.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -9420,11 +9203,9 @@ private:
 public:
 
     /**
-     * Wait for the application update to complete (the application is
-     * completely updated once all the registry replicas have been
-     * updated). This is used by the node to ensure that before to
-     * start a server all the replicas have the up-to-date descriptor
-     * of the server.
+     * Wait for the application update to complete (the application is completely updated once all the registry
+     * replicas have been updated). This is used by the node to ensure that before to start a server all the
+     * replicas have the up-to-date descriptor of the server.
      * @param context The Context map to send with the invocation.
      */
     void waitForApplicationUpdate(const ::std::string& application, ::Ice::Int revision, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -9433,11 +9214,9 @@ public:
     }
 
     /**
-     * Wait for the application update to complete (the application is
-     * completely updated once all the registry replicas have been
-     * updated). This is used by the node to ensure that before to
-     * start a server all the replicas have the up-to-date descriptor
-     * of the server.
+     * Wait for the application update to complete (the application is completely updated once all the registry
+     * replicas have been updated). This is used by the node to ensure that before to start a server all the
+     * replicas have the up-to-date descriptor of the server.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -9447,11 +9226,9 @@ public:
     }
 
     /**
-     * Wait for the application update to complete (the application is
-     * completely updated once all the registry replicas have been
-     * updated). This is used by the node to ensure that before to
-     * start a server all the replicas have the up-to-date descriptor
-     * of the server.
+     * Wait for the application update to complete (the application is completely updated once all the registry
+     * replicas have been updated). This is used by the node to ensure that before to start a server all the
+     * replicas have the up-to-date descriptor of the server.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -9462,11 +9239,9 @@ public:
     }
 
     /**
-     * Wait for the application update to complete (the application is
-     * completely updated once all the registry replicas have been
-     * updated). This is used by the node to ensure that before to
-     * start a server all the replicas have the up-to-date descriptor
-     * of the server.
+     * Wait for the application update to complete (the application is completely updated once all the registry
+     * replicas have been updated). This is used by the node to ensure that before to start a server all the
+     * replicas have the up-to-date descriptor of the server.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -9478,11 +9253,9 @@ public:
     }
 
     /**
-     * Wait for the application update to complete (the application is
-     * completely updated once all the registry replicas have been
-     * updated). This is used by the node to ensure that before to
-     * start a server all the replicas have the up-to-date descriptor
-     * of the server.
+     * Wait for the application update to complete (the application is completely updated once all the registry
+     * replicas have been updated). This is used by the node to ensure that before to start a server all the
+     * replicas have the up-to-date descriptor of the server.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -9493,11 +9266,9 @@ public:
     }
 
     /**
-     * Wait for the application update to complete (the application is
-     * completely updated once all the registry replicas have been
-     * updated). This is used by the node to ensure that before to
-     * start a server all the replicas have the up-to-date descriptor
-     * of the server.
+     * Wait for the application update to complete (the application is completely updated once all the registry
+     * replicas have been updated). This is used by the node to ensure that before to start a server all the
+     * replicas have the up-to-date descriptor of the server.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -9801,8 +9572,7 @@ private:
 public:
 
     /**
-     * Set the database observer. Once the observer is subscribed, it
-     * will receive the database and database updates.
+     * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      * @param context The Context map to send with the invocation.
      */
     void setDatabaseObserver(const ::IceGrid::DatabaseObserverPrx& dbObs, const IceUtil::Optional< ::IceGrid::StringLongDict>& serials, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -9811,8 +9581,7 @@ public:
     }
 
     /**
-     * Set the database observer. Once the observer is subscribed, it
-     * will receive the database and database updates.
+     * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -9822,8 +9591,7 @@ public:
     }
 
     /**
-     * Set the database observer. Once the observer is subscribed, it
-     * will receive the database and database updates.
+     * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -9834,8 +9602,7 @@ public:
     }
 
     /**
-     * Set the database observer. Once the observer is subscribed, it
-     * will receive the database and database updates.
+     * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -9847,8 +9614,7 @@ public:
     }
 
     /**
-     * Set the database observer. Once the observer is subscribed, it
-     * will receive the database and database updates.
+     * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -9859,8 +9625,7 @@ public:
     }
 
     /**
-     * Set the database observer. Once the observer is subscribed, it
-     * will receive the database and database updates.
+     * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -9884,9 +9649,8 @@ private:
 public:
 
     /**
-     * This method sets the endpoints of the replica. This allows the
-     * master to create proxies with multiple endpoints for replicated
-     * objects (e.g.: IceGrid::Query object).
+     * This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+     * for replicated objects (e.g.: IceGrid::Query object).
      * @param context The Context map to send with the invocation.
      */
     void setEndpoints(const ::IceGrid::StringObjectProxyDict& endpoints, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -9895,9 +9659,8 @@ public:
     }
 
     /**
-     * This method sets the endpoints of the replica. This allows the
-     * master to create proxies with multiple endpoints for replicated
-     * objects (e.g.: IceGrid::Query object).
+     * This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+     * for replicated objects (e.g.: IceGrid::Query object).
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -9907,9 +9670,8 @@ public:
     }
 
     /**
-     * This method sets the endpoints of the replica. This allows the
-     * master to create proxies with multiple endpoints for replicated
-     * objects (e.g.: IceGrid::Query object).
+     * This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+     * for replicated objects (e.g.: IceGrid::Query object).
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -9920,9 +9682,8 @@ public:
     }
 
     /**
-     * This method sets the endpoints of the replica. This allows the
-     * master to create proxies with multiple endpoints for replicated
-     * objects (e.g.: IceGrid::Query object).
+     * This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+     * for replicated objects (e.g.: IceGrid::Query object).
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -9934,9 +9695,8 @@ public:
     }
 
     /**
-     * This method sets the endpoints of the replica. This allows the
-     * master to create proxies with multiple endpoints for replicated
-     * objects (e.g.: IceGrid::Query object).
+     * This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+     * for replicated objects (e.g.: IceGrid::Query object).
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -9947,9 +9707,8 @@ public:
     }
 
     /**
-     * This method sets the endpoints of the replica. This allows the
-     * master to create proxies with multiple endpoints for replicated
-     * objects (e.g.: IceGrid::Query object).
+     * This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+     * for replicated objects (e.g.: IceGrid::Query object).
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -10050,9 +9809,8 @@ private:
 public:
 
     /**
-     * Set the adapter direct proxy of the given adapter in the
-     * master. This is used to support dynamic registration with
-     * the locator registry interface.
+     * Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+     * with the locator registry interface.
      * @param context The Context map to send with the invocation.
      */
     void setAdapterDirectProxy(const ::std::string& adapterId, const ::std::string& replicaGroupId, const ::Ice::ObjectPrx& proxy, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -10061,9 +9819,8 @@ public:
     }
 
     /**
-     * Set the adapter direct proxy of the given adapter in the
-     * master. This is used to support dynamic registration with
-     * the locator registry interface.
+     * Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+     * with the locator registry interface.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -10073,9 +9830,8 @@ public:
     }
 
     /**
-     * Set the adapter direct proxy of the given adapter in the
-     * master. This is used to support dynamic registration with
-     * the locator registry interface.
+     * Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+     * with the locator registry interface.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -10086,9 +9842,8 @@ public:
     }
 
     /**
-     * Set the adapter direct proxy of the given adapter in the
-     * master. This is used to support dynamic registration with
-     * the locator registry interface.
+     * Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+     * with the locator registry interface.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -10100,9 +9855,8 @@ public:
     }
 
     /**
-     * Set the adapter direct proxy of the given adapter in the
-     * master. This is used to support dynamic registration with
-     * the locator registry interface.
+     * Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+     * with the locator registry interface.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -10113,9 +9867,8 @@ public:
     }
 
     /**
-     * Set the adapter direct proxy of the given adapter in the
-     * master. This is used to support dynamic registration with
-     * the locator registry interface.
+     * Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+     * with the locator registry interface.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -10139,9 +9892,8 @@ private:
 public:
 
     /**
-     * Notify the master that an update was received. The master might
-     * wait for replication updates to be received by all the replicas
-     * before to continue.
+     * Notify the master that an update was received. The master might wait for replication updates to be received by
+     * all the replicas before to continue.
      * @param context The Context map to send with the invocation.
      */
     void receivedUpdate(::IceGrid::TopicName name, ::Ice::Int serial, const ::std::string& failure, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -10150,9 +9902,8 @@ public:
     }
 
     /**
-     * Notify the master that an update was received. The master might
-     * wait for replication updates to be received by all the replicas
-     * before to continue.
+     * Notify the master that an update was received. The master might wait for replication updates to be received by
+     * all the replicas before to continue.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -10162,9 +9913,8 @@ public:
     }
 
     /**
-     * Notify the master that an update was received. The master might
-     * wait for replication updates to be received by all the replicas
-     * before to continue.
+     * Notify the master that an update was received. The master might wait for replication updates to be received by
+     * all the replicas before to continue.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -10175,9 +9925,8 @@ public:
     }
 
     /**
-     * Notify the master that an update was received. The master might
-     * wait for replication updates to be received by all the replicas
-     * before to continue.
+     * Notify the master that an update was received. The master might wait for replication updates to be received by
+     * all the replicas before to continue.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -10189,9 +9938,8 @@ public:
     }
 
     /**
-     * Notify the master that an update was received. The master might
-     * wait for replication updates to be received by all the replicas
-     * before to continue.
+     * Notify the master that an update was received. The master might wait for replication updates to be received by
+     * all the replicas before to continue.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -10202,9 +9950,8 @@ public:
     }
 
     /**
-     * Notify the master that an update was received. The master might
-     * wait for replication updates to be received by all the replicas
-     * before to continue.
+     * Notify the master that an update was received. The master might wait for replication updates to be received by
+     * all the replicas before to continue.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -10356,16 +10103,14 @@ class InternalRegistry : public virtual ::Ice::Proxy<InternalRegistry, ::IceProx
 public:
 
     /**
-     * Register a node with the registry. If a node with the same name
-     * is already registered, [registerNode] will overide the previous
-     * node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
+     * overide the previous node only if it's not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
      * @param context The Context map to send with the invocation.
      * @return The node session proxy.
-     * @throws IceGrid::NodeActiveException Raised if the node is already
-     * registered and currently active.
+     * @throws IceGrid::NodeActiveException Raised if the node is already registered and currently active.
      */
     ::IceGrid::NodeSessionPrx registerNode(const ::IceGrid::InternalNodeInfoPtr& info, const ::IceGrid::NodePrx& prx, const ::IceGrid::LoadInfo& loadInf, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -10373,9 +10118,8 @@ public:
     }
 
     /**
-     * Register a node with the registry. If a node with the same name
-     * is already registered, [registerNode] will overide the previous
-     * node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
+     * overide the previous node only if it's not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
@@ -10388,9 +10132,8 @@ public:
     }
 
     /**
-     * Register a node with the registry. If a node with the same name
-     * is already registered, [registerNode] will overide the previous
-     * node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
+     * overide the previous node only if it's not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
@@ -10404,9 +10147,8 @@ public:
     }
 
     /**
-     * Register a node with the registry. If a node with the same name
-     * is already registered, [registerNode] will overide the previous
-     * node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
+     * overide the previous node only if it's not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
@@ -10421,9 +10163,8 @@ public:
     }
 
     /**
-     * Register a node with the registry. If a node with the same name
-     * is already registered, [registerNode] will overide the previous
-     * node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
+     * overide the previous node only if it's not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
@@ -10437,9 +10178,8 @@ public:
     }
 
     /**
-     * Register a node with the registry. If a node with the same name
-     * is already registered, [registerNode] will overide the previous
-     * node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
+     * overide the previous node only if it's not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
@@ -10457,8 +10197,7 @@ public:
      * Completes an invocation of begin_registerNode.
      * @param result The asynchronous result object for the invocation.
      * @return The node session proxy.
-     * @throws IceGrid::NodeActiveException Raised if the node is already
-     * registered and currently active.
+     * @throws IceGrid::NodeActiveException Raised if the node is already registered and currently active.
      */
     ::IceGrid::NodeSessionPrx end_registerNode(const ::Ice::AsyncResultPtr& result);
 
@@ -10469,15 +10208,13 @@ private:
 public:
 
     /**
-     * Register a replica with the registry. If a replica with the
-     * same name is already registered, [registerReplica] will overide
-     * the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
+     * will overide the previous replica only if it's not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @param context The Context map to send with the invocation.
      * @return The replica session proxy.
-     * @throws IceGrid::ReplicaActiveException Raised if the replica is already
-     * registered and currently active.
+     * @throws IceGrid::ReplicaActiveException Raised if the replica is already registered and currently active.
      */
     ::IceGrid::ReplicaSessionPrx registerReplica(const ::IceGrid::InternalReplicaInfoPtr& info, const ::IceGrid::InternalRegistryPrx& prx, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -10485,9 +10222,8 @@ public:
     }
 
     /**
-     * Register a replica with the registry. If a replica with the
-     * same name is already registered, [registerReplica] will overide
-     * the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
+     * will overide the previous replica only if it's not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @param context The Context map to send with the invocation.
@@ -10499,9 +10235,8 @@ public:
     }
 
     /**
-     * Register a replica with the registry. If a replica with the
-     * same name is already registered, [registerReplica] will overide
-     * the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
+     * will overide the previous replica only if it's not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @param cb Asynchronous callback object.
@@ -10514,9 +10249,8 @@ public:
     }
 
     /**
-     * Register a replica with the registry. If a replica with the
-     * same name is already registered, [registerReplica] will overide
-     * the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
+     * will overide the previous replica only if it's not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @param context The Context map to send with the invocation.
@@ -10530,9 +10264,8 @@ public:
     }
 
     /**
-     * Register a replica with the registry. If a replica with the
-     * same name is already registered, [registerReplica] will overide
-     * the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
+     * will overide the previous replica only if it's not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @param cb Asynchronous callback object.
@@ -10545,9 +10278,8 @@ public:
     }
 
     /**
-     * Register a replica with the registry. If a replica with the
-     * same name is already registered, [registerReplica] will overide
-     * the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
+     * will overide the previous replica only if it's not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @param context The Context map to send with the invocation.
@@ -10564,8 +10296,7 @@ public:
      * Completes an invocation of begin_registerReplica.
      * @param result The asynchronous result object for the invocation.
      * @return The replica session proxy.
-     * @throws IceGrid::ReplicaActiveException Raised if the replica is already
-     * registered and currently active.
+     * @throws IceGrid::ReplicaActiveException Raised if the replica is already registered and currently active.
      */
     ::IceGrid::ReplicaSessionPrx end_registerReplica(const ::Ice::AsyncResultPtr& result);
 
@@ -10576,8 +10307,8 @@ private:
 public:
 
     /**
-     * Create a session with the given registry replica. This method
-     * returns only once the session creation has been attempted.
+     * Create a session with the given registry replica. This method returns only once the session creation has been
+     * attempted.
      * @param context The Context map to send with the invocation.
      */
     void registerWithReplica(const ::IceGrid::InternalRegistryPrx& prx, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -10586,8 +10317,8 @@ public:
     }
 
     /**
-     * Create a session with the given registry replica. This method
-     * returns only once the session creation has been attempted.
+     * Create a session with the given registry replica. This method returns only once the session creation has been
+     * attempted.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -10597,8 +10328,8 @@ public:
     }
 
     /**
-     * Create a session with the given registry replica. This method
-     * returns only once the session creation has been attempted.
+     * Create a session with the given registry replica. This method returns only once the session creation has been
+     * attempted.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -10609,8 +10340,8 @@ public:
     }
 
     /**
-     * Create a session with the given registry replica. This method
-     * returns only once the session creation has been attempted.
+     * Create a session with the given registry replica. This method returns only once the session creation has been
+     * attempted.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -10622,8 +10353,8 @@ public:
     }
 
     /**
-     * Create a session with the given registry replica. This method
-     * returns only once the session creation has been attempted.
+     * Create a session with the given registry replica. This method returns only once the session creation has been
+     * attempted.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -10634,8 +10365,8 @@ public:
     }
 
     /**
-     * Create a session with the given registry replica. This method
-     * returns only once the session creation has been attempted.
+     * Create a session with the given registry replica. This method returns only once the session creation has been
+     * attempted.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -10736,8 +10467,7 @@ private:
 public:
 
     /**
-     * Return the proxies of all the registry replicas known by this
-     * registry.
+     * Return the proxies of all the registry replicas known by this registry.
      * @param context The Context map to send with the invocation.
      */
     ::IceGrid::InternalRegistryPrxSeq getReplicas(const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -10746,8 +10476,7 @@ public:
     }
 
     /**
-     * Return the proxies of all the registry replicas known by this
-     * registry.
+     * Return the proxies of all the registry replicas known by this registry.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -10757,8 +10486,7 @@ public:
     }
 
     /**
-     * Return the proxies of all the registry replicas known by this
-     * registry.
+     * Return the proxies of all the registry replicas known by this registry.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -10769,8 +10497,7 @@ public:
     }
 
     /**
-     * Return the proxies of all the registry replicas known by this
-     * registry.
+     * Return the proxies of all the registry replicas known by this registry.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -10782,8 +10509,7 @@ public:
     }
 
     /**
-     * Return the proxies of all the registry replicas known by this
-     * registry.
+     * Return the proxies of all the registry replicas known by this registry.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -10794,8 +10520,7 @@ public:
     }
 
     /**
-     * Return the proxies of all the registry replicas known by this
-     * registry.
+     * Return the proxies of all the registry replicas known by this registry.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -11649,11 +11374,9 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Activate this adapter. If this adapter can be activated, this
-     * will activate the adapter and return the direct proxy of the
-     * adapter once it's active. If this adapter can be activated on
-     * demand, this will return 0 if the adapter is inactive or the
-     * adapter direct proxy it's active.
+     * Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+     * proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+     * adapter is inactive or the adapter direct proxy it's active.
      * @param cb The AMD callback object for the invocation.
      * @param current The Current object for the invocation.
      */
@@ -11663,12 +11386,10 @@ public:
     /// \endcond
 
     /**
-     * Get the adapter direct proxy. The adapter direct proxy is a
-     * proxy created with the object adapter. The proxy contains the
-     * last known adapter endpoints.
+     * Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+     * contains the last known adapter endpoints.
      * @param current The Current object for the invocation.
-     * @return A direct proxy containing the last known adapter
-     * endpoints if the adapter is already active.
+     * @return A direct proxy containing the last known adapter endpoints if the adapter is already active.
      */
     virtual ::Ice::ObjectPrx getDirectProxy(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
     /// \cond INTERNAL
@@ -11678,9 +11399,8 @@ public:
     /**
      * Set the direct proxy for this adapter.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::AdapterActiveException The adapter is already
-     * active. It's not possible to override the direct proxy of an
-     * active adapter.
+     * @throws IceGrid::AdapterActiveException The adapter is already active. It's not possible to override the direct proxy of
+     * an active adapter.
      */
     virtual void setDirectProxy(const ::Ice::ObjectPrx& proxy, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -11755,8 +11475,7 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Count the number of given lines from the end of the file and
-     * return the file offset.
+     * Count the number of given lines from the end of the file and return the file offset.
      * @param current The Current object for the invocation.
      */
     virtual ::Ice::Long getOffsetFromEnd(const ::std::string& filename, ::Ice::Int lines, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
@@ -11851,9 +11570,8 @@ public:
     /// \endcond
 
     /**
-     * Stop the server. This methods returns only when the server is
-     * deactivated. If the server doesn't stop after a configurable
-     * amount of time, it will be killed.
+     * Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+     * configurable amount of time, it will be killed.
      * @param cb The AMD callback object for the invocation.
      * @param current The Current object for the invocation.
      */
@@ -11921,10 +11639,8 @@ public:
     /// \endcond
 
     /**
-     * Get the server pid. Note that the value returned by this method
-     * is system dependant. On Unix operating systems, it's the pid
-     * value returned by the fork() system call and converted to an
-     * integer.
+     * Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+     * it's the pid value returned by the fork() system call and converted to an integer.
      * @param current The Current object for the invocation.
      */
     virtual ::Ice::Int getPid(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
@@ -12019,8 +11735,7 @@ public:
     /// \endcond
 
     /**
-     * Notification that a replica has been added. The node should
-     * establish a session with this new replica.
+     * Notification that a replica has been added. The node should establish a session with this new replica.
      * @param current The Current object for the invocation.
      */
     virtual void replicaAdded(const InternalRegistryPrx& replica, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
@@ -12029,8 +11744,7 @@ public:
     /// \endcond
 
     /**
-     * Notification that a replica has been removed. The node should
-     * destroy the session to this replica.
+     * Notification that a replica has been removed. The node should destroy the session to this replica.
      * @param current The Current object for the invocation.
      */
     virtual void replicaRemoved(const InternalRegistryPrx& replica, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
@@ -12192,9 +11906,8 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Load the given server. If the server resources weren't already
-     * created (database environment directories, property files, etc),
-     * they will be created.
+     * Load the given server. If the server resources weren't already created (database environment directories,
+     * property files, etc), they will be created.
      * @param cb The AMD callback object for the invocation.
      * @param current The Current object for the invocation.
      */
@@ -12204,11 +11917,9 @@ public:
     /// \endcond
 
     /**
-     * Load the given server and ensure the server won't be
-     * restarted. If the server resources weren't already created
-     * (database environment directories, property files, etc), they
-     * will be created. If the server can't be updated without a
-     * restart, a DeploymentException is raised.
+     * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+     * (database environment directories, property files, etc), they will be created. If the server can't be updated
+     * without a restart, a DeploymentException is raised.
      * @param cb The AMD callback object for the invocation.
      * @param current The Current object for the invocation.
      */
@@ -12238,10 +11949,9 @@ public:
     /// \endcond
 
     /**
-     * Patch application and server distributions. If some servers
-     * using a distribution directory to patch are active, this method
-     * will raise a PatchException unless shutdown is set to true. In
-     * which case the servers will be shutdown.
+     * Patch application and server distributions. If some servers using a distribution directory to patch are active,
+     * this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
+     * shutdown.
      * @param cb The AMD callback object for the invocation.
      * @param current The Current object for the invocation.
      */
@@ -12251,8 +11961,7 @@ public:
     /// \endcond
 
     /**
-     * Establish a session to the given replica, this method only
-     * returns once the registration was attempted (unlike
+     * Establish a session to the given replica, this method only returns once the registration was attempted (unlike
      * replicaAdded below).
      * @param current The Current object for the invocation.
      */
@@ -12289,8 +11998,7 @@ public:
     /// \endcond
 
     /**
-     * Get the number of processor sockets for the machine where this
-     * node is running.
+     * Get the number of processor sockets for the machine where this node is running.
      * @param current The Current object for the invocation.
      */
     virtual ::Ice::Int getProcessorSocketCount(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
@@ -12384,9 +12092,8 @@ public:
     /// \endcond
 
     /**
-     * Set the replica observer. The node calls this method when it's
-     * ready to receive notifications for the replicas. It only calls
-     * this for the session with the master.
+     * Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+     * It only calls this for the session with the master.
      * @param current The Current object for the invocation.
      */
     virtual void setReplicaObserver(const ReplicaObserverPrx& observer, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
@@ -12432,11 +12139,9 @@ public:
     /// \endcond
 
     /**
-     * Wait for the application update to complete (the application is
-     * completely updated once all the registry replicas have been
-     * updated). This is used by the node to ensure that before to
-     * start a server all the replicas have the up-to-date descriptor
-     * of the server.
+     * Wait for the application update to complete (the application is completely updated once all the registry
+     * replicas have been updated). This is used by the node to ensure that before to start a server all the
+     * replicas have the up-to-date descriptor of the server.
      * @param cb The AMD callback object for the invocation.
      * @param current The Current object for the invocation.
      */
@@ -12609,8 +12314,7 @@ public:
     /// \endcond
 
     /**
-     * Set the database observer. Once the observer is subscribed, it
-     * will receive the database and database updates.
+     * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
      * @param current The Current object for the invocation.
      */
     virtual void setDatabaseObserver(const DatabaseObserverPrx& dbObs, const IceUtil::Optional<StringLongDict>& serials, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
@@ -12619,9 +12323,8 @@ public:
     /// \endcond
 
     /**
-     * This method sets the endpoints of the replica. This allows the
-     * master to create proxies with multiple endpoints for replicated
-     * objects (e.g.: IceGrid::Query object).
+     * This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+     * for replicated objects (e.g.: IceGrid::Query object).
      * @param current The Current object for the invocation.
      */
     virtual void setEndpoints(const StringObjectProxyDict& endpoints, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
@@ -12639,9 +12342,8 @@ public:
     /// \endcond
 
     /**
-     * Set the adapter direct proxy of the given adapter in the
-     * master. This is used to support dynamic registration with
-     * the locator registry interface.
+     * Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+     * with the locator registry interface.
      * @param current The Current object for the invocation.
      */
     virtual void setAdapterDirectProxy(const ::std::string& adapterId, const ::std::string& replicaGroupId, const ::Ice::ObjectPrx& proxy, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
@@ -12650,9 +12352,8 @@ public:
     /// \endcond
 
     /**
-     * Notify the master that an update was received. The master might
-     * wait for replication updates to be received by all the replicas
-     * before to continue.
+     * Notify the master that an update was received. The master might wait for replication updates to be received by
+     * all the replicas before to continue.
      * @param current The Current object for the invocation.
      */
     virtual void receivedUpdate(TopicName name, ::Ice::Int serial, const ::std::string& failure, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
@@ -12795,8 +12496,7 @@ public:
      */
     ::std::string os;
     /**
-     * The network name of the host running this node (as defined in
-     * uname()).
+     * The network name of the host running this node (as defined in uname()).
      */
     ::std::string hostname;
     /**
@@ -12812,8 +12512,7 @@ public:
      */
     ::std::string machine;
     /**
-     * The number of processor threads (e.g. 8 on
-     * system with 1 quad-core CPU, with 2 threads per core)
+     * The number of processor threads (e.g. 8 on system with 1 quad-core CPU, with 2 threads per core)
      */
     ::Ice::Int nProcessors;
     /**
@@ -12923,8 +12622,7 @@ public:
      */
     ::std::string name;
     /**
-     * The network name of the host running this registry (as defined in
-     * uname()).
+     * The network name of the host running this registry (as defined in uname()).
      */
     ::std::string hostname;
 };
@@ -12988,16 +12686,14 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Register a node with the registry. If a node with the same name
-     * is already registered, [registerNode] will overide the previous
-     * node only if it's not active.
+     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
+     * overide the previous node only if it's not active.
      * @param info Some information on the node.
      * @param prx The proxy of the node.
      * @param loadInf The load information of the node.
      * @param current The Current object for the invocation.
      * @return The node session proxy.
-     * @throws IceGrid::NodeActiveException Raised if the node is already
-     * registered and currently active.
+     * @throws IceGrid::NodeActiveException Raised if the node is already registered and currently active.
      */
     virtual NodeSessionPrx registerNode(const InternalNodeInfoPtr& info, const NodePrx& prx, const LoadInfo& loadInf, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -13005,15 +12701,13 @@ public:
     /// \endcond
 
     /**
-     * Register a replica with the registry. If a replica with the
-     * same name is already registered, [registerReplica] will overide
-     * the previous replica only if it's not active.
+     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
+     * will overide the previous replica only if it's not active.
      * @param info Some information on the replica.
      * @param prx The proxy of the replica.
      * @param current The Current object for the invocation.
      * @return The replica session proxy.
-     * @throws IceGrid::ReplicaActiveException Raised if the replica is already
-     * registered and currently active.
+     * @throws IceGrid::ReplicaActiveException Raised if the replica is already registered and currently active.
      */
     virtual ReplicaSessionPrx registerReplica(const InternalReplicaInfoPtr& info, const InternalRegistryPrx& prx, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -13021,8 +12715,8 @@ public:
     /// \endcond
 
     /**
-     * Create a session with the given registry replica. This method
-     * returns only once the session creation has been attempted.
+     * Create a session with the given registry replica. This method returns only once the session creation has been
+     * attempted.
      * @param current The Current object for the invocation.
      */
     virtual void registerWithReplica(const InternalRegistryPrx& prx, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
@@ -13040,8 +12734,7 @@ public:
     /// \endcond
 
     /**
-     * Return the proxies of all the registry replicas known by this
-     * registry.
+     * Return the proxies of all the registry replicas known by this registry.
      * @param current The Current object for the invocation.
      */
     virtual InternalRegistryPrxSeq getReplicas(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;

@@ -1,7 +1,6 @@
 % EndpointSelectionTypeParseException   Summary of EndpointSelectionTypeParseException
 %
-% This exception is raised if there was an error while parsing an
-% endpoint selection type.
+% This exception is raised if there was an error while parsing an endpoint selection type.
 %
 % EndpointSelectionTypeParseException Properties:
 %   str - Describes the failure and includes the string that could not be parsed.

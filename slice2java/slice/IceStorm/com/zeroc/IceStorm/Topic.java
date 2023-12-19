@@ -16,8 +16,7 @@
 package com.zeroc.IceStorm;
 
 /**
- * Publishers publish information on a particular topic. A topic
- * logically represents a type.
+ * Publishers publish information on a particular topic. A topic logically represents a type. A
  *
  * @see TopicManager
  **/
@@ -33,38 +32,30 @@ public interface Topic extends com.zeroc.Ice.Object
     String getName(com.zeroc.Ice.Current current);
 
     /**
-     * Get a proxy to a publisher object for this topic. To publish
-     * data to a topic, the publisher calls getPublisher and then
-     * casts to the topic type. An unchecked cast must be used on this
-     * proxy. If a replicated IceStorm deployment is used this call
-     * may return a replicated proxy.
+     * Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
+     * and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
+     * deployment is used this call may return a replicated proxy.
      * @param current The Current object for the invocation.
      * @return A proxy to publish data on this topic.
      **/
     com.zeroc.Ice.ObjectPrx getPublisher(com.zeroc.Ice.Current current);
 
     /**
-     * Get a non-replicated proxy to a publisher object for this
-     * topic. To publish data to a topic, the publisher calls
-     * getPublisher and then casts to the topic type. An unchecked
-     * cast must be used on this proxy.
+     * Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
+     * calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
      * @param current The Current object for the invocation.
      * @return A proxy to publish data on this topic.
      **/
     com.zeroc.Ice.ObjectPrx getNonReplicatedPublisher(com.zeroc.Ice.Current current);
 
     /**
-     * Subscribe with the given <code>qos</code> to this topic.  A
-     * per-subscriber publisher object is returned.
-     * @param theQoS The quality of service parameters for this
-     * subscription.
+     * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
+     * @param theQoS The quality of service parameters for this subscription.
      * @param subscriber The subscriber's proxy.
      * @param current The Current object for the invocation.
      * @return The per-subscriber publisher object.
-     * @throws AlreadySubscribed Raised if the subscriber object is
-     * already subscribed.
-     * @throws BadQoS Raised if the requested quality of service
-     * is unavailable or invalid.
+     * @throws AlreadySubscribed Raised if the subscriber object is already subscribed.
+     * @throws BadQoS Raised if the requested quality of service is unavailable or invalid.
      * @throws InvalidSubscriber Raised if the subscriber object is null.
      *
      * @see #unsubscribe
@@ -84,13 +75,12 @@ public interface Topic extends com.zeroc.Ice.Object
     void unsubscribe(com.zeroc.Ice.ObjectPrx subscriber, com.zeroc.Ice.Current current);
 
     /**
-     * Create a link to the given topic. All events originating
-     * on this topic will also be sent to <code>linkTo</code>.
+     * Create a link to the given topic. All events originating on this topic will also be sent to
+     * <code>linkTo</code>.
      * @param linkTo The topic to link to.
      * @param cost The cost to the linked topic.
      * @param current The Current object for the invocation.
-     * @throws LinkExists Raised if a link to the same topic already
-     * exists.
+     * @throws LinkExists Raised if a link to the same topic already exists.
      **/
     void link(TopicPrx linkTo, int cost, com.zeroc.Ice.Current current)
         throws LinkExists;

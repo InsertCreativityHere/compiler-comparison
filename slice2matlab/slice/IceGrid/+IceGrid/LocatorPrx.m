@@ -1,7 +1,7 @@
 % LocatorPrx   Summary of LocatorPrx
 %
-% The IceGrid locator interface provides access to the Query
-% and Registry object of the IceGrid registry.
+% The IceGrid locator interface provides access to the Query and Registry object of the IceGrid
+% registry.
 %
 % LocatorPrx Methods:
 %   getLocalRegistry - Get the proxy of the registry object hosted by this IceGrid registry.
@@ -19,8 +19,7 @@
 classdef LocatorPrx < Ice.LocatorPrx
     methods
         function result = getLocalRegistry(obj, varargin)
-            % getLocalRegistry   Get the proxy of the registry object hosted by this IceGrid
-            % registry.
+            % getLocalRegistry   Get the proxy of the registry object hosted by this IceGrid registry.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -33,8 +32,7 @@ classdef LocatorPrx < Ice.LocatorPrx
             is_.endEncapsulation();
         end
         function r_ = getLocalRegistryAsync(obj, varargin)
-            % getLocalRegistryAsync   Get the proxy of the registry object hosted by this IceGrid
-            % registry.
+            % getLocalRegistryAsync   Get the proxy of the registry object hosted by this IceGrid registry.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -50,8 +48,7 @@ classdef LocatorPrx < Ice.LocatorPrx
             r_ = obj.iceInvokeAsync('getLocalRegistry', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getLocalQuery(obj, varargin)
-            % getLocalQuery   Get the proxy of the query object hosted by this IceGrid
-            % registry.
+            % getLocalQuery   Get the proxy of the query object hosted by this IceGrid registry.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -64,8 +61,7 @@ classdef LocatorPrx < Ice.LocatorPrx
             is_.endEncapsulation();
         end
         function r_ = getLocalQueryAsync(obj, varargin)
-            % getLocalQueryAsync   Get the proxy of the query object hosted by this IceGrid
-            % registry.
+            % getLocalQueryAsync   Get the proxy of the query object hosted by this IceGrid registry.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.

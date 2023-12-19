@@ -145,6 +145,9 @@
         }
     };
 
+    /**
+     * Test keyword escape.
+     **/
     Test1.notify = class extends Ice.UserException
     {
         constructor(i = 0, _cause = "")

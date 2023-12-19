@@ -18,8 +18,7 @@ package IceGrid;
 public interface FileReaderPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
-     * Count the number of given lines from the end of the file and
-     * return the file offset.
+     * Count the number of given lines from the end of the file and return the file offset.
      **/
     default long getOffsetFromEnd(String filename, int lines)
         throws com.zeroc.IceGrid.FileNotAvailableException
@@ -28,8 +27,7 @@ public interface FileReaderPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Count the number of given lines from the end of the file and
-     * return the file offset.
+     * Count the number of given lines from the end of the file and return the file offset.
      * @param context The Context map to send with the invocation.
      **/
     default long getOffsetFromEnd(String filename, int lines, java.util.Map<String, String> context)
@@ -50,8 +48,7 @@ public interface FileReaderPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Count the number of given lines from the end of the file and
-     * return the file offset.
+     * Count the number of given lines from the end of the file and return the file offset.
      * @return A future that will be completed with the result.
      **/
     default java.util.concurrent.CompletableFuture<java.lang.Long> getOffsetFromEndAsync(String filename, int lines)
@@ -60,8 +57,7 @@ public interface FileReaderPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Count the number of given lines from the end of the file and
-     * return the file offset.
+     * Count the number of given lines from the end of the file and return the file offset.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed with the result.
      **/

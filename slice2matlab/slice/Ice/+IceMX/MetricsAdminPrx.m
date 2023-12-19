@@ -1,9 +1,7 @@
 % MetricsAdminPrx   Summary of MetricsAdminPrx
 %
-% The metrics administrative facet interface. This interface allows
-% remote administrative clients to access metrics of an application
-% that enabled the Ice administrative facility and configured some
-% metrics views.
+% The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
+% of an application that enabled the Ice administrative facility and configured some metrics views.
 %
 % MetricsAdminPrx Methods:
 %   getMetricsViewNames - Get the names of enabled and disabled metrics.
@@ -68,8 +66,7 @@ classdef MetricsAdminPrx < Ice.ObjectPrx
             %   context (containers.Map) - Optional request context.
             %
             % Exceptions:
-            %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be
-            %     found.
+            %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be found.
             
             os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
             os_.writeString(name);
@@ -86,8 +83,7 @@ classdef MetricsAdminPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be
-            %     found.
+            %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be found.
             
             os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
             os_.writeString(name);
@@ -102,8 +98,7 @@ classdef MetricsAdminPrx < Ice.ObjectPrx
             %   context (containers.Map) - Optional request context.
             %
             % Exceptions:
-            %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be
-            %     found.
+            %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be found.
             
             os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
             os_.writeString(name);
@@ -120,8 +115,7 @@ classdef MetricsAdminPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be
-            %     found.
+            %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be found.
             
             os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
             os_.writeString(name);
@@ -129,11 +123,9 @@ classdef MetricsAdminPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('disableMetricsView', 0, true, os_, 0, [], IceMX.MetricsAdminPrx.disableMetricsView_ex_, varargin{:});
         end
         function [result, timestamp] = getMetricsView(obj, view, varargin)
-            % getMetricsView   Get the metrics objects for the given metrics view. This
-            % returns a dictionary of metric maps for each metrics class
-            % configured with the view. The timestamp allows the client to
-            % compute averages which are not dependent of the invocation
-            % latency for this operation.
+            % getMetricsView   Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+            % class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+            % the invocation latency for this operation.
             %
             % Parameters:
             %   view (char) - The name of the metrics view.
@@ -141,12 +133,10 @@ classdef MetricsAdminPrx < Ice.ObjectPrx
             %
             % Returns:
             %   result (containers.Map) - The metrics view data.
-            %   timestamp (int64) - The local time of the process when the metrics
-            %     object were retrieved.
+            %   timestamp (int64) - The local time of the process when the metrics object were retrieved.
             %
             % Exceptions:
-            %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be
-            %     found.
+            %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be found.
             
             os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
             os_.writeString(view);
@@ -160,11 +150,9 @@ classdef MetricsAdminPrx < Ice.ObjectPrx
             result = IceMX.MetricsView.convert(result);
         end
         function r_ = getMetricsViewAsync(obj, view, varargin)
-            % getMetricsViewAsync   Get the metrics objects for the given metrics view. This
-            % returns a dictionary of metric maps for each metrics class
-            % configured with the view. The timestamp allows the client to
-            % compute averages which are not dependent of the invocation
-            % latency for this operation.
+            % getMetricsViewAsync   Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+            % class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+            % the invocation latency for this operation.
             %
             % Parameters:
             %   view (char) - The name of the metrics view.
@@ -173,8 +161,7 @@ classdef MetricsAdminPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be
-            %     found.
+            %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be found.
             
             os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
             os_.writeString(view);
@@ -201,8 +188,7 @@ classdef MetricsAdminPrx < Ice.ObjectPrx
             % Returns (IceMX.MetricsFailuresSeq) - The metrics failures associated with the map.
             %
             % Exceptions:
-            %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be
-            %     found.
+            %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be found.
             
             os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
             os_.writeString(view);
@@ -224,8 +210,7 @@ classdef MetricsAdminPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be
-            %     found.
+            %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be found.
             
             os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
             os_.writeString(view);
@@ -251,8 +236,7 @@ classdef MetricsAdminPrx < Ice.ObjectPrx
             % Returns (IceMX.MetricsFailures) - The metrics failures associated with the metrics.
             %
             % Exceptions:
-            %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be
-            %     found.
+            %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be found.
             
             os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
             os_.writeString(view);
@@ -276,8 +260,7 @@ classdef MetricsAdminPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be
-            %     found.
+            %   IceMX.UnknownMetricsView - Raised if the metrics view cannot be found.
             
             os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
             os_.writeString(view);

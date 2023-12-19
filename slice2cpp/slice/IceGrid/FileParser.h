@@ -128,9 +128,8 @@ namespace IceGrid
 {
 
 /**
- * <code>icegridadmin</code> provides a {@link FileParser}
- * object to transform XML files into {@link ApplicationDescriptor}
- * objects.
+ * <code>icegridadmin</code> provides a {@link FileParser} object to transform XML files into
+ * {@link ApplicationDescriptor} objects.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API FileParser : public virtual ::Ice::Object
@@ -170,8 +169,7 @@ public:
     /**
      * Parse a file.
      * @param xmlFile Full pathname to the file.
-     * @param adminProxy An Admin proxy, used only to retrieve default
-     * templates when needed. May be null.
+     * @param adminProxy An Admin proxy, used only to retrieve default templates when needed. May be null.
      * @param current The Current object for the invocation.
      * @return The application descriptor.
      * @throws IceGrid::ParseException Raised if an error occurred during parsing.
@@ -192,9 +190,8 @@ namespace IceGrid
 {
 
 /**
- * <code>icegridadmin</code> provides a {@link FileParser}
- * object to transform XML files into {@link ApplicationDescriptor}
- * objects.
+ * <code>icegridadmin</code> provides a {@link FileParser} object to transform XML files into
+ * {@link ApplicationDescriptor} objects.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) FileParserPrx : public virtual ::Ice::Proxy<FileParserPrx, ::Ice::ObjectPrx>
@@ -204,8 +201,7 @@ public:
     /**
      * Parse a file.
      * @param xmlFile Full pathname to the file.
-     * @param adminProxy An Admin proxy, used only to retrieve default
-     * templates when needed. May be null.
+     * @param adminProxy An Admin proxy, used only to retrieve default templates when needed. May be null.
      * @param context The Context map to send with the invocation.
      * @return The application descriptor.
      * @throws IceGrid::ParseException Raised if an error occurred during parsing.
@@ -218,8 +214,7 @@ public:
     /**
      * Parse a file.
      * @param xmlFile Full pathname to the file.
-     * @param adminProxy An Admin proxy, used only to retrieve default
-     * templates when needed. May be null.
+     * @param adminProxy An Admin proxy, used only to retrieve default templates when needed. May be null.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -233,8 +228,7 @@ public:
     /**
      * Parse a file.
      * @param xmlFile Full pathname to the file.
-     * @param adminProxy An Admin proxy, used only to retrieve default
-     * templates when needed. May be null.
+     * @param adminProxy An Admin proxy, used only to retrieve default templates when needed. May be null.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -425,8 +419,7 @@ public:
     /**
      * Parse a file.
      * @param xmlFile Full pathname to the file.
-     * @param adminProxy An Admin proxy, used only to retrieve default
-     * templates when needed. May be null.
+     * @param adminProxy An Admin proxy, used only to retrieve default templates when needed. May be null.
      * @param context The Context map to send with the invocation.
      * @return The application descriptor.
      * @throws IceGrid::ParseException Raised if an error occurred during parsing.
@@ -439,8 +432,7 @@ public:
     /**
      * Parse a file.
      * @param xmlFile Full pathname to the file.
-     * @param adminProxy An Admin proxy, used only to retrieve default
-     * templates when needed. May be null.
+     * @param adminProxy An Admin proxy, used only to retrieve default templates when needed. May be null.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -452,8 +444,7 @@ public:
     /**
      * Parse a file.
      * @param xmlFile Full pathname to the file.
-     * @param adminProxy An Admin proxy, used only to retrieve default
-     * templates when needed. May be null.
+     * @param adminProxy An Admin proxy, used only to retrieve default templates when needed. May be null.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -466,8 +457,7 @@ public:
     /**
      * Parse a file.
      * @param xmlFile Full pathname to the file.
-     * @param adminProxy An Admin proxy, used only to retrieve default
-     * templates when needed. May be null.
+     * @param adminProxy An Admin proxy, used only to retrieve default templates when needed. May be null.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -481,8 +471,7 @@ public:
     /**
      * Parse a file.
      * @param xmlFile Full pathname to the file.
-     * @param adminProxy An Admin proxy, used only to retrieve default
-     * templates when needed. May be null.
+     * @param adminProxy An Admin proxy, used only to retrieve default templates when needed. May be null.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -495,8 +484,7 @@ public:
     /**
      * Parse a file.
      * @param xmlFile Full pathname to the file.
-     * @param adminProxy An Admin proxy, used only to retrieve default
-     * templates when needed. May be null.
+     * @param adminProxy An Admin proxy, used only to retrieve default templates when needed. May be null.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -542,9 +530,8 @@ namespace IceGrid
 {
 
 /**
- * <code>icegridadmin</code> provides a {@link FileParser}
- * object to transform XML files into {@link ApplicationDescriptor}
- * objects.
+ * <code>icegridadmin</code> provides a {@link FileParser} object to transform XML files into
+ * {@link ApplicationDescriptor} objects.
  * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API FileParser : public virtual ::Ice::Object
@@ -593,8 +580,7 @@ public:
     /**
      * Parse a file.
      * @param xmlFile Full pathname to the file.
-     * @param adminProxy An Admin proxy, used only to retrieve default
-     * templates when needed. May be null.
+     * @param adminProxy An Admin proxy, used only to retrieve default templates when needed. May be null.
      * @param current The Current object for the invocation.
      * @return The application descriptor.
      * @throws IceGrid::ParseException Raised if an error occurred during parsing.

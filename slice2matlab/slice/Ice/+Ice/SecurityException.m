@@ -1,7 +1,6 @@
 % SecurityException   Summary of SecurityException
 %
-% This exception indicates a failure in a security subsystem,
-% such as the IceSSL plug-in.
+% This exception indicates a failure in a security subsystem, such as the IceSSL plug-in.
 %
 % SecurityException Properties:
 %   reason - The reason for the failure.

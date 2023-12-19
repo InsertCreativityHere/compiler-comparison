@@ -16,8 +16,7 @@
 package com.zeroc.IceStorm;
 
 /**
- * This exception indicates that an attempt was made to subscribe
- * a proxy for which a subscription already exists.
+ * This exception indicates that an attempt was made to subscribe a proxy for which a subscription already exists.
  **/
 public class AlreadySubscribed extends com.zeroc.Ice.UserException
 {

@@ -208,8 +208,7 @@ public:
 };
 
 /**
- * An object for managing the set of identity constraints for specific
- * parts of object identity on a
+ * An object for managing the set of identity constraints for specific parts of object identity on a
  * {@link Session}.
  * @see Session
  * @see SessionControl
@@ -250,8 +249,8 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Add a sequence of strings to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+     * removed.
      * @param additions The sequence of strings to be added.
      * @param current The Current object for the invocation.
      */
@@ -261,8 +260,7 @@ public:
     /// \endcond
 
     /**
-     * Remove a sequence of strings from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
      * @param deletions The sequence of strings to be removed.
      * @param current The Current object for the invocation.
      */
@@ -272,8 +270,7 @@ public:
     /// \endcond
 
     /**
-     * Returns a sequence of strings describing the constraints in this
-     * set.
+     * Returns a sequence of strings describing the constraints in this set.
      * @param current The Current object for the invocation.
      * @return The sequence of strings for this set.
      */
@@ -288,8 +285,7 @@ public:
 };
 
 /**
- * An object for managing the set of object identity constraints on a
- * {@link Session}.
+ * An object for managing the set of object identity constraints on a {@link Session}.
  * @see Session
  * @see SessionControl
  * \headerfile Glacier2/Glacier2.h
@@ -329,8 +325,8 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Add a sequence of Ice identities to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+     * implicitly removed.
      * @param additions The sequence of Ice identities to be added.
      * @param current The Current object for the invocation.
      */
@@ -340,8 +336,8 @@ public:
     /// \endcond
 
     /**
-     * Remove a sequence of identities from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+     * found.
      * @param deletions The sequence of Ice identities to be removed.
      * @param current The Current object for the invocation.
      */
@@ -351,8 +347,7 @@ public:
     /// \endcond
 
     /**
-     * Returns a sequence of identities describing the constraints in this
-     * set.
+     * Returns a sequence of identities describing the constraints in this set.
      * @param current The Current object for the invocation.
      * @return The sequence of Ice identities for this set.
      */
@@ -367,8 +362,7 @@ public:
 };
 
 /**
- * An administrative session control object, which is tied to the
- * lifecycle of a {@link Session}.
+ * An administrative session control object, which is tied to the lifecycle of a {@link Session}.
  * @see Session
  * \headerfile Glacier2/Glacier2.h
  */
@@ -407,8 +401,7 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Access the object that manages the allowable categories
-     * for object identities for this session.
+     * Access the object that manages the allowable categories for object identities for this session.
      * @param current The Current object for the invocation.
      * @return A StringSet object.
      */
@@ -418,8 +411,7 @@ public:
     /// \endcond
 
     /**
-     * Access the object that manages the allowable adapter identities
-     * for objects for this session.
+     * Access the object that manages the allowable adapter identities for objects for this session.
      * @param current The Current object for the invocation.
      * @return A StringSet object.
      */
@@ -429,8 +421,7 @@ public:
     /// \endcond
 
     /**
-     * Access the object that manages the allowable object identities
-     * for this session.
+     * Access the object that manages the allowable object identities for this session.
      * @param current The Current object for the invocation.
      * @return An IdentitySet object.
      */
@@ -464,11 +455,10 @@ public:
 };
 
 /**
- * The session manager for username/password authenticated users that
- * is responsible for managing {@link Session} objects. New session objects
- * are created by the {@link Router} object calling on an application-provided
- * session manager. If no session manager is provided by the application,
- * no client-visible sessions are passed to the client.
+ * The session manager for username/password authenticated users that is responsible for managing {@link Session}
+ * objects. New session objects are created by the {@link Router} object calling on an application-provided
+ * session manager. If no session manager is provided by the application, no client-visible sessions are passed to
+ * the client.
  * @see Router
  * @see Session
  * \headerfile Glacier2/Glacier2.h
@@ -513,8 +503,7 @@ public:
      * @param control A proxy to the session control object.
      * @param current The Current object for the invocation.
      * @return A proxy to the newly created session.
-     * @throws Glacier2::CannotCreateSessionException Raised if the session
-     * cannot be created.
+     * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
      */
     virtual ::std::shared_ptr<SessionPrx> create(::std::string userId, ::std::shared_ptr<SessionControlPrx> control, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -527,11 +516,9 @@ public:
 };
 
 /**
- * The session manager for SSL authenticated users that is
- * responsible for managing {@link Session} objects. New session objects are
- * created by the {@link Router} object calling on an application-provided
- * session manager. If no session manager is provided by the
- * application, no client-visible sessions are passed to the client.
+ * The session manager for SSL authenticated users that is responsible for managing {@link Session} objects. New
+ * session objects are created by the {@link Router} object calling on an application-provided session manager. If
+ * no session manager is provided by the application, no client-visible sessions are passed to the client.
  * @see Router
  * @see Session
  * \headerfile Glacier2/Glacier2.h
@@ -576,8 +563,7 @@ public:
      * @param control A proxy to the session control object.
      * @param current The Current object for the invocation.
      * @return A proxy to the newly created session.
-     * @throws Glacier2::CannotCreateSessionException Raised if the session
-     * cannot be created.
+     * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
      */
     virtual ::std::shared_ptr<SessionPrx> create(SSLInfo info, ::std::shared_ptr<SessionControlPrx> control, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -663,8 +649,7 @@ protected:
 };
 
 /**
- * An object for managing the set of identity constraints for specific
- * parts of object identity on a
+ * An object for managing the set of identity constraints for specific parts of object identity on a
  * {@link Session}.
  * @see Session
  * @see SessionControl
@@ -675,8 +660,8 @@ class ICE_CLASS(GLACIER2_API) StringSetPrx : public virtual ::Ice::Proxy<StringS
 public:
 
     /**
-     * Add a sequence of strings to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+     * removed.
      * @param additions The sequence of strings to be added.
      * @param context The Context map to send with the invocation.
      */
@@ -686,8 +671,8 @@ public:
     }
 
     /**
-     * Add a sequence of strings to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+     * removed.
      * @param additions The sequence of strings to be added.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -700,8 +685,8 @@ public:
     }
 
     /**
-     * Add a sequence of strings to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+     * removed.
      * @param additions The sequence of strings to be added.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -724,8 +709,7 @@ public:
     /// \endcond
 
     /**
-     * Remove a sequence of strings from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
      * @param deletions The sequence of strings to be removed.
      * @param context The Context map to send with the invocation.
      */
@@ -735,8 +719,7 @@ public:
     }
 
     /**
-     * Remove a sequence of strings from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
      * @param deletions The sequence of strings to be removed.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -749,8 +732,7 @@ public:
     }
 
     /**
-     * Remove a sequence of strings from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
      * @param deletions The sequence of strings to be removed.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -773,8 +755,7 @@ public:
     /// \endcond
 
     /**
-     * Returns a sequence of strings describing the constraints in this
-     * set.
+     * Returns a sequence of strings describing the constraints in this set.
      * @param context The Context map to send with the invocation.
      * @return The sequence of strings for this set.
      */
@@ -784,8 +765,7 @@ public:
     }
 
     /**
-     * Returns a sequence of strings describing the constraints in this
-     * set.
+     * Returns a sequence of strings describing the constraints in this set.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -797,8 +777,7 @@ public:
     }
 
     /**
-     * Returns a sequence of strings describing the constraints in this
-     * set.
+     * Returns a sequence of strings describing the constraints in this set.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -835,8 +814,7 @@ protected:
 };
 
 /**
- * An object for managing the set of object identity constraints on a
- * {@link Session}.
+ * An object for managing the set of object identity constraints on a {@link Session}.
  * @see Session
  * @see SessionControl
  * \headerfile Glacier2/Glacier2.h
@@ -846,8 +824,8 @@ class ICE_CLASS(GLACIER2_API) IdentitySetPrx : public virtual ::Ice::Proxy<Ident
 public:
 
     /**
-     * Add a sequence of Ice identities to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+     * implicitly removed.
      * @param additions The sequence of Ice identities to be added.
      * @param context The Context map to send with the invocation.
      */
@@ -857,8 +835,8 @@ public:
     }
 
     /**
-     * Add a sequence of Ice identities to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+     * implicitly removed.
      * @param additions The sequence of Ice identities to be added.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -871,8 +849,8 @@ public:
     }
 
     /**
-     * Add a sequence of Ice identities to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+     * implicitly removed.
      * @param additions The sequence of Ice identities to be added.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -895,8 +873,8 @@ public:
     /// \endcond
 
     /**
-     * Remove a sequence of identities from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+     * found.
      * @param deletions The sequence of Ice identities to be removed.
      * @param context The Context map to send with the invocation.
      */
@@ -906,8 +884,8 @@ public:
     }
 
     /**
-     * Remove a sequence of identities from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+     * found.
      * @param deletions The sequence of Ice identities to be removed.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -920,8 +898,8 @@ public:
     }
 
     /**
-     * Remove a sequence of identities from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+     * found.
      * @param deletions The sequence of Ice identities to be removed.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -944,8 +922,7 @@ public:
     /// \endcond
 
     /**
-     * Returns a sequence of identities describing the constraints in this
-     * set.
+     * Returns a sequence of identities describing the constraints in this set.
      * @param context The Context map to send with the invocation.
      * @return The sequence of Ice identities for this set.
      */
@@ -955,8 +932,7 @@ public:
     }
 
     /**
-     * Returns a sequence of identities describing the constraints in this
-     * set.
+     * Returns a sequence of identities describing the constraints in this set.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -968,8 +944,7 @@ public:
     }
 
     /**
-     * Returns a sequence of identities describing the constraints in this
-     * set.
+     * Returns a sequence of identities describing the constraints in this set.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -1006,8 +981,7 @@ protected:
 };
 
 /**
- * An administrative session control object, which is tied to the
- * lifecycle of a {@link Session}.
+ * An administrative session control object, which is tied to the lifecycle of a {@link Session}.
  * @see Session
  * \headerfile Glacier2/Glacier2.h
  */
@@ -1016,8 +990,7 @@ class ICE_CLASS(GLACIER2_API) SessionControlPrx : public virtual ::Ice::Proxy<Se
 public:
 
     /**
-     * Access the object that manages the allowable categories
-     * for object identities for this session.
+     * Access the object that manages the allowable categories for object identities for this session.
      * @param context The Context map to send with the invocation.
      * @return A StringSet object.
      */
@@ -1027,8 +1000,7 @@ public:
     }
 
     /**
-     * Access the object that manages the allowable categories
-     * for object identities for this session.
+     * Access the object that manages the allowable categories for object identities for this session.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -1040,8 +1012,7 @@ public:
     }
 
     /**
-     * Access the object that manages the allowable categories
-     * for object identities for this session.
+     * Access the object that manages the allowable categories for object identities for this session.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -1062,8 +1033,7 @@ public:
     /// \endcond
 
     /**
-     * Access the object that manages the allowable adapter identities
-     * for objects for this session.
+     * Access the object that manages the allowable adapter identities for objects for this session.
      * @param context The Context map to send with the invocation.
      * @return A StringSet object.
      */
@@ -1073,8 +1043,7 @@ public:
     }
 
     /**
-     * Access the object that manages the allowable adapter identities
-     * for objects for this session.
+     * Access the object that manages the allowable adapter identities for objects for this session.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -1086,8 +1055,7 @@ public:
     }
 
     /**
-     * Access the object that manages the allowable adapter identities
-     * for objects for this session.
+     * Access the object that manages the allowable adapter identities for objects for this session.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -1108,8 +1076,7 @@ public:
     /// \endcond
 
     /**
-     * Access the object that manages the allowable object identities
-     * for this session.
+     * Access the object that manages the allowable object identities for this session.
      * @param context The Context map to send with the invocation.
      * @return An IdentitySet object.
      */
@@ -1119,8 +1086,7 @@ public:
     }
 
     /**
-     * Access the object that manages the allowable object identities
-     * for this session.
+     * Access the object that manages the allowable object identities for this session.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -1132,8 +1098,7 @@ public:
     }
 
     /**
-     * Access the object that manages the allowable object identities
-     * for this session.
+     * Access the object that manages the allowable object identities for this session.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -1255,11 +1220,10 @@ protected:
 };
 
 /**
- * The session manager for username/password authenticated users that
- * is responsible for managing {@link Session} objects. New session objects
- * are created by the {@link Router} object calling on an application-provided
- * session manager. If no session manager is provided by the application,
- * no client-visible sessions are passed to the client.
+ * The session manager for username/password authenticated users that is responsible for managing {@link Session}
+ * objects. New session objects are created by the {@link Router} object calling on an application-provided
+ * session manager. If no session manager is provided by the application, no client-visible sessions are passed to
+ * the client.
  * @see Router
  * @see Session
  * \headerfile Glacier2/Glacier2.h
@@ -1274,8 +1238,7 @@ public:
      * @param control A proxy to the session control object.
      * @param context The Context map to send with the invocation.
      * @return A proxy to the newly created session.
-     * @throws Glacier2::CannotCreateSessionException Raised if the session
-     * cannot be created.
+     * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
      */
     ::std::shared_ptr<SessionPrx> create(const ::std::string& userId, const ::std::shared_ptr<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -1337,11 +1300,9 @@ protected:
 };
 
 /**
- * The session manager for SSL authenticated users that is
- * responsible for managing {@link Session} objects. New session objects are
- * created by the {@link Router} object calling on an application-provided
- * session manager. If no session manager is provided by the
- * application, no client-visible sessions are passed to the client.
+ * The session manager for SSL authenticated users that is responsible for managing {@link Session} objects. New
+ * session objects are created by the {@link Router} object calling on an application-provided session manager. If
+ * no session manager is provided by the application, no client-visible sessions are passed to the client.
  * @see Router
  * @see Session
  * \headerfile Glacier2/Glacier2.h
@@ -1356,8 +1317,7 @@ public:
      * @param control A proxy to the session control object.
      * @param context The Context map to send with the invocation.
      * @return A proxy to the newly created session.
-     * @throws Glacier2::CannotCreateSessionException Raised if the session
-     * cannot be created.
+     * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
      */
     ::std::shared_ptr<SessionPrx> create(const SSLInfo& info, const ::std::shared_ptr<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -1880,8 +1840,8 @@ class ICE_CLASS(GLACIER2_API) StringSet : public virtual ::Ice::Proxy<StringSet,
 public:
 
     /**
-     * Add a sequence of strings to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+     * removed.
      * @param additions The sequence of strings to be added.
      * @param context The Context map to send with the invocation.
      */
@@ -1891,8 +1851,8 @@ public:
     }
 
     /**
-     * Add a sequence of strings to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+     * removed.
      * @param additions The sequence of strings to be added.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -1903,8 +1863,8 @@ public:
     }
 
     /**
-     * Add a sequence of strings to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+     * removed.
      * @param additions The sequence of strings to be added.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -1916,8 +1876,8 @@ public:
     }
 
     /**
-     * Add a sequence of strings to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+     * removed.
      * @param additions The sequence of strings to be added.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -1930,8 +1890,8 @@ public:
     }
 
     /**
-     * Add a sequence of strings to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+     * removed.
      * @param additions The sequence of strings to be added.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -1943,8 +1903,8 @@ public:
     }
 
     /**
-     * Add a sequence of strings to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+     * removed.
      * @param additions The sequence of strings to be added.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -1969,8 +1929,7 @@ private:
 public:
 
     /**
-     * Remove a sequence of strings from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
      * @param deletions The sequence of strings to be removed.
      * @param context The Context map to send with the invocation.
      */
@@ -1980,8 +1939,7 @@ public:
     }
 
     /**
-     * Remove a sequence of strings from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
      * @param deletions The sequence of strings to be removed.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -1992,8 +1950,7 @@ public:
     }
 
     /**
-     * Remove a sequence of strings from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
      * @param deletions The sequence of strings to be removed.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2005,8 +1962,7 @@ public:
     }
 
     /**
-     * Remove a sequence of strings from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
      * @param deletions The sequence of strings to be removed.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -2019,8 +1975,7 @@ public:
     }
 
     /**
-     * Remove a sequence of strings from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
      * @param deletions The sequence of strings to be removed.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2032,8 +1987,7 @@ public:
     }
 
     /**
-     * Remove a sequence of strings from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
      * @param deletions The sequence of strings to be removed.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -2058,8 +2012,7 @@ private:
 public:
 
     /**
-     * Returns a sequence of strings describing the constraints in this
-     * set.
+     * Returns a sequence of strings describing the constraints in this set.
      * @param context The Context map to send with the invocation.
      * @return The sequence of strings for this set.
      */
@@ -2069,8 +2022,7 @@ public:
     }
 
     /**
-     * Returns a sequence of strings describing the constraints in this
-     * set.
+     * Returns a sequence of strings describing the constraints in this set.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -2080,8 +2032,7 @@ public:
     }
 
     /**
-     * Returns a sequence of strings describing the constraints in this
-     * set.
+     * Returns a sequence of strings describing the constraints in this set.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2092,8 +2043,7 @@ public:
     }
 
     /**
-     * Returns a sequence of strings describing the constraints in this
-     * set.
+     * Returns a sequence of strings describing the constraints in this set.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2105,8 +2055,7 @@ public:
     }
 
     /**
-     * Returns a sequence of strings describing the constraints in this
-     * set.
+     * Returns a sequence of strings describing the constraints in this set.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2117,8 +2066,7 @@ public:
     }
 
     /**
-     * Returns a sequence of strings describing the constraints in this
-     * set.
+     * Returns a sequence of strings describing the constraints in this set.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2160,8 +2108,8 @@ class ICE_CLASS(GLACIER2_API) IdentitySet : public virtual ::Ice::Proxy<Identity
 public:
 
     /**
-     * Add a sequence of Ice identities to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+     * implicitly removed.
      * @param additions The sequence of Ice identities to be added.
      * @param context The Context map to send with the invocation.
      */
@@ -2171,8 +2119,8 @@ public:
     }
 
     /**
-     * Add a sequence of Ice identities to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+     * implicitly removed.
      * @param additions The sequence of Ice identities to be added.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2183,8 +2131,8 @@ public:
     }
 
     /**
-     * Add a sequence of Ice identities to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+     * implicitly removed.
      * @param additions The sequence of Ice identities to be added.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2196,8 +2144,8 @@ public:
     }
 
     /**
-     * Add a sequence of Ice identities to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+     * implicitly removed.
      * @param additions The sequence of Ice identities to be added.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -2210,8 +2158,8 @@ public:
     }
 
     /**
-     * Add a sequence of Ice identities to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+     * implicitly removed.
      * @param additions The sequence of Ice identities to be added.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2223,8 +2171,8 @@ public:
     }
 
     /**
-     * Add a sequence of Ice identities to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+     * implicitly removed.
      * @param additions The sequence of Ice identities to be added.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -2249,8 +2197,8 @@ private:
 public:
 
     /**
-     * Remove a sequence of identities from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+     * found.
      * @param deletions The sequence of Ice identities to be removed.
      * @param context The Context map to send with the invocation.
      */
@@ -2260,8 +2208,8 @@ public:
     }
 
     /**
-     * Remove a sequence of identities from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+     * found.
      * @param deletions The sequence of Ice identities to be removed.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2272,8 +2220,8 @@ public:
     }
 
     /**
-     * Remove a sequence of identities from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+     * found.
      * @param deletions The sequence of Ice identities to be removed.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2285,8 +2233,8 @@ public:
     }
 
     /**
-     * Remove a sequence of identities from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+     * found.
      * @param deletions The sequence of Ice identities to be removed.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -2299,8 +2247,8 @@ public:
     }
 
     /**
-     * Remove a sequence of identities from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+     * found.
      * @param deletions The sequence of Ice identities to be removed.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2312,8 +2260,8 @@ public:
     }
 
     /**
-     * Remove a sequence of identities from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+     * found.
      * @param deletions The sequence of Ice identities to be removed.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
@@ -2338,8 +2286,7 @@ private:
 public:
 
     /**
-     * Returns a sequence of identities describing the constraints in this
-     * set.
+     * Returns a sequence of identities describing the constraints in this set.
      * @param context The Context map to send with the invocation.
      * @return The sequence of Ice identities for this set.
      */
@@ -2349,8 +2296,7 @@ public:
     }
 
     /**
-     * Returns a sequence of identities describing the constraints in this
-     * set.
+     * Returns a sequence of identities describing the constraints in this set.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -2360,8 +2306,7 @@ public:
     }
 
     /**
-     * Returns a sequence of identities describing the constraints in this
-     * set.
+     * Returns a sequence of identities describing the constraints in this set.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2372,8 +2317,7 @@ public:
     }
 
     /**
-     * Returns a sequence of identities describing the constraints in this
-     * set.
+     * Returns a sequence of identities describing the constraints in this set.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2385,8 +2329,7 @@ public:
     }
 
     /**
-     * Returns a sequence of identities describing the constraints in this
-     * set.
+     * Returns a sequence of identities describing the constraints in this set.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2397,8 +2340,7 @@ public:
     }
 
     /**
-     * Returns a sequence of identities describing the constraints in this
-     * set.
+     * Returns a sequence of identities describing the constraints in this set.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2440,8 +2382,7 @@ class ICE_CLASS(GLACIER2_API) SessionControl : public virtual ::Ice::Proxy<Sessi
 public:
 
     /**
-     * Access the object that manages the allowable categories
-     * for object identities for this session.
+     * Access the object that manages the allowable categories for object identities for this session.
      * @param context The Context map to send with the invocation.
      * @return A StringSet object.
      */
@@ -2451,8 +2392,7 @@ public:
     }
 
     /**
-     * Access the object that manages the allowable categories
-     * for object identities for this session.
+     * Access the object that manages the allowable categories for object identities for this session.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -2462,8 +2402,7 @@ public:
     }
 
     /**
-     * Access the object that manages the allowable categories
-     * for object identities for this session.
+     * Access the object that manages the allowable categories for object identities for this session.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2474,8 +2413,7 @@ public:
     }
 
     /**
-     * Access the object that manages the allowable categories
-     * for object identities for this session.
+     * Access the object that manages the allowable categories for object identities for this session.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2487,8 +2425,7 @@ public:
     }
 
     /**
-     * Access the object that manages the allowable categories
-     * for object identities for this session.
+     * Access the object that manages the allowable categories for object identities for this session.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2499,8 +2436,7 @@ public:
     }
 
     /**
-     * Access the object that manages the allowable categories
-     * for object identities for this session.
+     * Access the object that manages the allowable categories for object identities for this session.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2525,8 +2461,7 @@ private:
 public:
 
     /**
-     * Access the object that manages the allowable adapter identities
-     * for objects for this session.
+     * Access the object that manages the allowable adapter identities for objects for this session.
      * @param context The Context map to send with the invocation.
      * @return A StringSet object.
      */
@@ -2536,8 +2471,7 @@ public:
     }
 
     /**
-     * Access the object that manages the allowable adapter identities
-     * for objects for this session.
+     * Access the object that manages the allowable adapter identities for objects for this session.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -2547,8 +2481,7 @@ public:
     }
 
     /**
-     * Access the object that manages the allowable adapter identities
-     * for objects for this session.
+     * Access the object that manages the allowable adapter identities for objects for this session.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2559,8 +2492,7 @@ public:
     }
 
     /**
-     * Access the object that manages the allowable adapter identities
-     * for objects for this session.
+     * Access the object that manages the allowable adapter identities for objects for this session.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2572,8 +2504,7 @@ public:
     }
 
     /**
-     * Access the object that manages the allowable adapter identities
-     * for objects for this session.
+     * Access the object that manages the allowable adapter identities for objects for this session.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2584,8 +2515,7 @@ public:
     }
 
     /**
-     * Access the object that manages the allowable adapter identities
-     * for objects for this session.
+     * Access the object that manages the allowable adapter identities for objects for this session.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2610,8 +2540,7 @@ private:
 public:
 
     /**
-     * Access the object that manages the allowable object identities
-     * for this session.
+     * Access the object that manages the allowable object identities for this session.
      * @param context The Context map to send with the invocation.
      * @return An IdentitySet object.
      */
@@ -2621,8 +2550,7 @@ public:
     }
 
     /**
-     * Access the object that manages the allowable object identities
-     * for this session.
+     * Access the object that manages the allowable object identities for this session.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -2632,8 +2560,7 @@ public:
     }
 
     /**
-     * Access the object that manages the allowable object identities
-     * for this session.
+     * Access the object that manages the allowable object identities for this session.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2644,8 +2571,7 @@ public:
     }
 
     /**
-     * Access the object that manages the allowable object identities
-     * for this session.
+     * Access the object that manages the allowable object identities for this session.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2657,8 +2583,7 @@ public:
     }
 
     /**
-     * Access the object that manages the allowable object identities
-     * for this session.
+     * Access the object that manages the allowable object identities for this session.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -2669,8 +2594,7 @@ public:
     }
 
     /**
-     * Access the object that manages the allowable object identities
-     * for this session.
+     * Access the object that manages the allowable object identities for this session.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -2873,8 +2797,7 @@ public:
      * @param control A proxy to the session control object.
      * @param context The Context map to send with the invocation.
      * @return A proxy to the newly created session.
-     * @throws Glacier2::CannotCreateSessionException Raised if the session
-     * cannot be created.
+     * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
      */
     ICE_MEMBER(GLACIER2_API) ::Glacier2::SessionPrx create(const ::std::string& userId, const ::Glacier2::SessionControlPrx& control, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -2951,8 +2874,7 @@ public:
      * Completes an invocation of begin_create.
      * @param result The asynchronous result object for the invocation.
      * @return A proxy to the newly created session.
-     * @throws Glacier2::CannotCreateSessionException Raised if the session
-     * cannot be created.
+     * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
      */
     ICE_MEMBER(GLACIER2_API) ::Glacier2::SessionPrx end_create(const ::Ice::AsyncResultPtr& result);
 
@@ -2985,8 +2907,7 @@ public:
      * @param control A proxy to the session control object.
      * @param context The Context map to send with the invocation.
      * @return A proxy to the newly created session.
-     * @throws Glacier2::CannotCreateSessionException Raised if the session
-     * cannot be created.
+     * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
      */
     ICE_MEMBER(GLACIER2_API) ::Glacier2::SessionPrx create(const ::Glacier2::SSLInfo& info, const ::Glacier2::SessionControlPrx& control, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
@@ -3063,8 +2984,7 @@ public:
      * Completes an invocation of begin_create.
      * @param result The asynchronous result object for the invocation.
      * @return A proxy to the newly created session.
-     * @throws Glacier2::CannotCreateSessionException Raised if the session
-     * cannot be created.
+     * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
      */
     ICE_MEMBER(GLACIER2_API) ::Glacier2::SessionPrx end_create(const ::Ice::AsyncResultPtr& result);
 
@@ -3177,8 +3097,7 @@ inline bool operator<(const Session& lhs, const Session& rhs)
 /// \endcond
 
 /**
- * An object for managing the set of identity constraints for specific
- * parts of object identity on a
+ * An object for managing the set of identity constraints for specific parts of object identity on a
  * {@link Session}.
  * @see Session
  * @see SessionControl
@@ -3228,8 +3147,8 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Add a sequence of strings to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of strings to this set of constraints. Order is not preserved and duplicates are implicitly
+     * removed.
      * @param additions The sequence of strings to be added.
      * @param current The Current object for the invocation.
      */
@@ -3239,8 +3158,7 @@ public:
     /// \endcond
 
     /**
-     * Remove a sequence of strings from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of strings from this set of constraints. No errors are returned if an entry is not found.
      * @param deletions The sequence of strings to be removed.
      * @param current The Current object for the invocation.
      */
@@ -3250,8 +3168,7 @@ public:
     /// \endcond
 
     /**
-     * Returns a sequence of strings describing the constraints in this
-     * set.
+     * Returns a sequence of strings describing the constraints in this set.
      * @param current The Current object for the invocation.
      * @return The sequence of strings for this set.
      */
@@ -3285,8 +3202,7 @@ inline bool operator<(const StringSet& lhs, const StringSet& rhs)
 /// \endcond
 
 /**
- * An object for managing the set of object identity constraints on a
- * {@link Session}.
+ * An object for managing the set of object identity constraints on a {@link Session}.
  * @see Session
  * @see SessionControl
  * \headerfile Glacier2/Glacier2.h
@@ -3335,8 +3251,8 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Add a sequence of Ice identities to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+     * implicitly removed.
      * @param additions The sequence of Ice identities to be added.
      * @param current The Current object for the invocation.
      */
@@ -3346,8 +3262,8 @@ public:
     /// \endcond
 
     /**
-     * Remove a sequence of identities from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+     * found.
      * @param deletions The sequence of Ice identities to be removed.
      * @param current The Current object for the invocation.
      */
@@ -3357,8 +3273,7 @@ public:
     /// \endcond
 
     /**
-     * Returns a sequence of identities describing the constraints in this
-     * set.
+     * Returns a sequence of identities describing the constraints in this set.
      * @param current The Current object for the invocation.
      * @return The sequence of Ice identities for this set.
      */
@@ -3392,8 +3307,7 @@ inline bool operator<(const IdentitySet& lhs, const IdentitySet& rhs)
 /// \endcond
 
 /**
- * An administrative session control object, which is tied to the
- * lifecycle of a {@link Session}.
+ * An administrative session control object, which is tied to the lifecycle of a {@link Session}.
  * @see Session
  * \headerfile Glacier2/Glacier2.h
  */
@@ -3441,8 +3355,7 @@ public:
     static const ::std::string& ice_staticId();
 
     /**
-     * Access the object that manages the allowable categories
-     * for object identities for this session.
+     * Access the object that manages the allowable categories for object identities for this session.
      * @param current The Current object for the invocation.
      * @return A StringSet object.
      */
@@ -3452,8 +3365,7 @@ public:
     /// \endcond
 
     /**
-     * Access the object that manages the allowable adapter identities
-     * for objects for this session.
+     * Access the object that manages the allowable adapter identities for objects for this session.
      * @param current The Current object for the invocation.
      * @return A StringSet object.
      */
@@ -3463,8 +3375,7 @@ public:
     /// \endcond
 
     /**
-     * Access the object that manages the allowable object identities
-     * for this session.
+     * Access the object that manages the allowable object identities for this session.
      * @param current The Current object for the invocation.
      * @return An IdentitySet object.
      */
@@ -3517,11 +3428,10 @@ inline bool operator<(const SessionControl& lhs, const SessionControl& rhs)
 /// \endcond
 
 /**
- * The session manager for username/password authenticated users that
- * is responsible for managing {@link Session} objects. New session objects
- * are created by the {@link Router} object calling on an application-provided
- * session manager. If no session manager is provided by the application,
- * no client-visible sessions are passed to the client.
+ * The session manager for username/password authenticated users that is responsible for managing {@link Session}
+ * objects. New session objects are created by the {@link Router} object calling on an application-provided
+ * session manager. If no session manager is provided by the application, no client-visible sessions are passed to
+ * the client.
  * @see Router
  * @see Session
  * \headerfile Glacier2/Glacier2.h
@@ -3575,8 +3485,7 @@ public:
      * @param control A proxy to the session control object.
      * @param current The Current object for the invocation.
      * @return A proxy to the newly created session.
-     * @throws Glacier2::CannotCreateSessionException Raised if the session
-     * cannot be created.
+     * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
      */
     virtual SessionPrx create(const ::std::string& userId, const SessionControlPrx& control, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
@@ -3608,11 +3517,9 @@ inline bool operator<(const SessionManager& lhs, const SessionManager& rhs)
 /// \endcond
 
 /**
- * The session manager for SSL authenticated users that is
- * responsible for managing {@link Session} objects. New session objects are
- * created by the {@link Router} object calling on an application-provided
- * session manager. If no session manager is provided by the
- * application, no client-visible sessions are passed to the client.
+ * The session manager for SSL authenticated users that is responsible for managing {@link Session} objects. New
+ * session objects are created by the {@link Router} object calling on an application-provided session manager. If
+ * no session manager is provided by the application, no client-visible sessions are passed to the client.
  * @see Router
  * @see Session
  * \headerfile Glacier2/Glacier2.h
@@ -3666,8 +3573,7 @@ public:
      * @param control A proxy to the session control object.
      * @param current The Current object for the invocation.
      * @return A proxy to the newly created session.
-     * @throws Glacier2::CannotCreateSessionException Raised if the session
-     * cannot be created.
+     * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
      */
     virtual SessionPrx create(const SSLInfo& info, const SessionControlPrx& control, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL

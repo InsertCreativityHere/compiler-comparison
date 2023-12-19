@@ -41,8 +41,7 @@ if 'SessionObserver' not in _M_Glacier2.Instrumentation.__dict__:
 
         def forwarded(self, client):
             """
-            Notification of a forwarded request. This also implies removing
-            the event from the queue.
+             Notification of a forwarded request. This also implies removing the event from the queue.
             Arguments:
             client -- True if client request, false if server request.
             """
@@ -50,7 +49,7 @@ if 'SessionObserver' not in _M_Glacier2.Instrumentation.__dict__:
 
         def queued(self, client):
             """
-            Notification of a queued request.
+             Notification of a queued request.
             Arguments:
             client -- True if client request, false if server request.
             """
@@ -58,8 +57,7 @@ if 'SessionObserver' not in _M_Glacier2.Instrumentation.__dict__:
 
         def overridden(self, client):
             """
-            Notification of a overridden request. This implies adding and
-            removing an event to the queue.
+             Notification of a overridden request. This implies adding and removing an event to the queue.
             Arguments:
             client -- True if client request, false if server request.
             """
@@ -67,7 +65,7 @@ if 'SessionObserver' not in _M_Glacier2.Instrumentation.__dict__:
 
         def routingTableSize(self, delta):
             """
-            Notification of a routing table size change.
+             Notification of a routing table size change.
             Arguments:
             delta -- The size adjustement.
             """
@@ -88,12 +86,10 @@ if 'ObserverUpdater' not in _M_Glacier2.Instrumentation.__dict__:
     _M_Glacier2.Instrumentation.ObserverUpdater = Ice.createTempClass()
     class ObserverUpdater(object):
         """
-        The ObserverUpdater interface is implemented by Glacier2 and an
-        instance of this interface is provided on initialization to the
-        RouterObserver object.
-        This interface can be used by add-ins imlementing the
-        RouterObserver interface to update the obsevers of observed
-        objects.
+         The ObserverUpdater interface is implemented by Glacier2 and an instance of this interface is provided on
+         initialization to the RouterObserver object.
+         This interface can be used by add-ins imlementing the RouterObserver interface to update the obsevers of observed
+         objects.
         """
         def __init__(self):
             if Ice.getType(self) == _M_Glacier2.Instrumentation.ObserverUpdater:
@@ -101,11 +97,10 @@ if 'ObserverUpdater' not in _M_Glacier2.Instrumentation.__dict__:
 
         def updateSessionObservers(self):
             """
-            Update the router sessions.
-            When called, this method goes through all the sessions and for
-            each session RouterObserver::getSessionObserver is
-            called. The implementation of getSessionObserver has the
-            possibility to return an updated observer if necessary.
+             Update the router sessions.
+             When called, this method goes through all the sessions and for each session RouterObserver::getSessionObserver
+             is called. The implementation of getSessionObserver has the possibility to return an updated observer if
+             necessary.
             """
             raise NotImplementedError("method 'updateSessionObservers' not implemented")
 
@@ -124,10 +119,8 @@ if 'RouterObserver' not in _M_Glacier2.Instrumentation.__dict__:
     _M_Glacier2.Instrumentation.RouterObserver = Ice.createTempClass()
     class RouterObserver(object):
         """
-        The router observer interface used by Glacier2 to obtain and update
-        observers for its observeable objects. This interface should be
-        implemented by add-ins that wish to observe Glacier2 objects in
-        order to collect statistics.
+         The router observer interface used by Glacier2 to obtain and update observers for its observeable objects. This
+         interface should be implemented by add-ins that wish to observe Glacier2 objects in order to collect statistics.
         """
         def __init__(self):
             if Ice.getType(self) == _M_Glacier2.Instrumentation.RouterObserver:
@@ -135,7 +128,7 @@ if 'RouterObserver' not in _M_Glacier2.Instrumentation.__dict__:
 
         def getSessionObserver(self, id, con, routingTableSize, old):
             """
-            This method should return an observer for the given session.
+             This method should return an observer for the given session.
             Arguments:
             id -- The id of the session (the user id or the SSL DN).
             con -- The connection associated to the session.
@@ -146,9 +139,8 @@ if 'RouterObserver' not in _M_Glacier2.Instrumentation.__dict__:
 
         def setObserverUpdater(self, updater):
             """
-            Glacier2 calls this method on initialization. The add-in
-            implementing this interface can use this object to get Glacier2
-            to re-obtain observers for topics and subscribers.
+             Glacier2 calls this method on initialization. The add-in implementing this interface can use this object to get
+             Glacier2 to re-obtain observers for topics and subscribers.
             Arguments:
             updater -- The observer updater object.
             """

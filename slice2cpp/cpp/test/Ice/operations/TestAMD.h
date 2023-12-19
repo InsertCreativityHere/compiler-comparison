@@ -296,10 +296,19 @@ const ::std::string ss1 = "'\"\?\\\a\b\f\n\r\t\v\006";
 
 const ::std::string ss2 = "'\"\?\\\a\b\f\n\r\t\v\006";
 
+/**
+ * \\U\u\
+ */
 const ::std::string ss3 = "\\\\U\\u\\";
 
+/**
+ * \A\
+ */
 const ::std::string ss4 = "\\A\\";
 
+/**
+ * \u0041\
+ */
 const ::std::string ss5 = "\\u0041\\";
 
 const ::std::string su0 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203";
@@ -371,10 +380,19 @@ const ::std::wstring wss1 = L"'\"\?\\\a\b\f\n\r\t\v\u0006";
 
 const ::std::wstring wss2 = L"'\"\?\\\a\b\f\n\r\t\v\u0006";
 
+/**
+ * \\U\u\
+ */
 const ::std::wstring wss3 = L"\\\\U\\u\\";
 
+/**
+ * \A\
+ */
 const ::std::wstring wss4 = L"\\A\\";
 
+/**
+ * \u0041\
+ */
 const ::std::wstring wss5 = L"\\u0041\\";
 
 const ::std::wstring wsu0 = L"\u0128\u0178\u00ff\u0100\u1f00\U00010194\U0001016a\U00010198\U0001f340\U0001f341\U0001f342\U0001f343";
@@ -4474,10 +4492,19 @@ const ::std::string ss1 = "'\"\?\\\a\b\f\n\r\t\v\006";
 
 const ::std::string ss2 = "'\"\?\\\a\b\f\n\r\t\v\006";
 
+/**
+ * \\U\u\
+ */
 const ::std::string ss3 = "\\\\U\\u\\";
 
+/**
+ * \A\
+ */
 const ::std::string ss4 = "\\A\\";
 
+/**
+ * \u0041\
+ */
 const ::std::string ss5 = "\\u0041\\";
 
 const ::std::string su0 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203";
@@ -4549,10 +4576,19 @@ const ::std::wstring wss1 = L"'\"\?\\\a\b\f\n\r\t\v\006";
 
 const ::std::wstring wss2 = L"'\"\?\\\a\b\f\n\r\t\v\006";
 
+/**
+ * \\U\u\
+ */
 const ::std::wstring wss3 = L"\\\\U\\u\\";
 
+/**
+ * \A\
+ */
 const ::std::wstring wss4 = L"\\A\\";
 
+/**
+ * \u0041\
+ */
 const ::std::wstring wss5 = L"\\u0041\\";
 
 const ::std::wstring wsu0 = L"\u0128\u0178\u00ff\u0100\u1f00\U00010194\U0001016a\U00010198\U0001f340\U0001f341\U0001f342\U0001f343";

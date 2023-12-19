@@ -96,8 +96,8 @@ public struct LocatorTraits: Ice.SliceTraits {
     public static let staticId = "::IceGrid::Locator"
 }
 
-/// The IceGrid query interface. This interface is accessible to
-/// Ice clients who wish to look up well-known objects.
+/// The IceGrid query interface. This interface is accessible to Ice clients who wish to look up well-known
+/// objects.
 ///
 /// QueryPrx Methods:
 ///
@@ -195,8 +195,8 @@ public extension Ice.InputStream {
     }
 }
 
-/// The IceGrid query interface. This interface is accessible to
-/// Ice clients who wish to look up well-known objects.
+/// The IceGrid query interface. This interface is accessible to Ice clients who wish to look up well-known
+/// objects.
 ///
 /// QueryPrx Methods:
 ///
@@ -271,9 +271,8 @@ public extension QueryPrx {
                                   sent: sent)
     }
 
-    /// Find a well-known object by type. If there are several objects
-    /// registered for the given type, the object is randomly
-    /// selected.
+    /// Find a well-known object by type. If there are several objects registered for the given type, the object is
+    /// randomly selected.
     ///
     /// - parameter _: `Swift.String` The object type.
     ///
@@ -293,9 +292,8 @@ public extension QueryPrx {
                                  context: context)
     }
 
-    /// Find a well-known object by type. If there are several objects
-    /// registered for the given type, the object is randomly
-    /// selected.
+    /// Find a well-known object by type. If there are several objects registered for the given type, the object is
+    /// randomly selected.
     ///
     /// - parameter _: `Swift.String` The object type.
     ///
@@ -326,11 +324,9 @@ public extension QueryPrx {
                                   sent: sent)
     }
 
-    /// Find a well-known object by type on the least-loaded node. If
-    /// the registry does not know which node hosts the object
-    /// (for example, because the object was registered with a direct proxy), the
-    /// registry assumes the object is hosted on a node that has a load
-    /// average of 1.0.
+    /// Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+    /// the object (for example, because the object was registered with a direct proxy), the registry assumes the
+    /// object is hosted on a node that has a load average of 1.0.
     ///
     /// - parameter type: `Swift.String` The object type.
     ///
@@ -353,11 +349,9 @@ public extension QueryPrx {
                                  context: context)
     }
 
-    /// Find a well-known object by type on the least-loaded node. If
-    /// the registry does not know which node hosts the object
-    /// (for example, because the object was registered with a direct proxy), the
-    /// registry assumes the object is hosted on a node that has a load
-    /// average of 1.0.
+    /// Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+    /// the object (for example, because the object was registered with a direct proxy), the registry assumes the
+    /// object is hosted on a node that has a load average of 1.0.
     ///
     /// - parameter type: `Swift.String` The object type.
     ///
@@ -397,8 +391,7 @@ public extension QueryPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `Ice.ObjectProxySeq` - The proxies or an empty sequence, if no such objects
-    /// have been found.
+    /// - returns: `Ice.ObjectProxySeq` - The proxies or an empty sequence, if no such objects have been found.
     func findAllObjectsByType(_ iceP_type: Swift.String, context: Ice.Context? = nil) throws -> Ice.ObjectProxySeq {
         return try _impl._invoke(operation: "findAllObjectsByType",
                                  mode: .Nonmutating,
@@ -443,16 +436,15 @@ public extension QueryPrx {
                                   sent: sent)
     }
 
-    /// Find all the object replicas associated with the given
-    /// proxy. If the given proxy is not an indirect proxy from a
-    /// replica group, an empty sequence is returned.
+    /// Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+    /// from a replica group, an empty sequence is returned.
     ///
     /// - parameter _: `Ice.ObjectPrx?` The object proxy.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `Ice.ObjectProxySeq` - The proxies of each object replica or an empty sequence,
-    /// if the given proxy is not from a replica group.
+    /// - returns: `Ice.ObjectProxySeq` - The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
+    /// group.
     func findAllReplicas(_ iceP_proxy: Ice.ObjectPrx?, context: Ice.Context? = nil) throws -> Ice.ObjectProxySeq {
         return try _impl._invoke(operation: "findAllReplicas",
                                  mode: .Idempotent,
@@ -466,9 +458,8 @@ public extension QueryPrx {
                                  context: context)
     }
 
-    /// Find all the object replicas associated with the given
-    /// proxy. If the given proxy is not an indirect proxy from a
-    /// replica group, an empty sequence is returned.
+    /// Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+    /// from a replica group, an empty sequence is returned.
     ///
     /// - parameter _: `Ice.ObjectPrx?` The object proxy.
     ///
@@ -500,8 +491,7 @@ public extension QueryPrx {
     }
 }
 
-/// The IceGrid registry allows clients create sessions
-/// directly with the registry.
+/// The IceGrid registry allows clients create sessions directly with the registry.
 ///
 /// RegistryPrx Methods:
 ///
@@ -603,8 +593,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// The IceGrid registry allows clients create sessions
-/// directly with the registry.
+/// The IceGrid registry allows clients create sessions directly with the registry.
 ///
 /// RegistryPrx Methods:
 ///
@@ -644,9 +633,8 @@ public extension RegistryPrx {
     ///
     /// - throws:
     ///
-    ///   - PermissionDeniedException - Raised if the password for
-    ///     the given user id is not correct, or if the user is not allowed
-    ///     access.
+    ///   - PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+    ///     user is not allowed access.
     func createSession(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil) throws -> SessionPrx? {
         return try _impl._invoke(operation: "createSession",
                                  mode: .Normal,
@@ -721,9 +709,8 @@ public extension RegistryPrx {
     ///
     /// - throws:
     ///
-    ///   - PermissionDeniedException - Raised if the password for
-    ///     the given user id is not correct, or if the user is not allowed
-    ///     access.
+    ///   - PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+    ///     user is not allowed access.
     func createAdminSession(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil) throws -> AdminSessionPrx? {
         return try _impl._invoke(operation: "createAdminSession",
                                  mode: .Normal,
@@ -794,9 +781,8 @@ public extension RegistryPrx {
     ///
     /// - throws:
     ///
-    ///   - PermissionDeniedException - Raised if the password for
-    ///     the given user id is not correct, or if the user is not allowed
-    ///     access.
+    ///   - PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+    ///     user is not allowed access.
     func createSessionFromSecureConnection(context: Ice.Context? = nil) throws -> SessionPrx? {
         return try _impl._invoke(operation: "createSessionFromSecureConnection",
                                  mode: .Normal,
@@ -855,9 +841,8 @@ public extension RegistryPrx {
     ///
     /// - throws:
     ///
-    ///   - PermissionDeniedException - Raised if the password for
-    ///     the given user id is not correct, or if the user is not allowed
-    ///     access.
+    ///   - PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+    ///     user is not allowed access.
     func createAdminSessionFromSecureConnection(context: Ice.Context? = nil) throws -> AdminSessionPrx? {
         return try _impl._invoke(operation: "createAdminSessionFromSecureConnection",
                                  mode: .Normal,
@@ -908,9 +893,8 @@ public extension RegistryPrx {
                                   sent: sent)
     }
 
-    /// Get the session timeout. If a client or administrative client
-    /// doesn't call the session keepAlive method in the time interval
-    /// defined by this timeout, IceGrid might reap the session.
+    /// Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+    /// the time interval defined by this timeout, IceGrid might reap the session.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -925,9 +909,8 @@ public extension RegistryPrx {
                                  context: context)
     }
 
-    /// Get the session timeout. If a client or administrative client
-    /// doesn't call the session keepAlive method in the time interval
-    /// defined by this timeout, IceGrid might reap the session.
+    /// Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+    /// the time interval defined by this timeout, IceGrid might reap the session.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -953,11 +936,8 @@ public extension RegistryPrx {
                                   sent: sent)
     }
 
-    /// Get the value of the ACM timeout. Clients supporting ACM
-    /// connection heartbeats can enable them instead of explicitly
-    /// sending keep alives requests.
-    ///
-    /// NOTE: This method is only available since Ice 3.6.
+    /// Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+    /// explicitly sending keep alives requests. This method is only available since Ice 3.6.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -972,11 +952,8 @@ public extension RegistryPrx {
                                  context: context)
     }
 
-    /// Get the value of the ACM timeout. Clients supporting ACM
-    /// connection heartbeats can enable them instead of explicitly
-    /// sending keep alives requests.
-    ///
-    /// NOTE: This method is only available since Ice 3.6.
+    /// Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+    /// explicitly sending keep alives requests. This method is only available since Ice 3.6.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1003,8 +980,8 @@ public extension RegistryPrx {
     }
 }
 
-/// The IceGrid locator interface provides access to the Query
-/// and Registry object of the IceGrid registry.
+/// The IceGrid locator interface provides access to the Query and Registry object of the IceGrid
+/// registry.
 ///
 /// LocatorPrx Methods:
 ///
@@ -1090,8 +1067,8 @@ public extension Ice.InputStream {
     }
 }
 
-/// The IceGrid locator interface provides access to the Query
-/// and Registry object of the IceGrid registry.
+/// The IceGrid locator interface provides access to the Query and Registry object of the IceGrid
+/// registry.
 ///
 /// LocatorPrx Methods:
 ///
@@ -1103,8 +1080,7 @@ public extension Ice.InputStream {
 ///
 ///  - getLocalQueryAsync: Get the proxy of the query object hosted by this IceGrid registry.
 public extension LocatorPrx {
-    /// Get the proxy of the registry object hosted by this IceGrid
-    /// registry.
+    /// Get the proxy of the registry object hosted by this IceGrid registry.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1119,8 +1095,7 @@ public extension LocatorPrx {
                                  context: context)
     }
 
-    /// Get the proxy of the registry object hosted by this IceGrid
-    /// registry.
+    /// Get the proxy of the registry object hosted by this IceGrid registry.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1146,8 +1121,7 @@ public extension LocatorPrx {
                                   sent: sent)
     }
 
-    /// Get the proxy of the query object hosted by this IceGrid
-    /// registry.
+    /// Get the proxy of the query object hosted by this IceGrid registry.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1162,8 +1136,7 @@ public extension LocatorPrx {
                                  context: context)
     }
 
-    /// Get the proxy of the query object hosted by this IceGrid
-    /// registry.
+    /// Get the proxy of the query object hosted by this IceGrid registry.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1227,8 +1200,8 @@ public struct QueryDisp: Ice.Disp {
     }
 }
 
-/// The IceGrid query interface. This interface is accessible to
-/// Ice clients who wish to look up well-known objects.
+/// The IceGrid query interface. This interface is accessible to Ice clients who wish to look up well-known
+/// objects.
 public protocol Query {
     /// Find a well-known object by identity.
     ///
@@ -1239,9 +1212,8 @@ public protocol Query {
     /// - returns: `Ice.ObjectPrx?` - The proxy or null if no such object has been found.
     func findObjectById(id: Ice.Identity, current: Ice.Current) throws -> Ice.ObjectPrx?
 
-    /// Find a well-known object by type. If there are several objects
-    /// registered for the given type, the object is randomly
-    /// selected.
+    /// Find a well-known object by type. If there are several objects registered for the given type, the object is
+    /// randomly selected.
     ///
     /// - parameter type: `Swift.String` The object type.
     ///
@@ -1250,11 +1222,9 @@ public protocol Query {
     /// - returns: `Ice.ObjectPrx?` - The proxy or null, if no such object has been found.
     func findObjectByType(type: Swift.String, current: Ice.Current) throws -> Ice.ObjectPrx?
 
-    /// Find a well-known object by type on the least-loaded node. If
-    /// the registry does not know which node hosts the object
-    /// (for example, because the object was registered with a direct proxy), the
-    /// registry assumes the object is hosted on a node that has a load
-    /// average of 1.0.
+    /// Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+    /// the object (for example, because the object was registered with a direct proxy), the registry assumes the
+    /// object is hosted on a node that has a load average of 1.0.
     ///
     /// - parameter type: `Swift.String` The object type.
     ///
@@ -1271,20 +1241,18 @@ public protocol Query {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectProxySeq` - The proxies or an empty sequence, if no such objects
-    /// have been found.
+    /// - returns: `Ice.ObjectProxySeq` - The proxies or an empty sequence, if no such objects have been found.
     func findAllObjectsByType(type: Swift.String, current: Ice.Current) throws -> Ice.ObjectProxySeq
 
-    /// Find all the object replicas associated with the given
-    /// proxy. If the given proxy is not an indirect proxy from a
-    /// replica group, an empty sequence is returned.
+    /// Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+    /// from a replica group, an empty sequence is returned.
     ///
     /// - parameter proxy: `Ice.ObjectPrx?` The object proxy.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectProxySeq` - The proxies of each object replica or an empty sequence,
-    /// if the given proxy is not from a replica group.
+    /// - returns: `Ice.ObjectProxySeq` - The proxies of each object replica or an empty sequence, if the given proxy is not from a replica
+    /// group.
     func findAllReplicas(proxy: Ice.ObjectPrx?, current: Ice.Current) throws -> Ice.ObjectProxySeq
 }
 
@@ -1327,8 +1295,7 @@ public struct RegistryDisp: Ice.Disp {
     }
 }
 
-/// The IceGrid registry allows clients create sessions
-/// directly with the registry.
+/// The IceGrid registry allows clients create sessions directly with the registry.
 public protocol Registry {
     /// Create a client session.
     ///
@@ -1342,9 +1309,8 @@ public protocol Registry {
     ///
     /// - throws:
     ///
-    ///   - PermissionDeniedException - Raised if the password for
-    ///     the given user id is not correct, or if the user is not allowed
-    ///     access.
+    ///   - PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+    ///     user is not allowed access.
     func createSession(userId: Swift.String, password: Swift.String, current: Ice.Current) throws -> SessionPrx?
 
     /// Create an administrative session.
@@ -1359,9 +1325,8 @@ public protocol Registry {
     ///
     /// - throws:
     ///
-    ///   - PermissionDeniedException - Raised if the password for
-    ///     the given user id is not correct, or if the user is not allowed
-    ///     access.
+    ///   - PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+    ///     user is not allowed access.
     func createAdminSession(userId: Swift.String, password: Swift.String, current: Ice.Current) throws -> AdminSessionPrx?
 
     /// Create a client session from a secure connection.
@@ -1372,9 +1337,8 @@ public protocol Registry {
     ///
     /// - throws:
     ///
-    ///   - PermissionDeniedException - Raised if the password for
-    ///     the given user id is not correct, or if the user is not allowed
-    ///     access.
+    ///   - PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+    ///     user is not allowed access.
     func createSessionFromSecureConnection(current: Ice.Current) throws -> SessionPrx?
 
     /// Create an administrative session from a secure connection.
@@ -1385,25 +1349,20 @@ public protocol Registry {
     ///
     /// - throws:
     ///
-    ///   - PermissionDeniedException - Raised if the password for
-    ///     the given user id is not correct, or if the user is not allowed
-    ///     access.
+    ///   - PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+    ///     user is not allowed access.
     func createAdminSessionFromSecureConnection(current: Ice.Current) throws -> AdminSessionPrx?
 
-    /// Get the session timeout. If a client or administrative client
-    /// doesn't call the session keepAlive method in the time interval
-    /// defined by this timeout, IceGrid might reap the session.
+    /// Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+    /// the time interval defined by this timeout, IceGrid might reap the session.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.Int32` - The timeout (in seconds).
     func getSessionTimeout(current: Ice.Current) throws -> Swift.Int32
 
-    /// Get the value of the ACM timeout. Clients supporting ACM
-    /// connection heartbeats can enable them instead of explicitly
-    /// sending keep alives requests.
-    ///
-    /// NOTE: This method is only available since Ice 3.6.
+    /// Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+    /// explicitly sending keep alives requests. This method is only available since Ice 3.6.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -1448,19 +1407,17 @@ public struct LocatorDisp: Ice.Disp {
     }
 }
 
-/// The IceGrid locator interface provides access to the Query
-/// and Registry object of the IceGrid registry.
+/// The IceGrid locator interface provides access to the Query and Registry object of the IceGrid
+/// registry.
 public protocol Locator: Ice.Locator {
-    /// Get the proxy of the registry object hosted by this IceGrid
-    /// registry.
+    /// Get the proxy of the registry object hosted by this IceGrid registry.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `RegistryPrx?` - The proxy of the registry object.
     func getLocalRegistry(current: Ice.Current) throws -> RegistryPrx?
 
-    /// Get the proxy of the query object hosted by this IceGrid
-    /// registry.
+    /// Get the proxy of the query object hosted by this IceGrid registry.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -1468,8 +1425,8 @@ public protocol Locator: Ice.Locator {
     func getLocalQuery(current: Ice.Current) throws -> QueryPrx?
 }
 
-/// The IceGrid query interface. This interface is accessible to
-/// Ice clients who wish to look up well-known objects.
+/// The IceGrid query interface. This interface is accessible to Ice clients who wish to look up well-known
+/// objects.
 ///
 /// Query Methods:
 ///
@@ -1550,8 +1507,7 @@ public extension Query {
     }
 }
 
-/// The IceGrid registry allows clients create sessions
-/// directly with the registry.
+/// The IceGrid registry allows clients create sessions directly with the registry.
 ///
 /// Registry Methods:
 ///
@@ -1636,8 +1592,8 @@ public extension Registry {
     }
 }
 
-/// The IceGrid locator interface provides access to the Query
-/// and Registry object of the IceGrid registry.
+/// The IceGrid locator interface provides access to the Query and Registry object of the IceGrid
+/// registry.
 ///
 /// Locator Methods:
 ///

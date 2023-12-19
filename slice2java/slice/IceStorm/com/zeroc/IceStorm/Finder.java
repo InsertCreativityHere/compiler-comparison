@@ -16,16 +16,13 @@
 package com.zeroc.IceStorm;
 
 /**
- * This interface is advertised by the IceStorm service through the
- * Ice object with the identity `IceStorm/Finder'. This allows clients
- * to retrieve the topic manager with just the endpoint information of
- * the IceStorm service.
+ * This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
+ * This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
  **/
 public interface Finder extends com.zeroc.Ice.Object
 {
     /**
-     * Get the topic manager proxy. The proxy might point to several
-     * replicas.
+     * Get the topic manager proxy. The proxy might point to several replicas.
      * @param current The Current object for the invocation.
      * @return The topic manager proxy.
      **/

@@ -1,7 +1,6 @@
 % NoSuchLink   Summary of NoSuchLink
 %
-% This exception indicates that an attempt was made to remove a
-% link that does not exist.
+% This exception indicates that an attempt was made to remove a link that does not exist.
 %
 % NoSuchLink Properties:
 %   name - The name of the link that does not exist.

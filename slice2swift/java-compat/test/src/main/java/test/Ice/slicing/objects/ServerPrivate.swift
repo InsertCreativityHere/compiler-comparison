@@ -818,9 +818,9 @@ public struct ForwardTraits: Ice.SliceTraits {
 ///
 ///  - throwPreservedExceptionAsync: 
 ///
-///  - useForward: 
+///  - useForward: Use of forward-declared class to verify that code is generated correctly.
 ///
-///  - useForwardAsync: 
+///  - useForwardAsync: Use of forward-declared class to verify that code is generated correctly.
 ///
 ///  - shutdown: 
 ///
@@ -1044,9 +1044,9 @@ public extension Ice.InputStream {
 ///
 ///  - throwPreservedExceptionAsync: 
 ///
-///  - useForward: 
+///  - useForward: Use of forward-declared class to verify that code is generated correctly.
 ///
-///  - useForwardAsync: 
+///  - useForwardAsync: Use of forward-declared class to verify that code is generated correctly.
 ///
 ///  - shutdown: 
 ///
@@ -2759,6 +2759,7 @@ public extension TestIntfPrx {
                                   sent: sent)
     }
 
+    /// Use of forward-declared class to verify that code is generated correctly.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -2776,6 +2777,7 @@ public extension TestIntfPrx {
                                  context: context)
     }
 
+    /// Use of forward-declared class to verify that code is generated correctly.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -4294,6 +4296,7 @@ public protocol TestIntf {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func throwPreservedExceptionAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
 
+    /// Use of forward-declared class to verify that code is generated correctly.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -4379,7 +4382,7 @@ public protocol TestIntf {
 ///
 ///  - throwPreservedException: 
 ///
-///  - useForward: 
+///  - useForward: Use of forward-declared class to verify that code is generated correctly.
 ///
 ///  - shutdown: 
 public extension TestIntf {

@@ -2061,16 +2061,50 @@ namespace Test
 
         void end_throwPreservedException(global::Ice.AsyncResult asyncResult);
 
+        /// <summary>
+        /// Use of forward-declared class to verify that code is generated correctly.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+
         void useForward(out Forward f, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
+        /// <summary>
+        /// Use of forward-declared class to verify that code is generated correctly.
+        /// </summary>
+        /// <param name="context">Context map to send with the invocation.</param>
+        /// <param name="progress">Sent progress provider.</param>
+        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task<Forward> useForwardAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
+        /// <summary>
+        /// Use of forward-declared class to verify that code is generated correctly.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_TestIntf_useForward> begin_useForward(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
+        /// <summary>
+        /// Use of forward-declared class to verify that code is generated correctly.
+        /// </summary>
+        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
+        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
+        /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult begin_useForward(global::Ice.AsyncCallback callback, object cookie);
 
+        /// <summary>
+        /// Use of forward-declared class to verify that code is generated correctly.
+        /// </summary>
+        /// <param name="context">The Context map to send with the invocation.</param>
+        /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
+        /// <param name="cookie">Application data to store in the asynchronous result object.</param>
+        /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult begin_useForward(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
+        /// <summary>
+        /// Use of forward-declared class to verify that code is generated correctly.
+        /// </summary>
+        /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         void end_useForward(out Forward f, global::Ice.AsyncResult asyncResult);
 
         void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -2197,6 +2231,11 @@ namespace Test
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         global::System.Threading.Tasks.Task throwPreservedExceptionAsync(global::Ice.Current current = null);
 
+        /// <summary>
+        /// Use of forward-declared class to verify that code is generated correctly.
+        /// </summary>
+        /// <param name="current">The Current object for the invocation.</param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         global::System.Threading.Tasks.Task<Forward> useForwardAsync(global::Ice.Current current = null);
 

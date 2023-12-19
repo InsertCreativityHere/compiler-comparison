@@ -1,7 +1,6 @@
 % AlreadyStoppedException   Summary of AlreadyStoppedException
 %
-% This exception is thrown if an attempt is made to stop an
-% already-stopped service.
+% This exception is thrown if an attempt is made to stop an already-stopped service.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from IceBox.ice by slice2matlab version 3.7.10

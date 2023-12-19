@@ -70,7 +70,7 @@ namespace IceDiscovery
 {
     /// <summary>
     /// The LookupReply interface is used by IceDiscovery clients to answer requests
-    /// received on the Lookup interface.
+    ///  received on the Lookup interface.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -80,8 +80,7 @@ namespace IceDiscovery
         /// Reply to the findObjectById request.
         /// </summary>
         /// <param name="id">The identity of the object.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="prx">The proxy of the object.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -91,8 +90,7 @@ namespace IceDiscovery
         /// Reply to the findObjectById request.
         /// </summary>
         /// <param name="id">The identity of the object.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="prx">The proxy of the object.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -104,8 +102,7 @@ namespace IceDiscovery
         /// Reply to the findObjectById request.
         /// </summary>
         /// <param name="id">The identity of the object.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="prx">The proxy of the object.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -115,8 +112,7 @@ namespace IceDiscovery
         /// Reply to the findObjectById request.
         /// </summary>
         /// <param name="id">The identity of the object.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="prx">The proxy of the object.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -127,8 +123,7 @@ namespace IceDiscovery
         /// Reply to the findObjectById request.
         /// </summary>
         /// <param name="id">The identity of the object.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="prx">The proxy of the object.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -146,14 +141,11 @@ namespace IceDiscovery
         /// Reply to the findAdpaterById request.
         /// </summary>
         /// <param name="id">The adapter ID.
-        ///
-        /// </param>
-        /// <param name="prx">The adapter proxy (a dummy proxy created by the adapter).
-        /// The proxy provides the adapter endpoints.
-        ///
-        /// </param>
-        /// <param name="isReplicaGroup">True if the adapter is also a member of a
-        /// replica group.</param>
+        ///  </param>
+        /// <param name="prx">The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+        ///  endpoints.
+        ///  </param>
+        /// <param name="isReplicaGroup">True if the adapter is also a member of a replica group.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void foundAdapterById(string id, global::Ice.ObjectPrx prx, bool isReplicaGroup, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -162,14 +154,11 @@ namespace IceDiscovery
         /// Reply to the findAdpaterById request.
         /// </summary>
         /// <param name="id">The adapter ID.
-        ///
-        /// </param>
-        /// <param name="prx">The adapter proxy (a dummy proxy created by the adapter).
-        /// The proxy provides the adapter endpoints.
-        ///
-        /// </param>
-        /// <param name="isReplicaGroup">True if the adapter is also a member of a
-        /// replica group.</param>
+        ///  </param>
+        /// <param name="prx">The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+        ///  endpoints.
+        ///  </param>
+        /// <param name="isReplicaGroup">True if the adapter is also a member of a replica group.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -180,14 +169,11 @@ namespace IceDiscovery
         /// Reply to the findAdpaterById request.
         /// </summary>
         /// <param name="id">The adapter ID.
-        ///
-        /// </param>
-        /// <param name="prx">The adapter proxy (a dummy proxy created by the adapter).
-        /// The proxy provides the adapter endpoints.
-        ///
-        /// </param>
-        /// <param name="isReplicaGroup">True if the adapter is also a member of a
-        /// replica group.</param>
+        ///  </param>
+        /// <param name="prx">The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+        ///  endpoints.
+        ///  </param>
+        /// <param name="isReplicaGroup">True if the adapter is also a member of a replica group.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_LookupReply_foundAdapterById> begin_foundAdapterById(string id, global::Ice.ObjectPrx prx, bool isReplicaGroup, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -196,14 +182,11 @@ namespace IceDiscovery
         /// Reply to the findAdpaterById request.
         /// </summary>
         /// <param name="id">The adapter ID.
-        ///
-        /// </param>
-        /// <param name="prx">The adapter proxy (a dummy proxy created by the adapter).
-        /// The proxy provides the adapter endpoints.
-        ///
-        /// </param>
-        /// <param name="isReplicaGroup">True if the adapter is also a member of a
-        /// replica group.</param>
+        ///  </param>
+        /// <param name="prx">The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+        ///  endpoints.
+        ///  </param>
+        /// <param name="isReplicaGroup">True if the adapter is also a member of a replica group.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -213,14 +196,11 @@ namespace IceDiscovery
         /// Reply to the findAdpaterById request.
         /// </summary>
         /// <param name="id">The adapter ID.
-        ///
-        /// </param>
-        /// <param name="prx">The adapter proxy (a dummy proxy created by the adapter).
-        /// The proxy provides the adapter endpoints.
-        ///
-        /// </param>
-        /// <param name="isReplicaGroup">True if the adapter is also a member of a
-        /// replica group.</param>
+        ///  </param>
+        /// <param name="prx">The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+        ///  endpoints.
+        ///  </param>
+        /// <param name="isReplicaGroup">True if the adapter is also a member of a replica group.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -235,8 +215,7 @@ namespace IceDiscovery
     }
 
     /// <summary>
-    /// The Lookup interface is used by IceDiscovery clients to look for objects
-    /// and adapters using UDP multicast.
+    /// The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -245,15 +224,13 @@ namespace IceDiscovery
         /// <summary>
         /// Request to find an Ice object
         /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only
-        /// replies to requests with a matching domain identifier.
-        ///
-        /// </param>
+        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+        ///  matching domain identifier.
+        ///  </param>
         /// <param name="id">The object identity.
-        ///
-        /// </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send
-        /// the reply if a matching object is found.</param>
+        ///  </param>
+        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
+        ///  object is found.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx reply, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -261,15 +238,13 @@ namespace IceDiscovery
         /// <summary>
         /// Request to find an Ice object
         /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only
-        /// replies to requests with a matching domain identifier.
-        ///
-        /// </param>
+        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+        ///  matching domain identifier.
+        ///  </param>
         /// <param name="id">The object identity.
-        ///
-        /// </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send
-        /// the reply if a matching object is found.</param>
+        ///  </param>
+        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
+        ///  object is found.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -279,15 +254,13 @@ namespace IceDiscovery
         /// <summary>
         /// Request to find an Ice object
         /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only
-        /// replies to requests with a matching domain identifier.
-        ///
-        /// </param>
+        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+        ///  matching domain identifier.
+        ///  </param>
         /// <param name="id">The object identity.
-        ///
-        /// </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send
-        /// the reply if a matching object is found.</param>
+        ///  </param>
+        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
+        ///  object is found.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Lookup_findObjectById> begin_findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx reply, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -295,15 +268,13 @@ namespace IceDiscovery
         /// <summary>
         /// Request to find an Ice object
         /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only
-        /// replies to requests with a matching domain identifier.
-        ///
-        /// </param>
+        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+        ///  matching domain identifier.
+        ///  </param>
         /// <param name="id">The object identity.
-        ///
-        /// </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send
-        /// the reply if a matching object is found.</param>
+        ///  </param>
+        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
+        ///  object is found.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -312,15 +283,13 @@ namespace IceDiscovery
         /// <summary>
         /// Request to find an Ice object
         /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only
-        /// replies to requests with a matching domain identifier.
-        ///
-        /// </param>
+        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+        ///  matching domain identifier.
+        ///  </param>
         /// <param name="id">The object identity.
-        ///
-        /// </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send
-        /// the reply if a matching object is found.</param>
+        ///  </param>
+        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
+        ///  object is found.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -336,15 +305,13 @@ namespace IceDiscovery
         /// <summary>
         /// Request to find an object adapter
         /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only
-        /// replies to requests with a matching domain identifier.
-        ///
-        /// </param>
+        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+        ///  matching domain identifier.
+        ///  </param>
         /// <param name="id">The adapter ID.
-        ///
-        /// </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send
-        /// the reply if a matching adapter is found.</param>
+        ///  </param>
+        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
+        ///  adapter is found.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void findAdapterById(string domainId, string id, LookupReplyPrx reply, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -352,15 +319,13 @@ namespace IceDiscovery
         /// <summary>
         /// Request to find an object adapter
         /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only
-        /// replies to requests with a matching domain identifier.
-        ///
-        /// </param>
+        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+        ///  matching domain identifier.
+        ///  </param>
         /// <param name="id">The adapter ID.
-        ///
-        /// </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send
-        /// the reply if a matching adapter is found.</param>
+        ///  </param>
+        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
+        ///  adapter is found.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -370,15 +335,13 @@ namespace IceDiscovery
         /// <summary>
         /// Request to find an object adapter
         /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only
-        /// replies to requests with a matching domain identifier.
-        ///
-        /// </param>
+        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+        ///  matching domain identifier.
+        ///  </param>
         /// <param name="id">The adapter ID.
-        ///
-        /// </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send
-        /// the reply if a matching adapter is found.</param>
+        ///  </param>
+        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
+        ///  adapter is found.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Lookup_findAdapterById> begin_findAdapterById(string domainId, string id, LookupReplyPrx reply, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -386,15 +349,13 @@ namespace IceDiscovery
         /// <summary>
         /// Request to find an object adapter
         /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only
-        /// replies to requests with a matching domain identifier.
-        ///
-        /// </param>
+        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+        ///  matching domain identifier.
+        ///  </param>
         /// <param name="id">The adapter ID.
-        ///
-        /// </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send
-        /// the reply if a matching adapter is found.</param>
+        ///  </param>
+        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
+        ///  adapter is found.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -403,15 +364,13 @@ namespace IceDiscovery
         /// <summary>
         /// Request to find an object adapter
         /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only
-        /// replies to requests with a matching domain identifier.
-        ///
-        /// </param>
+        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+        ///  matching domain identifier.
+        ///  </param>
         /// <param name="id">The adapter ID.
-        ///
-        /// </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send
-        /// the reply if a matching adapter is found.</param>
+        ///  </param>
+        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
+        ///  adapter is found.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -430,7 +389,7 @@ namespace IceDiscovery
 {
     /// <summary>
     /// The LookupReply interface is used by IceDiscovery clients to answer requests
-    /// received on the Lookup interface.
+    ///  received on the Lookup interface.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -440,8 +399,7 @@ namespace IceDiscovery
         /// Reply to the findObjectById request.
         /// </summary>
         /// <param name="id">The identity of the object.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="prx">The proxy of the object.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -452,14 +410,11 @@ namespace IceDiscovery
         /// Reply to the findAdpaterById request.
         /// </summary>
         /// <param name="id">The adapter ID.
-        ///
-        /// </param>
-        /// <param name="prx">The adapter proxy (a dummy proxy created by the adapter).
-        /// The proxy provides the adapter endpoints.
-        ///
-        /// </param>
-        /// <param name="isReplicaGroup">True if the adapter is also a member of a
-        /// replica group.</param>
+        ///  </param>
+        /// <param name="prx">The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+        ///  endpoints.
+        ///  </param>
+        /// <param name="isReplicaGroup">True if the adapter is also a member of a replica group.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -467,8 +422,7 @@ namespace IceDiscovery
     }
 
     /// <summary>
-    /// The Lookup interface is used by IceDiscovery clients to look for objects
-    /// and adapters using UDP multicast.
+    /// The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -477,15 +431,13 @@ namespace IceDiscovery
         /// <summary>
         /// Request to find an Ice object
         /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only
-        /// replies to requests with a matching domain identifier.
-        ///
-        /// </param>
+        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+        ///  matching domain identifier.
+        ///  </param>
         /// <param name="id">The object identity.
-        ///
-        /// </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send
-        /// the reply if a matching object is found.</param>
+        ///  </param>
+        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
+        ///  object is found.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -494,15 +446,13 @@ namespace IceDiscovery
         /// <summary>
         /// Request to find an object adapter
         /// </summary>
-        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only
-        /// replies to requests with a matching domain identifier.
-        ///
-        /// </param>
+        /// <param name="domainId">The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+        ///  matching domain identifier.
+        ///  </param>
         /// <param name="id">The adapter ID.
-        ///
-        /// </param>
-        /// <param name="reply">The proxy of the LookupReply interface that should be used to send
-        /// the reply if a matching adapter is found.</param>
+        ///  </param>
+        /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
+        ///  adapter is found.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]

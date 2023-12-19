@@ -9,7 +9,7 @@
 %   pwd - The path to the server working directory.
 %   options - The command line options to pass to the server executable.
 %   envs - The server environment variables.
-%   activation - The server activation mode (possible values are "on-demand" or "manual").
+%   activation - / The server activation mode (possible values are "on-demand" or "manual").
 %   activationTimeout - The activation timeout (an integer value representing the number of seconds to wait for activation).
 %   deactivationTimeout - The deactivation timeout (an integer value representing the number of seconds to wait for deactivation).
 %   applicationDistrib - Specifies if the server depends on the application distribution.
@@ -26,10 +26,8 @@ classdef ServerDescriptor < IceGrid.CommunicatorDescriptor
         id char
         % exe - The path of the server executable.
         exe char
-        % iceVersion - The Ice version used by this server. This is only required if
-        % backward compatibility with servers using old Ice versions is
-        % needed (otherwise the registry will assume the server is using
-        % the same Ice version).
+        % iceVersion - The Ice version used by this server. This is only required if backward compatibility with servers using old
+        % Ice versions is needed (otherwise the registry will assume the server is using the same Ice version).
         % For example "3.1.1", "3.2", "3.3.0".
         iceVersion char
         % pwd - The path to the server working directory.
@@ -38,17 +36,13 @@ classdef ServerDescriptor < IceGrid.CommunicatorDescriptor
         options
         % envs - The server environment variables.
         envs
-        % activation - The server activation mode (possible values are "on-demand" or
-        % "manual").
+        % activation - / The server activation mode (possible values are "on-demand" or "manual").
         activation char
-        % activationTimeout - The activation timeout (an integer value representing the
-        % number of seconds to wait for activation).
+        % activationTimeout - The activation timeout (an integer value representing the number of seconds to wait for activation).
         activationTimeout char
-        % deactivationTimeout - The deactivation timeout (an integer value representing the
-        % number of seconds to wait for deactivation).
+        % deactivationTimeout - The deactivation timeout (an integer value representing the number of seconds to wait for deactivation).
         deactivationTimeout char
-        % applicationDistrib - Specifies if the server depends on the application
-        % distribution.
+        % applicationDistrib - Specifies if the server depends on the application distribution.
         applicationDistrib logical
         % distrib - The distribution descriptor.
         distrib IceGrid.DistributionDescriptor

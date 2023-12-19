@@ -16,13 +16,10 @@
 package com.zeroc.Ice;
 
 /**
- * An attempt was made to clone a class that does not support
- * cloning.
- *
- * This exception is raised if <code>ice_clone</code> is called on
- * a class that is derived from an abstract Slice class (that is,
- * a class containing operations), and the derived class does not
- * provide an implementation of the <code>ice_clone</code> operation (C++ only).
+ * An attempt was made to clone a class that does not support cloning. This exception is raised if
+ * <code>ice_clone</code> is called on a class that is derived from an abstract Slice class (that is, a class
+ * containing operations), and the derived class does not provide an implementation of the <code>ice_clone</code>
+ * operation (C++ only).
  **/
 public class CloneNotImplementedException extends LocalException
 {

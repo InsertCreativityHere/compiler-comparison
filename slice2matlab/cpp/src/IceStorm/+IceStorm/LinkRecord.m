@@ -3,17 +3,20 @@
 % Used to store persistent information for Topic federation.
 %
 % LinkRecord Properties:
-%   obj
-%   cost
-%   theTopic
+%   obj - The topic link object.
+%   cost - The cost.
+%   theTopic - The linked topic for getLinkInfoSeq
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from LinkRecord.ice by slice2matlab version 3.7.10
 
 classdef LinkRecord
     properties
+        % obj - The topic link object.
         obj
+        % cost - The cost.
         cost int32
+        % theTopic - The linked topic for getLinkInfoSeq
         theTopic
     end
     methods

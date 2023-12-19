@@ -16,8 +16,7 @@
 package com.zeroc.Glacier2;
 
 /**
- * An object for managing the set of object identity constraints on a
- * {@link Session}.
+ * An object for managing the set of object identity constraints on a {@link Session}.
  *
  * @see Session
  * @see SessionControl
@@ -25,8 +24,8 @@ package com.zeroc.Glacier2;
 public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
-     * Add a sequence of Ice identities to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+     * implicitly removed.
      * @param additions The sequence of Ice identities to be added.
      **/
     default void add(com.zeroc.Ice.Identity[] additions)
@@ -35,8 +34,8 @@ public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Add a sequence of Ice identities to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+     * implicitly removed.
      * @param additions The sequence of Ice identities to be added.
      * @param context The Context map to send with the invocation.
      **/
@@ -46,8 +45,8 @@ public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Add a sequence of Ice identities to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+     * implicitly removed.
      * @param additions The sequence of Ice identities to be added.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -57,8 +56,8 @@ public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Add a sequence of Ice identities to this set of constraints. Order is
-     * not preserved and duplicates are implicitly removed.
+     * Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+     * implicitly removed.
      * @param additions The sequence of Ice identities to be added.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -85,8 +84,8 @@ public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Remove a sequence of identities from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+     * found.
      * @param deletions The sequence of Ice identities to be removed.
      **/
     default void remove(com.zeroc.Ice.Identity[] deletions)
@@ -95,8 +94,8 @@ public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Remove a sequence of identities from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+     * found.
      * @param deletions The sequence of Ice identities to be removed.
      * @param context The Context map to send with the invocation.
      **/
@@ -106,8 +105,8 @@ public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Remove a sequence of identities from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+     * found.
      * @param deletions The sequence of Ice identities to be removed.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -117,8 +116,8 @@ public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Remove a sequence of identities from this set of constraints. No
-     * errors are returned if an entry is not found.
+     * Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+     * found.
      * @param deletions The sequence of Ice identities to be removed.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -145,8 +144,7 @@ public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Returns a sequence of identities describing the constraints in this
-     * set.
+     * Returns a sequence of identities describing the constraints in this set.
      * @return The sequence of Ice identities for this set.
      **/
     default com.zeroc.Ice.Identity[] get()
@@ -155,8 +153,7 @@ public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Returns a sequence of identities describing the constraints in this
-     * set.
+     * Returns a sequence of identities describing the constraints in this set.
      * @param context The Context map to send with the invocation.
      * @return The sequence of Ice identities for this set.
      **/
@@ -166,8 +163,7 @@ public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Returns a sequence of identities describing the constraints in this
-     * set.
+     * Returns a sequence of identities describing the constraints in this set.
      * @return The sequence of Ice identities for this set.
      **/
     default java.util.concurrent.CompletableFuture<com.zeroc.Ice.Identity[]> getAsync()
@@ -176,8 +172,7 @@ public interface IdentitySetPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Returns a sequence of identities describing the constraints in this
-     * set.
+     * Returns a sequence of identities describing the constraints in this set.
      * @param context The Context map to send with the invocation.
      * @return The sequence of Ice identities for this set.
      **/

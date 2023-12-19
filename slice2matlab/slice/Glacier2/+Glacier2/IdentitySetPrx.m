@@ -1,7 +1,6 @@
 % IdentitySetPrx   Summary of IdentitySetPrx
 %
-% An object for managing the set of object identity constraints on a
-% Session.
+% An object for managing the set of object identity constraints on a Session.
 %
 % IdentitySetPrx Methods:
 %   add - Add a sequence of Ice identities to this set of constraints.
@@ -21,8 +20,8 @@
 classdef IdentitySetPrx < Ice.ObjectPrx
     methods
         function add(obj, additions, varargin)
-            % add   Add a sequence of Ice identities to this set of constraints. Order is
-            % not preserved and duplicates are implicitly removed.
+            % add   Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+            % implicitly removed.
             %
             % Parameters:
             %   additions (Ice.IdentitySeq) - The sequence of Ice identities to be added.
@@ -34,8 +33,8 @@ classdef IdentitySetPrx < Ice.ObjectPrx
             obj.iceInvoke('add', 2, false, os_, false, {}, varargin{:});
         end
         function r_ = addAsync(obj, additions, varargin)
-            % addAsync   Add a sequence of Ice identities to this set of constraints. Order is
-            % not preserved and duplicates are implicitly removed.
+            % addAsync   Add a sequence of Ice identities to this set of constraints. Order is not preserved and duplicates are
+            % implicitly removed.
             %
             % Parameters:
             %   additions (Ice.IdentitySeq) - The sequence of Ice identities to be added.
@@ -49,8 +48,8 @@ classdef IdentitySetPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('add', 2, false, os_, 0, [], {}, varargin{:});
         end
         function remove(obj, deletions, varargin)
-            % remove   Remove a sequence of identities from this set of constraints. No
-            % errors are returned if an entry is not found.
+            % remove   Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+            % found.
             %
             % Parameters:
             %   deletions (Ice.IdentitySeq) - The sequence of Ice identities to be removed.
@@ -62,8 +61,8 @@ classdef IdentitySetPrx < Ice.ObjectPrx
             obj.iceInvoke('remove', 2, false, os_, false, {}, varargin{:});
         end
         function r_ = removeAsync(obj, deletions, varargin)
-            % removeAsync   Remove a sequence of identities from this set of constraints. No
-            % errors are returned if an entry is not found.
+            % removeAsync   Remove a sequence of identities from this set of constraints. No errors are returned if an entry is not
+            % found.
             %
             % Parameters:
             %   deletions (Ice.IdentitySeq) - The sequence of Ice identities to be removed.
@@ -77,8 +76,7 @@ classdef IdentitySetPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('remove', 2, false, os_, 0, [], {}, varargin{:});
         end
         function result = get(obj, varargin)
-            % get   Returns a sequence of identities describing the constraints in this
-            % set.
+            % get   Returns a sequence of identities describing the constraints in this set.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -91,8 +89,7 @@ classdef IdentitySetPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getAsync(obj, varargin)
-            % getAsync   Returns a sequence of identities describing the constraints in this
-            % set.
+            % getAsync   Returns a sequence of identities describing the constraints in this set.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.

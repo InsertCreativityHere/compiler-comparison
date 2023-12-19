@@ -115,11 +115,6 @@ namespace Ice
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         public abstract bool datagram();
 
-        /// <summary>
-        /// Returns true if this endpoint is a secure endpoint.
-        /// </summary>
-        /// <returns>True for a secure endpoint.</returns>
-
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         public abstract bool secure();
 

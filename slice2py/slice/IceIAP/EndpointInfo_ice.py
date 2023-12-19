@@ -25,22 +25,19 @@ _M_Ice = Ice.openModule('Ice')
 _M_IceIAP = Ice.openModule('IceIAP')
 __name__ = 'IceIAP'
 _M_IceIAP.__doc__ = """
-IceIAP provides a secure transport for Ice.
+ IceIAP provides a secure transport for Ice.
 """
 
 if 'EndpointInfo' not in _M_IceIAP.__dict__:
     _M_IceIAP.EndpointInfo = Ice.createTempClass()
     class EndpointInfo(_M_Ice.EndpointInfo):
         """
-        Provides access to an IAP endpoint information.
+         Provides access to an IAP endpoint information.
         Members:
-        manufacturer -- The accessory manufacturer or empty to not match against
-        a manufacturer.
-        modelNumber -- The accessory model number or empty to not match against
-        a model number.
-        name -- The accessory name or empty to not match against
-        the accessory name.
-        protocol -- The protocol supported by the accessory.
+        manufacturer --  The accessory manufacturer or empty to not match against a manufacturer.
+        modelNumber --  The accessory model number or empty to not match against a model number.
+        name --  The accessory name or empty to not match against the accessory name.
+        protocol --  The protocol supported by the accessory.
         """
         def __init__(self, underlying=None, timeout=0, compress=False, manufacturer='', modelNumber='', name='', protocol=''):
             if Ice.getType(self) == _M_IceIAP.EndpointInfo:

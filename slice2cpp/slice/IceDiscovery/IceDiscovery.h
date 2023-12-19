@@ -115,10 +115,9 @@ public:
     /**
      * Reply to the findAdpaterById request.
      * @param id The adapter ID.
-     * @param prx The adapter proxy (a dummy proxy created by the adapter).
-     * The proxy provides the adapter endpoints.
-     * @param isReplicaGroup True if the adapter is also a member of a
-     * replica group.
+     * @param prx The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+     * endpoints.
+     * @param isReplicaGroup True if the adapter is also a member of a replica group.
      * @param current The Current object for the invocation.
      */
     virtual void foundAdapterById(::std::string id, ::std::shared_ptr<::Ice::ObjectPrx> prx, bool isReplicaGroup, const ::Ice::Current& current) = 0;
@@ -132,8 +131,7 @@ public:
 };
 
 /**
- * The Lookup interface is used by IceDiscovery clients to look for objects
- * and adapters using UDP multicast.
+ * The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
  * \headerfile IceDiscovery/IceDiscovery.h
  */
 class Lookup : public virtual ::Ice::Object
@@ -172,11 +170,11 @@ public:
 
     /**
      * Request to find an Ice object
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The object identity.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching object is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * object is found.
      * @param current The Current object for the invocation.
      */
     virtual void findObjectById(::std::string domainId, ::Ice::Identity id, ::std::shared_ptr<LookupReplyPrx> reply, const ::Ice::Current& current) = 0;
@@ -186,11 +184,11 @@ public:
 
     /**
      * Request to find an object adapter
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The adapter ID.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching adapter is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * adapter is found.
      * @param current The Current object for the invocation.
      */
     virtual void findAdapterById(::std::string domainId, ::std::string id, ::std::shared_ptr<LookupReplyPrx> reply, const ::Ice::Current& current) = 0;
@@ -269,10 +267,9 @@ public:
     /**
      * Reply to the findAdpaterById request.
      * @param id The adapter ID.
-     * @param prx The adapter proxy (a dummy proxy created by the adapter).
-     * The proxy provides the adapter endpoints.
-     * @param isReplicaGroup True if the adapter is also a member of a
-     * replica group.
+     * @param prx The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+     * endpoints.
+     * @param isReplicaGroup True if the adapter is also a member of a replica group.
      * @param context The Context map to send with the invocation.
      */
     void foundAdapterById(const ::std::string& id, const ::std::shared_ptr<::Ice::ObjectPrx>& prx, bool isReplicaGroup, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -283,10 +280,9 @@ public:
     /**
      * Reply to the findAdpaterById request.
      * @param id The adapter ID.
-     * @param prx The adapter proxy (a dummy proxy created by the adapter).
-     * The proxy provides the adapter endpoints.
-     * @param isReplicaGroup True if the adapter is also a member of a
-     * replica group.
+     * @param prx The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+     * endpoints.
+     * @param isReplicaGroup True if the adapter is also a member of a replica group.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -300,10 +296,9 @@ public:
     /**
      * Reply to the findAdpaterById request.
      * @param id The adapter ID.
-     * @param prx The adapter proxy (a dummy proxy created by the adapter).
-     * The proxy provides the adapter endpoints.
-     * @param isReplicaGroup True if the adapter is also a member of a
-     * replica group.
+     * @param prx The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+     * endpoints.
+     * @param isReplicaGroup True if the adapter is also a member of a replica group.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -341,8 +336,7 @@ protected:
 };
 
 /**
- * The Lookup interface is used by IceDiscovery clients to look for objects
- * and adapters using UDP multicast.
+ * The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
  * \headerfile IceDiscovery/IceDiscovery.h
  */
 class LookupPrx : public virtual ::Ice::Proxy<LookupPrx, ::Ice::ObjectPrx>
@@ -351,11 +345,11 @@ public:
 
     /**
      * Request to find an Ice object
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The object identity.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching object is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * object is found.
      * @param context The Context map to send with the invocation.
      */
     void findObjectById(const ::std::string& domainId, const ::Ice::Identity& id, const ::std::shared_ptr<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -365,11 +359,11 @@ public:
 
     /**
      * Request to find an Ice object
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The object identity.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching object is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * object is found.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -382,11 +376,11 @@ public:
 
     /**
      * Request to find an Ice object
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The object identity.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching object is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * object is found.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -409,11 +403,11 @@ public:
 
     /**
      * Request to find an object adapter
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The adapter ID.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching adapter is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * adapter is found.
      * @param context The Context map to send with the invocation.
      */
     void findAdapterById(const ::std::string& domainId, const ::std::string& id, const ::std::shared_ptr<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -423,11 +417,11 @@ public:
 
     /**
      * Request to find an object adapter
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The adapter ID.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching adapter is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * adapter is found.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -440,11 +434,11 @@ public:
 
     /**
      * Request to find an object adapter
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The adapter ID.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching adapter is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * adapter is found.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -693,10 +687,9 @@ public:
     /**
      * Reply to the findAdpaterById request.
      * @param id The adapter ID.
-     * @param prx The adapter proxy (a dummy proxy created by the adapter).
-     * The proxy provides the adapter endpoints.
-     * @param isReplicaGroup True if the adapter is also a member of a
-     * replica group.
+     * @param prx The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+     * endpoints.
+     * @param isReplicaGroup True if the adapter is also a member of a replica group.
      * @param context The Context map to send with the invocation.
      */
     void foundAdapterById(const ::std::string& id, const ::Ice::ObjectPrx& prx, bool isReplicaGroup, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -707,10 +700,9 @@ public:
     /**
      * Reply to the findAdpaterById request.
      * @param id The adapter ID.
-     * @param prx The adapter proxy (a dummy proxy created by the adapter).
-     * The proxy provides the adapter endpoints.
-     * @param isReplicaGroup True if the adapter is also a member of a
-     * replica group.
+     * @param prx The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+     * endpoints.
+     * @param isReplicaGroup True if the adapter is also a member of a replica group.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -722,10 +714,9 @@ public:
     /**
      * Reply to the findAdpaterById request.
      * @param id The adapter ID.
-     * @param prx The adapter proxy (a dummy proxy created by the adapter).
-     * The proxy provides the adapter endpoints.
-     * @param isReplicaGroup True if the adapter is also a member of a
-     * replica group.
+     * @param prx The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+     * endpoints.
+     * @param isReplicaGroup True if the adapter is also a member of a replica group.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -738,10 +729,9 @@ public:
     /**
      * Reply to the findAdpaterById request.
      * @param id The adapter ID.
-     * @param prx The adapter proxy (a dummy proxy created by the adapter).
-     * The proxy provides the adapter endpoints.
-     * @param isReplicaGroup True if the adapter is also a member of a
-     * replica group.
+     * @param prx The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+     * endpoints.
+     * @param isReplicaGroup True if the adapter is also a member of a replica group.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -755,10 +745,9 @@ public:
     /**
      * Reply to the findAdpaterById request.
      * @param id The adapter ID.
-     * @param prx The adapter proxy (a dummy proxy created by the adapter).
-     * The proxy provides the adapter endpoints.
-     * @param isReplicaGroup True if the adapter is also a member of a
-     * replica group.
+     * @param prx The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+     * endpoints.
+     * @param isReplicaGroup True if the adapter is also a member of a replica group.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -771,10 +760,9 @@ public:
     /**
      * Reply to the findAdpaterById request.
      * @param id The adapter ID.
-     * @param prx The adapter proxy (a dummy proxy created by the adapter).
-     * The proxy provides the adapter endpoints.
-     * @param isReplicaGroup True if the adapter is also a member of a
-     * replica group.
+     * @param prx The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+     * endpoints.
+     * @param isReplicaGroup True if the adapter is also a member of a replica group.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -816,11 +804,11 @@ public:
 
     /**
      * Request to find an Ice object
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The object identity.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching object is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * object is found.
      * @param context The Context map to send with the invocation.
      */
     void findObjectById(const ::std::string& domainId, const ::Ice::Identity& id, const ::IceDiscovery::LookupReplyPrx& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -830,11 +818,11 @@ public:
 
     /**
      * Request to find an Ice object
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The object identity.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching object is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * object is found.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -845,11 +833,11 @@ public:
 
     /**
      * Request to find an Ice object
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The object identity.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching object is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * object is found.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -861,11 +849,11 @@ public:
 
     /**
      * Request to find an Ice object
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The object identity.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching object is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * object is found.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -878,11 +866,11 @@ public:
 
     /**
      * Request to find an Ice object
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The object identity.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching object is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * object is found.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -894,11 +882,11 @@ public:
 
     /**
      * Request to find an Ice object
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The object identity.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching object is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * object is found.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -923,11 +911,11 @@ public:
 
     /**
      * Request to find an object adapter
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The adapter ID.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching adapter is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * adapter is found.
      * @param context The Context map to send with the invocation.
      */
     void findAdapterById(const ::std::string& domainId, const ::std::string& id, const ::IceDiscovery::LookupReplyPrx& reply, const ::Ice::Context& context = ::Ice::noExplicitContext)
@@ -937,11 +925,11 @@ public:
 
     /**
      * Request to find an object adapter
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The adapter ID.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching adapter is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * adapter is found.
      * @param context The Context map to send with the invocation.
      * @return The asynchronous result object for the invocation.
      */
@@ -952,11 +940,11 @@ public:
 
     /**
      * Request to find an object adapter
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The adapter ID.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching adapter is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * adapter is found.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -968,11 +956,11 @@ public:
 
     /**
      * Request to find an object adapter
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The adapter ID.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching adapter is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * adapter is found.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -985,11 +973,11 @@ public:
 
     /**
      * Request to find an object adapter
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The adapter ID.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching adapter is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * adapter is found.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
      * @return The asynchronous result object for the invocation.
@@ -1001,11 +989,11 @@ public:
 
     /**
      * Request to find an object adapter
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The adapter ID.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching adapter is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * adapter is found.
      * @param context The Context map to send with the invocation.
      * @param cb Asynchronous callback object.
      * @param cookie User-defined data to associate with the invocation.
@@ -1110,10 +1098,9 @@ public:
     /**
      * Reply to the findAdpaterById request.
      * @param id The adapter ID.
-     * @param prx The adapter proxy (a dummy proxy created by the adapter).
-     * The proxy provides the adapter endpoints.
-     * @param isReplicaGroup True if the adapter is also a member of a
-     * replica group.
+     * @param prx The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+     * endpoints.
+     * @param isReplicaGroup True if the adapter is also a member of a replica group.
      * @param current The Current object for the invocation.
      */
     virtual void foundAdapterById(const ::std::string& id, const ::Ice::ObjectPrx& prx, bool isReplicaGroup, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
@@ -1146,8 +1133,7 @@ inline bool operator<(const LookupReply& lhs, const LookupReply& rhs)
 /// \endcond
 
 /**
- * The Lookup interface is used by IceDiscovery clients to look for objects
- * and adapters using UDP multicast.
+ * The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
  * \headerfile IceDiscovery/IceDiscovery.h
  */
 class Lookup : public virtual ::Ice::Object
@@ -1195,11 +1181,11 @@ public:
 
     /**
      * Request to find an Ice object
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The object identity.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching object is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * object is found.
      * @param current The Current object for the invocation.
      */
     virtual void findObjectById(const ::std::string& domainId, const ::Ice::Identity& id, const LookupReplyPrx& reply, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
@@ -1209,11 +1195,11 @@ public:
 
     /**
      * Request to find an object adapter
-     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only
-     * replies to requests with a matching domain identifier.
+     * @param domainId The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+     * matching domain identifier.
      * @param id The adapter ID.
-     * @param reply The proxy of the LookupReply interface that should be used to send
-     * the reply if a matching adapter is found.
+     * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
+     * adapter is found.
      * @param current The Current object for the invocation.
      */
     virtual void findAdapterById(const ::std::string& domainId, const ::std::string& id, const LookupReplyPrx& reply, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;

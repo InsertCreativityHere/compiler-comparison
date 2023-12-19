@@ -16,8 +16,7 @@
 package com.zeroc.IceGrid;
 
 /**
- * This exception is raised if a user account for a given session
- * identifier can't be found.
+ * This exception is raised if a user account for a given session identifier can't be found.
  **/
 public class UserAccountNotFoundException extends com.zeroc.Ice.UserException
 {

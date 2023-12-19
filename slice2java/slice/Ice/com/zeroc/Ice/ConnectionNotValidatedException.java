@@ -16,8 +16,7 @@
 package com.zeroc.Ice;
 
 /**
- * This exception is raised if a message is received over a connection
- * that is not yet validated.
+ * This exception is raised if a message is received over a connection that is not yet validated.
  **/
 public class ConnectionNotValidatedException extends ProtocolException
 {

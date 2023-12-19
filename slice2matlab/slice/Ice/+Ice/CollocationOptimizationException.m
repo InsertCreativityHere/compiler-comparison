@@ -1,7 +1,6 @@
 % CollocationOptimizationException   Summary of CollocationOptimizationException
 %
-% This exception is raised if a feature is requested that is not
-% supported with collocation optimization.
+% This exception is raised if a feature is requested that is not supported with collocation optimization.
 %
 % Deprecated: This exception is no longer used by the Ice run time
 

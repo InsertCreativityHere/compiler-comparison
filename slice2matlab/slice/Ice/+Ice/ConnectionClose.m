@@ -12,11 +12,11 @@
 
 classdef ConnectionClose < uint8
     enumeration
-        % Close the connection immediately without sending a close connection protocol message to the peer
-        % and waiting for the peer to acknowledge it.
+        % Close the connection immediately without sending a close connection protocol message to the peer and waiting
+        % for the peer to acknowledge it.
         Forcefully (0)
-        % Close the connection by notifying the peer but do not wait for pending outgoing invocations to complete.
-        % On the server side, the connection will not be closed until all incoming invocations have completed.
+        % Close the connection by notifying the peer but do not wait for pending outgoing invocations to complete. On the
+        % server side, the connection will not be closed until all incoming invocations have completed.
         Gracefully (1)
         % Wait for all pending invocations to complete before closing the connection.
         GracefullyWithWait (2)

@@ -35,14 +35,12 @@ public class ConnectionInfo implements java.lang.Cloneable
     }
 
     /**
-     * The information of the underyling transport or null if there's
-     * no underlying transport.
+     * The information of the underyling transport or null if there's no underlying transport.
      **/
     public ConnectionInfo underlying;
 
     /**
-     * Whether or not the connection is an incoming or outgoing
-     * connection.
+     * Whether or not the connection is an incoming or outgoing connection.
      **/
     public boolean incoming;
 

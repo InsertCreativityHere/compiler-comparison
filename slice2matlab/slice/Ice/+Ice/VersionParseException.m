@@ -1,7 +1,6 @@
 % VersionParseException   Summary of VersionParseException
 %
-% This exception is raised if there was an error while parsing a
-% version.
+% This exception is raised if there was an error while parsing a version.
 %
 % VersionParseException Properties:
 %   str - Describes the failure and includes the string that could not be parsed.

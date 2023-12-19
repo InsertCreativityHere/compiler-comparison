@@ -32,9 +32,8 @@ public class ObjectDescriptor implements java.lang.Cloneable,
     public String type;
 
     /**
-     * Proxy options to use with the proxy created for this Ice object. If empty,
-     * the proxy will be created with the proxy options specified on the object
-     * adapter or replica group.
+     * Proxy options to use with the proxy created for this Ice object. If empty, the proxy will be created with the
+     * proxy options specified on the object adapter or replica group.
      **/
     public String proxyOptions;
 

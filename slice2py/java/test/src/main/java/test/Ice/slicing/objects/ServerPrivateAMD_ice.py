@@ -824,15 +824,43 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def end_throwPreservedException(self, _r):
             return _M_Test.TestIntf._op_throwPreservedException.end(self, _r)
 
+        """
+        Use of forward-declared class to verify that code is generated correctly.
+        Arguments:
+        context -- The request context for the invocation.
+        Returns:
+        f -- 
+        """
         def useForward(self, context=None):
             return _M_Test.TestIntf._op_useForward.invoke(self, ((), context))
 
+        """
+        Use of forward-declared class to verify that code is generated correctly.
+        Arguments:
+        context -- The request context for the invocation.
+        Returns: A future object for the invocation.
+        """
         def useForwardAsync(self, context=None):
             return _M_Test.TestIntf._op_useForward.invokeAsync(self, ((), context))
 
+        """
+        Use of forward-declared class to verify that code is generated correctly.
+        Arguments:
+        _response -- The asynchronous response callback.
+        _ex -- The asynchronous exception callback.
+        _sent -- The asynchronous sent callback.
+        context -- The request context for the invocation.
+        Returns: An asynchronous result object for the invocation.
+        """
         def begin_useForward(self, _response=None, _ex=None, _sent=None, context=None):
             return _M_Test.TestIntf._op_useForward.begin(self, ((), _response, _ex, _sent, context))
 
+        """
+        Use of forward-declared class to verify that code is generated correctly.
+        Arguments:
+        Returns:
+        f -- 
+        """
         def end_useForward(self, _r):
             return _M_Test.TestIntf._op_useForward.end(self, _r)
 
@@ -983,6 +1011,12 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
             raise NotImplementedError("servant method 'throwPreservedException' not implemented")
 
         def useForward(self, current=None):
+            """
+            Use of forward-declared class to verify that code is generated correctly.
+            Arguments:
+            current -- The Current object for the invocation.
+            Returns: A future object for the invocation.
+            """
             raise NotImplementedError("servant method 'useForward' not implemented")
 
         def shutdown(self, current=None):

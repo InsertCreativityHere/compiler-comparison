@@ -21,8 +21,8 @@ using _System = global::System;
 namespace Glacier2
 {
     /// <summary>
-    /// This exception is raised if a client tries to destroy a session
-    /// with a router, but no session exists for the client.
+    /// This exception is raised if a client tries to destroy a session with a router, but no session exists for the
+    ///  client.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -128,23 +128,19 @@ namespace Glacier2
     public interface RouterPrx : global::Ice.RouterPrx
     {
         /// <summary>
-        /// This category must be used in the identities of all of the client's
-        /// callback objects.
-        /// This is necessary in order for the router to
-        /// forward callback requests to the intended client. If the Glacier2
-        /// server endpoints are not set, the returned category is an empty
-        /// string.
-        ///
+        /// This category must be used in the identities of all of the client's callback objects.
+        /// This is necessary in
+        ///  order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
+        ///  are not set, the returned category is an empty string.
         /// </summary>
-        /// <returns>The category.</returns>
+        ///  <returns>The category.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         string getCategoryForClient(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// This category must be used in the identities of all of the client's
-        /// callback objects.
-        /// This is necessary in order for the router to
+        /// This category must be used in the identities of all of the client's callback objects.
+        /// This is necessary in
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -153,18 +149,16 @@ namespace Glacier2
         global::System.Threading.Tasks.Task<string> getCategoryForClientAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// This category must be used in the identities of all of the client's
-        /// callback objects.
-        /// This is necessary in order for the router to
+        /// This category must be used in the identities of all of the client's callback objects.
+        /// This is necessary in
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Router_getCategoryForClient> begin_getCategoryForClient(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// This category must be used in the identities of all of the client's
-        /// callback objects.
-        /// This is necessary in order for the router to
+        /// This category must be used in the identities of all of the client's callback objects.
+        /// This is necessary in
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -172,9 +166,8 @@ namespace Glacier2
         global::Ice.AsyncResult begin_getCategoryForClient(global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// This category must be used in the identities of all of the client's
-        /// callback objects.
-        /// This is necessary in order for the router to
+        /// This category must be used in the identities of all of the client's callback objects.
+        /// This is necessary in
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -183,9 +176,8 @@ namespace Glacier2
         global::Ice.AsyncResult begin_getCategoryForClient(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         /// <summary>
-        /// This category must be used in the identities of all of the client's
-        /// callback objects.
-        /// This is necessary in order for the router to
+        /// This category must be used in the identities of all of the client's callback objects.
+        /// This is necessary in
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The category.</returns>
@@ -193,50 +185,36 @@ namespace Glacier2
 
         /// <summary>
         /// Create a per-client session with the router.
-        /// If a
-        /// SessionManager has been installed, a proxy to a Session
-        /// object is returned to the client. Otherwise, null is returned
-        /// and only an internal session (i.e., not visible to the client)
-        /// is created.
-        ///
-        /// If a session proxy is returned, it must be configured to route
-        /// through the router that created it. This will happen automatically
-        /// if the router is configured as the client's default router at the
-        /// time the session proxy is created in the client process, otherwise
-        /// the client must configure the session proxy explicitly.
-        ///
+        /// If a SessionManager has been installed, a proxy to a
+        ///  Session object is returned to the client. Otherwise, null is returned and only an internal session
+        ///  (i.e., not visible to the client) is created.
+        ///  If a session proxy is returned, it must be configured to route through the router that created it. This will
+        ///  happen automatically if the router is configured as the client's default router at the time the session proxy
+        ///  is created in the client process, otherwise the client must configure the session proxy explicitly.
         /// </summary>
-        /// <returns>A proxy for the newly created session, or null if no
-        /// SessionManager has been installed.
-        ///
-        /// </returns>
-        /// <param name="userId">The user id for which to check the password.
-        ///
-        /// </param>
+        ///  <param name="userId">The user id for which to check the password.
+        ///  </param>
         /// <param name="password">The password for the given user id.
-        ///
-        /// </param>
-        /// <exception name="PermissionDeniedException">Raised if the password for
-        /// the given user id is not correct, or if the user is not allowed
-        /// access.
-        ///
-        /// </exception>
-        /// <exception name="CannotCreateSessionException">Raised if the session
-        /// cannot be created.</exception>
+        ///  </param>
+        /// <returns>A proxy for the newly created session, or null if no SessionManager has been installed.
+        ///  </returns>
+        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the user
+        ///  is not allowed access.
+        ///  </exception>
+        /// <exception name="CannotCreateSessionException">Raised if the session cannot be created.
+        ///  </exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         SessionPrx createSession(string userId, string password, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Create a per-client session with the router.
-        /// If a
+        /// If a SessionManager has been installed, a proxy to a
         /// </summary>
-        /// <param name="userId">The user id for which to check the password.
-        ///
-        /// </param>
+        ///  <param name="userId">The user id for which to check the password.
+        ///  </param>
         /// <param name="password">The password for the given user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -245,28 +223,24 @@ namespace Glacier2
 
         /// <summary>
         /// Create a per-client session with the router.
-        /// If a
+        /// If a SessionManager has been installed, a proxy to a
         /// </summary>
-        /// <param name="userId">The user id for which to check the password.
-        ///
-        /// </param>
+        ///  <param name="userId">The user id for which to check the password.
+        ///  </param>
         /// <param name="password">The password for the given user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
         global::Ice.AsyncResult<Callback_Router_createSession> begin_createSession(string userId, string password, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Create a per-client session with the router.
-        /// If a
+        /// If a SessionManager has been installed, a proxy to a
         /// </summary>
-        /// <param name="userId">The user id for which to check the password.
-        ///
-        /// </param>
+        ///  <param name="userId">The user id for which to check the password.
+        ///  </param>
         /// <param name="password">The password for the given user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -274,14 +248,12 @@ namespace Glacier2
 
         /// <summary>
         /// Create a per-client session with the router.
-        /// If a
+        /// If a SessionManager has been installed, a proxy to a
         /// </summary>
-        /// <param name="userId">The user id for which to check the password.
-        ///
-        /// </param>
+        ///  <param name="userId">The user id for which to check the password.
+        ///  </param>
         /// <param name="password">The password for the given user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -290,48 +262,36 @@ namespace Glacier2
 
         /// <summary>
         /// Create a per-client session with the router.
-        /// If a
+        /// If a SessionManager has been installed, a proxy to a
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A proxy for the newly created session, or null if no
-        /// SessionManager has been installed.
-        ///
-        /// </returns>
+        /// <returns>A proxy for the newly created session, or null if no SessionManager has been installed.
+        ///  </returns>
         SessionPrx end_createSession(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Create a per-client session with the router.
-        /// The user is
-        /// authenticated through the SSL certificates that have been
-        /// associated with the connection. If a SessionManager has been
-        /// installed, a proxy to a Session object is returned to the
-        /// client. Otherwise, null is returned and only an internal
-        /// session (i.e., not visible to the client) is created.
-        ///
-        /// If a session proxy is returned, it must be configured to route
-        /// through the router that created it. This will happen automatically
-        /// if the router is configured as the client's default router at the
-        /// time the session proxy is created in the client process, otherwise
-        /// the client must configure the session proxy explicitly.
-        ///
+        /// The user is authenticated through the SSL certificates that have
+        ///  been associated with the connection. If a SessionManager has been installed, a proxy to a
+        ///  Session object is returned to the client. Otherwise, null is returned and only an internal session
+        ///  (i.e., not visible to the client) is created.
+        ///  If a session proxy is returned, it must be configured to route through the router that created it. This will
+        ///  happen automatically if the router is configured as the client's default router at the time the session proxy
+        ///  is created in the client process, otherwise the client must configure the session proxy explicitly.
         /// </summary>
-        /// <returns>A proxy for the newly created session, or null if no
-        /// SessionManager has been installed.
-        ///
-        /// </returns>
-        /// <exception name="PermissionDeniedException">Raised if the user cannot be
-        /// authenticated or if the user is not allowed access.
-        ///
-        /// </exception>
-        /// <exception name="CannotCreateSessionException">Raised if the session
-        /// cannot be created.</exception>
+        ///  <returns>A proxy for the newly created session, or null if no SessionManager has been installed.
+        ///  </returns>
+        /// <exception name="PermissionDeniedException">Raised if the user cannot be authenticated or if the user is not allowed
+        ///  access.
+        ///  </exception>
+        /// <exception name="CannotCreateSessionException">Raised if the session cannot be created.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         SessionPrx createSessionFromSecureConnection(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Create a per-client session with the router.
-        /// The user is
+        /// The user is authenticated through the SSL certificates that have
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -341,7 +301,7 @@ namespace Glacier2
 
         /// <summary>
         /// Create a per-client session with the router.
-        /// The user is
+        /// The user is authenticated through the SSL certificates that have
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -349,7 +309,7 @@ namespace Glacier2
 
         /// <summary>
         /// Create a per-client session with the router.
-        /// The user is
+        /// The user is authenticated through the SSL certificates that have
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -358,7 +318,7 @@ namespace Glacier2
 
         /// <summary>
         /// Create a per-client session with the router.
-        /// The user is
+        /// The user is authenticated through the SSL certificates that have
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -368,20 +328,17 @@ namespace Glacier2
 
         /// <summary>
         /// Create a per-client session with the router.
-        /// The user is
+        /// The user is authenticated through the SSL certificates that have
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
-        /// <returns>A proxy for the newly created session, or null if no
-        /// SessionManager has been installed.
-        ///
-        /// </returns>
+        /// <returns>A proxy for the newly created session, or null if no SessionManager has been installed.
+        ///  </returns>
         SessionPrx end_createSessionFromSecureConnection(global::Ice.AsyncResult asyncResult);
 
         /// <summary>
         /// Keep the calling client's session with this router alive.
         /// </summary>
-        /// <exception name="SessionNotExistException">Raised if no session exists
-        /// for the calling client.</exception>
+        /// <exception name="SessionNotExistException">Raised if no session exists for the calling client.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void refreshSession(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -428,8 +385,7 @@ namespace Glacier2
         /// <summary>
         /// Destroy the calling client's session with this router.
         /// </summary>
-        /// <exception name="SessionNotExistException">Raised if no session exists
-        /// for the calling client.</exception>
+        /// <exception name="SessionNotExistException">Raised if no session exists for the calling client.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void destroySession(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -475,18 +431,16 @@ namespace Glacier2
 
         /// <summary>
         /// Get the value of the session timeout.
-        /// Sessions are destroyed
-        /// if they see no activity for this period of time.
-        ///
+        /// Sessions are destroyed if they see no activity for this period of time.
         /// </summary>
-        /// <returns>The timeout (in seconds).</returns>
+        ///  <returns>The timeout (in seconds).</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         long getSessionTimeout(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Get the value of the session timeout.
-        /// Sessions are destroyed
+        /// Sessions are destroyed if they see no activity for this period of time.
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -496,7 +450,7 @@ namespace Glacier2
 
         /// <summary>
         /// Get the value of the session timeout.
-        /// Sessions are destroyed
+        /// Sessions are destroyed if they see no activity for this period of time.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -504,7 +458,7 @@ namespace Glacier2
 
         /// <summary>
         /// Get the value of the session timeout.
-        /// Sessions are destroyed
+        /// Sessions are destroyed if they see no activity for this period of time.
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -513,7 +467,7 @@ namespace Glacier2
 
         /// <summary>
         /// Get the value of the session timeout.
-        /// Sessions are destroyed
+        /// Sessions are destroyed if they see no activity for this period of time.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -523,7 +477,7 @@ namespace Glacier2
 
         /// <summary>
         /// Get the value of the session timeout.
-        /// Sessions are destroyed
+        /// Sessions are destroyed if they see no activity for this period of time.
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The timeout (in seconds).</returns>
@@ -531,21 +485,17 @@ namespace Glacier2
 
         /// <summary>
         /// Get the value of the ACM timeout.
-        /// Clients supporting connection
-        /// heartbeats can enable them instead of explicitly sending keep
-        /// alives requests.
-        ///
-        /// NOTE: This method is only available since Ice 3.6.
-        ///
+        /// Clients supporting connection heartbeats can enable them instead of
+        ///  explicitly sending keep alives requests. This method is only available since Ice 3.6.
         /// </summary>
-        /// <returns>The timeout (in seconds).</returns>
+        ///  <returns>The timeout (in seconds).</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         int getACMTimeout(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Get the value of the ACM timeout.
-        /// Clients supporting connection
+        /// Clients supporting connection heartbeats can enable them instead of
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -555,7 +505,7 @@ namespace Glacier2
 
         /// <summary>
         /// Get the value of the ACM timeout.
-        /// Clients supporting connection
+        /// Clients supporting connection heartbeats can enable them instead of
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <returns>An asynchronous result object.</returns>
@@ -563,7 +513,7 @@ namespace Glacier2
 
         /// <summary>
         /// Get the value of the ACM timeout.
-        /// Clients supporting connection
+        /// Clients supporting connection heartbeats can enable them instead of
         /// </summary>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
         /// <param name="cookie">Application data to store in the asynchronous result object.</param>
@@ -572,7 +522,7 @@ namespace Glacier2
 
         /// <summary>
         /// Get the value of the ACM timeout.
-        /// Clients supporting connection
+        /// Clients supporting connection heartbeats can enable them instead of
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
         /// <param name="callback">Asynchronous callback invoked when the operation completes.</param>
@@ -582,7 +532,7 @@ namespace Glacier2
 
         /// <summary>
         /// Get the value of the ACM timeout.
-        /// Clients supporting connection
+        /// Clients supporting connection heartbeats can enable them instead of
         /// </summary>
         /// <param name="asyncResult">The asynchronous result object for the invocation.</param>
         /// <returns>The timeout (in seconds).</returns>
@@ -600,15 +550,12 @@ namespace Glacier2
     public interface RouterOperations_ : global::Ice.RouterOperations_
     {
         /// <summary>
-        /// This category must be used in the identities of all of the client's
-        /// callback objects.
-        /// This is necessary in order for the router to
-        /// forward callback requests to the intended client. If the Glacier2
-        /// server endpoints are not set, the returned category is an empty
-        /// string.
-        ///
+        /// This category must be used in the identities of all of the client's callback objects.
+        /// This is necessary in
+        ///  order for the router to forward callback requests to the intended client. If the Glacier2 server endpoints
+        ///  are not set, the returned category is an empty string.
         /// </summary>
-        /// <returns>The category.</returns>
+        ///  <returns>The category.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -616,14 +563,12 @@ namespace Glacier2
 
         /// <summary>
         /// Create a per-client session with the router.
-        /// If a
+        /// If a SessionManager has been installed, a proxy to a
         /// </summary>
-        /// <param name="userId">The user id for which to check the password.
-        ///
-        /// </param>
+        ///  <param name="userId">The user id for which to check the password.
+        ///  </param>
         /// <param name="password">The password for the given user id.
-        ///
-        /// </param>
+        ///  </param>
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -631,7 +576,7 @@ namespace Glacier2
 
         /// <summary>
         /// Create a per-client session with the router.
-        /// The user is
+        /// The user is authenticated through the SSL certificates that have
         /// </summary>
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
@@ -649,8 +594,7 @@ namespace Glacier2
         /// <summary>
         /// Destroy the calling client's session with this router.
         /// </summary>
-        /// <exception name="SessionNotExistException">Raised if no session exists
-        /// for the calling client.</exception>
+        /// <exception name="SessionNotExistException">Raised if no session exists for the calling client.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -658,11 +602,9 @@ namespace Glacier2
 
         /// <summary>
         /// Get the value of the session timeout.
-        /// Sessions are destroyed
-        /// if they see no activity for this period of time.
-        ///
+        /// Sessions are destroyed if they see no activity for this period of time.
         /// </summary>
-        /// <returns>The timeout (in seconds).</returns>
+        ///  <returns>The timeout (in seconds).</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -670,14 +612,10 @@ namespace Glacier2
 
         /// <summary>
         /// Get the value of the ACM timeout.
-        /// Clients supporting connection
-        /// heartbeats can enable them instead of explicitly sending keep
-        /// alives requests.
-        ///
-        /// NOTE: This method is only available since Ice 3.6.
-        ///
+        /// Clients supporting connection heartbeats can enable them instead of
+        ///  explicitly sending keep alives requests. This method is only available since Ice 3.6.
         /// </summary>
-        /// <returns>The timeout (in seconds).</returns>
+        ///  <returns>The timeout (in seconds).</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]

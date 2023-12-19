@@ -1,10 +1,8 @@
 % RouterFinderPrx   Summary of RouterFinderPrx
 %
-% This interface should be implemented by services implementing the
-% Ice::Router interface. It should be advertised through an Ice
-% object with the identity `Ice/RouterFinder'. This allows clients to
-% retrieve the router proxy with just the endpoint information of the
-% service.
+% This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
+% through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
+% just the endpoint information of the service.
 %
 % RouterFinderPrx Methods:
 %   getRouter - Get the router proxy implemented by the process hosting this finder object.
@@ -18,8 +16,8 @@
 classdef RouterFinderPrx < Ice.ObjectPrx
     methods
         function result = getRouter(obj, varargin)
-            % getRouter   Get the router proxy implemented by the process hosting this
-            % finder object. The proxy might point to several replicas.
+            % getRouter   Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+            % replicas.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -32,8 +30,8 @@ classdef RouterFinderPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getRouterAsync(obj, varargin)
-            % getRouterAsync   Get the router proxy implemented by the process hosting this
-            % finder object. The proxy might point to several replicas.
+            % getRouterAsync   Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
+            % replicas.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.

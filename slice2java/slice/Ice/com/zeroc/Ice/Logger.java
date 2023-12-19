@@ -16,14 +16,14 @@
 package com.zeroc.Ice;
 
 /**
- * The Ice message logger. Applications can provide their own logger
- * by implementing this interface and installing it in a communicator.
+ * The Ice message logger. Applications can provide their own logger by implementing this interface and installing it
+ * in a communicator.
  **/
 public interface Logger
 {
     /**
-     * Print a message. The message is printed literally, without
-     * any decorations such as executable name or time stamp.
+     * Print a message. The message is printed literally, without any decorations such as executable name or time
+     * stamp.
      * @param message The message to log.
      **/
     void print(String message);

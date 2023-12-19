@@ -15,14 +15,11 @@
 
 import Foundation
 
-/// An interface to associate implict contexts with communicators.
-///
-/// When you make a remote invocation without an explicit context parameter,
-/// Ice uses the per-proxy context (if any) combined with the ImplicitContext
+/// An interface to associate implict contexts with communicators. When you make a remote invocation without an
+/// explicit context parameter, Ice uses the per-proxy context (if any) combined with the ImplicitContext
 /// associated with the communicator.
-///
-/// Ice provides several implementations of ImplicitContext. The implementation
-/// used depends on the value of the Ice.ImplicitContext property.
+/// Ice provides several implementations of ImplicitContext. The implementation used depends on the value
+/// of the Ice.ImplicitContext property.
 ///
 /// None (default)
 /// No implicit context at all.
@@ -31,11 +28,10 @@ import Foundation
 /// Shared
 /// The implementation maintains a single context shared by all threads.
 ///
-///
-/// ImplicitContext also provides a number of operations to create, update or retrieve
-/// an entry in the underlying context without first retrieving a copy of the entire
-/// context. These operations correspond to a subset of the java.util.Map methods,
-/// with java.lang.Object replaced by string and null replaced by the empty-string.
+/// ImplicitContext also provides a number of operations to create, update or retrieve an entry in the
+/// underlying context without first retrieving a copy of the entire context. These operations correspond to a subset
+/// of the java.util.Map methods, with java.lang.Object replaced by string and
+/// null replaced by the empty-string.
 public protocol ImplicitContext:  Swift.AnyObject {
     /// Get a copy of the underlying context.
     ///
@@ -54,10 +50,9 @@ public protocol ImplicitContext:  Swift.AnyObject {
     /// - returns: `Swift.Bool` - True if the key has an associated value, False otherwise.
     func containsKey(_ key: Swift.String) -> Swift.Bool
 
-    /// Get the value associated with the given key in the underlying context.
-    /// Returns an empty string if no value is associated with the key.
-    /// containsKey allows you to distinguish between an empty-string value and
-    /// no value at all.
+    /// Get the value associated with the given key in the underlying context. Returns an empty string if no value is
+    /// associated with the key. containsKey allows you to distinguish between an empty-string value and no
+    /// value at all.
     ///
     /// - parameter _: `Swift.String` The key.
     ///

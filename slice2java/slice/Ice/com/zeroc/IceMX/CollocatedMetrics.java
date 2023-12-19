@@ -16,8 +16,8 @@
 package com.zeroc.IceMX;
 
 /**
- * Provides information on invocations that are collocated. Collocated
- * metrics are embedded within {@link InvocationMetrics}.
+ * Provides information on invocations that are collocated. Collocated metrics are embedded within
+ * {@link InvocationMetrics}.
  **/
 public class CollocatedMetrics extends ChildInvocationMetrics
 {

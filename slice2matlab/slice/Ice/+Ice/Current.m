@@ -1,8 +1,7 @@
 % Current   Summary of Current
 %
-% Information about the current method invocation for servers. Each
-% operation on the server has a Current as its implicit final
-% parameter. Current is mostly used for Ice services. Most
+% Information about the current method invocation for servers. Each operation on the server has a
+% Current as its implicit final parameter. Current is mostly used for Ice services. Most
 % applications ignore this parameter.
 %
 % Current Properties:
@@ -23,9 +22,8 @@ classdef Current
     properties
         % adapter - The object adapter.
         adapter
-        % con - Information about the connection over which the current method
-        % invocation was received. If the invocation is direct due to
-        % collocation optimization, this value is set to null.
+        % con - Information about the connection over which the current method invocation was received. If the invocation is
+        % direct due to collocation optimization, this value is set to null.
         con
         % id - The Ice object identity.
         id Ice.Identity

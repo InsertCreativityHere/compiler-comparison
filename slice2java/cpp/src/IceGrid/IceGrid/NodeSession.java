@@ -24,9 +24,8 @@ public interface NodeSession extends com.zeroc.Ice.Object
     void keepAlive(com.zeroc.IceGrid.LoadInfo load, com.zeroc.Ice.Current current);
 
     /**
-     * Set the replica observer. The node calls this method when it's
-     * ready to receive notifications for the replicas. It only calls
-     * this for the session with the master.
+     * Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+     * It only calls this for the session with the master.
      * @param current The Current object for the invocation.
      **/
     void setReplicaObserver(ReplicaObserverPrx observer, com.zeroc.Ice.Current current);
@@ -57,11 +56,9 @@ public interface NodeSession extends com.zeroc.Ice.Object
     String[] getServers(com.zeroc.Ice.Current current);
 
     /**
-     * Wait for the application update to complete (the application is
-     * completely updated once all the registry replicas have been
-     * updated). This is used by the node to ensure that before to
-     * start a server all the replicas have the up-to-date descriptor
-     * of the server.
+     * Wait for the application update to complete (the application is completely updated once all the registry
+     * replicas have been updated). This is used by the node to ensure that before to start a server all the
+     * replicas have the up-to-date descriptor of the server.
      * @param current The Current object for the invocation.
      * @return A completion stage that the servant will complete when the invocation completes.
      **/

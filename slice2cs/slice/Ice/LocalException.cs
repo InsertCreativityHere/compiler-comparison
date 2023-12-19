@@ -93,8 +93,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception indicates that a failure occurred while initializing
-    /// a plug-in.
+    /// This exception indicates that a failure occurred while initializing a plug-in.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -166,8 +165,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception is raised if a feature is requested that is not
-    /// supported with collocation optimization.
+    /// This exception is raised if a feature is requested that is not supported with collocation optimization.
     ///
     /// <para>This exception is no longer used by the Ice run time</para>
     ///
@@ -210,12 +208,10 @@ namespace Ice
     }
 
     /// <summary>
-    /// An attempt was made to register something more than once with
-    /// the Ice run time.
-    /// This exception is raised if an attempt is made to register a
-    /// servant, servant locator, facet, value factory, plug-in, object
-    /// adapter, object, or user exception factory more than once for the
-    /// same ID.
+    /// An attempt was made to register something more than once with the Ice run time.
+    /// This exception is raised if an
+    ///  attempt is made to register a servant, servant locator, facet, value factory, plug-in, object adapter, object, or
+    ///  user exception factory more than once for the same ID.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -292,15 +288,11 @@ namespace Ice
     }
 
     /// <summary>
-    /// An attempt was made to find or deregister something that is not
-    /// registered with the Ice run time or Ice locator.
-    /// This exception is raised if an attempt is made to remove a servant,
-    /// servant locator, facet, value factory, plug-in, object adapter,
-    /// object, or user exception factory that is not currently registered.
-    ///
-    /// It's also raised if the Ice locator can't find an object or object
-    /// adapter when resolving an indirect proxy or when an object adapter
-    /// is activated.
+    /// An attempt was made to find or deregister something that is not registered with the Ice run time or Ice locator.
+    /// This exception is raised if an attempt is made to remove a servant, servant locator, facet, value factory, plug-in,
+    ///  object adapter, object, or user exception factory that is not currently registered. It's also raised if the Ice
+    ///  locator can't find an object or object adapter when resolving an indirect proxy or when an object adapter is
+    ///  activated.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -378,10 +370,9 @@ namespace Ice
 
     /// <summary>
     /// The operation can only be invoked with a twoway request.
-    /// This exception is raised if an attempt is made to invoke an
-    /// operation with ice_oneway, ice_batchOneway, ice_datagram,
-    /// or ice_batchDatagram and the operation has a return value,
-    /// out-parameters, or an exception specification.
+    /// This exception is raised if an attempt is made to invoke
+    ///  an operation with ice_oneway, ice_batchOneway, ice_datagram, or
+    ///  ice_batchDatagram and the operation has a return value, out-parameters, or an exception specification.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -453,12 +444,11 @@ namespace Ice
     }
 
     /// <summary>
-    /// An attempt was made to clone a class that does not support
-    /// cloning.
-    /// This exception is raised if ice_clone is called on
-    /// a class that is derived from an abstract Slice class (that is,
-    /// a class containing operations), and the derived class does not
-    /// provide an implementation of the ice_clone operation (C++ only).
+    /// An attempt was made to clone a class that does not support cloning.
+    /// This exception is raised if
+    ///  ice_clone is called on a class that is derived from an abstract Slice class (that is, a class
+    ///  containing operations), and the derived class does not provide an implementation of the ice_clone
+    ///  operation (C++ only).
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -497,12 +487,10 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception is raised if an operation call on a server raises an
-    /// unknown exception.
-    /// For example, for C++, this exception is raised
-    /// if the server throws a C++ exception that is not directly or
-    /// indirectly derived from Ice::LocalException or
-    /// Ice::UserException.
+    /// This exception is raised if an operation call on a server raises an unknown exception.
+    /// For example, for C++, this
+    ///  exception is raised if the server throws a C++ exception that is not directly or indirectly derived from
+    ///  Ice::LocalException or Ice::UserException.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -574,14 +562,12 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception is raised if an operation call on a server raises a
-    /// local exception.
-    /// Because local exceptions are not transmitted by
-    /// the Ice protocol, the client receives all local exceptions raised
-    /// by the server as UnknownLocalException. The only exception to this
-    /// rule are all exceptions derived from RequestFailedException,
-    /// which are transmitted by the Ice protocol even though they are
-    /// declared local.
+    /// This exception is raised if an operation call on a server raises a  local exception.
+    /// Because local exceptions are
+    ///  not transmitted by the Ice protocol, the client receives all local exceptions raised by the server as
+    ///  UnknownLocalException. The only exception to this rule are all exceptions derived from
+    ///  RequestFailedException, which are transmitted by the Ice protocol even though they are declared
+    ///  local.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -631,15 +617,11 @@ namespace Ice
 
     /// <summary>
     /// An operation raised an incorrect user exception.
-    /// This exception is raised if an operation raises a
-    /// user exception that is not declared in the exception's
-    /// throws clause. Such undeclared exceptions are
-    /// not transmitted from the server to the client by the Ice
-    /// protocol, but instead the client just gets an
-    /// UnknownUserException. This is necessary in order to not violate
-    /// the contract established by an operation's signature: Only local
-    /// exceptions and user exceptions declared in the
-    /// throws clause can be raised.
+    /// This exception is raised if an operation raises a user exception
+    ///  that is not declared in the exception's throws clause. Such undeclared exceptions are not transmitted
+    ///  from the server to the client by the Ice protocol, but instead the client just gets an UnknownUserException.
+    ///  This is necessary in order to not violate the contract established by an operation's signature: Only local
+    ///  exceptions and user exceptions declared in the throws clause can be raised.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -688,8 +670,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception is raised if the Ice library version does not match
-    /// the version in the Ice header files.
+    /// This exception is raised if the Ice library version does not match the version in the Ice header files.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -767,8 +748,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception is raised if an attempt is made to use a deactivated
-    /// ObjectAdapter.
+    /// This exception is raised if an attempt is made to use a deactivated ObjectAdapter.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -841,8 +821,8 @@ namespace Ice
 
     /// <summary>
     /// This exception is raised if an ObjectAdapter cannot be activated.
-    /// This happens if the Locator detects another active ObjectAdapter with
-    /// the same adapter id.
+    /// This happens if the Locator
+    ///  detects another active ObjectAdapter with the same adapter id.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -986,8 +966,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception is raised if there was an error while parsing an
-    /// endpoint.
+    /// This exception is raised if there was an error while parsing an endpoint.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1059,8 +1038,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception is raised if there was an error while parsing an
-    /// endpoint selection type.
+    /// This exception is raised if there was an error while parsing an endpoint selection type.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1132,8 +1110,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception is raised if there was an error while parsing a
-    /// version.
+    /// This exception is raised if there was an error while parsing a version.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1205,8 +1182,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception is raised if there was an error while parsing a
-    /// stringified identity.
+    /// This exception is raised if there was an error while parsing a stringified identity.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1278,8 +1254,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception is raised if there was an error while parsing a
-    /// stringified proxy.
+    /// This exception is raised if there was an error while parsing a stringified proxy.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1423,8 +1398,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception is raised to reject an illegal servant (typically
-    /// a null servant)
+    /// This exception is raised to reject an illegal servant (typically a null servant).
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1497,10 +1471,9 @@ namespace Ice
 
     /// <summary>
     /// This exception is raised if a request failed.
-    /// This exception, and
-    /// all exceptions derived from RequestFailedException, are
-    /// transmitted by the Ice protocol, even though they are declared
-    /// local.
+    /// This exception, and all exceptions derived from
+    ///  RequestFailedException, are transmitted by the Ice protocol, even though they are declared
+    ///  local.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1582,8 +1555,8 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception is raised if an object does not exist on the server,
-    /// that is, if no facets with the given identity exist.
+    /// This exception is raised if an object does not exist on the server, that is, if no facets with the given identity
+    ///  exist.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1632,8 +1605,8 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception is raised if no facet with the given name exists,
-    /// but at least one facet with the given identity exists.
+    /// This exception is raised if no facet with the given name exists, but at least one facet with the given identity
+    ///  exists.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1682,10 +1655,9 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception is raised if an operation for a given object does
-    /// not exist on the server.
-    /// Typically this is caused by either the
-    /// client or the server using an outdated Slice specification.
+    /// This exception is raised if an operation for a given object does not exist on the server.
+    /// Typically this is caused
+    ///  by either the client or the server using an outdated Slice specification.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1734,11 +1706,9 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception is raised if a system error occurred in the server
-    /// or client process.
-    /// There are many possible causes for such a system
-    /// exception. For details on the cause, SyscallException.error
-    /// should be inspected.
+    /// This exception is raised if a system error occurred in the server or client process.
+    /// There are many possible causes
+    ///  for such a system exception. For details on the cause, SyscallException.error should be inspected.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -2052,8 +2022,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception indicates a connection failure for which
-    /// the server host actively refuses a connection.
+    /// This exception indicates a connection failure for which the server host actively refuses a connection.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -2152,8 +2121,7 @@ namespace Ice
 
     /// <summary>
     /// This exception indicates a DNS problem.
-    /// For details on the cause,
-    /// DNSException.error should be inspected.
+    /// For details on the cause, DNSException.error should be inspected.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -2386,8 +2354,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception indicates that a connection has been shut down because it has been
-    /// idle for some time.
+    /// This exception indicates that a connection has been shut down because it has been idle for some time.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -2426,8 +2393,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception indicates that an invocation failed because it timed
-    /// out.
+    /// This exception indicates that an invocation failed because it timed out.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -2466,8 +2432,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception indicates that an asynchronous invocation failed
-    /// because it was canceled explicitly by the user.
+    /// This exception indicates that an asynchronous invocation failed because it was canceled explicitly by the user.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -2506,8 +2471,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// A generic exception base for all kinds of protocol error
-    /// conditions.
+    /// A generic exception base for all kinds of protocol error conditions.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -2579,8 +2543,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception indicates that a message did not start with the expected
-    /// magic number ('I', 'c', 'e', 'P').
+    /// This exception indicates that a message did not start with the expected magic number ('I', 'c', 'e', 'P').
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -2847,8 +2810,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception is raised if a message is received over a connection
-    /// that is not yet validated.
+    /// This exception is raised if a message is received over a connection that is not yet validated.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -2897,8 +2859,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception indicates that a response for an unknown request ID has been
-    /// received.
+    /// This exception indicates that a response for an unknown request ID has been received.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -2996,15 +2957,12 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception indicates that the connection has been gracefully shut down by the
-    /// server.
-    /// The operation call that caused this exception has not been
-    /// executed by the server. In most cases you will not get this
-    /// exception, because the client will automatically retry the
-    /// operation call in case the server shut down the connection. However,
-    /// if upon retry the server shuts down the connection again, and the
-    /// retry limit has been reached, then this exception is propagated to
-    /// the application code.
+    /// This exception indicates that the connection has been gracefully shut down by the server.
+    /// The operation call that
+    ///  caused this exception has not been executed by the server. In most cases you will not get this exception, because
+    ///  the client will automatically retry the operation call in case the server shut down the connection. However, if
+    ///  upon retry the server shuts down the connection again, and the retry limit has been reached, then this exception is
+    ///  propagated to the application code.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -3053,8 +3011,8 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception is raised by an operation call if the application
-    /// closes the connection locally using Connection.close.
+    /// This exception is raised by an operation call if the application closes the connection locally using
+    ///  Connection.close.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -3125,8 +3083,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception indicates that a message size is less
-    /// than the minimum required size.
+    /// This exception indicates that a message size is less than the minimum required size.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -3225,8 +3182,8 @@ namespace Ice
 
     /// <summary>
     /// A datagram exceeds the configured size.
-    /// This exception is raised if a datagram exceeds the configured send or receive buffer
-    /// size, or exceeds the maximum payload size of a UDP packet (65507 bytes).
+    /// This exception is raised if a datagram exceeds the configured send or
+    ///  receive buffer size, or exceeds the maximum payload size of a UDP packet (65507 bytes).
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -3422,8 +3379,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception is raised if no suitable value factory was found during
-    /// unmarshaling of a Slice class instance.
+    /// This exception is raised if no suitable value factory was found during unmarshaling of a Slice class instance.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -3495,13 +3451,11 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception is raised if the type of an unmarshaled Slice class instance does
-    /// not match its expected type.
-    /// This can happen if client and server are compiled with mismatched Slice
-    /// definitions or if a class of the wrong type is passed as a parameter
-    /// or return value using dynamic invocation. This exception can also be
-    /// raised if IceStorm is used to send Slice class instances and
-    /// an operation is subscribed to the wrong topic.
+    /// This exception is raised if the type of an unmarshaled Slice class instance does not match its expected type.
+    /// This
+    ///  can happen if client and server are compiled with mismatched Slice definitions or if a class of the wrong type is
+    ///  passed as a parameter or return value using dynamic invocation. This exception can also be raised if IceStorm is
+    ///  used to send Slice class instances and an operation is subscribed to the wrong topic.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -3578,9 +3532,8 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception is raised when Ice receives a request or reply
-    /// message whose size exceeds the limit specified by the
-    /// Ice.MessageSizeMax property.
+    /// This exception is raised when Ice receives a request or reply message whose size exceeds the limit specified by the
+    ///  Ice.MessageSizeMax property.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -3629,8 +3582,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception is raised when a string conversion to or from UTF-8
-    /// fails during marshaling or unmarshaling.
+    /// This exception is raised when a string conversion to or from UTF-8 fails during marshaling or unmarshaling.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -3729,9 +3681,8 @@ namespace Ice
 
     /// <summary>
     /// This exception is raised if an unsupported feature is used.
-    /// The
-    /// unsupported feature string contains the name of the unsupported
-    /// feature
+    /// The unsupported feature string contains the name of the
+    ///  unsupported feature.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -3803,8 +3754,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception indicates a failure in a security subsystem,
-    /// such as the IceSSL plug-in.
+    /// This exception indicates a failure in a security subsystem, such as the IceSSL plug-in.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -3876,8 +3826,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// This exception indicates that an attempt has been made to
-    /// change the connection properties of a fixed proxy.
+    /// This exception indicates that an attempt has been made to change the connection properties of a fixed proxy.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -3916,8 +3865,7 @@ namespace Ice
     }
 
     /// <summary>
-    /// Indicates that the response to a request has already been sent;
-    /// re-dispatching such a request is not possible.
+    /// Indicates that the response to a request has already been sent; re-dispatching such a request is not possible.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]

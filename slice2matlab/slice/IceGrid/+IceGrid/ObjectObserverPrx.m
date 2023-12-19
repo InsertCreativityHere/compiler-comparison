@@ -20,12 +20,10 @@
 classdef ObjectObserverPrx < Ice.ObjectPrx
     methods
         function objectInit(obj, objects, varargin)
-            % objectInit   objectInit is called after the registration of
-            % an observer to indicate the state of the registry.
+            % objectInit   objectInit is called after the registration of an observer to indicate the state of the registry.
             %
             % Parameters:
-            %   objects (IceGrid.ObjectInfoSeq) - The objects registered with the Admin
-            %     interface (not through the deployment mechanism).
+            %   objects (IceGrid.ObjectInfoSeq) - The objects registered with the Admin interface (not through the deployment mechanism).
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
@@ -34,12 +32,10 @@ classdef ObjectObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('objectInit', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = objectInitAsync(obj, objects, varargin)
-            % objectInitAsync   objectInit is called after the registration of
-            % an observer to indicate the state of the registry.
+            % objectInitAsync   objectInit is called after the registration of an observer to indicate the state of the registry.
             %
             % Parameters:
-            %   objects (IceGrid.ObjectInfoSeq) - The objects registered with the Admin
-            %     interface (not through the deployment mechanism).
+            %   objects (IceGrid.ObjectInfoSeq) - The objects registered with the Admin interface (not through the deployment mechanism).
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -50,8 +46,8 @@ classdef ObjectObserverPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('objectInit', 0, false, os_, 0, [], {}, varargin{:});
         end
         function objectAdded(obj, info, varargin)
-            % objectAdded   The objectAdded operation is called to notify an observer when an
-            % object was added to the Admin interface.
+            % objectAdded   The objectAdded operation is called to notify an observer when an object was added to the
+            % Admin interface.
             %
             % Parameters:
             %   info (IceGrid.ObjectInfo) - The details of the added object.
@@ -63,8 +59,8 @@ classdef ObjectObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('objectAdded', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = objectAddedAsync(obj, info, varargin)
-            % objectAddedAsync   The objectAdded operation is called to notify an observer when an
-            % object was added to the Admin interface.
+            % objectAddedAsync   The objectAdded operation is called to notify an observer when an object was added to the
+            % Admin interface.
             %
             % Parameters:
             %   info (IceGrid.ObjectInfo) - The details of the added object.
@@ -78,8 +74,8 @@ classdef ObjectObserverPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('objectAdded', 0, false, os_, 0, [], {}, varargin{:});
         end
         function objectUpdated(obj, info, varargin)
-            % objectUpdated   objectUpdated is called to notify an observer when
-            % an object registered with the Admin interface was updated.
+            % objectUpdated   objectUpdated is called to notify an observer when an object registered with the Admin
+            % interface was updated.
             %
             % Parameters:
             %   info (IceGrid.ObjectInfo) - The details of the updated object.
@@ -91,8 +87,8 @@ classdef ObjectObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('objectUpdated', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = objectUpdatedAsync(obj, info, varargin)
-            % objectUpdatedAsync   objectUpdated is called to notify an observer when
-            % an object registered with the Admin interface was updated.
+            % objectUpdatedAsync   objectUpdated is called to notify an observer when an object registered with the Admin
+            % interface was updated.
             %
             % Parameters:
             %   info (IceGrid.ObjectInfo) - The details of the updated object.
@@ -106,8 +102,8 @@ classdef ObjectObserverPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('objectUpdated', 0, false, os_, 0, [], {}, varargin{:});
         end
         function objectRemoved(obj, id, varargin)
-            % objectRemoved   objectRemoved is called to notify an observer when
-            % an object registered with the Admin interface was removed.
+            % objectRemoved   objectRemoved is called to notify an observer when an object registered with the Admin
+            % interface was removed.
             %
             % Parameters:
             %   id (Ice.Identity) - The identity of the removed object.
@@ -119,8 +115,8 @@ classdef ObjectObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('objectRemoved', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = objectRemovedAsync(obj, id, varargin)
-            % objectRemovedAsync   objectRemoved is called to notify an observer when
-            % an object registered with the Admin interface was removed.
+            % objectRemovedAsync   objectRemoved is called to notify an observer when an object registered with the Admin
+            % interface was removed.
             %
             % Parameters:
             %   id (Ice.Identity) - The identity of the removed object.

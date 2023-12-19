@@ -16,8 +16,7 @@
 package com.zeroc.Ice;
 
 /**
- * This exception indicates a connection failure for which
- * the server host actively refuses a connection.
+ * This exception indicates a connection failure for which the server host actively refuses a connection.
  **/
 public class ConnectionRefusedException extends ConnectFailedException
 {

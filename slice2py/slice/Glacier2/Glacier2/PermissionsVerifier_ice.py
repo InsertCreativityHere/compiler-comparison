@@ -31,10 +31,9 @@ if 'PermissionDeniedException' not in _M_Glacier2.__dict__:
     _M_Glacier2.PermissionDeniedException = Ice.createTempClass()
     class PermissionDeniedException(Ice.UserException):
         """
-        This exception is raised if a client is denied the ability to create
-        a session with the router.
+         This exception is raised if a client is denied the ability to create a session with the router.
         Members:
-        reason -- The reason why permission was denied.
+        reason --  The reason why permission was denied.
         """
         def __init__(self, reason=''):
             self.reason = reason
@@ -59,7 +58,7 @@ if 'PermissionsVerifierPrx' not in _M_Glacier2.__dict__:
     class PermissionsVerifierPrx(Ice.ObjectPrx):
 
         """
-        Check whether a user has permission to access the router.
+         Check whether a user has permission to access the router.
         Arguments:
         userId -- The user id for which to check permission.
         password -- The user's password.
@@ -74,7 +73,7 @@ if 'PermissionsVerifierPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.PermissionsVerifier._op_checkPermissions.invoke(self, ((userId, password), context))
 
         """
-        Check whether a user has permission to access the router.
+         Check whether a user has permission to access the router.
         Arguments:
         userId -- The user id for which to check permission.
         password -- The user's password.
@@ -85,7 +84,7 @@ if 'PermissionsVerifierPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.PermissionsVerifier._op_checkPermissions.invokeAsync(self, ((userId, password), context))
 
         """
-        Check whether a user has permission to access the router.
+         Check whether a user has permission to access the router.
         Arguments:
         userId -- The user id for which to check permission.
         password -- The user's password.
@@ -99,7 +98,7 @@ if 'PermissionsVerifierPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.PermissionsVerifier._op_checkPermissions.begin(self, ((userId, password), _response, _ex, _sent, context))
 
         """
-        Check whether a user has permission to access the router.
+         Check whether a user has permission to access the router.
         Arguments:
         userId -- The user id for which to check permission.
         password -- The user's password.
@@ -143,7 +142,7 @@ if 'PermissionsVerifierPrx' not in _M_Glacier2.__dict__:
 
         def checkPermissions(self, userId, password, current=None):
             """
-            Check whether a user has permission to access the router.
+             Check whether a user has permission to access the router.
             Arguments:
             userId -- The user id for which to check permission.
             password -- The user's password.
@@ -174,7 +173,7 @@ if 'SSLPermissionsVerifierPrx' not in _M_Glacier2.__dict__:
     class SSLPermissionsVerifierPrx(Ice.ObjectPrx):
 
         """
-        Check whether a user has permission to access the router.
+         Check whether a user has permission to access the router.
         Arguments:
         info -- The SSL information.
         context -- The request context for the invocation.
@@ -188,7 +187,7 @@ if 'SSLPermissionsVerifierPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SSLPermissionsVerifier._op_authorize.invoke(self, ((info, ), context))
 
         """
-        Check whether a user has permission to access the router.
+         Check whether a user has permission to access the router.
         Arguments:
         info -- The SSL information.
         context -- The request context for the invocation.
@@ -198,7 +197,7 @@ if 'SSLPermissionsVerifierPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SSLPermissionsVerifier._op_authorize.invokeAsync(self, ((info, ), context))
 
         """
-        Check whether a user has permission to access the router.
+         Check whether a user has permission to access the router.
         Arguments:
         info -- The SSL information.
         _response -- The asynchronous response callback.
@@ -211,7 +210,7 @@ if 'SSLPermissionsVerifierPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SSLPermissionsVerifier._op_authorize.begin(self, ((info, ), _response, _ex, _sent, context))
 
         """
-        Check whether a user has permission to access the router.
+         Check whether a user has permission to access the router.
         Arguments:
         info -- The SSL information.
         Returns a tuple containing the following:
@@ -254,7 +253,7 @@ if 'SSLPermissionsVerifierPrx' not in _M_Glacier2.__dict__:
 
         def authorize(self, info, current=None):
             """
-            Check whether a user has permission to access the router.
+             Check whether a user has permission to access the router.
             Arguments:
             info -- The SSL information.
             current -- The Current object for the invocation.

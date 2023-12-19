@@ -16,8 +16,7 @@
 package com.zeroc.IceBox;
 
 /**
- * This exception is thrown if a service name does not refer
- * to an existing service.
+ * This exception is thrown if a service name does not refer to an existing service.
  **/
 public class NoSuchServiceException extends com.zeroc.Ice.UserException
 {

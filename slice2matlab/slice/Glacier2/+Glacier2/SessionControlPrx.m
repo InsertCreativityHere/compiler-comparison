@@ -1,7 +1,6 @@
 % SessionControlPrx   Summary of SessionControlPrx
 %
-% An administrative session control object, which is tied to the
-% lifecycle of a Session.
+% An administrative session control object, which is tied to the lifecycle of a Session.
 %
 % SessionControlPrx Methods:
 %   categories - Access the object that manages the allowable categories for object identities for this session.
@@ -25,8 +24,7 @@
 classdef SessionControlPrx < Ice.ObjectPrx
     methods
         function result = categories(obj, varargin)
-            % categories   Access the object that manages the allowable categories
-            % for object identities for this session.
+            % categories   Access the object that manages the allowable categories for object identities for this session.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -39,8 +37,7 @@ classdef SessionControlPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = categoriesAsync(obj, varargin)
-            % categoriesAsync   Access the object that manages the allowable categories
-            % for object identities for this session.
+            % categoriesAsync   Access the object that manages the allowable categories for object identities for this session.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -56,8 +53,7 @@ classdef SessionControlPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('categories', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = adapterIds(obj, varargin)
-            % adapterIds   Access the object that manages the allowable adapter identities
-            % for objects for this session.
+            % adapterIds   Access the object that manages the allowable adapter identities for objects for this session.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -70,8 +66,7 @@ classdef SessionControlPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = adapterIdsAsync(obj, varargin)
-            % adapterIdsAsync   Access the object that manages the allowable adapter identities
-            % for objects for this session.
+            % adapterIdsAsync   Access the object that manages the allowable adapter identities for objects for this session.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -87,8 +82,7 @@ classdef SessionControlPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('adapterIds', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = identities(obj, varargin)
-            % identities   Access the object that manages the allowable object identities
-            % for this session.
+            % identities   Access the object that manages the allowable object identities for this session.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -101,8 +95,7 @@ classdef SessionControlPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = identitiesAsync(obj, varargin)
-            % identitiesAsync   Access the object that manages the allowable object identities
-            % for this session.
+            % identitiesAsync   Access the object that manages the allowable object identities for this session.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.

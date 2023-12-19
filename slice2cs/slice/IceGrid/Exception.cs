@@ -1252,8 +1252,7 @@ namespace IceGrid
     }
 
     /// <summary>
-    /// This exception is raised if an unknown signal was sent to
-    /// to a server.
+    /// This exception is raised if an unknown signal was sent to to a server.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1429,8 +1428,7 @@ namespace IceGrid
     }
 
     /// <summary>
-    /// This exception is raised if a registry lock wasn't
-    /// acquired or is already held by a session.
+    /// his exception is raised if a registry lock wasn't acquired or is already held by a session.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1614,8 +1612,7 @@ namespace IceGrid
     }
 
     /// <summary>
-    /// This exception is raised if the request to allocate an object times
-    /// out.
+    /// This exception is raised if the request to allocate an object times out.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1684,8 +1681,7 @@ namespace IceGrid
     }
 
     /// <summary>
-    /// This exception is raised if a client is denied the ability to create
-    /// a session with IceGrid.
+    /// This exception is raised if a client is denied the ability to create a session with IceGrid.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
@@ -1777,8 +1773,7 @@ namespace IceGrid
     }
 
     /// <summary>
-    /// This exception is raised if an observer is already registered with
-    /// the registry.
+    /// This exception is raised if an observer is already registered with the registry.
     /// </summary>
 
     [global::System.Runtime.InteropServices.ComVisible(false)]

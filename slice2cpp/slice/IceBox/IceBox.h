@@ -78,10 +78,8 @@ namespace IceBox
 {
 
 /**
- * This exception is a general failure notification. It is thrown
- * for errors such as a service encountering an error during
- * initialization, or the service manager being unable
- * to load a service executable.
+ * This exception is a general failure notification. It is thrown for errors such as a service encountering an error
+ * during initialization, or the service manager being unable to load a service executable.
  * \headerfile IceBox/IceBox.h
  */
 class ICE_CLASS(ICEBOX_API) FailureException : public ::Ice::LocalExceptionHelper<FailureException, ::Ice::LocalException>
@@ -140,8 +138,7 @@ public:
 };
 
 /**
- * This exception is thrown if an attempt is made to start an
- * already-started service.
+ * This exception is thrown if an attempt is made to start an already-started service.
  * \headerfile IceBox/IceBox.h
  */
 class ICE_CLASS(ICEBOX_API) AlreadyStartedException : public ::Ice::UserExceptionHelper<AlreadyStartedException, ::Ice::UserException>
@@ -175,8 +172,7 @@ static AlreadyStartedException _iceS_AlreadyStartedException_init;
 /// \endcond
 
 /**
- * This exception is thrown if an attempt is made to stop an
- * already-stopped service.
+ * This exception is thrown if an attempt is made to stop an already-stopped service.
  * \headerfile IceBox/IceBox.h
  */
 class ICE_CLASS(ICEBOX_API) AlreadyStoppedException : public ::Ice::UserExceptionHelper<AlreadyStoppedException, ::Ice::UserException>
@@ -206,8 +202,7 @@ public:
 };
 
 /**
- * This exception is thrown if a service name does not refer
- * to an existing service.
+ * This exception is thrown if a service name does not refer to an existing service.
  * \headerfile IceBox/IceBox.h
  */
 class ICE_CLASS(ICEBOX_API) NoSuchServiceException : public ::Ice::UserExceptionHelper<NoSuchServiceException, ::Ice::UserException>
@@ -252,18 +247,12 @@ public:
     ICE_MEMBER(ICEBOX_API) virtual ~Service();
 
     /**
-     * Start the service. The given communicator is created by the
-     * {@link ServiceManager} for use by the service. This communicator may
-     * also be used by other services, depending on the service
-     * configuration.
-     *
-     * <p class="Note">The {@link ServiceManager} owns this communicator, and is
-     * responsible for destroying it.
-     * @param name The service's name, as determined by the
-     * configuration.
+     * Start the service. The given communicator is created by the {@link ServiceManager} for use by the service. This
+     * communicator may also be used by other services, depending on the service configuration.
+     * <p class="Note">The {@link ServiceManager} owns this communicator, and is responsible for destroying it.
+     * @param name The service's name, as determined by the configuration.
      * @param communicator A communicator for use by the service.
-     * @param args The service arguments that were not converted into
-     * properties.
+     * @param args The service arguments that were not converted into properties.
      * @throws IceBox::FailureException Raised if {@link #start} failed.
      */
     virtual void start(const ::std::string& name, const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::Ice::StringSeq& args) = 0;
@@ -280,8 +269,7 @@ namespace IceBox
 {
 
 /**
- * An Observer interface implemented by admin clients interested in the status
- * of services.
+ * An Observer interface implemented by admin clients interested in the status of services.
  * @see ServiceManager
  * \headerfile IceBox/IceBox.h
  */
@@ -437,8 +425,7 @@ namespace IceBox
 {
 
 /**
- * An Observer interface implemented by admin clients interested in the status
- * of services.
+ * An Observer interface implemented by admin clients interested in the status of services.
  * @see ServiceManager
  * \headerfile IceBox/IceBox.h
  */
@@ -848,10 +835,8 @@ namespace IceBox
 {
 
 /**
- * This exception is a general failure notification. It is thrown
- * for errors such as a service encountering an error during
- * initialization, or the service manager being unable
- * to load a service executable.
+ * This exception is a general failure notification. It is thrown for errors such as a service encountering an error
+ * during initialization, or the service manager being unable to load a service executable.
  * \headerfile IceBox/IceBox.h
  */
 class ICEBOX_API FailureException : public ::Ice::LocalException
@@ -907,8 +892,7 @@ public:
 };
 
 /**
- * This exception is thrown if an attempt is made to start an
- * already-started service.
+ * This exception is thrown if an attempt is made to start an already-started service.
  * \headerfile IceBox/IceBox.h
  */
 class ICEBOX_API AlreadyStartedException : public ::Ice::UserException
@@ -952,8 +936,7 @@ static AlreadyStartedException _iceS_AlreadyStartedException_init;
 /// \endcond
 
 /**
- * This exception is thrown if an attempt is made to stop an
- * already-stopped service.
+ * This exception is thrown if an attempt is made to stop an already-stopped service.
  * \headerfile IceBox/IceBox.h
  */
 class ICEBOX_API AlreadyStoppedException : public ::Ice::UserException
@@ -993,8 +976,7 @@ protected:
 };
 
 /**
- * This exception is thrown if a service name does not refer
- * to an existing service.
+ * This exception is thrown if a service name does not refer to an existing service.
  * \headerfile IceBox/IceBox.h
  */
 class ICEBOX_API NoSuchServiceException : public ::Ice::UserException
@@ -1654,18 +1636,12 @@ public:
 #endif
 
     /**
-     * Start the service. The given communicator is created by the
-     * {@link ServiceManager} for use by the service. This communicator may
-     * also be used by other services, depending on the service
-     * configuration.
-     *
-     * <p class="Note">The {@link ServiceManager} owns this communicator, and is
-     * responsible for destroying it.
-     * @param name The service's name, as determined by the
-     * configuration.
+     * Start the service. The given communicator is created by the {@link ServiceManager} for use by the service. This
+     * communicator may also be used by other services, depending on the service configuration.
+     * <p class="Note">The {@link ServiceManager} owns this communicator, and is responsible for destroying it.
+     * @param name The service's name, as determined by the configuration.
      * @param communicator A communicator for use by the service.
-     * @param args The service arguments that were not converted into
-     * properties.
+     * @param args The service arguments that were not converted into properties.
      * @throws IceBox::FailureException Raised if {@link #start} failed.
      */
     virtual void start(const ::std::string& name, const ::Ice::CommunicatorPtr& communicator, const ::Ice::StringSeq& args) = 0;
@@ -1689,8 +1665,7 @@ inline bool operator<(const Service& lhs, const Service& rhs)
 /// \endcond
 
 /**
- * An Observer interface implemented by admin clients interested in the status
- * of services.
+ * An Observer interface implemented by admin clients interested in the status of services.
  * @see ServiceManager
  * \headerfile IceBox/IceBox.h
  */

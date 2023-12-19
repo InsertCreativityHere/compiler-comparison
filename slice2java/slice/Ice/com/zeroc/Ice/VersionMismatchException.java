@@ -16,8 +16,7 @@
 package com.zeroc.Ice;
 
 /**
- * This exception is raised if the Ice library version does not match
- * the version in the Ice header files.
+ * This exception is raised if the Ice library version does not match the version in the Ice header files.
  **/
 public class VersionMismatchException extends LocalException
 {

@@ -66,14 +66,11 @@ namespace Ice
 {
 
 /**
- * An interface to associate implict contexts with communicators.
- *
- * When you make a remote invocation without an explicit context parameter,
- * Ice uses the per-proxy context (if any) combined with the <code>ImplicitContext</code>
+ * An interface to associate implict contexts with communicators. When you make a remote invocation without an
+ * explicit context parameter, Ice uses the per-proxy context (if any) combined with the <code>ImplicitContext</code>
  * associated with the communicator.
- *
- * Ice provides several implementations of <code>ImplicitContext</code>. The implementation
- * used depends on the value of the <code>Ice.ImplicitContext</code> property.
+ * Ice provides several implementations of <code>ImplicitContext</code>. The implementation used depends on the value
+ * of the <code>Ice.ImplicitContext</code> property.
  * <dl>
  * <dt><code>None</code> (default)</dt>
  * <dd>No implicit context at all.</dd>
@@ -82,11 +79,10 @@ namespace Ice
  * <dt><code>Shared</code></dt>
  * <dd>The implementation maintains a single context shared by all threads.</dd>
  * </dl>
- *
- * <code>ImplicitContext</code> also provides a number of operations to create, update or retrieve
- * an entry in the underlying context without first retrieving a copy of the entire
- * context. These operations correspond to a subset of the <code>java.util.Map</code> methods,
- * with <code>java.lang.Object</code> replaced by <code>string</code> and null replaced by the empty-string.
+ * <code>ImplicitContext</code> also provides a number of operations to create, update or retrieve an entry in the
+ * underlying context without first retrieving a copy of the entire context. These operations correspond to a subset
+ * of the <code>java.util.Map</code> methods, with <code>java.lang.Object</code> replaced by <code>string</code> and
+ * null replaced by the empty-string.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) ImplicitContext
@@ -115,10 +111,9 @@ public:
     virtual bool containsKey(const ::std::string& key) const = 0;
 
     /**
-     * Get the value associated with the given key in the underlying context.
-     * Returns an empty string if no value is associated with the key.
-     * {@link #containsKey} allows you to distinguish between an empty-string value and
-     * no value at all.
+     * Get the value associated with the given key in the underlying context. Returns an empty string if no value is
+     * associated with the key. {@link #containsKey} allows you to distinguish between an empty-string value and no
+     * value at all.
      * @param key The key.
      * @return The value associated with the key.
      */
@@ -175,14 +170,11 @@ namespace Ice
 {
 
 /**
- * An interface to associate implict contexts with communicators.
- *
- * When you make a remote invocation without an explicit context parameter,
- * Ice uses the per-proxy context (if any) combined with the <code>ImplicitContext</code>
+ * An interface to associate implict contexts with communicators. When you make a remote invocation without an
+ * explicit context parameter, Ice uses the per-proxy context (if any) combined with the <code>ImplicitContext</code>
  * associated with the communicator.
- *
- * Ice provides several implementations of <code>ImplicitContext</code>. The implementation
- * used depends on the value of the <code>Ice.ImplicitContext</code> property.
+ * Ice provides several implementations of <code>ImplicitContext</code>. The implementation used depends on the value
+ * of the <code>Ice.ImplicitContext</code> property.
  * <dl>
  * <dt><code>None</code> (default)</dt>
  * <dd>No implicit context at all.</dd>
@@ -191,11 +183,10 @@ namespace Ice
  * <dt><code>Shared</code></dt>
  * <dd>The implementation maintains a single context shared by all threads.</dd>
  * </dl>
- *
- * <code>ImplicitContext</code> also provides a number of operations to create, update or retrieve
- * an entry in the underlying context without first retrieving a copy of the entire
- * context. These operations correspond to a subset of the <code>java.util.Map</code> methods,
- * with <code>java.lang.Object</code> replaced by <code>string</code> and null replaced by the empty-string.
+ * <code>ImplicitContext</code> also provides a number of operations to create, update or retrieve an entry in the
+ * underlying context without first retrieving a copy of the entire context. These operations correspond to a subset
+ * of the <code>java.util.Map</code> methods, with <code>java.lang.Object</code> replaced by <code>string</code> and
+ * null replaced by the empty-string.
  * \headerfile Ice/Ice.h
  */
 class ICE_API ImplicitContext : public virtual LocalObject
@@ -232,10 +223,9 @@ public:
     virtual bool containsKey(const ::std::string& key) const = 0;
 
     /**
-     * Get the value associated with the given key in the underlying context.
-     * Returns an empty string if no value is associated with the key.
-     * {@link #containsKey} allows you to distinguish between an empty-string value and
-     * no value at all.
+     * Get the value associated with the given key in the underlying context. Returns an empty string if no value is
+     * associated with the key. {@link #containsKey} allows you to distinguish between an empty-string value and no
+     * value at all.
      * @param key The key.
      * @return The value associated with the key.
      */

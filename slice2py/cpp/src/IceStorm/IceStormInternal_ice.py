@@ -39,12 +39,12 @@ if 'EventData' not in _M_IceStorm.__dict__:
     _M_IceStorm.EventData = Ice.createTempClass()
     class EventData(object):
         """
-        The event data.
+         The event data.
         Members:
-        op -- The operation name.
-        mode -- The operation mode.
-        data -- The encoded data for the operation's input parameters.
-        context -- The Ice::Current::Context data from the originating request.
+        op --  The operation name.
+        mode --  The operation mode.
+        data --  The encoded data for the operation's input parameters.
+        context --  The Ice::Current::Context data from the originating request.
         """
         def __init__(self, op='', mode=_M_Ice.OperationMode.Normal, data=None, context=None):
             self.op = op
@@ -115,7 +115,7 @@ if 'TopicLinkPrx' not in _M_IceStorm.__dict__:
     class TopicLinkPrx(Ice.ObjectPrx):
 
         """
-        Forward a sequence of events.
+         Forward a sequence of events.
         Arguments:
         events -- The events to forward.
         context -- The request context for the invocation.
@@ -124,7 +124,7 @@ if 'TopicLinkPrx' not in _M_IceStorm.__dict__:
             return _M_IceStorm.TopicLink._op_forward.invoke(self, ((events, ), context))
 
         """
-        Forward a sequence of events.
+         Forward a sequence of events.
         Arguments:
         events -- The events to forward.
         context -- The request context for the invocation.
@@ -134,7 +134,7 @@ if 'TopicLinkPrx' not in _M_IceStorm.__dict__:
             return _M_IceStorm.TopicLink._op_forward.invokeAsync(self, ((events, ), context))
 
         """
-        Forward a sequence of events.
+         Forward a sequence of events.
         Arguments:
         events -- The events to forward.
         _response -- The asynchronous response callback.
@@ -147,7 +147,7 @@ if 'TopicLinkPrx' not in _M_IceStorm.__dict__:
             return _M_IceStorm.TopicLink._op_forward.begin(self, ((events, ), _response, _ex, _sent, context))
 
         """
-        Forward a sequence of events.
+         Forward a sequence of events.
         Arguments:
         events -- The events to forward.
         """
@@ -185,7 +185,7 @@ if 'TopicLinkPrx' not in _M_IceStorm.__dict__:
 
         def forward(self, events, current=None):
             """
-            Forward a sequence of events.
+             Forward a sequence of events.
             Arguments:
             events -- The events to forward.
             current -- The Current object for the invocation.
@@ -210,7 +210,7 @@ if 'ReapWouldBlock' not in _M_IceStorm.__dict__:
     _M_IceStorm.ReapWouldBlock = Ice.createTempClass()
     class ReapWouldBlock(Ice.UserException):
         """
-        Thrown if the reap call would block.
+         Thrown if the reap call would block.
         """
         def __init__(self):
             pass
@@ -235,7 +235,7 @@ if 'TopicInternalPrx' not in _M_IceStorm.__dict__:
     class TopicInternalPrx(_M_IceStorm.TopicPrx):
 
         """
-        Retrieve a proxy to the TopicLink interface.
+         Retrieve a proxy to the TopicLink interface.
         Arguments:
         context -- The request context for the invocation.
         Returns: The TopicLink for the Topic.
@@ -244,7 +244,7 @@ if 'TopicInternalPrx' not in _M_IceStorm.__dict__:
             return _M_IceStorm.TopicInternal._op_getLinkProxy.invoke(self, ((), context))
 
         """
-        Retrieve a proxy to the TopicLink interface.
+         Retrieve a proxy to the TopicLink interface.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -253,7 +253,7 @@ if 'TopicInternalPrx' not in _M_IceStorm.__dict__:
             return _M_IceStorm.TopicInternal._op_getLinkProxy.invokeAsync(self, ((), context))
 
         """
-        Retrieve a proxy to the TopicLink interface.
+         Retrieve a proxy to the TopicLink interface.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -265,7 +265,7 @@ if 'TopicInternalPrx' not in _M_IceStorm.__dict__:
             return _M_IceStorm.TopicInternal._op_getLinkProxy.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Retrieve a proxy to the TopicLink interface.
+         Retrieve a proxy to the TopicLink interface.
         Arguments:
         Returns: The TopicLink for the Topic.
         """
@@ -273,7 +273,7 @@ if 'TopicInternalPrx' not in _M_IceStorm.__dict__:
             return _M_IceStorm.TopicInternal._op_getLinkProxy.end(self, _r)
 
         """
-        Reap the given identities.
+         Reap the given identities.
         Arguments:
         id -- The sequence of identities.
         context -- The request context for the invocation.
@@ -284,7 +284,7 @@ if 'TopicInternalPrx' not in _M_IceStorm.__dict__:
             return _M_IceStorm.TopicInternal._op_reap.invoke(self, ((id, ), context))
 
         """
-        Reap the given identities.
+         Reap the given identities.
         Arguments:
         id -- The sequence of identities.
         context -- The request context for the invocation.
@@ -294,7 +294,7 @@ if 'TopicInternalPrx' not in _M_IceStorm.__dict__:
             return _M_IceStorm.TopicInternal._op_reap.invokeAsync(self, ((id, ), context))
 
         """
-        Reap the given identities.
+         Reap the given identities.
         Arguments:
         id -- The sequence of identities.
         _response -- The asynchronous response callback.
@@ -307,7 +307,7 @@ if 'TopicInternalPrx' not in _M_IceStorm.__dict__:
             return _M_IceStorm.TopicInternal._op_reap.begin(self, ((id, ), _response, _ex, _sent, context))
 
         """
-        Reap the given identities.
+         Reap the given identities.
         Arguments:
         id -- The sequence of identities.
         Throws:
@@ -347,7 +347,7 @@ if 'TopicInternalPrx' not in _M_IceStorm.__dict__:
 
         def getLinkProxy(self, current=None):
             """
-            Retrieve a proxy to the TopicLink interface.
+             Retrieve a proxy to the TopicLink interface.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -356,7 +356,7 @@ if 'TopicInternalPrx' not in _M_IceStorm.__dict__:
 
         def reap(self, id, current=None):
             """
-            Reap the given identities.
+             Reap the given identities.
             Arguments:
             id -- The sequence of identities.
             current -- The Current object for the invocation.
@@ -387,7 +387,7 @@ if 'TopicManagerInternalPrx' not in _M_IceStorm.__dict__:
     class TopicManagerInternalPrx(_M_IceStorm.TopicManagerPrx):
 
         """
-        Return the replica node proxy for this topic manager.
+         Return the replica node proxy for this topic manager.
         Arguments:
         context -- The request context for the invocation.
         Returns: The replica proxy, or null if this instance is not replicated.
@@ -396,7 +396,7 @@ if 'TopicManagerInternalPrx' not in _M_IceStorm.__dict__:
             return _M_IceStorm.TopicManagerInternal._op_getReplicaNode.invoke(self, ((), context))
 
         """
-        Return the replica node proxy for this topic manager.
+         Return the replica node proxy for this topic manager.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -405,7 +405,7 @@ if 'TopicManagerInternalPrx' not in _M_IceStorm.__dict__:
             return _M_IceStorm.TopicManagerInternal._op_getReplicaNode.invokeAsync(self, ((), context))
 
         """
-        Return the replica node proxy for this topic manager.
+         Return the replica node proxy for this topic manager.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -417,7 +417,7 @@ if 'TopicManagerInternalPrx' not in _M_IceStorm.__dict__:
             return _M_IceStorm.TopicManagerInternal._op_getReplicaNode.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Return the replica node proxy for this topic manager.
+         Return the replica node proxy for this topic manager.
         Arguments:
         Returns: The replica proxy, or null if this instance is not replicated.
         """
@@ -455,7 +455,7 @@ if 'TopicManagerInternalPrx' not in _M_IceStorm.__dict__:
 
         def getReplicaNode(self, current=None):
             """
-            Return the replica node proxy for this topic manager.
+             Return the replica node proxy for this topic manager.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.

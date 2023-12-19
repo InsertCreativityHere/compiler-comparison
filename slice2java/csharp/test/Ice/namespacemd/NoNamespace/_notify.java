@@ -15,6 +15,9 @@
 
 package NoNamespace;
 
+/**
+ * Test keyword escape.
+ **/
 public class _notify extends com.zeroc.Ice.UserException
 {
     public _notify()

@@ -1,7 +1,6 @@
 % UserAccountMapperPrx   Summary of UserAccountMapperPrx
 %
-% A user account mapper object is used by IceGrid nodes to map
-% session identifiers to user accounts.
+% A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
 %
 % UserAccountMapperPrx Methods:
 %   getUserAccount - Get the name of the user account for the given user.
@@ -15,22 +14,19 @@
 classdef UserAccountMapperPrx < Ice.ObjectPrx
     methods
         function result = getUserAccount(obj, user, varargin)
-            % getUserAccount   Get the name of the user account for the given user. This is
-            % used by IceGrid nodes to figure out the user account to use
-            % to run servers.
+            % getUserAccount   Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+            % account to use to run servers.
             %
             % Parameters:
-            %   user (char) - The value of the server descriptor's user
-            %     attribute. If this attribute is not defined, and the server's
-            %     activation mode is session, the default value of
-            %     user is the session identifier.
+            %   user (char) - The value of the server descriptor's user attribute. If this attribute is not
+            %     defined, and the server's activation mode is session, the default value of user
+            %     is the session identifier.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (char) - The user account name.
             %
             % Exceptions:
-            %   IceGrid.UserAccountNotFoundException - Raised if no user account
-            %     is found for the given user.
+            %   IceGrid.UserAccountNotFoundException - Raised if no user account is found for the given user.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(user);
@@ -41,22 +37,19 @@ classdef UserAccountMapperPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = getUserAccountAsync(obj, user, varargin)
-            % getUserAccountAsync   Get the name of the user account for the given user. This is
-            % used by IceGrid nodes to figure out the user account to use
-            % to run servers.
+            % getUserAccountAsync   Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
+            % account to use to run servers.
             %
             % Parameters:
-            %   user (char) - The value of the server descriptor's user
-            %     attribute. If this attribute is not defined, and the server's
-            %     activation mode is session, the default value of
-            %     user is the session identifier.
+            %   user (char) - The value of the server descriptor's user attribute. If this attribute is not
+            %     defined, and the server's activation mode is session, the default value of user
+            %     is the session identifier.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.UserAccountNotFoundException - Raised if no user account
-            %     is found for the given user.
+            %   IceGrid.UserAccountNotFoundException - Raised if no user account is found for the given user.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(user);

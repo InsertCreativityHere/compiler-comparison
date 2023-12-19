@@ -35,10 +35,12 @@ if 'SubscriberRecordKey' not in _M_IceStorm.__dict__:
     _M_IceStorm.SubscriberRecordKey = Ice.createTempClass()
     class SubscriberRecordKey(object):
         """
-        The key for persistent subscribers, or topics.
-        If the subscriber identity is empty then the record is used as a
-        place holder for the creation of a topic, otherwise the record
-        holds a subscription record.
+         The key for persistent subscribers, or topics.
+         If the subscriber identity is empty then the record is used as a place holder for the creation of a topic,
+         otherwise the record holds a subscription record.
+        Members:
+        topic --  The topic identity.
+        id --  The identity of the subscriber. If this is empty then the key is a placeholder for a topic.
         """
         def __init__(self, topic=Ice._struct_marker, id=Ice._struct_marker):
             if topic is Ice._struct_marker:
@@ -139,7 +141,15 @@ if 'SubscriberRecord' not in _M_IceStorm.__dict__:
     _M_IceStorm.SubscriberRecord = Ice.createTempClass()
     class SubscriberRecord(object):
         """
-        Used to store persistent information for persistent subscribers.
+         Used to store persistent information for persistent subscribers.
+        Members:
+        topicName --  The name of the topic.
+        id --  The subscriber identity.
+        link --  Is this a link record, or a subscriber record?
+        obj --  The subscriber object.
+        theQoS --  The QoS.
+        cost --  The cost.
+        theTopic --  The linked topic.
         """
         def __init__(self, topicName='', id=Ice._struct_marker, link=False, obj=None, theQoS=None, cost=0, theTopic=None):
             self.topicName = topicName

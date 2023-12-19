@@ -47,9 +47,7 @@ const iceC_IceMX_Metrics_ids = [
 ];
 
 /**
- * The base class for metrics. A metrics object represents a
- * collection of measurements associated to a given a system.
- *
+ *  The base class for metrics. A metrics object represents a collection of measurements associated to a given a system.
  **/
 IceMX.Metrics = class extends Ice.Value
 {
@@ -85,9 +83,7 @@ IceMX.Metrics = class extends Ice.Value
 Slice.defineValue(IceMX.Metrics, iceC_IceMX_Metrics_ids[1], false);
 
 /**
- * A structure to keep track of failures associated with a given
- * metrics.
- *
+ *  A structure to keep track of failures associated with a given metrics.
  **/
 IceMX.MetricsFailures = class
 {
@@ -124,8 +120,7 @@ Slice.defineSequence(IceMX, "MetricsMapHelper", "Ice.ObjectHelper", false, "IceM
 Slice.defineDictionary(IceMX, "MetricsView", "MetricsViewHelper", "Ice.StringHelper", "IceMX.MetricsMapHelper", false, undefined, undefined, Ice.ArrayUtil.equals);
 
 /**
- * Raised if a metrics view cannot be found.
- *
+ *  Raised if a metrics view cannot be found.
  **/
 IceMX.UnknownMetricsView = class extends Ice.UserException
 {
@@ -156,11 +151,8 @@ const iceC_IceMX_MetricsAdmin_ids = [
 ];
 
 /**
- * The metrics administrative facet interface. This interface allows
- * remote administrative clients to access metrics of an application
- * that enabled the Ice administrative facility and configured some
- * metrics views.
- *
+ *  The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
+ *  of an application that enabled the Ice administrative facility and configured some metrics views.
  **/
 IceMX.MetricsAdmin = class extends Ice.Object
 {
@@ -202,9 +194,7 @@ const iceC_IceMX_ThreadMetrics_ids = [
 ];
 
 /**
- * Provides information on the number of threads currently in use and
- * their activity.
- *
+ *  Provides information on the number of threads currently in use and their activity.
  **/
 IceMX.ThreadMetrics = class extends IceMX.Metrics
 {
@@ -240,8 +230,7 @@ const iceC_IceMX_DispatchMetrics_ids = [
 ];
 
 /**
- * Provides information on servant dispatch.
- *
+ *  Provides information on servant dispatch.
  **/
 IceMX.DispatchMetrics = class extends IceMX.Metrics
 {
@@ -277,12 +266,9 @@ const iceC_IceMX_ChildInvocationMetrics_ids = [
 ];
 
 /**
- * Provides information on child invocations. A child invocation is
- * either remote (sent over an Ice connection) or collocated. An
- * invocation can have multiple child invocation if it is
- * retried. Child invocation metrics are embedded within
- * {@link InvocationMetrics}.
- *
+ *  Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
+ *  collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
+ *  embedded within {@link InvocationMetrics}.
  **/
 IceMX.ChildInvocationMetrics = class extends IceMX.Metrics
 {
@@ -316,9 +302,8 @@ const iceC_IceMX_CollocatedMetrics_ids = [
 ];
 
 /**
- * Provides information on invocations that are collocated. Collocated
- * metrics are embedded within {@link InvocationMetrics}.
- *
+ *  Provides information on invocations that are collocated. Collocated metrics are embedded within
+ *  {@link InvocationMetrics}.
  **/
 IceMX.CollocatedMetrics = class extends IceMX.ChildInvocationMetrics
 {
@@ -338,9 +323,8 @@ const iceC_IceMX_RemoteMetrics_ids = [
 ];
 
 /**
- * Provides information on invocations that are specifically sent over
- * Ice connections. Remote metrics are embedded within {@link InvocationMetrics}.
- *
+ *  Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
+ *  within {@link InvocationMetrics}.
  **/
 IceMX.RemoteMetrics = class extends IceMX.ChildInvocationMetrics
 {
@@ -359,9 +343,7 @@ const iceC_IceMX_InvocationMetrics_ids = [
 ];
 
 /**
- * Provide measurements for proxy invocations. Proxy invocations can
- * either be sent over the wire or be collocated.
- *
+ *  Provide measurements for proxy invocations. Proxy invocations can either be sent over the wire or be collocated.
  **/
 IceMX.InvocationMetrics = class extends IceMX.Metrics
 {
@@ -400,9 +382,7 @@ const iceC_IceMX_ConnectionMetrics_ids = [
 ];
 
 /**
- * Provides information on the data sent and received over Ice
- * connections.
- *
+ *  Provides information on the data sent and received over Ice connections.
  **/
 IceMX.ConnectionMetrics = class extends IceMX.Metrics
 {

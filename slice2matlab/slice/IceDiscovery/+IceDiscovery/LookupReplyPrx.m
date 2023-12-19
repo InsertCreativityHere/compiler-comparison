@@ -51,10 +51,9 @@ classdef LookupReplyPrx < Ice.ObjectPrx
             %
             % Parameters:
             %   id (char) - The adapter ID.
-            %   prx (Ice.ObjectPrx) - The adapter proxy (a dummy proxy created by the adapter).
-            %     The proxy provides the adapter endpoints.
-            %   isReplicaGroup (logical) - True if the adapter is also a member of a
-            %     replica group.
+            %   prx (Ice.ObjectPrx) - The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+            %     endpoints.
+            %   isReplicaGroup (logical) - True if the adapter is also a member of a replica group.
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
@@ -69,10 +68,9 @@ classdef LookupReplyPrx < Ice.ObjectPrx
             %
             % Parameters:
             %   id (char) - The adapter ID.
-            %   prx (Ice.ObjectPrx) - The adapter proxy (a dummy proxy created by the adapter).
-            %     The proxy provides the adapter endpoints.
-            %   isReplicaGroup (logical) - True if the adapter is also a member of a
-            %     replica group.
+            %   prx (Ice.ObjectPrx) - The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+            %     endpoints.
+            %   isReplicaGroup (logical) - True if the adapter is also a member of a replica group.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.

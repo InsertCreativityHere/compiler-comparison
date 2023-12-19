@@ -37,11 +37,11 @@ if 'LoadSample' not in _M_IceGrid.__dict__:
     _M_IceGrid.LoadSample = Ice.createTempClass()
     class LoadSample(Ice.EnumBase):
         """
-        Determines which load sampling interval to use.
+         Determines which load sampling interval to use.
         Enumerators:
-        LoadSample1 -- Sample every minute.
-        LoadSample5 -- Sample every five minutes.
-        LoadSample15 -- Sample every fifteen minutes.
+        LoadSample1 --  Sample every minute.
+        LoadSample5 --  Sample every five minutes.
+        LoadSample15 --  Sample every fifteen minutes.
         """
 
         def __init__(self, _n, _v):
@@ -70,7 +70,7 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
     class QueryPrx(Ice.ObjectPrx):
 
         """
-        Find a well-known object by identity.
+         Find a well-known object by identity.
         Arguments:
         id -- The identity.
         context -- The request context for the invocation.
@@ -80,7 +80,7 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Query._op_findObjectById.invoke(self, ((id, ), context))
 
         """
-        Find a well-known object by identity.
+         Find a well-known object by identity.
         Arguments:
         id -- The identity.
         context -- The request context for the invocation.
@@ -90,7 +90,7 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Query._op_findObjectById.invokeAsync(self, ((id, ), context))
 
         """
-        Find a well-known object by identity.
+         Find a well-known object by identity.
         Arguments:
         id -- The identity.
         _response -- The asynchronous response callback.
@@ -103,7 +103,7 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Query._op_findObjectById.begin(self, ((id, ), _response, _ex, _sent, context))
 
         """
-        Find a well-known object by identity.
+         Find a well-known object by identity.
         Arguments:
         id -- The identity.
         Returns: The proxy or null if no such object has been found.
@@ -112,9 +112,8 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Query._op_findObjectById.end(self, _r)
 
         """
-        Find a well-known object by type. If there are several objects
-        registered for the given type, the object is randomly
-        selected.
+         Find a well-known object by type. If there are several objects registered for the given type, the object is
+         randomly selected.
         Arguments:
         type -- The object type.
         context -- The request context for the invocation.
@@ -124,9 +123,8 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Query._op_findObjectByType.invoke(self, ((type, ), context))
 
         """
-        Find a well-known object by type. If there are several objects
-        registered for the given type, the object is randomly
-        selected.
+         Find a well-known object by type. If there are several objects registered for the given type, the object is
+         randomly selected.
         Arguments:
         type -- The object type.
         context -- The request context for the invocation.
@@ -136,9 +134,8 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Query._op_findObjectByType.invokeAsync(self, ((type, ), context))
 
         """
-        Find a well-known object by type. If there are several objects
-        registered for the given type, the object is randomly
-        selected.
+         Find a well-known object by type. If there are several objects registered for the given type, the object is
+         randomly selected.
         Arguments:
         type -- The object type.
         _response -- The asynchronous response callback.
@@ -151,9 +148,8 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Query._op_findObjectByType.begin(self, ((type, ), _response, _ex, _sent, context))
 
         """
-        Find a well-known object by type. If there are several objects
-        registered for the given type, the object is randomly
-        selected.
+         Find a well-known object by type. If there are several objects registered for the given type, the object is
+         randomly selected.
         Arguments:
         type -- The object type.
         Returns: The proxy or null, if no such object has been found.
@@ -162,11 +158,9 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Query._op_findObjectByType.end(self, _r)
 
         """
-        Find a well-known object by type on the least-loaded node. If
-        the registry does not know which node hosts the object
-        (for example, because the object was registered with a direct proxy), the
-        registry assumes the object is hosted on a node that has a load
-        average of 1.0.
+         Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+         the object (for example, because the object was registered with a direct proxy), the registry assumes the
+         object is hosted on a node that has a load average of 1.0.
         Arguments:
         type -- The object type.
         sample -- The sampling interval.
@@ -177,11 +171,9 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Query._op_findObjectByTypeOnLeastLoadedNode.invoke(self, ((type, sample), context))
 
         """
-        Find a well-known object by type on the least-loaded node. If
-        the registry does not know which node hosts the object
-        (for example, because the object was registered with a direct proxy), the
-        registry assumes the object is hosted on a node that has a load
-        average of 1.0.
+         Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+         the object (for example, because the object was registered with a direct proxy), the registry assumes the
+         object is hosted on a node that has a load average of 1.0.
         Arguments:
         type -- The object type.
         sample -- The sampling interval.
@@ -192,11 +184,9 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Query._op_findObjectByTypeOnLeastLoadedNode.invokeAsync(self, ((type, sample), context))
 
         """
-        Find a well-known object by type on the least-loaded node. If
-        the registry does not know which node hosts the object
-        (for example, because the object was registered with a direct proxy), the
-        registry assumes the object is hosted on a node that has a load
-        average of 1.0.
+         Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+         the object (for example, because the object was registered with a direct proxy), the registry assumes the
+         object is hosted on a node that has a load average of 1.0.
         Arguments:
         type -- The object type.
         sample -- The sampling interval.
@@ -210,11 +200,9 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Query._op_findObjectByTypeOnLeastLoadedNode.begin(self, ((type, sample), _response, _ex, _sent, context))
 
         """
-        Find a well-known object by type on the least-loaded node. If
-        the registry does not know which node hosts the object
-        (for example, because the object was registered with a direct proxy), the
-        registry assumes the object is hosted on a node that has a load
-        average of 1.0.
+         Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+         the object (for example, because the object was registered with a direct proxy), the registry assumes the
+         object is hosted on a node that has a load average of 1.0.
         Arguments:
         type -- The object type.
         sample -- The sampling interval.
@@ -224,7 +212,7 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Query._op_findObjectByTypeOnLeastLoadedNode.end(self, _r)
 
         """
-        Find all the well-known objects with the given type.
+         Find all the well-known objects with the given type.
         Arguments:
         type -- The object type.
         context -- The request context for the invocation.
@@ -234,7 +222,7 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Query._op_findAllObjectsByType.invoke(self, ((type, ), context))
 
         """
-        Find all the well-known objects with the given type.
+         Find all the well-known objects with the given type.
         Arguments:
         type -- The object type.
         context -- The request context for the invocation.
@@ -244,7 +232,7 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Query._op_findAllObjectsByType.invokeAsync(self, ((type, ), context))
 
         """
-        Find all the well-known objects with the given type.
+         Find all the well-known objects with the given type.
         Arguments:
         type -- The object type.
         _response -- The asynchronous response callback.
@@ -257,7 +245,7 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Query._op_findAllObjectsByType.begin(self, ((type, ), _response, _ex, _sent, context))
 
         """
-        Find all the well-known objects with the given type.
+         Find all the well-known objects with the given type.
         Arguments:
         type -- The object type.
         Returns: The proxies or an empty sequence, if no such objects have been found.
@@ -266,9 +254,8 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Query._op_findAllObjectsByType.end(self, _r)
 
         """
-        Find all the object replicas associated with the given
-        proxy. If the given proxy is not an indirect proxy from a
-        replica group, an empty sequence is returned.
+         Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+         from a replica group, an empty sequence is returned.
         Arguments:
         proxy -- The object proxy.
         context -- The request context for the invocation.
@@ -278,9 +265,8 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Query._op_findAllReplicas.invoke(self, ((proxy, ), context))
 
         """
-        Find all the object replicas associated with the given
-        proxy. If the given proxy is not an indirect proxy from a
-        replica group, an empty sequence is returned.
+         Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+         from a replica group, an empty sequence is returned.
         Arguments:
         proxy -- The object proxy.
         context -- The request context for the invocation.
@@ -290,9 +276,8 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Query._op_findAllReplicas.invokeAsync(self, ((proxy, ), context))
 
         """
-        Find all the object replicas associated with the given
-        proxy. If the given proxy is not an indirect proxy from a
-        replica group, an empty sequence is returned.
+         Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+         from a replica group, an empty sequence is returned.
         Arguments:
         proxy -- The object proxy.
         _response -- The asynchronous response callback.
@@ -305,9 +290,8 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Query._op_findAllReplicas.begin(self, ((proxy, ), _response, _ex, _sent, context))
 
         """
-        Find all the object replicas associated with the given
-        proxy. If the given proxy is not an indirect proxy from a
-        replica group, an empty sequence is returned.
+         Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+         from a replica group, an empty sequence is returned.
         Arguments:
         proxy -- The object proxy.
         Returns: The proxies of each object replica or an empty sequence, if the given proxy is not from a replica group.
@@ -346,7 +330,7 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
 
         def findObjectById(self, id, current=None):
             """
-            Find a well-known object by identity.
+             Find a well-known object by identity.
             Arguments:
             id -- The identity.
             current -- The Current object for the invocation.
@@ -356,9 +340,8 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
 
         def findObjectByType(self, type, current=None):
             """
-            Find a well-known object by type. If there are several objects
-            registered for the given type, the object is randomly
-            selected.
+             Find a well-known object by type. If there are several objects registered for the given type, the object is
+             randomly selected.
             Arguments:
             type -- The object type.
             current -- The Current object for the invocation.
@@ -368,11 +351,9 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
 
         def findObjectByTypeOnLeastLoadedNode(self, type, sample, current=None):
             """
-            Find a well-known object by type on the least-loaded node. If
-            the registry does not know which node hosts the object
-            (for example, because the object was registered with a direct proxy), the
-            registry assumes the object is hosted on a node that has a load
-            average of 1.0.
+             Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
+             the object (for example, because the object was registered with a direct proxy), the registry assumes the
+             object is hosted on a node that has a load average of 1.0.
             Arguments:
             type -- The object type.
             sample -- The sampling interval.
@@ -383,7 +364,7 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
 
         def findAllObjectsByType(self, type, current=None):
             """
-            Find all the well-known objects with the given type.
+             Find all the well-known objects with the given type.
             Arguments:
             type -- The object type.
             current -- The Current object for the invocation.
@@ -393,9 +374,8 @@ if 'QueryPrx' not in _M_IceGrid.__dict__:
 
         def findAllReplicas(self, proxy, current=None):
             """
-            Find all the object replicas associated with the given
-            proxy. If the given proxy is not an indirect proxy from a
-            replica group, an empty sequence is returned.
+             Find all the object replicas associated with the given proxy. If the given proxy is not an indirect proxy
+             from a replica group, an empty sequence is returned.
             Arguments:
             proxy -- The object proxy.
             current -- The Current object for the invocation.
@@ -427,7 +407,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
     class RegistryPrx(Ice.ObjectPrx):
 
         """
-        Create a client session.
+         Create a client session.
         Arguments:
         userId -- The user id.
         password -- The password for the given user id.
@@ -440,7 +420,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_createSession.invoke(self, ((userId, password), context))
 
         """
-        Create a client session.
+         Create a client session.
         Arguments:
         userId -- The user id.
         password -- The password for the given user id.
@@ -451,7 +431,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_createSession.invokeAsync(self, ((userId, password), context))
 
         """
-        Create a client session.
+         Create a client session.
         Arguments:
         userId -- The user id.
         password -- The password for the given user id.
@@ -465,7 +445,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_createSession.begin(self, ((userId, password), _response, _ex, _sent, context))
 
         """
-        Create a client session.
+         Create a client session.
         Arguments:
         userId -- The user id.
         password -- The password for the given user id.
@@ -477,7 +457,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_createSession.end(self, _r)
 
         """
-        Create an administrative session.
+         Create an administrative session.
         Arguments:
         userId -- The user id.
         password -- The password for the given user id.
@@ -490,7 +470,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_createAdminSession.invoke(self, ((userId, password), context))
 
         """
-        Create an administrative session.
+         Create an administrative session.
         Arguments:
         userId -- The user id.
         password -- The password for the given user id.
@@ -501,7 +481,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_createAdminSession.invokeAsync(self, ((userId, password), context))
 
         """
-        Create an administrative session.
+         Create an administrative session.
         Arguments:
         userId -- The user id.
         password -- The password for the given user id.
@@ -515,7 +495,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_createAdminSession.begin(self, ((userId, password), _response, _ex, _sent, context))
 
         """
-        Create an administrative session.
+         Create an administrative session.
         Arguments:
         userId -- The user id.
         password -- The password for the given user id.
@@ -527,7 +507,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_createAdminSession.end(self, _r)
 
         """
-        Create a client session from a secure connection.
+         Create a client session from a secure connection.
         Arguments:
         context -- The request context for the invocation.
         Returns: A proxy for the newly created session.
@@ -538,7 +518,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_createSessionFromSecureConnection.invoke(self, ((), context))
 
         """
-        Create a client session from a secure connection.
+         Create a client session from a secure connection.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -547,7 +527,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_createSessionFromSecureConnection.invokeAsync(self, ((), context))
 
         """
-        Create a client session from a secure connection.
+         Create a client session from a secure connection.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -559,7 +539,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_createSessionFromSecureConnection.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Create a client session from a secure connection.
+         Create a client session from a secure connection.
         Arguments:
         Returns: A proxy for the newly created session.
         Throws:
@@ -569,7 +549,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_createSessionFromSecureConnection.end(self, _r)
 
         """
-        Create an administrative session from a secure connection.
+         Create an administrative session from a secure connection.
         Arguments:
         context -- The request context for the invocation.
         Returns: A proxy for the newly created session.
@@ -580,7 +560,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_createAdminSessionFromSecureConnection.invoke(self, ((), context))
 
         """
-        Create an administrative session from a secure connection.
+         Create an administrative session from a secure connection.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -589,7 +569,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_createAdminSessionFromSecureConnection.invokeAsync(self, ((), context))
 
         """
-        Create an administrative session from a secure connection.
+         Create an administrative session from a secure connection.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -601,7 +581,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_createAdminSessionFromSecureConnection.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Create an administrative session from a secure connection.
+         Create an administrative session from a secure connection.
         Arguments:
         Returns: A proxy for the newly created session.
         Throws:
@@ -611,9 +591,8 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_createAdminSessionFromSecureConnection.end(self, _r)
 
         """
-        Get the session timeout. If a client or administrative client
-        doesn't call the session keepAlive method in the time interval
-        defined by this timeout, IceGrid might reap the session.
+         Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+         the time interval defined by this timeout, IceGrid might reap the session.
         Arguments:
         context -- The request context for the invocation.
         Returns: The timeout (in seconds).
@@ -622,9 +601,8 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_getSessionTimeout.invoke(self, ((), context))
 
         """
-        Get the session timeout. If a client or administrative client
-        doesn't call the session keepAlive method in the time interval
-        defined by this timeout, IceGrid might reap the session.
+         Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+         the time interval defined by this timeout, IceGrid might reap the session.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -633,9 +611,8 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_getSessionTimeout.invokeAsync(self, ((), context))
 
         """
-        Get the session timeout. If a client or administrative client
-        doesn't call the session keepAlive method in the time interval
-        defined by this timeout, IceGrid might reap the session.
+         Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+         the time interval defined by this timeout, IceGrid might reap the session.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -647,9 +624,8 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_getSessionTimeout.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Get the session timeout. If a client or administrative client
-        doesn't call the session keepAlive method in the time interval
-        defined by this timeout, IceGrid might reap the session.
+         Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+         the time interval defined by this timeout, IceGrid might reap the session.
         Arguments:
         Returns: The timeout (in seconds).
         """
@@ -657,10 +633,8 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_getSessionTimeout.end(self, _r)
 
         """
-        Get the value of the ACM timeout. Clients supporting ACM
-        connection heartbeats can enable them instead of explicitly
-        sending keep alives requests.
-        NOTE: This method is only available since Ice 3.6.
+         Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+         explicitly sending keep alives requests. This method is only available since Ice 3.6.
         Arguments:
         context -- The request context for the invocation.
         Returns: The timeout (in seconds).
@@ -669,10 +643,8 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_getACMTimeout.invoke(self, ((), context))
 
         """
-        Get the value of the ACM timeout. Clients supporting ACM
-        connection heartbeats can enable them instead of explicitly
-        sending keep alives requests.
-        NOTE: This method is only available since Ice 3.6.
+         Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+         explicitly sending keep alives requests. This method is only available since Ice 3.6.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -681,10 +653,8 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_getACMTimeout.invokeAsync(self, ((), context))
 
         """
-        Get the value of the ACM timeout. Clients supporting ACM
-        connection heartbeats can enable them instead of explicitly
-        sending keep alives requests.
-        NOTE: This method is only available since Ice 3.6.
+         Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+         explicitly sending keep alives requests. This method is only available since Ice 3.6.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -696,10 +666,8 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Registry._op_getACMTimeout.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Get the value of the ACM timeout. Clients supporting ACM
-        connection heartbeats can enable them instead of explicitly
-        sending keep alives requests.
-        NOTE: This method is only available since Ice 3.6.
+         Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+         explicitly sending keep alives requests. This method is only available since Ice 3.6.
         Arguments:
         Returns: The timeout (in seconds).
         """
@@ -737,7 +705,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
 
         def createSession(self, userId, password, current=None):
             """
-            Create a client session.
+             Create a client session.
             Arguments:
             userId -- The user id.
             password -- The password for the given user id.
@@ -750,7 +718,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
 
         def createAdminSession(self, userId, password, current=None):
             """
-            Create an administrative session.
+             Create an administrative session.
             Arguments:
             userId -- The user id.
             password -- The password for the given user id.
@@ -763,7 +731,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
 
         def createSessionFromSecureConnection(self, current=None):
             """
-            Create a client session from a secure connection.
+             Create a client session from a secure connection.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -774,7 +742,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
 
         def createAdminSessionFromSecureConnection(self, current=None):
             """
-            Create an administrative session from a secure connection.
+             Create an administrative session from a secure connection.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -785,9 +753,8 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
 
         def getSessionTimeout(self, current=None):
             """
-            Get the session timeout. If a client or administrative client
-            doesn't call the session keepAlive method in the time interval
-            defined by this timeout, IceGrid might reap the session.
+             Get the session timeout. If a client or administrative client doesn't call the session keepAlive method in
+             the time interval defined by this timeout, IceGrid might reap the session.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -796,10 +763,8 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
 
         def getACMTimeout(self, current=None):
             """
-            Get the value of the ACM timeout. Clients supporting ACM
-            connection heartbeats can enable them instead of explicitly
-            sending keep alives requests.
-            NOTE: This method is only available since Ice 3.6.
+             Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
+             explicitly sending keep alives requests. This method is only available since Ice 3.6.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -831,8 +796,7 @@ if 'LocatorPrx' not in _M_IceGrid.__dict__:
     class LocatorPrx(_M_Ice.LocatorPrx):
 
         """
-        Get the proxy of the registry object hosted by this IceGrid
-        registry.
+         Get the proxy of the registry object hosted by this IceGrid registry.
         Arguments:
         context -- The request context for the invocation.
         Returns: The proxy of the registry object.
@@ -841,8 +805,7 @@ if 'LocatorPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Locator._op_getLocalRegistry.invoke(self, ((), context))
 
         """
-        Get the proxy of the registry object hosted by this IceGrid
-        registry.
+         Get the proxy of the registry object hosted by this IceGrid registry.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -851,8 +814,7 @@ if 'LocatorPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Locator._op_getLocalRegistry.invokeAsync(self, ((), context))
 
         """
-        Get the proxy of the registry object hosted by this IceGrid
-        registry.
+         Get the proxy of the registry object hosted by this IceGrid registry.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -864,8 +826,7 @@ if 'LocatorPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Locator._op_getLocalRegistry.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Get the proxy of the registry object hosted by this IceGrid
-        registry.
+         Get the proxy of the registry object hosted by this IceGrid registry.
         Arguments:
         Returns: The proxy of the registry object.
         """
@@ -873,8 +834,7 @@ if 'LocatorPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Locator._op_getLocalRegistry.end(self, _r)
 
         """
-        Get the proxy of the query object hosted by this IceGrid
-        registry.
+         Get the proxy of the query object hosted by this IceGrid registry.
         Arguments:
         context -- The request context for the invocation.
         Returns: The proxy of the query object.
@@ -883,8 +843,7 @@ if 'LocatorPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Locator._op_getLocalQuery.invoke(self, ((), context))
 
         """
-        Get the proxy of the query object hosted by this IceGrid
-        registry.
+         Get the proxy of the query object hosted by this IceGrid registry.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -893,8 +852,7 @@ if 'LocatorPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Locator._op_getLocalQuery.invokeAsync(self, ((), context))
 
         """
-        Get the proxy of the query object hosted by this IceGrid
-        registry.
+         Get the proxy of the query object hosted by this IceGrid registry.
         Arguments:
         _response -- The asynchronous response callback.
         _ex -- The asynchronous exception callback.
@@ -906,8 +864,7 @@ if 'LocatorPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Locator._op_getLocalQuery.begin(self, ((), _response, _ex, _sent, context))
 
         """
-        Get the proxy of the query object hosted by this IceGrid
-        registry.
+         Get the proxy of the query object hosted by this IceGrid registry.
         Arguments:
         Returns: The proxy of the query object.
         """
@@ -945,8 +902,7 @@ if 'LocatorPrx' not in _M_IceGrid.__dict__:
 
         def getLocalRegistry(self, current=None):
             """
-            Get the proxy of the registry object hosted by this IceGrid
-            registry.
+             Get the proxy of the registry object hosted by this IceGrid registry.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -955,8 +911,7 @@ if 'LocatorPrx' not in _M_IceGrid.__dict__:
 
         def getLocalQuery(self, current=None):
             """
-            Get the proxy of the query object hosted by this IceGrid
-            registry.
+             Get the proxy of the query object hosted by this IceGrid registry.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.

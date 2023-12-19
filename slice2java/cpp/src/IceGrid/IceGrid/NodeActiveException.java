@@ -16,8 +16,7 @@
 package IceGrid;
 
 /**
- * This exception is raised if a node is already registered and
- * active.
+ * This exception is raised if a node is already registered and active.
  **/
 public class NodeActiveException extends com.zeroc.Ice.UserException
 {

@@ -21,33 +21,31 @@ package com.zeroc.IceGrid;
 public interface ObjectObserver extends com.zeroc.Ice.Object
 {
     /**
-     * <code>objectInit</code> is called after the registration of
-     * an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin}
-     * interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
      * @param current The Current object for the invocation.
      **/
     void objectInit(ObjectInfo[] objects, com.zeroc.Ice.Current current);
 
     /**
-     * The <code>objectAdded</code> operation is called to notify an observer when an
-     * object was added to the {@link Admin} interface.
+     * The <code>objectAdded</code> operation is called to notify an observer when an object was added to the
+     * {@link Admin} interface.
      * @param info The details of the added object.
      * @param current The Current object for the invocation.
      **/
     void objectAdded(ObjectInfo info, com.zeroc.Ice.Current current);
 
     /**
-     * <code>objectUpdated</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was updated.
+     * <code>objectUpdated</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was updated.
      * @param info The details of the updated object.
      * @param current The Current object for the invocation.
      **/
     void objectUpdated(ObjectInfo info, com.zeroc.Ice.Current current);
 
     /**
-     * <code>objectRemoved</code> is called to notify an observer when
-     * an object registered with the {@link Admin} interface was removed.
+     * <code>objectRemoved</code> is called to notify an observer when an object registered with the {@link Admin}
+     * interface was removed.
      * @param id The identity of the removed object.
      * @param current The Current object for the invocation.
      **/

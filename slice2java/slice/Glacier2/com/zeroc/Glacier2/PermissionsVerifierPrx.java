@@ -16,8 +16,7 @@
 package com.zeroc.Glacier2;
 
 /**
- * The Glacier2 permissions verifier. This is called through the
- * process of establishing a session.
+ * The Glacier2 permissions verifier. This is called through the process of establishing a session.
  *
  * @see Router
  **/
@@ -28,9 +27,8 @@ public interface PermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx
      * @param userId The user id for which to check permission.
      * @param password The user's password.
      * @return An instance of PermissionsVerifier.CheckPermissionsResult.
-     * @throws PermissionDeniedException Raised if the user access is
-     * denied. This can be raised in place of returning false with a
-     * reason set in the reason out parameter.
+     * @throws PermissionDeniedException Raised if the user access is denied. This can be raised in place of
+     * returning false with a reason set in the reason out parameter.
      **/
     default PermissionsVerifier.CheckPermissionsResult checkPermissions(String userId, String password)
         throws PermissionDeniedException
@@ -44,9 +42,8 @@ public interface PermissionsVerifierPrx extends com.zeroc.Ice.ObjectPrx
      * @param password The user's password.
      * @param context The Context map to send with the invocation.
      * @return An instance of PermissionsVerifier.CheckPermissionsResult.
-     * @throws PermissionDeniedException Raised if the user access is
-     * denied. This can be raised in place of returning false with a
-     * reason set in the reason out parameter.
+     * @throws PermissionDeniedException Raised if the user access is denied. This can be raised in place of
+     * returning false with a reason set in the reason out parameter.
      **/
     default PermissionsVerifier.CheckPermissionsResult checkPermissions(String userId, String password, java.util.Map<String, String> context)
         throws PermissionDeniedException

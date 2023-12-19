@@ -37,8 +37,7 @@ let IceBT = _ModuleRegistry.module("IceBT");
 /* slice2js browser-bundle-skip-end */
 
 /**
- * Provides access to Bluetooth endpoint information.
- *
+ *  Provides access to Bluetooth endpoint information.
  **/
 IceBT.EndpointInfo = class extends Ice.EndpointInfo
 {

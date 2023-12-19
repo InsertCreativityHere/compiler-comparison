@@ -1,7 +1,6 @@
 % PermissionsVerifierPrx   Summary of PermissionsVerifierPrx
 %
-% The Glacier2 permissions verifier. This is called through the
-% process of establishing a session.
+% The Glacier2 permissions verifier. This is called through the process of establishing a session.
 %
 % PermissionsVerifierPrx Methods:
 %   checkPermissions - Check whether a user has permission to access the router.
@@ -29,9 +28,8 @@ classdef PermissionsVerifierPrx < Ice.ObjectPrx
             %   reason (char) - The reason why access was denied.
             %
             % Exceptions:
-            %   Glacier2.PermissionDeniedException - Raised if the user access is
-            %     denied. This can be raised in place of returning false with a
-            %     reason set in the reason out parameter.
+            %   Glacier2.PermissionDeniedException - Raised if the user access is denied. This can be raised in place of
+            %     returning false with a reason set in the reason out parameter.
             
             os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
             os_.writeString(userId);
@@ -54,9 +52,8 @@ classdef PermissionsVerifierPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   Glacier2.PermissionDeniedException - Raised if the user access is
-            %     denied. This can be raised in place of returning false with a
-            %     reason set in the reason out parameter.
+            %   Glacier2.PermissionDeniedException - Raised if the user access is denied. This can be raised in place of
+            %     returning false with a reason set in the reason out parameter.
             
             os_ = obj.iceStartWriteParams(Ice.FormatType.SlicedFormat);
             os_.writeString(userId);

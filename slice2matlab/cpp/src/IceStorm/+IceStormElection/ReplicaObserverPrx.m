@@ -187,8 +187,7 @@ classdef ReplicaObserverPrx < Ice.ObjectPrx
             %   context (containers.Map) - Optional request context.
             %
             % Exceptions:
-            %   IceStormElection.ObserverInconsistencyException - Raised if an
-            %     inconsisency was detected.
+            %   IceStormElection.ObserverInconsistencyException - Raised if an inconsisency was detected.
             
             os_ = obj.iceStartWriteParams([]);
             IceStormElection.LogUpdate.ice_write(os_, llu);
@@ -209,8 +208,7 @@ classdef ReplicaObserverPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceStormElection.ObserverInconsistencyException - Raised if an
-            %     inconsisency was detected.
+            %   IceStormElection.ObserverInconsistencyException - Raised if an inconsisency was detected.
             
             os_ = obj.iceStartWriteParams([]);
             IceStormElection.LogUpdate.ice_write(os_, llu);

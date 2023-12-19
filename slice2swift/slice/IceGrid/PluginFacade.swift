@@ -16,12 +16,10 @@
 import Foundation
 import Ice
 
-/// The ReplicaGroupFilter is used by IceGrid to filter adapters
-/// returned to the client when it resolves a filtered replica group.
-///
-/// IceGrid provides the list of available adapters. The implementation
-/// of this method can use the provided context and connection to
-/// filter and return the filtered set of adapters.
+/// The ReplicaGroupFilter is used by IceGrid to filter adapters returned to the client when it resolves a filtered
+/// replica group.
+/// IceGrid provides the list of available adapters. The implementationof this method can use the provided context and
+/// connection to filter and return the filtered set of adapters.
 public protocol ReplicaGroupFilter:  Swift.AnyObject {
     /// Filter the given set of adapters.
     ///
@@ -29,23 +27,18 @@ public protocol ReplicaGroupFilter:  Swift.AnyObject {
     ///
     /// - parameter adapterIds: `Ice.StringSeq` The adpater IDs to filter.
     ///
-    /// - parameter con: `Ice.Connection?` The connection from the Ice client which is
-    /// resolving the replica group endpoints.
+    /// - parameter con: `Ice.Connection?` The connection from the Ice client which is resolving the replica group endpoints.
     ///
-    /// - parameter ctx: `Ice.Context` The context from the Ice client which is resolving
-    /// the replica group endpoints.
+    /// - parameter ctx: `Ice.Context` The context from the Ice client which is resolving the replica group endpoints.
     ///
     /// - returns: `Ice.StringSeq` - The filtered adapter IDs.
     func filter(replicaGroupId: Swift.String, adapterIds: Ice.StringSeq, con: Ice.Connection?, ctx: Ice.Context) throws -> Ice.StringSeq
 }
 
-/// The TypeFilter is used by IceGrid to filter well-known proxies
-/// returned to the client when it searches a well-known object by
-/// type.
-///
-/// IceGrid provides the list of available proxies. The implementation
-/// of this method can use the provided context and connection to
-/// filter and return the filtered set of proxies.
+/// The TypeFilter is used by IceGrid to filter well-known proxies returned to the client when it searches a well-known
+/// object by type.
+/// IceGrid provides the list of available proxies. The implementation of this method can use the provided context and
+/// connection to filter and return the filtered set of proxies.
 public protocol TypeFilter:  Swift.AnyObject {
     /// Filter the given set of proxies.
     ///
@@ -53,20 +46,17 @@ public protocol TypeFilter:  Swift.AnyObject {
     ///
     /// - parameter proxies: `Ice.ObjectProxySeq` The proxies to filter.
     ///
-    /// - parameter con: `Ice.Connection?` The connection from the Ice client which is
-    /// looking up well-known objects by type.
+    /// - parameter con: `Ice.Connection?` The connection from the Ice client which is looking up well-known objects by type.
     ///
-    /// - parameter ctx: `Ice.Context` The context from the Ice client which is looking up
-    /// well-known objects by type.
+    /// - parameter ctx: `Ice.Context` The context from the Ice client which is looking up well-known objects by type.
     ///
     /// - returns: `Ice.ObjectProxySeq` - The filtered proxies.
     func filter(type: Swift.String, proxies: Ice.ObjectProxySeq, con: Ice.Connection?, ctx: Ice.Context) throws -> Ice.ObjectProxySeq
 }
 
-/// The RegistryPluginFacade is implemented by IceGrid and can be used
-/// by plugins and filter implementations to retrieve information from
-/// IceGrid about the well-known objects or adapters. It's also used to
-/// register/unregister replica group and type filters.
+/// The RegistryPluginFacade is implemented by IceGrid and can be used by plugins and filter implementations to
+/// retrieve information from IceGrid about the well-known objects or adapters. It's also used to register/unregister
+/// replica group and type filters.
 public protocol RegistryPluginFacade:  Swift.AnyObject {
     /// Get an application descriptor.
     ///
@@ -76,8 +66,7 @@ public protocol RegistryPluginFacade:  Swift.AnyObject {
     ///
     /// - throws:
     ///
-    ///   - ApplicationNotExistException - Raised if the application
-    ///     doesn't exist.
+    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
     func getApplicationInfo(_ name: Swift.String) throws -> ApplicationInfo
 
     /// Get the server information for the server with the given id.
@@ -95,59 +84,49 @@ public protocol RegistryPluginFacade:  Swift.AnyObject {
     ///
     /// - parameter _: `Swift.String` The adapter ID.
     ///
-    /// - returns: `Swift.String` - The server ID or the empty string if the given
-    /// identifier is not associated to an object adapter defined with
-    /// an application descriptor.
+    /// - returns: `Swift.String` - The server ID or the empty string if the given identifier is not associated to an object adapter
+    /// defined with an application descriptor.
     ///
     /// - throws:
     ///
-    ///   - AdapterNotExistException - Raised if the adapter doesn't
-    ///     exist.
+    ///   - AdapterNotExistException - Raised if the adapter doesn't exist.
     func getAdapterServer(_ adapterId: Swift.String) throws -> Swift.String
 
     /// Get the name of the application to which the given adapter belongs.
     ///
     /// - parameter _: `Swift.String` The adapter ID.
     ///
-    /// - returns: `Swift.String` - The application name or the empty string if the given
-    /// identifier is not associated to a replica group or object
-    /// adapter defined with an application descriptor.
+    /// - returns: `Swift.String` - The application name or the empty string if the given identifier is not associated to a replica group
+    /// or object adapter defined with an application descriptor.
     ///
     /// - throws:
     ///
-    ///   - AdapterNotExistException - Raised if the adapter doesn't
-    ///     exist.
+    ///   - AdapterNotExistException - Raised if the adapter doesn't exist.
     func getAdapterApplication(_ adapterId: Swift.String) throws -> Swift.String
 
     /// Get the name of the node to which the given adapter belongs.
     ///
     /// - parameter _: `Swift.String` The adapter ID.
     ///
-    /// - returns: `Swift.String` - The node name or the empty string if the given
-    /// identifier is not associated to an object adapter defined with
-    /// an application descriptor.
+    /// - returns: `Swift.String` - The node name or the empty string if the given identifier is not associated to an object adapter
+    /// defined with an application descriptor.
     ///
     /// - throws:
     ///
-    ///   - AdapterNotExistException - Raised if the adapter doesn't
-    ///     exist.
+    ///   - AdapterNotExistException - Raised if the adapter doesn't exist.
     func getAdapterNode(_ adapterId: Swift.String) throws -> Swift.String
 
-    /// Get the adapter information for the replica group or adapter
-    /// with the given id.
+    /// Get the adapter information for the replica group or adapter with the given id.
     ///
     /// - parameter _: `Swift.String` The adapter id.
     ///
-    /// - returns: `AdapterInfoSeq` - A sequence of adapter information structures. If the
-    /// given id refers to an adapter, this sequence will contain only
-    /// one element. If the given id refers to a replica group, the
-    /// sequence will contain the adapter information of each member of
-    /// the replica group.
+    /// - returns: `AdapterInfoSeq` - A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
+    /// contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
+    /// information of each member of the replica group.
     ///
     /// - throws:
     ///
-    ///   - AdapterNotExistException - Raised if the adapter or
-    ///     replica group doesn't exist.
+    ///   - AdapterNotExistException - Raised if the adapter or replica group doesn't exist.
     func getAdapterInfo(_ id: Swift.String) throws -> AdapterInfoSeq
 
     /// Get the object info for the object with the given identity.
@@ -158,8 +137,7 @@ public protocol RegistryPluginFacade:  Swift.AnyObject {
     ///
     /// - throws:
     ///
-    ///   - ObjectNotRegisteredException - Raised if the object isn't
-    ///     registered with the registry.
+    ///   - ObjectNotRegisteredException - Raised if the object isn't registered with the registry.
     func getObjectInfo(_ id: Ice.Identity) throws -> ObjectInfo
 
     /// Get the node information for the node with the given name.
@@ -172,8 +150,7 @@ public protocol RegistryPluginFacade:  Swift.AnyObject {
     ///
     ///   - NodeNotExistException - Raised if the node doesn't exist.
     ///
-    ///   - NodeUnreachableException - Raised if the node could not be
-    ///     reached.
+    ///   - NodeUnreachableException - Raised if the node could not be reached.
     func getNodeInfo(_ name: Swift.String) throws -> NodeInfo
 
     /// Get the load averages of the node.
@@ -186,13 +163,11 @@ public protocol RegistryPluginFacade:  Swift.AnyObject {
     ///
     ///   - NodeNotExistException - Raised if the node doesn't exist.
     ///
-    ///   - NodeUnreachableException - Raised if the node could not be
-    ///     reached.
+    ///   - NodeUnreachableException - Raised if the node could not be reached.
     func getNodeLoad(_ name: Swift.String) throws -> LoadInfo
 
-    /// Get the property value for the given property and adapter. The
-    /// property is looked up in the server or service descriptor where
-    /// the adapter is defined.
+    /// Get the property value for the given property and adapter. The property is looked up in the server or service
+    /// descriptor where the adapter is defined.
     ///
     /// - parameter adapterId: `Swift.String` The adapter ID
     ///
@@ -207,10 +182,9 @@ public protocol RegistryPluginFacade:  Swift.AnyObject {
 
     /// Add a replica group filter.
     ///
-    /// - parameter id: `Swift.String` The identifier of the filter. This identifier must
-    /// match the value of the "filter" attribute specified in the
-    /// replica group descriptor. To filter dynamically registered
-    /// replica groups, you should use the empty filter id.
+    /// - parameter id: `Swift.String` The identifier of the filter. This identifier must match the value of the "filter" attribute
+    /// specified in the replica group descriptor. To filter dynamically registered replica groups, you should use the
+    /// empty filter id.
     ///
     /// - parameter filter: `ReplicaGroupFilter?` The filter implementation.
     func addReplicaGroupFilter(id: Swift.String, filter: ReplicaGroupFilter?)

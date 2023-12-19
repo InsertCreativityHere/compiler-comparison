@@ -16,8 +16,7 @@
 package com.zeroc.Glacier2;
 
 /**
- * This exception is raised if a client is denied the ability to create
- * a session with the router.
+ * This exception is raised if a client is denied the ability to create a session with the router.
  **/
 public class PermissionDeniedException extends com.zeroc.Ice.UserException
 {

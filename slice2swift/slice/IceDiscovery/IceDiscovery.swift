@@ -180,11 +180,10 @@ public extension LookupReplyPrx {
     ///
     /// - parameter id: `Swift.String` The adapter ID.
     ///
-    /// - parameter prx: `Ice.ObjectPrx?` The adapter proxy (a dummy proxy created by the adapter).
-    /// The proxy provides the adapter endpoints.
+    /// - parameter prx: `Ice.ObjectPrx?` The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+    /// endpoints.
     ///
-    /// - parameter isReplicaGroup: `Swift.Bool` True if the adapter is also a member of a
-    /// replica group.
+    /// - parameter isReplicaGroup: `Swift.Bool` True if the adapter is also a member of a replica group.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func foundAdapterById(id iceP_id: Swift.String, prx iceP_prx: Ice.ObjectPrx?, isReplicaGroup iceP_isReplicaGroup: Swift.Bool, context: Ice.Context? = nil) throws {
@@ -202,11 +201,10 @@ public extension LookupReplyPrx {
     ///
     /// - parameter id: `Swift.String` The adapter ID.
     ///
-    /// - parameter prx: `Ice.ObjectPrx?` The adapter proxy (a dummy proxy created by the adapter).
-    /// The proxy provides the adapter endpoints.
+    /// - parameter prx: `Ice.ObjectPrx?` The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+    /// endpoints.
     ///
-    /// - parameter isReplicaGroup: `Swift.Bool` True if the adapter is also a member of a
-    /// replica group.
+    /// - parameter isReplicaGroup: `Swift.Bool` True if the adapter is also a member of a replica group.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -234,8 +232,7 @@ public extension LookupReplyPrx {
     }
 }
 
-/// The Lookup interface is used by IceDiscovery clients to look for objects
-/// and adapters using UDP multicast.
+/// The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
 ///
 /// LookupPrx Methods:
 ///
@@ -321,8 +318,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// The Lookup interface is used by IceDiscovery clients to look for objects
-/// and adapters using UDP multicast.
+/// The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
 ///
 /// LookupPrx Methods:
 ///
@@ -336,13 +332,13 @@ public extension Ice.InputStream {
 public extension LookupPrx {
     /// Request to find an Ice object
     ///
-    /// - parameter domainId: `Swift.String` The IceDiscovery domain identifier. An IceDiscovery client only
-    /// replies to requests with a matching domain identifier.
+    /// - parameter domainId: `Swift.String` The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+    /// matching domain identifier.
     ///
     /// - parameter id: `Ice.Identity` The object identity.
     ///
-    /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send
-    /// the reply if a matching object is found.
+    /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send the reply if a matching
+    /// object is found.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func findObjectById(domainId iceP_domainId: Swift.String, id iceP_id: Ice.Identity, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil) throws {
@@ -358,13 +354,13 @@ public extension LookupPrx {
 
     /// Request to find an Ice object
     ///
-    /// - parameter domainId: `Swift.String` The IceDiscovery domain identifier. An IceDiscovery client only
-    /// replies to requests with a matching domain identifier.
+    /// - parameter domainId: `Swift.String` The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+    /// matching domain identifier.
     ///
     /// - parameter id: `Ice.Identity` The object identity.
     ///
-    /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send
-    /// the reply if a matching object is found.
+    /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send the reply if a matching
+    /// object is found.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -393,13 +389,13 @@ public extension LookupPrx {
 
     /// Request to find an object adapter
     ///
-    /// - parameter domainId: `Swift.String` The IceDiscovery domain identifier. An IceDiscovery client only
-    /// replies to requests with a matching domain identifier.
+    /// - parameter domainId: `Swift.String` The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+    /// matching domain identifier.
     ///
     /// - parameter id: `Swift.String` The adapter ID.
     ///
-    /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send
-    /// the reply if a matching adapter is found.
+    /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send the reply if a matching
+    /// adapter is found.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func findAdapterById(domainId iceP_domainId: Swift.String, id iceP_id: Swift.String, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil) throws {
@@ -415,13 +411,13 @@ public extension LookupPrx {
 
     /// Request to find an object adapter
     ///
-    /// - parameter domainId: `Swift.String` The IceDiscovery domain identifier. An IceDiscovery client only
-    /// replies to requests with a matching domain identifier.
+    /// - parameter domainId: `Swift.String` The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+    /// matching domain identifier.
     ///
     /// - parameter id: `Swift.String` The adapter ID.
     ///
-    /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send
-    /// the reply if a matching adapter is found.
+    /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send the reply if a matching
+    /// adapter is found.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -496,11 +492,10 @@ public protocol LookupReply {
     ///
     /// - parameter id: `Swift.String` The adapter ID.
     ///
-    /// - parameter prx: `Ice.ObjectPrx?` The adapter proxy (a dummy proxy created by the adapter).
-    /// The proxy provides the adapter endpoints.
+    /// - parameter prx: `Ice.ObjectPrx?` The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
+    /// endpoints.
     ///
-    /// - parameter isReplicaGroup: `Swift.Bool` True if the adapter is also a member of a
-    /// replica group.
+    /// - parameter isReplicaGroup: `Swift.Bool` True if the adapter is also a member of a replica group.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func foundAdapterById(id: Swift.String, prx: Ice.ObjectPrx?, isReplicaGroup: Swift.Bool, current: Ice.Current) throws
@@ -537,31 +532,30 @@ public struct LookupDisp: Ice.Disp {
     }
 }
 
-/// The Lookup interface is used by IceDiscovery clients to look for objects
-/// and adapters using UDP multicast.
+/// The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
 public protocol Lookup {
     /// Request to find an Ice object
     ///
-    /// - parameter domainId: `Swift.String` The IceDiscovery domain identifier. An IceDiscovery client only
-    /// replies to requests with a matching domain identifier.
+    /// - parameter domainId: `Swift.String` The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+    /// matching domain identifier.
     ///
     /// - parameter id: `Ice.Identity` The object identity.
     ///
-    /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send
-    /// the reply if a matching object is found.
+    /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send the reply if a matching
+    /// object is found.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func findObjectById(domainId: Swift.String, id: Ice.Identity, reply: LookupReplyPrx?, current: Ice.Current) throws
 
     /// Request to find an object adapter
     ///
-    /// - parameter domainId: `Swift.String` The IceDiscovery domain identifier. An IceDiscovery client only
-    /// replies to requests with a matching domain identifier.
+    /// - parameter domainId: `Swift.String` The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a
+    /// matching domain identifier.
     ///
     /// - parameter id: `Swift.String` The adapter ID.
     ///
-    /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send
-    /// the reply if a matching adapter is found.
+    /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send the reply if a matching
+    /// adapter is found.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func findAdapterById(domainId: Swift.String, id: Swift.String, reply: LookupReplyPrx?, current: Ice.Current) throws
@@ -602,8 +596,7 @@ public extension LookupReply {
     }
 }
 
-/// The Lookup interface is used by IceDiscovery clients to look for objects
-/// and adapters using UDP multicast.
+/// The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
 ///
 /// Lookup Methods:
 ///

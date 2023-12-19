@@ -1037,8 +1037,7 @@ public extension ReplicaObserverPrx {
     ///
     /// - throws:
     ///
-    ///   - ObserverInconsistencyException - Raised if an
-    ///     inconsisency was detected.
+    ///   - ObserverInconsistencyException - Raised if an inconsisency was detected.
     func removeSubscriber(llu iceP_llu: LogUpdate, topic iceP_topic: Swift.String, subscribers iceP_subscribers: Ice.IdentitySeq, context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "removeSubscriber",
                           mode: .Normal,
@@ -1382,8 +1381,7 @@ public extension Ice.InputStream {
 ///
 ///  - queryAsync: Get the query information for the given node.
 public extension NodePrx {
-    /// Invite the node into a group with the given coordinator and
-    /// group name.
+    /// Invite the node into a group with the given coordinator and group name.
     ///
     /// - parameter j: `Swift.Int32` The group coordinator.
     ///
@@ -1400,8 +1398,7 @@ public extension NodePrx {
                           context: context)
     }
 
-    /// Invite the node into a group with the given coordinator and
-    /// group name.
+    /// Invite the node into a group with the given coordinator and group name.
     ///
     /// - parameter j: `Swift.Int32` The group coordinator.
     ///
@@ -1431,8 +1428,7 @@ public extension NodePrx {
                                   sent: sent)
     }
 
-    /// Call from the group coordinator to a node to inform the node
-    /// that the replica group is active.
+    /// Call from the group coordinator to a node to inform the node that the replica group is active.
     ///
     /// - parameter j: `Swift.Int32` The group coordinator.
     ///
@@ -1440,8 +1436,7 @@ public extension NodePrx {
     ///
     /// - parameter coordinator: `Ice.ObjectPrx?` The proxy to the coordinator.
     ///
-    /// - parameter max: `Swift.Int32` The highest priority node seen by this replica
-    /// group.
+    /// - parameter max: `Swift.Int32` The highest priority node seen by this replica group.
     ///
     /// - parameter generation: `Swift.Int64` The current generation count.
     ///
@@ -1459,8 +1454,7 @@ public extension NodePrx {
                           context: context)
     }
 
-    /// Call from the group coordinator to a node to inform the node
-    /// that the replica group is active.
+    /// Call from the group coordinator to a node to inform the node that the replica group is active.
     ///
     /// - parameter j: `Swift.Int32` The group coordinator.
     ///
@@ -1468,8 +1462,7 @@ public extension NodePrx {
     ///
     /// - parameter coordinator: `Ice.ObjectPrx?` The proxy to the coordinator.
     ///
-    /// - parameter max: `Swift.Int32` The highest priority node seen by this replica
-    /// group.
+    /// - parameter max: `Swift.Int32` The highest priority node seen by this replica group.
     ///
     /// - parameter generation: `Swift.Int64` The current generation count.
     ///
@@ -1500,22 +1493,19 @@ public extension NodePrx {
                                   sent: sent)
     }
 
-    /// Called to accept an invitation into
-    /// the given group.
+    /// Called to accept an invitation into the given group.
     ///
     /// - parameter j: `Swift.Int32` The id of the node accepting the invitation.
     ///
     /// - parameter gn: `Swift.String` The group name.
     ///
-    /// - parameter forwardedInvites: `Ice.IntSeq` The ids of the nodes to which
-    /// invitations were forwarded.
+    /// - parameter forwardedInvites: `Ice.IntSeq` The ids of the nodes to which invitations were forwarded.
     ///
     /// - parameter observer: `Ice.ObjectPrx?` The observer.
     ///
     /// - parameter llu: `LogUpdate` The last log update for the given node.
     ///
-    /// - parameter max: `Swift.Int32` The highest priority node seen by this replica
-    /// group.
+    /// - parameter max: `Swift.Int32` The highest priority node seen by this replica group.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func accept(j iceP_j: Swift.Int32, gn iceP_gn: Swift.String, forwardedInvites iceP_forwardedInvites: Ice.IntSeq, observer iceP_observer: Ice.ObjectPrx?, llu iceP_llu: LogUpdate, max iceP_max: Swift.Int32, context: Ice.Context? = nil) throws {
@@ -1532,22 +1522,19 @@ public extension NodePrx {
                           context: context)
     }
 
-    /// Called to accept an invitation into
-    /// the given group.
+    /// Called to accept an invitation into the given group.
     ///
     /// - parameter j: `Swift.Int32` The id of the node accepting the invitation.
     ///
     /// - parameter gn: `Swift.String` The group name.
     ///
-    /// - parameter forwardedInvites: `Ice.IntSeq` The ids of the nodes to which
-    /// invitations were forwarded.
+    /// - parameter forwardedInvites: `Ice.IntSeq` The ids of the nodes to which invitations were forwarded.
     ///
     /// - parameter observer: `Ice.ObjectPrx?` The observer.
     ///
     /// - parameter llu: `LogUpdate` The last log update for the given node.
     ///
-    /// - parameter max: `Swift.Int32` The highest priority node seen by this replica
-    /// group.
+    /// - parameter max: `Swift.Int32` The highest priority node seen by this replica group.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1618,8 +1605,7 @@ public extension NodePrx {
                                   sent: sent)
     }
 
-    /// Determine if the node is a member of the given group with the
-    /// given coordinator.
+    /// Determine if the node is a member of the given group with the given coordinator.
     ///
     /// - parameter gn: `Swift.String` The group name.
     ///
@@ -1642,8 +1628,7 @@ public extension NodePrx {
                                  context: context)
     }
 
-    /// Determine if the node is a member of the given group with the
-    /// given coordinator.
+    /// Determine if the node is a member of the given group with the given coordinator.
     ///
     /// - parameter gn: `Swift.String` The group name.
     ///
@@ -1722,8 +1707,7 @@ public extension NodePrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `NodeInfoSeq` - The set of configured nodes and the associated
-    /// priority.
+    /// - returns: `NodeInfoSeq` - The set of configured nodes and the associated priority.
     func nodes(context: Ice.Context? = nil) throws -> NodeInfoSeq {
         return try _impl._invoke(operation: "nodes",
                                  mode: .Idempotent,
@@ -1911,8 +1895,7 @@ public protocol ReplicaObserver {
     ///
     /// - throws:
     ///
-    ///   - ObserverInconsistencyException - Raised if an
-    ///     inconsisency was detected.
+    ///   - ObserverInconsistencyException - Raised if an inconsisency was detected.
     func removeSubscriber(llu: LogUpdate, topic: Swift.String, subscribers: Ice.IdentitySeq, current: Ice.Current) throws
 }
 
@@ -2004,8 +1987,7 @@ public struct NodeDisp: Ice.Disp {
 
 /// A replica node.
 public protocol Node {
-    /// Invite the node into a group with the given coordinator and
-    /// group name.
+    /// Invite the node into a group with the given coordinator and group name.
     ///
     /// - parameter j: `Swift.Int32` The group coordinator.
     ///
@@ -2014,8 +1996,7 @@ public protocol Node {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func invitation(j: Swift.Int32, gn: Swift.String, current: Ice.Current) throws
 
-    /// Call from the group coordinator to a node to inform the node
-    /// that the replica group is active.
+    /// Call from the group coordinator to a node to inform the node that the replica group is active.
     ///
     /// - parameter j: `Swift.Int32` The group coordinator.
     ///
@@ -2023,30 +2004,26 @@ public protocol Node {
     ///
     /// - parameter coordinator: `Ice.ObjectPrx?` The proxy to the coordinator.
     ///
-    /// - parameter max: `Swift.Int32` The highest priority node seen by this replica
-    /// group.
+    /// - parameter max: `Swift.Int32` The highest priority node seen by this replica group.
     ///
     /// - parameter generation: `Swift.Int64` The current generation count.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func ready(j: Swift.Int32, gn: Swift.String, coordinator: Ice.ObjectPrx?, max: Swift.Int32, generation: Swift.Int64, current: Ice.Current) throws
 
-    /// Called to accept an invitation into
-    /// the given group.
+    /// Called to accept an invitation into the given group.
     ///
     /// - parameter j: `Swift.Int32` The id of the node accepting the invitation.
     ///
     /// - parameter gn: `Swift.String` The group name.
     ///
-    /// - parameter forwardedInvites: `Ice.IntSeq` The ids of the nodes to which
-    /// invitations were forwarded.
+    /// - parameter forwardedInvites: `Ice.IntSeq` The ids of the nodes to which invitations were forwarded.
     ///
     /// - parameter observer: `Ice.ObjectPrx?` The observer.
     ///
     /// - parameter llu: `LogUpdate` The last log update for the given node.
     ///
-    /// - parameter max: `Swift.Int32` The highest priority node seen by this replica
-    /// group.
+    /// - parameter max: `Swift.Int32` The highest priority node seen by this replica group.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func accept(j: Swift.Int32, gn: Swift.String, forwardedInvites: Ice.IntSeq, observer: Ice.ObjectPrx?, llu: LogUpdate, max: Swift.Int32, current: Ice.Current) throws
@@ -2058,8 +2035,7 @@ public protocol Node {
     /// - returns: `Swift.Bool` - True if the node is a coordinator, false otherwise.
     func areYouCoordinator(current: Ice.Current) throws -> Swift.Bool
 
-    /// Determine if the node is a member of the given group with the
-    /// given coordinator.
+    /// Determine if the node is a member of the given group with the given coordinator.
     ///
     /// - parameter gn: `Swift.String` The group name.
     ///
@@ -2081,8 +2057,7 @@ public protocol Node {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `NodeInfoSeq` - The set of configured nodes and the associated
-    /// priority.
+    /// - returns: `NodeInfoSeq` - The set of configured nodes and the associated priority.
     func nodes(current: Ice.Current) throws -> NodeInfoSeq
 
     /// Get the query information for the given node.

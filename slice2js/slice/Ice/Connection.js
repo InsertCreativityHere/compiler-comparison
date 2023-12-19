@@ -37,15 +37,13 @@ const Slice = Ice.Slice;
 /* slice2js browser-bundle-skip-end */
 
 /**
- * The batch compression option when flushing queued batch requests.
- *
+ *  The batch compression option when flushing queued batch requests.
  **/
 Ice.CompressBatch = Slice.defineEnum([
     ['Yes', 0], ['No', 1], ['BasedOnProxy', 2]]);
 
 /**
- * Base class providing access to the connection details.
- *
+ *  Base class providing access to the connection details.
  **/
 Ice.ConnectionInfo = class
 {
@@ -60,19 +58,19 @@ Ice.ConnectionInfo = class
 
 
 /**
- * Specifies the close semantics for Active Connection Management.
+ *  Specifies the close semantics for Active Connection Management.
  **/
 Ice.ACMClose = Slice.defineEnum([
     ['CloseOff', 0], ['CloseOnIdle', 1], ['CloseOnInvocation', 2], ['CloseOnInvocationAndIdle', 3], ['CloseOnIdleForceful', 4]]);
 
 /**
- * Specifies the heartbeat semantics for Active Connection Management.
+ *  Specifies the heartbeat semantics for Active Connection Management.
  **/
 Ice.ACMHeartbeat = Slice.defineEnum([
     ['HeartbeatOff', 0], ['HeartbeatOnDispatch', 1], ['HeartbeatOnIdle', 2], ['HeartbeatAlways', 3]]);
 
 /**
- * A collection of Active Connection Management configuration settings.
+ *  A collection of Active Connection Management configuration settings.
  **/
 Ice.ACM = class
 {
@@ -87,14 +85,13 @@ Ice.ACM = class
 Slice.defineStruct(Ice.ACM, true, true);
 
 /**
- * Determines the behavior when manually closing a connection.
+ *  Determines the behavior when manually closing a connection.
  **/
 Ice.ConnectionClose = Slice.defineEnum([
     ['Forcefully', 0], ['Gracefully', 1], ['GracefullyWithWait', 2]]);
 
 /**
- * Provides access to the connection details of an IP connection
- *
+ *  Provides access to the connection details of an IP connection
  **/
 Ice.IPConnectionInfo = class extends Ice.ConnectionInfo
 {
@@ -110,8 +107,7 @@ Ice.IPConnectionInfo = class extends Ice.ConnectionInfo
 
 
 /**
- * Provides access to the connection details of a TCP connection
- *
+ *  Provides access to the connection details of a TCP connection
  **/
 Ice.TCPConnectionInfo = class extends Ice.IPConnectionInfo
 {
@@ -125,8 +121,7 @@ Ice.TCPConnectionInfo = class extends Ice.IPConnectionInfo
 
 
 /**
- * Provides access to the connection details of a UDP connection
- *
+ *  Provides access to the connection details of a UDP connection
  **/
 Ice.UDPConnectionInfo = class extends Ice.IPConnectionInfo
 {
@@ -144,8 +139,7 @@ Ice.UDPConnectionInfo = class extends Ice.IPConnectionInfo
 Slice.defineDictionary(Ice, "HeaderDict", "HeaderDictHelper", "Ice.StringHelper", "Ice.StringHelper", false, undefined, undefined);
 
 /**
- * Provides access to the connection details of a WebSocket connection
- *
+ *  Provides access to the connection details of a WebSocket connection
  **/
 Ice.WSConnectionInfo = class extends Ice.ConnectionInfo
 {

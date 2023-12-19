@@ -15,6 +15,9 @@
 
 package Test;
 
+/**
+ * \\U\u\
+ **/
 public interface ss3
 {
     String value = "\\\\U\\u\\";

@@ -16,8 +16,8 @@
 package com.zeroc.IceMX;
 
 /**
- * Provides information on invocations that are specifically sent over
- * Ice connections. Remote metrics are embedded within {@link InvocationMetrics}.
+ * Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
+ * within {@link InvocationMetrics}.
  **/
 public class RemoteMetrics extends ChildInvocationMetrics
 {

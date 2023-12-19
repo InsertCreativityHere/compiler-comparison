@@ -2818,10 +2818,13 @@ public let ss1: Swift.String = "'\"?\\\u{0007}\u{0008}\u{000c}\n\r\t\u{000b}\u{0
 
 public let ss2: Swift.String = "'\"?\\\u{0007}\u{0008}\u{000c}\n\r\t\u{000b}\u{0006}"
 
+/// \\U\u\
 public let ss3: Swift.String = "\\\\U\\u\\"
 
+/// \A\
 public let ss4: Swift.String = "\\A\\"
 
+/// \u0041\
 public let ss5: Swift.String = "\\u0041\\"
 
 public let su0: Swift.String = "\u{128}\u{178}\u{ff}\u{100}\u{1f00}\u{10194}\u{1016a}\u{10198}\u{1f340}\u{1f341}\u{1f342}\u{1f343}"
@@ -2891,10 +2894,13 @@ public let wss1: Swift.String = "'\"?\\\u{0007}\u{0008}\u{000c}\n\r\t\u{000b}\u{
 
 public let wss2: Swift.String = "'\"?\\\u{0007}\u{0008}\u{000c}\n\r\t\u{000b}\u{0006}"
 
+/// \\U\u\
 public let wss3: Swift.String = "\\\\U\\u\\"
 
+/// \A\
 public let wss4: Swift.String = "\\A\\"
 
+/// \u0041\
 public let wss5: Swift.String = "\\u0041\\"
 
 public let wsu0: Swift.String = "\u{128}\u{178}\u{ff}\u{100}\u{1f00}\u{10194}\u{1016a}\u{10198}\u{1f340}\u{1f341}\u{1f342}\u{1f343}"

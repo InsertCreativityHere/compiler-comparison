@@ -19,22 +19,18 @@ classdef FileIteratorPrx < Ice.ObjectPrx
             % read   Read lines from the log file.
             %
             % Parameters:
-            %   size (int32) - Specifies the maximum number of bytes to be
-            %     received. The server will ensure that the returned message
-            %     doesn't exceed the given size.
+            %   size (int32) - Specifies the maximum number of bytes to be received. The server will ensure that the returned
+            %     message doesn't exceed the given size.
             %   context (containers.Map) - Optional request context.
             %
             % Returns:
             %   result (logical) - True if EOF is encountered.
-            %   lines (Ice.StringSeq) - The lines read from the file. If there was nothing to
-            %     read from the file since the last call to read, an empty
-            %     sequence is returned. The last line of the sequence is always
-            %     incomplete (and therefore no '\n' should be added when writing
-            %     the last line to the to the output device).
+            %   lines (Ice.StringSeq) - The lines read from the file. If there was nothing to read from the file since the last call to
+            %     read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n'
+            %     should be added when writing the last line to the to the output device).
             %
             % Exceptions:
-            %   IceGrid.FileNotAvailableException - Raised if there was a problem
-            %     to read lines from the file.
+            %   IceGrid.FileNotAvailableException - Raised if there was a problem to read lines from the file.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(size);
@@ -49,16 +45,14 @@ classdef FileIteratorPrx < Ice.ObjectPrx
             % readAsync   Read lines from the log file.
             %
             % Parameters:
-            %   size (int32) - Specifies the maximum number of bytes to be
-            %     received. The server will ensure that the returned message
-            %     doesn't exceed the given size.
+            %   size (int32) - Specifies the maximum number of bytes to be received. The server will ensure that the returned
+            %     message doesn't exceed the given size.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.FileNotAvailableException - Raised if there was a problem
-            %     to read lines from the file.
+            %   IceGrid.FileNotAvailableException - Raised if there was a problem to read lines from the file.
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeInt(size);

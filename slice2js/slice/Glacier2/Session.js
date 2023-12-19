@@ -37,8 +37,7 @@ const Slice = Ice.Slice;
 /* slice2js browser-bundle-skip-end */
 
 /**
- * This exception is raised if an attempt to create a new session failed.
- *
+ *  This exception is raised if an attempt to create a new session failed.
  **/
 Glacier2.CannotCreateSessionException = class extends Ice.UserException
 {
@@ -82,11 +81,9 @@ const iceC_Glacier2_Session_ids = [
 ];
 
 /**
- * A client-visible session object, which is tied to the lifecycle of a {@link Router}.
- *
- * @see Router
- * @see SessionManager
- *
+ *  A client-visible session object, which is tied to the lifecycle of a {@link Router}.
+ *  @see Router
+ *  @see SessionManager
  **/
 Glacier2.Session = class extends Ice.Object
 {
@@ -107,13 +104,10 @@ const iceC_Glacier2_StringSet_ids = [
 ];
 
 /**
- * An object for managing the set of identity constraints for specific
- * parts of object identity on a
- * {@link Session}.
- *
- * @see Session
- * @see SessionControl
- *
+ *  An object for managing the set of identity constraints for specific parts of object identity on a
+ *  {@link Session}.
+ *  @see Session
+ *  @see SessionControl
  **/
 Glacier2.StringSet = class extends Ice.Object
 {
@@ -136,12 +130,9 @@ const iceC_Glacier2_IdentitySet_ids = [
 ];
 
 /**
- * An object for managing the set of object identity constraints on a
- * {@link Session}.
- *
- * @see Session
- * @see SessionControl
- *
+ *  An object for managing the set of object identity constraints on a {@link Session}.
+ *  @see Session
+ *  @see SessionControl
  **/
 Glacier2.IdentitySet = class extends Ice.Object
 {
@@ -164,11 +155,8 @@ const iceC_Glacier2_SessionControl_ids = [
 ];
 
 /**
- * An administrative session control object, which is tied to the
- * lifecycle of a {@link Session}.
- *
- * @see Session
- *
+ *  An administrative session control object, which is tied to the lifecycle of a {@link Session}.
+ *  @see Session
  **/
 Glacier2.SessionControl = class extends Ice.Object
 {
@@ -193,15 +181,12 @@ const iceC_Glacier2_SessionManager_ids = [
 ];
 
 /**
- * The session manager for username/password authenticated users that
- * is responsible for managing {@link Session} objects. New session objects
- * are created by the {@link Router} object calling on an application-provided
- * session manager. If no session manager is provided by the application,
- * no client-visible sessions are passed to the client.
- *
- * @see Router
- * @see Session
- *
+ *  The session manager for username/password authenticated users that is responsible for managing {@link Session}
+ *  objects. New session objects are created by the {@link Router} object calling on an application-provided
+ *  session manager. If no session manager is provided by the application, no client-visible sessions are passed to
+ *  the client.
+ *  @see Router
+ *  @see Session
  **/
 Glacier2.SessionManager = class extends Ice.Object
 {
@@ -225,15 +210,11 @@ const iceC_Glacier2_SSLSessionManager_ids = [
 ];
 
 /**
- * The session manager for SSL authenticated users that is
- * responsible for managing {@link Session} objects. New session objects are
- * created by the {@link Router} object calling on an application-provided
- * session manager. If no session manager is provided by the
- * application, no client-visible sessions are passed to the client.
- *
- * @see Router
- * @see Session
- *
+ *  The session manager for SSL authenticated users that is responsible for managing {@link Session} objects. New
+ *  session objects are created by the {@link Router} object calling on an application-provided session manager. If
+ *  no session manager is provided by the application, no client-visible sessions are passed to the client.
+ *  @see Router
+ *  @see Session
  **/
 Glacier2.SSLSessionManager = class extends Ice.Object
 {

@@ -17,8 +17,7 @@ import Foundation
 import Ice
 
 public protocol InstrumentationSessionObserver: Ice.InstrumentationObserver {
-    /// Notification of a forwarded request. This also implies removing
-    /// the event from the queue.
+    /// Notification of a forwarded request. This also implies removing the event from the queue.
     ///
     /// - parameter _: `Swift.Bool` True if client request, false if server request.
     func forwarded(_ client: Swift.Bool) throws
@@ -28,8 +27,7 @@ public protocol InstrumentationSessionObserver: Ice.InstrumentationObserver {
     /// - parameter _: `Swift.Bool` True if client request, false if server request.
     func queued(_ client: Swift.Bool) throws
 
-    /// Notification of a overridden request. This implies adding and
-    /// removing an event to the queue.
+    /// Notification of a overridden request. This implies adding and removing an event to the queue.
     ///
     /// - parameter _: `Swift.Bool` True if client request, false if server request.
     func overridden(_ client: Swift.Bool) throws
@@ -40,27 +38,20 @@ public protocol InstrumentationSessionObserver: Ice.InstrumentationObserver {
     func routingTableSize(_ delta: Swift.Int32) throws
 }
 
-/// The ObserverUpdater interface is implemented by Glacier2 and an
-/// instance of this interface is provided on initialization to the
-/// RouterObserver object.
-///
-/// This interface can be used by add-ins imlementing the
-/// RouterObserver interface to update the obsevers of observed
+/// The ObserverUpdater interface is implemented by Glacier2 and an instance of this interface is provided on
+/// initialization to the RouterObserver object.
+/// This interface can be used by add-ins imlementing the RouterObserver interface to update the obsevers of observed
 /// objects.
 public protocol InstrumentationObserverUpdater:  Swift.AnyObject {
     /// Update the router sessions.
-    ///
-    /// When called, this method goes through all the sessions and for
-    /// each session RouterObserver::getSessionObserver is
-    /// called. The implementation of getSessionObserver has the
-    /// possibility to return an updated observer if necessary.
+    /// When called, this method goes through all the sessions and for each session RouterObserver::getSessionObserver
+    /// is called. The implementation of getSessionObserver has the possibility to return an updated observer if
+    /// necessary.
     func updateSessionObservers() throws
 }
 
-/// The router observer interface used by Glacier2 to obtain and update
-/// observers for its observeable objects. This interface should be
-/// implemented by add-ins that wish to observe Glacier2 objects in
-/// order to collect statistics.
+/// The router observer interface used by Glacier2 to obtain and update observers for its observeable objects. This
+/// interface should be implemented by add-ins that wish to observe Glacier2 objects in order to collect statistics.
 public protocol InstrumentationRouterObserver:  Swift.AnyObject {
     /// This method should return an observer for the given session.
     ///
@@ -68,18 +59,15 @@ public protocol InstrumentationRouterObserver:  Swift.AnyObject {
     ///
     /// - parameter con: `Ice.Connection?` The connection associated to the session.
     ///
-    /// - parameter routingTableSize: `Swift.Int32` The size of the routing table for this
-    /// session.
+    /// - parameter routingTableSize: `Swift.Int32` The size of the routing table for this session.
     ///
-    /// - parameter old: `InstrumentationSessionObserver?` The previous observer, only set when updating an
-    /// existing observer.
+    /// - parameter old: `InstrumentationSessionObserver?` The previous observer, only set when updating an existing observer.
     ///
     /// - returns: `InstrumentationSessionObserver?`
     func getSessionObserver(id: Swift.String, con: Ice.Connection?, routingTableSize: Swift.Int32, old: InstrumentationSessionObserver?) throws -> InstrumentationSessionObserver?
 
-    /// Glacier2 calls this method on initialization. The add-in
-    /// implementing this interface can use this object to get Glacier2
-    /// to re-obtain observers for topics and subscribers.
+    /// Glacier2 calls this method on initialization. The add-in implementing this interface can use this object to get
+    /// Glacier2 to re-obtain observers for topics and subscribers.
     ///
     /// - parameter _: `InstrumentationObserverUpdater?` The observer updater object.
     func setObserverUpdater(_ updater: InstrumentationObserverUpdater?) throws
