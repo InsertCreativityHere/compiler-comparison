@@ -14,10 +14,10 @@
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 %
-% See also IceBox.Service
+% See also Service
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from IceBox.ice by slice2matlab version 3.7.10
+% Generated from ServiceManager.ice by slice2matlab version 3.7.10
 
 classdef ServiceManagerPrx < Ice.ObjectPrx
     methods

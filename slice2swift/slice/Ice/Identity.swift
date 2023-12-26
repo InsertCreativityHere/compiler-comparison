@@ -84,9 +84,6 @@ public extension OutputStream {
     }
 }
 
-/// A mapping between identities and Ice objects.
-public typealias ObjectDict = [Identity: Disp?]
-
 /// A sequence of identities.
 public typealias IdentitySeq = [Identity]
 

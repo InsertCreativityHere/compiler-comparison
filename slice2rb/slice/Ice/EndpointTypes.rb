@@ -18,52 +18,21 @@ require 'Ice'
 
 module ::Ice
 
-    if not defined?(::Ice::EndpointSelectionType)
-        class EndpointSelectionType
-            include Comparable
+    TCPEndpointType = 1
 
-            def initialize(name, value)
-                @name = name
-                @value = value
-            end
+    SSLEndpointType = 2
 
-            def EndpointSelectionType.from_int(val)
-                @@_enumerators[val]
-            end
+    UDPEndpointType = 3
 
-            def to_s
-                @name
-            end
+    WSEndpointType = 4
 
-            def to_i
-                @value
-            end
+    WSSEndpointType = 5
 
-            def <=>(other)
-                other.is_a?(EndpointSelectionType) or raise ArgumentError, "value must be a EndpointSelectionType"
-                @value <=> other.to_i
-            end
+    BTEndpointType = 6
 
-            def hash
-                @value.hash
-            end
+    BTSEndpointType = 7
 
-            def EndpointSelectionType.each(&block)
-                @@_enumerators.each_value(&block)
-            end
+    IAPEndpointType = 8
 
-            Random = EndpointSelectionType.new("Random", 0)
-            Ordered = EndpointSelectionType.new("Ordered", 1)
-
-            @@_enumerators = {0=>Random, 1=>Ordered}
-
-            def EndpointSelectionType._enumerators
-                @@_enumerators
-            end
-
-            private_class_method :new
-        end
-
-        T_EndpointSelectionType = ::Ice::__defineEnum('::Ice::EndpointSelectionType', EndpointSelectionType, EndpointSelectionType::_enumerators)
-    end
+    IAPSEndpointType = 9
 end

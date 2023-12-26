@@ -54,48 +54,12 @@ namespace
 
 }
 
-IceGrid::ReplicaGroupFilter::~ReplicaGroupFilter()
-{
-}
-
-IceGrid::TypeFilter::~TypeFilter()
-{
-}
-
-IceGrid::RegistryPluginFacade::~RegistryPluginFacade()
-{
-}
-
 #else // C++98 mapping
 
 namespace
 {
 
 }
-
-IceGrid::ReplicaGroupFilter::~ReplicaGroupFilter()
-{
-}
-
-/// \cond INTERNAL
-ICEGRID_API ::Ice::LocalObject* IceGrid::upCast(ReplicaGroupFilter* p) { return p; }
-/// \endcond
-
-IceGrid::TypeFilter::~TypeFilter()
-{
-}
-
-/// \cond INTERNAL
-ICEGRID_API ::Ice::LocalObject* IceGrid::upCast(TypeFilter* p) { return p; }
-/// \endcond
-
-IceGrid::RegistryPluginFacade::~RegistryPluginFacade()
-{
-}
-
-/// \cond INTERNAL
-ICEGRID_API ::Ice::LocalObject* IceGrid::upCast(RegistryPluginFacade* p) { return p; }
-/// \endcond
 
 namespace Ice
 {

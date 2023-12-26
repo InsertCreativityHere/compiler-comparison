@@ -34,42 +34,6 @@ const Ice = _ModuleRegistry.module("Ice");
 const Slice = Ice.Slice;
 /* slice2js browser-bundle-skip-end */
 
-Object.defineProperty(Ice, 'TCPEndpointType', {
-    value: 1
-});
-
-Object.defineProperty(Ice, 'SSLEndpointType', {
-    value: 2
-});
-
-Object.defineProperty(Ice, 'UDPEndpointType', {
-    value: 3
-});
-
-Object.defineProperty(Ice, 'WSEndpointType', {
-    value: 4
-});
-
-Object.defineProperty(Ice, 'WSSEndpointType', {
-    value: 5
-});
-
-Object.defineProperty(Ice, 'BTEndpointType', {
-    value: 6
-});
-
-Object.defineProperty(Ice, 'BTSEndpointType', {
-    value: 7
-});
-
-Object.defineProperty(Ice, 'iAPEndpointType', {
-    value: 8
-});
-
-Object.defineProperty(Ice, 'iAPSEndpointType', {
-    value: 9
-});
-
 /**
  *  Base class providing access to the endpoint details.
  **/

@@ -56,28 +56,51 @@ namespace Ice
 {
 
 /**
- * Determines the order in which the Ice run time uses the endpoints in a proxy when establishing a connection.
+ * Uniquely identifies TCP endpoints.
  */
-enum class EndpointSelectionType : unsigned char
-{
-    /**
-     * <code>Random</code> causes the endpoints to be arranged in a random order.
-     */
-    Random,
-    /**
-     * <code>Ordered</code> forces the Ice run time to use the endpoints in the order they appeared in the proxy.
-     */
-    Ordered
-};
+constexpr short TCPEndpointType = 1;
+
+/**
+ * Uniquely identifies SSL endpoints.
+ */
+constexpr short SSLEndpointType = 2;
+
+/**
+ * Uniquely identifies UDP endpoints.
+ */
+constexpr short UDPEndpointType = 3;
+
+/**
+ * Uniquely identifies TCP-based WebSocket endpoints.
+ */
+constexpr short WSEndpointType = 4;
+
+/**
+ * Uniquely identifies SSL-based WebSocket endpoints.
+ */
+constexpr short WSSEndpointType = 5;
+
+/**
+ * Uniquely identifies Bluetooth endpoints.
+ */
+constexpr short BTEndpointType = 6;
+
+/**
+ * Uniquely identifies SSL Bluetooth endpoints.
+ */
+constexpr short BTSEndpointType = 7;
+
+/**
+ * Uniquely identifies iAP-based endpoints.
+ */
+constexpr short iAPEndpointType = 8;
+
+/**
+ * Uniquely identifies SSL iAP-based endpoints.
+ */
+constexpr short iAPSEndpointType = 9;
 
 }
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 #else // C++98 mapping
 
@@ -85,28 +108,51 @@ namespace Ice
 {
 
 /**
- * Determines the order in which the Ice run time uses the endpoints in a proxy when establishing a connection.
+ * Uniquely identifies TCP endpoints.
  */
-enum EndpointSelectionType
-{
-    /**
-     * <code>Random</code> causes the endpoints to be arranged in a random order.
-     */
-    Random,
-    /**
-     * <code>Ordered</code> forces the Ice run time to use the endpoints in the order they appeared in the proxy.
-     */
-    Ordered
-};
+const Short TCPEndpointType = 1;
+
+/**
+ * Uniquely identifies SSL endpoints.
+ */
+const Short SSLEndpointType = 2;
+
+/**
+ * Uniquely identifies UDP endpoints.
+ */
+const Short UDPEndpointType = 3;
+
+/**
+ * Uniquely identifies TCP-based WebSocket endpoints.
+ */
+const Short WSEndpointType = 4;
+
+/**
+ * Uniquely identifies SSL-based WebSocket endpoints.
+ */
+const Short WSSEndpointType = 5;
+
+/**
+ * Uniquely identifies Bluetooth endpoints.
+ */
+const Short BTEndpointType = 6;
+
+/**
+ * Uniquely identifies SSL Bluetooth endpoints.
+ */
+const Short BTSEndpointType = 7;
+
+/**
+ * Uniquely identifies iAP-based endpoints.
+ */
+const Short iAPEndpointType = 8;
+
+/**
+ * Uniquely identifies SSL iAP-based endpoints.
+ */
+const Short iAPSEndpointType = 9;
 
 }
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 #endif
 

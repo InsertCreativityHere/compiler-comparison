@@ -53,24 +53,12 @@ namespace
 
 }
 
-Ice::ObjectAdapter::~ObjectAdapter()
-{
-}
-
 #else // C++98 mapping
 
 namespace
 {
 
 }
-
-Ice::ObjectAdapter::~ObjectAdapter()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::upCast(ObjectAdapter* p) { return p; }
-/// \endcond
 
 namespace Ice
 {

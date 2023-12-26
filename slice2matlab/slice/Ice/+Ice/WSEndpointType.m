@@ -3,7 +3,7 @@
 % Uniquely identifies TCP-based WebSocket endpoints.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from Endpoint.ice by slice2matlab version 3.7.10
+% Generated from EndpointTypes.ice by slice2matlab version 3.7.10
 
 classdef WSEndpointType
     properties(Constant)

@@ -24,6 +24,8 @@ import Ice.PluginF_ice
 import Ice.PropertiesF_ice
 import Ice.BuiltinSequences_ice
 import Ice.Version_ice
+import Ice.Context_ice
+import Ice.OperationMode_ice
 import Ice.ServantLocator_ice
 import Ice.InstrumentationF_ice
 import Ice.Router_ice
@@ -34,6 +36,7 @@ import Ice.Identity_ice
 import Ice.LoggerF_ice
 import Ice.LocatorF_ice
 import Ice.EndpointTypes_ice
+import Ice.EndpointSelectionType_ice
 import Ice.CommunicatorF_ice
 import Ice.Current_ice
 import Ice.ProcessF_ice

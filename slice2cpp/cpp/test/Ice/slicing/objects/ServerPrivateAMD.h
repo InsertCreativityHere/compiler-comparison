@@ -125,6 +125,7 @@ public:
      * One-shot constructor to initialize all data members.
      */
     PSUnknownException(const ::std::shared_ptr<PSUnknown2>& p) :
+        ::Ice::UserExceptionHelper<PSUnknownException, PreservedException>(),
         p(p)
     {
     }

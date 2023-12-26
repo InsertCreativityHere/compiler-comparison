@@ -61,7 +61,6 @@ class diePrx;
 class echo;
 class enddeclare;
 class enddeclarePrx;
-class _cpp_for;
 
 }
 
@@ -190,20 +189,6 @@ using Ice::operator>;
 using Ice::operator>=;
 using Ice::operator==;
 using Ice::operator!=;
-
-}
-
-namespace _cpp_and
-{
-
-class _cpp_for
-{
-public:
-
-    virtual ~_cpp_for();
-
-    virtual ::_cpp_and::array foreach(const ::std::shared_ptr<::Ice::Value>& _cpp_if, const ::std::shared_ptr<echo>& global, const ::std::shared_ptr<::Ice::Value>& require, const ::std::shared_ptr<functionPrx>& include, const ::std::shared_ptr<diePrx>& _cpp_return, const ::std::shared_ptr<::Ice::ObjectPrx>& isset, const ::std::shared_ptr<enddeclarePrx>& list, int _cpp_new, int _cpp_static) = 0;
-};
 
 }
 
@@ -688,8 +673,6 @@ using echoPtr = ::std::shared_ptr<echo>;
 using enddeclarePtr = ::std::shared_ptr<enddeclare>;
 using enddeclarePrxPtr = ::std::shared_ptr<enddeclarePrx>;
 
-using forPtr = ::std::shared_ptr<_cpp_for>;
-
 }
 /// \endcond
 
@@ -792,12 +775,6 @@ typedef enddeclarePrx enddeclarePrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(enddeclarePtr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-class _cpp_for;
-/// \cond INTERNAL
-::Ice::LocalObject* upCast(_cpp_for*);
-/// \endcond
-typedef ::IceInternal::Handle< _cpp_for> forPtr;
 
 }
 
@@ -1705,35 +1682,6 @@ inline bool operator==(const enddeclare& lhs, const enddeclare& rhs)
 inline bool operator<(const enddeclare& lhs, const enddeclare& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class _cpp_for : public virtual ::Ice::LocalObject
-{
-public:
-
-    typedef forPtr PointerType;
-
-    virtual ~_cpp_for();
-
-#ifdef ICE_CPP11_COMPILER
-    _cpp_for() = default;
-    _cpp_for(const _cpp_for&) = default;
-    _cpp_for& operator=(const _cpp_for&) = default;
-#endif
-
-    virtual array foreach(const breakPtr& _cpp_if, const echoPtr& global, const enddeclarePtr& require, const functionPrx& include, const diePrx& _cpp_return, const echoPrx& isset, const enddeclarePrx& list, ::Ice::Int _cpp_new, ::Ice::Int _cpp_static) = 0;
-};
-
-/// \cond INTERNAL
-inline bool operator==(const _cpp_for& lhs, const _cpp_for& rhs)
-{
-    return static_cast<const ::Ice::LocalObject&>(lhs) == static_cast<const ::Ice::LocalObject&>(rhs);
-}
-
-inline bool operator<(const _cpp_for& lhs, const _cpp_for& rhs)
-{
-    return static_cast<const ::Ice::LocalObject&>(lhs) < static_cast<const ::Ice::LocalObject&>(rhs);
 }
 /// \endcond
 

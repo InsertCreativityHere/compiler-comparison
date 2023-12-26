@@ -18,7 +18,6 @@
 
 /* slice2js browser-bundle-skip */
 const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/EnumBase");
 require("../Ice/Long");
 require("../Ice/HashMap");
 require("../Ice/HashUtil");
@@ -29,11 +28,41 @@ const Ice = _ModuleRegistry.module("Ice");
 const Slice = Ice.Slice;
 /* slice2js browser-bundle-skip-end */
 
-/**
- *  Determines the order in which the Ice run time uses the endpoints in a proxy when establishing a connection.
- **/
-Ice.EndpointSelectionType = Slice.defineEnum([
-    ['Random', 0], ['Ordered', 1]]);
+Object.defineProperty(Ice, 'TCPEndpointType', {
+    value: 1
+});
+
+Object.defineProperty(Ice, 'SSLEndpointType', {
+    value: 2
+});
+
+Object.defineProperty(Ice, 'UDPEndpointType', {
+    value: 3
+});
+
+Object.defineProperty(Ice, 'WSEndpointType', {
+    value: 4
+});
+
+Object.defineProperty(Ice, 'WSSEndpointType', {
+    value: 5
+});
+
+Object.defineProperty(Ice, 'BTEndpointType', {
+    value: 6
+});
+
+Object.defineProperty(Ice, 'BTSEndpointType', {
+    value: 7
+});
+
+Object.defineProperty(Ice, 'iAPEndpointType', {
+    value: 8
+});
+
+Object.defineProperty(Ice, 'iAPSEndpointType', {
+    value: 9
+});
 /* slice2js browser-bundle-skip */
 exports.Ice = Ice;
 /* slice2js browser-bundle-skip-end */

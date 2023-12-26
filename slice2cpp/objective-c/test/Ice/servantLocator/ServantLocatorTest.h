@@ -54,7 +54,6 @@ namespace Test
 
 class TestIntf;
 class TestIntfPrx;
-class Cookie;
 class TestActivation;
 class TestActivationPrx;
 
@@ -117,27 +116,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-};
-
-}
-
-namespace Test
-{
-
-class Cookie
-{
-public:
-
-    virtual ~Cookie();
-
-    Cookie() = default;
-
-    Cookie(const Cookie&) = default;
-    Cookie(Cookie&&) = default;
-    Cookie& operator=(const Cookie&) = default;
-    Cookie& operator=(Cookie&&) = default;
-
-    virtual ::std::string message() const = 0;
 };
 
 }
@@ -677,8 +655,6 @@ namespace Test
 using TestIntfPtr = ::std::shared_ptr<TestIntf>;
 using TestIntfPrxPtr = ::std::shared_ptr<TestIntfPrx>;
 
-using CookiePtr = ::std::shared_ptr<Cookie>;
-
 using TestActivationPtr = ::std::shared_ptr<TestActivation>;
 using TestActivationPrxPtr = ::std::shared_ptr<TestActivationPrx>;
 
@@ -722,12 +698,6 @@ typedef TestIntfPrx TestIntfPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(TestIntfPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-class Cookie;
-/// \cond INTERNAL
-::Ice::LocalObject* upCast(Cookie*);
-/// \endcond
-typedef ::IceInternal::Handle< Cookie> CookiePtr;
 
 class TestActivation;
 /// \cond INTERNAL
@@ -1597,38 +1567,6 @@ inline bool operator==(const TestIntf& lhs, const TestIntf& rhs)
 inline bool operator<(const TestIntf& lhs, const TestIntf& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class Cookie : public virtual ::Ice::LocalObject
-{
-public:
-
-    typedef CookiePtr PointerType;
-
-    virtual ~Cookie();
-
-    Cookie()
-    {
-    }
-
-#ifdef ICE_CPP11_COMPILER
-    Cookie(const Cookie&) = default;
-    Cookie& operator=(const Cookie&) = default;
-#endif
-
-    virtual ::std::string message() const = 0;
-};
-
-/// \cond INTERNAL
-inline bool operator==(const Cookie& lhs, const Cookie& rhs)
-{
-    return static_cast<const ::Ice::LocalObject&>(lhs) == static_cast<const ::Ice::LocalObject&>(rhs);
-}
-
-inline bool operator<(const Cookie& lhs, const Cookie& rhs)
-{
-    return static_cast<const ::Ice::LocalObject&>(lhs) < static_cast<const ::Ice::LocalObject&>(rhs);
 }
 /// \endcond
 

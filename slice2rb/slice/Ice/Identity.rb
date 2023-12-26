@@ -53,10 +53,6 @@ module ::Ice
         ])
     end
 
-    if not defined?(::Ice::T_ObjectDict)
-        T_ObjectDict = ::Ice::__defineDictionary('::Ice::ObjectDict', ::Ice::T_Identity, ::Ice::T_Value)
-    end
-
     if not defined?(::Ice::T_IdentitySeq)
         T_IdentitySeq = ::Ice::__defineSequence('::Ice::IdentitySeq', ::Ice::T_Identity)
     end

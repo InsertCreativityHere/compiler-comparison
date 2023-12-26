@@ -20,22 +20,57 @@ using _System = global::System;
 
 namespace Ice
 {
-    /// <summary>
-    /// Determines the order in which the Ice run time uses the endpoints in a proxy when establishing a connection.
-    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public abstract class TCPEndpointType
+    {
+        public const short value = 1;
+    }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    public enum EndpointSelectionType
+    public abstract class SSLEndpointType
     {
-        /// <summary>
-        /// Random causes the endpoints to be arranged in a random order.
-        /// </summary>
+        public const short value = 2;
+    }
 
-        Random,
-        /// <summary>
-        /// Ordered forces the Ice run time to use the endpoints in the order they appeared in the proxy.
-        /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public abstract class UDPEndpointType
+    {
+        public const short value = 3;
+    }
 
-        Ordered
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public abstract class WSEndpointType
+    {
+        public const short value = 4;
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public abstract class WSSEndpointType
+    {
+        public const short value = 5;
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public abstract class BTEndpointType
+    {
+        public const short value = 6;
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public abstract class BTSEndpointType
+    {
+        public const short value = 7;
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public abstract class iAPEndpointType
+    {
+        public const short value = 8;
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public abstract class iAPSEndpointType
+    {
+        public const short value = 9;
     }
 }

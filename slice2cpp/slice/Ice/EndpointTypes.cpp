@@ -44,8 +44,4 @@
 
 #else // C++98 mapping
 
-namespace Ice
-{
-}
-
 #endif

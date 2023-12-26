@@ -18,8 +18,6 @@
 
 /* slice2js browser-bundle-skip */
 const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Object");
-require("../Ice/Value");
 require("../Ice/Struct");
 require("../Ice/Long");
 require("../Ice/HashMap");
@@ -65,8 +63,6 @@ Ice.Identity = class
 };
 
 Slice.defineStruct(Ice.Identity, true, true);
-
-Slice.defineDictionary(Ice, "ObjectDict", "ObjectDictHelper", "Ice.Identity", "Ice.ObjectHelper", false, Ice.HashMap.compareEquals, "Ice.Value");
 
 Slice.defineSequence(Ice, "IdentitySeqHelper", "Ice.Identity", false);
 /* slice2js browser-bundle-skip */

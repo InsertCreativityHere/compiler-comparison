@@ -144,38 +144,6 @@ module ::Test
         T_F = ::Ice::__defineException('::Test::F', F, false, nil, [["data", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::G)
-        class G < Ice::LocalException
-            def initialize(data='')
-                @data = data
-            end
-
-            def to_s
-                '::Test::G'
-            end
-
-            attr_accessor :data
-        end
-
-        T_G = ::Ice::__defineException('::Test::G', G, false, nil, [["data", ::Ice::T_string, false, 0]])
-    end
-
-    if not defined?(::Test::H)
-        class H < Ice::LocalException
-            def initialize(data='')
-                @data = data
-            end
-
-            def to_s
-                '::Test::H'
-            end
-
-            attr_accessor :data
-        end
-
-        T_H = ::Ice::__defineException('::Test::H', H, false, nil, [["data", ::Ice::T_string, false, 0]])
-    end
-
     module Mod
 
         if not defined?(::Test::Mod::A)

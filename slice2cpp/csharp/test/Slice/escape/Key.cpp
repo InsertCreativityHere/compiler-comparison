@@ -191,10 +191,6 @@ abstract::BaseMethods::ice_staticId()
     return typeId;
 }
 
-abstract::implicit::~implicit()
-{
-}
-
 bool
 abstract::_cpp_case::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -2749,14 +2745,6 @@ abstract::_icePatchObjectPtr(optionalParamsPtr& handle, const ::Ice::ObjectPtr& 
         IceInternal::Ex::throwUOE(optionalParams::ice_staticId(), v);
     }
 }
-/// \endcond
-
-abstract::implicit::~implicit()
-{
-}
-
-/// \cond INTERNAL
-::Ice::LocalObject* abstract::upCast(implicit* p) { return p; }
 /// \endcond
 
 abstract::System::Test::~Test()

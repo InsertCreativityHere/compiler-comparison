@@ -49,46 +49,6 @@ namespace
 
 }
 
-Ice::Instrumentation::Observer::~Observer()
-{
-}
-
-Ice::Instrumentation::ThreadObserver::~ThreadObserver()
-{
-}
-
-Ice::Instrumentation::ConnectionObserver::~ConnectionObserver()
-{
-}
-
-Ice::Instrumentation::DispatchObserver::~DispatchObserver()
-{
-}
-
-Ice::Instrumentation::ChildInvocationObserver::~ChildInvocationObserver()
-{
-}
-
-Ice::Instrumentation::RemoteObserver::~RemoteObserver()
-{
-}
-
-Ice::Instrumentation::CollocatedObserver::~CollocatedObserver()
-{
-}
-
-Ice::Instrumentation::InvocationObserver::~InvocationObserver()
-{
-}
-
-Ice::Instrumentation::ObserverUpdater::~ObserverUpdater()
-{
-}
-
-Ice::Instrumentation::CommunicatorObserver::~CommunicatorObserver()
-{
-}
-
 #else // C++98 mapping
 
 namespace
@@ -100,86 +60,6 @@ namespace
 }
 
 }
-
-Ice::Instrumentation::Observer::~Observer()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::Instrumentation::upCast(Observer* p) { return p; }
-/// \endcond
-
-Ice::Instrumentation::ThreadObserver::~ThreadObserver()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::Instrumentation::upCast(ThreadObserver* p) { return p; }
-/// \endcond
-
-Ice::Instrumentation::ConnectionObserver::~ConnectionObserver()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::Instrumentation::upCast(ConnectionObserver* p) { return p; }
-/// \endcond
-
-Ice::Instrumentation::DispatchObserver::~DispatchObserver()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::Instrumentation::upCast(DispatchObserver* p) { return p; }
-/// \endcond
-
-Ice::Instrumentation::ChildInvocationObserver::~ChildInvocationObserver()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::Instrumentation::upCast(ChildInvocationObserver* p) { return p; }
-/// \endcond
-
-Ice::Instrumentation::RemoteObserver::~RemoteObserver()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::Instrumentation::upCast(RemoteObserver* p) { return p; }
-/// \endcond
-
-Ice::Instrumentation::CollocatedObserver::~CollocatedObserver()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::Instrumentation::upCast(CollocatedObserver* p) { return p; }
-/// \endcond
-
-Ice::Instrumentation::InvocationObserver::~InvocationObserver()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::Instrumentation::upCast(InvocationObserver* p) { return p; }
-/// \endcond
-
-Ice::Instrumentation::ObserverUpdater::~ObserverUpdater()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::Instrumentation::upCast(ObserverUpdater* p) { return p; }
-/// \endcond
-
-Ice::Instrumentation::CommunicatorObserver::~CommunicatorObserver()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::Instrumentation::upCast(CommunicatorObserver* p) { return p; }
-/// \endcond
 
 namespace Ice
 {

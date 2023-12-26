@@ -21,24 +21,6 @@ require 'EndpointF.rb'
 
 module ::Ice
 
-    TCPEndpointType = 1
-
-    SSLEndpointType = 2
-
-    UDPEndpointType = 3
-
-    WSEndpointType = 4
-
-    WSSEndpointType = 5
-
-    BTEndpointType = 6
-
-    BTSEndpointType = 7
-
-    IAPEndpointType = 8
-
-    IAPSEndpointType = 9
-
     if not defined?(::Ice::EndpointInfo_Mixin)
 
         module ::Ice::EndpointInfo_Mixin

@@ -49,24 +49,12 @@ namespace
 
 }
 
-IceIAP::EndpointInfo::~EndpointInfo()
-{
-}
-
 #else // C++98 mapping
 
 namespace
 {
 
 }
-
-IceIAP::EndpointInfo::~EndpointInfo()
-{
-}
-
-/// \cond INTERNAL
-ICEIAP_API ::Ice::LocalObject* IceIAP::upCast(EndpointInfo* p) { return p; }
-/// \endcond
 
 namespace Ice
 {

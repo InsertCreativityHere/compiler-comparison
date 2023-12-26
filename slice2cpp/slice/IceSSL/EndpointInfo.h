@@ -56,41 +56,6 @@
 namespace IceSSL
 {
 
-class EndpointInfo;
-
-}
-
-namespace IceSSL
-{
-
-/**
- * Provides access to an SSL endpoint information.
- * \headerfile IceSSL/IceSSL.h
- */
-class ICE_CLASS(ICESSL_API) EndpointInfo : public ::Ice::EndpointInfo
-{
-public:
-
-    ICE_MEMBER(ICESSL_API) virtual ~EndpointInfo();
-
-    EndpointInfo() = default;
-
-    EndpointInfo(const EndpointInfo&) = default;
-    EndpointInfo(EndpointInfo&&) = default;
-    EndpointInfo& operator=(const EndpointInfo&) = default;
-    EndpointInfo& operator=(EndpointInfo&&) = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     * @param underlying The information of the underyling endpoint or null if there's no underlying endpoint.
-     * @param timeout The timeout for the endpoint in milliseconds.
-     * @param compress Specifies whether or not compression should be used if available when using this endpoint.
-     */
-    EndpointInfo(const ::std::shared_ptr<::Ice::EndpointInfo>& underlying, int timeout, bool compress) :
-        ::Ice::EndpointInfo(underlying, timeout, compress)
-    {
-    }
-};
 
 }
 
@@ -105,8 +70,6 @@ namespace Ice
 namespace IceSSL
 {
 
-using EndpointInfoPtr = ::std::shared_ptr<EndpointInfo>;
-
 }
 /// \endcond
 
@@ -115,61 +78,10 @@ using EndpointInfoPtr = ::std::shared_ptr<EndpointInfo>;
 namespace IceSSL
 {
 
-class EndpointInfo;
-/// \cond INTERNAL
-ICESSL_API ::Ice::LocalObject* upCast(EndpointInfo*);
-/// \endcond
-typedef ::IceInternal::Handle< EndpointInfo> EndpointInfoPtr;
-
 }
 
 namespace IceSSL
 {
-
-/**
- * Provides access to an SSL endpoint information.
- * \headerfile IceSSL/IceSSL.h
- */
-class ICESSL_API EndpointInfo : public ::Ice::EndpointInfo
-{
-public:
-
-    typedef EndpointInfoPtr PointerType;
-
-    virtual ~EndpointInfo();
-
-    EndpointInfo()
-    {
-    }
-
-    /**
-     * One-shot constructor to initialize all data members.
-     * @param underlying The information of the underyling endpoint or null if there's no underlying endpoint.
-     * @param timeout The timeout for the endpoint in milliseconds.
-     * @param compress Specifies whether or not compression should be used if available when using this endpoint.
-     */
-    EndpointInfo(const ::Ice::EndpointInfoPtr& underlying, ::Ice::Int timeout, bool compress) :
-        ::Ice::EndpointInfo(underlying, timeout, compress)
-    {
-    }
-
-#ifdef ICE_CPP11_COMPILER
-    EndpointInfo(const EndpointInfo&) = default;
-    EndpointInfo& operator=(const EndpointInfo&) = default;
-#endif
-};
-
-/// \cond INTERNAL
-inline bool operator==(const EndpointInfo& lhs, const EndpointInfo& rhs)
-{
-    return static_cast<const ::Ice::LocalObject&>(lhs) == static_cast<const ::Ice::LocalObject&>(rhs);
-}
-
-inline bool operator<(const EndpointInfo& lhs, const EndpointInfo& rhs)
-{
-    return static_cast<const ::Ice::LocalObject&>(lhs) < static_cast<const ::Ice::LocalObject&>(rhs);
-}
-/// \endcond
 
 }
 

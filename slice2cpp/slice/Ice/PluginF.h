@@ -55,8 +55,6 @@
 namespace Ice
 {
 
-class Plugin;
-class PluginManager;
 
 }
 
@@ -71,10 +69,6 @@ namespace Ice
 namespace Ice
 {
 
-using PluginPtr = ::std::shared_ptr<Plugin>;
-
-using PluginManagerPtr = ::std::shared_ptr<PluginManager>;
-
 }
 /// \endcond
 
@@ -82,18 +76,6 @@ using PluginManagerPtr = ::std::shared_ptr<PluginManager>;
 
 namespace Ice
 {
-
-class Plugin;
-/// \cond INTERNAL
-ICE_API LocalObject* upCast(Plugin*);
-/// \endcond
-typedef ::IceInternal::Handle< Plugin> PluginPtr;
-
-class PluginManager;
-/// \cond INTERNAL
-ICE_API LocalObject* upCast(PluginManager*);
-/// \endcond
-typedef ::IceInternal::Handle< PluginManager> PluginManagerPtr;
 
 }
 

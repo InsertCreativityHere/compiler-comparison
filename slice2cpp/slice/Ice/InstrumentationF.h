@@ -59,8 +59,6 @@ namespace Ice
 namespace Instrumentation
 {
 
-class Observer;
-class CommunicatorObserver;
 
 }
 
@@ -81,10 +79,6 @@ namespace Ice
 namespace Instrumentation
 {
 
-using ObserverPtr = ::std::shared_ptr<Observer>;
-
-using CommunicatorObserverPtr = ::std::shared_ptr<CommunicatorObserver>;
-
 }
 /// \endcond
 
@@ -98,18 +92,6 @@ namespace Ice
 
 namespace Instrumentation
 {
-
-class Observer;
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* upCast(Observer*);
-/// \endcond
-typedef ::IceInternal::Handle< Observer> ObserverPtr;
-
-class CommunicatorObserver;
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* upCast(CommunicatorObserver*);
-/// \endcond
-typedef ::IceInternal::Handle< CommunicatorObserver> CommunicatorObserverPtr;
 
 }
 

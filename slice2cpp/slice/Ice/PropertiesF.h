@@ -56,7 +56,6 @@
 namespace Ice
 {
 
-class Properties;
 class PropertiesAdmin;
 class PropertiesAdminPrx;
 
@@ -72,8 +71,6 @@ namespace Ice
 /// \cond INTERNAL
 namespace Ice
 {
-
-using PropertiesPtr = ::std::shared_ptr<Properties>;
 
 using PropertiesAdminPtr = ::std::shared_ptr<PropertiesAdmin>;
 using PropertiesAdminPrxPtr = ::std::shared_ptr<PropertiesAdminPrx>;
@@ -101,12 +98,6 @@ ICE_API ::IceProxy::Ice::Object* upCast(PropertiesAdmin*);
 
 namespace Ice
 {
-
-class Properties;
-/// \cond INTERNAL
-ICE_API LocalObject* upCast(Properties*);
-/// \endcond
-typedef ::IceInternal::Handle< Properties> PropertiesPtr;
 
 class PropertiesAdmin;
 /// \cond INTERNAL

@@ -55,7 +55,6 @@
 namespace IceSSL
 {
 
-class ConnectionInfo;
 
 }
 
@@ -70,8 +69,6 @@ namespace Ice
 namespace IceSSL
 {
 
-using ConnectionInfoPtr = ::std::shared_ptr<ConnectionInfo>;
-
 }
 /// \endcond
 
@@ -79,12 +76,6 @@ using ConnectionInfoPtr = ::std::shared_ptr<ConnectionInfo>;
 
 namespace IceSSL
 {
-
-class ConnectionInfo;
-/// \cond INTERNAL
-ICESSL_API ::Ice::LocalObject* upCast(ConnectionInfo*);
-/// \endcond
-typedef ::IceInternal::Handle< ConnectionInfo> ConnectionInfoPtr;
 
 }
 

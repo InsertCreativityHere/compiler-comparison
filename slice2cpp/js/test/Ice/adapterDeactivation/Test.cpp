@@ -66,10 +66,6 @@ const ::std::string iceC_Test_TestIntf_deactivate_name = "deactivate";
 
 }
 
-Test::Cookie::~Cookie()
-{
-}
-
 bool
 Test::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -444,14 +440,6 @@ Test::_icePatchObjectPtr(TestIntfPtr& handle, const ::Ice::ObjectPtr& v)
         IceInternal::Ex::throwUOE(TestIntf::ice_staticId(), v);
     }
 }
-/// \endcond
-
-Test::Cookie::~Cookie()
-{
-}
-
-/// \cond INTERNAL
-::Ice::LocalObject* Test::upCast(Cookie* p) { return p; }
 /// \endcond
 
 namespace Ice

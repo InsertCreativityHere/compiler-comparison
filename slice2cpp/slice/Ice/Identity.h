@@ -85,11 +85,6 @@ struct Identity
 };
 
 /**
- * A mapping between identities and Ice objects.
- */
-using ObjectDict = ::std::map<Identity, ::std::shared_ptr<Object>>;
-
-/**
  * A sequence of identities.
  */
 using IdentitySeq = ::std::vector<Identity>;
@@ -210,11 +205,6 @@ struct Identity
         return !operator<(rhs_);
     }
 };
-
-/**
- * A mapping between identities and Ice objects.
- */
-typedef ::std::map<Identity, ObjectPtr> ObjectDict;
 
 /**
  * A sequence of identities.

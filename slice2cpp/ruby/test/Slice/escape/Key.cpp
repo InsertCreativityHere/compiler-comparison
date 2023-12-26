@@ -117,10 +117,6 @@ BEGIN::nil::ice_staticId()
     return typeId;
 }
 
-BEGIN::extend::~extend()
-{
-}
-
 bool
 BEGIN::_cpp_break::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -1177,14 +1173,6 @@ BEGIN::_icePatchObjectPtr(elsifPtr& handle, const ::Ice::ObjectPtr& v)
         IceInternal::Ex::throwUOE(elsif::ice_staticId(), v);
     }
 }
-/// \endcond
-
-BEGIN::extend::~extend()
-{
-}
-
-/// \cond INTERNAL
-::Ice::LocalObject* BEGIN::upCast(extend* p) { return p; }
 /// \endcond
 
 namespace Ice

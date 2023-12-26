@@ -52,24 +52,12 @@ namespace
 
 }
 
-Ice::Properties::~Properties()
-{
-}
-
 #else // C++98 mapping
 
 namespace
 {
 
 }
-
-Ice::Properties::~Properties()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::upCast(Properties* p) { return p; }
-/// \endcond
 
 namespace Ice
 {

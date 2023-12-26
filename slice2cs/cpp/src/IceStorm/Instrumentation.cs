@@ -158,23 +158,6 @@ namespace IceStorm
             SubscriberStateError
         }
 
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public sealed class SubscriberStateHelper
-        {
-            public static void write(global::Ice.OutputStream ostr, SubscriberState v)
-            {
-                ostr.writeEnum((int)v, 2);
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public static SubscriberState read(global::Ice.InputStream istr)
-            {
-                SubscriberState v;
-                v = (SubscriberState)istr.readEnum(2);
-                return v;
-            }
-        }
-
         [global::System.Runtime.InteropServices.ComVisible(false)]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]

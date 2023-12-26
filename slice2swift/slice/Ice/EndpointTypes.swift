@@ -14,62 +14,30 @@
 //
 
 import Foundation
+/// Uniquely identifies TCP endpoints.
+public let TCPEndpointType: Swift.Int16 = 1
 
-/// Determines the order in which the Ice run time uses the endpoints in a proxy when establishing a connection.
-public enum EndpointSelectionType: Swift.UInt8 {
-    /// Random Random causes the endpoints to be arranged in a random order.
-    case Random = 0
-    /// Ordered Ordered forces the Ice run time to use the endpoints in the order they appeared in the proxy.
-    case Ordered = 1
-    public init() {
-        self = .Random
-    }
-}
+/// Uniquely identifies SSL endpoints.
+public let SSLEndpointType: Swift.Int16 = 2
 
-/// An `Ice.InputStream` extension to read `EndpointSelectionType` enumerated values from the stream.
-public extension InputStream {
-    /// Read an enumerated value.
-    ///
-    /// - returns: `EndpointSelectionType` - The enumarated value.
-    func read() throws -> EndpointSelectionType {
-        let rawValue: Swift.UInt8 = try read(enumMaxValue: 1)
-        guard let val = EndpointSelectionType(rawValue: rawValue) else {
-            throw MarshalException(reason: "invalid enum value")
-        }
-        return val
-    }
+/// Uniquely identifies UDP endpoints.
+public let UDPEndpointType: Swift.Int16 = 3
 
-    /// Read an optional enumerated value from the stream.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `EndpointSelectionType` - The enumerated value.
-    func read(tag: Swift.Int32) throws -> EndpointSelectionType? {
-        guard try readOptional(tag: tag, expectedFormat: .Size) else {
-            return nil
-        }
-        return try read() as EndpointSelectionType
-    }
-}
+/// Uniquely identifies TCP-based WebSocket endpoints.
+public let WSEndpointType: Swift.Int16 = 4
 
-/// An `Ice.OutputStream` extension to write `EndpointSelectionType` enumerated values to the stream.
-public extension OutputStream {
-    /// Writes an enumerated value to the stream.
-    ///
-    /// parameter _: `EndpointSelectionType` - The enumerator to write.
-    func write(_ v: EndpointSelectionType) {
-        write(enum: v.rawValue, maxValue: 1)
-    }
+/// Uniquely identifies SSL-based WebSocket endpoints.
+public let WSSEndpointType: Swift.Int16 = 5
 
-    /// Writes an optional enumerated value to the stream.
-    ///
-    /// parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// parameter _: `EndpointSelectionType` - The enumerator to write.
-    func write(tag: Swift.Int32, value: EndpointSelectionType?) {
-        guard let v = value else {
-            return
-        }
-        write(tag: tag, val: v.rawValue, maxValue: 1)
-    }
-}
+/// Uniquely identifies Bluetooth endpoints.
+public let BTEndpointType: Swift.Int16 = 6
+
+/// Uniquely identifies SSL Bluetooth endpoints.
+public let BTSEndpointType: Swift.Int16 = 7
+
+/// Uniquely identifies iAP-based endpoints.
+public let iAPEndpointType: Swift.Int16 = 8
+
+/// Uniquely identifies SSL iAP-based endpoints.
+public let iAPSEndpointType: Swift.Int16 = 9
+

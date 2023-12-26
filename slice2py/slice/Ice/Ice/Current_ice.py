@@ -18,7 +18,9 @@ from sys import version_info as _version_info_
 import Ice, IcePy
 import Ice.ObjectAdapterF_ice
 import Ice.ConnectionF_ice
+import Ice.Context_ice
 import Ice.Identity_ice
+import Ice.OperationMode_ice
 import Ice.Version_ice
 
 # Included module Ice
@@ -26,51 +28,6 @@ _M_Ice = Ice.openModule('Ice')
 
 # Start of module Ice
 __name__ = 'Ice'
-
-if '_t_Context' not in _M_Ice.__dict__:
-    _M_Ice._t_Context = IcePy.defineDictionary('::Ice::Context', (), IcePy._t_string, IcePy._t_string)
-
-if 'OperationMode' not in _M_Ice.__dict__:
-    _M_Ice.OperationMode = Ice.createTempClass()
-    class OperationMode(Ice.EnumBase):
-        """
-         Determines the retry behavior an invocation in case of a (potentially) recoverable error.
-        Enumerators:
-        Normal --  Ordinary operations have Normal mode. These operations modify object state; invoking such an
-         operation twice in a row has different semantics than invoking it once. The Ice run time guarantees that it
-         will not violate at-most-once semantics for Normal operations.
-        Nonmutating --  Operations that use the Slice nonmutating keyword must not modify object state. For C++,
-         nonmutating operations generate const member functions in the skeleton. In addition, the Ice
-         run time will attempt to transparently recover from certain run-time errors by re-issuing a failed request and
-         propagate the failure to the application only if the second attempt fails.
-         Nonmutating is deprecated; Use the idempotent keyword instead.
-         For C++, to retain the mapping of nonmutating operations to C++ const member
-         functions, use the ["cpp:const"] metadata directive.
-        Idempotent --  Operations that use the Slice idempotent keyword can modify object state, but invoking an
-         operation twice in a row must result in the same object state as invoking it once. For example,
-         x = 1 is an idempotent statement, whereas x += 1 is not. For idempotent operations,
-         the Ice run-time uses the same retry behavior as for nonmutating operations in case of a potentially
-         recoverable error.
-        """
-
-        def __init__(self, _n, _v):
-            Ice.EnumBase.__init__(self, _n, _v)
-
-        def valueOf(self, _n):
-            if _n in self._enumerators:
-                return self._enumerators[_n]
-            return None
-        valueOf = classmethod(valueOf)
-
-    OperationMode.Normal = OperationMode("Normal", 0)
-    OperationMode.Nonmutating = OperationMode("Nonmutating", 1)
-    OperationMode.Idempotent = OperationMode("Idempotent", 2)
-    OperationMode._enumerators = { 0:OperationMode.Normal, 1:OperationMode.Nonmutating, 2:OperationMode.Idempotent }
-
-    _M_Ice._t_OperationMode = IcePy.defineEnum('::Ice::OperationMode', OperationMode, (), OperationMode._enumerators)
-
-    _M_Ice.OperationMode = OperationMode
-    del OperationMode
 
 if 'Current' not in _M_Ice.__dict__:
     _M_Ice.Current = Ice.createTempClass()

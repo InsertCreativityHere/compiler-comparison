@@ -21,32 +21,22 @@ import Ice, IcePy
 _M_Ice = Ice.openModule('Ice')
 __name__ = 'Ice'
 
-if 'EndpointSelectionType' not in _M_Ice.__dict__:
-    _M_Ice.EndpointSelectionType = Ice.createTempClass()
-    class EndpointSelectionType(Ice.EnumBase):
-        """
-         Determines the order in which the Ice run time uses the endpoints in a proxy when establishing a connection.
-        Enumerators:
-        Random --  Random causes the endpoints to be arranged in a random order.
-        Ordered --  Ordered forces the Ice run time to use the endpoints in the order they appeared in the proxy.
-        """
+_M_Ice.TCPEndpointType = 1
 
-        def __init__(self, _n, _v):
-            Ice.EnumBase.__init__(self, _n, _v)
+_M_Ice.SSLEndpointType = 2
 
-        def valueOf(self, _n):
-            if _n in self._enumerators:
-                return self._enumerators[_n]
-            return None
-        valueOf = classmethod(valueOf)
+_M_Ice.UDPEndpointType = 3
 
-    EndpointSelectionType.Random = EndpointSelectionType("Random", 0)
-    EndpointSelectionType.Ordered = EndpointSelectionType("Ordered", 1)
-    EndpointSelectionType._enumerators = { 0:EndpointSelectionType.Random, 1:EndpointSelectionType.Ordered }
+_M_Ice.WSEndpointType = 4
 
-    _M_Ice._t_EndpointSelectionType = IcePy.defineEnum('::Ice::EndpointSelectionType', EndpointSelectionType, (), EndpointSelectionType._enumerators)
+_M_Ice.WSSEndpointType = 5
 
-    _M_Ice.EndpointSelectionType = EndpointSelectionType
-    del EndpointSelectionType
+_M_Ice.BTEndpointType = 6
+
+_M_Ice.BTSEndpointType = 7
+
+_M_Ice.iAPEndpointType = 8
+
+_M_Ice.iAPSEndpointType = 9
 
 # End of module Ice

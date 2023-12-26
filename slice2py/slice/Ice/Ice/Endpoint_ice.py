@@ -26,24 +26,6 @@ _M_Ice = Ice.openModule('Ice')
 # Start of module Ice
 __name__ = 'Ice'
 
-_M_Ice.TCPEndpointType = 1
-
-_M_Ice.SSLEndpointType = 2
-
-_M_Ice.UDPEndpointType = 3
-
-_M_Ice.WSEndpointType = 4
-
-_M_Ice.WSSEndpointType = 5
-
-_M_Ice.BTEndpointType = 6
-
-_M_Ice.BTSEndpointType = 7
-
-_M_Ice.iAPEndpointType = 8
-
-_M_Ice.iAPSEndpointType = 9
-
 if 'EndpointInfo' not in _M_Ice.__dict__:
     _M_Ice.EndpointInfo = Ice.createTempClass()
     class EndpointInfo(object):

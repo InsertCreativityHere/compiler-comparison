@@ -49,32 +49,12 @@ namespace
 
 }
 
-Ice::ValueFactoryManager::~ValueFactoryManager()
-{
-}
-
 #else // C++98 mapping
 
 namespace
 {
 
 }
-
-Ice::ValueFactory::~ValueFactory()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::upCast(ValueFactory* p) { return p; }
-/// \endcond
-
-Ice::ValueFactoryManager::~ValueFactoryManager()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::upCast(ValueFactoryManager* p) { return p; }
-/// \endcond
 
 namespace Ice
 {

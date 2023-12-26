@@ -46,18 +46,6 @@ namespace
 
 }
 
-Glacier2::Instrumentation::SessionObserver::~SessionObserver()
-{
-}
-
-Glacier2::Instrumentation::ObserverUpdater::~ObserverUpdater()
-{
-}
-
-Glacier2::Instrumentation::RouterObserver::~RouterObserver()
-{
-}
-
 #else // C++98 mapping
 
 namespace
@@ -69,30 +57,6 @@ namespace
 }
 
 }
-
-Glacier2::Instrumentation::SessionObserver::~SessionObserver()
-{
-}
-
-/// \cond INTERNAL
-::Ice::LocalObject* Glacier2::Instrumentation::upCast(SessionObserver* p) { return p; }
-/// \endcond
-
-Glacier2::Instrumentation::ObserverUpdater::~ObserverUpdater()
-{
-}
-
-/// \cond INTERNAL
-::Ice::LocalObject* Glacier2::Instrumentation::upCast(ObserverUpdater* p) { return p; }
-/// \endcond
-
-Glacier2::Instrumentation::RouterObserver::~RouterObserver()
-{
-}
-
-/// \cond INTERNAL
-::Ice::LocalObject* Glacier2::Instrumentation::upCast(RouterObserver* p) { return p; }
-/// \endcond
 
 namespace Ice
 {

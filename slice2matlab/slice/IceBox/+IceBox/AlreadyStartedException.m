@@ -3,7 +3,7 @@
 % This exception is thrown if an attempt is made to start an already-started service.
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from IceBox.ice by slice2matlab version 3.7.10
+% Generated from ServiceManager.ice by slice2matlab version 3.7.10
 
 classdef AlreadyStartedException < Ice.UserException
     methods

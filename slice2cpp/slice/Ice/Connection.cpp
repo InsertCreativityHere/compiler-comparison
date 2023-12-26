@@ -49,30 +49,6 @@ namespace
 
 }
 
-Ice::ConnectionInfo::~ConnectionInfo()
-{
-}
-
-Ice::Connection::~Connection()
-{
-}
-
-Ice::IPConnectionInfo::~IPConnectionInfo()
-{
-}
-
-Ice::TCPConnectionInfo::~TCPConnectionInfo()
-{
-}
-
-Ice::UDPConnectionInfo::~UDPConnectionInfo()
-{
-}
-
-Ice::WSConnectionInfo::~WSConnectionInfo()
-{
-}
-
 namespace Ice
 {
 }
@@ -83,70 +59,6 @@ namespace
 {
 
 }
-
-Ice::ConnectionInfo::~ConnectionInfo()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::upCast(ConnectionInfo* p) { return p; }
-/// \endcond
-
-Ice::CloseCallback::~CloseCallback()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::upCast(CloseCallback* p) { return p; }
-/// \endcond
-
-Ice::HeartbeatCallback::~HeartbeatCallback()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::upCast(HeartbeatCallback* p) { return p; }
-/// \endcond
-
-Ice::Connection::~Connection()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::upCast(Connection* p) { return p; }
-/// \endcond
-
-Ice::IPConnectionInfo::~IPConnectionInfo()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::upCast(IPConnectionInfo* p) { return p; }
-/// \endcond
-
-Ice::TCPConnectionInfo::~TCPConnectionInfo()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::upCast(TCPConnectionInfo* p) { return p; }
-/// \endcond
-
-Ice::UDPConnectionInfo::~UDPConnectionInfo()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::upCast(UDPConnectionInfo* p) { return p; }
-/// \endcond
-
-Ice::WSConnectionInfo::~WSConnectionInfo()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::upCast(WSConnectionInfo* p) { return p; }
-/// \endcond
 
 namespace Ice
 {

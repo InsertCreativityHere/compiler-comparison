@@ -55,22 +55,11 @@
 namespace Ice
 {
 
-class EndpointInfo;
-class IPEndpointInfo;
-class TCPEndpointInfo;
-class UDPEndpointInfo;
-class WSEndpointInfo;
-class Endpoint;
 
 }
 
 namespace Ice
 {
-
-/**
- * A sequence of endpoints.
- */
-using EndpointSeq = ::std::vector<::std::shared_ptr<Endpoint>>;
 
 }
 
@@ -85,18 +74,6 @@ namespace Ice
 namespace Ice
 {
 
-using EndpointInfoPtr = ::std::shared_ptr<EndpointInfo>;
-
-using IPEndpointInfoPtr = ::std::shared_ptr<IPEndpointInfo>;
-
-using TCPEndpointInfoPtr = ::std::shared_ptr<TCPEndpointInfo>;
-
-using UDPEndpointInfoPtr = ::std::shared_ptr<UDPEndpointInfo>;
-
-using WSEndpointInfoPtr = ::std::shared_ptr<WSEndpointInfo>;
-
-using EndpointPtr = ::std::shared_ptr<Endpoint>;
-
 }
 /// \endcond
 
@@ -105,51 +82,10 @@ using EndpointPtr = ::std::shared_ptr<Endpoint>;
 namespace Ice
 {
 
-class EndpointInfo;
-/// \cond INTERNAL
-ICE_API LocalObject* upCast(EndpointInfo*);
-/// \endcond
-typedef ::IceInternal::Handle< EndpointInfo> EndpointInfoPtr;
-
-class IPEndpointInfo;
-/// \cond INTERNAL
-ICE_API LocalObject* upCast(IPEndpointInfo*);
-/// \endcond
-typedef ::IceInternal::Handle< IPEndpointInfo> IPEndpointInfoPtr;
-
-class TCPEndpointInfo;
-/// \cond INTERNAL
-ICE_API LocalObject* upCast(TCPEndpointInfo*);
-/// \endcond
-typedef ::IceInternal::Handle< TCPEndpointInfo> TCPEndpointInfoPtr;
-
-class UDPEndpointInfo;
-/// \cond INTERNAL
-ICE_API LocalObject* upCast(UDPEndpointInfo*);
-/// \endcond
-typedef ::IceInternal::Handle< UDPEndpointInfo> UDPEndpointInfoPtr;
-
-class WSEndpointInfo;
-/// \cond INTERNAL
-ICE_API LocalObject* upCast(WSEndpointInfo*);
-/// \endcond
-typedef ::IceInternal::Handle< WSEndpointInfo> WSEndpointInfoPtr;
-
-class Endpoint;
-/// \cond INTERNAL
-ICE_API LocalObject* upCast(Endpoint*);
-/// \endcond
-typedef ::IceInternal::Handle< Endpoint> EndpointPtr;
-
 }
 
 namespace Ice
 {
-
-/**
- * A sequence of endpoints.
- */
-typedef ::std::vector<EndpointPtr> EndpointSeq;
 
 }
 

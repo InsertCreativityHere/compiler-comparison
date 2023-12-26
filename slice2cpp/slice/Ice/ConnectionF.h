@@ -55,9 +55,6 @@
 namespace Ice
 {
 
-class ConnectionInfo;
-class WSConnectionInfo;
-class Connection;
 
 }
 
@@ -72,12 +69,6 @@ namespace Ice
 namespace Ice
 {
 
-using ConnectionInfoPtr = ::std::shared_ptr<ConnectionInfo>;
-
-using WSConnectionInfoPtr = ::std::shared_ptr<WSConnectionInfo>;
-
-using ConnectionPtr = ::std::shared_ptr<Connection>;
-
 }
 /// \endcond
 
@@ -85,24 +76,6 @@ using ConnectionPtr = ::std::shared_ptr<Connection>;
 
 namespace Ice
 {
-
-class ConnectionInfo;
-/// \cond INTERNAL
-ICE_API LocalObject* upCast(ConnectionInfo*);
-/// \endcond
-typedef ::IceInternal::Handle< ConnectionInfo> ConnectionInfoPtr;
-
-class WSConnectionInfo;
-/// \cond INTERNAL
-ICE_API LocalObject* upCast(WSConnectionInfo*);
-/// \endcond
-typedef ::IceInternal::Handle< WSConnectionInfo> WSConnectionInfoPtr;
-
-class Connection;
-/// \cond INTERNAL
-ICE_API LocalObject* upCast(Connection*);
-/// \endcond
-typedef ::IceInternal::Handle< Connection> ConnectionPtr;
 
 }
 

@@ -57,7 +57,6 @@ class breakPrx;
 class display;
 class elsif;
 class elsifPrx;
-class extend;
 
 }
 
@@ -174,20 +173,6 @@ using Ice::operator>;
 using Ice::operator>=;
 using Ice::operator==;
 using Ice::operator!=;
-
-}
-
-namespace BEGIN
-{
-
-class extend
-{
-public:
-
-    virtual ~extend();
-
-    virtual ::BEGIN::END _cpp_for(const ::std::shared_ptr<display>& freeze, const ::std::shared_ptr<::Ice::Value>& hash, const ::std::shared_ptr<breakPrx>& _cpp_if, const ::std::shared_ptr<display>& inspect, const ::std::shared_ptr<::Ice::Value>& method, int methods) = 0;
-};
 
 }
 
@@ -576,8 +561,6 @@ using displayPtr = ::std::shared_ptr<display>;
 using elsifPtr = ::std::shared_ptr<elsif>;
 using elsifPrxPtr = ::std::shared_ptr<elsifPrx>;
 
-using extendPtr = ::std::shared_ptr<extend>;
-
 }
 /// \endcond
 
@@ -646,12 +629,6 @@ typedef elsifPrx elsifPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(elsifPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-class extend;
-/// \cond INTERNAL
-::Ice::LocalObject* upCast(extend*);
-/// \endcond
-typedef ::IceInternal::Handle< extend> extendPtr;
 
 }
 
@@ -1315,35 +1292,6 @@ inline bool operator==(const elsif& lhs, const elsif& rhs)
 inline bool operator<(const elsif& lhs, const elsif& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class extend : public virtual ::Ice::LocalObject
-{
-public:
-
-    typedef extendPtr PointerType;
-
-    virtual ~extend();
-
-#ifdef ICE_CPP11_COMPILER
-    extend() = default;
-    extend(const extend&) = default;
-    extend& operator=(const extend&) = default;
-#endif
-
-    virtual END _cpp_for(const displayPtr& freeze, const elsifPtr& hash, const breakPrx& _cpp_if, const displayPtr& inspect, const elsifPtr& method, ::Ice::Int methods) = 0;
-};
-
-/// \cond INTERNAL
-inline bool operator==(const extend& lhs, const extend& rhs)
-{
-    return static_cast<const ::Ice::LocalObject&>(lhs) == static_cast<const ::Ice::LocalObject&>(rhs);
-}
-
-inline bool operator<(const extend& lhs, const extend& rhs)
-{
-    return static_cast<const ::Ice::LocalObject&>(lhs) < static_cast<const ::Ice::LocalObject&>(rhs);
 }
 /// \endcond
 

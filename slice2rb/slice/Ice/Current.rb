@@ -17,64 +17,12 @@
 require 'Ice'
 require 'ObjectAdapterF.rb'
 require 'ConnectionF.rb'
+require 'Context.rb'
 require 'Identity.rb'
+require 'OperationMode.rb'
 require 'Version.rb'
 
 module ::Ice
-
-    if not defined?(::Ice::T_Context)
-        T_Context = ::Ice::__defineDictionary('::Ice::Context', ::Ice::T_string, ::Ice::T_string)
-    end
-
-    if not defined?(::Ice::OperationMode)
-        class OperationMode
-            include Comparable
-
-            def initialize(name, value)
-                @name = name
-                @value = value
-            end
-
-            def OperationMode.from_int(val)
-                @@_enumerators[val]
-            end
-
-            def to_s
-                @name
-            end
-
-            def to_i
-                @value
-            end
-
-            def <=>(other)
-                other.is_a?(OperationMode) or raise ArgumentError, "value must be a OperationMode"
-                @value <=> other.to_i
-            end
-
-            def hash
-                @value.hash
-            end
-
-            def OperationMode.each(&block)
-                @@_enumerators.each_value(&block)
-            end
-
-            Normal = OperationMode.new("Normal", 0)
-            Nonmutating = OperationMode.new("Nonmutating", 1)
-            Idempotent = OperationMode.new("Idempotent", 2)
-
-            @@_enumerators = {0=>Normal, 1=>Nonmutating, 2=>Idempotent}
-
-            def OperationMode._enumerators
-                @@_enumerators
-            end
-
-            private_class_method :new
-        end
-
-        T_OperationMode = ::Ice::__defineEnum('::Ice::OperationMode', OperationMode, OperationMode::_enumerators)
-    end
 
     if not defined?(::Ice::Current)
         class Current

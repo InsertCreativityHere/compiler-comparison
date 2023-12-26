@@ -213,28 +213,6 @@ Test::F::ice_staticId()
     return typeId;
 }
 
-Test::G::~G()
-{
-}
-
-const ::std::string&
-Test::G::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::G";
-    return typeId;
-}
-
-Test::H::~H()
-{
-}
-
-const ::std::string&
-Test::H::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::H";
-    return typeId;
-}
-
 Test::Mod::A::~A()
 {
 }
@@ -1640,84 +1618,6 @@ Test::F::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 /// \endcond
-
-Test::G::G(const char* file, int line) :
-    ::Ice::LocalException(file, line)
-{
-}
-
-Test::G::G(const char* file, int line, const ::std::string& data) :
-    ::Ice::LocalException(file, line),
-    data(data)
-{
-}
-
-#ifdef ICE_CPP11_COMPILER
-Test::G::~G()
-{
-}
-#else
-Test::G::~G() throw()
-{
-}
-#endif
-
-::std::string
-Test::G::ice_id() const
-{
-    return "::Test::G";
-}
-
-Test::G*
-Test::G::ice_clone() const
-{
-    return new G(*this);
-}
-
-void
-Test::G::ice_throw() const
-{
-    throw *this;
-}
-
-Test::H::H(const char* file, int line) :
-    ::Ice::LocalException(file, line)
-{
-}
-
-Test::H::H(const char* file, int line, const ::std::string& data) :
-    ::Ice::LocalException(file, line),
-    data(data)
-{
-}
-
-#ifdef ICE_CPP11_COMPILER
-Test::H::~H()
-{
-}
-#else
-Test::H::~H() throw()
-{
-}
-#endif
-
-::std::string
-Test::H::ice_id() const
-{
-    return "::Test::H";
-}
-
-Test::H*
-Test::H::ice_clone() const
-{
-    return new H(*this);
-}
-
-void
-Test::H::ice_throw() const
-{
-    throw *this;
-}
 
 namespace
 {

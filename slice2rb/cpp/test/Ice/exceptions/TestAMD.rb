@@ -144,38 +144,6 @@ module ::Test
         T_F = ::Ice::__defineException('::Test::F', F, false, nil, [["data", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::G)
-        class G < Ice::LocalException
-            def initialize(data='')
-                @data = data
-            end
-
-            def to_s
-                '::Test::G'
-            end
-
-            attr_accessor :data
-        end
-
-        T_G = ::Ice::__defineException('::Test::G', G, false, nil, [["data", ::Ice::T_string, false, 0]])
-    end
-
-    if not defined?(::Test::H)
-        class H < Ice::LocalException
-            def initialize(data='')
-                @data = data
-            end
-
-            def to_s
-                '::Test::H'
-            end
-
-            attr_accessor :data
-        end
-
-        T_H = ::Ice::__defineException('::Test::H', H, false, nil, [["data", ::Ice::T_string, false, 0]])
-    end
-
     module Mod
 
         if not defined?(::Test::Mod::A)
@@ -293,14 +261,6 @@ module ::Test
             def throwF(context=nil)
                 ThrowerPrx_mixin::OP_throwF.invoke(self, [], context)
             end
-
-            def throwG(context=nil)
-                ThrowerPrx_mixin::OP_throwG.invoke(self, [], context)
-            end
-
-            def throwH(context=nil)
-                ThrowerPrx_mixin::OP_throwH.invoke(self, [], context)
-            end
         end
 
         class ThrowerPrx < ::Ice::ObjectPrx
@@ -340,8 +300,6 @@ module ::Test
         ThrowerPrx_mixin::OP_throwAfterException = ::Ice::__defineOperation('throwAfterException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [::Test::T_A])
         ThrowerPrx_mixin::OP_throwE = ::Ice::__defineOperation('throwE', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [::Test::T_E])
         ThrowerPrx_mixin::OP_throwF = ::Ice::__defineOperation('throwF', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [::Test::T_F])
-        ThrowerPrx_mixin::OP_throwG = ::Ice::__defineOperation('throwG', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
-        ThrowerPrx_mixin::OP_throwH = ::Ice::__defineOperation('throwH', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
     end
 
     if not defined?(::Test::WrongOperation_Mixin)

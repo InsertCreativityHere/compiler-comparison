@@ -121,9 +121,6 @@ if 'Identity' not in _M_Ice.__dict__:
     _M_Ice.Identity = Identity
     del Identity
 
-if '_t_ObjectDict' not in _M_Ice.__dict__:
-    _M_Ice._t_ObjectDict = IcePy.defineDictionary('::Ice::ObjectDict', (), _M_Ice._t_Identity, IcePy._t_Value)
-
 if '_t_IdentitySeq' not in _M_Ice.__dict__:
     _M_Ice._t_IdentitySeq = IcePy.defineSequence('::Ice::IdentitySeq', (), _M_Ice._t_Identity)
 

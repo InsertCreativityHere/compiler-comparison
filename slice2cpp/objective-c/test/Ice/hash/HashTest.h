@@ -103,6 +103,7 @@ public:
      * One-shot constructor to initialize all data members.
      */
     InvalidPointException(int index) :
+        ::Ice::UserExceptionHelper<InvalidPointException, BaseException>(),
         index(index)
     {
     }
@@ -139,6 +140,7 @@ public:
      * One-shot constructor to initialize all data members.
      */
     InvalidLengthException(int length) :
+        ::Ice::UserExceptionHelper<InvalidLengthException, BaseException>(),
         length(length)
     {
     }

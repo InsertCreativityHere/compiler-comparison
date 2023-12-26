@@ -20,62 +20,6 @@ using _System = global::System;
 
 namespace Ice
 {
-    /// <summary>
-    /// Determines the retry behavior an invocation in case of a (potentially) recoverable error.
-    /// </summary>
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    public enum OperationMode
-    {
-        /// <summary>
-        /// Ordinary operations have Normal mode.
-        /// These operations modify object state; invoking such an
-        ///  operation twice in a row has different semantics than invoking it once. The Ice run time guarantees that it
-        ///  will not violate at-most-once semantics for Normal operations.
-        /// </summary>
-
-        Normal,
-        /// <summary>
-        /// Operations that use the Slice nonmutating keyword must not modify object state.
-        /// For C++,
-        ///  nonmutating operations generate const member functions in the skeleton. In addition, the Ice
-        ///  run time will attempt to transparently recover from certain run-time errors by re-issuing a failed request and
-        ///  propagate the failure to the application only if the second attempt fails.
-        ///  &lt;p class="Deprecated"&gt;Nonmutating is deprecated; Use the idempotent keyword instead.
-        ///  For C++, to retain the mapping of nonmutating operations to C++ const member
-        ///  functions, use the ["cpp:const"] metadata directive.
-        /// </summary>
-
-        Nonmutating,
-        /// <summary>
-        /// Operations that use the Slice idempotent keyword can modify object state, but invoking an
-        ///  operation twice in a row must result in the same object state as invoking it once.
-        /// For example,
-        ///  x = 1 is an idempotent statement, whereas x += 1 is not. For idempotent operations,
-        ///  the Ice run-time uses the same retry behavior as for nonmutating operations in case of a potentially
-        ///  recoverable error.
-        /// </summary>
-
-        Idempotent
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    public sealed class OperationModeHelper
-    {
-        public static void write(OutputStream ostr, OperationMode v)
-        {
-            ostr.writeEnum((int)v, 2);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public static OperationMode read(InputStream istr)
-        {
-            OperationMode v;
-            v = (OperationMode)istr.readEnum(2);
-            return v;
-        }
-    }
-
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
@@ -311,45 +255,5 @@ namespace Ice
         }
 
         #endregion
-    }
-}
-
-namespace Ice
-{
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    public sealed class ContextHelper
-    {
-        public static void write(OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<string, string> v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<string, string> e in v)
-                {
-                    ostr.writeString(e.Key);
-                    ostr.writeString(e.Value);
-                }
-            }
-        }
-
-        public static global::System.Collections.Generic.Dictionary<string, string> read(InputStream istr)
-        {
-            int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<string, string> r = new global::System.Collections.Generic.Dictionary<string, string>();
-            for(int i = 0; i < sz; ++i)
-            {
-                string k;
-                k = istr.readString();
-                string v;
-                v = istr.readString();
-                r[k] = v;
-            }
-            return r;
-        }
     }
 }

@@ -60,7 +60,6 @@ class defaultPrx;
 class _cpp_else;
 class finalize;
 class finalizePrx;
-class _cpp_new;
 
 }
 
@@ -199,20 +198,6 @@ using Ice::operator>;
 using Ice::operator>=;
 using Ice::operator==;
 using Ice::operator!=;
-
-}
-
-namespace abstract
-{
-
-class _cpp_new
-{
-public:
-
-    virtual ~_cpp_new();
-
-    virtual ::abstract::assert notify(const _cpp_break& notifyAll, const ::std::shared_ptr<_cpp_else>& null, const ::std::shared_ptr<::Ice::Value>& package, const ::std::shared_ptr<::Ice::ObjectPrx>& _cpp_private, const ::std::shared_ptr<finalizePrx>& _cpp_protected, const ::std::shared_ptr<catchPrx>& _cpp_public, const ::std::shared_ptr<defaultPrx>& _cpp_return, int _cpp_static, int strictfp, int super) = 0;
-};
 
 }
 
@@ -602,8 +587,6 @@ using elsePtr = ::std::shared_ptr<_cpp_else>;
 using finalizePtr = ::std::shared_ptr<finalize>;
 using finalizePrxPtr = ::std::shared_ptr<finalizePrx>;
 
-using newPtr = ::std::shared_ptr<_cpp_new>;
-
 }
 /// \endcond
 
@@ -689,12 +672,6 @@ typedef finalizePrx finalizePrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(finalizePtr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-class _cpp_new;
-/// \cond INTERNAL
-::Ice::LocalObject* upCast(_cpp_new*);
-/// \endcond
-typedef ::IceInternal::Handle< _cpp_new> newPtr;
 
 }
 
@@ -1433,35 +1410,6 @@ inline bool operator==(const finalize& lhs, const finalize& rhs)
 inline bool operator<(const finalize& lhs, const finalize& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class _cpp_new : public virtual ::Ice::LocalObject
-{
-public:
-
-    typedef newPtr PointerType;
-
-    virtual ~_cpp_new();
-
-#ifdef ICE_CPP11_COMPILER
-    _cpp_new() = default;
-    _cpp_new(const _cpp_new&) = default;
-    _cpp_new& operator=(const _cpp_new&) = default;
-#endif
-
-    virtual assert notify(const _cpp_break& notifyAll, const elsePtr& null, const finalizePtr& package, const elsePrx& _cpp_private, const finalizePrx& _cpp_protected, const catchPrx& _cpp_public, const defaultPrx& _cpp_return, ::Ice::Int _cpp_static, ::Ice::Int strictfp, ::Ice::Int super) = 0;
-};
-
-/// \cond INTERNAL
-inline bool operator==(const _cpp_new& lhs, const _cpp_new& rhs)
-{
-    return static_cast<const ::Ice::LocalObject&>(lhs) == static_cast<const ::Ice::LocalObject&>(rhs);
-}
-
-inline bool operator<(const _cpp_new& lhs, const _cpp_new& rhs)
-{
-    return static_cast<const ::Ice::LocalObject&>(lhs) < static_cast<const ::Ice::LocalObject&>(rhs);
 }
 /// \endcond
 

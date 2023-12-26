@@ -49,24 +49,12 @@ namespace
 
 }
 
-IceSSL::EndpointInfo::~EndpointInfo()
-{
-}
-
 #else // C++98 mapping
 
 namespace
 {
 
 }
-
-IceSSL::EndpointInfo::~EndpointInfo()
-{
-}
-
-/// \cond INTERNAL
-ICESSL_API ::Ice::LocalObject* IceSSL::upCast(EndpointInfo* p) { return p; }
-/// \endcond
 
 namespace Ice
 {

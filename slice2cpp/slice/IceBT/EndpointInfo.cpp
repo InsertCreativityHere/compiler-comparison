@@ -49,24 +49,12 @@ namespace
 
 }
 
-IceBT::EndpointInfo::~EndpointInfo()
-{
-}
-
 #else // C++98 mapping
 
 namespace
 {
 
 }
-
-IceBT::EndpointInfo::~EndpointInfo()
-{
-}
-
-/// \cond INTERNAL
-ICEBT_API ::Ice::LocalObject* IceBT::upCast(EndpointInfo* p) { return p; }
-/// \endcond
 
 namespace Ice
 {

@@ -55,7 +55,6 @@
 namespace Ice
 {
 
-class Logger;
 
 }
 
@@ -70,8 +69,6 @@ namespace Ice
 namespace Ice
 {
 
-using LoggerPtr = ::std::shared_ptr<Logger>;
-
 }
 /// \endcond
 
@@ -79,12 +76,6 @@ using LoggerPtr = ::std::shared_ptr<Logger>;
 
 namespace Ice
 {
-
-class Logger;
-/// \cond INTERNAL
-ICE_API LocalObject* upCast(Logger*);
-/// \endcond
-typedef ::IceInternal::Handle< Logger> LoggerPtr;
 
 }
 

@@ -17,13 +17,73 @@
 
 namespace Ice
 {
-    global $Ice__t_EndpointSelectionType;
-    class EndpointSelectionType
+    if(!defined('\\Ice\\TCPEndpointType'))
     {
-        const Random = 0;
-        const Ordered = 1;
+        define(__NAMESPACE__ . '\\TCPEndpointType', 1);
     }
+}
 
-    $Ice__t_EndpointSelectionType = IcePHP_defineEnum('::Ice::EndpointSelectionType', array('Random', 0, 'Ordered', 1));
+namespace Ice
+{
+    if(!defined('\\Ice\\SSLEndpointType'))
+    {
+        define(__NAMESPACE__ . '\\SSLEndpointType', 2);
+    }
+}
+
+namespace Ice
+{
+    if(!defined('\\Ice\\UDPEndpointType'))
+    {
+        define(__NAMESPACE__ . '\\UDPEndpointType', 3);
+    }
+}
+
+namespace Ice
+{
+    if(!defined('\\Ice\\WSEndpointType'))
+    {
+        define(__NAMESPACE__ . '\\WSEndpointType', 4);
+    }
+}
+
+namespace Ice
+{
+    if(!defined('\\Ice\\WSSEndpointType'))
+    {
+        define(__NAMESPACE__ . '\\WSSEndpointType', 5);
+    }
+}
+
+namespace Ice
+{
+    if(!defined('\\Ice\\BTEndpointType'))
+    {
+        define(__NAMESPACE__ . '\\BTEndpointType', 6);
+    }
+}
+
+namespace Ice
+{
+    if(!defined('\\Ice\\BTSEndpointType'))
+    {
+        define(__NAMESPACE__ . '\\BTSEndpointType', 7);
+    }
+}
+
+namespace Ice
+{
+    if(!defined('\\Ice\\iAPEndpointType'))
+    {
+        define(__NAMESPACE__ . '\\iAPEndpointType', 8);
+    }
+}
+
+namespace Ice
+{
+    if(!defined('\\Ice\\iAPSEndpointType'))
+    {
+        define(__NAMESPACE__ . '\\iAPSEndpointType', 9);
+    }
 }
 ?>

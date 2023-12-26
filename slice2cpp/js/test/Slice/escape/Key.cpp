@@ -191,10 +191,6 @@ await::BaseMethods::ice_staticId()
     return typeId;
 }
 
-await::implicit::~implicit()
-{
-}
-
 bool
 await::_cpp_case::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -2749,14 +2745,6 @@ await::_icePatchObjectPtr(optionalParamsPtr& handle, const ::Ice::ObjectPtr& v)
         IceInternal::Ex::throwUOE(optionalParams::ice_staticId(), v);
     }
 }
-/// \endcond
-
-await::implicit::~implicit()
-{
-}
-
-/// \cond INTERNAL
-::Ice::LocalObject* await::upCast(implicit* p) { return p; }
 /// \endcond
 
 await::System::Test::~Test()

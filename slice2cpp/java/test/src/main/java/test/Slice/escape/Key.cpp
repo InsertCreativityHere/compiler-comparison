@@ -125,10 +125,6 @@ abstract::import::ice_staticId()
     return typeId;
 }
 
-abstract::_cpp_new::~_cpp_new()
-{
-}
-
 bool
 abstract::_cpp_catch::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -1326,14 +1322,6 @@ abstract::_icePatchObjectPtr(finalizePtr& handle, const ::Ice::ObjectPtr& v)
         IceInternal::Ex::throwUOE(finalize::ice_staticId(), v);
     }
 }
-/// \endcond
-
-abstract::_cpp_new::~_cpp_new()
-{
-}
-
-/// \cond INTERNAL
-::Ice::LocalObject* abstract::upCast(_cpp_new* p) { return p; }
 /// \endcond
 
 namespace Ice

@@ -114,17 +114,6 @@ const ::std::string iceC_IceStorm_TopicManagerInternal_getReplicaNode_name = "ge
 
 }
 
-IceStorm::SendQueueSizeMaxReached::~SendQueueSizeMaxReached()
-{
-}
-
-const ::std::string&
-IceStorm::SendQueueSizeMaxReached::ice_staticId()
-{
-    static const ::std::string typeId = "::IceStorm::SendQueueSizeMaxReached";
-    return typeId;
-}
-
 IceStorm::ReapWouldBlock::~ReapWouldBlock()
 {
 }
@@ -569,39 +558,6 @@ const ::std::string iceC_IceStorm_TopicInternal_reap_name = "reap";
 
 const ::std::string iceC_IceStorm_TopicManagerInternal_getReplicaNode_name = "getReplicaNode";
 
-}
-
-IceStorm::SendQueueSizeMaxReached::SendQueueSizeMaxReached(const char* file, int line) :
-    ::Ice::LocalException(file, line)
-{
-}
-
-#ifdef ICE_CPP11_COMPILER
-IceStorm::SendQueueSizeMaxReached::~SendQueueSizeMaxReached()
-{
-}
-#else
-IceStorm::SendQueueSizeMaxReached::~SendQueueSizeMaxReached() throw()
-{
-}
-#endif
-
-::std::string
-IceStorm::SendQueueSizeMaxReached::ice_id() const
-{
-    return "::IceStorm::SendQueueSizeMaxReached";
-}
-
-IceStorm::SendQueueSizeMaxReached*
-IceStorm::SendQueueSizeMaxReached::ice_clone() const
-{
-    return new SendQueueSizeMaxReached(*this);
-}
-
-void
-IceStorm::SendQueueSizeMaxReached::ice_throw() const
-{
-    throw *this;
 }
 
 namespace

@@ -53,24 +53,12 @@ namespace
 
 }
 
-Ice::Communicator::~Communicator()
-{
-}
-
 #else // C++98 mapping
 
 namespace
 {
 
 }
-
-Ice::Communicator::~Communicator()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::upCast(Communicator* p) { return p; }
-/// \endcond
 
 namespace Ice
 {

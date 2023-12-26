@@ -42,57 +42,7 @@
 
 #ifdef ICE_CPP11_MAPPING // C++11 mapping
 
-IceBT::BluetoothException::~BluetoothException()
-{
-}
-
-const ::std::string&
-IceBT::BluetoothException::ice_staticId()
-{
-    static const ::std::string typeId = "::IceBT::BluetoothException";
-    return typeId;
-}
-
 #else // C++98 mapping
-
-IceBT::BluetoothException::BluetoothException(const char* file, int line) :
-    ::Ice::LocalException(file, line)
-{
-}
-
-IceBT::BluetoothException::BluetoothException(const char* file, int line, const ::std::string& reason) :
-    ::Ice::LocalException(file, line),
-    reason(reason)
-{
-}
-
-#ifdef ICE_CPP11_COMPILER
-IceBT::BluetoothException::~BluetoothException()
-{
-}
-#else
-IceBT::BluetoothException::~BluetoothException() throw()
-{
-}
-#endif
-
-::std::string
-IceBT::BluetoothException::ice_id() const
-{
-    return "::IceBT::BluetoothException";
-}
-
-IceBT::BluetoothException*
-IceBT::BluetoothException::ice_clone() const
-{
-    return new BluetoothException(*this);
-}
-
-void
-IceBT::BluetoothException::ice_throw() const
-{
-    throw *this;
-}
 
 namespace Ice
 {

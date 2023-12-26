@@ -28,7 +28,9 @@
 #include <Ice/Optional.h>
 #include <ObjectAdapterF.h>
 #include <ConnectionF.h>
+#include <Context.h>
 #include <Identity.h>
+#include <OperationMode.h>
 #include <Version.h>
 #include <IceUtil/UndefSysMacros.h>
 
@@ -59,100 +61,6 @@
 namespace Ice
 {
 
-/**
- * A request context. <code>Context</code> is used to transmit metadata about a request from the server to the client,
- * such as Quality-of-Service (QoS) parameters. Each operation on the client has a <code>Context</code> as its
- * implicit final parameter.
- */
-using Context = ::std::map<::std::string, ::std::string>;
-
-/**
- * Determines the retry behavior an invocation in case of a (potentially) recoverable error.
- */
-enum class OperationMode : unsigned char
-{
-    /**
-     * Ordinary operations have <code>Normal</code> mode. These operations modify object state; invoking such an
-     * operation twice in a row has different semantics than invoking it once. The Ice run time guarantees that it
-     * will not violate at-most-once semantics for <code>Normal</code> operations.
-     */
-    Normal,
-    /**
-     * Operations that use the Slice <code>nonmutating</code> keyword must not modify object state. For C++,
-     * nonmutating operations generate <code>const</code> member functions in the skeleton. In addition, the Ice
-     * run time will attempt to transparently recover from certain run-time errors by re-issuing a failed request and
-     * propagate the failure to the application only if the second attempt fails.
-     * <p class="Deprecated"><code>Nonmutating</code> is deprecated; Use the <code>idempotent</code> keyword instead.
-     * For C++, to retain the mapping of <code>nonmutating</code> operations to C++ <code>const</code> member
-     * functions, use the <code>["cpp:const"]</code> metadata directive.
-     */
-    Nonmutating,
-    /**
-     * Operations that use the Slice <code>idempotent</code> keyword can modify object state, but invoking an
-     * operation twice in a row must result in the same object state as invoking it once. For example,
-     * <code>x = 1</code> is an idempotent statement, whereas <code>x += 1</code> is not. For idempotent operations,
-     * the Ice run-time uses the same retry behavior as for nonmutating operations in case of a potentially
-     * recoverable error.
-     */
-    Idempotent
-};
-
-/**
- * Information about the current method invocation for servers. Each operation on the server has a
- * <code>Current</code> as its implicit final parameter. <code>Current</code> is mostly used for Ice services. Most
- * applications ignore this parameter.
- * \headerfile Ice/Ice.h
- */
-struct Current
-{
-    /**
-     * The object adapter.
-     */
-    ::std::shared_ptr<::Ice::ObjectAdapter> adapter;
-    /**
-     * Information about the connection over which the current method invocation was received. If the invocation is
-     * direct due to collocation optimization, this value is set to null.
-     */
-    ::std::shared_ptr<::Ice::Connection> con;
-    /**
-     * The Ice object identity.
-     */
-    ::Ice::Identity id;
-    /**
-     * The facet.
-     */
-    ::std::string facet;
-    /**
-     * The operation name.
-     */
-    ::std::string operation;
-    /**
-     * The mode of the operation.
-     */
-    ::Ice::OperationMode mode;
-    /**
-     * The request context, as received from the client.
-     */
-    ::Ice::Context ctx;
-    /**
-     * The request id unless oneway (0).
-     */
-    int requestId;
-    /**
-     * The encoding version used to encode the input and output parameters.
-     */
-    ::Ice::EncodingVersion encoding;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::shared_ptr<::Ice::ObjectAdapter>&, const ::std::shared_ptr<::Ice::Connection>&, const ::Ice::Identity&, const ::std::string&, const ::std::string&, const ::Ice::OperationMode&, const ::Ice::Context&, const int&, const ::Ice::EncodingVersion&> ice_tuple() const
-    {
-        return std::tie(adapter, con, id, facet, operation, mode, ctx, requestId, encoding);
-    }
-};
-
 using Ice::operator<;
 using Ice::operator<=;
 using Ice::operator>;
@@ -166,16 +74,6 @@ using Ice::operator!=;
 namespace Ice
 {
 
-template<>
-struct StreamableTraits< ::Ice::OperationMode>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryEnum;
-    static const int minValue = 0;
-    static const int maxValue = 2;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
-
 }
 /// \endcond
 
@@ -184,106 +82,11 @@ struct StreamableTraits< ::Ice::OperationMode>
 namespace Ice
 {
 
-/**
- * A request context. <code>Context</code> is used to transmit metadata about a request from the server to the client,
- * such as Quality-of-Service (QoS) parameters. Each operation on the client has a <code>Context</code> as its
- * implicit final parameter.
- */
-typedef ::std::map< ::std::string, ::std::string> Context;
-
-/**
- * Determines the retry behavior an invocation in case of a (potentially) recoverable error.
- */
-enum OperationMode
-{
-    /**
-     * Ordinary operations have <code>Normal</code> mode. These operations modify object state; invoking such an
-     * operation twice in a row has different semantics than invoking it once. The Ice run time guarantees that it
-     * will not violate at-most-once semantics for <code>Normal</code> operations.
-     */
-    Normal,
-    /**
-     * Operations that use the Slice <code>nonmutating</code> keyword must not modify object state. For C++,
-     * nonmutating operations generate <code>const</code> member functions in the skeleton. In addition, the Ice
-     * run time will attempt to transparently recover from certain run-time errors by re-issuing a failed request and
-     * propagate the failure to the application only if the second attempt fails.
-     * <p class="Deprecated"><code>Nonmutating</code> is deprecated; Use the <code>idempotent</code> keyword instead.
-     * For C++, to retain the mapping of <code>nonmutating</code> operations to C++ <code>const</code> member
-     * functions, use the <code>["cpp:const"]</code> metadata directive.
-     */
-    Nonmutating,
-    /**
-     * Operations that use the Slice <code>idempotent</code> keyword can modify object state, but invoking an
-     * operation twice in a row must result in the same object state as invoking it once. For example,
-     * <code>x = 1</code> is an idempotent statement, whereas <code>x += 1</code> is not. For idempotent operations,
-     * the Ice run-time uses the same retry behavior as for nonmutating operations in case of a potentially
-     * recoverable error.
-     */
-    Idempotent
-};
-
-/**
- * Information about the current method invocation for servers. Each operation on the server has a
- * <code>Current</code> as its implicit final parameter. <code>Current</code> is mostly used for Ice services. Most
- * applications ignore this parameter.
- * \headerfile Ice/Ice.h
- */
-struct Current
-{
-    /**
-     * The object adapter.
-     */
-    ::Ice::ObjectAdapterPtr adapter;
-    /**
-     * Information about the connection over which the current method invocation was received. If the invocation is
-     * direct due to collocation optimization, this value is set to null.
-     */
-    ::Ice::ConnectionPtr con;
-    /**
-     * The Ice object identity.
-     */
-    ::Ice::Identity id;
-    /**
-     * The facet.
-     */
-    ::std::string facet;
-    /**
-     * The operation name.
-     */
-    ::std::string operation;
-    /**
-     * The mode of the operation.
-     */
-    ::Ice::OperationMode mode;
-    /**
-     * The request context, as received from the client.
-     */
-    ::Ice::Context ctx;
-    /**
-     * The request id unless oneway (0).
-     */
-    ::Ice::Int requestId;
-    /**
-     * The encoding version used to encode the input and output parameters.
-     */
-    ::Ice::EncodingVersion encoding;
-};
-
 }
 
 /// \cond STREAM
 namespace Ice
 {
-
-template<>
-struct StreamableTraits< ::Ice::OperationMode>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryEnum;
-    static const int minValue = 0;
-    static const int maxValue = 2;
-    static const int minWireSize = 1;
-    static const bool fixedLength = false;
-};
 
 }
 /// \endcond

@@ -55,7 +55,6 @@
 namespace Ice
 {
 
-class ServantLocator;
 
 }
 
@@ -70,8 +69,6 @@ namespace Ice
 namespace Ice
 {
 
-using ServantLocatorPtr = ::std::shared_ptr<ServantLocator>;
-
 }
 /// \endcond
 
@@ -79,12 +76,6 @@ using ServantLocatorPtr = ::std::shared_ptr<ServantLocator>;
 
 namespace Ice
 {
-
-class ServantLocator;
-/// \cond INTERNAL
-ICE_API LocalObject* upCast(ServantLocator*);
-/// \endcond
-typedef ::IceInternal::Handle< ServantLocator> ServantLocatorPtr;
 
 }
 

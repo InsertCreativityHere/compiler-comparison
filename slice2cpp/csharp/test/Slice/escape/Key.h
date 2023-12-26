@@ -63,7 +63,6 @@ class explicitPrx;
 class optionalMembers;
 class optionalParams;
 class optionalParamsPrx;
-class implicit;
 
 namespace System
 {
@@ -260,20 +259,6 @@ using Ice::operator>;
 using Ice::operator>=;
 using Ice::operator==;
 using Ice::operator!=;
-
-}
-
-namespace abstract
-{
-
-class implicit
-{
-public:
-
-    virtual ~implicit();
-
-    virtual ::abstract::as in(const _cpp_break& internal, const ::std::shared_ptr<delegate>& is, const ::std::shared_ptr<::Ice::Value>& lock, const ::std::shared_ptr<casePrx>& _cpp_namespace, const ::std::shared_ptr<decimalPrx>& _cpp_new, const ::std::shared_ptr<delegate>& null, const ::std::shared_ptr<explicitPrx>& _cpp_operator, int override, int params, int _cpp_private) = 0;
-};
 
 }
 
@@ -1176,8 +1161,6 @@ using optionalMembersPtr = ::std::shared_ptr<optionalMembers>;
 using optionalParamsPtr = ::std::shared_ptr<optionalParams>;
 using optionalParamsPrxPtr = ::std::shared_ptr<optionalParamsPrx>;
 
-using implicitPtr = ::std::shared_ptr<implicit>;
-
 /// \cond INTERNAL
 namespace System
 {
@@ -1339,12 +1322,6 @@ typedef optionalParamsPrx optionalParamsPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(optionalParamsPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-class implicit;
-/// \cond INTERNAL
-::Ice::LocalObject* upCast(implicit*);
-/// \endcond
-typedef ::IceInternal::Handle< implicit> implicitPtr;
 
 namespace System
 {
@@ -2788,35 +2765,6 @@ inline bool operator==(const optionalParams& lhs, const optionalParams& rhs)
 inline bool operator<(const optionalParams& lhs, const optionalParams& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class implicit : public virtual ::Ice::LocalObject
-{
-public:
-
-    typedef implicitPtr PointerType;
-
-    virtual ~implicit();
-
-#ifdef ICE_CPP11_COMPILER
-    implicit() = default;
-    implicit(const implicit&) = default;
-    implicit& operator=(const implicit&) = default;
-#endif
-
-    virtual as in(const _cpp_break& internal, const delegatePtr& is, const explicitPtr& lock, const casePrx& _cpp_namespace, const decimalPrx& _cpp_new, const delegatePtr& null, const explicitPrx& _cpp_operator, ::Ice::Int override, ::Ice::Int params, ::Ice::Int _cpp_private) = 0;
-};
-
-/// \cond INTERNAL
-inline bool operator==(const implicit& lhs, const implicit& rhs)
-{
-    return static_cast<const ::Ice::LocalObject&>(lhs) == static_cast<const ::Ice::LocalObject&>(rhs);
-}
-
-inline bool operator<(const implicit& lhs, const implicit& rhs)
-{
-    return static_cast<const ::Ice::LocalObject&>(lhs) < static_cast<const ::Ice::LocalObject&>(rhs);
 }
 /// \endcond
 

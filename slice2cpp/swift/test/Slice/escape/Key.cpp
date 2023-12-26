@@ -125,10 +125,6 @@ _cpp_and::as::ice_staticId()
     return typeId;
 }
 
-_cpp_and::_cpp_friend::~_cpp_friend()
-{
-}
-
 bool
 _cpp_and::_cpp_break::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -1326,14 +1322,6 @@ _cpp_and::_icePatchObjectPtr(doPtr& handle, const ::Ice::ObjectPtr& v)
         IceInternal::Ex::throwUOE(_cpp_do::ice_staticId(), v);
     }
 }
-/// \endcond
-
-_cpp_and::_cpp_friend::~_cpp_friend()
-{
-}
-
-/// \cond INTERNAL
-::Ice::LocalObject* _cpp_and::upCast(_cpp_friend* p) { return p; }
 /// \endcond
 
 namespace Ice

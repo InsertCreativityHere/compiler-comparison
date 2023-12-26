@@ -50,22 +50,6 @@ namespace
 
 }
 
-IceStorm::Instrumentation::TopicObserver::~TopicObserver()
-{
-}
-
-IceStorm::Instrumentation::SubscriberObserver::~SubscriberObserver()
-{
-}
-
-IceStorm::Instrumentation::ObserverUpdater::~ObserverUpdater()
-{
-}
-
-IceStorm::Instrumentation::TopicManagerObserver::~TopicManagerObserver()
-{
-}
-
 #else // C++98 mapping
 
 namespace
@@ -77,38 +61,6 @@ namespace
 }
 
 }
-
-IceStorm::Instrumentation::TopicObserver::~TopicObserver()
-{
-}
-
-/// \cond INTERNAL
-::Ice::LocalObject* IceStorm::Instrumentation::upCast(TopicObserver* p) { return p; }
-/// \endcond
-
-IceStorm::Instrumentation::SubscriberObserver::~SubscriberObserver()
-{
-}
-
-/// \cond INTERNAL
-::Ice::LocalObject* IceStorm::Instrumentation::upCast(SubscriberObserver* p) { return p; }
-/// \endcond
-
-IceStorm::Instrumentation::ObserverUpdater::~ObserverUpdater()
-{
-}
-
-/// \cond INTERNAL
-::Ice::LocalObject* IceStorm::Instrumentation::upCast(ObserverUpdater* p) { return p; }
-/// \endcond
-
-IceStorm::Instrumentation::TopicManagerObserver::~TopicManagerObserver()
-{
-}
-
-/// \cond INTERNAL
-::Ice::LocalObject* IceStorm::Instrumentation::upCast(TopicManagerObserver* p) { return p; }
-/// \endcond
 
 namespace Ice
 {

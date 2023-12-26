@@ -49,24 +49,12 @@ namespace
 
 }
 
-Ice::ServantLocator::~ServantLocator()
-{
-}
-
 #else // C++98 mapping
 
 namespace
 {
 
 }
-
-Ice::ServantLocator::~ServantLocator()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::upCast(ServantLocator* p) { return p; }
-/// \endcond
 
 namespace Ice
 {

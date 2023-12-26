@@ -55,7 +55,6 @@
 namespace Ice
 {
 
-class ImplicitContext;
 
 }
 
@@ -70,8 +69,6 @@ namespace Ice
 namespace Ice
 {
 
-using ImplicitContextPtr = ::std::shared_ptr<ImplicitContext>;
-
 }
 /// \endcond
 
@@ -79,12 +76,6 @@ using ImplicitContextPtr = ::std::shared_ptr<ImplicitContext>;
 
 namespace Ice
 {
-
-class ImplicitContext;
-/// \cond INTERNAL
-ICE_API LocalObject* upCast(ImplicitContext*);
-/// \endcond
-typedef ::IceInternal::Handle< ImplicitContext> ImplicitContextPtr;
 
 }
 

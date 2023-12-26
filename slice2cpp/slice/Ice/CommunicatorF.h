@@ -55,7 +55,6 @@
 namespace Ice
 {
 
-class Communicator;
 
 }
 
@@ -70,8 +69,6 @@ namespace Ice
 namespace Ice
 {
 
-using CommunicatorPtr = ::std::shared_ptr<Communicator>;
-
 }
 /// \endcond
 
@@ -79,12 +76,6 @@ using CommunicatorPtr = ::std::shared_ptr<Communicator>;
 
 namespace Ice
 {
-
-class Communicator;
-/// \cond INTERNAL
-ICE_API LocalObject* upCast(Communicator*);
-/// \endcond
-typedef ::IceInternal::Handle< Communicator> CommunicatorPtr;
 
 }
 

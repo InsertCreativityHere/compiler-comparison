@@ -56,65 +56,6 @@
 namespace IceBT
 {
 
-/**
- * Indicates a failure in the Bluetooth plug-in.
- * \headerfile IceBT/IceBT.h
- */
-class ICE_CLASS(ICEBT_API) BluetoothException : public ::Ice::LocalExceptionHelper<BluetoothException, ::Ice::LocalException>
-{
-public:
-
-    ICE_MEMBER(ICEBT_API) virtual ~BluetoothException();
-
-    BluetoothException(const BluetoothException&) = default;
-
-    /**
-     * The file and line number are required for all local exceptions.
-     * @param file The file name in which the exception was raised, typically __FILE__.
-     * @param line The line number at which the exception was raised, typically __LINE__.
-     */
-    BluetoothException(const char* file, int line) : ::Ice::LocalExceptionHelper<BluetoothException, ::Ice::LocalException>(file, line)
-    {
-    }
-
-    /**
-     * One-shot constructor to initialize all data members.
-     * The file and line number are required for all local exceptions.
-     * @param file The file name in which the exception was raised, typically __FILE__.
-     * @param line The line number at which the exception was raised, typically __LINE__.
-     * @param reason Provides more information about the failure.
-     */
-    BluetoothException(const char* file, int line, const ::std::string& reason) : ::Ice::LocalExceptionHelper<BluetoothException, ::Ice::LocalException>(file, line),
-        reason(reason)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&> ice_tuple() const
-    {
-        return std::tie(reason);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    ICE_MEMBER(ICEBT_API) static const ::std::string& ice_staticId();
-    /**
-     * Prints this exception to the given stream.
-     * @param stream The target stream.
-     */
-    ICE_MEMBER(ICEBT_API) virtual void ice_print(::std::ostream& stream) const override;
-
-    /**
-     * Provides more information about the failure.
-     */
-    ::std::string reason;
-};
-
 }
 
 /// \cond STREAM
@@ -128,62 +69,6 @@ namespace Ice
 
 namespace IceBT
 {
-
-/**
- * Indicates a failure in the Bluetooth plug-in.
- * \headerfile IceBT/IceBT.h
- */
-class ICEBT_API BluetoothException : public ::Ice::LocalException
-{
-public:
-
-    /**
-     * The file and line number are required for all local exceptions.
-     * @param file The file name in which the exception was raised, typically __FILE__.
-     * @param line The line number at which the exception was raised, typically __LINE__.
-     */
-    BluetoothException(const char* file, int line);
-    /**
-     * One-shot constructor to initialize all data members.
-     * The file and line number are required for all local exceptions.
-     * @param file The file name in which the exception was raised, typically __FILE__.
-     * @param line The line number at which the exception was raised, typically __LINE__.
-     * @param reason Provides more information about the failure.
-     */
-    BluetoothException(const char* file, int line, const ::std::string& reason);
-
-#ifdef ICE_CPP11_COMPILER
-    BluetoothException(const BluetoothException&) = default;
-    virtual ~BluetoothException();
-#else
-    virtual ~BluetoothException() throw();
-#endif
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    virtual ::std::string ice_id() const;
-    /**
-     * Prints this exception to the given stream.
-     * @param stream The target stream.
-     */
-    virtual void ice_print(::std::ostream& stream) const;
-    /**
-     * Polymorphically clones this exception.
-     * @return A shallow copy of this exception.
-     */
-    virtual BluetoothException* ice_clone() const;
-    /**
-     * Throws this exception.
-     */
-    virtual void ice_throw() const;
-
-    /**
-     * Provides more information about the failure.
-     */
-    ::std::string reason;
-};
 
 }
 

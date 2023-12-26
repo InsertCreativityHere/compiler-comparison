@@ -47,24 +47,12 @@ namespace
 
 }
 
-Ice::Logger::~Logger()
-{
-}
-
 #else // C++98 mapping
 
 namespace
 {
 
 }
-
-Ice::Logger::~Logger()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::upCast(Logger* p) { return p; }
-/// \endcond
 
 namespace Ice
 {

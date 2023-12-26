@@ -19,33 +19,10 @@ namespace
 {
     require_once 'ObjectAdapterF.php';
     require_once 'ConnectionF.php';
+    require_once 'Context.php';
     require_once 'Identity.php';
+    require_once 'OperationMode.php';
     require_once 'Version.php';
-}
-
-namespace Ice
-{
-    global $Ice__t_Context;
-
-    if(!isset($Ice__t_Context))
-    {
-        global $IcePHP__t_string;
-        global $IcePHP__t_string;
-        $Ice__t_Context = IcePHP_defineDictionary('::Ice::Context', $IcePHP__t_string, $IcePHP__t_string);
-    }
-}
-
-namespace Ice
-{
-    global $Ice__t_OperationMode;
-    class OperationMode
-    {
-        const Normal = 0;
-        const Nonmutating = 1;
-        const Idempotent = 2;
-    }
-
-    $Ice__t_OperationMode = IcePHP_defineEnum('::Ice::OperationMode', array('Normal', 0, 'Nonmutating', 1, 'Idempotent', 2));
 }
 
 namespace Ice

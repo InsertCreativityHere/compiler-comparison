@@ -60,7 +60,6 @@ class _cpp_switch;
 class switchPrx;
 class _cpp_do;
 class doPrx;
-class _cpp_friend;
 
 }
 
@@ -213,22 +212,6 @@ using Ice::operator>;
 using Ice::operator>=;
 using Ice::operator==;
 using Ice::operator!=;
-
-}
-
-namespace _cpp_and
-{
-
-class _cpp_friend
-{
-public:
-
-    virtual ~_cpp_friend();
-
-    virtual ::_cpp_and::_cpp_auto _cpp_goto(_cpp_continue _cpp_if, const _cpp_auto& d, const _cpp_delete& _cpp_inline, const ::std::shared_ptr<::Ice::Value>& _cpp_private, const ::std::shared_ptr<_cpp_do>& _cpp_mutable, const ::std::shared_ptr<breakPrx>& _cpp_namespace, const ::std::shared_ptr<charPrx>& _cpp_new, const ::std::shared_ptr<switchPrx>& _cpp_not, const ::std::shared_ptr<doPrx>& _cpp_operator, int _cpp_or, int _cpp_protected, int _cpp_public, int _cpp_register) = 0;
-
-    virtual void objc(int bycopy, int byref, int id, int IMP, int in, int inout, int nil, int NO, int oneway, int SEL, int super, int YES) = 0;
-};
 
 }
 
@@ -785,8 +768,6 @@ using switchPrxPtr = ::std::shared_ptr<switchPrx>;
 using doPtr = ::std::shared_ptr<_cpp_do>;
 using doPrxPtr = ::std::shared_ptr<doPrx>;
 
-using friendPtr = ::std::shared_ptr<_cpp_friend>;
-
 }
 /// \endcond
 
@@ -872,12 +853,6 @@ typedef doPrx doPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(doPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-class _cpp_friend;
-/// \cond INTERNAL
-::Ice::LocalObject* upCast(_cpp_friend*);
-/// \endcond
-typedef ::IceInternal::Handle< _cpp_friend> friendPtr;
 
 }
 
@@ -1783,37 +1758,6 @@ inline bool operator==(const _cpp_do& lhs, const _cpp_do& rhs)
 inline bool operator<(const _cpp_do& lhs, const _cpp_do& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class _cpp_friend : public virtual ::Ice::LocalObject
-{
-public:
-
-    typedef friendPtr PointerType;
-
-    virtual ~_cpp_friend();
-
-#ifdef ICE_CPP11_COMPILER
-    _cpp_friend() = default;
-    _cpp_friend(const _cpp_friend&) = default;
-    _cpp_friend& operator=(const _cpp_friend&) = default;
-#endif
-
-    virtual _cpp_auto _cpp_goto(_cpp_continue _cpp_if, const _cpp_auto& d, const deletePtr& _cpp_inline, const switchPtr& _cpp_private, const doPtr& _cpp_mutable, const breakPrx& _cpp_namespace, const charPrx& _cpp_new, const switchPrx& _cpp_not, const doPrx& _cpp_operator, ::Ice::Int _cpp_or, ::Ice::Int _cpp_protected, ::Ice::Int _cpp_public, ::Ice::Int _cpp_register) = 0;
-
-    virtual void objc(::Ice::Int bycopy, ::Ice::Int byref, ::Ice::Int id, ::Ice::Int IMP, ::Ice::Int in, ::Ice::Int inout, ::Ice::Int nil, ::Ice::Int NO, ::Ice::Int oneway, ::Ice::Int SEL, ::Ice::Int super, ::Ice::Int YES) = 0;
-};
-
-/// \cond INTERNAL
-inline bool operator==(const _cpp_friend& lhs, const _cpp_friend& rhs)
-{
-    return static_cast<const ::Ice::LocalObject&>(lhs) == static_cast<const ::Ice::LocalObject&>(rhs);
-}
-
-inline bool operator<(const _cpp_friend& lhs, const _cpp_friend& rhs)
-{
-    return static_cast<const ::Ice::LocalObject&>(lhs) < static_cast<const ::Ice::LocalObject&>(rhs);
 }
 /// \endcond
 

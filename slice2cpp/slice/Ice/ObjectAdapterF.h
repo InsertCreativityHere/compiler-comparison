@@ -55,7 +55,6 @@
 namespace Ice
 {
 
-class ObjectAdapter;
 
 }
 
@@ -70,8 +69,6 @@ namespace Ice
 namespace Ice
 {
 
-using ObjectAdapterPtr = ::std::shared_ptr<ObjectAdapter>;
-
 }
 /// \endcond
 
@@ -79,12 +76,6 @@ using ObjectAdapterPtr = ::std::shared_ptr<ObjectAdapter>;
 
 namespace Ice
 {
-
-class ObjectAdapter;
-/// \cond INTERNAL
-ICE_API LocalObject* upCast(ObjectAdapter*);
-/// \endcond
-typedef ::IceInternal::Handle< ObjectAdapter> ObjectAdapterPtr;
 
 }
 

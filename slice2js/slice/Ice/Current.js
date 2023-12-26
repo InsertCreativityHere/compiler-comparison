@@ -19,7 +19,6 @@
 /* slice2js browser-bundle-skip */
 const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
 require("../Ice/Struct");
-require("../Ice/EnumBase");
 require("../Ice/Long");
 require("../Ice/HashMap");
 require("../Ice/HashUtil");
@@ -27,20 +26,14 @@ require("../Ice/ArrayUtil");
 require("../Ice/StreamHelpers");
 require("../ObjectAdapterF");
 require("../ConnectionF");
+require("../Context");
 require("../Identity");
+require("../OperationMode");
 require("../Version");
 const Ice = _ModuleRegistry.module("Ice");
 
 const Slice = Ice.Slice;
 /* slice2js browser-bundle-skip-end */
-
-Slice.defineDictionary(Ice, "Context", "ContextHelper", "Ice.StringHelper", "Ice.StringHelper", false, undefined, undefined);
-
-/**
- *  Determines the retry behavior an invocation in case of a (potentially) recoverable error.
- **/
-Ice.OperationMode = Slice.defineEnum([
-    ['Normal', 0], ['Nonmutating', 1], ['Idempotent', 2]]);
 
 /**
  *  Information about the current method invocation for servers. Each operation on the server has a

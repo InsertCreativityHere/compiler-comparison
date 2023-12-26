@@ -49,24 +49,12 @@ namespace
 
 }
 
-Ice::ObjectFactory::~ObjectFactory()
-{
-}
-
 #else // C++98 mapping
 
 namespace
 {
 
 }
-
-Ice::ObjectFactory::~ObjectFactory()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::upCast(ObjectFactory* p) { return p; }
-/// \endcond
 
 namespace Ice
 {

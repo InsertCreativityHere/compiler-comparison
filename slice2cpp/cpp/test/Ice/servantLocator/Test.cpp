@@ -132,10 +132,6 @@ Test::TestImpossibleException::ice_staticId()
     return typeId;
 }
 
-Test::Cookie::~Cookie()
-{
-}
-
 bool
 Test::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -1930,14 +1926,6 @@ Test::_icePatchObjectPtr(TestActivationPtr& handle, const ::Ice::ObjectPtr& v)
         IceInternal::Ex::throwUOE(TestActivation::ice_staticId(), v);
     }
 }
-/// \endcond
-
-Test::Cookie::~Cookie()
-{
-}
-
-/// \cond INTERNAL
-::Ice::LocalObject* Test::upCast(Cookie* p) { return p; }
 /// \endcond
 
 namespace Ice

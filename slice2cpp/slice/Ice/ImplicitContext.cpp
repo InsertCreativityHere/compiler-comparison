@@ -49,24 +49,12 @@ namespace
 
 }
 
-Ice::ImplicitContext::~ImplicitContext()
-{
-}
-
 #else // C++98 mapping
 
 namespace
 {
 
 }
-
-Ice::ImplicitContext::~ImplicitContext()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::LocalObject* Ice::upCast(ImplicitContext* p) { return p; }
-/// \endcond
 
 namespace Ice
 {

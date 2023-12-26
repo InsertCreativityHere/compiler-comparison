@@ -86,17 +86,6 @@ Test::InvalidInputException::ice_staticId()
     return typeId;
 }
 
-Test::RetryException::~RetryException()
-{
-}
-
-const ::std::string&
-Test::RetryException::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::RetryException";
-    return typeId;
-}
-
 bool
 Test::MyObject::ice_isA(::std::string s, const ::Ice::Current&) const
 {
@@ -441,39 +430,6 @@ Test::InvalidInputException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 /// \endcond
-
-Test::RetryException::RetryException(const char* file, int line) :
-    ::Ice::LocalException(file, line)
-{
-}
-
-#ifdef ICE_CPP11_COMPILER
-Test::RetryException::~RetryException()
-{
-}
-#else
-Test::RetryException::~RetryException() throw()
-{
-}
-#endif
-
-::std::string
-Test::RetryException::ice_id() const
-{
-    return "::Test::RetryException";
-}
-
-Test::RetryException*
-Test::RetryException::ice_clone() const
-{
-    return new RetryException(*this);
-}
-
-void
-Test::RetryException::ice_throw() const
-{
-    throw *this;
-}
 
 /// \cond INTERNAL
 ::IceProxy::Ice::Object* ::IceProxy::Test::upCast(MyObject* p) { return p; }
