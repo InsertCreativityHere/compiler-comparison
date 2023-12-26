@@ -17,22 +17,9 @@
 #define __Properties_h__
 
 #include <IceUtil/PushDisableWarnings.h>
-#include <Ice/ProxyF.h>
-#include <Ice/ObjectF.h>
-#include <Ice/ValueF.h>
-#include <Ice/Exception.h>
-#include <Ice/LocalObject.h>
-#include <Ice/StreamHelpers.h>
-#include <Ice/Comparable.h>
-#include <Ice/Proxy.h>
-#include <Ice/Object.h>
-#include <Ice/GCObject.h>
-#include <Ice/Value.h>
-#include <Ice/Incoming.h>
-#include <Ice/FactoryTableInit.h>
-#include <IceUtil/ScopedArray.h>
-#include <Ice/Optional.h>
-#include <PropertiesAdmin.h>
+#include <Ice/Ice.h>
+#include <BuiltinSequences.h>
+#include <PropertyDict.h>
 #include <IceUtil/UndefSysMacros.h>
 
 #ifndef ICE_IGNORE_VERSION
@@ -81,17 +68,7 @@ namespace Ice
 
 #else // C++98 mapping
 
-namespace IceProxy
-{
-
-}
-
 namespace Ice
-{
-
-}
-
-namespace IceProxy
 {
 
 }

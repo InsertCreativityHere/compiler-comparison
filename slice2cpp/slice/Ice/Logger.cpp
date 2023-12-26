@@ -16,6 +16,7 @@
 #ifndef ICE_API_EXPORTS
 #   define ICE_API_EXPORTS
 #endif
+#define ICE_BUILDING_GENERATED_CODE
 #include <Logger.h>
 #include <IceUtil/PushDisableWarnings.h>
 #include <IceUtil/PopDisableWarnings.h>

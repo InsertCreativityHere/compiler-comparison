@@ -16,16 +16,13 @@
 
 from sys import version_info as _version_info_
 import Ice, IcePy
-import Ice.BuiltinSequences_ice
+import Ice.PropertyDict_ice
 
 # Included module Ice
 _M_Ice = Ice.openModule('Ice')
 
 # Start of module Ice
 __name__ = 'Ice'
-
-if '_t_PropertyDict' not in _M_Ice.__dict__:
-    _M_Ice._t_PropertyDict = IcePy.defineDictionary('::Ice::PropertyDict', (), IcePy._t_string, IcePy._t_string)
 
 _M_Ice._t_PropertiesAdmin = IcePy.defineValue('::Ice::PropertiesAdmin', Ice.Value, -1, (), False, True, None, ())
 

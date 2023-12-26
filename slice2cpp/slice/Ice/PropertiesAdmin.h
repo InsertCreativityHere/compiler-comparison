@@ -17,22 +17,8 @@
 #define __PropertiesAdmin_h__
 
 #include <IceUtil/PushDisableWarnings.h>
-#include <Ice/ProxyF.h>
-#include <Ice/ObjectF.h>
-#include <Ice/ValueF.h>
-#include <Ice/Exception.h>
-#include <Ice/LocalObject.h>
-#include <Ice/StreamHelpers.h>
-#include <Ice/Comparable.h>
-#include <Ice/Proxy.h>
-#include <Ice/Object.h>
-#include <Ice/GCObject.h>
-#include <Ice/Value.h>
-#include <Ice/Incoming.h>
-#include <Ice/FactoryTableInit.h>
-#include <IceUtil/ScopedArray.h>
-#include <Ice/Optional.h>
-#include <BuiltinSequences.h>
+#include <Ice/Ice.h>
+#include <PropertyDict.h>
 #include <IceUtil/UndefSysMacros.h>
 
 #ifndef ICE_IGNORE_VERSION
@@ -64,18 +50,6 @@ namespace Ice
 
 class PropertiesAdmin;
 class PropertiesAdminPrx;
-
-}
-
-namespace Ice
-{
-
-/**
- * A simple collection of properties, represented as a dictionary of key/value pairs. Both key and value are
- * strings.
- * @see Properties#getPropertiesForPrefix
- */
-using PropertyDict = ::std::map<::std::string, ::std::string>;
 
 }
 
@@ -392,18 +366,6 @@ typedef PropertiesAdminPrx PropertiesAdminPrxPtr;
 /// \cond INTERNAL
 ICE_API void _icePatchObjectPtr(PropertiesAdminPtr&, const ObjectPtr&);
 /// \endcond
-
-}
-
-namespace Ice
-{
-
-/**
- * A simple collection of properties, represented as a dictionary of key/value pairs. Both key and value are
- * strings.
- * @see Properties#getPropertiesForPrefix
- */
-typedef ::std::map< ::std::string, ::std::string> PropertyDict;
 
 }
 

@@ -16,10 +16,9 @@
 #ifndef ICEPATCH2_API_EXPORTS
 #   define ICEPATCH2_API_EXPORTS
 #endif
+#define ICE_BUILDING_GENERATED_CODE
 #include <FileInfo.h>
 #include <IceUtil/PushDisableWarnings.h>
-#include <Ice/InputStream.h>
-#include <Ice/OutputStream.h>
 #include <IceUtil/PopDisableWarnings.h>
 
 #if defined(_MSC_VER)

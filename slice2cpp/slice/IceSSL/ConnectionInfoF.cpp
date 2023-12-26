@@ -16,6 +16,7 @@
 #ifndef ICESSL_API_EXPORTS
 #   define ICESSL_API_EXPORTS
 #endif
+#define ICE_BUILDING_GENERATED_CODE
 #include <ConnectionInfoF.h>
 #include <IceUtil/PushDisableWarnings.h>
 #include <IceUtil/PopDisableWarnings.h>

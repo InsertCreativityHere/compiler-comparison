@@ -16,6 +16,7 @@
 #ifndef ICEBT_API_EXPORTS
 #   define ICEBT_API_EXPORTS
 #endif
+#define ICE_BUILDING_GENERATED_CODE
 #include <Types.h>
 #include <IceUtil/PushDisableWarnings.h>
 #include <IceUtil/PopDisableWarnings.h>

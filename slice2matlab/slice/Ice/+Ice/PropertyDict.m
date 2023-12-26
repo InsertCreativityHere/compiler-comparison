@@ -1,6 +1,6 @@
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from PropertiesAdmin.ice by slice2matlab version 3.7.10
+% Generated from PropertyDict.ice by slice2matlab version 3.7.10
 
 classdef PropertyDict
     methods(Access=private)

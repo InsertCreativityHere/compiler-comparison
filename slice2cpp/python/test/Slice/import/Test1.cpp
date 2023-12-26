@@ -13,6 +13,7 @@
 // </auto-generated>
 //
 
+#define ICE_BUILDING_GENERATED_CODE
 #include <Test1.h>
 #include <IceUtil/PushDisableWarnings.h>
 #include <IceUtil/PopDisableWarnings.h>

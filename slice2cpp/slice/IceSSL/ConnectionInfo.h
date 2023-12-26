@@ -17,16 +17,7 @@
 #define __ConnectionInfo_h__
 
 #include <IceUtil/PushDisableWarnings.h>
-#include <Ice/ProxyF.h>
-#include <Ice/ObjectF.h>
-#include <Ice/ValueF.h>
-#include <Ice/Exception.h>
-#include <Ice/LocalObject.h>
-#include <Ice/StreamHelpers.h>
-#include <Ice/Comparable.h>
-#include <Ice/OutgoingAsync.h>
-#include <IceUtil/ScopedArray.h>
-#include <Ice/Optional.h>
+#include <Ice/Ice.h>
 #include <Ice/Connection.h>
 #include <IceUtil/UndefSysMacros.h>
 #include <IceSSL/Plugin.h>

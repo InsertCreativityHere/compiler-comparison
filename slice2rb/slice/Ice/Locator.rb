@@ -16,9 +16,13 @@
 
 require 'Ice'
 require 'Identity.rb'
-require 'Process.rb'
 
 module ::Ice
+
+    if not defined?(::Ice::T_Process)
+        T_Process = ::Ice::__declareClass('::Ice::Process')
+        T_ProcessPrx = ::Ice::__declareProxy('::Ice::Process')
+    end
 
     if not defined?(::Ice::AdapterNotFoundException)
         class AdapterNotFoundException < Ice::UserException

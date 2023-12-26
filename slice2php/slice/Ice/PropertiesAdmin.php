@@ -17,19 +17,7 @@
 
 namespace
 {
-    require_once 'BuiltinSequences.php';
-}
-
-namespace Ice
-{
-    global $Ice__t_PropertyDict;
-
-    if(!isset($Ice__t_PropertyDict))
-    {
-        global $IcePHP__t_string;
-        global $IcePHP__t_string;
-        $Ice__t_PropertyDict = IcePHP_defineDictionary('::Ice::PropertyDict', $IcePHP__t_string, $IcePHP__t_string);
-    }
+    require_once 'PropertyDict.php';
 }
 
 namespace Ice

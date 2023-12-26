@@ -16,15 +16,9 @@
 #ifndef ICEGRID_API_EXPORTS
 #   define ICEGRID_API_EXPORTS
 #endif
+#define ICE_BUILDING_GENERATED_CODE
 #include <Session.h>
 #include <IceUtil/PushDisableWarnings.h>
-#include <Ice/LocalException.h>
-#include <Ice/ValueFactory.h>
-#include <Ice/OutgoingAsync.h>
-#include <Ice/InputStream.h>
-#include <Ice/OutputStream.h>
-#include <Ice/LocalException.h>
-#include <Ice/SlicedData.h>
 #include <IceUtil/PopDisableWarnings.h>
 
 #if defined(_MSC_VER)

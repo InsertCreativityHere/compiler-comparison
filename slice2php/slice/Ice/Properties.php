@@ -17,6 +17,7 @@
 
 namespace
 {
-    require_once 'PropertiesAdmin.php';
+    require_once 'BuiltinSequences.php';
+    require_once 'PropertyDict.php';
 }
 ?>

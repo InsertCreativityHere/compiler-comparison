@@ -15,7 +15,8 @@
 #
 
 require 'Ice'
-require 'PropertiesAdmin.rb'
+require 'BuiltinSequences.rb'
+require 'PropertyDict.rb'
 
 module ::Ice
 

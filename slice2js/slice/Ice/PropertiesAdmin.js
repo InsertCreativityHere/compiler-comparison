@@ -27,13 +27,11 @@ require("../Ice/HashMap");
 require("../Ice/HashUtil");
 require("../Ice/ArrayUtil");
 require("../Ice/StreamHelpers");
-require("../BuiltinSequences");
+require("../PropertyDict");
 const Ice = _ModuleRegistry.module("Ice");
 
 const Slice = Ice.Slice;
 /* slice2js browser-bundle-skip-end */
-
-Slice.defineDictionary(Ice, "PropertyDict", "PropertyDictHelper", "Ice.StringHelper", "Ice.StringHelper", false, undefined, undefined);
 
 const iceC_Ice_PropertiesAdmin_ids = [
     "::Ice::Object",

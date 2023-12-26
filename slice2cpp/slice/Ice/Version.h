@@ -17,16 +17,10 @@
 #define __Version_h__
 
 #include <IceUtil/PushDisableWarnings.h>
-#include <Ice/ProxyF.h>
-#include <Ice/ObjectF.h>
-#include <Ice/ValueF.h>
-#include <Ice/Exception.h>
-#include <Ice/LocalObject.h>
-#include <Ice/StreamHelpers.h>
-#include <Ice/Comparable.h>
-#include <IceUtil/ScopedArray.h>
-#include <Ice/Optional.h>
 #include <IceUtil/UndefSysMacros.h>
+#include <Ice/Config.h>
+#include <Ice/Comparable.h>
+#include <Ice/StreamHelpers.h>
 
 #ifndef ICE_IGNORE_VERSION
 #   if ICE_INT_VERSION / 100 != 307

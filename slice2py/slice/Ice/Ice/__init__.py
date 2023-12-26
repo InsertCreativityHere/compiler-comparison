@@ -29,6 +29,7 @@ import Ice.OperationMode_ice
 import Ice.ServantLocator_ice
 import Ice.InstrumentationF_ice
 import Ice.Router_ice
+import Ice.PropertyDict_ice
 import Ice.Endpoint_ice
 import Ice.ObjectFactory_ice
 import Ice.Instrumentation_ice

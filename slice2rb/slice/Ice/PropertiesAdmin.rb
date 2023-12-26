@@ -15,13 +15,9 @@
 #
 
 require 'Ice'
-require 'BuiltinSequences.rb'
+require 'PropertyDict.rb'
 
 module ::Ice
-
-    if not defined?(::Ice::T_PropertyDict)
-        T_PropertyDict = ::Ice::__defineDictionary('::Ice::PropertyDict', ::Ice::T_string, ::Ice::T_string)
-    end
 
     if not defined?(::Ice::PropertiesAdmin_Mixin)
 

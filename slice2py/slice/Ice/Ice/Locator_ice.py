@@ -17,13 +17,16 @@
 from sys import version_info as _version_info_
 import Ice, IcePy
 import Ice.Identity_ice
-import Ice.Process_ice
 
 # Included module Ice
 _M_Ice = Ice.openModule('Ice')
 
 # Start of module Ice
 __name__ = 'Ice'
+
+if 'Process' not in _M_Ice.__dict__:
+    _M_Ice._t_ProcessDisp = IcePy.declareClass('::Ice::Process')
+    _M_Ice._t_ProcessPrx = IcePy.declareProxy('::Ice::Process')
 
 if 'AdapterNotFoundException' not in _M_Ice.__dict__:
     _M_Ice.AdapterNotFoundException = Ice.createTempClass()

@@ -17,25 +17,8 @@
 #define __Locator_h__
 
 #include <IceUtil/PushDisableWarnings.h>
-#include <Ice/ProxyF.h>
-#include <Ice/ObjectF.h>
-#include <Ice/ValueF.h>
-#include <Ice/Exception.h>
-#include <Ice/LocalObject.h>
-#include <Ice/StreamHelpers.h>
-#include <Ice/Comparable.h>
-#include <Ice/Proxy.h>
-#include <Ice/Object.h>
-#include <Ice/GCObject.h>
-#include <Ice/Value.h>
-#include <Ice/Incoming.h>
-#include <Ice/IncomingAsync.h>
-#include <Ice/FactoryTableInit.h>
-#include <IceUtil/ScopedArray.h>
-#include <Ice/Optional.h>
-#include <Ice/ExceptionHelpers.h>
+#include <Ice/Ice.h>
 #include <Identity.h>
-#include <Process.h>
 #include <IceUtil/UndefSysMacros.h>
 
 #ifndef ICE_IGNORE_VERSION
@@ -65,6 +48,8 @@
 namespace Ice
 {
 
+class Process;
+class ProcessPrx;
 class LocatorRegistry;
 class LocatorRegistryPrx;
 class Locator;
@@ -921,6 +906,9 @@ namespace Ice
 namespace Ice
 {
 
+using ProcessPtr = ::std::shared_ptr<Process>;
+using ProcessPrxPtr = ::std::shared_ptr<ProcessPrx>;
+
 using LocatorRegistryPtr = ::std::shared_ptr<LocatorRegistry>;
 using LocatorRegistryPrxPtr = ::std::shared_ptr<LocatorRegistryPrx>;
 
@@ -940,6 +928,12 @@ namespace IceProxy
 
 namespace Ice
 {
+
+class Process;
+/// \cond INTERNAL
+ICE_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Process>&);
+ICE_API ::IceProxy::Ice::Object* upCast(Process*);
+/// \endcond
 
 class LocatorRegistry;
 /// \cond INTERNAL
@@ -965,6 +959,17 @@ ICE_API ::IceProxy::Ice::Object* upCast(LocatorFinder*);
 
 namespace Ice
 {
+
+class Process;
+/// \cond INTERNAL
+ICE_API Object* upCast(Process*);
+/// \endcond
+typedef ::IceInternal::Handle< Process> ProcessPtr;
+typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::Process> ProcessPrx;
+typedef ProcessPrx ProcessPrxPtr;
+/// \cond INTERNAL
+ICE_API void _icePatchObjectPtr(ProcessPtr&, const ObjectPtr&);
+/// \endcond
 
 class LocatorRegistry;
 /// \cond INTERNAL
