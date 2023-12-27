@@ -20,16 +20,4 @@ require 'Ice/Current.rb'
 require 'Admin.rb'
 
 module ::IceGrid
-
-    if not defined?(::IceGrid::T_ReplicaGroupFilter)
-        T_ReplicaGroupFilter = ::Ice::__declareLocalClass('::IceGrid::ReplicaGroupFilter')
-    end
-
-    if not defined?(::IceGrid::T_TypeFilter)
-        T_TypeFilter = ::Ice::__declareLocalClass('::IceGrid::TypeFilter')
-    end
-
-    if not defined?(::IceGrid::T_RegistryPluginFacade)
-        T_RegistryPluginFacade = ::Ice::__declareLocalClass('::IceGrid::RegistryPluginFacade')
-    end
 end

@@ -47,8 +47,6 @@
 namespace Ice
 {
 
-class PropertiesAdmin;
-class PropertiesAdminPrx;
 
 }
 
@@ -63,43 +61,13 @@ namespace Ice
 namespace Ice
 {
 
-using PropertiesAdminPtr = ::std::shared_ptr<PropertiesAdmin>;
-using PropertiesAdminPrxPtr = ::std::shared_ptr<PropertiesAdminPrx>;
-
 }
 /// \endcond
 
 #else // C++98 mapping
 
-namespace IceProxy
-{
-
 namespace Ice
 {
-
-class PropertiesAdmin;
-/// \cond INTERNAL
-ICE_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< PropertiesAdmin>&);
-ICE_API ::IceProxy::Ice::Object* upCast(PropertiesAdmin*);
-/// \endcond
-
-}
-
-}
-
-namespace Ice
-{
-
-class PropertiesAdmin;
-/// \cond INTERNAL
-ICE_API Object* upCast(PropertiesAdmin*);
-/// \endcond
-typedef ::IceInternal::Handle< PropertiesAdmin> PropertiesAdminPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::PropertiesAdmin> PropertiesAdminPrx;
-typedef PropertiesAdminPrx PropertiesAdminPrxPtr;
-/// \cond INTERNAL
-ICE_API void _icePatchObjectPtr(PropertiesAdminPtr&, const ObjectPtr&);
-/// \endcond
 
 }
 

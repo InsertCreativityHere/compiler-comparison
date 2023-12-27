@@ -246,8 +246,32 @@ module ::And
         ])
     end
 
-    if not defined?(::And::T_Print)
-        T_Print = ::Ice::__declareLocalClass('::and::print')
+    if not defined?(::And::Print_Mixin)
+
+        module ::And::Print_Mixin
+        end
+        module PrintPrx_mixin
+
+            def raise(_else, _return, try, _while, _yield, lambda, _or, global, context=nil)
+                PrintPrx_mixin::OP_raise.invoke(self, [_else, _return, try, _while, _yield, lambda, _or, global], context)
+            end
+        end
+
+        class PrintPrx < ::Ice::ObjectPrx
+            include ::Ice::Proxy_mixin
+            include PrintPrx_mixin
+        end
+
+        if not defined?(::And::T_PrintPrx)
+            T_Print = ::Ice::__declareClass('::and::print')
+            T_PrintPrx = ::Ice::__declareProxy('::and::print')
+        end
+
+        T_Print.defineClass(::Ice::Value, -1, false, true, nil, [])
+
+        T_PrintPrx.defineProxy(PrintPrx, nil, [])
+
+        PrintPrx_mixin::OP_raise = ::Ice::__defineOperation('raise', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::And::T_Continue, false, 0], [::And::T_For, false, 0], [::And::T_If, false, 0], [::And::T_DelPrx, false, 0], [::And::T_ExecPrx, false, 0], [::Ice::T_ObjectPrx, false, 0], [::And::T_IfPrx, false, 0], [::Ice::T_int, false, 0]], [], [::And::T_Assert, false, 0], [::And::T_Is])
     end
 
     Lambda = 0

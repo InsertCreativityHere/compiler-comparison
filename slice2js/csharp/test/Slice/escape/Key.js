@@ -361,6 +361,28 @@
         }
     };
 
+    const iceC_abstract_implicit_ids = [
+        "::Ice::Object",
+        "::abstract::implicit"
+    ];
+
+    abstract.implicit = class extends Ice.Object
+    {
+    };
+
+    abstract.implicitPrx = class extends Ice.ObjectPrx
+    {
+    };
+
+    Slice.defineOperations(abstract.implicit, abstract.implicitPrx, iceC_abstract_implicit_ids, 1,
+    {
+        "in": ["_in", , , , [abstract.as._helper], [[abstract._break], ["abstract.delegate", true], ["Ice.Value", true], ["abstract.casePrx"], ["abstract.decimalPrx"], ["abstract.delegate", true], ["abstract.explicitPrx"], [3], [3], [3]], ,
+        [
+            abstract.foreach,
+            abstract.fixed
+        ], true, ]
+    });
+
     Object.defineProperty(abstract, '_protected', {
         value: 0
     });

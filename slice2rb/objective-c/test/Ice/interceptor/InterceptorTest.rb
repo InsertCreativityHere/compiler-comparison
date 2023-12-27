@@ -34,19 +34,6 @@ module ::Test
         T_InvalidInputException = ::Ice::__defineException('::Test::InvalidInputException', InvalidInputException, false, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::Test::RetryException)
-        class RetryException < Ice::LocalException
-            def initialize
-            end
-
-            def to_s
-                '::Test::RetryException'
-            end
-        end
-
-        T_RetryException = ::Ice::__defineException('::Test::RetryException', RetryException, false, nil, [])
-    end
-
     if not defined?(::Test::MyObject_Mixin)
 
         module ::Test::MyObject_Mixin

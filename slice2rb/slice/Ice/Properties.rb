@@ -19,8 +19,4 @@ require 'BuiltinSequences.rb'
 require 'PropertyDict.rb'
 
 module ::Ice
-
-    if not defined?(::Ice::T_Properties)
-        T_Properties = ::Ice::__declareLocalClass('::Ice::Properties')
-    end
 end

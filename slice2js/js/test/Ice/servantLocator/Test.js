@@ -133,11 +133,6 @@
         "activateServantLocator": [, , , , , [[1]], , , , ]
     });
 
-    Test.Cookie = class
-    {
-    };
-
-
     const iceC_Test_Echo_ids = [
         "::Ice::Object",
         "::Test::Echo"

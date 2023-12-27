@@ -15,7 +15,7 @@
 
 package Test;
 
-public class Initial extends com.zeroc.Ice.Value
+public abstract class Initial extends com.zeroc.Ice.Value
 {
     /**
      * Holds the result of operation getAll.

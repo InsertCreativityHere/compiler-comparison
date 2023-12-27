@@ -293,16 +293,6 @@ namespace _and
 
 namespace _and
 {
-    global $and__t_friend;
-    interface friend
-    {
-        public function _goto($_if, $d, $inline, $_private, $mutable, $_namespace, $_new, $not, $operator, $_or, $_protected, $_public, $register);
-    }
-    $and__t_friend = IcePHP_defineClass('::and::friend', '\\_and\\friend', -1, false, true, null, null);
-}
-
-namespace _and
-{
     if(!defined('\\_and\\is'))
     {
         define(__NAMESPACE__ . '\\is', 0);

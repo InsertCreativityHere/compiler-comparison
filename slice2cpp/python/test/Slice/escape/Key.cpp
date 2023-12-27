@@ -96,6 +96,21 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::_cpp_and::is> iceC_and_is
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::_cpp_and::_cpp_not> iceC_and_not_init("::and::not");
 
+const ::std::string iceC_and_print_ids[2] =
+{
+    "::Ice::Object",
+    "::and::print"
+};
+const ::std::string iceC_and_print_ops[] =
+{
+    "ice_id",
+    "ice_ids",
+    "ice_isA",
+    "ice_ping",
+    "raise"
+};
+const ::std::string iceC_and_print_raise_name = "raise";
+
 }
 
 _cpp_and::is::~is()
@@ -356,6 +371,97 @@ _cpp_and::_cpp_if::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curren
 }
 /// \endcond
 
+bool
+_cpp_and::print::ice_isA(::std::string s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_and_print_ids, iceC_and_print_ids + 2, s);
+}
+
+::std::vector<::std::string>
+_cpp_and::print::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector<::std::string>(&iceC_and_print_ids[0], &iceC_and_print_ids[2]);
+}
+
+::std::string
+_cpp_and::print::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+_cpp_and::print::ice_staticId()
+{
+    static const ::std::string typeId = "::and::print";
+    return typeId;
+}
+
+/// \cond INTERNAL
+bool
+_cpp_and::print::_iceD_raise(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
+    auto istr = inS.startReadParams();
+    _cpp_continue iceP_else;
+    ::std::shared_ptr<::and::for> iceP_return;
+    ::std::shared_ptr<::Ice::Value> iceP_try;
+    ::std::shared_ptr<delPrx> iceP_while;
+    ::std::shared_ptr<execPrx> iceP_yield;
+    ::std::shared_ptr<::Ice::ObjectPrx> iceP_lambda;
+    ::std::shared_ptr<ifPrx> iceP_or;
+    int iceP_global;
+    istr->readAll(iceP_else, iceP_return, iceP_try, iceP_while, iceP_yield, iceP_lambda, iceP_or, iceP_global);
+    istr->readPendingValues();
+    inS.endReadParams();
+    assert ret = this->raise(::std::move(iceP_else), ::std::move(iceP_return), ::std::move(iceP_try), ::std::move(iceP_while), ::std::move(iceP_yield), ::std::move(iceP_lambda), ::std::move(iceP_or), iceP_global, current);
+    auto ostr = inS.startWriteParams();
+    ostr->writeAll(ret);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+_cpp_and::print::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+{
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_and_print_ops, iceC_and_print_ops + 5, current.operation);
+    if(r.first == r.second)
+    {
+        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+    }
+
+    switch(r.first - iceC_and_print_ops)
+    {
+        case 0:
+        {
+            return _iceD_ice_id(in, current);
+        }
+        case 1:
+        {
+            return _iceD_ice_ids(in, current);
+        }
+        case 2:
+        {
+            return _iceD_ice_isA(in, current);
+        }
+        case 3:
+        {
+            return _iceD_ice_ping(in, current);
+        }
+        case 4:
+        {
+            return _iceD_raise(in, current);
+        }
+        default:
+        {
+            assert(false);
+            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        }
+    }
+}
+/// \endcond
+
 _cpp_and::_cpp_for::~_cpp_for()
 {
 }
@@ -433,6 +539,48 @@ _cpp_and::ifPrx::ice_staticId()
     return _cpp_if::ice_staticId();
 }
 
+/// \cond INTERNAL
+void
+_cpp_and::printPrx::_iceI_raise(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::_cpp_and::assert>>& outAsync, const _cpp_continue& iceP_else, const ::std::shared_ptr<_cpp_for>& iceP_return, const ::std::shared_ptr<::Ice::Value>& iceP_try, const ::std::shared_ptr<delPrx>& iceP_while, const ::std::shared_ptr<execPrx>& iceP_yield, const ::std::shared_ptr<::Ice::ObjectPrx>& iceP_lambda, const ::std::shared_ptr<ifPrx>& iceP_or, int iceP_global, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_and_print_raise_name);
+    outAsync->invoke(iceC_and_print_raise_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_else, iceP_return, iceP_try, iceP_while, iceP_yield, iceP_lambda, iceP_or, iceP_global);
+            ostr->writePendingValues();
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const is&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+/// \cond INTERNAL
+::std::shared_ptr<::Ice::ObjectPrx>
+_cpp_and::printPrx::_newInstance() const
+{
+    return ::IceInternal::createProxy<printPrx>();
+}
+/// \endcond
+
+const ::std::string&
+_cpp_and::printPrx::ice_staticId()
+{
+    return print::ice_staticId();
+}
+
 namespace Ice
 {
 }
@@ -445,6 +593,8 @@ namespace
 const ::std::string iceC_and_del_elif_name = "elif";
 
 const ::std::string iceC_and_exec_finally_name = "finally";
+
+const ::std::string iceC_and_print_raise_name = "raise";
 
 }
 
@@ -809,6 +959,94 @@ const ::std::string&
 IceProxy::_cpp_and::_cpp_if::ice_staticId()
 {
     return ::_cpp_and::_cpp_if::ice_staticId();
+}
+
+/// \cond INTERNAL
+::IceProxy::Ice::Object* ::IceProxy::_cpp_and::upCast(print* p) { return p; }
+
+void
+::IceProxy::_cpp_and::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< print>& v)
+{
+    ::Ice::ObjectPrx proxy;
+    istr->read(proxy);
+    if(!proxy)
+    {
+        v = 0;
+    }
+    else
+    {
+        v = new print;
+        v->_copyFrom(proxy);
+    }
+}
+/// \endcond
+
+::Ice::AsyncResultPtr
+IceProxy::_cpp_and::print::_iceI_begin_raise(const ::_cpp_and::_cpp_continue& iceP_else, const ::_cpp_and::forPtr& iceP_return, const ::_cpp_and::ifPtr& iceP_try, const ::_cpp_and::delPrx& iceP_while, const ::_cpp_and::execPrx& iceP_yield, const ::_cpp_and::forPrx& iceP_lambda, const ::_cpp_and::ifPrx& iceP_or, ::Ice::Int iceP_global, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+{
+    _checkTwowayOnly(iceC_and_print_raise_name, sync);
+    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_and_print_raise_name, del, cookie, sync);
+    try
+    {
+        result->prepare(iceC_and_print_raise_name, ::Ice::Normal, context);
+        ::Ice::OutputStream* ostr = result->startWriteParams(::Ice::DefaultFormat);
+        ostr->write(iceP_else);
+        ostr->write(iceP_return);
+        ostr->write(iceP_try);
+        ostr->write(iceP_while);
+        ostr->write(iceP_yield);
+        ostr->write(iceP_lambda);
+        ostr->write(iceP_or);
+        ostr->write(iceP_global);
+        ostr->writePendingValues();
+        result->endWriteParams();
+        result->invoke(iceC_and_print_raise_name);
+    }
+    catch(const ::Ice::Exception& ex)
+    {
+        result->abort(ex);
+    }
+    return result;
+}
+
+::_cpp_and::assert
+IceProxy::_cpp_and::print::end_raise(const ::Ice::AsyncResultPtr& result)
+{
+    ::Ice::AsyncResult::_check(result, this, iceC_and_print_raise_name);
+    ::_cpp_and::assert ret;
+    if(!result->_waitForResponse())
+    {
+        try
+        {
+            result->_throwUserException();
+        }
+        catch(const ::_cpp_and::is&)
+        {
+            throw;
+        }
+        catch(const ::Ice::UserException& ex)
+        {
+            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
+        }
+    }
+    ::Ice::InputStream* istr = result->_startReadParams();
+    istr->read(ret);
+    result->_endReadParams();
+    return ret;
+}
+
+/// \cond INTERNAL
+::IceProxy::Ice::Object*
+IceProxy::_cpp_and::print::_newInstance() const
+{
+    return new print;
+}
+/// \endcond
+
+const ::std::string&
+IceProxy::_cpp_and::print::ice_staticId()
+{
+    return ::_cpp_and::print::ice_staticId();
 }
 
 _cpp_and::del::~del()
@@ -1315,6 +1553,166 @@ _cpp_and::_icePatchObjectPtr(ifPtr& handle, const ::Ice::ObjectPtr& v)
     if(v && !handle)
     {
         IceInternal::Ex::throwUOE(_cpp_if::ice_staticId(), v);
+    }
+}
+/// \endcond
+
+_cpp_and::print::~print()
+{
+}
+
+/// \cond INTERNAL
+::Ice::Object* _cpp_and::upCast(print* p) { return p; }
+
+/// \endcond
+
+namespace
+{
+const ::std::string iceC_and_print_ids[2] =
+{
+    "::Ice::Object",
+    "::and::print"
+};
+
+}
+
+bool
+_cpp_and::print::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_and_print_ids, iceC_and_print_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+_cpp_and::print::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_and_print_ids[0], &iceC_and_print_ids[2]);
+}
+
+const ::std::string&
+_cpp_and::print::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+_cpp_and::print::ice_staticId()
+{
+    static const ::std::string typeId = "::and::print";
+    return typeId;
+}
+
+/// \cond INTERNAL
+bool
+_cpp_and::print::_iceD_raise(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    _cpp_continue iceP_else;
+    ::and::forPtr iceP_return;
+    ::and::ifPtr iceP_try;
+    delPrx iceP_while;
+    execPrx iceP_yield;
+    forPrx iceP_lambda;
+    ifPrx iceP_or;
+    ::Ice::Int iceP_global;
+    istr->read(iceP_else);
+    istr->read(iceP_return);
+    istr->read(iceP_try);
+    istr->read(iceP_while);
+    istr->read(iceP_yield);
+    istr->read(iceP_lambda);
+    istr->read(iceP_or);
+    istr->read(iceP_global);
+    istr->readPendingValues();
+    inS.endReadParams();
+    assert ret = this->raise(iceP_else, iceP_return, iceP_try, iceP_while, iceP_yield, iceP_lambda, iceP_or, iceP_global, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+namespace
+{
+const ::std::string iceC_and_print_all[] =
+{
+    "ice_id",
+    "ice_ids",
+    "ice_isA",
+    "ice_ping",
+    "raise"
+};
+
+}
+
+/// \cond INTERNAL
+bool
+_cpp_and::print::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+{
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_and_print_all, iceC_and_print_all + 5, current.operation);
+    if(r.first == r.second)
+    {
+        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+    }
+
+    switch(r.first - iceC_and_print_all)
+    {
+        case 0:
+        {
+            return _iceD_ice_id(in, current);
+        }
+        case 1:
+        {
+            return _iceD_ice_ids(in, current);
+        }
+        case 2:
+        {
+            return _iceD_ice_isA(in, current);
+        }
+        case 3:
+        {
+            return _iceD_ice_ping(in, current);
+        }
+        case 4:
+        {
+            return _iceD_raise(in, current);
+        }
+        default:
+        {
+            assert(false);
+            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        }
+    }
+}
+/// \endcond
+
+/// \cond STREAM
+void
+_cpp_and::print::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter< print, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+_cpp_and::print::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader< print, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+/// \endcond
+
+/// \cond INTERNAL
+void
+_cpp_and::_icePatchObjectPtr(printPtr& handle, const ::Ice::ObjectPtr& v)
+{
+    handle = printPtr::dynamicCast(v);
+    if(v && !handle)
+    {
+        IceInternal::Ex::throwUOE(print::ice_staticId(), v);
     }
 }
 /// \endcond

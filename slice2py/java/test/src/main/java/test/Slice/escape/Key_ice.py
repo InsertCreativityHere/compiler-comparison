@@ -372,23 +372,65 @@ if '_import' not in _M_abstract.__dict__:
     _M_abstract._import = _import
     del _import
 
-if 'new' not in _M_abstract.__dict__:
-    _M_abstract.new = Ice.createTempClass()
-    class new(object):
-        def __init__(self):
-            if Ice.getType(self) == _M_abstract.new:
-                raise RuntimeError('abstract.new is an abstract class')
+_M_abstract._t_new = IcePy.defineValue('::abstract::new', Ice.Value, -1, (), False, True, None, ())
 
-        def notify(self, notifyAll, null, package, private, protected, public, _return, static, strictfp, super):
-            raise NotImplementedError("method 'notify' not implemented")
+if 'newPrx' not in _M_abstract.__dict__:
+    _M_abstract.newPrx = Ice.createTempClass()
+    class newPrx(Ice.ObjectPrx):
+
+        def notify(self, notifyAll, null, package, private, protected, public, _return, static, strictfp, super, context=None):
+            return _M_abstract.new._op_notify.invoke(self, ((notifyAll, null, package, private, protected, public, _return, static, strictfp, super), context))
+
+        def notifyAsync(self, notifyAll, null, package, private, protected, public, _return, static, strictfp, super, context=None):
+            return _M_abstract.new._op_notify.invokeAsync(self, ((notifyAll, null, package, private, protected, public, _return, static, strictfp, super), context))
+
+        def begin_notify(self, notifyAll, null, package, private, protected, public, _return, static, strictfp, super, _response=None, _ex=None, _sent=None, context=None):
+            return _M_abstract.new._op_notify.begin(self, ((notifyAll, null, package, private, protected, public, _return, static, strictfp, super), _response, _ex, _sent, context))
+
+        def end_notify(self, _r):
+            return _M_abstract.new._op_notify.end(self, _r)
+
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_abstract.newPrx.ice_checkedCast(proxy, '::abstract::new', facetOrContext, context)
+
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_abstract.newPrx.ice_uncheckedCast(proxy, facet)
+
+        @staticmethod
+        def ice_staticId():
+            return '::abstract::new'
+    _M_abstract._t_newPrx = IcePy.defineProxy('::abstract::new', newPrx)
+
+    _M_abstract.newPrx = newPrx
+    del newPrx
+
+    _M_abstract.new = Ice.createTempClass()
+    class new(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::abstract::new')
+
+        def ice_id(self, current=None):
+            return '::abstract::new'
+
+        @staticmethod
+        def ice_staticId():
+            return '::abstract::new'
+
+        def notify(self, notifyAll, null, package, private, protected, public, _return, static, strictfp, super, current=None):
+            raise NotImplementedError("servant method 'notify' not implemented")
 
         def __str__(self):
-            return IcePy.stringify(self, _M_abstract._t_new)
+            return IcePy.stringify(self, _M_abstract._t_newDisp)
 
         __repr__ = __str__
 
-    _M_abstract._t_new = IcePy.defineValue('::abstract::new', new, -1, (), False, True, None, ())
-    new._ice_type = _M_abstract._t_new
+    _M_abstract._t_newDisp = IcePy.defineClass('::abstract::new', new, (), None, ())
+    new._ice_type = _M_abstract._t_newDisp
+
+    new._op_notify = IcePy.Operation('notify', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_abstract._t__break, False, 0), ((), _M_abstract._t__else, False, 0), ((), _M_abstract._t_finalize, False, 0), ((), IcePy._t_ObjectPrx, False, 0), ((), _M_abstract._t_finalizePrx, False, 0), ((), _M_abstract._t_catchPrx, False, 0), ((), _M_abstract._t_defaultPrx, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M_abstract._t__assert, False, 0), (_M_abstract._t_hashCode, _M_abstract._t__import))
 
     _M_abstract.new = new
     del new

@@ -582,15 +582,8 @@ namespace and
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial interface @for
+    public partial interface @for : global::Ice.Object, forOperations_
     {
-        #region Slice operations
-
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        array @foreach(@break @if, echo global, enddeclare require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static);
-
-        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -622,6 +615,9 @@ namespace and
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public delegate void Callback_die_do();
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public delegate void Callback_for_foreach(array ret);
 }
 
 namespace and
@@ -678,6 +674,22 @@ namespace and
     public interface enddeclarePrx : diePrx, functionPrx
     {
     }
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public interface forPrx : global::Ice.ObjectPrx
+    {
+        array @foreach(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+
+        global::System.Threading.Tasks.Task<array> foreachAsync(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+
+        global::Ice.AsyncResult<Callback_for_foreach> begin_foreach(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+
+        global::Ice.AsyncResult begin_foreach(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.AsyncCallback callback, object cookie);
+
+        global::Ice.AsyncResult begin_foreach(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
+
+        array end_foreach(global::Ice.AsyncResult asyncResult);
+    }
 }
 
 namespace and
@@ -706,6 +718,13 @@ namespace and
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface enddeclareOperations_ : dieOperations_, functionOperations_
     {
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public interface forOperations_
+    {
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+        array @foreach(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.Current current = null);
     }
 }
 
@@ -1815,6 +1834,280 @@ namespace and
             return r;
         }
     }
+
+    [global::System.Runtime.InteropServices.ComVisible(false)]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public sealed class forPrxHelper : global::Ice.ObjectPrxHelperBase, forPrx
+    {
+        public forPrxHelper()
+        {
+        }
+
+        #region Synchronous operations
+
+        public array @foreach(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        {
+            try
+            {
+                return _iceI_foreachAsync(@if, global, require, include, @return, isset, list, @new, @static, context, null, global::System.Threading.CancellationToken.None, true).Result;
+            }
+            catch(global::System.AggregateException ex_)
+            {
+                throw ex_.InnerException;
+            }
+        }
+
+        #endregion
+
+        #region Async Task operations
+
+        public global::System.Threading.Tasks.Task<array> foreachAsync(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        {
+            return _iceI_foreachAsync(@if, global, require, include, @return, isset, list, @new, @static, context, progress, cancel, false);
+        }
+
+        private global::System.Threading.Tasks.Task<array> _iceI_foreachAsync(global::Ice.Value iceP_if, echo iceP_global, global::Ice.Value iceP_require, functionPrx iceP_include, diePrx iceP_return, global::Ice.ObjectPrx iceP_isset, enddeclarePrx iceP_list, int iceP_new, int iceP_static, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        {
+            iceCheckTwowayOnly(_foreach_name);
+            var completed = new global::IceInternal.OperationTaskCompletionCallback<array>(progress, cancel);
+            _iceI_foreach(iceP_if, iceP_global, iceP_require, iceP_include, iceP_return, iceP_isset, iceP_list, iceP_new, iceP_static, context, synchronous, completed);
+            return completed.Task;
+        }
+
+        private const string _foreach_name = "foreach";
+
+        private void _iceI_foreach(global::Ice.Value iceP_if, echo iceP_global, global::Ice.Value iceP_require, functionPrx iceP_include, diePrx iceP_return, global::Ice.ObjectPrx iceP_isset, enddeclarePrx iceP_list, int iceP_new, int iceP_static, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        {
+            var outAsync = getOutgoingAsync<array>(completed);
+            outAsync.invoke(
+                _foreach_name,
+                global::Ice.OperationMode.Normal,
+                global::Ice.FormatType.DefaultFormat,
+                context,
+                synchronous,
+                write: (global::Ice.OutputStream ostr) =>
+                {
+                    ostr.writeValue(iceP_if);
+                    ostr.writeValue(iceP_global);
+                    ostr.writeValue(iceP_require);
+                    functionPrxHelper.write(ostr, iceP_include);
+                    diePrxHelper.write(ostr, iceP_return);
+                    ostr.writeProxy(iceP_isset);
+                    enddeclarePrxHelper.write(ostr, iceP_list);
+                    ostr.writeInt(iceP_new);
+                    ostr.writeInt(iceP_static);
+                    ostr.writePendingValues();
+                },
+                userException: (global::Ice.UserException ex) =>
+                {
+                    try
+                    {
+                        throw ex;
+                    }
+                    catch(endwhile)
+                    {
+                        throw;
+                    }
+                    catch(endif)
+                    {
+                        throw;
+                    }
+                    catch(global::Ice.UserException)
+                    {
+                    }
+                },
+                read: (global::Ice.InputStream istr) =>
+                {
+                    array ret;
+                    ret = (array)istr.readEnum(0);
+                    return ret;
+                });
+        }
+
+        #endregion
+
+        #region Asynchronous operations
+
+        public global::Ice.AsyncResult<Callback_for_foreach> begin_foreach(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        {
+            return begin_foreach(@if, global, require, include, @return, isset, list, @new, @static, context, null, null, false);
+        }
+
+        public global::Ice.AsyncResult begin_foreach(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.AsyncCallback callback, object cookie)
+        {
+            return begin_foreach(@if, global, require, include, @return, isset, list, @new, @static, new global::Ice.OptionalContext(), callback, cookie, false);
+        }
+
+        public global::Ice.AsyncResult begin_foreach(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
+        {
+            return begin_foreach(@if, global, require, include, @return, isset, list, @new, @static, context, callback, cookie, false);
+        }
+
+        public array end_foreach(global::Ice.AsyncResult asyncResult)
+        {
+            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _foreach_name);
+            var outgoing_ = (global::IceInternal.OutgoingAsyncT<array>)resultI_.OutgoingAsync;
+            return outgoing_.getResult(resultI_.wait());
+        }
+
+        private global::Ice.AsyncResult<Callback_for_foreach> begin_foreach(global::Ice.Value iceP_if, echo iceP_global, global::Ice.Value iceP_require, functionPrx iceP_include, diePrx iceP_return, global::Ice.ObjectPrx iceP_isset, enddeclarePrx iceP_list, int iceP_new, int iceP_static, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+        {
+            iceCheckAsyncTwowayOnly(_foreach_name);
+            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_for_foreach, array>(
+                (Callback_for_foreach cb, array ret) =>
+                {
+                    if(cb != null)
+                    {
+                        cb.Invoke(ret);
+                    }
+                },
+                this, _foreach_name, cookie, completedCallback);
+            _iceI_foreach(iceP_if, iceP_global, iceP_require, iceP_include, iceP_return, iceP_isset, iceP_list, iceP_new, iceP_static, context, synchronous, completed);
+            return completed;
+        }
+
+        #endregion
+
+        #region Checked and unchecked cast operations
+
+        public static forPrx checkedCast(global::Ice.ObjectPrx b)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            forPrx r = b as forPrx;
+            if((r == null) && b.ice_isA(ice_staticId()))
+            {
+                forPrxHelper h = new forPrxHelper();
+                h.iceCopyFrom(b);
+                r = h;
+            }
+            return r;
+        }
+
+        public static forPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            forPrx r = b as forPrx;
+            if((r == null) && b.ice_isA(ice_staticId(), ctx))
+            {
+                forPrxHelper h = new forPrxHelper();
+                h.iceCopyFrom(b);
+                r = h;
+            }
+            return r;
+        }
+
+        public static forPrx checkedCast(global::Ice.ObjectPrx b, string f)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            try
+            {
+                if(bb.ice_isA(ice_staticId()))
+                {
+                    forPrxHelper h = new forPrxHelper();
+                    h.iceCopyFrom(bb);
+                    return h;
+                }
+            }
+            catch(global::Ice.FacetNotExistException)
+            {
+            }
+            return null;
+        }
+
+        public static forPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            try
+            {
+                if(bb.ice_isA(ice_staticId(), ctx))
+                {
+                    forPrxHelper h = new forPrxHelper();
+                    h.iceCopyFrom(bb);
+                    return h;
+                }
+            }
+            catch(global::Ice.FacetNotExistException)
+            {
+            }
+            return null;
+        }
+
+        public static forPrx uncheckedCast(global::Ice.ObjectPrx b)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            forPrx r = b as forPrx;
+            if(r == null)
+            {
+                forPrxHelper h = new forPrxHelper();
+                h.iceCopyFrom(b);
+                r = h;
+            }
+            return r;
+        }
+
+        public static forPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            forPrxHelper h = new forPrxHelper();
+            h.iceCopyFrom(bb);
+            return h;
+        }
+
+        private static readonly string[] _ids =
+        {
+            "::Ice::Object",
+            "::and::for"
+        };
+
+        public static string ice_staticId()
+        {
+            return _ids[1];
+        }
+
+        #endregion
+
+        #region Marshaling support
+
+        public static void write(global::Ice.OutputStream ostr, forPrx v)
+        {
+            ostr.writeProxy(v);
+        }
+
+        public static forPrx read(global::Ice.InputStream istr)
+        {
+            global::Ice.ObjectPrx proxy = istr.readProxy();
+            if(proxy != null)
+            {
+                forPrxHelper result = new forPrxHelper();
+                result.iceCopyFrom(proxy);
+                return result;
+            }
+            return null;
+        }
+
+        #endregion
+    }
 }
 
 namespace and
@@ -2228,5 +2521,132 @@ namespace and
             global::System.Diagnostics.Debug.Assert(false);
             throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
         }
+    }
+
+    [global::System.Runtime.InteropServices.ComVisible(false)]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public abstract class forDisp_ : global::Ice.ObjectImpl, @for
+    {
+        #region Slice operations
+
+        public abstract array @foreach(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.Current current = null);
+
+        #endregion
+
+        #region Slice type-related members
+
+        private static readonly string[] _ids =
+        {
+            "::Ice::Object",
+            "::and::for"
+        };
+
+        public override bool ice_isA(string s, global::Ice.Current current = null)
+        {
+            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+        }
+
+        public override string[] ice_ids(global::Ice.Current current = null)
+        {
+            return _ids;
+        }
+
+        public override string ice_id(global::Ice.Current current = null)
+        {
+            return _ids[1];
+        }
+
+        public static new string ice_staticId()
+        {
+            return _ids[1];
+        }
+
+        #endregion
+
+        #region Operation dispatch
+
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        iceD_foreach(@for obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
+            var istr = inS.startReadParams();
+            global::Ice.Value iceP_if;
+            iceP_if = null;
+            echo iceP_global;
+            iceP_global = null;
+            global::Ice.Value iceP_require;
+            iceP_require = null;
+            functionPrx iceP_include;
+            diePrx iceP_return;
+            global::Ice.ObjectPrx iceP_isset;
+            enddeclarePrx iceP_list;
+            int iceP_new;
+            int iceP_static;
+            istr.readValue((global::Ice.Value v) => {iceP_if = v; });
+            istr.readValue((echo v) => {iceP_global = v; });
+            istr.readValue((global::Ice.Value v) => {iceP_require = v; });
+            iceP_include = functionPrxHelper.read(istr);
+            iceP_return = diePrxHelper.read(istr);
+            iceP_isset = istr.readProxy();
+            iceP_list = enddeclarePrxHelper.read(istr);
+            iceP_new = istr.readInt();
+            iceP_static = istr.readInt();
+            istr.readPendingValues();
+            inS.endReadParams();
+            var ret = obj.@foreach(iceP_if, iceP_global, iceP_require, iceP_include, iceP_return, iceP_isset, iceP_list, iceP_new, iceP_static, current);
+            var ostr = inS.startWriteParams();
+            ostr.writeEnum((int)ret, 0);
+            inS.endWriteParams(ostr);
+            return inS.setResult(ostr);
+        }
+
+        private static readonly string[] _all =
+        {
+            "foreach",
+            "ice_id",
+            "ice_ids",
+            "ice_isA",
+            "ice_ping"
+        };
+
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
+        {
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            if(pos < 0)
+            {
+                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            }
+
+            switch(pos)
+            {
+                case 0:
+                {
+                    return iceD_foreach(this, inS, current);
+                }
+                case 1:
+                {
+                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
+                }
+                case 2:
+                {
+                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
+                }
+                case 3:
+                {
+                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
+                }
+                case 4:
+                {
+                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
+                }
+            }
+
+            global::System.Diagnostics.Debug.Assert(false);
+            throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
+        }
+
+        #endregion
     }
 }

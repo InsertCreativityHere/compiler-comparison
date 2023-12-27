@@ -15,7 +15,7 @@
 
 package test.Ice.operations.M;
 
-public class B extends A
+public abstract class B extends A
 {
     public B()
     {

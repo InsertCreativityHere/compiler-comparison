@@ -46,6 +46,8 @@ class diePrx;
 class echo;
 class enddeclare;
 class enddeclarePrx;
+class _cpp_for;
+class forPrx;
 
 }
 
@@ -352,6 +354,50 @@ public:
     /// \endcond
 };
 
+class _cpp_for : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = forPrx;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual array foreach(::std::shared_ptr<::Ice::Value> _cpp_if, ::std::shared_ptr<::and::echo> global, ::std::shared_ptr<::Ice::Value> require, ::std::shared_ptr<functionPrx> include, ::std::shared_ptr<diePrx> _cpp_return, ::std::shared_ptr<::Ice::ObjectPrx> isset, ::std::shared_ptr<enddeclarePrx> list, int _cpp_new, int _cpp_static, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_foreach(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    /// \endcond
+};
+
 }
 
 namespace _cpp_and
@@ -568,6 +614,52 @@ protected:
     /// \endcond
 };
 
+class forPrx : public virtual ::Ice::Proxy<forPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    array foreach(const ::std::shared_ptr<::Ice::Value>& _cpp_if, const ::std::shared_ptr<echo>& global, const ::std::shared_ptr<::Ice::Value>& require, const ::std::shared_ptr<functionPrx>& include, const ::std::shared_ptr<diePrx>& _cpp_return, const ::std::shared_ptr<::Ice::ObjectPrx>& isset, const ::std::shared_ptr<enddeclarePrx>& list, int _cpp_new, int _cpp_static, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        return _makePromiseOutgoing<::_cpp_and::array>(true, this, &forPrx::_iceI_foreach, _cpp_if, global, require, include, _cpp_return, isset, list, _cpp_new, _cpp_static, context).get();
+    }
+
+    template<template<typename> class P = ::std::promise>
+    auto foreachAsync(const ::std::shared_ptr<::Ice::Value>& _cpp_if, const ::std::shared_ptr<echo>& global, const ::std::shared_ptr<::Ice::Value>& require, const ::std::shared_ptr<functionPrx>& include, const ::std::shared_ptr<diePrx>& _cpp_return, const ::std::shared_ptr<::Ice::ObjectPrx>& isset, const ::std::shared_ptr<enddeclarePrx>& list, int _cpp_new, int _cpp_static, const ::Ice::Context& context = ::Ice::noExplicitContext)
+        -> decltype(::std::declval<P<::_cpp_and::array>>().get_future())
+    {
+        return _makePromiseOutgoing<::_cpp_and::array, P>(false, this, &forPrx::_iceI_foreach, _cpp_if, global, require, include, _cpp_return, isset, list, _cpp_new, _cpp_static, context);
+    }
+
+    ::std::function<void()>
+    foreachAsync(const ::std::shared_ptr<::Ice::Value>& _cpp_if, const ::std::shared_ptr<echo>& global, const ::std::shared_ptr<::Ice::Value>& require, const ::std::shared_ptr<functionPrx>& include, const ::std::shared_ptr<diePrx>& _cpp_return, const ::std::shared_ptr<::Ice::ObjectPrx>& isset, const ::std::shared_ptr<enddeclarePrx>& list, int _cpp_new, int _cpp_static,
+                 ::std::function<void(::_cpp_and::array)> response,
+                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                 ::std::function<void(bool)> sent = nullptr,
+                 const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        return _makeLambdaOutgoing<::_cpp_and::array>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::forPrx::_iceI_foreach, _cpp_if, global, require, include, _cpp_return, isset, list, _cpp_new, _cpp_static, context);
+    }
+
+    /// \cond INTERNAL
+    void _iceI_foreach(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::_cpp_and::array>>&, const ::std::shared_ptr<::Ice::Value>&, const ::std::shared_ptr<echo>&, const ::std::shared_ptr<::Ice::Value>&, const ::std::shared_ptr<functionPrx>&, const ::std::shared_ptr<diePrx>&, const ::std::shared_ptr<::Ice::ObjectPrx>&, const ::std::shared_ptr<enddeclarePrx>&, int, int, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+protected:
+
+    /// \cond INTERNAL
+    forPrx() = default;
+    friend ::std::shared_ptr<forPrx> IceInternal::createProxy<forPrx>();
+
+    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
+    /// \endcond
+};
+
 }
 
 /// \cond STREAM
@@ -658,6 +750,9 @@ using echoPtr = ::std::shared_ptr<echo>;
 using enddeclarePtr = ::std::shared_ptr<enddeclare>;
 using enddeclarePrxPtr = ::std::shared_ptr<enddeclarePrx>;
 
+using forPtr = ::std::shared_ptr<_cpp_for>;
+using forPrxPtr = ::std::shared_ptr<forPrx>;
+
 }
 /// \endcond
 
@@ -697,6 +792,12 @@ class enddeclare;
 /// \cond INTERNAL
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< enddeclare>&);
 ::IceProxy::Ice::Object* upCast(enddeclare*);
+/// \endcond
+
+class _cpp_for;
+/// \cond INTERNAL
+void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< _cpp_for>&);
+::IceProxy::Ice::Object* upCast(_cpp_for*);
 /// \endcond
 
 }
@@ -759,6 +860,17 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::enddeclare> enddeclare
 typedef enddeclarePrx enddeclarePrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(enddeclarePtr&, const ::Ice::ObjectPtr&);
+/// \endcond
+
+class _cpp_for;
+/// \cond INTERNAL
+::Ice::Object* upCast(_cpp_for*);
+/// \endcond
+typedef ::IceInternal::Handle< _cpp_for> forPtr;
+typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::_cpp_for> forPrx;
+typedef forPrx forPrxPtr;
+/// \cond INTERNAL
+void _icePatchObjectPtr(forPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
 
 }
@@ -1055,6 +1167,14 @@ typedef ::IceUtil::Handle< Callback_function_continue_Base> Callback_function_co
 class Callback_die_do_Base : public virtual ::IceInternal::CallbackBase { };
 typedef ::IceUtil::Handle< Callback_die_do_Base> Callback_die_doPtr;
 
+/**
+ * Base class for asynchronous callback wrapper classes used for calls to
+ * IceProxy::_cpp_and::_cpp_for::begin_foreach.
+ * Create a wrapper instance by calling ::_cpp_and::newCallback_for_foreach.
+ */
+class Callback_for_foreach_Base : public virtual ::IceInternal::CallbackBase { };
+typedef ::IceUtil::Handle< Callback_for_foreach_Base> Callback_for_foreachPtr;
+
 }
 
 namespace IceProxy
@@ -1265,6 +1385,61 @@ protected:
 
 class enddeclare : public virtual ::Ice::Proxy<enddeclare, _enddeclareBase>
 {
+public:
+
+    /**
+     * Obtains the Slice type ID corresponding to this interface.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+protected:
+    /// \cond INTERNAL
+
+    virtual ::IceProxy::Ice::Object* _newInstance() const;
+    /// \endcond
+};
+
+class _cpp_for : public virtual ::Ice::Proxy<_cpp_for, ::IceProxy::Ice::Object>
+{
+public:
+
+    ::_cpp_and::array foreach(const ::_cpp_and::breakPtr& _cpp_if, const ::_cpp_and::echoPtr& global, const ::_cpp_and::enddeclarePtr& require, const ::_cpp_and::functionPrx& include, const ::_cpp_and::diePrx& _cpp_return, const ::_cpp_and::echoPrx& isset, const ::_cpp_and::enddeclarePrx& list, ::Ice::Int _cpp_new, ::Ice::Int _cpp_static, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        return end_foreach(_iceI_begin_foreach(_cpp_if, global, require, include, _cpp_return, isset, list, _cpp_new, _cpp_static, context, ::IceInternal::dummyCallback, 0, true));
+    }
+
+    ::Ice::AsyncResultPtr begin_foreach(const ::_cpp_and::breakPtr& _cpp_if, const ::_cpp_and::echoPtr& global, const ::_cpp_and::enddeclarePtr& require, const ::_cpp_and::functionPrx& include, const ::_cpp_and::diePrx& _cpp_return, const ::_cpp_and::echoPrx& isset, const ::_cpp_and::enddeclarePrx& list, ::Ice::Int _cpp_new, ::Ice::Int _cpp_static, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        return _iceI_begin_foreach(_cpp_if, global, require, include, _cpp_return, isset, list, _cpp_new, _cpp_static, context, ::IceInternal::dummyCallback, 0);
+    }
+
+    ::Ice::AsyncResultPtr begin_foreach(const ::_cpp_and::breakPtr& _cpp_if, const ::_cpp_and::echoPtr& global, const ::_cpp_and::enddeclarePtr& require, const ::_cpp_and::functionPrx& include, const ::_cpp_and::diePrx& _cpp_return, const ::_cpp_and::echoPrx& isset, const ::_cpp_and::enddeclarePrx& list, ::Ice::Int _cpp_new, ::Ice::Int _cpp_static, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_foreach(_cpp_if, global, require, include, _cpp_return, isset, list, _cpp_new, _cpp_static, ::Ice::noExplicitContext, cb, cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_foreach(const ::_cpp_and::breakPtr& _cpp_if, const ::_cpp_and::echoPtr& global, const ::_cpp_and::enddeclarePtr& require, const ::_cpp_and::functionPrx& include, const ::_cpp_and::diePrx& _cpp_return, const ::_cpp_and::echoPrx& isset, const ::_cpp_and::enddeclarePrx& list, ::Ice::Int _cpp_new, ::Ice::Int _cpp_static, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_foreach(_cpp_if, global, require, include, _cpp_return, isset, list, _cpp_new, _cpp_static, context, cb, cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_foreach(const ::_cpp_and::breakPtr& _cpp_if, const ::_cpp_and::echoPtr& global, const ::_cpp_and::enddeclarePtr& require, const ::_cpp_and::functionPrx& include, const ::_cpp_and::diePrx& _cpp_return, const ::_cpp_and::echoPrx& isset, const ::_cpp_and::enddeclarePrx& list, ::Ice::Int _cpp_new, ::Ice::Int _cpp_static, const ::_cpp_and::Callback_for_foreachPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_foreach(_cpp_if, global, require, include, _cpp_return, isset, list, _cpp_new, _cpp_static, ::Ice::noExplicitContext, cb, cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_foreach(const ::_cpp_and::breakPtr& _cpp_if, const ::_cpp_and::echoPtr& global, const ::_cpp_and::enddeclarePtr& require, const ::_cpp_and::functionPrx& include, const ::_cpp_and::diePrx& _cpp_return, const ::_cpp_and::echoPrx& isset, const ::_cpp_and::enddeclarePrx& list, ::Ice::Int _cpp_new, ::Ice::Int _cpp_static, const ::Ice::Context& context, const ::_cpp_and::Callback_for_foreachPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_foreach(_cpp_if, global, require, include, _cpp_return, isset, list, _cpp_new, _cpp_static, context, cb, cookie);
+    }
+
+    ::_cpp_and::array end_foreach(const ::Ice::AsyncResultPtr& result);
+
+private:
+
+    ::Ice::AsyncResultPtr _iceI_begin_foreach(const ::_cpp_and::breakPtr&, const ::_cpp_and::echoPtr&, const ::_cpp_and::enddeclarePtr&, const ::_cpp_and::functionPrx&, const ::_cpp_and::diePrx&, const ::_cpp_and::echoPrx&, const ::_cpp_and::enddeclarePrx&, ::Ice::Int, ::Ice::Int, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+
 public:
 
     /**
@@ -1665,6 +1840,78 @@ inline bool operator==(const enddeclare& lhs, const enddeclare& rhs)
 }
 
 inline bool operator<(const enddeclare& lhs, const enddeclare& rhs)
+{
+    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+}
+/// \endcond
+
+class _cpp_for : public virtual ::Ice::Object
+{
+public:
+
+    typedef forPrx ProxyType;
+    typedef forPtr PointerType;
+
+    virtual ~_cpp_for();
+
+#ifdef ICE_CPP11_COMPILER
+    _cpp_for() = default;
+    _cpp_for(const _cpp_for&) = default;
+    _cpp_for& operator=(const _cpp_for&) = default;
+#endif
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual array foreach(const breakPtr& _cpp_if, const echoPtr& global, const enddeclarePtr& require, const functionPrx& include, const diePrx& _cpp_return, const echoPrx& isset, const enddeclarePrx& list, ::Ice::Int _cpp_new, ::Ice::Int _cpp_static, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_foreach(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+protected:
+
+    /// \cond STREAM
+    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
+    virtual void _iceReadImpl(::Ice::InputStream*);
+    /// \endcond
+};
+
+/// \cond INTERNAL
+inline bool operator==(const _cpp_for& lhs, const _cpp_for& rhs)
+{
+    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+}
+
+inline bool operator<(const _cpp_for& lhs, const _cpp_for& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
 }
@@ -2270,6 +2517,158 @@ template<class T, typename CT> Callback_die_doPtr
 newCallback_die_do(T* instance, void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_die_do<T, CT>(instance, 0, excb, sentcb);
+}
+
+/**
+ * Type-safe asynchronous callback wrapper class used for calls to
+ * IceProxy::_cpp_and::_cpp_for::begin_foreach.
+ * Create a wrapper instance by calling ::_cpp_and::newCallback_for_foreach.
+ */
+template<class T>
+class CallbackNC_for_foreach : public Callback_for_foreach_Base, public ::IceInternal::TwowayCallbackNC<T>
+{
+public:
+
+    typedef IceUtil::Handle<T> TPtr;
+
+    typedef void (T::*Exception)(const ::Ice::Exception&);
+    typedef void (T::*Sent)(bool);
+    typedef void (T::*Response)(array);
+
+    CallbackNC_for_foreach(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+        : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
+    {
+    }
+
+    /// \cond INTERNAL
+    virtual void completed(const ::Ice::AsyncResultPtr& result) const
+    {
+        forPrx proxy = forPrx::uncheckedCast(result->getProxy());
+        array ret;
+        try
+        {
+            ret = proxy->end_foreach(result);
+        }
+        catch(const ::Ice::Exception& ex)
+        {
+            ::IceInternal::CallbackNC<T>::exception(result, ex);
+            return;
+        }
+        if(_response)
+        {
+            (::IceInternal::CallbackNC<T>::_callback.get()->*_response)(ret);
+        }
+    }
+    /// \endcond
+
+private:
+
+    Response _response;
+};
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::_cpp_and::for::begin_foreach.
+ */
+template<class T> Callback_for_foreachPtr
+newCallback_for_foreach(const IceUtil::Handle<T>& instance, void (T::*cb)(array), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_for_foreach<T>(instance, cb, excb, sentcb);
+}
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::_cpp_and::for::begin_foreach.
+ */
+template<class T> Callback_for_foreachPtr
+newCallback_for_foreach(T* instance, void (T::*cb)(array), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_for_foreach<T>(instance, cb, excb, sentcb);
+}
+
+/**
+ * Type-safe asynchronous callback wrapper class with cookie support used for calls to
+ * IceProxy::_cpp_and::_cpp_for::begin_foreach.
+ * Create a wrapper instance by calling ::_cpp_and::newCallback_for_foreach.
+ */
+template<class T, typename CT>
+class Callback_for_foreach : public Callback_for_foreach_Base, public ::IceInternal::TwowayCallback<T, CT>
+{
+public:
+
+    typedef IceUtil::Handle<T> TPtr;
+
+    typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
+    typedef void (T::*Sent)(bool , const CT&);
+    typedef void (T::*Response)(array, const CT&);
+
+    Callback_for_foreach(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+        : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
+    {
+    }
+
+    /// \cond INTERNAL
+    virtual void completed(const ::Ice::AsyncResultPtr& result) const
+    {
+        forPrx proxy = forPrx::uncheckedCast(result->getProxy());
+        array ret;
+        try
+        {
+            ret = proxy->end_foreach(result);
+        }
+        catch(const ::Ice::Exception& ex)
+        {
+            ::IceInternal::Callback<T, CT>::exception(result, ex);
+            return;
+        }
+        if(_response)
+        {
+            (::IceInternal::Callback<T, CT>::_callback.get()->*_response)(ret, CT::dynamicCast(result->getCookie()));
+        }
+    }
+    /// \endcond
+
+private:
+
+    Response _response;
+};
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * Use this overload when your callback methods receive a cookie value.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::_cpp_and::for::begin_foreach.
+ */
+template<class T, typename CT> Callback_for_foreachPtr
+newCallback_for_foreach(const IceUtil::Handle<T>& instance, void (T::*cb)(array, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_for_foreach<T, CT>(instance, cb, excb, sentcb);
+}
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * Use this overload when your callback methods receive a cookie value.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::_cpp_and::for::begin_foreach.
+ */
+template<class T, typename CT> Callback_for_foreachPtr
+newCallback_for_foreach(T* instance, void (T::*cb)(array, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_for_foreach<T, CT>(instance, cb, excb, sentcb);
 }
 
 }

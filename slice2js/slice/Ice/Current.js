@@ -18,7 +18,6 @@
 
 /* slice2js browser-bundle-skip */
 const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Struct");
 require("../Ice/Long");
 require("../Ice/HashMap");
 require("../Ice/HashUtil");
@@ -53,6 +52,37 @@ Ice.Current = class
         this.ctx = ctx;
         this.requestId = requestId;
         this.encoding = encoding;
+    }
+
+    _write(ostr)
+    {
+        ostr.writeValue(this.adapter);
+        ostr.writeValue(this.con);
+        Ice.Identity.write(ostr, this.id);
+        ostr.writeString(this.facet);
+        ostr.writeString(this.operation);
+        Ice.OperationMode._write(ostr, this.mode);
+        Ice.ContextHelper.write(ostr, this.ctx);
+        ostr.writeInt(this.requestId);
+        Ice.EncodingVersion.write(ostr, this.encoding);
+    }
+
+    _read(istr)
+    {
+        istr.readValue(obj => this.adapter = obj, Ice.Value);
+        istr.readValue(obj => this.con = obj, Ice.Value);
+        this.id = Ice.Identity.read(istr, this.id);
+        this.facet = istr.readString();
+        this.operation = istr.readString();
+        this.mode = Ice.OperationMode._read(istr);
+        this.ctx = Ice.ContextHelper.read(istr);
+        this.requestId = istr.readInt();
+        this.encoding = Ice.EncodingVersion.read(istr, this.encoding);
+    }
+
+    static get minWireSize()
+    {
+        return  14;
     }
 };
 

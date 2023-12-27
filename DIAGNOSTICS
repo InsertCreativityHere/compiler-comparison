@@ -1,3 +1,4 @@
+/Users/austin/Code/zeroc/ice/slice/IceSSL/ConnectionInfo.ice:42: warning: ignoring invalid metadata `cs:type:System.Security.Cryptography.X509Certificates.X509Certificate2[]'
 /Users/austin/Code/zeroc/ice/swift/test/Ice/optional/TestAMD.ice:62: warning: ignoring invalid metadata `cs:serializable:Ice.optional.Test.SerializableClass'
 /Users/austin/Code/zeroc/ice/cpp/bin/slice2js: error:include/IceUtil/Handle.h:41: ::IceUtil::NullHandleException
 /Users/austin/Code/zeroc/ice/slice/IceBT/EndpointInfo.ice:30: `Ice::EndpointInfo' has been declared but not defined

@@ -14,13 +14,4 @@
 // </auto-generated>
 //
 
-
-namespace Ice
-{
-    global $Ice__t_ObjectAdapter;
-    if(!isset($Ice__t_ObjectAdapter))
-    {
-        $Ice__t_ObjectAdapter = IcePHP_declareClass('::Ice::ObjectAdapter');
-    }
-}
 ?>

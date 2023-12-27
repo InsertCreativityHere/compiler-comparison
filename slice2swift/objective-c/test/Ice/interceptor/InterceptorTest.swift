@@ -59,22 +59,6 @@ open class InvalidInputException: Ice.UserException {
     }
 }
 
-open class RetryException: Ice.LocalException {
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::RetryException"
-    }
-
-    /// Returns a string representation of this exception
-    ///
-    /// - returns: `Swift.String` - The string representaton of this exception.
-    open override func ice_print() -> Swift.String {
-        return _RetryExceptionDescription
-    }
-}
-
 /// Traits for Slice interface `MyObject`.
 public struct MyObjectTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MyObject"]

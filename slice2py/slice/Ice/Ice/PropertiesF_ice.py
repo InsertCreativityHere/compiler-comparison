@@ -21,11 +21,4 @@ import Ice, IcePy
 _M_Ice = Ice.openModule('Ice')
 __name__ = 'Ice'
 
-if 'Properties' not in _M_Ice.__dict__:
-    _M_Ice._t_Properties = IcePy.declareValue('::Ice::Properties')
-
-if 'PropertiesAdmin' not in _M_Ice.__dict__:
-    _M_Ice._t_PropertiesAdminDisp = IcePy.declareClass('::Ice::PropertiesAdmin')
-    _M_Ice._t_PropertiesAdminPrx = IcePy.declareProxy('::Ice::PropertiesAdmin')
-
 # End of module Ice

@@ -191,44 +191,6 @@ if 'F' not in _M_Test.__dict__:
     _M_Test.F = F
     del F
 
-if 'G' not in _M_Test.__dict__:
-    _M_Test.G = Ice.createTempClass()
-    class G(Ice.LocalException):
-        def __init__(self, data=''):
-            self.data = data
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::Test::G'
-
-    _M_Test._t_G = IcePy.defineException('::Test::G', G, (), False, None, (('data', (), IcePy._t_string, False, 0),))
-    G._ice_type = _M_Test._t_G
-
-    _M_Test.G = G
-    del G
-
-if 'H' not in _M_Test.__dict__:
-    _M_Test.H = Ice.createTempClass()
-    class H(Ice.LocalException):
-        def __init__(self, data=''):
-            self.data = data
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::Test::H'
-
-    _M_Test._t_H = IcePy.defineException('::Test::H', H, (), False, None, (('data', (), IcePy._t_string, False, 0),))
-    H._ice_type = _M_Test._t_H
-
-    _M_Test.H = H
-    del H
-
 # Start of module Test.Mod
 _M_Test.Mod = Ice.openModule('Test.Mod')
 __name__ = 'Test.Mod'

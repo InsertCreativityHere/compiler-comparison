@@ -298,27 +298,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntf = TestIntf
     del TestIntf
 
-if 'Cookie' not in _M_Test.__dict__:
-    _M_Test.Cookie = Ice.createTempClass()
-    class Cookie(object):
-        def __init__(self):
-            if Ice.getType(self) == _M_Test.Cookie:
-                raise RuntimeError('Test.Cookie is an abstract class')
-
-        def message(self):
-            raise NotImplementedError("method 'message' not implemented")
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_Cookie)
-
-        __repr__ = __str__
-
-    _M_Test._t_Cookie = IcePy.defineValue('::Test::Cookie', Cookie, -1, (), False, False, None, ())
-    Cookie._ice_type = _M_Test._t_Cookie
-
-    _M_Test.Cookie = Cookie
-    del Cookie
-
 _M_Test._t_TestActivation = IcePy.defineValue('::Test::TestActivation', Ice.Value, -1, (), False, True, None, ())
 
 if 'TestActivationPrx' not in _M_Test.__dict__:

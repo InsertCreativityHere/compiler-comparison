@@ -21,47 +21,4 @@ namespace
     require_once 'Ice/Current.php';
     require_once 'Admin.php';
 }
-
-namespace IceGrid
-{
-    global $IceGrid__t_ReplicaGroupFilter;
-    interface ReplicaGroupFilter
-    {
-        public function filter($replicaGroupId, $adapterIds, $con, $ctx);
-    }
-    $IceGrid__t_ReplicaGroupFilter = IcePHP_defineClass('::IceGrid::ReplicaGroupFilter', '\\IceGrid\\ReplicaGroupFilter', -1, false, true, null, null);
-}
-
-namespace IceGrid
-{
-    global $IceGrid__t_TypeFilter;
-    interface TypeFilter
-    {
-        public function filter($type, $proxies, $con, $ctx);
-    }
-    $IceGrid__t_TypeFilter = IcePHP_defineClass('::IceGrid::TypeFilter', '\\IceGrid\\TypeFilter', -1, false, true, null, null);
-}
-
-namespace IceGrid
-{
-    global $IceGrid__t_RegistryPluginFacade;
-    interface RegistryPluginFacade
-    {
-        public function getApplicationInfo($name);
-        public function getServerInfo($id);
-        public function getAdapterServer($adapterId);
-        public function getAdapterApplication($adapterId);
-        public function getAdapterNode($adapterId);
-        public function getAdapterInfo($id);
-        public function getObjectInfo($id);
-        public function getNodeInfo($name);
-        public function getNodeLoad($name);
-        public function getPropertyForAdapter($adapterId, $name);
-        public function addReplicaGroupFilter($id, $filter);
-        public function removeReplicaGroupFilter($id, $filter);
-        public function addTypeFilter($type, $filter);
-        public function removeTypeFilter($type, $filter);
-    }
-    $IceGrid__t_RegistryPluginFacade = IcePHP_defineClass('::IceGrid::RegistryPluginFacade', '\\IceGrid\\RegistryPluginFacade', -1, false, true, null, null);
-}
 ?>

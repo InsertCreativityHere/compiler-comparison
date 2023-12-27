@@ -14,13 +14,4 @@
 // </auto-generated>
 //
 
-
-namespace Ice
-{
-    global $Ice__t_ServantLocator;
-    if(!isset($Ice__t_ServantLocator))
-    {
-        $Ice__t_ServantLocator = IcePHP_declareClass('::Ice::ServantLocator');
-    }
-}
 ?>

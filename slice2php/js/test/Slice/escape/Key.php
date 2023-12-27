@@ -425,11 +425,39 @@ namespace await
 namespace await
 {
     global $await__t_implicit;
-    interface implicit
+    global $await__t_implicitPrx;
+
+    class implicitPrxHelper
     {
-        public function in($internal, $is, $lock, $_namespace, $_new, $null, $operator, $override, $params, $_private);
+        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        {
+            return $proxy->ice_checkedCast('::await::implicit', $facetOrContext, $context);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::await::implicit', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::await::implicit';
+        }
     }
     $await__t_implicit = IcePHP_defineClass('::await::implicit', '\\await\\implicit', -1, false, true, null, null);
+
+    global $Ice__t_ObjectPrx;
+    $await__t_implicitPrx = IcePHP_defineProxy('::await::implicit', $Ice__t_ObjectPrx, null);
+
+    global $await__t_break;
+    global $await__t_delete;
+    global $await__t_explicit;
+    global $await__t_casePrx;
+    global $await__t_typeofPrx;
+    global $await__t_explicitPrx;
+    global $IcePHP__t_int;
+    global $await__t_var;
+    IcePHP_defineOperation($await__t_implicitPrx, 'in', 0, 0, 0, array(array($await__t_break), array($await__t_delete), array($await__t_explicit), array($await__t_casePrx), array($await__t_typeofPrx), array($await__t_delete), array($await__t_explicitPrx), array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int)), null, array($await__t_var), array($await__t_fixed, $await__t_foreach));
 }
 
 namespace await

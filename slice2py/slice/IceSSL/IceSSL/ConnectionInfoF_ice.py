@@ -21,7 +21,4 @@ import Ice, IcePy
 _M_IceSSL = Ice.openModule('IceSSL')
 __name__ = 'IceSSL'
 
-if 'ConnectionInfo' not in _M_IceSSL.__dict__:
-    _M_IceSSL._t_ConnectionInfo = IcePy.declareValue('::IceSSL::ConnectionInfo')
-
 # End of module IceSSL

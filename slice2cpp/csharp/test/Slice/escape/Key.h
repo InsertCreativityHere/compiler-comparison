@@ -47,6 +47,8 @@ class explicitPrx;
 class optionalMembers;
 class optionalParams;
 class optionalParamsPrx;
+class implicit;
+class implicitPrx;
 
 namespace System
 {
@@ -455,6 +457,50 @@ public:
     virtual void foreachAsync(::std::function<void(const Ice::optional<_cpp_break>& returnValue, const Ice::optional<as>& _cpp_goto, const Ice::optional<::std::shared_ptr<::Ice::Value>>& _cpp_if, const Ice::optional<_cpp_while>& internal, const Ice::optional<::std::string>& _cpp_namespace, const Ice::optional<::std::shared_ptr<explicitPrx>>& null)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_foreach(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    /// \endcond
+};
+
+class implicit : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = implicitPrx;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual as in(_cpp_break internal, ::std::shared_ptr<delegate> is, ::std::shared_ptr<::Ice::Value> lock, ::std::shared_ptr<casePrx> _cpp_namespace, ::std::shared_ptr<decimalPrx> _cpp_new, ::std::shared_ptr<delegate> null, ::std::shared_ptr<explicitPrx> _cpp_operator, int override, int params, int _cpp_private, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_in(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
     /// \cond INTERNAL
@@ -919,6 +965,52 @@ protected:
     /// \endcond
 };
 
+class implicitPrx : public virtual ::Ice::Proxy<implicitPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    as in(const _cpp_break& internal, const ::std::shared_ptr<delegate>& is, const ::std::shared_ptr<::Ice::Value>& lock, const ::std::shared_ptr<casePrx>& _cpp_namespace, const ::std::shared_ptr<decimalPrx>& _cpp_new, const ::std::shared_ptr<delegate>& null, const ::std::shared_ptr<explicitPrx>& _cpp_operator, int override, int params, int _cpp_private, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        return _makePromiseOutgoing<::abstract::as>(true, this, &implicitPrx::_iceI_in, internal, is, lock, _cpp_namespace, _cpp_new, null, _cpp_operator, override, params, _cpp_private, context).get();
+    }
+
+    template<template<typename> class P = ::std::promise>
+    auto inAsync(const _cpp_break& internal, const ::std::shared_ptr<delegate>& is, const ::std::shared_ptr<::Ice::Value>& lock, const ::std::shared_ptr<casePrx>& _cpp_namespace, const ::std::shared_ptr<decimalPrx>& _cpp_new, const ::std::shared_ptr<delegate>& null, const ::std::shared_ptr<explicitPrx>& _cpp_operator, int override, int params, int _cpp_private, const ::Ice::Context& context = ::Ice::noExplicitContext)
+        -> decltype(::std::declval<P<::abstract::as>>().get_future())
+    {
+        return _makePromiseOutgoing<::abstract::as, P>(false, this, &implicitPrx::_iceI_in, internal, is, lock, _cpp_namespace, _cpp_new, null, _cpp_operator, override, params, _cpp_private, context);
+    }
+
+    ::std::function<void()>
+    inAsync(const _cpp_break& internal, const ::std::shared_ptr<delegate>& is, const ::std::shared_ptr<::Ice::Value>& lock, const ::std::shared_ptr<casePrx>& _cpp_namespace, const ::std::shared_ptr<decimalPrx>& _cpp_new, const ::std::shared_ptr<delegate>& null, const ::std::shared_ptr<explicitPrx>& _cpp_operator, int override, int params, int _cpp_private,
+            ::std::function<void(::abstract::as)> response,
+            ::std::function<void(::std::exception_ptr)> ex = nullptr,
+            ::std::function<void(bool)> sent = nullptr,
+            const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        return _makeLambdaOutgoing<::abstract::as>(std::move(response), std::move(ex), std::move(sent), this, &abstract::implicitPrx::_iceI_in, internal, is, lock, _cpp_namespace, _cpp_new, null, _cpp_operator, override, params, _cpp_private, context);
+    }
+
+    /// \cond INTERNAL
+    void _iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::abstract::as>>&, const _cpp_break&, const ::std::shared_ptr<delegate>&, const ::std::shared_ptr<::Ice::Value>&, const ::std::shared_ptr<casePrx>&, const ::std::shared_ptr<decimalPrx>&, const ::std::shared_ptr<delegate>&, const ::std::shared_ptr<explicitPrx>&, int, int, int, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+protected:
+
+    /// \cond INTERNAL
+    implicitPrx() = default;
+    friend ::std::shared_ptr<implicitPrx> IceInternal::createProxy<implicitPrx>();
+
+    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
+    /// \endcond
+};
+
 namespace System
 {
 
@@ -1145,6 +1237,9 @@ using optionalMembersPtr = ::std::shared_ptr<optionalMembers>;
 using optionalParamsPtr = ::std::shared_ptr<optionalParams>;
 using optionalParamsPrxPtr = ::std::shared_ptr<optionalParamsPrx>;
 
+using implicitPtr = ::std::shared_ptr<implicit>;
+using implicitPrxPtr = ::std::shared_ptr<implicitPrx>;
+
 /// \cond INTERNAL
 namespace System
 {
@@ -1210,6 +1305,12 @@ class optionalParams;
 /// \cond INTERNAL
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< optionalParams>&);
 ::IceProxy::Ice::Object* upCast(optionalParams*);
+/// \endcond
+
+class implicit;
+/// \cond INTERNAL
+void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< implicit>&);
+::IceProxy::Ice::Object* upCast(implicit*);
 /// \endcond
 
 namespace System
@@ -1305,6 +1406,17 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::abstract::optionalParams> option
 typedef optionalParamsPrx optionalParamsPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(optionalParamsPtr&, const ::Ice::ObjectPtr&);
+/// \endcond
+
+class implicit;
+/// \cond INTERNAL
+::Ice::Object* upCast(implicit*);
+/// \endcond
+typedef ::IceInternal::Handle< implicit> implicitPtr;
+typedef ::IceInternal::ProxyHandle< ::IceProxy::abstract::implicit> implicitPrx;
+typedef implicitPrx implicitPrxPtr;
+/// \cond INTERNAL
+void _icePatchObjectPtr(implicitPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
 
 namespace System
@@ -1733,6 +1845,14 @@ typedef ::IceUtil::Handle< Callback_optionalParams_in_Base> Callback_optionalPar
 class Callback_optionalParams_foreach_Base : public virtual ::IceInternal::CallbackBase { };
 typedef ::IceUtil::Handle< Callback_optionalParams_foreach_Base> Callback_optionalParams_foreachPtr;
 
+/**
+ * Base class for asynchronous callback wrapper classes used for calls to
+ * IceProxy::abstract::implicit::begin_in.
+ * Create a wrapper instance by calling ::abstract::newCallback_implicit_in.
+ */
+class Callback_implicit_in_Base : public virtual ::IceInternal::CallbackBase { };
+typedef ::IceUtil::Handle< Callback_implicit_in_Base> Callback_implicit_inPtr;
+
 namespace System
 {
 
@@ -2107,6 +2227,61 @@ public:
 private:
 
     ::Ice::AsyncResultPtr _iceI_begin_foreach(const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+
+public:
+
+    /**
+     * Obtains the Slice type ID corresponding to this interface.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+protected:
+    /// \cond INTERNAL
+
+    virtual ::IceProxy::Ice::Object* _newInstance() const;
+    /// \endcond
+};
+
+class implicit : public virtual ::Ice::Proxy<implicit, ::IceProxy::Ice::Object>
+{
+public:
+
+    ::abstract::as in(const ::abstract::_cpp_break& internal, const ::abstract::delegatePtr& is, const ::abstract::explicitPtr& lock, const ::abstract::casePrx& _cpp_namespace, const ::abstract::decimalPrx& _cpp_new, const ::abstract::delegatePtr& null, const ::abstract::explicitPrx& _cpp_operator, ::Ice::Int override, ::Ice::Int params, ::Ice::Int _cpp_private, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        return end_in(_iceI_begin_in(internal, is, lock, _cpp_namespace, _cpp_new, null, _cpp_operator, override, params, _cpp_private, context, ::IceInternal::dummyCallback, 0, true));
+    }
+
+    ::Ice::AsyncResultPtr begin_in(const ::abstract::_cpp_break& internal, const ::abstract::delegatePtr& is, const ::abstract::explicitPtr& lock, const ::abstract::casePrx& _cpp_namespace, const ::abstract::decimalPrx& _cpp_new, const ::abstract::delegatePtr& null, const ::abstract::explicitPrx& _cpp_operator, ::Ice::Int override, ::Ice::Int params, ::Ice::Int _cpp_private, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        return _iceI_begin_in(internal, is, lock, _cpp_namespace, _cpp_new, null, _cpp_operator, override, params, _cpp_private, context, ::IceInternal::dummyCallback, 0);
+    }
+
+    ::Ice::AsyncResultPtr begin_in(const ::abstract::_cpp_break& internal, const ::abstract::delegatePtr& is, const ::abstract::explicitPtr& lock, const ::abstract::casePrx& _cpp_namespace, const ::abstract::decimalPrx& _cpp_new, const ::abstract::delegatePtr& null, const ::abstract::explicitPrx& _cpp_operator, ::Ice::Int override, ::Ice::Int params, ::Ice::Int _cpp_private, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_in(internal, is, lock, _cpp_namespace, _cpp_new, null, _cpp_operator, override, params, _cpp_private, ::Ice::noExplicitContext, cb, cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_in(const ::abstract::_cpp_break& internal, const ::abstract::delegatePtr& is, const ::abstract::explicitPtr& lock, const ::abstract::casePrx& _cpp_namespace, const ::abstract::decimalPrx& _cpp_new, const ::abstract::delegatePtr& null, const ::abstract::explicitPrx& _cpp_operator, ::Ice::Int override, ::Ice::Int params, ::Ice::Int _cpp_private, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_in(internal, is, lock, _cpp_namespace, _cpp_new, null, _cpp_operator, override, params, _cpp_private, context, cb, cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_in(const ::abstract::_cpp_break& internal, const ::abstract::delegatePtr& is, const ::abstract::explicitPtr& lock, const ::abstract::casePrx& _cpp_namespace, const ::abstract::decimalPrx& _cpp_new, const ::abstract::delegatePtr& null, const ::abstract::explicitPrx& _cpp_operator, ::Ice::Int override, ::Ice::Int params, ::Ice::Int _cpp_private, const ::abstract::Callback_implicit_inPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_in(internal, is, lock, _cpp_namespace, _cpp_new, null, _cpp_operator, override, params, _cpp_private, ::Ice::noExplicitContext, cb, cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_in(const ::abstract::_cpp_break& internal, const ::abstract::delegatePtr& is, const ::abstract::explicitPtr& lock, const ::abstract::casePrx& _cpp_namespace, const ::abstract::decimalPrx& _cpp_new, const ::abstract::delegatePtr& null, const ::abstract::explicitPrx& _cpp_operator, ::Ice::Int override, ::Ice::Int params, ::Ice::Int _cpp_private, const ::Ice::Context& context, const ::abstract::Callback_implicit_inPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_in(internal, is, lock, _cpp_namespace, _cpp_new, null, _cpp_operator, override, params, _cpp_private, context, cb, cookie);
+    }
+
+    ::abstract::as end_in(const ::Ice::AsyncResultPtr& result);
+
+private:
+
+    ::Ice::AsyncResultPtr _iceI_begin_in(const ::abstract::_cpp_break&, const ::abstract::delegatePtr&, const ::abstract::explicitPtr&, const ::abstract::casePrx&, const ::abstract::decimalPrx&, const ::abstract::delegatePtr&, const ::abstract::explicitPrx&, ::Ice::Int, ::Ice::Int, ::Ice::Int, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
@@ -2747,6 +2922,78 @@ inline bool operator==(const optionalParams& lhs, const optionalParams& rhs)
 }
 
 inline bool operator<(const optionalParams& lhs, const optionalParams& rhs)
+{
+    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+}
+/// \endcond
+
+class implicit : public virtual ::Ice::Object
+{
+public:
+
+    typedef implicitPrx ProxyType;
+    typedef implicitPtr PointerType;
+
+    virtual ~implicit();
+
+#ifdef ICE_CPP11_COMPILER
+    implicit() = default;
+    implicit(const implicit&) = default;
+    implicit& operator=(const implicit&) = default;
+#endif
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual as in(const _cpp_break& internal, const delegatePtr& is, const explicitPtr& lock, const casePrx& _cpp_namespace, const decimalPrx& _cpp_new, const delegatePtr& null, const explicitPrx& _cpp_operator, ::Ice::Int override, ::Ice::Int params, ::Ice::Int _cpp_private, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_in(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+protected:
+
+    /// \cond STREAM
+    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
+    virtual void _iceReadImpl(::Ice::InputStream*);
+    /// \endcond
+};
+
+/// \cond INTERNAL
+inline bool operator==(const implicit& lhs, const implicit& rhs)
+{
+    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+}
+
+inline bool operator<(const implicit& lhs, const implicit& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
 }
@@ -4047,6 +4294,158 @@ template<class T, typename CT> Callback_optionalParams_foreachPtr
 newCallback_optionalParams_foreach(T* instance, void (T::*cb)(const IceUtil::Optional<_cpp_break>&, const IceUtil::Optional<as>&, const IceUtil::Optional<explicitPtr>&, const IceUtil::Optional<_cpp_while>&, const IceUtil::Optional< ::std::string>&, const IceUtil::Optional<explicitPrx>&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_optionalParams_foreach<T, CT>(instance, cb, excb, sentcb);
+}
+
+/**
+ * Type-safe asynchronous callback wrapper class used for calls to
+ * IceProxy::abstract::implicit::begin_in.
+ * Create a wrapper instance by calling ::abstract::newCallback_implicit_in.
+ */
+template<class T>
+class CallbackNC_implicit_in : public Callback_implicit_in_Base, public ::IceInternal::TwowayCallbackNC<T>
+{
+public:
+
+    typedef IceUtil::Handle<T> TPtr;
+
+    typedef void (T::*Exception)(const ::Ice::Exception&);
+    typedef void (T::*Sent)(bool);
+    typedef void (T::*Response)(as);
+
+    CallbackNC_implicit_in(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+        : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
+    {
+    }
+
+    /// \cond INTERNAL
+    virtual void completed(const ::Ice::AsyncResultPtr& result) const
+    {
+        implicitPrx proxy = implicitPrx::uncheckedCast(result->getProxy());
+        as ret;
+        try
+        {
+            ret = proxy->end_in(result);
+        }
+        catch(const ::Ice::Exception& ex)
+        {
+            ::IceInternal::CallbackNC<T>::exception(result, ex);
+            return;
+        }
+        if(_response)
+        {
+            (::IceInternal::CallbackNC<T>::_callback.get()->*_response)(ret);
+        }
+    }
+    /// \endcond
+
+private:
+
+    Response _response;
+};
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::abstract::implicit::begin_in.
+ */
+template<class T> Callback_implicit_inPtr
+newCallback_implicit_in(const IceUtil::Handle<T>& instance, void (T::*cb)(as), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_implicit_in<T>(instance, cb, excb, sentcb);
+}
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::abstract::implicit::begin_in.
+ */
+template<class T> Callback_implicit_inPtr
+newCallback_implicit_in(T* instance, void (T::*cb)(as), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_implicit_in<T>(instance, cb, excb, sentcb);
+}
+
+/**
+ * Type-safe asynchronous callback wrapper class with cookie support used for calls to
+ * IceProxy::abstract::implicit::begin_in.
+ * Create a wrapper instance by calling ::abstract::newCallback_implicit_in.
+ */
+template<class T, typename CT>
+class Callback_implicit_in : public Callback_implicit_in_Base, public ::IceInternal::TwowayCallback<T, CT>
+{
+public:
+
+    typedef IceUtil::Handle<T> TPtr;
+
+    typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
+    typedef void (T::*Sent)(bool , const CT&);
+    typedef void (T::*Response)(as, const CT&);
+
+    Callback_implicit_in(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+        : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
+    {
+    }
+
+    /// \cond INTERNAL
+    virtual void completed(const ::Ice::AsyncResultPtr& result) const
+    {
+        implicitPrx proxy = implicitPrx::uncheckedCast(result->getProxy());
+        as ret;
+        try
+        {
+            ret = proxy->end_in(result);
+        }
+        catch(const ::Ice::Exception& ex)
+        {
+            ::IceInternal::Callback<T, CT>::exception(result, ex);
+            return;
+        }
+        if(_response)
+        {
+            (::IceInternal::Callback<T, CT>::_callback.get()->*_response)(ret, CT::dynamicCast(result->getCookie()));
+        }
+    }
+    /// \endcond
+
+private:
+
+    Response _response;
+};
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * Use this overload when your callback methods receive a cookie value.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::abstract::implicit::begin_in.
+ */
+template<class T, typename CT> Callback_implicit_inPtr
+newCallback_implicit_in(const IceUtil::Handle<T>& instance, void (T::*cb)(as, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_implicit_in<T, CT>(instance, cb, excb, sentcb);
+}
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * Use this overload when your callback methods receive a cookie value.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::abstract::implicit::begin_in.
+ */
+template<class T, typename CT> Callback_implicit_inPtr
+newCallback_implicit_in(T* instance, void (T::*cb)(as, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_implicit_in<T, CT>(instance, cb, excb, sentcb);
 }
 
 namespace System

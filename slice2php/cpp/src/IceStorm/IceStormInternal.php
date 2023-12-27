@@ -60,30 +60,6 @@ namespace IceStorm
 
 namespace IceStorm
 {
-    global $IceStorm__t_SendQueueSizeMaxReached;
-    class SendQueueSizeMaxReached extends \Ice\LocalException
-    {
-        public function __construct()
-        {
-        }
-
-        public function ice_id()
-        {
-            return '::IceStorm::SendQueueSizeMaxReached';
-        }
-
-        public function __toString(): string
-        {
-            global $IceStorm__t_SendQueueSizeMaxReached;
-            return IcePHP_stringifyException($this, $IceStorm__t_SendQueueSizeMaxReached);
-        }
-    }
-
-    $IceStorm__t_SendQueueSizeMaxReached = IcePHP_defineException('::IceStorm::SendQueueSizeMaxReached', '\\IceStorm\\SendQueueSizeMaxReached', false, null, null);
-}
-
-namespace IceStorm
-{
     global $IceStorm__t_EventDataSeq;
 
     if(!isset($IceStorm__t_EventDataSeq))

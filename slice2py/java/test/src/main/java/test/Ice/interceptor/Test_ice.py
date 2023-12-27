@@ -40,25 +40,6 @@ if 'InvalidInputException' not in _M_Test.__dict__:
     _M_Test.InvalidInputException = InvalidInputException
     del InvalidInputException
 
-if 'RetryException' not in _M_Test.__dict__:
-    _M_Test.RetryException = Ice.createTempClass()
-    class RetryException(Ice.LocalException):
-        def __init__(self):
-            pass
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::Test::RetryException'
-
-    _M_Test._t_RetryException = IcePy.defineException('::Test::RetryException', RetryException, (), False, None, ())
-    RetryException._ice_type = _M_Test._t_RetryException
-
-    _M_Test.RetryException = RetryException
-    del RetryException
-
 _M_Test._t_MyObject = IcePy.defineValue('::Test::MyObject', Ice.Value, -1, (), False, True, None, ())
 
 if 'MyObjectPrx' not in _M_Test.__dict__:

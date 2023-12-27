@@ -19,24 +19,4 @@ require 'Ice/BuiltinSequences.rb'
 require 'Ice/CommunicatorF.rb'
 
 module ::IceBox
-
-    if not defined?(::IceBox::FailureException)
-        class FailureException < Ice::LocalException
-            def initialize(reason='')
-                @reason = reason
-            end
-
-            def to_s
-                '::IceBox::FailureException'
-            end
-
-            attr_accessor :reason
-        end
-
-        T_FailureException = ::Ice::__defineException('::IceBox::FailureException', FailureException, false, nil, [["reason", ::Ice::T_string, false, 0]])
-    end
-
-    if not defined?(::IceBox::T_Service)
-        T_Service = ::Ice::__declareLocalClass('::IceBox::Service')
-    end
 end

@@ -19,13 +19,5 @@ require 'Ice'
 module ::Ice
 
     module Instrumentation
-
-        if not defined?(::Ice::Instrumentation::T_Observer)
-            T_Observer = ::Ice::__declareLocalClass('::Ice::Instrumentation::Observer')
-        end
-
-        if not defined?(::Ice::Instrumentation::T_CommunicatorObserver)
-            T_CommunicatorObserver = ::Ice::__declareLocalClass('::Ice::Instrumentation::CommunicatorObserver')
-        end
     end
 end

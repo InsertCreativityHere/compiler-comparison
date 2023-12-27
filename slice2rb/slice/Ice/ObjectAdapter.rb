@@ -22,8 +22,4 @@ require 'FacetMap.rb'
 require 'Endpoint.rb'
 
 module ::Ice
-
-    if not defined?(::Ice::T_ObjectAdapter)
-        T_ObjectAdapter = ::Ice::__declareLocalClass('::Ice::ObjectAdapter')
-    end
 end

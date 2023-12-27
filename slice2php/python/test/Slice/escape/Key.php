@@ -269,11 +269,40 @@ namespace _and
 namespace _and
 {
     global $and__t_print;
-    interface _print
+    global $and__t_printPrx;
+
+    class printPrxHelper
     {
-        public function raise($_else, $_return, $_try, $_while, $_yield, $lambda, $_or, $_global);
+        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        {
+            return $proxy->ice_checkedCast('::and::print', $facetOrContext, $context);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::and::print', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::and::print';
+        }
     }
     $and__t_print = IcePHP_defineClass('::and::print', '\\_and\\_print', -1, false, true, null, null);
+
+    global $Ice__t_ObjectPrx;
+    $and__t_printPrx = IcePHP_defineProxy('::and::print', $Ice__t_ObjectPrx, null);
+
+    global $and__t_continue;
+    global $and__t_for;
+    global $and__t_if;
+    global $and__t_delPrx;
+    global $and__t_execPrx;
+    global $Ice__t_ObjectPrx;
+    global $and__t_ifPrx;
+    global $IcePHP__t_int;
+    global $and__t_assert;
+    IcePHP_defineOperation($and__t_printPrx, 'raise', 0, 0, 0, array(array($and__t_continue), array($and__t_for), array($and__t_if), array($and__t_delPrx), array($and__t_execPrx), array($Ice__t_ObjectPrx), array($and__t_ifPrx), array($IcePHP__t_int)), null, array($and__t_assert), array($and__t_is));
 }
 
 namespace _and

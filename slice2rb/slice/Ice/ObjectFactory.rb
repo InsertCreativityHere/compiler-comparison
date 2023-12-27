@@ -17,8 +17,4 @@
 require 'Ice'
 
 module ::Ice
-
-    if not defined?(::Ice::T_ObjectFactory)
-        T_ObjectFactory = ::Ice::__declareLocalClass('::Ice::ObjectFactory')
-    end
 end

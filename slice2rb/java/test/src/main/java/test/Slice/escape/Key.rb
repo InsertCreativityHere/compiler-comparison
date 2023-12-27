@@ -246,8 +246,32 @@ module ::Abstract
         ])
     end
 
-    if not defined?(::Abstract::T_New)
-        T_New = ::Ice::__declareLocalClass('::abstract::new')
+    if not defined?(::Abstract::New_Mixin)
+
+        module ::Abstract::New_Mixin
+        end
+        module NewPrx_mixin
+
+            def notify(notifyAll, null, package, private, protected, public, _return, static, strictfp, _super, context=nil)
+                NewPrx_mixin::OP_notify.invoke(self, [notifyAll, null, package, private, protected, public, _return, static, strictfp, _super], context)
+            end
+        end
+
+        class NewPrx < ::Ice::ObjectPrx
+            include ::Ice::Proxy_mixin
+            include NewPrx_mixin
+        end
+
+        if not defined?(::Abstract::T_NewPrx)
+            T_New = ::Ice::__declareClass('::abstract::new')
+            T_NewPrx = ::Ice::__declareProxy('::abstract::new')
+        end
+
+        T_New.defineClass(::Ice::Value, -1, false, true, nil, [])
+
+        T_NewPrx.defineProxy(NewPrx, nil, [])
+
+        NewPrx_mixin::OP_notify = ::Ice::__defineOperation('notify', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Abstract::T_Break, false, 0], [::Abstract::T_Else, false, 0], [::Abstract::T_Finalize, false, 0], [::Ice::T_ObjectPrx, false, 0], [::Abstract::T_FinalizePrx, false, 0], [::Abstract::T_CatchPrx, false, 0], [::Abstract::T_DefaultPrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Abstract::T_Assert, false, 0], [::Abstract::T_HashCode, ::Abstract::T_Import])
     end
 
     Switch = 0

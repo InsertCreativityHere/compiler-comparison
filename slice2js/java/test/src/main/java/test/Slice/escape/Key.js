@@ -225,6 +225,28 @@
         }
     };
 
+    const iceC_abstract__new_ids = [
+        "::Ice::Object",
+        "::abstract::new"
+    ];
+
+    abstract.new = class extends Ice.Object
+    {
+    };
+
+    abstract.newPrx = class extends Ice.ObjectPrx
+    {
+    };
+
+    Slice.defineOperations(abstract.new, abstract.newPrx, iceC_abstract__new_ids, 1,
+    {
+        "notify": [, , , , [abstract.assert._helper], [[abstract._break], ["abstract._else", true], ["Ice.Value", true], [Ice.ObjectPrx], ["abstract.finalizePrx"], ["abstract.catchPrx"], ["abstract.defaultPrx"], [3], [3], [3]], ,
+        [
+            abstract._import,
+            abstract.hashCode
+        ], true, ]
+    });
+
     Object.defineProperty(abstract, '_switch', {
         value: 0
     });

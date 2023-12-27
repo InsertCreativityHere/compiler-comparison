@@ -31,17 +31,4 @@ namespace
     require_once 'FacetMap.php';
     require_once 'Connection.php';
 }
-
-namespace Ice
-{
-    global $Ice__t_ToStringMode;
-    class ToStringMode
-    {
-        const Unicode = 0;
-        const ASCII = 1;
-        const Compat = 2;
-    }
-
-    $Ice__t_ToStringMode = IcePHP_defineEnum('::Ice::ToStringMode', array('Unicode', 0, 'ASCII', 1, 'Compat', 2));
-}
 ?>

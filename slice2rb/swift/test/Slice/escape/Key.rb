@@ -276,10 +276,6 @@ module ::And
         ])
     end
 
-    if not defined?(::And::T_Friend)
-        T_Friend = ::Ice::__declareLocalClass('::and::friend')
-    end
-
     Is = 0
 
     Self = 0

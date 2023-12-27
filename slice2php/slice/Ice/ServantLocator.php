@@ -20,16 +20,4 @@ namespace
     require_once 'ObjectAdapterF.php';
     require_once 'Current.php';
 }
-
-namespace Ice
-{
-    global $Ice__t_ServantLocator;
-    interface ServantLocator
-    {
-        public function locate($curr, $cookie);
-        public function finished($curr, $servant, $cookie);
-        public function deactivate($category);
-    }
-    $Ice__t_ServantLocator = IcePHP_defineClass('::Ice::ServantLocator', '\\Ice\\ServantLocator', -1, false, true, null, null);
-}
 ?>

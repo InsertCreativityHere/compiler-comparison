@@ -310,8 +310,32 @@ module ::And
         ])
     end
 
-    if not defined?(::And::T_For)
-        T_For = ::Ice::__declareLocalClass('::and::for')
+    if not defined?(::And::For_Mixin)
+
+        module ::And::For_Mixin
+        end
+        module ForPrx_mixin
+
+            def foreach(_if, global, require, include, _return, isset, list, _new, static, context=nil)
+                ForPrx_mixin::OP_foreach.invoke(self, [_if, global, require, include, _return, isset, list, _new, static], context)
+            end
+        end
+
+        class ForPrx < ::Ice::ObjectPrx
+            include ::Ice::Proxy_mixin
+            include ForPrx_mixin
+        end
+
+        if not defined?(::And::T_ForPrx)
+            T_For = ::Ice::__declareClass('::and::for')
+            T_ForPrx = ::Ice::__declareProxy('::and::for')
+        end
+
+        T_For.defineClass(::Ice::Value, -1, false, true, nil, [])
+
+        T_ForPrx.defineProxy(ForPrx, nil, [])
+
+        ForPrx_mixin::OP_foreach = ::Ice::__defineOperation('foreach', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::And::T_Break, false, 0], [::And::T_Echo, false, 0], [::And::T_Enddeclare, false, 0], [::And::T_FunctionPrx, false, 0], [::And::T_DiePrx, false, 0], [::Ice::T_ObjectPrx, false, 0], [::And::T_EnddeclarePrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::And::T_Array, false, 0], [::And::T_Endif, ::And::T_Endwhile])
     end
 
     Or = 0

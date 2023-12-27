@@ -327,11 +327,40 @@ namespace _and
 namespace _and
 {
     global $and__t_for;
-    interface _for
+    global $and__t_forPrx;
+
+    class forPrxHelper
     {
-        public function _foreach($_if, $_global, $_require, $_include, $_return, $_isset, $_list, $_new, $_static);
+        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        {
+            return $proxy->ice_checkedCast('::and::for', $facetOrContext, $context);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::and::for', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::and::for';
+        }
     }
     $and__t_for = IcePHP_defineClass('::and::for', '\\_and\\_for', -1, false, true, null, null);
+
+    global $Ice__t_ObjectPrx;
+    $and__t_forPrx = IcePHP_defineProxy('::and::for', $Ice__t_ObjectPrx, null);
+
+    global $and__t_break;
+    global $and__t_echo;
+    global $and__t_enddeclare;
+    global $and__t_functionPrx;
+    global $and__t_diePrx;
+    global $Ice__t_ObjectPrx;
+    global $and__t_enddeclarePrx;
+    global $IcePHP__t_int;
+    global $and__t_array;
+    IcePHP_defineOperation($and__t_forPrx, 'foreach', 0, 0, 0, array(array($and__t_break), array($and__t_echo), array($and__t_enddeclare), array($and__t_functionPrx), array($and__t_diePrx), array($Ice__t_ObjectPrx), array($and__t_enddeclarePrx), array($IcePHP__t_int), array($IcePHP__t_int)), null, array($and__t_array), array($and__t_endif, $and__t_endwhile));
 }
 
 namespace _and

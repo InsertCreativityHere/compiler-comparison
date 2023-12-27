@@ -235,64 +235,6 @@ namespace Test
         array('data', $IcePHP__t_string, false, 0)));
 }
 
-namespace Test
-{
-    global $Test__t_G;
-    class G extends \Ice\LocalException
-    {
-        public function __construct($data='')
-        {
-            $this->data = $data;
-        }
-
-        public function ice_id()
-        {
-            return '::Test::G';
-        }
-
-        public function __toString(): string
-        {
-            global $Test__t_G;
-            return IcePHP_stringifyException($this, $Test__t_G);
-        }
-
-        public $data;
-    }
-    global $IcePHP__t_string;
-
-    $Test__t_G = IcePHP_defineException('::Test::G', '\\Test\\G', false, null, array(
-        array('data', $IcePHP__t_string, false, 0)));
-}
-
-namespace Test
-{
-    global $Test__t_H;
-    class H extends \Ice\LocalException
-    {
-        public function __construct($data='')
-        {
-            $this->data = $data;
-        }
-
-        public function ice_id()
-        {
-            return '::Test::H';
-        }
-
-        public function __toString(): string
-        {
-            global $Test__t_H;
-            return IcePHP_stringifyException($this, $Test__t_H);
-        }
-
-        public $data;
-    }
-    global $IcePHP__t_string;
-
-    $Test__t_H = IcePHP_defineException('::Test::H', '\\Test\\H', false, null, array(
-        array('data', $IcePHP__t_string, false, 0)));
-}
-
 namespace Test\Mod
 {
     global $Test_Mod__t_A;

@@ -25,12 +25,6 @@ __name__ = 'Ice'
 _M_Ice.Instrumentation = Ice.openModule('Ice.Instrumentation')
 __name__ = 'Ice.Instrumentation'
 
-if 'Observer' not in _M_Ice.Instrumentation.__dict__:
-    _M_Ice.Instrumentation._t_Observer = IcePy.declareValue('::Ice::Instrumentation::Observer')
-
-if 'CommunicatorObserver' not in _M_Ice.Instrumentation.__dict__:
-    _M_Ice.Instrumentation._t_CommunicatorObserver = IcePy.declareValue('::Ice::Instrumentation::CommunicatorObserver')
-
 # End of module Ice.Instrumentation
 
 __name__ = 'Ice'

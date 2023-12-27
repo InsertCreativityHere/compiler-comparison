@@ -15,7 +15,7 @@
 
 package Test.MB;
 
-public class CB extends Test.MA.CA
+public abstract class CB extends Test.MA.CA
 {
     public CB clone()
     {

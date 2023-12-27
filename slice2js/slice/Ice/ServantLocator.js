@@ -18,9 +18,6 @@
 
 /* slice2js browser-bundle-skip */
 const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Object");
-require("../Ice/Value");
-require("../Ice/ObjectPrx");
 require("../Ice/Long");
 require("../Ice/HashMap");
 require("../Ice/HashUtil");

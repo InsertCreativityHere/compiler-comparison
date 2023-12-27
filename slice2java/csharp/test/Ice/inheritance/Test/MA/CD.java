@@ -15,7 +15,7 @@
 
 package Test.MA;
 
-public class CD extends CC
+public abstract class CD extends CC
 {
     public CD clone()
     {

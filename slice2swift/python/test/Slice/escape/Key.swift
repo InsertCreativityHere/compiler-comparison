@@ -381,6 +381,12 @@ open class not: `is` {
         try super._iceReadImpl(from: istr);
     }
 }
+
+/// Traits for Slice interface `print`.
+public struct printTraits: Ice.SliceTraits {
+    public static let staticIds = ["::Ice::Object", "::and::print"]
+    public static let staticId = "::and::print"
+}
 public let lambda: Swift.Int32 = 0
 
 
@@ -779,6 +785,204 @@ public extension Ice.InputStream {
 /// ifPrx overview.
 public extension ifPrx {}
 
+/// printPrx overview.
+///
+/// printPrx Methods:
+///
+///  - raise: 
+///
+///  - raiseAsync: 
+public protocol printPrx: Ice.ObjectPrx {}
+
+private final class printPrxI: Ice.ObjectPrxI, printPrx {
+    public override class func ice_staticId() -> Swift.String {
+        return printTraits.staticId
+    }
+}
+
+/// Casts a proxy to the requested type. This call contacts the server and verifies that the object
+/// implements this type.
+///
+/// It will throw a local exception if a communication error occurs. You can optionally supply a
+/// facet name and a context map.
+///
+/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+///
+/// - parameter type: `printPrx.Protocol` - The proxy type to cast to.
+///
+/// - parameter facet: `String` - The optional name of the desired facet.
+///
+/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
+///
+/// - returns: `printPrx` - A proxy with the requested type or nil if the objet does not
+///   support this type.
+///
+/// - throws: `Ice.LocalException` if a communication error occurs.
+public func checkedCast(prx: Ice.ObjectPrx, type: printPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> printPrx? {
+    return try printPrxI.checkedCast(prx: prx, facet: facet, context: context) as printPrxI?
+}
+
+/// Downcasts the given proxy to this type without contacting the remote server.
+///
+/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+///
+/// - parameter type: `printPrx.Protocol` - The proxy type to cast to.
+///
+/// - parameter facet: `String` - The optional name of the desired facet
+///
+/// - returns: `printPrx` - A proxy with the requested type
+public func uncheckedCast(prx: Ice.ObjectPrx, type: printPrx.Protocol, facet: Swift.String? = nil) -> printPrx {
+    return printPrxI.uncheckedCast(prx: prx, facet: facet) as printPrxI
+}
+
+/// Returns the Slice type id of the interface or class associated with this proxy type.
+///
+/// parameter type: `printPrx.Protocol` -  The proxy type to retrieve the type id.
+///
+/// returns: `String` - The type id of the interface or class associated with this proxy type.
+public func ice_staticId(_ type: printPrx.Protocol) -> Swift.String {
+    return printTraits.staticId
+}
+
+/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// `printPrx`.
+public extension Ice.InputStream {
+    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
+    ///
+    /// - parameter type: `printPrx.Protocol` - The type of the proxy to be extracted.
+    ///
+    /// - returns: `printPrx?` - The extracted proxy
+    func read(_ type: printPrx.Protocol) throws -> printPrx? {
+        return try read() as printPrxI?
+    }
+    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
+    ///
+    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    ///
+    /// - parameter type: `printPrx.Protocol` - The type of the proxy to be extracted.
+    ///
+    /// - returns: `printPrx` - The extracted proxy.
+    func read(tag: Swift.Int32, type: printPrx.Protocol) throws -> printPrx? {
+        return try read(tag: tag) as printPrxI?
+    }
+}
+
+/// printPrx overview.
+///
+/// printPrx Methods:
+///
+///  - raise: 
+///
+///  - raiseAsync: 
+public extension printPrx {
+    ///
+    /// - parameter else: ``continue``
+    ///
+    /// - parameter return: ``for`?`
+    ///
+    /// - parameter try: `Ice.Value?`
+    ///
+    /// - parameter while: `delPrx?`
+    ///
+    /// - parameter yield: `execPrx?`
+    ///
+    /// - parameter lambda: `Ice.ObjectPrx?`
+    ///
+    /// - parameter or: `ifPrx?`
+    ///
+    /// - parameter global: `Swift.Int32`
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    ///
+    /// - returns: `assert`
+    func raise(else iceP_else: `continue`, return iceP_return: `for`?, try iceP_try: Ice.Value?, while iceP_while: delPrx?, yield iceP_yield: execPrx?, lambda iceP_lambda: Ice.ObjectPrx?, or iceP_or: ifPrx?, global iceP_global: Swift.Int32, context: Ice.Context? = nil) throws -> assert {
+        return try _impl._invoke(operation: "raise",
+                                 mode: .Normal,
+                                 write: { ostr in
+                                     ostr.write(iceP_else)
+                                     ostr.write(iceP_return)
+                                     ostr.write(iceP_try)
+                                     ostr.write(iceP_while)
+                                     ostr.write(iceP_yield)
+                                     ostr.write(iceP_lambda)
+                                     ostr.write(iceP_or)
+                                     ostr.write(iceP_global)
+                                     ostr.writePendingValues()
+                                 },
+                                 read: { istr in
+                                     let iceP_returnValue: assert = try istr.read()
+                                     return iceP_returnValue
+                                 },
+                                 userException:{ ex in
+                                     do  {
+                                         throw ex
+                                     } catch let error as is {
+                                         throw error
+                                     } catch is Ice.UserException {}
+                                 },
+                                 context: context)
+    }
+
+    ///
+    /// - parameter else: ``continue``
+    ///
+    /// - parameter return: ``for`?`
+    ///
+    /// - parameter try: `Ice.Value?`
+    ///
+    /// - parameter while: `delPrx?`
+    ///
+    /// - parameter yield: `execPrx?`
+    ///
+    /// - parameter lambda: `Ice.ObjectPrx?`
+    ///
+    /// - parameter or: `ifPrx?`
+    ///
+    /// - parameter global: `Swift.Int32`
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    ///
+    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
+    ///   dispatch the sent callback.
+    ///
+    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
+    ///   to dispatch the sent callback
+    ///
+    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
+    ///
+    /// - returns: `PromiseKit.Promise<assert>` - The result of the operation
+    func raiseAsync(else iceP_else: `continue`, return iceP_return: `for`?, try iceP_try: Ice.Value?, while iceP_while: delPrx?, yield iceP_yield: execPrx?, lambda iceP_lambda: Ice.ObjectPrx?, or iceP_or: ifPrx?, global iceP_global: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<assert> {
+        return _impl._invokeAsync(operation: "raise",
+                                  mode: .Normal,
+                                  write: { ostr in
+                                      ostr.write(iceP_else)
+                                      ostr.write(iceP_return)
+                                      ostr.write(iceP_try)
+                                      ostr.write(iceP_while)
+                                      ostr.write(iceP_yield)
+                                      ostr.write(iceP_lambda)
+                                      ostr.write(iceP_or)
+                                      ostr.write(iceP_global)
+                                      ostr.writePendingValues()
+                                  },
+                                  read: { istr in
+                                      let iceP_returnValue: assert = try istr.read()
+                                      return iceP_returnValue
+                                  },
+                                  userException:{ ex in
+                                      do  {
+                                          throw ex
+                                      } catch let error as is {
+                                          throw error
+                                      } catch is Ice.UserException {}
+                                  },
+                                  context: context,
+                                  sentOn: sentOn,
+                                  sentFlags: sentFlags,
+                                  sent: sent)
+    }
+}
+
 /// :nodoc:
 public class for_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
@@ -943,6 +1147,59 @@ public struct ifDisp: Ice.Disp {
 
 public protocol `if`: exec, del {}
 
+
+/// Dispatcher for `print` servants.
+public struct printDisp: Ice.Disp {
+    public let servant: print
+    private static let defaultObject = Ice.ObjectI<printTraits>()
+
+    public init(_ servant: print) {
+        self.servant = servant
+    }
+
+    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
+        request.startOver()
+        switch current.operation {
+        case "ice_id":
+            return try (servant as? Object ?? printDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+        case "ice_ids":
+            return try (servant as? Object ?? printDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+        case "ice_isA":
+            return try (servant as? Object ?? printDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+        case "ice_ping":
+            return try (servant as? Object ?? printDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+        case "raise":
+            return try servant._iceD_raise(incoming: request, current: current)
+        default:
+            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+        }
+    }
+}
+
+public protocol print {
+    ///
+    /// - parameter else: ``continue``
+    ///
+    /// - parameter return: ``for`?`
+    ///
+    /// - parameter try: `Ice.Value?`
+    ///
+    /// - parameter while: `delPrx?`
+    ///
+    /// - parameter yield: `execPrx?`
+    ///
+    /// - parameter lambda: `Ice.ObjectPrx?`
+    ///
+    /// - parameter or: `ifPrx?`
+    ///
+    /// - parameter global: `Swift.Int32`
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `assert`
+    func raise(else: `continue`, return: `for`?, try: Ice.Value?, while: delPrx?, yield: execPrx?, lambda: Ice.ObjectPrx?, or: ifPrx?, global: Swift.Int32, current: Ice.Current) throws -> assert
+}
+
 /// del overview.
 ///
 /// del Methods:
@@ -980,24 +1237,32 @@ public extension exec {
 /// if overview.
 public extension `if` {}
 
-public protocol print:  Swift.AnyObject {
-    ///
-    /// - parameter else: ``continue``
-    ///
-    /// - parameter return: ``for`?`
-    ///
-    /// - parameter try: `Ice.Value?`
-    ///
-    /// - parameter while: `delPrx?`
-    ///
-    /// - parameter yield: `execPrx?`
-    ///
-    /// - parameter lambda: `Ice.ObjectPrx?`
-    ///
-    /// - parameter or: `ifPrx?`
-    ///
-    /// - parameter global: `Swift.Int32`
-    ///
-    /// - returns: `assert`
-    func raise(else: `continue`, return: `for`?, try: Ice.Value?, while: delPrx?, yield: execPrx?, lambda: Ice.ObjectPrx?, or: ifPrx?, global: Swift.Int32) throws -> assert
+/// print overview.
+///
+/// print Methods:
+///
+///  - raise: 
+public extension print {
+    func _iceD_raise(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
+        let (iceP_else, iceP_return, iceP_try, iceP_while, iceP_yield, iceP_lambda, iceP_or, iceP_global): (`continue`, `for`?, Ice.Value?, delPrx?, execPrx?, Ice.ObjectPrx?, ifPrx?, Swift.Int32) = try inS.read { istr in
+            let iceP_else: `continue` = try istr.read()
+            var iceP_return: `for`?
+            try istr.read(for.self) { iceP_return = $0 }
+            var iceP_try: Ice.Value?
+            try istr.read() { iceP_try = $0 }
+            let iceP_while: delPrx? = try istr.read(delPrx.self)
+            let iceP_yield: execPrx? = try istr.read(execPrx.self)
+            let iceP_lambda: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+            let iceP_or: ifPrx? = try istr.read(ifPrx.self)
+            let iceP_global: Swift.Int32 = try istr.read()
+            try istr.readPendingValues()
+            return (iceP_else, iceP_return, iceP_try, iceP_while, iceP_yield, iceP_lambda, iceP_or, iceP_global)
+        }
+
+        let iceP_returnValue = try self.raise(else: iceP_else, return: iceP_return, try: iceP_try, while: iceP_while, yield: iceP_yield, lambda: iceP_lambda, or: iceP_or, global: iceP_global, current: current)
+
+        return inS.setResult{ ostr in
+            ostr.write(iceP_returnValue)
+        }
+    }
 }

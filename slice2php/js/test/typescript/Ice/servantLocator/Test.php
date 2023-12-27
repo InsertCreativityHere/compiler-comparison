@@ -140,24 +140,6 @@ namespace Test
 
 namespace Test
 {
-    global $Test__t_Cookie;
-    class Cookie
-    {
-        public function __construct()
-        {
-        }
-
-        public function __toString(): string
-        {
-            global $Test__t_Cookie;
-            return IcePHP_stringify($this, $Test__t_Cookie);
-        }
-    }
-    $Test__t_Cookie = IcePHP_defineClass('::Test::Cookie', '\\Test\\Cookie', -1, false, false, null, null);
-}
-
-namespace Test
-{
     global $Test__t_Echo;
     global $Test__t_EchoPrx;
 

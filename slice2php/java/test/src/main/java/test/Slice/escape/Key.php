@@ -269,11 +269,40 @@ namespace _abstract
 namespace _abstract
 {
     global $abstract__t_new;
-    interface _new
+    global $abstract__t_newPrx;
+
+    class newPrxHelper
     {
-        public function notify($notifyAll, $null, $package, $_private, $_protected, $_public, $_return, $_static, $strictfp, $super);
+        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        {
+            return $proxy->ice_checkedCast('::abstract::new', $facetOrContext, $context);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::abstract::new', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::abstract::new';
+        }
     }
     $abstract__t_new = IcePHP_defineClass('::abstract::new', '\\_abstract\\_new', -1, false, true, null, null);
+
+    global $Ice__t_ObjectPrx;
+    $abstract__t_newPrx = IcePHP_defineProxy('::abstract::new', $Ice__t_ObjectPrx, null);
+
+    global $abstract__t_break;
+    global $abstract__t_else;
+    global $abstract__t_finalize;
+    global $Ice__t_ObjectPrx;
+    global $abstract__t_finalizePrx;
+    global $abstract__t_catchPrx;
+    global $abstract__t_defaultPrx;
+    global $IcePHP__t_int;
+    global $abstract__t_assert;
+    IcePHP_defineOperation($abstract__t_newPrx, 'notify', 0, 0, 0, array(array($abstract__t_break), array($abstract__t_else), array($abstract__t_finalize), array($Ice__t_ObjectPrx), array($abstract__t_finalizePrx), array($abstract__t_catchPrx), array($abstract__t_defaultPrx), array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int)), null, array($abstract__t_assert), array($abstract__t_hashCode, $abstract__t_import));
 }
 
 namespace _abstract

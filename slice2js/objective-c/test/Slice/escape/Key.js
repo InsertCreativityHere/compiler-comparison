@@ -262,6 +262,29 @@
         }
     };
 
+    const iceC_and_friend_ids = [
+        "::Ice::Object",
+        "::and::friend"
+    ];
+
+    and.friend = class extends Ice.Object
+    {
+    };
+
+    and.friendPrx = class extends Ice.ObjectPrx
+    {
+    };
+
+    Slice.defineOperations(and.friend, and.friendPrx, iceC_and_friend_ids, 1,
+    {
+        "goto": [, , , , [and.auto], [[and._continue._helper], [and.auto], [and._delete], ["Ice.Value", true], ["and._do", true], ["and.breakPrx"], ["and.charPrx"], ["and.switchPrx"], ["and.doPrx"], [3], [3], [3], [3]], ,
+        [
+            and.sizeof,
+            and._return
+        ], true, ],
+        "objc": [, , , , , [[3], [3], [3], [3], [3], [3], [3], [3], [3], [3], [3], [3]], , , , ]
+    });
+
     Object.defineProperty(and, 'template', {
         value: 0
     });

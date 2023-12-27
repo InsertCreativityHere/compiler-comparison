@@ -159,18 +159,4 @@ module ::Test
 
         TestActivationPrx_mixin::OP_activateServantLocator = ::Ice::__defineOperation('activateServantLocator', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0]], [], nil, [])
     end
-
-    if not defined?(::Test::Cookie_Mixin)
-
-        module ::Test::Cookie_Mixin
-        end
-        class Cookie
-        end
-
-        if not defined?(::Test::T_Cookie)
-            T_Cookie = ::Ice::__declareLocalClass('::Test::Cookie')
-        end
-
-        T_Cookie.defineClass(Cookie, -1, false, false, nil, [])
-    end
 end

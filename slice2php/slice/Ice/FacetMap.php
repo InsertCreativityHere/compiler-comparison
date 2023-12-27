@@ -14,16 +14,4 @@
 // </auto-generated>
 //
 
-
-namespace Ice
-{
-    global $Ice__t_FacetMap;
-
-    if(!isset($Ice__t_FacetMap))
-    {
-        global $IcePHP__t_string;
-        global $Ice__t_Value;
-        $Ice__t_FacetMap = IcePHP_defineDictionary('::Ice::FacetMap', $IcePHP__t_string, $Ice__t_Value);
-    }
-}
 ?>

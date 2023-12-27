@@ -419,6 +419,12 @@ open class endwhile: endif {
         try super._iceReadImpl(from: istr);
     }
 }
+
+/// Traits for Slice interface ``for``.
+public struct forTraits: Ice.SliceTraits {
+    public static let staticIds = ["::Ice::Object", "::and::for"]
+    public static let staticId = "::and::for"
+}
 public let or: Swift.Int32 = 0
 
 public let print: Swift.Int32 = 0
@@ -901,6 +907,214 @@ public extension Ice.InputStream {
 /// enddeclarePrx overview.
 public extension enddeclarePrx {}
 
+/// forPrx overview.
+///
+/// forPrx Methods:
+///
+///  - foreach: 
+///
+///  - foreachAsync: 
+public protocol forPrx: Ice.ObjectPrx {}
+
+private final class forPrxI: Ice.ObjectPrxI, forPrx {
+    public override class func ice_staticId() -> Swift.String {
+        return forTraits.staticId
+    }
+}
+
+/// Casts a proxy to the requested type. This call contacts the server and verifies that the object
+/// implements this type.
+///
+/// It will throw a local exception if a communication error occurs. You can optionally supply a
+/// facet name and a context map.
+///
+/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+///
+/// - parameter type: `forPrx.Protocol` - The proxy type to cast to.
+///
+/// - parameter facet: `String` - The optional name of the desired facet.
+///
+/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
+///
+/// - returns: `forPrx` - A proxy with the requested type or nil if the objet does not
+///   support this type.
+///
+/// - throws: `Ice.LocalException` if a communication error occurs.
+public func checkedCast(prx: Ice.ObjectPrx, type: forPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> forPrx? {
+    return try forPrxI.checkedCast(prx: prx, facet: facet, context: context) as forPrxI?
+}
+
+/// Downcasts the given proxy to this type without contacting the remote server.
+///
+/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+///
+/// - parameter type: `forPrx.Protocol` - The proxy type to cast to.
+///
+/// - parameter facet: `String` - The optional name of the desired facet
+///
+/// - returns: `forPrx` - A proxy with the requested type
+public func uncheckedCast(prx: Ice.ObjectPrx, type: forPrx.Protocol, facet: Swift.String? = nil) -> forPrx {
+    return forPrxI.uncheckedCast(prx: prx, facet: facet) as forPrxI
+}
+
+/// Returns the Slice type id of the interface or class associated with this proxy type.
+///
+/// parameter type: `forPrx.Protocol` -  The proxy type to retrieve the type id.
+///
+/// returns: `String` - The type id of the interface or class associated with this proxy type.
+public func ice_staticId(_ type: forPrx.Protocol) -> Swift.String {
+    return forTraits.staticId
+}
+
+/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// `forPrx`.
+public extension Ice.InputStream {
+    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
+    ///
+    /// - parameter type: `forPrx.Protocol` - The type of the proxy to be extracted.
+    ///
+    /// - returns: `forPrx?` - The extracted proxy
+    func read(_ type: forPrx.Protocol) throws -> forPrx? {
+        return try read() as forPrxI?
+    }
+    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
+    ///
+    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    ///
+    /// - parameter type: `forPrx.Protocol` - The type of the proxy to be extracted.
+    ///
+    /// - returns: `forPrx` - The extracted proxy.
+    func read(tag: Swift.Int32, type: forPrx.Protocol) throws -> forPrx? {
+        return try read(tag: tag) as forPrxI?
+    }
+}
+
+/// forPrx overview.
+///
+/// forPrx Methods:
+///
+///  - foreach: 
+///
+///  - foreachAsync: 
+public extension forPrx {
+    ///
+    /// - parameter if: `Ice.Value?`
+    ///
+    /// - parameter global: `echo?`
+    ///
+    /// - parameter require: `Ice.Value?`
+    ///
+    /// - parameter include: `functionPrx?`
+    ///
+    /// - parameter return: `diePrx?`
+    ///
+    /// - parameter isset: `Ice.ObjectPrx?`
+    ///
+    /// - parameter list: `enddeclarePrx?`
+    ///
+    /// - parameter new: `Swift.Int32`
+    ///
+    /// - parameter static: `Swift.Int32`
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    ///
+    /// - returns: `array`
+    func foreach(if iceP_if: Ice.Value?, global iceP_global: echo?, require iceP_require: Ice.Value?, include iceP_include: functionPrx?, return iceP_return: diePrx?, isset iceP_isset: Ice.ObjectPrx?, list iceP_list: enddeclarePrx?, new iceP_new: Swift.Int32, static iceP_static: Swift.Int32, context: Ice.Context? = nil) throws -> array {
+        return try _impl._invoke(operation: "foreach",
+                                 mode: .Normal,
+                                 write: { ostr in
+                                     ostr.write(iceP_if)
+                                     ostr.write(iceP_global)
+                                     ostr.write(iceP_require)
+                                     ostr.write(iceP_include)
+                                     ostr.write(iceP_return)
+                                     ostr.write(iceP_isset)
+                                     ostr.write(iceP_list)
+                                     ostr.write(iceP_new)
+                                     ostr.write(iceP_static)
+                                     ostr.writePendingValues()
+                                 },
+                                 read: { istr in
+                                     let iceP_returnValue: array = try istr.read()
+                                     return iceP_returnValue
+                                 },
+                                 userException:{ ex in
+                                     do  {
+                                         throw ex
+                                     } catch let error as endif {
+                                         throw error
+                                     } catch let error as endwhile {
+                                         throw error
+                                     } catch is Ice.UserException {}
+                                 },
+                                 context: context)
+    }
+
+    ///
+    /// - parameter if: `Ice.Value?`
+    ///
+    /// - parameter global: `echo?`
+    ///
+    /// - parameter require: `Ice.Value?`
+    ///
+    /// - parameter include: `functionPrx?`
+    ///
+    /// - parameter return: `diePrx?`
+    ///
+    /// - parameter isset: `Ice.ObjectPrx?`
+    ///
+    /// - parameter list: `enddeclarePrx?`
+    ///
+    /// - parameter new: `Swift.Int32`
+    ///
+    /// - parameter static: `Swift.Int32`
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    ///
+    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
+    ///   dispatch the sent callback.
+    ///
+    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
+    ///   to dispatch the sent callback
+    ///
+    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
+    ///
+    /// - returns: `PromiseKit.Promise<array>` - The result of the operation
+    func foreachAsync(if iceP_if: Ice.Value?, global iceP_global: echo?, require iceP_require: Ice.Value?, include iceP_include: functionPrx?, return iceP_return: diePrx?, isset iceP_isset: Ice.ObjectPrx?, list iceP_list: enddeclarePrx?, new iceP_new: Swift.Int32, static iceP_static: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<array> {
+        return _impl._invokeAsync(operation: "foreach",
+                                  mode: .Normal,
+                                  write: { ostr in
+                                      ostr.write(iceP_if)
+                                      ostr.write(iceP_global)
+                                      ostr.write(iceP_require)
+                                      ostr.write(iceP_include)
+                                      ostr.write(iceP_return)
+                                      ostr.write(iceP_isset)
+                                      ostr.write(iceP_list)
+                                      ostr.write(iceP_new)
+                                      ostr.write(iceP_static)
+                                      ostr.writePendingValues()
+                                  },
+                                  read: { istr in
+                                      let iceP_returnValue: array = try istr.read()
+                                      return iceP_returnValue
+                                  },
+                                  userException:{ ex in
+                                      do  {
+                                          throw ex
+                                      } catch let error as endif {
+                                          throw error
+                                      } catch let error as endwhile {
+                                          throw error
+                                      } catch is Ice.UserException {}
+                                  },
+                                  context: context,
+                                  sentOn: sentOn,
+                                  sentFlags: sentFlags,
+                                  sent: sent)
+    }
+}
+
 /// :nodoc:
 public class echo_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
@@ -1108,6 +1322,61 @@ public struct enddeclareDisp: Ice.Disp {
 
 public protocol enddeclare: die, function {}
 
+
+/// Dispatcher for ``for`` servants.
+public struct forDisp: Ice.Disp {
+    public let servant: `for`
+    private static let defaultObject = Ice.ObjectI<forTraits>()
+
+    public init(_ servant: `for`) {
+        self.servant = servant
+    }
+
+    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
+        request.startOver()
+        switch current.operation {
+        case "foreach":
+            return try servant._iceD_foreach(incoming: request, current: current)
+        case "ice_id":
+            return try (servant as? Object ?? forDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+        case "ice_ids":
+            return try (servant as? Object ?? forDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+        case "ice_isA":
+            return try (servant as? Object ?? forDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+        case "ice_ping":
+            return try (servant as? Object ?? forDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+        default:
+            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+        }
+    }
+}
+
+public protocol `for` {
+    ///
+    /// - parameter if: `Ice.Value?`
+    ///
+    /// - parameter global: `echo?`
+    ///
+    /// - parameter require: `Ice.Value?`
+    ///
+    /// - parameter include: `functionPrx?`
+    ///
+    /// - parameter return: `diePrx?`
+    ///
+    /// - parameter isset: `Ice.ObjectPrx?`
+    ///
+    /// - parameter list: `enddeclarePrx?`
+    ///
+    /// - parameter new: `Swift.Int32`
+    ///
+    /// - parameter static: `Swift.Int32`
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `array`
+    func foreach(if: Ice.Value?, global: echo?, require: Ice.Value?, include: functionPrx?, return: diePrx?, isset: Ice.ObjectPrx?, list: enddeclarePrx?, new: Swift.Int32, static: Swift.Int32, current: Ice.Current) throws -> array
+}
+
 /// break overview.
 ///
 /// break Methods:
@@ -1165,26 +1434,34 @@ public extension die {
 /// enddeclare overview.
 public extension enddeclare {}
 
-public protocol `for`:  Swift.AnyObject {
-    ///
-    /// - parameter if: `Ice.Value?`
-    ///
-    /// - parameter global: `echo?`
-    ///
-    /// - parameter require: `Ice.Value?`
-    ///
-    /// - parameter include: `functionPrx?`
-    ///
-    /// - parameter return: `diePrx?`
-    ///
-    /// - parameter isset: `Ice.ObjectPrx?`
-    ///
-    /// - parameter list: `enddeclarePrx?`
-    ///
-    /// - parameter new: `Swift.Int32`
-    ///
-    /// - parameter static: `Swift.Int32`
-    ///
-    /// - returns: `array`
-    func foreach(if: Ice.Value?, global: echo?, require: Ice.Value?, include: functionPrx?, return: diePrx?, isset: Ice.ObjectPrx?, list: enddeclarePrx?, new: Swift.Int32, static: Swift.Int32) throws -> array
+/// for overview.
+///
+/// for Methods:
+///
+///  - foreach: 
+public extension `for` {
+    func _iceD_foreach(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
+        let (iceP_if, iceP_global, iceP_require, iceP_include, iceP_return, iceP_isset, iceP_list, iceP_new, iceP_static): (Ice.Value?, echo?, Ice.Value?, functionPrx?, diePrx?, Ice.ObjectPrx?, enddeclarePrx?, Swift.Int32, Swift.Int32) = try inS.read { istr in
+            var iceP_if: Ice.Value?
+            try istr.read() { iceP_if = $0 }
+            var iceP_global: echo?
+            try istr.read(echo.self) { iceP_global = $0 }
+            var iceP_require: Ice.Value?
+            try istr.read() { iceP_require = $0 }
+            let iceP_include: functionPrx? = try istr.read(functionPrx.self)
+            let iceP_return: diePrx? = try istr.read(diePrx.self)
+            let iceP_isset: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+            let iceP_list: enddeclarePrx? = try istr.read(enddeclarePrx.self)
+            let iceP_new: Swift.Int32 = try istr.read()
+            let iceP_static: Swift.Int32 = try istr.read()
+            try istr.readPendingValues()
+            return (iceP_if, iceP_global, iceP_require, iceP_include, iceP_return, iceP_isset, iceP_list, iceP_new, iceP_static)
+        }
+
+        let iceP_returnValue = try self.foreach(if: iceP_if, global: iceP_global, require: iceP_require, include: iceP_include, return: iceP_return, isset: iceP_isset, list: iceP_list, new: iceP_new, static: iceP_static, current: current)
+
+        return inS.setResult{ ostr in
+            ostr.write(iceP_returnValue)
+        }
+    }
 }

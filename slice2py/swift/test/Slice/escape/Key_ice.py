@@ -452,27 +452,6 @@ if '_as' not in _M__and.__dict__:
     _M__and._as = _as
     del _as
 
-if 'friend' not in _M__and.__dict__:
-    _M__and.friend = Ice.createTempClass()
-    class friend(object):
-        def __init__(self):
-            if Ice.getType(self) == _M__and.friend:
-                raise RuntimeError('_and.friend is an abstract class')
-
-        def goto(self, _if, d, inline, private, mutable, namespace, new, _not, operator, _or, protected, public, register):
-            raise NotImplementedError("method 'goto' not implemented")
-
-        def __str__(self):
-            return IcePy.stringify(self, _M__and._t_friend)
-
-        __repr__ = __str__
-
-    _M__and._t_friend = IcePy.defineValue('::and::friend', friend, -1, (), False, True, None, ())
-    friend._ice_type = _M__and._t_friend
-
-    _M__and.friend = friend
-    del friend
-
 _M__and._is = 0
 
 _M__and.self = 0

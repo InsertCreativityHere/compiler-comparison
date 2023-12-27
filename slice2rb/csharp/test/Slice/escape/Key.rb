@@ -363,8 +363,32 @@ module ::Abstract
         ])
     end
 
-    if not defined?(::Abstract::T_Implicit)
-        T_Implicit = ::Ice::__declareLocalClass('::abstract::implicit')
+    if not defined?(::Abstract::Implicit_Mixin)
+
+        module ::Abstract::Implicit_Mixin
+        end
+        module ImplicitPrx_mixin
+
+            def _in(internal, is, lock, namespace, _new, null, operator, override, params, private, context=nil)
+                ImplicitPrx_mixin::OP_in.invoke(self, [internal, is, lock, namespace, _new, null, operator, override, params, private], context)
+            end
+        end
+
+        class ImplicitPrx < ::Ice::ObjectPrx
+            include ::Ice::Proxy_mixin
+            include ImplicitPrx_mixin
+        end
+
+        if not defined?(::Abstract::T_ImplicitPrx)
+            T_Implicit = ::Ice::__declareClass('::abstract::implicit')
+            T_ImplicitPrx = ::Ice::__declareProxy('::abstract::implicit')
+        end
+
+        T_Implicit.defineClass(::Ice::Value, -1, false, true, nil, [])
+
+        T_ImplicitPrx.defineProxy(ImplicitPrx, nil, [])
+
+        ImplicitPrx_mixin::OP_in = ::Ice::__defineOperation('in', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Abstract::T_Break, false, 0], [::Abstract::T_Delegate, false, 0], [::Abstract::T_Explicit, false, 0], [::Abstract::T_CasePrx, false, 0], [::Abstract::T_DecimalPrx, false, 0], [::Abstract::T_Delegate, false, 0], [::Abstract::T_ExplicitPrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Abstract::T_As, false, 0], [::Abstract::T_Fixed, ::Abstract::T_Foreach])
     end
 
     Protected = 0

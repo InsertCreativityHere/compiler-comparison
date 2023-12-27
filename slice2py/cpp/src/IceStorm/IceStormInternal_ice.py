@@ -86,25 +86,6 @@ if 'EventData' not in _M_IceStorm.__dict__:
     _M_IceStorm.EventData = EventData
     del EventData
 
-if 'SendQueueSizeMaxReached' not in _M_IceStorm.__dict__:
-    _M_IceStorm.SendQueueSizeMaxReached = Ice.createTempClass()
-    class SendQueueSizeMaxReached(Ice.LocalException):
-        def __init__(self):
-            pass
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::IceStorm::SendQueueSizeMaxReached'
-
-    _M_IceStorm._t_SendQueueSizeMaxReached = IcePy.defineException('::IceStorm::SendQueueSizeMaxReached', SendQueueSizeMaxReached, (), False, None, ())
-    SendQueueSizeMaxReached._ice_type = _M_IceStorm._t_SendQueueSizeMaxReached
-
-    _M_IceStorm.SendQueueSizeMaxReached = SendQueueSizeMaxReached
-    del SendQueueSizeMaxReached
-
 if '_t_EventDataSeq' not in _M_IceStorm.__dict__:
     _M_IceStorm._t_EventDataSeq = IcePy.defineSequence('::IceStorm::EventDataSeq', (), _M_IceStorm._t_EventData)
 

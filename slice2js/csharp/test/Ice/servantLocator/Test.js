@@ -115,11 +115,6 @@
         "shutdown": [, , , , , , , , , ]
     });
 
-    Test.Cookie = class
-    {
-    };
-
-
     const iceC_Test_TestActivation_ids = [
         "::Ice::Object",
         "::Test::TestActivation"

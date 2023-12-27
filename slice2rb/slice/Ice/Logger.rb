@@ -17,8 +17,4 @@
 require 'Ice'
 
 module ::Ice
-
-    if not defined?(::Ice::T_Logger)
-        T_Logger = ::Ice::__declareLocalClass('::Ice::Logger')
-    end
 end

@@ -50,18 +50,4 @@ module ::Test
         TestIntfPrx_mixin::OP_transient = ::Ice::__defineOperation('transient', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
         TestIntfPrx_mixin::OP_deactivate = ::Ice::__defineOperation('deactivate', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
-
-    if not defined?(::Test::Cookie_Mixin)
-
-        module ::Test::Cookie_Mixin
-        end
-        class Cookie
-        end
-
-        if not defined?(::Test::T_Cookie)
-            T_Cookie = ::Ice::__declareLocalClass('::Test::Cookie')
-        end
-
-        T_Cookie.defineClass(Cookie, -1, false, false, nil, [])
-    end
 end

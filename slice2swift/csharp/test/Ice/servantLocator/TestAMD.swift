@@ -1211,9 +1211,3 @@ public extension TestActivation {
         return inS.setResult()
     }
 }
-
-public protocol Cookie:  Swift.AnyObject {
-    ///
-    /// - returns: `Swift.String`
-    func message() throws -> Swift.String
-}

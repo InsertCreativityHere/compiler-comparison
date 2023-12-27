@@ -15,7 +15,7 @@
 
 package Test;
 
-public class H extends com.zeroc.Ice.Value
+public abstract class H extends com.zeroc.Ice.Value
 {
     public H clone()
     {

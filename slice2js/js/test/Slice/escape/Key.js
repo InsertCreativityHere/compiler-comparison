@@ -361,6 +361,28 @@
         }
     };
 
+    const iceC__await_implicit_ids = [
+        "::Ice::Object",
+        "::await::implicit"
+    ];
+
+    _await.implicit = class extends Ice.Object
+    {
+    };
+
+    _await.implicitPrx = class extends Ice.ObjectPrx
+    {
+    };
+
+    Slice.defineOperations(_await.implicit, _await.implicitPrx, iceC__await_implicit_ids, 1,
+    {
+        "in": ["_in", , , , [_await._var._helper], [[_await._break], ["_await._delete", true], ["Ice.Value", true], ["_await.casePrx"], ["_await.typeofPrx"], ["_await._delete", true], ["_await.explicitPrx"], [3], [3], [3]], ,
+        [
+            _await.foreach,
+            _await.fixed
+        ], true, ]
+    });
+
     Object.defineProperty(_await, '_protected', {
         value: 0
     });

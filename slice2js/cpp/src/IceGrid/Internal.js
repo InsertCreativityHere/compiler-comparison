@@ -24,24 +24,6 @@
     const IceGrid = require("ice").IceGrid;
     const Slice = Ice.Slice;
 
-    IceGrid.SynchronizationException = class extends Ice.LocalException
-    {
-        constructor(_cause = "")
-        {
-            super(_cause);
-        }
-
-        static get _parent()
-        {
-            return Ice.LocalException;
-        }
-
-        static get _id()
-        {
-            return "::IceGrid::SynchronizationException";
-        }
-    };
-
     const iceC_IceGrid_InternalDbEnvDescriptor_ids = [
         "::Ice::Object",
         "::IceGrid::InternalDbEnvDescriptor"

@@ -14,13 +14,4 @@
 // </auto-generated>
 //
 
-
-namespace IceSSL
-{
-    global $IceSSL__t_ConnectionInfo;
-    if(!isset($IceSSL__t_ConnectionInfo))
-    {
-        $IceSSL__t_ConnectionInfo = IcePHP_declareClass('::IceSSL::ConnectionInfo');
-    }
-}
 ?>

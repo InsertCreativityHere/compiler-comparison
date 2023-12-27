@@ -28,30 +28,6 @@ namespace
 
 namespace IceGrid
 {
-    global $IceGrid__t_SynchronizationException;
-    class SynchronizationException extends \Ice\LocalException
-    {
-        public function __construct()
-        {
-        }
-
-        public function ice_id()
-        {
-            return '::IceGrid::SynchronizationException';
-        }
-
-        public function __toString(): string
-        {
-            global $IceGrid__t_SynchronizationException;
-            return IcePHP_stringifyException($this, $IceGrid__t_SynchronizationException);
-        }
-    }
-
-    $IceGrid__t_SynchronizationException = IcePHP_defineException('::IceGrid::SynchronizationException', '\\IceGrid\\SynchronizationException', false, null, null);
-}
-
-namespace IceGrid
-{
     global $IceGrid__t_InternalDbEnvDescriptor;
     class InternalDbEnvDescriptor extends \Ice\Value
     {

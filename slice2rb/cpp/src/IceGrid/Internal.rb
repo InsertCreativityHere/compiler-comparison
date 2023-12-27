@@ -25,19 +25,6 @@ require 'IceGrid/Registry.rb'
 
 module ::IceGrid
 
-    if not defined?(::IceGrid::SynchronizationException)
-        class SynchronizationException < Ice::LocalException
-            def initialize
-            end
-
-            def to_s
-                '::IceGrid::SynchronizationException'
-            end
-        end
-
-        T_SynchronizationException = ::Ice::__defineException('::IceGrid::SynchronizationException', SynchronizationException, false, nil, [])
-    end
-
     if not defined?(::IceGrid::InternalDbEnvDescriptor_Mixin)
 
         module ::IceGrid::InternalDbEnvDescriptor_Mixin

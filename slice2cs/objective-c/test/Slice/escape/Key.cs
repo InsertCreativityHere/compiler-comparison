@@ -613,19 +613,8 @@ namespace and
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial interface friend
+    public partial interface friend : global::Ice.Object, friendOperations_
     {
-        #region Slice operations
-
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        auto @goto(@continue @if, auto d, delete inline, @switch @private, @do mutable, breakPrx @namespace, charPrx @new, switchPrx not, doPrx @operator, int or, int @protected, int @public, int register);
-
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        void objc(int bycopy, int byref, int id, int IMP, int @in, int inout, int nil, int NO, int oneway, int SEL, int super, int YES);
-
-        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -717,6 +706,12 @@ namespace and
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public delegate void Callback_switch_foo3(int nil);
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public delegate void Callback_friend_goto(auto ret);
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public delegate void Callback_friend_objc();
 }
 
 namespace and
@@ -797,6 +792,34 @@ namespace and
     public interface doPrx : charPrx, breakPrx, switchPrx
     {
     }
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public interface friendPrx : global::Ice.ObjectPrx
+    {
+        auto @goto(@continue @if, auto d, delete inline, global::Ice.Value @private, @do mutable, breakPrx @namespace, charPrx @new, switchPrx not, doPrx @operator, int or, int @protected, int @public, int register, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+
+        global::System.Threading.Tasks.Task<auto> gotoAsync(@continue @if, auto d, delete inline, global::Ice.Value @private, @do mutable, breakPrx @namespace, charPrx @new, switchPrx not, doPrx @operator, int or, int @protected, int @public, int register, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+
+        global::Ice.AsyncResult<Callback_friend_goto> begin_goto(@continue @if, auto d, delete inline, global::Ice.Value @private, @do mutable, breakPrx @namespace, charPrx @new, switchPrx not, doPrx @operator, int or, int @protected, int @public, int register, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+
+        global::Ice.AsyncResult begin_goto(@continue @if, auto d, delete inline, global::Ice.Value @private, @do mutable, breakPrx @namespace, charPrx @new, switchPrx not, doPrx @operator, int or, int @protected, int @public, int register, global::Ice.AsyncCallback callback, object cookie);
+
+        global::Ice.AsyncResult begin_goto(@continue @if, auto d, delete inline, global::Ice.Value @private, @do mutable, breakPrx @namespace, charPrx @new, switchPrx not, doPrx @operator, int or, int @protected, int @public, int register, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
+
+        auto end_goto(global::Ice.AsyncResult asyncResult);
+
+        void objc(int bycopy, int byref, int id, int IMP, int @in, int inout, int nil, int NO, int oneway, int SEL, int super, int YES, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+
+        global::System.Threading.Tasks.Task objcAsync(int bycopy, int byref, int id, int IMP, int @in, int inout, int nil, int NO, int oneway, int SEL, int super, int YES, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+
+        global::Ice.AsyncResult<Callback_friend_objc> begin_objc(int bycopy, int byref, int id, int IMP, int @in, int inout, int nil, int NO, int oneway, int SEL, int super, int YES, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+
+        global::Ice.AsyncResult begin_objc(int bycopy, int byref, int id, int IMP, int @in, int inout, int nil, int NO, int oneway, int SEL, int super, int YES, global::Ice.AsyncCallback callback, object cookie);
+
+        global::Ice.AsyncResult begin_objc(int bycopy, int byref, int id, int IMP, int @in, int inout, int nil, int NO, int oneway, int SEL, int super, int YES, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
+
+        void end_objc(global::Ice.AsyncResult asyncResult);
+    }
 }
 
 namespace and
@@ -831,6 +854,16 @@ namespace and
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface doOperations_ : charOperations_, breakOperations_, switchOperations_
     {
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public interface friendOperations_
+    {
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+        auto @goto(@continue @if, auto d, delete inline, global::Ice.Value @private, @do mutable, breakPrx @namespace, charPrx @new, switchPrx not, doPrx @operator, int or, int @protected, int @public, int register, global::Ice.Current current = null);
+
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+        void objc(int bycopy, int byref, int id, int IMP, int @in, int inout, int nil, int NO, int oneway, int SEL, int super, int YES, global::Ice.Current current = null);
     }
 }
 
@@ -2390,6 +2423,372 @@ namespace and
             return r;
         }
     }
+
+    [global::System.Runtime.InteropServices.ComVisible(false)]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public sealed class friendPrxHelper : global::Ice.ObjectPrxHelperBase, friendPrx
+    {
+        public friendPrxHelper()
+        {
+        }
+
+        #region Synchronous operations
+
+        public auto @goto(@continue @if, auto d, delete inline, global::Ice.Value @private, @do mutable, breakPrx @namespace, charPrx @new, switchPrx not, doPrx @operator, int or, int @protected, int @public, int register, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        {
+            try
+            {
+                return _iceI_gotoAsync(@if, d, inline, @private, mutable, @namespace, @new, not, @operator, or, @protected, @public, register, context, null, global::System.Threading.CancellationToken.None, true).Result;
+            }
+            catch(global::System.AggregateException ex_)
+            {
+                throw ex_.InnerException;
+            }
+        }
+
+        public void objc(int bycopy, int byref, int id, int IMP, int @in, int inout, int nil, int NO, int oneway, int SEL, int super, int YES, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        {
+            try
+            {
+                _iceI_objcAsync(bycopy, byref, id, IMP, @in, inout, nil, NO, oneway, SEL, super, YES, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+            }
+            catch(global::System.AggregateException ex_)
+            {
+                throw ex_.InnerException;
+            }
+        }
+
+        #endregion
+
+        #region Async Task operations
+
+        public global::System.Threading.Tasks.Task<auto> gotoAsync(@continue @if, auto d, delete inline, global::Ice.Value @private, @do mutable, breakPrx @namespace, charPrx @new, switchPrx not, doPrx @operator, int or, int @protected, int @public, int register, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        {
+            return _iceI_gotoAsync(@if, d, inline, @private, mutable, @namespace, @new, not, @operator, or, @protected, @public, register, context, progress, cancel, false);
+        }
+
+        private global::System.Threading.Tasks.Task<auto> _iceI_gotoAsync(@continue iceP_if, auto iceP_d, delete iceP_inline, global::Ice.Value iceP_private, @do iceP_mutable, breakPrx iceP_namespace, charPrx iceP_new, switchPrx iceP_not, doPrx iceP_operator, int iceP_or, int iceP_protected, int iceP_public, int iceP_register, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        {
+            iceCheckTwowayOnly(_goto_name);
+            var completed = new global::IceInternal.OperationTaskCompletionCallback<auto>(progress, cancel);
+            _iceI_goto(iceP_if, iceP_d, iceP_inline, iceP_private, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_operator, iceP_or, iceP_protected, iceP_public, iceP_register, context, synchronous, completed);
+            return completed.Task;
+        }
+
+        private const string _goto_name = "goto";
+
+        private void _iceI_goto(@continue iceP_if, auto iceP_d, delete iceP_inline, global::Ice.Value iceP_private, @do iceP_mutable, breakPrx iceP_namespace, charPrx iceP_new, switchPrx iceP_not, doPrx iceP_operator, int iceP_or, int iceP_protected, int iceP_public, int iceP_register, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        {
+            var outAsync = getOutgoingAsync<auto>(completed);
+            outAsync.invoke(
+                _goto_name,
+                global::Ice.OperationMode.Normal,
+                global::Ice.FormatType.DefaultFormat,
+                context,
+                synchronous,
+                write: (global::Ice.OutputStream ostr) =>
+                {
+                    ostr.writeEnum((int)iceP_if, 0);
+                    iceP_d.ice_writeMembers(ostr);
+                    delete.ice_write(ostr, iceP_inline);
+                    ostr.writeValue(iceP_private);
+                    ostr.writeValue(iceP_mutable);
+                    breakPrxHelper.write(ostr, iceP_namespace);
+                    charPrxHelper.write(ostr, iceP_new);
+                    switchPrxHelper.write(ostr, iceP_not);
+                    doPrxHelper.write(ostr, iceP_operator);
+                    ostr.writeInt(iceP_or);
+                    ostr.writeInt(iceP_protected);
+                    ostr.writeInt(iceP_public);
+                    ostr.writeInt(iceP_register);
+                    ostr.writePendingValues();
+                },
+                userException: (global::Ice.UserException ex) =>
+                {
+                    try
+                    {
+                        throw ex;
+                    }
+                    catch(@sizeof)
+                    {
+                        throw;
+                    }
+                    catch(@return)
+                    {
+                        throw;
+                    }
+                    catch(global::Ice.UserException)
+                    {
+                    }
+                },
+                read: (global::Ice.InputStream istr) =>
+                {
+                    auto ret = new auto();
+                    ret.ice_readMembers(istr);
+                    return ret;
+                });
+        }
+
+        public global::System.Threading.Tasks.Task objcAsync(int bycopy, int byref, int id, int IMP, int @in, int inout, int nil, int NO, int oneway, int SEL, int super, int YES, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        {
+            return _iceI_objcAsync(bycopy, byref, id, IMP, @in, inout, nil, NO, oneway, SEL, super, YES, context, progress, cancel, false);
+        }
+
+        private global::System.Threading.Tasks.Task _iceI_objcAsync(int iceP_bycopy, int iceP_byref, int iceP_id, int iceP_IMP, int iceP_in, int iceP_inout, int iceP_nil, int iceP_NO, int iceP_oneway, int iceP_SEL, int iceP_super, int iceP_YES, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        {
+            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            _iceI_objc(iceP_bycopy, iceP_byref, iceP_id, iceP_IMP, iceP_in, iceP_inout, iceP_nil, iceP_NO, iceP_oneway, iceP_SEL, iceP_super, iceP_YES, context, synchronous, completed);
+            return completed.Task;
+        }
+
+        private const string _objc_name = "objc";
+
+        private void _iceI_objc(int iceP_bycopy, int iceP_byref, int iceP_id, int iceP_IMP, int iceP_in, int iceP_inout, int iceP_nil, int iceP_NO, int iceP_oneway, int iceP_SEL, int iceP_super, int iceP_YES, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        {
+            var outAsync = getOutgoingAsync<object>(completed);
+            outAsync.invoke(
+                _objc_name,
+                global::Ice.OperationMode.Normal,
+                global::Ice.FormatType.DefaultFormat,
+                context,
+                synchronous,
+                write: (global::Ice.OutputStream ostr) =>
+                {
+                    ostr.writeInt(iceP_bycopy);
+                    ostr.writeInt(iceP_byref);
+                    ostr.writeInt(iceP_id);
+                    ostr.writeInt(iceP_IMP);
+                    ostr.writeInt(iceP_in);
+                    ostr.writeInt(iceP_inout);
+                    ostr.writeInt(iceP_nil);
+                    ostr.writeInt(iceP_NO);
+                    ostr.writeInt(iceP_oneway);
+                    ostr.writeInt(iceP_SEL);
+                    ostr.writeInt(iceP_super);
+                    ostr.writeInt(iceP_YES);
+                });
+        }
+
+        #endregion
+
+        #region Asynchronous operations
+
+        public global::Ice.AsyncResult<Callback_friend_goto> begin_goto(@continue @if, auto d, delete inline, global::Ice.Value @private, @do mutable, breakPrx @namespace, charPrx @new, switchPrx not, doPrx @operator, int or, int @protected, int @public, int register, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        {
+            return begin_goto(@if, d, inline, @private, mutable, @namespace, @new, not, @operator, or, @protected, @public, register, context, null, null, false);
+        }
+
+        public global::Ice.AsyncResult begin_goto(@continue @if, auto d, delete inline, global::Ice.Value @private, @do mutable, breakPrx @namespace, charPrx @new, switchPrx not, doPrx @operator, int or, int @protected, int @public, int register, global::Ice.AsyncCallback callback, object cookie)
+        {
+            return begin_goto(@if, d, inline, @private, mutable, @namespace, @new, not, @operator, or, @protected, @public, register, new global::Ice.OptionalContext(), callback, cookie, false);
+        }
+
+        public global::Ice.AsyncResult begin_goto(@continue @if, auto d, delete inline, global::Ice.Value @private, @do mutable, breakPrx @namespace, charPrx @new, switchPrx not, doPrx @operator, int or, int @protected, int @public, int register, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
+        {
+            return begin_goto(@if, d, inline, @private, mutable, @namespace, @new, not, @operator, or, @protected, @public, register, context, callback, cookie, false);
+        }
+
+        public auto end_goto(global::Ice.AsyncResult asyncResult)
+        {
+            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _goto_name);
+            var outgoing_ = (global::IceInternal.OutgoingAsyncT<auto>)resultI_.OutgoingAsync;
+            return outgoing_.getResult(resultI_.wait());
+        }
+
+        private global::Ice.AsyncResult<Callback_friend_goto> begin_goto(@continue iceP_if, auto iceP_d, delete iceP_inline, global::Ice.Value iceP_private, @do iceP_mutable, breakPrx iceP_namespace, charPrx iceP_new, switchPrx iceP_not, doPrx iceP_operator, int iceP_or, int iceP_protected, int iceP_public, int iceP_register, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+        {
+            iceCheckAsyncTwowayOnly(_goto_name);
+            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_friend_goto, auto>(
+                (Callback_friend_goto cb, auto ret) =>
+                {
+                    if(cb != null)
+                    {
+                        cb.Invoke(ret);
+                    }
+                },
+                this, _goto_name, cookie, completedCallback);
+            _iceI_goto(iceP_if, iceP_d, iceP_inline, iceP_private, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_operator, iceP_or, iceP_protected, iceP_public, iceP_register, context, synchronous, completed);
+            return completed;
+        }
+
+        public global::Ice.AsyncResult<Callback_friend_objc> begin_objc(int bycopy, int byref, int id, int IMP, int @in, int inout, int nil, int NO, int oneway, int SEL, int super, int YES, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        {
+            return begin_objc(bycopy, byref, id, IMP, @in, inout, nil, NO, oneway, SEL, super, YES, context, null, null, false);
+        }
+
+        public global::Ice.AsyncResult begin_objc(int bycopy, int byref, int id, int IMP, int @in, int inout, int nil, int NO, int oneway, int SEL, int super, int YES, global::Ice.AsyncCallback callback, object cookie)
+        {
+            return begin_objc(bycopy, byref, id, IMP, @in, inout, nil, NO, oneway, SEL, super, YES, new global::Ice.OptionalContext(), callback, cookie, false);
+        }
+
+        public global::Ice.AsyncResult begin_objc(int bycopy, int byref, int id, int IMP, int @in, int inout, int nil, int NO, int oneway, int SEL, int super, int YES, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
+        {
+            return begin_objc(bycopy, byref, id, IMP, @in, inout, nil, NO, oneway, SEL, super, YES, context, callback, cookie, false);
+        }
+
+        public void end_objc(global::Ice.AsyncResult asyncResult)
+        {
+            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _objc_name);
+            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
+        }
+
+        private global::Ice.AsyncResult<Callback_friend_objc> begin_objc(int iceP_bycopy, int iceP_byref, int iceP_id, int iceP_IMP, int iceP_in, int iceP_inout, int iceP_nil, int iceP_NO, int iceP_oneway, int iceP_SEL, int iceP_super, int iceP_YES, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+        {
+            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_friend_objc, object>(
+                (Callback_friend_objc cb, object ret) =>
+                {
+                    if(cb != null)
+                    {
+                        cb.Invoke();
+                    }
+                },
+                this, _objc_name, cookie, completedCallback);
+            _iceI_objc(iceP_bycopy, iceP_byref, iceP_id, iceP_IMP, iceP_in, iceP_inout, iceP_nil, iceP_NO, iceP_oneway, iceP_SEL, iceP_super, iceP_YES, context, synchronous, completed);
+            return completed;
+        }
+
+        #endregion
+
+        #region Checked and unchecked cast operations
+
+        public static friendPrx checkedCast(global::Ice.ObjectPrx b)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            friendPrx r = b as friendPrx;
+            if((r == null) && b.ice_isA(ice_staticId()))
+            {
+                friendPrxHelper h = new friendPrxHelper();
+                h.iceCopyFrom(b);
+                r = h;
+            }
+            return r;
+        }
+
+        public static friendPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            friendPrx r = b as friendPrx;
+            if((r == null) && b.ice_isA(ice_staticId(), ctx))
+            {
+                friendPrxHelper h = new friendPrxHelper();
+                h.iceCopyFrom(b);
+                r = h;
+            }
+            return r;
+        }
+
+        public static friendPrx checkedCast(global::Ice.ObjectPrx b, string f)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            try
+            {
+                if(bb.ice_isA(ice_staticId()))
+                {
+                    friendPrxHelper h = new friendPrxHelper();
+                    h.iceCopyFrom(bb);
+                    return h;
+                }
+            }
+            catch(global::Ice.FacetNotExistException)
+            {
+            }
+            return null;
+        }
+
+        public static friendPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            try
+            {
+                if(bb.ice_isA(ice_staticId(), ctx))
+                {
+                    friendPrxHelper h = new friendPrxHelper();
+                    h.iceCopyFrom(bb);
+                    return h;
+                }
+            }
+            catch(global::Ice.FacetNotExistException)
+            {
+            }
+            return null;
+        }
+
+        public static friendPrx uncheckedCast(global::Ice.ObjectPrx b)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            friendPrx r = b as friendPrx;
+            if(r == null)
+            {
+                friendPrxHelper h = new friendPrxHelper();
+                h.iceCopyFrom(b);
+                r = h;
+            }
+            return r;
+        }
+
+        public static friendPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            friendPrxHelper h = new friendPrxHelper();
+            h.iceCopyFrom(bb);
+            return h;
+        }
+
+        private static readonly string[] _ids =
+        {
+            "::Ice::Object",
+            "::and::friend"
+        };
+
+        public static string ice_staticId()
+        {
+            return _ids[1];
+        }
+
+        #endregion
+
+        #region Marshaling support
+
+        public static void write(global::Ice.OutputStream ostr, friendPrx v)
+        {
+            ostr.writeProxy(v);
+        }
+
+        public static friendPrx read(global::Ice.InputStream istr)
+        {
+            global::Ice.ObjectPrx proxy = istr.readProxy();
+            if(proxy != null)
+            {
+                friendPrxHelper result = new friendPrxHelper();
+                result.iceCopyFrom(proxy);
+                return result;
+            }
+            return null;
+        }
+
+        #endregion
+    }
 }
 
 namespace and
@@ -2883,5 +3282,183 @@ namespace and
             global::System.Diagnostics.Debug.Assert(false);
             throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
         }
+    }
+
+    [global::System.Runtime.InteropServices.ComVisible(false)]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public abstract class friendDisp_ : global::Ice.ObjectImpl, friend
+    {
+        #region Slice operations
+
+        public abstract auto @goto(@continue @if, auto d, delete inline, global::Ice.Value @private, @do mutable, breakPrx @namespace, charPrx @new, switchPrx not, doPrx @operator, int or, int @protected, int @public, int register, global::Ice.Current current = null);
+
+        public abstract void objc(int bycopy, int byref, int id, int IMP, int @in, int inout, int nil, int NO, int oneway, int SEL, int super, int YES, global::Ice.Current current = null);
+
+        #endregion
+
+        #region Slice type-related members
+
+        private static readonly string[] _ids =
+        {
+            "::Ice::Object",
+            "::and::friend"
+        };
+
+        public override bool ice_isA(string s, global::Ice.Current current = null)
+        {
+            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+        }
+
+        public override string[] ice_ids(global::Ice.Current current = null)
+        {
+            return _ids;
+        }
+
+        public override string ice_id(global::Ice.Current current = null)
+        {
+            return _ids[1];
+        }
+
+        public static new string ice_staticId()
+        {
+            return _ids[1];
+        }
+
+        #endregion
+
+        #region Operation dispatch
+
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        iceD_goto(friend obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
+            var istr = inS.startReadParams();
+            @continue iceP_if;
+            auto iceP_d;
+            iceP_d = new auto();
+            delete iceP_inline;
+            iceP_inline = null;
+            global::Ice.Value iceP_private;
+            iceP_private = null;
+            @do iceP_mutable;
+            iceP_mutable = null;
+            breakPrx iceP_namespace;
+            charPrx iceP_new;
+            switchPrx iceP_not;
+            doPrx iceP_operator;
+            int iceP_or;
+            int iceP_protected;
+            int iceP_public;
+            int iceP_register;
+            iceP_if = (@continue)istr.readEnum(0);
+            iceP_d.ice_readMembers(istr);
+            iceP_inline = delete.ice_read(istr);
+            istr.readValue((global::Ice.Value v) => {iceP_private = v; });
+            istr.readValue((@do v) => {iceP_mutable = v; });
+            iceP_namespace = breakPrxHelper.read(istr);
+            iceP_new = charPrxHelper.read(istr);
+            iceP_not = switchPrxHelper.read(istr);
+            iceP_operator = doPrxHelper.read(istr);
+            iceP_or = istr.readInt();
+            iceP_protected = istr.readInt();
+            iceP_public = istr.readInt();
+            iceP_register = istr.readInt();
+            istr.readPendingValues();
+            inS.endReadParams();
+            var ret = obj.@goto(iceP_if, iceP_d, iceP_inline, iceP_private, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_operator, iceP_or, iceP_protected, iceP_public, iceP_register, current);
+            var ostr = inS.startWriteParams();
+            ret.ice_writeMembers(ostr);
+            inS.endWriteParams(ostr);
+            return inS.setResult(ostr);
+        }
+
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        iceD_objc(friend obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
+            var istr = inS.startReadParams();
+            int iceP_bycopy;
+            int iceP_byref;
+            int iceP_id;
+            int iceP_IMP;
+            int iceP_in;
+            int iceP_inout;
+            int iceP_nil;
+            int iceP_NO;
+            int iceP_oneway;
+            int iceP_SEL;
+            int iceP_super;
+            int iceP_YES;
+            iceP_bycopy = istr.readInt();
+            iceP_byref = istr.readInt();
+            iceP_id = istr.readInt();
+            iceP_IMP = istr.readInt();
+            iceP_in = istr.readInt();
+            iceP_inout = istr.readInt();
+            iceP_nil = istr.readInt();
+            iceP_NO = istr.readInt();
+            iceP_oneway = istr.readInt();
+            iceP_SEL = istr.readInt();
+            iceP_super = istr.readInt();
+            iceP_YES = istr.readInt();
+            inS.endReadParams();
+            obj.objc(iceP_bycopy, iceP_byref, iceP_id, iceP_IMP, iceP_in, iceP_inout, iceP_nil, iceP_NO, iceP_oneway, iceP_SEL, iceP_super, iceP_YES, current);
+            return inS.setResult(inS.writeEmptyParams());
+        }
+
+        private static readonly string[] _all =
+        {
+            "goto",
+            "ice_id",
+            "ice_ids",
+            "ice_isA",
+            "ice_ping",
+            "objc"
+        };
+
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
+        {
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            if(pos < 0)
+            {
+                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            }
+
+            switch(pos)
+            {
+                case 0:
+                {
+                    return iceD_goto(this, inS, current);
+                }
+                case 1:
+                {
+                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
+                }
+                case 2:
+                {
+                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
+                }
+                case 3:
+                {
+                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
+                }
+                case 4:
+                {
+                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
+                }
+                case 5:
+                {
+                    return iceD_objc(this, inS, current);
+                }
+            }
+
+            global::System.Diagnostics.Debug.Assert(false);
+            throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
+        }
+
+        #endregion
     }
 }

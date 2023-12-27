@@ -61,24 +61,6 @@
 
     Slice.defineStruct(IceStorm.EventData, false, true);
 
-    IceStorm.SendQueueSizeMaxReached = class extends Ice.LocalException
-    {
-        constructor(_cause = "")
-        {
-            super(_cause);
-        }
-
-        static get _parent()
-        {
-            return Ice.LocalException;
-        }
-
-        static get _id()
-        {
-            return "::IceStorm::SendQueueSizeMaxReached";
-        }
-    };
-
     Slice.defineSequence(IceStorm, "EventDataSeqHelper", "IceStorm.EventData", false);
 
     const iceC_IceStorm_TopicLink_ids = [

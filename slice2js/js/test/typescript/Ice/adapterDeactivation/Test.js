@@ -40,9 +40,4 @@ Slice.defineOperations(Test.TestIntf, Test.TestIntfPrx, iceC_Test_TestIntf_ids, 
     "transient": [, , , , , , , , , ],
     "deactivate": [, , , , , , , , , ]
 });
-
-Test.Cookie = class
-{
-};
-
 export { Test };

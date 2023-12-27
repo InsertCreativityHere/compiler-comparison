@@ -17,8 +17,4 @@
 require 'Ice'
 
 module ::Ice
-
-    if not defined?(::Ice::T_ImplicitContext)
-        T_ImplicitContext = ::Ice::__declareLocalClass('::Ice::ImplicitContext')
-    end
 end

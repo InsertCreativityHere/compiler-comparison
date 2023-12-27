@@ -14,13 +14,4 @@
 // </auto-generated>
 //
 
-
-namespace Ice
-{
-    global $Ice__t_Communicator;
-    if(!isset($Ice__t_Communicator))
-    {
-        $Ice__t_Communicator = IcePHP_declareClass('::Ice::Communicator');
-    }
-}
 ?>

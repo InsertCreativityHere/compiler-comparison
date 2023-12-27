@@ -119,6 +119,23 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::_cpp_and::_cpp_return> ic
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::_cpp_and::_cpp_sizeof> iceC_and_sizeof_init("::and::sizeof");
 
+const ::std::string iceC_and_friend_ids[2] =
+{
+    "::Ice::Object",
+    "::and::friend"
+};
+const ::std::string iceC_and_friend_ops[] =
+{
+    "goto",
+    "ice_id",
+    "ice_ids",
+    "ice_isA",
+    "ice_ping",
+    "objc"
+};
+const ::std::string iceC_and_friend_goto_name = "goto";
+const ::std::string iceC_and_friend_objc_name = "objc";
+
 }
 
 _cpp_and::_cpp_return::~_cpp_return()
@@ -516,6 +533,132 @@ _cpp_and::doDisp::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current
 }
 /// \endcond
 
+bool
+_cpp_and::_cpp_friend::ice_isA(::std::string s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_and_friend_ids, iceC_and_friend_ids + 2, s);
+}
+
+::std::vector<::std::string>
+_cpp_and::_cpp_friend::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector<::std::string>(&iceC_and_friend_ids[0], &iceC_and_friend_ids[2]);
+}
+
+::std::string
+_cpp_and::_cpp_friend::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+_cpp_and::_cpp_friend::ice_staticId()
+{
+    static const ::std::string typeId = "::and::friend";
+    return typeId;
+}
+
+/// \cond INTERNAL
+bool
+_cpp_and::_cpp_friend::_iceD_goto(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
+    auto istr = inS.startReadParams();
+    _cpp_continue iceP_if;
+    _cpp_auto iceP_d;
+    _cpp_delete iceP_inline;
+    ::std::shared_ptr<::Ice::Value> iceP_private;
+    ::std::shared_ptr<::and::do> iceP_mutable;
+    ::std::shared_ptr<breakPrx> iceP_namespace;
+    ::std::shared_ptr<charPrx> iceP_new;
+    ::std::shared_ptr<switchPrx> iceP_not;
+    ::std::shared_ptr<doPrx> iceP_operator;
+    int iceP_or;
+    int iceP_protected;
+    int iceP_public;
+    int iceP_register;
+    istr->readAll(iceP_if, iceP_d, iceP_inline, iceP_private, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_operator, iceP_or, iceP_protected, iceP_public, iceP_register);
+    istr->readPendingValues();
+    inS.endReadParams();
+    _cpp_auto ret = this->_cpp_goto(iceP_if, ::std::move(iceP_d), ::std::move(iceP_inline), ::std::move(iceP_private), ::std::move(iceP_mutable), ::std::move(iceP_namespace), ::std::move(iceP_new), ::std::move(iceP_not), ::std::move(iceP_operator), iceP_or, iceP_protected, iceP_public, iceP_register, current);
+    auto ostr = inS.startWriteParams();
+    ostr->writeAll(ret);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+_cpp_and::_cpp_friend::_iceD_objc(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
+    auto istr = inS.startReadParams();
+    int iceP_bycopy;
+    int iceP_byref;
+    int iceP_id;
+    int iceP_IMP;
+    int iceP_in;
+    int iceP_inout;
+    int iceP_nil;
+    int iceP_NO;
+    int iceP_oneway;
+    int iceP_SEL;
+    int iceP_super;
+    int iceP_YES;
+    istr->readAll(iceP_bycopy, iceP_byref, iceP_id, iceP_IMP, iceP_in, iceP_inout, iceP_nil, iceP_NO, iceP_oneway, iceP_SEL, iceP_super, iceP_YES);
+    inS.endReadParams();
+    this->objc(iceP_bycopy, iceP_byref, iceP_id, iceP_IMP, iceP_in, iceP_inout, iceP_nil, iceP_NO, iceP_oneway, iceP_SEL, iceP_super, iceP_YES, current);
+    inS.writeEmptyParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+_cpp_and::_cpp_friend::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+{
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_and_friend_ops, iceC_and_friend_ops + 6, current.operation);
+    if(r.first == r.second)
+    {
+        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+    }
+
+    switch(r.first - iceC_and_friend_ops)
+    {
+        case 0:
+        {
+            return _iceD_goto(in, current);
+        }
+        case 1:
+        {
+            return _iceD_ice_id(in, current);
+        }
+        case 2:
+        {
+            return _iceD_ice_ids(in, current);
+        }
+        case 3:
+        {
+            return _iceD_ice_isA(in, current);
+        }
+        case 4:
+        {
+            return _iceD_ice_ping(in, current);
+        }
+        case 5:
+        {
+            return _iceD_objc(in, current);
+        }
+        default:
+        {
+            assert(false);
+            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        }
+    }
+}
+/// \endcond
+
 _cpp_and::_cpp_do::~_cpp_do()
 {
 }
@@ -649,6 +792,65 @@ _cpp_and::doPrx::ice_staticId()
     return doDisp::ice_staticId();
 }
 
+/// \cond INTERNAL
+void
+_cpp_and::friendPrx::_iceI_goto(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::_cpp_and::_cpp_auto>>& outAsync, _cpp_continue iceP_if, const _cpp_auto& iceP_d, const _cpp_delete& iceP_inline, const ::std::shared_ptr<::Ice::Value>& iceP_private, const ::std::shared_ptr<_cpp_do>& iceP_mutable, const ::std::shared_ptr<breakPrx>& iceP_namespace, const ::std::shared_ptr<charPrx>& iceP_new, const ::std::shared_ptr<switchPrx>& iceP_not, const ::std::shared_ptr<doPrx>& iceP_operator, int iceP_or, int iceP_protected, int iceP_public, int iceP_register, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_and_friend_goto_name);
+    outAsync->invoke(iceC_and_friend_goto_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_if, iceP_d, iceP_inline, iceP_private, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_operator, iceP_or, iceP_protected, iceP_public, iceP_register);
+            ostr->writePendingValues();
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const _cpp_sizeof&)
+            {
+                throw;
+            }
+            catch(const _cpp_return&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+/// \cond INTERNAL
+void
+_cpp_and::friendPrx::_iceI_objc(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, int iceP_bycopy, int iceP_byref, int iceP_id, int iceP_IMP, int iceP_in, int iceP_inout, int iceP_nil, int iceP_NO, int iceP_oneway, int iceP_SEL, int iceP_super, int iceP_YES, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_and_friend_objc_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_bycopy, iceP_byref, iceP_id, iceP_IMP, iceP_in, iceP_inout, iceP_nil, iceP_NO, iceP_oneway, iceP_SEL, iceP_super, iceP_YES);
+        },
+        nullptr);
+}
+/// \endcond
+
+/// \cond INTERNAL
+::std::shared_ptr<::Ice::ObjectPrx>
+_cpp_and::friendPrx::_newInstance() const
+{
+    return ::IceInternal::createProxy<friendPrx>();
+}
+/// \endcond
+
+const ::std::string&
+_cpp_and::friendPrx::ice_staticId()
+{
+    return _cpp_friend::ice_staticId();
+}
+
 namespace Ice
 {
 }
@@ -667,6 +869,10 @@ const ::std::string iceC_and_switch_foo_name = "foo";
 const ::std::string iceC_and_switch_foo2_name = "foo2";
 
 const ::std::string iceC_and_switch_foo3_name = "foo3";
+
+const ::std::string iceC_and_friend_goto_name = "goto";
+
+const ::std::string iceC_and_friend_objc_name = "objc";
 
 }
 
@@ -1189,6 +1395,139 @@ const ::std::string&
 IceProxy::_cpp_and::_cpp_do::ice_staticId()
 {
     return ::_cpp_and::_cpp_do::ice_staticId();
+}
+
+/// \cond INTERNAL
+::IceProxy::Ice::Object* ::IceProxy::_cpp_and::upCast(_cpp_friend* p) { return p; }
+
+void
+::IceProxy::_cpp_and::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< _cpp_friend>& v)
+{
+    ::Ice::ObjectPrx proxy;
+    istr->read(proxy);
+    if(!proxy)
+    {
+        v = 0;
+    }
+    else
+    {
+        v = new _cpp_friend;
+        v->_copyFrom(proxy);
+    }
+}
+/// \endcond
+
+::Ice::AsyncResultPtr
+IceProxy::_cpp_and::_cpp_friend::_iceI_begin_goto(::_cpp_and::_cpp_continue iceP_if, const ::_cpp_and::_cpp_auto& iceP_d, const ::_cpp_and::deletePtr& iceP_inline, const ::_cpp_and::switchPtr& iceP_private, const ::_cpp_and::doPtr& iceP_mutable, const ::_cpp_and::breakPrx& iceP_namespace, const ::_cpp_and::charPrx& iceP_new, const ::_cpp_and::switchPrx& iceP_not, const ::_cpp_and::doPrx& iceP_operator, ::Ice::Int iceP_or, ::Ice::Int iceP_protected, ::Ice::Int iceP_public, ::Ice::Int iceP_register, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+{
+    _checkTwowayOnly(iceC_and_friend_goto_name, sync);
+    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_and_friend_goto_name, del, cookie, sync);
+    try
+    {
+        result->prepare(iceC_and_friend_goto_name, ::Ice::Normal, context);
+        ::Ice::OutputStream* ostr = result->startWriteParams(::Ice::DefaultFormat);
+        ostr->write(iceP_if);
+        ostr->write(iceP_d);
+        ostr->write(iceP_inline);
+        ostr->write(iceP_private);
+        ostr->write(iceP_mutable);
+        ostr->write(iceP_namespace);
+        ostr->write(iceP_new);
+        ostr->write(iceP_not);
+        ostr->write(iceP_operator);
+        ostr->write(iceP_or);
+        ostr->write(iceP_protected);
+        ostr->write(iceP_public);
+        ostr->write(iceP_register);
+        ostr->writePendingValues();
+        result->endWriteParams();
+        result->invoke(iceC_and_friend_goto_name);
+    }
+    catch(const ::Ice::Exception& ex)
+    {
+        result->abort(ex);
+    }
+    return result;
+}
+
+::_cpp_and::_cpp_auto
+IceProxy::_cpp_and::_cpp_friend::end_goto(const ::Ice::AsyncResultPtr& result)
+{
+    ::Ice::AsyncResult::_check(result, this, iceC_and_friend_goto_name);
+    ::_cpp_and::_cpp_auto ret;
+    if(!result->_waitForResponse())
+    {
+        try
+        {
+            result->_throwUserException();
+        }
+        catch(const ::_cpp_and::_cpp_sizeof&)
+        {
+            throw;
+        }
+        catch(const ::_cpp_and::_cpp_return&)
+        {
+            throw;
+        }
+        catch(const ::Ice::UserException& ex)
+        {
+            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
+        }
+    }
+    ::Ice::InputStream* istr = result->_startReadParams();
+    istr->read(ret);
+    result->_endReadParams();
+    return ret;
+}
+
+::Ice::AsyncResultPtr
+IceProxy::_cpp_and::_cpp_friend::_iceI_begin_objc(::Ice::Int iceP_bycopy, ::Ice::Int iceP_byref, ::Ice::Int iceP_id, ::Ice::Int iceP_IMP, ::Ice::Int iceP_in, ::Ice::Int iceP_inout, ::Ice::Int iceP_nil, ::Ice::Int iceP_NO, ::Ice::Int iceP_oneway, ::Ice::Int iceP_SEL, ::Ice::Int iceP_super, ::Ice::Int iceP_YES, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+{
+    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_and_friend_objc_name, del, cookie, sync);
+    try
+    {
+        result->prepare(iceC_and_friend_objc_name, ::Ice::Normal, context);
+        ::Ice::OutputStream* ostr = result->startWriteParams(::Ice::DefaultFormat);
+        ostr->write(iceP_bycopy);
+        ostr->write(iceP_byref);
+        ostr->write(iceP_id);
+        ostr->write(iceP_IMP);
+        ostr->write(iceP_in);
+        ostr->write(iceP_inout);
+        ostr->write(iceP_nil);
+        ostr->write(iceP_NO);
+        ostr->write(iceP_oneway);
+        ostr->write(iceP_SEL);
+        ostr->write(iceP_super);
+        ostr->write(iceP_YES);
+        result->endWriteParams();
+        result->invoke(iceC_and_friend_objc_name);
+    }
+    catch(const ::Ice::Exception& ex)
+    {
+        result->abort(ex);
+    }
+    return result;
+}
+
+void
+IceProxy::_cpp_and::_cpp_friend::end_objc(const ::Ice::AsyncResultPtr& result)
+{
+    _end(result, iceC_and_friend_objc_name);
+}
+
+/// \cond INTERNAL
+::IceProxy::Ice::Object*
+IceProxy::_cpp_and::_cpp_friend::_newInstance() const
+{
+    return new _cpp_friend;
+}
+/// \endcond
+
+const ::std::string&
+IceProxy::_cpp_and::_cpp_friend::ice_staticId()
+{
+    return ::_cpp_and::_cpp_friend::ice_staticId();
 }
 
 _cpp_and::_cpp_break::~_cpp_break()
@@ -1823,6 +2162,218 @@ _cpp_and::_icePatchObjectPtr(doPtr& handle, const ::Ice::ObjectPtr& v)
     if(v && !handle)
     {
         IceInternal::Ex::throwUOE(_cpp_do::ice_staticId(), v);
+    }
+}
+/// \endcond
+
+_cpp_and::_cpp_friend::~_cpp_friend()
+{
+}
+
+/// \cond INTERNAL
+::Ice::Object* _cpp_and::upCast(_cpp_friend* p) { return p; }
+
+/// \endcond
+
+namespace
+{
+const ::std::string iceC_and_friend_ids[2] =
+{
+    "::Ice::Object",
+    "::and::friend"
+};
+
+}
+
+bool
+_cpp_and::_cpp_friend::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_and_friend_ids, iceC_and_friend_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+_cpp_and::_cpp_friend::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_and_friend_ids[0], &iceC_and_friend_ids[2]);
+}
+
+const ::std::string&
+_cpp_and::_cpp_friend::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+_cpp_and::_cpp_friend::ice_staticId()
+{
+    static const ::std::string typeId = "::and::friend";
+    return typeId;
+}
+
+/// \cond INTERNAL
+bool
+_cpp_and::_cpp_friend::_iceD_goto(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    _cpp_continue iceP_if;
+    _cpp_auto iceP_d;
+    deletePtr iceP_inline;
+    ::and::switchPtr iceP_private;
+    ::and::doPtr iceP_mutable;
+    breakPrx iceP_namespace;
+    charPrx iceP_new;
+    switchPrx iceP_not;
+    doPrx iceP_operator;
+    ::Ice::Int iceP_or;
+    ::Ice::Int iceP_protected;
+    ::Ice::Int iceP_public;
+    ::Ice::Int iceP_register;
+    istr->read(iceP_if);
+    istr->read(iceP_d);
+    istr->read(iceP_inline);
+    istr->read(iceP_private);
+    istr->read(iceP_mutable);
+    istr->read(iceP_namespace);
+    istr->read(iceP_new);
+    istr->read(iceP_not);
+    istr->read(iceP_operator);
+    istr->read(iceP_or);
+    istr->read(iceP_protected);
+    istr->read(iceP_public);
+    istr->read(iceP_register);
+    istr->readPendingValues();
+    inS.endReadParams();
+    _cpp_auto ret = this->_cpp_goto(iceP_if, iceP_d, iceP_inline, iceP_private, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_operator, iceP_or, iceP_protected, iceP_public, iceP_register, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+_cpp_and::_cpp_friend::_iceD_objc(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    ::Ice::Int iceP_bycopy;
+    ::Ice::Int iceP_byref;
+    ::Ice::Int iceP_id;
+    ::Ice::Int iceP_IMP;
+    ::Ice::Int iceP_in;
+    ::Ice::Int iceP_inout;
+    ::Ice::Int iceP_nil;
+    ::Ice::Int iceP_NO;
+    ::Ice::Int iceP_oneway;
+    ::Ice::Int iceP_SEL;
+    ::Ice::Int iceP_super;
+    ::Ice::Int iceP_YES;
+    istr->read(iceP_bycopy);
+    istr->read(iceP_byref);
+    istr->read(iceP_id);
+    istr->read(iceP_IMP);
+    istr->read(iceP_in);
+    istr->read(iceP_inout);
+    istr->read(iceP_nil);
+    istr->read(iceP_NO);
+    istr->read(iceP_oneway);
+    istr->read(iceP_SEL);
+    istr->read(iceP_super);
+    istr->read(iceP_YES);
+    inS.endReadParams();
+    this->objc(iceP_bycopy, iceP_byref, iceP_id, iceP_IMP, iceP_in, iceP_inout, iceP_nil, iceP_NO, iceP_oneway, iceP_SEL, iceP_super, iceP_YES, current);
+    inS.writeEmptyParams();
+    return true;
+}
+/// \endcond
+
+namespace
+{
+const ::std::string iceC_and_friend_all[] =
+{
+    "goto",
+    "ice_id",
+    "ice_ids",
+    "ice_isA",
+    "ice_ping",
+    "objc"
+};
+
+}
+
+/// \cond INTERNAL
+bool
+_cpp_and::_cpp_friend::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+{
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_and_friend_all, iceC_and_friend_all + 6, current.operation);
+    if(r.first == r.second)
+    {
+        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+    }
+
+    switch(r.first - iceC_and_friend_all)
+    {
+        case 0:
+        {
+            return _iceD_goto(in, current);
+        }
+        case 1:
+        {
+            return _iceD_ice_id(in, current);
+        }
+        case 2:
+        {
+            return _iceD_ice_ids(in, current);
+        }
+        case 3:
+        {
+            return _iceD_ice_isA(in, current);
+        }
+        case 4:
+        {
+            return _iceD_ice_ping(in, current);
+        }
+        case 5:
+        {
+            return _iceD_objc(in, current);
+        }
+        default:
+        {
+            assert(false);
+            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        }
+    }
+}
+/// \endcond
+
+/// \cond STREAM
+void
+_cpp_and::_cpp_friend::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter< _cpp_friend, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+_cpp_and::_cpp_friend::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader< _cpp_friend, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+/// \endcond
+
+/// \cond INTERNAL
+void
+_cpp_and::_icePatchObjectPtr(friendPtr& handle, const ::Ice::ObjectPtr& v)
+{
+    handle = friendPtr::dynamicCast(v);
+    if(v && !handle)
+    {
+        IceInternal::Ex::throwUOE(_cpp_friend::ice_staticId(), v);
     }
 }
 /// \endcond

@@ -24,28 +24,4 @@ _M_IceBT.__doc__ = """
  IceBT provides a Bluetooth transport for Ice.
 """
 
-if 'BluetoothException' not in _M_IceBT.__dict__:
-    _M_IceBT.BluetoothException = Ice.createTempClass()
-    class BluetoothException(Ice.LocalException):
-        """
-         Indicates a failure in the Bluetooth plug-in.
-        Members:
-        reason --  Provides more information about the failure.
-        """
-        def __init__(self, reason=''):
-            self.reason = reason
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::IceBT::BluetoothException'
-
-    _M_IceBT._t_BluetoothException = IcePy.defineException('::IceBT::BluetoothException', BluetoothException, (), False, None, (('reason', (), IcePy._t_string, False, 0),))
-    BluetoothException._ice_type = _M_IceBT._t_BluetoothException
-
-    _M_IceBT.BluetoothException = BluetoothException
-    del BluetoothException
-
 # End of module IceBT

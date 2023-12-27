@@ -20,19 +20,4 @@ namespace
     require_once 'LocalException.php';
     require_once 'Current.php';
 }
-
-namespace Ice
-{
-    global $Ice__t_ImplicitContext;
-    interface ImplicitContext
-    {
-        public function getContext();
-        public function setContext($newContext);
-        public function containsKey($key);
-        public function get($key);
-        public function put($key, $value);
-        public function remove($key);
-    }
-    $Ice__t_ImplicitContext = IcePHP_defineClass('::Ice::ImplicitContext', '\\Ice\\ImplicitContext', -1, false, true, null, null);
-}
 ?>

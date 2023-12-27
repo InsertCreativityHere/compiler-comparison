@@ -20,17 +20,5 @@ require 'Ice/Instrumentation.rb'
 module ::Glacier2
 
     module Instrumentation
-
-        if not defined?(::Glacier2::Instrumentation::T_SessionObserver)
-            T_SessionObserver = ::Ice::__declareLocalClass('::Glacier2::Instrumentation::SessionObserver')
-        end
-
-        if not defined?(::Glacier2::Instrumentation::T_ObserverUpdater)
-            T_ObserverUpdater = ::Ice::__declareLocalClass('::Glacier2::Instrumentation::ObserverUpdater')
-        end
-
-        if not defined?(::Glacier2::Instrumentation::T_RouterObserver)
-            T_RouterObserver = ::Ice::__declareLocalClass('::Glacier2::Instrumentation::RouterObserver')
-        end
     end
 end

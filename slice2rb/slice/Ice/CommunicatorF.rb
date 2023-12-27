@@ -17,8 +17,4 @@
 require 'Ice'
 
 module ::Ice
-
-    if not defined?(::Ice::T_Communicator)
-        T_Communicator = ::Ice::__declareLocalClass('::Ice::Communicator')
-    end
 end

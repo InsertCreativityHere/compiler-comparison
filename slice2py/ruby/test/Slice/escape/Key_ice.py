@@ -359,27 +359,6 @@ if 'nil' not in _M_BEGIN.__dict__:
     _M_BEGIN.nil = nil
     del nil
 
-if 'extend' not in _M_BEGIN.__dict__:
-    _M_BEGIN.extend = Ice.createTempClass()
-    class extend(object):
-        def __init__(self):
-            if Ice.getType(self) == _M_BEGIN.extend:
-                raise RuntimeError('BEGIN.extend is an abstract class')
-
-        def _for(self, freeze, hash, _if, inspect, method, methods):
-            raise NotImplementedError("method '_for' not implemented")
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_BEGIN._t_extend)
-
-        __repr__ = __str__
-
-    _M_BEGIN._t_extend = IcePy.defineValue('::BEGIN::extend', extend, -1, (), False, True, None, ())
-    extend._ice_type = _M_BEGIN._t_extend
-
-    _M_BEGIN.extend = extend
-    del extend
-
 _M_BEGIN.redo = 1
 
 # End of module BEGIN

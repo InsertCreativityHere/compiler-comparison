@@ -18,9 +18,6 @@
 
 /* slice2js browser-bundle-skip */
 const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Object");
-require("../Ice/Value");
-require("../Ice/ObjectPrx");
 require("../Ice/Long");
 require("../Ice/HashMap");
 require("../Ice/HashUtil");
@@ -35,25 +32,6 @@ const Slice = Ice.Slice;
 
 let IceBT = _ModuleRegistry.module("IceBT");
 /* slice2js browser-bundle-skip-end */
-
-/**
- *  Provides access to the details of a Bluetooth connection.
- **/
-IceBT.ConnectionInfo = class extends Ice.ConnectionInfo
-{
-    constructor(underlying, incoming, adapterName, connectionId, localAddress = "", localChannel = -1, remoteAddress = "", remoteChannel = -1, uuid = "", rcvSize = 0, sndSize = 0)
-    {
-        super(underlying, incoming, adapterName, connectionId);
-        this.localAddress = localAddress;
-        this.localChannel = localChannel;
-        this.remoteAddress = remoteAddress;
-        this.remoteChannel = remoteChannel;
-        this.uuid = uuid;
-        this.rcvSize = rcvSize;
-        this.sndSize = sndSize;
-    }
-};
-
 /* slice2js browser-bundle-skip */
 exports.IceBT = IceBT;
 /* slice2js browser-bundle-skip-end */

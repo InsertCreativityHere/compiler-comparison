@@ -131,11 +131,6 @@
     {
         "activateServantLocator": [, , , , , [[1]], , , , ]
     });
-
-    Test.Cookie = class
-    {
-    };
-
     exports.Test = Test;
 }
 (typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,

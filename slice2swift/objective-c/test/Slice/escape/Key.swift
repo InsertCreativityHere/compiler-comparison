@@ -439,6 +439,12 @@ open class sizeof: `return` {
         try super._iceReadImpl(from: istr);
     }
 }
+
+/// Traits for Slice interface `friend`.
+public struct friendTraits: Ice.SliceTraits {
+    public static let staticIds = ["::Ice::Object", "::and::friend"]
+    public static let staticId = "::and::friend"
+}
 public let template: Swift.Int32 = 0
 
 public let this: Swift.Int32 = 0
@@ -1063,6 +1069,351 @@ public extension Ice.InputStream {
 /// doPrx overview.
 public extension doPrx {}
 
+/// friendPrx overview.
+///
+/// friendPrx Methods:
+///
+///  - goto: 
+///
+///  - gotoAsync: 
+///
+///  - objc: 
+///
+///  - objcAsync: 
+public protocol friendPrx: Ice.ObjectPrx {}
+
+private final class friendPrxI: Ice.ObjectPrxI, friendPrx {
+    public override class func ice_staticId() -> Swift.String {
+        return friendTraits.staticId
+    }
+}
+
+/// Casts a proxy to the requested type. This call contacts the server and verifies that the object
+/// implements this type.
+///
+/// It will throw a local exception if a communication error occurs. You can optionally supply a
+/// facet name and a context map.
+///
+/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+///
+/// - parameter type: `friendPrx.Protocol` - The proxy type to cast to.
+///
+/// - parameter facet: `String` - The optional name of the desired facet.
+///
+/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
+///
+/// - returns: `friendPrx` - A proxy with the requested type or nil if the objet does not
+///   support this type.
+///
+/// - throws: `Ice.LocalException` if a communication error occurs.
+public func checkedCast(prx: Ice.ObjectPrx, type: friendPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> friendPrx? {
+    return try friendPrxI.checkedCast(prx: prx, facet: facet, context: context) as friendPrxI?
+}
+
+/// Downcasts the given proxy to this type without contacting the remote server.
+///
+/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+///
+/// - parameter type: `friendPrx.Protocol` - The proxy type to cast to.
+///
+/// - parameter facet: `String` - The optional name of the desired facet
+///
+/// - returns: `friendPrx` - A proxy with the requested type
+public func uncheckedCast(prx: Ice.ObjectPrx, type: friendPrx.Protocol, facet: Swift.String? = nil) -> friendPrx {
+    return friendPrxI.uncheckedCast(prx: prx, facet: facet) as friendPrxI
+}
+
+/// Returns the Slice type id of the interface or class associated with this proxy type.
+///
+/// parameter type: `friendPrx.Protocol` -  The proxy type to retrieve the type id.
+///
+/// returns: `String` - The type id of the interface or class associated with this proxy type.
+public func ice_staticId(_ type: friendPrx.Protocol) -> Swift.String {
+    return friendTraits.staticId
+}
+
+/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// `friendPrx`.
+public extension Ice.InputStream {
+    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
+    ///
+    /// - parameter type: `friendPrx.Protocol` - The type of the proxy to be extracted.
+    ///
+    /// - returns: `friendPrx?` - The extracted proxy
+    func read(_ type: friendPrx.Protocol) throws -> friendPrx? {
+        return try read() as friendPrxI?
+    }
+    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
+    ///
+    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    ///
+    /// - parameter type: `friendPrx.Protocol` - The type of the proxy to be extracted.
+    ///
+    /// - returns: `friendPrx` - The extracted proxy.
+    func read(tag: Swift.Int32, type: friendPrx.Protocol) throws -> friendPrx? {
+        return try read(tag: tag) as friendPrxI?
+    }
+}
+
+/// friendPrx overview.
+///
+/// friendPrx Methods:
+///
+///  - goto: 
+///
+///  - gotoAsync: 
+///
+///  - objc: 
+///
+///  - objcAsync: 
+public extension friendPrx {
+    ///
+    /// - parameter if: ``continue``
+    ///
+    /// - parameter d: `auto`
+    ///
+    /// - parameter inline: `delete`
+    ///
+    /// - parameter private: `Ice.Value?`
+    ///
+    /// - parameter mutable: ``do`?`
+    ///
+    /// - parameter namespace: `breakPrx?`
+    ///
+    /// - parameter new: `charPrx?`
+    ///
+    /// - parameter not: `switchPrx?`
+    ///
+    /// - parameter operator: `doPrx?`
+    ///
+    /// - parameter or: `Swift.Int32`
+    ///
+    /// - parameter protected: `Swift.Int32`
+    ///
+    /// - parameter public: `Swift.Int32`
+    ///
+    /// - parameter register: `Swift.Int32`
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    ///
+    /// - returns: `auto`
+    func goto(if iceP_if: `continue`, d iceP_d: auto, inline iceP_inline: delete, private iceP_private: Ice.Value?, mutable iceP_mutable: `do`?, namespace iceP_namespace: breakPrx?, new iceP_new: charPrx?, not iceP_not: switchPrx?, operator iceP_operator: doPrx?, or iceP_or: Swift.Int32, protected iceP_protected: Swift.Int32, public iceP_public: Swift.Int32, register iceP_register: Swift.Int32, context: Ice.Context? = nil) throws -> auto {
+        return try _impl._invoke(operation: "goto",
+                                 mode: .Normal,
+                                 write: { ostr in
+                                     ostr.write(iceP_if)
+                                     ostr.write(iceP_d)
+                                     ostr.write(iceP_inline)
+                                     ostr.write(iceP_private)
+                                     ostr.write(iceP_mutable)
+                                     ostr.write(iceP_namespace)
+                                     ostr.write(iceP_new)
+                                     ostr.write(iceP_not)
+                                     ostr.write(iceP_operator)
+                                     ostr.write(iceP_or)
+                                     ostr.write(iceP_protected)
+                                     ostr.write(iceP_public)
+                                     ostr.write(iceP_register)
+                                     ostr.writePendingValues()
+                                 },
+                                 read: { istr in
+                                     let iceP_returnValue: auto = try istr.read()
+                                     return iceP_returnValue
+                                 },
+                                 userException:{ ex in
+                                     do  {
+                                         throw ex
+                                     } catch let error as return {
+                                         throw error
+                                     } catch let error as sizeof {
+                                         throw error
+                                     } catch is Ice.UserException {}
+                                 },
+                                 context: context)
+    }
+
+    ///
+    /// - parameter if: ``continue``
+    ///
+    /// - parameter d: `auto`
+    ///
+    /// - parameter inline: `delete`
+    ///
+    /// - parameter private: `Ice.Value?`
+    ///
+    /// - parameter mutable: ``do`?`
+    ///
+    /// - parameter namespace: `breakPrx?`
+    ///
+    /// - parameter new: `charPrx?`
+    ///
+    /// - parameter not: `switchPrx?`
+    ///
+    /// - parameter operator: `doPrx?`
+    ///
+    /// - parameter or: `Swift.Int32`
+    ///
+    /// - parameter protected: `Swift.Int32`
+    ///
+    /// - parameter public: `Swift.Int32`
+    ///
+    /// - parameter register: `Swift.Int32`
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    ///
+    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
+    ///   dispatch the sent callback.
+    ///
+    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
+    ///   to dispatch the sent callback
+    ///
+    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
+    ///
+    /// - returns: `PromiseKit.Promise<auto>` - The result of the operation
+    func gotoAsync(if iceP_if: `continue`, d iceP_d: auto, inline iceP_inline: delete, private iceP_private: Ice.Value?, mutable iceP_mutable: `do`?, namespace iceP_namespace: breakPrx?, new iceP_new: charPrx?, not iceP_not: switchPrx?, operator iceP_operator: doPrx?, or iceP_or: Swift.Int32, protected iceP_protected: Swift.Int32, public iceP_public: Swift.Int32, register iceP_register: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<auto> {
+        return _impl._invokeAsync(operation: "goto",
+                                  mode: .Normal,
+                                  write: { ostr in
+                                      ostr.write(iceP_if)
+                                      ostr.write(iceP_d)
+                                      ostr.write(iceP_inline)
+                                      ostr.write(iceP_private)
+                                      ostr.write(iceP_mutable)
+                                      ostr.write(iceP_namespace)
+                                      ostr.write(iceP_new)
+                                      ostr.write(iceP_not)
+                                      ostr.write(iceP_operator)
+                                      ostr.write(iceP_or)
+                                      ostr.write(iceP_protected)
+                                      ostr.write(iceP_public)
+                                      ostr.write(iceP_register)
+                                      ostr.writePendingValues()
+                                  },
+                                  read: { istr in
+                                      let iceP_returnValue: auto = try istr.read()
+                                      return iceP_returnValue
+                                  },
+                                  userException:{ ex in
+                                      do  {
+                                          throw ex
+                                      } catch let error as return {
+                                          throw error
+                                      } catch let error as sizeof {
+                                          throw error
+                                      } catch is Ice.UserException {}
+                                  },
+                                  context: context,
+                                  sentOn: sentOn,
+                                  sentFlags: sentFlags,
+                                  sent: sent)
+    }
+
+    ///
+    /// - parameter bycopy: `Swift.Int32`
+    ///
+    /// - parameter byref: `Swift.Int32`
+    ///
+    /// - parameter id: `Swift.Int32`
+    ///
+    /// - parameter IMP: `Swift.Int32`
+    ///
+    /// - parameter in: `Swift.Int32`
+    ///
+    /// - parameter inout: `Swift.Int32`
+    ///
+    /// - parameter nil: `Swift.Int32`
+    ///
+    /// - parameter NO: `Swift.Int32`
+    ///
+    /// - parameter oneway: `Swift.Int32`
+    ///
+    /// - parameter SEL: `Swift.Int32`
+    ///
+    /// - parameter super: `Swift.Int32`
+    ///
+    /// - parameter YES: `Swift.Int32`
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    func objc(bycopy iceP_bycopy: Swift.Int32, byref iceP_byref: Swift.Int32, id iceP_id: Swift.Int32, IMP iceP_IMP: Swift.Int32, in iceP_in: Swift.Int32, inout iceP_inout: Swift.Int32, nil iceP_nil: Swift.Int32, NO iceP_NO: Swift.Int32, oneway iceP_oneway: Swift.Int32, SEL iceP_SEL: Swift.Int32, super iceP_super: Swift.Int32, YES iceP_YES: Swift.Int32, context: Ice.Context? = nil) throws {
+        try _impl._invoke(operation: "objc",
+                          mode: .Normal,
+                          write: { ostr in
+                              ostr.write(iceP_bycopy)
+                              ostr.write(iceP_byref)
+                              ostr.write(iceP_id)
+                              ostr.write(iceP_IMP)
+                              ostr.write(iceP_in)
+                              ostr.write(iceP_inout)
+                              ostr.write(iceP_nil)
+                              ostr.write(iceP_NO)
+                              ostr.write(iceP_oneway)
+                              ostr.write(iceP_SEL)
+                              ostr.write(iceP_super)
+                              ostr.write(iceP_YES)
+                          },
+                          context: context)
+    }
+
+    ///
+    /// - parameter bycopy: `Swift.Int32`
+    ///
+    /// - parameter byref: `Swift.Int32`
+    ///
+    /// - parameter id: `Swift.Int32`
+    ///
+    /// - parameter IMP: `Swift.Int32`
+    ///
+    /// - parameter in: `Swift.Int32`
+    ///
+    /// - parameter inout: `Swift.Int32`
+    ///
+    /// - parameter nil: `Swift.Int32`
+    ///
+    /// - parameter NO: `Swift.Int32`
+    ///
+    /// - parameter oneway: `Swift.Int32`
+    ///
+    /// - parameter SEL: `Swift.Int32`
+    ///
+    /// - parameter super: `Swift.Int32`
+    ///
+    /// - parameter YES: `Swift.Int32`
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    ///
+    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
+    ///   dispatch the sent callback.
+    ///
+    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
+    ///   to dispatch the sent callback
+    ///
+    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
+    ///
+    /// - returns: `PromiseKit.Promise<>` - The result of the operation
+    func objcAsync(bycopy iceP_bycopy: Swift.Int32, byref iceP_byref: Swift.Int32, id iceP_id: Swift.Int32, IMP iceP_IMP: Swift.Int32, in iceP_in: Swift.Int32, inout iceP_inout: Swift.Int32, nil iceP_nil: Swift.Int32, NO iceP_NO: Swift.Int32, oneway iceP_oneway: Swift.Int32, SEL iceP_SEL: Swift.Int32, super iceP_super: Swift.Int32, YES iceP_YES: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
+        return _impl._invokeAsync(operation: "objc",
+                                  mode: .Normal,
+                                  write: { ostr in
+                                      ostr.write(iceP_bycopy)
+                                      ostr.write(iceP_byref)
+                                      ostr.write(iceP_id)
+                                      ostr.write(iceP_IMP)
+                                      ostr.write(iceP_in)
+                                      ostr.write(iceP_inout)
+                                      ostr.write(iceP_nil)
+                                      ostr.write(iceP_NO)
+                                      ostr.write(iceP_oneway)
+                                      ostr.write(iceP_SEL)
+                                      ostr.write(iceP_super)
+                                      ostr.write(iceP_YES)
+                                  },
+                                  context: context,
+                                  sentOn: sentOn,
+                                  sentFlags: sentFlags,
+                                  sent: sent)
+    }
+}
+
 /// :nodoc:
 public class do_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
@@ -1286,6 +1637,99 @@ public struct doDisp: Ice.Disp {
 
 public protocol doOperations: char, `break`, `switch` {}
 
+
+/// Dispatcher for `friend` servants.
+public struct friendDisp: Ice.Disp {
+    public let servant: friend
+    private static let defaultObject = Ice.ObjectI<friendTraits>()
+
+    public init(_ servant: friend) {
+        self.servant = servant
+    }
+
+    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
+        request.startOver()
+        switch current.operation {
+        case "goto":
+            return try servant._iceD_goto(incoming: request, current: current)
+        case "ice_id":
+            return try (servant as? Object ?? friendDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+        case "ice_ids":
+            return try (servant as? Object ?? friendDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+        case "ice_isA":
+            return try (servant as? Object ?? friendDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+        case "ice_ping":
+            return try (servant as? Object ?? friendDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+        case "objc":
+            return try servant._iceD_objc(incoming: request, current: current)
+        default:
+            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+        }
+    }
+}
+
+public protocol friend {
+    ///
+    /// - parameter if: ``continue``
+    ///
+    /// - parameter d: `auto`
+    ///
+    /// - parameter inline: `delete`
+    ///
+    /// - parameter private: `Ice.Value?`
+    ///
+    /// - parameter mutable: ``do`?`
+    ///
+    /// - parameter namespace: `breakPrx?`
+    ///
+    /// - parameter new: `charPrx?`
+    ///
+    /// - parameter not: `switchPrx?`
+    ///
+    /// - parameter operator: `doPrx?`
+    ///
+    /// - parameter or: `Swift.Int32`
+    ///
+    /// - parameter protected: `Swift.Int32`
+    ///
+    /// - parameter public: `Swift.Int32`
+    ///
+    /// - parameter register: `Swift.Int32`
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `auto`
+    func goto(if: `continue`, d: auto, inline: delete, private: Ice.Value?, mutable: `do`?, namespace: breakPrx?, new: charPrx?, not: switchPrx?, operator: doPrx?, or: Swift.Int32, protected: Swift.Int32, public: Swift.Int32, register: Swift.Int32, current: Ice.Current) throws -> auto
+
+    ///
+    /// - parameter bycopy: `Swift.Int32`
+    ///
+    /// - parameter byref: `Swift.Int32`
+    ///
+    /// - parameter id: `Swift.Int32`
+    ///
+    /// - parameter IMP: `Swift.Int32`
+    ///
+    /// - parameter in: `Swift.Int32`
+    ///
+    /// - parameter inout: `Swift.Int32`
+    ///
+    /// - parameter nil: `Swift.Int32`
+    ///
+    /// - parameter NO: `Swift.Int32`
+    ///
+    /// - parameter oneway: `Swift.Int32`
+    ///
+    /// - parameter SEL: `Swift.Int32`
+    ///
+    /// - parameter super: `Swift.Int32`
+    ///
+    /// - parameter YES: `Swift.Int32`
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    func objc(bycopy: Swift.Int32, byref: Swift.Int32, id: Swift.Int32, IMP: Swift.Int32, in: Swift.Int32, inout: Swift.Int32, nil: Swift.Int32, NO: Swift.Int32, oneway: Swift.Int32, SEL: Swift.Int32, super: Swift.Int32, YES: Swift.Int32, current: Ice.Current) throws
+}
+
 /// break overview.
 ///
 /// break Methods:
@@ -1375,60 +1819,61 @@ public extension `switch` {
 /// do overview.
 public extension doOperations {}
 
-public protocol friend:  Swift.AnyObject {
-    ///
-    /// - parameter if: ``continue``
-    ///
-    /// - parameter d: `auto`
-    ///
-    /// - parameter inline: `delete`
-    ///
-    /// - parameter private: `Ice.Value?`
-    ///
-    /// - parameter mutable: ``do`?`
-    ///
-    /// - parameter namespace: `breakPrx?`
-    ///
-    /// - parameter new: `charPrx?`
-    ///
-    /// - parameter not: `switchPrx?`
-    ///
-    /// - parameter operator: `doPrx?`
-    ///
-    /// - parameter or: `Swift.Int32`
-    ///
-    /// - parameter protected: `Swift.Int32`
-    ///
-    /// - parameter public: `Swift.Int32`
-    ///
-    /// - parameter register: `Swift.Int32`
-    ///
-    /// - returns: `auto`
-    func goto(if: `continue`, d: auto, inline: delete, private: Ice.Value?, mutable: `do`?, namespace: breakPrx?, new: charPrx?, not: switchPrx?, operator: doPrx?, or: Swift.Int32, protected: Swift.Int32, public: Swift.Int32, register: Swift.Int32) throws -> auto
+/// friend overview.
+///
+/// friend Methods:
+///
+///  - goto: 
+///
+///  - objc: 
+public extension friend {
+    func _iceD_goto(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
+        let (iceP_if, iceP_d, iceP_inline, iceP_private, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_operator, iceP_or, iceP_protected, iceP_public, iceP_register): (`continue`, auto, delete, Ice.Value?, `do`?, breakPrx?, charPrx?, switchPrx?, doPrx?, Swift.Int32, Swift.Int32, Swift.Int32, Swift.Int32) = try inS.read { istr in
+            let iceP_if: `continue` = try istr.read()
+            let iceP_d: auto = try istr.read()
+            let iceP_inline: delete = try istr.read()
+            var iceP_private: Ice.Value?
+            try istr.read() { iceP_private = $0 }
+            var iceP_mutable: `do`?
+            try istr.read(do.self) { iceP_mutable = $0 }
+            let iceP_namespace: breakPrx? = try istr.read(breakPrx.self)
+            let iceP_new: charPrx? = try istr.read(charPrx.self)
+            let iceP_not: switchPrx? = try istr.read(switchPrx.self)
+            let iceP_operator: doPrx? = try istr.read(doPrx.self)
+            let iceP_or: Swift.Int32 = try istr.read()
+            let iceP_protected: Swift.Int32 = try istr.read()
+            let iceP_public: Swift.Int32 = try istr.read()
+            let iceP_register: Swift.Int32 = try istr.read()
+            try istr.readPendingValues()
+            return (iceP_if, iceP_d, iceP_inline, iceP_private, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_operator, iceP_or, iceP_protected, iceP_public, iceP_register)
+        }
 
-    ///
-    /// - parameter bycopy: `Swift.Int32`
-    ///
-    /// - parameter byref: `Swift.Int32`
-    ///
-    /// - parameter id: `Swift.Int32`
-    ///
-    /// - parameter IMP: `Swift.Int32`
-    ///
-    /// - parameter in: `Swift.Int32`
-    ///
-    /// - parameter inout: `Swift.Int32`
-    ///
-    /// - parameter nil: `Swift.Int32`
-    ///
-    /// - parameter NO: `Swift.Int32`
-    ///
-    /// - parameter oneway: `Swift.Int32`
-    ///
-    /// - parameter SEL: `Swift.Int32`
-    ///
-    /// - parameter super: `Swift.Int32`
-    ///
-    /// - parameter YES: `Swift.Int32`
-    func objc(bycopy: Swift.Int32, byref: Swift.Int32, id: Swift.Int32, IMP: Swift.Int32, in: Swift.Int32, inout: Swift.Int32, nil: Swift.Int32, NO: Swift.Int32, oneway: Swift.Int32, SEL: Swift.Int32, super: Swift.Int32, YES: Swift.Int32) throws
+        let iceP_returnValue = try self.goto(if: iceP_if, d: iceP_d, inline: iceP_inline, private: iceP_private, mutable: iceP_mutable, namespace: iceP_namespace, new: iceP_new, not: iceP_not, operator: iceP_operator, or: iceP_or, protected: iceP_protected, public: iceP_public, register: iceP_register, current: current)
+
+        return inS.setResult{ ostr in
+            ostr.write(iceP_returnValue)
+        }
+    }
+
+    func _iceD_objc(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
+        let (iceP_bycopy, iceP_byref, iceP_id, iceP_IMP, iceP_in, iceP_inout, iceP_nil, iceP_NO, iceP_oneway, iceP_SEL, iceP_super, iceP_YES): (Swift.Int32, Swift.Int32, Swift.Int32, Swift.Int32, Swift.Int32, Swift.Int32, Swift.Int32, Swift.Int32, Swift.Int32, Swift.Int32, Swift.Int32, Swift.Int32) = try inS.read { istr in
+            let iceP_bycopy: Swift.Int32 = try istr.read()
+            let iceP_byref: Swift.Int32 = try istr.read()
+            let iceP_id: Swift.Int32 = try istr.read()
+            let iceP_IMP: Swift.Int32 = try istr.read()
+            let iceP_in: Swift.Int32 = try istr.read()
+            let iceP_inout: Swift.Int32 = try istr.read()
+            let iceP_nil: Swift.Int32 = try istr.read()
+            let iceP_NO: Swift.Int32 = try istr.read()
+            let iceP_oneway: Swift.Int32 = try istr.read()
+            let iceP_SEL: Swift.Int32 = try istr.read()
+            let iceP_super: Swift.Int32 = try istr.read()
+            let iceP_YES: Swift.Int32 = try istr.read()
+            return (iceP_bycopy, iceP_byref, iceP_id, iceP_IMP, iceP_in, iceP_inout, iceP_nil, iceP_NO, iceP_oneway, iceP_SEL, iceP_super, iceP_YES)
+        }
+
+        try self.objc(bycopy: iceP_bycopy, byref: iceP_byref, id: iceP_id, IMP: iceP_IMP, in: iceP_in, inout: iceP_inout, nil: iceP_nil, NO: iceP_NO, oneway: iceP_oneway, SEL: iceP_SEL, super: iceP_super, YES: iceP_YES, current: current)
+
+        return inS.setResult()
+    }
 }

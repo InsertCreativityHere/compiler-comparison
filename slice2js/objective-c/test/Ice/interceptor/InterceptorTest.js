@@ -58,24 +58,6 @@
         }
     };
 
-    Test.RetryException = class extends Ice.LocalException
-    {
-        constructor(_cause = "")
-        {
-            super(_cause);
-        }
-
-        static get _parent()
-        {
-            return Ice.LocalException;
-        }
-
-        static get _id()
-        {
-            return "::Test::RetryException";
-        }
-    };
-
     const iceC_Test_MyObject_ids = [
         "::Ice::Object",
         "::Test::MyObject"

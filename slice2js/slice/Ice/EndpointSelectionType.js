@@ -18,7 +18,6 @@
 
 /* slice2js browser-bundle-skip */
 const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/EnumBase");
 require("../Ice/Long");
 require("../Ice/HashMap");
 require("../Ice/HashUtil");

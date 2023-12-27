@@ -473,15 +473,8 @@ namespace and
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial interface print
+    public partial interface print : global::Ice.Object, printOperations_
     {
-        #region Slice operations
-
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        assert raise(@continue @else, @for @return, @if @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global);
-
-        #endregion
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -521,6 +514,9 @@ namespace and
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public delegate void Callback_exec_finally();
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public delegate void Callback_print_raise(assert ret);
 }
 
 namespace and
@@ -561,6 +557,22 @@ namespace and
     public interface ifPrx : execPrx, delPrx
     {
     }
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public interface printPrx : global::Ice.ObjectPrx
+    {
+        assert raise(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+
+        global::System.Threading.Tasks.Task<assert> raiseAsync(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+
+        global::Ice.AsyncResult<Callback_print_raise> begin_raise(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+
+        global::Ice.AsyncResult begin_raise(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.AsyncCallback callback, object cookie);
+
+        global::Ice.AsyncResult begin_raise(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
+
+        assert end_raise(global::Ice.AsyncResult asyncResult);
+    }
 }
 
 namespace and
@@ -582,6 +594,13 @@ namespace and
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface ifOperations_ : execOperations_, delOperations_
     {
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public interface printOperations_
+    {
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+        assert raise(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.Current current = null);
     }
 }
 
@@ -1460,6 +1479,275 @@ namespace and
             return r;
         }
     }
+
+    [global::System.Runtime.InteropServices.ComVisible(false)]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public sealed class printPrxHelper : global::Ice.ObjectPrxHelperBase, printPrx
+    {
+        public printPrxHelper()
+        {
+        }
+
+        #region Synchronous operations
+
+        public assert raise(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        {
+            try
+            {
+                return _iceI_raiseAsync(@else, @return, @try, @while, yield, lambda, or, global, context, null, global::System.Threading.CancellationToken.None, true).Result;
+            }
+            catch(global::System.AggregateException ex_)
+            {
+                throw ex_.InnerException;
+            }
+        }
+
+        #endregion
+
+        #region Async Task operations
+
+        public global::System.Threading.Tasks.Task<assert> raiseAsync(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        {
+            return _iceI_raiseAsync(@else, @return, @try, @while, yield, lambda, or, global, context, progress, cancel, false);
+        }
+
+        private global::System.Threading.Tasks.Task<assert> _iceI_raiseAsync(@continue iceP_else, @for iceP_return, global::Ice.Value iceP_try, delPrx iceP_while, execPrx iceP_yield, global::Ice.ObjectPrx iceP_lambda, ifPrx iceP_or, int iceP_global, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        {
+            iceCheckTwowayOnly(_raise_name);
+            var completed = new global::IceInternal.OperationTaskCompletionCallback<assert>(progress, cancel);
+            _iceI_raise(iceP_else, iceP_return, iceP_try, iceP_while, iceP_yield, iceP_lambda, iceP_or, iceP_global, context, synchronous, completed);
+            return completed.Task;
+        }
+
+        private const string _raise_name = "raise";
+
+        private void _iceI_raise(@continue iceP_else, @for iceP_return, global::Ice.Value iceP_try, delPrx iceP_while, execPrx iceP_yield, global::Ice.ObjectPrx iceP_lambda, ifPrx iceP_or, int iceP_global, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        {
+            var outAsync = getOutgoingAsync<assert>(completed);
+            outAsync.invoke(
+                _raise_name,
+                global::Ice.OperationMode.Normal,
+                global::Ice.FormatType.DefaultFormat,
+                context,
+                synchronous,
+                write: (global::Ice.OutputStream ostr) =>
+                {
+                    iceP_else.ice_writeMembers(ostr);
+                    ostr.writeValue(iceP_return);
+                    ostr.writeValue(iceP_try);
+                    delPrxHelper.write(ostr, iceP_while);
+                    execPrxHelper.write(ostr, iceP_yield);
+                    ostr.writeProxy(iceP_lambda);
+                    ifPrxHelper.write(ostr, iceP_or);
+                    ostr.writeInt(iceP_global);
+                    ostr.writePendingValues();
+                },
+                userException: (global::Ice.UserException ex) =>
+                {
+                    try
+                    {
+                        throw ex;
+                    }
+                    catch(@is)
+                    {
+                        throw;
+                    }
+                    catch(global::Ice.UserException)
+                    {
+                    }
+                },
+                read: (global::Ice.InputStream istr) =>
+                {
+                    assert ret;
+                    ret = (assert)istr.readEnum(0);
+                    return ret;
+                });
+        }
+
+        #endregion
+
+        #region Asynchronous operations
+
+        public global::Ice.AsyncResult<Callback_print_raise> begin_raise(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        {
+            return begin_raise(@else, @return, @try, @while, yield, lambda, or, global, context, null, null, false);
+        }
+
+        public global::Ice.AsyncResult begin_raise(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.AsyncCallback callback, object cookie)
+        {
+            return begin_raise(@else, @return, @try, @while, yield, lambda, or, global, new global::Ice.OptionalContext(), callback, cookie, false);
+        }
+
+        public global::Ice.AsyncResult begin_raise(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
+        {
+            return begin_raise(@else, @return, @try, @while, yield, lambda, or, global, context, callback, cookie, false);
+        }
+
+        public assert end_raise(global::Ice.AsyncResult asyncResult)
+        {
+            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _raise_name);
+            var outgoing_ = (global::IceInternal.OutgoingAsyncT<assert>)resultI_.OutgoingAsync;
+            return outgoing_.getResult(resultI_.wait());
+        }
+
+        private global::Ice.AsyncResult<Callback_print_raise> begin_raise(@continue iceP_else, @for iceP_return, global::Ice.Value iceP_try, delPrx iceP_while, execPrx iceP_yield, global::Ice.ObjectPrx iceP_lambda, ifPrx iceP_or, int iceP_global, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+        {
+            iceCheckAsyncTwowayOnly(_raise_name);
+            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_print_raise, assert>(
+                (Callback_print_raise cb, assert ret) =>
+                {
+                    if(cb != null)
+                    {
+                        cb.Invoke(ret);
+                    }
+                },
+                this, _raise_name, cookie, completedCallback);
+            _iceI_raise(iceP_else, iceP_return, iceP_try, iceP_while, iceP_yield, iceP_lambda, iceP_or, iceP_global, context, synchronous, completed);
+            return completed;
+        }
+
+        #endregion
+
+        #region Checked and unchecked cast operations
+
+        public static printPrx checkedCast(global::Ice.ObjectPrx b)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            printPrx r = b as printPrx;
+            if((r == null) && b.ice_isA(ice_staticId()))
+            {
+                printPrxHelper h = new printPrxHelper();
+                h.iceCopyFrom(b);
+                r = h;
+            }
+            return r;
+        }
+
+        public static printPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            printPrx r = b as printPrx;
+            if((r == null) && b.ice_isA(ice_staticId(), ctx))
+            {
+                printPrxHelper h = new printPrxHelper();
+                h.iceCopyFrom(b);
+                r = h;
+            }
+            return r;
+        }
+
+        public static printPrx checkedCast(global::Ice.ObjectPrx b, string f)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            try
+            {
+                if(bb.ice_isA(ice_staticId()))
+                {
+                    printPrxHelper h = new printPrxHelper();
+                    h.iceCopyFrom(bb);
+                    return h;
+                }
+            }
+            catch(global::Ice.FacetNotExistException)
+            {
+            }
+            return null;
+        }
+
+        public static printPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            try
+            {
+                if(bb.ice_isA(ice_staticId(), ctx))
+                {
+                    printPrxHelper h = new printPrxHelper();
+                    h.iceCopyFrom(bb);
+                    return h;
+                }
+            }
+            catch(global::Ice.FacetNotExistException)
+            {
+            }
+            return null;
+        }
+
+        public static printPrx uncheckedCast(global::Ice.ObjectPrx b)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            printPrx r = b as printPrx;
+            if(r == null)
+            {
+                printPrxHelper h = new printPrxHelper();
+                h.iceCopyFrom(b);
+                r = h;
+            }
+            return r;
+        }
+
+        public static printPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            printPrxHelper h = new printPrxHelper();
+            h.iceCopyFrom(bb);
+            return h;
+        }
+
+        private static readonly string[] _ids =
+        {
+            "::Ice::Object",
+            "::and::print"
+        };
+
+        public static string ice_staticId()
+        {
+            return _ids[1];
+        }
+
+        #endregion
+
+        #region Marshaling support
+
+        public static void write(global::Ice.OutputStream ostr, printPrx v)
+        {
+            ostr.writeProxy(v);
+        }
+
+        public static printPrx read(global::Ice.InputStream istr)
+        {
+            global::Ice.ObjectPrx proxy = istr.readProxy();
+            if(proxy != null)
+            {
+                printPrxHelper result = new printPrxHelper();
+                result.iceCopyFrom(proxy);
+                return result;
+            }
+            return null;
+        }
+
+        #endregion
+    }
 }
 
 namespace and
@@ -1766,5 +2054,130 @@ namespace and
             global::System.Diagnostics.Debug.Assert(false);
             throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
         }
+    }
+
+    [global::System.Runtime.InteropServices.ComVisible(false)]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public abstract class printDisp_ : global::Ice.ObjectImpl, print
+    {
+        #region Slice operations
+
+        public abstract assert raise(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.Current current = null);
+
+        #endregion
+
+        #region Slice type-related members
+
+        private static readonly string[] _ids =
+        {
+            "::Ice::Object",
+            "::and::print"
+        };
+
+        public override bool ice_isA(string s, global::Ice.Current current = null)
+        {
+            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+        }
+
+        public override string[] ice_ids(global::Ice.Current current = null)
+        {
+            return _ids;
+        }
+
+        public override string ice_id(global::Ice.Current current = null)
+        {
+            return _ids[1];
+        }
+
+        public static new string ice_staticId()
+        {
+            return _ids[1];
+        }
+
+        #endregion
+
+        #region Operation dispatch
+
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        iceD_raise(print obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
+            var istr = inS.startReadParams();
+            @continue iceP_else;
+            iceP_else = new @continue();
+            @for iceP_return;
+            iceP_return = null;
+            global::Ice.Value iceP_try;
+            iceP_try = null;
+            delPrx iceP_while;
+            execPrx iceP_yield;
+            global::Ice.ObjectPrx iceP_lambda;
+            ifPrx iceP_or;
+            int iceP_global;
+            iceP_else.ice_readMembers(istr);
+            istr.readValue((@for v) => {iceP_return = v; });
+            istr.readValue((global::Ice.Value v) => {iceP_try = v; });
+            iceP_while = delPrxHelper.read(istr);
+            iceP_yield = execPrxHelper.read(istr);
+            iceP_lambda = istr.readProxy();
+            iceP_or = ifPrxHelper.read(istr);
+            iceP_global = istr.readInt();
+            istr.readPendingValues();
+            inS.endReadParams();
+            var ret = obj.raise(iceP_else, iceP_return, iceP_try, iceP_while, iceP_yield, iceP_lambda, iceP_or, iceP_global, current);
+            var ostr = inS.startWriteParams();
+            ostr.writeEnum((int)ret, 0);
+            inS.endWriteParams(ostr);
+            return inS.setResult(ostr);
+        }
+
+        private static readonly string[] _all =
+        {
+            "ice_id",
+            "ice_ids",
+            "ice_isA",
+            "ice_ping",
+            "raise"
+        };
+
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
+        {
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            if(pos < 0)
+            {
+                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            }
+
+            switch(pos)
+            {
+                case 0:
+                {
+                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
+                }
+                case 1:
+                {
+                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
+                }
+                case 2:
+                {
+                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
+                }
+                case 3:
+                {
+                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
+                }
+                case 4:
+                {
+                    return iceD_raise(this, inS, current);
+                }
+            }
+
+            global::System.Diagnostics.Debug.Assert(false);
+            throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
+        }
+
+        #endregion
     }
 }

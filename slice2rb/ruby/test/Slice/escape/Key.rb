@@ -234,9 +234,5 @@ module ::BEGIN_
         ])
     end
 
-    if not defined?(::BEGIN_::T_Extend)
-        T_Extend = ::Ice::__declareLocalClass('::BEGIN::extend')
-    end
-
     Redo = 1
 end

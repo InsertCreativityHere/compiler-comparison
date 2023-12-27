@@ -19,12 +19,4 @@ require 'LoggerF.rb'
 require 'BuiltinSequences.rb'
 
 module ::Ice
-
-    if not defined?(::Ice::T_Plugin)
-        T_Plugin = ::Ice::__declareLocalClass('::Ice::Plugin')
-    end
-
-    if not defined?(::Ice::T_PluginManager)
-        T_PluginManager = ::Ice::__declareLocalClass('::Ice::PluginManager')
-    end
 end

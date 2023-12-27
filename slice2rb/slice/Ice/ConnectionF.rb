@@ -17,16 +17,4 @@
 require 'Ice'
 
 module ::Ice
-
-    if not defined?(::Ice::T_ConnectionInfo)
-        T_ConnectionInfo = ::Ice::__declareLocalClass('::Ice::ConnectionInfo')
-    end
-
-    if not defined?(::Ice::T_WSConnectionInfo)
-        T_WSConnectionInfo = ::Ice::__declareLocalClass('::Ice::WSConnectionInfo')
-    end
-
-    if not defined?(::Ice::T_Connection)
-        T_Connection = ::Ice::__declareLocalClass('::Ice::Connection')
-    end
 end

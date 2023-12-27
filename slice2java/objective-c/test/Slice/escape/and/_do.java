@@ -15,7 +15,7 @@
 
 package and;
 
-public class _do extends com.zeroc.Ice.Value
+public abstract class _do extends com.zeroc.Ice.Value
 {
     public _do()
     {

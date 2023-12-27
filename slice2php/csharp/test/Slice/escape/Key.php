@@ -425,11 +425,39 @@ namespace _abstract
 namespace _abstract
 {
     global $abstract__t_implicit;
-    interface implicit
+    global $abstract__t_implicitPrx;
+
+    class implicitPrxHelper
     {
-        public function in($internal, $is, $lock, $_namespace, $_new, $null, $operator, $override, $params, $_private);
+        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        {
+            return $proxy->ice_checkedCast('::abstract::implicit', $facetOrContext, $context);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::abstract::implicit', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::abstract::implicit';
+        }
     }
     $abstract__t_implicit = IcePHP_defineClass('::abstract::implicit', '\\_abstract\\implicit', -1, false, true, null, null);
+
+    global $Ice__t_ObjectPrx;
+    $abstract__t_implicitPrx = IcePHP_defineProxy('::abstract::implicit', $Ice__t_ObjectPrx, null);
+
+    global $abstract__t_break;
+    global $abstract__t_delegate;
+    global $abstract__t_explicit;
+    global $abstract__t_casePrx;
+    global $abstract__t_decimalPrx;
+    global $abstract__t_explicitPrx;
+    global $IcePHP__t_int;
+    global $abstract__t_as;
+    IcePHP_defineOperation($abstract__t_implicitPrx, 'in', 0, 0, 0, array(array($abstract__t_break), array($abstract__t_delegate), array($abstract__t_explicit), array($abstract__t_casePrx), array($abstract__t_decimalPrx), array($abstract__t_delegate), array($abstract__t_explicitPrx), array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int)), null, array($abstract__t_as), array($abstract__t_fixed, $abstract__t_foreach));
 }
 
 namespace _abstract

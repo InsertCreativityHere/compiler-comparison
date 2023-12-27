@@ -64,19 +64,6 @@ module ::IceStorm
         ])
     end
 
-    if not defined?(::IceStorm::SendQueueSizeMaxReached)
-        class SendQueueSizeMaxReached < Ice::LocalException
-            def initialize
-            end
-
-            def to_s
-                '::IceStorm::SendQueueSizeMaxReached'
-            end
-        end
-
-        T_SendQueueSizeMaxReached = ::Ice::__defineException('::IceStorm::SendQueueSizeMaxReached', SendQueueSizeMaxReached, false, nil, [])
-    end
-
     if not defined?(::IceStorm::T_EventDataSeq)
         T_EventDataSeq = ::Ice::__defineSequence('::IceStorm::EventDataSeq', ::IceStorm::T_EventData)
     end

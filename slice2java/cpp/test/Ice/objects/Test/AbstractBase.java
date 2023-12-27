@@ -15,7 +15,7 @@
 
 package Test;
 
-public class AbstractBase extends Base
+public abstract class AbstractBase extends Base
 {
     public AbstractBase()
     {

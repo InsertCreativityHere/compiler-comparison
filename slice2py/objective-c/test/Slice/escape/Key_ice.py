@@ -538,26 +538,81 @@ if 'sizeof' not in _M__and.__dict__:
     _M__and.sizeof = sizeof
     del sizeof
 
-if 'friend' not in _M__and.__dict__:
+_M__and._t_friend = IcePy.defineValue('::and::friend', Ice.Value, -1, (), False, True, None, ())
+
+if 'friendPrx' not in _M__and.__dict__:
+    _M__and.friendPrx = Ice.createTempClass()
+    class friendPrx(Ice.ObjectPrx):
+
+        def goto(self, _if, d, inline, private, mutable, namespace, new, _not, operator, _or, protected, public, register, context=None):
+            return _M__and.friend._op_goto.invoke(self, ((_if, d, inline, private, mutable, namespace, new, _not, operator, _or, protected, public, register), context))
+
+        def gotoAsync(self, _if, d, inline, private, mutable, namespace, new, _not, operator, _or, protected, public, register, context=None):
+            return _M__and.friend._op_goto.invokeAsync(self, ((_if, d, inline, private, mutable, namespace, new, _not, operator, _or, protected, public, register), context))
+
+        def begin_goto(self, _if, d, inline, private, mutable, namespace, new, _not, operator, _or, protected, public, register, _response=None, _ex=None, _sent=None, context=None):
+            return _M__and.friend._op_goto.begin(self, ((_if, d, inline, private, mutable, namespace, new, _not, operator, _or, protected, public, register), _response, _ex, _sent, context))
+
+        def end_goto(self, _r):
+            return _M__and.friend._op_goto.end(self, _r)
+
+        def objc(self, bycopy, byref, id, IMP, _in, inout, nil, NO, oneway, SEL, super, YES, context=None):
+            return _M__and.friend._op_objc.invoke(self, ((bycopy, byref, id, IMP, _in, inout, nil, NO, oneway, SEL, super, YES), context))
+
+        def objcAsync(self, bycopy, byref, id, IMP, _in, inout, nil, NO, oneway, SEL, super, YES, context=None):
+            return _M__and.friend._op_objc.invokeAsync(self, ((bycopy, byref, id, IMP, _in, inout, nil, NO, oneway, SEL, super, YES), context))
+
+        def begin_objc(self, bycopy, byref, id, IMP, _in, inout, nil, NO, oneway, SEL, super, YES, _response=None, _ex=None, _sent=None, context=None):
+            return _M__and.friend._op_objc.begin(self, ((bycopy, byref, id, IMP, _in, inout, nil, NO, oneway, SEL, super, YES), _response, _ex, _sent, context))
+
+        def end_objc(self, _r):
+            return _M__and.friend._op_objc.end(self, _r)
+
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M__and.friendPrx.ice_checkedCast(proxy, '::and::friend', facetOrContext, context)
+
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M__and.friendPrx.ice_uncheckedCast(proxy, facet)
+
+        @staticmethod
+        def ice_staticId():
+            return '::and::friend'
+    _M__and._t_friendPrx = IcePy.defineProxy('::and::friend', friendPrx)
+
+    _M__and.friendPrx = friendPrx
+    del friendPrx
+
     _M__and.friend = Ice.createTempClass()
-    class friend(object):
-        def __init__(self):
-            if Ice.getType(self) == _M__and.friend:
-                raise RuntimeError('_and.friend is an abstract class')
+    class friend(Ice.Object):
 
-        def goto(self, _if, d, inline, private, mutable, namespace, new, _not, operator, _or, protected, public, register):
-            raise NotImplementedError("method 'goto' not implemented")
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::and::friend')
 
-        def objc(self, bycopy, byref, id, IMP, _in, inout, nil, NO, oneway, SEL, super, YES):
-            raise NotImplementedError("method 'objc' not implemented")
+        def ice_id(self, current=None):
+            return '::and::friend'
+
+        @staticmethod
+        def ice_staticId():
+            return '::and::friend'
+
+        def goto(self, _if, d, inline, private, mutable, namespace, new, _not, operator, _or, protected, public, register, current=None):
+            raise NotImplementedError("servant method 'goto' not implemented")
+
+        def objc(self, bycopy, byref, id, IMP, _in, inout, nil, NO, oneway, SEL, super, YES, current=None):
+            raise NotImplementedError("servant method 'objc' not implemented")
 
         def __str__(self):
-            return IcePy.stringify(self, _M__and._t_friend)
+            return IcePy.stringify(self, _M__and._t_friendDisp)
 
         __repr__ = __str__
 
-    _M__and._t_friend = IcePy.defineValue('::and::friend', friend, -1, (), False, True, None, ())
-    friend._ice_type = _M__and._t_friend
+    _M__and._t_friendDisp = IcePy.defineClass('::and::friend', friend, (), None, ())
+    friend._ice_type = _M__and._t_friendDisp
+
+    friend._op_goto = IcePy.Operation('goto', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M__and._t__continue, False, 0), ((), _M__and._t_auto, False, 0), ((), _M__and._t_delete, False, 0), ((), _M__and._t_switch, False, 0), ((), _M__and._t_do, False, 0), ((), _M__and._t_breakPrx, False, 0), ((), _M__and._t_charPrx, False, 0), ((), _M__and._t_switchPrx, False, 0), ((), _M__and._t_doPrx, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M__and._t_auto, False, 0), (_M__and._t__return, _M__and._t_sizeof))
+    friend._op_objc = IcePy.Operation('objc', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
 
     _M__and.friend = friend
     del friend

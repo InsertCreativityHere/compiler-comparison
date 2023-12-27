@@ -46,30 +46,6 @@ namespace Test
 
 namespace Test
 {
-    global $Test__t_RetryException;
-    class RetryException extends \Ice\LocalException
-    {
-        public function __construct()
-        {
-        }
-
-        public function ice_id()
-        {
-            return '::Test::RetryException';
-        }
-
-        public function __toString(): string
-        {
-            global $Test__t_RetryException;
-            return IcePHP_stringifyException($this, $Test__t_RetryException);
-        }
-    }
-
-    $Test__t_RetryException = IcePHP_defineException('::Test::RetryException', '\\Test\\RetryException', false, null, null);
-}
-
-namespace Test
-{
     global $Test__t_MyObject;
     global $Test__t_MyObjectPrx;
 

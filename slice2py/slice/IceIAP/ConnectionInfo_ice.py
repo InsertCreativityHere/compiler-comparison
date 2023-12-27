@@ -25,46 +25,4 @@ _M_Ice = Ice.openModule('Ice')
 _M_IceIAP = Ice.openModule('IceIAP')
 __name__ = 'IceIAP'
 
-if 'ConnectionInfo' not in _M_IceIAP.__dict__:
-    _M_IceIAP.ConnectionInfo = Ice.createTempClass()
-    class ConnectionInfo(_M_Ice.ConnectionInfo):
-        """
-         Provides access to the connection details of an IAP connection.
-        Members:
-        name --  The accessory name.
-        manufacturer --  The accessory manufacturer.
-        modelNumber --  The accessory model number.
-        firmwareRevision --  The accessory firmare revision.
-        hardwareRevision --  The accessory hardware revision.
-        protocol --  The protocol used by the accessory.
-        """
-        def __init__(self, underlying=None, incoming=False, adapterName='', connectionId='', name='', manufacturer='', modelNumber='', firmwareRevision='', hardwareRevision='', protocol=''):
-            _M_Ice.ConnectionInfo.__init__(self, underlying, incoming, adapterName, connectionId)
-            self.name = name
-            self.manufacturer = manufacturer
-            self.modelNumber = modelNumber
-            self.firmwareRevision = firmwareRevision
-            self.hardwareRevision = hardwareRevision
-            self.protocol = protocol
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_IceIAP._t_ConnectionInfo)
-
-        __repr__ = __str__
-
-    _M_IceIAP._t_ConnectionInfo = IcePy.declareValue('::IceIAP::ConnectionInfo')
-
-    _M_IceIAP._t_ConnectionInfo = IcePy.defineValue('::IceIAP::ConnectionInfo', ConnectionInfo, -1, (), False, False, _M_Ice._t_ConnectionInfo, (
-        ('name', (), IcePy._t_string, False, 0),
-        ('manufacturer', (), IcePy._t_string, False, 0),
-        ('modelNumber', (), IcePy._t_string, False, 0),
-        ('firmwareRevision', (), IcePy._t_string, False, 0),
-        ('hardwareRevision', (), IcePy._t_string, False, 0),
-        ('protocol', (), IcePy._t_string, False, 0)
-    ))
-    ConnectionInfo._ice_type = _M_IceIAP._t_ConnectionInfo
-
-    _M_IceIAP.ConnectionInfo = ConnectionInfo
-    del ConnectionInfo
-
 # End of module IceIAP

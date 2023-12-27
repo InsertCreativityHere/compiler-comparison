@@ -44,6 +44,8 @@ class defaultPrx;
 class _cpp_else;
 class finalize;
 class finalizePrx;
+class _cpp_new;
+class newPrx;
 
 }
 
@@ -316,6 +318,50 @@ public:
     /// \endcond
 };
 
+class _cpp_new : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = newPrx;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual assert notify(_cpp_break notifyAll, ::std::shared_ptr<else> null, ::std::shared_ptr<::Ice::Value> package, ::std::shared_ptr<::Ice::ObjectPrx> _cpp_private, ::std::shared_ptr<finalizePrx> _cpp_protected, ::std::shared_ptr<catchPrx> _cpp_public, ::std::shared_ptr<defaultPrx> _cpp_return, int _cpp_static, int strictfp, int super, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_notify(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    /// \endcond
+};
+
 }
 
 namespace abstract
@@ -484,6 +530,52 @@ protected:
     /// \endcond
 };
 
+class newPrx : public virtual ::Ice::Proxy<newPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    assert notify(const _cpp_break& notifyAll, const ::std::shared_ptr<_cpp_else>& null, const ::std::shared_ptr<::Ice::Value>& package, const ::std::shared_ptr<::Ice::ObjectPrx>& _cpp_private, const ::std::shared_ptr<finalizePrx>& _cpp_protected, const ::std::shared_ptr<catchPrx>& _cpp_public, const ::std::shared_ptr<defaultPrx>& _cpp_return, int _cpp_static, int strictfp, int super, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        return _makePromiseOutgoing<::abstract::assert>(true, this, &newPrx::_iceI_notify, notifyAll, null, package, _cpp_private, _cpp_protected, _cpp_public, _cpp_return, _cpp_static, strictfp, super, context).get();
+    }
+
+    template<template<typename> class P = ::std::promise>
+    auto notifyAsync(const _cpp_break& notifyAll, const ::std::shared_ptr<_cpp_else>& null, const ::std::shared_ptr<::Ice::Value>& package, const ::std::shared_ptr<::Ice::ObjectPrx>& _cpp_private, const ::std::shared_ptr<finalizePrx>& _cpp_protected, const ::std::shared_ptr<catchPrx>& _cpp_public, const ::std::shared_ptr<defaultPrx>& _cpp_return, int _cpp_static, int strictfp, int super, const ::Ice::Context& context = ::Ice::noExplicitContext)
+        -> decltype(::std::declval<P<::abstract::assert>>().get_future())
+    {
+        return _makePromiseOutgoing<::abstract::assert, P>(false, this, &newPrx::_iceI_notify, notifyAll, null, package, _cpp_private, _cpp_protected, _cpp_public, _cpp_return, _cpp_static, strictfp, super, context);
+    }
+
+    ::std::function<void()>
+    notifyAsync(const _cpp_break& notifyAll, const ::std::shared_ptr<_cpp_else>& null, const ::std::shared_ptr<::Ice::Value>& package, const ::std::shared_ptr<::Ice::ObjectPrx>& _cpp_private, const ::std::shared_ptr<finalizePrx>& _cpp_protected, const ::std::shared_ptr<catchPrx>& _cpp_public, const ::std::shared_ptr<defaultPrx>& _cpp_return, int _cpp_static, int strictfp, int super,
+                ::std::function<void(::abstract::assert)> response,
+                ::std::function<void(::std::exception_ptr)> ex = nullptr,
+                ::std::function<void(bool)> sent = nullptr,
+                const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        return _makeLambdaOutgoing<::abstract::assert>(std::move(response), std::move(ex), std::move(sent), this, &abstract::newPrx::_iceI_notify, notifyAll, null, package, _cpp_private, _cpp_protected, _cpp_public, _cpp_return, _cpp_static, strictfp, super, context);
+    }
+
+    /// \cond INTERNAL
+    void _iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::abstract::assert>>&, const _cpp_break&, const ::std::shared_ptr<_cpp_else>&, const ::std::shared_ptr<::Ice::Value>&, const ::std::shared_ptr<::Ice::ObjectPrx>&, const ::std::shared_ptr<finalizePrx>&, const ::std::shared_ptr<catchPrx>&, const ::std::shared_ptr<defaultPrx>&, int, int, int, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+protected:
+
+    /// \cond INTERNAL
+    newPrx() = default;
+    friend ::std::shared_ptr<newPrx> IceInternal::createProxy<newPrx>();
+
+    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
+    /// \endcond
+};
+
 }
 
 /// \cond STREAM
@@ -571,6 +663,9 @@ using elsePtr = ::std::shared_ptr<_cpp_else>;
 using finalizePtr = ::std::shared_ptr<finalize>;
 using finalizePrxPtr = ::std::shared_ptr<finalizePrx>;
 
+using newPtr = ::std::shared_ptr<_cpp_new>;
+using newPrxPtr = ::std::shared_ptr<newPrx>;
+
 }
 /// \endcond
 
@@ -604,6 +699,12 @@ class finalize;
 /// \cond INTERNAL
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< finalize>&);
 ::IceProxy::Ice::Object* upCast(finalize*);
+/// \endcond
+
+class _cpp_new;
+/// \cond INTERNAL
+void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< _cpp_new>&);
+::IceProxy::Ice::Object* upCast(_cpp_new*);
 /// \endcond
 
 }
@@ -655,6 +756,17 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::abstract::finalize> finalizePrx;
 typedef finalizePrx finalizePrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(finalizePtr&, const ::Ice::ObjectPtr&);
+/// \endcond
+
+class _cpp_new;
+/// \cond INTERNAL
+::Ice::Object* upCast(_cpp_new*);
+/// \endcond
+typedef ::IceInternal::Handle< _cpp_new> newPtr;
+typedef ::IceInternal::ProxyHandle< ::IceProxy::abstract::_cpp_new> newPrx;
+typedef newPrx newPrxPtr;
+/// \cond INTERNAL
+void _icePatchObjectPtr(newPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
 
 }
@@ -911,6 +1023,14 @@ typedef ::IceUtil::Handle< Callback_catch_checkedCast_Base> Callback_catch_check
 class Callback_default_do_Base : public virtual ::IceInternal::CallbackBase { };
 typedef ::IceUtil::Handle< Callback_default_do_Base> Callback_default_doPtr;
 
+/**
+ * Base class for asynchronous callback wrapper classes used for calls to
+ * IceProxy::abstract::_cpp_new::begin_notify.
+ * Create a wrapper instance by calling ::abstract::newCallback_new_notify.
+ */
+class Callback_new_notify_Base : public virtual ::IceInternal::CallbackBase { };
+typedef ::IceUtil::Handle< Callback_new_notify_Base> Callback_new_notifyPtr;
+
 }
 
 namespace IceProxy
@@ -1066,6 +1186,61 @@ protected:
 
 class finalize : public virtual ::Ice::Proxy<finalize, _finalizeBase>
 {
+public:
+
+    /**
+     * Obtains the Slice type ID corresponding to this interface.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+protected:
+    /// \cond INTERNAL
+
+    virtual ::IceProxy::Ice::Object* _newInstance() const;
+    /// \endcond
+};
+
+class _cpp_new : public virtual ::Ice::Proxy<_cpp_new, ::IceProxy::Ice::Object>
+{
+public:
+
+    ::abstract::assert notify(const ::abstract::_cpp_break& notifyAll, const ::abstract::elsePtr& null, const ::abstract::finalizePtr& package, const ::abstract::elsePrx& _cpp_private, const ::abstract::finalizePrx& _cpp_protected, const ::abstract::catchPrx& _cpp_public, const ::abstract::defaultPrx& _cpp_return, ::Ice::Int _cpp_static, ::Ice::Int strictfp, ::Ice::Int super, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        return end_notify(_iceI_begin_notify(notifyAll, null, package, _cpp_private, _cpp_protected, _cpp_public, _cpp_return, _cpp_static, strictfp, super, context, ::IceInternal::dummyCallback, 0, true));
+    }
+
+    ::Ice::AsyncResultPtr begin_notify(const ::abstract::_cpp_break& notifyAll, const ::abstract::elsePtr& null, const ::abstract::finalizePtr& package, const ::abstract::elsePrx& _cpp_private, const ::abstract::finalizePrx& _cpp_protected, const ::abstract::catchPrx& _cpp_public, const ::abstract::defaultPrx& _cpp_return, ::Ice::Int _cpp_static, ::Ice::Int strictfp, ::Ice::Int super, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        return _iceI_begin_notify(notifyAll, null, package, _cpp_private, _cpp_protected, _cpp_public, _cpp_return, _cpp_static, strictfp, super, context, ::IceInternal::dummyCallback, 0);
+    }
+
+    ::Ice::AsyncResultPtr begin_notify(const ::abstract::_cpp_break& notifyAll, const ::abstract::elsePtr& null, const ::abstract::finalizePtr& package, const ::abstract::elsePrx& _cpp_private, const ::abstract::finalizePrx& _cpp_protected, const ::abstract::catchPrx& _cpp_public, const ::abstract::defaultPrx& _cpp_return, ::Ice::Int _cpp_static, ::Ice::Int strictfp, ::Ice::Int super, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_notify(notifyAll, null, package, _cpp_private, _cpp_protected, _cpp_public, _cpp_return, _cpp_static, strictfp, super, ::Ice::noExplicitContext, cb, cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_notify(const ::abstract::_cpp_break& notifyAll, const ::abstract::elsePtr& null, const ::abstract::finalizePtr& package, const ::abstract::elsePrx& _cpp_private, const ::abstract::finalizePrx& _cpp_protected, const ::abstract::catchPrx& _cpp_public, const ::abstract::defaultPrx& _cpp_return, ::Ice::Int _cpp_static, ::Ice::Int strictfp, ::Ice::Int super, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_notify(notifyAll, null, package, _cpp_private, _cpp_protected, _cpp_public, _cpp_return, _cpp_static, strictfp, super, context, cb, cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_notify(const ::abstract::_cpp_break& notifyAll, const ::abstract::elsePtr& null, const ::abstract::finalizePtr& package, const ::abstract::elsePrx& _cpp_private, const ::abstract::finalizePrx& _cpp_protected, const ::abstract::catchPrx& _cpp_public, const ::abstract::defaultPrx& _cpp_return, ::Ice::Int _cpp_static, ::Ice::Int strictfp, ::Ice::Int super, const ::abstract::Callback_new_notifyPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_notify(notifyAll, null, package, _cpp_private, _cpp_protected, _cpp_public, _cpp_return, _cpp_static, strictfp, super, ::Ice::noExplicitContext, cb, cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_notify(const ::abstract::_cpp_break& notifyAll, const ::abstract::elsePtr& null, const ::abstract::finalizePtr& package, const ::abstract::elsePrx& _cpp_private, const ::abstract::finalizePrx& _cpp_protected, const ::abstract::catchPrx& _cpp_public, const ::abstract::defaultPrx& _cpp_return, ::Ice::Int _cpp_static, ::Ice::Int strictfp, ::Ice::Int super, const ::Ice::Context& context, const ::abstract::Callback_new_notifyPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_notify(notifyAll, null, package, _cpp_private, _cpp_protected, _cpp_public, _cpp_return, _cpp_static, strictfp, super, context, cb, cookie);
+    }
+
+    ::abstract::assert end_notify(const ::Ice::AsyncResultPtr& result);
+
+private:
+
+    ::Ice::AsyncResultPtr _iceI_begin_notify(const ::abstract::_cpp_break&, const ::abstract::elsePtr&, const ::abstract::finalizePtr&, const ::abstract::elsePrx&, const ::abstract::finalizePrx&, const ::abstract::catchPrx&, const ::abstract::defaultPrx&, ::Ice::Int, ::Ice::Int, ::Ice::Int, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+
 public:
 
     /**
@@ -1392,6 +1567,78 @@ inline bool operator==(const finalize& lhs, const finalize& rhs)
 }
 
 inline bool operator<(const finalize& lhs, const finalize& rhs)
+{
+    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+}
+/// \endcond
+
+class _cpp_new : public virtual ::Ice::Object
+{
+public:
+
+    typedef newPrx ProxyType;
+    typedef newPtr PointerType;
+
+    virtual ~_cpp_new();
+
+#ifdef ICE_CPP11_COMPILER
+    _cpp_new() = default;
+    _cpp_new(const _cpp_new&) = default;
+    _cpp_new& operator=(const _cpp_new&) = default;
+#endif
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual assert notify(const _cpp_break& notifyAll, const elsePtr& null, const finalizePtr& package, const elsePrx& _cpp_private, const finalizePrx& _cpp_protected, const catchPrx& _cpp_public, const defaultPrx& _cpp_return, ::Ice::Int _cpp_static, ::Ice::Int strictfp, ::Ice::Int super, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_notify(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+protected:
+
+    /// \cond STREAM
+    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
+    virtual void _iceReadImpl(::Ice::InputStream*);
+    /// \endcond
+};
+
+/// \cond INTERNAL
+inline bool operator==(const _cpp_new& lhs, const _cpp_new& rhs)
+{
+    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+}
+
+inline bool operator<(const _cpp_new& lhs, const _cpp_new& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
 }
@@ -1823,6 +2070,158 @@ template<class T, typename CT> Callback_default_doPtr
 newCallback_default_do(T* instance, void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_default_do<T, CT>(instance, 0, excb, sentcb);
+}
+
+/**
+ * Type-safe asynchronous callback wrapper class used for calls to
+ * IceProxy::abstract::_cpp_new::begin_notify.
+ * Create a wrapper instance by calling ::abstract::newCallback_new_notify.
+ */
+template<class T>
+class CallbackNC_new_notify : public Callback_new_notify_Base, public ::IceInternal::TwowayCallbackNC<T>
+{
+public:
+
+    typedef IceUtil::Handle<T> TPtr;
+
+    typedef void (T::*Exception)(const ::Ice::Exception&);
+    typedef void (T::*Sent)(bool);
+    typedef void (T::*Response)(assert);
+
+    CallbackNC_new_notify(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+        : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
+    {
+    }
+
+    /// \cond INTERNAL
+    virtual void completed(const ::Ice::AsyncResultPtr& result) const
+    {
+        newPrx proxy = newPrx::uncheckedCast(result->getProxy());
+        assert ret;
+        try
+        {
+            ret = proxy->end_notify(result);
+        }
+        catch(const ::Ice::Exception& ex)
+        {
+            ::IceInternal::CallbackNC<T>::exception(result, ex);
+            return;
+        }
+        if(_response)
+        {
+            (::IceInternal::CallbackNC<T>::_callback.get()->*_response)(ret);
+        }
+    }
+    /// \endcond
+
+private:
+
+    Response _response;
+};
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::abstract::new::begin_notify.
+ */
+template<class T> Callback_new_notifyPtr
+newCallback_new_notify(const IceUtil::Handle<T>& instance, void (T::*cb)(assert), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_new_notify<T>(instance, cb, excb, sentcb);
+}
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::abstract::new::begin_notify.
+ */
+template<class T> Callback_new_notifyPtr
+newCallback_new_notify(T* instance, void (T::*cb)(assert), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_new_notify<T>(instance, cb, excb, sentcb);
+}
+
+/**
+ * Type-safe asynchronous callback wrapper class with cookie support used for calls to
+ * IceProxy::abstract::_cpp_new::begin_notify.
+ * Create a wrapper instance by calling ::abstract::newCallback_new_notify.
+ */
+template<class T, typename CT>
+class Callback_new_notify : public Callback_new_notify_Base, public ::IceInternal::TwowayCallback<T, CT>
+{
+public:
+
+    typedef IceUtil::Handle<T> TPtr;
+
+    typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
+    typedef void (T::*Sent)(bool , const CT&);
+    typedef void (T::*Response)(assert, const CT&);
+
+    Callback_new_notify(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+        : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
+    {
+    }
+
+    /// \cond INTERNAL
+    virtual void completed(const ::Ice::AsyncResultPtr& result) const
+    {
+        newPrx proxy = newPrx::uncheckedCast(result->getProxy());
+        assert ret;
+        try
+        {
+            ret = proxy->end_notify(result);
+        }
+        catch(const ::Ice::Exception& ex)
+        {
+            ::IceInternal::Callback<T, CT>::exception(result, ex);
+            return;
+        }
+        if(_response)
+        {
+            (::IceInternal::Callback<T, CT>::_callback.get()->*_response)(ret, CT::dynamicCast(result->getCookie()));
+        }
+    }
+    /// \endcond
+
+private:
+
+    Response _response;
+};
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * Use this overload when your callback methods receive a cookie value.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::abstract::new::begin_notify.
+ */
+template<class T, typename CT> Callback_new_notifyPtr
+newCallback_new_notify(const IceUtil::Handle<T>& instance, void (T::*cb)(assert, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_new_notify<T, CT>(instance, cb, excb, sentcb);
+}
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * Use this overload when your callback methods receive a cookie value.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::abstract::new::begin_notify.
+ */
+template<class T, typename CT> Callback_new_notifyPtr
+newCallback_new_notify(T* instance, void (T::*cb)(assert, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_new_notify<T, CT>(instance, cb, excb, sentcb);
 }
 
 }

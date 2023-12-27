@@ -244,16 +244,6 @@ namespace BEGIN
 
 namespace BEGIN
 {
-    global $BEGIN__t_extend;
-    interface extend
-    {
-        public function _for($freeze, $hash, $_if, $inspect, $method, $methods);
-    }
-    $BEGIN__t_extend = IcePHP_defineClass('::BEGIN::extend', '\\BEGIN\\extend', -1, false, true, null, null);
-}
-
-namespace BEGIN
-{
     if(!defined('\\BEGIN\\redo'))
     {
         define(__NAMESPACE__ . '\\redo', 1);

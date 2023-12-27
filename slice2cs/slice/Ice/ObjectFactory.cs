@@ -20,54 +20,6 @@ using _System = global::System;
 
 namespace Ice
 {
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial interface ObjectFactory
-    {
-        #region Slice operations
-
-
-        /// <summary>
-        /// Create a new object for a given object type.
-        ///
-        /// <para>ObjectFactory has been deprecated, use ValueFactory instead.</para>
-        ///
-        /// The type is the absolute Slice type id, i.e., the id relative to
-        ///  the unnamed top-level Slice module. For example, the absolute Slice type id for interfaces of type
-        ///  Bar in the module Foo is "::Foo::Bar".
-        ///  &lt;p class="Note"&gt;The leading "::" is required.
-        /// </summary>
-        ///  <param name="type">The object type.
-        ///  </param>
-        /// <returns>The object created for the given type, or nil if the factory is unable to create the object.</returns>
-
-        [global::System.Obsolete("ObjectFactory has been deprecated, use ValueFactory instead.")]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        Value create(string type);
-
-
-        /// <summary>
-        /// Called when the factory is removed from the communicator, or if the communicator is destroyed.
-        ///
-        /// <para>ObjectFactory has been deprecated, use ValueFactory instead.</para>
-        ///
-        /// </summary>
-
-        [global::System.Obsolete("ObjectFactory has been deprecated, use ValueFactory instead.")]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        void destroy();
-
-        #endregion
-    }
 }
 
 namespace Ice

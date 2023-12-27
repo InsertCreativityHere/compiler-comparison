@@ -45,6 +45,8 @@ class _cpp_switch;
 class switchPrx;
 class _cpp_do;
 class doPrx;
+class _cpp_friend;
+class friendPrx;
 
 }
 
@@ -386,6 +388,55 @@ public:
     /// \endcond
 };
 
+class _cpp_friend : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = friendPrx;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual _cpp_auto _cpp_goto(_cpp_continue _cpp_if, _cpp_auto d, _cpp_delete _cpp_inline, ::std::shared_ptr<::Ice::Value> _cpp_private, ::std::shared_ptr<::and::do> _cpp_mutable, ::std::shared_ptr<breakPrx> _cpp_namespace, ::std::shared_ptr<charPrx> _cpp_new, ::std::shared_ptr<switchPrx> _cpp_not, ::std::shared_ptr<doPrx> _cpp_operator, int _cpp_or, int _cpp_protected, int _cpp_public, int _cpp_register, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_goto(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void objc(int bycopy, int byref, int id, int IMP, int in, int inout, int nil, int NO, int oneway, int SEL, int super, int YES, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_objc(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    /// \endcond
+};
+
 }
 
 namespace _cpp_and
@@ -648,6 +699,78 @@ protected:
     /// \endcond
 };
 
+class friendPrx : public virtual ::Ice::Proxy<friendPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    _cpp_auto _cpp_goto(_cpp_continue _cpp_if, const _cpp_auto& d, const _cpp_delete& _cpp_inline, const ::std::shared_ptr<::Ice::Value>& _cpp_private, const ::std::shared_ptr<_cpp_do>& _cpp_mutable, const ::std::shared_ptr<breakPrx>& _cpp_namespace, const ::std::shared_ptr<charPrx>& _cpp_new, const ::std::shared_ptr<switchPrx>& _cpp_not, const ::std::shared_ptr<doPrx>& _cpp_operator, int _cpp_or, int _cpp_protected, int _cpp_public, int _cpp_register, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        return _makePromiseOutgoing<::_cpp_and::_cpp_auto>(true, this, &friendPrx::_iceI_goto, _cpp_if, d, _cpp_inline, _cpp_private, _cpp_mutable, _cpp_namespace, _cpp_new, _cpp_not, _cpp_operator, _cpp_or, _cpp_protected, _cpp_public, _cpp_register, context).get();
+    }
+
+    template<template<typename> class P = ::std::promise>
+    auto gotoAsync(_cpp_continue _cpp_if, const _cpp_auto& d, const _cpp_delete& _cpp_inline, const ::std::shared_ptr<::Ice::Value>& _cpp_private, const ::std::shared_ptr<_cpp_do>& _cpp_mutable, const ::std::shared_ptr<breakPrx>& _cpp_namespace, const ::std::shared_ptr<charPrx>& _cpp_new, const ::std::shared_ptr<switchPrx>& _cpp_not, const ::std::shared_ptr<doPrx>& _cpp_operator, int _cpp_or, int _cpp_protected, int _cpp_public, int _cpp_register, const ::Ice::Context& context = ::Ice::noExplicitContext)
+        -> decltype(::std::declval<P<::_cpp_and::_cpp_auto>>().get_future())
+    {
+        return _makePromiseOutgoing<::_cpp_and::_cpp_auto, P>(false, this, &friendPrx::_iceI_goto, _cpp_if, d, _cpp_inline, _cpp_private, _cpp_mutable, _cpp_namespace, _cpp_new, _cpp_not, _cpp_operator, _cpp_or, _cpp_protected, _cpp_public, _cpp_register, context);
+    }
+
+    ::std::function<void()>
+    gotoAsync(_cpp_continue _cpp_if, const _cpp_auto& d, const _cpp_delete& _cpp_inline, const ::std::shared_ptr<::Ice::Value>& _cpp_private, const ::std::shared_ptr<_cpp_do>& _cpp_mutable, const ::std::shared_ptr<breakPrx>& _cpp_namespace, const ::std::shared_ptr<charPrx>& _cpp_new, const ::std::shared_ptr<switchPrx>& _cpp_not, const ::std::shared_ptr<doPrx>& _cpp_operator, int _cpp_or, int _cpp_protected, int _cpp_public, int _cpp_register,
+              ::std::function<void(::_cpp_and::_cpp_auto)> response,
+              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+              ::std::function<void(bool)> sent = nullptr,
+              const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        return _makeLambdaOutgoing<::_cpp_and::_cpp_auto>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::friendPrx::_iceI_goto, _cpp_if, d, _cpp_inline, _cpp_private, _cpp_mutable, _cpp_namespace, _cpp_new, _cpp_not, _cpp_operator, _cpp_or, _cpp_protected, _cpp_public, _cpp_register, context);
+    }
+
+    /// \cond INTERNAL
+    void _iceI_goto(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::_cpp_and::_cpp_auto>>&, _cpp_continue, const _cpp_auto&, const _cpp_delete&, const ::std::shared_ptr<::Ice::Value>&, const ::std::shared_ptr<_cpp_do>&, const ::std::shared_ptr<breakPrx>&, const ::std::shared_ptr<charPrx>&, const ::std::shared_ptr<switchPrx>&, const ::std::shared_ptr<doPrx>&, int, int, int, int, const ::Ice::Context&);
+    /// \endcond
+
+    void objc(int bycopy, int byref, int id, int IMP, int in, int inout, int nil, int NO, int oneway, int SEL, int super, int YES, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        _makePromiseOutgoing<void>(true, this, &friendPrx::_iceI_objc, bycopy, byref, id, IMP, in, inout, nil, NO, oneway, SEL, super, YES, context).get();
+    }
+
+    template<template<typename> class P = ::std::promise>
+    auto objcAsync(int bycopy, int byref, int id, int IMP, int in, int inout, int nil, int NO, int oneway, int SEL, int super, int YES, const ::Ice::Context& context = ::Ice::noExplicitContext)
+        -> decltype(::std::declval<P<void>>().get_future())
+    {
+        return _makePromiseOutgoing<void, P>(false, this, &friendPrx::_iceI_objc, bycopy, byref, id, IMP, in, inout, nil, NO, oneway, SEL, super, YES, context);
+    }
+
+    ::std::function<void()>
+    objcAsync(int bycopy, int byref, int id, int IMP, int in, int inout, int nil, int NO, int oneway, int SEL, int super, int YES,
+              ::std::function<void()> response,
+              ::std::function<void(::std::exception_ptr)> ex = nullptr,
+              ::std::function<void(bool)> sent = nullptr,
+              const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::friendPrx::_iceI_objc, bycopy, byref, id, IMP, in, inout, nil, NO, oneway, SEL, super, YES, context);
+    }
+
+    /// \cond INTERNAL
+    void _iceI_objc(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, int, int, int, int, int, int, int, int, int, int, int, int, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+protected:
+
+    /// \cond INTERNAL
+    friendPrx() = default;
+    friend ::std::shared_ptr<friendPrx> IceInternal::createProxy<friendPrx>();
+
+    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
+    /// \endcond
+};
+
 }
 
 /// \cond STREAM
@@ -753,6 +876,9 @@ using switchPrxPtr = ::std::shared_ptr<switchPrx>;
 using doPtr = ::std::shared_ptr<_cpp_do>;
 using doPrxPtr = ::std::shared_ptr<doPrx>;
 
+using friendPtr = ::std::shared_ptr<_cpp_friend>;
+using friendPrxPtr = ::std::shared_ptr<friendPrx>;
+
 }
 /// \endcond
 
@@ -786,6 +912,12 @@ class _cpp_do;
 /// \cond INTERNAL
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< _cpp_do>&);
 ::IceProxy::Ice::Object* upCast(_cpp_do*);
+/// \endcond
+
+class _cpp_friend;
+/// \cond INTERNAL
+void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< _cpp_friend>&);
+::IceProxy::Ice::Object* upCast(_cpp_friend*);
 /// \endcond
 
 }
@@ -837,6 +969,17 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::_cpp_do> doPrx;
 typedef doPrx doPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(doPtr&, const ::Ice::ObjectPtr&);
+/// \endcond
+
+class _cpp_friend;
+/// \cond INTERNAL
+::Ice::Object* upCast(_cpp_friend*);
+/// \endcond
+typedef ::IceInternal::Handle< _cpp_friend> friendPtr;
+typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::_cpp_friend> friendPrx;
+typedef friendPrx friendPrxPtr;
+/// \cond INTERNAL
+void _icePatchObjectPtr(friendPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
 
 }
@@ -1126,6 +1269,22 @@ typedef ::IceUtil::Handle< Callback_switch_foo2_Base> Callback_switch_foo2Ptr;
 class Callback_switch_foo3_Base : public virtual ::IceInternal::CallbackBase { };
 typedef ::IceUtil::Handle< Callback_switch_foo3_Base> Callback_switch_foo3Ptr;
 
+/**
+ * Base class for asynchronous callback wrapper classes used for calls to
+ * IceProxy::_cpp_and::_cpp_friend::begin_goto.
+ * Create a wrapper instance by calling ::_cpp_and::newCallback_friend_goto.
+ */
+class Callback_friend_goto_Base : public virtual ::IceInternal::CallbackBase { };
+typedef ::IceUtil::Handle< Callback_friend_goto_Base> Callback_friend_gotoPtr;
+
+/**
+ * Base class for asynchronous callback wrapper classes used for calls to
+ * IceProxy::_cpp_and::_cpp_friend::begin_objc.
+ * Create a wrapper instance by calling ::_cpp_and::newCallback_friend_objc.
+ */
+class Callback_friend_objc_Base : public virtual ::IceInternal::CallbackBase { };
+typedef ::IceUtil::Handle< Callback_friend_objc_Base> Callback_friend_objcPtr;
+
 }
 
 namespace IceProxy
@@ -1412,6 +1571,99 @@ public:
 
     /**
      * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+protected:
+    /// \cond INTERNAL
+
+    virtual ::IceProxy::Ice::Object* _newInstance() const;
+    /// \endcond
+};
+
+class _cpp_friend : public virtual ::Ice::Proxy<_cpp_friend, ::IceProxy::Ice::Object>
+{
+public:
+
+    ::_cpp_and::_cpp_auto _cpp_goto(::_cpp_and::_cpp_continue _cpp_if, const ::_cpp_and::_cpp_auto& d, const ::_cpp_and::deletePtr& _cpp_inline, const ::_cpp_and::switchPtr& _cpp_private, const ::_cpp_and::doPtr& _cpp_mutable, const ::_cpp_and::breakPrx& _cpp_namespace, const ::_cpp_and::charPrx& _cpp_new, const ::_cpp_and::switchPrx& _cpp_not, const ::_cpp_and::doPrx& _cpp_operator, ::Ice::Int _cpp_or, ::Ice::Int _cpp_protected, ::Ice::Int _cpp_public, ::Ice::Int _cpp_register, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        return end_goto(_iceI_begin_goto(_cpp_if, d, _cpp_inline, _cpp_private, _cpp_mutable, _cpp_namespace, _cpp_new, _cpp_not, _cpp_operator, _cpp_or, _cpp_protected, _cpp_public, _cpp_register, context, ::IceInternal::dummyCallback, 0, true));
+    }
+
+    ::Ice::AsyncResultPtr begin_goto(::_cpp_and::_cpp_continue _cpp_if, const ::_cpp_and::_cpp_auto& d, const ::_cpp_and::deletePtr& _cpp_inline, const ::_cpp_and::switchPtr& _cpp_private, const ::_cpp_and::doPtr& _cpp_mutable, const ::_cpp_and::breakPrx& _cpp_namespace, const ::_cpp_and::charPrx& _cpp_new, const ::_cpp_and::switchPrx& _cpp_not, const ::_cpp_and::doPrx& _cpp_operator, ::Ice::Int _cpp_or, ::Ice::Int _cpp_protected, ::Ice::Int _cpp_public, ::Ice::Int _cpp_register, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        return _iceI_begin_goto(_cpp_if, d, _cpp_inline, _cpp_private, _cpp_mutable, _cpp_namespace, _cpp_new, _cpp_not, _cpp_operator, _cpp_or, _cpp_protected, _cpp_public, _cpp_register, context, ::IceInternal::dummyCallback, 0);
+    }
+
+    ::Ice::AsyncResultPtr begin_goto(::_cpp_and::_cpp_continue _cpp_if, const ::_cpp_and::_cpp_auto& d, const ::_cpp_and::deletePtr& _cpp_inline, const ::_cpp_and::switchPtr& _cpp_private, const ::_cpp_and::doPtr& _cpp_mutable, const ::_cpp_and::breakPrx& _cpp_namespace, const ::_cpp_and::charPrx& _cpp_new, const ::_cpp_and::switchPrx& _cpp_not, const ::_cpp_and::doPrx& _cpp_operator, ::Ice::Int _cpp_or, ::Ice::Int _cpp_protected, ::Ice::Int _cpp_public, ::Ice::Int _cpp_register, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_goto(_cpp_if, d, _cpp_inline, _cpp_private, _cpp_mutable, _cpp_namespace, _cpp_new, _cpp_not, _cpp_operator, _cpp_or, _cpp_protected, _cpp_public, _cpp_register, ::Ice::noExplicitContext, cb, cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_goto(::_cpp_and::_cpp_continue _cpp_if, const ::_cpp_and::_cpp_auto& d, const ::_cpp_and::deletePtr& _cpp_inline, const ::_cpp_and::switchPtr& _cpp_private, const ::_cpp_and::doPtr& _cpp_mutable, const ::_cpp_and::breakPrx& _cpp_namespace, const ::_cpp_and::charPrx& _cpp_new, const ::_cpp_and::switchPrx& _cpp_not, const ::_cpp_and::doPrx& _cpp_operator, ::Ice::Int _cpp_or, ::Ice::Int _cpp_protected, ::Ice::Int _cpp_public, ::Ice::Int _cpp_register, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_goto(_cpp_if, d, _cpp_inline, _cpp_private, _cpp_mutable, _cpp_namespace, _cpp_new, _cpp_not, _cpp_operator, _cpp_or, _cpp_protected, _cpp_public, _cpp_register, context, cb, cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_goto(::_cpp_and::_cpp_continue _cpp_if, const ::_cpp_and::_cpp_auto& d, const ::_cpp_and::deletePtr& _cpp_inline, const ::_cpp_and::switchPtr& _cpp_private, const ::_cpp_and::doPtr& _cpp_mutable, const ::_cpp_and::breakPrx& _cpp_namespace, const ::_cpp_and::charPrx& _cpp_new, const ::_cpp_and::switchPrx& _cpp_not, const ::_cpp_and::doPrx& _cpp_operator, ::Ice::Int _cpp_or, ::Ice::Int _cpp_protected, ::Ice::Int _cpp_public, ::Ice::Int _cpp_register, const ::_cpp_and::Callback_friend_gotoPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_goto(_cpp_if, d, _cpp_inline, _cpp_private, _cpp_mutable, _cpp_namespace, _cpp_new, _cpp_not, _cpp_operator, _cpp_or, _cpp_protected, _cpp_public, _cpp_register, ::Ice::noExplicitContext, cb, cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_goto(::_cpp_and::_cpp_continue _cpp_if, const ::_cpp_and::_cpp_auto& d, const ::_cpp_and::deletePtr& _cpp_inline, const ::_cpp_and::switchPtr& _cpp_private, const ::_cpp_and::doPtr& _cpp_mutable, const ::_cpp_and::breakPrx& _cpp_namespace, const ::_cpp_and::charPrx& _cpp_new, const ::_cpp_and::switchPrx& _cpp_not, const ::_cpp_and::doPrx& _cpp_operator, ::Ice::Int _cpp_or, ::Ice::Int _cpp_protected, ::Ice::Int _cpp_public, ::Ice::Int _cpp_register, const ::Ice::Context& context, const ::_cpp_and::Callback_friend_gotoPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_goto(_cpp_if, d, _cpp_inline, _cpp_private, _cpp_mutable, _cpp_namespace, _cpp_new, _cpp_not, _cpp_operator, _cpp_or, _cpp_protected, _cpp_public, _cpp_register, context, cb, cookie);
+    }
+
+    ::_cpp_and::_cpp_auto end_goto(const ::Ice::AsyncResultPtr& result);
+
+private:
+
+    ::Ice::AsyncResultPtr _iceI_begin_goto(::_cpp_and::_cpp_continue, const ::_cpp_and::_cpp_auto&, const ::_cpp_and::deletePtr&, const ::_cpp_and::switchPtr&, const ::_cpp_and::doPtr&, const ::_cpp_and::breakPrx&, const ::_cpp_and::charPrx&, const ::_cpp_and::switchPrx&, const ::_cpp_and::doPrx&, ::Ice::Int, ::Ice::Int, ::Ice::Int, ::Ice::Int, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+
+public:
+
+    void objc(::Ice::Int bycopy, ::Ice::Int byref, ::Ice::Int id, ::Ice::Int IMP, ::Ice::Int in, ::Ice::Int inout, ::Ice::Int nil, ::Ice::Int NO, ::Ice::Int oneway, ::Ice::Int SEL, ::Ice::Int super, ::Ice::Int YES, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        end_objc(_iceI_begin_objc(bycopy, byref, id, IMP, in, inout, nil, NO, oneway, SEL, super, YES, context, ::IceInternal::dummyCallback, 0, true));
+    }
+
+    ::Ice::AsyncResultPtr begin_objc(::Ice::Int bycopy, ::Ice::Int byref, ::Ice::Int id, ::Ice::Int IMP, ::Ice::Int in, ::Ice::Int inout, ::Ice::Int nil, ::Ice::Int NO, ::Ice::Int oneway, ::Ice::Int SEL, ::Ice::Int super, ::Ice::Int YES, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        return _iceI_begin_objc(bycopy, byref, id, IMP, in, inout, nil, NO, oneway, SEL, super, YES, context, ::IceInternal::dummyCallback, 0);
+    }
+
+    ::Ice::AsyncResultPtr begin_objc(::Ice::Int bycopy, ::Ice::Int byref, ::Ice::Int id, ::Ice::Int IMP, ::Ice::Int in, ::Ice::Int inout, ::Ice::Int nil, ::Ice::Int NO, ::Ice::Int oneway, ::Ice::Int SEL, ::Ice::Int super, ::Ice::Int YES, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_objc(bycopy, byref, id, IMP, in, inout, nil, NO, oneway, SEL, super, YES, ::Ice::noExplicitContext, cb, cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_objc(::Ice::Int bycopy, ::Ice::Int byref, ::Ice::Int id, ::Ice::Int IMP, ::Ice::Int in, ::Ice::Int inout, ::Ice::Int nil, ::Ice::Int NO, ::Ice::Int oneway, ::Ice::Int SEL, ::Ice::Int super, ::Ice::Int YES, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_objc(bycopy, byref, id, IMP, in, inout, nil, NO, oneway, SEL, super, YES, context, cb, cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_objc(::Ice::Int bycopy, ::Ice::Int byref, ::Ice::Int id, ::Ice::Int IMP, ::Ice::Int in, ::Ice::Int inout, ::Ice::Int nil, ::Ice::Int NO, ::Ice::Int oneway, ::Ice::Int SEL, ::Ice::Int super, ::Ice::Int YES, const ::_cpp_and::Callback_friend_objcPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_objc(bycopy, byref, id, IMP, in, inout, nil, NO, oneway, SEL, super, YES, ::Ice::noExplicitContext, cb, cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_objc(::Ice::Int bycopy, ::Ice::Int byref, ::Ice::Int id, ::Ice::Int IMP, ::Ice::Int in, ::Ice::Int inout, ::Ice::Int nil, ::Ice::Int NO, ::Ice::Int oneway, ::Ice::Int SEL, ::Ice::Int super, ::Ice::Int YES, const ::Ice::Context& context, const ::_cpp_and::Callback_friend_objcPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_objc(bycopy, byref, id, IMP, in, inout, nil, NO, oneway, SEL, super, YES, context, cb, cookie);
+    }
+
+    void end_objc(const ::Ice::AsyncResultPtr& result);
+
+private:
+
+    ::Ice::AsyncResultPtr _iceI_begin_objc(::Ice::Int, ::Ice::Int, ::Ice::Int, ::Ice::Int, ::Ice::Int, ::Ice::Int, ::Ice::Int, ::Ice::Int, ::Ice::Int, ::Ice::Int, ::Ice::Int, ::Ice::Int, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+
+public:
+
+    /**
+     * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
@@ -1741,6 +1993,83 @@ inline bool operator==(const _cpp_do& lhs, const _cpp_do& rhs)
 }
 
 inline bool operator<(const _cpp_do& lhs, const _cpp_do& rhs)
+{
+    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+}
+/// \endcond
+
+class _cpp_friend : public virtual ::Ice::Object
+{
+public:
+
+    typedef friendPrx ProxyType;
+    typedef friendPtr PointerType;
+
+    virtual ~_cpp_friend();
+
+#ifdef ICE_CPP11_COMPILER
+    _cpp_friend() = default;
+    _cpp_friend(const _cpp_friend&) = default;
+    _cpp_friend& operator=(const _cpp_friend&) = default;
+#endif
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual _cpp_auto _cpp_goto(_cpp_continue _cpp_if, const _cpp_auto& d, const deletePtr& _cpp_inline, const switchPtr& _cpp_private, const doPtr& _cpp_mutable, const breakPrx& _cpp_namespace, const charPrx& _cpp_new, const switchPrx& _cpp_not, const doPrx& _cpp_operator, ::Ice::Int _cpp_or, ::Ice::Int _cpp_protected, ::Ice::Int _cpp_public, ::Ice::Int _cpp_register, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_goto(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void objc(::Ice::Int bycopy, ::Ice::Int byref, ::Ice::Int id, ::Ice::Int IMP, ::Ice::Int in, ::Ice::Int inout, ::Ice::Int nil, ::Ice::Int NO, ::Ice::Int oneway, ::Ice::Int SEL, ::Ice::Int super, ::Ice::Int YES, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_objc(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+protected:
+
+    /// \cond STREAM
+    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
+    virtual void _iceReadImpl(::Ice::InputStream*);
+    /// \endcond
+};
+
+/// \cond INTERNAL
+inline bool operator==(const _cpp_friend& lhs, const _cpp_friend& rhs)
+{
+    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+}
+
+inline bool operator<(const _cpp_friend& lhs, const _cpp_friend& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
 }
@@ -2650,6 +2979,314 @@ template<class T, typename CT> Callback_switch_foo3Ptr
 newCallback_switch_foo3(T* instance, void (T::*cb)(::Ice::Int, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_switch_foo3<T, CT>(instance, cb, excb, sentcb);
+}
+
+/**
+ * Type-safe asynchronous callback wrapper class used for calls to
+ * IceProxy::_cpp_and::_cpp_friend::begin_goto.
+ * Create a wrapper instance by calling ::_cpp_and::newCallback_friend_goto.
+ */
+template<class T>
+class CallbackNC_friend_goto : public Callback_friend_goto_Base, public ::IceInternal::TwowayCallbackNC<T>
+{
+public:
+
+    typedef IceUtil::Handle<T> TPtr;
+
+    typedef void (T::*Exception)(const ::Ice::Exception&);
+    typedef void (T::*Sent)(bool);
+    typedef void (T::*Response)(const _cpp_auto&);
+
+    CallbackNC_friend_goto(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+        : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
+    {
+    }
+
+    /// \cond INTERNAL
+    virtual void completed(const ::Ice::AsyncResultPtr& result) const
+    {
+        friendPrx proxy = friendPrx::uncheckedCast(result->getProxy());
+        _cpp_auto ret;
+        try
+        {
+            ret = proxy->end_goto(result);
+        }
+        catch(const ::Ice::Exception& ex)
+        {
+            ::IceInternal::CallbackNC<T>::exception(result, ex);
+            return;
+        }
+        if(_response)
+        {
+            (::IceInternal::CallbackNC<T>::_callback.get()->*_response)(ret);
+        }
+    }
+    /// \endcond
+
+private:
+
+    Response _response;
+};
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::_cpp_and::friend::begin_goto.
+ */
+template<class T> Callback_friend_gotoPtr
+newCallback_friend_goto(const IceUtil::Handle<T>& instance, void (T::*cb)(const _cpp_auto&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_friend_goto<T>(instance, cb, excb, sentcb);
+}
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::_cpp_and::friend::begin_goto.
+ */
+template<class T> Callback_friend_gotoPtr
+newCallback_friend_goto(T* instance, void (T::*cb)(const _cpp_auto&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_friend_goto<T>(instance, cb, excb, sentcb);
+}
+
+/**
+ * Type-safe asynchronous callback wrapper class with cookie support used for calls to
+ * IceProxy::_cpp_and::_cpp_friend::begin_goto.
+ * Create a wrapper instance by calling ::_cpp_and::newCallback_friend_goto.
+ */
+template<class T, typename CT>
+class Callback_friend_goto : public Callback_friend_goto_Base, public ::IceInternal::TwowayCallback<T, CT>
+{
+public:
+
+    typedef IceUtil::Handle<T> TPtr;
+
+    typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
+    typedef void (T::*Sent)(bool , const CT&);
+    typedef void (T::*Response)(const _cpp_auto&, const CT&);
+
+    Callback_friend_goto(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+        : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
+    {
+    }
+
+    /// \cond INTERNAL
+    virtual void completed(const ::Ice::AsyncResultPtr& result) const
+    {
+        friendPrx proxy = friendPrx::uncheckedCast(result->getProxy());
+        _cpp_auto ret;
+        try
+        {
+            ret = proxy->end_goto(result);
+        }
+        catch(const ::Ice::Exception& ex)
+        {
+            ::IceInternal::Callback<T, CT>::exception(result, ex);
+            return;
+        }
+        if(_response)
+        {
+            (::IceInternal::Callback<T, CT>::_callback.get()->*_response)(ret, CT::dynamicCast(result->getCookie()));
+        }
+    }
+    /// \endcond
+
+private:
+
+    Response _response;
+};
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * Use this overload when your callback methods receive a cookie value.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::_cpp_and::friend::begin_goto.
+ */
+template<class T, typename CT> Callback_friend_gotoPtr
+newCallback_friend_goto(const IceUtil::Handle<T>& instance, void (T::*cb)(const _cpp_auto&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_friend_goto<T, CT>(instance, cb, excb, sentcb);
+}
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * Use this overload when your callback methods receive a cookie value.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::_cpp_and::friend::begin_goto.
+ */
+template<class T, typename CT> Callback_friend_gotoPtr
+newCallback_friend_goto(T* instance, void (T::*cb)(const _cpp_auto&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_friend_goto<T, CT>(instance, cb, excb, sentcb);
+}
+
+/**
+ * Type-safe asynchronous callback wrapper class used for calls to
+ * IceProxy::_cpp_and::_cpp_friend::begin_objc.
+ * Create a wrapper instance by calling ::_cpp_and::newCallback_friend_objc.
+ */
+template<class T>
+class CallbackNC_friend_objc : public Callback_friend_objc_Base, public ::IceInternal::OnewayCallbackNC<T>
+{
+public:
+
+    typedef IceUtil::Handle<T> TPtr;
+
+    typedef void (T::*Exception)(const ::Ice::Exception&);
+    typedef void (T::*Sent)(bool);
+    typedef void (T::*Response)();
+
+    CallbackNC_friend_objc(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+        : ::IceInternal::OnewayCallbackNC<T>(obj, cb, excb, sentcb)
+    {
+    }
+};
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::_cpp_and::friend::begin_objc.
+ */
+template<class T> Callback_friend_objcPtr
+newCallback_friend_objc(const IceUtil::Handle<T>& instance, void (T::*cb)(), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_friend_objc<T>(instance, cb, excb, sentcb);
+}
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * @param instance The callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::_cpp_and::friend::begin_objc.
+ */
+template<class T> Callback_friend_objcPtr
+newCallback_friend_objc(const IceUtil::Handle<T>& instance, void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_friend_objc<T>(instance, 0, excb, sentcb);
+}
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::_cpp_and::friend::begin_objc.
+ */
+template<class T> Callback_friend_objcPtr
+newCallback_friend_objc(T* instance, void (T::*cb)(), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_friend_objc<T>(instance, cb, excb, sentcb);
+}
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * @param instance The callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::_cpp_and::friend::begin_objc.
+ */
+template<class T> Callback_friend_objcPtr
+newCallback_friend_objc(T* instance, void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_friend_objc<T>(instance, 0, excb, sentcb);
+}
+
+/**
+ * Type-safe asynchronous callback wrapper class with cookie support used for calls to
+ * IceProxy::_cpp_and::_cpp_friend::begin_objc.
+ * Create a wrapper instance by calling ::_cpp_and::newCallback_friend_objc.
+ */
+template<class T, typename CT>
+class Callback_friend_objc : public Callback_friend_objc_Base, public ::IceInternal::OnewayCallback<T, CT>
+{
+public:
+
+    typedef IceUtil::Handle<T> TPtr;
+
+    typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
+    typedef void (T::*Sent)(bool , const CT&);
+    typedef void (T::*Response)(const CT&);
+
+    Callback_friend_objc(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+        : ::IceInternal::OnewayCallback<T, CT>(obj, cb, excb, sentcb)
+    {
+    }
+};
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * Use this overload when your callback methods receive a cookie value.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::_cpp_and::friend::begin_objc.
+ */
+template<class T, typename CT> Callback_friend_objcPtr
+newCallback_friend_objc(const IceUtil::Handle<T>& instance, void (T::*cb)(const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_friend_objc<T, CT>(instance, cb, excb, sentcb);
+}
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * Use this overload when your callback methods receive a cookie value.
+ * @param instance The callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::_cpp_and::friend::begin_objc.
+ */
+template<class T, typename CT> Callback_friend_objcPtr
+newCallback_friend_objc(const IceUtil::Handle<T>& instance, void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_friend_objc<T, CT>(instance, 0, excb, sentcb);
+}
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * Use this overload when your callback methods receive a cookie value.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::_cpp_and::friend::begin_objc.
+ */
+template<class T, typename CT> Callback_friend_objcPtr
+newCallback_friend_objc(T* instance, void (T::*cb)(const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_friend_objc<T, CT>(instance, cb, excb, sentcb);
+}
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * Use this overload when your callback methods receive a cookie value.
+ * @param instance The callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::_cpp_and::friend::begin_objc.
+ */
+template<class T, typename CT> Callback_friend_objcPtr
+newCallback_friend_objc(T* instance, void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_friend_objc<T, CT>(instance, 0, excb, sentcb);
 }
 
 }

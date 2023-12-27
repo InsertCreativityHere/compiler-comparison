@@ -243,44 +243,6 @@
         }
     };
 
-    Test.G = class extends Ice.LocalException
-    {
-        constructor(data = "", _cause = "")
-        {
-            super(_cause);
-            this.data = data;
-        }
-
-        static get _parent()
-        {
-            return Ice.LocalException;
-        }
-
-        static get _id()
-        {
-            return "::Test::G";
-        }
-    };
-
-    Test.H = class extends Ice.LocalException
-    {
-        constructor(data = "", _cause = "")
-        {
-            super(_cause);
-            this.data = data;
-        }
-
-        static get _parent()
-        {
-            return Ice.LocalException;
-        }
-
-        static get _id()
-        {
-            return "::Test::H";
-        }
-    };
-
     Test.Mod = _ModuleRegistry.module("Test.Mod");
 
     Test.Mod.A = class extends Test.A

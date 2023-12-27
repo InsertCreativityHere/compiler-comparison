@@ -15,7 +15,7 @@
 
 package test.Ice.inheritance.Test.MB;
 
-public class CB extends test.Ice.inheritance.Test.MA.CA
+public abstract class CB extends test.Ice.inheritance.Test.MA.CA
 {
     public CB clone()
     {

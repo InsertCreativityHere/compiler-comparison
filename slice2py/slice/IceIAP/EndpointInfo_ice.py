@@ -28,42 +28,4 @@ _M_IceIAP.__doc__ = """
  IceIAP provides a secure transport for Ice.
 """
 
-if 'EndpointInfo' not in _M_IceIAP.__dict__:
-    _M_IceIAP.EndpointInfo = Ice.createTempClass()
-    class EndpointInfo(_M_Ice.EndpointInfo):
-        """
-         Provides access to an IAP endpoint information.
-        Members:
-        manufacturer --  The accessory manufacturer or empty to not match against a manufacturer.
-        modelNumber --  The accessory model number or empty to not match against a model number.
-        name --  The accessory name or empty to not match against the accessory name.
-        protocol --  The protocol supported by the accessory.
-        """
-        def __init__(self, underlying=None, timeout=0, compress=False, manufacturer='', modelNumber='', name='', protocol=''):
-            if Ice.getType(self) == _M_IceIAP.EndpointInfo:
-                raise RuntimeError('IceIAP.EndpointInfo is an abstract class')
-            _M_Ice.EndpointInfo.__init__(self, underlying, timeout, compress)
-            self.manufacturer = manufacturer
-            self.modelNumber = modelNumber
-            self.name = name
-            self.protocol = protocol
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_IceIAP._t_EndpointInfo)
-
-        __repr__ = __str__
-
-    _M_IceIAP._t_EndpointInfo = IcePy.declareValue('::IceIAP::EndpointInfo')
-
-    _M_IceIAP._t_EndpointInfo = IcePy.defineValue('::IceIAP::EndpointInfo', EndpointInfo, -1, (), False, False, _M_Ice._t_EndpointInfo, (
-        ('manufacturer', (), IcePy._t_string, False, 0),
-        ('modelNumber', (), IcePy._t_string, False, 0),
-        ('name', (), IcePy._t_string, False, 0),
-        ('protocol', (), IcePy._t_string, False, 0)
-    ))
-    EndpointInfo._ice_type = _M_IceIAP._t_EndpointInfo
-
-    _M_IceIAP.EndpointInfo = EndpointInfo
-    del EndpointInfo
-
 # End of module IceIAP

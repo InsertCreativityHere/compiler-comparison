@@ -121,6 +121,21 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::await::foreach> iceC_awai
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::await::BaseMethods> iceC_await_BaseMethods_init("::await::BaseMethods");
 
+const ::std::string iceC_await_implicit_ids[2] =
+{
+    "::Ice::Object",
+    "::await::implicit"
+};
+const ::std::string iceC_await_implicit_ops[] =
+{
+    "ice_id",
+    "ice_ids",
+    "ice_isA",
+    "ice_ping",
+    "in"
+};
+const ::std::string iceC_await_implicit_in_name = "in";
+
 const ::std::string iceC_await_System_Test_ids[2] =
 {
     "::Ice::Object",
@@ -586,6 +601,99 @@ await::optionalParams::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
 /// \endcond
 
 bool
+await::implicit::ice_isA(::std::string s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_await_implicit_ids, iceC_await_implicit_ids + 2, s);
+}
+
+::std::vector<::std::string>
+await::implicit::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector<::std::string>(&iceC_await_implicit_ids[0], &iceC_await_implicit_ids[2]);
+}
+
+::std::string
+await::implicit::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+await::implicit::ice_staticId()
+{
+    static const ::std::string typeId = "::await::implicit";
+    return typeId;
+}
+
+/// \cond INTERNAL
+bool
+await::implicit::_iceD_in(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
+    auto istr = inS.startReadParams();
+    _cpp_break iceP_internal;
+    ::std::shared_ptr<delete> iceP_is;
+    ::std::shared_ptr<::Ice::Value> iceP_lock;
+    ::std::shared_ptr<casePrx> iceP_namespace;
+    ::std::shared_ptr<typeofPrx> iceP_new;
+    ::std::shared_ptr<delete> iceP_null;
+    ::std::shared_ptr<explicitPrx> iceP_operator;
+    int iceP_override;
+    int iceP_params;
+    int iceP_private;
+    istr->readAll(iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private);
+    istr->readPendingValues();
+    inS.endReadParams();
+    var ret = this->in(::std::move(iceP_internal), ::std::move(iceP_is), ::std::move(iceP_lock), ::std::move(iceP_namespace), ::std::move(iceP_new), ::std::move(iceP_null), ::std::move(iceP_operator), iceP_override, iceP_params, iceP_private, current);
+    auto ostr = inS.startWriteParams();
+    ostr->writeAll(ret);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+await::implicit::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+{
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_await_implicit_ops, iceC_await_implicit_ops + 5, current.operation);
+    if(r.first == r.second)
+    {
+        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+    }
+
+    switch(r.first - iceC_await_implicit_ops)
+    {
+        case 0:
+        {
+            return _iceD_ice_id(in, current);
+        }
+        case 1:
+        {
+            return _iceD_ice_ids(in, current);
+        }
+        case 2:
+        {
+            return _iceD_ice_isA(in, current);
+        }
+        case 3:
+        {
+            return _iceD_ice_ping(in, current);
+        }
+        case 4:
+        {
+            return _iceD_in(in, current);
+        }
+        default:
+        {
+            assert(false);
+            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        }
+    }
+}
+/// \endcond
+
+bool
 await::System::Test::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_await_System_Test_ids, iceC_await_System_Test_ids + 2, s);
@@ -919,6 +1027,52 @@ await::optionalParamsPrx::ice_staticId()
 
 /// \cond INTERNAL
 void
+await::implicitPrx::_iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::await::var>>& outAsync, const _cpp_break& iceP_internal, const ::std::shared_ptr<_cpp_delete>& iceP_is, const ::std::shared_ptr<::Ice::Value>& iceP_lock, const ::std::shared_ptr<casePrx>& iceP_namespace, const ::std::shared_ptr<typeofPrx>& iceP_new, const ::std::shared_ptr<_cpp_delete>& iceP_null, const ::std::shared_ptr<explicitPrx>& iceP_operator, int iceP_override, int iceP_params, int iceP_private, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_await_implicit_in_name);
+    outAsync->invoke(iceC_await_implicit_in_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private);
+            ostr->writePendingValues();
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const foreach&)
+            {
+                throw;
+            }
+            catch(const fixed&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+/// \cond INTERNAL
+::std::shared_ptr<::Ice::ObjectPrx>
+await::implicitPrx::_newInstance() const
+{
+    return ::IceInternal::createProxy<implicitPrx>();
+}
+/// \endcond
+
+const ::std::string&
+await::implicitPrx::ice_staticId()
+{
+    return implicit::ice_staticId();
+}
+
+/// \cond INTERNAL
+void
 await::System::TestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
 {
     outAsync->invoke(iceC_await_System_Test_op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -985,6 +1139,8 @@ const ::std::string iceC_await_optionalParams_continue_name = "continue";
 const ::std::string iceC_await_optionalParams_in_name = "in";
 
 const ::std::string iceC_await_optionalParams_foreach_name = "foreach";
+
+const ::std::string iceC_await_implicit_in_name = "in";
 
 namespace
 {
@@ -1779,6 +1935,100 @@ const ::std::string&
 IceProxy::await::optionalParams::ice_staticId()
 {
     return ::await::optionalParams::ice_staticId();
+}
+
+/// \cond INTERNAL
+::IceProxy::Ice::Object* ::IceProxy::await::upCast(implicit* p) { return p; }
+
+void
+::IceProxy::await::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< implicit>& v)
+{
+    ::Ice::ObjectPrx proxy;
+    istr->read(proxy);
+    if(!proxy)
+    {
+        v = 0;
+    }
+    else
+    {
+        v = new implicit;
+        v->_copyFrom(proxy);
+    }
+}
+/// \endcond
+
+::Ice::AsyncResultPtr
+IceProxy::await::implicit::_iceI_begin_in(const ::await::_cpp_break& iceP_internal, const ::await::deletePtr& iceP_is, const ::await::explicitPtr& iceP_lock, const ::await::casePrx& iceP_namespace, const ::await::typeofPrx& iceP_new, const ::await::deletePtr& iceP_null, const ::await::explicitPrx& iceP_operator, ::Ice::Int iceP_override, ::Ice::Int iceP_params, ::Ice::Int iceP_private, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+{
+    _checkTwowayOnly(iceC_await_implicit_in_name, sync);
+    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_await_implicit_in_name, del, cookie, sync);
+    try
+    {
+        result->prepare(iceC_await_implicit_in_name, ::Ice::Normal, context);
+        ::Ice::OutputStream* ostr = result->startWriteParams(::Ice::DefaultFormat);
+        ostr->write(iceP_internal);
+        ostr->write(iceP_is);
+        ostr->write(iceP_lock);
+        ostr->write(iceP_namespace);
+        ostr->write(iceP_new);
+        ostr->write(iceP_null);
+        ostr->write(iceP_operator);
+        ostr->write(iceP_override);
+        ostr->write(iceP_params);
+        ostr->write(iceP_private);
+        ostr->writePendingValues();
+        result->endWriteParams();
+        result->invoke(iceC_await_implicit_in_name);
+    }
+    catch(const ::Ice::Exception& ex)
+    {
+        result->abort(ex);
+    }
+    return result;
+}
+
+::await::var
+IceProxy::await::implicit::end_in(const ::Ice::AsyncResultPtr& result)
+{
+    ::Ice::AsyncResult::_check(result, this, iceC_await_implicit_in_name);
+    ::await::var ret;
+    if(!result->_waitForResponse())
+    {
+        try
+        {
+            result->_throwUserException();
+        }
+        catch(const ::await::foreach&)
+        {
+            throw;
+        }
+        catch(const ::await::fixed&)
+        {
+            throw;
+        }
+        catch(const ::Ice::UserException& ex)
+        {
+            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
+        }
+    }
+    ::Ice::InputStream* istr = result->_startReadParams();
+    istr->read(ret);
+    result->_endReadParams();
+    return ret;
+}
+
+/// \cond INTERNAL
+::IceProxy::Ice::Object*
+IceProxy::await::implicit::_newInstance() const
+{
+    return new implicit;
+}
+/// \endcond
+
+const ::std::string&
+IceProxy::await::implicit::ice_staticId()
+{
+    return ::await::implicit::ice_staticId();
 }
 
 /// \cond INTERNAL
@@ -2738,6 +2988,170 @@ await::_icePatchObjectPtr(optionalParamsPtr& handle, const ::Ice::ObjectPtr& v)
     if(v && !handle)
     {
         IceInternal::Ex::throwUOE(optionalParams::ice_staticId(), v);
+    }
+}
+/// \endcond
+
+await::implicit::~implicit()
+{
+}
+
+/// \cond INTERNAL
+::Ice::Object* await::upCast(implicit* p) { return p; }
+
+/// \endcond
+
+namespace
+{
+const ::std::string iceC_await_implicit_ids[2] =
+{
+    "::Ice::Object",
+    "::await::implicit"
+};
+
+}
+
+bool
+await::implicit::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_await_implicit_ids, iceC_await_implicit_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+await::implicit::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_await_implicit_ids[0], &iceC_await_implicit_ids[2]);
+}
+
+const ::std::string&
+await::implicit::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+await::implicit::ice_staticId()
+{
+    static const ::std::string typeId = "::await::implicit";
+    return typeId;
+}
+
+/// \cond INTERNAL
+bool
+await::implicit::_iceD_in(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    _cpp_break iceP_internal;
+    deletePtr iceP_is;
+    explicitPtr iceP_lock;
+    casePrx iceP_namespace;
+    typeofPrx iceP_new;
+    deletePtr iceP_null;
+    explicitPrx iceP_operator;
+    ::Ice::Int iceP_override;
+    ::Ice::Int iceP_params;
+    ::Ice::Int iceP_private;
+    istr->read(iceP_internal);
+    istr->read(iceP_is);
+    istr->read(iceP_lock);
+    istr->read(iceP_namespace);
+    istr->read(iceP_new);
+    istr->read(iceP_null);
+    istr->read(iceP_operator);
+    istr->read(iceP_override);
+    istr->read(iceP_params);
+    istr->read(iceP_private);
+    istr->readPendingValues();
+    inS.endReadParams();
+    var ret = this->in(iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+namespace
+{
+const ::std::string iceC_await_implicit_all[] =
+{
+    "ice_id",
+    "ice_ids",
+    "ice_isA",
+    "ice_ping",
+    "in"
+};
+
+}
+
+/// \cond INTERNAL
+bool
+await::implicit::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+{
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_await_implicit_all, iceC_await_implicit_all + 5, current.operation);
+    if(r.first == r.second)
+    {
+        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+    }
+
+    switch(r.first - iceC_await_implicit_all)
+    {
+        case 0:
+        {
+            return _iceD_ice_id(in, current);
+        }
+        case 1:
+        {
+            return _iceD_ice_ids(in, current);
+        }
+        case 2:
+        {
+            return _iceD_ice_isA(in, current);
+        }
+        case 3:
+        {
+            return _iceD_ice_ping(in, current);
+        }
+        case 4:
+        {
+            return _iceD_in(in, current);
+        }
+        default:
+        {
+            assert(false);
+            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        }
+    }
+}
+/// \endcond
+
+/// \cond STREAM
+void
+await::implicit::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter< implicit, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+await::implicit::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader< implicit, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+/// \endcond
+
+/// \cond INTERNAL
+void
+await::_icePatchObjectPtr(implicitPtr& handle, const ::Ice::ObjectPtr& v)
+{
+    handle = implicitPtr::dynamicCast(v);
+    if(v && !handle)
+    {
+        IceInternal::Ex::throwUOE(implicit::ice_staticId(), v);
     }
 }
 /// \endcond

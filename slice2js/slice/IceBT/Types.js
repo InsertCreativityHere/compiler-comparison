@@ -18,7 +18,6 @@
 
 /* slice2js browser-bundle-skip */
 const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Ice/Exception");
 require("../Ice/Long");
 require("../Ice/HashMap");
 require("../Ice/HashUtil");
@@ -32,28 +31,6 @@ const Slice = Ice.Slice;
 
 let IceBT = _ModuleRegistry.module("IceBT");
 /* slice2js browser-bundle-skip-end */
-
-/**
- *  Indicates a failure in the Bluetooth plug-in.
- **/
-IceBT.BluetoothException = class extends Ice.LocalException
-{
-    constructor(reason = "", _cause = "")
-    {
-        super(_cause);
-        this.reason = reason;
-    }
-
-    static get _parent()
-    {
-        return Ice.LocalException;
-    }
-
-    static get _id()
-    {
-        return "::IceBT::BluetoothException";
-    }
-};
 /* slice2js browser-bundle-skip */
 exports.IceBT = IceBT;
 /* slice2js browser-bundle-skip-end */

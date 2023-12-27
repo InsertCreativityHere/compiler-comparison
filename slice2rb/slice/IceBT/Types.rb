@@ -17,20 +17,4 @@
 require 'Ice'
 
 module ::IceBT
-
-    if not defined?(::IceBT::BluetoothException)
-        class BluetoothException < Ice::LocalException
-            def initialize(reason='')
-                @reason = reason
-            end
-
-            def to_s
-                '::IceBT::BluetoothException'
-            end
-
-            attr_accessor :reason
-        end
-
-        T_BluetoothException = ::Ice::__defineException('::IceBT::BluetoothException', BluetoothException, false, nil, [["reason", ::Ice::T_string, false, 0]])
-    end
 end

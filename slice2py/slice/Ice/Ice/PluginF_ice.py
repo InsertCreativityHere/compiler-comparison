@@ -21,10 +21,4 @@ import Ice, IcePy
 _M_Ice = Ice.openModule('Ice')
 __name__ = 'Ice'
 
-if 'Plugin' not in _M_Ice.__dict__:
-    _M_Ice._t_Plugin = IcePy.declareValue('::Ice::Plugin')
-
-if 'PluginManager' not in _M_Ice.__dict__:
-    _M_Ice._t_PluginManager = IcePy.declareValue('::Ice::PluginManager')
-
 # End of module Ice

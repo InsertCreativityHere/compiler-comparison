@@ -15,7 +15,7 @@
 
 package Test.MA;
 
-public class CA extends com.zeroc.Ice.Value
+public abstract class CA extends com.zeroc.Ice.Value
 {
     public CA clone()
     {

@@ -567,23 +567,65 @@ if 'BaseMethods' not in _M__await.__dict__:
     _M__await.BaseMethods = BaseMethods
     del BaseMethods
 
-if 'implicit' not in _M__await.__dict__:
-    _M__await.implicit = Ice.createTempClass()
-    class implicit(object):
-        def __init__(self):
-            if Ice.getType(self) == _M__await.implicit:
-                raise RuntimeError('_await.implicit is an abstract class')
+_M__await._t_implicit = IcePy.defineValue('::await::implicit', Ice.Value, -1, (), False, True, None, ())
 
-        def _in(self, internal, _is, lock, namespace, new, null, operator, override, params, private):
-            raise NotImplementedError("method '_in' not implemented")
+if 'implicitPrx' not in _M__await.__dict__:
+    _M__await.implicitPrx = Ice.createTempClass()
+    class implicitPrx(Ice.ObjectPrx):
+
+        def _in(self, internal, _is, lock, namespace, new, null, operator, override, params, private, context=None):
+            return _M__await.implicit._op_in.invoke(self, ((internal, _is, lock, namespace, new, null, operator, override, params, private), context))
+
+        def inAsync(self, internal, _is, lock, namespace, new, null, operator, override, params, private, context=None):
+            return _M__await.implicit._op_in.invokeAsync(self, ((internal, _is, lock, namespace, new, null, operator, override, params, private), context))
+
+        def begin_in(self, internal, _is, lock, namespace, new, null, operator, override, params, private, _response=None, _ex=None, _sent=None, context=None):
+            return _M__await.implicit._op_in.begin(self, ((internal, _is, lock, namespace, new, null, operator, override, params, private), _response, _ex, _sent, context))
+
+        def end_in(self, _r):
+            return _M__await.implicit._op_in.end(self, _r)
+
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M__await.implicitPrx.ice_checkedCast(proxy, '::await::implicit', facetOrContext, context)
+
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M__await.implicitPrx.ice_uncheckedCast(proxy, facet)
+
+        @staticmethod
+        def ice_staticId():
+            return '::await::implicit'
+    _M__await._t_implicitPrx = IcePy.defineProxy('::await::implicit', implicitPrx)
+
+    _M__await.implicitPrx = implicitPrx
+    del implicitPrx
+
+    _M__await.implicit = Ice.createTempClass()
+    class implicit(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::await::implicit')
+
+        def ice_id(self, current=None):
+            return '::await::implicit'
+
+        @staticmethod
+        def ice_staticId():
+            return '::await::implicit'
+
+        def _in(self, internal, _is, lock, namespace, new, null, operator, override, params, private, current=None):
+            raise NotImplementedError("servant method '_in' not implemented")
 
         def __str__(self):
-            return IcePy.stringify(self, _M__await._t_implicit)
+            return IcePy.stringify(self, _M__await._t_implicitDisp)
 
         __repr__ = __str__
 
-    _M__await._t_implicit = IcePy.defineValue('::await::implicit', implicit, -1, (), False, True, None, ())
-    implicit._ice_type = _M__await._t_implicit
+    _M__await._t_implicitDisp = IcePy.defineClass('::await::implicit', implicit, (), None, ())
+    implicit._ice_type = _M__await._t_implicitDisp
+
+    implicit._op_in = IcePy.Operation('in', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M__await._t__break, False, 0), ((), _M__await._t_delete, False, 0), ((), _M__await._t_explicit, False, 0), ((), _M__await._t_casePrx, False, 0), ((), _M__await._t_typeofPrx, False, 0), ((), _M__await._t_delete, False, 0), ((), _M__await._t_explicitPrx, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M__await._t_var, False, 0), (_M__await._t_fixed, _M__await._t_foreach))
 
     _M__await.implicit = implicit
     del implicit

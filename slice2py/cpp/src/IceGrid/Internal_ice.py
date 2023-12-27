@@ -36,25 +36,6 @@ _M_IceGrid = Ice.openModule('IceGrid')
 # Start of module IceGrid
 __name__ = 'IceGrid'
 
-if 'SynchronizationException' not in _M_IceGrid.__dict__:
-    _M_IceGrid.SynchronizationException = Ice.createTempClass()
-    class SynchronizationException(Ice.LocalException):
-        def __init__(self):
-            pass
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::IceGrid::SynchronizationException'
-
-    _M_IceGrid._t_SynchronizationException = IcePy.defineException('::IceGrid::SynchronizationException', SynchronizationException, (), False, None, ())
-    SynchronizationException._ice_type = _M_IceGrid._t_SynchronizationException
-
-    _M_IceGrid.SynchronizationException = SynchronizationException
-    del SynchronizationException
-
 if 'InternalDbEnvDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.InternalDbEnvDescriptor = Ice.createTempClass()
     class InternalDbEnvDescriptor(Ice.Value):

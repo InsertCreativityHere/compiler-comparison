@@ -19,38 +19,4 @@ namespace
 {
     require_once 'Ice/Instrumentation.php';
 }
-
-namespace Glacier2\Instrumentation
-{
-    global $Glacier2_Instrumentation__t_SessionObserver;
-    interface SessionObserver extends \Ice\Instrumentation\Observer
-    {
-        public function forwarded($client);
-        public function queued($client);
-        public function overridden($client);
-        public function routingTableSize($delta);
-    }
-    $Glacier2_Instrumentation__t_SessionObserver = IcePHP_defineClass('::Glacier2::Instrumentation::SessionObserver', '\\Glacier2\\Instrumentation\\SessionObserver', -1, false, true, null, null);
-}
-
-namespace Glacier2\Instrumentation
-{
-    global $Glacier2_Instrumentation__t_ObserverUpdater;
-    interface ObserverUpdater
-    {
-        public function updateSessionObservers();
-    }
-    $Glacier2_Instrumentation__t_ObserverUpdater = IcePHP_defineClass('::Glacier2::Instrumentation::ObserverUpdater', '\\Glacier2\\Instrumentation\\ObserverUpdater', -1, false, true, null, null);
-}
-
-namespace Glacier2\Instrumentation
-{
-    global $Glacier2_Instrumentation__t_RouterObserver;
-    interface RouterObserver
-    {
-        public function getSessionObserver($id, $con, $routingTableSize, $old);
-        public function setObserverUpdater($updater);
-    }
-    $Glacier2_Instrumentation__t_RouterObserver = IcePHP_defineClass('::Glacier2::Instrumentation::RouterObserver', '\\Glacier2\\Instrumentation\\RouterObserver', -1, false, true, null, null);
-}
 ?>

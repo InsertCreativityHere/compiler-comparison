@@ -314,12 +314,42 @@ namespace _and
 namespace _and
 {
     global $and__t_friend;
-    interface friend
+    global $and__t_friendPrx;
+
+    class friendPrxHelper
     {
-        public function _goto($_if, $d, $inline, $_private, $mutable, $_namespace, $_new, $not, $operator, $_or, $_protected, $_public, $register);
-        public function objc($bycopy, $byref, $id, $IMP, $in, $inout, $nil, $NO, $oneway, $SEL, $super, $YES);
+        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        {
+            return $proxy->ice_checkedCast('::and::friend', $facetOrContext, $context);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::and::friend', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::and::friend';
+        }
     }
     $and__t_friend = IcePHP_defineClass('::and::friend', '\\_and\\friend', -1, false, true, null, null);
+
+    global $Ice__t_ObjectPrx;
+    $and__t_friendPrx = IcePHP_defineProxy('::and::friend', $Ice__t_ObjectPrx, null);
+
+    global $and__t_continue;
+    global $and__t_auto;
+    global $and__t_delete;
+    global $and__t_switch;
+    global $and__t_do;
+    global $and__t_breakPrx;
+    global $and__t_charPrx;
+    global $and__t_switchPrx;
+    global $and__t_doPrx;
+    global $IcePHP__t_int;
+    IcePHP_defineOperation($and__t_friendPrx, 'goto', 0, 0, 0, array(array($and__t_continue), array($and__t_auto), array($and__t_delete), array($and__t_switch), array($and__t_do), array($and__t_breakPrx), array($and__t_charPrx), array($and__t_switchPrx), array($and__t_doPrx), array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int)), null, array($and__t_auto), array($and__t_return, $and__t_sizeof));
+    IcePHP_defineOperation($and__t_friendPrx, 'objc', 0, 0, 0, array(array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int)), null, null, null);
 }
 
 namespace _and

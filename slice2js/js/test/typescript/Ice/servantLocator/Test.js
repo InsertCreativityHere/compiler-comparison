@@ -131,11 +131,6 @@ Slice.defineOperations(Test.TestActivation, Test.TestActivationPrx, iceC_Test_Te
     "activateServantLocator": [, , , , , [[1]], , , , ]
 });
 
-Test.Cookie = class
-{
-};
-
-
 const iceC_Test_Echo_ids = [
     "::Ice::Object",
     "::Test::Echo"
