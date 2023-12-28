@@ -96,8 +96,6 @@ const ::std::string iceC_Test_Thrower_ops[] =
     "throwCasC",
     "throwE",
     "throwF",
-    "throwG",
-    "throwH",
     "throwLocalException",
     "throwLocalExceptionIdempotent",
     "throwMemoryLimitException",
@@ -130,8 +128,6 @@ const ::std::string iceC_Test_Thrower_throwAfterResponse_name = "throwAfterRespo
 const ::std::string iceC_Test_Thrower_throwAfterException_name = "throwAfterException";
 const ::std::string iceC_Test_Thrower_throwE_name = "throwE";
 const ::std::string iceC_Test_Thrower_throwF_name = "throwF";
-const ::std::string iceC_Test_Thrower_throwG_name = "throwG";
-const ::std::string iceC_Test_Thrower_throwH_name = "throwH";
 
 const ::std::string iceC_Test_WrongOperation_ids[2] =
 {
@@ -624,33 +620,9 @@ Test::Thrower::_iceD_throwF(::IceInternal::Incoming& inS, const ::Ice::Current& 
 
 /// \cond INTERNAL
 bool
-Test::Thrower::_iceD_throwG(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->throwGAsync(inA->response(), inA->exception(), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Thrower::_iceD_throwH(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->throwHAsync(inA->response(), inA->exception(), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
 Test::Thrower::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Thrower_ops, iceC_Test_Thrower_ops + 29, current.operation);
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Thrower_ops, iceC_Test_Thrower_ops + 27, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -736,41 +708,33 @@ Test::Thrower::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
         }
         case 19:
         {
-            return _iceD_throwG(in, current);
+            return _iceD_throwLocalException(in, current);
         }
         case 20:
         {
-            return _iceD_throwH(in, current);
+            return _iceD_throwLocalExceptionIdempotent(in, current);
         }
         case 21:
         {
-            return _iceD_throwLocalException(in, current);
+            return _iceD_throwMemoryLimitException(in, current);
         }
         case 22:
         {
-            return _iceD_throwLocalExceptionIdempotent(in, current);
+            return _iceD_throwModA(in, current);
         }
         case 23:
         {
-            return _iceD_throwMemoryLimitException(in, current);
+            return _iceD_throwNonIceException(in, current);
         }
         case 24:
         {
-            return _iceD_throwModA(in, current);
+            return _iceD_throwUndeclaredA(in, current);
         }
         case 25:
         {
-            return _iceD_throwNonIceException(in, current);
-        }
-        case 26:
-        {
-            return _iceD_throwUndeclaredA(in, current);
-        }
-        case 27:
-        {
             return _iceD_throwUndeclaredB(in, current);
         }
-        case 28:
+        case 26:
         {
             return _iceD_throwUndeclaredC(in, current);
         }
@@ -1303,26 +1267,6 @@ Test::ThrowerPrx::_iceI_throwF(const ::std::shared_ptr<::IceInternal::OutgoingAs
 /// \endcond
 
 /// \cond INTERNAL
-void
-Test::ThrowerPrx::_iceI_throwG(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Thrower_throwG_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::ThrowerPrx::_iceI_throwH(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Thrower_throwH_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
 ::std::shared_ptr<::Ice::ObjectPrx>
 Test::ThrowerPrx::_newInstance() const
 {
@@ -1410,10 +1354,6 @@ const ::std::string iceC_Test_Thrower_throwAfterException_name = "throwAfterExce
 const ::std::string iceC_Test_Thrower_throwE_name = "throwE";
 
 const ::std::string iceC_Test_Thrower_throwF_name = "throwF";
-
-const ::std::string iceC_Test_Thrower_throwG_name = "throwG";
-
-const ::std::string iceC_Test_Thrower_throwH_name = "throwH";
 
 const ::std::string iceC_Test_WrongOperation_noSuchOperation_name = "noSuchOperation";
 
@@ -1930,14 +1870,6 @@ Test::AMD_Thrower_throwF::~AMD_Thrower_throwF()
 {
 }
 
-Test::AMD_Thrower_throwG::~AMD_Thrower_throwG()
-{
-}
-
-Test::AMD_Thrower_throwH::~AMD_Thrower_throwH()
-{
-}
-
 Test::AMD_WrongOperation_noSuchOperation::~AMD_WrongOperation_noSuchOperation()
 {
 }
@@ -2264,34 +2196,6 @@ IceAsync::Test::AMD_Thrower_throwF::AMD_Thrower_throwF(::IceInternal::Incoming& 
 
 void
 IceAsync::Test::AMD_Thrower_throwF::ice_response()
-{
-    writeEmptyParams();
-    completed();
-}
-/// \endcond
-
-/// \cond INTERNAL
-IceAsync::Test::AMD_Thrower_throwG::AMD_Thrower_throwG(::IceInternal::Incoming& in) :
-    ::IceInternal::IncomingAsync(in)
-{
-}
-
-void
-IceAsync::Test::AMD_Thrower_throwG::ice_response()
-{
-    writeEmptyParams();
-    completed();
-}
-/// \endcond
-
-/// \cond INTERNAL
-IceAsync::Test::AMD_Thrower_throwH::AMD_Thrower_throwH(::IceInternal::Incoming& in) :
-    ::IceInternal::IncomingAsync(in)
-{
-}
-
-void
-IceAsync::Test::AMD_Thrower_throwH::ice_response()
 {
     writeEmptyParams();
     completed();
@@ -3173,52 +3077,6 @@ IceProxy::Test::Thrower::end_throwF(const ::Ice::AsyncResultPtr& result)
     result->_readEmptyParams();
 }
 
-::Ice::AsyncResultPtr
-IceProxy::Test::Thrower::_iceI_begin_throwG(const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Thrower_throwG_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_Test_Thrower_throwG_name, ::Ice::Normal, context);
-        result->writeEmptyParams();
-        result->invoke(iceC_Test_Thrower_throwG_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-void
-IceProxy::Test::Thrower::end_throwG(const ::Ice::AsyncResultPtr& result)
-{
-    _end(result, iceC_Test_Thrower_throwG_name);
-}
-
-::Ice::AsyncResultPtr
-IceProxy::Test::Thrower::_iceI_begin_throwH(const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Thrower_throwH_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_Test_Thrower_throwH_name, ::Ice::Normal, context);
-        result->writeEmptyParams();
-        result->invoke(iceC_Test_Thrower_throwH_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-void
-IceProxy::Test::Thrower::end_throwH(const ::Ice::AsyncResultPtr& result)
-{
-    _end(result, iceC_Test_Thrower_throwH_name);
-}
-
 /// \cond INTERNAL
 ::IceProxy::Ice::Object*
 IceProxy::Test::Thrower::_newInstance() const
@@ -3721,28 +3579,6 @@ Test::Thrower::_iceD_throwF(::IceInternal::Incoming& inS, const ::Ice::Current& 
 }
 /// \endcond
 
-/// \cond INTERNAL
-bool
-Test::Thrower::_iceD_throwG(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    this->throwG_async(new IceAsync::Test::AMD_Thrower_throwG(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Thrower::_iceD_throwH(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    this->throwH_async(new IceAsync::Test::AMD_Thrower_throwH(inS), current);
-    return false;
-}
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Test_Thrower_all[] =
@@ -3766,8 +3602,6 @@ const ::std::string iceC_Test_Thrower_all[] =
     "throwCasC",
     "throwE",
     "throwF",
-    "throwG",
-    "throwH",
     "throwLocalException",
     "throwLocalExceptionIdempotent",
     "throwMemoryLimitException",
@@ -3784,7 +3618,7 @@ const ::std::string iceC_Test_Thrower_all[] =
 bool
 Test::Thrower::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Thrower_all, iceC_Test_Thrower_all + 29, current.operation);
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Thrower_all, iceC_Test_Thrower_all + 27, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -3870,41 +3704,33 @@ Test::Thrower::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
         }
         case 19:
         {
-            return _iceD_throwG(in, current);
+            return _iceD_throwLocalException(in, current);
         }
         case 20:
         {
-            return _iceD_throwH(in, current);
+            return _iceD_throwLocalExceptionIdempotent(in, current);
         }
         case 21:
         {
-            return _iceD_throwLocalException(in, current);
+            return _iceD_throwMemoryLimitException(in, current);
         }
         case 22:
         {
-            return _iceD_throwLocalExceptionIdempotent(in, current);
+            return _iceD_throwModA(in, current);
         }
         case 23:
         {
-            return _iceD_throwMemoryLimitException(in, current);
+            return _iceD_throwNonIceException(in, current);
         }
         case 24:
         {
-            return _iceD_throwModA(in, current);
+            return _iceD_throwUndeclaredA(in, current);
         }
         case 25:
         {
-            return _iceD_throwNonIceException(in, current);
-        }
-        case 26:
-        {
-            return _iceD_throwUndeclaredA(in, current);
-        }
-        case 27:
-        {
             return _iceD_throwUndeclaredB(in, current);
         }
-        case 28:
+        case 26:
         {
             return _iceD_throwUndeclaredC(in, current);
         }

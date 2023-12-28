@@ -167,6 +167,15 @@ public:
     int _cpp_switch;
 };
 
+/**
+ * TODO: reenable when #1617 is fixed
+ * interface friend
+ * {
+ * guard goto(continue if, guard d, defer inline, switch private, do mutable, break* namespace,
+ * func* new, switch* not, do* operator, int or, int protected, int public, int register)
+ * throws return, as;
+ * }
+ */
 constexpr int is = 0;
 
 constexpr int self = 0;
@@ -898,6 +907,15 @@ protected:
     /// \endcond
 };
 
+/**
+ * TODO: reenable when #1617 is fixed
+ * interface friend
+ * {
+ * guard goto(continue if, guard d, defer inline, switch private, do mutable, break* namespace,
+ * func* new, switch* not, do* operator, int or, int protected, int public, int register)
+ * throws return, as;
+ * }
+ */
 const ::Ice::Int is = 0;
 
 const ::Ice::Int self = 0;

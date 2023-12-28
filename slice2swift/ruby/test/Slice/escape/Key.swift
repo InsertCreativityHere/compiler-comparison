@@ -910,21 +910,3 @@ public extension `break` {
 
 /// elsif overview.
 public extension elsif {}
-
-public protocol extend:  Swift.AnyObject {
-    ///
-    /// - parameter freeze: `display?`
-    ///
-    /// - parameter hash: `Ice.Value?`
-    ///
-    /// - parameter if: `breakPrx?`
-    ///
-    /// - parameter inspect: `display?`
-    ///
-    /// - parameter method: `Ice.Value?`
-    ///
-    /// - parameter methods: `Swift.Int32`
-    ///
-    /// - returns: `END`
-    func `for`(freeze: display?, hash: Ice.Value?, if: breakPrx?, inspect: display?, method: Ice.Value?, methods: Swift.Int32) throws -> END
-}

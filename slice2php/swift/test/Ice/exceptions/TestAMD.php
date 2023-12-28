@@ -318,8 +318,6 @@ namespace Test
     IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwAfterException', 0, 0, 0, null, null, null, array($Test__t_A));
     IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwE', 0, 0, 0, null, null, null, array($Test__t_E));
     IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwF', 0, 0, 0, null, null, null, array($Test__t_F));
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwG', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_ThrowerPrx, 'throwH', 0, 0, 0, null, null, null, null);
 }
 
 namespace Test

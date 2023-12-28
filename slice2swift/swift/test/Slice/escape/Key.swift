@@ -441,6 +441,13 @@ open class `as`: `return` {
         try super._iceReadImpl(from: istr);
     }
 }
+/// TODO: reenable when #1617 is fixed
+/// interface friend
+/// {
+/// guard goto(continue if, guard d, defer inline, switch private, do mutable, break* namespace,
+/// func* new, switch* not, do* operator, int or, int protected, int public, int register)
+/// throws return, as;
+/// }
 public let `is`: Swift.Int32 = 0
 
 public let `self`: Swift.Int32 = 0
@@ -995,35 +1002,3 @@ public extension `func` {
 
 /// do overview.
 public extension `do` {}
-
-public protocol friend:  Swift.AnyObject {
-    ///
-    /// - parameter if: ``continue``
-    ///
-    /// - parameter d: ``guard``
-    ///
-    /// - parameter inline: ``defer``
-    ///
-    /// - parameter private: ``switch`?`
-    ///
-    /// - parameter mutable: `Ice.Value?`
-    ///
-    /// - parameter namespace: `breakPrx?`
-    ///
-    /// - parameter new: `funcPrx?`
-    ///
-    /// - parameter not: `Ice.ObjectPrx?`
-    ///
-    /// - parameter operator: `doPrx?`
-    ///
-    /// - parameter or: `Swift.Int32`
-    ///
-    /// - parameter protected: `Swift.Int32`
-    ///
-    /// - parameter public: `Swift.Int32`
-    ///
-    /// - parameter register: `Swift.Int32`
-    ///
-    /// - returns: ``guard``
-    func goto(if: `continue`, d: `guard`, inline: `defer`, private: `switch`?, mutable: Ice.Value?, namespace: breakPrx?, new: funcPrx?, not: Ice.ObjectPrx?, operator: doPrx?, or: Swift.Int32, protected: Swift.Int32, public: Swift.Int32, register: Swift.Int32) throws -> `guard`
-}

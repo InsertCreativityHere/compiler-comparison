@@ -17,22 +17,6 @@ import Foundation
 import Ice
 import PromiseKit
 
-open class SynchronizationException: Ice.LocalException {
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::IceGrid::SynchronizationException"
-    }
-
-    /// Returns a string representation of this exception
-    ///
-    /// - returns: `Swift.String` - The string representaton of this exception.
-    open override func ice_print() -> Swift.String {
-        return _SynchronizationExceptionDescription
-    }
-}
-
 /// Traits for Slice class `InternalDbEnvDescriptor`.
 public struct InternalDbEnvDescriptorTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::InternalDbEnvDescriptor"]

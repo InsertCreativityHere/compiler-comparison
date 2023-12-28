@@ -14,6 +14,3 @@
 //
 
 import Foundation
-
-/// A sequence of endpoints.
-public typealias EndpointSeq = [Endpoint]

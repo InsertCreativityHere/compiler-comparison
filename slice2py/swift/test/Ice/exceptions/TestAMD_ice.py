@@ -501,30 +501,6 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
         def end_throwF(self, _r):
             return _M_Test.Thrower._op_throwF.end(self, _r)
 
-        def throwG(self, context=None):
-            return _M_Test.Thrower._op_throwG.invoke(self, ((), context))
-
-        def throwGAsync(self, context=None):
-            return _M_Test.Thrower._op_throwG.invokeAsync(self, ((), context))
-
-        def begin_throwG(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Thrower._op_throwG.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwG(self, _r):
-            return _M_Test.Thrower._op_throwG.end(self, _r)
-
-        def throwH(self, context=None):
-            return _M_Test.Thrower._op_throwH.invoke(self, ((), context))
-
-        def throwHAsync(self, context=None):
-            return _M_Test.Thrower._op_throwH.invokeAsync(self, ((), context))
-
-        def begin_throwH(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Thrower._op_throwH.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_throwH(self, _r):
-            return _M_Test.Thrower._op_throwH.end(self, _r)
-
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
             return _M_Test.ThrowerPrx.ice_checkedCast(proxy, '::Test::Thrower', facetOrContext, context)
@@ -623,12 +599,6 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
         def throwF(self, current=None):
             raise NotImplementedError("servant method 'throwF' not implemented")
 
-        def throwG(self, current=None):
-            raise NotImplementedError("servant method 'throwG' not implemented")
-
-        def throwH(self, current=None):
-            raise NotImplementedError("servant method 'throwH' not implemented")
-
         def __str__(self):
             return IcePy.stringify(self, _M_Test._t_ThrowerDisp)
 
@@ -660,8 +630,6 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
     Thrower._op_throwAfterException = IcePy.Operation('throwAfterException', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), None, (_M_Test._t_A,))
     Thrower._op_throwE = IcePy.Operation('throwE', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), None, (_M_Test._t_E,))
     Thrower._op_throwF = IcePy.Operation('throwF', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), None, (_M_Test._t_F,))
-    Thrower._op_throwG = IcePy.Operation('throwG', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), None, ())
-    Thrower._op_throwH = IcePy.Operation('throwH', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), None, ())
 
     _M_Test.Thrower = Thrower
     del Thrower

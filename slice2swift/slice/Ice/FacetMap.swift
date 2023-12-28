@@ -14,6 +14,3 @@
 //
 
 import Foundation
-
-/// A mapping from facet name to servant.
-public typealias FacetMap = [Swift.String: Disp]

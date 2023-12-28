@@ -1158,9 +1158,3 @@ public extension TestActivation {
         return inS.setResultPromise(activateServantLocatorAsync(activate: iceP_activate, current: current))
     }
 }
-
-public protocol Cookie:  Swift.AnyObject {
-    ///
-    /// - returns: `Swift.String`
-    func message() throws -> Swift.String
-}

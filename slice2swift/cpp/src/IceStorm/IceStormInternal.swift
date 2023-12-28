@@ -95,22 +95,6 @@ public extension Ice.OutputStream {
     }
 }
 
-open class SendQueueSizeMaxReached: Ice.LocalException {
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::IceStorm::SendQueueSizeMaxReached"
-    }
-
-    /// Returns a string representation of this exception
-    ///
-    /// - returns: `Swift.String` - The string representaton of this exception.
-    open override func ice_print() -> Swift.String {
-        return _SendQueueSizeMaxReachedDescription
-    }
-}
-
 /// A sequence of EventData.
 public typealias EventDataSeq = [EventData]
 

@@ -14,11 +14,3 @@
 //
 
 import Foundation
-
-/// Provides access to Bluetooth endpoint information.
-public protocol SSLEndpointInfo: EndpointInfo {
-    /// The address configured with the endpoint.
-    var addr: Swift.String { get set }
-    /// The UUID configured with the endpoint.
-    var uuid: Swift.String { get set }
-}

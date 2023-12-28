@@ -285,60 +285,6 @@ open class F: Ice.UserException {
     }
 }
 
-open class G: Ice.LocalException {
-    public var data: Swift.String = ""
-
-    public required init() {
-        super.init()
-    }
-
-    public init(data: Swift.String, file: Swift.String = #file, line: Swift.Int = #line) {
-        self.data = data
-        super.init(file: file, line: line)
-    }
-
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::G"
-    }
-
-    /// Returns a string representation of this exception
-    ///
-    /// - returns: `Swift.String` - The string representaton of this exception.
-    open override func ice_print() -> Swift.String {
-        return _GDescription
-    }
-}
-
-open class H: Ice.LocalException {
-    public var data: Swift.String = ""
-
-    public required init() {
-        super.init()
-    }
-
-    public init(data: Swift.String, file: Swift.String = #file, line: Swift.Int = #line) {
-        self.data = data
-        super.init(file: file, line: line)
-    }
-
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::H"
-    }
-
-    /// Returns a string representation of this exception
-    ///
-    /// - returns: `Swift.String` - The string representaton of this exception.
-    open override func ice_print() -> Swift.String {
-        return _HDescription
-    }
-}
-
 /// :nodoc:
 public class ModA_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
@@ -572,14 +518,6 @@ public extension EmptyPrx {}
 ///  - throwF: 
 ///
 ///  - throwFAsync: 
-///
-///  - throwG: 
-///
-///  - throwGAsync: 
-///
-///  - throwH: 
-///
-///  - throwHAsync: 
 public protocol ThrowerPrx: Ice.ObjectPrx {}
 
 private final class ThrowerPrxI: Ice.ObjectPrxI, ThrowerPrx {
@@ -750,14 +688,6 @@ public extension Ice.InputStream {
 ///  - throwF: 
 ///
 ///  - throwFAsync: 
-///
-///  - throwG: 
-///
-///  - throwGAsync: 
-///
-///  - throwH: 
-///
-///  - throwHAsync: 
 public extension ThrowerPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
@@ -1805,64 +1735,6 @@ public extension ThrowerPrx {
                                   sentFlags: sentFlags,
                                   sent: sent)
     }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func throwG(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "throwG",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func throwGAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "throwG",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func throwH(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "throwH",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func throwHAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "throwH",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
 }
 
 /// WrongOperationPrx overview.
@@ -2065,10 +1937,6 @@ public struct ThrowerDisp: Ice.Disp {
             return try servant._iceD_throwE(incoming: request, current: current)
         case "throwF":
             return try servant._iceD_throwF(incoming: request, current: current)
-        case "throwG":
-            return try servant._iceD_throwG(incoming: request, current: current)
-        case "throwH":
-            return try servant._iceD_throwH(incoming: request, current: current)
         case "throwLocalException":
             return try servant._iceD_throwLocalException(incoming: request, current: current)
         case "throwLocalExceptionIdempotent":
@@ -2277,18 +2145,6 @@ public protocol Thrower {
     ///
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func throwFAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func throwGAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func throwHAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
 }
 
 
@@ -2380,10 +2236,6 @@ public extension Empty {}
 ///  - throwE: 
 ///
 ///  - throwF: 
-///
-///  - throwG: 
-///
-///  - throwH: 
 public extension Thrower {
     func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         try inS.readEmptyParams()
@@ -2578,18 +2430,6 @@ public extension Thrower {
         try inS.readEmptyParams()
 
         return inS.setResultPromise(throwFAsync(current: current))
-    }
-
-    func _iceD_throwG(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(throwGAsync(current: current))
-    }
-
-    func _iceD_throwH(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(throwHAsync(current: current))
     }
 }
 

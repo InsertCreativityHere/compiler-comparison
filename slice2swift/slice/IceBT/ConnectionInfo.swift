@@ -15,21 +15,3 @@
 
 import Foundation
 import Ice
-
-/// Provides access to the details of a Bluetooth connection.
-public protocol ConnectionInfo: Ice.ConnectionInfo {
-    /// The local Bluetooth address.
-    var localAddress: Swift.String { get set }
-    /// The local RFCOMM channel.
-    var localChannel: Swift.Int32 { get set }
-    /// The remote Bluetooth address.
-    var remoteAddress: Swift.String { get set }
-    /// The remote RFCOMM channel.
-    var remoteChannel: Swift.Int32 { get set }
-    /// The UUID of the service being offered (in a server) or targeted (in a client).
-    var uuid: Swift.String { get set }
-    /// The connection buffer receive size.
-    var rcvSize: Swift.Int32 { get set }
-    /// The connection buffer send size.
-    var sndSize: Swift.Int32 { get set }
-}

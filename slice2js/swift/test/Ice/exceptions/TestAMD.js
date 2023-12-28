@@ -350,9 +350,7 @@
         "throwF": [, , , , , , ,
         [
             Test.F
-        ], , ],
-        "throwG": [, , , , , , , , , ],
-        "throwH": [, , , , , , , , , ]
+        ], , ]
     });
 
     const iceC_Test_WrongOperation_ids = [
