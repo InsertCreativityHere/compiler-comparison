@@ -292,8 +292,8 @@ module ::IceStorm
         T_TopicManagerPrx.defineProxy(TopicManagerPrx, nil, [])
 
         TopicManagerPrx_mixin::OP_create = ::Ice::__defineOperation('create', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], [::IceStorm::T_TopicPrx, false, 0], [::IceStorm::T_TopicExists])
-        TopicManagerPrx_mixin::OP_retrieve = ::Ice::__defineOperation('retrieve', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::IceStorm::T_TopicPrx, false, 0], [::IceStorm::T_NoSuchTopic])
-        TopicManagerPrx_mixin::OP_retrieveAll = ::Ice::__defineOperation('retrieveAll', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::IceStorm::T_TopicDict, false, 0], [])
+        TopicManagerPrx_mixin::OP_retrieve = ::Ice::__defineOperation('retrieve', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0]], [], [::IceStorm::T_TopicPrx, false, 0], [::IceStorm::T_NoSuchTopic])
+        TopicManagerPrx_mixin::OP_retrieveAll = ::Ice::__defineOperation('retrieveAll', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceStorm::T_TopicDict, false, 0], [])
     end
 
     if not defined?(::IceStorm::Finder_Mixin)

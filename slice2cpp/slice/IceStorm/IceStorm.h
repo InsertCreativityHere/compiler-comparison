@@ -633,9 +633,9 @@ public:
      * @return A proxy to the topic instance.
      * @throws IceStorm::NoSuchTopic Raised if the topic does not exist.
      */
-    virtual ::std::shared_ptr<TopicPrx> retrieve(::std::string name, const ::Ice::Current& current) const = 0;
+    virtual ::std::shared_ptr<TopicPrx> retrieve(::std::string name, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_retrieve(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_retrieve(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
     /**
@@ -643,9 +643,9 @@ public:
      * @param current The Current object for the invocation.
      * @return A dictionary of string, topic proxy pairs.
      */
-    virtual TopicDict retrieveAll(const ::Ice::Current& current) const = 0;
+    virtual TopicDict retrieveAll(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_retrieveAll(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_retrieveAll(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
     /// \cond INTERNAL
@@ -3628,9 +3628,9 @@ public:
      * @return A proxy to the topic instance.
      * @throws IceStorm::NoSuchTopic Raised if the topic does not exist.
      */
-    virtual TopicPrx retrieve(const ::std::string& name, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    virtual TopicPrx retrieve(const ::std::string& name, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
-    bool _iceD_retrieve(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_retrieve(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
     /**
@@ -3638,9 +3638,9 @@ public:
      * @param current The Current object for the invocation.
      * @return A dictionary of string, topic proxy pairs.
      */
-    virtual TopicDict retrieveAll(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    virtual TopicDict retrieveAll(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
-    bool _iceD_retrieveAll(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_retrieveAll(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
     /// \cond INTERNAL

@@ -17,11 +17,11 @@ package IceGrid;
 
 public enum TopicName implements java.io.Serializable
 {
-    RegistryObserverTopicName(0),
-    NodeObserverTopicName(1),
-    ApplicationObserverTopicName(2),
-    AdapterObserverTopicName(3),
-    ObjectObserverTopicName(4);
+    RegistryObserver(0),
+    NodeObserver(1),
+    ApplicationObserver(2),
+    AdapterObserver(3),
+    ObjectObserver(4);
 
     public int value()
     {
@@ -33,15 +33,15 @@ public enum TopicName implements java.io.Serializable
         switch(v)
         {
         case 0:
-            return RegistryObserverTopicName;
+            return RegistryObserver;
         case 1:
-            return NodeObserverTopicName;
+            return NodeObserver;
         case 2:
-            return ApplicationObserverTopicName;
+            return ApplicationObserver;
         case 3:
-            return AdapterObserverTopicName;
+            return AdapterObserver;
         case 4:
-            return ObjectObserverTopicName;
+            return ObjectObserver;
         }
         return null;
     }
@@ -60,7 +60,7 @@ public enum TopicName implements java.io.Serializable
     {
         if(v == null)
         {
-            ostr.writeEnum(IceGrid.TopicName.RegistryObserverTopicName.value(), 4);
+            ostr.writeEnum(IceGrid.TopicName.RegistryObserver.value(), 4);
         }
         else
         {

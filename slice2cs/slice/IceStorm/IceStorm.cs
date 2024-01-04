@@ -3173,7 +3173,7 @@ namespace IceStorm
             var outAsync = getOutgoingAsync<TopicPrx>(completed);
             outAsync.invoke(
                 _retrieve_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -3223,7 +3223,7 @@ namespace IceStorm
             var outAsync = getOutgoingAsync<global::System.Collections.Generic.Dictionary<string, TopicPrx>>(completed);
             outAsync.invoke(
                 _retrieveAll_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,

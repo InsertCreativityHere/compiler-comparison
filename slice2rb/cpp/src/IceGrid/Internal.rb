@@ -17,7 +17,7 @@
 require 'Ice'
 require 'Ice/Identity.rb'
 require 'Ice/BuiltinSequences.rb'
-require 'Ice/ProcessF.rb'
+require 'Ice/Process.rb'
 require 'Glacier2/Session.rb'
 require 'IceGrid/Admin.rb'
 require 'IceGrid/Registry.rb'
@@ -651,13 +651,13 @@ module ::IceGrid
                 @@_enumerators.each_value(&block)
             end
 
-            RegistryObserverTopicName = TopicName.new("RegistryObserverTopicName", 0)
-            NodeObserverTopicName = TopicName.new("NodeObserverTopicName", 1)
-            ApplicationObserverTopicName = TopicName.new("ApplicationObserverTopicName", 2)
-            AdapterObserverTopicName = TopicName.new("AdapterObserverTopicName", 3)
-            ObjectObserverTopicName = TopicName.new("ObjectObserverTopicName", 4)
+            RegistryObserver = TopicName.new("RegistryObserver", 0)
+            NodeObserver = TopicName.new("NodeObserver", 1)
+            ApplicationObserver = TopicName.new("ApplicationObserver", 2)
+            AdapterObserver = TopicName.new("AdapterObserver", 3)
+            ObjectObserver = TopicName.new("ObjectObserver", 4)
 
-            @@_enumerators = {0=>RegistryObserverTopicName, 1=>NodeObserverTopicName, 2=>ApplicationObserverTopicName, 3=>AdapterObserverTopicName, 4=>ObjectObserverTopicName}
+            @@_enumerators = {0=>RegistryObserver, 1=>NodeObserver, 2=>ApplicationObserver, 3=>AdapterObserver, 4=>ObjectObserver}
 
             def TopicName._enumerators
                 @@_enumerators

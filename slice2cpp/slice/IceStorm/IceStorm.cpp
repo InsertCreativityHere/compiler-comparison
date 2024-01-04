@@ -498,7 +498,7 @@ IceStorm::TopicManager::_iceD_create(::IceInternal::Incoming& inS, const ::Ice::
 
 /// \cond INTERNAL
 bool
-IceStorm::TopicManager::_iceD_retrieve(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceStorm::TopicManager::_iceD_retrieve(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
     auto istr = inS.startReadParams();
@@ -515,7 +515,7 @@ IceStorm::TopicManager::_iceD_retrieve(::IceInternal::Incoming& inS, const ::Ice
 
 /// \cond INTERNAL
 bool
-IceStorm::TopicManager::_iceD_retrieveAll(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceStorm::TopicManager::_iceD_retrieveAll(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
     inS.readEmptyParams();
@@ -869,7 +869,7 @@ void
 IceStorm::TopicManagerPrx::_iceI_retrieve(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::IceStorm::TopicPrx>>>& outAsync, const ::std::string& iceP_name, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_IceStorm_TopicManager_retrieve_name);
-    outAsync->invoke(iceC_IceStorm_TopicManager_retrieve_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(iceC_IceStorm_TopicManager_retrieve_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_name);
@@ -896,7 +896,7 @@ void
 IceStorm::TopicManagerPrx::_iceI_retrieveAll(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::IceStorm::TopicDict>>& outAsync, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_IceStorm_TopicManager_retrieveAll_name);
-    outAsync->invoke(iceC_IceStorm_TopicManager_retrieveAll_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(iceC_IceStorm_TopicManager_retrieveAll_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -1882,7 +1882,7 @@ IceProxy::IceStorm::TopicManager::_iceI_begin_retrieve(const ::std::string& iceP
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_IceStorm_TopicManager_retrieve_name, del, cookie, sync);
     try
     {
-        result->prepare(iceC_IceStorm_TopicManager_retrieve_name, ::Ice::Nonmutating, context);
+        result->prepare(iceC_IceStorm_TopicManager_retrieve_name, ::Ice::Idempotent, context);
         ::Ice::OutputStream* ostr = result->startWriteParams(::Ice::DefaultFormat);
         ostr->write(iceP_name);
         result->endWriteParams();
@@ -1928,7 +1928,7 @@ IceProxy::IceStorm::TopicManager::_iceI_begin_retrieveAll(const ::Ice::Context& 
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_IceStorm_TopicManager_retrieveAll_name, del, cookie, sync);
     try
     {
-        result->prepare(iceC_IceStorm_TopicManager_retrieveAll_name, ::Ice::Nonmutating, context);
+        result->prepare(iceC_IceStorm_TopicManager_retrieveAll_name, ::Ice::Idempotent, context);
         result->writeEmptyParams();
         result->invoke(iceC_IceStorm_TopicManager_retrieveAll_name);
     }
@@ -2433,7 +2433,7 @@ IceStorm::TopicManager::_iceD_create(::IceInternal::Incoming& inS, const ::Ice::
 
 /// \cond INTERNAL
 bool
-IceStorm::TopicManager::_iceD_retrieve(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceStorm::TopicManager::_iceD_retrieve(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::Idempotent, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
@@ -2450,7 +2450,7 @@ IceStorm::TopicManager::_iceD_retrieve(::IceInternal::Incoming& inS, const ::Ice
 
 /// \cond INTERNAL
 bool
-IceStorm::TopicManager::_iceD_retrieveAll(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceStorm::TopicManager::_iceD_retrieveAll(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::Idempotent, current.mode);
     inS.readEmptyParams();

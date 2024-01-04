@@ -673,18 +673,18 @@ open class ReplicaActiveException: Ice.UserException {
 }
 
 public enum TopicName: Swift.UInt8 {
-    /// RegistryObserverTopicName
-    case RegistryObserverTopicName = 0
-    /// NodeObserverTopicName
-    case NodeObserverTopicName = 1
-    /// ApplicationObserverTopicName
-    case ApplicationObserverTopicName = 2
-    /// AdapterObserverTopicName
-    case AdapterObserverTopicName = 3
-    /// ObjectObserverTopicName
-    case ObjectObserverTopicName = 4
+    /// RegistryObserver
+    case RegistryObserver = 0
+    /// NodeObserver
+    case NodeObserver = 1
+    /// ApplicationObserver
+    case ApplicationObserver = 2
+    /// AdapterObserver
+    case AdapterObserver = 3
+    /// ObjectObserver
+    case ObjectObserver = 4
     public init() {
-        self = .RegistryObserverTopicName
+        self = .RegistryObserver
     }
 }
 

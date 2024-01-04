@@ -1,27 +1,27 @@
 % TopicName   Summary of TopicName
 %
 % TopicName Properties:
-%   RegistryObserverTopicName
-%   NodeObserverTopicName
-%   ApplicationObserverTopicName
-%   AdapterObserverTopicName
-%   ObjectObserverTopicName
+%   RegistryObserver
+%   NodeObserver
+%   ApplicationObserver
+%   AdapterObserver
+%   ObjectObserver
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
 % Generated from Internal.ice by slice2matlab version 3.7.10
 
 classdef TopicName < uint8
     enumeration
-        RegistryObserverTopicName (0)
-        NodeObserverTopicName (1)
-        ApplicationObserverTopicName (2)
-        AdapterObserverTopicName (3)
-        ObjectObserverTopicName (4)
+        RegistryObserver (0)
+        NodeObserver (1)
+        ApplicationObserver (2)
+        AdapterObserver (3)
+        ObjectObserver (4)
     end
     methods(Static)
         function ice_write(os, v)
             if isempty(v)
-                os.writeEnum(int32(IceGrid.TopicName.RegistryObserverTopicName), 4);
+                os.writeEnum(int32(IceGrid.TopicName.RegistryObserver), 4);
             else
                 os.writeEnum(int32(v), 4);
             end
@@ -45,15 +45,15 @@ classdef TopicName < uint8
         function r = ice_getValue(v)
             switch v
                 case 0
-                    r = IceGrid.TopicName.RegistryObserverTopicName;
+                    r = IceGrid.TopicName.RegistryObserver;
                 case 1
-                    r = IceGrid.TopicName.NodeObserverTopicName;
+                    r = IceGrid.TopicName.NodeObserver;
                 case 2
-                    r = IceGrid.TopicName.ApplicationObserverTopicName;
+                    r = IceGrid.TopicName.ApplicationObserver;
                 case 3
-                    r = IceGrid.TopicName.AdapterObserverTopicName;
+                    r = IceGrid.TopicName.AdapterObserver;
                 case 4
-                    r = IceGrid.TopicName.ObjectObserverTopicName;
+                    r = IceGrid.TopicName.ObjectObserver;
                 otherwise
                     throw(Ice.MarshalException('', '', sprintf('enumerator value %d is out of range', v)));
             end

@@ -1059,8 +1059,8 @@ if 'TopicManagerPrx' not in _M_IceStorm.__dict__:
     TopicManager._ice_type = _M_IceStorm._t_TopicManagerDisp
 
     TopicManager._op_create = IcePy.Operation('create', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_IceStorm._t_TopicPrx, False, 0), (_M_IceStorm._t_TopicExists,))
-    TopicManager._op_retrieve = IcePy.Operation('retrieve', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_IceStorm._t_TopicPrx, False, 0), (_M_IceStorm._t_NoSuchTopic,))
-    TopicManager._op_retrieveAll = IcePy.Operation('retrieveAll', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_IceStorm._t_TopicDict, False, 0), ())
+    TopicManager._op_retrieve = IcePy.Operation('retrieve', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_IceStorm._t_TopicPrx, False, 0), (_M_IceStorm._t_NoSuchTopic,))
+    TopicManager._op_retrieveAll = IcePy.Operation('retrieveAll', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_IceStorm._t_TopicDict, False, 0), ())
 
     _M_IceStorm.TopicManager = TopicManager
     del TopicManager

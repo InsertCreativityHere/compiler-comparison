@@ -580,7 +580,7 @@
     };
 
     IceGrid.TopicName = Slice.defineEnum([
-        ['RegistryObserverTopicName', 0], ['NodeObserverTopicName', 1], ['ApplicationObserverTopicName', 2], ['AdapterObserverTopicName', 3], ['ObjectObserverTopicName', 4]]);
+        ['RegistryObserver', 0], ['NodeObserver', 1], ['ApplicationObserver', 2], ['AdapterObserver', 3], ['ObjectObserver', 4]]);
 
     const iceC_IceGrid_DatabaseObserver_ids = [
         "::Ice::Object",

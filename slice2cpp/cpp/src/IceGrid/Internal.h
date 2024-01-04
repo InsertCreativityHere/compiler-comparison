@@ -20,7 +20,7 @@
 #include <Ice/Ice.h>
 #include <Ice/Identity.h>
 #include <Ice/BuiltinSequences.h>
-#include <Ice/ProcessF.h>
+#include <Ice/Process.h>
 #include <Glacier2/Session.h>
 #include <IceGrid/Admin.h>
 #include <IceGrid/Registry.h>
@@ -259,11 +259,11 @@ public:
 
 enum class TopicName : unsigned char
 {
-    RegistryObserverTopicName,
-    NodeObserverTopicName,
-    ApplicationObserverTopicName,
-    AdapterObserverTopicName,
-    ObjectObserverTopicName
+    RegistryObserver,
+    NodeObserver,
+    ApplicationObserver,
+    AdapterObserver,
+    ObjectObserver
 };
 
 using StringLongDict = ::std::map<::std::string, long long int>;
@@ -5084,11 +5084,11 @@ protected:
 
 enum TopicName
 {
-    RegistryObserverTopicName,
-    NodeObserverTopicName,
-    ApplicationObserverTopicName,
-    AdapterObserverTopicName,
-    ObjectObserverTopicName
+    RegistryObserver,
+    NodeObserver,
+    ApplicationObserver,
+    AdapterObserver,
+    ObjectObserver
 };
 
 typedef ::std::map< ::std::string, ::Ice::Long> StringLongDict;

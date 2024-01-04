@@ -19,7 +19,7 @@ namespace
 {
     require_once 'Ice/Identity.php';
     require_once 'Ice/BuiltinSequences.php';
-    require_once 'Ice/ProcessF.php';
+    require_once 'Ice/Process.php';
     require_once 'Glacier2/Session.php';
     require_once 'IceGrid/Admin.php';
     require_once 'IceGrid/Registry.php';
@@ -733,14 +733,14 @@ namespace IceGrid
     global $IceGrid__t_TopicName;
     class TopicName
     {
-        const RegistryObserverTopicName = 0;
-        const NodeObserverTopicName = 1;
-        const ApplicationObserverTopicName = 2;
-        const AdapterObserverTopicName = 3;
-        const ObjectObserverTopicName = 4;
+        const RegistryObserver = 0;
+        const NodeObserver = 1;
+        const ApplicationObserver = 2;
+        const AdapterObserver = 3;
+        const ObjectObserver = 4;
     }
 
-    $IceGrid__t_TopicName = IcePHP_defineEnum('::IceGrid::TopicName', array('RegistryObserverTopicName', 0, 'NodeObserverTopicName', 1, 'ApplicationObserverTopicName', 2, 'AdapterObserverTopicName', 3, 'ObjectObserverTopicName', 4));
+    $IceGrid__t_TopicName = IcePHP_defineEnum('::IceGrid::TopicName', array('RegistryObserver', 0, 'NodeObserver', 1, 'ApplicationObserver', 2, 'AdapterObserver', 3, 'ObjectObserver', 4));
 }
 
 namespace IceGrid

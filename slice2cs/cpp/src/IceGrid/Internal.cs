@@ -932,11 +932,11 @@ namespace IceGrid
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public enum TopicName
     {
-        RegistryObserverTopicName,
-        NodeObserverTopicName,
-        ApplicationObserverTopicName,
-        AdapterObserverTopicName,
-        ObjectObserverTopicName
+        RegistryObserver,
+        NodeObserver,
+        ApplicationObserver,
+        AdapterObserver,
+        ObjectObserver
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]

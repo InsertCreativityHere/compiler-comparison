@@ -1456,7 +1456,7 @@ public extension TopicManagerPrx {
     ///   - NoSuchTopic - Raised if the topic does not exist.
     func retrieve(_ iceP_name: Swift.String, context: Ice.Context? = nil) throws -> TopicPrx? {
         return try _impl._invoke(operation: "retrieve",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_name)
                                  },
@@ -1491,7 +1491,7 @@ public extension TopicManagerPrx {
     /// - returns: `PromiseKit.Promise<TopicPrx?>` - The result of the operation
     func retrieveAsync(_ iceP_name: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<TopicPrx?> {
         return _impl._invokeAsync(operation: "retrieve",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_name)
                                   },
@@ -1519,7 +1519,7 @@ public extension TopicManagerPrx {
     /// - returns: `TopicDict` - A dictionary of string, topic proxy pairs.
     func retrieveAll(context: Ice.Context? = nil) throws -> TopicDict {
         return try _impl._invoke(operation: "retrieveAll",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: TopicDict = try TopicDictHelper.read(from: istr)
                                      return iceP_returnValue
@@ -1542,7 +1542,7 @@ public extension TopicManagerPrx {
     /// - returns: `PromiseKit.Promise<TopicDict>` - The result of the operation
     func retrieveAllAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<TopicDict> {
         return _impl._invokeAsync(operation: "retrieveAll",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: TopicDict = try TopicDictHelper.read(from: istr)
                                       return iceP_returnValue

@@ -374,8 +374,8 @@ namespace IceStorm
     global $IceStorm__t_TopicPrx;
     global $IceStorm__t_TopicDict;
     IcePHP_defineOperation($IceStorm__t_TopicManagerPrx, 'create', 0, 0, 0, array(array($IcePHP__t_string)), null, array($IceStorm__t_TopicPrx), array($IceStorm__t_TopicExists));
-    IcePHP_defineOperation($IceStorm__t_TopicManagerPrx, 'retrieve', 2, 1, 0, array(array($IcePHP__t_string)), null, array($IceStorm__t_TopicPrx), array($IceStorm__t_NoSuchTopic));
-    IcePHP_defineOperation($IceStorm__t_TopicManagerPrx, 'retrieveAll', 2, 1, 0, null, null, array($IceStorm__t_TopicDict), null);
+    IcePHP_defineOperation($IceStorm__t_TopicManagerPrx, 'retrieve', 2, 2, 0, array(array($IcePHP__t_string)), null, array($IceStorm__t_TopicPrx), array($IceStorm__t_NoSuchTopic));
+    IcePHP_defineOperation($IceStorm__t_TopicManagerPrx, 'retrieveAll', 2, 2, 0, null, null, array($IceStorm__t_TopicDict), null);
 }
 
 namespace IceStorm

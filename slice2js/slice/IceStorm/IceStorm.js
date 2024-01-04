@@ -393,11 +393,11 @@ Slice.defineOperations(IceStorm.TopicManager, IceStorm.TopicManagerPrx, iceC_Ice
     [
         IceStorm.TopicExists
     ], , ],
-    "retrieve": [, 2, 1, , ["IceStorm.TopicPrx"], [[7]], ,
+    "retrieve": [, 2, 2, , ["IceStorm.TopicPrx"], [[7]], ,
     [
         IceStorm.NoSuchTopic
     ], , ],
-    "retrieveAll": [, 2, 1, , ["IceStorm.TopicDictHelper"], , , , , ]
+    "retrieveAll": [, 2, 2, , ["IceStorm.TopicDictHelper"], , , , , ]
 });
 
 const iceC_IceStorm_Finder_ids = [

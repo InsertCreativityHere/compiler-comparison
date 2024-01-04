@@ -18,7 +18,7 @@ from sys import version_info as _version_info_
 import Ice, IcePy
 import Ice.Identity_ice
 import Ice.BuiltinSequences_ice
-import Ice.ProcessF_ice
+import Ice.Process_ice
 import Glacier2.Session_ice
 import IceGrid.Admin_ice
 import IceGrid.Registry_ice
@@ -2763,12 +2763,12 @@ if 'TopicName' not in _M_IceGrid.__dict__:
             return None
         valueOf = classmethod(valueOf)
 
-    TopicName.RegistryObserverTopicName = TopicName("RegistryObserverTopicName", 0)
-    TopicName.NodeObserverTopicName = TopicName("NodeObserverTopicName", 1)
-    TopicName.ApplicationObserverTopicName = TopicName("ApplicationObserverTopicName", 2)
-    TopicName.AdapterObserverTopicName = TopicName("AdapterObserverTopicName", 3)
-    TopicName.ObjectObserverTopicName = TopicName("ObjectObserverTopicName", 4)
-    TopicName._enumerators = { 0:TopicName.RegistryObserverTopicName, 1:TopicName.NodeObserverTopicName, 2:TopicName.ApplicationObserverTopicName, 3:TopicName.AdapterObserverTopicName, 4:TopicName.ObjectObserverTopicName }
+    TopicName.RegistryObserver = TopicName("RegistryObserver", 0)
+    TopicName.NodeObserver = TopicName("NodeObserver", 1)
+    TopicName.ApplicationObserver = TopicName("ApplicationObserver", 2)
+    TopicName.AdapterObserver = TopicName("AdapterObserver", 3)
+    TopicName.ObjectObserver = TopicName("ObjectObserver", 4)
+    TopicName._enumerators = { 0:TopicName.RegistryObserver, 1:TopicName.NodeObserver, 2:TopicName.ApplicationObserver, 3:TopicName.AdapterObserver, 4:TopicName.ObjectObserver }
 
     _M_IceGrid._t_TopicName = IcePy.defineEnum('::IceGrid::TopicName', TopicName, (), TopicName._enumerators)
 

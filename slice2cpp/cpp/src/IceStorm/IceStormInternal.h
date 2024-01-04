@@ -89,7 +89,7 @@ struct EventData
 /**
  * A sequence of EventData.
  */
-using EventDataSeq = std::deque< ::IceStorm::EventDataPtr>;
+using EventDataSeq = std::deque<IceStorm::EventData>;
 
 /**
  * Thrown if the reap call would block.
@@ -678,27 +678,8 @@ namespace IceStorm
 /**
  * The event data.
  */
-class EventData : public IceUtil::Shared
+struct EventData
 {
-public:
-    
-    EventData() {}
-    /**
-     * One-shot constructor to initialize all data members.
-     * @param op The operation name.
-     * @param mode The operation mode.
-     * @param data The encoded data for the operation's input parameters.
-     * @param context The Ice::Current::Context data from the originating request.
-     */
-    EventData(const ::std::string& op, ::Ice::OperationMode mode, const ::Ice::ByteSeq& data, const ::Ice::Context& context) :
-        op(op),
-        mode(mode),
-        data(data),
-        context(context)
-    {
-    }
-    
-
     /**
      * The operation name.
      */
@@ -717,12 +698,10 @@ public:
     ::Ice::Context context;
 };
 
-typedef ::IceUtil::Handle< ::IceStorm::EventData> EventDataPtr;
-
 /**
  * A sequence of EventData.
  */
-typedef std::deque< ::IceStorm::EventDataPtr> EventDataSeq;
+typedef std::deque<IceStorm::EventData> EventDataSeq;
 
 /**
  * Thrown if the reap call would block.
@@ -1457,34 +1436,34 @@ namespace Ice
 {
 
 template<>
-struct StreamableTraits< ::IceStorm::EventDataPtr>
+struct StreamableTraits< ::IceStorm::EventData>
 {
-    static const StreamHelperCategory helper = StreamHelperCategoryStructClass;
+    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
     static const int minWireSize = 4;
     static const bool fixedLength = false;
 };
 
 template<typename S>
-struct StreamWriter< ::IceStorm::EventDataPtr, S>
+struct StreamWriter< ::IceStorm::EventData, S>
 {
-    static void write(S* ostr, const ::IceStorm::EventDataPtr& v)
+    static void write(S* ostr, const ::IceStorm::EventData& v)
     {
-        ostr->write(v->op);
-        ostr->write(v->mode);
-        ostr->write(v->data);
-        ostr->write(v->context);
+        ostr->write(v.op);
+        ostr->write(v.mode);
+        ostr->write(v.data);
+        ostr->write(v.context);
     }
 };
 
 template<typename S>
-struct StreamReader< ::IceStorm::EventDataPtr, S>
+struct StreamReader< ::IceStorm::EventData, S>
 {
-    static void read(S* istr, ::IceStorm::EventDataPtr& v)
+    static void read(S* istr, ::IceStorm::EventData& v)
     {
-        istr->read(v->op);
-        istr->read(v->mode);
-        istr->read(v->data);
-        istr->read(v->context);
+        istr->read(v.op);
+        istr->read(v.mode);
+        istr->read(v.data);
+        istr->read(v.context);
     }
 };
 
