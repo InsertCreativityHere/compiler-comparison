@@ -15,7 +15,7 @@
 #
 
 require 'Ice'
-require 'Ice/Properties.rb'
+require 'Ice/PropertyDict.rb'
 
 module ::Test
 

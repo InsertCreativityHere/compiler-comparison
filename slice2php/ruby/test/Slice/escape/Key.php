@@ -244,6 +244,41 @@ namespace BEGIN
 
 namespace BEGIN
 {
+    global $BEGIN__t_extend;
+    global $BEGIN__t_extendPrx;
+
+    class extendPrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        {
+            return $proxy->ice_checkedCast('::BEGIN::extend', $facetOrContext, $context);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::BEGIN::extend', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::BEGIN::extend';
+        }
+    }
+    $BEGIN__t_extend = IcePHP_defineClass('::BEGIN::extend', '\\BEGIN\\extend', -1, false, true, null, null);
+
+    global $Ice__t_ObjectPrx;
+    $BEGIN__t_extendPrx = IcePHP_defineProxy('::BEGIN::extend', $Ice__t_ObjectPrx, null);
+
+    global $BEGIN__t_display;
+    global $BEGIN__t_elsif;
+    global $BEGIN__t_breakPrx;
+    global $IcePHP__t_int;
+    global $BEGIN__t_END;
+    IcePHP_defineOperation($BEGIN__t_extendPrx, 'for', 0, 0, 0, array(array($BEGIN__t_display), array($BEGIN__t_elsif), array($BEGIN__t_breakPrx), array($BEGIN__t_display), array($BEGIN__t_elsif), array($IcePHP__t_int)), null, array($BEGIN__t_END), array($BEGIN__t_nil));
+}
+
+namespace BEGIN
+{
     if(!defined('\\BEGIN\\redo'))
     {
         define(__NAMESPACE__ . '\\redo', 1);

@@ -19,7 +19,6 @@ import Ice, IcePy
 import Ice.Identity_ice
 import Ice.BuiltinSequences_ice
 import Ice.ProcessF_ice
-import Ice.Properties_ice
 import Glacier2.Session_ice
 import IceGrid.Admin_ice
 import IceGrid.Registry_ice

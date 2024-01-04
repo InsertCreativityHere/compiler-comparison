@@ -42,6 +42,8 @@ class breakPrx;
 class display;
 class elsif;
 class elsifPrx;
+class extend;
+class extendPrx;
 
 }
 
@@ -262,6 +264,50 @@ public:
     /// \endcond
 };
 
+class extend : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = extendPrx;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual END _cpp_for(::std::shared_ptr<display> freeze, ::std::shared_ptr<::Ice::Value> hash, ::std::shared_ptr<breakPrx> _cpp_if, ::std::shared_ptr<display> inspect, ::std::shared_ptr<::Ice::Value> method, int methods, const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    bool _iceD_for(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    /// \endcond
+};
+
 }
 
 namespace BEGIN
@@ -462,6 +508,52 @@ protected:
     /// \endcond
 };
 
+class extendPrx : public virtual ::Ice::Proxy<extendPrx, ::Ice::ObjectPrx>
+{
+public:
+
+    END _cpp_for(const ::std::shared_ptr<display>& freeze, const ::std::shared_ptr<::Ice::Value>& hash, const ::std::shared_ptr<breakPrx>& _cpp_if, const ::std::shared_ptr<display>& inspect, const ::std::shared_ptr<::Ice::Value>& method, int methods, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        return _makePromiseOutgoing<::BEGIN::END>(true, this, &extendPrx::_iceI_for, freeze, hash, _cpp_if, inspect, method, methods, context).get();
+    }
+
+    template<template<typename> class P = ::std::promise>
+    auto forAsync(const ::std::shared_ptr<display>& freeze, const ::std::shared_ptr<::Ice::Value>& hash, const ::std::shared_ptr<breakPrx>& _cpp_if, const ::std::shared_ptr<display>& inspect, const ::std::shared_ptr<::Ice::Value>& method, int methods, const ::Ice::Context& context = ::Ice::noExplicitContext)
+        -> decltype(::std::declval<P<::BEGIN::END>>().get_future())
+    {
+        return _makePromiseOutgoing<::BEGIN::END, P>(false, this, &extendPrx::_iceI_for, freeze, hash, _cpp_if, inspect, method, methods, context);
+    }
+
+    ::std::function<void()>
+    forAsync(const ::std::shared_ptr<display>& freeze, const ::std::shared_ptr<::Ice::Value>& hash, const ::std::shared_ptr<breakPrx>& _cpp_if, const ::std::shared_ptr<display>& inspect, const ::std::shared_ptr<::Ice::Value>& method, int methods,
+             ::std::function<void(::BEGIN::END)> response,
+             ::std::function<void(::std::exception_ptr)> ex = nullptr,
+             ::std::function<void(bool)> sent = nullptr,
+             const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        return _makeLambdaOutgoing<::BEGIN::END>(std::move(response), std::move(ex), std::move(sent), this, &BEGIN::extendPrx::_iceI_for, freeze, hash, _cpp_if, inspect, method, methods, context);
+    }
+
+    /// \cond INTERNAL
+    void _iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::BEGIN::END>>&, const ::std::shared_ptr<display>&, const ::std::shared_ptr<::Ice::Value>&, const ::std::shared_ptr<breakPrx>&, const ::std::shared_ptr<display>&, const ::std::shared_ptr<::Ice::Value>&, int, const ::Ice::Context&);
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+protected:
+
+    /// \cond INTERNAL
+    extendPrx() = default;
+    friend ::std::shared_ptr<extendPrx> IceInternal::createProxy<extendPrx>();
+
+    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
+    /// \endcond
+};
+
 }
 
 /// \cond STREAM
@@ -546,6 +638,9 @@ using displayPtr = ::std::shared_ptr<display>;
 using elsifPtr = ::std::shared_ptr<elsif>;
 using elsifPrxPtr = ::std::shared_ptr<elsifPrx>;
 
+using extendPtr = ::std::shared_ptr<extend>;
+using extendPrxPtr = ::std::shared_ptr<extendPrx>;
+
 }
 /// \endcond
 
@@ -573,6 +668,12 @@ class elsif;
 /// \cond INTERNAL
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< elsif>&);
 ::IceProxy::Ice::Object* upCast(elsif*);
+/// \endcond
+
+class extend;
+/// \cond INTERNAL
+void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< extend>&);
+::IceProxy::Ice::Object* upCast(extend*);
 /// \endcond
 
 }
@@ -613,6 +714,17 @@ typedef ::IceInternal::ProxyHandle< ::IceProxy::BEGIN::elsif> elsifPrx;
 typedef elsifPrx elsifPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(elsifPtr&, const ::Ice::ObjectPtr&);
+/// \endcond
+
+class extend;
+/// \cond INTERNAL
+::Ice::Object* upCast(extend*);
+/// \endcond
+typedef ::IceInternal::Handle< extend> extendPtr;
+typedef ::IceInternal::ProxyHandle< ::IceProxy::BEGIN::extend> extendPrx;
+typedef extendPrx extendPrxPtr;
+/// \cond INTERNAL
+void _icePatchObjectPtr(extendPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
 
 }
@@ -808,6 +920,14 @@ typedef ::IceUtil::Handle< Callback_break_instance_variable_set_Base> Callback_b
  */
 class Callback_break_instance_variables_Base : public virtual ::IceInternal::CallbackBase { };
 typedef ::IceUtil::Handle< Callback_break_instance_variables_Base> Callback_break_instance_variablesPtr;
+
+/**
+ * Base class for asynchronous callback wrapper classes used for calls to
+ * IceProxy::BEGIN::extend::begin_for.
+ * Create a wrapper instance by calling ::BEGIN::newCallback_extend_for.
+ */
+class Callback_extend_for_Base : public virtual ::IceInternal::CallbackBase { };
+typedef ::IceUtil::Handle< Callback_extend_for_Base> Callback_extend_forPtr;
 
 }
 
@@ -1005,6 +1125,61 @@ protected:
 
 class elsif : public virtual ::Ice::Proxy<elsif, ::IceProxy::BEGIN::_cpp_break>
 {
+public:
+
+    /**
+     * Obtains the Slice type ID corresponding to this interface.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+protected:
+    /// \cond INTERNAL
+
+    virtual ::IceProxy::Ice::Object* _newInstance() const;
+    /// \endcond
+};
+
+class extend : public virtual ::Ice::Proxy<extend, ::IceProxy::Ice::Object>
+{
+public:
+
+    ::BEGIN::END _cpp_for(const ::BEGIN::displayPtr& freeze, const ::BEGIN::elsifPtr& hash, const ::BEGIN::breakPrx& _cpp_if, const ::BEGIN::displayPtr& inspect, const ::BEGIN::elsifPtr& method, ::Ice::Int methods, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        return end_for(_iceI_begin_for(freeze, hash, _cpp_if, inspect, method, methods, context, ::IceInternal::dummyCallback, 0, true));
+    }
+
+    ::Ice::AsyncResultPtr begin_for(const ::BEGIN::displayPtr& freeze, const ::BEGIN::elsifPtr& hash, const ::BEGIN::breakPrx& _cpp_if, const ::BEGIN::displayPtr& inspect, const ::BEGIN::elsifPtr& method, ::Ice::Int methods, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    {
+        return _iceI_begin_for(freeze, hash, _cpp_if, inspect, method, methods, context, ::IceInternal::dummyCallback, 0);
+    }
+
+    ::Ice::AsyncResultPtr begin_for(const ::BEGIN::displayPtr& freeze, const ::BEGIN::elsifPtr& hash, const ::BEGIN::breakPrx& _cpp_if, const ::BEGIN::displayPtr& inspect, const ::BEGIN::elsifPtr& method, ::Ice::Int methods, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_for(freeze, hash, _cpp_if, inspect, method, methods, ::Ice::noExplicitContext, cb, cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_for(const ::BEGIN::displayPtr& freeze, const ::BEGIN::elsifPtr& hash, const ::BEGIN::breakPrx& _cpp_if, const ::BEGIN::displayPtr& inspect, const ::BEGIN::elsifPtr& method, ::Ice::Int methods, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_for(freeze, hash, _cpp_if, inspect, method, methods, context, cb, cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_for(const ::BEGIN::displayPtr& freeze, const ::BEGIN::elsifPtr& hash, const ::BEGIN::breakPrx& _cpp_if, const ::BEGIN::displayPtr& inspect, const ::BEGIN::elsifPtr& method, ::Ice::Int methods, const ::BEGIN::Callback_extend_forPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_for(freeze, hash, _cpp_if, inspect, method, methods, ::Ice::noExplicitContext, cb, cookie);
+    }
+
+    ::Ice::AsyncResultPtr begin_for(const ::BEGIN::displayPtr& freeze, const ::BEGIN::elsifPtr& hash, const ::BEGIN::breakPrx& _cpp_if, const ::BEGIN::displayPtr& inspect, const ::BEGIN::elsifPtr& method, ::Ice::Int methods, const ::Ice::Context& context, const ::BEGIN::Callback_extend_forPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    {
+        return _iceI_begin_for(freeze, hash, _cpp_if, inspect, method, methods, context, cb, cookie);
+    }
+
+    ::BEGIN::END end_for(const ::Ice::AsyncResultPtr& result);
+
+private:
+
+    ::Ice::AsyncResultPtr _iceI_begin_for(const ::BEGIN::displayPtr&, const ::BEGIN::elsifPtr&, const ::BEGIN::breakPrx&, const ::BEGIN::displayPtr&, const ::BEGIN::elsifPtr&, ::Ice::Int, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+
 public:
 
     /**
@@ -1275,6 +1450,78 @@ inline bool operator==(const elsif& lhs, const elsif& rhs)
 }
 
 inline bool operator<(const elsif& lhs, const elsif& rhs)
+{
+    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+}
+/// \endcond
+
+class extend : public virtual ::Ice::Object
+{
+public:
+
+    typedef extendPrx ProxyType;
+    typedef extendPtr PointerType;
+
+    virtual ~extend();
+
+#ifdef ICE_CPP11_COMPILER
+    extend() = default;
+    extend(const extend&) = default;
+    extend& operator=(const extend&) = default;
+#endif
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual END _cpp_for(const displayPtr& freeze, const elsifPtr& hash, const breakPrx& _cpp_if, const displayPtr& inspect, const elsifPtr& method, ::Ice::Int methods, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_for(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+protected:
+
+    /// \cond STREAM
+    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
+    virtual void _iceReadImpl(::Ice::InputStream*);
+    /// \endcond
+};
+
+/// \cond INTERNAL
+inline bool operator==(const extend& lhs, const extend& rhs)
+{
+    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+}
+
+inline bool operator<(const extend& lhs, const extend& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
 }
@@ -2024,6 +2271,158 @@ template<class T, typename CT> Callback_break_instance_variablesPtr
 newCallback_break_instance_variables(T* instance, void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_break_instance_variables<T, CT>(instance, 0, excb, sentcb);
+}
+
+/**
+ * Type-safe asynchronous callback wrapper class used for calls to
+ * IceProxy::BEGIN::extend::begin_for.
+ * Create a wrapper instance by calling ::BEGIN::newCallback_extend_for.
+ */
+template<class T>
+class CallbackNC_extend_for : public Callback_extend_for_Base, public ::IceInternal::TwowayCallbackNC<T>
+{
+public:
+
+    typedef IceUtil::Handle<T> TPtr;
+
+    typedef void (T::*Exception)(const ::Ice::Exception&);
+    typedef void (T::*Sent)(bool);
+    typedef void (T::*Response)(END);
+
+    CallbackNC_extend_for(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+        : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
+    {
+    }
+
+    /// \cond INTERNAL
+    virtual void completed(const ::Ice::AsyncResultPtr& result) const
+    {
+        extendPrx proxy = extendPrx::uncheckedCast(result->getProxy());
+        END ret;
+        try
+        {
+            ret = proxy->end_for(result);
+        }
+        catch(const ::Ice::Exception& ex)
+        {
+            ::IceInternal::CallbackNC<T>::exception(result, ex);
+            return;
+        }
+        if(_response)
+        {
+            (::IceInternal::CallbackNC<T>::_callback.get()->*_response)(ret);
+        }
+    }
+    /// \endcond
+
+private:
+
+    Response _response;
+};
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::BEGIN::extend::begin_for.
+ */
+template<class T> Callback_extend_forPtr
+newCallback_extend_for(const IceUtil::Handle<T>& instance, void (T::*cb)(END), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_extend_for<T>(instance, cb, excb, sentcb);
+}
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::BEGIN::extend::begin_for.
+ */
+template<class T> Callback_extend_forPtr
+newCallback_extend_for(T* instance, void (T::*cb)(END), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+{
+    return new CallbackNC_extend_for<T>(instance, cb, excb, sentcb);
+}
+
+/**
+ * Type-safe asynchronous callback wrapper class with cookie support used for calls to
+ * IceProxy::BEGIN::extend::begin_for.
+ * Create a wrapper instance by calling ::BEGIN::newCallback_extend_for.
+ */
+template<class T, typename CT>
+class Callback_extend_for : public Callback_extend_for_Base, public ::IceInternal::TwowayCallback<T, CT>
+{
+public:
+
+    typedef IceUtil::Handle<T> TPtr;
+
+    typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
+    typedef void (T::*Sent)(bool , const CT&);
+    typedef void (T::*Response)(END, const CT&);
+
+    Callback_extend_for(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
+        : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
+    {
+    }
+
+    /// \cond INTERNAL
+    virtual void completed(const ::Ice::AsyncResultPtr& result) const
+    {
+        extendPrx proxy = extendPrx::uncheckedCast(result->getProxy());
+        END ret;
+        try
+        {
+            ret = proxy->end_for(result);
+        }
+        catch(const ::Ice::Exception& ex)
+        {
+            ::IceInternal::Callback<T, CT>::exception(result, ex);
+            return;
+        }
+        if(_response)
+        {
+            (::IceInternal::Callback<T, CT>::_callback.get()->*_response)(ret, CT::dynamicCast(result->getCookie()));
+        }
+    }
+    /// \endcond
+
+private:
+
+    Response _response;
+};
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * Use this overload when your callback methods receive a cookie value.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::BEGIN::extend::begin_for.
+ */
+template<class T, typename CT> Callback_extend_forPtr
+newCallback_extend_for(const IceUtil::Handle<T>& instance, void (T::*cb)(END, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_extend_for<T, CT>(instance, cb, excb, sentcb);
+}
+
+/**
+ * Creates a callback wrapper instance that delegates to your object.
+ * Use this overload when your callback methods receive a cookie value.
+ * @param instance The callback object.
+ * @param cb The success method of the callback object.
+ * @param excb The exception method of the callback object.
+ * @param sentcb The sent method of the callback object.
+ * @return An object that can be passed to an asynchronous invocation of IceProxy::BEGIN::extend::begin_for.
+ */
+template<class T, typename CT> Callback_extend_forPtr
+newCallback_extend_for(T* instance, void (T::*cb)(END, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+{
+    return new Callback_extend_for<T, CT>(instance, cb, excb, sentcb);
 }
 
 }

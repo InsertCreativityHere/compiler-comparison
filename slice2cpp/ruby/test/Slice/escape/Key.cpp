@@ -88,6 +88,21 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::BEGIN::next> iceC_BEGIN_n
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::BEGIN::nil> iceC_BEGIN_nil_init("::BEGIN::nil");
 
+const ::std::string iceC_BEGIN_extend_ids[2] =
+{
+    "::BEGIN::extend",
+    "::Ice::Object"
+};
+const ::std::string iceC_BEGIN_extend_ops[] =
+{
+    "for",
+    "ice_id",
+    "ice_ids",
+    "ice_isA",
+    "ice_ping"
+};
+const ::std::string iceC_BEGIN_extend_for_name = "for";
+
 }
 
 BEGIN::next::~next()
@@ -320,6 +335,95 @@ BEGIN::elsif::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cu
 }
 /// \endcond
 
+bool
+BEGIN::extend::ice_isA(::std::string s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_BEGIN_extend_ids, iceC_BEGIN_extend_ids + 2, s);
+}
+
+::std::vector<::std::string>
+BEGIN::extend::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector<::std::string>(&iceC_BEGIN_extend_ids[0], &iceC_BEGIN_extend_ids[2]);
+}
+
+::std::string
+BEGIN::extend::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+BEGIN::extend::ice_staticId()
+{
+    static const ::std::string typeId = "::BEGIN::extend";
+    return typeId;
+}
+
+/// \cond INTERNAL
+bool
+BEGIN::extend::_iceD_for(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
+    auto istr = inS.startReadParams();
+    ::std::shared_ptr<display> iceP_freeze;
+    ::std::shared_ptr<::Ice::Value> iceP_hash;
+    ::std::shared_ptr<breakPrx> iceP_if;
+    ::std::shared_ptr<display> iceP_inspect;
+    ::std::shared_ptr<::Ice::Value> iceP_method;
+    int iceP_methods;
+    istr->readAll(iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods);
+    istr->readPendingValues();
+    inS.endReadParams();
+    END ret = this->_cpp_for(::std::move(iceP_freeze), ::std::move(iceP_hash), ::std::move(iceP_if), ::std::move(iceP_inspect), ::std::move(iceP_method), iceP_methods, current);
+    auto ostr = inS.startWriteParams();
+    ostr->writeAll(ret);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+BEGIN::extend::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+{
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_BEGIN_extend_ops, iceC_BEGIN_extend_ops + 5, current.operation);
+    if(r.first == r.second)
+    {
+        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+    }
+
+    switch(r.first - iceC_BEGIN_extend_ops)
+    {
+        case 0:
+        {
+            return _iceD_for(in, current);
+        }
+        case 1:
+        {
+            return _iceD_ice_id(in, current);
+        }
+        case 2:
+        {
+            return _iceD_ice_ids(in, current);
+        }
+        case 3:
+        {
+            return _iceD_ice_isA(in, current);
+        }
+        case 4:
+        {
+            return _iceD_ice_ping(in, current);
+        }
+        default:
+        {
+            assert(false);
+            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        }
+    }
+}
+/// \endcond
+
 BEGIN::display::~display()
 {
 }
@@ -402,6 +506,48 @@ BEGIN::elsifPrx::ice_staticId()
     return elsif::ice_staticId();
 }
 
+/// \cond INTERNAL
+void
+BEGIN::extendPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::BEGIN::END>>& outAsync, const ::std::shared_ptr<display>& iceP_freeze, const ::std::shared_ptr<::Ice::Value>& iceP_hash, const ::std::shared_ptr<breakPrx>& iceP_if, const ::std::shared_ptr<display>& iceP_inspect, const ::std::shared_ptr<::Ice::Value>& iceP_method, int iceP_methods, const ::Ice::Context& context)
+{
+    _checkTwowayOnly(iceC_BEGIN_extend_for_name);
+    outAsync->invoke(iceC_BEGIN_extend_for_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        [&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods);
+            ostr->writePendingValues();
+        },
+        [](const ::Ice::UserException& ex)
+        {
+            try
+            {
+                ex.ice_throw();
+            }
+            catch(const nil&)
+            {
+                throw;
+            }
+            catch(const ::Ice::UserException&)
+            {
+            }
+        });
+}
+/// \endcond
+
+/// \cond INTERNAL
+::std::shared_ptr<::Ice::ObjectPrx>
+BEGIN::extendPrx::_newInstance() const
+{
+    return ::IceInternal::createProxy<extendPrx>();
+}
+/// \endcond
+
+const ::std::string&
+BEGIN::extendPrx::ice_staticId()
+{
+    return extend::ice_staticId();
+}
+
 namespace Ice
 {
 }
@@ -418,6 +564,8 @@ const ::std::string iceC_BEGIN_break_to_a_name = "to_a";
 const ::std::string iceC_BEGIN_break_instance_variable_set_name = "instance_variable_set";
 
 const ::std::string iceC_BEGIN_break_instance_variables_name = "instance_variables";
+
+const ::std::string iceC_BEGIN_extend_for_name = "for";
 
 }
 
@@ -737,6 +885,92 @@ const ::std::string&
 IceProxy::BEGIN::elsif::ice_staticId()
 {
     return ::BEGIN::elsif::ice_staticId();
+}
+
+/// \cond INTERNAL
+::IceProxy::Ice::Object* ::IceProxy::BEGIN::upCast(extend* p) { return p; }
+
+void
+::IceProxy::BEGIN::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< extend>& v)
+{
+    ::Ice::ObjectPrx proxy;
+    istr->read(proxy);
+    if(!proxy)
+    {
+        v = 0;
+    }
+    else
+    {
+        v = new extend;
+        v->_copyFrom(proxy);
+    }
+}
+/// \endcond
+
+::Ice::AsyncResultPtr
+IceProxy::BEGIN::extend::_iceI_begin_for(const ::BEGIN::displayPtr& iceP_freeze, const ::BEGIN::elsifPtr& iceP_hash, const ::BEGIN::breakPrx& iceP_if, const ::BEGIN::displayPtr& iceP_inspect, const ::BEGIN::elsifPtr& iceP_method, ::Ice::Int iceP_methods, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+{
+    _checkTwowayOnly(iceC_BEGIN_extend_for_name, sync);
+    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_BEGIN_extend_for_name, del, cookie, sync);
+    try
+    {
+        result->prepare(iceC_BEGIN_extend_for_name, ::Ice::Normal, context);
+        ::Ice::OutputStream* ostr = result->startWriteParams(::Ice::DefaultFormat);
+        ostr->write(iceP_freeze);
+        ostr->write(iceP_hash);
+        ostr->write(iceP_if);
+        ostr->write(iceP_inspect);
+        ostr->write(iceP_method);
+        ostr->write(iceP_methods);
+        ostr->writePendingValues();
+        result->endWriteParams();
+        result->invoke(iceC_BEGIN_extend_for_name);
+    }
+    catch(const ::Ice::Exception& ex)
+    {
+        result->abort(ex);
+    }
+    return result;
+}
+
+::BEGIN::END
+IceProxy::BEGIN::extend::end_for(const ::Ice::AsyncResultPtr& result)
+{
+    ::Ice::AsyncResult::_check(result, this, iceC_BEGIN_extend_for_name);
+    ::BEGIN::END ret;
+    if(!result->_waitForResponse())
+    {
+        try
+        {
+            result->_throwUserException();
+        }
+        catch(const ::BEGIN::nil&)
+        {
+            throw;
+        }
+        catch(const ::Ice::UserException& ex)
+        {
+            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
+        }
+    }
+    ::Ice::InputStream* istr = result->_startReadParams();
+    istr->read(ret);
+    result->_endReadParams();
+    return ret;
+}
+
+/// \cond INTERNAL
+::IceProxy::Ice::Object*
+IceProxy::BEGIN::extend::_newInstance() const
+{
+    return new extend;
+}
+/// \endcond
+
+const ::std::string&
+IceProxy::BEGIN::extend::ice_staticId()
+{
+    return ::BEGIN::extend::ice_staticId();
 }
 
 BEGIN::_cpp_break::~_cpp_break()
@@ -1166,6 +1400,162 @@ BEGIN::_icePatchObjectPtr(elsifPtr& handle, const ::Ice::ObjectPtr& v)
     if(v && !handle)
     {
         IceInternal::Ex::throwUOE(elsif::ice_staticId(), v);
+    }
+}
+/// \endcond
+
+BEGIN::extend::~extend()
+{
+}
+
+/// \cond INTERNAL
+::Ice::Object* BEGIN::upCast(extend* p) { return p; }
+
+/// \endcond
+
+namespace
+{
+const ::std::string iceC_BEGIN_extend_ids[2] =
+{
+    "::BEGIN::extend",
+    "::Ice::Object"
+};
+
+}
+
+bool
+BEGIN::extend::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_BEGIN_extend_ids, iceC_BEGIN_extend_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+BEGIN::extend::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_BEGIN_extend_ids[0], &iceC_BEGIN_extend_ids[2]);
+}
+
+const ::std::string&
+BEGIN::extend::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+BEGIN::extend::ice_staticId()
+{
+    static const ::std::string typeId = "::BEGIN::extend";
+    return typeId;
+}
+
+/// \cond INTERNAL
+bool
+BEGIN::extend::_iceD_for(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    displayPtr iceP_freeze;
+    elsifPtr iceP_hash;
+    breakPrx iceP_if;
+    displayPtr iceP_inspect;
+    elsifPtr iceP_method;
+    ::Ice::Int iceP_methods;
+    istr->read(iceP_freeze);
+    istr->read(iceP_hash);
+    istr->read(iceP_if);
+    istr->read(iceP_inspect);
+    istr->read(iceP_method);
+    istr->read(iceP_methods);
+    istr->readPendingValues();
+    inS.endReadParams();
+    END ret = this->_cpp_for(iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+namespace
+{
+const ::std::string iceC_BEGIN_extend_all[] =
+{
+    "for",
+    "ice_id",
+    "ice_ids",
+    "ice_isA",
+    "ice_ping"
+};
+
+}
+
+/// \cond INTERNAL
+bool
+BEGIN::extend::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+{
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_BEGIN_extend_all, iceC_BEGIN_extend_all + 5, current.operation);
+    if(r.first == r.second)
+    {
+        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+    }
+
+    switch(r.first - iceC_BEGIN_extend_all)
+    {
+        case 0:
+        {
+            return _iceD_for(in, current);
+        }
+        case 1:
+        {
+            return _iceD_ice_id(in, current);
+        }
+        case 2:
+        {
+            return _iceD_ice_ids(in, current);
+        }
+        case 3:
+        {
+            return _iceD_ice_isA(in, current);
+        }
+        case 4:
+        {
+            return _iceD_ice_ping(in, current);
+        }
+        default:
+        {
+            assert(false);
+            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        }
+    }
+}
+/// \endcond
+
+/// \cond STREAM
+void
+BEGIN::extend::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter< extend, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+BEGIN::extend::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader< extend, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+/// \endcond
+
+/// \cond INTERNAL
+void
+BEGIN::_icePatchObjectPtr(extendPtr& handle, const ::Ice::ObjectPtr& v)
+{
+    handle = extendPtr::dynamicCast(v);
+    if(v && !handle)
+    {
+        IceInternal::Ex::throwUOE(extend::ice_staticId(), v);
     }
 }
 /// \endcond

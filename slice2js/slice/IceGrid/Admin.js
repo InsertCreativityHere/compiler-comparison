@@ -32,7 +32,6 @@ require("../Ice/ArrayUtil");
 require("../Ice/StreamHelpers");
 require("../Ice/Identity");
 require("../Ice/BuiltinSequences");
-require("../Ice/Properties");
 const Ice = _ModuleRegistry.module("Ice");
 
 require("../Exception");

@@ -17,7 +17,6 @@
 require 'Ice'
 require 'Ice/Identity.rb'
 require 'Ice/BuiltinSequences.rb'
-require 'Ice/Properties.rb'
 require 'Glacier2/Session.rb'
 require 'Exception.rb'
 require 'Descriptor.rb'

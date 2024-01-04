@@ -21,7 +21,6 @@
 #include <Ice/Identity.h>
 #include <Ice/BuiltinSequences.h>
 #include <Ice/ProcessF.h>
-#include <Ice/Properties.h>
 #include <Glacier2/Session.h>
 #include <IceGrid/Admin.h>
 #include <IceGrid/Registry.h>

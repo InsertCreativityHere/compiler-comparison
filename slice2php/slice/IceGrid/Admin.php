@@ -19,7 +19,6 @@ namespace
 {
     require_once 'Ice/Identity.php';
     require_once 'Ice/BuiltinSequences.php';
-    require_once 'Ice/Properties.php';
     require_once 'Glacier2/Session.php';
     require_once 'Exception.php';
     require_once 'Descriptor.php';

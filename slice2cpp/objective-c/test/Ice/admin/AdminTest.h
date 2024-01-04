@@ -18,7 +18,7 @@
 
 #include <IceUtil/PushDisableWarnings.h>
 #include <Ice/Ice.h>
-#include <Ice/Properties.h>
+#include <Ice/PropertyDict.h>
 #include <IceUtil/UndefSysMacros.h>
 
 #ifndef ICE_IGNORE_VERSION

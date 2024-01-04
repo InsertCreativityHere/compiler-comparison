@@ -210,6 +210,27 @@
         }
     };
 
+    const iceC_BEGIN_extend_ids = [
+        "::BEGIN::extend",
+        "::Ice::Object"
+    ];
+
+    BEGIN.extend = class extends Ice.Object
+    {
+    };
+
+    BEGIN.extendPrx = class extends Ice.ObjectPrx
+    {
+    };
+
+    Slice.defineOperations(BEGIN.extend, BEGIN.extendPrx, iceC_BEGIN_extend_ids, 0,
+    {
+        "for": ["_for", , , , [BEGIN.END._helper], [["BEGIN.display", true], ["Ice.Value", true], ["BEGIN.breakPrx"], ["BEGIN.display", true], ["Ice.Value", true], [3]], ,
+        [
+            BEGIN.nil
+        ], true, ]
+    });
+
     Object.defineProperty(BEGIN, 'redo', {
         value: 1
     });

@@ -18,7 +18,6 @@ from sys import version_info as _version_info_
 import Ice, IcePy
 import Ice.Identity_ice
 import Ice.BuiltinSequences_ice
-import Ice.Properties_ice
 import Glacier2.Session_ice
 import IceGrid.Exception_ice
 import IceGrid.Descriptor_ice

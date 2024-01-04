@@ -20,7 +20,6 @@ namespace
     require_once 'Ice/Identity.php';
     require_once 'Ice/BuiltinSequences.php';
     require_once 'Ice/ProcessF.php';
-    require_once 'Ice/Properties.php';
     require_once 'Glacier2/Session.php';
     require_once 'IceGrid/Admin.php';
     require_once 'IceGrid/Registry.php';

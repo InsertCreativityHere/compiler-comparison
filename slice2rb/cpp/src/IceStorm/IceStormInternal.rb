@@ -17,7 +17,8 @@
 require 'Ice'
 require 'IceStorm/IceStorm.rb'
 require 'Election.rb'
-require 'Ice/Current.rb'
+require 'Ice/Context.rb'
+require 'Ice/OperationMode.rb'
 
 module ::IceStorm
 

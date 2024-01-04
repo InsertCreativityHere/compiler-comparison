@@ -20,7 +20,6 @@
 #include <Ice/Ice.h>
 #include <Ice/Identity.h>
 #include <Ice/BuiltinSequences.h>
-#include <Ice/Properties.h>
 #include <Glacier2/Session.h>
 #include <Exception.h>
 #include <Descriptor.h>

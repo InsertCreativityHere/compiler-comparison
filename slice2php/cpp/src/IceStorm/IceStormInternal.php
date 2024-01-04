@@ -19,7 +19,8 @@ namespace
 {
     require_once 'IceStorm/IceStorm.php';
     require_once 'Election.php';
-    require_once 'Ice/Current.php';
+    require_once 'Ice/Context.php';
+    require_once 'Ice/OperationMode.php';
 }
 
 namespace IceStorm

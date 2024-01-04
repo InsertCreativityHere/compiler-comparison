@@ -5,47 +5,20 @@ import Ice
 Ice.updateModule("Ice")
 
 # Modules:
-import Ice.ObjectAdapter_ice
-import Ice.ImplicitContextF_ice
-import Ice.Logger_ice
-import Ice.Connection_ice
 import Ice.RemoteLogger_ice
 import Ice.PropertiesAdmin_ice
-import Ice.EndpointF_ice
-import Ice.ValueFactory_ice
-import Ice.Communicator_ice
-import Ice.Plugin_ice
-import Ice.ObjectAdapterF_ice
-import Ice.Properties_ice
-import Ice.ConnectionF_ice
-import Ice.LocalException_ice
 import Ice.Locator_ice
-import Ice.PluginF_ice
-import Ice.PropertiesF_ice
 import Ice.BuiltinSequences_ice
 import Ice.Version_ice
 import Ice.Context_ice
 import Ice.OperationMode_ice
-import Ice.ServantLocator_ice
-import Ice.InstrumentationF_ice
 import Ice.Router_ice
 import Ice.PropertyDict_ice
-import Ice.Endpoint_ice
-import Ice.ObjectFactory_ice
-import Ice.Instrumentation_ice
 import Ice.Identity_ice
-import Ice.LoggerF_ice
 import Ice.LocatorF_ice
 import Ice.EndpointTypes_ice
-import Ice.EndpointSelectionType_ice
-import Ice.CommunicatorF_ice
-import Ice.Current_ice
 import Ice.ProcessF_ice
 import Ice.RouterF_ice
 import Ice.Process_ice
-import Ice.ImplicitContext_ice
-import Ice.FacetMap_ice
-import Ice.ServantLocatorF_ice
 
 # Submodules:
-from . import Instrumentation

@@ -15,7 +15,7 @@
 #
 
 require 'Ice'
-require 'Ice/Current.rb'
+require 'Ice/Context.rb'
 
 module ::Test
 

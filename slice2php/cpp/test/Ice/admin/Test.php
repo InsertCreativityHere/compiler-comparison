@@ -17,7 +17,7 @@
 
 namespace
 {
-    require_once 'Ice/Properties.php';
+    require_once 'Ice/PropertyDict.php';
 }
 
 namespace Test

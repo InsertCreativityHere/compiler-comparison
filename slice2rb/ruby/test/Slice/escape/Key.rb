@@ -234,5 +234,33 @@ module ::BEGIN_
         ])
     end
 
+    if not defined?(::BEGIN_::Extend_Mixin)
+
+        module ::BEGIN_::Extend_Mixin
+        end
+        module ExtendPrx_mixin
+
+            def _for(_freeze, _hash, _if, _inspect, _method, _methods, context=nil)
+                ExtendPrx_mixin::OP_for.invoke(self, [_freeze, _hash, _if, _inspect, _method, _methods], context)
+            end
+        end
+
+        class ExtendPrx < ::Ice::ObjectPrx
+            include ::Ice::Proxy_mixin
+            include ExtendPrx_mixin
+        end
+
+        if not defined?(::BEGIN_::T_ExtendPrx)
+            T_Extend = ::Ice::__declareClass('::BEGIN::extend')
+            T_ExtendPrx = ::Ice::__declareProxy('::BEGIN::extend')
+        end
+
+        T_Extend.defineClass(::Ice::Value, -1, false, true, nil, [])
+
+        T_ExtendPrx.defineProxy(ExtendPrx, nil, [])
+
+        ExtendPrx_mixin::OP_for = ::Ice::__defineOperation('for', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::BEGIN_::T_Display, false, 0], [::BEGIN_::T_Elsif, false, 0], [::BEGIN_::T_BreakPrx, false, 0], [::BEGIN_::T_Display, false, 0], [::BEGIN_::T_Elsif, false, 0], [::Ice::T_int, false, 0]], [], [::BEGIN_::T_END_, false, 0], [::BEGIN_::T_Nil])
+    end
+
     Redo = 1
 end

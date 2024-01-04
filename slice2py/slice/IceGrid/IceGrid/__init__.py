@@ -9,7 +9,6 @@ import IceGrid.UserAccountMapper_ice
 import IceGrid.FileParser_ice
 import IceGrid.Registry_ice
 import IceGrid.Session_ice
-import IceGrid.PluginFacade_ice
 import IceGrid.Admin_ice
 import IceGrid.Descriptor_ice
 import IceGrid.Exception_ice

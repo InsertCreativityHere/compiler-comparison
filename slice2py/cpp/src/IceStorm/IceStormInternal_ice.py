@@ -18,7 +18,8 @@ from sys import version_info as _version_info_
 import Ice, IcePy
 import IceStorm.IceStorm_ice
 import Election_ice
-import Ice.Current_ice
+import Ice.Context_ice
+import Ice.OperationMode_ice
 
 # Included module Ice
 _M_Ice = Ice.openModule('Ice')

@@ -359,6 +359,69 @@ if 'nil' not in _M_BEGIN.__dict__:
     _M_BEGIN.nil = nil
     del nil
 
+_M_BEGIN._t_extend = IcePy.defineValue('::BEGIN::extend', Ice.Value, -1, (), False, True, None, ())
+
+if 'extendPrx' not in _M_BEGIN.__dict__:
+    _M_BEGIN.extendPrx = Ice.createTempClass()
+    class extendPrx(Ice.ObjectPrx):
+
+        def _for(self, freeze, hash, _if, inspect, method, methods, context=None):
+            return _M_BEGIN.extend._op_for.invoke(self, ((freeze, hash, _if, inspect, method, methods), context))
+
+        def forAsync(self, freeze, hash, _if, inspect, method, methods, context=None):
+            return _M_BEGIN.extend._op_for.invokeAsync(self, ((freeze, hash, _if, inspect, method, methods), context))
+
+        def begin_for(self, freeze, hash, _if, inspect, method, methods, _response=None, _ex=None, _sent=None, context=None):
+            return _M_BEGIN.extend._op_for.begin(self, ((freeze, hash, _if, inspect, method, methods), _response, _ex, _sent, context))
+
+        def end_for(self, _r):
+            return _M_BEGIN.extend._op_for.end(self, _r)
+
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_BEGIN.extendPrx.ice_checkedCast(proxy, '::BEGIN::extend', facetOrContext, context)
+
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_BEGIN.extendPrx.ice_uncheckedCast(proxy, facet)
+
+        @staticmethod
+        def ice_staticId():
+            return '::BEGIN::extend'
+    _M_BEGIN._t_extendPrx = IcePy.defineProxy('::BEGIN::extend', extendPrx)
+
+    _M_BEGIN.extendPrx = extendPrx
+    del extendPrx
+
+    _M_BEGIN.extend = Ice.createTempClass()
+    class extend(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::BEGIN::extend', '::Ice::Object')
+
+        def ice_id(self, current=None):
+            return '::BEGIN::extend'
+
+        @staticmethod
+        def ice_staticId():
+            return '::BEGIN::extend'
+
+        def _for(self, freeze, hash, _if, inspect, method, methods, current=None):
+            raise NotImplementedError("servant method '_for' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_BEGIN._t_extendDisp)
+
+        __repr__ = __str__
+
+    _M_BEGIN._t_extendDisp = IcePy.defineClass('::BEGIN::extend', extend, (), None, ())
+    extend._ice_type = _M_BEGIN._t_extendDisp
+
+    extend._op_for = IcePy.Operation('for', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_BEGIN._t_display, False, 0), ((), _M_BEGIN._t_elsif, False, 0), ((), _M_BEGIN._t_breakPrx, False, 0), ((), _M_BEGIN._t_display, False, 0), ((), _M_BEGIN._t_elsif, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M_BEGIN._t_END, False, 0), (_M_BEGIN._t_nil,))
+
+    _M_BEGIN.extend = extend
+    del extend
+
 _M_BEGIN.redo = 1
 
 # End of module BEGIN

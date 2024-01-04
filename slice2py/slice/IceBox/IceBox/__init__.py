@@ -6,6 +6,5 @@ Ice.updateModule("IceBox")
 
 # Modules:
 import IceBox.ServiceManager_ice
-import IceBox.Service_ice
 
 # Submodules:

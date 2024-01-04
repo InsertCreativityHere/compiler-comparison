@@ -20,6 +20,10 @@ using _System = global::System;
 
 namespace Ice
 {
+}
+
+namespace Ice
+{
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public sealed class PropertyDictHelper
     {

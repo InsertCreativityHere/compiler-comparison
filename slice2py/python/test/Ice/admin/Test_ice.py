@@ -16,7 +16,7 @@
 
 from sys import version_info as _version_info_
 import Ice, IcePy
-import Ice.Properties_ice
+import Ice.PropertyDict_ice
 
 # Included module Ice
 _M_Ice = Ice.openModule('Ice')

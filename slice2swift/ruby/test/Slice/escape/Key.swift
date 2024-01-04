@@ -375,6 +375,12 @@ open class `nil`: next {
         try super._iceReadImpl(from: istr);
     }
 }
+
+/// Traits for Slice interface `extend`.
+public struct extendTraits: Ice.SliceTraits {
+    public static let staticIds = ["::BEGIN::extend", "::Ice::Object"]
+    public static let staticId = "::BEGIN::extend"
+}
 public let redo: Swift.Int32 = 1
 
 
@@ -704,6 +710,192 @@ public extension Ice.InputStream {
 /// elsifPrx overview.
 public extension elsifPrx {}
 
+/// extendPrx overview.
+///
+/// extendPrx Methods:
+///
+///  - `for`: 
+///
+///  - forAsync: 
+public protocol extendPrx: Ice.ObjectPrx {}
+
+private final class extendPrxI: Ice.ObjectPrxI, extendPrx {
+    public override class func ice_staticId() -> Swift.String {
+        return extendTraits.staticId
+    }
+}
+
+/// Casts a proxy to the requested type. This call contacts the server and verifies that the object
+/// implements this type.
+///
+/// It will throw a local exception if a communication error occurs. You can optionally supply a
+/// facet name and a context map.
+///
+/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+///
+/// - parameter type: `extendPrx.Protocol` - The proxy type to cast to.
+///
+/// - parameter facet: `String` - The optional name of the desired facet.
+///
+/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
+///
+/// - returns: `extendPrx` - A proxy with the requested type or nil if the objet does not
+///   support this type.
+///
+/// - throws: `Ice.LocalException` if a communication error occurs.
+public func checkedCast(prx: Ice.ObjectPrx, type: extendPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> extendPrx? {
+    return try extendPrxI.checkedCast(prx: prx, facet: facet, context: context) as extendPrxI?
+}
+
+/// Downcasts the given proxy to this type without contacting the remote server.
+///
+/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+///
+/// - parameter type: `extendPrx.Protocol` - The proxy type to cast to.
+///
+/// - parameter facet: `String` - The optional name of the desired facet
+///
+/// - returns: `extendPrx` - A proxy with the requested type
+public func uncheckedCast(prx: Ice.ObjectPrx, type: extendPrx.Protocol, facet: Swift.String? = nil) -> extendPrx {
+    return extendPrxI.uncheckedCast(prx: prx, facet: facet) as extendPrxI
+}
+
+/// Returns the Slice type id of the interface or class associated with this proxy type.
+///
+/// parameter type: `extendPrx.Protocol` -  The proxy type to retrieve the type id.
+///
+/// returns: `String` - The type id of the interface or class associated with this proxy type.
+public func ice_staticId(_ type: extendPrx.Protocol) -> Swift.String {
+    return extendTraits.staticId
+}
+
+/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// `extendPrx`.
+public extension Ice.InputStream {
+    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
+    ///
+    /// - parameter type: `extendPrx.Protocol` - The type of the proxy to be extracted.
+    ///
+    /// - returns: `extendPrx?` - The extracted proxy
+    func read(_ type: extendPrx.Protocol) throws -> extendPrx? {
+        return try read() as extendPrxI?
+    }
+    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
+    ///
+    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    ///
+    /// - parameter type: `extendPrx.Protocol` - The type of the proxy to be extracted.
+    ///
+    /// - returns: `extendPrx` - The extracted proxy.
+    func read(tag: Swift.Int32, type: extendPrx.Protocol) throws -> extendPrx? {
+        return try read(tag: tag) as extendPrxI?
+    }
+}
+
+/// extendPrx overview.
+///
+/// extendPrx Methods:
+///
+///  - `for`: 
+///
+///  - forAsync: 
+public extension extendPrx {
+    ///
+    /// - parameter freeze: `display?`
+    ///
+    /// - parameter hash: `Ice.Value?`
+    ///
+    /// - parameter if: `breakPrx?`
+    ///
+    /// - parameter inspect: `display?`
+    ///
+    /// - parameter method: `Ice.Value?`
+    ///
+    /// - parameter methods: `Swift.Int32`
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    ///
+    /// - returns: `END`
+    func `for`(freeze iceP_freeze: display?, hash iceP_hash: Ice.Value?, if iceP_if: breakPrx?, inspect iceP_inspect: display?, method iceP_method: Ice.Value?, methods iceP_methods: Swift.Int32, context: Ice.Context? = nil) throws -> END {
+        return try _impl._invoke(operation: "for",
+                                 mode: .Normal,
+                                 write: { ostr in
+                                     ostr.write(iceP_freeze)
+                                     ostr.write(iceP_hash)
+                                     ostr.write(iceP_if)
+                                     ostr.write(iceP_inspect)
+                                     ostr.write(iceP_method)
+                                     ostr.write(iceP_methods)
+                                     ostr.writePendingValues()
+                                 },
+                                 read: { istr in
+                                     let iceP_returnValue: END = try istr.read()
+                                     return iceP_returnValue
+                                 },
+                                 userException:{ ex in
+                                     do  {
+                                         throw ex
+                                     } catch let error as nil {
+                                         throw error
+                                     } catch is Ice.UserException {}
+                                 },
+                                 context: context)
+    }
+
+    ///
+    /// - parameter freeze: `display?`
+    ///
+    /// - parameter hash: `Ice.Value?`
+    ///
+    /// - parameter if: `breakPrx?`
+    ///
+    /// - parameter inspect: `display?`
+    ///
+    /// - parameter method: `Ice.Value?`
+    ///
+    /// - parameter methods: `Swift.Int32`
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    ///
+    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
+    ///   dispatch the sent callback.
+    ///
+    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
+    ///   to dispatch the sent callback
+    ///
+    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
+    ///
+    /// - returns: `PromiseKit.Promise<END>` - The result of the operation
+    func forAsync(freeze iceP_freeze: display?, hash iceP_hash: Ice.Value?, if iceP_if: breakPrx?, inspect iceP_inspect: display?, method iceP_method: Ice.Value?, methods iceP_methods: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<END> {
+        return _impl._invokeAsync(operation: "for",
+                                  mode: .Normal,
+                                  write: { ostr in
+                                      ostr.write(iceP_freeze)
+                                      ostr.write(iceP_hash)
+                                      ostr.write(iceP_if)
+                                      ostr.write(iceP_inspect)
+                                      ostr.write(iceP_method)
+                                      ostr.write(iceP_methods)
+                                      ostr.writePendingValues()
+                                  },
+                                  read: { istr in
+                                      let iceP_returnValue: END = try istr.read()
+                                      return iceP_returnValue
+                                  },
+                                  userException:{ ex in
+                                      do  {
+                                          throw ex
+                                      } catch let error as nil {
+                                          throw error
+                                      } catch is Ice.UserException {}
+                                  },
+                                  context: context,
+                                  sentOn: sentOn,
+                                  sentFlags: sentFlags,
+                                  sent: sent)
+    }
+}
+
 /// :nodoc:
 public class display_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
@@ -859,6 +1051,55 @@ public struct elsifDisp: Ice.Disp {
 
 public protocol elsif: `break` {}
 
+
+/// Dispatcher for `extend` servants.
+public struct extendDisp: Ice.Disp {
+    public let servant: extend
+    private static let defaultObject = Ice.ObjectI<extendTraits>()
+
+    public init(_ servant: extend) {
+        self.servant = servant
+    }
+
+    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
+        request.startOver()
+        switch current.operation {
+        case "for":
+            return try servant._iceD_for(incoming: request, current: current)
+        case "ice_id":
+            return try (servant as? Object ?? extendDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+        case "ice_ids":
+            return try (servant as? Object ?? extendDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+        case "ice_isA":
+            return try (servant as? Object ?? extendDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+        case "ice_ping":
+            return try (servant as? Object ?? extendDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+        default:
+            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+        }
+    }
+}
+
+public protocol extend {
+    ///
+    /// - parameter freeze: `display?`
+    ///
+    /// - parameter hash: `Ice.Value?`
+    ///
+    /// - parameter if: `breakPrx?`
+    ///
+    /// - parameter inspect: `display?`
+    ///
+    /// - parameter method: `Ice.Value?`
+    ///
+    /// - parameter methods: `Swift.Int32`
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    ///
+    /// - returns: `END`
+    func `for`(freeze: display?, hash: Ice.Value?, if: breakPrx?, inspect: display?, method: Ice.Value?, methods: Swift.Int32, current: Ice.Current) throws -> END
+}
+
 /// break overview.
 ///
 /// break Methods:
@@ -910,3 +1151,33 @@ public extension `break` {
 
 /// elsif overview.
 public extension elsif {}
+
+/// extend overview.
+///
+/// extend Methods:
+///
+///  - `for`: 
+public extension extend {
+    func _iceD_for(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
+        let (iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods): (display?, Ice.Value?, breakPrx?, display?, Ice.Value?, Swift.Int32) = try inS.read { istr in
+            var iceP_freeze: display?
+            try istr.read(display.self) { iceP_freeze = $0 }
+            var iceP_hash: Ice.Value?
+            try istr.read() { iceP_hash = $0 }
+            let iceP_if: breakPrx? = try istr.read(breakPrx.self)
+            var iceP_inspect: display?
+            try istr.read(display.self) { iceP_inspect = $0 }
+            var iceP_method: Ice.Value?
+            try istr.read() { iceP_method = $0 }
+            let iceP_methods: Swift.Int32 = try istr.read()
+            try istr.readPendingValues()
+            return (iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods)
+        }
+
+        let iceP_returnValue = try self.`for`(freeze: iceP_freeze, hash: iceP_hash, if: iceP_if, inspect: iceP_inspect, method: iceP_method, methods: iceP_methods, current: current)
+
+        return inS.setResult{ ostr in
+            ostr.write(iceP_returnValue)
+        }
+    }
+}

@@ -20,7 +20,8 @@
 #include <Ice/Ice.h>
 #include <IceStorm/IceStorm.h>
 #include <Election.h>
-#include <Ice/Current.h>
+#include <Ice/Context.h>
+#include <Ice/OperationMode.h>
 #include <IceUtil/UndefSysMacros.h>
 #include <deque>
 

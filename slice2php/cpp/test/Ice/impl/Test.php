@@ -17,7 +17,7 @@
 
 namespace
 {
-    require_once 'Ice/Current.php';
+    require_once 'Ice/Context.php';
 }
 
 namespace Test

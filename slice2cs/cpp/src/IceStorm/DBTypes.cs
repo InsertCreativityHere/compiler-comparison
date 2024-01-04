@@ -18,6 +18,10 @@ using _System = global::System;
 
 #pragma warning disable 1591
 
+namespace IceStormElection
+{
+}
+
 namespace IceStorm
 {
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
