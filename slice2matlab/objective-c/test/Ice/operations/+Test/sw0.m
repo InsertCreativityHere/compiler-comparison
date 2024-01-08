@@ -1,0 +1,10 @@
+% sw0   Summary of sw0
+
+% Copyright (c) ZeroC, Inc. All rights reserved.
+% Generated from OperationsTest.ice by slice2matlab version 3.7.10
+
+classdef sw0
+    properties(Constant)
+        value char = sprintf('\\')
+    end
+end
