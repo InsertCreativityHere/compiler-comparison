@@ -2735,155 +2735,155 @@ namespace Test
 
 class SBase;
 /// \cond INTERNAL
-::Ice::Object* upCast(SBase*);
+::Ice::Value* upCast(SBase*);
 /// \endcond
 typedef ::IceInternal::Handle< SBase> SBasePtr;
 /// \cond INTERNAL
-void _icePatchObjectPtr(SBasePtr&, const ::Ice::ObjectPtr&);
+void _icePatchValuePtr(SBasePtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class SBSKnownDerived;
 /// \cond INTERNAL
-::Ice::Object* upCast(SBSKnownDerived*);
+::Ice::Value* upCast(SBSKnownDerived*);
 /// \endcond
 typedef ::IceInternal::Handle< SBSKnownDerived> SBSKnownDerivedPtr;
 /// \cond INTERNAL
-void _icePatchObjectPtr(SBSKnownDerivedPtr&, const ::Ice::ObjectPtr&);
+void _icePatchValuePtr(SBSKnownDerivedPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class B;
 /// \cond INTERNAL
-::Ice::Object* upCast(B*);
+::Ice::Value* upCast(B*);
 /// \endcond
 typedef ::IceInternal::Handle< B> BPtr;
 /// \cond INTERNAL
-void _icePatchObjectPtr(BPtr&, const ::Ice::ObjectPtr&);
+void _icePatchValuePtr(BPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class D1;
 /// \cond INTERNAL
-::Ice::Object* upCast(D1*);
+::Ice::Value* upCast(D1*);
 /// \endcond
 typedef ::IceInternal::Handle< D1> D1Ptr;
 /// \cond INTERNAL
-void _icePatchObjectPtr(D1Ptr&, const ::Ice::ObjectPtr&);
+void _icePatchValuePtr(D1Ptr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class SS1;
 /// \cond INTERNAL
-::Ice::Object* upCast(SS1*);
+::Ice::Value* upCast(SS1*);
 /// \endcond
 typedef ::IceInternal::Handle< SS1> SS1Ptr;
 /// \cond INTERNAL
-void _icePatchObjectPtr(SS1Ptr&, const ::Ice::ObjectPtr&);
+void _icePatchValuePtr(SS1Ptr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class SS2;
 /// \cond INTERNAL
-::Ice::Object* upCast(SS2*);
+::Ice::Value* upCast(SS2*);
 /// \endcond
 typedef ::IceInternal::Handle< SS2> SS2Ptr;
 /// \cond INTERNAL
-void _icePatchObjectPtr(SS2Ptr&, const ::Ice::ObjectPtr&);
+void _icePatchValuePtr(SS2Ptr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class Forward;
 /// \cond INTERNAL
-::Ice::Object* upCast(Forward*);
+::Ice::Value* upCast(Forward*);
 /// \endcond
 typedef ::IceInternal::Handle< Forward> ForwardPtr;
 /// \cond INTERNAL
-void _icePatchObjectPtr(ForwardPtr&, const ::Ice::ObjectPtr&);
+void _icePatchValuePtr(ForwardPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class PBase;
 /// \cond INTERNAL
-::Ice::Object* upCast(PBase*);
+::Ice::Value* upCast(PBase*);
 /// \endcond
 typedef ::IceInternal::Handle< PBase> PBasePtr;
 /// \cond INTERNAL
-void _icePatchObjectPtr(PBasePtr&, const ::Ice::ObjectPtr&);
+void _icePatchValuePtr(PBasePtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class Preserved;
 /// \cond INTERNAL
-::Ice::Object* upCast(Preserved*);
+::Ice::Value* upCast(Preserved*);
 /// \endcond
 typedef ::IceInternal::Handle< Preserved> PreservedPtr;
 /// \cond INTERNAL
-void _icePatchObjectPtr(PreservedPtr&, const ::Ice::ObjectPtr&);
+void _icePatchValuePtr(PreservedPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class PDerived;
 /// \cond INTERNAL
-::Ice::Object* upCast(PDerived*);
+::Ice::Value* upCast(PDerived*);
 /// \endcond
 typedef ::IceInternal::Handle< PDerived> PDerivedPtr;
 /// \cond INTERNAL
-void _icePatchObjectPtr(PDerivedPtr&, const ::Ice::ObjectPtr&);
+void _icePatchValuePtr(PDerivedPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class CompactPDerived;
 /// \cond INTERNAL
-::Ice::Object* upCast(CompactPDerived*);
+::Ice::Value* upCast(CompactPDerived*);
 /// \endcond
 typedef ::IceInternal::Handle< CompactPDerived> CompactPDerivedPtr;
 /// \cond INTERNAL
-void _icePatchObjectPtr(CompactPDerivedPtr&, const ::Ice::ObjectPtr&);
+void _icePatchValuePtr(CompactPDerivedPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class PNode;
 /// \cond INTERNAL
-::Ice::Object* upCast(PNode*);
+::Ice::Value* upCast(PNode*);
 /// \endcond
 typedef ::IceInternal::Handle< PNode> PNodePtr;
 /// \cond INTERNAL
-void _icePatchObjectPtr(PNodePtr&, const ::Ice::ObjectPtr&);
+void _icePatchValuePtr(PNodePtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class PCUnknown;
 /// \cond INTERNAL
-::Ice::Object* upCast(PCUnknown*);
+::Ice::Value* upCast(PCUnknown*);
 /// \endcond
 typedef ::IceInternal::Handle< PCUnknown> PCUnknownPtr;
 /// \cond INTERNAL
-void _icePatchObjectPtr(PCUnknownPtr&, const ::Ice::ObjectPtr&);
+void _icePatchValuePtr(PCUnknownPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class PCDerived;
 /// \cond INTERNAL
-::Ice::Object* upCast(PCDerived*);
+::Ice::Value* upCast(PCDerived*);
 /// \endcond
 typedef ::IceInternal::Handle< PCDerived> PCDerivedPtr;
 /// \cond INTERNAL
-void _icePatchObjectPtr(PCDerivedPtr&, const ::Ice::ObjectPtr&);
+void _icePatchValuePtr(PCDerivedPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class PCDerived2;
 /// \cond INTERNAL
-::Ice::Object* upCast(PCDerived2*);
+::Ice::Value* upCast(PCDerived2*);
 /// \endcond
 typedef ::IceInternal::Handle< PCDerived2> PCDerived2Ptr;
 /// \cond INTERNAL
-void _icePatchObjectPtr(PCDerived2Ptr&, const ::Ice::ObjectPtr&);
+void _icePatchValuePtr(PCDerived2Ptr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class PCDerived3;
 /// \cond INTERNAL
-::Ice::Object* upCast(PCDerived3*);
+::Ice::Value* upCast(PCDerived3*);
 /// \endcond
 typedef ::IceInternal::Handle< PCDerived3> PCDerived3Ptr;
 /// \cond INTERNAL
-void _icePatchObjectPtr(PCDerived3Ptr&, const ::Ice::ObjectPtr&);
+void _icePatchValuePtr(PCDerived3Ptr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class CompactPCDerived;
 /// \cond INTERNAL
-::Ice::Object* upCast(CompactPCDerived*);
+::Ice::Value* upCast(CompactPCDerived*);
 /// \endcond
 typedef ::IceInternal::Handle< CompactPCDerived> CompactPCDerivedPtr;
 /// \cond INTERNAL
-void _icePatchObjectPtr(CompactPCDerivedPtr&, const ::Ice::ObjectPtr&);
+void _icePatchValuePtr(CompactPCDerivedPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestIntf> TestIntfPrx;
 typedef TestIntfPrx TestIntfPrxPtr;
@@ -2893,20 +2893,20 @@ typedef ::IceInternal::Handle< TestIntf> TestIntfPtr;
 
 class Hidden;
 /// \cond INTERNAL
-::Ice::Object* upCast(Hidden*);
+::Ice::Value* upCast(Hidden*);
 /// \endcond
 typedef ::IceInternal::Handle< Hidden> HiddenPtr;
 /// \cond INTERNAL
-void _icePatchObjectPtr(HiddenPtr&, const ::Ice::ObjectPtr&);
+void _icePatchValuePtr(HiddenPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class D3;
 /// \cond INTERNAL
-::Ice::Object* upCast(D3*);
+::Ice::Value* upCast(D3*);
 /// \endcond
 typedef ::IceInternal::Handle< D3> D3Ptr;
 /// \cond INTERNAL
-void _icePatchObjectPtr(D3Ptr&, const ::Ice::ObjectPtr&);
+void _icePatchValuePtr(D3Ptr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 }
@@ -3427,7 +3427,7 @@ class TestIntf : public virtual ::Ice::Proxy<TestIntf, ::IceProxy::Ice::Object>
 {
 public:
 
-    ::Ice::ObjectPtr SBaseAsObject(const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::ValuePtr SBaseAsObject(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_SBaseAsObject(_iceI_begin_SBaseAsObject(context, ::IceInternal::dummyCallback, 0, true));
     }
@@ -3457,7 +3457,7 @@ public:
         return _iceI_begin_SBaseAsObject(context, cb, cookie);
     }
 
-    ::Ice::ObjectPtr end_SBaseAsObject(const ::Ice::AsyncResultPtr& result);
+    ::Ice::ValuePtr end_SBaseAsObject(const ::Ice::AsyncResultPtr& result);
 
 private:
 
@@ -3655,7 +3655,7 @@ private:
 
 public:
 
-    ::Ice::ObjectPtr SUnknownAsObject(const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::ValuePtr SUnknownAsObject(const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_SUnknownAsObject(_iceI_begin_SUnknownAsObject(context, ::IceInternal::dummyCallback, 0, true));
     }
@@ -3685,7 +3685,7 @@ public:
         return _iceI_begin_SUnknownAsObject(context, cb, cookie);
     }
 
-    ::Ice::ObjectPtr end_SUnknownAsObject(const ::Ice::AsyncResultPtr& result);
+    ::Ice::ValuePtr end_SUnknownAsObject(const ::Ice::AsyncResultPtr& result);
 
 private:
 
@@ -3693,32 +3693,32 @@ private:
 
 public:
 
-    void checkSUnknown(const ::Ice::ObjectPtr& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    void checkSUnknown(const ::Ice::ValuePtr& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         end_checkSUnknown(_iceI_begin_checkSUnknown(o, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_checkSUnknown(const ::Ice::ObjectPtr& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_checkSUnknown(const ::Ice::ValuePtr& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_checkSUnknown(o, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_checkSUnknown(const ::Ice::ObjectPtr& o, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_checkSUnknown(const ::Ice::ValuePtr& o, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_checkSUnknown(o, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_checkSUnknown(const ::Ice::ObjectPtr& o, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_checkSUnknown(const ::Ice::ValuePtr& o, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_checkSUnknown(o, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_checkSUnknown(const ::Ice::ObjectPtr& o, const ::Test::Callback_TestIntf_checkSUnknownPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_checkSUnknown(const ::Ice::ValuePtr& o, const ::Test::Callback_TestIntf_checkSUnknownPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_checkSUnknown(o, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_checkSUnknown(const ::Ice::ObjectPtr& o, const ::Ice::Context& context, const ::Test::Callback_TestIntf_checkSUnknownPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_checkSUnknown(const ::Ice::ValuePtr& o, const ::Ice::Context& context, const ::Test::Callback_TestIntf_checkSUnknownPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_checkSUnknown(o, context, cb, cookie);
     }
@@ -3727,7 +3727,7 @@ public:
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_checkSUnknown(const ::Ice::ObjectPtr&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_checkSUnknown(const ::Ice::ValuePtr&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
@@ -4924,7 +4924,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual ::Ice::ObjectPtr SBaseAsObject(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual ::Ice::ValuePtr SBaseAsObject(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_SBaseAsObject(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -4954,12 +4954,12 @@ public:
     bool _iceD_SBSUnknownDerivedAsSBaseCompact(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual ::Ice::ObjectPtr SUnknownAsObject(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual ::Ice::ValuePtr SUnknownAsObject(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_SUnknownAsObject(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void checkSUnknown(const ::Ice::ObjectPtr& o, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual void checkSUnknown(const ::Ice::ValuePtr& o, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_checkSUnknown(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -5119,7 +5119,7 @@ public:
 namespace Test
 {
 
-class SBase : public virtual ::Ice::Object
+class SBase : public virtual ::Ice::Value
 {
 public:
 
@@ -5145,33 +5145,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
 
@@ -5199,12 +5183,12 @@ static ::Ice::ValueFactoryPtr _iceS_SBase_init = ::Test::SBase::ice_factory();
 /// \cond INTERNAL
 inline bool operator==(const SBase& lhs, const SBase& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const SBase& lhs, const SBase& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
@@ -5235,33 +5219,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
 
@@ -5289,16 +5257,16 @@ static ::Ice::ValueFactoryPtr _iceS_SBSKnownDerived_init = ::Test::SBSKnownDeriv
 /// \cond INTERNAL
 inline bool operator==(const SBSKnownDerived& lhs, const SBSKnownDerived& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const SBSKnownDerived& lhs, const SBSKnownDerived& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
-class B : public virtual ::Ice::Object, public ::IceInternal::GCObject
+class B : public virtual ::Ice::Value, public ::IceInternal::GCValue
 {
 public:
 
@@ -5325,33 +5293,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
     /// \cond INTERNAL
@@ -5383,12 +5335,12 @@ static ::Ice::ValueFactoryPtr _iceS_B_init = ::Test::B::ice_factory();
 /// \cond INTERNAL
 inline bool operator==(const B& lhs, const B& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const B& lhs, const B& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
@@ -5420,33 +5372,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
     /// \cond INTERNAL
@@ -5478,16 +5414,16 @@ static ::Ice::ValueFactoryPtr _iceS_D1_init = ::Test::D1::ice_factory();
 /// \cond INTERNAL
 inline bool operator==(const D1& lhs, const D1& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const D1& lhs, const D1& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
-class SS1 : public virtual ::Ice::Object, public ::IceInternal::GCObject
+class SS1 : public virtual ::Ice::Value, public ::IceInternal::GCValue
 {
 public:
 
@@ -5513,33 +5449,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
     /// \cond INTERNAL
@@ -5570,16 +5490,16 @@ static ::Ice::ValueFactoryPtr _iceS_SS1_init = ::Test::SS1::ice_factory();
 /// \cond INTERNAL
 inline bool operator==(const SS1& lhs, const SS1& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const SS1& lhs, const SS1& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
-class SS2 : public virtual ::Ice::Object, public ::IceInternal::GCObject
+class SS2 : public virtual ::Ice::Value, public ::IceInternal::GCValue
 {
 public:
 
@@ -5605,33 +5525,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
     /// \cond INTERNAL
@@ -5662,16 +5566,16 @@ static ::Ice::ValueFactoryPtr _iceS_SS2_init = ::Test::SS2::ice_factory();
 /// \cond INTERNAL
 inline bool operator==(const SS2& lhs, const SS2& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const SS2& lhs, const SS2& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
-class PBase : public virtual ::Ice::Object
+class PBase : public virtual ::Ice::Value
 {
 public:
 
@@ -5697,33 +5601,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
 
@@ -5751,16 +5639,16 @@ static ::Ice::ValueFactoryPtr _iceS_PBase_init = ::Test::PBase::ice_factory();
 /// \cond INTERNAL
 inline bool operator==(const PBase& lhs, const PBase& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const PBase& lhs, const PBase& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
-class Preserved : public PBase, public ::IceInternal::GCObject
+class Preserved : public PBase, public ::IceInternal::GCValue
 {
 public:
 
@@ -5787,33 +5675,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
     /// \cond INTERNAL
@@ -5863,12 +5735,12 @@ static ::Ice::ValueFactoryPtr _iceS_Preserved_init = ::Test::Preserved::ice_fact
 /// \cond INTERNAL
 inline bool operator==(const Preserved& lhs, const Preserved& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const Preserved& lhs, const Preserved& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
@@ -5899,33 +5771,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
     /// \cond INTERNAL
@@ -5956,12 +5812,12 @@ static ::Ice::ValueFactoryPtr _iceS_PDerived_init = ::Test::PDerived::ice_factor
 /// \cond INTERNAL
 inline bool operator==(const PDerived& lhs, const PDerived& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const PDerived& lhs, const PDerived& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
@@ -5992,33 +5848,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
     /// \cond INTERNAL
@@ -6049,16 +5889,16 @@ static ::Ice::ValueFactoryPtr _iceS_CompactPDerived_init = ::Test::CompactPDeriv
 /// \cond INTERNAL
 inline bool operator==(const CompactPDerived& lhs, const CompactPDerived& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const CompactPDerived& lhs, const CompactPDerived& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
-class PNode : public virtual ::Ice::Object, public ::IceInternal::GCObject
+class PNode : public virtual ::Ice::Value, public ::IceInternal::GCValue
 {
 public:
 
@@ -6084,33 +5924,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
     /// \cond INTERNAL
@@ -6160,16 +5984,16 @@ static ::Ice::ValueFactoryPtr _iceS_PNode_init = ::Test::PNode::ice_factory();
 /// \cond INTERNAL
 inline bool operator==(const PNode& lhs, const PNode& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const PNode& lhs, const PNode& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
-class PCUnknown : public PBase, public ::IceInternal::GCObject
+class PCUnknown : public PBase, public ::IceInternal::GCValue
 {
 public:
 
@@ -6196,33 +6020,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
     /// \cond INTERNAL
@@ -6272,12 +6080,12 @@ static ::Ice::ValueFactoryPtr _iceS_PCUnknown_init = ::Test::PCUnknown::ice_fact
 /// \cond INTERNAL
 inline bool operator==(const PCUnknown& lhs, const PCUnknown& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const PCUnknown& lhs, const PCUnknown& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
@@ -6308,33 +6116,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
     /// \cond INTERNAL
@@ -6365,12 +6157,12 @@ static ::Ice::ValueFactoryPtr _iceS_PCDerived_init = ::Test::PCDerived::ice_fact
 /// \cond INTERNAL
 inline bool operator==(const PCDerived& lhs, const PCDerived& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const PCDerived& lhs, const PCDerived& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
@@ -6401,33 +6193,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
     /// \cond INTERNAL
@@ -6458,12 +6234,12 @@ static ::Ice::ValueFactoryPtr _iceS_PCDerived2_init = ::Test::PCDerived2::ice_fa
 /// \cond INTERNAL
 inline bool operator==(const PCDerived2& lhs, const PCDerived2& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const PCDerived2& lhs, const PCDerived2& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
@@ -6482,7 +6258,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    PCDerived3(::Ice::Int pi, const ::std::string& ps, const ::Test::PBasePtr& pb, const ::Test::PBaseSeq& pbs, ::Ice::Int pcd2, const ::Ice::ObjectPtr& pcd3) :
+    PCDerived3(::Ice::Int pi, const ::std::string& ps, const ::Test::PBasePtr& pb, const ::Test::PBaseSeq& pbs, ::Ice::Int pcd2, const ::Ice::ValuePtr& pcd3) :
         ::Test::PCDerived2(pi, ps, pb, pbs, pcd2),
         pcd3(pcd3)
     {
@@ -6494,33 +6270,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
     /// \cond INTERNAL
@@ -6542,7 +6302,7 @@ protected:
 
 public:
 
-    ::Ice::ObjectPtr pcd3;
+    ::Ice::ValuePtr pcd3;
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_PCDerived3_init = ::Test::PCDerived3::ice_factory();
@@ -6551,12 +6311,12 @@ static ::Ice::ValueFactoryPtr _iceS_PCDerived3_init = ::Test::PCDerived3::ice_fa
 /// \cond INTERNAL
 inline bool operator==(const PCDerived3& lhs, const PCDerived3& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const PCDerived3& lhs, const PCDerived3& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
@@ -6587,33 +6347,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
     /// \cond INTERNAL
@@ -6644,16 +6388,16 @@ static ::Ice::ValueFactoryPtr _iceS_CompactPCDerived_init = ::Test::CompactPCDer
 /// \cond INTERNAL
 inline bool operator==(const CompactPCDerived& lhs, const CompactPCDerived& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const CompactPCDerived& lhs, const CompactPCDerived& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
-class Hidden : public virtual ::Ice::Object, public ::IceInternal::GCObject
+class Hidden : public virtual ::Ice::Value, public ::IceInternal::GCValue
 {
 public:
 
@@ -6679,33 +6423,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
     /// \cond INTERNAL
@@ -6736,16 +6464,16 @@ static ::Ice::ValueFactoryPtr _iceS_Hidden_init = ::Test::Hidden::ice_factory();
 /// \cond INTERNAL
 inline bool operator==(const Hidden& lhs, const Hidden& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const Hidden& lhs, const Hidden& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
-class Forward : public virtual ::Ice::Object, public ::IceInternal::GCObject
+class Forward : public virtual ::Ice::Value, public ::IceInternal::GCValue
 {
 public:
 
@@ -6771,33 +6499,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
     /// \cond INTERNAL
@@ -6828,12 +6540,12 @@ static ::Ice::ValueFactoryPtr _iceS_Forward_init = ::Test::Forward::ice_factory(
 /// \cond INTERNAL
 inline bool operator==(const Forward& lhs, const Forward& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const Forward& lhs, const Forward& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
@@ -6865,33 +6577,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
     /// \cond INTERNAL
@@ -6923,12 +6619,12 @@ static ::Ice::ValueFactoryPtr _iceS_D3_init = ::Test::D3::ice_factory();
 /// \cond INTERNAL
 inline bool operator==(const D3& lhs, const D3& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const D3& lhs, const D3& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
@@ -7392,7 +7088,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const ::Ice::ObjectPtr&);
+    typedef void (T::*Response)(const ::Ice::ValuePtr&);
 
     CallbackNC_TestIntf_SBaseAsObject(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -7403,7 +7099,7 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        ::Ice::ObjectPtr ret;
+        ::Ice::ValuePtr ret;
         try
         {
             ret = proxy->end_SBaseAsObject(result);
@@ -7434,7 +7130,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_SBaseAsObject.
  */
 template<class T> Callback_TestIntf_SBaseAsObjectPtr
-newCallback_TestIntf_SBaseAsObject(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::Ice::ObjectPtr&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_SBaseAsObject(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::Ice::ValuePtr&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_SBaseAsObject<T>(instance, cb, excb, sentcb);
 }
@@ -7448,7 +7144,7 @@ newCallback_TestIntf_SBaseAsObject(const IceUtil::Handle<T>& instance, void (T::
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_SBaseAsObject.
  */
 template<class T> Callback_TestIntf_SBaseAsObjectPtr
-newCallback_TestIntf_SBaseAsObject(T* instance, void (T::*cb)(const ::Ice::ObjectPtr&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_SBaseAsObject(T* instance, void (T::*cb)(const ::Ice::ValuePtr&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_SBaseAsObject<T>(instance, cb, excb, sentcb);
 }
@@ -7467,7 +7163,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const ::Ice::ObjectPtr&, const CT&);
+    typedef void (T::*Response)(const ::Ice::ValuePtr&, const CT&);
 
     Callback_TestIntf_SBaseAsObject(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -7478,7 +7174,7 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        ::Ice::ObjectPtr ret;
+        ::Ice::ValuePtr ret;
         try
         {
             ret = proxy->end_SBaseAsObject(result);
@@ -7510,7 +7206,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_SBaseAsObject.
  */
 template<class T, typename CT> Callback_TestIntf_SBaseAsObjectPtr
-newCallback_TestIntf_SBaseAsObject(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::Ice::ObjectPtr&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_SBaseAsObject(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::Ice::ValuePtr&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_SBaseAsObject<T, CT>(instance, cb, excb, sentcb);
 }
@@ -7525,7 +7221,7 @@ newCallback_TestIntf_SBaseAsObject(const IceUtil::Handle<T>& instance, void (T::
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_SBaseAsObject.
  */
 template<class T, typename CT> Callback_TestIntf_SBaseAsObjectPtr
-newCallback_TestIntf_SBaseAsObject(T* instance, void (T::*cb)(const ::Ice::ObjectPtr&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_SBaseAsObject(T* instance, void (T::*cb)(const ::Ice::ValuePtr&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_SBaseAsObject<T, CT>(instance, cb, excb, sentcb);
 }
@@ -8304,7 +8000,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception&);
     typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)(const ::Ice::ObjectPtr&);
+    typedef void (T::*Response)(const ::Ice::ValuePtr&);
 
     CallbackNC_TestIntf_SUnknownAsObject(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallbackNC<T>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -8315,7 +8011,7 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        ::Ice::ObjectPtr ret;
+        ::Ice::ValuePtr ret;
         try
         {
             ret = proxy->end_SUnknownAsObject(result);
@@ -8346,7 +8042,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_SUnknownAsObject.
  */
 template<class T> Callback_TestIntf_SUnknownAsObjectPtr
-newCallback_TestIntf_SUnknownAsObject(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::Ice::ObjectPtr&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_SUnknownAsObject(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::Ice::ValuePtr&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_SUnknownAsObject<T>(instance, cb, excb, sentcb);
 }
@@ -8360,7 +8056,7 @@ newCallback_TestIntf_SUnknownAsObject(const IceUtil::Handle<T>& instance, void (
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_SUnknownAsObject.
  */
 template<class T> Callback_TestIntf_SUnknownAsObjectPtr
-newCallback_TestIntf_SUnknownAsObject(T* instance, void (T::*cb)(const ::Ice::ObjectPtr&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
+newCallback_TestIntf_SUnknownAsObject(T* instance, void (T::*cb)(const ::Ice::ValuePtr&), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
 {
     return new CallbackNC_TestIntf_SUnknownAsObject<T>(instance, cb, excb, sentcb);
 }
@@ -8379,7 +8075,7 @@ public:
 
     typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
     typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const ::Ice::ObjectPtr&, const CT&);
+    typedef void (T::*Response)(const ::Ice::ValuePtr&, const CT&);
 
     Callback_TestIntf_SUnknownAsObject(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
         : ::IceInternal::TwowayCallback<T, CT>(obj, cb != 0, excb, sentcb), _response(cb)
@@ -8390,7 +8086,7 @@ public:
     virtual void completed(const ::Ice::AsyncResultPtr& result) const
     {
         TestIntfPrx proxy = TestIntfPrx::uncheckedCast(result->getProxy());
-        ::Ice::ObjectPtr ret;
+        ::Ice::ValuePtr ret;
         try
         {
             ret = proxy->end_SUnknownAsObject(result);
@@ -8422,7 +8118,7 @@ private:
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_SUnknownAsObject.
  */
 template<class T, typename CT> Callback_TestIntf_SUnknownAsObjectPtr
-newCallback_TestIntf_SUnknownAsObject(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::Ice::ObjectPtr&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_SUnknownAsObject(const IceUtil::Handle<T>& instance, void (T::*cb)(const ::Ice::ValuePtr&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_SUnknownAsObject<T, CT>(instance, cb, excb, sentcb);
 }
@@ -8437,7 +8133,7 @@ newCallback_TestIntf_SUnknownAsObject(const IceUtil::Handle<T>& instance, void (
  * @return An object that can be passed to an asynchronous invocation of IceProxy::Test::TestIntf::begin_SUnknownAsObject.
  */
 template<class T, typename CT> Callback_TestIntf_SUnknownAsObjectPtr
-newCallback_TestIntf_SUnknownAsObject(T* instance, void (T::*cb)(const ::Ice::ObjectPtr&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
+newCallback_TestIntf_SUnknownAsObject(T* instance, void (T::*cb)(const ::Ice::ValuePtr&, const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
 {
     return new Callback_TestIntf_SUnknownAsObject<T, CT>(instance, cb, excb, sentcb);
 }

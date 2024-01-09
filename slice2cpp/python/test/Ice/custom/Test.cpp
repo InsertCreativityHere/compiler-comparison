@@ -3198,40 +3198,18 @@ Test::C::~C()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::upCast(C* p) { return p; }
+::Ice::Value* Test::upCast(C* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::C::ice_clone() const
 {
-    ::Ice::Object* p = new C(*this);
+    ::Ice::Value* p = new C(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_Test_C_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::C"
-};
-
-}
-
-bool
-Test::C::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_C_ids, iceC_Test_C_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::C::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_C_ids[0], &iceC_Test_C_ids[2]);
-}
-
-const ::std::string&
-Test::C::ice_id(const ::Ice::Current&) const
+std::string
+Test::C::ice_id() const
 {
     return ice_staticId();
 }
@@ -3274,7 +3252,7 @@ Test::C::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(CPtr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchValuePtr(CPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = CPtr::dynamicCast(v);
     if(v && !handle)
@@ -3289,40 +3267,18 @@ Test::D::~D()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::upCast(D* p) { return p; }
+::Ice::Value* Test::upCast(D* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::D::ice_clone() const
 {
-    ::Ice::Object* p = new D(*this);
+    ::Ice::Value* p = new D(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_Test_D_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::D"
-};
-
-}
-
-bool
-Test::D::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_D_ids, iceC_Test_D_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::D::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_D_ids[0], &iceC_Test_D_ids[2]);
-}
-
-const ::std::string&
-Test::D::ice_id(const ::Ice::Current&) const
+std::string
+Test::D::ice_id() const
 {
     return ice_staticId();
 }
@@ -3365,7 +3321,7 @@ Test::D::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(DPtr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchValuePtr(DPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = DPtr::dynamicCast(v);
     if(v && !handle)

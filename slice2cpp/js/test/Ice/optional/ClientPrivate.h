@@ -253,32 +253,32 @@ class Initial2 : public virtual ::Ice::Proxy<Initial2, ::IceProxy::Ice::Object>
 {
 public:
 
-    void opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ObjectPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    void opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ValuePtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         end_opClassAndUnknownOptional(_iceI_begin_opClassAndUnknownOptional(p, o, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ObjectPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ValuePtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opClassAndUnknownOptional(p, o, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ObjectPtr>& o, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ValuePtr>& o, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opClassAndUnknownOptional(p, o, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ObjectPtr>& o, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ValuePtr>& o, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opClassAndUnknownOptional(p, o, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ObjectPtr>& o, const ::Test::Callback_Initial2_opClassAndUnknownOptionalPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ValuePtr>& o, const ::Test::Callback_Initial2_opClassAndUnknownOptionalPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opClassAndUnknownOptional(p, o, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ObjectPtr>& o, const ::Ice::Context& context, const ::Test::Callback_Initial2_opClassAndUnknownOptionalPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ValuePtr>& o, const ::Ice::Context& context, const ::Test::Callback_Initial2_opClassAndUnknownOptionalPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opClassAndUnknownOptional(p, o, context, cb, cookie);
     }
@@ -287,7 +287,7 @@ public:
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opClassAndUnknownOptional(const ::Test::APtr&, const std::optional< ::Ice::ObjectPtr>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opClassAndUnknownOptional(const ::Test::APtr&, const std::optional< ::Ice::ValuePtr>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
@@ -388,7 +388,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual void opClassAndUnknownOptional(const APtr& p, const std::optional< ::Ice::ObjectPtr>& o, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual void opClassAndUnknownOptional(const APtr& p, const std::optional< ::Ice::ValuePtr>& o, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opClassAndUnknownOptional(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

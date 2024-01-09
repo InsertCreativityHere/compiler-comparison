@@ -86,41 +86,18 @@ IceMX::TopicMetrics::~TopicMetrics()
 }
 
 /// \cond INTERNAL
-ICESTORM_API ::Ice::Object* IceMX::upCast(TopicMetrics* p) { return p; }
+ICESTORM_API ::Ice::Value* IceMX::upCast(TopicMetrics* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 IceMX::TopicMetrics::ice_clone() const
 {
-    ::Ice::Object* p = new TopicMetrics(*this);
+    ::Ice::Value* p = new TopicMetrics(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_IceMX_TopicMetrics_ids[3] =
-{
-    "::Ice::Object",
-    "::IceMX::Metrics",
-    "::IceMX::TopicMetrics"
-};
-
-}
-
-bool
-IceMX::TopicMetrics::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceMX_TopicMetrics_ids, iceC_IceMX_TopicMetrics_ids + 3, s);
-}
-
-::std::vector< ::std::string>
-IceMX::TopicMetrics::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_IceMX_TopicMetrics_ids[0], &iceC_IceMX_TopicMetrics_ids[3]);
-}
-
-const ::std::string&
-IceMX::TopicMetrics::ice_id(const ::Ice::Current&) const
+std::string
+IceMX::TopicMetrics::ice_id() const
 {
     return ice_staticId();
 }
@@ -165,7 +142,7 @@ IceMX::TopicMetrics::ice_factory()
 
 /// \cond INTERNAL
 void
-IceMX::_icePatchObjectPtr(TopicMetricsPtr& handle, const ::Ice::ObjectPtr& v)
+IceMX::_icePatchValuePtr(TopicMetricsPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = TopicMetricsPtr::dynamicCast(v);
     if(v && !handle)
@@ -180,41 +157,18 @@ IceMX::SubscriberMetrics::~SubscriberMetrics()
 }
 
 /// \cond INTERNAL
-ICESTORM_API ::Ice::Object* IceMX::upCast(SubscriberMetrics* p) { return p; }
+ICESTORM_API ::Ice::Value* IceMX::upCast(SubscriberMetrics* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 IceMX::SubscriberMetrics::ice_clone() const
 {
-    ::Ice::Object* p = new SubscriberMetrics(*this);
+    ::Ice::Value* p = new SubscriberMetrics(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_IceMX_SubscriberMetrics_ids[3] =
-{
-    "::Ice::Object",
-    "::IceMX::Metrics",
-    "::IceMX::SubscriberMetrics"
-};
-
-}
-
-bool
-IceMX::SubscriberMetrics::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceMX_SubscriberMetrics_ids, iceC_IceMX_SubscriberMetrics_ids + 3, s);
-}
-
-::std::vector< ::std::string>
-IceMX::SubscriberMetrics::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_IceMX_SubscriberMetrics_ids[0], &iceC_IceMX_SubscriberMetrics_ids[3]);
-}
-
-const ::std::string&
-IceMX::SubscriberMetrics::ice_id(const ::Ice::Current&) const
+std::string
+IceMX::SubscriberMetrics::ice_id() const
 {
     return ice_staticId();
 }
@@ -259,7 +213,7 @@ IceMX::SubscriberMetrics::ice_factory()
 
 /// \cond INTERNAL
 void
-IceMX::_icePatchObjectPtr(SubscriberMetricsPtr& handle, const ::Ice::ObjectPtr& v)
+IceMX::_icePatchValuePtr(SubscriberMetricsPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = SubscriberMetricsPtr::dynamicCast(v);
     if(v && !handle)

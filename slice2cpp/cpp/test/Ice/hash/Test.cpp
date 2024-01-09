@@ -70,40 +70,18 @@ Test::Point::~Point()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::upCast(Point* p) { return p; }
+::Ice::Value* Test::upCast(Point* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::Point::ice_clone() const
 {
-    ::Ice::Object* p = new Point(*this);
+    ::Ice::Value* p = new Point(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_Test_Point_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Point"
-};
-
-}
-
-bool
-Test::Point::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Point_ids, iceC_Test_Point_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::Point::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_Point_ids[0], &iceC_Test_Point_ids[2]);
-}
-
-const ::std::string&
-Test::Point::ice_id(const ::Ice::Current&) const
+std::string
+Test::Point::ice_id() const
 {
     return ice_staticId();
 }
@@ -146,7 +124,7 @@ Test::Point::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(PointPtr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchValuePtr(PointPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = PointPtr::dynamicCast(v);
     if(v && !handle)

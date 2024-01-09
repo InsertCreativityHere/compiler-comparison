@@ -575,26 +575,6 @@ module ::Test
         T_Recursive.defineClass(Recursive, -1, false, false, nil, [['v', ::Test::T_Recursive, false, 0]])
     end
 
-    if not defined?(::Test::L_Mixin)
-
-        module ::Test::L_Mixin
-        end
-        class L < ::Ice::Value
-
-            def initialize(data='')
-                @data = data
-            end
-
-            attr_accessor :data
-        end
-
-        if not defined?(::Test::T_L)
-            T_L = ::Ice::__declareClass('::Test::L')
-        end
-
-        T_L.defineClass(L, -1, false, false, nil, [['data', ::Ice::T_string, false, 0]])
-    end
-
     if not defined?(::Test::K_Mixin)
 
         module ::Test::K_Mixin
@@ -613,6 +593,26 @@ module ::Test
         end
 
         T_K.defineClass(K, -1, false, false, nil, [['value', ::Ice::T_Value, false, 0]])
+    end
+
+    if not defined?(::Test::L_Mixin)
+
+        module ::Test::L_Mixin
+        end
+        class L < ::Ice::Value
+
+            def initialize(data='')
+                @data = data
+            end
+
+            attr_accessor :data
+        end
+
+        if not defined?(::Test::T_L)
+            T_L = ::Ice::__declareClass('::Test::L')
+        end
+
+        T_L.defineClass(L, -1, false, false, nil, [['data', ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::T_ValueSeq)

@@ -1343,40 +1343,18 @@ Clash::Cls::~Cls()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Clash::upCast(Cls* p) { return p; }
+::Ice::Value* Clash::upCast(Cls* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Clash::Cls::ice_clone() const
 {
-    ::Ice::Object* p = new Cls(*this);
+    ::Ice::Value* p = new Cls(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_Clash_Cls_ids[2] =
-{
-    "::Clash::Cls",
-    "::Ice::Object"
-};
-
-}
-
-bool
-Clash::Cls::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Clash_Cls_ids, iceC_Clash_Cls_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Clash::Cls::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Clash_Cls_ids[0], &iceC_Clash_Cls_ids[2]);
-}
-
-const ::std::string&
-Clash::Cls::ice_id(const ::Ice::Current&) const
+std::string
+Clash::Cls::ice_id() const
 {
     return ice_staticId();
 }
@@ -1419,7 +1397,7 @@ Clash::Cls::ice_factory()
 
 /// \cond INTERNAL
 void
-Clash::_icePatchObjectPtr(ClsPtr& handle, const ::Ice::ObjectPtr& v)
+Clash::_icePatchValuePtr(ClsPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = ClsPtr::dynamicCast(v);
     if(v && !handle)

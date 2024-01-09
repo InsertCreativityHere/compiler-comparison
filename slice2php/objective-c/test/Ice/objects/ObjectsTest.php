@@ -965,41 +965,6 @@ namespace Test
 
 namespace Test
 {
-    global $Test__t_L;
-    class L extends \Ice\Value
-    {
-        public function __construct($data='')
-        {
-            $this->data = $data;
-        }
-
-        public function ice_id()
-        {
-            return '::Test::L';
-        }
-
-        public static function ice_staticId()
-        {
-            return '::Test::L';
-        }
-
-        public function __toString(): string
-        {
-            global $Test__t_L;
-            return IcePHP_stringify($this, $Test__t_L);
-        }
-
-        public $data;
-    }
-
-    global $Ice__t_Value;
-    global $IcePHP__t_string;
-    $Test__t_L = IcePHP_defineClass('::Test::L', '\\Test\\L', -1, false, false, $Ice__t_Value, array(
-        array('data', $IcePHP__t_string, false, 0)));
-}
-
-namespace Test
-{
     global $Test__t_K;
     class K extends \Ice\Value
     {
@@ -1032,6 +997,41 @@ namespace Test
     global $Ice__t_Value;
     $Test__t_K = IcePHP_defineClass('::Test::K', '\\Test\\K', -1, false, false, $Ice__t_Value, array(
         array('value', $Ice__t_Value, false, 0)));
+}
+
+namespace Test
+{
+    global $Test__t_L;
+    class L extends \Ice\Value
+    {
+        public function __construct($data='')
+        {
+            $this->data = $data;
+        }
+
+        public function ice_id()
+        {
+            return '::Test::L';
+        }
+
+        public static function ice_staticId()
+        {
+            return '::Test::L';
+        }
+
+        public function __toString(): string
+        {
+            global $Test__t_L;
+            return IcePHP_stringify($this, $Test__t_L);
+        }
+
+        public $data;
+    }
+
+    global $Ice__t_Value;
+    global $IcePHP__t_string;
+    $Test__t_L = IcePHP_defineClass('::Test::L', '\\Test\\L', -1, false, false, $Ice__t_Value, array(
+        array('data', $IcePHP__t_string, false, 0)));
 }
 
 namespace Test

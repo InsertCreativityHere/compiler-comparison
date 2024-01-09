@@ -613,40 +613,18 @@ Test::ConcreteClass::~ConcreteClass()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::upCast(ConcreteClass* p) { return p; }
+::Ice::Value* Test::upCast(ConcreteClass* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::ConcreteClass::ice_clone() const
 {
-    ::Ice::Object* p = new ConcreteClass(*this);
+    ::Ice::Value* p = new ConcreteClass(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_Test_ConcreteClass_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::ConcreteClass"
-};
-
-}
-
-bool
-Test::ConcreteClass::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_ConcreteClass_ids, iceC_Test_ConcreteClass_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::ConcreteClass::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_ConcreteClass_ids[0], &iceC_Test_ConcreteClass_ids[2]);
-}
-
-const ::std::string&
-Test::ConcreteClass::ice_id(const ::Ice::Current&) const
+std::string
+Test::ConcreteClass::ice_id() const
 {
     return ice_staticId();
 }
@@ -689,7 +667,7 @@ Test::ConcreteClass::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(ConcreteClassPtr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchValuePtr(ConcreteClassPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = ConcreteClassPtr::dynamicCast(v);
     if(v && !handle)

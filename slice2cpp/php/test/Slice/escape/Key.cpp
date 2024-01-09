@@ -1723,40 +1723,18 @@ _cpp_and::echo::~echo()
 }
 
 /// \cond INTERNAL
-::Ice::Object* _cpp_and::upCast(echo* p) { return p; }
+::Ice::Value* _cpp_and::upCast(echo* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 _cpp_and::echo::ice_clone() const
 {
-    ::Ice::Object* p = new echo(*this);
+    ::Ice::Value* p = new echo(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_and_echo_ids[2] =
-{
-    "::Ice::Object",
-    "::and::echo"
-};
-
-}
-
-bool
-_cpp_and::echo::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_and_echo_ids, iceC_and_echo_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-_cpp_and::echo::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_and_echo_ids[0], &iceC_and_echo_ids[2]);
-}
-
-const ::std::string&
-_cpp_and::echo::ice_id(const ::Ice::Current&) const
+std::string
+_cpp_and::echo::ice_id() const
 {
     return ice_staticId();
 }
@@ -1799,7 +1777,7 @@ _cpp_and::echo::ice_factory()
 
 /// \cond INTERNAL
 void
-_cpp_and::_icePatchObjectPtr(echoPtr& handle, const ::Ice::ObjectPtr& v)
+_cpp_and::_icePatchValuePtr(echoPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = echoPtr::dynamicCast(v);
     if(v && !handle)

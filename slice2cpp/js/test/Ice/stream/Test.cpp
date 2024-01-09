@@ -291,40 +291,18 @@ Test::OptionalClass::~OptionalClass()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::upCast(OptionalClass* p) { return p; }
+::Ice::Value* Test::upCast(OptionalClass* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::OptionalClass::ice_clone() const
 {
-    ::Ice::Object* p = new OptionalClass(*this);
+    ::Ice::Value* p = new OptionalClass(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_Test_OptionalClass_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::OptionalClass"
-};
-
-}
-
-bool
-Test::OptionalClass::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_OptionalClass_ids, iceC_Test_OptionalClass_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::OptionalClass::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_OptionalClass_ids[0], &iceC_Test_OptionalClass_ids[2]);
-}
-
-const ::std::string&
-Test::OptionalClass::ice_id(const ::Ice::Current&) const
+std::string
+Test::OptionalClass::ice_id() const
 {
     return ice_staticId();
 }
@@ -367,7 +345,7 @@ Test::OptionalClass::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(OptionalClassPtr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchValuePtr(OptionalClassPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = OptionalClassPtr::dynamicCast(v);
     if(v && !handle)
@@ -382,7 +360,7 @@ Test::MyClass::~MyClass()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::upCast(MyClass* p) { return p; }
+::Ice::Value* Test::upCast(MyClass* p) { return p; }
 
 /// \endcond
 
@@ -390,40 +368,18 @@ Test::MyClass::~MyClass()
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::MyClass::ice_clone() const
 {
-    ::Ice::Object* p = new MyClass(*this);
+    ::Ice::Value* p = new MyClass(*this);
     return p;
 }
 #if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-namespace
-{
-const ::std::string iceC_Test_MyClass_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::MyClass"
-};
-
-}
-
-bool
-Test::MyClass::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MyClass_ids, iceC_Test_MyClass_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::MyClass::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_MyClass_ids[0], &iceC_Test_MyClass_ids[2]);
-}
-
-const ::std::string&
-Test::MyClass::ice_id(const ::Ice::Current&) const
+std::string
+Test::MyClass::ice_id() const
 {
     return ice_staticId();
 }
@@ -509,7 +465,7 @@ Test::MyClass::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(MyClassPtr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchValuePtr(MyClassPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = MyClassPtr::dynamicCast(v);
     if(v && !handle)

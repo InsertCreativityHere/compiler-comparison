@@ -215,40 +215,18 @@ WithNamespace::C1::~C1()
 }
 
 /// \cond INTERNAL
-::Ice::Object* WithNamespace::upCast(C1* p) { return p; }
+::Ice::Value* WithNamespace::upCast(C1* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 WithNamespace::C1::ice_clone() const
 {
-    ::Ice::Object* p = new C1(*this);
+    ::Ice::Value* p = new C1(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_WithNamespace_C1_ids[2] =
-{
-    "::Ice::Object",
-    "::WithNamespace::C1"
-};
-
-}
-
-bool
-WithNamespace::C1::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_WithNamespace_C1_ids, iceC_WithNamespace_C1_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-WithNamespace::C1::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_WithNamespace_C1_ids[0], &iceC_WithNamespace_C1_ids[2]);
-}
-
-const ::std::string&
-WithNamespace::C1::ice_id(const ::Ice::Current&) const
+std::string
+WithNamespace::C1::ice_id() const
 {
     return ice_staticId();
 }
@@ -291,7 +269,7 @@ WithNamespace::C1::ice_factory()
 
 /// \cond INTERNAL
 void
-WithNamespace::_icePatchObjectPtr(C1Ptr& handle, const ::Ice::ObjectPtr& v)
+WithNamespace::_icePatchValuePtr(C1Ptr& handle, const ::Ice::ValuePtr& v)
 {
     handle = C1Ptr::dynamicCast(v);
     if(v && !handle)
@@ -306,41 +284,18 @@ WithNamespace::C2::~C2()
 }
 
 /// \cond INTERNAL
-::Ice::Object* WithNamespace::upCast(C2* p) { return p; }
+::Ice::Value* WithNamespace::upCast(C2* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 WithNamespace::C2::ice_clone() const
 {
-    ::Ice::Object* p = new C2(*this);
+    ::Ice::Value* p = new C2(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_WithNamespace_C2_ids[3] =
-{
-    "::Ice::Object",
-    "::WithNamespace::C1",
-    "::WithNamespace::C2"
-};
-
-}
-
-bool
-WithNamespace::C2::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_WithNamespace_C2_ids, iceC_WithNamespace_C2_ids + 3, s);
-}
-
-::std::vector< ::std::string>
-WithNamespace::C2::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_WithNamespace_C2_ids[0], &iceC_WithNamespace_C2_ids[3]);
-}
-
-const ::std::string&
-WithNamespace::C2::ice_id(const ::Ice::Current&) const
+std::string
+WithNamespace::C2::ice_id() const
 {
     return ice_staticId();
 }
@@ -385,7 +340,7 @@ WithNamespace::C2::ice_factory()
 
 /// \cond INTERNAL
 void
-WithNamespace::_icePatchObjectPtr(C2Ptr& handle, const ::Ice::ObjectPtr& v)
+WithNamespace::_icePatchValuePtr(C2Ptr& handle, const ::Ice::ValuePtr& v)
 {
     handle = C2Ptr::dynamicCast(v);
     if(v && !handle)

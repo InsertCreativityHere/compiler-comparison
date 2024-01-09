@@ -70,41 +70,18 @@ Test::Derived::~Derived()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::upCast(Derived* p) { return p; }
+::Ice::Value* Test::upCast(Derived* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::Derived::ice_clone() const
 {
-    ::Ice::Object* p = new Derived(*this);
+    ::Ice::Value* p = new Derived(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_Test_Derived_ids[3] =
-{
-    "::Ice::Object",
-    "::Test::Base",
-    "::Test::Derived"
-};
-
-}
-
-bool
-Test::Derived::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Derived_ids, iceC_Test_Derived_ids + 3, s);
-}
-
-::std::vector< ::std::string>
-Test::Derived::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_Derived_ids[0], &iceC_Test_Derived_ids[3]);
-}
-
-const ::std::string&
-Test::Derived::ice_id(const ::Ice::Current&) const
+std::string
+Test::Derived::ice_id() const
 {
     return ice_staticId();
 }
@@ -149,7 +126,7 @@ Test::Derived::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(DerivedPtr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchValuePtr(DerivedPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = DerivedPtr::dynamicCast(v);
     if(v && !handle)

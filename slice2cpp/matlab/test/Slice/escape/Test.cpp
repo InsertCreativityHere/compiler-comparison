@@ -774,40 +774,18 @@ classdef::_cpp_break::logical::~logical()
 }
 
 /// \cond INTERNAL
-::Ice::Object* classdef::_cpp_break::upCast(logical* p) { return p; }
+::Ice::Value* classdef::_cpp_break::upCast(logical* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 classdef::_cpp_break::logical::ice_clone() const
 {
-    ::Ice::Object* p = new logical(*this);
+    ::Ice::Value* p = new logical(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_classdef_break_logical_ids[2] =
-{
-    "::Ice::Object",
-    "::classdef::break::logical"
-};
-
-}
-
-bool
-classdef::_cpp_break::logical::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_classdef_break_logical_ids, iceC_classdef_break_logical_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-classdef::_cpp_break::logical::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_classdef_break_logical_ids[0], &iceC_classdef_break_logical_ids[2]);
-}
-
-const ::std::string&
-classdef::_cpp_break::logical::ice_id(const ::Ice::Current&) const
+std::string
+classdef::_cpp_break::logical::ice_id() const
 {
     return ice_staticId();
 }
@@ -850,7 +828,7 @@ classdef::_cpp_break::logical::ice_factory()
 
 /// \cond INTERNAL
 void
-classdef::_cpp_break::_icePatchObjectPtr(logicalPtr& handle, const ::Ice::ObjectPtr& v)
+classdef::_cpp_break::_icePatchValuePtr(logicalPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = logicalPtr::dynamicCast(v);
     if(v && !handle)
@@ -865,41 +843,18 @@ classdef::_cpp_break::_cpp_xor::~_cpp_xor()
 }
 
 /// \cond INTERNAL
-::Ice::Object* classdef::_cpp_break::upCast(_cpp_xor* p) { return p; }
+::Ice::Value* classdef::_cpp_break::upCast(_cpp_xor* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 classdef::_cpp_break::_cpp_xor::ice_clone() const
 {
-    ::Ice::Object* p = new _cpp_xor(*this);
+    ::Ice::Value* p = new _cpp_xor(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_classdef_break_xor_ids[3] =
-{
-    "::Ice::Object",
-    "::classdef::break::logical",
-    "::classdef::break::xor"
-};
-
-}
-
-bool
-classdef::_cpp_break::_cpp_xor::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_classdef_break_xor_ids, iceC_classdef_break_xor_ids + 3, s);
-}
-
-::std::vector< ::std::string>
-classdef::_cpp_break::_cpp_xor::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_classdef_break_xor_ids[0], &iceC_classdef_break_xor_ids[3]);
-}
-
-const ::std::string&
-classdef::_cpp_break::_cpp_xor::ice_id(const ::Ice::Current&) const
+std::string
+classdef::_cpp_break::_cpp_xor::ice_id() const
 {
     return ice_staticId();
 }
@@ -944,7 +899,7 @@ classdef::_cpp_break::_cpp_xor::ice_factory()
 
 /// \cond INTERNAL
 void
-classdef::_cpp_break::_icePatchObjectPtr(xorPtr& handle, const ::Ice::ObjectPtr& v)
+classdef::_cpp_break::_icePatchValuePtr(xorPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = xorPtr::dynamicCast(v);
     if(v && !handle)
@@ -959,40 +914,18 @@ classdef::_cpp_break::_cpp_try::~_cpp_try()
 }
 
 /// \cond INTERNAL
-::Ice::Object* classdef::_cpp_break::upCast(_cpp_try* p) { return p; }
+::Ice::Value* classdef::_cpp_break::upCast(_cpp_try* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 classdef::_cpp_break::_cpp_try::ice_clone() const
 {
-    ::Ice::Object* p = new _cpp_try(*this);
+    ::Ice::Value* p = new _cpp_try(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_classdef_break_try_ids[2] =
-{
-    "::Ice::Object",
-    "::classdef::break::try"
-};
-
-}
-
-bool
-classdef::_cpp_break::_cpp_try::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_classdef_break_try_ids, iceC_classdef_break_try_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-classdef::_cpp_break::_cpp_try::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_classdef_break_try_ids[0], &iceC_classdef_break_try_ids[2]);
-}
-
-const ::std::string&
-classdef::_cpp_break::_cpp_try::ice_id(const ::Ice::Current&) const
+std::string
+classdef::_cpp_break::_cpp_try::ice_id() const
 {
     return ice_staticId();
 }
@@ -1035,7 +968,7 @@ classdef::_cpp_break::_cpp_try::ice_factory()
 
 /// \cond INTERNAL
 void
-classdef::_cpp_break::_icePatchObjectPtr(tryPtr& handle, const ::Ice::ObjectPtr& v)
+classdef::_cpp_break::_icePatchValuePtr(tryPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = tryPtr::dynamicCast(v);
     if(v && !handle)
@@ -1050,7 +983,7 @@ classdef::_cpp_break::properties::~properties()
 }
 
 /// \cond INTERNAL
-::Ice::Object* classdef::_cpp_break::upCast(properties* p) { return p; }
+::Ice::Value* classdef::_cpp_break::upCast(properties* p) { return p; }
 
 /// \endcond
 
@@ -1058,41 +991,18 @@ classdef::_cpp_break::properties::~properties()
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
-::Ice::ObjectPtr
+::Ice::ValuePtr
 classdef::_cpp_break::properties::ice_clone() const
 {
-    ::Ice::Object* p = new properties(*this);
+    ::Ice::Value* p = new properties(*this);
     return p;
 }
 #if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-namespace
-{
-const ::std::string iceC_classdef_break_properties_ids[3] =
-{
-    "::Ice::Object",
-    "::classdef::break::properties",
-    "::classdef::break::try"
-};
-
-}
-
-bool
-classdef::_cpp_break::properties::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_classdef_break_properties_ids, iceC_classdef_break_properties_ids + 3, s);
-}
-
-::std::vector< ::std::string>
-classdef::_cpp_break::properties::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_classdef_break_properties_ids[0], &iceC_classdef_break_properties_ids[3]);
-}
-
-const ::std::string&
-classdef::_cpp_break::properties::ice_id(const ::Ice::Current&) const
+std::string
+classdef::_cpp_break::properties::ice_id() const
 {
     return ice_staticId();
 }
@@ -1149,7 +1059,7 @@ classdef::_cpp_break::properties::ice_factory()
 
 /// \cond INTERNAL
 void
-classdef::_cpp_break::_icePatchObjectPtr(propertiesPtr& handle, const ::Ice::ObjectPtr& v)
+classdef::_cpp_break::_icePatchValuePtr(propertiesPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = propertiesPtr::dynamicCast(v);
     if(v && !handle)

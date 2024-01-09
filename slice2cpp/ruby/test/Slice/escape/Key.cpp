@@ -1321,40 +1321,18 @@ BEGIN::display::~display()
 }
 
 /// \cond INTERNAL
-::Ice::Object* BEGIN::upCast(display* p) { return p; }
+::Ice::Value* BEGIN::upCast(display* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 BEGIN::display::ice_clone() const
 {
-    ::Ice::Object* p = new display(*this);
+    ::Ice::Value* p = new display(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_BEGIN_display_ids[2] =
-{
-    "::BEGIN::display",
-    "::Ice::Object"
-};
-
-}
-
-bool
-BEGIN::display::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_BEGIN_display_ids, iceC_BEGIN_display_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-BEGIN::display::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_BEGIN_display_ids[0], &iceC_BEGIN_display_ids[2]);
-}
-
-const ::std::string&
-BEGIN::display::ice_id(const ::Ice::Current&) const
+std::string
+BEGIN::display::ice_id() const
 {
     return ice_staticId();
 }
@@ -1397,7 +1375,7 @@ BEGIN::display::ice_factory()
 
 /// \cond INTERNAL
 void
-BEGIN::_icePatchObjectPtr(displayPtr& handle, const ::Ice::ObjectPtr& v)
+BEGIN::_icePatchValuePtr(displayPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = displayPtr::dynamicCast(v);
     if(v && !handle)

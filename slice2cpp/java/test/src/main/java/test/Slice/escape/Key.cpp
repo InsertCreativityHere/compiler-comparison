@@ -1451,40 +1451,18 @@ abstract::_cpp_else::~_cpp_else()
 }
 
 /// \cond INTERNAL
-::Ice::Object* abstract::upCast(_cpp_else* p) { return p; }
+::Ice::Value* abstract::upCast(_cpp_else* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 abstract::_cpp_else::ice_clone() const
 {
-    ::Ice::Object* p = new _cpp_else(*this);
+    ::Ice::Value* p = new _cpp_else(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_abstract_else_ids[2] =
-{
-    "::Ice::Object",
-    "::abstract::else"
-};
-
-}
-
-bool
-abstract::_cpp_else::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_abstract_else_ids, iceC_abstract_else_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-abstract::_cpp_else::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_abstract_else_ids[0], &iceC_abstract_else_ids[2]);
-}
-
-const ::std::string&
-abstract::_cpp_else::ice_id(const ::Ice::Current&) const
+std::string
+abstract::_cpp_else::ice_id() const
 {
     return ice_staticId();
 }
@@ -1527,7 +1505,7 @@ abstract::_cpp_else::ice_factory()
 
 /// \cond INTERNAL
 void
-abstract::_icePatchObjectPtr(elsePtr& handle, const ::Ice::ObjectPtr& v)
+abstract::_icePatchValuePtr(elsePtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = elsePtr::dynamicCast(v);
     if(v && !handle)

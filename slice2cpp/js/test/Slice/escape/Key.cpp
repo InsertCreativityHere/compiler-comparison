@@ -2902,40 +2902,18 @@ await::_cpp_delete::~_cpp_delete()
 }
 
 /// \cond INTERNAL
-::Ice::Object* await::upCast(_cpp_delete* p) { return p; }
+::Ice::Value* await::upCast(_cpp_delete* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 await::_cpp_delete::ice_clone() const
 {
-    ::Ice::Object* p = new _cpp_delete(*this);
+    ::Ice::Value* p = new _cpp_delete(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_await_delete_ids[2] =
-{
-    "::Ice::Object",
-    "::await::delete"
-};
-
-}
-
-bool
-await::_cpp_delete::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_await_delete_ids, iceC_await_delete_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-await::_cpp_delete::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_await_delete_ids[0], &iceC_await_delete_ids[2]);
-}
-
-const ::std::string&
-await::_cpp_delete::ice_id(const ::Ice::Current&) const
+std::string
+await::_cpp_delete::ice_id() const
 {
     return ice_staticId();
 }
@@ -2978,7 +2956,7 @@ await::_cpp_delete::ice_factory()
 
 /// \cond INTERNAL
 void
-await::_icePatchObjectPtr(deletePtr& handle, const ::Ice::ObjectPtr& v)
+await::_icePatchValuePtr(deletePtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = deletePtr::dynamicCast(v);
     if(v && !handle)
@@ -2993,40 +2971,18 @@ await::package::~package()
 }
 
 /// \cond INTERNAL
-::Ice::Object* await::upCast(package* p) { return p; }
+::Ice::Value* await::upCast(package* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 await::package::ice_clone() const
 {
-    ::Ice::Object* p = new package(*this);
+    ::Ice::Value* p = new package(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_await_package_ids[2] =
-{
-    "::Ice::Object",
-    "::await::package"
-};
-
-}
-
-bool
-await::package::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_await_package_ids, iceC_await_package_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-await::package::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_await_package_ids[0], &iceC_await_package_ids[2]);
-}
-
-const ::std::string&
-await::package::ice_id(const ::Ice::Current&) const
+std::string
+await::package::ice_id() const
 {
     return ice_staticId();
 }
@@ -3069,7 +3025,7 @@ await::package::ice_factory()
 
 /// \cond INTERNAL
 void
-await::_icePatchObjectPtr(packagePtr& handle, const ::Ice::ObjectPtr& v)
+await::_icePatchValuePtr(packagePtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = packagePtr::dynamicCast(v);
     if(v && !handle)

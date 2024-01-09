@@ -295,11 +295,11 @@ namespace Test
 
 class D;
 /// \cond INTERNAL
-::Ice::Object* upCast(D*);
+::Ice::Value* upCast(D*);
 /// \endcond
 typedef ::IceInternal::Handle< D> DPtr;
 /// \cond INTERNAL
-void _icePatchObjectPtr(DPtr&, const ::Ice::ObjectPtr&);
+void _icePatchValuePtr(DPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Initial2> Initial2Prx;
 typedef Initial2Prx Initial2PrxPtr;
@@ -345,32 +345,32 @@ class Initial2 : public virtual ::Ice::Proxy<Initial2, ::IceProxy::Ice::Object>
 {
 public:
 
-    void opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ObjectPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    void opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ValuePtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         end_opClassAndUnknownOptional(_iceI_begin_opClassAndUnknownOptional(p, o, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ObjectPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ValuePtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_opClassAndUnknownOptional(p, o, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ObjectPtr>& o, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ValuePtr>& o, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opClassAndUnknownOptional(p, o, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ObjectPtr>& o, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ValuePtr>& o, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opClassAndUnknownOptional(p, o, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ObjectPtr>& o, const ::Test::Callback_Initial2_opClassAndUnknownOptionalPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ValuePtr>& o, const ::Test::Callback_Initial2_opClassAndUnknownOptionalPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opClassAndUnknownOptional(p, o, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ObjectPtr>& o, const ::Ice::Context& context, const ::Test::Callback_Initial2_opClassAndUnknownOptionalPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_opClassAndUnknownOptional(const ::Test::APtr& p, const std::optional< ::Ice::ValuePtr>& o, const ::Ice::Context& context, const ::Test::Callback_Initial2_opClassAndUnknownOptionalPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_opClassAndUnknownOptional(p, o, context, cb, cookie);
     }
@@ -379,7 +379,7 @@ public:
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_opClassAndUnknownOptional(const ::Test::APtr&, const std::optional< ::Ice::ObjectPtr>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_opClassAndUnknownOptional(const ::Test::APtr&, const std::optional< ::Ice::ValuePtr>&, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
@@ -480,7 +480,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual void opClassAndUnknownOptional(const APtr& p, const std::optional< ::Ice::ObjectPtr>& o, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    virtual void opClassAndUnknownOptional(const APtr& p, const std::optional< ::Ice::ValuePtr>& o, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
     /// \cond INTERNAL
     bool _iceD_opClassAndUnknownOptional(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -529,33 +529,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
     /// \cond INTERNAL
@@ -588,12 +572,12 @@ static ::Ice::ValueFactoryPtr _iceS_D_init = ::Test::D::ice_factory();
 /// \cond INTERNAL
 inline bool operator==(const D& lhs, const D& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const D& lhs, const D& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 

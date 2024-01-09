@@ -486,7 +486,7 @@ Test::SPreservedClass::~SPreservedClass()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::upCast(SPreservedClass* p) { return p; }
+::Ice::Value* Test::upCast(SPreservedClass* p) { return p; }
 
 /// \endcond
 
@@ -494,41 +494,18 @@ Test::SPreservedClass::~SPreservedClass()
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::SPreservedClass::ice_clone() const
 {
-    ::Ice::Object* p = new SPreservedClass(*this);
+    ::Ice::Value* p = new SPreservedClass(*this);
     return p;
 }
 #if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-namespace
-{
-const ::std::string iceC_Test_SPreservedClass_ids[3] =
-{
-    "::Ice::Object",
-    "::Test::BaseClass",
-    "::Test::SPreservedClass"
-};
-
-}
-
-bool
-Test::SPreservedClass::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_SPreservedClass_ids, iceC_Test_SPreservedClass_ids + 3, s);
-}
-
-::std::vector< ::std::string>
-Test::SPreservedClass::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_SPreservedClass_ids[0], &iceC_Test_SPreservedClass_ids[3]);
-}
-
-const ::std::string&
-Test::SPreservedClass::ice_id(const ::Ice::Current&) const
+std::string
+Test::SPreservedClass::ice_id() const
 {
     return ice_staticId();
 }
@@ -573,7 +550,7 @@ Test::SPreservedClass::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(SPreservedClassPtr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchValuePtr(SPreservedClassPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = SPreservedClassPtr::dynamicCast(v);
     if(v && !handle)

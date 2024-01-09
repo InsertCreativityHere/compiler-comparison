@@ -83,40 +83,18 @@ Test::Default::~Default()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::upCast(Default* p) { return p; }
+::Ice::Value* Test::upCast(Default* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::Default::ice_clone() const
 {
-    ::Ice::Object* p = new Default(*this);
+    ::Ice::Value* p = new Default(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_Test_Default_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Default"
-};
-
-}
-
-bool
-Test::Default::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Default_ids, iceC_Test_Default_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::Default::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_Default_ids[0], &iceC_Test_Default_ids[2]);
-}
-
-const ::std::string&
-Test::Default::ice_id(const ::Ice::Current&) const
+std::string
+Test::Default::ice_id() const
 {
     return ice_staticId();
 }
@@ -159,7 +137,7 @@ Test::Default::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(DefaultPtr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchValuePtr(DefaultPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = DefaultPtr::dynamicCast(v);
     if(v && !handle)
@@ -174,40 +152,18 @@ Test::NoDefault::~NoDefault()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::upCast(NoDefault* p) { return p; }
+::Ice::Value* Test::upCast(NoDefault* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::NoDefault::ice_clone() const
 {
-    ::Ice::Object* p = new NoDefault(*this);
+    ::Ice::Value* p = new NoDefault(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_Test_NoDefault_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::NoDefault"
-};
-
-}
-
-bool
-Test::NoDefault::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_NoDefault_ids, iceC_Test_NoDefault_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::NoDefault::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_NoDefault_ids[0], &iceC_Test_NoDefault_ids[2]);
-}
-
-const ::std::string&
-Test::NoDefault::ice_id(const ::Ice::Current&) const
+std::string
+Test::NoDefault::ice_id() const
 {
     return ice_staticId();
 }
@@ -250,7 +206,7 @@ Test::NoDefault::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(NoDefaultPtr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchValuePtr(NoDefaultPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = NoDefaultPtr::dynamicCast(v);
     if(v && !handle)

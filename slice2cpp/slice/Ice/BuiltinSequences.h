@@ -161,7 +161,7 @@ typedef ::std::vector< ::std::string> StringSeq;
 /**
  * A sequence of objects.
  */
-typedef ::std::vector<ObjectPtr> ObjectSeq;
+typedef ::std::vector<ValuePtr> ObjectSeq;
 
 /**
  * A sequence of object proxies.

@@ -207,40 +207,18 @@ IceGrid::CommunicatorDescriptor::~CommunicatorDescriptor()
 }
 
 /// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(CommunicatorDescriptor* p) { return p; }
+ICEGRID_API ::Ice::Value* IceGrid::upCast(CommunicatorDescriptor* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 IceGrid::CommunicatorDescriptor::ice_clone() const
 {
-    ::Ice::Object* p = new CommunicatorDescriptor(*this);
+    ::Ice::Value* p = new CommunicatorDescriptor(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_IceGrid_CommunicatorDescriptor_ids[2] =
-{
-    "::Ice::Object",
-    "::IceGrid::CommunicatorDescriptor"
-};
-
-}
-
-bool
-IceGrid::CommunicatorDescriptor::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceGrid_CommunicatorDescriptor_ids, iceC_IceGrid_CommunicatorDescriptor_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-IceGrid::CommunicatorDescriptor::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_IceGrid_CommunicatorDescriptor_ids[0], &iceC_IceGrid_CommunicatorDescriptor_ids[2]);
-}
-
-const ::std::string&
-IceGrid::CommunicatorDescriptor::ice_id(const ::Ice::Current&) const
+std::string
+IceGrid::CommunicatorDescriptor::ice_id() const
 {
     return ice_staticId();
 }
@@ -283,7 +261,7 @@ IceGrid::CommunicatorDescriptor::ice_factory()
 
 /// \cond INTERNAL
 void
-IceGrid::_icePatchObjectPtr(CommunicatorDescriptorPtr& handle, const ::Ice::ObjectPtr& v)
+IceGrid::_icePatchValuePtr(CommunicatorDescriptorPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = CommunicatorDescriptorPtr::dynamicCast(v);
     if(v && !handle)
@@ -298,41 +276,18 @@ IceGrid::ServerDescriptor::~ServerDescriptor()
 }
 
 /// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(ServerDescriptor* p) { return p; }
+ICEGRID_API ::Ice::Value* IceGrid::upCast(ServerDescriptor* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 IceGrid::ServerDescriptor::ice_clone() const
 {
-    ::Ice::Object* p = new ServerDescriptor(*this);
+    ::Ice::Value* p = new ServerDescriptor(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_IceGrid_ServerDescriptor_ids[3] =
-{
-    "::Ice::Object",
-    "::IceGrid::CommunicatorDescriptor",
-    "::IceGrid::ServerDescriptor"
-};
-
-}
-
-bool
-IceGrid::ServerDescriptor::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceGrid_ServerDescriptor_ids, iceC_IceGrid_ServerDescriptor_ids + 3, s);
-}
-
-::std::vector< ::std::string>
-IceGrid::ServerDescriptor::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_IceGrid_ServerDescriptor_ids[0], &iceC_IceGrid_ServerDescriptor_ids[3]);
-}
-
-const ::std::string&
-IceGrid::ServerDescriptor::ice_id(const ::Ice::Current&) const
+std::string
+IceGrid::ServerDescriptor::ice_id() const
 {
     return ice_staticId();
 }
@@ -377,7 +332,7 @@ IceGrid::ServerDescriptor::ice_factory()
 
 /// \cond INTERNAL
 void
-IceGrid::_icePatchObjectPtr(ServerDescriptorPtr& handle, const ::Ice::ObjectPtr& v)
+IceGrid::_icePatchValuePtr(ServerDescriptorPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = ServerDescriptorPtr::dynamicCast(v);
     if(v && !handle)
@@ -392,41 +347,18 @@ IceGrid::ServiceDescriptor::~ServiceDescriptor()
 }
 
 /// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(ServiceDescriptor* p) { return p; }
+ICEGRID_API ::Ice::Value* IceGrid::upCast(ServiceDescriptor* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 IceGrid::ServiceDescriptor::ice_clone() const
 {
-    ::Ice::Object* p = new ServiceDescriptor(*this);
+    ::Ice::Value* p = new ServiceDescriptor(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_IceGrid_ServiceDescriptor_ids[3] =
-{
-    "::Ice::Object",
-    "::IceGrid::CommunicatorDescriptor",
-    "::IceGrid::ServiceDescriptor"
-};
-
-}
-
-bool
-IceGrid::ServiceDescriptor::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceGrid_ServiceDescriptor_ids, iceC_IceGrid_ServiceDescriptor_ids + 3, s);
-}
-
-::std::vector< ::std::string>
-IceGrid::ServiceDescriptor::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_IceGrid_ServiceDescriptor_ids[0], &iceC_IceGrid_ServiceDescriptor_ids[3]);
-}
-
-const ::std::string&
-IceGrid::ServiceDescriptor::ice_id(const ::Ice::Current&) const
+std::string
+IceGrid::ServiceDescriptor::ice_id() const
 {
     return ice_staticId();
 }
@@ -471,7 +403,7 @@ IceGrid::ServiceDescriptor::ice_factory()
 
 /// \cond INTERNAL
 void
-IceGrid::_icePatchObjectPtr(ServiceDescriptorPtr& handle, const ::Ice::ObjectPtr& v)
+IceGrid::_icePatchValuePtr(ServiceDescriptorPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = ServiceDescriptorPtr::dynamicCast(v);
     if(v && !handle)
@@ -486,7 +418,7 @@ IceGrid::IceBoxDescriptor::~IceBoxDescriptor()
 }
 
 /// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(IceBoxDescriptor* p) { return p; }
+ICEGRID_API ::Ice::Value* IceGrid::upCast(IceBoxDescriptor* p) { return p; }
 
 /// \endcond
 
@@ -494,42 +426,18 @@ ICEGRID_API ::Ice::Object* IceGrid::upCast(IceBoxDescriptor* p) { return p; }
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
-::Ice::ObjectPtr
+::Ice::ValuePtr
 IceGrid::IceBoxDescriptor::ice_clone() const
 {
-    ::Ice::Object* p = new IceBoxDescriptor(*this);
+    ::Ice::Value* p = new IceBoxDescriptor(*this);
     return p;
 }
 #if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-namespace
-{
-const ::std::string iceC_IceGrid_IceBoxDescriptor_ids[4] =
-{
-    "::Ice::Object",
-    "::IceGrid::CommunicatorDescriptor",
-    "::IceGrid::IceBoxDescriptor",
-    "::IceGrid::ServerDescriptor"
-};
-
-}
-
-bool
-IceGrid::IceBoxDescriptor::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceGrid_IceBoxDescriptor_ids, iceC_IceGrid_IceBoxDescriptor_ids + 4, s);
-}
-
-::std::vector< ::std::string>
-IceGrid::IceBoxDescriptor::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_IceGrid_IceBoxDescriptor_ids[0], &iceC_IceGrid_IceBoxDescriptor_ids[4]);
-}
-
-const ::std::string&
-IceGrid::IceBoxDescriptor::ice_id(const ::Ice::Current&) const
+std::string
+IceGrid::IceBoxDescriptor::ice_id() const
 {
     return ice_staticId();
 }
@@ -591,7 +499,7 @@ IceGrid::IceBoxDescriptor::ice_factory()
 
 /// \cond INTERNAL
 void
-IceGrid::_icePatchObjectPtr(IceBoxDescriptorPtr& handle, const ::Ice::ObjectPtr& v)
+IceGrid::_icePatchValuePtr(IceBoxDescriptorPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = IceBoxDescriptorPtr::dynamicCast(v);
     if(v && !handle)
@@ -606,40 +514,18 @@ IceGrid::LoadBalancingPolicy::~LoadBalancingPolicy()
 }
 
 /// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(LoadBalancingPolicy* p) { return p; }
+ICEGRID_API ::Ice::Value* IceGrid::upCast(LoadBalancingPolicy* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 IceGrid::LoadBalancingPolicy::ice_clone() const
 {
-    ::Ice::Object* p = new LoadBalancingPolicy(*this);
+    ::Ice::Value* p = new LoadBalancingPolicy(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_IceGrid_LoadBalancingPolicy_ids[2] =
-{
-    "::Ice::Object",
-    "::IceGrid::LoadBalancingPolicy"
-};
-
-}
-
-bool
-IceGrid::LoadBalancingPolicy::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceGrid_LoadBalancingPolicy_ids, iceC_IceGrid_LoadBalancingPolicy_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-IceGrid::LoadBalancingPolicy::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_IceGrid_LoadBalancingPolicy_ids[0], &iceC_IceGrid_LoadBalancingPolicy_ids[2]);
-}
-
-const ::std::string&
-IceGrid::LoadBalancingPolicy::ice_id(const ::Ice::Current&) const
+std::string
+IceGrid::LoadBalancingPolicy::ice_id() const
 {
     return ice_staticId();
 }
@@ -682,7 +568,7 @@ IceGrid::LoadBalancingPolicy::ice_factory()
 
 /// \cond INTERNAL
 void
-IceGrid::_icePatchObjectPtr(LoadBalancingPolicyPtr& handle, const ::Ice::ObjectPtr& v)
+IceGrid::_icePatchValuePtr(LoadBalancingPolicyPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = LoadBalancingPolicyPtr::dynamicCast(v);
     if(v && !handle)
@@ -697,41 +583,18 @@ IceGrid::RandomLoadBalancingPolicy::~RandomLoadBalancingPolicy()
 }
 
 /// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(RandomLoadBalancingPolicy* p) { return p; }
+ICEGRID_API ::Ice::Value* IceGrid::upCast(RandomLoadBalancingPolicy* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 IceGrid::RandomLoadBalancingPolicy::ice_clone() const
 {
-    ::Ice::Object* p = new RandomLoadBalancingPolicy(*this);
+    ::Ice::Value* p = new RandomLoadBalancingPolicy(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_IceGrid_RandomLoadBalancingPolicy_ids[3] =
-{
-    "::Ice::Object",
-    "::IceGrid::LoadBalancingPolicy",
-    "::IceGrid::RandomLoadBalancingPolicy"
-};
-
-}
-
-bool
-IceGrid::RandomLoadBalancingPolicy::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceGrid_RandomLoadBalancingPolicy_ids, iceC_IceGrid_RandomLoadBalancingPolicy_ids + 3, s);
-}
-
-::std::vector< ::std::string>
-IceGrid::RandomLoadBalancingPolicy::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_IceGrid_RandomLoadBalancingPolicy_ids[0], &iceC_IceGrid_RandomLoadBalancingPolicy_ids[3]);
-}
-
-const ::std::string&
-IceGrid::RandomLoadBalancingPolicy::ice_id(const ::Ice::Current&) const
+std::string
+IceGrid::RandomLoadBalancingPolicy::ice_id() const
 {
     return ice_staticId();
 }
@@ -776,7 +639,7 @@ IceGrid::RandomLoadBalancingPolicy::ice_factory()
 
 /// \cond INTERNAL
 void
-IceGrid::_icePatchObjectPtr(RandomLoadBalancingPolicyPtr& handle, const ::Ice::ObjectPtr& v)
+IceGrid::_icePatchValuePtr(RandomLoadBalancingPolicyPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = RandomLoadBalancingPolicyPtr::dynamicCast(v);
     if(v && !handle)
@@ -791,41 +654,18 @@ IceGrid::OrderedLoadBalancingPolicy::~OrderedLoadBalancingPolicy()
 }
 
 /// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(OrderedLoadBalancingPolicy* p) { return p; }
+ICEGRID_API ::Ice::Value* IceGrid::upCast(OrderedLoadBalancingPolicy* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 IceGrid::OrderedLoadBalancingPolicy::ice_clone() const
 {
-    ::Ice::Object* p = new OrderedLoadBalancingPolicy(*this);
+    ::Ice::Value* p = new OrderedLoadBalancingPolicy(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_IceGrid_OrderedLoadBalancingPolicy_ids[3] =
-{
-    "::Ice::Object",
-    "::IceGrid::LoadBalancingPolicy",
-    "::IceGrid::OrderedLoadBalancingPolicy"
-};
-
-}
-
-bool
-IceGrid::OrderedLoadBalancingPolicy::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceGrid_OrderedLoadBalancingPolicy_ids, iceC_IceGrid_OrderedLoadBalancingPolicy_ids + 3, s);
-}
-
-::std::vector< ::std::string>
-IceGrid::OrderedLoadBalancingPolicy::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_IceGrid_OrderedLoadBalancingPolicy_ids[0], &iceC_IceGrid_OrderedLoadBalancingPolicy_ids[3]);
-}
-
-const ::std::string&
-IceGrid::OrderedLoadBalancingPolicy::ice_id(const ::Ice::Current&) const
+std::string
+IceGrid::OrderedLoadBalancingPolicy::ice_id() const
 {
     return ice_staticId();
 }
@@ -870,7 +710,7 @@ IceGrid::OrderedLoadBalancingPolicy::ice_factory()
 
 /// \cond INTERNAL
 void
-IceGrid::_icePatchObjectPtr(OrderedLoadBalancingPolicyPtr& handle, const ::Ice::ObjectPtr& v)
+IceGrid::_icePatchValuePtr(OrderedLoadBalancingPolicyPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = OrderedLoadBalancingPolicyPtr::dynamicCast(v);
     if(v && !handle)
@@ -885,41 +725,18 @@ IceGrid::RoundRobinLoadBalancingPolicy::~RoundRobinLoadBalancingPolicy()
 }
 
 /// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(RoundRobinLoadBalancingPolicy* p) { return p; }
+ICEGRID_API ::Ice::Value* IceGrid::upCast(RoundRobinLoadBalancingPolicy* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 IceGrid::RoundRobinLoadBalancingPolicy::ice_clone() const
 {
-    ::Ice::Object* p = new RoundRobinLoadBalancingPolicy(*this);
+    ::Ice::Value* p = new RoundRobinLoadBalancingPolicy(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_IceGrid_RoundRobinLoadBalancingPolicy_ids[3] =
-{
-    "::Ice::Object",
-    "::IceGrid::LoadBalancingPolicy",
-    "::IceGrid::RoundRobinLoadBalancingPolicy"
-};
-
-}
-
-bool
-IceGrid::RoundRobinLoadBalancingPolicy::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceGrid_RoundRobinLoadBalancingPolicy_ids, iceC_IceGrid_RoundRobinLoadBalancingPolicy_ids + 3, s);
-}
-
-::std::vector< ::std::string>
-IceGrid::RoundRobinLoadBalancingPolicy::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_IceGrid_RoundRobinLoadBalancingPolicy_ids[0], &iceC_IceGrid_RoundRobinLoadBalancingPolicy_ids[3]);
-}
-
-const ::std::string&
-IceGrid::RoundRobinLoadBalancingPolicy::ice_id(const ::Ice::Current&) const
+std::string
+IceGrid::RoundRobinLoadBalancingPolicy::ice_id() const
 {
     return ice_staticId();
 }
@@ -964,7 +781,7 @@ IceGrid::RoundRobinLoadBalancingPolicy::ice_factory()
 
 /// \cond INTERNAL
 void
-IceGrid::_icePatchObjectPtr(RoundRobinLoadBalancingPolicyPtr& handle, const ::Ice::ObjectPtr& v)
+IceGrid::_icePatchValuePtr(RoundRobinLoadBalancingPolicyPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = RoundRobinLoadBalancingPolicyPtr::dynamicCast(v);
     if(v && !handle)
@@ -979,41 +796,18 @@ IceGrid::AdaptiveLoadBalancingPolicy::~AdaptiveLoadBalancingPolicy()
 }
 
 /// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(AdaptiveLoadBalancingPolicy* p) { return p; }
+ICEGRID_API ::Ice::Value* IceGrid::upCast(AdaptiveLoadBalancingPolicy* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 IceGrid::AdaptiveLoadBalancingPolicy::ice_clone() const
 {
-    ::Ice::Object* p = new AdaptiveLoadBalancingPolicy(*this);
+    ::Ice::Value* p = new AdaptiveLoadBalancingPolicy(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_IceGrid_AdaptiveLoadBalancingPolicy_ids[3] =
-{
-    "::Ice::Object",
-    "::IceGrid::AdaptiveLoadBalancingPolicy",
-    "::IceGrid::LoadBalancingPolicy"
-};
-
-}
-
-bool
-IceGrid::AdaptiveLoadBalancingPolicy::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceGrid_AdaptiveLoadBalancingPolicy_ids, iceC_IceGrid_AdaptiveLoadBalancingPolicy_ids + 3, s);
-}
-
-::std::vector< ::std::string>
-IceGrid::AdaptiveLoadBalancingPolicy::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_IceGrid_AdaptiveLoadBalancingPolicy_ids[0], &iceC_IceGrid_AdaptiveLoadBalancingPolicy_ids[3]);
-}
-
-const ::std::string&
-IceGrid::AdaptiveLoadBalancingPolicy::ice_id(const ::Ice::Current&) const
+std::string
+IceGrid::AdaptiveLoadBalancingPolicy::ice_id() const
 {
     return ice_staticId();
 }
@@ -1058,7 +852,7 @@ IceGrid::AdaptiveLoadBalancingPolicy::ice_factory()
 
 /// \cond INTERNAL
 void
-IceGrid::_icePatchObjectPtr(AdaptiveLoadBalancingPolicyPtr& handle, const ::Ice::ObjectPtr& v)
+IceGrid::_icePatchValuePtr(AdaptiveLoadBalancingPolicyPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = AdaptiveLoadBalancingPolicyPtr::dynamicCast(v);
     if(v && !handle)
@@ -1073,40 +867,18 @@ IceGrid::BoxedString::~BoxedString()
 }
 
 /// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(BoxedString* p) { return p; }
+ICEGRID_API ::Ice::Value* IceGrid::upCast(BoxedString* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 IceGrid::BoxedString::ice_clone() const
 {
-    ::Ice::Object* p = new BoxedString(*this);
+    ::Ice::Value* p = new BoxedString(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_IceGrid_BoxedString_ids[2] =
-{
-    "::Ice::Object",
-    "::IceGrid::BoxedString"
-};
-
-}
-
-bool
-IceGrid::BoxedString::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceGrid_BoxedString_ids, iceC_IceGrid_BoxedString_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-IceGrid::BoxedString::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_IceGrid_BoxedString_ids[0], &iceC_IceGrid_BoxedString_ids[2]);
-}
-
-const ::std::string&
-IceGrid::BoxedString::ice_id(const ::Ice::Current&) const
+std::string
+IceGrid::BoxedString::ice_id() const
 {
     return ice_staticId();
 }
@@ -1149,7 +921,7 @@ IceGrid::BoxedString::ice_factory()
 
 /// \cond INTERNAL
 void
-IceGrid::_icePatchObjectPtr(BoxedStringPtr& handle, const ::Ice::ObjectPtr& v)
+IceGrid::_icePatchValuePtr(BoxedStringPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = BoxedStringPtr::dynamicCast(v);
     if(v && !handle)
@@ -1164,40 +936,18 @@ IceGrid::BoxedDistributionDescriptor::~BoxedDistributionDescriptor()
 }
 
 /// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(BoxedDistributionDescriptor* p) { return p; }
+ICEGRID_API ::Ice::Value* IceGrid::upCast(BoxedDistributionDescriptor* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 IceGrid::BoxedDistributionDescriptor::ice_clone() const
 {
-    ::Ice::Object* p = new BoxedDistributionDescriptor(*this);
+    ::Ice::Value* p = new BoxedDistributionDescriptor(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_IceGrid_BoxedDistributionDescriptor_ids[2] =
-{
-    "::Ice::Object",
-    "::IceGrid::BoxedDistributionDescriptor"
-};
-
-}
-
-bool
-IceGrid::BoxedDistributionDescriptor::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceGrid_BoxedDistributionDescriptor_ids, iceC_IceGrid_BoxedDistributionDescriptor_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-IceGrid::BoxedDistributionDescriptor::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_IceGrid_BoxedDistributionDescriptor_ids[0], &iceC_IceGrid_BoxedDistributionDescriptor_ids[2]);
-}
-
-const ::std::string&
-IceGrid::BoxedDistributionDescriptor::ice_id(const ::Ice::Current&) const
+std::string
+IceGrid::BoxedDistributionDescriptor::ice_id() const
 {
     return ice_staticId();
 }
@@ -1240,7 +990,7 @@ IceGrid::BoxedDistributionDescriptor::ice_factory()
 
 /// \cond INTERNAL
 void
-IceGrid::_icePatchObjectPtr(BoxedDistributionDescriptorPtr& handle, const ::Ice::ObjectPtr& v)
+IceGrid::_icePatchValuePtr(BoxedDistributionDescriptorPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = BoxedDistributionDescriptorPtr::dynamicCast(v);
     if(v && !handle)

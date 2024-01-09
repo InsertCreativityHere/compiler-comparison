@@ -411,40 +411,18 @@ User::UserInfo::~UserInfo()
 }
 
 /// \cond INTERNAL
-::Ice::Object* User::upCast(UserInfo* p) { return p; }
+::Ice::Value* User::upCast(UserInfo* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 User::UserInfo::ice_clone() const
 {
-    ::Ice::Object* p = new UserInfo(*this);
+    ::Ice::Value* p = new UserInfo(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_User_UserInfo_ids[2] =
-{
-    "::Ice::Object",
-    "::User::UserInfo"
-};
-
-}
-
-bool
-User::UserInfo::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_User_UserInfo_ids, iceC_User_UserInfo_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-User::UserInfo::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_User_UserInfo_ids[0], &iceC_User_UserInfo_ids[2]);
-}
-
-const ::std::string&
-User::UserInfo::ice_id(const ::Ice::Current&) const
+std::string
+User::UserInfo::ice_id() const
 {
     return ice_staticId();
 }
@@ -487,7 +465,7 @@ User::UserInfo::ice_factory()
 
 /// \cond INTERNAL
 void
-User::_icePatchObjectPtr(UserInfoPtr& handle, const ::Ice::ObjectPtr& v)
+User::_icePatchValuePtr(UserInfoPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = UserInfoPtr::dynamicCast(v);
     if(v && !handle)

@@ -2243,40 +2243,18 @@ Test::NumPy::D::~D()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::NumPy::upCast(D* p) { return p; }
+::Ice::Value* Test::NumPy::upCast(D* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::NumPy::D::ice_clone() const
 {
-    ::Ice::Object* p = new D(*this);
+    ::Ice::Value* p = new D(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_Test_NumPy_D_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::NumPy::D"
-};
-
-}
-
-bool
-Test::NumPy::D::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_NumPy_D_ids, iceC_Test_NumPy_D_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::NumPy::D::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_NumPy_D_ids[0], &iceC_Test_NumPy_D_ids[2]);
-}
-
-const ::std::string&
-Test::NumPy::D::ice_id(const ::Ice::Current&) const
+std::string
+Test::NumPy::D::ice_id() const
 {
     return ice_staticId();
 }
@@ -2319,7 +2297,7 @@ Test::NumPy::D::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::NumPy::_icePatchObjectPtr(DPtr& handle, const ::Ice::ObjectPtr& v)
+Test::NumPy::_icePatchValuePtr(DPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = DPtr::dynamicCast(v);
     if(v && !handle)

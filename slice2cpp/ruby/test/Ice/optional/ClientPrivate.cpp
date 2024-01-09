@@ -253,7 +253,7 @@ void
 /// \endcond
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial2::_iceI_begin_opClassAndUnknownOptional(const ::Test::APtr& iceP_p, const std::optional< ::Ice::ObjectPtr>& iceP_o, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial2::_iceI_begin_opClassAndUnknownOptional(const ::Test::APtr& iceP_p, const std::optional< ::Ice::ValuePtr>& iceP_o, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial2_opClassAndUnknownOptional_name, del, cookie, sync);
     try
@@ -365,7 +365,7 @@ Test::Initial2::_iceD_opClassAndUnknownOptional(::IceInternal::Incoming& inS, co
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
     APtr iceP_p;
-    std::optional< ::Ice::ObjectPtr> iceP_o;
+    std::optional< ::Ice::ValuePtr> iceP_o;
     istr->read(iceP_p);
     istr->read(1, iceP_o);
     istr->readPendingValues();
@@ -457,7 +457,7 @@ Test::D::~D()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::upCast(D* p) { return p; }
+::Ice::Value* Test::upCast(D* p) { return p; }
 
 /// \endcond
 
@@ -465,42 +465,18 @@ Test::D::~D()
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::D::ice_clone() const
 {
-    ::Ice::Object* p = new D(*this);
+    ::Ice::Value* p = new D(*this);
     return p;
 }
 #if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-namespace
-{
-const ::std::string iceC_Test_D_ids[4] =
-{
-    "::Ice::Object",
-    "::Test::A",
-    "::Test::B",
-    "::Test::D"
-};
-
-}
-
-bool
-Test::D::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_D_ids, iceC_Test_D_ids + 4, s);
-}
-
-::std::vector< ::std::string>
-Test::D::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_D_ids[0], &iceC_Test_D_ids[4]);
-}
-
-const ::std::string&
-Test::D::ice_id(const ::Ice::Current&) const
+std::string
+Test::D::ice_id() const
 {
     return ice_staticId();
 }
@@ -561,7 +537,7 @@ Test::D::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(DPtr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchValuePtr(DPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = DPtr::dynamicCast(v);
     if(v && !handle)

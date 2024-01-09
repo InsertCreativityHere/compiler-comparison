@@ -11488,40 +11488,18 @@ Test::MyClass1::~MyClass1()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::upCast(MyClass1* p) { return p; }
+::Ice::Value* Test::upCast(MyClass1* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::MyClass1::ice_clone() const
 {
-    ::Ice::Object* p = new MyClass1(*this);
+    ::Ice::Value* p = new MyClass1(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_Test_MyClass1_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::MyClass1"
-};
-
-}
-
-bool
-Test::MyClass1::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MyClass1_ids, iceC_Test_MyClass1_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::MyClass1::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_MyClass1_ids[0], &iceC_Test_MyClass1_ids[2]);
-}
-
-const ::std::string&
-Test::MyClass1::ice_id(const ::Ice::Current&) const
+std::string
+Test::MyClass1::ice_id() const
 {
     return ice_staticId();
 }
@@ -11564,7 +11542,7 @@ Test::MyClass1::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(MyClass1Ptr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchValuePtr(MyClass1Ptr& handle, const ::Ice::ValuePtr& v)
 {
     handle = MyClass1Ptr::dynamicCast(v);
     if(v && !handle)

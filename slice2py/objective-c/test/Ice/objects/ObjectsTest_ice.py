@@ -790,30 +790,6 @@ if 'Recursive' not in _M_Test.__dict__:
     _M_Test.Recursive = Recursive
     del Recursive
 
-if 'L' not in _M_Test.__dict__:
-    _M_Test.L = Ice.createTempClass()
-    class L(Ice.Value):
-        def __init__(self, data=''):
-            self.data = data
-
-        def ice_id(self):
-            return '::Test::L'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::L'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_L)
-
-        __repr__ = __str__
-
-    _M_Test._t_L = IcePy.defineValue('::Test::L', L, -1, (), False, False, None, (('data', (), IcePy._t_string, False, 0),))
-    L._ice_type = _M_Test._t_L
-
-    _M_Test.L = L
-    del L
-
 if 'K' not in _M_Test.__dict__:
     _M_Test.K = Ice.createTempClass()
     class K(Ice.Value):
@@ -839,6 +815,30 @@ if 'K' not in _M_Test.__dict__:
 
     _M_Test.K = K
     del K
+
+if 'L' not in _M_Test.__dict__:
+    _M_Test.L = Ice.createTempClass()
+    class L(Ice.Value):
+        def __init__(self, data=''):
+            self.data = data
+
+        def ice_id(self):
+            return '::Test::L'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::L'
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_L)
+
+        __repr__ = __str__
+
+    _M_Test._t_L = IcePy.defineValue('::Test::L', L, -1, (), False, False, None, (('data', (), IcePy._t_string, False, 0),))
+    L._ice_type = _M_Test._t_L
+
+    _M_Test.L = L
+    del L
 
 if '_t_ValueSeq' not in _M_Test.__dict__:
     _M_Test._t_ValueSeq = IcePy.defineSequence('::Test::ValueSeq', (), IcePy._t_Value)

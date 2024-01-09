@@ -5104,40 +5104,18 @@ Test::C::~C()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::upCast(C* p) { return p; }
+::Ice::Value* Test::upCast(C* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::C::ice_clone() const
 {
-    ::Ice::Object* p = new C(*this);
+    ::Ice::Value* p = new C(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_Test_C_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::C"
-};
-
-}
-
-bool
-Test::C::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_C_ids, iceC_Test_C_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::C::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_C_ids[0], &iceC_Test_C_ids[2]);
-}
-
-const ::std::string&
-Test::C::ice_id(const ::Ice::Current&) const
+std::string
+Test::C::ice_id() const
 {
     return ice_staticId();
 }
@@ -5180,7 +5158,7 @@ Test::C::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(CPtr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchValuePtr(CPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = CPtr::dynamicCast(v);
     if(v && !handle)
@@ -5195,40 +5173,18 @@ Test::C1::~C1()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::upCast(C1* p) { return p; }
+::Ice::Value* Test::upCast(C1* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::C1::ice_clone() const
 {
-    ::Ice::Object* p = new C1(*this);
+    ::Ice::Value* p = new C1(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_Test_C1_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::C1"
-};
-
-}
-
-bool
-Test::C1::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_C1_ids, iceC_Test_C1_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::C1::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_C1_ids[0], &iceC_Test_C1_ids[2]);
-}
-
-const ::std::string&
-Test::C1::ice_id(const ::Ice::Current&) const
+std::string
+Test::C1::ice_id() const
 {
     return ice_staticId();
 }
@@ -5271,7 +5227,7 @@ Test::C1::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(C1Ptr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchValuePtr(C1Ptr& handle, const ::Ice::ValuePtr& v)
 {
     handle = C1Ptr::dynamicCast(v);
     if(v && !handle)
@@ -5286,7 +5242,7 @@ Test::C2::~C2()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::upCast(C2* p) { return p; }
+::Ice::Value* Test::upCast(C2* p) { return p; }
 
 /// \endcond
 
@@ -5294,40 +5250,18 @@ Test::C2::~C2()
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::C2::ice_clone() const
 {
-    ::Ice::Object* p = new C2(*this);
+    ::Ice::Value* p = new C2(*this);
     return p;
 }
 #if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-namespace
-{
-const ::std::string iceC_Test_C2_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::C2"
-};
-
-}
-
-bool
-Test::C2::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_C2_ids, iceC_Test_C2_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::C2::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_C2_ids[0], &iceC_Test_C2_ids[2]);
-}
-
-const ::std::string&
-Test::C2::ice_id(const ::Ice::Current&) const
+std::string
+Test::C2::ice_id() const
 {
     return ice_staticId();
 }
@@ -5382,7 +5316,7 @@ Test::C2::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(C2Ptr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchValuePtr(C2Ptr& handle, const ::Ice::ValuePtr& v)
 {
     handle = C2Ptr::dynamicCast(v);
     if(v && !handle)
@@ -5397,40 +5331,18 @@ Test::Inner::Inner2::C::~C()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::Inner::Inner2::upCast(C* p) { return p; }
+::Ice::Value* Test::Inner::Inner2::upCast(C* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::Inner::Inner2::C::ice_clone() const
 {
-    ::Ice::Object* p = new C(*this);
+    ::Ice::Value* p = new C(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_Test_Inner_Inner2_C_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Inner::Inner2::C"
-};
-
-}
-
-bool
-Test::Inner::Inner2::C::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Inner_Inner2_C_ids, iceC_Test_Inner_Inner2_C_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::Inner::Inner2::C::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_Inner_Inner2_C_ids[0], &iceC_Test_Inner_Inner2_C_ids[2]);
-}
-
-const ::std::string&
-Test::Inner::Inner2::C::ice_id(const ::Ice::Current&) const
+std::string
+Test::Inner::Inner2::C::ice_id() const
 {
     return ice_staticId();
 }
@@ -5473,7 +5385,7 @@ Test::Inner::Inner2::C::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::Inner::Inner2::_icePatchObjectPtr(CPtr& handle, const ::Ice::ObjectPtr& v)
+Test::Inner::Inner2::_icePatchValuePtr(CPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = CPtr::dynamicCast(v);
     if(v && !handle)
@@ -5488,40 +5400,18 @@ Test::Inner::C::~C()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::Inner::upCast(C* p) { return p; }
+::Ice::Value* Test::Inner::upCast(C* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::Inner::C::ice_clone() const
 {
-    ::Ice::Object* p = new C(*this);
+    ::Ice::Value* p = new C(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_Test_Inner_C_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Inner::C"
-};
-
-}
-
-bool
-Test::Inner::C::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Inner_C_ids, iceC_Test_Inner_C_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::Inner::C::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_Inner_C_ids[0], &iceC_Test_Inner_C_ids[2]);
-}
-
-const ::std::string&
-Test::Inner::C::ice_id(const ::Ice::Current&) const
+std::string
+Test::Inner::C::ice_id() const
 {
     return ice_staticId();
 }
@@ -5564,7 +5454,7 @@ Test::Inner::C::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::Inner::_icePatchObjectPtr(CPtr& handle, const ::Ice::ObjectPtr& v)
+Test::Inner::_icePatchValuePtr(CPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = CPtr::dynamicCast(v);
     if(v && !handle)

@@ -3178,40 +3178,18 @@ Test::Common::Config::~Config()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::Common::upCast(Config* p) { return p; }
+::Ice::Value* Test::Common::upCast(Config* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::Common::Config::ice_clone() const
 {
-    ::Ice::Object* p = new Config(*this);
+    ::Ice::Value* p = new Config(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_Test_Common_Config_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Common::Config"
-};
-
-}
-
-bool
-Test::Common::Config::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Common_Config_ids, iceC_Test_Common_Config_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::Common::Config::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_Common_Config_ids[0], &iceC_Test_Common_Config_ids[2]);
-}
-
-const ::std::string&
-Test::Common::Config::ice_id(const ::Ice::Current&) const
+std::string
+Test::Common::Config::ice_id() const
 {
     return ice_staticId();
 }
@@ -3254,7 +3232,7 @@ Test::Common::Config::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::Common::_icePatchObjectPtr(ConfigPtr& handle, const ::Ice::ObjectPtr& v)
+Test::Common::_icePatchValuePtr(ConfigPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = ConfigPtr::dynamicCast(v);
     if(v && !handle)
@@ -3269,40 +3247,18 @@ Test::Common::OptionOverrides::~OptionOverrides()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::Common::upCast(OptionOverrides* p) { return p; }
+::Ice::Value* Test::Common::upCast(OptionOverrides* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::Common::OptionOverrides::ice_clone() const
 {
-    ::Ice::Object* p = new OptionOverrides(*this);
+    ::Ice::Value* p = new OptionOverrides(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_Test_Common_OptionOverrides_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Common::OptionOverrides"
-};
-
-}
-
-bool
-Test::Common::OptionOverrides::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Common_OptionOverrides_ids, iceC_Test_Common_OptionOverrides_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::Common::OptionOverrides::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_Common_OptionOverrides_ids[0], &iceC_Test_Common_OptionOverrides_ids[2]);
-}
-
-const ::std::string&
-Test::Common::OptionOverrides::ice_id(const ::Ice::Current&) const
+std::string
+Test::Common::OptionOverrides::ice_id() const
 {
     return ice_staticId();
 }
@@ -3345,7 +3301,7 @@ Test::Common::OptionOverrides::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::Common::_icePatchObjectPtr(OptionOverridesPtr& handle, const ::Ice::ObjectPtr& v)
+Test::Common::_icePatchValuePtr(OptionOverridesPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = OptionOverridesPtr::dynamicCast(v);
     if(v && !handle)

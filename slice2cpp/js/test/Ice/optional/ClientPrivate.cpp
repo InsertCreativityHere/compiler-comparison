@@ -240,7 +240,7 @@ void
 /// \endcond
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial2::_iceI_begin_opClassAndUnknownOptional(const ::Test::APtr& iceP_p, const std::optional< ::Ice::ObjectPtr>& iceP_o, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial2::_iceI_begin_opClassAndUnknownOptional(const ::Test::APtr& iceP_p, const std::optional< ::Ice::ValuePtr>& iceP_o, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial2_opClassAndUnknownOptional_name, del, cookie, sync);
     try
@@ -352,7 +352,7 @@ Test::Initial2::_iceD_opClassAndUnknownOptional(::IceInternal::Incoming& inS, co
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
     APtr iceP_p;
-    std::optional< ::Ice::ObjectPtr> iceP_o;
+    std::optional< ::Ice::ValuePtr> iceP_o;
     istr->read(iceP_p);
     istr->read(1, iceP_o);
     istr->readPendingValues();

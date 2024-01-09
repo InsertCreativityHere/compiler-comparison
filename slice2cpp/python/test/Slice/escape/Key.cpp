@@ -1435,40 +1435,18 @@ _cpp_and::_cpp_for::~_cpp_for()
 }
 
 /// \cond INTERNAL
-::Ice::Object* _cpp_and::upCast(_cpp_for* p) { return p; }
+::Ice::Value* _cpp_and::upCast(_cpp_for* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 _cpp_and::_cpp_for::ice_clone() const
 {
-    ::Ice::Object* p = new _cpp_for(*this);
+    ::Ice::Value* p = new _cpp_for(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_and_for_ids[2] =
-{
-    "::Ice::Object",
-    "::and::for"
-};
-
-}
-
-bool
-_cpp_and::_cpp_for::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_and_for_ids, iceC_and_for_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-_cpp_and::_cpp_for::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_and_for_ids[0], &iceC_and_for_ids[2]);
-}
-
-const ::std::string&
-_cpp_and::_cpp_for::ice_id(const ::Ice::Current&) const
+std::string
+_cpp_and::_cpp_for::ice_id() const
 {
     return ice_staticId();
 }
@@ -1511,7 +1489,7 @@ _cpp_and::_cpp_for::ice_factory()
 
 /// \cond INTERNAL
 void
-_cpp_and::_icePatchObjectPtr(forPtr& handle, const ::Ice::ObjectPtr& v)
+_cpp_and::_icePatchValuePtr(forPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = forPtr::dynamicCast(v);
     if(v && !handle)

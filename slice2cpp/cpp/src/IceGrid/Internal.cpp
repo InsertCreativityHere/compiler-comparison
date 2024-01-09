@@ -8531,40 +8531,18 @@ IceGrid::InternalDbEnvDescriptor::~InternalDbEnvDescriptor()
 }
 
 /// \cond INTERNAL
-::Ice::Object* IceGrid::upCast(InternalDbEnvDescriptor* p) { return p; }
+::Ice::Value* IceGrid::upCast(InternalDbEnvDescriptor* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 IceGrid::InternalDbEnvDescriptor::ice_clone() const
 {
-    ::Ice::Object* p = new InternalDbEnvDescriptor(*this);
+    ::Ice::Value* p = new InternalDbEnvDescriptor(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_IceGrid_InternalDbEnvDescriptor_ids[2] =
-{
-    "::Ice::Object",
-    "::IceGrid::InternalDbEnvDescriptor"
-};
-
-}
-
-bool
-IceGrid::InternalDbEnvDescriptor::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceGrid_InternalDbEnvDescriptor_ids, iceC_IceGrid_InternalDbEnvDescriptor_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-IceGrid::InternalDbEnvDescriptor::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_IceGrid_InternalDbEnvDescriptor_ids[0], &iceC_IceGrid_InternalDbEnvDescriptor_ids[2]);
-}
-
-const ::std::string&
-IceGrid::InternalDbEnvDescriptor::ice_id(const ::Ice::Current&) const
+std::string
+IceGrid::InternalDbEnvDescriptor::ice_id() const
 {
     return ice_staticId();
 }
@@ -8607,7 +8585,7 @@ IceGrid::InternalDbEnvDescriptor::ice_factory()
 
 /// \cond INTERNAL
 void
-IceGrid::_icePatchObjectPtr(InternalDbEnvDescriptorPtr& handle, const ::Ice::ObjectPtr& v)
+IceGrid::_icePatchValuePtr(InternalDbEnvDescriptorPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = InternalDbEnvDescriptorPtr::dynamicCast(v);
     if(v && !handle)
@@ -8622,40 +8600,18 @@ IceGrid::InternalAdapterDescriptor::~InternalAdapterDescriptor()
 }
 
 /// \cond INTERNAL
-::Ice::Object* IceGrid::upCast(InternalAdapterDescriptor* p) { return p; }
+::Ice::Value* IceGrid::upCast(InternalAdapterDescriptor* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 IceGrid::InternalAdapterDescriptor::ice_clone() const
 {
-    ::Ice::Object* p = new InternalAdapterDescriptor(*this);
+    ::Ice::Value* p = new InternalAdapterDescriptor(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_IceGrid_InternalAdapterDescriptor_ids[2] =
-{
-    "::Ice::Object",
-    "::IceGrid::InternalAdapterDescriptor"
-};
-
-}
-
-bool
-IceGrid::InternalAdapterDescriptor::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceGrid_InternalAdapterDescriptor_ids, iceC_IceGrid_InternalAdapterDescriptor_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-IceGrid::InternalAdapterDescriptor::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_IceGrid_InternalAdapterDescriptor_ids[0], &iceC_IceGrid_InternalAdapterDescriptor_ids[2]);
-}
-
-const ::std::string&
-IceGrid::InternalAdapterDescriptor::ice_id(const ::Ice::Current&) const
+std::string
+IceGrid::InternalAdapterDescriptor::ice_id() const
 {
     return ice_staticId();
 }
@@ -8698,7 +8654,7 @@ IceGrid::InternalAdapterDescriptor::ice_factory()
 
 /// \cond INTERNAL
 void
-IceGrid::_icePatchObjectPtr(InternalAdapterDescriptorPtr& handle, const ::Ice::ObjectPtr& v)
+IceGrid::_icePatchValuePtr(InternalAdapterDescriptorPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = InternalAdapterDescriptorPtr::dynamicCast(v);
     if(v && !handle)
@@ -8713,40 +8669,18 @@ IceGrid::InternalDistributionDescriptor::~InternalDistributionDescriptor()
 }
 
 /// \cond INTERNAL
-::Ice::Object* IceGrid::upCast(InternalDistributionDescriptor* p) { return p; }
+::Ice::Value* IceGrid::upCast(InternalDistributionDescriptor* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 IceGrid::InternalDistributionDescriptor::ice_clone() const
 {
-    ::Ice::Object* p = new InternalDistributionDescriptor(*this);
+    ::Ice::Value* p = new InternalDistributionDescriptor(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_IceGrid_InternalDistributionDescriptor_ids[2] =
-{
-    "::Ice::Object",
-    "::IceGrid::InternalDistributionDescriptor"
-};
-
-}
-
-bool
-IceGrid::InternalDistributionDescriptor::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceGrid_InternalDistributionDescriptor_ids, iceC_IceGrid_InternalDistributionDescriptor_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-IceGrid::InternalDistributionDescriptor::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_IceGrid_InternalDistributionDescriptor_ids[0], &iceC_IceGrid_InternalDistributionDescriptor_ids[2]);
-}
-
-const ::std::string&
-IceGrid::InternalDistributionDescriptor::ice_id(const ::Ice::Current&) const
+std::string
+IceGrid::InternalDistributionDescriptor::ice_id() const
 {
     return ice_staticId();
 }
@@ -8789,7 +8723,7 @@ IceGrid::InternalDistributionDescriptor::ice_factory()
 
 /// \cond INTERNAL
 void
-IceGrid::_icePatchObjectPtr(InternalDistributionDescriptorPtr& handle, const ::Ice::ObjectPtr& v)
+IceGrid::_icePatchValuePtr(InternalDistributionDescriptorPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = InternalDistributionDescriptorPtr::dynamicCast(v);
     if(v && !handle)
@@ -8804,7 +8738,7 @@ IceGrid::InternalServerDescriptor::~InternalServerDescriptor()
 }
 
 /// \cond INTERNAL
-::Ice::Object* IceGrid::upCast(InternalServerDescriptor* p) { return p; }
+::Ice::Value* IceGrid::upCast(InternalServerDescriptor* p) { return p; }
 
 /// \endcond
 
@@ -8812,40 +8746,18 @@ IceGrid::InternalServerDescriptor::~InternalServerDescriptor()
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
-::Ice::ObjectPtr
+::Ice::ValuePtr
 IceGrid::InternalServerDescriptor::ice_clone() const
 {
-    ::Ice::Object* p = new InternalServerDescriptor(*this);
+    ::Ice::Value* p = new InternalServerDescriptor(*this);
     return p;
 }
 #if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-namespace
-{
-const ::std::string iceC_IceGrid_InternalServerDescriptor_ids[2] =
-{
-    "::Ice::Object",
-    "::IceGrid::InternalServerDescriptor"
-};
-
-}
-
-bool
-IceGrid::InternalServerDescriptor::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceGrid_InternalServerDescriptor_ids, iceC_IceGrid_InternalServerDescriptor_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-IceGrid::InternalServerDescriptor::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_IceGrid_InternalServerDescriptor_ids[0], &iceC_IceGrid_InternalServerDescriptor_ids[2]);
-}
-
-const ::std::string&
-IceGrid::InternalServerDescriptor::ice_id(const ::Ice::Current&) const
+std::string
+IceGrid::InternalServerDescriptor::ice_id() const
 {
     return ice_staticId();
 }
@@ -8924,7 +8836,7 @@ IceGrid::InternalServerDescriptor::ice_factory()
 
 /// \cond INTERNAL
 void
-IceGrid::_icePatchObjectPtr(InternalServerDescriptorPtr& handle, const ::Ice::ObjectPtr& v)
+IceGrid::_icePatchValuePtr(InternalServerDescriptorPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = InternalServerDescriptorPtr::dynamicCast(v);
     if(v && !handle)
@@ -8939,40 +8851,18 @@ IceGrid::InternalNodeInfo::~InternalNodeInfo()
 }
 
 /// \cond INTERNAL
-::Ice::Object* IceGrid::upCast(InternalNodeInfo* p) { return p; }
+::Ice::Value* IceGrid::upCast(InternalNodeInfo* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 IceGrid::InternalNodeInfo::ice_clone() const
 {
-    ::Ice::Object* p = new InternalNodeInfo(*this);
+    ::Ice::Value* p = new InternalNodeInfo(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_IceGrid_InternalNodeInfo_ids[2] =
-{
-    "::Ice::Object",
-    "::IceGrid::InternalNodeInfo"
-};
-
-}
-
-bool
-IceGrid::InternalNodeInfo::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceGrid_InternalNodeInfo_ids, iceC_IceGrid_InternalNodeInfo_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-IceGrid::InternalNodeInfo::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_IceGrid_InternalNodeInfo_ids[0], &iceC_IceGrid_InternalNodeInfo_ids[2]);
-}
-
-const ::std::string&
-IceGrid::InternalNodeInfo::ice_id(const ::Ice::Current&) const
+std::string
+IceGrid::InternalNodeInfo::ice_id() const
 {
     return ice_staticId();
 }
@@ -9015,7 +8905,7 @@ IceGrid::InternalNodeInfo::ice_factory()
 
 /// \cond INTERNAL
 void
-IceGrid::_icePatchObjectPtr(InternalNodeInfoPtr& handle, const ::Ice::ObjectPtr& v)
+IceGrid::_icePatchValuePtr(InternalNodeInfoPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = InternalNodeInfoPtr::dynamicCast(v);
     if(v && !handle)
@@ -9030,40 +8920,18 @@ IceGrid::InternalReplicaInfo::~InternalReplicaInfo()
 }
 
 /// \cond INTERNAL
-::Ice::Object* IceGrid::upCast(InternalReplicaInfo* p) { return p; }
+::Ice::Value* IceGrid::upCast(InternalReplicaInfo* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 IceGrid::InternalReplicaInfo::ice_clone() const
 {
-    ::Ice::Object* p = new InternalReplicaInfo(*this);
+    ::Ice::Value* p = new InternalReplicaInfo(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_IceGrid_InternalReplicaInfo_ids[2] =
-{
-    "::Ice::Object",
-    "::IceGrid::InternalReplicaInfo"
-};
-
-}
-
-bool
-IceGrid::InternalReplicaInfo::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceGrid_InternalReplicaInfo_ids, iceC_IceGrid_InternalReplicaInfo_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-IceGrid::InternalReplicaInfo::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_IceGrid_InternalReplicaInfo_ids[0], &iceC_IceGrid_InternalReplicaInfo_ids[2]);
-}
-
-const ::std::string&
-IceGrid::InternalReplicaInfo::ice_id(const ::Ice::Current&) const
+std::string
+IceGrid::InternalReplicaInfo::ice_id() const
 {
     return ice_staticId();
 }
@@ -9106,7 +8974,7 @@ IceGrid::InternalReplicaInfo::ice_factory()
 
 /// \cond INTERNAL
 void
-IceGrid::_icePatchObjectPtr(InternalReplicaInfoPtr& handle, const ::Ice::ObjectPtr& v)
+IceGrid::_icePatchValuePtr(InternalReplicaInfoPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = InternalReplicaInfoPtr::dynamicCast(v);
     if(v && !handle)

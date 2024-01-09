@@ -2882,40 +2882,18 @@ abstract::delegate::~delegate()
 }
 
 /// \cond INTERNAL
-::Ice::Object* abstract::upCast(delegate* p) { return p; }
+::Ice::Value* abstract::upCast(delegate* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 abstract::delegate::ice_clone() const
 {
-    ::Ice::Object* p = new delegate(*this);
+    ::Ice::Value* p = new delegate(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_abstract_delegate_ids[2] =
-{
-    "::Ice::Object",
-    "::abstract::delegate"
-};
-
-}
-
-bool
-abstract::delegate::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_abstract_delegate_ids, iceC_abstract_delegate_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-abstract::delegate::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_abstract_delegate_ids[0], &iceC_abstract_delegate_ids[2]);
-}
-
-const ::std::string&
-abstract::delegate::ice_id(const ::Ice::Current&) const
+std::string
+abstract::delegate::ice_id() const
 {
     return ice_staticId();
 }
@@ -2958,7 +2936,7 @@ abstract::delegate::ice_factory()
 
 /// \cond INTERNAL
 void
-abstract::_icePatchObjectPtr(delegatePtr& handle, const ::Ice::ObjectPtr& v)
+abstract::_icePatchValuePtr(delegatePtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = delegatePtr::dynamicCast(v);
     if(v && !handle)
@@ -2973,40 +2951,18 @@ abstract::optionalMembers::~optionalMembers()
 }
 
 /// \cond INTERNAL
-::Ice::Object* abstract::upCast(optionalMembers* p) { return p; }
+::Ice::Value* abstract::upCast(optionalMembers* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 abstract::optionalMembers::ice_clone() const
 {
-    ::Ice::Object* p = new optionalMembers(*this);
+    ::Ice::Value* p = new optionalMembers(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_abstract_optionalMembers_ids[2] =
-{
-    "::Ice::Object",
-    "::abstract::optionalMembers"
-};
-
-}
-
-bool
-abstract::optionalMembers::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_abstract_optionalMembers_ids, iceC_abstract_optionalMembers_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-abstract::optionalMembers::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_abstract_optionalMembers_ids[0], &iceC_abstract_optionalMembers_ids[2]);
-}
-
-const ::std::string&
-abstract::optionalMembers::ice_id(const ::Ice::Current&) const
+std::string
+abstract::optionalMembers::ice_id() const
 {
     return ice_staticId();
 }
@@ -3049,7 +3005,7 @@ abstract::optionalMembers::ice_factory()
 
 /// \cond INTERNAL
 void
-abstract::_icePatchObjectPtr(optionalMembersPtr& handle, const ::Ice::ObjectPtr& v)
+abstract::_icePatchValuePtr(optionalMembersPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = optionalMembersPtr::dynamicCast(v);
     if(v && !handle)

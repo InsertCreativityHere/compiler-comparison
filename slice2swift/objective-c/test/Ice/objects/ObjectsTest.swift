@@ -831,16 +831,16 @@ public struct RecursiveTraits: Ice.SliceTraits {
     public static let staticId = "::Test::Recursive"
 }
 
-/// Traits for Slice class`L`.
-public struct LTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::L"]
-    public static let staticId = "::Test::L"
-}
-
 /// Traits for Slice class`K`.
 public struct KTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::K"]
     public static let staticId = "::Test::K"
+}
+
+/// Traits for Slice class`L`.
+public struct LTraits: Ice.SliceTraits {
+    public static let staticIds = ["::Ice::Object", "::Test::L"]
+    public static let staticId = "::Test::L"
 }
 
 public typealias ValueSeq = [Ice.Value?]
@@ -5003,55 +5003,6 @@ open class Recursive: Ice.Value {
 }
 
 /// :nodoc:
-public class L_TypeResolver: Ice.ValueTypeResolver {
-    public override func type() -> Ice.Value.Type {
-        return L.self
-    }
-}
-
-public extension Ice.ClassResolver {
-    @objc static func Test_L() -> Ice.ValueTypeResolver {
-        return L_TypeResolver()
-    }
-}
-
-open class L: Ice.Value {
-    public var data: Swift.String = ""
-
-    public required init() {}
-
-    public init(data: Swift.String) {
-        self.data = data
-    }
-
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return LTraits.staticId
-    }
-
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return LTraits.staticId
-    }
-
-    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
-        _ = try istr.startSlice()
-        self.data = try istr.read()
-        try istr.endSlice()
-    }
-
-    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: LTraits.staticId, compactId: -1, last: true)
-        ostr.write(self.data)
-        ostr.endSlice()
-    }
-}
-
-/// :nodoc:
 public class K_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return K.self
@@ -5096,6 +5047,55 @@ open class K: Ice.Value {
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: KTraits.staticId, compactId: -1, last: true)
         ostr.write(self.value)
+        ostr.endSlice()
+    }
+}
+
+/// :nodoc:
+public class L_TypeResolver: Ice.ValueTypeResolver {
+    public override func type() -> Ice.Value.Type {
+        return L.self
+    }
+}
+
+public extension Ice.ClassResolver {
+    @objc static func Test_L() -> Ice.ValueTypeResolver {
+        return L_TypeResolver()
+    }
+}
+
+open class L: Ice.Value {
+    public var data: Swift.String = ""
+
+    public required init() {}
+
+    public init(data: Swift.String) {
+        self.data = data
+    }
+
+    /// Returns the Slice type ID of the most-derived interface supported by this object.
+    ///
+    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
+    open override func ice_id() -> Swift.String {
+        return LTraits.staticId
+    }
+
+    /// Returns the Slice type ID of the interface supported by this object.
+    ///
+    /// - returns: `String` - The Slice type ID of the interface supported by this object.
+    open override class func ice_staticId() -> Swift.String {
+        return LTraits.staticId
+    }
+
+    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
+        _ = try istr.startSlice()
+        self.data = try istr.read()
+        try istr.endSlice()
+    }
+
+    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
+        ostr.startSlice(typeId: LTraits.staticId, compactId: -1, last: true)
+        ostr.write(self.data)
         ostr.endSlice()
     }
 }

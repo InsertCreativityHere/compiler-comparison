@@ -713,32 +713,6 @@
 
     Slice.defineValue(Test.Recursive, iceC_Test_Recursive_ids[1], false);
 
-    const iceC_Test_L_ids = [
-        "::Ice::Object",
-        "::Test::L"
-    ];
-
-    Test.L = class extends Ice.Value
-    {
-        constructor(data = "")
-        {
-            super();
-            this.data = data;
-        }
-
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeString(this.data);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.data = istr.readString();
-        }
-    };
-
-    Slice.defineValue(Test.L, iceC_Test_L_ids[1], false);
-
     const iceC_Test_K_ids = [
         "::Ice::Object",
         "::Test::K"
@@ -764,6 +738,32 @@
     };
 
     Slice.defineValue(Test.K, iceC_Test_K_ids[1], false);
+
+    const iceC_Test_L_ids = [
+        "::Ice::Object",
+        "::Test::L"
+    ];
+
+    Test.L = class extends Ice.Value
+    {
+        constructor(data = "")
+        {
+            super();
+            this.data = data;
+        }
+
+        _iceWriteMemberImpl(ostr)
+        {
+            ostr.writeString(this.data);
+        }
+
+        _iceReadMemberImpl(istr)
+        {
+            this.data = istr.readString();
+        }
+    };
+
+    Slice.defineValue(Test.L, iceC_Test_L_ids[1], false);
 
     Slice.defineSequence(Test, "ValueSeqHelper", "Ice.ObjectHelper", false, "Ice.Value");
 

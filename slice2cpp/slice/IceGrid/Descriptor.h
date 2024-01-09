@@ -1732,101 +1732,101 @@ namespace IceGrid
 
 class CommunicatorDescriptor;
 /// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(CommunicatorDescriptor*);
+ICEGRID_API ::Ice::Value* upCast(CommunicatorDescriptor*);
 /// \endcond
 typedef ::IceInternal::Handle< CommunicatorDescriptor> CommunicatorDescriptorPtr;
 /// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(CommunicatorDescriptorPtr&, const ::Ice::ObjectPtr&);
+ICEGRID_API void _icePatchValuePtr(CommunicatorDescriptorPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class ServerDescriptor;
 /// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(ServerDescriptor*);
+ICEGRID_API ::Ice::Value* upCast(ServerDescriptor*);
 /// \endcond
 typedef ::IceInternal::Handle< ServerDescriptor> ServerDescriptorPtr;
 /// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(ServerDescriptorPtr&, const ::Ice::ObjectPtr&);
+ICEGRID_API void _icePatchValuePtr(ServerDescriptorPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class ServiceDescriptor;
 /// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(ServiceDescriptor*);
+ICEGRID_API ::Ice::Value* upCast(ServiceDescriptor*);
 /// \endcond
 typedef ::IceInternal::Handle< ServiceDescriptor> ServiceDescriptorPtr;
 /// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(ServiceDescriptorPtr&, const ::Ice::ObjectPtr&);
+ICEGRID_API void _icePatchValuePtr(ServiceDescriptorPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class IceBoxDescriptor;
 /// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(IceBoxDescriptor*);
+ICEGRID_API ::Ice::Value* upCast(IceBoxDescriptor*);
 /// \endcond
 typedef ::IceInternal::Handle< IceBoxDescriptor> IceBoxDescriptorPtr;
 /// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(IceBoxDescriptorPtr&, const ::Ice::ObjectPtr&);
+ICEGRID_API void _icePatchValuePtr(IceBoxDescriptorPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class LoadBalancingPolicy;
 /// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(LoadBalancingPolicy*);
+ICEGRID_API ::Ice::Value* upCast(LoadBalancingPolicy*);
 /// \endcond
 typedef ::IceInternal::Handle< LoadBalancingPolicy> LoadBalancingPolicyPtr;
 /// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(LoadBalancingPolicyPtr&, const ::Ice::ObjectPtr&);
+ICEGRID_API void _icePatchValuePtr(LoadBalancingPolicyPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class RandomLoadBalancingPolicy;
 /// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(RandomLoadBalancingPolicy*);
+ICEGRID_API ::Ice::Value* upCast(RandomLoadBalancingPolicy*);
 /// \endcond
 typedef ::IceInternal::Handle< RandomLoadBalancingPolicy> RandomLoadBalancingPolicyPtr;
 /// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(RandomLoadBalancingPolicyPtr&, const ::Ice::ObjectPtr&);
+ICEGRID_API void _icePatchValuePtr(RandomLoadBalancingPolicyPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class OrderedLoadBalancingPolicy;
 /// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(OrderedLoadBalancingPolicy*);
+ICEGRID_API ::Ice::Value* upCast(OrderedLoadBalancingPolicy*);
 /// \endcond
 typedef ::IceInternal::Handle< OrderedLoadBalancingPolicy> OrderedLoadBalancingPolicyPtr;
 /// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(OrderedLoadBalancingPolicyPtr&, const ::Ice::ObjectPtr&);
+ICEGRID_API void _icePatchValuePtr(OrderedLoadBalancingPolicyPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class RoundRobinLoadBalancingPolicy;
 /// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(RoundRobinLoadBalancingPolicy*);
+ICEGRID_API ::Ice::Value* upCast(RoundRobinLoadBalancingPolicy*);
 /// \endcond
 typedef ::IceInternal::Handle< RoundRobinLoadBalancingPolicy> RoundRobinLoadBalancingPolicyPtr;
 /// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(RoundRobinLoadBalancingPolicyPtr&, const ::Ice::ObjectPtr&);
+ICEGRID_API void _icePatchValuePtr(RoundRobinLoadBalancingPolicyPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class AdaptiveLoadBalancingPolicy;
 /// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(AdaptiveLoadBalancingPolicy*);
+ICEGRID_API ::Ice::Value* upCast(AdaptiveLoadBalancingPolicy*);
 /// \endcond
 typedef ::IceInternal::Handle< AdaptiveLoadBalancingPolicy> AdaptiveLoadBalancingPolicyPtr;
 /// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(AdaptiveLoadBalancingPolicyPtr&, const ::Ice::ObjectPtr&);
+ICEGRID_API void _icePatchValuePtr(AdaptiveLoadBalancingPolicyPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class BoxedString;
 /// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(BoxedString*);
+ICEGRID_API ::Ice::Value* upCast(BoxedString*);
 /// \endcond
 typedef ::IceInternal::Handle< BoxedString> BoxedStringPtr;
 /// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(BoxedStringPtr&, const ::Ice::ObjectPtr&);
+ICEGRID_API void _icePatchValuePtr(BoxedStringPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 class BoxedDistributionDescriptor;
 /// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(BoxedDistributionDescriptor*);
+ICEGRID_API ::Ice::Value* upCast(BoxedDistributionDescriptor*);
 /// \endcond
 typedef ::IceInternal::Handle< BoxedDistributionDescriptor> BoxedDistributionDescriptorPtr;
 /// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(BoxedDistributionDescriptorPtr&, const ::Ice::ObjectPtr&);
+ICEGRID_API void _icePatchValuePtr(BoxedDistributionDescriptorPtr&, const ::Ice::ValuePtr&);
 /// \endcond
 
 }
@@ -2796,7 +2796,7 @@ namespace IceGrid
  * A communicator descriptor.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API CommunicatorDescriptor : public virtual ::Ice::Object
+class ICEGRID_API CommunicatorDescriptor : public virtual ::Ice::Value
 {
 public:
 
@@ -2829,33 +2829,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
 
@@ -2898,12 +2882,12 @@ static ::Ice::ValueFactoryPtr _iceS_CommunicatorDescriptor_init = ::IceGrid::Com
 /// \cond INTERNAL
 inline bool operator==(const CommunicatorDescriptor& lhs, const CommunicatorDescriptor& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const CommunicatorDescriptor& lhs, const CommunicatorDescriptor& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
@@ -2967,33 +2951,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
 
@@ -3074,12 +3042,12 @@ static ::Ice::ValueFactoryPtr _iceS_ServerDescriptor_init = ::IceGrid::ServerDes
 /// \cond INTERNAL
 inline bool operator==(const ServerDescriptor& lhs, const ServerDescriptor& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const ServerDescriptor& lhs, const ServerDescriptor& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
@@ -3121,33 +3089,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
 
@@ -3182,12 +3134,12 @@ static ::Ice::ValueFactoryPtr _iceS_ServiceDescriptor_init = ::IceGrid::ServiceD
 /// \cond INTERNAL
 inline bool operator==(const ServiceDescriptor& lhs, const ServiceDescriptor& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const ServiceDescriptor& lhs, const ServiceDescriptor& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
@@ -3195,7 +3147,7 @@ inline bool operator<(const ServiceDescriptor& lhs, const ServiceDescriptor& rhs
  * An IceBox server descriptor.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API IceBoxDescriptor : public ServerDescriptor, public ::IceInternal::GCObject
+class ICEGRID_API IceBoxDescriptor : public ServerDescriptor, public ::IceInternal::GCValue
 {
 public:
 
@@ -3240,33 +3192,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
     /// \cond INTERNAL
@@ -3300,12 +3236,12 @@ static ::Ice::ValueFactoryPtr _iceS_IceBoxDescriptor_init = ::IceGrid::IceBoxDes
 /// \cond INTERNAL
 inline bool operator==(const IceBoxDescriptor& lhs, const IceBoxDescriptor& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const IceBoxDescriptor& lhs, const IceBoxDescriptor& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
@@ -3313,7 +3249,7 @@ inline bool operator<(const IceBoxDescriptor& lhs, const IceBoxDescriptor& rhs)
  * A base class for load balancing policies.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API LoadBalancingPolicy : public virtual ::Ice::Object
+class ICEGRID_API LoadBalancingPolicy : public virtual ::Ice::Value
 {
 public:
 
@@ -3340,33 +3276,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
 
@@ -3397,12 +3317,12 @@ static ::Ice::ValueFactoryPtr _iceS_LoadBalancingPolicy_init = ::IceGrid::LoadBa
 /// \cond INTERNAL
 inline bool operator==(const LoadBalancingPolicy& lhs, const LoadBalancingPolicy& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const LoadBalancingPolicy& lhs, const LoadBalancingPolicy& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
@@ -3437,33 +3357,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
 
@@ -3487,12 +3391,12 @@ static ::Ice::ValueFactoryPtr _iceS_RandomLoadBalancingPolicy_init = ::IceGrid::
 /// \cond INTERNAL
 inline bool operator==(const RandomLoadBalancingPolicy& lhs, const RandomLoadBalancingPolicy& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const RandomLoadBalancingPolicy& lhs, const RandomLoadBalancingPolicy& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
@@ -3527,33 +3431,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
 
@@ -3577,12 +3465,12 @@ static ::Ice::ValueFactoryPtr _iceS_OrderedLoadBalancingPolicy_init = ::IceGrid:
 /// \cond INTERNAL
 inline bool operator==(const OrderedLoadBalancingPolicy& lhs, const OrderedLoadBalancingPolicy& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const OrderedLoadBalancingPolicy& lhs, const OrderedLoadBalancingPolicy& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
@@ -3617,33 +3505,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
 
@@ -3667,12 +3539,12 @@ static ::Ice::ValueFactoryPtr _iceS_RoundRobinLoadBalancingPolicy_init = ::IceGr
 /// \cond INTERNAL
 inline bool operator==(const RoundRobinLoadBalancingPolicy& lhs, const RoundRobinLoadBalancingPolicy& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const RoundRobinLoadBalancingPolicy& lhs, const RoundRobinLoadBalancingPolicy& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
@@ -3709,33 +3581,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
 
@@ -3767,12 +3623,12 @@ static ::Ice::ValueFactoryPtr _iceS_AdaptiveLoadBalancingPolicy_init = ::IceGrid
 /// \cond INTERNAL
 inline bool operator==(const AdaptiveLoadBalancingPolicy& lhs, const AdaptiveLoadBalancingPolicy& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const AdaptiveLoadBalancingPolicy& lhs, const AdaptiveLoadBalancingPolicy& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
@@ -3780,7 +3636,7 @@ inline bool operator<(const AdaptiveLoadBalancingPolicy& lhs, const AdaptiveLoad
  * A "boxed" string.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API BoxedString : public virtual ::Ice::Object
+class ICEGRID_API BoxedString : public virtual ::Ice::Value
 {
 public:
 
@@ -3807,33 +3663,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
 
@@ -3864,12 +3704,12 @@ static ::Ice::ValueFactoryPtr _iceS_BoxedString_init = ::IceGrid::BoxedString::i
 /// \cond INTERNAL
 inline bool operator==(const BoxedString& lhs, const BoxedString& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const BoxedString& lhs, const BoxedString& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 
@@ -3877,7 +3717,7 @@ inline bool operator<(const BoxedString& lhs, const BoxedString& rhs)
  * A "boxed" distribution descriptor.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API BoxedDistributionDescriptor : public virtual ::Ice::Object
+class ICEGRID_API BoxedDistributionDescriptor : public virtual ::Ice::Value
 {
 public:
 
@@ -3904,33 +3744,17 @@ public:
      * Polymorphically clones this object.
      * @return A shallow copy of this object.
      */
-    virtual ::Ice::ObjectPtr ice_clone() const;
+    virtual ::Ice::ValuePtr ice_clone() const;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
+     * Obtains the Slice type ID of the most-derived class implemented by this instance.
+     * @return The type ID.
      */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+    virtual ::std::string ice_id() const;
 
     /**
      * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
+     * @return The type ID.
      */
     static const ::std::string& ice_staticId();
 
@@ -3961,12 +3785,12 @@ static ::Ice::ValueFactoryPtr _iceS_BoxedDistributionDescriptor_init = ::IceGrid
 /// \cond INTERNAL
 inline bool operator==(const BoxedDistributionDescriptor& lhs, const BoxedDistributionDescriptor& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) == static_cast<const ::Ice::Value&>(rhs);
 }
 
 inline bool operator<(const BoxedDistributionDescriptor& lhs, const BoxedDistributionDescriptor& rhs)
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+    return static_cast<const ::Ice::Value&>(lhs) < static_cast<const ::Ice::Value&>(rhs);
 }
 /// \endcond
 

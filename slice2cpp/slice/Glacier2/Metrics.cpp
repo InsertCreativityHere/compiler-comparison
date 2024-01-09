@@ -73,41 +73,18 @@ IceMX::SessionMetrics::~SessionMetrics()
 }
 
 /// \cond INTERNAL
-GLACIER2_API ::Ice::Object* IceMX::upCast(SessionMetrics* p) { return p; }
+GLACIER2_API ::Ice::Value* IceMX::upCast(SessionMetrics* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 IceMX::SessionMetrics::ice_clone() const
 {
-    ::Ice::Object* p = new SessionMetrics(*this);
+    ::Ice::Value* p = new SessionMetrics(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_IceMX_SessionMetrics_ids[3] =
-{
-    "::Ice::Object",
-    "::IceMX::Metrics",
-    "::IceMX::SessionMetrics"
-};
-
-}
-
-bool
-IceMX::SessionMetrics::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceMX_SessionMetrics_ids, iceC_IceMX_SessionMetrics_ids + 3, s);
-}
-
-::std::vector< ::std::string>
-IceMX::SessionMetrics::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_IceMX_SessionMetrics_ids[0], &iceC_IceMX_SessionMetrics_ids[3]);
-}
-
-const ::std::string&
-IceMX::SessionMetrics::ice_id(const ::Ice::Current&) const
+std::string
+IceMX::SessionMetrics::ice_id() const
 {
     return ice_staticId();
 }
@@ -152,7 +129,7 @@ IceMX::SessionMetrics::ice_factory()
 
 /// \cond INTERNAL
 void
-IceMX::_icePatchObjectPtr(SessionMetricsPtr& handle, const ::Ice::ObjectPtr& v)
+IceMX::_icePatchValuePtr(SessionMetricsPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = SessionMetricsPtr::dynamicCast(v);
     if(v && !handle)

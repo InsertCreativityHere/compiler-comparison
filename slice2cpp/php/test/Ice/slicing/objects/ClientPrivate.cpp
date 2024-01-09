@@ -160,41 +160,18 @@ Test::D3::~D3()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::upCast(D3* p) { return p; }
+::Ice::Value* Test::upCast(D3* p) { return p; }
 
 /// \endcond
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::D3::ice_clone() const
 {
-    ::Ice::Object* p = new D3(*this);
+    ::Ice::Value* p = new D3(*this);
     return p;
 }
 
-namespace
-{
-const ::std::string iceC_Test_D3_ids[3] =
-{
-    "::Ice::Object",
-    "::Test::B",
-    "::Test::D3"
-};
-
-}
-
-bool
-Test::D3::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_D3_ids, iceC_Test_D3_ids + 3, s);
-}
-
-::std::vector< ::std::string>
-Test::D3::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_D3_ids[0], &iceC_Test_D3_ids[3]);
-}
-
-const ::std::string&
-Test::D3::ice_id(const ::Ice::Current&) const
+std::string
+Test::D3::ice_id() const
 {
     return ice_staticId();
 }
@@ -252,7 +229,7 @@ Test::D3::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(D3Ptr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchValuePtr(D3Ptr& handle, const ::Ice::ValuePtr& v)
 {
     handle = D3Ptr::dynamicCast(v);
     if(v && !handle)
@@ -267,7 +244,7 @@ Test::PCUnknown::~PCUnknown()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::upCast(PCUnknown* p) { return p; }
+::Ice::Value* Test::upCast(PCUnknown* p) { return p; }
 
 /// \endcond
 
@@ -275,41 +252,18 @@ Test::PCUnknown::~PCUnknown()
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::PCUnknown::ice_clone() const
 {
-    ::Ice::Object* p = new PCUnknown(*this);
+    ::Ice::Value* p = new PCUnknown(*this);
     return p;
 }
 #if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-namespace
-{
-const ::std::string iceC_Test_PCUnknown_ids[3] =
-{
-    "::Ice::Object",
-    "::Test::PBase",
-    "::Test::PCUnknown"
-};
-
-}
-
-bool
-Test::PCUnknown::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_PCUnknown_ids, iceC_Test_PCUnknown_ids + 3, s);
-}
-
-::std::vector< ::std::string>
-Test::PCUnknown::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_PCUnknown_ids[0], &iceC_Test_PCUnknown_ids[3]);
-}
-
-const ::std::string&
-Test::PCUnknown::ice_id(const ::Ice::Current&) const
+std::string
+Test::PCUnknown::ice_id() const
 {
     return ice_staticId();
 }
@@ -385,7 +339,7 @@ Test::PCUnknown::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(PCUnknownPtr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchValuePtr(PCUnknownPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = PCUnknownPtr::dynamicCast(v);
     if(v && !handle)
@@ -400,7 +354,7 @@ Test::PCDerived::~PCDerived()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::upCast(PCDerived* p) { return p; }
+::Ice::Value* Test::upCast(PCDerived* p) { return p; }
 
 /// \endcond
 
@@ -408,43 +362,18 @@ Test::PCDerived::~PCDerived()
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::PCDerived::ice_clone() const
 {
-    ::Ice::Object* p = new PCDerived(*this);
+    ::Ice::Value* p = new PCDerived(*this);
     return p;
 }
 #if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-namespace
-{
-const ::std::string iceC_Test_PCDerived_ids[5] =
-{
-    "::Ice::Object",
-    "::Test::PBase",
-    "::Test::PCDerived",
-    "::Test::PDerived",
-    "::Test::Preserved"
-};
-
-}
-
-bool
-Test::PCDerived::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_PCDerived_ids, iceC_Test_PCDerived_ids + 5, s);
-}
-
-::std::vector< ::std::string>
-Test::PCDerived::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_PCDerived_ids[0], &iceC_Test_PCDerived_ids[5]);
-}
-
-const ::std::string&
-Test::PCDerived::ice_id(const ::Ice::Current&) const
+std::string
+Test::PCDerived::ice_id() const
 {
     return ice_staticId();
 }
@@ -507,7 +436,7 @@ Test::PCDerived::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(PCDerivedPtr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchValuePtr(PCDerivedPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = PCDerivedPtr::dynamicCast(v);
     if(v && !handle)
@@ -522,7 +451,7 @@ Test::PCDerived2::~PCDerived2()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::upCast(PCDerived2* p) { return p; }
+::Ice::Value* Test::upCast(PCDerived2* p) { return p; }
 
 /// \endcond
 
@@ -530,44 +459,18 @@ Test::PCDerived2::~PCDerived2()
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::PCDerived2::ice_clone() const
 {
-    ::Ice::Object* p = new PCDerived2(*this);
+    ::Ice::Value* p = new PCDerived2(*this);
     return p;
 }
 #if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-namespace
-{
-const ::std::string iceC_Test_PCDerived2_ids[6] =
-{
-    "::Ice::Object",
-    "::Test::PBase",
-    "::Test::PCDerived",
-    "::Test::PCDerived2",
-    "::Test::PDerived",
-    "::Test::Preserved"
-};
-
-}
-
-bool
-Test::PCDerived2::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_PCDerived2_ids, iceC_Test_PCDerived2_ids + 6, s);
-}
-
-::std::vector< ::std::string>
-Test::PCDerived2::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_PCDerived2_ids[0], &iceC_Test_PCDerived2_ids[6]);
-}
-
-const ::std::string&
-Test::PCDerived2::ice_id(const ::Ice::Current&) const
+std::string
+Test::PCDerived2::ice_id() const
 {
     return ice_staticId();
 }
@@ -618,7 +521,7 @@ Test::PCDerived2::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(PCDerived2Ptr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchValuePtr(PCDerived2Ptr& handle, const ::Ice::ValuePtr& v)
 {
     handle = PCDerived2Ptr::dynamicCast(v);
     if(v && !handle)
@@ -633,7 +536,7 @@ Test::PCDerived3::~PCDerived3()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::upCast(PCDerived3* p) { return p; }
+::Ice::Value* Test::upCast(PCDerived3* p) { return p; }
 
 /// \endcond
 
@@ -641,45 +544,18 @@ Test::PCDerived3::~PCDerived3()
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::PCDerived3::ice_clone() const
 {
-    ::Ice::Object* p = new PCDerived3(*this);
+    ::Ice::Value* p = new PCDerived3(*this);
     return p;
 }
 #if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-namespace
-{
-const ::std::string iceC_Test_PCDerived3_ids[7] =
-{
-    "::Ice::Object",
-    "::Test::PBase",
-    "::Test::PCDerived",
-    "::Test::PCDerived2",
-    "::Test::PCDerived3",
-    "::Test::PDerived",
-    "::Test::Preserved"
-};
-
-}
-
-bool
-Test::PCDerived3::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_PCDerived3_ids, iceC_Test_PCDerived3_ids + 7, s);
-}
-
-::std::vector< ::std::string>
-Test::PCDerived3::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_PCDerived3_ids[0], &iceC_Test_PCDerived3_ids[7]);
-}
-
-const ::std::string&
-Test::PCDerived3::ice_id(const ::Ice::Current&) const
+std::string
+Test::PCDerived3::ice_id() const
 {
     return ice_staticId();
 }
@@ -737,7 +613,7 @@ Test::PCDerived3::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(PCDerived3Ptr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchValuePtr(PCDerived3Ptr& handle, const ::Ice::ValuePtr& v)
 {
     handle = PCDerived3Ptr::dynamicCast(v);
     if(v && !handle)
@@ -752,7 +628,7 @@ Test::CompactPCDerived::~CompactPCDerived()
 }
 
 /// \cond INTERNAL
-::Ice::Object* Test::upCast(CompactPCDerived* p) { return p; }
+::Ice::Value* Test::upCast(CompactPCDerived* p) { return p; }
 
 /// \endcond
 
@@ -760,43 +636,18 @@ Test::CompactPCDerived::~CompactPCDerived()
 #   pragma warning(push)
 #   pragma warning(disable:4589)
 #endif
-::Ice::ObjectPtr
+::Ice::ValuePtr
 Test::CompactPCDerived::ice_clone() const
 {
-    ::Ice::Object* p = new CompactPCDerived(*this);
+    ::Ice::Value* p = new CompactPCDerived(*this);
     return p;
 }
 #if defined(_MSC_VER)
 #   pragma warning(pop)
 #endif
 
-namespace
-{
-const ::std::string iceC_Test_CompactPCDerived_ids[5] =
-{
-    "::Ice::Object",
-    "::Test::CompactPCDerived",
-    "::Test::CompactPDerived",
-    "::Test::PBase",
-    "::Test::Preserved"
-};
-
-}
-
-bool
-Test::CompactPCDerived::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_CompactPCDerived_ids, iceC_Test_CompactPCDerived_ids + 5, s);
-}
-
-::std::vector< ::std::string>
-Test::CompactPCDerived::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_CompactPCDerived_ids[0], &iceC_Test_CompactPCDerived_ids[5]);
-}
-
-const ::std::string&
-Test::CompactPCDerived::ice_id(const ::Ice::Current&) const
+std::string
+Test::CompactPCDerived::ice_id() const
 {
     return ice_staticId();
 }
@@ -860,7 +711,7 @@ Test::CompactPCDerived::ice_factory()
 
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(CompactPCDerivedPtr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchValuePtr(CompactPCDerivedPtr& handle, const ::Ice::ValuePtr& v)
 {
     handle = CompactPCDerivedPtr::dynamicCast(v);
     if(v && !handle)
