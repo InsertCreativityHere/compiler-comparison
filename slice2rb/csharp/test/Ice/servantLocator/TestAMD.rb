@@ -113,8 +113,6 @@ module ::Test
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 
-        T_TestIntf.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
         TestIntfPrx_mixin::OP_requestFailedException = ::Ice::__defineOperation('requestFailedException', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
@@ -152,8 +150,6 @@ module ::Test
             T_TestActivation = ::Ice::__declareClass('::Test::TestActivation')
             T_TestActivationPrx = ::Ice::__declareProxy('::Test::TestActivation')
         end
-
-        T_TestActivation.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_TestActivationPrx.defineProxy(TestActivationPrx, nil, [])
 

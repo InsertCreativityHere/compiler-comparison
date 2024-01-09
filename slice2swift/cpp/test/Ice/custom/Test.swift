@@ -2259,7 +2259,7 @@ public struct ESeqListHelper {
     }
 }
 
-/// Traits for Slice class `C`.
+/// Traits for Slice class`C`.
 public struct CTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::C"]
     public static let staticId = "::Test::C"
@@ -2595,7 +2595,7 @@ public struct CSeqListHelper {
     }
 }
 
-/// Traits for Slice interface `D`.
+/// Traits for Slice interface`D`.
 public struct DTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::D"]
     public static let staticId = "::Test::D"
@@ -3389,7 +3389,7 @@ public struct StringIntDictHelper {
     }
 }
 
-/// Traits for Slice class `DictClass`.
+/// Traits for Slice class`DictClass`.
 public struct DictClassTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::DictClass"]
     public static let staticId = "::Test::DictClass"
@@ -3493,7 +3493,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice interface `TestIntf`.
+/// Traits for Slice interface`TestIntf`.
 public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::TestIntf"]
     public static let staticId = "::Test::TestIntf"

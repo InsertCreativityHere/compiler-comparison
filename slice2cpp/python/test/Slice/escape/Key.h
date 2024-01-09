@@ -335,7 +335,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual assert raise(_cpp_continue _cpp_else, ::std::shared_ptr<::and::for> _cpp_return, ::std::shared_ptr<::Ice::Value> _cpp_try, ::std::shared_ptr<delPrx> _cpp_while, ::std::shared_ptr<execPrx> yield, ::std::shared_ptr<::Ice::ObjectPrx> lambda, ::std::shared_ptr<ifPrx> _cpp_or, int global, const ::Ice::Current& current) = 0;
+    virtual assert raise(_cpp_continue _cpp_else, ::std::shared_ptr<::and::for> _cpp_return, ::std::shared_ptr<delPrx> _cpp_while, ::std::shared_ptr<execPrx> yield, ::std::shared_ptr<ifPrx> _cpp_or, int global, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_raise(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -517,30 +517,30 @@ class printPrx : public virtual ::Ice::Proxy<printPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    assert raise(const _cpp_continue& _cpp_else, const ::std::shared_ptr<_cpp_for>& _cpp_return, const ::std::shared_ptr<::Ice::Value>& _cpp_try, const ::std::shared_ptr<delPrx>& _cpp_while, const ::std::shared_ptr<execPrx>& yield, const ::std::shared_ptr<::Ice::ObjectPrx>& lambda, const ::std::shared_ptr<ifPrx>& _cpp_or, int global, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    assert raise(const _cpp_continue& _cpp_else, const ::std::shared_ptr<_cpp_for>& _cpp_return, const ::std::shared_ptr<delPrx>& _cpp_while, const ::std::shared_ptr<execPrx>& yield, const ::std::shared_ptr<ifPrx>& _cpp_or, int global, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makePromiseOutgoing<::_cpp_and::assert>(true, this, &printPrx::_iceI_raise, _cpp_else, _cpp_return, _cpp_try, _cpp_while, yield, lambda, _cpp_or, global, context).get();
+        return _makePromiseOutgoing<::_cpp_and::assert>(true, this, &printPrx::_iceI_raise, _cpp_else, _cpp_return, _cpp_while, yield, _cpp_or, global, context).get();
     }
 
     template<template<typename> class P = ::std::promise>
-    auto raiseAsync(const _cpp_continue& _cpp_else, const ::std::shared_ptr<_cpp_for>& _cpp_return, const ::std::shared_ptr<::Ice::Value>& _cpp_try, const ::std::shared_ptr<delPrx>& _cpp_while, const ::std::shared_ptr<execPrx>& yield, const ::std::shared_ptr<::Ice::ObjectPrx>& lambda, const ::std::shared_ptr<ifPrx>& _cpp_or, int global, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto raiseAsync(const _cpp_continue& _cpp_else, const ::std::shared_ptr<_cpp_for>& _cpp_return, const ::std::shared_ptr<delPrx>& _cpp_while, const ::std::shared_ptr<execPrx>& yield, const ::std::shared_ptr<ifPrx>& _cpp_or, int global, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<::_cpp_and::assert>>().get_future())
     {
-        return _makePromiseOutgoing<::_cpp_and::assert, P>(false, this, &printPrx::_iceI_raise, _cpp_else, _cpp_return, _cpp_try, _cpp_while, yield, lambda, _cpp_or, global, context);
+        return _makePromiseOutgoing<::_cpp_and::assert, P>(false, this, &printPrx::_iceI_raise, _cpp_else, _cpp_return, _cpp_while, yield, _cpp_or, global, context);
     }
 
     ::std::function<void()>
-    raiseAsync(const _cpp_continue& _cpp_else, const ::std::shared_ptr<_cpp_for>& _cpp_return, const ::std::shared_ptr<::Ice::Value>& _cpp_try, const ::std::shared_ptr<delPrx>& _cpp_while, const ::std::shared_ptr<execPrx>& yield, const ::std::shared_ptr<::Ice::ObjectPrx>& lambda, const ::std::shared_ptr<ifPrx>& _cpp_or, int global,
+    raiseAsync(const _cpp_continue& _cpp_else, const ::std::shared_ptr<_cpp_for>& _cpp_return, const ::std::shared_ptr<delPrx>& _cpp_while, const ::std::shared_ptr<execPrx>& yield, const ::std::shared_ptr<ifPrx>& _cpp_or, int global,
                ::std::function<void(::_cpp_and::assert)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _makeLambdaOutgoing<::_cpp_and::assert>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::printPrx::_iceI_raise, _cpp_else, _cpp_return, _cpp_try, _cpp_while, yield, lambda, _cpp_or, global, context);
+        return _makeLambdaOutgoing<::_cpp_and::assert>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::printPrx::_iceI_raise, _cpp_else, _cpp_return, _cpp_while, yield, _cpp_or, global, context);
     }
 
     /// \cond INTERNAL
-    void _iceI_raise(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::_cpp_and::assert>>&, const _cpp_continue&, const ::std::shared_ptr<_cpp_for>&, const ::std::shared_ptr<::Ice::Value>&, const ::std::shared_ptr<delPrx>&, const ::std::shared_ptr<execPrx>&, const ::std::shared_ptr<::Ice::ObjectPrx>&, const ::std::shared_ptr<ifPrx>&, int, const ::Ice::Context&);
+    void _iceI_raise(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::_cpp_and::assert>>&, const _cpp_continue&, const ::std::shared_ptr<_cpp_for>&, const ::std::shared_ptr<delPrx>&, const ::std::shared_ptr<execPrx>&, const ::std::shared_ptr<ifPrx>&, int, const ::Ice::Context&);
     /// \endcond
 
     /**
@@ -682,12 +682,6 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< exec>&);
 ::IceProxy::Ice::Object* upCast(exec*);
 /// \endcond
 
-class _cpp_for;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< _cpp_for>&);
-::IceProxy::Ice::Object* upCast(_cpp_for*);
-/// \endcond
-
 class _cpp_if;
 /// \cond INTERNAL
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< _cpp_if>&);
@@ -706,61 +700,35 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< print>&);
 
 namespace _cpp_and
 {
-
-class del;
-/// \cond INTERNAL
-::Ice::Object* upCast(del*);
-/// \endcond
-typedef ::IceInternal::Handle< del> delPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::del> delPrx;
 typedef delPrx delPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(delPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class exec;
-/// \cond INTERNAL
-::Ice::Object* upCast(exec*);
-/// \endcond
-typedef ::IceInternal::Handle< exec> execPtr;
+class del;
+typedef ::IceInternal::Handle< del> delPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::exec> execPrx;
 typedef execPrx execPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(execPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class exec;
+typedef ::IceInternal::Handle< exec> execPtr;
 
 class _cpp_for;
 /// \cond INTERNAL
 ::Ice::Object* upCast(_cpp_for*);
 /// \endcond
 typedef ::IceInternal::Handle< _cpp_for> forPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::_cpp_for> forPrx;
-typedef forPrx forPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(forPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-class _cpp_if;
-/// \cond INTERNAL
-::Ice::Object* upCast(_cpp_if*);
-/// \endcond
-typedef ::IceInternal::Handle< _cpp_if> ifPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::_cpp_if> ifPrx;
 typedef ifPrx ifPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(ifPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class print;
-/// \cond INTERNAL
-::Ice::Object* upCast(print*);
-/// \endcond
-typedef ::IceInternal::Handle< print> printPtr;
+class _cpp_if;
+typedef ::IceInternal::Handle< _cpp_if> ifPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::print> printPrx;
 typedef printPrx printPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(printPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class print;
+typedef ::IceInternal::Handle< print> printPtr;
 
 }
 
@@ -1119,23 +1087,6 @@ protected:
     /// \endcond
 };
 
-class _cpp_for : public virtual ::Ice::Proxy<_cpp_for, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
 /// \cond INTERNAL
 class _ifBase : public virtual ::IceProxy::_cpp_and::exec, 
                 public virtual ::IceProxy::_cpp_and::del
@@ -1171,41 +1122,41 @@ class print : public virtual ::Ice::Proxy<print, ::IceProxy::Ice::Object>
 {
 public:
 
-    ::_cpp_and::assert raise(const ::_cpp_and::_cpp_continue& _cpp_else, const ::_cpp_and::forPtr& _cpp_return, const ::_cpp_and::ifPtr& _cpp_try, const ::_cpp_and::delPrx& _cpp_while, const ::_cpp_and::execPrx& yield, const ::_cpp_and::forPrx& lambda, const ::_cpp_and::ifPrx& _cpp_or, ::Ice::Int global, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::_cpp_and::assert raise(const ::_cpp_and::_cpp_continue& _cpp_else, const ::_cpp_and::forPtr& _cpp_return, const ::_cpp_and::delPrx& _cpp_while, const ::_cpp_and::execPrx& yield, const ::_cpp_and::ifPrx& _cpp_or, ::Ice::Int global, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return end_raise(_iceI_begin_raise(_cpp_else, _cpp_return, _cpp_try, _cpp_while, yield, lambda, _cpp_or, global, context, ::IceInternal::dummyCallback, 0, true));
+        return end_raise(_iceI_begin_raise(_cpp_else, _cpp_return, _cpp_while, yield, _cpp_or, global, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_raise(const ::_cpp_and::_cpp_continue& _cpp_else, const ::_cpp_and::forPtr& _cpp_return, const ::_cpp_and::ifPtr& _cpp_try, const ::_cpp_and::delPrx& _cpp_while, const ::_cpp_and::execPrx& yield, const ::_cpp_and::forPrx& lambda, const ::_cpp_and::ifPrx& _cpp_or, ::Ice::Int global, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_raise(const ::_cpp_and::_cpp_continue& _cpp_else, const ::_cpp_and::forPtr& _cpp_return, const ::_cpp_and::delPrx& _cpp_while, const ::_cpp_and::execPrx& yield, const ::_cpp_and::ifPrx& _cpp_or, ::Ice::Int global, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
-        return _iceI_begin_raise(_cpp_else, _cpp_return, _cpp_try, _cpp_while, yield, lambda, _cpp_or, global, context, ::IceInternal::dummyCallback, 0);
+        return _iceI_begin_raise(_cpp_else, _cpp_return, _cpp_while, yield, _cpp_or, global, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_raise(const ::_cpp_and::_cpp_continue& _cpp_else, const ::_cpp_and::forPtr& _cpp_return, const ::_cpp_and::ifPtr& _cpp_try, const ::_cpp_and::delPrx& _cpp_while, const ::_cpp_and::execPrx& yield, const ::_cpp_and::forPrx& lambda, const ::_cpp_and::ifPrx& _cpp_or, ::Ice::Int global, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_raise(const ::_cpp_and::_cpp_continue& _cpp_else, const ::_cpp_and::forPtr& _cpp_return, const ::_cpp_and::delPrx& _cpp_while, const ::_cpp_and::execPrx& yield, const ::_cpp_and::ifPrx& _cpp_or, ::Ice::Int global, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
-        return _iceI_begin_raise(_cpp_else, _cpp_return, _cpp_try, _cpp_while, yield, lambda, _cpp_or, global, ::Ice::noExplicitContext, cb, cookie);
+        return _iceI_begin_raise(_cpp_else, _cpp_return, _cpp_while, yield, _cpp_or, global, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_raise(const ::_cpp_and::_cpp_continue& _cpp_else, const ::_cpp_and::forPtr& _cpp_return, const ::_cpp_and::ifPtr& _cpp_try, const ::_cpp_and::delPrx& _cpp_while, const ::_cpp_and::execPrx& yield, const ::_cpp_and::forPrx& lambda, const ::_cpp_and::ifPrx& _cpp_or, ::Ice::Int global, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_raise(const ::_cpp_and::_cpp_continue& _cpp_else, const ::_cpp_and::forPtr& _cpp_return, const ::_cpp_and::delPrx& _cpp_while, const ::_cpp_and::execPrx& yield, const ::_cpp_and::ifPrx& _cpp_or, ::Ice::Int global, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
-        return _iceI_begin_raise(_cpp_else, _cpp_return, _cpp_try, _cpp_while, yield, lambda, _cpp_or, global, context, cb, cookie);
+        return _iceI_begin_raise(_cpp_else, _cpp_return, _cpp_while, yield, _cpp_or, global, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_raise(const ::_cpp_and::_cpp_continue& _cpp_else, const ::_cpp_and::forPtr& _cpp_return, const ::_cpp_and::ifPtr& _cpp_try, const ::_cpp_and::delPrx& _cpp_while, const ::_cpp_and::execPrx& yield, const ::_cpp_and::forPrx& lambda, const ::_cpp_and::ifPrx& _cpp_or, ::Ice::Int global, const ::_cpp_and::Callback_print_raisePtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_raise(const ::_cpp_and::_cpp_continue& _cpp_else, const ::_cpp_and::forPtr& _cpp_return, const ::_cpp_and::delPrx& _cpp_while, const ::_cpp_and::execPrx& yield, const ::_cpp_and::ifPrx& _cpp_or, ::Ice::Int global, const ::_cpp_and::Callback_print_raisePtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
-        return _iceI_begin_raise(_cpp_else, _cpp_return, _cpp_try, _cpp_while, yield, lambda, _cpp_or, global, ::Ice::noExplicitContext, cb, cookie);
+        return _iceI_begin_raise(_cpp_else, _cpp_return, _cpp_while, yield, _cpp_or, global, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_raise(const ::_cpp_and::_cpp_continue& _cpp_else, const ::_cpp_and::forPtr& _cpp_return, const ::_cpp_and::ifPtr& _cpp_try, const ::_cpp_and::delPrx& _cpp_while, const ::_cpp_and::execPrx& yield, const ::_cpp_and::forPrx& lambda, const ::_cpp_and::ifPrx& _cpp_or, ::Ice::Int global, const ::Ice::Context& context, const ::_cpp_and::Callback_print_raisePtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_raise(const ::_cpp_and::_cpp_continue& _cpp_else, const ::_cpp_and::forPtr& _cpp_return, const ::_cpp_and::delPrx& _cpp_while, const ::_cpp_and::execPrx& yield, const ::_cpp_and::ifPrx& _cpp_or, ::Ice::Int global, const ::Ice::Context& context, const ::_cpp_and::Callback_print_raisePtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
-        return _iceI_begin_raise(_cpp_else, _cpp_return, _cpp_try, _cpp_while, yield, lambda, _cpp_or, global, context, cb, cookie);
+        return _iceI_begin_raise(_cpp_else, _cpp_return, _cpp_while, yield, _cpp_or, global, context, cb, cookie);
     }
 
     ::_cpp_and::assert end_raise(const ::Ice::AsyncResultPtr& result);
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_raise(const ::_cpp_and::_cpp_continue&, const ::_cpp_and::forPtr&, const ::_cpp_and::ifPtr&, const ::_cpp_and::delPrx&, const ::_cpp_and::execPrx&, const ::_cpp_and::forPrx&, const ::_cpp_and::ifPrx&, ::Ice::Int, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_raise(const ::_cpp_and::_cpp_continue&, const ::_cpp_and::forPtr&, const ::_cpp_and::delPrx&, const ::_cpp_and::execPrx&, const ::_cpp_and::ifPrx&, ::Ice::Int, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
@@ -1234,7 +1185,6 @@ class del : public virtual ::Ice::Object
 public:
 
     typedef delPrx ProxyType;
-    typedef delPtr PointerType;
 
     virtual ~del();
     del() = default;
@@ -1277,33 +1227,13 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const del& lhs, const del& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const del& lhs, const del& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 class exec : public virtual ::Ice::Object
 {
 public:
 
     typedef execPrx ProxyType;
-    typedef execPtr PointerType;
 
     virtual ~exec();
     exec() = default;
@@ -1346,32 +1276,111 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
+};
 
-protected:
+class _cpp_if : public virtual exec,
+                public virtual del
+{
+public:
 
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
+    typedef ifPrx ProxyType;
+
+    virtual ~_cpp_if();
+    _cpp_if() = default;
+    _cpp_if(const _cpp_if&) = default;
+    _cpp_if& operator=(const _cpp_if&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const exec& lhs, const exec& rhs)
+class print : public virtual ::Ice::Object
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+public:
+
+    typedef printPrx ProxyType;
+
+    virtual ~print();
+    print() = default;
+    print(const print&) = default;
+    print& operator=(const print&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual assert raise(const _cpp_continue& _cpp_else, const forPtr& _cpp_return, const delPrx& _cpp_while, const execPrx& yield, const ifPrx& _cpp_or, ::Ice::Int global, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_raise(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
+
 }
 
-inline bool operator<(const exec& lhs, const exec& rhs)
+namespace _cpp_and
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 class _cpp_for : public virtual ::Ice::Object
 {
 public:
 
-    typedef forPrx ProxyType;
     typedef forPtr PointerType;
 
     virtual ~_cpp_for();
@@ -1456,140 +1465,6 @@ inline bool operator==(const _cpp_for& lhs, const _cpp_for& rhs)
 }
 
 inline bool operator<(const _cpp_for& lhs, const _cpp_for& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class _cpp_if : virtual public exec,
-                virtual public del
-{
-public:
-
-    typedef ifPrx ProxyType;
-    typedef ifPtr PointerType;
-
-    virtual ~_cpp_if();
-    _cpp_if() = default;
-    _cpp_if(const _cpp_if&) = default;
-    _cpp_if& operator=(const _cpp_if&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const _cpp_if& lhs, const _cpp_if& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const _cpp_if& lhs, const _cpp_if& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class print : public virtual ::Ice::Object
-{
-public:
-
-    typedef printPrx ProxyType;
-    typedef printPtr PointerType;
-
-    virtual ~print();
-    print() = default;
-    print(const print&) = default;
-    print& operator=(const print&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual assert raise(const _cpp_continue& _cpp_else, const forPtr& _cpp_return, const ifPtr& _cpp_try, const delPrx& _cpp_while, const execPrx& yield, const forPrx& lambda, const ifPrx& _cpp_or, ::Ice::Int global, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_raise(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const print& lhs, const print& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const print& lhs, const print& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
 }

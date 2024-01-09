@@ -162,7 +162,7 @@ public struct EventDataSeqHelper {
     }
 }
 
-/// Traits for Slice interface `TopicLink`.
+/// Traits for Slice interface`TopicLink`.
 public struct TopicLinkTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceStorm::TopicLink"]
     public static let staticId = "::IceStorm::TopicLink"
@@ -203,13 +203,13 @@ open class ReapWouldBlock: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `TopicInternal`.
+/// Traits for Slice interface`TopicInternal`.
 public struct TopicInternalTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceStorm::Topic", "::IceStorm::TopicInternal"]
     public static let staticId = "::IceStorm::TopicInternal"
 }
 
-/// Traits for Slice interface `TopicManagerInternal`.
+/// Traits for Slice interface`TopicManagerInternal`.
 public struct TopicManagerInternalTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceStorm::TopicManager", "::IceStorm::TopicManagerInternal"]
     public static let staticId = "::IceStorm::TopicManagerInternal"

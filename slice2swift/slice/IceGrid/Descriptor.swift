@@ -665,7 +665,7 @@ public struct AdapterDescriptorSeqHelper {
     }
 }
 
-/// Traits for Slice class `CommunicatorDescriptor`.
+/// Traits for Slice class`CommunicatorDescriptor`.
 public struct CommunicatorDescriptorTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::CommunicatorDescriptor"]
     public static let staticId = "::IceGrid::CommunicatorDescriptor"
@@ -738,7 +738,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice class `ServerDescriptor`.
+/// Traits for Slice class`ServerDescriptor`.
 public struct ServerDescriptorTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::CommunicatorDescriptor", "::IceGrid::ServerDescriptor"]
     public static let staticId = "::IceGrid::ServerDescriptor"
@@ -811,7 +811,7 @@ public struct ServerDescriptorSeqHelper {
     }
 }
 
-/// Traits for Slice class `ServiceDescriptor`.
+/// Traits for Slice class`ServiceDescriptor`.
 public struct ServiceDescriptorTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::CommunicatorDescriptor", "::IceGrid::ServiceDescriptor"]
     public static let staticId = "::IceGrid::ServiceDescriptor"
@@ -1313,7 +1313,7 @@ public struct ServiceInstanceDescriptorSeqHelper {
     }
 }
 
-/// Traits for Slice class `IceBoxDescriptor`.
+/// Traits for Slice class`IceBoxDescriptor`.
 public struct IceBoxDescriptorTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::CommunicatorDescriptor", "::IceGrid::IceBoxDescriptor", "::IceGrid::ServerDescriptor"]
     public static let staticId = "::IceGrid::IceBoxDescriptor"
@@ -1474,31 +1474,31 @@ public struct NodeDescriptorDictHelper {
     }
 }
 
-/// Traits for Slice class `LoadBalancingPolicy`.
+/// Traits for Slice class`LoadBalancingPolicy`.
 public struct LoadBalancingPolicyTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::LoadBalancingPolicy"]
     public static let staticId = "::IceGrid::LoadBalancingPolicy"
 }
 
-/// Traits for Slice class `RandomLoadBalancingPolicy`.
+/// Traits for Slice class`RandomLoadBalancingPolicy`.
 public struct RandomLoadBalancingPolicyTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::LoadBalancingPolicy", "::IceGrid::RandomLoadBalancingPolicy"]
     public static let staticId = "::IceGrid::RandomLoadBalancingPolicy"
 }
 
-/// Traits for Slice class `OrderedLoadBalancingPolicy`.
+/// Traits for Slice class`OrderedLoadBalancingPolicy`.
 public struct OrderedLoadBalancingPolicyTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::LoadBalancingPolicy", "::IceGrid::OrderedLoadBalancingPolicy"]
     public static let staticId = "::IceGrid::OrderedLoadBalancingPolicy"
 }
 
-/// Traits for Slice class `RoundRobinLoadBalancingPolicy`.
+/// Traits for Slice class`RoundRobinLoadBalancingPolicy`.
 public struct RoundRobinLoadBalancingPolicyTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::LoadBalancingPolicy", "::IceGrid::RoundRobinLoadBalancingPolicy"]
     public static let staticId = "::IceGrid::RoundRobinLoadBalancingPolicy"
 }
 
-/// Traits for Slice class `AdaptiveLoadBalancingPolicy`.
+/// Traits for Slice class`AdaptiveLoadBalancingPolicy`.
 public struct AdaptiveLoadBalancingPolicyTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::AdaptiveLoadBalancingPolicy", "::IceGrid::LoadBalancingPolicy"]
     public static let staticId = "::IceGrid::AdaptiveLoadBalancingPolicy"
@@ -1827,7 +1827,7 @@ public struct ApplicationDescriptorSeqHelper {
     }
 }
 
-/// Traits for Slice class `BoxedString`.
+/// Traits for Slice class`BoxedString`.
 public struct BoxedStringTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::BoxedString"]
     public static let staticId = "::IceGrid::BoxedString"
@@ -2007,7 +2007,7 @@ public struct NodeUpdateDescriptorSeqHelper {
     }
 }
 
-/// Traits for Slice class `BoxedDistributionDescriptor`.
+/// Traits for Slice class`BoxedDistributionDescriptor`.
 public struct BoxedDistributionDescriptorTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::BoxedDistributionDescriptor"]
     public static let staticId = "::IceGrid::BoxedDistributionDescriptor"

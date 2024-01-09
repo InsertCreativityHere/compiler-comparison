@@ -44,8 +44,6 @@ module ::IceDiscovery
             T_LookupReplyPrx = ::Ice::__declareProxy('::IceDiscovery::LookupReply')
         end
 
-        T_LookupReply.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_LookupReplyPrx.defineProxy(LookupReplyPrx, nil, [])
 
         LookupReplyPrx_mixin::OP_foundObjectById = ::Ice::__defineOperation('foundObjectById', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_Identity, false, 0], [::Ice::T_ObjectPrx, false, 0]], [], nil, [])
@@ -76,8 +74,6 @@ module ::IceDiscovery
             T_Lookup = ::Ice::__declareClass('::IceDiscovery::Lookup')
             T_LookupPrx = ::Ice::__declareProxy('::IceDiscovery::Lookup')
         end
-
-        T_Lookup.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_LookupPrx.defineProxy(LookupPrx, nil, [])
 

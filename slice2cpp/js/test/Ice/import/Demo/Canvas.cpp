@@ -488,11 +488,6 @@ Demo::gx::Canvas::~Canvas()
 {
 }
 
-/// \cond INTERNAL
-::Ice::Object* Demo::gx::upCast(Canvas* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Demo_gx_Canvas_ids[2] =
@@ -617,44 +612,9 @@ Demo::gx::Canvas::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Demo::gx::Canvas::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Canvas, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Demo::gx::Canvas::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Canvas, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Demo::gx::_icePatchObjectPtr(CanvasPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = CanvasPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Canvas::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Demo::gx::Session::~Session()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Demo::gx::upCast(Session* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -762,39 +722,5 @@ Demo::gx::Session::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curren
     }
 }
 /// \endcond
-
-/// \cond STREAM
-void
-Demo::gx::Session::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Session, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Demo::gx::Session::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Session, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Demo::gx::_icePatchObjectPtr(SessionPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = SessionPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Session::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-namespace Ice
-{
-}
 
 #endif

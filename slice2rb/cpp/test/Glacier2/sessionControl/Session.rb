@@ -45,8 +45,6 @@ module ::Test
             T_SessionPrx = ::Ice::__declareProxy('::Test::Session')
         end
 
-        T_Session.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_SessionPrx.defineProxy(SessionPrx, nil, [::Glacier2::T_SessionPrx])
 
         SessionPrx_mixin::OP_destroyFromClient = ::Ice::__defineOperation('destroyFromClient', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])

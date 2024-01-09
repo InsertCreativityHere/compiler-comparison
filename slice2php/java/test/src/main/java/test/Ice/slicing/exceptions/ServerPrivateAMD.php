@@ -251,7 +251,6 @@ namespace Test
             return '::Test::Relay';
         }
     }
-    $Test__t_Relay = IcePHP_defineClass('::Test::Relay', '\\Test\\Relay', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_RelayPrx = IcePHP_defineProxy('::Test::Relay', $Ice__t_ObjectPrx, null);
@@ -284,7 +283,6 @@ namespace Test
             return '::Test::TestIntf';
         }
     }
-    $Test__t_TestIntf = IcePHP_defineClass('::Test::TestIntf', '\\Test\\TestIntf', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_TestIntfPrx = IcePHP_defineProxy('::Test::TestIntf', $Ice__t_ObjectPrx, null);

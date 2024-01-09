@@ -2670,7 +2670,7 @@ public struct MyEnumMyEnumSDHelper {
     }
 }
 
-/// Traits for Slice interface `MyClass`.
+/// Traits for Slice interface`MyClass`.
 public struct MyClassTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MyClass"]
     public static let staticId = "::Test::MyClass"
@@ -2744,13 +2744,13 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice class `MyClass1`.
+/// Traits for Slice class`MyClass1`.
 public struct MyClass1Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MyClass1"]
     public static let staticId = "::Test::MyClass1"
 }
 
-/// Traits for Slice interface `MyDerivedClass`.
+/// Traits for Slice interface`MyDerivedClass`.
 public struct MyDerivedClassTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MyClass", "::Test::MyDerivedClass"]
     public static let staticId = "::Test::MyDerivedClass"
@@ -2831,24 +2831,6 @@ public let su1: Swift.String = "\u{128}\u{178}\u{ff}\u{100}\u{1f00}\u{10194}\u{1
 
 public let su2: Swift.String = "\u{128}\u{178}\u{ff}\u{100}\u{1f00}\u{10194}\u{1016a}\u{10198}\u{1f340}\u{1f341}\u{1f342}\u{1f343}"
 
-
-/// Traits for Slice class `MA`.
-public struct MATraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::M::A"]
-    public static let staticId = "::M::A"
-}
-
-/// Traits for Slice interface `MIntf`.
-public struct MIntfTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::M::Intf"]
-    public static let staticId = "::M::Intf"
-}
-
-/// Traits for Slice class `MB`.
-public struct MBTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::M::A", "::M::B", "::M::Intf"]
-    public static let staticId = "::M::B"
-}
 
 /// MyClassPrx overview.
 ///
@@ -7614,246 +7596,6 @@ public extension MyDerivedClassPrx {
     }
 }
 
-/// MIntfPrx overview.
-///
-/// MIntfPrx Methods:
-///
-///  - opIntf: 
-///
-///  - opIntfAsync: 
-public protocol MIntfPrx: Ice.ObjectPrx {}
-
-private final class MIntfPrxI: Ice.ObjectPrxI, MIntfPrx {
-    public override class func ice_staticId() -> Swift.String {
-        return MIntfTraits.staticId
-    }
-}
-
-/// Casts a proxy to the requested type. This call contacts the server and verifies that the object
-/// implements this type.
-///
-/// It will throw a local exception if a communication error occurs. You can optionally supply a
-/// facet name and a context map.
-///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
-///
-/// - parameter type: `MIntfPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `MIntfPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: MIntfPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> MIntfPrx? {
-    return try MIntfPrxI.checkedCast(prx: prx, facet: facet, context: context) as MIntfPrxI?
-}
-
-/// Downcasts the given proxy to this type without contacting the remote server.
-///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
-///
-/// - parameter type: `MIntfPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `MIntfPrx` - A proxy with the requested type
-public func uncheckedCast(prx: Ice.ObjectPrx, type: MIntfPrx.Protocol, facet: Swift.String? = nil) -> MIntfPrx {
-    return MIntfPrxI.uncheckedCast(prx: prx, facet: facet) as MIntfPrxI
-}
-
-/// Returns the Slice type id of the interface or class associated with this proxy type.
-///
-/// parameter type: `MIntfPrx.Protocol` -  The proxy type to retrieve the type id.
-///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
-public func ice_staticId(_ type: MIntfPrx.Protocol) -> Swift.String {
-    return MIntfTraits.staticId
-}
-
-/// Extension to `Ice.InputStream` class to support reading proxy of type
-/// `MIntfPrx`.
-public extension Ice.InputStream {
-    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
-    ///
-    /// - parameter type: `MIntfPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `MIntfPrx?` - The extracted proxy
-    func read(_ type: MIntfPrx.Protocol) throws -> MIntfPrx? {
-        return try read() as MIntfPrxI?
-    }
-    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter type: `MIntfPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `MIntfPrx` - The extracted proxy.
-    func read(tag: Swift.Int32, type: MIntfPrx.Protocol) throws -> MIntfPrx? {
-        return try read(tag: tag) as MIntfPrxI?
-    }
-}
-
-/// MIntfPrx overview.
-///
-/// MIntfPrx Methods:
-///
-///  - opIntf: 
-///
-///  - opIntfAsync: 
-public extension MIntfPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func opIntf(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "opIntf",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func opIntfAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "opIntf",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-}
-
-/// MBPrx overview.
-///
-/// MBPrx Methods:
-///
-///  - opB: 
-///
-///  - opBAsync: 
-public protocol MBPrx: MIntfPrx {}
-
-private final class MBPrxI: Ice.ObjectPrxI, MBPrx {
-    public override class func ice_staticId() -> Swift.String {
-        return MBTraits.staticId
-    }
-}
-
-/// Casts a proxy to the requested type. This call contacts the server and verifies that the object
-/// implements this type.
-///
-/// It will throw a local exception if a communication error occurs. You can optionally supply a
-/// facet name and a context map.
-///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
-///
-/// - parameter type: `MBPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `MBPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: MBPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> MBPrx? {
-    return try MBPrxI.checkedCast(prx: prx, facet: facet, context: context) as MBPrxI?
-}
-
-/// Downcasts the given proxy to this type without contacting the remote server.
-///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
-///
-/// - parameter type: `MBPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `MBPrx` - A proxy with the requested type
-public func uncheckedCast(prx: Ice.ObjectPrx, type: MBPrx.Protocol, facet: Swift.String? = nil) -> MBPrx {
-    return MBPrxI.uncheckedCast(prx: prx, facet: facet) as MBPrxI
-}
-
-/// Returns the Slice type id of the interface or class associated with this proxy type.
-///
-/// parameter type: `MBPrx.Protocol` -  The proxy type to retrieve the type id.
-///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
-public func ice_staticId(_ type: MBPrx.Protocol) -> Swift.String {
-    return MBTraits.staticId
-}
-
-/// Extension to `Ice.InputStream` class to support reading proxy of type
-/// `MBPrx`.
-public extension Ice.InputStream {
-    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
-    ///
-    /// - parameter type: `MBPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `MBPrx?` - The extracted proxy
-    func read(_ type: MBPrx.Protocol) throws -> MBPrx? {
-        return try read() as MBPrxI?
-    }
-    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter type: `MBPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `MBPrx` - The extracted proxy.
-    func read(tag: Swift.Int32, type: MBPrx.Protocol) throws -> MBPrx? {
-        return try read(tag: tag) as MBPrxI?
-    }
-}
-
-/// MBPrx overview.
-///
-/// MBPrx Methods:
-///
-///  - opB: 
-///
-///  - opBAsync: 
-public extension MBPrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func opB(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "opB",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func opBAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "opB",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-}
-
 /// :nodoc:
 public class MyClass1_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
@@ -7908,96 +7650,6 @@ open class MyClass1: Ice.Value {
         ostr.write(self.myClass)
         ostr.write(self.myClass1)
         ostr.endSlice()
-    }
-}
-
-/// :nodoc:
-public class MA_TypeResolver: Ice.ValueTypeResolver {
-    public override func type() -> Ice.Value.Type {
-        return MA.self
-    }
-}
-
-public extension Ice.ClassResolver {
-    @objc static func IceOperationsAMDM_A() -> Ice.ValueTypeResolver {
-        return MA_TypeResolver()
-    }
-}
-
-open class MA: Ice.Value {
-    public var x: Swift.Int32 = 0
-
-    public required init() {}
-
-    public init(x: Swift.Int32) {
-        self.x = x
-    }
-
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MATraits.staticId
-    }
-
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MATraits.staticId
-    }
-
-    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
-        _ = try istr.startSlice()
-        self.x = try istr.read()
-        try istr.endSlice()
-    }
-
-    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MATraits.staticId, compactId: -1, last: true)
-        ostr.write(self.x)
-        ostr.endSlice()
-    }
-}
-
-/// :nodoc:
-public class MB_TypeResolver: Ice.ValueTypeResolver {
-    public override func type() -> Ice.Value.Type {
-        return MB.self
-    }
-}
-
-public extension Ice.ClassResolver {
-    @objc static func IceOperationsAMDM_B() -> Ice.ValueTypeResolver {
-        return MB_TypeResolver()
-    }
-}
-
-open class MB: MA {
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MBTraits.staticId
-    }
-
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MBTraits.staticId
-    }
-
-    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
-        _ = try istr.startSlice()
-        try istr.endSlice()
-        try super._iceReadImpl(from: istr);
-    }
-
-    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MBTraits.staticId, compactId: -1, last: false)
-        ostr.endSlice()
-        super._iceWriteImpl(to: ostr);
     }
 }
 
@@ -9001,82 +8653,6 @@ public protocol MyDerivedClass: MyClass {
     ///
     /// - returns: `PromiseKit.Promise<MyStruct1>` - The result of the operation
     func opMyStruct1Async(opMyStruct1: MyStruct1, current: Ice.Current) -> PromiseKit.Promise<MyStruct1>
-}
-
-
-/// Dispatcher for `MIntf` servants.
-public struct MIntfDisp: Ice.Disp {
-    public let servant: MIntf
-    private static let defaultObject = Ice.ObjectI<MIntfTraits>()
-
-    public init(_ servant: MIntf) {
-        self.servant = servant
-    }
-
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
-        case "ice_id":
-            return try (servant as? Object ?? MIntfDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
-        case "ice_ids":
-            return try (servant as? Object ?? MIntfDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
-        case "ice_isA":
-            return try (servant as? Object ?? MIntfDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
-        case "ice_ping":
-            return try (servant as? Object ?? MIntfDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
-        case "opIntf":
-            return try servant._iceD_opIntf(incoming: request, current: current)
-        default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
-        }
-    }
-}
-
-public protocol MIntf {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func opIntfAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
-}
-
-
-/// Dispatcher for `MBOperations` servants.
-public struct MBDisp: Ice.Disp {
-    public let servant: MBOperations
-    private static let defaultObject = Ice.ObjectI<MBTraits>()
-
-    public init(_ servant: MBOperations) {
-        self.servant = servant
-    }
-
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
-        case "ice_id":
-            return try (servant as? Object ?? MBDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
-        case "ice_ids":
-            return try (servant as? Object ?? MBDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
-        case "ice_isA":
-            return try (servant as? Object ?? MBDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
-        case "ice_ping":
-            return try (servant as? Object ?? MBDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
-        case "opB":
-            return try servant._iceD_opB(incoming: request, current: current)
-        case "opIntf":
-            return try servant._iceD_opIntf(incoming: request, current: current)
-        default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
-        }
-    }
-}
-
-public protocol MBOperations: MIntf {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func opBAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
 }
 
 /// MyClass overview.
@@ -10164,31 +9740,5 @@ public extension MyDerivedClass {
             let iceP_returnValue = retVals
             ostr.write(iceP_returnValue)
         }
-    }
-}
-
-/// MIntf overview.
-///
-/// MIntf Methods:
-///
-///  - opIntf: 
-public extension MIntf {
-    func _iceD_opIntf(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(opIntfAsync(current: current))
-    }
-}
-
-/// MB overview.
-///
-/// MB Methods:
-///
-///  - opB: 
-public extension MBOperations {
-    func _iceD_opB(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(opBAsync(current: current))
     }
 }

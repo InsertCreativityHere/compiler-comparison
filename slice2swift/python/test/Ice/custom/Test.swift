@@ -143,19 +143,19 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice class `C`.
+/// Traits for Slice class`C`.
 public struct CTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::C"]
     public static let staticId = "::Test::C"
 }
 
-/// Traits for Slice class `D`.
+/// Traits for Slice class`D`.
 public struct DTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::D"]
     public static let staticId = "::Test::D"
 }
 
-/// Traits for Slice interface `Custom`.
+/// Traits for Slice interface`Custom`.
 public struct CustomTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Custom"]
     public static let staticId = "::Test::Custom"

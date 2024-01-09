@@ -42,7 +42,6 @@ namespace Ice
             return '::Ice::PropertiesAdmin';
         }
     }
-    $Ice__t_PropertiesAdmin = IcePHP_defineClass('::Ice::PropertiesAdmin', '\\Ice\\PropertiesAdmin', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Ice__t_PropertiesAdminPrx = IcePHP_defineProxy('::Ice::PropertiesAdmin', $Ice__t_ObjectPrx, null);

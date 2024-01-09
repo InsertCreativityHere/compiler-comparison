@@ -54,12 +54,10 @@ class SSLPermissionsVerifierPrx;
 
 }
 
-/// \cond STREAM
-namespace Ice
+namespace Glacier2
 {
 
 }
-/// \endcond
 
 /// \cond INTERNAL
 namespace Glacier2
@@ -100,37 +98,23 @@ GLACIER2_API ::IceProxy::Ice::Object* upCast(SSLPermissionsVerifier*);
 
 namespace Glacier2
 {
-
-class PermissionsVerifier;
-/// \cond INTERNAL
-GLACIER2_API ::Ice::Object* upCast(PermissionsVerifier*);
-/// \endcond
-typedef ::IceInternal::Handle< PermissionsVerifier> PermissionsVerifierPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Glacier2::PermissionsVerifier> PermissionsVerifierPrx;
 typedef PermissionsVerifierPrx PermissionsVerifierPrxPtr;
-/// \cond INTERNAL
-GLACIER2_API void _icePatchObjectPtr(PermissionsVerifierPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class SSLPermissionsVerifier;
-/// \cond INTERNAL
-GLACIER2_API ::Ice::Object* upCast(SSLPermissionsVerifier*);
-/// \endcond
-typedef ::IceInternal::Handle< SSLPermissionsVerifier> SSLPermissionsVerifierPtr;
+class PermissionsVerifier;
+typedef ::IceInternal::Handle< PermissionsVerifier> PermissionsVerifierPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Glacier2::SSLPermissionsVerifier> SSLPermissionsVerifierPrx;
 typedef SSLPermissionsVerifierPrx SSLPermissionsVerifierPrxPtr;
-/// \cond INTERNAL
-GLACIER2_API void _icePatchObjectPtr(SSLPermissionsVerifierPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class SSLPermissionsVerifier;
+typedef ::IceInternal::Handle< SSLPermissionsVerifier> SSLPermissionsVerifierPtr;
 
 }
 
-/// \cond STREAM
-namespace Ice
+namespace Glacier2
 {
 
 }
-/// \endcond
 
 #endif
 

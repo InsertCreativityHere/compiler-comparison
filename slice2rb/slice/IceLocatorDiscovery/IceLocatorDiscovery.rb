@@ -40,8 +40,6 @@ module ::IceLocatorDiscovery
             T_LookupReplyPrx = ::Ice::__declareProxy('::IceLocatorDiscovery::LookupReply')
         end
 
-        T_LookupReply.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_LookupReplyPrx.defineProxy(LookupReplyPrx, nil, [])
 
         LookupReplyPrx_mixin::OP_foundLocator = ::Ice::__defineOperation('foundLocator', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_LocatorPrx, false, 0]], [], nil, [])
@@ -67,8 +65,6 @@ module ::IceLocatorDiscovery
             T_Lookup = ::Ice::__declareClass('::IceLocatorDiscovery::Lookup')
             T_LookupPrx = ::Ice::__declareProxy('::IceLocatorDiscovery::Lookup')
         end
-
-        T_Lookup.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_LookupPrx.defineProxy(LookupPrx, nil, [])
 

@@ -854,11 +854,6 @@ IceStorm::TopicLink::~TopicLink()
 {
 }
 
-/// \cond INTERNAL
-::Ice::Object* IceStorm::upCast(TopicLink* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_IceStorm_TopicLink_ids[2] =
@@ -963,44 +958,9 @@ IceStorm::TopicLink::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
 }
 /// \endcond
 
-/// \cond STREAM
-void
-IceStorm::TopicLink::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< TopicLink, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceStorm::TopicLink::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< TopicLink, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceStorm::_icePatchObjectPtr(TopicLinkPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = TopicLinkPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(TopicLink::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceStorm::TopicInternal::~TopicInternal()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* IceStorm::upCast(TopicInternal* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1176,44 +1136,9 @@ IceStorm::TopicInternal::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::
 }
 /// \endcond
 
-/// \cond STREAM
-void
-IceStorm::TopicInternal::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< TopicInternal, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceStorm::TopicInternal::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< TopicInternal, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceStorm::_icePatchObjectPtr(TopicInternalPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = TopicInternalPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(TopicInternal::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceStorm::TopicManagerInternal::~TopicManagerInternal()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* IceStorm::upCast(TopicManagerInternal* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1330,36 +1255,6 @@ IceStorm::TopicManagerInternal::_iceDispatch(::IceInternal::Incoming& in, const 
             assert(false);
             throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
         }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-IceStorm::TopicManagerInternal::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< TopicManagerInternal, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceStorm::TopicManagerInternal::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< TopicManagerInternal, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceStorm::_icePatchObjectPtr(TopicManagerInternalPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = TopicManagerInternalPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(TopicManagerInternal::ice_staticId(), v);
     }
 }
 /// \endcond

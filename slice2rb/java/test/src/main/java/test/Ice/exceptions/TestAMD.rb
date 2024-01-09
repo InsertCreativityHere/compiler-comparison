@@ -20,7 +20,6 @@ require 'Ice/BuiltinSequences.rb'
 module ::Test
 
     if not defined?(::Test::T_Thrower)
-        T_Thrower = ::Ice::__declareClass('::Test::Thrower')
         T_ThrowerPrx = ::Ice::__declareProxy('::Test::Thrower')
     end
 
@@ -187,8 +186,6 @@ module ::Test
             T_ThrowerPrx = ::Ice::__declareProxy('::Test::Thrower')
         end
 
-        T_Thrower.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_ThrowerPrx.defineProxy(ThrowerPrx, nil, [])
 
         ThrowerPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
@@ -233,8 +230,6 @@ module ::Test
             T_WrongOperation = ::Ice::__declareClass('::Test::WrongOperation')
             T_WrongOperationPrx = ::Ice::__declareProxy('::Test::WrongOperation')
         end
-
-        T_WrongOperation.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_WrongOperationPrx.defineProxy(WrongOperationPrx, nil, [])
 

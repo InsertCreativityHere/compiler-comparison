@@ -232,11 +232,6 @@ Test::Backend::~Backend()
 {
 }
 
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(Backend* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Test_Backend_ids[2] =
@@ -337,39 +332,5 @@ Test::Backend::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     }
 }
 /// \endcond
-
-/// \cond STREAM
-void
-Test::Backend::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Backend, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Backend::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Backend, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(BackendPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = BackendPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Backend::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-namespace Ice
-{
-}
 
 #endif

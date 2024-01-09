@@ -398,74 +398,6 @@ Test::ETwoMembers::_readImpl(::Ice::InputStream* istr)
 /// \endcond
 
 /// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(Empty* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< Empty>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new Empty;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::Empty::_newInstance() const
-{
-    return new Empty;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::Empty::ice_staticId()
-{
-    return ::Test::Empty::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(AlsoEmpty* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< AlsoEmpty>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new AlsoEmpty;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::AlsoEmpty::_newInstance() const
-{
-    return new AlsoEmpty;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::AlsoEmpty::ice_staticId()
-{
-    return ::Test::AlsoEmpty::ice_staticId();
-}
-
-/// \cond INTERNAL
 ::IceProxy::Ice::Object* ::IceProxy::Test::upCast(UnexpectedObjectExceptionTest* p) { return p; }
 
 void
@@ -540,73 +472,113 @@ IceProxy::Test::UnexpectedObjectExceptionTest::ice_staticId()
     return ::Test::UnexpectedObjectExceptionTest::ice_staticId();
 }
 
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(COneMember* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< COneMember>& v)
+Test::UnexpectedObjectExceptionTest::~UnexpectedObjectExceptionTest()
 {
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new COneMember;
-        v->_copyFrom(proxy);
-    }
 }
-/// \endcond
 
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::COneMember::_newInstance() const
+namespace
 {
-    return new COneMember;
+const ::std::string iceC_Test_UnexpectedObjectExceptionTest_ids[2] =
+{
+    "::Ice::Object",
+    "::Test::UnexpectedObjectExceptionTest"
+};
+
 }
-/// \endcond
+
+bool
+Test::UnexpectedObjectExceptionTest::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_Test_UnexpectedObjectExceptionTest_ids, iceC_Test_UnexpectedObjectExceptionTest_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+Test::UnexpectedObjectExceptionTest::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_Test_UnexpectedObjectExceptionTest_ids[0], &iceC_Test_UnexpectedObjectExceptionTest_ids[2]);
+}
 
 const ::std::string&
-IceProxy::Test::COneMember::ice_staticId()
+Test::UnexpectedObjectExceptionTest::ice_id(const ::Ice::Current&) const
 {
-    return ::Test::COneMember::ice_staticId();
+    return ice_staticId();
 }
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(CTwoMembers* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< CTwoMembers>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new CTwoMembers;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::CTwoMembers::_newInstance() const
-{
-    return new CTwoMembers;
-}
-/// \endcond
 
 const ::std::string&
-IceProxy::Test::CTwoMembers::ice_staticId()
+Test::UnexpectedObjectExceptionTest::ice_staticId()
 {
-    return ::Test::CTwoMembers::ice_staticId();
+    static const ::std::string typeId = "::Test::UnexpectedObjectExceptionTest";
+    return typeId;
 }
+
+/// \cond INTERNAL
+bool
+Test::UnexpectedObjectExceptionTest::_iceD_op(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    EmptyPtr ret = this->op(current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    ostr->writePendingValues();
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+namespace
+{
+const ::std::string iceC_Test_UnexpectedObjectExceptionTest_all[] =
+{
+    "ice_id",
+    "ice_ids",
+    "ice_isA",
+    "ice_ping",
+    "op"
+};
+
+}
+
+/// \cond INTERNAL
+bool
+Test::UnexpectedObjectExceptionTest::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+{
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_UnexpectedObjectExceptionTest_all, iceC_Test_UnexpectedObjectExceptionTest_all + 5, current.operation);
+    if(r.first == r.second)
+    {
+        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+    }
+
+    switch(r.first - iceC_Test_UnexpectedObjectExceptionTest_all)
+    {
+        case 0:
+        {
+            return _iceD_ice_id(in, current);
+        }
+        case 1:
+        {
+            return _iceD_ice_ids(in, current);
+        }
+        case 2:
+        {
+            return _iceD_ice_isA(in, current);
+        }
+        case 3:
+        {
+            return _iceD_ice_ping(in, current);
+        }
+        case 4:
+        {
+            return _iceD_op(in, current);
+        }
+        default:
+        {
+            assert(false);
+            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        }
+    }
+}
+/// \endcond
 
 Test::Empty::~Empty()
 {
@@ -786,149 +758,6 @@ Test::_icePatchObjectPtr(AlsoEmptyPtr& handle, const ::Ice::ObjectPtr& v)
     if(v && !handle)
     {
         IceInternal::Ex::throwUOE(AlsoEmpty::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-Test::UnexpectedObjectExceptionTest::~UnexpectedObjectExceptionTest()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(UnexpectedObjectExceptionTest* p) { return p; }
-
-/// \endcond
-
-namespace
-{
-const ::std::string iceC_Test_UnexpectedObjectExceptionTest_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::UnexpectedObjectExceptionTest"
-};
-
-}
-
-bool
-Test::UnexpectedObjectExceptionTest::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_UnexpectedObjectExceptionTest_ids, iceC_Test_UnexpectedObjectExceptionTest_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::UnexpectedObjectExceptionTest::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_UnexpectedObjectExceptionTest_ids[0], &iceC_Test_UnexpectedObjectExceptionTest_ids[2]);
-}
-
-const ::std::string&
-Test::UnexpectedObjectExceptionTest::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::UnexpectedObjectExceptionTest::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::UnexpectedObjectExceptionTest";
-    return typeId;
-}
-
-/// \cond INTERNAL
-bool
-Test::UnexpectedObjectExceptionTest::_iceD_op(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    EmptyPtr ret = this->op(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-namespace
-{
-const ::std::string iceC_Test_UnexpectedObjectExceptionTest_all[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "op"
-};
-
-}
-
-/// \cond INTERNAL
-bool
-Test::UnexpectedObjectExceptionTest::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
-{
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_UnexpectedObjectExceptionTest_all, iceC_Test_UnexpectedObjectExceptionTest_all + 5, current.operation);
-    if(r.first == r.second)
-    {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-    }
-
-    switch(r.first - iceC_Test_UnexpectedObjectExceptionTest_all)
-    {
-        case 0:
-        {
-            return _iceD_ice_id(in, current);
-        }
-        case 1:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 2:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 3:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        case 4:
-        {
-            return _iceD_op(in, current);
-        }
-        default:
-        {
-            assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-        }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-Test::UnexpectedObjectExceptionTest::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< UnexpectedObjectExceptionTest, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::UnexpectedObjectExceptionTest::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< UnexpectedObjectExceptionTest, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(UnexpectedObjectExceptionTestPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = UnexpectedObjectExceptionTestPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(UnexpectedObjectExceptionTest::ice_staticId(), v);
     }
 }
 /// \endcond

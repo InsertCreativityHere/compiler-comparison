@@ -84,13 +84,13 @@ public struct ContextHelper {
     }
 }
 
-/// Traits for Slice interface `MyClass`.
+/// Traits for Slice interface`MyClass`.
 public struct MyClassTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MyClass"]
     public static let staticId = "::Test::MyClass"
 }
 
-/// Traits for Slice interface `MyDerivedClass`.
+/// Traits for Slice interface`MyDerivedClass`.
 public struct MyDerivedClassTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MyClass", "::Test::MyDerivedClass"]
     public static let staticId = "::Test::MyDerivedClass"

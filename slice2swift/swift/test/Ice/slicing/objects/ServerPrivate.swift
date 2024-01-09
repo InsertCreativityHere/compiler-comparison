@@ -16,25 +16,25 @@
 import Foundation
 import Ice
 
-/// Traits for Slice class `SBSUnknownDerived`.
+/// Traits for Slice class`SBSUnknownDerived`.
 public struct SBSUnknownDerivedTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::SBSUnknownDerived", "::Test::SBase"]
     public static let staticId = "::Test::SBSUnknownDerived"
 }
 
-/// Traits for Slice class `SUnknown`.
+/// Traits for Slice class`SUnknown`.
 public struct SUnknownTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::SUnknown"]
     public static let staticId = "::Test::SUnknown"
 }
 
-/// Traits for Slice class `D2`.
+/// Traits for Slice class`D2`.
 public struct D2Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::B", "::Test::D2"]
     public static let staticId = "::Test::D2"
 }
 
-/// Traits for Slice class `D4`.
+/// Traits for Slice class`D4`.
 public struct D4Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::B", "::Test::D4"]
     public static let staticId = "::Test::D4"
@@ -91,19 +91,19 @@ open class UnknownDerivedException: BaseException {
     }
 }
 
-/// Traits for Slice class `MyClass`.
+/// Traits for Slice class`MyClass`.
 public struct MyClassTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MyClass"]
     public static let staticId = "::Test::MyClass"
 }
 
-/// Traits for Slice class `PSUnknown`.
+/// Traits for Slice class`PSUnknown`.
 public struct PSUnknownTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::PBase", "::Test::PSUnknown", "::Test::Preserved"]
     public static let staticId = "::Test::PSUnknown"
 }
 
-/// Traits for Slice class `PSUnknown2`.
+/// Traits for Slice class`PSUnknown2`.
 public struct PSUnknown2Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::PBase", "::Test::PSUnknown2", "::Test::Preserved"]
     public static let staticId = "::Test::PSUnknown2"

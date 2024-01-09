@@ -102,7 +102,6 @@ namespace Glacier2
 
 /**
  * The Glacier2 specialization of the <code>Ice::Router</code> interface.
- * \headerfile Glacier2/Glacier2.h
  */
 class GLACIER2_API Router : public virtual ::Ice::Router
 {
@@ -252,7 +251,6 @@ namespace Glacier2
 
 /**
  * The Glacier2 specialization of the <code>Ice::Router</code> interface.
- * \headerfile Glacier2/Glacier2.h
  */
 class ICE_CLASS(GLACIER2_API) RouterPrx : public virtual ::Ice::Proxy<RouterPrx, ::Ice::RouterPrx>
 {
@@ -687,17 +685,11 @@ GLACIER2_API ::IceProxy::Ice::Object* upCast(Router*);
 
 namespace Glacier2
 {
-
-class Router;
-/// \cond INTERNAL
-GLACIER2_API ::Ice::Object* upCast(Router*);
-/// \endcond
-typedef ::IceInternal::Handle< Router> RouterPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Glacier2::Router> RouterPrx;
 typedef RouterPrx RouterPrxPtr;
-/// \cond INTERNAL
-GLACIER2_API void _icePatchObjectPtr(RouterPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class Router;
+typedef ::IceInternal::Handle< Router> RouterPtr;
 
 }
 
@@ -1667,14 +1659,12 @@ namespace Glacier2
 
 /**
  * The Glacier2 specialization of the <code>Ice::Router</code> interface.
- * \headerfile Glacier2/Glacier2.h
  */
-class GLACIER2_API Router : virtual public ::Ice::Router
+class GLACIER2_API Router : public virtual ::Ice::Router
 {
 public:
 
     typedef RouterPrx ProxyType;
-    typedef RouterPtr PointerType;
 
     virtual ~Router();
     Router() = default;
@@ -1811,26 +1801,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const Router& lhs, const Router& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Router& lhs, const Router& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 }
 

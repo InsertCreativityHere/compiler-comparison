@@ -116,8 +116,6 @@ module ::And
             T_DelPrx = ::Ice::__declareProxy('::and::del')
         end
 
-        T_Del.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_DelPrx.defineProxy(DelPrx, nil, [])
 
         DelPrx_mixin::OP_elif = ::Ice::__defineOperation('elif', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
@@ -143,8 +141,6 @@ module ::And
             T_Exec = ::Ice::__declareClass('::and::exec')
             T_ExecPrx = ::Ice::__declareProxy('::and::exec')
         end
-
-        T_Exec.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_ExecPrx.defineProxy(ExecPrx, nil, [])
 
@@ -195,8 +191,6 @@ module ::And
             T_If = ::Ice::__declareClass('::and::if')
             T_IfPrx = ::Ice::__declareProxy('::and::if')
         end
-
-        T_If.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_IfPrx.defineProxy(IfPrx, nil, [::And::T_ExecPrx, ::And::T_DelPrx])
     end
@@ -252,8 +246,8 @@ module ::And
         end
         module PrintPrx_mixin
 
-            def raise(_else, _return, try, _while, _yield, lambda, _or, global, context=nil)
-                PrintPrx_mixin::OP_raise.invoke(self, [_else, _return, try, _while, _yield, lambda, _or, global], context)
+            def raise(_else, _return, _while, _yield, _or, global, context=nil)
+                PrintPrx_mixin::OP_raise.invoke(self, [_else, _return, _while, _yield, _or, global], context)
             end
         end
 
@@ -267,11 +261,9 @@ module ::And
             T_PrintPrx = ::Ice::__declareProxy('::and::print')
         end
 
-        T_Print.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_PrintPrx.defineProxy(PrintPrx, nil, [])
 
-        PrintPrx_mixin::OP_raise = ::Ice::__defineOperation('raise', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::And::T_Continue, false, 0], [::And::T_For, false, 0], [::And::T_If, false, 0], [::And::T_DelPrx, false, 0], [::And::T_ExecPrx, false, 0], [::Ice::T_ObjectPrx, false, 0], [::And::T_IfPrx, false, 0], [::Ice::T_int, false, 0]], [], [::And::T_Assert, false, 0], [::And::T_Is])
+        PrintPrx_mixin::OP_raise = ::Ice::__defineOperation('raise', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::And::T_Continue, false, 0], [::And::T_For, false, 0], [::And::T_DelPrx, false, 0], [::And::T_ExecPrx, false, 0], [::And::T_IfPrx, false, 0], [::Ice::T_int, false, 0]], [], [::And::T_Assert, false, 0], [::And::T_Is])
     end
 
     Lambda = 0

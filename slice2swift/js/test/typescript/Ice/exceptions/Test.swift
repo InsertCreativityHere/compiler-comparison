@@ -17,7 +17,7 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice interface `Empty`.
+/// Traits for Slice interface`Empty`.
 public struct EmptyTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Empty"]
     public static let staticId = "::Test::Empty"
@@ -201,19 +201,19 @@ open class D: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `Thrower`.
+/// Traits for Slice interface`Thrower`.
 public struct ThrowerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Thrower"]
     public static let staticId = "::Test::Thrower"
 }
 
-/// Traits for Slice interface `WrongOperation`.
+/// Traits for Slice interface`WrongOperation`.
 public struct WrongOperationTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::WrongOperation"]
     public static let staticId = "::Test::WrongOperation"
 }
 
-/// Traits for Slice interface `Echo`.
+/// Traits for Slice interface`Echo`.
 public struct EchoTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Echo"]
     public static let staticId = "::Test::Echo"

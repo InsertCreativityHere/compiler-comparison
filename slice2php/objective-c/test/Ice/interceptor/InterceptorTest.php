@@ -66,7 +66,6 @@ namespace Test
             return '::Test::MyObject';
         }
     }
-    $Test__t_MyObject = IcePHP_defineClass('::Test::MyObject', '\\Test\\MyObject', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_MyObjectPrx = IcePHP_defineProxy('::Test::MyObject', $Ice__t_ObjectPrx, null);

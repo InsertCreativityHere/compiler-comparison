@@ -67,8 +67,6 @@ module ::Test
             T_UnexpectedObjectExceptionTestPrx = ::Ice::__declareProxy('::Test::UnexpectedObjectExceptionTest')
         end
 
-        T_UnexpectedObjectExceptionTest.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_UnexpectedObjectExceptionTestPrx.defineProxy(UnexpectedObjectExceptionTestPrx, nil, [])
 
         UnexpectedObjectExceptionTestPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_Empty, false, 0], [])

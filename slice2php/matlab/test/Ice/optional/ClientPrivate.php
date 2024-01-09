@@ -88,7 +88,6 @@ namespace Test
             return '::Test::Initial2';
         }
     }
-    $Test__t_Initial2 = IcePHP_defineClass('::Test::Initial2', '\\Test\\Initial2', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_Initial2Prx = IcePHP_defineProxy('::Test::Initial2', $Ice__t_ObjectPrx, null);

@@ -48,8 +48,6 @@ module ::Demo
                 T_CanvasPrx = ::Ice::__declareProxy('::Demo::gx::Canvas')
             end
 
-            T_Canvas.defineClass(::Ice::Value, -1, false, true, nil, [])
-
             T_CanvasPrx.defineProxy(CanvasPrx, nil, [])
 
             CanvasPrx_mixin::OP_paintSquare = ::Ice::__defineOperation('paintSquare', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Demo::Gx::T_Square, false, 0]], [], nil, [])
@@ -77,8 +75,6 @@ module ::Demo
                 T_Session = ::Ice::__declareClass('::Demo::gx::Session')
                 T_SessionPrx = ::Ice::__declareProxy('::Demo::gx::Session')
             end
-
-            T_Session.defineClass(::Ice::Value, -1, false, true, nil, [])
 
             T_SessionPrx.defineProxy(SessionPrx, nil, [::Glacier2::T_SessionPrx])
 

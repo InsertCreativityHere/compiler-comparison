@@ -196,13 +196,13 @@ open class ObserverInconsistencyException: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `ReplicaObserver`.
+/// Traits for Slice interface`ReplicaObserver`.
 public struct ReplicaObserverTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceStormElection::ReplicaObserver"]
     public static let staticId = "::IceStormElection::ReplicaObserver"
 }
 
-/// Traits for Slice interface `TopicManagerSync`.
+/// Traits for Slice interface`TopicManagerSync`.
 public struct TopicManagerSyncTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceStormElection::TopicManagerSync"]
     public static let staticId = "::IceStormElection::TopicManagerSync"
@@ -627,7 +627,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice interface `Node`.
+/// Traits for Slice interface`Node`.
 public struct NodeTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceStormElection::Node"]
     public static let staticId = "::IceStormElection::Node"

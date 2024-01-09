@@ -391,11 +391,6 @@ Test::Echo::~Echo()
 {
 }
 
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(Echo* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Test_Echo_ids[2] =
@@ -547,39 +542,5 @@ Test::Echo::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& curr
     }
 }
 /// \endcond
-
-/// \cond STREAM
-void
-Test::Echo::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Echo, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Echo::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Echo, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(EchoPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = EchoPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Echo::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-namespace Ice
-{
-}
 
 #endif

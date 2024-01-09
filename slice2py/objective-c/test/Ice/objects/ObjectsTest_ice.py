@@ -150,91 +150,6 @@ if 'BaseEx' not in _M_Test.__dict__:
     _M_Test.BaseEx = BaseEx
     del BaseEx
 
-if 'AbstractBase' not in _M_Test.__dict__:
-    _M_Test.AbstractBase = Ice.createTempClass()
-    class AbstractBase(_M_Test.Base):
-        def __init__(self, theS=Ice._struct_marker, str=''):
-            _M_Test.Base.__init__(self, theS, str)
-
-        def ice_id(self):
-            return '::Test::AbstractBase'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::AbstractBase'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_AbstractBase)
-
-        __repr__ = __str__
-
-    _M_Test._t_AbstractBase = IcePy.defineValue('::Test::AbstractBase', AbstractBase, -1, (), False, False, _M_Test._t_Base, ())
-    AbstractBase._ice_type = _M_Test._t_AbstractBase
-
-    _M_Test.AbstractBase = AbstractBase
-    del AbstractBase
-
-if 'AbstractBasePrx' not in _M_Test.__dict__:
-    _M_Test.AbstractBasePrx = Ice.createTempClass()
-    class AbstractBasePrx(Ice.ObjectPrx):
-
-        def op(self, context=None):
-            return _M_Test.AbstractBaseDisp._op_op.invoke(self, ((), context))
-
-        def opAsync(self, context=None):
-            return _M_Test.AbstractBaseDisp._op_op.invokeAsync(self, ((), context))
-
-        def begin_op(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.AbstractBaseDisp._op_op.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_op(self, _r):
-            return _M_Test.AbstractBaseDisp._op_op.end(self, _r)
-
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.AbstractBasePrx.ice_checkedCast(proxy, '::Test::AbstractBase', facetOrContext, context)
-
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.AbstractBasePrx.ice_uncheckedCast(proxy, facet)
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::AbstractBase'
-    _M_Test._t_AbstractBasePrx = IcePy.defineProxy('::Test::AbstractBase', AbstractBasePrx)
-
-    _M_Test.AbstractBasePrx = AbstractBasePrx
-    del AbstractBasePrx
-
-    _M_Test.AbstractBaseDisp = Ice.createTempClass()
-    class AbstractBaseDisp(Ice.Object):
-
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::AbstractBase', '::Test::Base')
-
-        def ice_id(self, current=None):
-            return '::Test::AbstractBase'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::AbstractBase'
-
-        def op(self, current=None):
-            raise NotImplementedError("servant method 'op' not implemented")
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_AbstractBaseDisp)
-
-        __repr__ = __str__
-
-    _M_Test._t_AbstractBaseDisp = IcePy.defineClass('::Test::AbstractBase', AbstractBaseDisp, (), None, ())
-    AbstractBaseDisp._ice_type = _M_Test._t_AbstractBaseDisp
-
-    AbstractBaseDisp._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-
-    _M_Test.AbstractBaseDisp = AbstractBaseDisp
-    del AbstractBaseDisp
-
 if 'B' not in _M_Test.__dict__:
     _M_Test._t_B = IcePy.declareValue('::Test::B')
 
@@ -540,56 +455,6 @@ if 'JPrx' not in _M_Test.__dict__:
     _M_Test.J = J
     del J
 
-if 'H' not in _M_Test.__dict__:
-    _M_Test.H = Ice.createTempClass()
-    class H(Ice.Value):
-        def __init__(self):
-            pass
-
-        def ice_id(self):
-            return '::Test::H'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::H'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_H)
-
-        __repr__ = __str__
-
-    _M_Test._t_H = IcePy.defineValue('::Test::H', H, -1, (), False, False, None, ())
-    H._ice_type = _M_Test._t_H
-
-    _M_Test.H = H
-    del H
-
-if 'N' not in _M_Test.__dict__:
-    _M_Test.N = Ice.createTempClass()
-    class N(Ice.Value):
-        def __init__(self, i=None):
-            self.i = i
-
-        def ice_id(self):
-            return '::Test::N'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::N'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_N)
-
-        __repr__ = __str__
-
-    _M_Test._t_N = IcePy.declareValue('::Test::N')
-
-    _M_Test._t_N = IcePy.defineValue('::Test::N', N, -1, (), False, False, None, (('i', (), _M_Test._t_I, False, 0),))
-    N._ice_type = _M_Test._t_N
-
-    _M_Test.N = N
-    del N
-
 if 'CompactExt' not in _M_Test.__dict__:
     _M_Test._t_CompactExt = IcePy.declareValue('::Test::CompactExt')
 
@@ -890,9 +755,6 @@ if '_t_ObjectPrxSeq' not in _M_Test.__dict__:
 if '_t_BaseSeq' not in _M_Test.__dict__:
     _M_Test._t_BaseSeq = IcePy.defineSequence('::Test::BaseSeq', (), _M_Test._t_Base)
 
-if '_t_BasePrxSeq' not in _M_Test.__dict__:
-    _M_Test._t_BasePrxSeq = IcePy.defineSequence('::Test::BasePrxSeq', (), IcePy._t_ObjectPrx)
-
 if '_t_ObjectDict' not in _M_Test.__dict__:
     _M_Test._t_ObjectDict = IcePy.defineDictionary('::Test::ObjectDict', (), IcePy._t_string, IcePy._t_Value)
 
@@ -901,9 +763,6 @@ if '_t_ObjectPrxDict' not in _M_Test.__dict__:
 
 if '_t_BaseDict' not in _M_Test.__dict__:
     _M_Test._t_BaseDict = IcePy.defineDictionary('::Test::BaseDict', (), IcePy._t_string, _M_Test._t_Base)
-
-if '_t_BasePrxDict' not in _M_Test.__dict__:
-    _M_Test._t_BasePrxDict = IcePy.defineDictionary('::Test::BasePrxDict', (), IcePy._t_string, IcePy._t_ObjectPrx)
 
 if 'Recursive' not in _M_Test.__dict__:
     _M_Test.Recursive = Ice.createTempClass()
@@ -1115,561 +974,455 @@ if 'F2' not in _M_Test.__dict__:
     _M_Test._t_F2Disp = IcePy.declareClass('::Test::F2')
     _M_Test._t_F2Prx = IcePy.declareProxy('::Test::F2')
 
-if 'Initial' not in _M_Test.__dict__:
-    _M_Test.Initial = Ice.createTempClass()
-    class Initial(Ice.Value):
-        def __init__(self):
-            pass
-
-        def ice_id(self):
-            return '::Test::Initial'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Initial'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_Initial)
-
-        __repr__ = __str__
-
-    _M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Initial, -1, (), False, False, None, ())
-    Initial._ice_type = _M_Test._t_Initial
-
-    _M_Test.Initial = Initial
-    del Initial
+_M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), False, True, None, ())
 
 if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test.InitialPrx = Ice.createTempClass()
     class InitialPrx(Ice.ObjectPrx):
 
         def shutdown(self, context=None):
-            return _M_Test.InitialDisp._op_shutdown.invoke(self, ((), context))
+            return _M_Test.Initial._op_shutdown.invoke(self, ((), context))
 
         def shutdownAsync(self, context=None):
-            return _M_Test.InitialDisp._op_shutdown.invokeAsync(self, ((), context))
+            return _M_Test.Initial._op_shutdown.invokeAsync(self, ((), context))
 
         def begin_shutdown(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_shutdown.begin(self, ((), _response, _ex, _sent, context))
 
         def end_shutdown(self, _r):
-            return _M_Test.InitialDisp._op_shutdown.end(self, _r)
+            return _M_Test.Initial._op_shutdown.end(self, _r)
 
         def getB1(self, context=None):
-            return _M_Test.InitialDisp._op_getB1.invoke(self, ((), context))
+            return _M_Test.Initial._op_getB1.invoke(self, ((), context))
 
         def getB1Async(self, context=None):
-            return _M_Test.InitialDisp._op_getB1.invokeAsync(self, ((), context))
+            return _M_Test.Initial._op_getB1.invokeAsync(self, ((), context))
 
         def begin_getB1(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getB1.begin(self, ((), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_getB1.begin(self, ((), _response, _ex, _sent, context))
 
         def end_getB1(self, _r):
-            return _M_Test.InitialDisp._op_getB1.end(self, _r)
+            return _M_Test.Initial._op_getB1.end(self, _r)
 
         def getB2(self, context=None):
-            return _M_Test.InitialDisp._op_getB2.invoke(self, ((), context))
+            return _M_Test.Initial._op_getB2.invoke(self, ((), context))
 
         def getB2Async(self, context=None):
-            return _M_Test.InitialDisp._op_getB2.invokeAsync(self, ((), context))
+            return _M_Test.Initial._op_getB2.invokeAsync(self, ((), context))
 
         def begin_getB2(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getB2.begin(self, ((), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_getB2.begin(self, ((), _response, _ex, _sent, context))
 
         def end_getB2(self, _r):
-            return _M_Test.InitialDisp._op_getB2.end(self, _r)
+            return _M_Test.Initial._op_getB2.end(self, _r)
 
         def getC(self, context=None):
-            return _M_Test.InitialDisp._op_getC.invoke(self, ((), context))
+            return _M_Test.Initial._op_getC.invoke(self, ((), context))
 
         def getCAsync(self, context=None):
-            return _M_Test.InitialDisp._op_getC.invokeAsync(self, ((), context))
+            return _M_Test.Initial._op_getC.invokeAsync(self, ((), context))
 
         def begin_getC(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getC.begin(self, ((), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_getC.begin(self, ((), _response, _ex, _sent, context))
 
         def end_getC(self, _r):
-            return _M_Test.InitialDisp._op_getC.end(self, _r)
+            return _M_Test.Initial._op_getC.end(self, _r)
 
         def getD(self, context=None):
-            return _M_Test.InitialDisp._op_getD.invoke(self, ((), context))
+            return _M_Test.Initial._op_getD.invoke(self, ((), context))
 
         def getDAsync(self, context=None):
-            return _M_Test.InitialDisp._op_getD.invokeAsync(self, ((), context))
+            return _M_Test.Initial._op_getD.invokeAsync(self, ((), context))
 
         def begin_getD(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getD.begin(self, ((), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_getD.begin(self, ((), _response, _ex, _sent, context))
 
         def end_getD(self, _r):
-            return _M_Test.InitialDisp._op_getD.end(self, _r)
+            return _M_Test.Initial._op_getD.end(self, _r)
 
         def getE(self, context=None):
-            return _M_Test.InitialDisp._op_getE.invoke(self, ((), context))
+            return _M_Test.Initial._op_getE.invoke(self, ((), context))
 
         def getEAsync(self, context=None):
-            return _M_Test.InitialDisp._op_getE.invokeAsync(self, ((), context))
+            return _M_Test.Initial._op_getE.invokeAsync(self, ((), context))
 
         def begin_getE(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getE.begin(self, ((), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_getE.begin(self, ((), _response, _ex, _sent, context))
 
         def end_getE(self, _r):
-            return _M_Test.InitialDisp._op_getE.end(self, _r)
+            return _M_Test.Initial._op_getE.end(self, _r)
 
         def getF(self, context=None):
-            return _M_Test.InitialDisp._op_getF.invoke(self, ((), context))
+            return _M_Test.Initial._op_getF.invoke(self, ((), context))
 
         def getFAsync(self, context=None):
-            return _M_Test.InitialDisp._op_getF.invokeAsync(self, ((), context))
+            return _M_Test.Initial._op_getF.invokeAsync(self, ((), context))
 
         def begin_getF(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getF.begin(self, ((), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_getF.begin(self, ((), _response, _ex, _sent, context))
 
         def end_getF(self, _r):
-            return _M_Test.InitialDisp._op_getF.end(self, _r)
+            return _M_Test.Initial._op_getF.end(self, _r)
 
         def setRecursive(self, p, context=None):
-            return _M_Test.InitialDisp._op_setRecursive.invoke(self, ((p, ), context))
+            return _M_Test.Initial._op_setRecursive.invoke(self, ((p, ), context))
 
         def setRecursiveAsync(self, p, context=None):
-            return _M_Test.InitialDisp._op_setRecursive.invokeAsync(self, ((p, ), context))
+            return _M_Test.Initial._op_setRecursive.invokeAsync(self, ((p, ), context))
 
         def begin_setRecursive(self, p, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_setRecursive.begin(self, ((p, ), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_setRecursive.begin(self, ((p, ), _response, _ex, _sent, context))
 
         def end_setRecursive(self, _r):
-            return _M_Test.InitialDisp._op_setRecursive.end(self, _r)
+            return _M_Test.Initial._op_setRecursive.end(self, _r)
 
         def supportsClassGraphDepthMax(self, context=None):
-            return _M_Test.InitialDisp._op_supportsClassGraphDepthMax.invoke(self, ((), context))
+            return _M_Test.Initial._op_supportsClassGraphDepthMax.invoke(self, ((), context))
 
         def supportsClassGraphDepthMaxAsync(self, context=None):
-            return _M_Test.InitialDisp._op_supportsClassGraphDepthMax.invokeAsync(self, ((), context))
+            return _M_Test.Initial._op_supportsClassGraphDepthMax.invokeAsync(self, ((), context))
 
         def begin_supportsClassGraphDepthMax(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_supportsClassGraphDepthMax.begin(self, ((), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_supportsClassGraphDepthMax.begin(self, ((), _response, _ex, _sent, context))
 
         def end_supportsClassGraphDepthMax(self, _r):
-            return _M_Test.InitialDisp._op_supportsClassGraphDepthMax.end(self, _r)
+            return _M_Test.Initial._op_supportsClassGraphDepthMax.end(self, _r)
 
         def setCycle(self, r, context=None):
-            return _M_Test.InitialDisp._op_setCycle.invoke(self, ((r, ), context))
+            return _M_Test.Initial._op_setCycle.invoke(self, ((r, ), context))
 
         def setCycleAsync(self, r, context=None):
-            return _M_Test.InitialDisp._op_setCycle.invokeAsync(self, ((r, ), context))
+            return _M_Test.Initial._op_setCycle.invokeAsync(self, ((r, ), context))
 
         def begin_setCycle(self, r, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_setCycle.begin(self, ((r, ), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_setCycle.begin(self, ((r, ), _response, _ex, _sent, context))
 
         def end_setCycle(self, _r):
-            return _M_Test.InitialDisp._op_setCycle.end(self, _r)
+            return _M_Test.Initial._op_setCycle.end(self, _r)
 
         def acceptsClassCycles(self, context=None):
-            return _M_Test.InitialDisp._op_acceptsClassCycles.invoke(self, ((), context))
+            return _M_Test.Initial._op_acceptsClassCycles.invoke(self, ((), context))
 
         def acceptsClassCyclesAsync(self, context=None):
-            return _M_Test.InitialDisp._op_acceptsClassCycles.invokeAsync(self, ((), context))
+            return _M_Test.Initial._op_acceptsClassCycles.invokeAsync(self, ((), context))
 
         def begin_acceptsClassCycles(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_acceptsClassCycles.begin(self, ((), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_acceptsClassCycles.begin(self, ((), _response, _ex, _sent, context))
 
         def end_acceptsClassCycles(self, _r):
-            return _M_Test.InitialDisp._op_acceptsClassCycles.end(self, _r)
+            return _M_Test.Initial._op_acceptsClassCycles.end(self, _r)
 
         def getMB(self, context=None):
-            return _M_Test.InitialDisp._op_getMB.invoke(self, ((), context))
+            return _M_Test.Initial._op_getMB.invoke(self, ((), context))
 
         def getMBAsync(self, context=None):
-            return _M_Test.InitialDisp._op_getMB.invokeAsync(self, ((), context))
+            return _M_Test.Initial._op_getMB.invokeAsync(self, ((), context))
 
         def begin_getMB(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getMB.begin(self, ((), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_getMB.begin(self, ((), _response, _ex, _sent, context))
 
         def end_getMB(self, _r):
-            return _M_Test.InitialDisp._op_getMB.end(self, _r)
+            return _M_Test.Initial._op_getMB.end(self, _r)
 
         def getAMDMB(self, context=None):
-            return _M_Test.InitialDisp._op_getAMDMB.invoke(self, ((), context))
+            return _M_Test.Initial._op_getAMDMB.invoke(self, ((), context))
 
         def getAMDMBAsync(self, context=None):
-            return _M_Test.InitialDisp._op_getAMDMB.invokeAsync(self, ((), context))
+            return _M_Test.Initial._op_getAMDMB.invokeAsync(self, ((), context))
 
         def begin_getAMDMB(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getAMDMB.begin(self, ((), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_getAMDMB.begin(self, ((), _response, _ex, _sent, context))
 
         def end_getAMDMB(self, _r):
-            return _M_Test.InitialDisp._op_getAMDMB.end(self, _r)
+            return _M_Test.Initial._op_getAMDMB.end(self, _r)
 
         def getAll(self, context=None):
-            return _M_Test.InitialDisp._op_getAll.invoke(self, ((), context))
+            return _M_Test.Initial._op_getAll.invoke(self, ((), context))
 
         def getAllAsync(self, context=None):
-            return _M_Test.InitialDisp._op_getAll.invokeAsync(self, ((), context))
+            return _M_Test.Initial._op_getAll.invokeAsync(self, ((), context))
 
         def begin_getAll(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getAll.begin(self, ((), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_getAll.begin(self, ((), _response, _ex, _sent, context))
 
         def end_getAll(self, _r):
-            return _M_Test.InitialDisp._op_getAll.end(self, _r)
-
-        def getH(self, context=None):
-            return _M_Test.InitialDisp._op_getH.invoke(self, ((), context))
-
-        def getHAsync(self, context=None):
-            return _M_Test.InitialDisp._op_getH.invokeAsync(self, ((), context))
-
-        def begin_getH(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getH.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getH(self, _r):
-            return _M_Test.InitialDisp._op_getH.end(self, _r)
-
-        def getI(self, context=None):
-            return _M_Test.InitialDisp._op_getI.invoke(self, ((), context))
-
-        def getIAsync(self, context=None):
-            return _M_Test.InitialDisp._op_getI.invokeAsync(self, ((), context))
-
-        def begin_getI(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getI.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getI(self, _r):
-            return _M_Test.InitialDisp._op_getI.end(self, _r)
-
-        def getJ(self, context=None):
-            return _M_Test.InitialDisp._op_getJ.invoke(self, ((), context))
-
-        def getJAsync(self, context=None):
-            return _M_Test.InitialDisp._op_getJ.invokeAsync(self, ((), context))
-
-        def begin_getJ(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getJ.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getJ(self, _r):
-            return _M_Test.InitialDisp._op_getJ.end(self, _r)
+            return _M_Test.Initial._op_getAll.end(self, _r)
 
         def getK(self, context=None):
-            return _M_Test.InitialDisp._op_getK.invoke(self, ((), context))
+            return _M_Test.Initial._op_getK.invoke(self, ((), context))
 
         def getKAsync(self, context=None):
-            return _M_Test.InitialDisp._op_getK.invokeAsync(self, ((), context))
+            return _M_Test.Initial._op_getK.invokeAsync(self, ((), context))
 
         def begin_getK(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getK.begin(self, ((), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_getK.begin(self, ((), _response, _ex, _sent, context))
 
         def end_getK(self, _r):
-            return _M_Test.InitialDisp._op_getK.end(self, _r)
+            return _M_Test.Initial._op_getK.end(self, _r)
 
         def opValue(self, v1, context=None):
-            return _M_Test.InitialDisp._op_opValue.invoke(self, ((v1, ), context))
+            return _M_Test.Initial._op_opValue.invoke(self, ((v1, ), context))
 
         def opValueAsync(self, v1, context=None):
-            return _M_Test.InitialDisp._op_opValue.invokeAsync(self, ((v1, ), context))
+            return _M_Test.Initial._op_opValue.invokeAsync(self, ((v1, ), context))
 
         def begin_opValue(self, v1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_opValue.begin(self, ((v1, ), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_opValue.begin(self, ((v1, ), _response, _ex, _sent, context))
 
         def end_opValue(self, _r):
-            return _M_Test.InitialDisp._op_opValue.end(self, _r)
+            return _M_Test.Initial._op_opValue.end(self, _r)
 
         def opValueSeq(self, v1, context=None):
-            return _M_Test.InitialDisp._op_opValueSeq.invoke(self, ((v1, ), context))
+            return _M_Test.Initial._op_opValueSeq.invoke(self, ((v1, ), context))
 
         def opValueSeqAsync(self, v1, context=None):
-            return _M_Test.InitialDisp._op_opValueSeq.invokeAsync(self, ((v1, ), context))
+            return _M_Test.Initial._op_opValueSeq.invokeAsync(self, ((v1, ), context))
 
         def begin_opValueSeq(self, v1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_opValueSeq.begin(self, ((v1, ), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_opValueSeq.begin(self, ((v1, ), _response, _ex, _sent, context))
 
         def end_opValueSeq(self, _r):
-            return _M_Test.InitialDisp._op_opValueSeq.end(self, _r)
+            return _M_Test.Initial._op_opValueSeq.end(self, _r)
 
         def opValueMap(self, v1, context=None):
-            return _M_Test.InitialDisp._op_opValueMap.invoke(self, ((v1, ), context))
+            return _M_Test.Initial._op_opValueMap.invoke(self, ((v1, ), context))
 
         def opValueMapAsync(self, v1, context=None):
-            return _M_Test.InitialDisp._op_opValueMap.invokeAsync(self, ((v1, ), context))
+            return _M_Test.Initial._op_opValueMap.invokeAsync(self, ((v1, ), context))
 
         def begin_opValueMap(self, v1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_opValueMap.begin(self, ((v1, ), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_opValueMap.begin(self, ((v1, ), _response, _ex, _sent, context))
 
         def end_opValueMap(self, _r):
-            return _M_Test.InitialDisp._op_opValueMap.end(self, _r)
+            return _M_Test.Initial._op_opValueMap.end(self, _r)
 
         def getD1(self, d1, context=None):
-            return _M_Test.InitialDisp._op_getD1.invoke(self, ((d1, ), context))
+            return _M_Test.Initial._op_getD1.invoke(self, ((d1, ), context))
 
         def getD1Async(self, d1, context=None):
-            return _M_Test.InitialDisp._op_getD1.invokeAsync(self, ((d1, ), context))
+            return _M_Test.Initial._op_getD1.invokeAsync(self, ((d1, ), context))
 
         def begin_getD1(self, d1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getD1.begin(self, ((d1, ), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_getD1.begin(self, ((d1, ), _response, _ex, _sent, context))
 
         def end_getD1(self, _r):
-            return _M_Test.InitialDisp._op_getD1.end(self, _r)
+            return _M_Test.Initial._op_getD1.end(self, _r)
 
         def throwEDerived(self, context=None):
-            return _M_Test.InitialDisp._op_throwEDerived.invoke(self, ((), context))
+            return _M_Test.Initial._op_throwEDerived.invoke(self, ((), context))
 
         def throwEDerivedAsync(self, context=None):
-            return _M_Test.InitialDisp._op_throwEDerived.invokeAsync(self, ((), context))
+            return _M_Test.Initial._op_throwEDerived.invokeAsync(self, ((), context))
 
         def begin_throwEDerived(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_throwEDerived.begin(self, ((), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_throwEDerived.begin(self, ((), _response, _ex, _sent, context))
 
         def end_throwEDerived(self, _r):
-            return _M_Test.InitialDisp._op_throwEDerived.end(self, _r)
+            return _M_Test.Initial._op_throwEDerived.end(self, _r)
 
         def setG(self, theG, context=None):
-            return _M_Test.InitialDisp._op_setG.invoke(self, ((theG, ), context))
+            return _M_Test.Initial._op_setG.invoke(self, ((theG, ), context))
 
         def setGAsync(self, theG, context=None):
-            return _M_Test.InitialDisp._op_setG.invokeAsync(self, ((theG, ), context))
+            return _M_Test.Initial._op_setG.invokeAsync(self, ((theG, ), context))
 
         def begin_setG(self, theG, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_setG.begin(self, ((theG, ), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_setG.begin(self, ((theG, ), _response, _ex, _sent, context))
 
         def end_setG(self, _r):
-            return _M_Test.InitialDisp._op_setG.end(self, _r)
-
-        def setI(self, theI, context=None):
-            return _M_Test.InitialDisp._op_setI.invoke(self, ((theI, ), context))
-
-        def setIAsync(self, theI, context=None):
-            return _M_Test.InitialDisp._op_setI.invokeAsync(self, ((theI, ), context))
-
-        def begin_setI(self, theI, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_setI.begin(self, ((theI, ), _response, _ex, _sent, context))
-
-        def end_setI(self, _r):
-            return _M_Test.InitialDisp._op_setI.end(self, _r)
+            return _M_Test.Initial._op_setG.end(self, _r)
 
         def opBaseSeq(self, inSeq, context=None):
-            return _M_Test.InitialDisp._op_opBaseSeq.invoke(self, ((inSeq, ), context))
+            return _M_Test.Initial._op_opBaseSeq.invoke(self, ((inSeq, ), context))
 
         def opBaseSeqAsync(self, inSeq, context=None):
-            return _M_Test.InitialDisp._op_opBaseSeq.invokeAsync(self, ((inSeq, ), context))
+            return _M_Test.Initial._op_opBaseSeq.invokeAsync(self, ((inSeq, ), context))
 
         def begin_opBaseSeq(self, inSeq, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_opBaseSeq.begin(self, ((inSeq, ), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_opBaseSeq.begin(self, ((inSeq, ), _response, _ex, _sent, context))
 
         def end_opBaseSeq(self, _r):
-            return _M_Test.InitialDisp._op_opBaseSeq.end(self, _r)
+            return _M_Test.Initial._op_opBaseSeq.end(self, _r)
 
         def getCompact(self, context=None):
-            return _M_Test.InitialDisp._op_getCompact.invoke(self, ((), context))
+            return _M_Test.Initial._op_getCompact.invoke(self, ((), context))
 
         def getCompactAsync(self, context=None):
-            return _M_Test.InitialDisp._op_getCompact.invokeAsync(self, ((), context))
+            return _M_Test.Initial._op_getCompact.invokeAsync(self, ((), context))
 
         def begin_getCompact(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getCompact.begin(self, ((), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_getCompact.begin(self, ((), _response, _ex, _sent, context))
 
         def end_getCompact(self, _r):
-            return _M_Test.InitialDisp._op_getCompact.end(self, _r)
+            return _M_Test.Initial._op_getCompact.end(self, _r)
 
         def getInnerA(self, context=None):
-            return _M_Test.InitialDisp._op_getInnerA.invoke(self, ((), context))
+            return _M_Test.Initial._op_getInnerA.invoke(self, ((), context))
 
         def getInnerAAsync(self, context=None):
-            return _M_Test.InitialDisp._op_getInnerA.invokeAsync(self, ((), context))
+            return _M_Test.Initial._op_getInnerA.invokeAsync(self, ((), context))
 
         def begin_getInnerA(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getInnerA.begin(self, ((), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_getInnerA.begin(self, ((), _response, _ex, _sent, context))
 
         def end_getInnerA(self, _r):
-            return _M_Test.InitialDisp._op_getInnerA.end(self, _r)
+            return _M_Test.Initial._op_getInnerA.end(self, _r)
 
         def getInnerSubA(self, context=None):
-            return _M_Test.InitialDisp._op_getInnerSubA.invoke(self, ((), context))
+            return _M_Test.Initial._op_getInnerSubA.invoke(self, ((), context))
 
         def getInnerSubAAsync(self, context=None):
-            return _M_Test.InitialDisp._op_getInnerSubA.invokeAsync(self, ((), context))
+            return _M_Test.Initial._op_getInnerSubA.invokeAsync(self, ((), context))
 
         def begin_getInnerSubA(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getInnerSubA.begin(self, ((), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_getInnerSubA.begin(self, ((), _response, _ex, _sent, context))
 
         def end_getInnerSubA(self, _r):
-            return _M_Test.InitialDisp._op_getInnerSubA.end(self, _r)
+            return _M_Test.Initial._op_getInnerSubA.end(self, _r)
 
         def throwInnerEx(self, context=None):
-            return _M_Test.InitialDisp._op_throwInnerEx.invoke(self, ((), context))
+            return _M_Test.Initial._op_throwInnerEx.invoke(self, ((), context))
 
         def throwInnerExAsync(self, context=None):
-            return _M_Test.InitialDisp._op_throwInnerEx.invokeAsync(self, ((), context))
+            return _M_Test.Initial._op_throwInnerEx.invokeAsync(self, ((), context))
 
         def begin_throwInnerEx(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_throwInnerEx.begin(self, ((), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_throwInnerEx.begin(self, ((), _response, _ex, _sent, context))
 
         def end_throwInnerEx(self, _r):
-            return _M_Test.InitialDisp._op_throwInnerEx.end(self, _r)
+            return _M_Test.Initial._op_throwInnerEx.end(self, _r)
 
         def throwInnerSubEx(self, context=None):
-            return _M_Test.InitialDisp._op_throwInnerSubEx.invoke(self, ((), context))
+            return _M_Test.Initial._op_throwInnerSubEx.invoke(self, ((), context))
 
         def throwInnerSubExAsync(self, context=None):
-            return _M_Test.InitialDisp._op_throwInnerSubEx.invokeAsync(self, ((), context))
+            return _M_Test.Initial._op_throwInnerSubEx.invokeAsync(self, ((), context))
 
         def begin_throwInnerSubEx(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_throwInnerSubEx.begin(self, ((), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_throwInnerSubEx.begin(self, ((), _response, _ex, _sent, context))
 
         def end_throwInnerSubEx(self, _r):
-            return _M_Test.InitialDisp._op_throwInnerSubEx.end(self, _r)
+            return _M_Test.Initial._op_throwInnerSubEx.end(self, _r)
 
         def getObjectSeq(self, s, context=None):
-            return _M_Test.InitialDisp._op_getObjectSeq.invoke(self, ((s, ), context))
+            return _M_Test.Initial._op_getObjectSeq.invoke(self, ((s, ), context))
 
         def getObjectSeqAsync(self, s, context=None):
-            return _M_Test.InitialDisp._op_getObjectSeq.invokeAsync(self, ((s, ), context))
+            return _M_Test.Initial._op_getObjectSeq.invokeAsync(self, ((s, ), context))
 
         def begin_getObjectSeq(self, s, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getObjectSeq.begin(self, ((s, ), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_getObjectSeq.begin(self, ((s, ), _response, _ex, _sent, context))
 
         def end_getObjectSeq(self, _r):
-            return _M_Test.InitialDisp._op_getObjectSeq.end(self, _r)
+            return _M_Test.Initial._op_getObjectSeq.end(self, _r)
 
         def getObjectPrxSeq(self, s, context=None):
-            return _M_Test.InitialDisp._op_getObjectPrxSeq.invoke(self, ((s, ), context))
+            return _M_Test.Initial._op_getObjectPrxSeq.invoke(self, ((s, ), context))
 
         def getObjectPrxSeqAsync(self, s, context=None):
-            return _M_Test.InitialDisp._op_getObjectPrxSeq.invokeAsync(self, ((s, ), context))
+            return _M_Test.Initial._op_getObjectPrxSeq.invokeAsync(self, ((s, ), context))
 
         def begin_getObjectPrxSeq(self, s, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getObjectPrxSeq.begin(self, ((s, ), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_getObjectPrxSeq.begin(self, ((s, ), _response, _ex, _sent, context))
 
         def end_getObjectPrxSeq(self, _r):
-            return _M_Test.InitialDisp._op_getObjectPrxSeq.end(self, _r)
+            return _M_Test.Initial._op_getObjectPrxSeq.end(self, _r)
 
         def getBaseSeq(self, s, context=None):
-            return _M_Test.InitialDisp._op_getBaseSeq.invoke(self, ((s, ), context))
+            return _M_Test.Initial._op_getBaseSeq.invoke(self, ((s, ), context))
 
         def getBaseSeqAsync(self, s, context=None):
-            return _M_Test.InitialDisp._op_getBaseSeq.invokeAsync(self, ((s, ), context))
+            return _M_Test.Initial._op_getBaseSeq.invokeAsync(self, ((s, ), context))
 
         def begin_getBaseSeq(self, s, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getBaseSeq.begin(self, ((s, ), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_getBaseSeq.begin(self, ((s, ), _response, _ex, _sent, context))
 
         def end_getBaseSeq(self, _r):
-            return _M_Test.InitialDisp._op_getBaseSeq.end(self, _r)
-
-        def getBasePrxSeq(self, s, context=None):
-            return _M_Test.InitialDisp._op_getBasePrxSeq.invoke(self, ((s, ), context))
-
-        def getBasePrxSeqAsync(self, s, context=None):
-            return _M_Test.InitialDisp._op_getBasePrxSeq.invokeAsync(self, ((s, ), context))
-
-        def begin_getBasePrxSeq(self, s, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getBasePrxSeq.begin(self, ((s, ), _response, _ex, _sent, context))
-
-        def end_getBasePrxSeq(self, _r):
-            return _M_Test.InitialDisp._op_getBasePrxSeq.end(self, _r)
+            return _M_Test.Initial._op_getBaseSeq.end(self, _r)
 
         def getObjectDict(self, d, context=None):
-            return _M_Test.InitialDisp._op_getObjectDict.invoke(self, ((d, ), context))
+            return _M_Test.Initial._op_getObjectDict.invoke(self, ((d, ), context))
 
         def getObjectDictAsync(self, d, context=None):
-            return _M_Test.InitialDisp._op_getObjectDict.invokeAsync(self, ((d, ), context))
+            return _M_Test.Initial._op_getObjectDict.invokeAsync(self, ((d, ), context))
 
         def begin_getObjectDict(self, d, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getObjectDict.begin(self, ((d, ), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_getObjectDict.begin(self, ((d, ), _response, _ex, _sent, context))
 
         def end_getObjectDict(self, _r):
-            return _M_Test.InitialDisp._op_getObjectDict.end(self, _r)
+            return _M_Test.Initial._op_getObjectDict.end(self, _r)
 
         def getObjectPrxDict(self, d, context=None):
-            return _M_Test.InitialDisp._op_getObjectPrxDict.invoke(self, ((d, ), context))
+            return _M_Test.Initial._op_getObjectPrxDict.invoke(self, ((d, ), context))
 
         def getObjectPrxDictAsync(self, d, context=None):
-            return _M_Test.InitialDisp._op_getObjectPrxDict.invokeAsync(self, ((d, ), context))
+            return _M_Test.Initial._op_getObjectPrxDict.invokeAsync(self, ((d, ), context))
 
         def begin_getObjectPrxDict(self, d, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getObjectPrxDict.begin(self, ((d, ), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_getObjectPrxDict.begin(self, ((d, ), _response, _ex, _sent, context))
 
         def end_getObjectPrxDict(self, _r):
-            return _M_Test.InitialDisp._op_getObjectPrxDict.end(self, _r)
+            return _M_Test.Initial._op_getObjectPrxDict.end(self, _r)
 
         def getBaseDict(self, d, context=None):
-            return _M_Test.InitialDisp._op_getBaseDict.invoke(self, ((d, ), context))
+            return _M_Test.Initial._op_getBaseDict.invoke(self, ((d, ), context))
 
         def getBaseDictAsync(self, d, context=None):
-            return _M_Test.InitialDisp._op_getBaseDict.invokeAsync(self, ((d, ), context))
+            return _M_Test.Initial._op_getBaseDict.invokeAsync(self, ((d, ), context))
 
         def begin_getBaseDict(self, d, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getBaseDict.begin(self, ((d, ), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_getBaseDict.begin(self, ((d, ), _response, _ex, _sent, context))
 
         def end_getBaseDict(self, _r):
-            return _M_Test.InitialDisp._op_getBaseDict.end(self, _r)
-
-        def getBasePrxDict(self, d, context=None):
-            return _M_Test.InitialDisp._op_getBasePrxDict.invoke(self, ((d, ), context))
-
-        def getBasePrxDictAsync(self, d, context=None):
-            return _M_Test.InitialDisp._op_getBasePrxDict.invokeAsync(self, ((d, ), context))
-
-        def begin_getBasePrxDict(self, d, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_getBasePrxDict.begin(self, ((d, ), _response, _ex, _sent, context))
-
-        def end_getBasePrxDict(self, _r):
-            return _M_Test.InitialDisp._op_getBasePrxDict.end(self, _r)
+            return _M_Test.Initial._op_getBaseDict.end(self, _r)
 
         def opM(self, v1, context=None):
-            return _M_Test.InitialDisp._op_opM.invoke(self, ((v1, ), context))
+            return _M_Test.Initial._op_opM.invoke(self, ((v1, ), context))
 
         def opMAsync(self, v1, context=None):
-            return _M_Test.InitialDisp._op_opM.invokeAsync(self, ((v1, ), context))
+            return _M_Test.Initial._op_opM.invokeAsync(self, ((v1, ), context))
 
         def begin_opM(self, v1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_opM.begin(self, ((v1, ), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_opM.begin(self, ((v1, ), _response, _ex, _sent, context))
 
         def end_opM(self, _r):
-            return _M_Test.InitialDisp._op_opM.end(self, _r)
+            return _M_Test.Initial._op_opM.end(self, _r)
 
         def opF1(self, f11, context=None):
-            return _M_Test.InitialDisp._op_opF1.invoke(self, ((f11, ), context))
+            return _M_Test.Initial._op_opF1.invoke(self, ((f11, ), context))
 
         def opF1Async(self, f11, context=None):
-            return _M_Test.InitialDisp._op_opF1.invokeAsync(self, ((f11, ), context))
+            return _M_Test.Initial._op_opF1.invokeAsync(self, ((f11, ), context))
 
         def begin_opF1(self, f11, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_opF1.begin(self, ((f11, ), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_opF1.begin(self, ((f11, ), _response, _ex, _sent, context))
 
         def end_opF1(self, _r):
-            return _M_Test.InitialDisp._op_opF1.end(self, _r)
+            return _M_Test.Initial._op_opF1.end(self, _r)
 
         def opF2(self, f21, context=None):
-            return _M_Test.InitialDisp._op_opF2.invoke(self, ((f21, ), context))
+            return _M_Test.Initial._op_opF2.invoke(self, ((f21, ), context))
 
         def opF2Async(self, f21, context=None):
-            return _M_Test.InitialDisp._op_opF2.invokeAsync(self, ((f21, ), context))
+            return _M_Test.Initial._op_opF2.invokeAsync(self, ((f21, ), context))
 
         def begin_opF2(self, f21, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_opF2.begin(self, ((f21, ), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_opF2.begin(self, ((f21, ), _response, _ex, _sent, context))
 
         def end_opF2(self, _r):
-            return _M_Test.InitialDisp._op_opF2.end(self, _r)
+            return _M_Test.Initial._op_opF2.end(self, _r)
 
         def hasF3(self, context=None):
-            return _M_Test.InitialDisp._op_hasF3.invoke(self, ((), context))
+            return _M_Test.Initial._op_hasF3.invoke(self, ((), context))
 
         def hasF3Async(self, context=None):
-            return _M_Test.InitialDisp._op_hasF3.invokeAsync(self, ((), context))
+            return _M_Test.Initial._op_hasF3.invokeAsync(self, ((), context))
 
         def begin_hasF3(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_hasF3.begin(self, ((), _response, _ex, _sent, context))
+            return _M_Test.Initial._op_hasF3.begin(self, ((), _response, _ex, _sent, context))
 
         def end_hasF3(self, _r):
-            return _M_Test.InitialDisp._op_hasF3.end(self, _r)
-
-        def opN(self, p1, context=None):
-            return _M_Test.InitialDisp._op_opN.invoke(self, ((p1, ), context))
-
-        def opNAsync(self, p1, context=None):
-            return _M_Test.InitialDisp._op_opN.invokeAsync(self, ((p1, ), context))
-
-        def begin_opN(self, p1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.InitialDisp._op_opN.begin(self, ((p1, ), _response, _ex, _sent, context))
-
-        def end_opN(self, _r):
-            return _M_Test.InitialDisp._op_opN.end(self, _r)
+            return _M_Test.Initial._op_hasF3.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -1687,8 +1440,8 @@ if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test.InitialPrx = InitialPrx
     del InitialPrx
 
-    _M_Test.InitialDisp = Ice.createTempClass()
-    class InitialDisp(Ice.Object):
+    _M_Test.Initial = Ice.createTempClass()
+    class Initial(Ice.Object):
 
         def ice_ids(self, current=None):
             return ('::Ice::Object', '::Test::Initial')
@@ -1768,15 +1521,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def getAll(self, current=None):
             raise NotImplementedError("servant method 'getAll' not implemented")
 
-        def getH(self, current=None):
-            raise NotImplementedError("servant method 'getH' not implemented")
-
-        def getI(self, current=None):
-            raise NotImplementedError("servant method 'getI' not implemented")
-
-        def getJ(self, current=None):
-            raise NotImplementedError("servant method 'getJ' not implemented")
-
         def getK(self, current=None):
             raise NotImplementedError("servant method 'getK' not implemented")
 
@@ -1797,9 +1541,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
 
         def setG(self, theG, current=None):
             raise NotImplementedError("servant method 'setG' not implemented")
-
-        def setI(self, theI, current=None):
-            raise NotImplementedError("servant method 'setI' not implemented")
 
         def opBaseSeq(self, inSeq, current=None):
             raise NotImplementedError("servant method 'opBaseSeq' not implemented")
@@ -1828,9 +1569,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def getBaseSeq(self, s, current=None):
             raise NotImplementedError("servant method 'getBaseSeq' not implemented")
 
-        def getBasePrxSeq(self, s, current=None):
-            raise NotImplementedError("servant method 'getBasePrxSeq' not implemented")
-
         def getObjectDict(self, d, current=None):
             raise NotImplementedError("servant method 'getObjectDict' not implemented")
 
@@ -1839,9 +1577,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
 
         def getBaseDict(self, d, current=None):
             raise NotImplementedError("servant method 'getBaseDict' not implemented")
-
-        def getBasePrxDict(self, d, current=None):
-            raise NotImplementedError("servant method 'getBasePrxDict' not implemented")
 
         def opM(self, v1, current=None):
             raise NotImplementedError("servant method 'opM' not implemented")
@@ -1855,64 +1590,54 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def hasF3(self, current=None):
             raise NotImplementedError("servant method 'hasF3' not implemented")
 
-        def opN(self, p1, current=None):
-            raise NotImplementedError("servant method 'opN' not implemented")
-
         def __str__(self):
             return IcePy.stringify(self, _M_Test._t_InitialDisp)
 
         __repr__ = __str__
 
-    _M_Test._t_InitialDisp = IcePy.defineClass('::Test::Initial', InitialDisp, (), None, ())
-    InitialDisp._ice_type = _M_Test._t_InitialDisp
+    _M_Test._t_InitialDisp = IcePy.defineClass('::Test::Initial', Initial, (), None, ())
+    Initial._ice_type = _M_Test._t_InitialDisp
 
-    InitialDisp._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    InitialDisp._op_getB1 = IcePy.Operation('getB1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_B, False, 0), ())
-    InitialDisp._op_getB2 = IcePy.Operation('getB2', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_B, False, 0), ())
-    InitialDisp._op_getC = IcePy.Operation('getC', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_C, False, 0), ())
-    InitialDisp._op_getD = IcePy.Operation('getD', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_D, False, 0), ())
-    InitialDisp._op_getE = IcePy.Operation('getE', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_E, False, 0), ())
-    InitialDisp._op_getF = IcePy.Operation('getF', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_F, False, 0), ())
-    InitialDisp._op_setRecursive = IcePy.Operation('setRecursive', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Recursive, False, 0),), (), None, ())
-    InitialDisp._op_supportsClassGraphDepthMax = IcePy.Operation('supportsClassGraphDepthMax', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
-    InitialDisp._op_setCycle = IcePy.Operation('setCycle', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Recursive, False, 0),), (), None, ())
-    InitialDisp._op_acceptsClassCycles = IcePy.Operation('acceptsClassCycles', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
-    InitialDisp._op_getMB = IcePy.Operation('getMB', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_B, False, 0), ())
-    InitialDisp._op_getAMDMB = IcePy.Operation('getAMDMB', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), ((), _M_Test._t_B, False, 0), ())
-    InitialDisp._op_getAll = IcePy.Operation('getAll', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (((), _M_Test._t_B, False, 0), ((), _M_Test._t_B, False, 0), ((), _M_Test._t_C, False, 0), ((), _M_Test._t_D, False, 0)), None, ())
-    InitialDisp._op_getH = IcePy.Operation('getH', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_I, False, 0), ())
-    InitialDisp._op_getI = IcePy.Operation('getI', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_I, False, 0), ())
-    InitialDisp._op_getJ = IcePy.Operation('getJ', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_I, False, 0), ())
-    InitialDisp._op_getK = IcePy.Operation('getK', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_K, False, 0), ())
-    InitialDisp._op_opValue = IcePy.Operation('opValue', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_Value, False, 0),), (((), IcePy._t_Value, False, 0),), ((), IcePy._t_Value, False, 0), ())
-    InitialDisp._op_opValueSeq = IcePy.Operation('opValueSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ValueSeq, False, 0),), (((), _M_Test._t_ValueSeq, False, 0),), ((), _M_Test._t_ValueSeq, False, 0), ())
-    InitialDisp._op_opValueMap = IcePy.Operation('opValueMap', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ValueMap, False, 0),), (((), _M_Test._t_ValueMap, False, 0),), ((), _M_Test._t_ValueMap, False, 0), ())
-    InitialDisp._op_getD1 = IcePy.Operation('getD1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_D1, False, 0),), (), ((), _M_Test._t_D1, False, 0), ())
-    InitialDisp._op_throwEDerived = IcePy.Operation('throwEDerived', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_EDerived,))
-    InitialDisp._op_setG = IcePy.Operation('setG', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_G, False, 0),), (), None, ())
-    InitialDisp._op_setI = IcePy.Operation('setI', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_I, False, 0),), (), None, ())
-    InitialDisp._op_opBaseSeq = IcePy.Operation('opBaseSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BaseSeq, False, 0),), (((), _M_Test._t_BaseSeq, False, 0),), ((), _M_Test._t_BaseSeq, False, 0), ())
-    InitialDisp._op_getCompact = IcePy.Operation('getCompact', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_Compact, False, 0), ())
-    InitialDisp._op_getInnerA = IcePy.Operation('getInnerA', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.Inner._t_A, False, 0), ())
-    InitialDisp._op_getInnerSubA = IcePy.Operation('getInnerSubA', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.Inner.Sub._t_A, False, 0), ())
-    InitialDisp._op_throwInnerEx = IcePy.Operation('throwInnerEx', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test.Inner._t_Ex,))
-    InitialDisp._op_throwInnerSubEx = IcePy.Operation('throwInnerSubEx', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test.Inner.Sub._t_Ex,))
-    InitialDisp._op_getObjectSeq = IcePy.Operation('getObjectSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ObjectSeq, False, 0),), (), ((), _M_Test._t_ObjectSeq, False, 0), ())
-    InitialDisp._op_getObjectPrxSeq = IcePy.Operation('getObjectPrxSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ObjectPrxSeq, False, 0),), (), ((), _M_Test._t_ObjectPrxSeq, False, 0), ())
-    InitialDisp._op_getBaseSeq = IcePy.Operation('getBaseSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BaseSeq, False, 0),), (), ((), _M_Test._t_BaseSeq, False, 0), ())
-    InitialDisp._op_getBasePrxSeq = IcePy.Operation('getBasePrxSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BasePrxSeq, False, 0),), (), ((), _M_Test._t_BasePrxSeq, False, 0), ())
-    InitialDisp._op_getObjectDict = IcePy.Operation('getObjectDict', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ObjectDict, False, 0),), (), ((), _M_Test._t_ObjectDict, False, 0), ())
-    InitialDisp._op_getObjectPrxDict = IcePy.Operation('getObjectPrxDict', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ObjectPrxDict, False, 0),), (), ((), _M_Test._t_ObjectPrxDict, False, 0), ())
-    InitialDisp._op_getBaseDict = IcePy.Operation('getBaseDict', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BaseDict, False, 0),), (), ((), _M_Test._t_BaseDict, False, 0), ())
-    InitialDisp._op_getBasePrxDict = IcePy.Operation('getBasePrxDict', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BasePrxDict, False, 0),), (), ((), _M_Test._t_BasePrxDict, False, 0), ())
-    InitialDisp._op_opM = IcePy.Operation('opM', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_M, False, 0),), (((), _M_Test._t_M, False, 0),), ((), _M_Test._t_M, False, 0), ())
-    InitialDisp._op_opF1 = IcePy.Operation('opF1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_F1, False, 0),), (((), _M_Test._t_F1, False, 0),), ((), _M_Test._t_F1, False, 0), ())
-    InitialDisp._op_opF2 = IcePy.Operation('opF2', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_F2Prx, False, 0),), (((), _M_Test._t_F2Prx, False, 0),), ((), _M_Test._t_F2Prx, False, 0), ())
-    InitialDisp._op_hasF3 = IcePy.Operation('hasF3', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
-    InitialDisp._op_opN = IcePy.Operation('opN', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_N, False, 0),), (), ((), _M_Test._t_N, False, 0), ())
+    Initial._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+    Initial._op_getB1 = IcePy.Operation('getB1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_B, False, 0), ())
+    Initial._op_getB2 = IcePy.Operation('getB2', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_B, False, 0), ())
+    Initial._op_getC = IcePy.Operation('getC', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_C, False, 0), ())
+    Initial._op_getD = IcePy.Operation('getD', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_D, False, 0), ())
+    Initial._op_getE = IcePy.Operation('getE', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_E, False, 0), ())
+    Initial._op_getF = IcePy.Operation('getF', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_F, False, 0), ())
+    Initial._op_setRecursive = IcePy.Operation('setRecursive', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Recursive, False, 0),), (), None, ())
+    Initial._op_supportsClassGraphDepthMax = IcePy.Operation('supportsClassGraphDepthMax', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
+    Initial._op_setCycle = IcePy.Operation('setCycle', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Recursive, False, 0),), (), None, ())
+    Initial._op_acceptsClassCycles = IcePy.Operation('acceptsClassCycles', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
+    Initial._op_getMB = IcePy.Operation('getMB', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_B, False, 0), ())
+    Initial._op_getAMDMB = IcePy.Operation('getAMDMB', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), ((), _M_Test._t_B, False, 0), ())
+    Initial._op_getAll = IcePy.Operation('getAll', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (((), _M_Test._t_B, False, 0), ((), _M_Test._t_B, False, 0), ((), _M_Test._t_C, False, 0), ((), _M_Test._t_D, False, 0)), None, ())
+    Initial._op_getK = IcePy.Operation('getK', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_K, False, 0), ())
+    Initial._op_opValue = IcePy.Operation('opValue', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_Value, False, 0),), (((), IcePy._t_Value, False, 0),), ((), IcePy._t_Value, False, 0), ())
+    Initial._op_opValueSeq = IcePy.Operation('opValueSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ValueSeq, False, 0),), (((), _M_Test._t_ValueSeq, False, 0),), ((), _M_Test._t_ValueSeq, False, 0), ())
+    Initial._op_opValueMap = IcePy.Operation('opValueMap', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ValueMap, False, 0),), (((), _M_Test._t_ValueMap, False, 0),), ((), _M_Test._t_ValueMap, False, 0), ())
+    Initial._op_getD1 = IcePy.Operation('getD1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_D1, False, 0),), (), ((), _M_Test._t_D1, False, 0), ())
+    Initial._op_throwEDerived = IcePy.Operation('throwEDerived', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_EDerived,))
+    Initial._op_setG = IcePy.Operation('setG', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_G, False, 0),), (), None, ())
+    Initial._op_opBaseSeq = IcePy.Operation('opBaseSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BaseSeq, False, 0),), (((), _M_Test._t_BaseSeq, False, 0),), ((), _M_Test._t_BaseSeq, False, 0), ())
+    Initial._op_getCompact = IcePy.Operation('getCompact', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_Compact, False, 0), ())
+    Initial._op_getInnerA = IcePy.Operation('getInnerA', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.Inner._t_A, False, 0), ())
+    Initial._op_getInnerSubA = IcePy.Operation('getInnerSubA', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test.Inner.Sub._t_A, False, 0), ())
+    Initial._op_throwInnerEx = IcePy.Operation('throwInnerEx', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test.Inner._t_Ex,))
+    Initial._op_throwInnerSubEx = IcePy.Operation('throwInnerSubEx', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test.Inner.Sub._t_Ex,))
+    Initial._op_getObjectSeq = IcePy.Operation('getObjectSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ObjectSeq, False, 0),), (), ((), _M_Test._t_ObjectSeq, False, 0), ())
+    Initial._op_getObjectPrxSeq = IcePy.Operation('getObjectPrxSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ObjectPrxSeq, False, 0),), (), ((), _M_Test._t_ObjectPrxSeq, False, 0), ())
+    Initial._op_getBaseSeq = IcePy.Operation('getBaseSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BaseSeq, False, 0),), (), ((), _M_Test._t_BaseSeq, False, 0), ())
+    Initial._op_getObjectDict = IcePy.Operation('getObjectDict', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ObjectDict, False, 0),), (), ((), _M_Test._t_ObjectDict, False, 0), ())
+    Initial._op_getObjectPrxDict = IcePy.Operation('getObjectPrxDict', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ObjectPrxDict, False, 0),), (), ((), _M_Test._t_ObjectPrxDict, False, 0), ())
+    Initial._op_getBaseDict = IcePy.Operation('getBaseDict', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BaseDict, False, 0),), (), ((), _M_Test._t_BaseDict, False, 0), ())
+    Initial._op_opM = IcePy.Operation('opM', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_M, False, 0),), (((), _M_Test._t_M, False, 0),), ((), _M_Test._t_M, False, 0), ())
+    Initial._op_opF1 = IcePy.Operation('opF1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_F1, False, 0),), (((), _M_Test._t_F1, False, 0),), ((), _M_Test._t_F1, False, 0), ())
+    Initial._op_opF2 = IcePy.Operation('opF2', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_F2Prx, False, 0),), (((), _M_Test._t_F2Prx, False, 0),), ((), _M_Test._t_F2Prx, False, 0), ())
+    Initial._op_hasF3 = IcePy.Operation('hasF3', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
 
-    _M_Test.InitialDisp = InitialDisp
-    del InitialDisp
+    _M_Test.Initial = Initial
+    del Initial
 
 _M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), False, True, None, ())
 

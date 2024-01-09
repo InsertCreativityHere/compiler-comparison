@@ -17,7 +17,7 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice interface `Echo`.
+/// Traits for Slice interface`Echo`.
 public struct EchoTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Echo"]
     public static let staticId = "::Test::Echo"

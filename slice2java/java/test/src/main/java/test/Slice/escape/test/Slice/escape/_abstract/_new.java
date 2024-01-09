@@ -17,7 +17,7 @@ package test.Slice.escape._abstract;
 
 public interface _new extends com.zeroc.Ice.Object
 {
-    _assert _notify(_break _notifyAll, _else _null, com.zeroc.Ice.Value _package, com.zeroc.Ice.ObjectPrx _private, finalizePrx _protected, catchPrx _public, defaultPrx _return, int _static, int _strictfp, int _super, com.zeroc.Ice.Current current)
+    _assert _notify(_break _notifyAll, _else _null, finalizePrx _package, catchPrx _public, defaultPrx _return, int _static, int _strictfp, int _super, com.zeroc.Ice.Current current)
         throws _hashCode,
                _import;
 
@@ -60,9 +60,7 @@ public interface _new extends com.zeroc.Ice.Object
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
         _break iceP_notifyAll;
         final com.zeroc.IceInternal.Holder<_else> icePP_null = new com.zeroc.IceInternal.Holder<>();
-        final com.zeroc.IceInternal.Holder<com.zeroc.Ice.Value> icePP_package = new com.zeroc.IceInternal.Holder<>();
-        com.zeroc.Ice.ObjectPrx iceP_private;
-        finalizePrx iceP_protected;
+        finalizePrx iceP_package;
         catchPrx iceP_public;
         defaultPrx iceP_return;
         int iceP_static;
@@ -70,9 +68,7 @@ public interface _new extends com.zeroc.Ice.Object
         int iceP_super;
         iceP_notifyAll = _break.ice_read(istr);
         istr.readValue(v -> icePP_null.value = v, _else.class);
-        istr.readValue(v -> icePP_package.value = v, com.zeroc.Ice.Value.class);
-        iceP_private = com.zeroc.Ice.ObjectPrx.uncheckedCast(istr.readProxy());
-        iceP_protected = finalizePrx.uncheckedCast(istr.readProxy());
+        iceP_package = finalizePrx.uncheckedCast(istr.readProxy());
         iceP_public = catchPrx.uncheckedCast(istr.readProxy());
         iceP_return = defaultPrx.uncheckedCast(istr.readProxy());
         iceP_static = istr.readInt();
@@ -81,8 +77,7 @@ public interface _new extends com.zeroc.Ice.Object
         istr.readPendingValues();
         inS.endReadParams();
         _else iceP_null = icePP_null.value;
-        com.zeroc.Ice.Value iceP_package = icePP_package.value;
-        _assert ret = obj._notify(iceP_notifyAll, iceP_null, iceP_package, iceP_private, iceP_protected, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, current);
+        _assert ret = obj._notify(iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
         _assert.ice_write(ostr, ret);
         inS.endWriteParams(ostr);

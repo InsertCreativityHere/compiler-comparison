@@ -113,7 +113,6 @@ namespace IceStormElection
             return '::IceStormElection::ReplicaObserver';
         }
     }
-    $IceStormElection__t_ReplicaObserver = IcePHP_defineClass('::IceStormElection::ReplicaObserver', '\\IceStormElection\\ReplicaObserver', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceStormElection__t_ReplicaObserverPrx = IcePHP_defineProxy('::IceStormElection::ReplicaObserver', $Ice__t_ObjectPrx, null);
@@ -152,7 +151,6 @@ namespace IceStormElection
             return '::IceStormElection::TopicManagerSync';
         }
     }
-    $IceStormElection__t_TopicManagerSync = IcePHP_defineClass('::IceStormElection::TopicManagerSync', '\\IceStormElection\\TopicManagerSync', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceStormElection__t_TopicManagerSyncPrx = IcePHP_defineProxy('::IceStormElection::TopicManagerSync', $Ice__t_ObjectPrx, null);
@@ -333,7 +331,6 @@ namespace IceStormElection
             return '::IceStormElection::Node';
         }
     }
-    $IceStormElection__t_Node = IcePHP_defineClass('::IceStormElection::Node', '\\IceStormElection\\Node', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceStormElection__t_NodePrx = IcePHP_defineProxy('::IceStormElection::Node', $Ice__t_ObjectPrx, null);

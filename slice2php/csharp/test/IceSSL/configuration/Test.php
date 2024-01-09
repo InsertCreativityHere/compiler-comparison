@@ -37,7 +37,6 @@ namespace Test
             return '::Test::Server';
         }
     }
-    $Test__t_Server = IcePHP_defineClass('::Test::Server', '\\Test\\Server', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_ServerPrx = IcePHP_defineProxy('::Test::Server', $Ice__t_ObjectPrx, null);
@@ -82,7 +81,6 @@ namespace Test
             return '::Test::ServerFactory';
         }
     }
-    $Test__t_ServerFactory = IcePHP_defineClass('::Test::ServerFactory', '\\Test\\ServerFactory', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_ServerFactoryPrx = IcePHP_defineProxy('::Test::ServerFactory', $Ice__t_ObjectPrx, null);

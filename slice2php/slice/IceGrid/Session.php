@@ -43,7 +43,6 @@ namespace IceGrid
             return '::IceGrid::Session';
         }
     }
-    $IceGrid__t_Session = IcePHP_defineClass('::IceGrid::Session', '\\IceGrid\\Session', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceGrid__t_SessionPrx = IcePHP_defineProxy('::IceGrid::Session', $Ice__t_ObjectPrx, array($Glacier2__t_SessionPrx));

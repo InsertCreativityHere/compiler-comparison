@@ -78,19 +78,19 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice interface `Query`.
+/// Traits for Slice interface`Query`.
 public struct QueryTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::Query"]
     public static let staticId = "::IceGrid::Query"
 }
 
-/// Traits for Slice interface `Registry`.
+/// Traits for Slice interface`Registry`.
 public struct RegistryTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::Registry"]
     public static let staticId = "::IceGrid::Registry"
 }
 
-/// Traits for Slice interface `Locator`.
+/// Traits for Slice interface`Locator`.
 public struct LocatorTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Locator", "::Ice::Object", "::IceGrid::Locator"]
     public static let staticId = "::IceGrid::Locator"

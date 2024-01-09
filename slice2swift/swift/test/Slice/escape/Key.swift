@@ -194,25 +194,25 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice interface ``break``.
+/// Traits for Slice interface``break``.
 public struct breakTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::and::break"]
     public static let staticId = "::and::break"
 }
 
-/// Traits for Slice interface ``func``.
+/// Traits for Slice interface``func``.
 public struct funcTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::and::func"]
     public static let staticId = "::and::func"
 }
 
-/// Traits for Slice class ``switch``.
+/// Traits for Slice class``switch``.
 public struct switchTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::and::switch"]
     public static let staticId = "::and::switch"
 }
 
-/// Traits for Slice interface ``do``.
+/// Traits for Slice interface``do``.
 public struct doTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::and::break", "::and::do", "::and::func"]
     public static let staticId = "::and::do"

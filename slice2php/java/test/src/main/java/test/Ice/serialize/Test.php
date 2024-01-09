@@ -367,7 +367,6 @@ namespace Test
             return '::Test::Initial';
         }
     }
-    $Test__t_Initial = IcePHP_defineClass('::Test::Initial', '\\Test\\Initial', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_InitialPrx = IcePHP_defineProxy('::Test::Initial', $Ice__t_ObjectPrx, null);

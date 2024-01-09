@@ -420,7 +420,6 @@ namespace IceStorm
 /**
  * Publishers publish information on a particular topic. A topic logically represents a type. A
  * @see TopicManager
- * \headerfile IceStorm/IceStorm.h
  */
 class ICESTORM_API Topic : public virtual ::Ice::Object
 {
@@ -578,7 +577,6 @@ public:
 /**
  * A topic manager manages topics, and subscribers to topics.
  * @see Topic
- * \headerfile IceStorm/IceStorm.h
  */
 class ICESTORM_API TopicManager : public virtual ::Ice::Object
 {
@@ -656,7 +654,6 @@ public:
 /**
  * This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
  * This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
- * \headerfile IceStorm/IceStorm.h
  */
 class ICESTORM_API Finder : public virtual ::Ice::Object
 {
@@ -715,7 +712,6 @@ namespace IceStorm
 /**
  * Publishers publish information on a particular topic. A topic logically represents a type. A
  * @see TopicManager
- * \headerfile IceStorm/IceStorm.h
  */
 class ICE_CLASS(ICESTORM_API) TopicPrx : public virtual ::Ice::Proxy<TopicPrx, ::Ice::ObjectPrx>
 {
@@ -1214,7 +1210,6 @@ protected:
 /**
  * A topic manager manages topics, and subscribers to topics.
  * @see Topic
- * \headerfile IceStorm/IceStorm.h
  */
 class ICE_CLASS(ICESTORM_API) TopicManagerPrx : public virtual ::Ice::Proxy<TopicManagerPrx, ::Ice::ObjectPrx>
 {
@@ -1378,7 +1373,6 @@ protected:
 /**
  * This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
  * This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
- * \headerfile IceStorm/IceStorm.h
  */
 class ICE_CLASS(ICESTORM_API) FinderPrx : public virtual ::Ice::Proxy<FinderPrx, ::Ice::ObjectPrx>
 {
@@ -1571,39 +1565,21 @@ ICESTORM_API ::IceProxy::Ice::Object* upCast(Finder*);
 
 namespace IceStorm
 {
-
-class Topic;
-/// \cond INTERNAL
-ICESTORM_API ::Ice::Object* upCast(Topic*);
-/// \endcond
-typedef ::IceInternal::Handle< Topic> TopicPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceStorm::Topic> TopicPrx;
 typedef TopicPrx TopicPrxPtr;
-/// \cond INTERNAL
-ICESTORM_API void _icePatchObjectPtr(TopicPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class TopicManager;
-/// \cond INTERNAL
-ICESTORM_API ::Ice::Object* upCast(TopicManager*);
-/// \endcond
-typedef ::IceInternal::Handle< TopicManager> TopicManagerPtr;
+class Topic;
+typedef ::IceInternal::Handle< Topic> TopicPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceStorm::TopicManager> TopicManagerPrx;
 typedef TopicManagerPrx TopicManagerPrxPtr;
-/// \cond INTERNAL
-ICESTORM_API void _icePatchObjectPtr(TopicManagerPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class Finder;
-/// \cond INTERNAL
-ICESTORM_API ::Ice::Object* upCast(Finder*);
-/// \endcond
-typedef ::IceInternal::Handle< Finder> FinderPtr;
+class TopicManager;
+typedef ::IceInternal::Handle< TopicManager> TopicManagerPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceStorm::Finder> FinderPrx;
 typedef FinderPrx FinderPrxPtr;
-/// \cond INTERNAL
-ICESTORM_API void _icePatchObjectPtr(FinderPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class Finder;
+typedef ::IceInternal::Handle< Finder> FinderPtr;
 
 }
 
@@ -3343,14 +3319,12 @@ namespace IceStorm
 /**
  * Publishers publish information on a particular topic. A topic logically represents a type. A
  * @see TopicManager
- * \headerfile IceStorm/IceStorm.h
  */
 class ICESTORM_API Topic : public virtual ::Ice::Object
 {
 public:
 
     typedef TopicPrx ProxyType;
-    typedef TopicPtr PointerType;
 
     virtual ~Topic();
     Topic() = default;
@@ -3502,38 +3476,17 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const Topic& lhs, const Topic& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Topic& lhs, const Topic& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * A topic manager manages topics, and subscribers to topics.
  * @see Topic
- * \headerfile IceStorm/IceStorm.h
  */
 class ICESTORM_API TopicManager : public virtual ::Ice::Object
 {
 public:
 
     typedef TopicManagerPrx ProxyType;
-    typedef TopicManagerPtr PointerType;
 
     virtual ~TopicManager();
     TopicManager() = default;
@@ -3605,38 +3558,17 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const TopicManager& lhs, const TopicManager& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const TopicManager& lhs, const TopicManager& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * This interface is advertised by the IceStorm service through the Ice object with the identity `IceStorm/Finder'.
  * This allows clients to retrieve the topic manager with just the endpoint information of the IceStorm service.
- * \headerfile IceStorm/IceStorm.h
  */
 class ICESTORM_API Finder : public virtual ::Ice::Object
 {
 public:
 
     typedef FinderPrx ProxyType;
-    typedef FinderPtr PointerType;
 
     virtual ~Finder();
     Finder() = default;
@@ -3684,26 +3616,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const Finder& lhs, const Finder& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Finder& lhs, const Finder& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 }
 

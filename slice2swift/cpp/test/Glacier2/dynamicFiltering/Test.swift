@@ -18,7 +18,7 @@ import Ice
 import PromiseKit
 import Glacier2
 
-/// Traits for Slice interface `Backend`.
+/// Traits for Slice interface`Backend`.
 public struct BackendTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Backend"]
     public static let staticId = "::Test::Backend"
@@ -164,13 +164,13 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice interface `TestController`.
+/// Traits for Slice interface`TestController`.
 public struct TestControllerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::TestController"]
     public static let staticId = "::Test::TestController"
 }
 
-/// Traits for Slice interface `TestSession`.
+/// Traits for Slice interface`TestSession`.
 public struct TestSessionTraits: Ice.SliceTraits {
     public static let staticIds = ["::Glacier2::Session", "::Ice::Object", "::Test::TestSession"]
     public static let staticId = "::Test::TestSession"

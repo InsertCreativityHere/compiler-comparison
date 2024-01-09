@@ -187,7 +187,6 @@ namespace IcePatch2
 
 /**
  * The interface that provides access to files.
- * \headerfile IcePatch2/IcePatch2.h
  */
 class ICEPATCH2_API FileServer : public virtual ::Ice::Object
 {
@@ -322,7 +321,6 @@ namespace IcePatch2
 
 /**
  * The interface that provides access to files.
- * \headerfile IcePatch2/IcePatch2.h
  */
 class ICE_CLASS(ICEPATCH2_API) FileServerPrx : public virtual ::Ice::Proxy<FileServerPrx, ::Ice::ObjectPrx>
 {
@@ -723,17 +721,11 @@ ICEPATCH2_API ::IceProxy::Ice::Object* upCast(FileServer*);
 
 namespace IcePatch2
 {
-
-class FileServer;
-/// \cond INTERNAL
-ICEPATCH2_API ::Ice::Object* upCast(FileServer*);
-/// \endcond
-typedef ::IceInternal::Handle< FileServer> FileServerPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IcePatch2::FileServer> FileServerPrx;
 typedef FileServerPrx FileServerPrxPtr;
-/// \cond INTERNAL
-ICEPATCH2_API void _icePatchObjectPtr(FileServerPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class FileServer;
+typedef ::IceInternal::Handle< FileServer> FileServerPtr;
 
 }
 
@@ -1650,14 +1642,12 @@ namespace IcePatch2
 
 /**
  * The interface that provides access to files.
- * \headerfile IcePatch2/IcePatch2.h
  */
 class ICEPATCH2_API FileServer : public virtual ::Ice::Object
 {
 public:
 
     typedef FileServerPrx ProxyType;
-    typedef FileServerPtr PointerType;
 
     virtual ~FileServer();
     FileServer() = default;
@@ -1780,26 +1770,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const FileServer& lhs, const FileServer& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const FileServer& lhs, const FileServer& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 }
 

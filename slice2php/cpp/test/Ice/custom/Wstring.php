@@ -113,7 +113,6 @@ namespace Test1
             return '::Test1::WstringClass';
         }
     }
-    $Test1__t_WstringClass = IcePHP_defineClass('::Test1::WstringClass', '\\Test1\\WstringClass', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test1__t_WstringClassPrx = IcePHP_defineProxy('::Test1::WstringClass', $Ice__t_ObjectPrx, null);
@@ -223,7 +222,6 @@ namespace Test2
             return '::Test2::WstringClass';
         }
     }
-    $Test2__t_WstringClass = IcePHP_defineClass('::Test2::WstringClass', '\\Test2\\WstringClass', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test2__t_WstringClassPrx = IcePHP_defineProxy('::Test2::WstringClass', $Ice__t_ObjectPrx, null);

@@ -17,7 +17,7 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice interface `Priority`.
+/// Traits for Slice interface`Priority`.
 public struct PriorityTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Priority"]
     public static let staticId = "::Test::Priority"

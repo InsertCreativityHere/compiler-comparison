@@ -37,7 +37,6 @@ namespace Clash
             return '::Clash::Intf';
         }
     }
-    $Clash__t_Intf = IcePHP_defineClass('::Clash::Intf', '\\Clash\\Intf', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Clash__t_IntfPrx = IcePHP_defineProxy('::Clash::Intf', $Ice__t_ObjectPrx, null);

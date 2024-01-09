@@ -45,6 +45,69 @@ if 'OneOptional' not in _M_Test.__dict__:
     _M_Test.OneOptional = OneOptional
     del OneOptional
 
+_M_Test._t_MyInterface = IcePy.defineValue('::Test::MyInterface', Ice.Value, -1, (), False, True, None, ())
+
+if 'MyInterfacePrx' not in _M_Test.__dict__:
+    _M_Test.MyInterfacePrx = Ice.createTempClass()
+    class MyInterfacePrx(Ice.ObjectPrx):
+
+        def op(self, context=None):
+            return _M_Test.MyInterface._op_op.invoke(self, ((), context))
+
+        def opAsync(self, context=None):
+            return _M_Test.MyInterface._op_op.invokeAsync(self, ((), context))
+
+        def begin_op(self, _response=None, _ex=None, _sent=None, context=None):
+            return _M_Test.MyInterface._op_op.begin(self, ((), _response, _ex, _sent, context))
+
+        def end_op(self, _r):
+            return _M_Test.MyInterface._op_op.end(self, _r)
+
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.MyInterfacePrx.ice_checkedCast(proxy, '::Test::MyInterface', facetOrContext, context)
+
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.MyInterfacePrx.ice_uncheckedCast(proxy, facet)
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::MyInterface'
+    _M_Test._t_MyInterfacePrx = IcePy.defineProxy('::Test::MyInterface', MyInterfacePrx)
+
+    _M_Test.MyInterfacePrx = MyInterfacePrx
+    del MyInterfacePrx
+
+    _M_Test.MyInterface = Ice.createTempClass()
+    class MyInterface(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::MyInterface')
+
+        def ice_id(self, current=None):
+            return '::Test::MyInterface'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::MyInterface'
+
+        def op(self, current=None):
+            raise NotImplementedError("servant method 'op' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_MyInterfaceDisp)
+
+        __repr__ = __str__
+
+    _M_Test._t_MyInterfaceDisp = IcePy.defineClass('::Test::MyInterface', MyInterface, (), None, ())
+    MyInterface._ice_type = _M_Test._t_MyInterfaceDisp
+
+    MyInterface._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.MyInterface = MyInterface
+    del MyInterface
+
 if 'MyEnum' not in _M_Test.__dict__:
     _M_Test.MyEnum = Ice.createTempClass()
     class MyEnum(Ice.EnumBase):
@@ -427,8 +490,8 @@ if '_t_VarStructSeq' not in _M_Test.__dict__:
 if '_t_OneOptionalSeq' not in _M_Test.__dict__:
     _M_Test._t_OneOptionalSeq = IcePy.defineSequence('::Test::OneOptionalSeq', (), _M_Test._t_OneOptional)
 
-if '_t_OneOptionalPrxSeq' not in _M_Test.__dict__:
-    _M_Test._t_OneOptionalPrxSeq = IcePy.defineSequence('::Test::OneOptionalPrxSeq', (), IcePy._t_ObjectPrx)
+if '_t_MyInterfacePrxSeq' not in _M_Test.__dict__:
+    _M_Test._t_MyInterfacePrxSeq = IcePy.defineSequence('::Test::MyInterfacePrxSeq', (), _M_Test._t_MyInterfacePrx)
 
 if '_t_IntIntDict' not in _M_Test.__dict__:
     _M_Test._t_IntIntDict = IcePy.defineDictionary('::Test::IntIntDict', (), IcePy._t_int, IcePy._t_int)
@@ -448,13 +511,13 @@ if '_t_IntVarStructDict' not in _M_Test.__dict__:
 if '_t_IntOneOptionalDict' not in _M_Test.__dict__:
     _M_Test._t_IntOneOptionalDict = IcePy.defineDictionary('::Test::IntOneOptionalDict', (), IcePy._t_int, _M_Test._t_OneOptional)
 
-if '_t_IntOneOptionalPrxDict' not in _M_Test.__dict__:
-    _M_Test._t_IntOneOptionalPrxDict = IcePy.defineDictionary('::Test::IntOneOptionalPrxDict', (), IcePy._t_int, IcePy._t_ObjectPrx)
+if '_t_IntMyInterfacePrxDict' not in _M_Test.__dict__:
+    _M_Test._t_IntMyInterfacePrxDict = IcePy.defineDictionary('::Test::IntMyInterfacePrxDict', (), IcePy._t_int, _M_Test._t_MyInterfacePrx)
 
 if 'MultiOptional' not in _M_Test.__dict__:
     _M_Test.MultiOptional = Ice.createTempClass()
     class MultiOptional(Ice.Value):
-        def __init__(self, a=Ice.Unset, b=Ice.Unset, c=Ice.Unset, d=Ice.Unset, e=Ice.Unset, f=Ice.Unset, g=Ice.Unset, h=Ice.Unset, i=Ice.Unset, j=Ice.Unset, k=Ice.Unset, bs=Ice.Unset, ss=Ice.Unset, iid=Ice.Unset, sid=Ice.Unset, fs=Ice.Unset, vs=Ice.Unset, shs=Ice.Unset, es=Ice.Unset, fss=Ice.Unset, vss=Ice.Unset, oos=Ice.Unset, oops=Ice.Unset, ied=Ice.Unset, ifsd=Ice.Unset, ivsd=Ice.Unset, iood=Ice.Unset, ioopd=Ice.Unset, bos=Ice.Unset):
+        def __init__(self, a=Ice.Unset, b=Ice.Unset, c=Ice.Unset, d=Ice.Unset, e=Ice.Unset, f=Ice.Unset, g=Ice.Unset, h=Ice.Unset, i=Ice.Unset, j=Ice.Unset, k=Ice.Unset, bs=Ice.Unset, ss=Ice.Unset, iid=Ice.Unset, sid=Ice.Unset, fs=Ice.Unset, vs=Ice.Unset, shs=Ice.Unset, es=Ice.Unset, fss=Ice.Unset, vss=Ice.Unset, oos=Ice.Unset, mips=Ice.Unset, ied=Ice.Unset, ifsd=Ice.Unset, ivsd=Ice.Unset, iood=Ice.Unset, imipd=Ice.Unset, bos=Ice.Unset):
             self.a = a
             self.b = b
             self.c = c
@@ -477,12 +540,12 @@ if 'MultiOptional' not in _M_Test.__dict__:
             self.fss = fss
             self.vss = vss
             self.oos = oos
-            self.oops = oops
+            self.mips = mips
             self.ied = ied
             self.ifsd = ifsd
             self.ivsd = ivsd
             self.iood = iood
-            self.ioopd = ioopd
+            self.imipd = imipd
             self.bos = bos
 
         def ice_id(self):
@@ -509,7 +572,7 @@ if 'MultiOptional' not in _M_Test.__dict__:
         ('g', (), IcePy._t_double, True, 7),
         ('h', (), IcePy._t_string, True, 8),
         ('i', (), _M_Test._t_MyEnum, True, 9),
-        ('j', (), IcePy._t_ObjectPrx, True, 10),
+        ('j', (), _M_Test._t_MyInterfacePrx, True, 10),
         ('k', (), _M_Test._t_MultiOptional, True, 11),
         ('bs', (), _M_Test._t_ByteSeq, True, 12),
         ('ss', (), _M_Test._t_StringSeq, True, 13),
@@ -522,12 +585,12 @@ if 'MultiOptional' not in _M_Test.__dict__:
         ('fss', (), _M_Test._t_FixedStructSeq, True, 20),
         ('vss', (), _M_Test._t_VarStructSeq, True, 21),
         ('oos', (), _M_Test._t_OneOptionalSeq, True, 22),
-        ('oops', (), _M_Test._t_OneOptionalPrxSeq, True, 23),
+        ('mips', (), _M_Test._t_MyInterfacePrxSeq, True, 23),
         ('ied', (), _M_Test._t_IntEnumDict, True, 24),
         ('ifsd', (), _M_Test._t_IntFixedStructDict, True, 25),
         ('ivsd', (), _M_Test._t_IntVarStructDict, True, 26),
         ('iood', (), _M_Test._t_IntOneOptionalDict, True, 27),
-        ('ioopd', (), _M_Test._t_IntOneOptionalPrxDict, True, 28),
+        ('imipd', (), _M_Test._t_IntMyInterfacePrxDict, True, 28),
         ('bos', (), _M_Test._t_BoolSeq, True, 29)
     ))
     MultiOptional._ice_type = _M_Test._t_MultiOptional
@@ -1149,17 +1212,17 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def end_opOneOptional(self, _r):
             return _M_Test.Initial._op_opOneOptional.end(self, _r)
 
-        def opOneOptionalProxy(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opOneOptionalProxy.invoke(self, ((p1, ), context))
+        def opMyInterfaceProxy(self, p1=Ice.Unset, context=None):
+            return _M_Test.Initial._op_opMyInterfaceProxy.invoke(self, ((p1, ), context))
 
-        def opOneOptionalProxyAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opOneOptionalProxy.invokeAsync(self, ((p1, ), context))
+        def opMyInterfaceProxyAsync(self, p1, context=None):
+            return _M_Test.Initial._op_opMyInterfaceProxy.invokeAsync(self, ((p1, ), context))
 
-        def begin_opOneOptionalProxy(self, p1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_opOneOptionalProxy.begin(self, ((p1, ), _response, _ex, _sent, context))
+        def begin_opMyInterfaceProxy(self, p1, _response=None, _ex=None, _sent=None, context=None):
+            return _M_Test.Initial._op_opMyInterfaceProxy.begin(self, ((p1, ), _response, _ex, _sent, context))
 
-        def end_opOneOptionalProxy(self, _r):
-            return _M_Test.Initial._op_opOneOptionalProxy.end(self, _r)
+        def end_opMyInterfaceProxy(self, _r):
+            return _M_Test.Initial._op_opMyInterfaceProxy.end(self, _r)
 
         def opByteSeq(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opByteSeq.invoke(self, ((p1, ), context))
@@ -1640,8 +1703,8 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opOneOptional(self, p1, current=None):
             raise NotImplementedError("servant method 'opOneOptional' not implemented")
 
-        def opOneOptionalProxy(self, p1, current=None):
-            raise NotImplementedError("servant method 'opOneOptionalProxy' not implemented")
+        def opMyInterfaceProxy(self, p1, current=None):
+            raise NotImplementedError("servant method 'opMyInterfaceProxy' not implemented")
 
         def opByteSeq(self, p1, current=None):
             raise NotImplementedError("servant method 'opByteSeq' not implemented")
@@ -1872,7 +1935,7 @@ if 'InitialPrx' not in _M_Test.__dict__:
     Initial._op_opFixedStruct = IcePy.Operation('opFixedStruct', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_FixedStruct, True, 2),), (((), _M_Test._t_FixedStruct, True, 3),), ((), _M_Test._t_FixedStruct, True, 1), ())
     Initial._op_opVarStruct = IcePy.Operation('opVarStruct', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_VarStruct, True, 2),), (((), _M_Test._t_VarStruct, True, 3),), ((), _M_Test._t_VarStruct, True, 1), ())
     Initial._op_opOneOptional = IcePy.Operation('opOneOptional', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_OneOptional, True, 2),), (((), _M_Test._t_OneOptional, True, 3),), ((), _M_Test._t_OneOptional, True, 1), ())
-    Initial._op_opOneOptionalProxy = IcePy.Operation('opOneOptionalProxy', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_ObjectPrx, True, 2),), (((), IcePy._t_ObjectPrx, True, 3),), ((), IcePy._t_ObjectPrx, True, 1), ())
+    Initial._op_opMyInterfaceProxy = IcePy.Operation('opMyInterfaceProxy', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_MyInterfacePrx, True, 2),), (((), _M_Test._t_MyInterfacePrx, True, 3),), ((), _M_Test._t_MyInterfacePrx, True, 1), ())
     Initial._op_opByteSeq = IcePy.Operation('opByteSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_ByteSeq, True, 2),), (((), _M_Test._t_ByteSeq, True, 3),), ((), _M_Test._t_ByteSeq, True, 1), ())
     Initial._op_opBoolSeq = IcePy.Operation('opBoolSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_BoolSeq, True, 2),), (((), _M_Test._t_BoolSeq, True, 3),), ((), _M_Test._t_BoolSeq, True, 1), ())
     Initial._op_opShortSeq = IcePy.Operation('opShortSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_ShortSeq, True, 2),), (((), _M_Test._t_ShortSeq, True, 3),), ((), _M_Test._t_ShortSeq, True, 1), ())

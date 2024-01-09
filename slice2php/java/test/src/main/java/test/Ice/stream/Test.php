@@ -598,7 +598,6 @@ namespace Test
             return '::Test::MyInterface';
         }
     }
-    $Test__t_MyInterface = IcePHP_defineClass('::Test::MyInterface', '\\Test\\MyInterface', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_MyInterfacePrx = IcePHP_defineProxy('::Test::MyInterface', $Ice__t_ObjectPrx, null);

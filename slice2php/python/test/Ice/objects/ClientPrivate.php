@@ -97,7 +97,6 @@ namespace Test
             return '::Test::UnexpectedObjectExceptionTest';
         }
     }
-    $Test__t_UnexpectedObjectExceptionTest = IcePHP_defineClass('::Test::UnexpectedObjectExceptionTest', '\\Test\\UnexpectedObjectExceptionTest', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_UnexpectedObjectExceptionTestPrx = IcePHP_defineProxy('::Test::UnexpectedObjectExceptionTest', $Ice__t_ObjectPrx, null);

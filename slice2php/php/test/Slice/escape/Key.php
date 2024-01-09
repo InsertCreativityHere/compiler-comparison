@@ -96,7 +96,6 @@ namespace _and
             return '::and::break';
         }
     }
-    $and__t_break = IcePHP_defineClass('::and::break', '\\_and\\_break', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $and__t_breakPrx = IcePHP_defineProxy('::and::break', $Ice__t_ObjectPrx, null);
@@ -127,7 +126,6 @@ namespace _and
             return '::and::function';
         }
     }
-    $and__t_function = IcePHP_defineClass('::and::function', '\\_and\\_function', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $and__t_functionPrx = IcePHP_defineProxy('::and::function', $Ice__t_ObjectPrx, null);
@@ -158,7 +156,6 @@ namespace _and
             return '::and::die';
         }
     }
-    $and__t_die = IcePHP_defineClass('::and::die', '\\_and\\_die', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $and__t_diePrx = IcePHP_defineProxy('::and::die', $Ice__t_ObjectPrx, null);
@@ -233,7 +230,6 @@ namespace _and
             return '::and::enddeclare';
         }
     }
-    $and__t_enddeclare = IcePHP_defineClass('::and::enddeclare', '\\_and\\_enddeclare', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $and__t_enddeclarePrx = IcePHP_defineProxy('::and::enddeclare', $Ice__t_ObjectPrx, array($and__t_diePrx, $and__t_functionPrx));
@@ -346,21 +342,18 @@ namespace _and
             return '::and::for';
         }
     }
-    $and__t_for = IcePHP_defineClass('::and::for', '\\_and\\_for', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $and__t_forPrx = IcePHP_defineProxy('::and::for', $Ice__t_ObjectPrx, null);
 
-    global $and__t_break;
+    global $and__t_breakPrx;
     global $and__t_echo;
-    global $and__t_enddeclare;
     global $and__t_functionPrx;
     global $and__t_diePrx;
-    global $Ice__t_ObjectPrx;
     global $and__t_enddeclarePrx;
     global $IcePHP__t_int;
     global $and__t_array;
-    IcePHP_defineOperation($and__t_forPrx, 'foreach', 0, 0, 0, array(array($and__t_break), array($and__t_echo), array($and__t_enddeclare), array($and__t_functionPrx), array($and__t_diePrx), array($Ice__t_ObjectPrx), array($and__t_enddeclarePrx), array($IcePHP__t_int), array($IcePHP__t_int)), null, array($and__t_array), array($and__t_endif, $and__t_endwhile));
+    IcePHP_defineOperation($and__t_forPrx, 'foreach', 0, 0, 0, array(array($and__t_breakPrx), array($and__t_echo), array($and__t_functionPrx), array($and__t_diePrx), array($and__t_enddeclarePrx), array($IcePHP__t_int), array($IcePHP__t_int)), null, array($and__t_array), array($and__t_endif, $and__t_endwhile));
 }
 
 namespace _and

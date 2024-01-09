@@ -330,7 +330,6 @@ namespace Test
             return '::Test::I';
         }
     }
-    $Test__t_I = IcePHP_defineClass('::Test::I', '\\Test\\I', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_IPrx = IcePHP_defineProxy('::Test::I', $Ice__t_ObjectPrx, null);
@@ -534,7 +533,6 @@ namespace Test\Inner\Inner2
             return '::Test::Inner::Inner2::I';
         }
     }
-    $Test_Inner_Inner2__t_I = IcePHP_defineClass('::Test::Inner::Inner2::I', '\\Test\\Inner\\Inner2\\I', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test_Inner_Inner2__t_IPrx = IcePHP_defineProxy('::Test::Inner::Inner2::I', $Ice__t_ObjectPrx, null);
@@ -680,7 +678,6 @@ namespace Test\Inner
             return '::Test::Inner::I';
         }
     }
-    $Test_Inner__t_I = IcePHP_defineClass('::Test::Inner::I', '\\Test\\Inner\\I', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test_Inner__t_IPrx = IcePHP_defineProxy('::Test::Inner::I', $Ice__t_ObjectPrx, null);
@@ -745,7 +742,6 @@ namespace Inner\Test\Inner2
             return '::Inner::Test::Inner2::I';
         }
     }
-    $Inner_Test_Inner2__t_I = IcePHP_defineClass('::Inner::Test::Inner2::I', '\\Inner\\Test\\Inner2\\I', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Inner_Test_Inner2__t_IPrx = IcePHP_defineProxy('::Inner::Test::Inner2::I', $Ice__t_ObjectPrx, null);

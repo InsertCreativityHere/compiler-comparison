@@ -45,6 +45,11 @@ class RetryPrx;
 namespace Test
 {
 
+}
+
+namespace Test
+{
+
 class Retry : public virtual ::Ice::Object
 {
 public:
@@ -263,13 +268,6 @@ protected:
 
 }
 
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
-
 /// \cond INTERNAL
 namespace Test
 {
@@ -300,17 +298,16 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Retry>&);
 
 namespace Test
 {
-
-class Retry;
-/// \cond INTERNAL
-::Ice::Object* upCast(Retry*);
-/// \endcond
-typedef ::IceInternal::Handle< Retry> RetryPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Retry> RetryPrx;
 typedef RetryPrx RetryPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(RetryPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class Retry;
+typedef ::IceInternal::Handle< Retry> RetryPtr;
+
+}
+
+namespace Test
+{
 
 }
 
@@ -584,7 +581,6 @@ class Retry : public virtual ::Ice::Object
 public:
 
     typedef RetryPrx ProxyType;
-    typedef RetryPtr PointerType;
 
     virtual ~Retry();
     Retry() = default;
@@ -647,35 +643,9 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const Retry& lhs, const Retry& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
 }
-
-inline bool operator<(const Retry& lhs, const Retry& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 namespace Test
 {

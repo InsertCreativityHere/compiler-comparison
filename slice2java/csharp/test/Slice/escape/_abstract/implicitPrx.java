@@ -17,20 +17,20 @@ package _abstract;
 
 public interface implicitPrx extends com.zeroc.Ice.ObjectPrx
 {
-    default as in(_break internal, delegate is, com.zeroc.Ice.Value lock, casePrx namespace, decimalPrx _new, delegate _null, explicitPrx operator, int override, int params, int _private)
+    default as in(_break internal, delegate is, explicitPrx lock, casePrx namespace, decimalPrx _new, delegate _null, int override, int params, int _private)
         throws foreach,
                fixed
     {
-        return in(internal, is, lock, namespace, _new, _null, operator, override, params, _private, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        return in(internal, is, lock, namespace, _new, _null, override, params, _private, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default as in(_break internal, delegate is, com.zeroc.Ice.Value lock, casePrx namespace, decimalPrx _new, delegate _null, explicitPrx operator, int override, int params, int _private, java.util.Map<String, String> context)
+    default as in(_break internal, delegate is, explicitPrx lock, casePrx namespace, decimalPrx _new, delegate _null, int override, int params, int _private, java.util.Map<String, String> context)
         throws foreach,
                fixed
     {
         try
         {
-            return _iceI_inAsync(internal, is, lock, namespace, _new, _null, operator, override, params, _private, context, true).waitForResponseOrUserEx();
+            return _iceI_inAsync(internal, is, lock, namespace, _new, _null, override, params, _private, context, true).waitForResponseOrUserEx();
         }
         catch(foreach ex)
         {
@@ -46,14 +46,14 @@ public interface implicitPrx extends com.zeroc.Ice.ObjectPrx
         }
     }
 
-    default java.util.concurrent.CompletableFuture<as> inAsync(_break internal, delegate is, com.zeroc.Ice.Value lock, casePrx namespace, decimalPrx _new, delegate _null, explicitPrx operator, int override, int params, int _private)
+    default java.util.concurrent.CompletableFuture<as> inAsync(_break internal, delegate is, explicitPrx lock, casePrx namespace, decimalPrx _new, delegate _null, int override, int params, int _private)
     {
-        return _iceI_inAsync(internal, is, lock, namespace, _new, _null, operator, override, params, _private, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_inAsync(internal, is, lock, namespace, _new, _null, override, params, _private, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<as> inAsync(_break internal, delegate is, com.zeroc.Ice.Value lock, casePrx namespace, decimalPrx _new, delegate _null, explicitPrx operator, int override, int params, int _private, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<as> inAsync(_break internal, delegate is, explicitPrx lock, casePrx namespace, decimalPrx _new, delegate _null, int override, int params, int _private, java.util.Map<String, String> context)
     {
-        return _iceI_inAsync(internal, is, lock, namespace, _new, _null, operator, override, params, _private, context, false);
+        return _iceI_inAsync(internal, is, lock, namespace, _new, _null, override, params, _private, context, false);
     }
 
     /**
@@ -64,7 +64,6 @@ public interface implicitPrx extends com.zeroc.Ice.ObjectPrx
      * @param iceP_namespace -
      * @param iceP_new -
      * @param iceP_null -
-     * @param iceP_operator -
      * @param iceP_override -
      * @param iceP_params -
      * @param iceP_private -
@@ -72,17 +71,16 @@ public interface implicitPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<as> _iceI_inAsync(_break iceP_internal, delegate iceP_is, com.zeroc.Ice.Value iceP_lock, casePrx iceP_namespace, decimalPrx iceP_new, delegate iceP_null, explicitPrx iceP_operator, int iceP_override, int iceP_params, int iceP_private, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<as> _iceI_inAsync(_break iceP_internal, delegate iceP_is, explicitPrx iceP_lock, casePrx iceP_namespace, decimalPrx iceP_new, delegate iceP_null, int iceP_override, int iceP_params, int iceP_private, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<as> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "in", null, sync, _iceE_in);
         f.invoke(true, context, null, ostr -> {
                      _break.ice_write(ostr, iceP_internal);
                      ostr.writeValue(iceP_is);
-                     ostr.writeValue(iceP_lock);
+                     ostr.writeProxy(iceP_lock);
                      ostr.writeProxy(iceP_namespace);
                      ostr.writeProxy(iceP_new);
                      ostr.writeValue(iceP_null);
-                     ostr.writeProxy(iceP_operator);
                      ostr.writeInt(iceP_override);
                      ostr.writeInt(iceP_params);
                      ostr.writeInt(iceP_private);

@@ -16,13 +16,13 @@
 import Foundation
 import Ice
 
-/// Traits for Slice class `MXTopicMetrics`.
+/// Traits for Slice class`MXTopicMetrics`.
 public struct MXTopicMetricsTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceMX::Metrics", "::IceMX::TopicMetrics"]
     public static let staticId = "::IceMX::TopicMetrics"
 }
 
-/// Traits for Slice class `MXSubscriberMetrics`.
+/// Traits for Slice class`MXSubscriberMetrics`.
 public struct MXSubscriberMetricsTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceMX::Metrics", "::IceMX::SubscriberMetrics"]
     public static let staticId = "::IceMX::SubscriberMetrics"

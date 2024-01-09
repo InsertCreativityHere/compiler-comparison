@@ -17,7 +17,7 @@ package and;
 
 public interface _for extends com.zeroc.Ice.Object
 {
-    array foreach(com.zeroc.Ice.Value _if, echo global, com.zeroc.Ice.Value require, functionPrx include, diePrx _return, com.zeroc.Ice.ObjectPrx isset, enddeclarePrx list, int _new, int _static, com.zeroc.Ice.Current current)
+    array foreach(breakPrx _if, echo global, functionPrx include, diePrx _return, enddeclarePrx list, int _new, int _static, com.zeroc.Ice.Current current)
         throws endif,
                endwhile;
 
@@ -58,30 +58,24 @@ public interface _for extends com.zeroc.Ice.Object
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        final com.zeroc.IceInternal.Holder<com.zeroc.Ice.Value> icePP_if = new com.zeroc.IceInternal.Holder<>();
+        breakPrx iceP_if;
         final com.zeroc.IceInternal.Holder<echo> icePP_global = new com.zeroc.IceInternal.Holder<>();
-        final com.zeroc.IceInternal.Holder<com.zeroc.Ice.Value> icePP_require = new com.zeroc.IceInternal.Holder<>();
         functionPrx iceP_include;
         diePrx iceP_return;
-        com.zeroc.Ice.ObjectPrx iceP_isset;
         enddeclarePrx iceP_list;
         int iceP_new;
         int iceP_static;
-        istr.readValue(v -> icePP_if.value = v, com.zeroc.Ice.Value.class);
+        iceP_if = breakPrx.uncheckedCast(istr.readProxy());
         istr.readValue(v -> icePP_global.value = v, echo.class);
-        istr.readValue(v -> icePP_require.value = v, com.zeroc.Ice.Value.class);
         iceP_include = functionPrx.uncheckedCast(istr.readProxy());
         iceP_return = diePrx.uncheckedCast(istr.readProxy());
-        iceP_isset = com.zeroc.Ice.ObjectPrx.uncheckedCast(istr.readProxy());
         iceP_list = enddeclarePrx.uncheckedCast(istr.readProxy());
         iceP_new = istr.readInt();
         iceP_static = istr.readInt();
         istr.readPendingValues();
         inS.endReadParams();
-        com.zeroc.Ice.Value iceP_if = icePP_if.value;
         echo iceP_global = icePP_global.value;
-        com.zeroc.Ice.Value iceP_require = icePP_require.value;
-        array ret = obj.foreach(iceP_if, iceP_global, iceP_require, iceP_include, iceP_return, iceP_isset, iceP_list, iceP_new, iceP_static, current);
+        array ret = obj.foreach(iceP_if, iceP_global, iceP_include, iceP_return, iceP_list, iceP_new, iceP_static, current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
         array.ice_write(ostr, ret);
         inS.endWriteParams(ostr);

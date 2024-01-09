@@ -317,11 +317,6 @@ public:
 
 }
 
-namespace Test
-{
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -461,47 +456,6 @@ using CompactPCDerivedPtr = ::std::shared_ptr<CompactPCDerived>;
 namespace IceProxy
 {
 
-namespace Test
-{
-
-class D3;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< D3>&);
-::IceProxy::Ice::Object* upCast(D3*);
-/// \endcond
-
-class PCUnknown;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< PCUnknown>&);
-::IceProxy::Ice::Object* upCast(PCUnknown*);
-/// \endcond
-
-class PCDerived;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< PCDerived>&);
-::IceProxy::Ice::Object* upCast(PCDerived*);
-/// \endcond
-
-class PCDerived2;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< PCDerived2>&);
-::IceProxy::Ice::Object* upCast(PCDerived2*);
-/// \endcond
-
-class PCDerived3;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< PCDerived3>&);
-::IceProxy::Ice::Object* upCast(PCDerived3*);
-/// \endcond
-
-class CompactPCDerived;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< CompactPCDerived>&);
-::IceProxy::Ice::Object* upCast(CompactPCDerived*);
-/// \endcond
-
-}
-
 }
 
 namespace Test
@@ -512,8 +466,6 @@ class D3;
 ::Ice::Object* upCast(D3*);
 /// \endcond
 typedef ::IceInternal::Handle< D3> D3Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::D3> D3Prx;
-typedef D3Prx D3PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(D3Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -523,8 +475,6 @@ class PCUnknown;
 ::Ice::Object* upCast(PCUnknown*);
 /// \endcond
 typedef ::IceInternal::Handle< PCUnknown> PCUnknownPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::PCUnknown> PCUnknownPrx;
-typedef PCUnknownPrx PCUnknownPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(PCUnknownPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -534,8 +484,6 @@ class PCDerived;
 ::Ice::Object* upCast(PCDerived*);
 /// \endcond
 typedef ::IceInternal::Handle< PCDerived> PCDerivedPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::PCDerived> PCDerivedPrx;
-typedef PCDerivedPrx PCDerivedPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(PCDerivedPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -545,8 +493,6 @@ class PCDerived2;
 ::Ice::Object* upCast(PCDerived2*);
 /// \endcond
 typedef ::IceInternal::Handle< PCDerived2> PCDerived2Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::PCDerived2> PCDerived2Prx;
-typedef PCDerived2Prx PCDerived2PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(PCDerived2Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -556,8 +502,6 @@ class PCDerived3;
 ::Ice::Object* upCast(PCDerived3*);
 /// \endcond
 typedef ::IceInternal::Handle< PCDerived3> PCDerived3Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::PCDerived3> PCDerived3Prx;
-typedef PCDerived3Prx PCDerived3PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(PCDerived3Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -567,8 +511,6 @@ class CompactPCDerived;
 ::Ice::Object* upCast(CompactPCDerived*);
 /// \endcond
 typedef ::IceInternal::Handle< CompactPCDerived> CompactPCDerivedPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::CompactPCDerived> CompactPCDerivedPrx;
-typedef CompactPCDerivedPrx CompactPCDerivedPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(CompactPCDerivedPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -582,120 +524,8 @@ namespace IceAsync
 }
 /// \endcond
 
-namespace Test
-{
-
-}
-
 namespace IceProxy
 {
-
-namespace Test
-{
-
-class D3 : public virtual ::Ice::Proxy<D3, ::IceProxy::Test::B>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class PCUnknown : public virtual ::Ice::Proxy<PCUnknown, ::IceProxy::Test::PBase>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class PCDerived : public virtual ::Ice::Proxy<PCDerived, ::IceProxy::Test::PDerived>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class PCDerived2 : public virtual ::Ice::Proxy<PCDerived2, ::IceProxy::Test::PCDerived>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class PCDerived3 : public virtual ::Ice::Proxy<PCDerived3, ::IceProxy::Test::PCDerived2>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class CompactPCDerived : public virtual ::Ice::Proxy<CompactPCDerived, ::IceProxy::Test::CompactPDerived>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-}
 
 }
 
@@ -706,7 +536,6 @@ class D3 : public B
 {
 public:
 
-    typedef D3Prx ProxyType;
     typedef D3Ptr PointerType;
 
     virtual ~D3();
@@ -802,7 +631,6 @@ class PCUnknown : public PBase, public ::IceInternal::GCObject
 {
 public:
 
-    typedef PCUnknownPrx ProxyType;
     typedef PCUnknownPtr PointerType;
 
     virtual ~PCUnknown();
@@ -915,7 +743,6 @@ class PCDerived : public PDerived
 {
 public:
 
-    typedef PCDerivedPrx ProxyType;
     typedef PCDerivedPtr PointerType;
 
     virtual ~PCDerived();
@@ -1009,7 +836,6 @@ class PCDerived2 : public PCDerived
 {
 public:
 
-    typedef PCDerived2Prx ProxyType;
     typedef PCDerived2Ptr PointerType;
 
     virtual ~PCDerived2();
@@ -1103,7 +929,6 @@ class PCDerived3 : public PCDerived2
 {
 public:
 
-    typedef PCDerived3Prx ProxyType;
     typedef PCDerived3Ptr PointerType;
 
     virtual ~PCDerived3();
@@ -1197,7 +1022,6 @@ class CompactPCDerived : public CompactPDerived
 {
 public:
 
-    typedef CompactPCDerivedPrx ProxyType;
     typedef CompactPCDerivedPtr PointerType;
 
     virtual ~CompactPCDerived();
@@ -1405,11 +1229,6 @@ struct StreamReader< ::Test::CompactPCDerived, S>
 
 }
 /// \endcond
-
-namespace Test
-{
-
-}
 
 #endif
 

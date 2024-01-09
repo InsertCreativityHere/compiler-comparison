@@ -17,31 +17,31 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice class `Empty`.
+/// Traits for Slice class`Empty`.
 public struct EmptyTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Empty"]
     public static let staticId = "::Test::Empty"
 }
 
-/// Traits for Slice class `AlsoEmpty`.
+/// Traits for Slice class`AlsoEmpty`.
 public struct AlsoEmptyTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::AlsoEmpty"]
     public static let staticId = "::Test::AlsoEmpty"
 }
 
-/// Traits for Slice interface `UnexpectedObjectExceptionTest`.
+/// Traits for Slice interface`UnexpectedObjectExceptionTest`.
 public struct UnexpectedObjectExceptionTestTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::UnexpectedObjectExceptionTest"]
     public static let staticId = "::Test::UnexpectedObjectExceptionTest"
 }
 
-/// Traits for Slice class `COneMember`.
+/// Traits for Slice class`COneMember`.
 public struct COneMemberTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::COneMember"]
     public static let staticId = "::Test::COneMember"
 }
 
-/// Traits for Slice class `CTwoMembers`.
+/// Traits for Slice class`CTwoMembers`.
 public struct CTwoMembersTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::CTwoMembers"]
     public static let staticId = "::Test::CTwoMembers"

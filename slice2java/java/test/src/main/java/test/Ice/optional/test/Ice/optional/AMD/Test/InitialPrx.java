@@ -2508,34 +2508,34 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default Initial.OpOneOptionalProxyResult opOneOptionalProxy(com.zeroc.Ice.ObjectPrx p1)
+    default Initial.OpMyInterfaceProxyResult opMyInterfaceProxy(MyInterfacePrx p1)
     {
-        return opOneOptionalProxy(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        return opMyInterfaceProxy(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default Initial.OpOneOptionalProxyResult opOneOptionalProxy(com.zeroc.Ice.ObjectPrx p1, java.util.Map<String, String> context)
+    default Initial.OpMyInterfaceProxyResult opMyInterfaceProxy(MyInterfacePrx p1, java.util.Map<String, String> context)
     {
-        return _iceI_opOneOptionalProxyAsync(p1, context, true).waitForResponse();
+        return _iceI_opMyInterfaceProxyAsync(p1, context, true).waitForResponse();
     }
 
-    default Initial.OpOneOptionalProxyResult opOneOptionalProxy(java.util.Optional<com.zeroc.Ice.ObjectPrx> p1)
+    default Initial.OpMyInterfaceProxyResult opMyInterfaceProxy(java.util.Optional<MyInterfacePrx> p1)
     {
-        return opOneOptionalProxy(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        return opMyInterfaceProxy(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default Initial.OpOneOptionalProxyResult opOneOptionalProxy(java.util.Optional<com.zeroc.Ice.ObjectPrx> p1, java.util.Map<String, String> context)
+    default Initial.OpMyInterfaceProxyResult opMyInterfaceProxy(java.util.Optional<MyInterfacePrx> p1, java.util.Map<String, String> context)
     {
-        return _iceI_opOneOptionalProxyAsync(p1, context, true).waitForResponse();
+        return _iceI_opMyInterfaceProxyAsync(p1, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Initial.OpOneOptionalProxyResult> opOneOptionalProxyAsync(com.zeroc.Ice.ObjectPrx p1)
+    default java.util.concurrent.CompletableFuture<Initial.OpMyInterfaceProxyResult> opMyInterfaceProxyAsync(MyInterfacePrx p1)
     {
-        return _iceI_opOneOptionalProxyAsync(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_opMyInterfaceProxyAsync(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Initial.OpOneOptionalProxyResult> opOneOptionalProxyAsync(com.zeroc.Ice.ObjectPrx p1, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Initial.OpMyInterfaceProxyResult> opMyInterfaceProxyAsync(MyInterfacePrx p1, java.util.Map<String, String> context)
     {
-        return _iceI_opOneOptionalProxyAsync(p1, context, false);
+        return _iceI_opMyInterfaceProxyAsync(p1, context, false);
     }
 
     /**
@@ -2545,27 +2545,27 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Initial.OpOneOptionalProxyResult> _iceI_opOneOptionalProxyAsync(com.zeroc.Ice.ObjectPrx iceP_p1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Initial.OpMyInterfaceProxyResult> _iceI_opMyInterfaceProxyAsync(MyInterfacePrx iceP_p1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Initial.OpOneOptionalProxyResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOneOptionalProxy", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<Initial.OpMyInterfaceProxyResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opMyInterfaceProxy", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(2, iceP_p1);
                  }, istr -> {
-                     Initial.OpOneOptionalProxyResult ret = new Initial.OpOneOptionalProxyResult();
+                     Initial.OpMyInterfaceProxyResult ret = new Initial.OpMyInterfaceProxyResult();
                      ret.read(istr);
                      return ret;
                  });
         return f;
     }
 
-    default java.util.concurrent.CompletableFuture<Initial.OpOneOptionalProxyResult> opOneOptionalProxyAsync(java.util.Optional<com.zeroc.Ice.ObjectPrx> p1)
+    default java.util.concurrent.CompletableFuture<Initial.OpMyInterfaceProxyResult> opMyInterfaceProxyAsync(java.util.Optional<MyInterfacePrx> p1)
     {
-        return _iceI_opOneOptionalProxyAsync(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_opMyInterfaceProxyAsync(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Initial.OpOneOptionalProxyResult> opOneOptionalProxyAsync(java.util.Optional<com.zeroc.Ice.ObjectPrx> p1, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Initial.OpMyInterfaceProxyResult> opMyInterfaceProxyAsync(java.util.Optional<MyInterfacePrx> p1, java.util.Map<String, String> context)
     {
-        return _iceI_opOneOptionalProxyAsync(p1, context, false);
+        return _iceI_opMyInterfaceProxyAsync(p1, context, false);
     }
 
     /**
@@ -2575,47 +2575,47 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Initial.OpOneOptionalProxyResult> _iceI_opOneOptionalProxyAsync(java.util.Optional<com.zeroc.Ice.ObjectPrx> iceP_p1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Initial.OpMyInterfaceProxyResult> _iceI_opMyInterfaceProxyAsync(java.util.Optional<MyInterfacePrx> iceP_p1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Initial.OpOneOptionalProxyResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOneOptionalProxy", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<Initial.OpMyInterfaceProxyResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opMyInterfaceProxy", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(2, iceP_p1);
                  }, istr -> {
-                     Initial.OpOneOptionalProxyResult ret = new Initial.OpOneOptionalProxyResult();
+                     Initial.OpMyInterfaceProxyResult ret = new Initial.OpMyInterfaceProxyResult();
                      ret.read(istr);
                      return ret;
                  });
         return f;
     }
 
-    default Initial.OpOneOptionalProxyReqResult opOneOptionalProxyReq(com.zeroc.Ice.ObjectPrx p1)
+    default Initial.OpMyInterfaceProxyReqResult opMyInterfaceProxyReq(MyInterfacePrx p1)
     {
-        return opOneOptionalProxyReq(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        return opMyInterfaceProxyReq(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default Initial.OpOneOptionalProxyReqResult opOneOptionalProxyReq(com.zeroc.Ice.ObjectPrx p1, java.util.Map<String, String> context)
+    default Initial.OpMyInterfaceProxyReqResult opMyInterfaceProxyReq(MyInterfacePrx p1, java.util.Map<String, String> context)
     {
-        return _iceI_opOneOptionalProxyReqAsync(p1, context, true).waitForResponse();
+        return _iceI_opMyInterfaceProxyReqAsync(p1, context, true).waitForResponse();
     }
 
-    default Initial.OpOneOptionalProxyReqResult opOneOptionalProxyReq(java.util.Optional<com.zeroc.Ice.ObjectPrx> p1)
+    default Initial.OpMyInterfaceProxyReqResult opMyInterfaceProxyReq(java.util.Optional<MyInterfacePrx> p1)
     {
-        return opOneOptionalProxyReq(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        return opMyInterfaceProxyReq(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default Initial.OpOneOptionalProxyReqResult opOneOptionalProxyReq(java.util.Optional<com.zeroc.Ice.ObjectPrx> p1, java.util.Map<String, String> context)
+    default Initial.OpMyInterfaceProxyReqResult opMyInterfaceProxyReq(java.util.Optional<MyInterfacePrx> p1, java.util.Map<String, String> context)
     {
-        return _iceI_opOneOptionalProxyReqAsync(p1, context, true).waitForResponse();
+        return _iceI_opMyInterfaceProxyReqAsync(p1, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Initial.OpOneOptionalProxyReqResult> opOneOptionalProxyReqAsync(com.zeroc.Ice.ObjectPrx p1)
+    default java.util.concurrent.CompletableFuture<Initial.OpMyInterfaceProxyReqResult> opMyInterfaceProxyReqAsync(MyInterfacePrx p1)
     {
-        return _iceI_opOneOptionalProxyReqAsync(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_opMyInterfaceProxyReqAsync(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Initial.OpOneOptionalProxyReqResult> opOneOptionalProxyReqAsync(com.zeroc.Ice.ObjectPrx p1, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Initial.OpMyInterfaceProxyReqResult> opMyInterfaceProxyReqAsync(MyInterfacePrx p1, java.util.Map<String, String> context)
     {
-        return _iceI_opOneOptionalProxyReqAsync(p1, context, false);
+        return _iceI_opMyInterfaceProxyReqAsync(p1, context, false);
     }
 
     /**
@@ -2625,27 +2625,27 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Initial.OpOneOptionalProxyReqResult> _iceI_opOneOptionalProxyReqAsync(com.zeroc.Ice.ObjectPrx iceP_p1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Initial.OpMyInterfaceProxyReqResult> _iceI_opMyInterfaceProxyReqAsync(MyInterfacePrx iceP_p1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Initial.OpOneOptionalProxyReqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOneOptionalProxyReq", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<Initial.OpMyInterfaceProxyReqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opMyInterfaceProxyReq", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(2, iceP_p1);
                  }, istr -> {
-                     Initial.OpOneOptionalProxyReqResult ret = new Initial.OpOneOptionalProxyReqResult();
+                     Initial.OpMyInterfaceProxyReqResult ret = new Initial.OpMyInterfaceProxyReqResult();
                      ret.read(istr);
                      return ret;
                  });
         return f;
     }
 
-    default java.util.concurrent.CompletableFuture<Initial.OpOneOptionalProxyReqResult> opOneOptionalProxyReqAsync(java.util.Optional<com.zeroc.Ice.ObjectPrx> p1)
+    default java.util.concurrent.CompletableFuture<Initial.OpMyInterfaceProxyReqResult> opMyInterfaceProxyReqAsync(java.util.Optional<MyInterfacePrx> p1)
     {
-        return _iceI_opOneOptionalProxyReqAsync(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_opMyInterfaceProxyReqAsync(p1, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Initial.OpOneOptionalProxyReqResult> opOneOptionalProxyReqAsync(java.util.Optional<com.zeroc.Ice.ObjectPrx> p1, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Initial.OpMyInterfaceProxyReqResult> opMyInterfaceProxyReqAsync(java.util.Optional<MyInterfacePrx> p1, java.util.Map<String, String> context)
     {
-        return _iceI_opOneOptionalProxyReqAsync(p1, context, false);
+        return _iceI_opMyInterfaceProxyReqAsync(p1, context, false);
     }
 
     /**
@@ -2655,13 +2655,13 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Initial.OpOneOptionalProxyReqResult> _iceI_opOneOptionalProxyReqAsync(java.util.Optional<com.zeroc.Ice.ObjectPrx> iceP_p1, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Initial.OpMyInterfaceProxyReqResult> _iceI_opMyInterfaceProxyReqAsync(java.util.Optional<MyInterfacePrx> iceP_p1, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Initial.OpOneOptionalProxyReqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opOneOptionalProxyReq", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<Initial.OpMyInterfaceProxyReqResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opMyInterfaceProxyReq", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeProxy(2, iceP_p1);
                  }, istr -> {
-                     Initial.OpOneOptionalProxyReqResult ret = new Initial.OpOneOptionalProxyReqResult();
+                     Initial.OpMyInterfaceProxyReqResult ret = new Initial.OpMyInterfaceProxyReqResult();
                      ret.read(istr);
                      return ret;
                  });

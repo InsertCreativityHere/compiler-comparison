@@ -1434,12 +1434,6 @@ namespace IceProxy
 namespace Test
 {
 
-class Class1;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Class1>&);
-::IceProxy::Ice::Object* upCast(Class1*);
-/// \endcond
-
 class Intf1;
 /// \cond INTERNAL
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Intf1>&);
@@ -1464,33 +1458,19 @@ class Class1;
 ::Ice::Object* upCast(Class1*);
 /// \endcond
 typedef ::IceInternal::Handle< Class1> Class1Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Class1> Class1Prx;
-typedef Class1Prx Class1PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(Class1Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-class Intf1;
-/// \cond INTERNAL
-::Ice::Object* upCast(Intf1*);
-/// \endcond
-typedef ::IceInternal::Handle< Intf1> Intf1Ptr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Intf1> Intf1Prx;
 typedef Intf1Prx Intf1PrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(Intf1Ptr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class Intf2;
-/// \cond INTERNAL
-::Ice::Object* upCast(Intf2*);
-/// \endcond
-typedef ::IceInternal::Handle< Intf2> Intf2Ptr;
+class Intf1;
+typedef ::IceInternal::Handle< Intf1> Intf1Ptr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Intf2> Intf2Prx;
 typedef Intf2Prx Intf2PrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(Intf2Ptr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class Intf2;
+typedef ::IceInternal::Handle< Intf2> Intf2Ptr;
 
 }
 
@@ -1893,23 +1873,6 @@ namespace IceProxy
 
 namespace Test
 {
-
-class Class1 : public virtual ::Ice::Proxy<Class1, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
 
 class Intf1 : public virtual ::Ice::Proxy<Intf1, ::IceProxy::Ice::Object>
 {
@@ -3244,134 +3207,11 @@ protected:
 namespace Test
 {
 
-class Class1 : public virtual ::Ice::Object
-{
-public:
-
-    typedef Class1Prx ProxyType;
-    typedef Class1Ptr PointerType;
-
-    virtual ~Class1();
-
-    Class1()
-    {
-    }
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    Class1(::Ice::Int reason, ::Ice::Int isa, ::Ice::Int autorelease, ::Ice::Int classForCoder, ::Ice::Int copy, ::Ice::Int dealloc, ::Ice::Int description, ::Ice::Int hash, ::Ice::Int init, ::Ice::Int isProxy, ::Ice::Int mutableCopy, ::Ice::Int release, ::Ice::Int retain, ::Ice::Int retainCount, ::Ice::Int self, ::Ice::Int superclass, ::Ice::Int zone) :
-        reason(reason),
-        isa(isa),
-        autorelease(autorelease),
-        classForCoder(classForCoder),
-        copy(copy),
-        dealloc(dealloc),
-        description(description),
-        hash(hash),
-        init(init),
-        isProxy(isProxy),
-        mutableCopy(mutableCopy),
-        release(release),
-        retain(retain),
-        retainCount(retainCount),
-        self(self),
-        superclass(superclass),
-        zone(zone)
-    {
-    }
-    Class1(const Class1&) = default;
-    Class1& operator=(const Class1&) = default;
-
-    /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
-     */
-    virtual ::Ice::ObjectPtr ice_clone() const;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
-    ::Ice::Int reason;
-    ::Ice::Int isa;
-    ::Ice::Int autorelease;
-    ::Ice::Int classForCoder;
-    ::Ice::Int copy;
-    ::Ice::Int dealloc;
-    ::Ice::Int description;
-    ::Ice::Int hash;
-    ::Ice::Int init;
-    ::Ice::Int isProxy;
-    ::Ice::Int mutableCopy;
-    ::Ice::Int release;
-    ::Ice::Int retain;
-    ::Ice::Int retainCount;
-    ::Ice::Int self;
-    ::Ice::Int superclass;
-    ::Ice::Int zone;
-};
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_Class1_init = ::Test::Class1::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const Class1& lhs, const Class1& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Class1& lhs, const Class1& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
 class Intf1 : public virtual ::Ice::Object
 {
 public:
 
     typedef Intf1Prx ProxyType;
-    typedef Intf1Ptr PointerType;
 
     virtual ~Intf1();
     Intf1() = default;
@@ -3494,33 +3334,13 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const Intf1& lhs, const Intf1& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Intf1& lhs, const Intf1& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 class Intf2 : public virtual ::Ice::Object
 {
 public:
 
     typedef Intf2Prx ProxyType;
-    typedef Intf2Ptr PointerType;
 
     virtual ~Intf2();
     Intf2() = default;
@@ -3643,6 +3463,90 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
+};
+
+}
+
+namespace Test
+{
+
+class Class1 : public virtual ::Ice::Object
+{
+public:
+
+    typedef Class1Ptr PointerType;
+
+    virtual ~Class1();
+
+    Class1()
+    {
+    }
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    Class1(::Ice::Int reason, ::Ice::Int isa, ::Ice::Int autorelease, ::Ice::Int classForCoder, ::Ice::Int copy, ::Ice::Int dealloc, ::Ice::Int description, ::Ice::Int hash, ::Ice::Int init, ::Ice::Int isProxy, ::Ice::Int mutableCopy, ::Ice::Int release, ::Ice::Int retain, ::Ice::Int retainCount, ::Ice::Int self, ::Ice::Int superclass, ::Ice::Int zone) :
+        reason(reason),
+        isa(isa),
+        autorelease(autorelease),
+        classForCoder(classForCoder),
+        copy(copy),
+        dealloc(dealloc),
+        description(description),
+        hash(hash),
+        init(init),
+        isProxy(isProxy),
+        mutableCopy(mutableCopy),
+        release(release),
+        retain(retain),
+        retainCount(retainCount),
+        self(self),
+        superclass(superclass),
+        zone(zone)
+    {
+    }
+    Class1(const Class1&) = default;
+    Class1& operator=(const Class1&) = default;
+
+    /**
+     * Polymorphically clones this object.
+     * @return A shallow copy of this object.
+     */
+    virtual ::Ice::ObjectPtr ice_clone() const;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /**
+     * Obtains a value factory that instantiates this class.
+     * @return The value factory.
+     */
+    static ::Ice::ValueFactoryPtr ice_factory();
 
 protected:
 
@@ -3650,15 +3554,38 @@ protected:
     virtual void _iceWriteImpl(::Ice::OutputStream*) const;
     virtual void _iceReadImpl(::Ice::InputStream*);
     /// \endcond
+
+public:
+
+    ::Ice::Int reason;
+    ::Ice::Int isa;
+    ::Ice::Int autorelease;
+    ::Ice::Int classForCoder;
+    ::Ice::Int copy;
+    ::Ice::Int dealloc;
+    ::Ice::Int description;
+    ::Ice::Int hash;
+    ::Ice::Int init;
+    ::Ice::Int isProxy;
+    ::Ice::Int mutableCopy;
+    ::Ice::Int release;
+    ::Ice::Int retain;
+    ::Ice::Int retainCount;
+    ::Ice::Int self;
+    ::Ice::Int superclass;
+    ::Ice::Int zone;
 };
+/// \cond INTERNAL
+static ::Ice::ValueFactoryPtr _iceS_Class1_init = ::Test::Class1::ice_factory();
+/// \endcond
 
 /// \cond INTERNAL
-inline bool operator==(const Intf2& lhs, const Intf2& rhs)
+inline bool operator==(const Class1& lhs, const Class1& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
 }
 
-inline bool operator<(const Intf2& lhs, const Intf2& rhs)
+inline bool operator<(const Class1& lhs, const Class1& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
 }

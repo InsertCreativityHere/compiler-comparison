@@ -50,6 +50,11 @@ class TestFacetPrx;
 namespace Test
 {
 
+}
+
+namespace Test
+{
+
 class RemoteCommunicator : public virtual ::Ice::Object
 {
 public:
@@ -659,13 +664,6 @@ protected:
 
 }
 
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
-
 /// \cond INTERNAL
 namespace Test
 {
@@ -714,39 +712,26 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< TestFacet>&);
 
 namespace Test
 {
-
-class RemoteCommunicator;
-/// \cond INTERNAL
-::Ice::Object* upCast(RemoteCommunicator*);
-/// \endcond
-typedef ::IceInternal::Handle< RemoteCommunicator> RemoteCommunicatorPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::RemoteCommunicator> RemoteCommunicatorPrx;
 typedef RemoteCommunicatorPrx RemoteCommunicatorPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(RemoteCommunicatorPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class RemoteCommunicatorFactory;
-/// \cond INTERNAL
-::Ice::Object* upCast(RemoteCommunicatorFactory*);
-/// \endcond
-typedef ::IceInternal::Handle< RemoteCommunicatorFactory> RemoteCommunicatorFactoryPtr;
+class RemoteCommunicator;
+typedef ::IceInternal::Handle< RemoteCommunicator> RemoteCommunicatorPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::RemoteCommunicatorFactory> RemoteCommunicatorFactoryPrx;
 typedef RemoteCommunicatorFactoryPrx RemoteCommunicatorFactoryPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(RemoteCommunicatorFactoryPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class TestFacet;
-/// \cond INTERNAL
-::Ice::Object* upCast(TestFacet*);
-/// \endcond
-typedef ::IceInternal::Handle< TestFacet> TestFacetPtr;
+class RemoteCommunicatorFactory;
+typedef ::IceInternal::Handle< RemoteCommunicatorFactory> RemoteCommunicatorFactoryPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestFacet> TestFacetPrx;
 typedef TestFacetPrx TestFacetPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(TestFacetPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class TestFacet;
+typedef ::IceInternal::Handle< TestFacet> TestFacetPtr;
+
+}
+
+namespace Test
+{
 
 }
 
@@ -1468,7 +1453,6 @@ class RemoteCommunicator : public virtual ::Ice::Object
 public:
 
     typedef RemoteCommunicatorPrx ProxyType;
-    typedef RemoteCommunicatorPtr PointerType;
 
     virtual ~RemoteCommunicator();
     RemoteCommunicator() = default;
@@ -1561,33 +1545,13 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const RemoteCommunicator& lhs, const RemoteCommunicator& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const RemoteCommunicator& lhs, const RemoteCommunicator& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 class RemoteCommunicatorFactory : public virtual ::Ice::Object
 {
 public:
 
     typedef RemoteCommunicatorFactoryPrx ProxyType;
-    typedef RemoteCommunicatorFactoryPtr PointerType;
 
     virtual ~RemoteCommunicatorFactory();
     RemoteCommunicatorFactory() = default;
@@ -1635,33 +1599,13 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const RemoteCommunicatorFactory& lhs, const RemoteCommunicatorFactory& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const RemoteCommunicatorFactory& lhs, const RemoteCommunicatorFactory& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 class TestFacet : public virtual ::Ice::Object
 {
 public:
 
     typedef TestFacetPrx ProxyType;
-    typedef TestFacetPtr PointerType;
 
     virtual ~TestFacet();
     TestFacet() = default;
@@ -1704,35 +1648,9 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const TestFacet& lhs, const TestFacet& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
 }
-
-inline bool operator<(const TestFacet& lhs, const TestFacet& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 namespace Test
 {

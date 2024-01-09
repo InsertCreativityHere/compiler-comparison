@@ -4574,30 +4574,6 @@ namespace IceProxy
 namespace IceGrid
 {
 
-class InternalDbEnvDescriptor;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< InternalDbEnvDescriptor>&);
-::IceProxy::Ice::Object* upCast(InternalDbEnvDescriptor*);
-/// \endcond
-
-class InternalAdapterDescriptor;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< InternalAdapterDescriptor>&);
-::IceProxy::Ice::Object* upCast(InternalAdapterDescriptor*);
-/// \endcond
-
-class InternalDistributionDescriptor;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< InternalDistributionDescriptor>&);
-::IceProxy::Ice::Object* upCast(InternalDistributionDescriptor*);
-/// \endcond
-
-class InternalServerDescriptor;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< InternalServerDescriptor>&);
-::IceProxy::Ice::Object* upCast(InternalServerDescriptor*);
-/// \endcond
-
 class Adapter;
 /// \cond INTERNAL
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Adapter>&);
@@ -4658,18 +4634,6 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< ReplicaSession>
 ::IceProxy::Ice::Object* upCast(ReplicaSession*);
 /// \endcond
 
-class InternalNodeInfo;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< InternalNodeInfo>&);
-::IceProxy::Ice::Object* upCast(InternalNodeInfo*);
-/// \endcond
-
-class InternalReplicaInfo;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< InternalReplicaInfo>&);
-::IceProxy::Ice::Object* upCast(InternalReplicaInfo*);
-/// \endcond
-
 }
 
 }
@@ -4682,8 +4646,6 @@ class InternalDbEnvDescriptor;
 ::Ice::Object* upCast(InternalDbEnvDescriptor*);
 /// \endcond
 typedef ::IceInternal::Handle< InternalDbEnvDescriptor> InternalDbEnvDescriptorPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::InternalDbEnvDescriptor> InternalDbEnvDescriptorPrx;
-typedef InternalDbEnvDescriptorPrx InternalDbEnvDescriptorPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(InternalDbEnvDescriptorPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -4693,8 +4655,6 @@ class InternalAdapterDescriptor;
 ::Ice::Object* upCast(InternalAdapterDescriptor*);
 /// \endcond
 typedef ::IceInternal::Handle< InternalAdapterDescriptor> InternalAdapterDescriptorPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::InternalAdapterDescriptor> InternalAdapterDescriptorPrx;
-typedef InternalAdapterDescriptorPrx InternalAdapterDescriptorPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(InternalAdapterDescriptorPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -4704,8 +4664,6 @@ class InternalDistributionDescriptor;
 ::Ice::Object* upCast(InternalDistributionDescriptor*);
 /// \endcond
 typedef ::IceInternal::Handle< InternalDistributionDescriptor> InternalDistributionDescriptorPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::InternalDistributionDescriptor> InternalDistributionDescriptorPrx;
-typedef InternalDistributionDescriptorPrx InternalDistributionDescriptorPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(InternalDistributionDescriptorPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -4715,129 +4673,65 @@ class InternalServerDescriptor;
 ::Ice::Object* upCast(InternalServerDescriptor*);
 /// \endcond
 typedef ::IceInternal::Handle< InternalServerDescriptor> InternalServerDescriptorPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::InternalServerDescriptor> InternalServerDescriptorPrx;
-typedef InternalServerDescriptorPrx InternalServerDescriptorPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(InternalServerDescriptorPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-class Adapter;
-/// \cond INTERNAL
-::Ice::Object* upCast(Adapter*);
-/// \endcond
-typedef ::IceInternal::Handle< Adapter> AdapterPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::Adapter> AdapterPrx;
 typedef AdapterPrx AdapterPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(AdapterPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class FileReader;
-/// \cond INTERNAL
-::Ice::Object* upCast(FileReader*);
-/// \endcond
-typedef ::IceInternal::Handle< FileReader> FileReaderPtr;
+class Adapter;
+typedef ::IceInternal::Handle< Adapter> AdapterPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::FileReader> FileReaderPrx;
 typedef FileReaderPrx FileReaderPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(FileReaderPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class Server;
-/// \cond INTERNAL
-::Ice::Object* upCast(Server*);
-/// \endcond
-typedef ::IceInternal::Handle< Server> ServerPtr;
+class FileReader;
+typedef ::IceInternal::Handle< FileReader> FileReaderPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::Server> ServerPrx;
 typedef ServerPrx ServerPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(ServerPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class InternalRegistry;
-/// \cond INTERNAL
-::Ice::Object* upCast(InternalRegistry*);
-/// \endcond
-typedef ::IceInternal::Handle< InternalRegistry> InternalRegistryPtr;
+class Server;
+typedef ::IceInternal::Handle< Server> ServerPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::InternalRegistry> InternalRegistryPrx;
 typedef InternalRegistryPrx InternalRegistryPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(InternalRegistryPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class ReplicaObserver;
-/// \cond INTERNAL
-::Ice::Object* upCast(ReplicaObserver*);
-/// \endcond
-typedef ::IceInternal::Handle< ReplicaObserver> ReplicaObserverPtr;
+class InternalRegistry;
+typedef ::IceInternal::Handle< InternalRegistry> InternalRegistryPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::ReplicaObserver> ReplicaObserverPrx;
 typedef ReplicaObserverPrx ReplicaObserverPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(ReplicaObserverPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class PatcherFeedback;
-/// \cond INTERNAL
-::Ice::Object* upCast(PatcherFeedback*);
-/// \endcond
-typedef ::IceInternal::Handle< PatcherFeedback> PatcherFeedbackPtr;
+class ReplicaObserver;
+typedef ::IceInternal::Handle< ReplicaObserver> ReplicaObserverPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::PatcherFeedback> PatcherFeedbackPrx;
 typedef PatcherFeedbackPrx PatcherFeedbackPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(PatcherFeedbackPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class Node;
-/// \cond INTERNAL
-::Ice::Object* upCast(Node*);
-/// \endcond
-typedef ::IceInternal::Handle< Node> NodePtr;
+class PatcherFeedback;
+typedef ::IceInternal::Handle< PatcherFeedback> PatcherFeedbackPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::Node> NodePrx;
 typedef NodePrx NodePrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(NodePtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class NodeSession;
-/// \cond INTERNAL
-::Ice::Object* upCast(NodeSession*);
-/// \endcond
-typedef ::IceInternal::Handle< NodeSession> NodeSessionPtr;
+class Node;
+typedef ::IceInternal::Handle< Node> NodePtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::NodeSession> NodeSessionPrx;
 typedef NodeSessionPrx NodeSessionPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(NodeSessionPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class DatabaseObserver;
-/// \cond INTERNAL
-::Ice::Object* upCast(DatabaseObserver*);
-/// \endcond
-typedef ::IceInternal::Handle< DatabaseObserver> DatabaseObserverPtr;
+class NodeSession;
+typedef ::IceInternal::Handle< NodeSession> NodeSessionPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::DatabaseObserver> DatabaseObserverPrx;
 typedef DatabaseObserverPrx DatabaseObserverPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(DatabaseObserverPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class ReplicaSession;
-/// \cond INTERNAL
-::Ice::Object* upCast(ReplicaSession*);
-/// \endcond
-typedef ::IceInternal::Handle< ReplicaSession> ReplicaSessionPtr;
+class DatabaseObserver;
+typedef ::IceInternal::Handle< DatabaseObserver> DatabaseObserverPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::ReplicaSession> ReplicaSessionPrx;
 typedef ReplicaSessionPrx ReplicaSessionPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(ReplicaSessionPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class ReplicaSession;
+typedef ::IceInternal::Handle< ReplicaSession> ReplicaSessionPtr;
 
 class InternalNodeInfo;
 /// \cond INTERNAL
 ::Ice::Object* upCast(InternalNodeInfo*);
 /// \endcond
 typedef ::IceInternal::Handle< InternalNodeInfo> InternalNodeInfoPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::InternalNodeInfo> InternalNodeInfoPrx;
-typedef InternalNodeInfoPrx InternalNodeInfoPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(InternalNodeInfoPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -4847,8 +4741,6 @@ class InternalReplicaInfo;
 ::Ice::Object* upCast(InternalReplicaInfo*);
 /// \endcond
 typedef ::IceInternal::Handle< InternalReplicaInfo> InternalReplicaInfoPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::InternalReplicaInfo> InternalReplicaInfoPrx;
-typedef InternalReplicaInfoPrx InternalReplicaInfoPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(InternalReplicaInfoPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -5952,74 +5844,6 @@ namespace IceProxy
 
 namespace IceGrid
 {
-
-class InternalDbEnvDescriptor : public virtual ::Ice::Proxy<InternalDbEnvDescriptor, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class InternalAdapterDescriptor : public virtual ::Ice::Proxy<InternalAdapterDescriptor, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class InternalDistributionDescriptor : public virtual ::Ice::Proxy<InternalDistributionDescriptor, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class InternalServerDescriptor : public virtual ::Ice::Proxy<InternalServerDescriptor, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
 
 class Adapter : public virtual ::Ice::Proxy<Adapter, ::IceProxy::Ice::Object>
 {
@@ -9954,40 +9778,6 @@ protected:
     /// \endcond
 };
 
-class InternalNodeInfo : public virtual ::Ice::Proxy<InternalNodeInfo, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class InternalReplicaInfo : public virtual ::Ice::Proxy<InternalReplicaInfo, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
 class InternalRegistry : public virtual ::Ice::Proxy<InternalRegistry, ::IceProxy::IceGrid::FileReader>
 {
 public:
@@ -10695,11 +10485,1001 @@ protected:
 namespace IceGrid
 {
 
+class Adapter : public virtual ::Ice::Object
+{
+public:
+
+    typedef AdapterPrx ProxyType;
+
+    virtual ~Adapter();
+    Adapter() = default;
+    Adapter(const Adapter&) = default;
+    Adapter& operator=(const Adapter&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /**
+     * Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
+     * proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
+     * adapter is inactive or the adapter direct proxy it's active.
+     * @param cb The AMD callback object for the invocation.
+     * @param current The Current object for the invocation.
+     */
+    virtual void activate_async(const ::IceGrid::AMD_Adapter_activatePtr& cb, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_activate(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
+     * contains the last known adapter endpoints.
+     * @param current The Current object for the invocation.
+     * @return A direct proxy containing the last known adapter endpoints if the adapter is already active.
+     */
+    virtual ::Ice::ObjectPrx getDirectProxy(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    /// \cond INTERNAL
+    bool _iceD_getDirectProxy(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    /// \endcond
+
+    /**
+     * Set the direct proxy for this adapter.
+     * @param current The Current object for the invocation.
+     * @throws IceGrid::AdapterActiveException The adapter is already active. It's not possible to override the direct proxy of
+     * an active adapter.
+     */
+    virtual void setDirectProxy(const ::Ice::ObjectPrx& proxy, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_setDirectProxy(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
+
+class FileReader : public virtual ::Ice::Object
+{
+public:
+
+    typedef FileReaderPrx ProxyType;
+
+    virtual ~FileReader();
+    FileReader() = default;
+    FileReader(const FileReader&) = default;
+    FileReader& operator=(const FileReader&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /**
+     * Count the number of given lines from the end of the file and return the file offset.
+     * @param current The Current object for the invocation.
+     */
+    virtual ::Ice::Long getOffsetFromEnd(const ::std::string& filename, ::Ice::Int lines, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    /// \cond INTERNAL
+    bool _iceD_getOffsetFromEnd(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    /// \endcond
+
+    /**
+     * Read lines (or size bytes) at the specified position from the given file.
+     * @param current The Current object for the invocation.
+     */
+    virtual bool read(const ::std::string& filename, ::Ice::Long pos, ::Ice::Int size, ::Ice::Long& newPos, ::Ice::StringSeq& lines, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    /// \cond INTERNAL
+    bool _iceD_read(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
+
+class Server : public virtual FileReader
+{
+public:
+
+    typedef ServerPrx ProxyType;
+
+    virtual ~Server();
+    Server() = default;
+    Server(const Server&) = default;
+    Server& operator=(const Server&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /**
+     * Start the server.
+     * @param cb The AMD callback object for the invocation.
+     * @param current The Current object for the invocation.
+     */
+    virtual void start_async(const ::IceGrid::AMD_Server_startPtr& cb, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_start(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
+     * configurable amount of time, it will be killed.
+     * @param cb The AMD callback object for the invocation.
+     * @param current The Current object for the invocation.
+     */
+    virtual void stop_async(const ::IceGrid::AMD_Server_stopPtr& cb, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_stop(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Check if the given server can be loaded on this node.
+     * @param current The Current object for the invocation.
+     * @return True if the server is inactive.
+     * @throws IceGrid::DeploymentException Raised if the server can't be updated.
+     */
+    virtual bool checkUpdate(const InternalServerDescriptorPtr& svr, bool noRestart, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_checkUpdate(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Enable or disable the server.
+     * @param current The Current object for the invocation.
+     */
+    virtual void setEnabled(bool enable, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_setEnabled(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Check if the server is enabled.
+     * @param current The Current object for the invocation.
+     */
+    virtual bool isEnabled(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    /// \cond INTERNAL
+    bool _iceD_isEnabled(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    /// \endcond
+
+    /**
+     * Send signal to the server
+     * @param current The Current object for the invocation.
+     */
+    virtual void sendSignal(const ::std::string& signal, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_sendSignal(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Write message on servers' stdout or stderr.
+     * @param current The Current object for the invocation.
+     */
+    virtual void writeMessage(const ::std::string& message, ::Ice::Int fd, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_writeMessage(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Return the server state.
+     * @param current The Current object for the invocation.
+     * @return The server state.
+     * @see ServerState
+     */
+    virtual ServerState getState(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    /// \cond INTERNAL
+    bool _iceD_getState(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    /// \endcond
+
+    /**
+     * Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
+     * it's the pid value returned by the fork() system call and converted to an integer.
+     * @param current The Current object for the invocation.
+     */
+    virtual ::Ice::Int getPid(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    /// \cond INTERNAL
+    bool _iceD_getPid(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    /// \endcond
+
+    /**
+     * Set the process proxy.
+     * @param cb The AMD callback object for the invocation.
+     * @param current The Current object for the invocation.
+     */
+    virtual void setProcess_async(const ::IceGrid::AMD_Server_setProcessPtr& cb, const ::Ice::ProcessPrx& proc, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_setProcess(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
+
+class ReplicaObserver : public virtual ::Ice::Object
+{
+public:
+
+    typedef ReplicaObserverPrx ProxyType;
+
+    virtual ~ReplicaObserver();
+    ReplicaObserver() = default;
+    ReplicaObserver(const ReplicaObserver&) = default;
+    ReplicaObserver& operator=(const ReplicaObserver&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /**
+     * Initialization of the replica observer.
+     * @param current The Current object for the invocation.
+     */
+    virtual void replicaInit(const InternalRegistryPrxSeq& replicas, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_replicaInit(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Notification that a replica has been added. The node should establish a session with this new replica.
+     * @param current The Current object for the invocation.
+     */
+    virtual void replicaAdded(const InternalRegistryPrx& replica, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_replicaAdded(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Notification that a replica has been removed. The node should destroy the session to this replica.
+     * @param current The Current object for the invocation.
+     */
+    virtual void replicaRemoved(const InternalRegistryPrx& replica, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_replicaRemoved(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
+
+class PatcherFeedback : public virtual ::Ice::Object
+{
+public:
+
+    typedef PatcherFeedbackPrx ProxyType;
+
+    virtual ~PatcherFeedback();
+    PatcherFeedback() = default;
+    PatcherFeedback(const PatcherFeedback&) = default;
+    PatcherFeedback& operator=(const PatcherFeedback&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /**
+     * The patch completed successfully.
+     * @param current The Current object for the invocation.
+     */
+    virtual void finished(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_finished(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * The patch on the given node failed for the given reason.
+     * @param current The Current object for the invocation.
+     */
+    virtual void failed(const ::std::string& reason, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_failed(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
+
+class Node : public virtual FileReader,
+             public virtual ReplicaObserver
+{
+public:
+
+    typedef NodePrx ProxyType;
+
+    virtual ~Node();
+    Node() = default;
+    Node(const Node&) = default;
+    Node& operator=(const Node&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /**
+     * Load the given server. If the server resources weren't already created (database environment directories,
+     * property files, etc), they will be created.
+     * @param cb The AMD callback object for the invocation.
+     * @param current The Current object for the invocation.
+     */
+    virtual void loadServer_async(const ::IceGrid::AMD_Node_loadServerPtr& cb, const InternalServerDescriptorPtr& svr, const ::std::string& replicaName, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_loadServer(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
+     * (database environment directories, property files, etc), they will be created. If the server can't be updated
+     * without a restart, a DeploymentException is raised.
+     * @param cb The AMD callback object for the invocation.
+     * @param current The Current object for the invocation.
+     */
+    virtual void loadServerWithoutRestart_async(const ::IceGrid::AMD_Node_loadServerWithoutRestartPtr& cb, const InternalServerDescriptorPtr& svr, const ::std::string& replicaName, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_loadServerWithoutRestart(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Destroy the given server.
+     * @param cb The AMD callback object for the invocation.
+     * @param current The Current object for the invocation.
+     */
+    virtual void destroyServer_async(const ::IceGrid::AMD_Node_destroyServerPtr& cb, const ::std::string& name, const ::std::string& uuid, ::Ice::Int revision, const ::std::string& replicaName, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_destroyServer(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Destroy the server if it's not active.
+     * @param cb The AMD callback object for the invocation.
+     * @param current The Current object for the invocation.
+     */
+    virtual void destroyServerWithoutRestart_async(const ::IceGrid::AMD_Node_destroyServerWithoutRestartPtr& cb, const ::std::string& name, const ::std::string& uuid, ::Ice::Int revision, const ::std::string& replicaName, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_destroyServerWithoutRestart(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Patch application and server distributions. If some servers using a distribution directory to patch are active,
+     * this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
+     * shutdown.
+     * @param cb The AMD callback object for the invocation.
+     * @param current The Current object for the invocation.
+     */
+    virtual void patch_async(const ::IceGrid::AMD_Node_patchPtr& cb, const PatcherFeedbackPrx& feedback, const ::std::string& application, const ::std::string& server, const InternalDistributionDescriptorPtr& appDistrib, bool shutdown, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_patch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Establish a session to the given replica, this method only returns once the registration was attempted (unlike
+     * replicaAdded below).
+     * @param current The Current object for the invocation.
+     */
+    virtual void registerWithReplica(const InternalRegistryPrx& replica, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_registerWithReplica(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Get the node name.
+     * @param current The Current object for the invocation.
+     */
+    virtual ::std::string getName(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    /// \cond INTERNAL
+    bool _iceD_getName(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    /// \endcond
+
+    /**
+     * Get the node hostname.
+     * @param current The Current object for the invocation.
+     */
+    virtual ::std::string getHostname(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    /// \cond INTERNAL
+    bool _iceD_getHostname(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    /// \endcond
+
+    /**
+     * Get the node load.
+     * @param current The Current object for the invocation.
+     */
+    virtual LoadInfo getLoad(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    /// \cond INTERNAL
+    bool _iceD_getLoad(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    /// \endcond
+
+    /**
+     * Get the number of processor sockets for the machine where this node is running.
+     * @param current The Current object for the invocation.
+     */
+    virtual ::Ice::Int getProcessorSocketCount(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    /// \cond INTERNAL
+    bool _iceD_getProcessorSocketCount(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    /// \endcond
+
+    /**
+     * Shutdown the node.
+     * @param current The Current object for the invocation.
+     */
+    virtual void shutdown(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    /// \cond INTERNAL
+    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
+
+class NodeSession : public virtual ::Ice::Object
+{
+public:
+
+    typedef NodeSessionPrx ProxyType;
+
+    virtual ~NodeSession();
+    NodeSession() = default;
+    NodeSession(const NodeSession&) = default;
+    NodeSession& operator=(const NodeSession&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /**
+     * The node call this method to keep the session alive.
+     * @param current The Current object for the invocation.
+     */
+    virtual void keepAlive(const LoadInfo& load, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_keepAlive(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
+     * It only calls this for the session with the master.
+     * @param current The Current object for the invocation.
+     */
+    virtual void setReplicaObserver(const ReplicaObserverPrx& observer, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_setReplicaObserver(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Return the node session timeout.
+     * @param current The Current object for the invocation.
+     */
+    virtual ::Ice::Int getTimeout(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    /// \cond INTERNAL
+    bool _iceD_getTimeout(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    /// \endcond
+
+    /**
+     * Return the node observer.
+     * @param current The Current object for the invocation.
+     */
+    virtual NodeObserverPrx getObserver(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    /// \cond INTERNAL
+    bool _iceD_getObserver(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    /// \endcond
+
+    /**
+     * Ask the registry to load the servers on the node.
+     * @param cb The AMD callback object for the invocation.
+     * @param current The Current object for the invocation.
+     */
+    virtual void loadServers_async(const ::IceGrid::AMD_NodeSession_loadServersPtr& cb, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    /// \cond INTERNAL
+    bool _iceD_loadServers(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    /// \endcond
+
+    /**
+     * Get the name of the servers deployed on the node.
+     * @param current The Current object for the invocation.
+     */
+    virtual ::Ice::StringSeq getServers(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    /// \cond INTERNAL
+    bool _iceD_getServers(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    /// \endcond
+
+    /**
+     * Wait for the application update to complete (the application is completely updated once all the registry
+     * replicas have been updated). This is used by the node to ensure that before to start a server all the
+     * replicas have the up-to-date descriptor of the server.
+     * @param cb The AMD callback object for the invocation.
+     * @param current The Current object for the invocation.
+     */
+    virtual void waitForApplicationUpdate_async(const ::IceGrid::AMD_NodeSession_waitForApplicationUpdatePtr& cb, const ::std::string& application, ::Ice::Int revision, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    /// \cond INTERNAL
+    bool _iceD_waitForApplicationUpdate(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    /// \endcond
+
+    /**
+     * Destroy the session.
+     * @param current The Current object for the invocation.
+     */
+    virtual void destroy(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_destroy(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
+
+class DatabaseObserver : public virtual ApplicationObserver,
+                         public virtual ObjectObserver,
+                         public virtual AdapterObserver
+{
+public:
+
+    typedef DatabaseObserverPrx ProxyType;
+
+    virtual ~DatabaseObserver();
+    DatabaseObserver() = default;
+    DatabaseObserver(const DatabaseObserver&) = default;
+    DatabaseObserver& operator=(const DatabaseObserver&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
+
+class ReplicaSession : public virtual ::Ice::Object
+{
+public:
+
+    typedef ReplicaSessionPrx ProxyType;
+
+    virtual ~ReplicaSession();
+    ReplicaSession() = default;
+    ReplicaSession(const ReplicaSession&) = default;
+    ReplicaSession& operator=(const ReplicaSession&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /**
+     * The replica call this method to keep the session alive.
+     * @param current The Current object for the invocation.
+     */
+    virtual void keepAlive(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_keepAlive(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Return the replica session timeout.
+     * @param current The Current object for the invocation.
+     */
+    virtual ::Ice::Int getTimeout(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    /// \cond INTERNAL
+    bool _iceD_getTimeout(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    /// \endcond
+
+    /**
+     * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
+     * @param current The Current object for the invocation.
+     */
+    virtual void setDatabaseObserver(const DatabaseObserverPrx& dbObs, const std::optional<StringLongDict>& serials, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_setDatabaseObserver(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
+     * for replicated objects (e.g.: IceGrid::Query object).
+     * @param current The Current object for the invocation.
+     */
+    virtual void setEndpoints(const StringObjectProxyDict& endpoints, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_setEndpoints(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Registers the replica well-known objects with the master.
+     * @param current The Current object for the invocation.
+     */
+    virtual void registerWellKnownObjects(const ObjectInfoSeq& objects, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_registerWellKnownObjects(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
+     * with the locator registry interface.
+     * @param current The Current object for the invocation.
+     */
+    virtual void setAdapterDirectProxy(const ::std::string& adapterId, const ::std::string& replicaGroupId, const ::Ice::ObjectPrx& proxy, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_setAdapterDirectProxy(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Notify the master that an update was received. The master might wait for replication updates to be received by
+     * all the replicas before to continue.
+     * @param current The Current object for the invocation.
+     */
+    virtual void receivedUpdate(TopicName name, ::Ice::Int serial, const ::std::string& failure, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_receivedUpdate(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Destroy the session.
+     * @param current The Current object for the invocation.
+     */
+    virtual void destroy(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_destroy(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
+
+class InternalRegistry : public virtual FileReader
+{
+public:
+
+    typedef InternalRegistryPrx ProxyType;
+
+    virtual ~InternalRegistry();
+    InternalRegistry() = default;
+    InternalRegistry(const InternalRegistry&) = default;
+    InternalRegistry& operator=(const InternalRegistry&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /**
+     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
+     * overide the previous node only if it's not active.
+     * @param info Some information on the node.
+     * @param prx The proxy of the node.
+     * @param loadInf The load information of the node.
+     * @param current The Current object for the invocation.
+     * @return The node session proxy.
+     * @throws IceGrid::NodeActiveException Raised if the node is already registered and currently active.
+     */
+    virtual NodeSessionPrx registerNode(const InternalNodeInfoPtr& info, const NodePrx& prx, const LoadInfo& loadInf, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_registerNode(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
+     * will overide the previous replica only if it's not active.
+     * @param info Some information on the replica.
+     * @param prx The proxy of the replica.
+     * @param current The Current object for the invocation.
+     * @return The replica session proxy.
+     * @throws IceGrid::ReplicaActiveException Raised if the replica is already registered and currently active.
+     */
+    virtual ReplicaSessionPrx registerReplica(const InternalReplicaInfoPtr& info, const InternalRegistryPrx& prx, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_registerReplica(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Create a session with the given registry replica. This method returns only once the session creation has been
+     * attempted.
+     * @param current The Current object for the invocation.
+     */
+    virtual void registerWithReplica(const InternalRegistryPrx& prx, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_registerWithReplica(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Return the proxies of all the nodes known by this registry.
+     * @param current The Current object for the invocation.
+     */
+    virtual NodePrxSeq getNodes(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    /// \cond INTERNAL
+    bool _iceD_getNodes(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    /// \endcond
+
+    /**
+     * Return the proxies of all the registry replicas known by this registry.
+     * @param current The Current object for the invocation.
+     */
+    virtual InternalRegistryPrxSeq getReplicas(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    /// \cond INTERNAL
+    bool _iceD_getReplicas(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    /// \endcond
+
+    /**
+     * Return applications, adapters, objects from this replica.
+     * @param current The Current object for the invocation.
+     */
+    virtual ApplicationInfoSeq getApplications(::Ice::Long& serial, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    /// \cond INTERNAL
+    bool _iceD_getApplications(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    /// \endcond
+
+    virtual AdapterInfoSeq getAdapters(::Ice::Long& serial, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    /// \cond INTERNAL
+    bool _iceD_getAdapters(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    /// \endcond
+
+    virtual ObjectInfoSeq getObjects(::Ice::Long& serial, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    /// \cond INTERNAL
+    bool _iceD_getObjects(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    /// \endcond
+
+    /**
+     * Shutdown this registry.
+     * @param current The Current object for the invocation.
+     */
+    virtual void shutdown(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
+    /// \cond INTERNAL
+    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
+
+}
+
+namespace IceGrid
+{
+
 class InternalDbEnvDescriptor : public virtual ::Ice::Object
 {
 public:
 
-    typedef InternalDbEnvDescriptorPrx ProxyType;
     typedef InternalDbEnvDescriptorPtr PointerType;
 
     virtual ~InternalDbEnvDescriptor();
@@ -10799,7 +11579,6 @@ class InternalAdapterDescriptor : public virtual ::Ice::Object
 {
 public:
 
-    typedef InternalAdapterDescriptorPrx ProxyType;
     typedef InternalAdapterDescriptorPtr PointerType;
 
     virtual ~InternalAdapterDescriptor();
@@ -10899,7 +11678,6 @@ class InternalDistributionDescriptor : public virtual ::Ice::Object
 {
 public:
 
-    typedef InternalDistributionDescriptorPrx ProxyType;
     typedef InternalDistributionDescriptorPtr PointerType;
 
     virtual ~InternalDistributionDescriptor();
@@ -10999,7 +11777,6 @@ class InternalServerDescriptor : public virtual ::Ice::Object, public ::IceInter
 {
 public:
 
-    typedef InternalServerDescriptorPrx ProxyType;
     typedef InternalServerDescriptorPtr PointerType;
 
     virtual ~InternalServerDescriptor();
@@ -11208,1043 +11985,6 @@ inline bool operator<(const InternalServerDescriptor& lhs, const InternalServerD
 }
 /// \endcond
 
-class Adapter : public virtual ::Ice::Object
-{
-public:
-
-    typedef AdapterPrx ProxyType;
-    typedef AdapterPtr PointerType;
-
-    virtual ~Adapter();
-    Adapter() = default;
-    Adapter(const Adapter&) = default;
-    Adapter& operator=(const Adapter&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
-     * proxy of the adapter once it's active. If this adapter can be activated on demand, this will return 0 if the
-     * adapter is inactive or the adapter direct proxy it's active.
-     * @param cb The AMD callback object for the invocation.
-     * @param current The Current object for the invocation.
-     */
-    virtual void activate_async(const ::IceGrid::AMD_Adapter_activatePtr& cb, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_activate(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Get the adapter direct proxy. The adapter direct proxy is a proxy created with the object adapter. The proxy
-     * contains the last known adapter endpoints.
-     * @param current The Current object for the invocation.
-     * @return A direct proxy containing the last known adapter endpoints if the adapter is already active.
-     */
-    virtual ::Ice::ObjectPrx getDirectProxy(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_getDirectProxy(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /**
-     * Set the direct proxy for this adapter.
-     * @param current The Current object for the invocation.
-     * @throws IceGrid::AdapterActiveException The adapter is already active. It's not possible to override the direct proxy of
-     * an active adapter.
-     */
-    virtual void setDirectProxy(const ::Ice::ObjectPrx& proxy, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_setDirectProxy(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const Adapter& lhs, const Adapter& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Adapter& lhs, const Adapter& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class FileReader : public virtual ::Ice::Object
-{
-public:
-
-    typedef FileReaderPrx ProxyType;
-    typedef FileReaderPtr PointerType;
-
-    virtual ~FileReader();
-    FileReader() = default;
-    FileReader(const FileReader&) = default;
-    FileReader& operator=(const FileReader&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Count the number of given lines from the end of the file and return the file offset.
-     * @param current The Current object for the invocation.
-     */
-    virtual ::Ice::Long getOffsetFromEnd(const ::std::string& filename, ::Ice::Int lines, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_getOffsetFromEnd(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /**
-     * Read lines (or size bytes) at the specified position from the given file.
-     * @param current The Current object for the invocation.
-     */
-    virtual bool read(const ::std::string& filename, ::Ice::Long pos, ::Ice::Int size, ::Ice::Long& newPos, ::Ice::StringSeq& lines, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_read(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const FileReader& lhs, const FileReader& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const FileReader& lhs, const FileReader& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class Server : virtual public FileReader
-{
-public:
-
-    typedef ServerPrx ProxyType;
-    typedef ServerPtr PointerType;
-
-    virtual ~Server();
-    Server() = default;
-    Server(const Server&) = default;
-    Server& operator=(const Server&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Start the server.
-     * @param cb The AMD callback object for the invocation.
-     * @param current The Current object for the invocation.
-     */
-    virtual void start_async(const ::IceGrid::AMD_Server_startPtr& cb, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_start(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Stop the server. This methods returns only when the server is deactivated. If the server doesn't stop after a
-     * configurable amount of time, it will be killed.
-     * @param cb The AMD callback object for the invocation.
-     * @param current The Current object for the invocation.
-     */
-    virtual void stop_async(const ::IceGrid::AMD_Server_stopPtr& cb, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_stop(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Check if the given server can be loaded on this node.
-     * @param current The Current object for the invocation.
-     * @return True if the server is inactive.
-     * @throws IceGrid::DeploymentException Raised if the server can't be updated.
-     */
-    virtual bool checkUpdate(const InternalServerDescriptorPtr& svr, bool noRestart, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_checkUpdate(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Enable or disable the server.
-     * @param current The Current object for the invocation.
-     */
-    virtual void setEnabled(bool enable, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_setEnabled(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Check if the server is enabled.
-     * @param current The Current object for the invocation.
-     */
-    virtual bool isEnabled(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_isEnabled(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /**
-     * Send signal to the server
-     * @param current The Current object for the invocation.
-     */
-    virtual void sendSignal(const ::std::string& signal, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_sendSignal(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Write message on servers' stdout or stderr.
-     * @param current The Current object for the invocation.
-     */
-    virtual void writeMessage(const ::std::string& message, ::Ice::Int fd, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_writeMessage(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Return the server state.
-     * @param current The Current object for the invocation.
-     * @return The server state.
-     * @see ServerState
-     */
-    virtual ServerState getState(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_getState(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /**
-     * Get the server pid. Note that the value returned by this method is system dependant. On Unix operating systems,
-     * it's the pid value returned by the fork() system call and converted to an integer.
-     * @param current The Current object for the invocation.
-     */
-    virtual ::Ice::Int getPid(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_getPid(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /**
-     * Set the process proxy.
-     * @param cb The AMD callback object for the invocation.
-     * @param current The Current object for the invocation.
-     */
-    virtual void setProcess_async(const ::IceGrid::AMD_Server_setProcessPtr& cb, const ::Ice::ProcessPrx& proc, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_setProcess(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const Server& lhs, const Server& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Server& lhs, const Server& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class ReplicaObserver : public virtual ::Ice::Object
-{
-public:
-
-    typedef ReplicaObserverPrx ProxyType;
-    typedef ReplicaObserverPtr PointerType;
-
-    virtual ~ReplicaObserver();
-    ReplicaObserver() = default;
-    ReplicaObserver(const ReplicaObserver&) = default;
-    ReplicaObserver& operator=(const ReplicaObserver&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Initialization of the replica observer.
-     * @param current The Current object for the invocation.
-     */
-    virtual void replicaInit(const InternalRegistryPrxSeq& replicas, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_replicaInit(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Notification that a replica has been added. The node should establish a session with this new replica.
-     * @param current The Current object for the invocation.
-     */
-    virtual void replicaAdded(const InternalRegistryPrx& replica, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_replicaAdded(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Notification that a replica has been removed. The node should destroy the session to this replica.
-     * @param current The Current object for the invocation.
-     */
-    virtual void replicaRemoved(const InternalRegistryPrx& replica, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_replicaRemoved(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const ReplicaObserver& lhs, const ReplicaObserver& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const ReplicaObserver& lhs, const ReplicaObserver& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class PatcherFeedback : public virtual ::Ice::Object
-{
-public:
-
-    typedef PatcherFeedbackPrx ProxyType;
-    typedef PatcherFeedbackPtr PointerType;
-
-    virtual ~PatcherFeedback();
-    PatcherFeedback() = default;
-    PatcherFeedback(const PatcherFeedback&) = default;
-    PatcherFeedback& operator=(const PatcherFeedback&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * The patch completed successfully.
-     * @param current The Current object for the invocation.
-     */
-    virtual void finished(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_finished(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * The patch on the given node failed for the given reason.
-     * @param current The Current object for the invocation.
-     */
-    virtual void failed(const ::std::string& reason, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_failed(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const PatcherFeedback& lhs, const PatcherFeedback& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const PatcherFeedback& lhs, const PatcherFeedback& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class Node : virtual public FileReader,
-             virtual public ReplicaObserver
-{
-public:
-
-    typedef NodePrx ProxyType;
-    typedef NodePtr PointerType;
-
-    virtual ~Node();
-    Node() = default;
-    Node(const Node&) = default;
-    Node& operator=(const Node&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Load the given server. If the server resources weren't already created (database environment directories,
-     * property files, etc), they will be created.
-     * @param cb The AMD callback object for the invocation.
-     * @param current The Current object for the invocation.
-     */
-    virtual void loadServer_async(const ::IceGrid::AMD_Node_loadServerPtr& cb, const InternalServerDescriptorPtr& svr, const ::std::string& replicaName, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_loadServer(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
-     * (database environment directories, property files, etc), they will be created. If the server can't be updated
-     * without a restart, a DeploymentException is raised.
-     * @param cb The AMD callback object for the invocation.
-     * @param current The Current object for the invocation.
-     */
-    virtual void loadServerWithoutRestart_async(const ::IceGrid::AMD_Node_loadServerWithoutRestartPtr& cb, const InternalServerDescriptorPtr& svr, const ::std::string& replicaName, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_loadServerWithoutRestart(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Destroy the given server.
-     * @param cb The AMD callback object for the invocation.
-     * @param current The Current object for the invocation.
-     */
-    virtual void destroyServer_async(const ::IceGrid::AMD_Node_destroyServerPtr& cb, const ::std::string& name, const ::std::string& uuid, ::Ice::Int revision, const ::std::string& replicaName, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_destroyServer(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Destroy the server if it's not active.
-     * @param cb The AMD callback object for the invocation.
-     * @param current The Current object for the invocation.
-     */
-    virtual void destroyServerWithoutRestart_async(const ::IceGrid::AMD_Node_destroyServerWithoutRestartPtr& cb, const ::std::string& name, const ::std::string& uuid, ::Ice::Int revision, const ::std::string& replicaName, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_destroyServerWithoutRestart(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Patch application and server distributions. If some servers using a distribution directory to patch are active,
-     * this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
-     * shutdown.
-     * @param cb The AMD callback object for the invocation.
-     * @param current The Current object for the invocation.
-     */
-    virtual void patch_async(const ::IceGrid::AMD_Node_patchPtr& cb, const PatcherFeedbackPrx& feedback, const ::std::string& application, const ::std::string& server, const InternalDistributionDescriptorPtr& appDistrib, bool shutdown, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_patch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Establish a session to the given replica, this method only returns once the registration was attempted (unlike
-     * replicaAdded below).
-     * @param current The Current object for the invocation.
-     */
-    virtual void registerWithReplica(const InternalRegistryPrx& replica, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_registerWithReplica(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Get the node name.
-     * @param current The Current object for the invocation.
-     */
-    virtual ::std::string getName(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_getName(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /**
-     * Get the node hostname.
-     * @param current The Current object for the invocation.
-     */
-    virtual ::std::string getHostname(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_getHostname(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /**
-     * Get the node load.
-     * @param current The Current object for the invocation.
-     */
-    virtual LoadInfo getLoad(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_getLoad(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /**
-     * Get the number of processor sockets for the machine where this node is running.
-     * @param current The Current object for the invocation.
-     */
-    virtual ::Ice::Int getProcessorSocketCount(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_getProcessorSocketCount(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /**
-     * Shutdown the node.
-     * @param current The Current object for the invocation.
-     */
-    virtual void shutdown(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const Node& lhs, const Node& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Node& lhs, const Node& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class NodeSession : public virtual ::Ice::Object
-{
-public:
-
-    typedef NodeSessionPrx ProxyType;
-    typedef NodeSessionPtr PointerType;
-
-    virtual ~NodeSession();
-    NodeSession() = default;
-    NodeSession(const NodeSession&) = default;
-    NodeSession& operator=(const NodeSession&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * The node call this method to keep the session alive.
-     * @param current The Current object for the invocation.
-     */
-    virtual void keepAlive(const LoadInfo& load, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_keepAlive(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Set the replica observer. The node calls this method when it's ready to receive notifications for the replicas.
-     * It only calls this for the session with the master.
-     * @param current The Current object for the invocation.
-     */
-    virtual void setReplicaObserver(const ReplicaObserverPrx& observer, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_setReplicaObserver(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Return the node session timeout.
-     * @param current The Current object for the invocation.
-     */
-    virtual ::Ice::Int getTimeout(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_getTimeout(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /**
-     * Return the node observer.
-     * @param current The Current object for the invocation.
-     */
-    virtual NodeObserverPrx getObserver(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_getObserver(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /**
-     * Ask the registry to load the servers on the node.
-     * @param cb The AMD callback object for the invocation.
-     * @param current The Current object for the invocation.
-     */
-    virtual void loadServers_async(const ::IceGrid::AMD_NodeSession_loadServersPtr& cb, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_loadServers(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /**
-     * Get the name of the servers deployed on the node.
-     * @param current The Current object for the invocation.
-     */
-    virtual ::Ice::StringSeq getServers(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_getServers(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /**
-     * Wait for the application update to complete (the application is completely updated once all the registry
-     * replicas have been updated). This is used by the node to ensure that before to start a server all the
-     * replicas have the up-to-date descriptor of the server.
-     * @param cb The AMD callback object for the invocation.
-     * @param current The Current object for the invocation.
-     */
-    virtual void waitForApplicationUpdate_async(const ::IceGrid::AMD_NodeSession_waitForApplicationUpdatePtr& cb, const ::std::string& application, ::Ice::Int revision, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_waitForApplicationUpdate(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /**
-     * Destroy the session.
-     * @param current The Current object for the invocation.
-     */
-    virtual void destroy(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_destroy(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const NodeSession& lhs, const NodeSession& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const NodeSession& lhs, const NodeSession& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class DatabaseObserver : virtual public ApplicationObserver,
-                         virtual public ObjectObserver,
-                         virtual public AdapterObserver
-{
-public:
-
-    typedef DatabaseObserverPrx ProxyType;
-    typedef DatabaseObserverPtr PointerType;
-
-    virtual ~DatabaseObserver();
-    DatabaseObserver() = default;
-    DatabaseObserver(const DatabaseObserver&) = default;
-    DatabaseObserver& operator=(const DatabaseObserver&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const DatabaseObserver& lhs, const DatabaseObserver& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const DatabaseObserver& lhs, const DatabaseObserver& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class ReplicaSession : public virtual ::Ice::Object
-{
-public:
-
-    typedef ReplicaSessionPrx ProxyType;
-    typedef ReplicaSessionPtr PointerType;
-
-    virtual ~ReplicaSession();
-    ReplicaSession() = default;
-    ReplicaSession(const ReplicaSession&) = default;
-    ReplicaSession& operator=(const ReplicaSession&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * The replica call this method to keep the session alive.
-     * @param current The Current object for the invocation.
-     */
-    virtual void keepAlive(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_keepAlive(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Return the replica session timeout.
-     * @param current The Current object for the invocation.
-     */
-    virtual ::Ice::Int getTimeout(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_getTimeout(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /**
-     * Set the database observer. Once the observer is subscribed, it will receive the database and database updates.
-     * @param current The Current object for the invocation.
-     */
-    virtual void setDatabaseObserver(const DatabaseObserverPrx& dbObs, const std::optional<StringLongDict>& serials, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_setDatabaseObserver(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * This method sets the endpoints of the replica. This allows the master to create proxies with multiple endpoints
-     * for replicated objects (e.g.: IceGrid::Query object).
-     * @param current The Current object for the invocation.
-     */
-    virtual void setEndpoints(const StringObjectProxyDict& endpoints, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_setEndpoints(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Registers the replica well-known objects with the master.
-     * @param current The Current object for the invocation.
-     */
-    virtual void registerWellKnownObjects(const ObjectInfoSeq& objects, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_registerWellKnownObjects(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Set the adapter direct proxy of the given adapter in the master. This is used to support dynamic registration
-     * with the locator registry interface.
-     * @param current The Current object for the invocation.
-     */
-    virtual void setAdapterDirectProxy(const ::std::string& adapterId, const ::std::string& replicaGroupId, const ::Ice::ObjectPrx& proxy, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_setAdapterDirectProxy(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Notify the master that an update was received. The master might wait for replication updates to be received by
-     * all the replicas before to continue.
-     * @param current The Current object for the invocation.
-     */
-    virtual void receivedUpdate(TopicName name, ::Ice::Int serial, const ::std::string& failure, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_receivedUpdate(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Destroy the session.
-     * @param current The Current object for the invocation.
-     */
-    virtual void destroy(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_destroy(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const ReplicaSession& lhs, const ReplicaSession& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const ReplicaSession& lhs, const ReplicaSession& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
 /**
  * Information about an IceGrid node.
  */
@@ -12252,7 +11992,6 @@ class InternalNodeInfo : public virtual ::Ice::Object
 {
 public:
 
-    typedef InternalNodeInfoPrx ProxyType;
     typedef InternalNodeInfoPtr PointerType;
 
     virtual ~InternalNodeInfo();
@@ -12391,7 +12130,6 @@ class InternalReplicaInfo : public virtual ::Ice::Object
 {
 public:
 
-    typedef InternalReplicaInfoPrx ProxyType;
     typedef InternalReplicaInfoPtr PointerType;
 
     virtual ~InternalReplicaInfo();
@@ -12482,155 +12220,6 @@ inline bool operator==(const InternalReplicaInfo& lhs, const InternalReplicaInfo
 }
 
 inline bool operator<(const InternalReplicaInfo& lhs, const InternalReplicaInfo& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class InternalRegistry : virtual public FileReader
-{
-public:
-
-    typedef InternalRegistryPrx ProxyType;
-    typedef InternalRegistryPtr PointerType;
-
-    virtual ~InternalRegistry();
-    InternalRegistry() = default;
-    InternalRegistry(const InternalRegistry&) = default;
-    InternalRegistry& operator=(const InternalRegistry&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
-     * overide the previous node only if it's not active.
-     * @param info Some information on the node.
-     * @param prx The proxy of the node.
-     * @param loadInf The load information of the node.
-     * @param current The Current object for the invocation.
-     * @return The node session proxy.
-     * @throws IceGrid::NodeActiveException Raised if the node is already registered and currently active.
-     */
-    virtual NodeSessionPrx registerNode(const InternalNodeInfoPtr& info, const NodePrx& prx, const LoadInfo& loadInf, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_registerNode(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
-     * will overide the previous replica only if it's not active.
-     * @param info Some information on the replica.
-     * @param prx The proxy of the replica.
-     * @param current The Current object for the invocation.
-     * @return The replica session proxy.
-     * @throws IceGrid::ReplicaActiveException Raised if the replica is already registered and currently active.
-     */
-    virtual ReplicaSessionPrx registerReplica(const InternalReplicaInfoPtr& info, const InternalRegistryPrx& prx, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_registerReplica(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Create a session with the given registry replica. This method returns only once the session creation has been
-     * attempted.
-     * @param current The Current object for the invocation.
-     */
-    virtual void registerWithReplica(const InternalRegistryPrx& prx, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_registerWithReplica(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Return the proxies of all the nodes known by this registry.
-     * @param current The Current object for the invocation.
-     */
-    virtual NodePrxSeq getNodes(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_getNodes(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /**
-     * Return the proxies of all the registry replicas known by this registry.
-     * @param current The Current object for the invocation.
-     */
-    virtual InternalRegistryPrxSeq getReplicas(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_getReplicas(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /**
-     * Return applications, adapters, objects from this replica.
-     * @param current The Current object for the invocation.
-     */
-    virtual ApplicationInfoSeq getApplications(::Ice::Long& serial, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_getApplications(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    virtual AdapterInfoSeq getAdapters(::Ice::Long& serial, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_getAdapters(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    virtual ObjectInfoSeq getObjects(::Ice::Long& serial, const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_getObjects(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /**
-     * Shutdown this registry.
-     * @param current The Current object for the invocation.
-     */
-    virtual void shutdown(const ::Ice::Current& current = ::Ice::emptyCurrent) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const InternalRegistry& lhs, const InternalRegistry& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const InternalRegistry& lhs, const InternalRegistry& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
 }

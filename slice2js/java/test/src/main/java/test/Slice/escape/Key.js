@@ -240,7 +240,7 @@
 
     Slice.defineOperations(abstract.new, abstract.newPrx, iceC_abstract__new_ids, 1,
     {
-        "notify": [, , , , [abstract.assert._helper], [[abstract._break], ["abstract._else", true], ["Ice.Value", true], [Ice.ObjectPrx], ["abstract.finalizePrx"], ["abstract.catchPrx"], ["abstract.defaultPrx"], [3], [3], [3]], ,
+        "notify": [, , , , [abstract.assert._helper], [[abstract._break], ["abstract._else", true], ["abstract.finalizePrx"], ["abstract.catchPrx"], ["abstract.defaultPrx"], [3], [3], [3]], ,
         [
             abstract._import,
             abstract.hashCode

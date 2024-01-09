@@ -1367,18 +1367,6 @@ namespace IceProxy
 namespace Test
 {
 
-class C;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< C>&);
-::IceProxy::Ice::Object* upCast(C*);
-/// \endcond
-
-class D;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< D>&);
-::IceProxy::Ice::Object* upCast(D*);
-/// \endcond
-
 class Custom;
 /// \cond INTERNAL
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Custom>&);
@@ -1397,8 +1385,6 @@ class C;
 ::Ice::Object* upCast(C*);
 /// \endcond
 typedef ::IceInternal::Handle< C> CPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::C> CPrx;
-typedef CPrx CPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(CPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1408,22 +1394,14 @@ class D;
 ::Ice::Object* upCast(D*);
 /// \endcond
 typedef ::IceInternal::Handle< D> DPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::D> DPrx;
-typedef DPrx DPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(DPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-class Custom;
-/// \cond INTERNAL
-::Ice::Object* upCast(Custom*);
-/// \endcond
-typedef ::IceInternal::Handle< Custom> CustomPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Custom> CustomPrx;
 typedef CustomPrx CustomPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(CustomPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class Custom;
+typedef ::IceInternal::Handle< Custom> CustomPtr;
 
 }
 
@@ -1696,40 +1674,6 @@ namespace IceProxy
 
 namespace Test
 {
-
-class C : public virtual ::Ice::Proxy<C, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class D : public virtual ::Ice::Proxy<D, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
 
 class Custom : public virtual ::Ice::Proxy<Custom, ::IceProxy::Ice::Object>
 {
@@ -2765,218 +2709,11 @@ protected:
 namespace Test
 {
 
-class C : public virtual ::Ice::Object
-{
-public:
-
-    typedef CPrx ProxyType;
-    typedef CPtr PointerType;
-
-    virtual ~C();
-
-    C()
-    {
-    }
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    C(const ::Test::ByteString& b1, const ::Test::ByteString& b2, const ::Test::ByteList& b3, const ::Test::ByteList& b4, const ::Test::StringList& s1, const ::Test::StringList& s2, const ::Test::StringTuple& s3, const ::Test::StringTuple& s4) :
-        b1(b1),
-        b2(b2),
-        b3(b3),
-        b4(b4),
-        s1(s1),
-        s2(s2),
-        s3(s3),
-        s4(s4)
-    {
-    }
-    C(const C&) = default;
-    C& operator=(const C&) = default;
-
-    /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
-     */
-    virtual ::Ice::ObjectPtr ice_clone() const;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
-    ::Test::ByteString b1;
-    ::Test::ByteString b2;
-    ::Test::ByteList b3;
-    ::Test::ByteList b4;
-    ::Test::StringList s1;
-    ::Test::StringList s2;
-    ::Test::StringTuple s3;
-    ::Test::StringTuple s4;
-};
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_C_init = ::Test::C::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const C& lhs, const C& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const C& lhs, const C& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class D : public virtual ::Ice::Object
-{
-public:
-
-    typedef DPrx ProxyType;
-    typedef DPtr PointerType;
-
-    virtual ~D();
-
-    D()
-    {
-    }
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    D(const std::optional< ::Test::BoolSeq1>& boolSeq, const std::optional< ::Test::ByteSeq1>& byteSeq, const std::optional< ::Test::ShortSeq1>& shortSeq, const std::optional< ::Test::IntSeq1>& intSeq, const std::optional< ::Test::LongSeq1>& longSeq, const std::optional< ::Test::FloatSeq1>& floatSeq, const std::optional< ::Test::DoubleSeq1>& doubleSeq) :
-        boolSeq(boolSeq),
-        byteSeq(byteSeq),
-        shortSeq(shortSeq),
-        intSeq(intSeq),
-        longSeq(longSeq),
-        floatSeq(floatSeq),
-        doubleSeq(doubleSeq)
-    {
-    }
-    D(const D&) = default;
-    D& operator=(const D&) = default;
-
-    /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
-     */
-    virtual ::Ice::ObjectPtr ice_clone() const;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
-    std::optional< ::Test::BoolSeq1> boolSeq;
-    std::optional< ::Test::ByteSeq1> byteSeq;
-    std::optional< ::Test::ShortSeq1> shortSeq;
-    std::optional< ::Test::IntSeq1> intSeq;
-    std::optional< ::Test::LongSeq1> longSeq;
-    std::optional< ::Test::FloatSeq1> floatSeq;
-    std::optional< ::Test::DoubleSeq1> doubleSeq;
-};
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_D_init = ::Test::D::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const D& lhs, const D& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const D& lhs, const D& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
 class Custom : public virtual ::Ice::Object
 {
 public:
 
     typedef CustomPrx ProxyType;
-    typedef CustomPtr PointerType;
 
     virtual ~Custom();
     Custom() = default;
@@ -3139,6 +2876,81 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
+};
+
+}
+
+namespace Test
+{
+
+class C : public virtual ::Ice::Object
+{
+public:
+
+    typedef CPtr PointerType;
+
+    virtual ~C();
+
+    C()
+    {
+    }
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    C(const ::Test::ByteString& b1, const ::Test::ByteString& b2, const ::Test::ByteList& b3, const ::Test::ByteList& b4, const ::Test::StringList& s1, const ::Test::StringList& s2, const ::Test::StringTuple& s3, const ::Test::StringTuple& s4) :
+        b1(b1),
+        b2(b2),
+        b3(b3),
+        b4(b4),
+        s1(s1),
+        s2(s2),
+        s3(s3),
+        s4(s4)
+    {
+    }
+    C(const C&) = default;
+    C& operator=(const C&) = default;
+
+    /**
+     * Polymorphically clones this object.
+     * @return A shallow copy of this object.
+     */
+    virtual ::Ice::ObjectPtr ice_clone() const;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /**
+     * Obtains a value factory that instantiates this class.
+     * @return The value factory.
+     */
+    static ::Ice::ValueFactoryPtr ice_factory();
 
 protected:
 
@@ -3146,15 +2958,130 @@ protected:
     virtual void _iceWriteImpl(::Ice::OutputStream*) const;
     virtual void _iceReadImpl(::Ice::InputStream*);
     /// \endcond
+
+public:
+
+    ::Test::ByteString b1;
+    ::Test::ByteString b2;
+    ::Test::ByteList b3;
+    ::Test::ByteList b4;
+    ::Test::StringList s1;
+    ::Test::StringList s2;
+    ::Test::StringTuple s3;
+    ::Test::StringTuple s4;
 };
+/// \cond INTERNAL
+static ::Ice::ValueFactoryPtr _iceS_C_init = ::Test::C::ice_factory();
+/// \endcond
 
 /// \cond INTERNAL
-inline bool operator==(const Custom& lhs, const Custom& rhs)
+inline bool operator==(const C& lhs, const C& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
 }
 
-inline bool operator<(const Custom& lhs, const Custom& rhs)
+inline bool operator<(const C& lhs, const C& rhs)
+{
+    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+}
+/// \endcond
+
+class D : public virtual ::Ice::Object
+{
+public:
+
+    typedef DPtr PointerType;
+
+    virtual ~D();
+
+    D()
+    {
+    }
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    D(const std::optional< ::Test::BoolSeq1>& boolSeq, const std::optional< ::Test::ByteSeq1>& byteSeq, const std::optional< ::Test::ShortSeq1>& shortSeq, const std::optional< ::Test::IntSeq1>& intSeq, const std::optional< ::Test::LongSeq1>& longSeq, const std::optional< ::Test::FloatSeq1>& floatSeq, const std::optional< ::Test::DoubleSeq1>& doubleSeq) :
+        boolSeq(boolSeq),
+        byteSeq(byteSeq),
+        shortSeq(shortSeq),
+        intSeq(intSeq),
+        longSeq(longSeq),
+        floatSeq(floatSeq),
+        doubleSeq(doubleSeq)
+    {
+    }
+    D(const D&) = default;
+    D& operator=(const D&) = default;
+
+    /**
+     * Polymorphically clones this object.
+     * @return A shallow copy of this object.
+     */
+    virtual ::Ice::ObjectPtr ice_clone() const;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /**
+     * Obtains a value factory that instantiates this class.
+     * @return The value factory.
+     */
+    static ::Ice::ValueFactoryPtr ice_factory();
+
+protected:
+
+    /// \cond STREAM
+    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
+    virtual void _iceReadImpl(::Ice::InputStream*);
+    /// \endcond
+
+public:
+
+    std::optional< ::Test::BoolSeq1> boolSeq;
+    std::optional< ::Test::ByteSeq1> byteSeq;
+    std::optional< ::Test::ShortSeq1> shortSeq;
+    std::optional< ::Test::IntSeq1> intSeq;
+    std::optional< ::Test::LongSeq1> longSeq;
+    std::optional< ::Test::FloatSeq1> floatSeq;
+    std::optional< ::Test::DoubleSeq1> doubleSeq;
+};
+/// \cond INTERNAL
+static ::Ice::ValueFactoryPtr _iceS_D_init = ::Test::D::ice_factory();
+/// \endcond
+
+/// \cond INTERNAL
+inline bool operator==(const D& lhs, const D& rhs)
+{
+    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+}
+
+inline bool operator<(const D& lhs, const D& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
 }

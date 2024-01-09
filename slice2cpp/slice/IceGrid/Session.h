@@ -58,11 +58,15 @@ class SessionPrx;
 namespace IceGrid
 {
 
+}
+
+namespace IceGrid
+{
+
 /**
  * A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
  * via the {@link Registry} object or via the registry client <code>SessionManager</code> object.
  * @see Registry
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API Session : public virtual ::Glacier2::Session
 {
@@ -184,7 +188,6 @@ namespace IceGrid
  * A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
  * via the {@link Registry} object or via the registry client <code>SessionManager</code> object.
  * @see Registry
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) SessionPrx : public virtual ::Ice::Proxy<SessionPrx, ::Glacier2::SessionPrx>
 {
@@ -477,13 +480,6 @@ protected:
 
 }
 
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
-
 /// \cond INTERNAL
 namespace IceGrid
 {
@@ -514,17 +510,16 @@ ICEGRID_API ::IceProxy::Ice::Object* upCast(Session*);
 
 namespace IceGrid
 {
-
-class Session;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(Session*);
-/// \endcond
-typedef ::IceInternal::Handle< Session> SessionPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::Session> SessionPrx;
 typedef SessionPrx SessionPrxPtr;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(SessionPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class Session;
+typedef ::IceInternal::Handle< Session> SessionPtr;
+
+}
+
+namespace IceGrid
+{
 
 }
 
@@ -1195,14 +1190,12 @@ namespace IceGrid
  * A session object is used by IceGrid clients to allocate and release objects. Client sessions are created either
  * via the {@link Registry} object or via the registry client <code>SessionManager</code> object.
  * @see Registry
- * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API Session : virtual public ::Glacier2::Session
+class ICEGRID_API Session : public virtual ::Glacier2::Session
 {
 public:
 
     typedef SessionPrx ProxyType;
-    typedef SessionPtr PointerType;
 
     virtual ~Session();
     Session() = default;
@@ -1310,35 +1303,9 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const Session& lhs, const Session& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
 }
-
-inline bool operator<(const Session& lhs, const Session& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 namespace IceGrid
 {

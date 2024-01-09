@@ -37,6 +37,12 @@
 namespace Test
 {
 
+
+namespace Nested
+{
+
+
+}
 class Base;
 class Derived;
 
@@ -461,11 +467,6 @@ public:
 
 }
 
-namespace Test
-{
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -611,38 +612,19 @@ using DerivedPtr = ::std::shared_ptr<Derived>;
 
 #else // C++98 mapping
 
-namespace IceProxy
-{
-
 namespace Test
 {
 
-class Base;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Base>&);
-::IceProxy::Ice::Object* upCast(Base*);
-/// \endcond
-
-class Derived;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Derived>&);
-::IceProxy::Ice::Object* upCast(Derived*);
-/// \endcond
-
-}
-
-}
-
-namespace Test
+namespace Nested
 {
+
+}
 
 class Base;
 /// \cond INTERNAL
 ::Ice::Object* upCast(Base*);
 /// \endcond
 typedef ::IceInternal::Handle< Base> BasePtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Base> BasePrx;
-typedef BasePrx BasePrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(BasePtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -652,8 +634,6 @@ class Derived;
 ::Ice::Object* upCast(Derived*);
 /// \endcond
 typedef ::IceInternal::Handle< Derived> DerivedPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Derived> DerivedPrx;
-typedef DerivedPrx DerivedPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(DerivedPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1062,60 +1042,10 @@ protected:
 namespace Test
 {
 
-}
-
-namespace IceProxy
-{
-
-namespace Test
-{
-
-class Base : public virtual ::Ice::Proxy<Base, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class Derived : public virtual ::Ice::Proxy<Derived, ::IceProxy::Test::Base>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-}
-
-}
-
-namespace Test
-{
-
 class Base : public virtual ::Ice::Object
 {
 public:
 
-    typedef BasePrx ProxyType;
     typedef BasePtr PointerType;
 
     virtual ~Base();
@@ -1251,7 +1181,6 @@ class Derived : public Base
 {
 public:
 
-    typedef DerivedPrx ProxyType;
     typedef DerivedPtr PointerType;
 
     virtual ~Derived();
@@ -1747,11 +1676,6 @@ struct StreamReader< ::Test::DerivedEx, S>
 
 }
 /// \endcond
-
-namespace Test
-{
-
-}
 
 #endif
 

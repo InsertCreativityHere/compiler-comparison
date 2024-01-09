@@ -150,8 +150,6 @@ module ::And
             T_BreakPrx = ::Ice::__declareProxy('::and::break')
         end
 
-        T_Break.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_BreakPrx.defineProxy(BreakPrx, nil, [])
 
         BreakPrx_mixin::OP_case = ::Ice::__defineOperation('case', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
@@ -178,8 +176,6 @@ module ::And
             T_FunctionPrx = ::Ice::__declareProxy('::and::function')
         end
 
-        T_Function.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_FunctionPrx.defineProxy(FunctionPrx, nil, [])
 
         FunctionPrx_mixin::OP_continue = ::Ice::__defineOperation('continue', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
@@ -205,8 +201,6 @@ module ::And
             T_Die = ::Ice::__declareClass('::and::die')
             T_DiePrx = ::Ice::__declareProxy('::and::die')
         end
-
-        T_Die.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_DiePrx.defineProxy(DiePrx, nil, [])
 
@@ -259,8 +253,6 @@ module ::And
             T_Enddeclare = ::Ice::__declareClass('::and::enddeclare')
             T_EnddeclarePrx = ::Ice::__declareProxy('::and::enddeclare')
         end
-
-        T_Enddeclare.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_EnddeclarePrx.defineProxy(EnddeclarePrx, nil, [::And::T_DiePrx, ::And::T_FunctionPrx])
     end
@@ -316,8 +308,8 @@ module ::And
         end
         module ForPrx_mixin
 
-            def foreach(_if, global, require, include, _return, isset, list, _new, static, context=nil)
-                ForPrx_mixin::OP_foreach.invoke(self, [_if, global, require, include, _return, isset, list, _new, static], context)
+            def foreach(_if, global, include, _return, list, _new, static, context=nil)
+                ForPrx_mixin::OP_foreach.invoke(self, [_if, global, include, _return, list, _new, static], context)
             end
         end
 
@@ -331,11 +323,9 @@ module ::And
             T_ForPrx = ::Ice::__declareProxy('::and::for')
         end
 
-        T_For.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_ForPrx.defineProxy(ForPrx, nil, [])
 
-        ForPrx_mixin::OP_foreach = ::Ice::__defineOperation('foreach', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::And::T_Break, false, 0], [::And::T_Echo, false, 0], [::And::T_Enddeclare, false, 0], [::And::T_FunctionPrx, false, 0], [::And::T_DiePrx, false, 0], [::Ice::T_ObjectPrx, false, 0], [::And::T_EnddeclarePrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::And::T_Array, false, 0], [::And::T_Endif, ::And::T_Endwhile])
+        ForPrx_mixin::OP_foreach = ::Ice::__defineOperation('foreach', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::And::T_BreakPrx, false, 0], [::And::T_Echo, false, 0], [::And::T_FunctionPrx, false, 0], [::And::T_DiePrx, false, 0], [::And::T_EnddeclarePrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::And::T_Array, false, 0], [::And::T_Endif, ::And::T_Endwhile])
     end
 
     Or = 0

@@ -276,13 +276,13 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice class `Base`.
+/// Traits for Slice class`Base`.
 public struct BaseTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Base"]
     public static let staticId = "::Test::Base"
 }
 
-/// Traits for Slice class `Derived`.
+/// Traits for Slice class`Derived`.
 public struct DerivedTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Base", "::Test::Derived"]
     public static let staticId = "::Test::Derived"
@@ -752,13 +752,13 @@ open class ExceptionNoDefaults: ExceptionNoDefaultsBase {
     }
 }
 
-/// Traits for Slice class `ClassNoDefaultsBase`.
+/// Traits for Slice class`ClassNoDefaultsBase`.
 public struct ClassNoDefaultsBaseTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::ClassNoDefaultsBase"]
     public static let staticId = "::Test::ClassNoDefaultsBase"
 }
 
-/// Traits for Slice class `ClassNoDefaults`.
+/// Traits for Slice class`ClassNoDefaults`.
 public struct ClassNoDefaultsTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::ClassNoDefaults", "::Test::ClassNoDefaultsBase"]
     public static let staticId = "::Test::ClassNoDefaults"

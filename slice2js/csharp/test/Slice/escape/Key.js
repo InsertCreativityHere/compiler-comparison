@@ -159,7 +159,7 @@
 
     abstract.optionalMembers = class extends Ice.Value
     {
-        constructor(_for = undefined, goto = undefined, _if = undefined, internal = undefined, namespace = undefined, _null = undefined)
+        constructor(_for = undefined, goto = undefined, _if = undefined, internal = undefined, namespace = undefined)
         {
             super();
             this._for = _for;
@@ -167,27 +167,24 @@
             this._if = _if;
             this.internal = internal;
             this.namespace = namespace;
-            this._null = _null;
         }
 
         _iceWriteMemberImpl(ostr)
         {
             abstract._break.writeOptional(ostr, 1, this._for);
             abstract.as._writeOpt(ostr, 2, this.goto);
-            ostr.writeOptionalValue(3, this._if);
+            abstract.explicitPrx.writeOptional(ostr, 3, this._if);
             abstract._whileHelper.writeOptional(ostr, 5, this.internal);
             Ice.StringHelper.writeOptional(ostr, 7, this.namespace);
-            abstract.explicitPrx.writeOptional(ostr, 8, this._null);
         }
 
         _iceReadMemberImpl(istr)
         {
             this._for = abstract._break.readOptional(istr, 1);
             this.goto = abstract.as._readOpt(istr, 2);
-            istr.readOptionalValue(3, obj => this._if = obj, abstract.explicit);
+            this._if = abstract.explicitPrx.readOptional(istr, 3);
             this.internal = abstract._whileHelper.readOptional(istr, 5);
             this.namespace = Ice.StringHelper.readOptional(istr, 7);
-            this._null = abstract.explicitPrx.readOptional(istr, 8);
         }
     };
 
@@ -208,10 +205,10 @@
 
     Slice.defineOperations(abstract.optionalParams, abstract.optionalParamsPrx, iceC_abstract_optionalParams_ids, 1,
     {
-        "for": ["_for", , , , [abstract._break, , 1], [[abstract.as._helper, , 2], ["Ice.Value", true, 3], ["abstract.whileHelper", , 5], [7, , 7], ["abstract.explicitPrx", , 8]], , , , ],
-        "continue": ["_continue", , , , [abstract._break, , 1], [[abstract.as._helper, , 2], ["Ice.Value", true, 3], ["abstract.whileHelper", , 5], [7, , 7], ["abstract.explicitPrx", , 8]], , , , ],
-        "in": ["_in", , , , [abstract._break, , 1], , [[abstract.as._helper, , 2], ["Ice.Value", true, 3], ["abstract.whileHelper", , 5], [7, , 7], ["abstract.explicitPrx", , 8]], , , ],
-        "foreach": [, , , , [abstract._break, , 1], , [[abstract.as._helper, , 2], ["Ice.Value", true, 3], ["abstract.whileHelper", , 5], [7, , 7], ["abstract.explicitPrx", , 8]], , , ]
+        "for": ["_for", , , , [abstract._break, , 1], [[abstract.as._helper, , 2], ["abstract.explicitPrx", , 3], ["abstract.whileHelper", , 5], [7, , 7]], , , , ],
+        "continue": ["_continue", , , , [abstract._break, , 1], [[abstract.as._helper, , 2], ["abstract.explicitPrx", , 3], ["abstract.whileHelper", , 5], [7, , 7]], , , , ],
+        "in": ["_in", , , , [abstract._break, , 1], , [[abstract.as._helper, , 2], ["abstract.explicitPrx", , 3], ["abstract.whileHelper", , 5], [7, , 7]], , , ],
+        "foreach": [, , , , [abstract._break, , 1], , [[abstract.as._helper, , 2], ["abstract.explicitPrx", , 3], ["abstract.whileHelper", , 5], [7, , 7]], , , ]
     });
 
     abstract.fixed = class extends Ice.UserException
@@ -376,7 +373,7 @@
 
     Slice.defineOperations(abstract.implicit, abstract.implicitPrx, iceC_abstract_implicit_ids, 1,
     {
-        "in": ["_in", , , , [abstract.as._helper], [[abstract._break], ["abstract.delegate", true], ["Ice.Value", true], ["abstract.casePrx"], ["abstract.decimalPrx"], ["abstract.delegate", true], ["abstract.explicitPrx"], [3], [3], [3]], ,
+        "in": ["_in", , , , [abstract.as._helper], [[abstract._break], ["abstract.delegate", true], ["abstract.explicitPrx"], ["abstract.casePrx"], ["abstract.decimalPrx"], ["abstract.delegate", true], [3], [3], [3]], ,
         [
             abstract.foreach,
             abstract.fixed

@@ -11,16 +11,14 @@
 
 classdef printPrx < Ice.ObjectPrx
     methods
-        function result = raise(obj, else_, return_, try_, while_, yield, lambda, or, global_, varargin)
+        function result = raise(obj, else_, return_, while_, yield, or, global_, varargin)
             % raise
             %
             % Parameters:
             %   else_ (and.continue_)
             %   return_ (and.for_)
-            %   try_ (and.if_)
             %   while_ (and.delPrx)
             %   yield (and.execPrx)
-            %   lambda (and.forPrx)
             %   or (and.ifPrx)
             %   global_ (int32)
             %   context (containers.Map) - Optional request context.
@@ -30,10 +28,8 @@ classdef printPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             and.continue_.ice_write(os_, else_);
             os_.writeValue(return_);
-            os_.writeValue(try_);
             os_.writeProxy(while_);
             os_.writeProxy(yield);
-            os_.writeProxy(lambda);
             os_.writeProxy(or);
             os_.writeInt(global_);
             os_.writePendingValues();
@@ -43,16 +39,14 @@ classdef printPrx < Ice.ObjectPrx
             result = and.assert.ice_read(is_);
             is_.endEncapsulation();
         end
-        function r_ = raiseAsync(obj, else_, return_, try_, while_, yield, lambda, or, global_, varargin)
+        function r_ = raiseAsync(obj, else_, return_, while_, yield, or, global_, varargin)
             % raiseAsync
             %
             % Parameters:
             %   else_ (and.continue_)
             %   return_ (and.for_)
-            %   try_ (and.if_)
             %   while_ (and.delPrx)
             %   yield (and.execPrx)
-            %   lambda (and.forPrx)
             %   or (and.ifPrx)
             %   global_ (int32)
             %   context (containers.Map) - Optional request context.
@@ -62,10 +56,8 @@ classdef printPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             and.continue_.ice_write(os_, else_);
             os_.writeValue(return_);
-            os_.writeValue(try_);
             os_.writeProxy(while_);
             os_.writeProxy(yield);
-            os_.writeProxy(lambda);
             os_.writeProxy(or);
             os_.writeInt(global_);
             os_.writePendingValues();

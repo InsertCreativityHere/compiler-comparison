@@ -42,7 +42,6 @@ namespace Test
             return '::Test::TestLocatorRegistry';
         }
     }
-    $Test__t_TestLocatorRegistry = IcePHP_defineClass('::Test::TestLocatorRegistry', '\\Test\\TestLocatorRegistry', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_TestLocatorRegistryPrx = IcePHP_defineProxy('::Test::TestLocatorRegistry', $Ice__t_ObjectPrx, array($Ice__t_LocatorRegistryPrx));
@@ -73,7 +72,6 @@ namespace Test
             return '::Test::ServerManager';
         }
     }
-    $Test__t_ServerManager = IcePHP_defineClass('::Test::ServerManager', '\\Test\\ServerManager', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_ServerManagerPrx = IcePHP_defineProxy('::Test::ServerManager', $Ice__t_ObjectPrx, null);
@@ -104,7 +102,6 @@ namespace Test
             return '::Test::Hello';
         }
     }
-    $Test__t_Hello = IcePHP_defineClass('::Test::Hello', '\\Test\\Hello', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_HelloPrx = IcePHP_defineProxy('::Test::Hello', $Ice__t_ObjectPrx, null);
@@ -134,7 +131,6 @@ namespace Test
             return '::Test::TestIntf';
         }
     }
-    $Test__t_TestIntf = IcePHP_defineClass('::Test::TestIntf', '\\Test\\TestIntf', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_TestIntfPrx = IcePHP_defineProxy('::Test::TestIntf', $Ice__t_ObjectPrx, null);

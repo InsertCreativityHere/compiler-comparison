@@ -17,13 +17,13 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice interface `LookupReply`.
+/// Traits for Slice interface`LookupReply`.
 public struct LookupReplyTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceDiscovery::LookupReply"]
     public static let staticId = "::IceDiscovery::LookupReply"
 }
 
-/// Traits for Slice interface `Lookup`.
+/// Traits for Slice interface`Lookup`.
 public struct LookupTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceDiscovery::Lookup"]
     public static let staticId = "::IceDiscovery::Lookup"

@@ -11,15 +11,13 @@
 
 classdef newPrx < Ice.ObjectPrx
     methods
-        function result = notify_(obj, notifyAll, null, package, private, protected, public, return_, static, strictfp, super, varargin)
+        function result = notify_(obj, notifyAll, null, package, public, return_, static, strictfp, super, varargin)
             % notify_
             %
             % Parameters:
             %   notifyAll (abstract.break_)
             %   null (abstract.else_)
-            %   package (abstract.finalize)
-            %   private (abstract.elsePrx)
-            %   protected (abstract.finalizePrx)
+            %   package (abstract.finalizePrx)
             %   public (abstract.catchPrx)
             %   return_ (abstract.defaultPrx)
             %   static (int32)
@@ -32,9 +30,7 @@ classdef newPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             abstract.break_.ice_write(os_, notifyAll);
             os_.writeValue(null);
-            os_.writeValue(package);
-            os_.writeProxy(private);
-            os_.writeProxy(protected);
+            os_.writeProxy(package);
             os_.writeProxy(public);
             os_.writeProxy(return_);
             os_.writeInt(static);
@@ -47,15 +43,13 @@ classdef newPrx < Ice.ObjectPrx
             result = abstract.assert.ice_read(is_);
             is_.endEncapsulation();
         end
-        function r_ = notifyAsync(obj, notifyAll, null, package, private, protected, public, return_, static, strictfp, super, varargin)
+        function r_ = notifyAsync(obj, notifyAll, null, package, public, return_, static, strictfp, super, varargin)
             % notifyAsync
             %
             % Parameters:
             %   notifyAll (abstract.break_)
             %   null (abstract.else_)
-            %   package (abstract.finalize)
-            %   private (abstract.elsePrx)
-            %   protected (abstract.finalizePrx)
+            %   package (abstract.finalizePrx)
             %   public (abstract.catchPrx)
             %   return_ (abstract.defaultPrx)
             %   static (int32)
@@ -68,9 +62,7 @@ classdef newPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             abstract.break_.ice_write(os_, notifyAll);
             os_.writeValue(null);
-            os_.writeValue(package);
-            os_.writeProxy(private);
-            os_.writeProxy(protected);
+            os_.writeProxy(package);
             os_.writeProxy(public);
             os_.writeProxy(return_);
             os_.writeInt(static);

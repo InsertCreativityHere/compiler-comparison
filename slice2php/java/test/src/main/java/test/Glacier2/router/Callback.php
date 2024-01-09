@@ -70,7 +70,6 @@ namespace Test
             return '::Test::CallbackReceiver';
         }
     }
-    $Test__t_CallbackReceiver = IcePHP_defineClass('::Test::CallbackReceiver', '\\Test\\CallbackReceiver', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_CallbackReceiverPrx = IcePHP_defineProxy('::Test::CallbackReceiver', $Ice__t_ObjectPrx, null);
@@ -101,7 +100,6 @@ namespace Test
             return '::Test::Callback';
         }
     }
-    $Test__t_Callback = IcePHP_defineClass('::Test::Callback', '\\Test\\Callback', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_CallbackPrx = IcePHP_defineProxy('::Test::Callback', $Ice__t_ObjectPrx, null);

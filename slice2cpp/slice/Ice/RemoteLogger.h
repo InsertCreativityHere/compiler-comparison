@@ -175,7 +175,6 @@ namespace Ice
 /**
  * The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
  * to the local {@link Logger} of another Ice application.
- * \headerfile Ice/Ice.h
  */
 class ICE_API RemoteLogger : public virtual Object
 {
@@ -240,7 +239,6 @@ public:
 /**
  * The interface of the admin object that allows an Ice application the attach its
  * {@link RemoteLogger} to the {@link Logger} of this admin object's Ice communicator.
- * \headerfile Ice/Ice.h
  */
 class ICE_API LoggerAdmin : public virtual Object
 {
@@ -349,7 +347,6 @@ namespace Ice
 /**
  * The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
  * to the local {@link Logger} of another Ice application.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) RemoteLoggerPrx : public virtual Proxy<RemoteLoggerPrx, ObjectPrx>
 {
@@ -469,7 +466,6 @@ protected:
 /**
  * The interface of the admin object that allows an Ice application the attach its
  * {@link RemoteLogger} to the {@link Logger} of this admin object's Ice communicator.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) LoggerAdminPrx : public virtual Proxy<LoggerAdminPrx, ObjectPrx>
 {
@@ -757,28 +753,16 @@ ICE_API ::IceProxy::Ice::Object* upCast(LoggerAdmin*);
 
 namespace Ice
 {
-
-class RemoteLogger;
-/// \cond INTERNAL
-ICE_API Object* upCast(RemoteLogger*);
-/// \endcond
-typedef ::IceInternal::Handle< RemoteLogger> RemoteLoggerPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::RemoteLogger> RemoteLoggerPrx;
 typedef RemoteLoggerPrx RemoteLoggerPrxPtr;
-/// \cond INTERNAL
-ICE_API void _icePatchObjectPtr(RemoteLoggerPtr&, const ObjectPtr&);
-/// \endcond
 
-class LoggerAdmin;
-/// \cond INTERNAL
-ICE_API Object* upCast(LoggerAdmin*);
-/// \endcond
-typedef ::IceInternal::Handle< LoggerAdmin> LoggerAdminPtr;
+class RemoteLogger;
+typedef ::IceInternal::Handle< RemoteLogger> RemoteLoggerPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::LoggerAdmin> LoggerAdminPrx;
 typedef LoggerAdminPrx LoggerAdminPrxPtr;
-/// \cond INTERNAL
-ICE_API void _icePatchObjectPtr(LoggerAdminPtr&, const ObjectPtr&);
-/// \endcond
+
+class LoggerAdmin;
+typedef ::IceInternal::Handle< LoggerAdmin> LoggerAdminPtr;
 
 }
 
@@ -1581,14 +1565,12 @@ namespace Ice
 /**
  * The Ice remote logger interface. An application can implement a RemoteLogger to receive the log messages sent
  * to the local {@link Logger} of another Ice application.
- * \headerfile Ice/Ice.h
  */
 class ICE_API RemoteLogger : public virtual Object
 {
 public:
 
     typedef RemoteLoggerPrx ProxyType;
-    typedef RemoteLoggerPtr PointerType;
 
     virtual ~RemoteLogger();
     RemoteLogger() = default;
@@ -1647,38 +1629,17 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(OutputStream*) const;
-    virtual void _iceReadImpl(InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const RemoteLogger& lhs, const RemoteLogger& rhs)
-{
-    return static_cast<const Object&>(lhs) == static_cast<const Object&>(rhs);
-}
-
-inline bool operator<(const RemoteLogger& lhs, const RemoteLogger& rhs)
-{
-    return static_cast<const Object&>(lhs) < static_cast<const Object&>(rhs);
-}
-/// \endcond
 
 /**
  * The interface of the admin object that allows an Ice application the attach its
  * {@link RemoteLogger} to the {@link Logger} of this admin object's Ice communicator.
- * \headerfile Ice/Ice.h
  */
 class ICE_API LoggerAdmin : public virtual Object
 {
 public:
 
     typedef LoggerAdminPrx ProxyType;
-    typedef LoggerAdminPtr PointerType;
 
     virtual ~LoggerAdmin();
     LoggerAdmin() = default;
@@ -1765,26 +1726,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(OutputStream*) const;
-    virtual void _iceReadImpl(InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const LoggerAdmin& lhs, const LoggerAdmin& rhs)
-{
-    return static_cast<const Object&>(lhs) == static_cast<const Object&>(rhs);
-}
-
-inline bool operator<(const LoggerAdmin& lhs, const LoggerAdmin& rhs)
-{
-    return static_cast<const Object&>(lhs) < static_cast<const Object&>(rhs);
-}
-/// \endcond
 
 }
 

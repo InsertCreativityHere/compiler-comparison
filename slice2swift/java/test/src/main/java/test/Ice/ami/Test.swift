@@ -111,25 +111,25 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice interface `PingReply`.
+/// Traits for Slice interface`PingReply`.
 public struct PingReplyTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::PingReply"]
     public static let staticId = "::Test::PingReply"
 }
 
-/// Traits for Slice interface `TestIntf`.
+/// Traits for Slice interface`TestIntf`.
 public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::TestIntf"]
     public static let staticId = "::Test::TestIntf"
 }
 
-/// Traits for Slice interface `TestIntfController`.
+/// Traits for Slice interface`TestIntfController`.
 public struct TestIntfControllerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::TestIntfController"]
     public static let staticId = "::Test::TestIntfController"
 }
 
-/// Traits for Slice interface `OuterInnerTestIntf`.
+/// Traits for Slice interface`OuterInnerTestIntf`.
 public struct OuterInnerTestIntfTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Outer::Inner::TestIntf"]
     public static let staticId = "::Test::Outer::Inner::TestIntf"

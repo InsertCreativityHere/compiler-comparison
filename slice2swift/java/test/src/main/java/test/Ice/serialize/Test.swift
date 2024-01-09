@@ -582,13 +582,13 @@ public struct StringBaseDHelper {
     }
 }
 
-/// Traits for Slice class `Base`.
+/// Traits for Slice class`Base`.
 public struct BaseTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Base"]
     public static let staticId = "::Test::Base"
 }
 
-/// Traits for Slice class `Derived`.
+/// Traits for Slice class`Derived`.
 public struct DerivedTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Base", "::Test::Derived"]
     public static let staticId = "::Test::Derived"
@@ -644,7 +644,7 @@ open class Ex: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `Initial`.
+/// Traits for Slice interface`Initial`.
 public struct InitialTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Initial"]
     public static let staticId = "::Test::Initial"

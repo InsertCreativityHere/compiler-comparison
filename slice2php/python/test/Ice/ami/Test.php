@@ -80,7 +80,6 @@ namespace Test
             return '::Test::PingReply';
         }
     }
-    $Test__t_PingReply = IcePHP_defineClass('::Test::PingReply', '\\Test\\PingReply', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_PingReplyPrx = IcePHP_defineProxy('::Test::PingReply', $Ice__t_ObjectPrx, null);
@@ -110,7 +109,6 @@ namespace Test
             return '::Test::TestIntf';
         }
     }
-    $Test__t_TestIntf = IcePHP_defineClass('::Test::TestIntf', '\\Test\\TestIntf', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_TestIntfPrx = IcePHP_defineProxy('::Test::TestIntf', $Ice__t_ObjectPrx, null);
@@ -159,7 +157,6 @@ namespace Test
             return '::Test::TestIntfController';
         }
     }
-    $Test__t_TestIntfController = IcePHP_defineClass('::Test::TestIntfController', '\\Test\\TestIntfController', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_TestIntfControllerPrx = IcePHP_defineProxy('::Test::TestIntfController', $Ice__t_ObjectPrx, null);
@@ -190,7 +187,6 @@ namespace Test\Outer\Inner
             return '::Test::Outer::Inner::TestIntf';
         }
     }
-    $Test_Outer_Inner__t_TestIntf = IcePHP_defineClass('::Test::Outer::Inner::TestIntf', '\\Test\\Outer\\Inner\\TestIntf', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test_Outer_Inner__t_TestIntfPrx = IcePHP_defineProxy('::Test::Outer::Inner::TestIntf', $Ice__t_ObjectPrx, null);

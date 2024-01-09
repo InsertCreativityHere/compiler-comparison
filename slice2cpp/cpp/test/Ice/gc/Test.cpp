@@ -344,278 +344,6 @@ const ::std::string iceC_Test_DDD_I_op_name = "op";
 }
 
 /// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(C* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< C>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new C;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::C::_newInstance() const
-{
-    return new C;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::C::ice_staticId()
-{
-    return ::Test::C::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(C2* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< C2>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new C2;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::C2::_newInstance() const
-{
-    return new C2;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::C2::ice_staticId()
-{
-    return ::Test::C2::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(Leaf* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< Leaf>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new Leaf;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::Leaf::_newInstance() const
-{
-    return new Leaf;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::Leaf::ice_staticId()
-{
-    return ::Test::Leaf::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(Node* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< Node>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new Node;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::Node::_newInstance() const
-{
-    return new Node;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::Node::ice_staticId()
-{
-    return ::Test::Node::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(CTest* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< CTest>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new CTest;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::CTest::_newInstance() const
-{
-    return new CTest;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::CTest::ice_staticId()
-{
-    return ::Test::CTest::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::AAA::upCast(C* p) { return p; }
-
-void
-::IceProxy::Test::AAA::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< C>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new C;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::AAA::C::_newInstance() const
-{
-    return new C;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::AAA::C::ice_staticId()
-{
-    return ::Test::AAA::C::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::AAA::upCast(B* p) { return p; }
-
-void
-::IceProxy::Test::AAA::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< B>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new B;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::AAA::B::_newInstance() const
-{
-    return new B;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::AAA::B::ice_staticId()
-{
-    return ::Test::AAA::B::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::CCC::upCast(Forward* p) { return p; }
-
-void
-::IceProxy::Test::CCC::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< Forward>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new Forward;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::CCC::Forward::_newInstance() const
-{
-    return new Forward;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::CCC::Forward::ice_staticId()
-{
-    return ::Test::CCC::Forward::ice_staticId();
-}
-
-/// \cond INTERNAL
 ::IceProxy::Ice::Object* ::IceProxy::Test::DDD::upCast(I* p) { return p; }
 
 void
@@ -672,107 +400,110 @@ IceProxy::Test::DDD::I::ice_staticId()
     return ::Test::DDD::I::ice_staticId();
 }
 
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::DDD::upCast(C* p) { return p; }
-
-void
-::IceProxy::Test::DDD::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< C>& v)
+Test::DDD::I::~I()
 {
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new C;
-        v->_copyFrom(proxy);
-    }
 }
-/// \endcond
 
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::DDD::C::_newInstance() const
+namespace
 {
-    return new C;
+const ::std::string iceC_Test_DDD_I_ids[2] =
+{
+    "::Ice::Object",
+    "::Test::DDD::I"
+};
+
 }
-/// \endcond
+
+bool
+Test::DDD::I::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_Test_DDD_I_ids, iceC_Test_DDD_I_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+Test::DDD::I::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_Test_DDD_I_ids[0], &iceC_Test_DDD_I_ids[2]);
+}
 
 const ::std::string&
-IceProxy::Test::DDD::C::ice_staticId()
+Test::DDD::I::ice_id(const ::Ice::Current&) const
 {
-    return ::Test::DDD::C::ice_staticId();
+    return ice_staticId();
 }
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::DDD::upCast(U* p) { return p; }
-
-void
-::IceProxy::Test::DDD::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< U>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new U;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::DDD::U::_newInstance() const
-{
-    return new U;
-}
-/// \endcond
 
 const ::std::string&
-IceProxy::Test::DDD::U::ice_staticId()
+Test::DDD::I::ice_staticId()
 {
-    return ::Test::DDD::U::ice_staticId();
+    static const ::std::string typeId = "::Test::DDD::I";
+    return typeId;
 }
 
 /// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::DDD::upCast(C2* p) { return p; }
-
-void
-::IceProxy::Test::DDD::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< C2>& v)
+bool
+Test::DDD::I::_iceD_op(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new C2;
-        v->_copyFrom(proxy);
-    }
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    this->op(current);
+    inS.writeEmptyParams();
+    return true;
 }
 /// \endcond
+
+namespace
+{
+const ::std::string iceC_Test_DDD_I_all[] =
+{
+    "ice_id",
+    "ice_ids",
+    "ice_isA",
+    "ice_ping",
+    "op"
+};
+
+}
 
 /// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::DDD::C2::_newInstance() const
+bool
+Test::DDD::I::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    return new C2;
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_DDD_I_all, iceC_Test_DDD_I_all + 5, current.operation);
+    if(r.first == r.second)
+    {
+        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+    }
+
+    switch(r.first - iceC_Test_DDD_I_all)
+    {
+        case 0:
+        {
+            return _iceD_ice_id(in, current);
+        }
+        case 1:
+        {
+            return _iceD_ice_ids(in, current);
+        }
+        case 2:
+        {
+            return _iceD_ice_isA(in, current);
+        }
+        case 3:
+        {
+            return _iceD_ice_ping(in, current);
+        }
+        case 4:
+        {
+            return _iceD_op(in, current);
+        }
+        default:
+        {
+            assert(false);
+            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        }
+    }
 }
 /// \endcond
-
-const ::std::string&
-IceProxy::Test::DDD::C2::ice_staticId()
-{
-    return ::Test::DDD::C2::ice_staticId();
-}
 
 Test::C::~C()
 {
@@ -1897,146 +1628,6 @@ Test::CCC::_icePatchObjectPtr(ForwardPtr& handle, const ::Ice::ObjectPtr& v)
 }
 /// \endcond
 
-Test::DDD::I::~I()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::DDD::upCast(I* p) { return p; }
-
-/// \endcond
-
-namespace
-{
-const ::std::string iceC_Test_DDD_I_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::DDD::I"
-};
-
-}
-
-bool
-Test::DDD::I::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_DDD_I_ids, iceC_Test_DDD_I_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::DDD::I::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_DDD_I_ids[0], &iceC_Test_DDD_I_ids[2]);
-}
-
-const ::std::string&
-Test::DDD::I::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::DDD::I::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::DDD::I";
-    return typeId;
-}
-
-/// \cond INTERNAL
-bool
-Test::DDD::I::_iceD_op(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    this->op(current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-namespace
-{
-const ::std::string iceC_Test_DDD_I_all[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "op"
-};
-
-}
-
-/// \cond INTERNAL
-bool
-Test::DDD::I::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
-{
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_DDD_I_all, iceC_Test_DDD_I_all + 5, current.operation);
-    if(r.first == r.second)
-    {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-    }
-
-    switch(r.first - iceC_Test_DDD_I_all)
-    {
-        case 0:
-        {
-            return _iceD_ice_id(in, current);
-        }
-        case 1:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 2:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 3:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        case 4:
-        {
-            return _iceD_op(in, current);
-        }
-        default:
-        {
-            assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-        }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-Test::DDD::I::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< I, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::DDD::I::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< I, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::DDD::_icePatchObjectPtr(IPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = IPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(I::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::DDD::C::~C()
 {
 }
@@ -2189,13 +1780,6 @@ Test::DDD::U::ice_staticId()
 void
 Test::DDD::U::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
 {
-    if(myI)
-    {
-        if((::Test::DDD::upCast(myI.get())->_iceGcVisit(v_)))
-        {
-            myI = 0;
-        }
-    }
     if(myC)
     {
         if((::Test::DDD::upCast(myC.get())->_iceGcVisit(v_)))

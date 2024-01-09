@@ -133,11 +133,6 @@ public:
 
 }
 
-namespace Test
-{
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -176,28 +171,6 @@ using NoDefaultPtr = ::std::shared_ptr<NoDefault>;
 
 #else // C++98 mapping
 
-namespace IceProxy
-{
-
-namespace Test
-{
-
-class Default;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Default>&);
-::IceProxy::Ice::Object* upCast(Default*);
-/// \endcond
-
-class NoDefault;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< NoDefault>&);
-::IceProxy::Ice::Object* upCast(NoDefault*);
-/// \endcond
-
-}
-
-}
-
 namespace Test
 {
 
@@ -206,8 +179,6 @@ class Default;
 ::Ice::Object* upCast(Default*);
 /// \endcond
 typedef ::IceInternal::Handle< Default> DefaultPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Default> DefaultPrx;
-typedef DefaultPrx DefaultPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(DefaultPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -217,60 +188,9 @@ class NoDefault;
 ::Ice::Object* upCast(NoDefault*);
 /// \endcond
 typedef ::IceInternal::Handle< NoDefault> NoDefaultPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::NoDefault> NoDefaultPrx;
-typedef NoDefaultPrx NoDefaultPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(NoDefaultPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-}
-
-namespace Test
-{
-
-}
-
-namespace IceProxy
-{
-
-namespace Test
-{
-
-class Default : public virtual ::Ice::Proxy<Default, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class NoDefault : public virtual ::Ice::Proxy<NoDefault, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-}
 
 }
 
@@ -281,7 +201,6 @@ class Default : public virtual ::Ice::Object
 {
 public:
 
-    typedef DefaultPrx ProxyType;
     typedef DefaultPtr PointerType;
 
     virtual ~Default();
@@ -373,7 +292,6 @@ class NoDefault : public virtual ::Ice::Object
 {
 public:
 
-    typedef NoDefaultPrx ProxyType;
     typedef NoDefaultPtr PointerType;
 
     virtual ~NoDefault();
@@ -512,11 +430,6 @@ struct StreamReader< ::Test::NoDefault, S>
 
 }
 /// \endcond
-
-namespace Test
-{
-
-}
 
 #endif
 

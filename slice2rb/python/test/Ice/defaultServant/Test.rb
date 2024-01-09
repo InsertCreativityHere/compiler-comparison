@@ -39,8 +39,6 @@ module ::Test
             T_MyObjectPrx = ::Ice::__declareProxy('::Test::MyObject')
         end
 
-        T_MyObject.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_MyObjectPrx.defineProxy(MyObjectPrx, nil, [])
 
         MyObjectPrx_mixin::OP_getName = ::Ice::__defineOperation('getName', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])

@@ -24,7 +24,7 @@ public class _package extends com.zeroc.Ice.Value
         this.debugger = "";
     }
 
-    public _package(_break _for, var _goto, com.zeroc.Ice.Value _if, java.util.Map<java.lang.String, _break> internal, String debugger, explicitPrx _null)
+    public _package(_break _for, var _goto, explicitPrx _if, java.util.Map<java.lang.String, _break> internal, String debugger, explicitPrx _null)
     {
         set_for(_for);
         set_goto(_goto);
@@ -140,10 +140,10 @@ public class _package extends com.zeroc.Ice.Value
         }
     }
 
-    private com.zeroc.Ice.Value _if;
+    private explicitPrx _if;
     private boolean _if;
 
-    public com.zeroc.Ice.Value getIf()
+    public explicitPrx getIf()
     {
         if(!_if)
         {
@@ -152,7 +152,7 @@ public class _package extends com.zeroc.Ice.Value
         return _if;
     }
 
-    public void setIf(com.zeroc.Ice.Value _if)
+    public void setIf(explicitPrx _if)
     {
         _if = true;
         this._if = _if;
@@ -168,7 +168,7 @@ public class _package extends com.zeroc.Ice.Value
         _if = false;
     }
 
-    public void optionalIf(java.util.Optional<com.zeroc.Ice.Value> v)
+    public void optionalIf(java.util.Optional<explicitPrx> v)
     {
         if(v == null || !v.isPresent())
         {
@@ -181,11 +181,11 @@ public class _package extends com.zeroc.Ice.Value
         }
     }
 
-    public java.util.Optional<com.zeroc.Ice.Value> optionalIf()
+    public java.util.Optional<explicitPrx> optionalIf()
     {
         if(_if)
         {
-            return java.util.Optional.ofNullable(_if);
+            return java.util.Optional.of(_if);
         }
         else
         {
@@ -369,7 +369,7 @@ public class _package extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 4395991241695655771L;
+    public static final long serialVersionUID = 7978716232838168936L;
 
     /** @hidden */
     @Override
@@ -386,7 +386,7 @@ public class _package extends com.zeroc.Ice.Value
         }
         if(_if)
         {
-            ostr_.writeValue(3, _if);
+            ostr_.writeProxy(3, _if);
         }
         if(_internal)
         {
@@ -417,9 +417,10 @@ public class _package extends com.zeroc.Ice.Value
         {
             _goto = var.ice_read(istr_);
         }
-        if(_if = istr_.readOptional(3, com.zeroc.Ice.OptionalFormat.Class))
+        if(_if = istr_.readOptional(3, com.zeroc.Ice.OptionalFormat.FSize))
         {
-            istr_.readValue(v -> _if = v, com.zeroc.Ice.Value.class);
+            istr_.skip(4);
+            _if = explicitPrx.uncheckedCast(istr_.readProxy());
         }
         if(_internal = istr_.readOptional(5, com.zeroc.Ice.OptionalFormat.FSize))
         {

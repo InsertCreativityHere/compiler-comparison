@@ -132,19 +132,19 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice interface ``break``.
+/// Traits for Slice interface``break``.
 public struct breakTraits: Ice.SliceTraits {
     public static let staticIds = ["::BEGIN::break", "::Ice::Object"]
     public static let staticId = "::BEGIN::break"
 }
 
-/// Traits for Slice class `display`.
+/// Traits for Slice class`display`.
 public struct displayTraits: Ice.SliceTraits {
     public static let staticIds = ["::BEGIN::display", "::Ice::Object"]
     public static let staticId = "::BEGIN::display"
 }
 
-/// Traits for Slice interface `elsif`.
+/// Traits for Slice interface`elsif`.
 public struct elsifTraits: Ice.SliceTraits {
     public static let staticIds = ["::BEGIN::break", "::BEGIN::elsif", "::Ice::Object"]
     public static let staticId = "::BEGIN::elsif"
@@ -376,7 +376,7 @@ open class `nil`: next {
     }
 }
 
-/// Traits for Slice interface `extend`.
+/// Traits for Slice interface`extend`.
 public struct extendTraits: Ice.SliceTraits {
     public static let staticIds = ["::BEGIN::extend", "::Ice::Object"]
     public static let staticId = "::BEGIN::extend"
@@ -803,20 +803,20 @@ public extension extendPrx {
     ///
     /// - parameter freeze: `display?`
     ///
-    /// - parameter hash: `Ice.Value?`
+    /// - parameter hash: `elsifPrx?`
     ///
     /// - parameter if: `breakPrx?`
     ///
     /// - parameter inspect: `display?`
     ///
-    /// - parameter method: `Ice.Value?`
+    /// - parameter method: `elsifPrx?`
     ///
     /// - parameter methods: `Swift.Int32`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `END`
-    func `for`(freeze iceP_freeze: display?, hash iceP_hash: Ice.Value?, if iceP_if: breakPrx?, inspect iceP_inspect: display?, method iceP_method: Ice.Value?, methods iceP_methods: Swift.Int32, context: Ice.Context? = nil) throws -> END {
+    func `for`(freeze iceP_freeze: display?, hash iceP_hash: elsifPrx?, if iceP_if: breakPrx?, inspect iceP_inspect: display?, method iceP_method: elsifPrx?, methods iceP_methods: Swift.Int32, context: Ice.Context? = nil) throws -> END {
         return try _impl._invoke(operation: "for",
                                  mode: .Normal,
                                  write: { ostr in
@@ -845,13 +845,13 @@ public extension extendPrx {
     ///
     /// - parameter freeze: `display?`
     ///
-    /// - parameter hash: `Ice.Value?`
+    /// - parameter hash: `elsifPrx?`
     ///
     /// - parameter if: `breakPrx?`
     ///
     /// - parameter inspect: `display?`
     ///
-    /// - parameter method: `Ice.Value?`
+    /// - parameter method: `elsifPrx?`
     ///
     /// - parameter methods: `Swift.Int32`
     ///
@@ -866,7 +866,7 @@ public extension extendPrx {
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
     /// - returns: `PromiseKit.Promise<END>` - The result of the operation
-    func forAsync(freeze iceP_freeze: display?, hash iceP_hash: Ice.Value?, if iceP_if: breakPrx?, inspect iceP_inspect: display?, method iceP_method: Ice.Value?, methods iceP_methods: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<END> {
+    func forAsync(freeze iceP_freeze: display?, hash iceP_hash: elsifPrx?, if iceP_if: breakPrx?, inspect iceP_inspect: display?, method iceP_method: elsifPrx?, methods iceP_methods: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<END> {
         return _impl._invokeAsync(operation: "for",
                                   mode: .Normal,
                                   write: { ostr in
@@ -1084,20 +1084,20 @@ public protocol extend {
     ///
     /// - parameter freeze: `display?`
     ///
-    /// - parameter hash: `Ice.Value?`
+    /// - parameter hash: `elsifPrx?`
     ///
     /// - parameter if: `breakPrx?`
     ///
     /// - parameter inspect: `display?`
     ///
-    /// - parameter method: `Ice.Value?`
+    /// - parameter method: `elsifPrx?`
     ///
     /// - parameter methods: `Swift.Int32`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `END`
-    func `for`(freeze: display?, hash: Ice.Value?, if: breakPrx?, inspect: display?, method: Ice.Value?, methods: Swift.Int32, current: Ice.Current) throws -> END
+    func `for`(freeze: display?, hash: elsifPrx?, if: breakPrx?, inspect: display?, method: elsifPrx?, methods: Swift.Int32, current: Ice.Current) throws -> END
 }
 
 /// break overview.
@@ -1159,16 +1159,14 @@ public extension elsif {}
 ///  - `for`: 
 public extension extend {
     func _iceD_for(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods): (display?, Ice.Value?, breakPrx?, display?, Ice.Value?, Swift.Int32) = try inS.read { istr in
+        let (iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods): (display?, elsifPrx?, breakPrx?, display?, elsifPrx?, Swift.Int32) = try inS.read { istr in
             var iceP_freeze: display?
             try istr.read(display.self) { iceP_freeze = $0 }
-            var iceP_hash: Ice.Value?
-            try istr.read() { iceP_hash = $0 }
+            let iceP_hash: elsifPrx? = try istr.read(elsifPrx.self)
             let iceP_if: breakPrx? = try istr.read(breakPrx.self)
             var iceP_inspect: display?
             try istr.read(display.self) { iceP_inspect = $0 }
-            var iceP_method: Ice.Value?
-            try istr.read() { iceP_method = $0 }
+            let iceP_method: elsifPrx? = try istr.read(elsifPrx.self)
             let iceP_methods: Swift.Int32 = try istr.read()
             try istr.readPendingValues()
             return (iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods)

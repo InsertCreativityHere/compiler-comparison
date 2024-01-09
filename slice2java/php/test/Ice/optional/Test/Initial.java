@@ -538,31 +538,31 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /**
-     * Holds the result of operation opOneOptionalProxy.
+     * Holds the result of operation opMyInterfaceProxy.
      **/
-    public static class OpOneOptionalProxyResult
+    public static class OpMyInterfaceProxyResult
     {
         /**
          * Default constructor.
          **/
-        public OpOneOptionalProxyResult()
+        public OpMyInterfaceProxyResult()
         {
         }
 
-        public OpOneOptionalProxyResult(java.util.Optional<com.zeroc.Ice.ObjectPrx> returnValue, java.util.Optional<com.zeroc.Ice.ObjectPrx> p3)
+        public OpMyInterfaceProxyResult(java.util.Optional<MyInterfacePrx> returnValue, java.util.Optional<MyInterfacePrx> p3)
         {
             this.returnValue = returnValue;
             this.p3 = p3;
         }
 
-        public OpOneOptionalProxyResult(com.zeroc.Ice.ObjectPrx returnValue, com.zeroc.Ice.ObjectPrx p3)
+        public OpMyInterfaceProxyResult(MyInterfacePrx returnValue, MyInterfacePrx p3)
         {
             this.returnValue = java.util.Optional.ofNullable(returnValue);
             this.p3 = java.util.Optional.ofNullable(p3);
         }
 
-        public java.util.Optional<com.zeroc.Ice.ObjectPrx> returnValue;
-        public java.util.Optional<com.zeroc.Ice.ObjectPrx> p3;
+        public java.util.Optional<MyInterfacePrx> returnValue;
+        public java.util.Optional<MyInterfacePrx> p3;
 
         public void write(com.zeroc.Ice.OutputStream ostr)
         {
@@ -572,8 +572,8 @@ public interface Initial extends com.zeroc.Ice.Object
 
         public void read(com.zeroc.Ice.InputStream istr)
         {
-            returnValue = istr.readProxy(1, com.zeroc.Ice.ObjectPrx::uncheckedCast);
-            this.p3 = istr.readProxy(3, com.zeroc.Ice.ObjectPrx::uncheckedCast);
+            returnValue = istr.readProxy(1, MyInterfacePrx::uncheckedCast);
+            this.p3 = istr.readProxy(3, MyInterfacePrx::uncheckedCast);
         }
     }
 
@@ -1676,7 +1676,7 @@ public interface Initial extends com.zeroc.Ice.Object
 
     Initial.OpOneOptionalResult opOneOptional(java.util.Optional<OneOptional> p1, com.zeroc.Ice.Current current);
 
-    Initial.OpOneOptionalProxyResult opOneOptionalProxy(java.util.Optional<com.zeroc.Ice.ObjectPrx> p1, com.zeroc.Ice.Current current);
+    Initial.OpMyInterfaceProxyResult opMyInterfaceProxy(java.util.Optional<MyInterfacePrx> p1, com.zeroc.Ice.Current current);
 
     Initial.OpByteSeqResult opByteSeq(java.util.Optional<byte[]> p1, com.zeroc.Ice.Current current);
 
@@ -2165,14 +2165,14 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opOneOptionalProxy(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opMyInterfaceProxy(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<com.zeroc.Ice.ObjectPrx> iceP_p1;
-        iceP_p1 = istr.readProxy(2, com.zeroc.Ice.ObjectPrx::uncheckedCast);
+        java.util.Optional<MyInterfacePrx> iceP_p1;
+        iceP_p1 = istr.readProxy(2, MyInterfacePrx::uncheckedCast);
         inS.endReadParams();
-        Initial.OpOneOptionalProxyResult ret = obj.opOneOptionalProxy(iceP_p1, current);
+        Initial.OpMyInterfaceProxyResult ret = obj.opMyInterfaceProxy(iceP_p1, current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
         ret.write(ostr);
         inS.endWriteParams(ostr);
@@ -2881,8 +2881,8 @@ public interface Initial extends com.zeroc.Ice.Object
         "opMStruct1",
         "opMStruct2",
         "opMyEnum",
+        "opMyInterfaceProxy",
         "opOneOptional",
-        "opOneOptionalProxy",
         "opOptionalException",
         "opRequiredException",
         "opSerializable",
@@ -3054,11 +3054,11 @@ public interface Initial extends com.zeroc.Ice.Object
             }
             case 33:
             {
-                return _iceD_opOneOptional(this, in, current);
+                return _iceD_opMyInterfaceProxy(this, in, current);
             }
             case 34:
             {
-                return _iceD_opOneOptionalProxy(this, in, current);
+                return _iceD_opOneOptional(this, in, current);
             }
             case 35:
             {

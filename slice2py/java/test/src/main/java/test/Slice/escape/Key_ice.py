@@ -378,14 +378,14 @@ if 'newPrx' not in _M_abstract.__dict__:
     _M_abstract.newPrx = Ice.createTempClass()
     class newPrx(Ice.ObjectPrx):
 
-        def notify(self, notifyAll, null, package, private, protected, public, _return, static, strictfp, super, context=None):
-            return _M_abstract.new._op_notify.invoke(self, ((notifyAll, null, package, private, protected, public, _return, static, strictfp, super), context))
+        def notify(self, notifyAll, null, package, public, _return, static, strictfp, super, context=None):
+            return _M_abstract.new._op_notify.invoke(self, ((notifyAll, null, package, public, _return, static, strictfp, super), context))
 
-        def notifyAsync(self, notifyAll, null, package, private, protected, public, _return, static, strictfp, super, context=None):
-            return _M_abstract.new._op_notify.invokeAsync(self, ((notifyAll, null, package, private, protected, public, _return, static, strictfp, super), context))
+        def notifyAsync(self, notifyAll, null, package, public, _return, static, strictfp, super, context=None):
+            return _M_abstract.new._op_notify.invokeAsync(self, ((notifyAll, null, package, public, _return, static, strictfp, super), context))
 
-        def begin_notify(self, notifyAll, null, package, private, protected, public, _return, static, strictfp, super, _response=None, _ex=None, _sent=None, context=None):
-            return _M_abstract.new._op_notify.begin(self, ((notifyAll, null, package, private, protected, public, _return, static, strictfp, super), _response, _ex, _sent, context))
+        def begin_notify(self, notifyAll, null, package, public, _return, static, strictfp, super, _response=None, _ex=None, _sent=None, context=None):
+            return _M_abstract.new._op_notify.begin(self, ((notifyAll, null, package, public, _return, static, strictfp, super), _response, _ex, _sent, context))
 
         def end_notify(self, _r):
             return _M_abstract.new._op_notify.end(self, _r)
@@ -419,7 +419,7 @@ if 'newPrx' not in _M_abstract.__dict__:
         def ice_staticId():
             return '::abstract::new'
 
-        def notify(self, notifyAll, null, package, private, protected, public, _return, static, strictfp, super, current=None):
+        def notify(self, notifyAll, null, package, public, _return, static, strictfp, super, current=None):
             raise NotImplementedError("servant method 'notify' not implemented")
 
         def __str__(self):
@@ -430,7 +430,7 @@ if 'newPrx' not in _M_abstract.__dict__:
     _M_abstract._t_newDisp = IcePy.defineClass('::abstract::new', new, (), None, ())
     new._ice_type = _M_abstract._t_newDisp
 
-    new._op_notify = IcePy.Operation('notify', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_abstract._t__break, False, 0), ((), _M_abstract._t__else, False, 0), ((), _M_abstract._t_finalize, False, 0), ((), IcePy._t_ObjectPrx, False, 0), ((), _M_abstract._t_finalizePrx, False, 0), ((), _M_abstract._t_catchPrx, False, 0), ((), _M_abstract._t_defaultPrx, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M_abstract._t__assert, False, 0), (_M_abstract._t_hashCode, _M_abstract._t__import))
+    new._op_notify = IcePy.Operation('notify', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_abstract._t__break, False, 0), ((), _M_abstract._t__else, False, 0), ((), _M_abstract._t_finalizePrx, False, 0), ((), _M_abstract._t_catchPrx, False, 0), ((), _M_abstract._t_defaultPrx, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M_abstract._t__assert, False, 0), (_M_abstract._t_hashCode, _M_abstract._t__import))
 
     _M_abstract.new = new
     del new

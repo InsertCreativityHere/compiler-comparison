@@ -17,20 +17,20 @@ package test.Slice.escape._abstract;
 
 public interface newPrx extends com.zeroc.Ice.ObjectPrx
 {
-    default _assert _notify(_break _notifyAll, _else _null, com.zeroc.Ice.Value _package, com.zeroc.Ice.ObjectPrx _private, finalizePrx _protected, catchPrx _public, defaultPrx _return, int _static, int _strictfp, int _super)
+    default _assert _notify(_break _notifyAll, _else _null, finalizePrx _package, catchPrx _public, defaultPrx _return, int _static, int _strictfp, int _super)
         throws _import,
                _hashCode
     {
-        return _notify(_notifyAll, _null, _package, _private, _protected, _public, _return, _static, _strictfp, _super, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        return _notify(_notifyAll, _null, _package, _public, _return, _static, _strictfp, _super, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default _assert _notify(_break _notifyAll, _else _null, com.zeroc.Ice.Value _package, com.zeroc.Ice.ObjectPrx _private, finalizePrx _protected, catchPrx _public, defaultPrx _return, int _static, int _strictfp, int _super, java.util.Map<String, String> context)
+    default _assert _notify(_break _notifyAll, _else _null, finalizePrx _package, catchPrx _public, defaultPrx _return, int _static, int _strictfp, int _super, java.util.Map<String, String> context)
         throws _import,
                _hashCode
     {
         try
         {
-            return _iceI_notifyAsync(_notifyAll, _null, _package, _private, _protected, _public, _return, _static, _strictfp, _super, context, true).waitForResponseOrUserEx();
+            return _iceI_notifyAsync(_notifyAll, _null, _package, _public, _return, _static, _strictfp, _super, context, true).waitForResponseOrUserEx();
         }
         catch(_import ex)
         {
@@ -46,14 +46,14 @@ public interface newPrx extends com.zeroc.Ice.ObjectPrx
         }
     }
 
-    default java.util.concurrent.CompletableFuture<_assert> notifyAsync(_break _notifyAll, _else _null, com.zeroc.Ice.Value _package, com.zeroc.Ice.ObjectPrx _private, finalizePrx _protected, catchPrx _public, defaultPrx _return, int _static, int _strictfp, int _super)
+    default java.util.concurrent.CompletableFuture<_assert> notifyAsync(_break _notifyAll, _else _null, finalizePrx _package, catchPrx _public, defaultPrx _return, int _static, int _strictfp, int _super)
     {
-        return _iceI_notifyAsync(_notifyAll, _null, _package, _private, _protected, _public, _return, _static, _strictfp, _super, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_notifyAsync(_notifyAll, _null, _package, _public, _return, _static, _strictfp, _super, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<_assert> notifyAsync(_break _notifyAll, _else _null, com.zeroc.Ice.Value _package, com.zeroc.Ice.ObjectPrx _private, finalizePrx _protected, catchPrx _public, defaultPrx _return, int _static, int _strictfp, int _super, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<_assert> notifyAsync(_break _notifyAll, _else _null, finalizePrx _package, catchPrx _public, defaultPrx _return, int _static, int _strictfp, int _super, java.util.Map<String, String> context)
     {
-        return _iceI_notifyAsync(_notifyAll, _null, _package, _private, _protected, _public, _return, _static, _strictfp, _super, context, false);
+        return _iceI_notifyAsync(_notifyAll, _null, _package, _public, _return, _static, _strictfp, _super, context, false);
     }
 
     /**
@@ -61,8 +61,6 @@ public interface newPrx extends com.zeroc.Ice.ObjectPrx
      * @param iceP_notifyAll -
      * @param iceP_null -
      * @param iceP_package -
-     * @param iceP_private -
-     * @param iceP_protected -
      * @param iceP_public -
      * @param iceP_return -
      * @param iceP_static -
@@ -72,15 +70,13 @@ public interface newPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<_assert> _iceI_notifyAsync(_break iceP_notifyAll, _else iceP_null, com.zeroc.Ice.Value iceP_package, com.zeroc.Ice.ObjectPrx iceP_private, finalizePrx iceP_protected, catchPrx iceP_public, defaultPrx iceP_return, int iceP_static, int iceP_strictfp, int iceP_super, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<_assert> _iceI_notifyAsync(_break iceP_notifyAll, _else iceP_null, finalizePrx iceP_package, catchPrx iceP_public, defaultPrx iceP_return, int iceP_static, int iceP_strictfp, int iceP_super, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<_assert> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "notify", null, sync, _iceE_notify);
         f.invoke(true, context, null, ostr -> {
                      _break.ice_write(ostr, iceP_notifyAll);
                      ostr.writeValue(iceP_null);
-                     ostr.writeValue(iceP_package);
-                     ostr.writeProxy(iceP_private);
-                     ostr.writeProxy(iceP_protected);
+                     ostr.writeProxy(iceP_package);
                      ostr.writeProxy(iceP_public);
                      ostr.writeProxy(iceP_return);
                      ostr.writeInt(iceP_static);

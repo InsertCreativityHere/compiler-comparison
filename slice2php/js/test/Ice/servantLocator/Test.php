@@ -85,7 +85,6 @@ namespace Test
             return '::Test::TestIntf';
         }
     }
-    $Test__t_TestIntf = IcePHP_defineClass('::Test::TestIntf', '\\Test\\TestIntf', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_TestIntfPrx = IcePHP_defineProxy('::Test::TestIntf', $Ice__t_ObjectPrx, null);
@@ -129,7 +128,6 @@ namespace Test
             return '::Test::TestActivation';
         }
     }
-    $Test__t_TestActivation = IcePHP_defineClass('::Test::TestActivation', '\\Test\\TestActivation', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_TestActivationPrx = IcePHP_defineProxy('::Test::TestActivation', $Ice__t_ObjectPrx, null);
@@ -160,7 +158,6 @@ namespace Test
             return '::Test::Echo';
         }
     }
-    $Test__t_Echo = IcePHP_defineClass('::Test::Echo', '\\Test\\_Echo', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_EchoPrx = IcePHP_defineProxy('::Test::Echo', $Ice__t_ObjectPrx, null);

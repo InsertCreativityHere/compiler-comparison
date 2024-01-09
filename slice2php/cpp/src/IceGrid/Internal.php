@@ -355,7 +355,6 @@ namespace IceGrid
             return '::IceGrid::Adapter';
         }
     }
-    $IceGrid__t_Adapter = IcePHP_defineClass('::IceGrid::Adapter', '\\IceGrid\\Adapter', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceGrid__t_AdapterPrx = IcePHP_defineProxy('::IceGrid::Adapter', $Ice__t_ObjectPrx, null);
@@ -429,7 +428,6 @@ namespace IceGrid
             return '::IceGrid::FileReader';
         }
     }
-    $IceGrid__t_FileReader = IcePHP_defineClass('::IceGrid::FileReader', '\\IceGrid\\FileReader', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceGrid__t_FileReaderPrx = IcePHP_defineProxy('::IceGrid::FileReader', $Ice__t_ObjectPrx, null);
@@ -465,7 +463,6 @@ namespace IceGrid
             return '::IceGrid::Server';
         }
     }
-    $IceGrid__t_Server = IcePHP_defineClass('::IceGrid::Server', '\\IceGrid\\Server', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceGrid__t_ServerPrx = IcePHP_defineProxy('::IceGrid::Server', $Ice__t_ObjectPrx, array($IceGrid__t_FileReaderPrx));
@@ -532,7 +529,6 @@ namespace IceGrid
             return '::IceGrid::ReplicaObserver';
         }
     }
-    $IceGrid__t_ReplicaObserver = IcePHP_defineClass('::IceGrid::ReplicaObserver', '\\IceGrid\\ReplicaObserver', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceGrid__t_ReplicaObserverPrx = IcePHP_defineProxy('::IceGrid::ReplicaObserver', $Ice__t_ObjectPrx, null);
@@ -566,7 +562,6 @@ namespace IceGrid
             return '::IceGrid::PatcherFeedback';
         }
     }
-    $IceGrid__t_PatcherFeedback = IcePHP_defineClass('::IceGrid::PatcherFeedback', '\\IceGrid\\PatcherFeedback', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceGrid__t_PatcherFeedbackPrx = IcePHP_defineProxy('::IceGrid::PatcherFeedback', $Ice__t_ObjectPrx, null);
@@ -598,7 +593,6 @@ namespace IceGrid
             return '::IceGrid::Node';
         }
     }
-    $IceGrid__t_Node = IcePHP_defineClass('::IceGrid::Node', '\\IceGrid\\Node', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceGrid__t_NodePrx = IcePHP_defineProxy('::IceGrid::Node', $Ice__t_ObjectPrx, array($IceGrid__t_FileReaderPrx, $IceGrid__t_ReplicaObserverPrx));
@@ -683,7 +677,6 @@ namespace IceGrid
             return '::IceGrid::NodeSession';
         }
     }
-    $IceGrid__t_NodeSession = IcePHP_defineClass('::IceGrid::NodeSession', '\\IceGrid\\NodeSession', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceGrid__t_NodeSessionPrx = IcePHP_defineProxy('::IceGrid::NodeSession', $Ice__t_ObjectPrx, null);
@@ -765,7 +758,6 @@ namespace IceGrid
             return '::IceGrid::DatabaseObserver';
         }
     }
-    $IceGrid__t_DatabaseObserver = IcePHP_defineClass('::IceGrid::DatabaseObserver', '\\IceGrid\\DatabaseObserver', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceGrid__t_DatabaseObserverPrx = IcePHP_defineProxy('::IceGrid::DatabaseObserver', $Ice__t_ObjectPrx, array($IceGrid__t_ApplicationObserverPrx, $IceGrid__t_ObjectObserverPrx, $IceGrid__t_AdapterObserverPrx));
@@ -805,7 +797,6 @@ namespace IceGrid
             return '::IceGrid::ReplicaSession';
         }
     }
-    $IceGrid__t_ReplicaSession = IcePHP_defineClass('::IceGrid::ReplicaSession', '\\IceGrid\\ReplicaSession', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceGrid__t_ReplicaSessionPrx = IcePHP_defineProxy('::IceGrid::ReplicaSession', $Ice__t_ObjectPrx, null);
@@ -945,7 +936,6 @@ namespace IceGrid
             return '::IceGrid::InternalRegistry';
         }
     }
-    $IceGrid__t_InternalRegistry = IcePHP_defineClass('::IceGrid::InternalRegistry', '\\IceGrid\\InternalRegistry', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceGrid__t_InternalRegistryPrx = IcePHP_defineProxy('::IceGrid::InternalRegistry', $Ice__t_ObjectPrx, array($IceGrid__t_FileReaderPrx));

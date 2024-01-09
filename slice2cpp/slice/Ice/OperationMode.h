@@ -48,6 +48,12 @@
 namespace Ice
 {
 
+
+}
+
+namespace Ice
+{
+
 /**
  * Determines the retry behavior an invocation in case of a (potentially) recoverable error.
  */
@@ -99,6 +105,11 @@ struct StreamableTraits< ::Ice::OperationMode>
 /// \endcond
 
 #else // C++98 mapping
+
+namespace Ice
+{
+
+}
 
 namespace Ice
 {

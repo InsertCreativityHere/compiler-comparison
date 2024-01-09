@@ -45,7 +45,7 @@ public class Leaf extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -1391755932609119609L;
+    public static final long serialVersionUID = -336070238487685068L;
 
     /** @hidden */
     @Override

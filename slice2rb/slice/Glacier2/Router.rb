@@ -80,8 +80,6 @@ module ::Glacier2
             T_RouterPrx = ::Ice::__declareProxy('::Glacier2::Router')
         end
 
-        T_Router.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_RouterPrx.defineProxy(RouterPrx, nil, [::Ice::T_RouterPrx])
 
         RouterPrx_mixin::OP_getCategoryForClient = ::Ice::__defineOperation('getCategoryForClient', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_string, false, 0], [])

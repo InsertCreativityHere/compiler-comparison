@@ -19,7 +19,7 @@ import PromiseKit
 import NoNamespace
 import WithNamespace
 
-/// Traits for Slice interface `Initial`.
+/// Traits for Slice interface`Initial`.
 public struct InitialTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Initial"]
     public static let staticId = "::Test::Initial"

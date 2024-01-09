@@ -71,11 +71,9 @@ module ::Test
 
     if not defined?(::Test::T_MyClass)
         T_MyClass = ::Ice::__declareClass('::Test::MyClass')
-        T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
     end
 
     if not defined?(::Test::T_MyInterface)
-        T_MyInterface = ::Ice::__declareClass('::Test::MyInterface')
         T_MyInterfacePrx = ::Ice::__declareProxy('::Test::MyInterface')
     end
 
@@ -182,10 +180,6 @@ module ::Test
         T_MyClassS = ::Ice::__defineSequence('::Test::MyClassS', ::Test::T_MyClass)
     end
 
-    if not defined?(::Test::T_MyInterfaceS)
-        T_MyInterfaceS = ::Ice::__defineSequence('::Test::MyInterfaceS', ::Test::T_MyInterface)
-    end
-
     if not defined?(::Test::T_BoolSS)
         T_BoolSS = ::Ice::__defineSequence('::Test::BoolSS', ::Ice::T_BoolSeq)
     end
@@ -224,10 +218,6 @@ module ::Test
 
     if not defined?(::Test::T_MyClassSS)
         T_MyClassSS = ::Ice::__defineSequence('::Test::MyClassSS', ::Test::T_MyClassS)
-    end
-
-    if not defined?(::Test::T_MyInterfaceSS)
-        T_MyInterfaceSS = ::Ice::__defineSequence('::Test::MyInterfaceSS', ::Test::T_MyInterfaceS)
     end
 
     if not defined?(::Test::T_ByteBoolD)
@@ -270,10 +260,6 @@ module ::Test
         T_MyClassList = ::Ice::__defineSequence('::Test::MyClassList', ::Test::T_MyClass)
     end
 
-    if not defined?(::Test::T_MyClassProxyList)
-        T_MyClassProxyList = ::Ice::__defineSequence('::Test::MyClassProxyList', ::Ice::T_ObjectPrx)
-    end
-
     if not defined?(::Test::T_MyInterfaceProxyList)
         T_MyInterfaceProxyList = ::Ice::__defineSequence('::Test::MyInterfaceProxyList', ::Test::T_MyInterfacePrx)
     end
@@ -306,10 +292,6 @@ module ::Test
         T_SmallStructStack = ::Ice::__defineSequence('::Test::SmallStructStack', ::Test::T_SmallStruct)
     end
 
-    if not defined?(::Test::T_MyClassProxyStack)
-        T_MyClassProxyStack = ::Ice::__defineSequence('::Test::MyClassProxyStack', ::Ice::T_ObjectPrx)
-    end
-
     if not defined?(::Test::T_MyInterfaceProxyStack)
         T_MyInterfaceProxyStack = ::Ice::__defineSequence('::Test::MyInterfaceProxyStack', ::Test::T_MyInterfacePrx)
     end
@@ -320,10 +302,6 @@ module ::Test
 
     if not defined?(::Test::T_MyClassStack)
         T_MyClassStack = ::Ice::__defineSequence('::Test::MyClassStack', ::Test::T_MyClass)
-    end
-
-    if not defined?(::Test::T_MyInterfaceStack)
-        T_MyInterfaceStack = ::Ice::__defineSequence('::Test::MyInterfaceStack', ::Test::T_MyInterface)
     end
 
     if not defined?(::Test::T_DoubleQueue)
@@ -430,8 +408,6 @@ module ::Test
             T_MyInterface = ::Ice::__declareClass('::Test::MyInterface')
             T_MyInterfacePrx = ::Ice::__declareProxy('::Test::MyInterface')
         end
-
-        T_MyInterface.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_MyInterfacePrx.defineProxy(MyInterfacePrx, nil, [])
     end

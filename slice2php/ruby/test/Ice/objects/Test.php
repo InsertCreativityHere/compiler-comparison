@@ -80,61 +80,6 @@ namespace Test
 
 namespace Test
 {
-    global $Test__t_AbstractBase;
-    global $Test__t_AbstractBasePrx;
-    class AbstractBase extends \Test\Base
-    {
-        public function __construct($theS=null, $str='')
-        {
-            parent::__construct($theS, $str);
-        }
-
-        public function ice_id()
-        {
-            return '::Test::AbstractBase';
-        }
-
-        public static function ice_staticId()
-        {
-            return '::Test::AbstractBase';
-        }
-
-        public function __toString(): string
-        {
-            global $Test__t_AbstractBase;
-            return IcePHP_stringify($this, $Test__t_AbstractBase);
-        }
-    }
-
-    class AbstractBasePrxHelper
-    {
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
-        {
-            return $proxy->ice_checkedCast('::Test::AbstractBase', $facetOrContext, $context);
-        }
-
-        public static function uncheckedCast($proxy, $facet=null)
-        {
-            return $proxy->ice_uncheckedCast('::Test::AbstractBase', $facet);
-        }
-
-        public static function ice_staticId()
-        {
-            return '::Test::AbstractBase';
-        }
-    }
-
-    global $Test__t_Base;
-    $Test__t_AbstractBase = IcePHP_defineClass('::Test::AbstractBase', '\\Test\\AbstractBase', -1, false, false, $Test__t_Base, null);
-
-    global $Ice__t_ObjectPrx;
-    $Test__t_AbstractBasePrx = IcePHP_defineProxy('::Test::AbstractBase', $Ice__t_ObjectPrx, null);
-
-    IcePHP_defineOperation($Test__t_AbstractBasePrx, 'op', 0, 0, 0, null, null, null, null);
-}
-
-namespace Test
-{
     global $Test__t_B;
     if(!isset($Test__t_B))
     {
@@ -460,7 +405,6 @@ namespace Test
             return '::Test::I';
         }
     }
-    $Test__t_I = IcePHP_defineClass('::Test::I', '\\Test\\I', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_IPrx = IcePHP_defineProxy('::Test::I', $Ice__t_ObjectPrx, null);
@@ -488,77 +432,9 @@ namespace Test
             return '::Test::J';
         }
     }
-    $Test__t_J = IcePHP_defineClass('::Test::J', '\\Test\\J', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_JPrx = IcePHP_defineProxy('::Test::J', $Ice__t_ObjectPrx, array($Test__t_IPrx));
-}
-
-namespace Test
-{
-    global $Test__t_H;
-    class H extends \Ice\Value
-    {
-        public function __construct()
-        {
-        }
-
-        public function ice_id()
-        {
-            return '::Test::H';
-        }
-
-        public static function ice_staticId()
-        {
-            return '::Test::H';
-        }
-
-        public function __toString(): string
-        {
-            global $Test__t_H;
-            return IcePHP_stringify($this, $Test__t_H);
-        }
-    }
-
-    global $Ice__t_Value;
-    $Test__t_H = IcePHP_defineClass('::Test::H', '\\Test\\H', -1, false, false, $Ice__t_Value, null);
-}
-
-namespace Test
-{
-    global $Test__t_N;
-    class N extends \Ice\Value
-    {
-        public function __construct($i=null)
-        {
-            $this->i = $i;
-        }
-
-        public function ice_id()
-        {
-            return '::Test::N';
-        }
-
-        public static function ice_staticId()
-        {
-            return '::Test::N';
-        }
-
-        public function __toString(): string
-        {
-            global $Test__t_N;
-            return IcePHP_stringify($this, $Test__t_N);
-        }
-
-        public $i;
-    }
-
-    $Test__t_N = IcePHP_declareClass('::Test::N');
-
-    global $Ice__t_Value;
-    global $Test__t_I;
-    $Test__t_N = IcePHP_defineClass('::Test::N', '\\Test\\N', -1, false, false, $Ice__t_Value, array(
-        array('i', $Test__t_I, false, 0)));
 }
 
 namespace Test
@@ -1104,28 +980,6 @@ namespace Test
 {
     global $Test__t_Initial;
     global $Test__t_InitialPrx;
-    class Initial extends \Ice\Value
-    {
-        public function __construct()
-        {
-        }
-
-        public function ice_id()
-        {
-            return '::Test::Initial';
-        }
-
-        public static function ice_staticId()
-        {
-            return '::Test::Initial';
-        }
-
-        public function __toString(): string
-        {
-            global $Test__t_Initial;
-            return IcePHP_stringify($this, $Test__t_Initial);
-        }
-    }
 
     class InitialPrxHelper
     {
@@ -1145,9 +999,6 @@ namespace Test
         }
     }
 
-    global $Ice__t_Value;
-    $Test__t_Initial = IcePHP_defineClass('::Test::Initial', '\\Test\\Initial', -1, false, false, $Ice__t_Value, null);
-
     global $Ice__t_ObjectPrx;
     $Test__t_InitialPrx = IcePHP_defineProxy('::Test::Initial', $Ice__t_ObjectPrx, null);
 
@@ -1158,7 +1009,6 @@ namespace Test
     global $Test__t_F;
     global $Test__t_Recursive;
     global $IcePHP__t_bool;
-    global $Test__t_I;
     global $Test__t_K;
     global $Ice__t_Value;
     global $Test__t_ValueSeq;
@@ -1171,7 +1021,6 @@ namespace Test
     global $Test__t_F1;
     global $Test__t_F2Prx;
     global $Test__t_F3;
-    global $Test__t_N;
     IcePHP_defineOperation($Test__t_InitialPrx, 'shutdown', 0, 0, 0, null, null, null, null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'getB1', 0, 0, 0, null, null, array($Test__t_B), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'getB2', 0, 0, 0, null, null, array($Test__t_B), null);
@@ -1186,9 +1035,6 @@ namespace Test
     IcePHP_defineOperation($Test__t_InitialPrx, 'getMB', 0, 0, 0, null, null, array($Test__t_B), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'getAMDMB', 0, 0, 0, null, null, array($Test__t_B), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'getAll', 0, 0, 0, null, array(array($Test__t_B), array($Test__t_B), array($Test__t_C), array($Test__t_D)), null, null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getH', 0, 0, 0, null, null, array($Test__t_I), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getI', 0, 0, 0, null, null, array($Test__t_I), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'getJ', 0, 0, 0, null, null, array($Test__t_I), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'getK', 0, 0, 0, null, null, array($Test__t_K), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opValue', 0, 0, 0, array(array($Ice__t_Value)), array(array($Ice__t_Value)), array($Ice__t_Value), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opValueSeq', 0, 0, 0, array(array($Test__t_ValueSeq)), array(array($Test__t_ValueSeq)), array($Test__t_ValueSeq), null);
@@ -1196,7 +1042,6 @@ namespace Test
     IcePHP_defineOperation($Test__t_InitialPrx, 'getD1', 0, 0, 0, array(array($Test__t_D1)), null, array($Test__t_D1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'throwEDerived', 0, 0, 0, null, null, null, array($Test__t_EDerived));
     IcePHP_defineOperation($Test__t_InitialPrx, 'setG', 0, 0, 0, array(array($Test__t_G)), null, null, null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'setI', 0, 0, 0, array(array($Test__t_I)), null, null, null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opBaseSeq', 0, 0, 0, array(array($Test__t_BaseSeq)), array(array($Test__t_BaseSeq)), array($Test__t_BaseSeq), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'getCompact', 0, 0, 0, null, null, array($Test__t_Compact), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opM', 0, 0, 0, array(array($Test__t_M)), array(array($Test__t_M)), array($Test__t_M), null);
@@ -1204,6 +1049,5 @@ namespace Test
     IcePHP_defineOperation($Test__t_InitialPrx, 'opF2', 0, 0, 0, array(array($Test__t_F2Prx)), array(array($Test__t_F2Prx)), array($Test__t_F2Prx), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opF3', 0, 0, 0, array(array($Test__t_F3)), array(array($Test__t_F3)), array($Test__t_F3), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'hasF3', 0, 0, 0, null, null, array($IcePHP__t_bool), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opN', 0, 0, 0, array(array($Test__t_N)), null, array($Test__t_N), null);
 }
 ?>

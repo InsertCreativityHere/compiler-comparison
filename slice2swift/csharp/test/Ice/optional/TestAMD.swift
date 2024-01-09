@@ -17,10 +17,16 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice class `OneOptional`.
+/// Traits for Slice class`OneOptional`.
 public struct OneOptionalTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::OneOptional"]
     public static let staticId = "::Test::OneOptional"
+}
+
+/// Traits for Slice interface`MyInterface`.
+public struct MyInterfaceTraits: Ice.SliceTraits {
+    public static let staticIds = ["::Ice::Object", "::Test::MyInterface"]
+    public static let staticId = "::Test::MyInterface"
 }
 
 public enum MyEnum: Swift.UInt8 {
@@ -784,34 +790,34 @@ public struct OneOptionalSeqHelper {
     }
 }
 
-public typealias OneOptionalPrxSeq = [Ice.ObjectPrx?]
+public typealias MyInterfacePrxSeq = [MyInterfacePrx?]
 
-/// Helper class to read and write `OneOptionalPrxSeq` sequence values from
+/// Helper class to read and write `MyInterfacePrxSeq` sequence values from
 /// `Ice.InputStream` and `Ice.OutputStream`.
-public struct OneOptionalPrxSeqHelper {
-    /// Read a `OneOptionalPrxSeq` sequence from the stream.
+public struct MyInterfacePrxSeqHelper {
+    /// Read a `MyInterfacePrxSeq` sequence from the stream.
     ///
     /// - parameter istr: `Ice.InputStream` - The stream to read from.
     ///
-    /// - returns: `OneOptionalPrxSeq` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream) throws -> OneOptionalPrxSeq {
+    /// - returns: `MyInterfacePrxSeq` - The sequence read from the stream.
+    public static func read(from istr: Ice.InputStream) throws -> MyInterfacePrxSeq {
         let sz = try istr.readAndCheckSeqSize(minSize: 2)
-        var v = OneOptionalPrxSeq()
+        var v = MyInterfacePrxSeq()
         v.reserveCapacity(sz)
         for _ in 0 ..< sz {
-            let j: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+            let j: MyInterfacePrx? = try istr.read(MyInterfacePrx.self)
             v.append(j)
         }
         return v
     }
-    /// Read an optional `OneOptionalPrxSeq?` sequence from the stream.
+    /// Read an optional `MyInterfacePrxSeq?` sequence from the stream.
     ///
     /// - parameter istr: `Ice.InputStream` - The stream to read from.
     ///
     /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
     ///
-    /// - returns: `OneOptionalPrxSeq` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> OneOptionalPrxSeq? {
+    /// - returns: `MyInterfacePrxSeq` - The sequence read from the stream.
+    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> MyInterfacePrxSeq? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
         }
@@ -819,26 +825,26 @@ public struct OneOptionalPrxSeqHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `OneOptionalPrxSeq` sequence to the stream.
+    /// Wite a `MyInterfacePrxSeq` sequence to the stream.
     ///
     /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
     ///
-    /// - parameter value: `OneOptionalPrxSeq` - The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream, value v: OneOptionalPrxSeq) {
+    /// - parameter value: `MyInterfacePrxSeq` - The sequence value to write to the stream.
+    public static func write(to ostr: Ice.OutputStream, value v: MyInterfacePrxSeq) {
         ostr.write(size: v.count)
         for item in v {
             ostr.write(item)
         }
     }
 
-    /// Wite an optional `OneOptionalPrxSeq?` sequence to the stream.
+    /// Wite an optional `MyInterfacePrxSeq?` sequence to the stream.
     ///
     /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
     ///
     /// - parameter tag: `Int32` - The numeric tag associated with the value.
     ///
-    /// - parameter value: `OneOptionalPrxSeq` The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: OneOptionalPrxSeq?) {
+    /// - parameter value: `MyInterfacePrxSeq` The sequence value to write to the stream.
+    public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: MyInterfacePrxSeq?) {
         guard let val = v else {
             return
         }
@@ -1257,34 +1263,34 @@ public struct IntOneOptionalDictHelper {
     }
 }
 
-public typealias IntOneOptionalPrxDict = [Swift.Int32: Ice.ObjectPrx?]
+public typealias IntMyInterfacePrxDict = [Swift.Int32: MyInterfacePrx?]
 
-/// Helper class to read and write `IntOneOptionalPrxDict` dictionary values from
+/// Helper class to read and write `IntMyInterfacePrxDict` dictionary values from
 /// `Ice.InputStream` and `Ice.OutputStream`.
-public struct IntOneOptionalPrxDictHelper {
-    /// Read a `IntOneOptionalPrxDict` dictionary from the stream.
+public struct IntMyInterfacePrxDictHelper {
+    /// Read a `IntMyInterfacePrxDict` dictionary from the stream.
     ///
     /// - parameter istr: `Ice.InputStream` - The stream to read from.
     ///
-    /// - returns: `IntOneOptionalPrxDict` - The dictionary read from the stream.
-    public static func read(from istr: Ice.InputStream) throws -> IntOneOptionalPrxDict {
+    /// - returns: `IntMyInterfacePrxDict` - The dictionary read from the stream.
+    public static func read(from istr: Ice.InputStream) throws -> IntMyInterfacePrxDict {
         let sz = try Swift.Int(istr.readSize())
-        var v = IntOneOptionalPrxDict()
+        var v = IntMyInterfacePrxDict()
         for _ in 0 ..< sz {
             let key: Swift.Int32 = try istr.read()
-            let value: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
+            let value: MyInterfacePrx? = try istr.read(MyInterfacePrx.self)
             v[key] = value
         }
         return v
     }
-    /// Read an optional `IntOneOptionalPrxDict?` dictionary from the stream.
+    /// Read an optional `IntMyInterfacePrxDict?` dictionary from the stream.
     ///
     /// - parameter istr: `Ice.InputStream` - The stream to read from.
     ///
     /// - parameter tag: `Int32` - The numeric tag associated with the value.
     ///
-    /// - returns: `IntOneOptionalPrxDict` - The dictionary read from the stream.
-    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> IntOneOptionalPrxDict? {
+    /// - returns: `IntMyInterfacePrxDict` - The dictionary read from the stream.
+    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> IntMyInterfacePrxDict? {
         guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
             return nil
         }
@@ -1292,12 +1298,12 @@ public struct IntOneOptionalPrxDictHelper {
         return try read(from: istr)
     }
 
-    /// Wite a `IntOneOptionalPrxDict` dictionary to the stream.
+    /// Wite a `IntMyInterfacePrxDict` dictionary to the stream.
     ///
     /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
     ///
-    /// - parameter value: `IntOneOptionalPrxDict` - The dictionary value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream, value v: IntOneOptionalPrxDict) {
+    /// - parameter value: `IntMyInterfacePrxDict` - The dictionary value to write to the stream.
+    public static func write(to ostr: Ice.OutputStream, value v: IntMyInterfacePrxDict) {
         ostr.write(size: v.count)
         for (key, value) in v {
             ostr.write(key)
@@ -1305,14 +1311,14 @@ public struct IntOneOptionalPrxDictHelper {
         }
     }
 
-    /// Wite an optional `IntOneOptionalPrxDict?` dictionary to the stream.
+    /// Wite an optional `IntMyInterfacePrxDict?` dictionary to the stream.
     ///
     /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
     ///
     /// - parameter tag: `Int32` - The numeric tag associated with the value.
     ///
-    /// - parameter value: `IntOneOptionalPrxDict` - The dictionary value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: IntOneOptionalPrxDict?) {
+    /// - parameter value: `IntMyInterfacePrxDict` - The dictionary value to write to the stream.
+    public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: IntMyInterfacePrxDict?) {
         guard let val = v else {
             return
         }
@@ -1324,31 +1330,31 @@ public struct IntOneOptionalPrxDictHelper {
     }
 }
 
-/// Traits for Slice class `MultiOptional`.
+/// Traits for Slice class`MultiOptional`.
 public struct MultiOptionalTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MultiOptional"]
     public static let staticId = "::Test::MultiOptional"
 }
 
-/// Traits for Slice class `A`.
+/// Traits for Slice class`A`.
 public struct ATraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::A"]
     public static let staticId = "::Test::A"
 }
 
-/// Traits for Slice class `B`.
+/// Traits for Slice class`B`.
 public struct BTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::A", "::Test::B"]
     public static let staticId = "::Test::B"
 }
 
-/// Traits for Slice class `C`.
+/// Traits for Slice class`C`.
 public struct CTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::A", "::Test::B", "::Test::C"]
     public static let staticId = "::Test::C"
 }
 
-/// Traits for Slice class `WD`.
+/// Traits for Slice class`WD`.
 public struct WDTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::WD"]
     public static let staticId = "::Test::WD"
@@ -1522,37 +1528,37 @@ open class RequiredException: OptionalException {
     }
 }
 
-/// Traits for Slice class `OptionalWithCustom`.
+/// Traits for Slice class`OptionalWithCustom`.
 public struct OptionalWithCustomTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::OptionalWithCustom"]
     public static let staticId = "::Test::OptionalWithCustom"
 }
 
-/// Traits for Slice class `E`.
+/// Traits for Slice class`E`.
 public struct ETraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::E"]
     public static let staticId = "::Test::E"
 }
 
-/// Traits for Slice class `F`.
+/// Traits for Slice class`F`.
 public struct FTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::E", "::Test::F"]
     public static let staticId = "::Test::F"
 }
 
-/// Traits for Slice class `G1`.
+/// Traits for Slice class`G1`.
 public struct G1Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::G1"]
     public static let staticId = "::Test::G1"
 }
 
-/// Traits for Slice class `G2`.
+/// Traits for Slice class`G2`.
 public struct G2Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::G2"]
     public static let staticId = "::Test::G2"
 }
 
-/// Traits for Slice class `G`.
+/// Traits for Slice class`G`.
 public struct GTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::G"]
     public static let staticId = "::Test::G"
@@ -1624,16 +1630,136 @@ public struct RecursiveSeqHelper {
     }
 }
 
-/// Traits for Slice class `Recursive`.
+/// Traits for Slice class`Recursive`.
 public struct RecursiveTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Recursive"]
     public static let staticId = "::Test::Recursive"
 }
 
-/// Traits for Slice interface `Initial`.
+/// Traits for Slice interface`Initial`.
 public struct InitialTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Initial"]
     public static let staticId = "::Test::Initial"
+}
+
+/// MyInterfacePrx overview.
+///
+/// MyInterfacePrx Methods:
+///
+///  - op: 
+///
+///  - opAsync: 
+public protocol MyInterfacePrx: Ice.ObjectPrx {}
+
+private final class MyInterfacePrxI: Ice.ObjectPrxI, MyInterfacePrx {
+    public override class func ice_staticId() -> Swift.String {
+        return MyInterfaceTraits.staticId
+    }
+}
+
+/// Casts a proxy to the requested type. This call contacts the server and verifies that the object
+/// implements this type.
+///
+/// It will throw a local exception if a communication error occurs. You can optionally supply a
+/// facet name and a context map.
+///
+/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+///
+/// - parameter type: `MyInterfacePrx.Protocol` - The proxy type to cast to.
+///
+/// - parameter facet: `String` - The optional name of the desired facet.
+///
+/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
+///
+/// - returns: `MyInterfacePrx` - A proxy with the requested type or nil if the objet does not
+///   support this type.
+///
+/// - throws: `Ice.LocalException` if a communication error occurs.
+public func checkedCast(prx: Ice.ObjectPrx, type: MyInterfacePrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> MyInterfacePrx? {
+    return try MyInterfacePrxI.checkedCast(prx: prx, facet: facet, context: context) as MyInterfacePrxI?
+}
+
+/// Downcasts the given proxy to this type without contacting the remote server.
+///
+/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+///
+/// - parameter type: `MyInterfacePrx.Protocol` - The proxy type to cast to.
+///
+/// - parameter facet: `String` - The optional name of the desired facet
+///
+/// - returns: `MyInterfacePrx` - A proxy with the requested type
+public func uncheckedCast(prx: Ice.ObjectPrx, type: MyInterfacePrx.Protocol, facet: Swift.String? = nil) -> MyInterfacePrx {
+    return MyInterfacePrxI.uncheckedCast(prx: prx, facet: facet) as MyInterfacePrxI
+}
+
+/// Returns the Slice type id of the interface or class associated with this proxy type.
+///
+/// parameter type: `MyInterfacePrx.Protocol` -  The proxy type to retrieve the type id.
+///
+/// returns: `String` - The type id of the interface or class associated with this proxy type.
+public func ice_staticId(_ type: MyInterfacePrx.Protocol) -> Swift.String {
+    return MyInterfaceTraits.staticId
+}
+
+/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// `MyInterfacePrx`.
+public extension Ice.InputStream {
+    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
+    ///
+    /// - parameter type: `MyInterfacePrx.Protocol` - The type of the proxy to be extracted.
+    ///
+    /// - returns: `MyInterfacePrx?` - The extracted proxy
+    func read(_ type: MyInterfacePrx.Protocol) throws -> MyInterfacePrx? {
+        return try read() as MyInterfacePrxI?
+    }
+    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
+    ///
+    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    ///
+    /// - parameter type: `MyInterfacePrx.Protocol` - The type of the proxy to be extracted.
+    ///
+    /// - returns: `MyInterfacePrx` - The extracted proxy.
+    func read(tag: Swift.Int32, type: MyInterfacePrx.Protocol) throws -> MyInterfacePrx? {
+        return try read(tag: tag) as MyInterfacePrxI?
+    }
+}
+
+/// MyInterfacePrx overview.
+///
+/// MyInterfacePrx Methods:
+///
+///  - op: 
+///
+///  - opAsync: 
+public extension MyInterfacePrx {
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    func op(context: Ice.Context? = nil) throws {
+        try _impl._invoke(operation: "op",
+                          mode: .Normal,
+                          context: context)
+    }
+
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    ///
+    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
+    ///   dispatch the sent callback.
+    ///
+    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
+    ///   to dispatch the sent callback
+    ///
+    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
+    ///
+    /// - returns: `PromiseKit.Promise<>` - The result of the operation
+    func opAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
+        return _impl._invokeAsync(operation: "op",
+                                  mode: .Normal,
+                                  context: context,
+                                  sentOn: sentOn,
+                                  sentFlags: sentFlags,
+                                  sent: sent)
+    }
 }
 
 /// InitialPrx overview.
@@ -1712,9 +1838,9 @@ public struct InitialTraits: Ice.SliceTraits {
 ///
 ///  - opOneOptionalAsync: 
 ///
-///  - opOneOptionalProxy: 
+///  - opMyInterfaceProxy: 
 ///
-///  - opOneOptionalProxyAsync: 
+///  - opMyInterfaceProxyAsync: 
 ///
 ///  - opByteSeq: 
 ///
@@ -1998,9 +2124,9 @@ public extension Ice.InputStream {
 ///
 ///  - opOneOptionalAsync: 
 ///
-///  - opOneOptionalProxy: 
+///  - opMyInterfaceProxy: 
 ///
-///  - opOneOptionalProxyAsync: 
+///  - opMyInterfaceProxyAsync: 
 ///
 ///  - opByteSeq: 
 ///
@@ -3133,31 +3259,31 @@ public extension InitialPrx {
     }
 
     ///
-    /// - parameter _: `Ice.ObjectPrx?`
+    /// - parameter _: `MyInterfacePrx?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `(returnValue: Ice.ObjectPrx?, p3: Ice.ObjectPrx?)`:
+    /// - returns: `(returnValue: MyInterfacePrx?, p3: MyInterfacePrx?)`:
     ///
-    ///   - returnValue: `Ice.ObjectPrx?`
+    ///   - returnValue: `MyInterfacePrx?`
     ///
-    ///   - p3: `Ice.ObjectPrx?`
-    func opOneOptionalProxy(_ iceP_p1: Ice.ObjectPrx? = nil, context: Ice.Context? = nil) throws -> (returnValue: Ice.ObjectPrx?, p3: Ice.ObjectPrx?) {
-        return try _impl._invoke(operation: "opOneOptionalProxy",
+    ///   - p3: `MyInterfacePrx?`
+    func opMyInterfaceProxy(_ iceP_p1: MyInterfacePrx? = nil, context: Ice.Context? = nil) throws -> (returnValue: MyInterfacePrx?, p3: MyInterfacePrx?) {
+        return try _impl._invoke(operation: "opMyInterfaceProxy",
                                  mode: .Normal,
                                  write: { ostr in
                                      ostr.write(tag: 2, value: iceP_p1)
                                  },
                                  read: { istr in
-                                     let iceP_returnValue: Ice.ObjectPrx? = try istr.read(tag: 1, type: Ice.ObjectPrx.self)
-                                     let iceP_p3: Ice.ObjectPrx? = try istr.read(tag: 3, type: Ice.ObjectPrx.self)
+                                     let iceP_returnValue: MyInterfacePrx? = try istr.read(tag: 1, type: MyInterfacePrx.self)
+                                     let iceP_p3: MyInterfacePrx? = try istr.read(tag: 3, type: MyInterfacePrx.self)
                                      return (iceP_returnValue, iceP_p3)
                                  },
                                  context: context)
     }
 
     ///
-    /// - parameter _: `Ice.ObjectPrx?`
+    /// - parameter _: `MyInterfacePrx?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -3169,16 +3295,16 @@ public extension InitialPrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: Ice.ObjectPrx?, p3: Ice.ObjectPrx?)>` - The result of the operation
-    func opOneOptionalProxyAsync(_ iceP_p1: Ice.ObjectPrx? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: Ice.ObjectPrx?, p3: Ice.ObjectPrx?)> {
-        return _impl._invokeAsync(operation: "opOneOptionalProxy",
+    /// - returns: `PromiseKit.Promise<(returnValue: MyInterfacePrx?, p3: MyInterfacePrx?)>` - The result of the operation
+    func opMyInterfaceProxyAsync(_ iceP_p1: MyInterfacePrx? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: MyInterfacePrx?, p3: MyInterfacePrx?)> {
+        return _impl._invokeAsync(operation: "opMyInterfaceProxy",
                                   mode: .Normal,
                                   write: { ostr in
                                       ostr.write(tag: 2, value: iceP_p1)
                                   },
                                   read: { istr in
-                                      let iceP_returnValue: Ice.ObjectPrx? = try istr.read(tag: 1, type: Ice.ObjectPrx.self)
-                                      let iceP_p3: Ice.ObjectPrx? = try istr.read(tag: 3, type: Ice.ObjectPrx.self)
+                                      let iceP_returnValue: MyInterfacePrx? = try istr.read(tag: 1, type: MyInterfacePrx.self)
+                                      let iceP_p3: MyInterfacePrx? = try istr.read(tag: 3, type: MyInterfacePrx.self)
                                       return (iceP_returnValue, iceP_p3)
                                   },
                                   context: context,
@@ -4899,7 +5025,7 @@ open class MultiOptional: Ice.Value {
     public var g: Swift.Double? = nil
     public var h: Swift.String? = nil
     public var i: MyEnum? = nil
-    public var j: Ice.ObjectPrx? = nil
+    public var j: MyInterfacePrx? = nil
     public var k: MultiOptional? = nil
     public var bs: ByteSeq? = nil
     public var ss: StringSeq? = nil
@@ -4912,17 +5038,17 @@ open class MultiOptional: Ice.Value {
     public var fss: FixedStructSeq? = nil
     public var vss: VarStructSeq? = nil
     public var oos: OneOptionalSeq? = nil
-    public var oops: OneOptionalPrxSeq? = nil
+    public var mips: MyInterfacePrxSeq? = nil
     public var ied: IntEnumDict? = nil
     public var ifsd: IntFixedStructDict? = nil
     public var ivsd: IntVarStructDict? = nil
     public var iood: IntOneOptionalDict? = nil
-    public var ioopd: IntOneOptionalPrxDict? = nil
+    public var imipd: IntMyInterfacePrxDict? = nil
     public var bos: BoolSeq? = nil
 
     public required init() {}
 
-    public init(a: Swift.UInt8?, b: Swift.Bool?, c: Swift.Int16?, d: Swift.Int32?, e: Swift.Int64?, f: Swift.Float?, g: Swift.Double?, h: Swift.String?, i: MyEnum?, j: Ice.ObjectPrx?, k: MultiOptional?, bs: ByteSeq?, ss: StringSeq?, iid: IntIntDict?, sid: StringIntDict?, fs: FixedStruct?, vs: VarStruct?, shs: ShortSeq?, es: MyEnumSeq?, fss: FixedStructSeq?, vss: VarStructSeq?, oos: OneOptionalSeq?, oops: OneOptionalPrxSeq?, ied: IntEnumDict?, ifsd: IntFixedStructDict?, ivsd: IntVarStructDict?, iood: IntOneOptionalDict?, ioopd: IntOneOptionalPrxDict?, bos: BoolSeq?) {
+    public init(a: Swift.UInt8?, b: Swift.Bool?, c: Swift.Int16?, d: Swift.Int32?, e: Swift.Int64?, f: Swift.Float?, g: Swift.Double?, h: Swift.String?, i: MyEnum?, j: MyInterfacePrx?, k: MultiOptional?, bs: ByteSeq?, ss: StringSeq?, iid: IntIntDict?, sid: StringIntDict?, fs: FixedStruct?, vs: VarStruct?, shs: ShortSeq?, es: MyEnumSeq?, fss: FixedStructSeq?, vss: VarStructSeq?, oos: OneOptionalSeq?, mips: MyInterfacePrxSeq?, ied: IntEnumDict?, ifsd: IntFixedStructDict?, ivsd: IntVarStructDict?, iood: IntOneOptionalDict?, imipd: IntMyInterfacePrxDict?, bos: BoolSeq?) {
         self.a = a
         self.b = b
         self.c = c
@@ -4945,12 +5071,12 @@ open class MultiOptional: Ice.Value {
         self.fss = fss
         self.vss = vss
         self.oos = oos
-        self.oops = oops
+        self.mips = mips
         self.ied = ied
         self.ifsd = ifsd
         self.ivsd = ivsd
         self.iood = iood
-        self.ioopd = ioopd
+        self.imipd = imipd
         self.bos = bos
     }
 
@@ -4979,7 +5105,7 @@ open class MultiOptional: Ice.Value {
         self.g = try istr.read(tag: 7)
         self.h = try istr.read(tag: 8)
         self.i = try istr.read(tag: 9)
-        self.j = try istr.read(tag: 10, type: Ice.ObjectPrx.self)
+        self.j = try istr.read(tag: 10, type: MyInterfacePrx.self)
         try istr.read(tag: 11, value: MultiOptional.self) { self.k = $0 }
         self.bs = try istr.read(tag: 12)
         self.ss = try istr.read(tag: 13)
@@ -4992,12 +5118,12 @@ open class MultiOptional: Ice.Value {
         self.fss = try FixedStructSeqHelper.read(from: istr, tag: 20)
         self.vss = try VarStructSeqHelper.read(from: istr, tag: 21)
         self.oos = try OneOptionalSeqHelper.read(from: istr, tag: 22)
-        self.oops = try OneOptionalPrxSeqHelper.read(from: istr, tag: 23)
+        self.mips = try MyInterfacePrxSeqHelper.read(from: istr, tag: 23)
         self.ied = try IntEnumDictHelper.read(from: istr, tag: 24)
         self.ifsd = try IntFixedStructDictHelper.read(from: istr, tag: 25)
         self.ivsd = try IntVarStructDictHelper.read(from: istr, tag: 26)
         self.iood = try IntOneOptionalDictHelper.read(from: istr, tag: 27)
-        self.ioopd = try IntOneOptionalPrxDictHelper.read(from: istr, tag: 28)
+        self.imipd = try IntMyInterfacePrxDictHelper.read(from: istr, tag: 28)
         self.bos = try istr.read(tag: 29)
         try istr.endSlice()
     }
@@ -5026,12 +5152,12 @@ open class MultiOptional: Ice.Value {
         FixedStructSeqHelper.write(to: ostr, tag: 20, value: self.fss)
         VarStructSeqHelper.write(to: ostr, tag: 21, value: self.vss)
         OneOptionalSeqHelper.write(to: ostr, tag: 22, value: self.oos)
-        OneOptionalPrxSeqHelper.write(to: ostr, tag: 23, value: self.oops)
+        MyInterfacePrxSeqHelper.write(to: ostr, tag: 23, value: self.mips)
         IntEnumDictHelper.write(to: ostr, tag: 24, value: self.ied)
         IntFixedStructDictHelper.write(to: ostr, tag: 25, value: self.ifsd)
         IntVarStructDictHelper.write(to: ostr, tag: 26, value: self.ivsd)
         IntOneOptionalDictHelper.write(to: ostr, tag: 27, value: self.iood)
-        IntOneOptionalPrxDictHelper.write(to: ostr, tag: 28, value: self.ioopd)
+        IntMyInterfacePrxDictHelper.write(to: ostr, tag: 28, value: self.imipd)
         ostr.write(tag: 29, value: self.bos)
         ostr.endSlice()
     }
@@ -5657,6 +5783,41 @@ open class Recursive: Ice.Value {
 }
 
 
+/// Dispatcher for `MyInterface` servants.
+public struct MyInterfaceDisp: Ice.Disp {
+    public let servant: MyInterface
+    private static let defaultObject = Ice.ObjectI<MyInterfaceTraits>()
+
+    public init(_ servant: MyInterface) {
+        self.servant = servant
+    }
+
+    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
+        request.startOver()
+        switch current.operation {
+        case "ice_id":
+            return try (servant as? Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+        case "ice_ids":
+            return try (servant as? Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+        case "ice_isA":
+            return try (servant as? Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+        case "ice_ping":
+            return try (servant as? Object ?? MyInterfaceDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+        case "op":
+            return try servant._iceD_op(incoming: request, current: current)
+        default:
+            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+        }
+    }
+}
+
+public protocol MyInterface {
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    func op(current: Ice.Current) throws
+}
+
+
 /// Dispatcher for `Initial` servants.
 public struct InitialDisp: Ice.Disp {
     public let servant: Initial
@@ -5735,10 +5896,10 @@ public struct InitialDisp: Ice.Disp {
             return try servant._iceD_opMStruct2(incoming: request, current: current)
         case "opMyEnum":
             return try servant._iceD_opMyEnum(incoming: request, current: current)
+        case "opMyInterfaceProxy":
+            return try servant._iceD_opMyInterfaceProxy(incoming: request, current: current)
         case "opOneOptional":
             return try servant._iceD_opOneOptional(incoming: request, current: current)
-        case "opOneOptionalProxy":
-            return try servant._iceD_opOneOptionalProxy(incoming: request, current: current)
         case "opOptionalException":
             return try servant._iceD_opOptionalException(incoming: request, current: current)
         case "opRequiredException":
@@ -5943,12 +6104,12 @@ public protocol Initial {
     func opOneOptionalAsync(p1: OneOptional?, current: Ice.Current) -> PromiseKit.Promise<(returnValue: OneOptional?, p3: OneOptional?)>
 
     ///
-    /// - parameter p1: `Ice.ObjectPrx?`
+    /// - parameter p1: `MyInterfacePrx?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: Ice.ObjectPrx?, p3: Ice.ObjectPrx?)>` - The result of the operation
-    func opOneOptionalProxyAsync(p1: Ice.ObjectPrx?, current: Ice.Current) -> PromiseKit.Promise<(returnValue: Ice.ObjectPrx?, p3: Ice.ObjectPrx?)>
+    /// - returns: `PromiseKit.Promise<(returnValue: MyInterfacePrx?, p3: MyInterfacePrx?)>` - The result of the operation
+    func opMyInterfaceProxyAsync(p1: MyInterfacePrx?, current: Ice.Current) -> PromiseKit.Promise<(returnValue: MyInterfacePrx?, p3: MyInterfacePrx?)>
 
     ///
     /// - parameter p1: `ByteSeq?`
@@ -6199,6 +6360,21 @@ public protocol Initial {
     func supportsNullOptionalAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Bool>
 }
 
+/// MyInterface overview.
+///
+/// MyInterface Methods:
+///
+///  - op: 
+public extension MyInterface {
+    func _iceD_op(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
+        try inS.readEmptyParams()
+
+        try self.op(current: current)
+
+        return inS.setResult()
+    }
+}
+
 /// Initial overview.
 ///
 /// Initial Methods:
@@ -6239,7 +6415,7 @@ public protocol Initial {
 ///
 ///  - opOneOptional: 
 ///
-///  - opOneOptionalProxy: 
+///  - opMyInterfaceProxy: 
 ///
 ///  - opByteSeq: 
 ///
@@ -6534,13 +6710,13 @@ public extension Initial {
         }
     }
 
-    func _iceD_opOneOptionalProxy(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_p1: Ice.ObjectPrx? = try inS.read { istr in
-            let iceP_p1: Ice.ObjectPrx? = try istr.read(tag: 2, type: Ice.ObjectPrx.self)
+    func _iceD_opMyInterfaceProxy(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
+        let iceP_p1: MyInterfacePrx? = try inS.read { istr in
+            let iceP_p1: MyInterfacePrx? = try istr.read(tag: 2, type: MyInterfacePrx.self)
             return iceP_p1
         }
 
-        return inS.setResultPromise(opOneOptionalProxyAsync(p1: iceP_p1, current: current)) { (ostr, retVals) in
+        return inS.setResultPromise(opMyInterfaceProxyAsync(p1: iceP_p1, current: current)) { (ostr, retVals) in
             let (iceP_returnValue, iceP_p3) = retVals
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)

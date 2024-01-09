@@ -44,8 +44,6 @@ module ::Test
             T_BackendPrx = ::Ice::__declareProxy('::Test::Backend')
         end
 
-        T_Backend.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_BackendPrx.defineProxy(BackendPrx, nil, [])
 
         BackendPrx_mixin::OP_check = ::Ice::__defineOperation('check', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
@@ -178,8 +176,6 @@ module ::Test
             T_TestControllerPrx = ::Ice::__declareProxy('::Test::TestController')
         end
 
-        T_TestController.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_TestControllerPrx.defineProxy(TestControllerPrx, nil, [])
 
         TestControllerPrx_mixin::OP_step = ::Ice::__defineOperation('step', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Glacier2::T_SessionPrx, false, 0], [::Test::T_TestToken, false, 0]], [[::Test::T_TestToken, false, 0]], nil, [])
@@ -207,8 +203,6 @@ module ::Test
             T_TestSession = ::Ice::__declareClass('::Test::TestSession')
             T_TestSessionPrx = ::Ice::__declareProxy('::Test::TestSession')
         end
-
-        T_TestSession.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_TestSessionPrx.defineProxy(TestSessionPrx, nil, [::Glacier2::T_SessionPrx])
 

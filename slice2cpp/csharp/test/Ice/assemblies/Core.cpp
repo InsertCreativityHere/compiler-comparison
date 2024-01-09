@@ -63,6 +63,11 @@ Core::ArgumentException::ice_staticId()
 namespace
 {
 
+}
+
+namespace
+{
+
 const ::IceInternal::DefaultUserExceptionFactoryInit< ::Core::ArgumentException> iceC_Core_ArgumentException_init("::Core::ArgumentException");
 
 }

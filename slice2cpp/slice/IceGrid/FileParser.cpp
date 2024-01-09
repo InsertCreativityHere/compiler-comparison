@@ -356,11 +356,6 @@ IceGrid::FileParser::~FileParser()
 {
 }
 
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(FileParser* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_IceGrid_FileParser_ids[2] =
@@ -466,36 +461,6 @@ IceGrid::FileParser::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
             assert(false);
             throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
         }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-IceGrid::FileParser::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< FileParser, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::FileParser::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< FileParser, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchObjectPtr(FileParserPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = FileParserPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(FileParser::ice_staticId(), v);
     }
 }
 /// \endcond

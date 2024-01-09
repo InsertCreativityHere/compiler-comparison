@@ -305,17 +305,11 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Hello>&);
 
 namespace Test
 {
-
-class Hello;
-/// \cond INTERNAL
-::Ice::Object* upCast(Hello*);
-/// \endcond
-typedef ::IceInternal::Handle< Hello> HelloPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Hello> HelloPrx;
 typedef HelloPrx HelloPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(HelloPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class Hello;
+typedef ::IceInternal::Handle< Hello> HelloPtr;
 
 }
 
@@ -583,7 +577,6 @@ class Hello : public virtual ::Ice::Object
 public:
 
     typedef HelloPrx ProxyType;
-    typedef HelloPtr PointerType;
 
     virtual ~Hello();
     Hello() = default;
@@ -641,26 +634,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const Hello& lhs, const Hello& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Hello& lhs, const Hello& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 }
 

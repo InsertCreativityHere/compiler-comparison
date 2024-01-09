@@ -55,8 +55,4 @@ namespace
 
 }
 
-namespace Ice
-{
-}
-
 #endif

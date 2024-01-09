@@ -47,6 +47,11 @@ class RegistryPrx;
 namespace User
 {
 
+}
+
+namespace User
+{
+
 class Registry : public virtual ::Ice::Object
 {
 public:
@@ -209,12 +214,6 @@ namespace IceProxy
 namespace User
 {
 
-class UserInfo;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< UserInfo>&);
-::IceProxy::Ice::Object* upCast(UserInfo*);
-/// \endcond
-
 class Registry;
 /// \cond INTERNAL
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Registry>&);
@@ -233,22 +232,19 @@ class UserInfo;
 ::Ice::Object* upCast(UserInfo*);
 /// \endcond
 typedef ::IceInternal::Handle< UserInfo> UserInfoPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::User::UserInfo> UserInfoPrx;
-typedef UserInfoPrx UserInfoPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(UserInfoPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-class Registry;
-/// \cond INTERNAL
-::Ice::Object* upCast(Registry*);
-/// \endcond
-typedef ::IceInternal::Handle< Registry> RegistryPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::User::Registry> RegistryPrx;
 typedef RegistryPrx RegistryPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(RegistryPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class Registry;
+typedef ::IceInternal::Handle< Registry> RegistryPtr;
+
+}
+
+namespace User
+{
 
 }
 
@@ -270,23 +266,6 @@ namespace IceProxy
 
 namespace User
 {
-
-class UserInfo : public virtual ::Ice::Proxy<UserInfo, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
 
 class Registry : public virtual ::Ice::Proxy<Registry, ::IceProxy::Ice::Object>
 {
@@ -350,11 +329,64 @@ protected:
 namespace User
 {
 
+class Registry : public virtual ::Ice::Object
+{
+public:
+
+    typedef RegistryPrx ProxyType;
+
+    virtual ~Registry();
+    Registry() = default;
+    Registry(const Registry&) = default;
+    Registry& operator=(const Registry&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual UserInfoPtr getUserInfo(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getUserInfo(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
+
+}
+
+namespace User
+{
+
 class UserInfo : public virtual ::Ice::Object
 {
 public:
 
-    typedef UserInfoPrx ProxyType;
     typedef UserInfoPtr PointerType;
 
     virtual ~UserInfo();
@@ -423,75 +455,6 @@ inline bool operator==(const UserInfo& lhs, const UserInfo& rhs)
 }
 
 inline bool operator<(const UserInfo& lhs, const UserInfo& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class Registry : public virtual ::Ice::Object
-{
-public:
-
-    typedef RegistryPrx ProxyType;
-    typedef RegistryPtr PointerType;
-
-    virtual ~Registry();
-    Registry() = default;
-    Registry(const Registry&) = default;
-    Registry& operator=(const Registry&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual UserInfoPtr getUserInfo(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getUserInfo(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const Registry& lhs, const Registry& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Registry& lhs, const Registry& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
 }

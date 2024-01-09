@@ -226,7 +226,6 @@ namespace Ice
  * servers to get the locator registry proxy. <p class="Note">The {@link Locator} interface is intended to be used by
  * Ice internals and by locator implementations. Regular user code should not attempt to use any functionality of this
  * interface directly.
- * \headerfile Ice/Ice.h
  */
 class ICE_API Locator : public virtual Object
 {
@@ -308,7 +307,6 @@ public:
  * The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
  * locator. <p class="Note"> The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
  * locator implementations. Regular user code should not attempt to use any functionality of this interface directly.
- * \headerfile Ice/Ice.h
  */
 class ICE_API LocatorRegistry : public virtual Object
 {
@@ -404,7 +402,6 @@ public:
  * This interface should be implemented by services implementing the <code>Ice::Locator interface</code>. It should be
  * advertised through an Ice object with the identity <code>`Ice/LocatorFinder'</code>. This allows clients to
  * retrieve the locator proxy with just the endpoint information of the service.
- * \headerfile Ice/Ice.h
  */
 class ICE_API LocatorFinder : public virtual Object
 {
@@ -466,7 +463,6 @@ namespace Ice
  * servers to get the locator registry proxy. <p class="Note">The {@link Locator} interface is intended to be used by
  * Ice internals and by locator implementations. Regular user code should not attempt to use any functionality of this
  * interface directly.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) LocatorPrx : public virtual Proxy<LocatorPrx, ObjectPrx>
 {
@@ -634,7 +630,6 @@ protected:
  * The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
  * locator. <p class="Note"> The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
  * locator implementations. Regular user code should not attempt to use any functionality of this interface directly.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) LocatorRegistryPrx : public virtual Proxy<LocatorRegistryPrx, ObjectPrx>
 {
@@ -825,7 +820,6 @@ protected:
  * This interface should be implemented by services implementing the <code>Ice::Locator interface</code>. It should be
  * advertised through an Ice object with the identity <code>`Ice/LocatorFinder'</code>. This allows clients to
  * retrieve the locator proxy with just the endpoint information of the service.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) LocatorFinderPrx : public virtual Proxy<LocatorFinderPrx, ObjectPrx>
 {
@@ -959,50 +953,26 @@ ICE_API ::IceProxy::Ice::Object* upCast(LocatorFinder*);
 
 namespace Ice
 {
-
-class Process;
-/// \cond INTERNAL
-ICE_API Object* upCast(Process*);
-/// \endcond
-typedef ::IceInternal::Handle< Process> ProcessPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::Process> ProcessPrx;
 typedef ProcessPrx ProcessPrxPtr;
-/// \cond INTERNAL
-ICE_API void _icePatchObjectPtr(ProcessPtr&, const ObjectPtr&);
-/// \endcond
 
-class LocatorRegistry;
-/// \cond INTERNAL
-ICE_API Object* upCast(LocatorRegistry*);
-/// \endcond
-typedef ::IceInternal::Handle< LocatorRegistry> LocatorRegistryPtr;
+class Process;
+typedef ::IceInternal::Handle< Process> ProcessPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::LocatorRegistry> LocatorRegistryPrx;
 typedef LocatorRegistryPrx LocatorRegistryPrxPtr;
-/// \cond INTERNAL
-ICE_API void _icePatchObjectPtr(LocatorRegistryPtr&, const ObjectPtr&);
-/// \endcond
 
-class Locator;
-/// \cond INTERNAL
-ICE_API Object* upCast(Locator*);
-/// \endcond
-typedef ::IceInternal::Handle< Locator> LocatorPtr;
+class LocatorRegistry;
+typedef ::IceInternal::Handle< LocatorRegistry> LocatorRegistryPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::Locator> LocatorPrx;
 typedef LocatorPrx LocatorPrxPtr;
-/// \cond INTERNAL
-ICE_API void _icePatchObjectPtr(LocatorPtr&, const ObjectPtr&);
-/// \endcond
 
-class LocatorFinder;
-/// \cond INTERNAL
-ICE_API Object* upCast(LocatorFinder*);
-/// \endcond
-typedef ::IceInternal::Handle< LocatorFinder> LocatorFinderPtr;
+class Locator;
+typedef ::IceInternal::Handle< Locator> LocatorPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::LocatorFinder> LocatorFinderPrx;
 typedef LocatorFinderPrx LocatorFinderPrxPtr;
-/// \cond INTERNAL
-ICE_API void _icePatchObjectPtr(LocatorFinderPtr&, const ObjectPtr&);
-/// \endcond
+
+class LocatorFinder;
+typedef ::IceInternal::Handle< LocatorFinder> LocatorFinderPtr;
 
 }
 
@@ -2171,14 +2141,12 @@ namespace Ice
  * servers to get the locator registry proxy. <p class="Note">The {@link Locator} interface is intended to be used by
  * Ice internals and by locator implementations. Regular user code should not attempt to use any functionality of this
  * interface directly.
- * \headerfile Ice/Ice.h
  */
 class ICE_API Locator : public virtual Object
 {
 public:
 
     typedef LocatorPrx ProxyType;
-    typedef LocatorPtr PointerType;
 
     virtual ~Locator();
     Locator() = default;
@@ -2251,39 +2219,18 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(OutputStream*) const;
-    virtual void _iceReadImpl(InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const Locator& lhs, const Locator& rhs)
-{
-    return static_cast<const Object&>(lhs) == static_cast<const Object&>(rhs);
-}
-
-inline bool operator<(const Locator& lhs, const Locator& rhs)
-{
-    return static_cast<const Object&>(lhs) < static_cast<const Object&>(rhs);
-}
-/// \endcond
 
 /**
  * The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
  * locator. <p class="Note"> The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
  * locator implementations. Regular user code should not attempt to use any functionality of this interface directly.
- * \headerfile Ice/Ice.h
  */
 class ICE_API LocatorRegistry : public virtual Object
 {
 public:
 
     typedef LocatorRegistryPrx ProxyType;
-    typedef LocatorRegistryPtr PointerType;
 
     virtual ~LocatorRegistry();
     LocatorRegistry() = default;
@@ -2369,39 +2316,18 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(OutputStream*) const;
-    virtual void _iceReadImpl(InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const LocatorRegistry& lhs, const LocatorRegistry& rhs)
-{
-    return static_cast<const Object&>(lhs) == static_cast<const Object&>(rhs);
-}
-
-inline bool operator<(const LocatorRegistry& lhs, const LocatorRegistry& rhs)
-{
-    return static_cast<const Object&>(lhs) < static_cast<const Object&>(rhs);
-}
-/// \endcond
 
 /**
  * This interface should be implemented by services implementing the <code>Ice::Locator interface</code>. It should be
  * advertised through an Ice object with the identity <code>`Ice/LocatorFinder'</code>. This allows clients to
  * retrieve the locator proxy with just the endpoint information of the service.
- * \headerfile Ice/Ice.h
  */
 class ICE_API LocatorFinder : public virtual Object
 {
 public:
 
     typedef LocatorFinderPrx ProxyType;
-    typedef LocatorFinderPtr PointerType;
 
     virtual ~LocatorFinder();
     LocatorFinder() = default;
@@ -2450,26 +2376,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(OutputStream*) const;
-    virtual void _iceReadImpl(InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const LocatorFinder& lhs, const LocatorFinder& rhs)
-{
-    return static_cast<const Object&>(lhs) == static_cast<const Object&>(rhs);
-}
-
-inline bool operator<(const LocatorFinder& lhs, const LocatorFinder& rhs)
-{
-    return static_cast<const Object&>(lhs) < static_cast<const Object&>(rhs);
-}
-/// \endcond
 
 }
 

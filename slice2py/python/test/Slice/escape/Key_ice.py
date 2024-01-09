@@ -378,14 +378,14 @@ if 'printPrx' not in _M__and.__dict__:
     _M__and.printPrx = Ice.createTempClass()
     class printPrx(Ice.ObjectPrx):
 
-        def _raise(self, _else, _return, _try, _while, _yield, _lambda, _or, _global, context=None):
-            return _M__and._print._op_raise.invoke(self, ((_else, _return, _try, _while, _yield, _lambda, _or, _global), context))
+        def _raise(self, _else, _return, _while, _yield, _or, _global, context=None):
+            return _M__and._print._op_raise.invoke(self, ((_else, _return, _while, _yield, _or, _global), context))
 
-        def raiseAsync(self, _else, _return, _try, _while, _yield, _lambda, _or, _global, context=None):
-            return _M__and._print._op_raise.invokeAsync(self, ((_else, _return, _try, _while, _yield, _lambda, _or, _global), context))
+        def raiseAsync(self, _else, _return, _while, _yield, _or, _global, context=None):
+            return _M__and._print._op_raise.invokeAsync(self, ((_else, _return, _while, _yield, _or, _global), context))
 
-        def begin_raise(self, _else, _return, _try, _while, _yield, _lambda, _or, _global, _response=None, _ex=None, _sent=None, context=None):
-            return _M__and._print._op_raise.begin(self, ((_else, _return, _try, _while, _yield, _lambda, _or, _global), _response, _ex, _sent, context))
+        def begin_raise(self, _else, _return, _while, _yield, _or, _global, _response=None, _ex=None, _sent=None, context=None):
+            return _M__and._print._op_raise.begin(self, ((_else, _return, _while, _yield, _or, _global), _response, _ex, _sent, context))
 
         def end_raise(self, _r):
             return _M__and._print._op_raise.end(self, _r)
@@ -419,7 +419,7 @@ if 'printPrx' not in _M__and.__dict__:
         def ice_staticId():
             return '::and::print'
 
-        def _raise(self, _else, _return, _try, _while, _yield, _lambda, _or, _global, current=None):
+        def _raise(self, _else, _return, _while, _yield, _or, _global, current=None):
             raise NotImplementedError("servant method '_raise' not implemented")
 
         def __str__(self):
@@ -430,7 +430,7 @@ if 'printPrx' not in _M__and.__dict__:
     _M__and._t_printDisp = IcePy.defineClass('::and::print', _print, (), None, ())
     _print._ice_type = _M__and._t_printDisp
 
-    _print._op_raise = IcePy.Operation('raise', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M__and._t__continue, False, 0), ((), _M__and._t__for, False, 0), ((), _M__and._t__if, False, 0), ((), _M__and._t_delPrx, False, 0), ((), _M__and._t_execPrx, False, 0), ((), IcePy._t_ObjectPrx, False, 0), ((), _M__and._t_ifPrx, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M__and._t__assert, False, 0), (_M__and._t__is,))
+    _print._op_raise = IcePy.Operation('raise', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M__and._t__continue, False, 0), ((), _M__and._t__for, False, 0), ((), _M__and._t_delPrx, False, 0), ((), _M__and._t_execPrx, False, 0), ((), _M__and._t_ifPrx, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M__and._t__assert, False, 0), (_M__and._t__is,))
 
     _M__and._print = _print
     del _print

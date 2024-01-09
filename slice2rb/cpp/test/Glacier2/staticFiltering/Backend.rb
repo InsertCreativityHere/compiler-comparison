@@ -39,8 +39,6 @@ module ::Test
             T_BackendPrx = ::Ice::__declareProxy('::Test::Backend')
         end
 
-        T_Backend.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_BackendPrx.defineProxy(BackendPrx, nil, [])
 
         BackendPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])

@@ -100,8 +100,6 @@ module ::Test1
             T_WstringClassPrx = ::Ice::__declareProxy('::Test1::WstringClass')
         end
 
-        T_WstringClass.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_WstringClassPrx.defineProxy(WstringClassPrx, nil, [])
 
         WstringClassPrx_mixin::OP_opString = ::Ice::__defineOperation('opString', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_string, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_string, false, 0], [])
@@ -193,8 +191,6 @@ module ::Test2
             T_WstringClass = ::Ice::__declareClass('::Test2::WstringClass')
             T_WstringClassPrx = ::Ice::__declareProxy('::Test2::WstringClass')
         end
-
-        T_WstringClass.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_WstringClassPrx.defineProxy(WstringClassPrx, nil, [])
 

@@ -678,15 +678,15 @@ namespace and
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface forPrx : global::Ice.ObjectPrx
     {
-        array @foreach(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        array @foreach(breakPrx @if, echo global, functionPrx include, diePrx @return, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::System.Threading.Tasks.Task<array> foreachAsync(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<array> foreachAsync(breakPrx @if, echo global, functionPrx include, diePrx @return, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_for_foreach> begin_foreach(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::Ice.AsyncResult<Callback_for_foreach> begin_foreach(breakPrx @if, echo global, functionPrx include, diePrx @return, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::Ice.AsyncResult begin_foreach(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.AsyncCallback callback, object cookie);
+        global::Ice.AsyncResult begin_foreach(breakPrx @if, echo global, functionPrx include, diePrx @return, enddeclarePrx list, int @new, int @static, global::Ice.AsyncCallback callback, object cookie);
 
-        global::Ice.AsyncResult begin_foreach(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
+        global::Ice.AsyncResult begin_foreach(breakPrx @if, echo global, functionPrx include, diePrx @return, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         array end_foreach(global::Ice.AsyncResult asyncResult);
     }
@@ -724,7 +724,7 @@ namespace and
     public interface forOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        array @foreach(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.Current current = null);
+        array @foreach(breakPrx @if, echo global, functionPrx include, diePrx @return, enddeclarePrx list, int @new, int @static, global::Ice.Current current = null);
     }
 }
 
@@ -1845,11 +1845,11 @@ namespace and
 
         #region Synchronous operations
 
-        public array @foreach(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public array @foreach(breakPrx @if, echo global, functionPrx include, diePrx @return, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
-                return _iceI_foreachAsync(@if, global, require, include, @return, isset, list, @new, @static, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                return _iceI_foreachAsync(@if, global, include, @return, list, @new, @static, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch(global::System.AggregateException ex_)
             {
@@ -1861,22 +1861,22 @@ namespace and
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<array> foreachAsync(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<array> foreachAsync(breakPrx @if, echo global, functionPrx include, diePrx @return, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
-            return _iceI_foreachAsync(@if, global, require, include, @return, isset, list, @new, @static, context, progress, cancel, false);
+            return _iceI_foreachAsync(@if, global, include, @return, list, @new, @static, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<array> _iceI_foreachAsync(global::Ice.Value iceP_if, echo iceP_global, global::Ice.Value iceP_require, functionPrx iceP_include, diePrx iceP_return, global::Ice.ObjectPrx iceP_isset, enddeclarePrx iceP_list, int iceP_new, int iceP_static, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<array> _iceI_foreachAsync(breakPrx iceP_if, echo iceP_global, functionPrx iceP_include, diePrx iceP_return, enddeclarePrx iceP_list, int iceP_new, int iceP_static, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_foreach_name);
             var completed = new global::IceInternal.OperationTaskCompletionCallback<array>(progress, cancel);
-            _iceI_foreach(iceP_if, iceP_global, iceP_require, iceP_include, iceP_return, iceP_isset, iceP_list, iceP_new, iceP_static, context, synchronous, completed);
+            _iceI_foreach(iceP_if, iceP_global, iceP_include, iceP_return, iceP_list, iceP_new, iceP_static, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _foreach_name = "foreach";
 
-        private void _iceI_foreach(global::Ice.Value iceP_if, echo iceP_global, global::Ice.Value iceP_require, functionPrx iceP_include, diePrx iceP_return, global::Ice.ObjectPrx iceP_isset, enddeclarePrx iceP_list, int iceP_new, int iceP_static, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_foreach(breakPrx iceP_if, echo iceP_global, functionPrx iceP_include, diePrx iceP_return, enddeclarePrx iceP_list, int iceP_new, int iceP_static, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<array>(completed);
             outAsync.invoke(
@@ -1887,12 +1887,10 @@ namespace and
                 synchronous,
                 write: (global::Ice.OutputStream ostr) =>
                 {
-                    ostr.writeValue(iceP_if);
+                    breakPrxHelper.write(ostr, iceP_if);
                     ostr.writeValue(iceP_global);
-                    ostr.writeValue(iceP_require);
                     functionPrxHelper.write(ostr, iceP_include);
                     diePrxHelper.write(ostr, iceP_return);
-                    ostr.writeProxy(iceP_isset);
                     enddeclarePrxHelper.write(ostr, iceP_list);
                     ostr.writeInt(iceP_new);
                     ostr.writeInt(iceP_static);
@@ -1928,19 +1926,19 @@ namespace and
 
         #region Asynchronous operations
 
-        public global::Ice.AsyncResult<Callback_for_foreach> begin_foreach(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Ice.AsyncResult<Callback_for_foreach> begin_foreach(breakPrx @if, echo global, functionPrx include, diePrx @return, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
-            return begin_foreach(@if, global, require, include, @return, isset, list, @new, @static, context, null, null, false);
+            return begin_foreach(@if, global, include, @return, list, @new, @static, context, null, null, false);
         }
 
-        public global::Ice.AsyncResult begin_foreach(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.AsyncCallback callback, object cookie)
+        public global::Ice.AsyncResult begin_foreach(breakPrx @if, echo global, functionPrx include, diePrx @return, enddeclarePrx list, int @new, int @static, global::Ice.AsyncCallback callback, object cookie)
         {
-            return begin_foreach(@if, global, require, include, @return, isset, list, @new, @static, new global::Ice.OptionalContext(), callback, cookie, false);
+            return begin_foreach(@if, global, include, @return, list, @new, @static, new global::Ice.OptionalContext(), callback, cookie, false);
         }
 
-        public global::Ice.AsyncResult begin_foreach(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
+        public global::Ice.AsyncResult begin_foreach(breakPrx @if, echo global, functionPrx include, diePrx @return, enddeclarePrx list, int @new, int @static, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
         {
-            return begin_foreach(@if, global, require, include, @return, isset, list, @new, @static, context, callback, cookie, false);
+            return begin_foreach(@if, global, include, @return, list, @new, @static, context, callback, cookie, false);
         }
 
         public array end_foreach(global::Ice.AsyncResult asyncResult)
@@ -1950,7 +1948,7 @@ namespace and
             return outgoing_.getResult(resultI_.wait());
         }
 
-        private global::Ice.AsyncResult<Callback_for_foreach> begin_foreach(global::Ice.Value iceP_if, echo iceP_global, global::Ice.Value iceP_require, functionPrx iceP_include, diePrx iceP_return, global::Ice.ObjectPrx iceP_isset, enddeclarePrx iceP_list, int iceP_new, int iceP_static, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+        private global::Ice.AsyncResult<Callback_for_foreach> begin_foreach(breakPrx iceP_if, echo iceP_global, functionPrx iceP_include, diePrx iceP_return, enddeclarePrx iceP_list, int iceP_new, int iceP_static, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
         {
             iceCheckAsyncTwowayOnly(_foreach_name);
             var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_for_foreach, array>(
@@ -1962,7 +1960,7 @@ namespace and
                     }
                 },
                 this, _foreach_name, cookie, completedCallback);
-            _iceI_foreach(iceP_if, iceP_global, iceP_require, iceP_include, iceP_return, iceP_isset, iceP_list, iceP_new, iceP_static, context, synchronous, completed);
+            _iceI_foreach(iceP_if, iceP_global, iceP_include, iceP_return, iceP_list, iceP_new, iceP_static, context, synchronous, completed);
             return completed;
         }
 
@@ -2529,7 +2527,7 @@ namespace and
     {
         #region Slice operations
 
-        public abstract array @foreach(global::Ice.Value @if, echo global, global::Ice.Value require, functionPrx include, diePrx @return, global::Ice.ObjectPrx isset, enddeclarePrx list, int @new, int @static, global::Ice.Current current = null);
+        public abstract array @foreach(breakPrx @if, echo global, functionPrx include, diePrx @return, enddeclarePrx list, int @new, int @static, global::Ice.Current current = null);
 
         #endregion
 
@@ -2571,30 +2569,24 @@ namespace and
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Value iceP_if;
-            iceP_if = null;
+            breakPrx iceP_if;
             echo iceP_global;
             iceP_global = null;
-            global::Ice.Value iceP_require;
-            iceP_require = null;
             functionPrx iceP_include;
             diePrx iceP_return;
-            global::Ice.ObjectPrx iceP_isset;
             enddeclarePrx iceP_list;
             int iceP_new;
             int iceP_static;
-            istr.readValue((global::Ice.Value v) => {iceP_if = v; });
+            iceP_if = breakPrxHelper.read(istr);
             istr.readValue((echo v) => {iceP_global = v; });
-            istr.readValue((global::Ice.Value v) => {iceP_require = v; });
             iceP_include = functionPrxHelper.read(istr);
             iceP_return = diePrxHelper.read(istr);
-            iceP_isset = istr.readProxy();
             iceP_list = enddeclarePrxHelper.read(istr);
             iceP_new = istr.readInt();
             iceP_static = istr.readInt();
             istr.readPendingValues();
             inS.endReadParams();
-            var ret = obj.@foreach(iceP_if, iceP_global, iceP_require, iceP_include, iceP_return, iceP_isset, iceP_list, iceP_new, iceP_static, current);
+            var ret = obj.@foreach(iceP_if, iceP_global, iceP_include, iceP_return, iceP_list, iceP_new, iceP_static, current);
             var ostr = inS.startWriteParams();
             ostr.writeEnum((int)ret, 0);
             inS.endWriteParams(ostr);

@@ -17,13 +17,13 @@ package BEGIN;
 
 public interface extendPrx extends com.zeroc.Ice.ObjectPrx
 {
-    default END _for(display freeze, com.zeroc.Ice.Value hash, breakPrx _if, display inspect, com.zeroc.Ice.Value method, int methods)
+    default END _for(display freeze, elsifPrx hash, breakPrx _if, display inspect, elsifPrx method, int methods)
         throws nil
     {
         return _for(freeze, hash, _if, inspect, method, methods, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default END _for(display freeze, com.zeroc.Ice.Value hash, breakPrx _if, display inspect, com.zeroc.Ice.Value method, int methods, java.util.Map<String, String> context)
+    default END _for(display freeze, elsifPrx hash, breakPrx _if, display inspect, elsifPrx method, int methods, java.util.Map<String, String> context)
         throws nil
     {
         try
@@ -40,12 +40,12 @@ public interface extendPrx extends com.zeroc.Ice.ObjectPrx
         }
     }
 
-    default java.util.concurrent.CompletableFuture<END> forAsync(display freeze, com.zeroc.Ice.Value hash, breakPrx _if, display inspect, com.zeroc.Ice.Value method, int methods)
+    default java.util.concurrent.CompletableFuture<END> forAsync(display freeze, elsifPrx hash, breakPrx _if, display inspect, elsifPrx method, int methods)
     {
         return _iceI_forAsync(freeze, hash, _if, inspect, method, methods, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<END> forAsync(display freeze, com.zeroc.Ice.Value hash, breakPrx _if, display inspect, com.zeroc.Ice.Value method, int methods, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<END> forAsync(display freeze, elsifPrx hash, breakPrx _if, display inspect, elsifPrx method, int methods, java.util.Map<String, String> context)
     {
         return _iceI_forAsync(freeze, hash, _if, inspect, method, methods, context, false);
     }
@@ -62,15 +62,15 @@ public interface extendPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<END> _iceI_forAsync(display iceP_freeze, com.zeroc.Ice.Value iceP_hash, breakPrx iceP_if, display iceP_inspect, com.zeroc.Ice.Value iceP_method, int iceP_methods, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<END> _iceI_forAsync(display iceP_freeze, elsifPrx iceP_hash, breakPrx iceP_if, display iceP_inspect, elsifPrx iceP_method, int iceP_methods, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<END> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "for", null, sync, _iceE_for);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeValue(iceP_freeze);
-                     ostr.writeValue(iceP_hash);
+                     ostr.writeProxy(iceP_hash);
                      ostr.writeProxy(iceP_if);
                      ostr.writeValue(iceP_inspect);
-                     ostr.writeValue(iceP_method);
+                     ostr.writeProxy(iceP_method);
                      ostr.writeInt(iceP_methods);
                      ostr.writePendingValues();
                  }, istr -> {

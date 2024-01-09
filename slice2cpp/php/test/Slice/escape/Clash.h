@@ -733,37 +733,23 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Intf>&);
 ::IceProxy::Ice::Object* upCast(Intf*);
 /// \endcond
 
-class Cls;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Cls>&);
-::IceProxy::Ice::Object* upCast(Cls*);
-/// \endcond
-
 }
 
 }
 
 namespace Clash
 {
-
-class Intf;
-/// \cond INTERNAL
-::Ice::Object* upCast(Intf*);
-/// \endcond
-typedef ::IceInternal::Handle< Intf> IntfPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Clash::Intf> IntfPrx;
 typedef IntfPrx IntfPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(IntfPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class Intf;
+typedef ::IceInternal::Handle< Intf> IntfPtr;
 
 class Cls;
 /// \cond INTERNAL
 ::Ice::Object* upCast(Cls*);
 /// \endcond
 typedef ::IceInternal::Handle< Cls> ClsPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Clash::Cls> ClsPrx;
-typedef ClsPrx ClsPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(ClsPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1505,23 +1491,6 @@ protected:
     /// \endcond
 };
 
-class Cls : public virtual ::Ice::Proxy<Cls, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
 }
 
 }
@@ -1534,7 +1503,6 @@ class Intf : public virtual ::Ice::Object
 public:
 
     typedef IntfPrx ProxyType;
-    typedef IntfPtr PointerType;
 
     virtual ~Intf();
     Intf() = default;
@@ -1632,32 +1600,17 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const Intf& lhs, const Intf& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
 }
 
-inline bool operator<(const Intf& lhs, const Intf& rhs)
+namespace Clash
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 class Cls : public virtual ::Ice::Object
 {
 public:
 
-    typedef ClsPrx ProxyType;
     typedef ClsPtr PointerType;
 
     virtual ~Cls();

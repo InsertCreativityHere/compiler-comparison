@@ -17,20 +17,20 @@ package and;
 
 public interface friendPrx extends com.zeroc.Ice.ObjectPrx
 {
-    default auto _goto(_continue _if, auto d, delete inline, com.zeroc.Ice.Value _private, _do mutable, breakPrx namespace, charPrx _new, switchPrx not, doPrx operator, int or, int _protected, int _public, int register)
+    default auto _goto(_continue _if, auto d, delete inline, _do mutable, breakPrx namespace, charPrx _new, switchPrx not, int or, int _protected, int _public, int register)
         throws sizeof,
                _return
     {
-        return _goto(_if, d, inline, _private, mutable, namespace, _new, not, operator, or, _protected, _public, register, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        return _goto(_if, d, inline, mutable, namespace, _new, not, or, _protected, _public, register, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default auto _goto(_continue _if, auto d, delete inline, com.zeroc.Ice.Value _private, _do mutable, breakPrx namespace, charPrx _new, switchPrx not, doPrx operator, int or, int _protected, int _public, int register, java.util.Map<String, String> context)
+    default auto _goto(_continue _if, auto d, delete inline, _do mutable, breakPrx namespace, charPrx _new, switchPrx not, int or, int _protected, int _public, int register, java.util.Map<String, String> context)
         throws sizeof,
                _return
     {
         try
         {
-            return _iceI_gotoAsync(_if, d, inline, _private, mutable, namespace, _new, not, operator, or, _protected, _public, register, context, true).waitForResponseOrUserEx();
+            return _iceI_gotoAsync(_if, d, inline, mutable, namespace, _new, not, or, _protected, _public, register, context, true).waitForResponseOrUserEx();
         }
         catch(sizeof ex)
         {
@@ -46,14 +46,14 @@ public interface friendPrx extends com.zeroc.Ice.ObjectPrx
         }
     }
 
-    default java.util.concurrent.CompletableFuture<auto> gotoAsync(_continue _if, auto d, delete inline, com.zeroc.Ice.Value _private, _do mutable, breakPrx namespace, charPrx _new, switchPrx not, doPrx operator, int or, int _protected, int _public, int register)
+    default java.util.concurrent.CompletableFuture<auto> gotoAsync(_continue _if, auto d, delete inline, _do mutable, breakPrx namespace, charPrx _new, switchPrx not, int or, int _protected, int _public, int register)
     {
-        return _iceI_gotoAsync(_if, d, inline, _private, mutable, namespace, _new, not, operator, or, _protected, _public, register, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_gotoAsync(_if, d, inline, mutable, namespace, _new, not, or, _protected, _public, register, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<auto> gotoAsync(_continue _if, auto d, delete inline, com.zeroc.Ice.Value _private, _do mutable, breakPrx namespace, charPrx _new, switchPrx not, doPrx operator, int or, int _protected, int _public, int register, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<auto> gotoAsync(_continue _if, auto d, delete inline, _do mutable, breakPrx namespace, charPrx _new, switchPrx not, int or, int _protected, int _public, int register, java.util.Map<String, String> context)
     {
-        return _iceI_gotoAsync(_if, d, inline, _private, mutable, namespace, _new, not, operator, or, _protected, _public, register, context, false);
+        return _iceI_gotoAsync(_if, d, inline, mutable, namespace, _new, not, or, _protected, _public, register, context, false);
     }
 
     /**
@@ -61,12 +61,10 @@ public interface friendPrx extends com.zeroc.Ice.ObjectPrx
      * @param iceP_if -
      * @param iceP_d -
      * @param iceP_inline -
-     * @param iceP_private -
      * @param iceP_mutable -
      * @param iceP_namespace -
      * @param iceP_new -
      * @param iceP_not -
-     * @param iceP_operator -
      * @param iceP_or -
      * @param iceP_protected -
      * @param iceP_public -
@@ -75,19 +73,17 @@ public interface friendPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<auto> _iceI_gotoAsync(_continue iceP_if, auto iceP_d, delete iceP_inline, com.zeroc.Ice.Value iceP_private, _do iceP_mutable, breakPrx iceP_namespace, charPrx iceP_new, switchPrx iceP_not, doPrx iceP_operator, int iceP_or, int iceP_protected, int iceP_public, int iceP_register, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<auto> _iceI_gotoAsync(_continue iceP_if, auto iceP_d, delete iceP_inline, _do iceP_mutable, breakPrx iceP_namespace, charPrx iceP_new, switchPrx iceP_not, int iceP_or, int iceP_protected, int iceP_public, int iceP_register, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<auto> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "goto", null, sync, _iceE_goto);
         f.invoke(true, context, null, ostr -> {
                      _continue.ice_write(ostr, iceP_if);
                      auto.ice_write(ostr, iceP_d);
                      delete.ice_write(ostr, iceP_inline);
-                     ostr.writeValue(iceP_private);
                      ostr.writeValue(iceP_mutable);
                      ostr.writeProxy(iceP_namespace);
                      ostr.writeProxy(iceP_new);
                      ostr.writeProxy(iceP_not);
-                     ostr.writeProxy(iceP_operator);
                      ostr.writeInt(iceP_or);
                      ostr.writeInt(iceP_protected);
                      ostr.writeInt(iceP_public);

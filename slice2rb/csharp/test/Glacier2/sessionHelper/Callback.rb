@@ -63,8 +63,6 @@ module ::Test
             T_CallbackReceiverPrx = ::Ice::__declareProxy('::Test::CallbackReceiver')
         end
 
-        T_CallbackReceiver.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_CallbackReceiverPrx.defineProxy(CallbackReceiverPrx, nil, [])
 
         CallbackReceiverPrx_mixin::OP_callback = ::Ice::__defineOperation('callback', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
@@ -99,8 +97,6 @@ module ::Test
             T_Callback = ::Ice::__declareClass('::Test::Callback')
             T_CallbackPrx = ::Ice::__declareProxy('::Test::Callback')
         end
-
-        T_Callback.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_CallbackPrx.defineProxy(CallbackPrx, nil, [])
 

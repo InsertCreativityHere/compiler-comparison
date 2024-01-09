@@ -533,7 +533,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice class `Pen`.
+/// Traits for Slice class`Pen`.
 public struct PenTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Pen"]
     public static let staticId = "::Test::Pen"

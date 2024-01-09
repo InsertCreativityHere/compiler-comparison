@@ -48,10 +48,14 @@ class LookupPrx;
 namespace IceDiscovery
 {
 
+}
+
+namespace IceDiscovery
+{
+
 /**
  * The LookupReply interface is used by IceDiscovery clients to answer requests
  * received on the Lookup interface.
- * \headerfile IceDiscovery/IceDiscovery.h
  */
 class LookupReply : public virtual ::Ice::Object
 {
@@ -118,7 +122,6 @@ public:
 
 /**
  * The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
- * \headerfile IceDiscovery/IceDiscovery.h
  */
 class Lookup : public virtual ::Ice::Object
 {
@@ -195,7 +198,6 @@ namespace IceDiscovery
 /**
  * The LookupReply interface is used by IceDiscovery clients to answer requests
  * received on the Lookup interface.
- * \headerfile IceDiscovery/IceDiscovery.h
  */
 class LookupReplyPrx : public virtual ::Ice::Proxy<LookupReplyPrx, ::Ice::ObjectPrx>
 {
@@ -323,7 +325,6 @@ protected:
 
 /**
  * The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
- * \headerfile IceDiscovery/IceDiscovery.h
  */
 class LookupPrx : public virtual ::Ice::Proxy<LookupPrx, ::Ice::ObjectPrx>
 {
@@ -463,13 +464,6 @@ protected:
 
 }
 
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
-
 /// \cond INTERNAL
 namespace IceDiscovery
 {
@@ -509,28 +503,21 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Lookup>&);
 
 namespace IceDiscovery
 {
-
-class LookupReply;
-/// \cond INTERNAL
-::Ice::Object* upCast(LookupReply*);
-/// \endcond
-typedef ::IceInternal::Handle< LookupReply> LookupReplyPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceDiscovery::LookupReply> LookupReplyPrx;
 typedef LookupReplyPrx LookupReplyPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(LookupReplyPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class Lookup;
-/// \cond INTERNAL
-::Ice::Object* upCast(Lookup*);
-/// \endcond
-typedef ::IceInternal::Handle< Lookup> LookupPtr;
+class LookupReply;
+typedef ::IceInternal::Handle< LookupReply> LookupReplyPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceDiscovery::Lookup> LookupPrx;
 typedef LookupPrx LookupPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(LookupPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class Lookup;
+typedef ::IceInternal::Handle< Lookup> LookupPtr;
+
+}
+
+namespace IceDiscovery
+{
 
 }
 
@@ -1025,14 +1012,12 @@ namespace IceDiscovery
 /**
  * The LookupReply interface is used by IceDiscovery clients to answer requests
  * received on the Lookup interface.
- * \headerfile IceDiscovery/IceDiscovery.h
  */
 class LookupReply : public virtual ::Ice::Object
 {
 public:
 
     typedef LookupReplyPrx ProxyType;
-    typedef LookupReplyPtr PointerType;
 
     virtual ~LookupReply();
     LookupReply() = default;
@@ -1094,37 +1079,16 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const LookupReply& lhs, const LookupReply& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const LookupReply& lhs, const LookupReply& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * The Lookup interface is used by IceDiscovery clients to look for objects and adapters using UDP multicast.
- * \headerfile IceDiscovery/IceDiscovery.h
  */
 class Lookup : public virtual ::Ice::Object
 {
 public:
 
     typedef LookupPrx ProxyType;
-    typedef LookupPtr PointerType;
 
     virtual ~Lookup();
     Lookup() = default;
@@ -1190,35 +1154,9 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const Lookup& lhs, const Lookup& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
 }
-
-inline bool operator<(const Lookup& lhs, const Lookup& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 namespace IceDiscovery
 {

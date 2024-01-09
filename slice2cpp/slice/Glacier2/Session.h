@@ -141,7 +141,6 @@ namespace Glacier2
  * A client-visible session object, which is tied to the lifecycle of a {@link Router}.
  * @see Router
  * @see SessionManager
- * \headerfile Glacier2/Glacier2.h
  */
 class GLACIER2_API Session : public virtual ::Ice::Object
 {
@@ -196,7 +195,6 @@ public:
  * {@link Session}.
  * @see Session
  * @see SessionControl
- * \headerfile Glacier2/Glacier2.h
  */
 class GLACIER2_API StringSet : public virtual ::Ice::Object
 {
@@ -272,7 +270,6 @@ public:
  * An object for managing the set of object identity constraints on a {@link Session}.
  * @see Session
  * @see SessionControl
- * \headerfile Glacier2/Glacier2.h
  */
 class GLACIER2_API IdentitySet : public virtual ::Ice::Object
 {
@@ -348,7 +345,6 @@ public:
 /**
  * An administrative session control object, which is tied to the lifecycle of a {@link Session}.
  * @see Session
- * \headerfile Glacier2/Glacier2.h
  */
 class GLACIER2_API SessionControl : public virtual ::Ice::Object
 {
@@ -445,7 +441,6 @@ public:
  * the client.
  * @see Router
  * @see Session
- * \headerfile Glacier2/Glacier2.h
  */
 class GLACIER2_API SessionManager : public virtual ::Ice::Object
 {
@@ -505,7 +500,6 @@ public:
  * no session manager is provided by the application, no client-visible sessions are passed to the client.
  * @see Router
  * @see Session
- * \headerfile Glacier2/Glacier2.h
  */
 class GLACIER2_API SSLSessionManager : public virtual ::Ice::Object
 {
@@ -568,7 +562,6 @@ namespace Glacier2
  * A client-visible session object, which is tied to the lifecycle of a {@link Router}.
  * @see Router
  * @see SessionManager
- * \headerfile Glacier2/Glacier2.h
  */
 class ICE_CLASS(GLACIER2_API) SessionPrx : public virtual ::Ice::Proxy<SessionPrx, ::Ice::ObjectPrx>
 {
@@ -637,7 +630,6 @@ protected:
  * {@link Session}.
  * @see Session
  * @see SessionControl
- * \headerfile Glacier2/Glacier2.h
  */
 class ICE_CLASS(GLACIER2_API) StringSetPrx : public virtual ::Ice::Proxy<StringSetPrx, ::Ice::ObjectPrx>
 {
@@ -801,7 +793,6 @@ protected:
  * An object for managing the set of object identity constraints on a {@link Session}.
  * @see Session
  * @see SessionControl
- * \headerfile Glacier2/Glacier2.h
  */
 class ICE_CLASS(GLACIER2_API) IdentitySetPrx : public virtual ::Ice::Proxy<IdentitySetPrx, ::Ice::ObjectPrx>
 {
@@ -967,7 +958,6 @@ protected:
 /**
  * An administrative session control object, which is tied to the lifecycle of a {@link Session}.
  * @see Session
- * \headerfile Glacier2/Glacier2.h
  */
 class ICE_CLASS(GLACIER2_API) SessionControlPrx : public virtual ::Ice::Proxy<SessionControlPrx, ::Ice::ObjectPrx>
 {
@@ -1210,7 +1200,6 @@ protected:
  * the client.
  * @see Router
  * @see Session
- * \headerfile Glacier2/Glacier2.h
  */
 class ICE_CLASS(GLACIER2_API) SessionManagerPrx : public virtual ::Ice::Proxy<SessionManagerPrx, ::Ice::ObjectPrx>
 {
@@ -1289,7 +1278,6 @@ protected:
  * no session manager is provided by the application, no client-visible sessions are passed to the client.
  * @see Router
  * @see Session
- * \headerfile Glacier2/Glacier2.h
  */
 class ICE_CLASS(GLACIER2_API) SSLSessionManagerPrx : public virtual ::Ice::Proxy<SSLSessionManagerPrx, ::Ice::ObjectPrx>
 {
@@ -1455,72 +1443,36 @@ GLACIER2_API ::IceProxy::Ice::Object* upCast(SSLSessionManager*);
 
 namespace Glacier2
 {
-
-class Session;
-/// \cond INTERNAL
-GLACIER2_API ::Ice::Object* upCast(Session*);
-/// \endcond
-typedef ::IceInternal::Handle< Session> SessionPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Glacier2::Session> SessionPrx;
 typedef SessionPrx SessionPrxPtr;
-/// \cond INTERNAL
-GLACIER2_API void _icePatchObjectPtr(SessionPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class StringSet;
-/// \cond INTERNAL
-GLACIER2_API ::Ice::Object* upCast(StringSet*);
-/// \endcond
-typedef ::IceInternal::Handle< StringSet> StringSetPtr;
+class Session;
+typedef ::IceInternal::Handle< Session> SessionPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Glacier2::StringSet> StringSetPrx;
 typedef StringSetPrx StringSetPrxPtr;
-/// \cond INTERNAL
-GLACIER2_API void _icePatchObjectPtr(StringSetPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class IdentitySet;
-/// \cond INTERNAL
-GLACIER2_API ::Ice::Object* upCast(IdentitySet*);
-/// \endcond
-typedef ::IceInternal::Handle< IdentitySet> IdentitySetPtr;
+class StringSet;
+typedef ::IceInternal::Handle< StringSet> StringSetPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Glacier2::IdentitySet> IdentitySetPrx;
 typedef IdentitySetPrx IdentitySetPrxPtr;
-/// \cond INTERNAL
-GLACIER2_API void _icePatchObjectPtr(IdentitySetPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class SessionControl;
-/// \cond INTERNAL
-GLACIER2_API ::Ice::Object* upCast(SessionControl*);
-/// \endcond
-typedef ::IceInternal::Handle< SessionControl> SessionControlPtr;
+class IdentitySet;
+typedef ::IceInternal::Handle< IdentitySet> IdentitySetPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Glacier2::SessionControl> SessionControlPrx;
 typedef SessionControlPrx SessionControlPrxPtr;
-/// \cond INTERNAL
-GLACIER2_API void _icePatchObjectPtr(SessionControlPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class SessionManager;
-/// \cond INTERNAL
-GLACIER2_API ::Ice::Object* upCast(SessionManager*);
-/// \endcond
-typedef ::IceInternal::Handle< SessionManager> SessionManagerPtr;
+class SessionControl;
+typedef ::IceInternal::Handle< SessionControl> SessionControlPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Glacier2::SessionManager> SessionManagerPrx;
 typedef SessionManagerPrx SessionManagerPrxPtr;
-/// \cond INTERNAL
-GLACIER2_API void _icePatchObjectPtr(SessionManagerPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class SSLSessionManager;
-/// \cond INTERNAL
-GLACIER2_API ::Ice::Object* upCast(SSLSessionManager*);
-/// \endcond
-typedef ::IceInternal::Handle< SSLSessionManager> SSLSessionManagerPtr;
+class SessionManager;
+typedef ::IceInternal::Handle< SessionManager> SessionManagerPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Glacier2::SSLSessionManager> SSLSessionManagerPrx;
 typedef SSLSessionManagerPrx SSLSessionManagerPrxPtr;
-/// \cond INTERNAL
-GLACIER2_API void _icePatchObjectPtr(SSLSessionManagerPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class SSLSessionManager;
+typedef ::IceInternal::Handle< SSLSessionManager> SSLSessionManagerPtr;
 
 }
 
@@ -2997,14 +2949,12 @@ namespace Glacier2
  * A client-visible session object, which is tied to the lifecycle of a {@link Router}.
  * @see Router
  * @see SessionManager
- * \headerfile Glacier2/Glacier2.h
  */
 class GLACIER2_API Session : public virtual ::Ice::Object
 {
 public:
 
     typedef SessionPrx ProxyType;
-    typedef SessionPtr PointerType;
 
     virtual ~Session();
     Session() = default;
@@ -3051,40 +3001,19 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const Session& lhs, const Session& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Session& lhs, const Session& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * An object for managing the set of identity constraints for specific parts of object identity on a
  * {@link Session}.
  * @see Session
  * @see SessionControl
- * \headerfile Glacier2/Glacier2.h
  */
 class GLACIER2_API StringSet : public virtual ::Ice::Object
 {
 public:
 
     typedef StringSetPrx ProxyType;
-    typedef StringSetPtr PointerType;
 
     virtual ~StringSet();
     StringSet() = default;
@@ -3153,39 +3082,18 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const StringSet& lhs, const StringSet& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const StringSet& lhs, const StringSet& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * An object for managing the set of object identity constraints on a {@link Session}.
  * @see Session
  * @see SessionControl
- * \headerfile Glacier2/Glacier2.h
  */
 class GLACIER2_API IdentitySet : public virtual ::Ice::Object
 {
 public:
 
     typedef IdentitySetPrx ProxyType;
-    typedef IdentitySetPtr PointerType;
 
     virtual ~IdentitySet();
     IdentitySet() = default;
@@ -3255,38 +3163,17 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const IdentitySet& lhs, const IdentitySet& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const IdentitySet& lhs, const IdentitySet& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * An administrative session control object, which is tied to the lifecycle of a {@link Session}.
  * @see Session
- * \headerfile Glacier2/Glacier2.h
  */
 class GLACIER2_API SessionControl : public virtual ::Ice::Object
 {
 public:
 
     typedef SessionControlPrx ProxyType;
-    typedef SessionControlPtr PointerType;
 
     virtual ~SessionControl();
     SessionControl() = default;
@@ -3373,26 +3260,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const SessionControl& lhs, const SessionControl& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const SessionControl& lhs, const SessionControl& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * The session manager for username/password authenticated users that is responsible for managing {@link Session}
@@ -3401,14 +3269,12 @@ inline bool operator<(const SessionControl& lhs, const SessionControl& rhs)
  * the client.
  * @see Router
  * @see Session
- * \headerfile Glacier2/Glacier2.h
  */
 class GLACIER2_API SessionManager : public virtual ::Ice::Object
 {
 public:
 
     typedef SessionManagerPrx ProxyType;
-    typedef SessionManagerPtr PointerType;
 
     virtual ~SessionManager();
     SessionManager() = default;
@@ -3459,26 +3325,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const SessionManager& lhs, const SessionManager& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const SessionManager& lhs, const SessionManager& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * The session manager for SSL authenticated users that is responsible for managing {@link Session} objects. New
@@ -3486,14 +3333,12 @@ inline bool operator<(const SessionManager& lhs, const SessionManager& rhs)
  * no session manager is provided by the application, no client-visible sessions are passed to the client.
  * @see Router
  * @see Session
- * \headerfile Glacier2/Glacier2.h
  */
 class GLACIER2_API SSLSessionManager : public virtual ::Ice::Object
 {
 public:
 
     typedef SSLSessionManagerPrx ProxyType;
-    typedef SSLSessionManagerPtr PointerType;
 
     virtual ~SSLSessionManager();
     SSLSessionManager() = default;
@@ -3544,26 +3389,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const SSLSessionManager& lhs, const SSLSessionManager& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const SSLSessionManager& lhs, const SSLSessionManager& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 }
 

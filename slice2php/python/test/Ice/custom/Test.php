@@ -401,7 +401,6 @@ namespace Test
             return '::Test::Custom';
         }
     }
-    $Test__t_Custom = IcePHP_defineClass('::Test::Custom', '\\Test\\Custom', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_CustomPrx = IcePHP_defineProxy('::Test::Custom', $Ice__t_ObjectPrx, null);

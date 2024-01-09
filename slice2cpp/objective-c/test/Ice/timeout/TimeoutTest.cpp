@@ -644,11 +644,6 @@ Test::Timeout::~Timeout()
 {
 }
 
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(Timeout* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Test_Timeout_ids[2] =
@@ -790,44 +785,9 @@ Test::Timeout::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::Timeout::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Timeout, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Timeout::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Timeout, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(TimeoutPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = TimeoutPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Timeout::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::Controller::~Controller()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(Controller* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -966,39 +926,5 @@ Test::Controller::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current
     }
 }
 /// \endcond
-
-/// \cond STREAM
-void
-Test::Controller::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Controller, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Controller::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Controller, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(ControllerPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = ControllerPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Controller::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-namespace Ice
-{
-}
 
 #endif

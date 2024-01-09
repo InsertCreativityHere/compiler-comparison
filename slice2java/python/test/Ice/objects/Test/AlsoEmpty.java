@@ -34,7 +34,7 @@ public class AlsoEmpty extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -1301685555684793073L;
+    public static final long serialVersionUID = -10015995419506852L;
 
     /** @hidden */
     @Override

@@ -50,6 +50,12 @@
 namespace IceGrid
 {
 
+
+}
+
+namespace IceGrid
+{
+
 /**
  * This exception is raised if an application does not exist.
  * \headerfile IceGrid/IceGrid.h
@@ -1217,6 +1223,11 @@ struct StreamReader<::IceGrid::FileNotAvailableException, S>
 /// \endcond
 
 #else // C++98 mapping
+
+namespace IceGrid
+{
+
+}
 
 namespace IceGrid
 {

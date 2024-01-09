@@ -85,7 +85,6 @@ module ::Test
 
     if not defined?(::Test::T_C2)
         T_C2 = ::Ice::__declareClass('::Test::C2')
-        T_C2Prx = ::Ice::__declareProxy('::Test::C2')
     end
 
     if not defined?(::Test::T_C2Dict)
@@ -315,7 +314,6 @@ module ::Test
 
         if not defined?(::Test::AAA::T_B)
             T_B = ::Ice::__declareClass('::Test::AAA::B')
-            T_BPrx = ::Ice::__declareProxy('::Test::AAA::B')
         end
 
         if not defined?(::Test::AAA::T_BSeq)
@@ -468,11 +466,6 @@ module ::Test
 
         if not defined?(::Test::CCC::T_Forward)
             T_Forward = ::Ice::__declareClass('::Test::CCC::Forward')
-            T_ForwardPrx = ::Ice::__declareProxy('::Test::CCC::Forward')
-        end
-
-        if not defined?(::Test::CCC::T_ForwardProxySeq)
-            T_ForwardProxySeq = ::Ice::__defineSequence('::Test::CCC::ForwardProxySeq', ::Ice::T_ObjectPrx)
         end
     end
 
@@ -516,8 +509,6 @@ module ::Test
                 T_IPrx = ::Ice::__declareProxy('::Test::DDD::I')
             end
 
-            T_I.defineClass(::Ice::Value, -1, false, true, nil, [])
-
             T_IPrx.defineProxy(IPrx, nil, [])
 
             IPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
@@ -539,7 +530,6 @@ module ::Test
 
         if not defined?(::Test::DDD::T_C2)
             T_C2 = ::Ice::__declareClass('::Test::DDD::C2')
-            T_C2Prx = ::Ice::__declareProxy('::Test::DDD::C2')
         end
 
         if not defined?(::Test::DDD::U_Mixin)
@@ -548,16 +538,13 @@ module ::Test
             end
             class U < ::Ice::Value
 
-                def initialize(myI=nil, myIstar=nil, myC=nil, myCstar=nil, myC2=nil, myC2star=nil)
-                    @myI = myI
+                def initialize(myIstar=nil, myC=nil, myC2=nil)
                     @myIstar = myIstar
                     @myC = myC
-                    @myCstar = myCstar
                     @myC2 = myC2
-                    @myC2star = myC2star
                 end
 
-                attr_accessor :myI, :myIstar, :myC, :myCstar, :myC2, :myC2star
+                attr_accessor :myIstar, :myC, :myC2
             end
 
             if not defined?(::Test::DDD::T_U)
@@ -565,12 +552,9 @@ module ::Test
             end
 
             T_U.defineClass(U, -1, false, false, nil, [
-                ['myI', ::Test::DDD::T_I, false, 0],
                 ['myIstar', ::Test::DDD::T_IPrx, false, 0],
                 ['myC', ::Test::DDD::T_C, false, 0],
-                ['myCstar', ::Ice::T_ObjectPrx, false, 0],
-                ['myC2', ::Test::DDD::T_C2, false, 0],
-                ['myC2star', ::Ice::T_ObjectPrx, false, 0]
+                ['myC2', ::Test::DDD::T_C2, false, 0]
             ])
         end
 

@@ -212,11 +212,6 @@ public:
 
 }
 
-namespace WithNamespace
-{
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -291,28 +286,6 @@ using C2Ptr = ::std::shared_ptr<C2>;
 
 #else // C++98 mapping
 
-namespace IceProxy
-{
-
-namespace WithNamespace
-{
-
-class C1;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< C1>&);
-::IceProxy::Ice::Object* upCast(C1*);
-/// \endcond
-
-class C2;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< C2>&);
-::IceProxy::Ice::Object* upCast(C2*);
-/// \endcond
-
-}
-
-}
-
 namespace WithNamespace
 {
 
@@ -321,8 +294,6 @@ class C1;
 ::Ice::Object* upCast(C1*);
 /// \endcond
 typedef ::IceInternal::Handle< C1> C1Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::WithNamespace::C1> C1Prx;
-typedef C1Prx C1PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(C1Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -332,8 +303,6 @@ class C2;
 ::Ice::Object* upCast(C2*);
 /// \endcond
 typedef ::IceInternal::Handle< C2> C2Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::WithNamespace::C2> C2Prx;
-typedef C2Prx C2PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(C2Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -426,60 +395,10 @@ protected:
 namespace WithNamespace
 {
 
-}
-
-namespace IceProxy
-{
-
-namespace WithNamespace
-{
-
-class C1 : public virtual ::Ice::Proxy<C1, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class C2 : public virtual ::Ice::Proxy<C2, ::IceProxy::WithNamespace::C1>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-}
-
-}
-
-namespace WithNamespace
-{
-
 class C1 : public virtual ::Ice::Object
 {
 public:
 
-    typedef C1Prx ProxyType;
     typedef C1Ptr PointerType;
 
     virtual ~C1();
@@ -569,7 +488,6 @@ class C2 : public C1
 {
 public:
 
-    typedef C2Prx ProxyType;
     typedef C2Ptr PointerType;
 
     virtual ~C2();
@@ -748,11 +666,6 @@ struct StreamReader< ::WithNamespace::E2, S>
 
 }
 /// \endcond
-
-namespace WithNamespace
-{
-
-}
 
 #endif
 

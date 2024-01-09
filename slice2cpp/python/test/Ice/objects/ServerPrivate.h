@@ -526,34 +526,10 @@ namespace IceProxy
 namespace Test
 {
 
-class Empty;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Empty>&);
-::IceProxy::Ice::Object* upCast(Empty*);
-/// \endcond
-
-class AlsoEmpty;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< AlsoEmpty>&);
-::IceProxy::Ice::Object* upCast(AlsoEmpty*);
-/// \endcond
-
 class UnexpectedObjectExceptionTest;
 /// \cond INTERNAL
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< UnexpectedObjectExceptionTest>&);
 ::IceProxy::Ice::Object* upCast(UnexpectedObjectExceptionTest*);
-/// \endcond
-
-class COneMember;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< COneMember>&);
-::IceProxy::Ice::Object* upCast(COneMember*);
-/// \endcond
-
-class CTwoMembers;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< CTwoMembers>&);
-::IceProxy::Ice::Object* upCast(CTwoMembers*);
 /// \endcond
 
 }
@@ -568,8 +544,6 @@ class Empty;
 ::Ice::Object* upCast(Empty*);
 /// \endcond
 typedef ::IceInternal::Handle< Empty> EmptyPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Empty> EmptyPrx;
-typedef EmptyPrx EmptyPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(EmptyPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -579,30 +553,20 @@ class AlsoEmpty;
 ::Ice::Object* upCast(AlsoEmpty*);
 /// \endcond
 typedef ::IceInternal::Handle< AlsoEmpty> AlsoEmptyPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::AlsoEmpty> AlsoEmptyPrx;
-typedef AlsoEmptyPrx AlsoEmptyPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(AlsoEmptyPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-class UnexpectedObjectExceptionTest;
-/// \cond INTERNAL
-::Ice::Object* upCast(UnexpectedObjectExceptionTest*);
-/// \endcond
-typedef ::IceInternal::Handle< UnexpectedObjectExceptionTest> UnexpectedObjectExceptionTestPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::UnexpectedObjectExceptionTest> UnexpectedObjectExceptionTestPrx;
 typedef UnexpectedObjectExceptionTestPrx UnexpectedObjectExceptionTestPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(UnexpectedObjectExceptionTestPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class UnexpectedObjectExceptionTest;
+typedef ::IceInternal::Handle< UnexpectedObjectExceptionTest> UnexpectedObjectExceptionTestPtr;
 
 class COneMember;
 /// \cond INTERNAL
 ::Ice::Object* upCast(COneMember*);
 /// \endcond
 typedef ::IceInternal::Handle< COneMember> COneMemberPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::COneMember> COneMemberPrx;
-typedef COneMemberPrx COneMemberPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(COneMemberPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -612,8 +576,6 @@ class CTwoMembers;
 ::Ice::Object* upCast(CTwoMembers*);
 /// \endcond
 typedef ::IceInternal::Handle< CTwoMembers> CTwoMembersPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::CTwoMembers> CTwoMembersPrx;
-typedef CTwoMembersPrx CTwoMembersPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(CTwoMembersPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -746,40 +708,6 @@ namespace IceProxy
 namespace Test
 {
 
-class Empty : public virtual ::Ice::Proxy<Empty, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class AlsoEmpty : public virtual ::Ice::Proxy<AlsoEmpty, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
 class UnexpectedObjectExceptionTest : public virtual ::Ice::Proxy<UnexpectedObjectExceptionTest, ::IceProxy::Ice::Object>
 {
 public:
@@ -835,41 +763,61 @@ protected:
     /// \endcond
 };
 
-class COneMember : public virtual ::Ice::Proxy<COneMember, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class CTwoMembers : public virtual ::Ice::Proxy<CTwoMembers, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
+}
 
 }
+
+namespace Test
+{
+
+class UnexpectedObjectExceptionTest : public virtual ::Ice::Object
+{
+public:
+
+    typedef UnexpectedObjectExceptionTestPrx ProxyType;
+
+    virtual ~UnexpectedObjectExceptionTest();
+    UnexpectedObjectExceptionTest() = default;
+    UnexpectedObjectExceptionTest(const UnexpectedObjectExceptionTest&) = default;
+    UnexpectedObjectExceptionTest& operator=(const UnexpectedObjectExceptionTest&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual AlsoEmptyPtr op(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
 
 }
 
@@ -880,7 +828,6 @@ class Empty : public virtual ::Ice::Object
 {
 public:
 
-    typedef EmptyPrx ProxyType;
     typedef EmptyPtr PointerType;
 
     virtual ~Empty();
@@ -958,7 +905,6 @@ class AlsoEmpty : public virtual ::Ice::Object
 {
 public:
 
-    typedef AlsoEmptyPrx ProxyType;
     typedef AlsoEmptyPtr PointerType;
 
     virtual ~AlsoEmpty();
@@ -1032,80 +978,10 @@ inline bool operator<(const AlsoEmpty& lhs, const AlsoEmpty& rhs)
 }
 /// \endcond
 
-class UnexpectedObjectExceptionTest : public virtual ::Ice::Object
-{
-public:
-
-    typedef UnexpectedObjectExceptionTestPrx ProxyType;
-    typedef UnexpectedObjectExceptionTestPtr PointerType;
-
-    virtual ~UnexpectedObjectExceptionTest();
-    UnexpectedObjectExceptionTest() = default;
-    UnexpectedObjectExceptionTest(const UnexpectedObjectExceptionTest&) = default;
-    UnexpectedObjectExceptionTest& operator=(const UnexpectedObjectExceptionTest&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual AlsoEmptyPtr op(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const UnexpectedObjectExceptionTest& lhs, const UnexpectedObjectExceptionTest& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const UnexpectedObjectExceptionTest& lhs, const UnexpectedObjectExceptionTest& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
 class COneMember : public virtual ::Ice::Object, public ::IceInternal::GCObject
 {
 public:
 
-    typedef COneMemberPrx ProxyType;
     typedef COneMemberPtr PointerType;
 
     virtual ~COneMember();
@@ -1198,7 +1074,6 @@ class CTwoMembers : public virtual ::Ice::Object, public ::IceInternal::GCObject
 {
 public:
 
-    typedef CTwoMembersPrx ProxyType;
     typedef CTwoMembersPtr PointerType;
 
     virtual ~CTwoMembers();

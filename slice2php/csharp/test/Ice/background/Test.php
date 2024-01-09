@@ -42,7 +42,6 @@ namespace Test
             return '::Test::Background';
         }
     }
-    $Test__t_Background = IcePHP_defineClass('::Test::Background', '\\Test\\Background', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_BackgroundPrx = IcePHP_defineProxy('::Test::Background', $Ice__t_ObjectPrx, null);
@@ -75,7 +74,6 @@ namespace Test
             return '::Test::BackgroundController';
         }
     }
-    $Test__t_BackgroundController = IcePHP_defineClass('::Test::BackgroundController', '\\Test\\BackgroundController', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_BackgroundControllerPrx = IcePHP_defineProxy('::Test::BackgroundController', $Ice__t_ObjectPrx, null);

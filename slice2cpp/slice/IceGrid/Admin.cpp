@@ -8730,11 +8730,6 @@ IceGrid::Admin::~Admin()
 {
 }
 
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(Admin* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_IceGrid_Admin_ids[2] =
@@ -9805,44 +9800,9 @@ IceGrid::Admin::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
 }
 /// \endcond
 
-/// \cond STREAM
-void
-IceGrid::Admin::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Admin, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::Admin::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Admin, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchObjectPtr(AdminPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = AdminPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Admin::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::FileIterator::~FileIterator()
 {
 }
-
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(FileIterator* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -9969,44 +9929,9 @@ IceGrid::FileIterator::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
 }
 /// \endcond
 
-/// \cond STREAM
-void
-IceGrid::FileIterator::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< FileIterator, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::FileIterator::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< FileIterator, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchObjectPtr(FileIteratorPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = FileIteratorPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(FileIterator::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::RegistryObserver::~RegistryObserver()
 {
 }
-
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(RegistryObserver* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -10152,44 +10077,9 @@ IceGrid::RegistryObserver::_iceDispatch(::IceInternal::Incoming& in, const ::Ice
 }
 /// \endcond
 
-/// \cond STREAM
-void
-IceGrid::RegistryObserver::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< RegistryObserver, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::RegistryObserver::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< RegistryObserver, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchObjectPtr(RegistryObserverPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = RegistryObserverPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(RegistryObserver::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::NodeObserver::~NodeObserver()
 {
 }
-
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(NodeObserver* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -10379,44 +10269,9 @@ IceGrid::NodeObserver::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
 }
 /// \endcond
 
-/// \cond STREAM
-void
-IceGrid::NodeObserver::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< NodeObserver, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::NodeObserver::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< NodeObserver, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchObjectPtr(NodeObserverPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = NodeObserverPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(NodeObserver::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::ApplicationObserver::~ApplicationObserver()
 {
 }
-
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(ApplicationObserver* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -10593,44 +10448,9 @@ IceGrid::ApplicationObserver::_iceDispatch(::IceInternal::Incoming& in, const ::
 }
 /// \endcond
 
-/// \cond STREAM
-void
-IceGrid::ApplicationObserver::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< ApplicationObserver, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::ApplicationObserver::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< ApplicationObserver, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchObjectPtr(ApplicationObserverPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = ApplicationObserverPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(ApplicationObserver::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::AdapterObserver::~AdapterObserver()
 {
 }
-
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(AdapterObserver* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -10796,44 +10616,9 @@ IceGrid::AdapterObserver::_iceDispatch(::IceInternal::Incoming& in, const ::Ice:
 }
 /// \endcond
 
-/// \cond STREAM
-void
-IceGrid::AdapterObserver::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< AdapterObserver, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::AdapterObserver::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< AdapterObserver, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchObjectPtr(AdapterObserverPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = AdapterObserverPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(AdapterObserver::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::ObjectObserver::~ObjectObserver()
 {
 }
-
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(ObjectObserver* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -10999,44 +10784,9 @@ IceGrid::ObjectObserver::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::
 }
 /// \endcond
 
-/// \cond STREAM
-void
-IceGrid::ObjectObserver::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< ObjectObserver, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::ObjectObserver::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< ObjectObserver, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchObjectPtr(ObjectObserverPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = ObjectObserverPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(ObjectObserver::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::AdminSession::~AdminSession()
 {
 }
-
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(AdminSession* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -11460,36 +11210,6 @@ IceGrid::AdminSession::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
             assert(false);
             throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
         }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-IceGrid::AdminSession::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< AdminSession, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::AdminSession::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< AdminSession, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchObjectPtr(AdminSessionPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = AdminSessionPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(AdminSession::ice_staticId(), v);
     }
 }
 /// \endcond

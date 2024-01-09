@@ -63,6 +63,11 @@ Test::ExtendedPermissionDeniedException::ice_staticId()
 namespace
 {
 
+}
+
+namespace
+{
+
 const ::IceInternal::DefaultUserExceptionFactoryInit< ::Test::ExtendedPermissionDeniedException> iceC_Test_ExtendedPermissionDeniedException_init("::Test::ExtendedPermissionDeniedException");
 
 }

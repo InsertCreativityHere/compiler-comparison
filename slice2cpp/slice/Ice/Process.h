@@ -55,12 +55,16 @@ class ProcessPrx;
 namespace Ice
 {
 
+}
+
+namespace Ice
+{
+
 /**
  * An administrative interface for process management. Managed servers must implement this interface.
  * <p class="Note">A servant implementing this interface is a potential target for denial-of-service attacks,
  * therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
  * identity harder to guess, and be registered in an object adapter with a secured endpoint.
- * \headerfile Ice/Ice.h
  */
 class ICE_API Process : public virtual Object
 {
@@ -132,7 +136,6 @@ namespace Ice
  * <p class="Note">A servant implementing this interface is a potential target for denial-of-service attacks,
  * therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
  * identity harder to guess, and be registered in an object adapter with a secured endpoint.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) ProcessPrx : public virtual Proxy<ProcessPrx, ObjectPrx>
 {
@@ -250,13 +253,6 @@ protected:
 
 }
 
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
-
 /// \cond INTERNAL
 namespace Ice
 {
@@ -287,17 +283,16 @@ ICE_API ::IceProxy::Ice::Object* upCast(Process*);
 
 namespace Ice
 {
-
-class Process;
-/// \cond INTERNAL
-ICE_API Object* upCast(Process*);
-/// \endcond
-typedef ::IceInternal::Handle< Process> ProcessPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::Process> ProcessPrx;
 typedef ProcessPrx ProcessPrxPtr;
-/// \cond INTERNAL
-ICE_API void _icePatchObjectPtr(ProcessPtr&, const ObjectPtr&);
-/// \endcond
+
+class Process;
+typedef ::IceInternal::Handle< Process> ProcessPtr;
+
+}
+
+namespace Ice
+{
 
 }
 
@@ -529,14 +524,12 @@ namespace Ice
  * <p class="Note">A servant implementing this interface is a potential target for denial-of-service attacks,
  * therefore proper security precautions should be taken. For example, the servant can use a UUID to make its
  * identity harder to guess, and be registered in an object adapter with a secured endpoint.
- * \headerfile Ice/Ice.h
  */
 class ICE_API Process : public virtual Object
 {
 public:
 
     typedef ProcessPrx ProxyType;
-    typedef ProcessPtr PointerType;
 
     virtual ~Process();
     Process() = default;
@@ -595,35 +588,9 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(OutputStream*) const;
-    virtual void _iceReadImpl(InputStream*);
-    /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const Process& lhs, const Process& rhs)
-{
-    return static_cast<const Object&>(lhs) == static_cast<const Object&>(rhs);
 }
-
-inline bool operator<(const Process& lhs, const Process& rhs)
-{
-    return static_cast<const Object&>(lhs) < static_cast<const Object&>(rhs);
-}
-/// \endcond
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 namespace Ice
 {

@@ -130,7 +130,6 @@ namespace Glacier2
 /**
  * The Glacier2 permissions verifier. This is called through the process of establishing a session.
  * @see Router
- * \headerfile Glacier2/Glacier2.h
  */
 class GLACIER2_API PermissionsVerifier : public virtual ::Ice::Object
 {
@@ -200,7 +199,6 @@ public:
 /**
  * The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
  * @see Router
- * \headerfile Glacier2/Glacier2.h
  */
 class GLACIER2_API SSLPermissionsVerifier : public virtual ::Ice::Object
 {
@@ -275,7 +273,6 @@ namespace Glacier2
 /**
  * The Glacier2 permissions verifier. This is called through the process of establishing a session.
  * @see Router
- * \headerfile Glacier2/Glacier2.h
  */
 class ICE_CLASS(GLACIER2_API) PermissionsVerifierPrx : public virtual ::Ice::Proxy<PermissionsVerifierPrx, ::Ice::ObjectPrx>
 {
@@ -359,7 +356,6 @@ protected:
 /**
  * The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
  * @see Router
- * \headerfile Glacier2/Glacier2.h
  */
 class ICE_CLASS(GLACIER2_API) SSLPermissionsVerifierPrx : public virtual ::Ice::Proxy<SSLPermissionsVerifierPrx, ::Ice::ObjectPrx>
 {
@@ -497,28 +493,16 @@ GLACIER2_API ::IceProxy::Ice::Object* upCast(SSLPermissionsVerifier*);
 
 namespace Glacier2
 {
-
-class PermissionsVerifier;
-/// \cond INTERNAL
-GLACIER2_API ::Ice::Object* upCast(PermissionsVerifier*);
-/// \endcond
-typedef ::IceInternal::Handle< PermissionsVerifier> PermissionsVerifierPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Glacier2::PermissionsVerifier> PermissionsVerifierPrx;
 typedef PermissionsVerifierPrx PermissionsVerifierPrxPtr;
-/// \cond INTERNAL
-GLACIER2_API void _icePatchObjectPtr(PermissionsVerifierPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class SSLPermissionsVerifier;
-/// \cond INTERNAL
-GLACIER2_API ::Ice::Object* upCast(SSLPermissionsVerifier*);
-/// \endcond
-typedef ::IceInternal::Handle< SSLPermissionsVerifier> SSLPermissionsVerifierPtr;
+class PermissionsVerifier;
+typedef ::IceInternal::Handle< PermissionsVerifier> PermissionsVerifierPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Glacier2::SSLPermissionsVerifier> SSLPermissionsVerifierPrx;
 typedef SSLPermissionsVerifierPrx SSLPermissionsVerifierPrxPtr;
-/// \cond INTERNAL
-GLACIER2_API void _icePatchObjectPtr(SSLPermissionsVerifierPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class SSLPermissionsVerifier;
+typedef ::IceInternal::Handle< SSLPermissionsVerifier> SSLPermissionsVerifierPtr;
 
 }
 
@@ -868,14 +852,12 @@ namespace Glacier2
 /**
  * The Glacier2 permissions verifier. This is called through the process of establishing a session.
  * @see Router
- * \headerfile Glacier2/Glacier2.h
  */
 class GLACIER2_API PermissionsVerifier : public virtual ::Ice::Object
 {
 public:
 
     typedef PermissionsVerifierPrx ProxyType;
-    typedef PermissionsVerifierPtr PointerType;
 
     virtual ~PermissionsVerifier();
     PermissionsVerifier() = default;
@@ -928,38 +910,17 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const PermissionsVerifier& lhs, const PermissionsVerifier& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const PermissionsVerifier& lhs, const PermissionsVerifier& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * The SSL Glacier2 permissions verifier. This is called through the process of establishing a session.
  * @see Router
- * \headerfile Glacier2/Glacier2.h
  */
 class GLACIER2_API SSLPermissionsVerifier : public virtual ::Ice::Object
 {
 public:
 
     typedef SSLPermissionsVerifierPrx ProxyType;
-    typedef SSLPermissionsVerifierPtr PointerType;
 
     virtual ~SSLPermissionsVerifier();
     SSLPermissionsVerifier() = default;
@@ -1012,26 +973,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const SSLPermissionsVerifier& lhs, const SSLPermissionsVerifier& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const SSLPermissionsVerifier& lhs, const SSLPermissionsVerifier& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 }
 

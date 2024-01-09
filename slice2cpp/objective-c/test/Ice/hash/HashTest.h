@@ -361,11 +361,6 @@ static Pen _iceS_Pen_init;
 
 }
 
-namespace Test
-{
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -539,22 +534,6 @@ using PenPtr = ::std::shared_ptr<Pen>;
 
 #else // C++98 mapping
 
-namespace IceProxy
-{
-
-namespace Test
-{
-
-class Pen;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Pen>&);
-::IceProxy::Ice::Object* upCast(Pen*);
-/// \endcond
-
-}
-
-}
-
 namespace Test
 {
 
@@ -563,8 +542,6 @@ class Pen;
 ::Ice::Object* upCast(Pen*);
 /// \endcond
 typedef ::IceInternal::Handle< Pen> PenPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Pen> PenPrx;
-typedef PenPrx PenPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(PenPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -919,43 +896,10 @@ struct Draw
 namespace Test
 {
 
-}
-
-namespace IceProxy
-{
-
-namespace Test
-{
-
-class Pen : public virtual ::Ice::Proxy<Pen, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-}
-
-}
-
-namespace Test
-{
-
 class Pen : public virtual ::Ice::Object
 {
 public:
 
-    typedef PenPrx ProxyType;
     typedef PenPtr PointerType;
 
     virtual ~Pen();
@@ -1357,11 +1301,6 @@ struct StreamReader< ::Test::Draw, S>
 
 }
 /// \endcond
-
-namespace Test
-{
-
-}
 
 #endif
 

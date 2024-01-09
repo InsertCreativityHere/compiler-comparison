@@ -23,7 +23,7 @@ public typealias SerialLarge = Foundation.Data
 
 public typealias SerialStruct = Foundation.Data
 
-/// Traits for Slice interface `MyClass`.
+/// Traits for Slice interface`MyClass`.
 public struct MyClassTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MyClass"]
     public static let staticId = "::Test::MyClass"
@@ -405,7 +405,7 @@ open class Bar: Ice.UserException {
     }
 }
 
-/// Traits for Slice class `Baz`.
+/// Traits for Slice class`Baz`.
 public struct BazTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Baz"]
     public static let staticId = "::Test::Baz"

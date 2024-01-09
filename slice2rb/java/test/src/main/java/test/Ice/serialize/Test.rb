@@ -69,13 +69,11 @@ module ::Test
     end
 
     if not defined?(::Test::T_Initial)
-        T_Initial = ::Ice::__declareClass('::Test::Initial')
         T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
     end
 
     if not defined?(::Test::T_Base)
         T_Base = ::Ice::__declareClass('::Test::Base')
-        T_BasePrx = ::Ice::__declareProxy('::Test::Base')
     end
 
     if not defined?(::Test::Struct1)
@@ -292,8 +290,6 @@ module ::Test
             T_Initial = ::Ice::__declareClass('::Test::Initial')
             T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
         end
-
-        T_Initial.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_InitialPrx.defineProxy(InitialPrx, nil, [])
 

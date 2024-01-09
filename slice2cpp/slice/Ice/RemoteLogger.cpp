@@ -784,11 +784,6 @@ Ice::RemoteLogger::~RemoteLogger()
 {
 }
 
-/// \cond INTERNAL
-ICE_API ::Ice::Object* Ice::upCast(RemoteLogger* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Ice_RemoteLogger_ids[2] =
@@ -915,44 +910,9 @@ Ice::RemoteLogger::_iceDispatch(::IceInternal::Incoming& in, const Current& curr
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Ice::RemoteLogger::_iceWriteImpl(OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    StreamWriter< RemoteLogger, OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Ice::RemoteLogger::_iceReadImpl(InputStream* istr)
-{
-    istr->startSlice();
-    StreamReader< RemoteLogger, InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Ice::_icePatchObjectPtr(RemoteLoggerPtr& handle, const ObjectPtr& v)
-{
-    handle = RemoteLoggerPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(RemoteLogger::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Ice::LoggerAdmin::~LoggerAdmin()
 {
 }
-
-/// \cond INTERNAL
-ICE_API ::Ice::Object* Ice::upCast(LoggerAdmin* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1110,36 +1070,6 @@ Ice::LoggerAdmin::_iceDispatch(::IceInternal::Incoming& in, const Current& curre
             assert(false);
             throw OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
         }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-Ice::LoggerAdmin::_iceWriteImpl(OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    StreamWriter< LoggerAdmin, OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Ice::LoggerAdmin::_iceReadImpl(InputStream* istr)
-{
-    istr->startSlice();
-    StreamReader< LoggerAdmin, InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Ice::_icePatchObjectPtr(LoggerAdminPtr& handle, const ObjectPtr& v)
-{
-    handle = LoggerAdminPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(LoggerAdmin::ice_staticId(), v);
     }
 }
 /// \endcond

@@ -39,6 +39,18 @@
 namespace IceStormElection
 {
 
+
+}
+
+namespace IceStorm
+{
+
+
+}
+
+namespace IceStormElection
+{
+
 using StringLogUpdateDict = ::std::map<::std::string, LogUpdate>;
 
 }
@@ -99,6 +111,16 @@ struct StreamReader<::IceStorm::AllData, S>
 #else // C++98 mapping
 
 namespace IceProxy
+{
+
+}
+
+namespace IceStormElection
+{
+
+}
+
+namespace IceStorm
 {
 
 }

@@ -51,8 +51,6 @@ module ::Test
             T_TimeoutPrx = ::Ice::__declareProxy('::Test::Timeout')
         end
 
-        T_Timeout.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_TimeoutPrx.defineProxy(TimeoutPrx, nil, [])
 
         TimeoutPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
@@ -88,8 +86,6 @@ module ::Test
             T_Controller = ::Ice::__declareClass('::Test::Controller')
             T_ControllerPrx = ::Ice::__declareProxy('::Test::Controller')
         end
-
-        T_Controller.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_ControllerPrx.defineProxy(ControllerPrx, nil, [])
 

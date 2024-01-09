@@ -469,7 +469,7 @@ await::optionalParams::_iceD_for(::IceInternal::Incoming& inS, const ::Ice::Curr
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
     std::optional<var> iceP_goto;
-    std::optional<::std::shared_ptr<::Ice::Value>> iceP_if;
+    std::optional<::std::shared_ptr<explicitPrx>> iceP_if;
     std::optional<_cpp_while> iceP_internal;
     std::optional<::std::string> iceP_namespace;
     std::optional<::std::shared_ptr<explicitPrx>> iceP_null;
@@ -490,7 +490,7 @@ await::optionalParams::_iceD_continue(::IceInternal::Incoming& inS, const ::Ice:
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
     std::optional<var> iceP_goto;
-    std::optional<::std::shared_ptr<::Ice::Value>> iceP_if;
+    std::optional<::std::shared_ptr<explicitPrx>> iceP_if;
     std::optional<_cpp_while> iceP_internal;
     std::optional<::std::string> iceP_namespace;
     std::optional<::std::shared_ptr<explicitPrx>> iceP_null;
@@ -516,7 +516,7 @@ await::optionalParams::_iceD_in(::IceInternal::Incoming& inS, const ::Ice::Curre
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
     std::optional<var> iceP_goto;
-    std::optional<::std::shared_ptr<::Ice::Value>> iceP_if;
+    std::optional<::std::shared_ptr<explicitPrx>> iceP_if;
     std::optional<_cpp_while> iceP_internal;
     std::optional<::std::string> iceP_namespace;
     std::optional<::std::shared_ptr<explicitPrx>> iceP_null;
@@ -535,7 +535,7 @@ await::optionalParams::_iceD_foreach(::IceInternal::Incoming& inS, const ::Ice::
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const std::optional<_cpp_break>& ret, const std::optional<var>& iceP_goto, const std::optional<::std::shared_ptr<::Ice::Value>>& iceP_if, const std::optional<_cpp_while>& iceP_internal, const std::optional<::std::string>& iceP_namespace, const std::optional<::std::shared_ptr<explicitPrx>>& iceP_null)
+    auto responseCB = [inA](const std::optional<_cpp_break>& ret, const std::optional<var>& iceP_goto, const std::optional<::std::shared_ptr<explicitPrx>>& iceP_if, const std::optional<_cpp_while>& iceP_internal, const std::optional<::std::string>& iceP_namespace, const std::optional<::std::shared_ptr<explicitPrx>>& iceP_null)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll({1, 2, 3, 5, 7, 8}, ret, iceP_goto, iceP_if, iceP_internal, iceP_namespace, iceP_null);
@@ -633,7 +633,7 @@ await::implicit::_iceD_in(::IceInternal::Incoming& inS, const ::Ice::Current& cu
     auto istr = inS.startReadParams();
     _cpp_break iceP_internal;
     ::std::shared_ptr<delete> iceP_is;
-    ::std::shared_ptr<::Ice::Value> iceP_lock;
+    ::std::shared_ptr<explicitPrx> iceP_lock;
     ::std::shared_ptr<casePrx> iceP_namespace;
     ::std::shared_ptr<typeofPrx> iceP_new;
     ::std::shared_ptr<delete> iceP_null;
@@ -939,7 +939,7 @@ await::explicitPrx::ice_staticId()
 
 /// \cond INTERNAL
 void
-await::optionalParamsPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<std::optional<::await::_cpp_break>>>& outAsync, const std::optional<var>& iceP_goto, const std::optional<::std::shared_ptr<::Ice::Value>>& iceP_if, const std::optional<_cpp_while>& iceP_internal, const std::optional<::std::string>& iceP_namespace, const std::optional<::std::shared_ptr<explicitPrx>>& iceP_null, const ::Ice::Context& context)
+await::optionalParamsPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<std::optional<::await::_cpp_break>>>& outAsync, const std::optional<var>& iceP_goto, const std::optional<::std::shared_ptr<explicitPrx>>& iceP_if, const std::optional<_cpp_while>& iceP_internal, const std::optional<::std::string>& iceP_namespace, const std::optional<::std::shared_ptr<explicitPrx>>& iceP_null, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_await_optionalParams_for_name);
     outAsync->invoke(iceC_await_optionalParams_for_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -959,7 +959,7 @@ await::optionalParamsPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::Outgo
 
 /// \cond INTERNAL
 void
-await::optionalParamsPrx::_iceI_continue(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<std::optional<::await::_cpp_break>>>& outAsync, const std::optional<var>& iceP_goto, const std::optional<::std::shared_ptr<::Ice::Value>>& iceP_if, const std::optional<_cpp_while>& iceP_internal, const std::optional<::std::string>& iceP_namespace, const std::optional<::std::shared_ptr<explicitPrx>>& iceP_null, const ::Ice::Context& context)
+await::optionalParamsPrx::_iceI_continue(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<std::optional<::await::_cpp_break>>>& outAsync, const std::optional<var>& iceP_goto, const std::optional<::std::shared_ptr<explicitPrx>>& iceP_if, const std::optional<_cpp_while>& iceP_internal, const std::optional<::std::string>& iceP_namespace, const std::optional<::std::shared_ptr<explicitPrx>>& iceP_null, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_await_optionalParams_continue_name);
     outAsync->invoke(iceC_await_optionalParams_continue_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1027,7 +1027,7 @@ await::optionalParamsPrx::ice_staticId()
 
 /// \cond INTERNAL
 void
-await::implicitPrx::_iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::await::var>>& outAsync, const _cpp_break& iceP_internal, const ::std::shared_ptr<_cpp_delete>& iceP_is, const ::std::shared_ptr<::Ice::Value>& iceP_lock, const ::std::shared_ptr<casePrx>& iceP_namespace, const ::std::shared_ptr<typeofPrx>& iceP_new, const ::std::shared_ptr<_cpp_delete>& iceP_null, const ::std::shared_ptr<explicitPrx>& iceP_operator, int iceP_override, int iceP_params, int iceP_private, const ::Ice::Context& context)
+await::implicitPrx::_iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::await::var>>& outAsync, const _cpp_break& iceP_internal, const ::std::shared_ptr<_cpp_delete>& iceP_is, const ::std::shared_ptr<explicitPrx>& iceP_lock, const ::std::shared_ptr<casePrx>& iceP_namespace, const ::std::shared_ptr<typeofPrx>& iceP_new, const ::std::shared_ptr<_cpp_delete>& iceP_null, const ::std::shared_ptr<explicitPrx>& iceP_operator, int iceP_override, int iceP_params, int iceP_private, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_await_implicit_in_name);
     outAsync->invoke(iceC_await_implicit_in_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1382,7 +1382,7 @@ IceAsync::await::AMD_optionalParams_foreach::AMD_optionalParams_foreach(::IceInt
 }
 
 void
-IceAsync::await::AMD_optionalParams_foreach::ice_response(const std::optional< ::await::_cpp_break>& ret, const std::optional< ::await::var>& _cpp_goto, const std::optional< ::await::explicitPtr>& _cpp_if, const std::optional< ::await::_cpp_while>& internal, const std::optional< ::std::string>& _cpp_namespace, const std::optional< ::await::explicitPrx>& null)
+IceAsync::await::AMD_optionalParams_foreach::ice_response(const std::optional< ::await::_cpp_break>& ret, const std::optional< ::await::var>& _cpp_goto, const std::optional< ::await::explicitPrx>& _cpp_if, const std::optional< ::await::_cpp_while>& internal, const std::optional< ::std::string>& _cpp_namespace, const std::optional< ::await::explicitPrx>& null)
 {
     ::Ice::OutputStream* ostr = startWriteParams();
     ostr->write(1, ret);
@@ -1546,40 +1546,6 @@ IceProxy::await::typeof::ice_staticId()
     return ::await::typeof::ice_staticId();
 }
 
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::await::upCast(_cpp_delete* p) { return p; }
-
-void
-::IceProxy::await::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< _cpp_delete>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new _cpp_delete;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::await::_cpp_delete::_newInstance() const
-{
-    return new _cpp_delete;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::await::_cpp_delete::ice_staticId()
-{
-    return ::await::_cpp_delete::ice_staticId();
-}
-
 ::IceProxy::await::_explicitBase::~_explicitBase()
 {
 }
@@ -1619,40 +1585,6 @@ IceProxy::await::_cpp_explicit::ice_staticId()
 }
 
 /// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::await::upCast(package* p) { return p; }
-
-void
-::IceProxy::await::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< package>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new package;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::await::package::_newInstance() const
-{
-    return new package;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::await::package::ice_staticId()
-{
-    return ::await::package::ice_staticId();
-}
-
-/// \cond INTERNAL
 ::IceProxy::Ice::Object* ::IceProxy::await::upCast(optionalParams* p) { return p; }
 
 void
@@ -1673,7 +1605,7 @@ void
 /// \endcond
 
 ::Ice::AsyncResultPtr
-IceProxy::await::optionalParams::_iceI_begin_for(const std::optional< ::await::var>& iceP_goto, const std::optional< ::await::explicitPtr>& iceP_if, const std::optional< ::await::_cpp_while>& iceP_internal, const std::optional< ::std::string>& iceP_namespace, const std::optional< ::await::explicitPrx>& iceP_null, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::await::optionalParams::_iceI_begin_for(const std::optional< ::await::var>& iceP_goto, const std::optional< ::await::explicitPrx>& iceP_if, const std::optional< ::await::_cpp_while>& iceP_internal, const std::optional< ::std::string>& iceP_namespace, const std::optional< ::await::explicitPrx>& iceP_null, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_await_optionalParams_for_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_await_optionalParams_for_name, del, cookie, sync);
@@ -1719,7 +1651,7 @@ IceProxy::await::optionalParams::end_for(const ::Ice::AsyncResultPtr& result)
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::await::optionalParams::_iceI_begin_continue(const std::optional< ::await::var>& iceP_goto, const std::optional< ::await::explicitPtr>& iceP_if, const std::optional< ::await::_cpp_while>& iceP_internal, const std::optional< ::std::string>& iceP_namespace, const std::optional< ::await::explicitPrx>& iceP_null, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::await::optionalParams::_iceI_begin_continue(const std::optional< ::await::var>& iceP_goto, const std::optional< ::await::explicitPrx>& iceP_if, const std::optional< ::await::_cpp_while>& iceP_internal, const std::optional< ::std::string>& iceP_namespace, const std::optional< ::await::explicitPrx>& iceP_null, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_await_optionalParams_continue_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_await_optionalParams_continue_name, del, cookie, sync);
@@ -1783,7 +1715,7 @@ IceProxy::await::optionalParams::_iceI_begin_in(const ::Ice::Context& context, c
 }
 
 std::optional< ::await::_cpp_break>
-IceProxy::await::optionalParams::end_in(std::optional< ::await::var>& iceP_goto, std::optional< ::await::explicitPtr>& iceP_if, std::optional< ::await::_cpp_while>& iceP_internal, std::optional< ::std::string>& iceP_namespace, std::optional< ::await::explicitPrx>& iceP_null, const ::Ice::AsyncResultPtr& result)
+IceProxy::await::optionalParams::end_in(std::optional< ::await::var>& iceP_goto, std::optional< ::await::explicitPrx>& iceP_if, std::optional< ::await::_cpp_while>& iceP_internal, std::optional< ::std::string>& iceP_namespace, std::optional< ::await::explicitPrx>& iceP_null, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_await_optionalParams_in_name);
     std::optional< ::await::_cpp_break> ret;
@@ -1809,7 +1741,7 @@ IceProxy::await::optionalParams::end_in(std::optional< ::await::var>& iceP_goto,
     return ret;
 }
 
-void IceProxy::await::optionalParams::_iceI_end_in(std::optional< ::await::var>& iceP_goto, std::optional< ::await::explicitPtr>& iceP_if, std::optional< ::await::_cpp_while>& iceP_internal, std::optional< ::std::string>& iceP_namespace, std::optional< ::await::explicitPrx>& iceP_null, std::optional< ::await::_cpp_break>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::await::optionalParams::_iceI_end_in(std::optional< ::await::var>& iceP_goto, std::optional< ::await::explicitPrx>& iceP_if, std::optional< ::await::_cpp_while>& iceP_internal, std::optional< ::std::string>& iceP_namespace, std::optional< ::await::explicitPrx>& iceP_null, std::optional< ::await::_cpp_break>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_await_optionalParams_in_name);
     if(!result->_waitForResponse())
@@ -1852,7 +1784,7 @@ IceProxy::await::optionalParams::_iceI_begin_foreach(const ::Ice::Context& conte
 }
 
 std::optional< ::await::_cpp_break>
-IceProxy::await::optionalParams::end_foreach(std::optional< ::await::var>& iceP_goto, std::optional< ::await::explicitPtr>& iceP_if, std::optional< ::await::_cpp_while>& iceP_internal, std::optional< ::std::string>& iceP_namespace, std::optional< ::await::explicitPrx>& iceP_null, const ::Ice::AsyncResultPtr& result)
+IceProxy::await::optionalParams::end_foreach(std::optional< ::await::var>& iceP_goto, std::optional< ::await::explicitPrx>& iceP_if, std::optional< ::await::_cpp_while>& iceP_internal, std::optional< ::std::string>& iceP_namespace, std::optional< ::await::explicitPrx>& iceP_null, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_await_optionalParams_foreach_name);
     std::optional< ::await::_cpp_break> ret;
@@ -1878,7 +1810,7 @@ IceProxy::await::optionalParams::end_foreach(std::optional< ::await::var>& iceP_
     return ret;
 }
 
-void IceProxy::await::optionalParams::_iceI_end_foreach(std::optional< ::await::var>& iceP_goto, std::optional< ::await::explicitPtr>& iceP_if, std::optional< ::await::_cpp_while>& iceP_internal, std::optional< ::std::string>& iceP_namespace, std::optional< ::await::explicitPrx>& iceP_null, std::optional< ::await::_cpp_break>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::await::optionalParams::_iceI_end_foreach(std::optional< ::await::var>& iceP_goto, std::optional< ::await::explicitPrx>& iceP_if, std::optional< ::await::_cpp_while>& iceP_internal, std::optional< ::std::string>& iceP_namespace, std::optional< ::await::explicitPrx>& iceP_null, std::optional< ::await::_cpp_break>& ret, const ::Ice::AsyncResultPtr& result)
 {
     ::Ice::AsyncResult::_check(result, this, iceC_await_optionalParams_foreach_name);
     if(!result->_waitForResponse())
@@ -1937,7 +1869,7 @@ void
 /// \endcond
 
 ::Ice::AsyncResultPtr
-IceProxy::await::implicit::_iceI_begin_in(const ::await::_cpp_break& iceP_internal, const ::await::deletePtr& iceP_is, const ::await::explicitPtr& iceP_lock, const ::await::casePrx& iceP_namespace, const ::await::typeofPrx& iceP_new, const ::await::deletePtr& iceP_null, const ::await::explicitPrx& iceP_operator, ::Ice::Int iceP_override, ::Ice::Int iceP_params, ::Ice::Int iceP_private, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::await::implicit::_iceI_begin_in(const ::await::_cpp_break& iceP_internal, const ::await::deletePtr& iceP_is, const ::await::explicitPrx& iceP_lock, const ::await::casePrx& iceP_namespace, const ::await::typeofPrx& iceP_new, const ::await::deletePtr& iceP_null, const ::await::explicitPrx& iceP_operator, ::Ice::Int iceP_override, ::Ice::Int iceP_params, ::Ice::Int iceP_private, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_await_implicit_in_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_await_implicit_in_name, del, cookie, sync);
@@ -2128,11 +2060,6 @@ await::_cpp_case::~_cpp_case()
 {
 }
 
-/// \cond INTERNAL
-::Ice::Object* await::upCast(_cpp_case* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_await_case_ids[2] =
@@ -2236,44 +2163,9 @@ await::_cpp_case::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current
 }
 /// \endcond
 
-/// \cond STREAM
-void
-await::_cpp_case::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< _cpp_case, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-await::_cpp_case::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< _cpp_case, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-await::_icePatchObjectPtr(casePtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = casePtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(_cpp_case::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 await::typeof::~typeof()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* await::upCast(typeof* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -2376,135 +2268,9 @@ await::typeof::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 }
 /// \endcond
 
-/// \cond STREAM
-void
-await::typeof::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< typeof, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-await::typeof::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< typeof, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-await::_icePatchObjectPtr(typeofPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = typeofPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(typeof::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-await::_cpp_delete::~_cpp_delete()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* await::upCast(_cpp_delete* p) { return p; }
-
-/// \endcond
-::Ice::ObjectPtr
-await::_cpp_delete::ice_clone() const
-{
-    ::Ice::Object* p = new _cpp_delete(*this);
-    return p;
-}
-
-namespace
-{
-const ::std::string iceC_await_delete_ids[2] =
-{
-    "::Ice::Object",
-    "::await::delete"
-};
-
-}
-
-bool
-await::_cpp_delete::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_await_delete_ids, iceC_await_delete_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-await::_cpp_delete::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_await_delete_ids[0], &iceC_await_delete_ids[2]);
-}
-
-const ::std::string&
-await::_cpp_delete::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-await::_cpp_delete::ice_staticId()
-{
-    static const ::std::string typeId = "::await::delete";
-    return typeId;
-}
-
-/// \cond STREAM
-void
-await::_cpp_delete::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< _cpp_delete, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-await::_cpp_delete::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< _cpp_delete, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::await::_cpp_delete> iceC_await_delete_init("::await::delete");
-}
-
-::Ice::ValueFactoryPtr
-await::_cpp_delete::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::await::_cpp_delete::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-await::_icePatchObjectPtr(deletePtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = deletePtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(_cpp_delete::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 await::_cpp_explicit::~_cpp_explicit()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* await::upCast(_cpp_explicit* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -2602,158 +2368,9 @@ await::_cpp_explicit::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cur
 }
 /// \endcond
 
-/// \cond STREAM
-void
-await::_cpp_explicit::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< _cpp_explicit, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-await::_cpp_explicit::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< _cpp_explicit, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-await::_icePatchObjectPtr(explicitPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = explicitPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(_cpp_explicit::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-await::package::~package()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* await::upCast(package* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
-::Ice::ObjectPtr
-await::package::ice_clone() const
-{
-    ::Ice::Object* p = new package(*this);
-    return p;
-}
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
-
-namespace
-{
-const ::std::string iceC_await_package_ids[2] =
-{
-    "::Ice::Object",
-    "::await::package"
-};
-
-}
-
-bool
-await::package::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_await_package_ids, iceC_await_package_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-await::package::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_await_package_ids[0], &iceC_await_package_ids[2]);
-}
-
-const ::std::string&
-await::package::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-await::package::ice_staticId()
-{
-    static const ::std::string typeId = "::await::package";
-    return typeId;
-}
-
-void
-await::package::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    if(_cpp_if)
-    {
-        if((*_cpp_if))
-        {
-            if((::await::upCast((*_cpp_if).get())->_iceGcVisit(v_)))
-            {
-                (*_cpp_if) = 0;
-            }
-        }
-    }
-}
-
-/// \cond STREAM
-void
-await::package::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< package, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-await::package::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< package, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::await::package> iceC_await_package_init("::await::package");
-}
-
-::Ice::ValueFactoryPtr
-await::package::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::await::package::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-await::_icePatchObjectPtr(packagePtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = packagePtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(package::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 await::optionalParams::~optionalParams()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* await::upCast(optionalParams* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -2797,7 +2414,7 @@ await::optionalParams::_iceD_for(::IceInternal::Incoming& inS, const ::Ice::Curr
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
     std::optional<var> iceP_goto;
-    std::optional<explicitPtr> iceP_if;
+    std::optional<explicitPrx> iceP_if;
     std::optional<_cpp_while> iceP_internal;
     std::optional< ::std::string> iceP_namespace;
     std::optional<explicitPrx> iceP_null;
@@ -2822,7 +2439,7 @@ await::optionalParams::_iceD_continue(::IceInternal::Incoming& inS, const ::Ice:
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
     std::optional<var> iceP_goto;
-    std::optional<explicitPtr> iceP_if;
+    std::optional<explicitPrx> iceP_if;
     std::optional<_cpp_while> iceP_internal;
     std::optional< ::std::string> iceP_namespace;
     std::optional<explicitPrx> iceP_null;
@@ -2844,7 +2461,7 @@ await::optionalParams::_iceD_in(::IceInternal::Incoming& inS, const ::Ice::Curre
     _iceCheckMode(::Ice::Normal, current.mode);
     inS.readEmptyParams();
     std::optional<var> iceP_goto;
-    std::optional<explicitPtr> iceP_if;
+    std::optional<explicitPrx> iceP_if;
     std::optional<_cpp_while> iceP_internal;
     std::optional< ::std::string> iceP_namespace;
     std::optional<explicitPrx> iceP_null;
@@ -2941,44 +2558,9 @@ await::optionalParams::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
 }
 /// \endcond
 
-/// \cond STREAM
-void
-await::optionalParams::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< optionalParams, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-await::optionalParams::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< optionalParams, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-await::_icePatchObjectPtr(optionalParamsPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = optionalParamsPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(optionalParams::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 await::implicit::~implicit()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* await::upCast(implicit* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -3023,7 +2605,7 @@ await::implicit::_iceD_in(::IceInternal::Incoming& inS, const ::Ice::Current& cu
     ::Ice::InputStream* istr = inS.startReadParams();
     _cpp_break iceP_internal;
     deletePtr iceP_is;
-    explicitPtr iceP_lock;
+    explicitPrx iceP_lock;
     casePrx iceP_namespace;
     typeofPrx iceP_new;
     deletePtr iceP_null;
@@ -3105,44 +2687,9 @@ await::implicit::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current&
 }
 /// \endcond
 
-/// \cond STREAM
-void
-await::implicit::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< implicit, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-await::implicit::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< implicit, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-await::_icePatchObjectPtr(implicitPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = implicitPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(implicit::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 await::System::Test::~Test()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* await::System::upCast(Test* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -3245,44 +2792,9 @@ await::System::Test::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
 }
 /// \endcond
 
-/// \cond STREAM
-void
-await::System::Test::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Test, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-await::System::Test::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Test, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-await::System::_icePatchObjectPtr(TestPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = TestPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Test::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 System::Test::~Test()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* System::upCast(Test* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -3385,39 +2897,187 @@ System::Test::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cu
 }
 /// \endcond
 
+await::_cpp_delete::~_cpp_delete()
+{
+}
+
+/// \cond INTERNAL
+::Ice::Object* await::upCast(_cpp_delete* p) { return p; }
+
+/// \endcond
+::Ice::ObjectPtr
+await::_cpp_delete::ice_clone() const
+{
+    ::Ice::Object* p = new _cpp_delete(*this);
+    return p;
+}
+
+namespace
+{
+const ::std::string iceC_await_delete_ids[2] =
+{
+    "::Ice::Object",
+    "::await::delete"
+};
+
+}
+
+bool
+await::_cpp_delete::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_await_delete_ids, iceC_await_delete_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+await::_cpp_delete::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_await_delete_ids[0], &iceC_await_delete_ids[2]);
+}
+
+const ::std::string&
+await::_cpp_delete::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+await::_cpp_delete::ice_staticId()
+{
+    static const ::std::string typeId = "::await::delete";
+    return typeId;
+}
+
 /// \cond STREAM
 void
-System::Test::_iceWriteImpl(::Ice::OutputStream* ostr) const
+await::_cpp_delete::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Test, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter< _cpp_delete, ::Ice::OutputStream>::write(ostr, *this);
     ostr->endSlice();
 }
 
 void
-System::Test::_iceReadImpl(::Ice::InputStream* istr)
+await::_cpp_delete::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader< Test, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader< _cpp_delete, ::Ice::InputStream>::read(istr, *this);
     istr->endSlice();
 }
 /// \endcond
 
+namespace
+{
+const ::IceInternal::DefaultValueFactoryInit< ::await::_cpp_delete> iceC_await_delete_init("::await::delete");
+}
+
+::Ice::ValueFactoryPtr
+await::_cpp_delete::ice_factory()
+{
+    return ::IceInternal::factoryTable->getValueFactory(::await::_cpp_delete::ice_staticId());
+}
+
 /// \cond INTERNAL
 void
-System::_icePatchObjectPtr(TestPtr& handle, const ::Ice::ObjectPtr& v)
+await::_icePatchObjectPtr(deletePtr& handle, const ::Ice::ObjectPtr& v)
 {
-    handle = TestPtr::dynamicCast(v);
+    handle = deletePtr::dynamicCast(v);
     if(v && !handle)
     {
-        IceInternal::Ex::throwUOE(Test::ice_staticId(), v);
+        IceInternal::Ex::throwUOE(_cpp_delete::ice_staticId(), v);
     }
 }
 /// \endcond
 
-namespace Ice
+await::package::~package()
 {
 }
+
+/// \cond INTERNAL
+::Ice::Object* await::upCast(package* p) { return p; }
+
+/// \endcond
+::Ice::ObjectPtr
+await::package::ice_clone() const
+{
+    ::Ice::Object* p = new package(*this);
+    return p;
+}
+
+namespace
+{
+const ::std::string iceC_await_package_ids[2] =
+{
+    "::Ice::Object",
+    "::await::package"
+};
+
+}
+
+bool
+await::package::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_await_package_ids, iceC_await_package_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+await::package::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_await_package_ids[0], &iceC_await_package_ids[2]);
+}
+
+const ::std::string&
+await::package::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+await::package::ice_staticId()
+{
+    static const ::std::string typeId = "::await::package";
+    return typeId;
+}
+
+/// \cond STREAM
+void
+await::package::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter< package, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+await::package::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader< package, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+/// \endcond
+
+namespace
+{
+const ::IceInternal::DefaultValueFactoryInit< ::await::package> iceC_await_package_init("::await::package");
+}
+
+::Ice::ValueFactoryPtr
+await::package::ice_factory()
+{
+    return ::IceInternal::factoryTable->getValueFactory(::await::package::ice_staticId());
+}
+
+/// \cond INTERNAL
+void
+await::_icePatchObjectPtr(packagePtr& handle, const ::Ice::ObjectPtr& v)
+{
+    handle = packagePtr::dynamicCast(v);
+    if(v && !handle)
+    {
+        IceInternal::Ex::throwUOE(package::ice_staticId(), v);
+    }
+}
+/// \endcond
 
 namespace Ice
 {

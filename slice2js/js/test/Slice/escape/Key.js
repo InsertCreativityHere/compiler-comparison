@@ -174,7 +174,7 @@
         {
             _await._break.writeOptional(ostr, 1, this._for);
             _await._var._writeOpt(ostr, 2, this.goto);
-            ostr.writeOptionalValue(3, this._if);
+            _await.explicitPrx.writeOptional(ostr, 3, this._if);
             _await._whileHelper.writeOptional(ostr, 5, this.internal);
             Ice.StringHelper.writeOptional(ostr, 7, this._debugger);
             _await.explicitPrx.writeOptional(ostr, 8, this._null);
@@ -184,7 +184,7 @@
         {
             this._for = _await._break.readOptional(istr, 1);
             this.goto = _await._var._readOpt(istr, 2);
-            istr.readOptionalValue(3, obj => this._if = obj, _await.explicit);
+            this._if = _await.explicitPrx.readOptional(istr, 3);
             this.internal = _await._whileHelper.readOptional(istr, 5);
             this._debugger = Ice.StringHelper.readOptional(istr, 7);
             this._null = _await.explicitPrx.readOptional(istr, 8);
@@ -208,10 +208,10 @@
 
     Slice.defineOperations(_await.optionalParams, _await.optionalParamsPrx, iceC__await_optionalParams_ids, 1,
     {
-        "for": ["_for", , , , [_await._break, , 1], [[_await._var._helper, , 2], ["Ice.Value", true, 3], ["_await.whileHelper", , 5], [7, , 7], ["_await.explicitPrx", , 8]], , , , ],
-        "continue": ["_continue", , , , [_await._break, , 1], [[_await._var._helper, , 2], ["Ice.Value", true, 3], ["_await.whileHelper", , 5], [7, , 7], ["_await.explicitPrx", , 8]], , , , ],
-        "in": ["_in", , , , [_await._break, , 1], , [[_await._var._helper, , 2], ["Ice.Value", true, 3], ["_await.whileHelper", , 5], [7, , 7], ["_await.explicitPrx", , 8]], , , ],
-        "foreach": [, , , , [_await._break, , 1], , [[_await._var._helper, , 2], ["Ice.Value", true, 3], ["_await.whileHelper", , 5], [7, , 7], ["_await.explicitPrx", , 8]], , , ]
+        "for": ["_for", , , , [_await._break, , 1], [[_await._var._helper, , 2], ["_await.explicitPrx", , 3], ["_await.whileHelper", , 5], [7, , 7], ["_await.explicitPrx", , 8]], , , , ],
+        "continue": ["_continue", , , , [_await._break, , 1], [[_await._var._helper, , 2], ["_await.explicitPrx", , 3], ["_await.whileHelper", , 5], [7, , 7], ["_await.explicitPrx", , 8]], , , , ],
+        "in": ["_in", , , , [_await._break, , 1], , [[_await._var._helper, , 2], ["_await.explicitPrx", , 3], ["_await.whileHelper", , 5], [7, , 7], ["_await.explicitPrx", , 8]], , , ],
+        "foreach": [, , , , [_await._break, , 1], , [[_await._var._helper, , 2], ["_await.explicitPrx", , 3], ["_await.whileHelper", , 5], [7, , 7], ["_await.explicitPrx", , 8]], , , ]
     });
 
     _await.fixed = class extends Ice.UserException
@@ -376,7 +376,7 @@
 
     Slice.defineOperations(_await.implicit, _await.implicitPrx, iceC__await_implicit_ids, 1,
     {
-        "in": ["_in", , , , [_await._var._helper], [[_await._break], ["_await._delete", true], ["Ice.Value", true], ["_await.casePrx"], ["_await.typeofPrx"], ["_await._delete", true], ["_await.explicitPrx"], [3], [3], [3]], ,
+        "in": ["_in", , , , [_await._var._helper], [[_await._break], ["_await._delete", true], ["_await.explicitPrx"], ["_await.casePrx"], ["_await.typeofPrx"], ["_await._delete", true], ["_await.explicitPrx"], [3], [3], [3]], ,
         [
             _await.foreach,
             _await.fixed

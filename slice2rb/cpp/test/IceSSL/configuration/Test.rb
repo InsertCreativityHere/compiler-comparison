@@ -47,8 +47,6 @@ module ::Test
             T_ServerPrx = ::Ice::__declareProxy('::Test::Server')
         end
 
-        T_Server.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_ServerPrx.defineProxy(ServerPrx, nil, [])
 
         ServerPrx_mixin::OP_noCert = ::Ice::__defineOperation('noCert', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
@@ -88,8 +86,6 @@ module ::Test
             T_ServerFactory = ::Ice::__declareClass('::Test::ServerFactory')
             T_ServerFactoryPrx = ::Ice::__declareProxy('::Test::ServerFactory')
         end
-
-        T_ServerFactory.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_ServerFactoryPrx.defineProxy(ServerFactoryPrx, nil, [])
 

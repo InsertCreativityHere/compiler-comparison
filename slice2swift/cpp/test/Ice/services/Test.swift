@@ -17,7 +17,7 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice interface `Clock`.
+/// Traits for Slice interface`Clock`.
 public struct ClockTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Clock"]
     public static let staticId = "::Test::Clock"

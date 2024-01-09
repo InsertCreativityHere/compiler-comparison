@@ -17,18 +17,18 @@ package and;
 
 public interface printPrx extends com.zeroc.Ice.ObjectPrx
 {
-    default _assert raise(_continue _else, _for _return, com.zeroc.Ice.Value _try, delPrx _while, execPrx yield, com.zeroc.Ice.ObjectPrx lambda, ifPrx or, int global)
+    default _assert raise(_continue _else, _for _return, delPrx _while, execPrx yield, ifPrx or, int global)
         throws is
     {
-        return raise(_else, _return, _try, _while, yield, lambda, or, global, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        return raise(_else, _return, _while, yield, or, global, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default _assert raise(_continue _else, _for _return, com.zeroc.Ice.Value _try, delPrx _while, execPrx yield, com.zeroc.Ice.ObjectPrx lambda, ifPrx or, int global, java.util.Map<String, String> context)
+    default _assert raise(_continue _else, _for _return, delPrx _while, execPrx yield, ifPrx or, int global, java.util.Map<String, String> context)
         throws is
     {
         try
         {
-            return _iceI_raiseAsync(_else, _return, _try, _while, yield, lambda, or, global, context, true).waitForResponseOrUserEx();
+            return _iceI_raiseAsync(_else, _return, _while, yield, or, global, context, true).waitForResponseOrUserEx();
         }
         catch(is ex)
         {
@@ -40,40 +40,36 @@ public interface printPrx extends com.zeroc.Ice.ObjectPrx
         }
     }
 
-    default java.util.concurrent.CompletableFuture<_assert> raiseAsync(_continue _else, _for _return, com.zeroc.Ice.Value _try, delPrx _while, execPrx yield, com.zeroc.Ice.ObjectPrx lambda, ifPrx or, int global)
+    default java.util.concurrent.CompletableFuture<_assert> raiseAsync(_continue _else, _for _return, delPrx _while, execPrx yield, ifPrx or, int global)
     {
-        return _iceI_raiseAsync(_else, _return, _try, _while, yield, lambda, or, global, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_raiseAsync(_else, _return, _while, yield, or, global, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<_assert> raiseAsync(_continue _else, _for _return, com.zeroc.Ice.Value _try, delPrx _while, execPrx yield, com.zeroc.Ice.ObjectPrx lambda, ifPrx or, int global, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<_assert> raiseAsync(_continue _else, _for _return, delPrx _while, execPrx yield, ifPrx or, int global, java.util.Map<String, String> context)
     {
-        return _iceI_raiseAsync(_else, _return, _try, _while, yield, lambda, or, global, context, false);
+        return _iceI_raiseAsync(_else, _return, _while, yield, or, global, context, false);
     }
 
     /**
      * @hidden
      * @param iceP_else -
      * @param iceP_return -
-     * @param iceP_try -
      * @param iceP_while -
      * @param iceP_yield -
-     * @param iceP_lambda -
      * @param iceP_or -
      * @param iceP_global -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<_assert> _iceI_raiseAsync(_continue iceP_else, _for iceP_return, com.zeroc.Ice.Value iceP_try, delPrx iceP_while, execPrx iceP_yield, com.zeroc.Ice.ObjectPrx iceP_lambda, ifPrx iceP_or, int iceP_global, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<_assert> _iceI_raiseAsync(_continue iceP_else, _for iceP_return, delPrx iceP_while, execPrx iceP_yield, ifPrx iceP_or, int iceP_global, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<_assert> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "raise", null, sync, _iceE_raise);
         f.invoke(true, context, null, ostr -> {
                      _continue.ice_write(ostr, iceP_else);
                      ostr.writeValue(iceP_return);
-                     ostr.writeValue(iceP_try);
                      ostr.writeProxy(iceP_while);
                      ostr.writeProxy(iceP_yield);
-                     ostr.writeProxy(iceP_lambda);
                      ostr.writeProxy(iceP_or);
                      ostr.writeInt(iceP_global);
                      ostr.writePendingValues();

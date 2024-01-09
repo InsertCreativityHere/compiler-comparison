@@ -39,8 +39,6 @@ module ::Test
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 
-        T_TestIntf.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
         TestIntfPrx_mixin::OP_getAdapterName = ::Ice::__defineOperation('getAdapterName', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
@@ -70,8 +68,6 @@ module ::Test
             T_RemoteObjectAdapter = ::Ice::__declareClass('::Test::RemoteObjectAdapter')
             T_RemoteObjectAdapterPrx = ::Ice::__declareProxy('::Test::RemoteObjectAdapter')
         end
-
-        T_RemoteObjectAdapter.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_RemoteObjectAdapterPrx.defineProxy(RemoteObjectAdapterPrx, nil, [])
 
@@ -107,8 +103,6 @@ module ::Test
             T_RemoteCommunicator = ::Ice::__declareClass('::Test::RemoteCommunicator')
             T_RemoteCommunicatorPrx = ::Ice::__declareProxy('::Test::RemoteCommunicator')
         end
-
-        T_RemoteCommunicator.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_RemoteCommunicatorPrx.defineProxy(RemoteCommunicatorPrx, nil, [])
 

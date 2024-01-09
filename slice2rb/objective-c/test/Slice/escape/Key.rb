@@ -145,8 +145,6 @@ module ::And
             T_BreakPrx = ::Ice::__declareProxy('::and::break')
         end
 
-        T_Break.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_BreakPrx.defineProxy(BreakPrx, nil, [])
 
         BreakPrx_mixin::OP_case = ::Ice::__defineOperation('case', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
@@ -172,8 +170,6 @@ module ::And
             T_Char = ::Ice::__declareClass('::and::char')
             T_CharPrx = ::Ice::__declareProxy('::and::char')
         end
-
-        T_Char.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_CharPrx.defineProxy(CharPrx, nil, [])
 
@@ -209,8 +205,6 @@ module ::And
             T_SwitchPrx = ::Ice::__declareProxy('::and::switch')
         end
 
-        T_Switch.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_SwitchPrx.defineProxy(SwitchPrx, nil, [])
 
         SwitchPrx_mixin::OP_foo = ::Ice::__defineOperation('foo', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::And::T_CharPrx, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
@@ -230,25 +224,12 @@ module ::And
 
             attr_accessor :_if
         end
-        module DoPrx_mixin
-            include ::And::CharPrx_mixin
-            include ::And::BreakPrx_mixin
-            include ::And::SwitchPrx_mixin
-        end
-
-        class DoPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
-            include DoPrx_mixin
-        end
 
         if not defined?(::And::T_Do)
             T_Do = ::Ice::__declareClass('::and::do')
-            T_DoPrx = ::Ice::__declareProxy('::and::do')
         end
 
         T_Do.defineClass(Do, -1, false, false, nil, [['_if', ::Ice::T_int, false, 0]])
-
-        T_DoPrx.defineProxy(DoPrx, nil, [::And::T_CharPrx, ::And::T_BreakPrx, ::And::T_SwitchPrx])
     end
 
     if not defined?(::And::T_Extern)
@@ -302,8 +283,8 @@ module ::And
         end
         module FriendPrx_mixin
 
-            def goto(_if, d, inline, private, mutable, namespace, _new, _not, operator, _or, protected, public, register, context=nil)
-                FriendPrx_mixin::OP_goto.invoke(self, [_if, d, inline, private, mutable, namespace, _new, _not, operator, _or, protected, public, register], context)
+            def goto(_if, d, inline, mutable, namespace, _new, _not, _or, protected, public, register, context=nil)
+                FriendPrx_mixin::OP_goto.invoke(self, [_if, d, inline, mutable, namespace, _new, _not, _or, protected, public, register], context)
             end
 
             def objc(bycopy, byref, id, iMP, _in, inout, _nil, nO, oneway, sEL, _super, yES, context=nil)
@@ -321,11 +302,9 @@ module ::And
             T_FriendPrx = ::Ice::__declareProxy('::and::friend')
         end
 
-        T_Friend.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_FriendPrx.defineProxy(FriendPrx, nil, [])
 
-        FriendPrx_mixin::OP_goto = ::Ice::__defineOperation('goto', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::And::T_Continue, false, 0], [::And::T_Auto, false, 0], [::And::T_Delete, false, 0], [::And::T_Switch, false, 0], [::And::T_Do, false, 0], [::And::T_BreakPrx, false, 0], [::And::T_CharPrx, false, 0], [::And::T_SwitchPrx, false, 0], [::And::T_DoPrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::And::T_Auto, false, 0], [::And::T_Return, ::And::T_Sizeof])
+        FriendPrx_mixin::OP_goto = ::Ice::__defineOperation('goto', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::And::T_Continue, false, 0], [::And::T_Auto, false, 0], [::And::T_Delete, false, 0], [::And::T_Do, false, 0], [::And::T_BreakPrx, false, 0], [::And::T_CharPrx, false, 0], [::And::T_SwitchPrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::And::T_Auto, false, 0], [::And::T_Return, ::And::T_Sizeof])
         FriendPrx_mixin::OP_objc = ::Ice::__defineOperation('objc', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
     end
 

@@ -17,31 +17,31 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice interface `TestLocatorRegistry`.
+/// Traits for Slice interface`TestLocatorRegistry`.
 public struct TestLocatorRegistryTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::LocatorRegistry", "::Ice::Object", "::Test::TestLocatorRegistry"]
     public static let staticId = "::Test::TestLocatorRegistry"
 }
 
-/// Traits for Slice interface `TestLocator`.
+/// Traits for Slice interface`TestLocator`.
 public struct TestLocatorTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Locator", "::Ice::Object", "::Test::TestLocator"]
     public static let staticId = "::Test::TestLocator"
 }
 
-/// Traits for Slice interface `ServerManager`.
+/// Traits for Slice interface`ServerManager`.
 public struct ServerManagerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::ServerManager"]
     public static let staticId = "::Test::ServerManager"
 }
 
-/// Traits for Slice interface `Hello`.
+/// Traits for Slice interface`Hello`.
 public struct HelloTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Hello"]
     public static let staticId = "::Test::Hello"
 }
 
-/// Traits for Slice interface `TestIntf`.
+/// Traits for Slice interface`TestIntf`.
 public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::TestIntf"]
     public static let staticId = "::Test::TestIntf"

@@ -942,12 +942,6 @@ namespace Test
 namespace NumPy
 {
 
-class D;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< D>&);
-::IceProxy::Ice::Object* upCast(D*);
-/// \endcond
-
 class Custom;
 /// \cond INTERNAL
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Custom>&);
@@ -971,22 +965,14 @@ class D;
 ::Ice::Object* upCast(D*);
 /// \endcond
 typedef ::IceInternal::Handle< D> DPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::NumPy::D> DPrx;
-typedef DPrx DPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(DPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-class Custom;
-/// \cond INTERNAL
-::Ice::Object* upCast(Custom*);
-/// \endcond
-typedef ::IceInternal::Handle< Custom> CustomPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::NumPy::Custom> CustomPrx;
 typedef CustomPrx CustomPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(CustomPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class Custom;
+typedef ::IceInternal::Handle< Custom> CustomPtr;
 
 }
 
@@ -1194,23 +1180,6 @@ namespace Test
 
 namespace NumPy
 {
-
-class D : public virtual ::Ice::Proxy<D, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
 
 class Custom : public virtual ::Ice::Proxy<Custom, ::IceProxy::Ice::Object>
 {
@@ -1953,114 +1922,11 @@ namespace Test
 namespace NumPy
 {
 
-class D : public virtual ::Ice::Object
-{
-public:
-
-    typedef DPrx ProxyType;
-    typedef DPtr PointerType;
-
-    virtual ~D();
-
-    D()
-    {
-    }
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    D(const std::optional< ::Test::NumPy::BoolSeq1>& boolSeq, const std::optional< ::Test::NumPy::ByteSeq1>& byteSeq, const std::optional< ::Test::NumPy::ShortSeq1>& shortSeq, const std::optional< ::Test::NumPy::IntSeq1>& intSeq, const std::optional< ::Test::NumPy::LongSeq1>& longSeq, const std::optional< ::Test::NumPy::FloatSeq1>& floatSeq, const std::optional< ::Test::NumPy::DoubleSeq1>& doubleSeq) :
-        boolSeq(boolSeq),
-        byteSeq(byteSeq),
-        shortSeq(shortSeq),
-        intSeq(intSeq),
-        longSeq(longSeq),
-        floatSeq(floatSeq),
-        doubleSeq(doubleSeq)
-    {
-    }
-    D(const D&) = default;
-    D& operator=(const D&) = default;
-
-    /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
-     */
-    virtual ::Ice::ObjectPtr ice_clone() const;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
-    std::optional< ::Test::NumPy::BoolSeq1> boolSeq;
-    std::optional< ::Test::NumPy::ByteSeq1> byteSeq;
-    std::optional< ::Test::NumPy::ShortSeq1> shortSeq;
-    std::optional< ::Test::NumPy::IntSeq1> intSeq;
-    std::optional< ::Test::NumPy::LongSeq1> longSeq;
-    std::optional< ::Test::NumPy::FloatSeq1> floatSeq;
-    std::optional< ::Test::NumPy::DoubleSeq1> doubleSeq;
-};
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_D_init = ::Test::NumPy::D::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const D& lhs, const D& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const D& lhs, const D& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
 class Custom : public virtual ::Ice::Object
 {
 public:
 
     typedef CustomPrx ProxyType;
-    typedef CustomPtr PointerType;
 
     virtual ~Custom();
     Custom() = default;
@@ -2188,6 +2054,85 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
+};
+
+}
+
+}
+
+namespace Test
+{
+
+namespace NumPy
+{
+
+class D : public virtual ::Ice::Object
+{
+public:
+
+    typedef DPtr PointerType;
+
+    virtual ~D();
+
+    D()
+    {
+    }
+
+    /**
+     * One-shot constructor to initialize all data members.
+     */
+    D(const std::optional< ::Test::NumPy::BoolSeq1>& boolSeq, const std::optional< ::Test::NumPy::ByteSeq1>& byteSeq, const std::optional< ::Test::NumPy::ShortSeq1>& shortSeq, const std::optional< ::Test::NumPy::IntSeq1>& intSeq, const std::optional< ::Test::NumPy::LongSeq1>& longSeq, const std::optional< ::Test::NumPy::FloatSeq1>& floatSeq, const std::optional< ::Test::NumPy::DoubleSeq1>& doubleSeq) :
+        boolSeq(boolSeq),
+        byteSeq(byteSeq),
+        shortSeq(shortSeq),
+        intSeq(intSeq),
+        longSeq(longSeq),
+        floatSeq(floatSeq),
+        doubleSeq(doubleSeq)
+    {
+    }
+    D(const D&) = default;
+    D& operator=(const D&) = default;
+
+    /**
+     * Polymorphically clones this object.
+     * @return A shallow copy of this object.
+     */
+    virtual ::Ice::ObjectPtr ice_clone() const;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /**
+     * Obtains a value factory that instantiates this class.
+     * @return The value factory.
+     */
+    static ::Ice::ValueFactoryPtr ice_factory();
 
 protected:
 
@@ -2195,15 +2140,28 @@ protected:
     virtual void _iceWriteImpl(::Ice::OutputStream*) const;
     virtual void _iceReadImpl(::Ice::InputStream*);
     /// \endcond
+
+public:
+
+    std::optional< ::Test::NumPy::BoolSeq1> boolSeq;
+    std::optional< ::Test::NumPy::ByteSeq1> byteSeq;
+    std::optional< ::Test::NumPy::ShortSeq1> shortSeq;
+    std::optional< ::Test::NumPy::IntSeq1> intSeq;
+    std::optional< ::Test::NumPy::LongSeq1> longSeq;
+    std::optional< ::Test::NumPy::FloatSeq1> floatSeq;
+    std::optional< ::Test::NumPy::DoubleSeq1> doubleSeq;
 };
+/// \cond INTERNAL
+static ::Ice::ValueFactoryPtr _iceS_D_init = ::Test::NumPy::D::ice_factory();
+/// \endcond
 
 /// \cond INTERNAL
-inline bool operator==(const Custom& lhs, const Custom& rhs)
+inline bool operator==(const D& lhs, const D& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
 }
 
-inline bool operator<(const Custom& lhs, const Custom& rhs)
+inline bool operator<(const D& lhs, const D& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
 }

@@ -70,13 +70,11 @@ module ::Test
     end
 
     if not defined?(::Test::T_MyInterface)
-        T_MyInterface = ::Ice::__declareClass('::Test::MyInterface')
         T_MyInterfacePrx = ::Ice::__declareProxy('::Test::MyInterface')
     end
 
     if not defined?(::Test::T_MyClass)
         T_MyClass = ::Ice::__declareClass('::Test::MyClass')
-        T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
     end
 
     if not defined?(::Test::SmallStruct)
@@ -343,8 +341,6 @@ module ::Test
             T_MyInterface = ::Ice::__declareClass('::Test::MyInterface')
             T_MyInterfacePrx = ::Ice::__declareProxy('::Test::MyInterface')
         end
-
-        T_MyInterface.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_MyInterfacePrx.defineProxy(MyInterfacePrx, nil, [])
     end

@@ -329,40 +329,6 @@ Test::E::_readImpl(::Ice::InputStream* istr)
 /// \endcond
 
 /// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(ConcreteClass* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< ConcreteClass>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new ConcreteClass;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::ConcreteClass::_newInstance() const
-{
-    return new ConcreteClass;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::ConcreteClass::ice_staticId()
-{
-    return ::Test::ConcreteClass::ice_staticId();
-}
-
-/// \cond INTERNAL
 ::IceProxy::Ice::Object* ::IceProxy::Test::upCast(Initial* p) { return p; }
 
 void
@@ -500,105 +466,9 @@ IceProxy::Test::Initial::ice_staticId()
     return ::Test::Initial::ice_staticId();
 }
 
-Test::ConcreteClass::~ConcreteClass()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(ConcreteClass* p) { return p; }
-
-/// \endcond
-::Ice::ObjectPtr
-Test::ConcreteClass::ice_clone() const
-{
-    ::Ice::Object* p = new ConcreteClass(*this);
-    return p;
-}
-
-namespace
-{
-const ::std::string iceC_Test_ConcreteClass_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::ConcreteClass"
-};
-
-}
-
-bool
-Test::ConcreteClass::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_ConcreteClass_ids, iceC_Test_ConcreteClass_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::ConcreteClass::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_ConcreteClass_ids[0], &iceC_Test_ConcreteClass_ids[2]);
-}
-
-const ::std::string&
-Test::ConcreteClass::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::ConcreteClass::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::ConcreteClass";
-    return typeId;
-}
-
-/// \cond STREAM
-void
-Test::ConcreteClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< ConcreteClass, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::ConcreteClass::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< ConcreteClass, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::ConcreteClass> iceC_Test_ConcreteClass_init("::Test::ConcreteClass");
-}
-
-::Ice::ValueFactoryPtr
-Test::ConcreteClass::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::ConcreteClass::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(ConcreteClassPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = ConcreteClassPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(ConcreteClass::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::Initial::~Initial()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(Initial* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -738,32 +608,93 @@ Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 }
 /// \endcond
 
+Test::ConcreteClass::~ConcreteClass()
+{
+}
+
+/// \cond INTERNAL
+::Ice::Object* Test::upCast(ConcreteClass* p) { return p; }
+
+/// \endcond
+::Ice::ObjectPtr
+Test::ConcreteClass::ice_clone() const
+{
+    ::Ice::Object* p = new ConcreteClass(*this);
+    return p;
+}
+
+namespace
+{
+const ::std::string iceC_Test_ConcreteClass_ids[2] =
+{
+    "::Ice::Object",
+    "::Test::ConcreteClass"
+};
+
+}
+
+bool
+Test::ConcreteClass::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_Test_ConcreteClass_ids, iceC_Test_ConcreteClass_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+Test::ConcreteClass::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_Test_ConcreteClass_ids[0], &iceC_Test_ConcreteClass_ids[2]);
+}
+
+const ::std::string&
+Test::ConcreteClass::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+Test::ConcreteClass::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::ConcreteClass";
+    return typeId;
+}
+
 /// \cond STREAM
 void
-Test::Initial::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::ConcreteClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Initial, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter< ConcreteClass, ::Ice::OutputStream>::write(ostr, *this);
     ostr->endSlice();
 }
 
 void
-Test::Initial::_iceReadImpl(::Ice::InputStream* istr)
+Test::ConcreteClass::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader< Initial, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader< ConcreteClass, ::Ice::InputStream>::read(istr, *this);
     istr->endSlice();
 }
 /// \endcond
 
+namespace
+{
+const ::IceInternal::DefaultValueFactoryInit< ::Test::ConcreteClass> iceC_Test_ConcreteClass_init("::Test::ConcreteClass");
+}
+
+::Ice::ValueFactoryPtr
+Test::ConcreteClass::ice_factory()
+{
+    return ::IceInternal::factoryTable->getValueFactory(::Test::ConcreteClass::ice_staticId());
+}
+
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(InitialPtr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchObjectPtr(ConcreteClassPtr& handle, const ::Ice::ObjectPtr& v)
 {
-    handle = InitialPtr::dynamicCast(v);
+    handle = ConcreteClassPtr::dynamicCast(v);
     if(v && !handle)
     {
-        IceInternal::Ex::throwUOE(Initial::ice_staticId(), v);
+        IceInternal::Ex::throwUOE(ConcreteClass::ice_staticId(), v);
     }
 }
 /// \endcond

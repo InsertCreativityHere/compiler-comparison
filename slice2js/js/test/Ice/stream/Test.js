@@ -118,8 +118,6 @@
 
     Slice.defineSequence(Test, "MyClassSHelper", "Ice.ObjectHelper", false, "Test.MyClass");
 
-    Slice.defineSequence(Test, "MyInterfaceSHelper", "Ice.ObjectHelper", false, "Ice.Value");
-
     Slice.defineSequence(Test, "BoolSSHelper", "Ice.BoolSeqHelper", false);
 
     Slice.defineSequence(Test, "ByteSSHelper", "Ice.ByteSeqHelper", false);
@@ -139,8 +137,6 @@
     Slice.defineSequence(Test, "MyEnumSSHelper", "Test.MyEnumSHelper", false);
 
     Slice.defineSequence(Test, "MyClassSSHelper", "Test.MyClassSHelper", false);
-
-    Slice.defineSequence(Test, "MyInterfaceSSHelper", "Test.MyInterfaceSHelper", false);
 
     Slice.defineDictionary(Test, "ByteBoolD", "ByteBoolDHelper", "Ice.ByteHelper", "Ice.BoolHelper", true, undefined, undefined);
 

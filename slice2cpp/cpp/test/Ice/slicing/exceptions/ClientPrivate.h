@@ -178,11 +178,6 @@ static PreservedClass _iceS_PreservedClass_init;
 
 }
 
-namespace Test
-{
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -258,17 +253,6 @@ using PreservedClassPtr = ::std::shared_ptr<PreservedClass>;
 namespace IceProxy
 {
 
-namespace Test
-{
-
-class PreservedClass;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< PreservedClass>&);
-::IceProxy::Ice::Object* upCast(PreservedClass*);
-/// \endcond
-
-}
-
 }
 
 namespace Test
@@ -279,8 +263,6 @@ class PreservedClass;
 ::Ice::Object* upCast(PreservedClass*);
 /// \endcond
 typedef ::IceInternal::Handle< PreservedClass> PreservedClassPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::PreservedClass> PreservedClassPrx;
-typedef PreservedClassPrx PreservedClassPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(PreservedClassPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -374,35 +356,8 @@ protected:
 
 }
 
-namespace Test
-{
-
-}
-
 namespace IceProxy
 {
-
-namespace Test
-{
-
-class PreservedClass : public virtual ::Ice::Proxy<PreservedClass, ::IceProxy::Test::BaseClass>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-}
 
 }
 
@@ -413,7 +368,6 @@ class PreservedClass : public BaseClass
 {
 public:
 
-    typedef PreservedClassPrx ProxyType;
     typedef PreservedClassPtr PointerType;
 
     virtual ~PreservedClass();
@@ -574,11 +528,6 @@ struct StreamReader< ::Test::Preserved2, S>
 
 }
 /// \endcond
-
-namespace Test
-{
-
-}
 
 #endif
 

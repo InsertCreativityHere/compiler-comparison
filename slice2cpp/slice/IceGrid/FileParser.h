@@ -113,7 +113,6 @@ namespace IceGrid
 /**
  * <code>icegridadmin</code> provides a {@link FileParser} object to transform XML files into
  * {@link ApplicationDescriptor} objects.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API FileParser : public virtual ::Ice::Object
 {
@@ -175,7 +174,6 @@ namespace IceGrid
 /**
  * <code>icegridadmin</code> provides a {@link FileParser} object to transform XML files into
  * {@link ApplicationDescriptor} objects.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) FileParserPrx : public virtual ::Ice::Proxy<FileParserPrx, ::Ice::ObjectPrx>
 {
@@ -296,17 +294,11 @@ ICEGRID_API ::IceProxy::Ice::Object* upCast(FileParser*);
 
 namespace IceGrid
 {
-
-class FileParser;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(FileParser*);
-/// \endcond
-typedef ::IceInternal::Handle< FileParser> FileParserPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::FileParser> FileParserPrx;
 typedef FileParserPrx FileParserPrxPtr;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(FileParserPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class FileParser;
+typedef ::IceInternal::Handle< FileParser> FileParserPtr;
 
 }
 
@@ -510,14 +502,12 @@ namespace IceGrid
 /**
  * <code>icegridadmin</code> provides a {@link FileParser} object to transform XML files into
  * {@link ApplicationDescriptor} objects.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API FileParser : public virtual ::Ice::Object
 {
 public:
 
     typedef FileParserPrx ProxyType;
-    typedef FileParserPtr PointerType;
 
     virtual ~FileParser();
     FileParser() = default;
@@ -568,26 +558,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const FileParser& lhs, const FileParser& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const FileParser& lhs, const FileParser& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 }
 

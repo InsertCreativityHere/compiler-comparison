@@ -16,13 +16,13 @@
 import Foundation
 import PromiseKit
 
-/// Traits for Slice interface `Router`.
+/// Traits for Slice interface`Router`.
 public struct RouterTraits: SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Ice::Router"]
     public static let staticId = "::Ice::Router"
 }
 
-/// Traits for Slice interface `RouterFinder`.
+/// Traits for Slice interface`RouterFinder`.
 public struct RouterFinderTraits: SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Ice::RouterFinder"]
     public static let staticId = "::Ice::RouterFinder"

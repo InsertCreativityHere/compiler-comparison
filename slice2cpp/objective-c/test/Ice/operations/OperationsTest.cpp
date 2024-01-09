@@ -418,43 +418,6 @@ const ::std::string iceC_Test2_MyDerivedClass_ops[] =
     "supportsCompress"
 };
 
-const ::IceInternal::DefaultValueFactoryInit<::M::A> iceC_M_A_init("::M::A");
-
-const ::std::string iceC_M_Intf_ids[2] =
-{
-    "::Ice::Object",
-    "::M::Intf"
-};
-const ::std::string iceC_M_Intf_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "opIntf"
-};
-const ::std::string iceC_M_Intf_opIntf_name = "opIntf";
-
-const ::IceInternal::DefaultValueFactoryInit<::M::B> iceC_M_B_init("::M::B");
-
-const ::std::string iceC_M_B_ids[4] =
-{
-    "::Ice::Object",
-    "::M::A",
-    "::M::B",
-    "::M::Intf"
-};
-const ::std::string iceC_M_B_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "opB",
-    "opIntf"
-};
-const ::std::string iceC_M_B_opB_name = "opB";
-
 }
 
 bool
@@ -3114,166 +3077,6 @@ Test2::MyDerivedClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
 }
 /// \endcond
 
-bool
-M::Intf::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_M_Intf_ids, iceC_M_Intf_ids + 2, s);
-}
-
-::std::vector<::std::string>
-M::Intf::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector<::std::string>(&iceC_M_Intf_ids[0], &iceC_M_Intf_ids[2]);
-}
-
-::std::string
-M::Intf::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-M::Intf::ice_staticId()
-{
-    static const ::std::string typeId = "::M::Intf";
-    return typeId;
-}
-
-/// \cond INTERNAL
-bool
-M::Intf::_iceD_opIntf(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->opIntf(current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-M::Intf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
-{
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_M_Intf_ops, iceC_M_Intf_ops + 5, current.operation);
-    if(r.first == r.second)
-    {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-    }
-
-    switch(r.first - iceC_M_Intf_ops)
-    {
-        case 0:
-        {
-            return _iceD_ice_id(in, current);
-        }
-        case 1:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 2:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 3:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        case 4:
-        {
-            return _iceD_opIntf(in, current);
-        }
-        default:
-        {
-            assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-        }
-    }
-}
-/// \endcond
-
-bool
-M::BDisp::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_M_B_ids, iceC_M_B_ids + 4, s);
-}
-
-::std::vector<::std::string>
-M::BDisp::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector<::std::string>(&iceC_M_B_ids[0], &iceC_M_B_ids[4]);
-}
-
-::std::string
-M::BDisp::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-M::BDisp::ice_staticId()
-{
-    static const ::std::string typeId = "::M::B";
-    return typeId;
-}
-
-/// \cond INTERNAL
-bool
-M::BDisp::_iceD_opB(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->opB(current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-M::BDisp::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
-{
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_M_B_ops, iceC_M_B_ops + 6, current.operation);
-    if(r.first == r.second)
-    {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-    }
-
-    switch(r.first - iceC_M_B_ops)
-    {
-        case 0:
-        {
-            return _iceD_ice_id(in, current);
-        }
-        case 1:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 2:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 3:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        case 4:
-        {
-            return _iceD_opB(in, current);
-        }
-        case 5:
-        {
-            return _iceD_opIntf(in, current);
-        }
-        default:
-        {
-            assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-        }
-    }
-}
-/// \endcond
-
 Test::A::~A()
 {
 }
@@ -3293,28 +3096,6 @@ const ::std::string&
 Test::MyClass1::ice_staticId()
 {
     static const ::std::string typeId = "::Test::MyClass1";
-    return typeId;
-}
-
-M::A::~A()
-{
-}
-
-const ::std::string&
-M::A::ice_staticId()
-{
-    static const ::std::string typeId = "::M::A";
-    return typeId;
-}
-
-M::B::~B()
-{
-}
-
-const ::std::string&
-M::B::ice_staticId()
-{
-    static const ::std::string typeId = "::M::B";
     return typeId;
 }
 
@@ -4769,54 +4550,6 @@ Test2::MyDerivedClassPrx::ice_staticId()
     return MyDerivedClass::ice_staticId();
 }
 
-/// \cond INTERNAL
-void
-M::IntfPrx::_iceI_opIntf(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_M_Intf_opIntf_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-M::IntfPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<IntfPrx>();
-}
-/// \endcond
-
-const ::std::string&
-M::IntfPrx::ice_staticId()
-{
-    return Intf::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-M::BPrx::_iceI_opB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_M_B_opB_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-M::BPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<BPrx>();
-}
-/// \endcond
-
-const ::std::string&
-M::BPrx::ice_staticId()
-{
-    return BDisp::ice_staticId();
-}
-
 namespace Ice
 {
 }
@@ -4999,49 +4732,6 @@ const ::std::string iceC_Test_MyDerivedClass_opMyStruct1_name = "opMyStruct1";
 namespace
 {
 
-}
-
-namespace
-{
-
-const ::std::string iceC_M_Intf_opIntf_name = "opIntf";
-
-const ::std::string iceC_M_B_opB_name = "opB";
-
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(A* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< A>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new A;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::A::_newInstance() const
-{
-    return new A;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::A::ice_staticId()
-{
-    return ::Test::A::ice_staticId();
 }
 
 /// \cond INTERNAL
@@ -9348,40 +9038,6 @@ IceProxy::Test::MyClass::ice_staticId()
 }
 
 /// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(MyClass1* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< MyClass1>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new MyClass1;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::MyClass1::_newInstance() const
-{
-    return new MyClass1;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::MyClass1::ice_staticId()
-{
-    return ::Test::MyClass1::ice_staticId();
-}
-
-/// \cond INTERNAL
 ::IceProxy::Ice::Object* ::IceProxy::Test::upCast(MyDerivedClass* p) { return p; }
 
 void
@@ -9558,257 +9214,9 @@ IceProxy::Test2::MyDerivedClass::ice_staticId()
     return ::Test2::MyDerivedClass::ice_staticId();
 }
 
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::M::upCast(A* p) { return p; }
-
-void
-::IceProxy::M::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< A>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new A;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::M::A::_newInstance() const
-{
-    return new A;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::M::A::ice_staticId()
-{
-    return ::M::A::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::M::upCast(Intf* p) { return p; }
-
-void
-::IceProxy::M::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< Intf>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new Intf;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-::Ice::AsyncResultPtr
-IceProxy::M::Intf::_iceI_begin_opIntf(const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_M_Intf_opIntf_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_M_Intf_opIntf_name, ::Ice::Normal, context);
-        result->writeEmptyParams();
-        result->invoke(iceC_M_Intf_opIntf_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-void
-IceProxy::M::Intf::end_opIntf(const ::Ice::AsyncResultPtr& result)
-{
-    _end(result, iceC_M_Intf_opIntf_name);
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::M::Intf::_newInstance() const
-{
-    return new Intf;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::M::Intf::ice_staticId()
-{
-    return ::M::Intf::ice_staticId();
-}
-
-::IceProxy::M::_BBase::~_BBase()
-{
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::M::upCast(B* p) { return p; }
-
-void
-::IceProxy::M::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< B>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new B;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-::Ice::AsyncResultPtr
-IceProxy::M::B::_iceI_begin_opB(const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_M_B_opB_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_M_B_opB_name, ::Ice::Normal, context);
-        result->writeEmptyParams();
-        result->invoke(iceC_M_B_opB_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-void
-IceProxy::M::B::end_opB(const ::Ice::AsyncResultPtr& result)
-{
-    _end(result, iceC_M_B_opB_name);
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::M::B::_newInstance() const
-{
-    return new B;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::M::B::ice_staticId()
-{
-    return ::M::B::ice_staticId();
-}
-
-Test::A::~A()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(A* p) { return p; }
-
-/// \endcond
-::Ice::ObjectPtr
-Test::A::ice_clone() const
-{
-    ::Ice::Object* p = new A(*this);
-    return p;
-}
-
-namespace
-{
-const ::std::string iceC_Test_A_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::A"
-};
-
-}
-
-bool
-Test::A::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_A_ids, iceC_Test_A_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::A::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_A_ids[0], &iceC_Test_A_ids[2]);
-}
-
-const ::std::string&
-Test::A::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::A::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::A";
-    return typeId;
-}
-
-/// \cond STREAM
-void
-Test::A::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< A, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::A::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< A, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::A> iceC_Test_A_init("::Test::A");
-}
-
-::Ice::ValueFactoryPtr
-Test::A::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::A::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(APtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = APtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(A::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::MyClass::~MyClass()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(MyClass* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -11814,135 +11222,9 @@ Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::MyClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< MyClass, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::MyClass::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< MyClass, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(MyClassPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = MyClassPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(MyClass::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-Test::MyClass1::~MyClass1()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(MyClass1* p) { return p; }
-
-/// \endcond
-::Ice::ObjectPtr
-Test::MyClass1::ice_clone() const
-{
-    ::Ice::Object* p = new MyClass1(*this);
-    return p;
-}
-
-namespace
-{
-const ::std::string iceC_Test_MyClass1_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::MyClass1"
-};
-
-}
-
-bool
-Test::MyClass1::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MyClass1_ids, iceC_Test_MyClass1_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::MyClass1::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_MyClass1_ids[0], &iceC_Test_MyClass1_ids[2]);
-}
-
-const ::std::string&
-Test::MyClass1::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::MyClass1::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::MyClass1";
-    return typeId;
-}
-
-/// \cond STREAM
-void
-Test::MyClass1::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< MyClass1, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::MyClass1::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< MyClass1, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::MyClass1> iceC_Test_MyClass1_init("::Test::MyClass1");
-}
-
-::Ice::ValueFactoryPtr
-Test::MyClass1::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::MyClass1::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(MyClass1Ptr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = MyClass1Ptr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(MyClass1::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::MyDerivedClass::~MyDerivedClass()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(MyDerivedClass* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -12497,44 +11779,9 @@ Test::MyDerivedClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cur
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::MyDerivedClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< MyDerivedClass, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::MyDerivedClass::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< MyDerivedClass, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(MyDerivedClassPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = MyDerivedClassPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(MyDerivedClass::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test2::MyDerivedClass::~MyDerivedClass()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test2::upCast(MyDerivedClass* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -13026,46 +12273,16 @@ Test2::MyDerivedClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test2::MyDerivedClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< MyDerivedClass, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test2::MyDerivedClass::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< MyDerivedClass, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test2::_icePatchObjectPtr(MyDerivedClassPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = MyDerivedClassPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(MyDerivedClass::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-M::A::~A()
+Test::A::~A()
 {
 }
 
 /// \cond INTERNAL
-::Ice::Object* M::upCast(A* p) { return p; }
+::Ice::Object* Test::upCast(A* p) { return p; }
 
 /// \endcond
 ::Ice::ObjectPtr
-M::A::ice_clone() const
+Test::A::ice_clone() const
 {
     ::Ice::Object* p = new A(*this);
     return p;
@@ -13073,42 +12290,42 @@ M::A::ice_clone() const
 
 namespace
 {
-const ::std::string iceC_M_A_ids[2] =
+const ::std::string iceC_Test_A_ids[2] =
 {
     "::Ice::Object",
-    "::M::A"
+    "::Test::A"
 };
 
 }
 
 bool
-M::A::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::A::ice_isA(const ::std::string& s, const ::Ice::Current&) const
 {
-    return ::std::binary_search(iceC_M_A_ids, iceC_M_A_ids + 2, s);
+    return ::std::binary_search(iceC_Test_A_ids, iceC_Test_A_ids + 2, s);
 }
 
 ::std::vector< ::std::string>
-M::A::ice_ids(const ::Ice::Current&) const
+Test::A::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector< ::std::string>(&iceC_M_A_ids[0], &iceC_M_A_ids[2]);
+    return ::std::vector< ::std::string>(&iceC_Test_A_ids[0], &iceC_Test_A_ids[2]);
 }
 
 const ::std::string&
-M::A::ice_id(const ::Ice::Current&) const
+Test::A::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
 }
 
 const ::std::string&
-M::A::ice_staticId()
+Test::A::ice_staticId()
 {
-    static const ::std::string typeId = "::M::A";
+    static const ::std::string typeId = "::Test::A";
     return typeId;
 }
 
 /// \cond STREAM
 void
-M::A::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::A::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
     ::Ice::StreamWriter< A, ::Ice::OutputStream>::write(ostr, *this);
@@ -13116,7 +12333,7 @@ M::A::_iceWriteImpl(::Ice::OutputStream* ostr) const
 }
 
 void
-M::A::_iceReadImpl(::Ice::InputStream* istr)
+Test::A::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
     ::Ice::StreamReader< A, ::Ice::InputStream>::read(istr, *this);
@@ -13126,18 +12343,18 @@ M::A::_iceReadImpl(::Ice::InputStream* istr)
 
 namespace
 {
-const ::IceInternal::DefaultValueFactoryInit< ::M::A> iceC_M_A_init("::M::A");
+const ::IceInternal::DefaultValueFactoryInit< ::Test::A> iceC_Test_A_init("::Test::A");
 }
 
 ::Ice::ValueFactoryPtr
-M::A::ice_factory()
+Test::A::ice_factory()
 {
-    return ::IceInternal::factoryTable->getValueFactory(::M::A::ice_staticId());
+    return ::IceInternal::factoryTable->getValueFactory(::Test::A::ice_staticId());
 }
 
 /// \cond INTERNAL
 void
-M::_icePatchObjectPtr(APtr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchObjectPtr(APtr& handle, const ::Ice::ObjectPtr& v)
 {
     handle = APtr::dynamicCast(v);
     if(v && !handle)
@@ -13147,307 +12364,96 @@ M::_icePatchObjectPtr(APtr& handle, const ::Ice::ObjectPtr& v)
 }
 /// \endcond
 
-M::Intf::~Intf()
+Test::MyClass1::~MyClass1()
 {
 }
 
 /// \cond INTERNAL
-::Ice::Object* M::upCast(Intf* p) { return p; }
-
-/// \endcond
-
-namespace
-{
-const ::std::string iceC_M_Intf_ids[2] =
-{
-    "::Ice::Object",
-    "::M::Intf"
-};
-
-}
-
-bool
-M::Intf::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_M_Intf_ids, iceC_M_Intf_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-M::Intf::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_M_Intf_ids[0], &iceC_M_Intf_ids[2]);
-}
-
-const ::std::string&
-M::Intf::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-M::Intf::ice_staticId()
-{
-    static const ::std::string typeId = "::M::Intf";
-    return typeId;
-}
-
-/// \cond INTERNAL
-bool
-M::Intf::_iceD_opIntf(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    this->opIntf(current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-namespace
-{
-const ::std::string iceC_M_Intf_all[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "opIntf"
-};
-
-}
-
-/// \cond INTERNAL
-bool
-M::Intf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
-{
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_M_Intf_all, iceC_M_Intf_all + 5, current.operation);
-    if(r.first == r.second)
-    {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-    }
-
-    switch(r.first - iceC_M_Intf_all)
-    {
-        case 0:
-        {
-            return _iceD_ice_id(in, current);
-        }
-        case 1:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 2:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 3:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        case 4:
-        {
-            return _iceD_opIntf(in, current);
-        }
-        default:
-        {
-            assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-        }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-M::Intf::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Intf, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-M::Intf::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Intf, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-M::_icePatchObjectPtr(IntfPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = IntfPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Intf::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-M::B::~B()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* M::upCast(B* p) { return p; }
+::Ice::Object* Test::upCast(MyClass1* p) { return p; }
 
 /// \endcond
 ::Ice::ObjectPtr
-M::B::ice_clone() const
+Test::MyClass1::ice_clone() const
 {
-    throw ::Ice::CloneNotImplementedException(__FILE__, __LINE__);
+    ::Ice::Object* p = new MyClass1(*this);
+    return p;
 }
 
 namespace
 {
-const ::std::string iceC_M_B_ids[4] =
+const ::std::string iceC_Test_MyClass1_ids[2] =
 {
     "::Ice::Object",
-    "::M::A",
-    "::M::B",
-    "::M::Intf"
+    "::Test::MyClass1"
 };
 
 }
 
 bool
-M::B::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+Test::MyClass1::ice_isA(const ::std::string& s, const ::Ice::Current&) const
 {
-    return ::std::binary_search(iceC_M_B_ids, iceC_M_B_ids + 4, s);
+    return ::std::binary_search(iceC_Test_MyClass1_ids, iceC_Test_MyClass1_ids + 2, s);
 }
 
 ::std::vector< ::std::string>
-M::B::ice_ids(const ::Ice::Current&) const
+Test::MyClass1::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector< ::std::string>(&iceC_M_B_ids[0], &iceC_M_B_ids[4]);
+    return ::std::vector< ::std::string>(&iceC_Test_MyClass1_ids[0], &iceC_Test_MyClass1_ids[2]);
 }
 
 const ::std::string&
-M::B::ice_id(const ::Ice::Current&) const
+Test::MyClass1::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
 }
 
 const ::std::string&
-M::B::ice_staticId()
+Test::MyClass1::ice_staticId()
 {
-    static const ::std::string typeId = "::M::B";
+    static const ::std::string typeId = "::Test::MyClass1";
     return typeId;
 }
 
-/// \cond INTERNAL
-bool
-M::B::_iceD_opB(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+/// \cond STREAM
+void
+Test::MyClass1::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    this->opB(current);
-    inS.writeEmptyParams();
-    return true;
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter< MyClass1, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::MyClass1::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader< MyClass1, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 /// \endcond
 
 namespace
 {
-const ::std::string iceC_M_B_all[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "opB",
-    "opIntf"
-};
+const ::IceInternal::DefaultValueFactoryInit< ::Test::MyClass1> iceC_Test_MyClass1_init("::Test::MyClass1");
+}
 
+::Ice::ValueFactoryPtr
+Test::MyClass1::ice_factory()
+{
+    return ::IceInternal::factoryTable->getValueFactory(::Test::MyClass1::ice_staticId());
 }
 
 /// \cond INTERNAL
-bool
-M::B::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
-{
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_M_B_all, iceC_M_B_all + 6, current.operation);
-    if(r.first == r.second)
-    {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-    }
-
-    switch(r.first - iceC_M_B_all)
-    {
-        case 0:
-        {
-            return _iceD_ice_id(in, current);
-        }
-        case 1:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 2:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 3:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        case 4:
-        {
-            return _iceD_opB(in, current);
-        }
-        case 5:
-        {
-            return _iceD_opIntf(in, current);
-        }
-        default:
-        {
-            assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-        }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
 void
-M::B::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::_icePatchObjectPtr(MyClass1Ptr& handle, const ::Ice::ObjectPtr& v)
 {
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< B, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    A::_iceWriteImpl(ostr);
-}
-
-void
-M::B::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< B, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    A::_iceReadImpl(istr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-M::_icePatchObjectPtr(BPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = BPtr::dynamicCast(v);
+    handle = MyClass1Ptr::dynamicCast(v);
     if(v && !handle)
     {
-        IceInternal::Ex::throwUOE(B::ice_staticId(), v);
+        IceInternal::Ex::throwUOE(MyClass1::ice_staticId(), v);
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}
-
-namespace Ice
-{
-}
 
 namespace Ice
 {

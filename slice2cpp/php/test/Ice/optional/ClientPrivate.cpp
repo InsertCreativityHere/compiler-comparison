@@ -233,40 +233,6 @@ const ::std::string iceC_Test_Initial2_opVoid_name = "opVoid";
 }
 
 /// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(D* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< D>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new D;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::D::_newInstance() const
-{
-    return new D;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::D::ice_staticId()
-{
-    return ::Test::D::ice_staticId();
-}
-
-/// \cond INTERNAL
 ::IceProxy::Ice::Object* ::IceProxy::Test::upCast(Initial2* p) { return p; }
 
 void
@@ -353,133 +319,9 @@ IceProxy::Test::Initial2::ice_staticId()
     return ::Test::Initial2::ice_staticId();
 }
 
-Test::D::~D()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(D* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
-::Ice::ObjectPtr
-Test::D::ice_clone() const
-{
-    ::Ice::Object* p = new D(*this);
-    return p;
-}
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
-
-namespace
-{
-const ::std::string iceC_Test_D_ids[4] =
-{
-    "::Ice::Object",
-    "::Test::A",
-    "::Test::B",
-    "::Test::D"
-};
-
-}
-
-bool
-Test::D::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_D_ids, iceC_Test_D_ids + 4, s);
-}
-
-::std::vector< ::std::string>
-Test::D::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_D_ids[0], &iceC_Test_D_ids[4]);
-}
-
-const ::std::string&
-Test::D::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::D::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::D";
-    return typeId;
-}
-
-void
-Test::D::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    B::_iceGcVisitMembers(v_);
-    if(ao)
-    {
-        if((*ao))
-        {
-            if((::Test::upCast((*ao).get())->_iceGcVisit(v_)))
-            {
-                (*ao) = 0;
-            }
-        }
-    }
-}
-
-/// \cond STREAM
-void
-Test::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< D, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    B::_iceWriteImpl(ostr);
-}
-
-void
-Test::D::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< D, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    B::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::D> iceC_Test_D_init("::Test::D");
-}
-
-::Ice::ValueFactoryPtr
-Test::D::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::D::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(DPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = DPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(D::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::Initial2::~Initial2()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(Initial2* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -610,32 +452,121 @@ Test::Initial2::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::Initial2::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::D::~D()
 {
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Initial2, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
+}
+
+/// \cond INTERNAL
+::Ice::Object* Test::upCast(D* p) { return p; }
+
+/// \endcond
+
+#if defined(_MSC_VER)
+#   pragma warning(push)
+#   pragma warning(disable:4589)
+#endif
+::Ice::ObjectPtr
+Test::D::ice_clone() const
+{
+    ::Ice::Object* p = new D(*this);
+    return p;
+}
+#if defined(_MSC_VER)
+#   pragma warning(pop)
+#endif
+
+namespace
+{
+const ::std::string iceC_Test_D_ids[4] =
+{
+    "::Ice::Object",
+    "::Test::A",
+    "::Test::B",
+    "::Test::D"
+};
+
+}
+
+bool
+Test::D::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_Test_D_ids, iceC_Test_D_ids + 4, s);
+}
+
+::std::vector< ::std::string>
+Test::D::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_Test_D_ids[0], &iceC_Test_D_ids[4]);
+}
+
+const ::std::string&
+Test::D::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+Test::D::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::D";
+    return typeId;
 }
 
 void
-Test::Initial2::_iceReadImpl(::Ice::InputStream* istr)
+Test::D::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
+{
+    B::_iceGcVisitMembers(v_);
+    if(ao)
+    {
+        if((*ao))
+        {
+            if((::Test::upCast((*ao).get())->_iceGcVisit(v_)))
+            {
+                (*ao) = 0;
+            }
+        }
+    }
+}
+
+/// \cond STREAM
+void
+Test::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter< D, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    B::_iceWriteImpl(ostr);
+}
+
+void
+Test::D::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader< Initial2, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader< D, ::Ice::InputStream>::read(istr, *this);
     istr->endSlice();
+    B::_iceReadImpl(istr);
 }
 /// \endcond
 
+namespace
+{
+const ::IceInternal::DefaultValueFactoryInit< ::Test::D> iceC_Test_D_init("::Test::D");
+}
+
+::Ice::ValueFactoryPtr
+Test::D::ice_factory()
+{
+    return ::IceInternal::factoryTable->getValueFactory(::Test::D::ice_staticId());
+}
+
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(Initial2Ptr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchObjectPtr(DPtr& handle, const ::Ice::ObjectPtr& v)
 {
-    handle = Initial2Ptr::dynamicCast(v);
+    handle = DPtr::dynamicCast(v);
     if(v && !handle)
     {
-        IceInternal::Ex::throwUOE(Initial2::ice_staticId(), v);
+        IceInternal::Ex::throwUOE(D::ice_staticId(), v);
     }
 }
 /// \endcond

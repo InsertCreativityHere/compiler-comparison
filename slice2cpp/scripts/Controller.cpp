@@ -1491,74 +1491,6 @@ Test::Common::ProcessFailedException::_readImpl(::Ice::InputStream* istr)
 /// \endcond
 
 /// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::Common::upCast(Config* p) { return p; }
-
-void
-::IceProxy::Test::Common::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< Config>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new Config;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::Common::Config::_newInstance() const
-{
-    return new Config;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::Common::Config::ice_staticId()
-{
-    return ::Test::Common::Config::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::Common::upCast(OptionOverrides* p) { return p; }
-
-void
-::IceProxy::Test::Common::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< OptionOverrides>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new OptionOverrides;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::Common::OptionOverrides::_newInstance() const
-{
-    return new OptionOverrides;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::Common::OptionOverrides::ice_staticId()
-{
-    return ::Test::Common::OptionOverrides::ice_staticId();
-}
-
-/// \cond INTERNAL
 ::IceProxy::Ice::Object* ::IceProxy::Test::Common::upCast(TestCase* p) { return p; }
 
 void
@@ -2370,196 +2302,9 @@ IceProxy::Test::Common::ProcessControllerRegistry::ice_staticId()
     return ::Test::Common::ProcessControllerRegistry::ice_staticId();
 }
 
-Test::Common::Config::~Config()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::Common::upCast(Config* p) { return p; }
-
-/// \endcond
-::Ice::ObjectPtr
-Test::Common::Config::ice_clone() const
-{
-    ::Ice::Object* p = new Config(*this);
-    return p;
-}
-
-namespace
-{
-const ::std::string iceC_Test_Common_Config_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Common::Config"
-};
-
-}
-
-bool
-Test::Common::Config::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Common_Config_ids, iceC_Test_Common_Config_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::Common::Config::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_Common_Config_ids[0], &iceC_Test_Common_Config_ids[2]);
-}
-
-const ::std::string&
-Test::Common::Config::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::Common::Config::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::Common::Config";
-    return typeId;
-}
-
-/// \cond STREAM
-void
-Test::Common::Config::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Config, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Common::Config::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Config, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::Common::Config> iceC_Test_Common_Config_init("::Test::Common::Config");
-}
-
-::Ice::ValueFactoryPtr
-Test::Common::Config::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::Common::Config::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::Common::_icePatchObjectPtr(ConfigPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = ConfigPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Config::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-Test::Common::OptionOverrides::~OptionOverrides()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::Common::upCast(OptionOverrides* p) { return p; }
-
-/// \endcond
-::Ice::ObjectPtr
-Test::Common::OptionOverrides::ice_clone() const
-{
-    ::Ice::Object* p = new OptionOverrides(*this);
-    return p;
-}
-
-namespace
-{
-const ::std::string iceC_Test_Common_OptionOverrides_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Common::OptionOverrides"
-};
-
-}
-
-bool
-Test::Common::OptionOverrides::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Common_OptionOverrides_ids, iceC_Test_Common_OptionOverrides_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::Common::OptionOverrides::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_Common_OptionOverrides_ids[0], &iceC_Test_Common_OptionOverrides_ids[2]);
-}
-
-const ::std::string&
-Test::Common::OptionOverrides::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::Common::OptionOverrides::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::Common::OptionOverrides";
-    return typeId;
-}
-
-/// \cond STREAM
-void
-Test::Common::OptionOverrides::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< OptionOverrides, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Common::OptionOverrides::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< OptionOverrides, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::Common::OptionOverrides> iceC_Test_Common_OptionOverrides_init("::Test::Common::OptionOverrides");
-}
-
-::Ice::ValueFactoryPtr
-Test::Common::OptionOverrides::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::Common::OptionOverrides::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::Common::_icePatchObjectPtr(OptionOverridesPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = OptionOverridesPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(OptionOverrides::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::Common::TestCase::~TestCase()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::Common::upCast(TestCase* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -2732,44 +2477,9 @@ Test::Common::TestCase::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::C
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::Common::TestCase::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< TestCase, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Common::TestCase::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< TestCase, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::Common::_icePatchObjectPtr(TestCasePtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = TestCasePtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(TestCase::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::Common::Controller::~Controller()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::Common::upCast(Controller* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -2949,44 +2659,9 @@ Test::Common::Controller::_iceDispatch(::IceInternal::Incoming& in, const ::Ice:
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::Common::Controller::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Controller, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Common::Controller::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Controller, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::Common::_icePatchObjectPtr(ControllerPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = ControllerPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Controller::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::Common::Process::~Process()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::Common::upCast(Process* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -3133,44 +2808,9 @@ Test::Common::Process::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::Common::Process::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Process, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Common::Process::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Process, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::Common::_icePatchObjectPtr(ProcessPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = ProcessPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Process::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::Common::ProcessController::~ProcessController()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::Common::upCast(ProcessController* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -3306,44 +2946,9 @@ Test::Common::ProcessController::_iceDispatch(::IceInternal::Incoming& in, const
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::Common::ProcessController::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< ProcessController, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Common::ProcessController::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< ProcessController, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::Common::_icePatchObjectPtr(ProcessControllerPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = ProcessControllerPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(ProcessController::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::Common::BrowserProcessController::~BrowserProcessController()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::Common::upCast(BrowserProcessController* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -3460,44 +3065,9 @@ Test::Common::BrowserProcessController::_iceDispatch(::IceInternal::Incoming& in
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::Common::BrowserProcessController::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< BrowserProcessController, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Common::BrowserProcessController::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< BrowserProcessController, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::Common::_icePatchObjectPtr(BrowserProcessControllerPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = BrowserProcessControllerPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(BrowserProcessController::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::Common::ProcessControllerRegistry::~ProcessControllerRegistry()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::Common::upCast(ProcessControllerRegistry* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -3603,32 +3173,184 @@ Test::Common::ProcessControllerRegistry::_iceDispatch(::IceInternal::Incoming& i
 }
 /// \endcond
 
+Test::Common::Config::~Config()
+{
+}
+
+/// \cond INTERNAL
+::Ice::Object* Test::Common::upCast(Config* p) { return p; }
+
+/// \endcond
+::Ice::ObjectPtr
+Test::Common::Config::ice_clone() const
+{
+    ::Ice::Object* p = new Config(*this);
+    return p;
+}
+
+namespace
+{
+const ::std::string iceC_Test_Common_Config_ids[2] =
+{
+    "::Ice::Object",
+    "::Test::Common::Config"
+};
+
+}
+
+bool
+Test::Common::Config::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_Test_Common_Config_ids, iceC_Test_Common_Config_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+Test::Common::Config::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_Test_Common_Config_ids[0], &iceC_Test_Common_Config_ids[2]);
+}
+
+const ::std::string&
+Test::Common::Config::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+Test::Common::Config::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::Common::Config";
+    return typeId;
+}
+
 /// \cond STREAM
 void
-Test::Common::ProcessControllerRegistry::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::Common::Config::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< ProcessControllerRegistry, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter< Config, ::Ice::OutputStream>::write(ostr, *this);
     ostr->endSlice();
 }
 
 void
-Test::Common::ProcessControllerRegistry::_iceReadImpl(::Ice::InputStream* istr)
+Test::Common::Config::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader< ProcessControllerRegistry, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader< Config, ::Ice::InputStream>::read(istr, *this);
     istr->endSlice();
 }
 /// \endcond
 
+namespace
+{
+const ::IceInternal::DefaultValueFactoryInit< ::Test::Common::Config> iceC_Test_Common_Config_init("::Test::Common::Config");
+}
+
+::Ice::ValueFactoryPtr
+Test::Common::Config::ice_factory()
+{
+    return ::IceInternal::factoryTable->getValueFactory(::Test::Common::Config::ice_staticId());
+}
+
 /// \cond INTERNAL
 void
-Test::Common::_icePatchObjectPtr(ProcessControllerRegistryPtr& handle, const ::Ice::ObjectPtr& v)
+Test::Common::_icePatchObjectPtr(ConfigPtr& handle, const ::Ice::ObjectPtr& v)
 {
-    handle = ProcessControllerRegistryPtr::dynamicCast(v);
+    handle = ConfigPtr::dynamicCast(v);
     if(v && !handle)
     {
-        IceInternal::Ex::throwUOE(ProcessControllerRegistry::ice_staticId(), v);
+        IceInternal::Ex::throwUOE(Config::ice_staticId(), v);
+    }
+}
+/// \endcond
+
+Test::Common::OptionOverrides::~OptionOverrides()
+{
+}
+
+/// \cond INTERNAL
+::Ice::Object* Test::Common::upCast(OptionOverrides* p) { return p; }
+
+/// \endcond
+::Ice::ObjectPtr
+Test::Common::OptionOverrides::ice_clone() const
+{
+    ::Ice::Object* p = new OptionOverrides(*this);
+    return p;
+}
+
+namespace
+{
+const ::std::string iceC_Test_Common_OptionOverrides_ids[2] =
+{
+    "::Ice::Object",
+    "::Test::Common::OptionOverrides"
+};
+
+}
+
+bool
+Test::Common::OptionOverrides::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_Test_Common_OptionOverrides_ids, iceC_Test_Common_OptionOverrides_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+Test::Common::OptionOverrides::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_Test_Common_OptionOverrides_ids[0], &iceC_Test_Common_OptionOverrides_ids[2]);
+}
+
+const ::std::string&
+Test::Common::OptionOverrides::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+Test::Common::OptionOverrides::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::Common::OptionOverrides";
+    return typeId;
+}
+
+/// \cond STREAM
+void
+Test::Common::OptionOverrides::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter< OptionOverrides, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::Common::OptionOverrides::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader< OptionOverrides, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+/// \endcond
+
+namespace
+{
+const ::IceInternal::DefaultValueFactoryInit< ::Test::Common::OptionOverrides> iceC_Test_Common_OptionOverrides_init("::Test::Common::OptionOverrides");
+}
+
+::Ice::ValueFactoryPtr
+Test::Common::OptionOverrides::ice_factory()
+{
+    return ::IceInternal::factoryTable->getValueFactory(::Test::Common::OptionOverrides::ice_staticId());
+}
+
+/// \cond INTERNAL
+void
+Test::Common::_icePatchObjectPtr(OptionOverridesPtr& handle, const ::Ice::ObjectPtr& v)
+{
+    handle = OptionOverridesPtr::dynamicCast(v);
+    if(v && !handle)
+    {
+        IceInternal::Ex::throwUOE(OptionOverrides::ice_staticId(), v);
     }
 }
 /// \endcond

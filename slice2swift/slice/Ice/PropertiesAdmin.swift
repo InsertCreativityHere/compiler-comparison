@@ -16,7 +16,7 @@
 import Foundation
 import PromiseKit
 
-/// Traits for Slice interface `PropertiesAdmin`.
+/// Traits for Slice interface`PropertiesAdmin`.
 public struct PropertiesAdminTraits: SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Ice::PropertiesAdmin"]
     public static let staticId = "::Ice::PropertiesAdmin"

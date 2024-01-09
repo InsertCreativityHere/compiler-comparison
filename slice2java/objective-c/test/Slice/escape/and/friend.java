@@ -17,7 +17,7 @@ package and;
 
 public interface friend extends com.zeroc.Ice.Object
 {
-    auto _goto(_continue _if, auto d, delete inline, com.zeroc.Ice.Value _private, _do mutable, breakPrx namespace, charPrx _new, switchPrx not, doPrx operator, int or, int _protected, int _public, int register, com.zeroc.Ice.Current current)
+    auto _goto(_continue _if, auto d, delete inline, _do mutable, breakPrx namespace, charPrx _new, switchPrx not, int or, int _protected, int _public, int register, com.zeroc.Ice.Current current)
         throws _return,
                sizeof;
 
@@ -63,12 +63,10 @@ public interface friend extends com.zeroc.Ice.Object
         _continue iceP_if;
         auto iceP_d;
         delete iceP_inline;
-        final com.zeroc.IceInternal.Holder<com.zeroc.Ice.Value> icePP_private = new com.zeroc.IceInternal.Holder<>();
         final com.zeroc.IceInternal.Holder<_do> icePP_mutable = new com.zeroc.IceInternal.Holder<>();
         breakPrx iceP_namespace;
         charPrx iceP_new;
         switchPrx iceP_not;
-        doPrx iceP_operator;
         int iceP_or;
         int iceP_protected;
         int iceP_public;
@@ -76,21 +74,18 @@ public interface friend extends com.zeroc.Ice.Object
         iceP_if = _continue.ice_read(istr);
         iceP_d = auto.ice_read(istr);
         iceP_inline = delete.ice_read(istr);
-        istr.readValue(v -> icePP_private.value = v, com.zeroc.Ice.Value.class);
         istr.readValue(v -> icePP_mutable.value = v, _do.class);
         iceP_namespace = breakPrx.uncheckedCast(istr.readProxy());
         iceP_new = charPrx.uncheckedCast(istr.readProxy());
         iceP_not = switchPrx.uncheckedCast(istr.readProxy());
-        iceP_operator = doPrx.uncheckedCast(istr.readProxy());
         iceP_or = istr.readInt();
         iceP_protected = istr.readInt();
         iceP_public = istr.readInt();
         iceP_register = istr.readInt();
         istr.readPendingValues();
         inS.endReadParams();
-        com.zeroc.Ice.Value iceP_private = icePP_private.value;
         _do iceP_mutable = icePP_mutable.value;
-        auto ret = obj._goto(iceP_if, iceP_d, iceP_inline, iceP_private, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_operator, iceP_or, iceP_protected, iceP_public, iceP_register, current);
+        auto ret = obj._goto(iceP_if, iceP_d, iceP_inline, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_or, iceP_protected, iceP_public, iceP_register, current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
         auto.ice_write(ostr, ret);
         inS.endWriteParams(ostr);

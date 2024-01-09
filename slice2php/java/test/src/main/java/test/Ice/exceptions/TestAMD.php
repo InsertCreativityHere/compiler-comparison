@@ -171,7 +171,6 @@ namespace Test
             return '::Test::Thrower';
         }
     }
-    $Test__t_Thrower = IcePHP_defineClass('::Test::Thrower', '\\Test\\Thrower', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_ThrowerPrx = IcePHP_defineProxy('::Test::Thrower', $Ice__t_ObjectPrx, null);
@@ -223,7 +222,6 @@ namespace Test
             return '::Test::WrongOperation';
         }
     }
-    $Test__t_WrongOperation = IcePHP_defineClass('::Test::WrongOperation', '\\Test\\WrongOperation', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_WrongOperationPrx = IcePHP_defineProxy('::Test::WrongOperation', $Ice__t_ObjectPrx, null);

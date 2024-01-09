@@ -51,8 +51,6 @@ module ::Test
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 
-        T_TestIntf.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
         TestIntfPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
@@ -81,8 +79,6 @@ module ::Test
             T_Cleaner = ::Ice::__declareClass('::Test::Cleaner')
             T_CleanerPrx = ::Ice::__declareProxy('::Test::Cleaner')
         end
-
-        T_Cleaner.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_CleanerPrx.defineProxy(CleanerPrx, nil, [])
 

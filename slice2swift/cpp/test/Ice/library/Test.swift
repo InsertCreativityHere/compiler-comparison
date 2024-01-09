@@ -59,7 +59,7 @@ open class UserError: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `MyInterface`.
+/// Traits for Slice interface`MyInterface`.
 public struct MyInterfaceTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MyInterface"]
     public static let staticId = "::Test::MyInterface"

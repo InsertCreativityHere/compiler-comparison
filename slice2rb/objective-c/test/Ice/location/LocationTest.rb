@@ -41,8 +41,6 @@ module ::Test
             T_TestLocatorRegistryPrx = ::Ice::__declareProxy('::Test::TestLocatorRegistry')
         end
 
-        T_TestLocatorRegistry.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_TestLocatorRegistryPrx.defineProxy(TestLocatorRegistryPrx, nil, [::Ice::T_LocatorRegistryPrx])
 
         TestLocatorRegistryPrx_mixin::OP_addObject = ::Ice::__defineOperation('addObject', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_ObjectPrx, false, 0]], [], nil, [])
@@ -69,8 +67,6 @@ module ::Test
             T_TestLocator = ::Ice::__declareClass('::Test::TestLocator')
             T_TestLocatorPrx = ::Ice::__declareProxy('::Test::TestLocator')
         end
-
-        T_TestLocator.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_TestLocatorPrx.defineProxy(TestLocatorPrx, nil, [::Ice::T_LocatorPrx])
 
@@ -102,8 +98,6 @@ module ::Test
             T_ServerManagerPrx = ::Ice::__declareProxy('::Test::ServerManager')
         end
 
-        T_ServerManager.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_ServerManagerPrx.defineProxy(ServerManagerPrx, nil, [])
 
         ServerManagerPrx_mixin::OP_startServer = ::Ice::__defineOperation('startServer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
@@ -130,8 +124,6 @@ module ::Test
             T_Hello = ::Ice::__declareClass('::Test::Hello')
             T_HelloPrx = ::Ice::__declareProxy('::Test::Hello')
         end
-
-        T_Hello.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_HelloPrx.defineProxy(HelloPrx, nil, [])
 
@@ -170,8 +162,6 @@ module ::Test
             T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
-
-        T_TestIntf.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 

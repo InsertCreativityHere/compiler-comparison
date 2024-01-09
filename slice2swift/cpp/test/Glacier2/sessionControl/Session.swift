@@ -18,7 +18,7 @@ import Ice
 import PromiseKit
 import Glacier2
 
-/// Traits for Slice interface `Session`.
+/// Traits for Slice interface`Session`.
 public struct SessionTraits: Ice.SliceTraits {
     public static let staticIds = ["::Glacier2::Session", "::Ice::Object", "::Test::Session"]
     public static let staticId = "::Test::Session"

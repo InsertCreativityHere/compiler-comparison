@@ -58,7 +58,6 @@ namespace IceGrid
             return '::IceGrid::Query';
         }
     }
-    $IceGrid__t_Query = IcePHP_defineClass('::IceGrid::Query', '\\IceGrid\\Query', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceGrid__t_QueryPrx = IcePHP_defineProxy('::IceGrid::Query', $Ice__t_ObjectPrx, null);
@@ -97,7 +96,6 @@ namespace IceGrid
             return '::IceGrid::Registry';
         }
     }
-    $IceGrid__t_Registry = IcePHP_defineClass('::IceGrid::Registry', '\\IceGrid\\Registry', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceGrid__t_RegistryPrx = IcePHP_defineProxy('::IceGrid::Registry', $Ice__t_ObjectPrx, null);
@@ -136,7 +134,6 @@ namespace IceGrid
             return '::IceGrid::Locator';
         }
     }
-    $IceGrid__t_Locator = IcePHP_defineClass('::IceGrid::Locator', '\\IceGrid\\Locator', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceGrid__t_LocatorPrx = IcePHP_defineProxy('::IceGrid::Locator', $Ice__t_ObjectPrx, array($Ice__t_LocatorPrx));

@@ -40,8 +40,6 @@ module ::Test
             T_PingReplyPrx = ::Ice::__declareProxy('::Test::PingReply')
         end
 
-        T_PingReply.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_PingReplyPrx.defineProxy(PingReplyPrx, nil, [])
 
         PingReplyPrx_mixin::OP_reply = ::Ice::__defineOperation('reply', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
@@ -83,8 +81,6 @@ module ::Test
             T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
-
-        T_TestIntf.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 

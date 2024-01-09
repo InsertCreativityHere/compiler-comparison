@@ -37,7 +37,6 @@ namespace Ice
             return '::Ice::Process';
         }
     }
-    $Ice__t_Process = IcePHP_defineClass('::Ice::Process', '\\Ice\\Process', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Ice__t_ProcessPrx = IcePHP_defineProxy('::Ice::Process', $Ice__t_ObjectPrx, null);

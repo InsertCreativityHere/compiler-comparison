@@ -189,7 +189,6 @@ namespace IceMX
             return '::IceMX::MetricsAdmin';
         }
     }
-    $IceMX__t_MetricsAdmin = IcePHP_defineClass('::IceMX::MetricsAdmin', '\\IceMX\\MetricsAdmin', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceMX__t_MetricsAdminPrx = IcePHP_defineProxy('::IceMX::MetricsAdmin', $Ice__t_ObjectPrx, null);

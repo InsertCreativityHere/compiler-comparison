@@ -51,6 +51,16 @@ namespace Ice
 
 #else // C++98 mapping
 
+namespace
+{
+
+}
+
+namespace
+{
+
+}
+
 namespace Ice
 {
 }

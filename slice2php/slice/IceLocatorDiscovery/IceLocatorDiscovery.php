@@ -42,7 +42,6 @@ namespace IceLocatorDiscovery
             return '::IceLocatorDiscovery::LookupReply';
         }
     }
-    $IceLocatorDiscovery__t_LookupReply = IcePHP_defineClass('::IceLocatorDiscovery::LookupReply', '\\IceLocatorDiscovery\\LookupReply', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceLocatorDiscovery__t_LookupReplyPrx = IcePHP_defineProxy('::IceLocatorDiscovery::LookupReply', $Ice__t_ObjectPrx, null);
@@ -73,7 +72,6 @@ namespace IceLocatorDiscovery
             return '::IceLocatorDiscovery::Lookup';
         }
     }
-    $IceLocatorDiscovery__t_Lookup = IcePHP_defineClass('::IceLocatorDiscovery::Lookup', '\\IceLocatorDiscovery\\Lookup', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceLocatorDiscovery__t_LookupPrx = IcePHP_defineProxy('::IceLocatorDiscovery::Lookup', $Ice__t_ObjectPrx, null);

@@ -77,7 +77,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice class `Base`.
+/// Traits for Slice class`Base`.
 public struct BaseTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Base"]
     public static let staticId = "::Test::Base"
@@ -125,79 +125,61 @@ open class BaseEx: Ice.UserException {
     }
 }
 
-/// Traits for Slice class `AbstractBase`.
-public struct AbstractBaseTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::AbstractBase", "::Test::Base"]
-    public static let staticId = "::Test::AbstractBase"
-}
-
-/// Traits for Slice class `A`.
+/// Traits for Slice class`A`.
 public struct ATraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::A"]
     public static let staticId = "::Test::A"
 }
 
-/// Traits for Slice class `B`.
+/// Traits for Slice class`B`.
 public struct BTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::A", "::Test::B"]
     public static let staticId = "::Test::B"
 }
 
-/// Traits for Slice class `C`.
+/// Traits for Slice class`C`.
 public struct CTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::C"]
     public static let staticId = "::Test::C"
 }
 
-/// Traits for Slice class `D`.
+/// Traits for Slice class`D`.
 public struct DTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::D"]
     public static let staticId = "::Test::D"
 }
 
-/// Traits for Slice class `E`.
+/// Traits for Slice class`E`.
 public struct ETraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::E"]
     public static let staticId = "::Test::E"
 }
 
-/// Traits for Slice class `F`.
+/// Traits for Slice class`F`.
 public struct FTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::F"]
     public static let staticId = "::Test::F"
 }
 
-/// Traits for Slice class `G`.
+/// Traits for Slice class`G`.
 public struct GTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Base", "::Test::G"]
     public static let staticId = "::Test::G"
 }
 
-/// Traits for Slice interface `I`.
+/// Traits for Slice interface`I`.
 public struct ITraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::I"]
     public static let staticId = "::Test::I"
 }
 
-/// Traits for Slice interface `J`.
+/// Traits for Slice interface`J`.
 public struct JTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::I", "::Test::J"]
     public static let staticId = "::Test::J"
 }
 
-/// Traits for Slice class `H`.
-public struct HTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::H", "::Test::I"]
-    public static let staticId = "::Test::H"
-}
-
-/// Traits for Slice class `N`.
-public struct NTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::N"]
-    public static let staticId = "::Test::N"
-}
-
-/// Traits for Slice class `Compact`.
+/// Traits for Slice class`Compact`.
 public struct CompactTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Compact"]
     public static let staticId = "::Test::Compact"
@@ -205,13 +187,13 @@ public struct CompactTraits: Ice.SliceTraits {
 public let CompactExtId: Swift.Int32 = 789
 
 
-/// Traits for Slice class `CompactExt`.
+/// Traits for Slice class`CompactExt`.
 public struct CompactExtTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Compact", "::Test::CompactExt"]
     public static let staticId = "::Test::CompactExt"
 }
 
-/// Traits for Slice class `InnerA`.
+/// Traits for Slice class`InnerA`.
 public struct InnerATraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Inner::A"]
     public static let staticId = "::Test::Inner::A"
@@ -259,7 +241,7 @@ open class InnerEx: Ice.UserException {
     }
 }
 
-/// Traits for Slice class `InnerSubA`.
+/// Traits for Slice class`InnerSubA`.
 public struct InnerSubATraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Inner::Sub::A"]
     public static let staticId = "::Test::Inner::Sub::A"
@@ -307,19 +289,19 @@ open class InnerSubEx: Ice.UserException {
     }
 }
 
-/// Traits for Slice class `A1`.
+/// Traits for Slice class`A1`.
 public struct A1Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::A1"]
     public static let staticId = "::Test::A1"
 }
 
-/// Traits for Slice class `B1`.
+/// Traits for Slice class`B1`.
 public struct B1Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::B1"]
     public static let staticId = "::Test::B1"
 }
 
-/// Traits for Slice class `D1`.
+/// Traits for Slice class`D1`.
 public struct D1Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::B1", "::Test::D1"]
     public static let staticId = "::Test::D1"
@@ -624,72 +606,6 @@ public struct BaseSeqHelper {
     }
 }
 
-public typealias BasePrxSeq = [Ice.ObjectPrx?]
-
-/// Helper class to read and write `BasePrxSeq` sequence values from
-/// `Ice.InputStream` and `Ice.OutputStream`.
-public struct BasePrxSeqHelper {
-    /// Read a `BasePrxSeq` sequence from the stream.
-    ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
-    ///
-    /// - returns: `BasePrxSeq` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream) throws -> BasePrxSeq {
-        let sz = try istr.readAndCheckSeqSize(minSize: 2)
-        var v = BasePrxSeq()
-        v.reserveCapacity(sz)
-        for _ in 0 ..< sz {
-            let j: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-            v.append(j)
-        }
-        return v
-    }
-    /// Read an optional `BasePrxSeq?` sequence from the stream.
-    ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
-    ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `BasePrxSeq` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> BasePrxSeq? {
-        guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
-            return nil
-        }
-        try istr.skip(4)
-        return try read(from: istr)
-    }
-
-    /// Wite a `BasePrxSeq` sequence to the stream.
-    ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `BasePrxSeq` - The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream, value v: BasePrxSeq) {
-        ostr.write(size: v.count)
-        for item in v {
-            ostr.write(item)
-        }
-    }
-
-    /// Wite an optional `BasePrxSeq?` sequence to the stream.
-    ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `BasePrxSeq` The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: BasePrxSeq?) {
-        guard let val = v else {
-            return
-        }
-        if ostr.writeOptional(tag: tag, format: .FSize) {
-            let pos = ostr.startSize()
-            write(to: ostr, value: val)
-            ostr.endSize(position: pos)
-        }
-    }
-}
-
 public typealias ObjectDict = [Swift.String: Ice.Value?]
 
 /// Helper class to read and write `ObjectDict` dictionary values from
@@ -909,86 +825,19 @@ public struct BaseDictHelper {
     }
 }
 
-public typealias BasePrxDict = [Swift.String: Ice.ObjectPrx?]
-
-/// Helper class to read and write `BasePrxDict` dictionary values from
-/// `Ice.InputStream` and `Ice.OutputStream`.
-public struct BasePrxDictHelper {
-    /// Read a `BasePrxDict` dictionary from the stream.
-    ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
-    ///
-    /// - returns: `BasePrxDict` - The dictionary read from the stream.
-    public static func read(from istr: Ice.InputStream) throws -> BasePrxDict {
-        let sz = try Swift.Int(istr.readSize())
-        var v = BasePrxDict()
-        for _ in 0 ..< sz {
-            let key: Swift.String = try istr.read()
-            let value: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-            v[key] = value
-        }
-        return v
-    }
-    /// Read an optional `BasePrxDict?` dictionary from the stream.
-    ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `BasePrxDict` - The dictionary read from the stream.
-    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> BasePrxDict? {
-        guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
-            return nil
-        }
-        try istr.skip(4)
-        return try read(from: istr)
-    }
-
-    /// Wite a `BasePrxDict` dictionary to the stream.
-    ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `BasePrxDict` - The dictionary value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream, value v: BasePrxDict) {
-        ostr.write(size: v.count)
-        for (key, value) in v {
-            ostr.write(key)
-            ostr.write(value)
-        }
-    }
-
-    /// Wite an optional `BasePrxDict?` dictionary to the stream.
-    ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `BasePrxDict` - The dictionary value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream, tag: Swift.Int32, value v: BasePrxDict?) {
-        guard let val = v else {
-            return
-        }
-        if ostr.writeOptional(tag: tag, format: .FSize) {
-            let pos = ostr.startSize()
-            write(to: ostr, value: val)
-            ostr.endSize(position: pos)
-        }
-    }
-}
-
-/// Traits for Slice class `Recursive`.
+/// Traits for Slice class`Recursive`.
 public struct RecursiveTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Recursive"]
     public static let staticId = "::Test::Recursive"
 }
 
-/// Traits for Slice class `L`.
+/// Traits for Slice class`L`.
 public struct LTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::L"]
     public static let staticId = "::Test::L"
 }
 
-/// Traits for Slice class `K`.
+/// Traits for Slice class`K`.
 public struct KTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::K"]
     public static let staticId = "::Test::K"
@@ -1276,49 +1125,49 @@ public struct LMapHelper {
     }
 }
 
-/// Traits for Slice class `M`.
+/// Traits for Slice class`M`.
 public struct MTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::M"]
     public static let staticId = "::Test::M"
 }
 
-/// Traits for Slice class `Initial`.
+/// Traits for Slice interface`Initial`.
 public struct InitialTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Initial"]
     public static let staticId = "::Test::Initial"
 }
 
-/// Traits for Slice interface `TestIntf`.
+/// Traits for Slice interface`TestIntf`.
 public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::TestIntf"]
     public static let staticId = "::Test::TestIntf"
 }
 
-/// Traits for Slice class `Empty`.
+/// Traits for Slice class`Empty`.
 public struct EmptyTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Empty"]
     public static let staticId = "::Test::Empty"
 }
 
-/// Traits for Slice class `AlsoEmpty`.
+/// Traits for Slice class`AlsoEmpty`.
 public struct AlsoEmptyTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::AlsoEmpty"]
     public static let staticId = "::Test::AlsoEmpty"
 }
 
-/// Traits for Slice interface `UnexpectedObjectExceptionTest`.
+/// Traits for Slice interface`UnexpectedObjectExceptionTest`.
 public struct UnexpectedObjectExceptionTestTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::UnexpectedObjectExceptionTest"]
     public static let staticId = "::Test::UnexpectedObjectExceptionTest"
 }
 
-/// Traits for Slice class `COneMember`.
+/// Traits for Slice class`COneMember`.
 public struct COneMemberTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::COneMember"]
     public static let staticId = "::Test::COneMember"
 }
 
-/// Traits for Slice class `CTwoMembers`.
+/// Traits for Slice class`CTwoMembers`.
 public struct CTwoMembersTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::CTwoMembers"]
     public static let staticId = "::Test::CTwoMembers"
@@ -1696,126 +1545,6 @@ public struct DTwoMembersHelper {
     }
 }
 
-/// AbstractBasePrx overview.
-///
-/// AbstractBasePrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
-public protocol AbstractBasePrx: Ice.ObjectPrx {}
-
-private final class AbstractBasePrxI: Ice.ObjectPrxI, AbstractBasePrx {
-    public override class func ice_staticId() -> Swift.String {
-        return AbstractBaseTraits.staticId
-    }
-}
-
-/// Casts a proxy to the requested type. This call contacts the server and verifies that the object
-/// implements this type.
-///
-/// It will throw a local exception if a communication error occurs. You can optionally supply a
-/// facet name and a context map.
-///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
-///
-/// - parameter type: `AbstractBasePrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `AbstractBasePrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: AbstractBasePrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> AbstractBasePrx? {
-    return try AbstractBasePrxI.checkedCast(prx: prx, facet: facet, context: context) as AbstractBasePrxI?
-}
-
-/// Downcasts the given proxy to this type without contacting the remote server.
-///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
-///
-/// - parameter type: `AbstractBasePrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `AbstractBasePrx` - A proxy with the requested type
-public func uncheckedCast(prx: Ice.ObjectPrx, type: AbstractBasePrx.Protocol, facet: Swift.String? = nil) -> AbstractBasePrx {
-    return AbstractBasePrxI.uncheckedCast(prx: prx, facet: facet) as AbstractBasePrxI
-}
-
-/// Returns the Slice type id of the interface or class associated with this proxy type.
-///
-/// parameter type: `AbstractBasePrx.Protocol` -  The proxy type to retrieve the type id.
-///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
-public func ice_staticId(_ type: AbstractBasePrx.Protocol) -> Swift.String {
-    return AbstractBaseTraits.staticId
-}
-
-/// Extension to `Ice.InputStream` class to support reading proxy of type
-/// `AbstractBasePrx`.
-public extension Ice.InputStream {
-    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
-    ///
-    /// - parameter type: `AbstractBasePrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `AbstractBasePrx?` - The extracted proxy
-    func read(_ type: AbstractBasePrx.Protocol) throws -> AbstractBasePrx? {
-        return try read() as AbstractBasePrxI?
-    }
-    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter type: `AbstractBasePrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `AbstractBasePrx` - The extracted proxy.
-    func read(tag: Swift.Int32, type: AbstractBasePrx.Protocol) throws -> AbstractBasePrx? {
-        return try read(tag: tag) as AbstractBasePrxI?
-    }
-}
-
-/// AbstractBasePrx overview.
-///
-/// AbstractBasePrx Methods:
-///
-///  - op: 
-///
-///  - opAsync: 
-public extension AbstractBasePrx {
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func op(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "op",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func opAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "op",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-}
-
 /// IPrx overview.
 public protocol IPrx: Ice.ObjectPrx {}
 
@@ -2034,18 +1763,6 @@ public extension JPrx {}
 ///
 ///  - getAllAsync: 
 ///
-///  - getH: 
-///
-///  - getHAsync: 
-///
-///  - getI: 
-///
-///  - getIAsync: 
-///
-///  - getJ: 
-///
-///  - getJAsync: 
-///
 ///  - getK: 
 ///
 ///  - getKAsync: 
@@ -2073,10 +1790,6 @@ public extension JPrx {}
 ///  - setG: 
 ///
 ///  - setGAsync: 
-///
-///  - setI: 
-///
-///  - setIAsync: 
 ///
 ///  - opBaseSeq: 
 ///
@@ -2114,10 +1827,6 @@ public extension JPrx {}
 ///
 ///  - getBaseSeqAsync: 
 ///
-///  - getBasePrxSeq: 
-///
-///  - getBasePrxSeqAsync: 
-///
 ///  - getObjectDict: 
 ///
 ///  - getObjectDictAsync: 
@@ -2129,10 +1838,6 @@ public extension JPrx {}
 ///  - getBaseDict: 
 ///
 ///  - getBaseDictAsync: 
-///
-///  - getBasePrxDict: 
-///
-///  - getBasePrxDictAsync: 
 ///
 ///  - opM: 
 ///
@@ -2149,10 +1854,6 @@ public extension JPrx {}
 ///  - hasF3: 
 ///
 ///  - hasF3Async: 
-///
-///  - opN: 
-///
-///  - opNAsync: 
 public protocol InitialPrx: Ice.ObjectPrx {}
 
 private final class InitialPrxI: Ice.ObjectPrxI, InitialPrx {
@@ -2288,18 +1989,6 @@ public extension Ice.InputStream {
 ///
 ///  - getAllAsync: 
 ///
-///  - getH: 
-///
-///  - getHAsync: 
-///
-///  - getI: 
-///
-///  - getIAsync: 
-///
-///  - getJ: 
-///
-///  - getJAsync: 
-///
 ///  - getK: 
 ///
 ///  - getKAsync: 
@@ -2327,10 +2016,6 @@ public extension Ice.InputStream {
 ///  - setG: 
 ///
 ///  - setGAsync: 
-///
-///  - setI: 
-///
-///  - setIAsync: 
 ///
 ///  - opBaseSeq: 
 ///
@@ -2368,10 +2053,6 @@ public extension Ice.InputStream {
 ///
 ///  - getBaseSeqAsync: 
 ///
-///  - getBasePrxSeq: 
-///
-///  - getBasePrxSeqAsync: 
-///
 ///  - getObjectDict: 
 ///
 ///  - getObjectDictAsync: 
@@ -2383,10 +2064,6 @@ public extension Ice.InputStream {
 ///  - getBaseDict: 
 ///
 ///  - getBaseDictAsync: 
-///
-///  - getBasePrxDict: 
-///
-///  - getBasePrxDictAsync: 
 ///
 ///  - opM: 
 ///
@@ -2403,10 +2080,6 @@ public extension Ice.InputStream {
 ///  - hasF3: 
 ///
 ///  - hasF3Async: 
-///
-///  - opN: 
-///
-///  - opNAsync: 
 public extension InitialPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
@@ -3007,135 +2680,6 @@ public extension InitialPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `Ice.Value?`
-    func getH(context: Ice.Context? = nil) throws -> Ice.Value? {
-        return try _impl._invoke(operation: "getH",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     var iceP_returnValue: Ice.Value?
-                                     try istr.read() { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<Ice.Value?>` - The result of the operation
-    func getHAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.Value?> {
-        return _impl._invokeAsync(operation: "getH",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      var iceP_returnValue: Ice.Value?
-                                      try istr.read() { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.Value?`
-    func getI(context: Ice.Context? = nil) throws -> Ice.Value? {
-        return try _impl._invoke(operation: "getI",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     var iceP_returnValue: Ice.Value?
-                                     try istr.read() { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<Ice.Value?>` - The result of the operation
-    func getIAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.Value?> {
-        return _impl._invokeAsync(operation: "getI",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      var iceP_returnValue: Ice.Value?
-                                      try istr.read() { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.Value?`
-    func getJ(context: Ice.Context? = nil) throws -> Ice.Value? {
-        return try _impl._invoke(operation: "getJ",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     var iceP_returnValue: Ice.Value?
-                                     try istr.read() { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<Ice.Value?>` - The result of the operation
-    func getJAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.Value?> {
-        return _impl._invokeAsync(operation: "getJ",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      var iceP_returnValue: Ice.Value?
-                                      try istr.read() { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
     /// - returns: `K?`
     func getK(context: Ice.Context? = nil) throws -> K? {
         return try _impl._invoke(operation: "getK",
@@ -3488,47 +3032,6 @@ public extension InitialPrx {
                                   mode: .Normal,
                                   write: { ostr in
                                       ostr.write(iceP_theG)
-                                      ostr.writePendingValues()
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter _: `Ice.Value?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func setI(_ iceP_theI: Ice.Value?, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "setI",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_theI)
-                              ostr.writePendingValues()
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter _: `Ice.Value?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func setIAsync(_ iceP_theI: Ice.Value?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "setI",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_theI)
                                       ostr.writePendingValues()
                                   },
                                   context: context,
@@ -3967,55 +3470,6 @@ public extension InitialPrx {
     }
 
     ///
-    /// - parameter _: `BasePrxSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `BasePrxSeq`
-    func getBasePrxSeq(_ iceP_s: BasePrxSeq, context: Ice.Context? = nil) throws -> BasePrxSeq {
-        return try _impl._invoke(operation: "getBasePrxSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     BasePrxSeqHelper.write(to: ostr, value: iceP_s)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: BasePrxSeq = try BasePrxSeqHelper.read(from: istr)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `BasePrxSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<BasePrxSeq>` - The result of the operation
-    func getBasePrxSeqAsync(_ iceP_s: BasePrxSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<BasePrxSeq> {
-        return _impl._invokeAsync(operation: "getBasePrxSeq",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      BasePrxSeqHelper.write(to: ostr, value: iceP_s)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: BasePrxSeq = try BasePrxSeqHelper.read(from: istr)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
     /// - parameter _: `ObjectDict`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
@@ -4162,55 +3616,6 @@ public extension InitialPrx {
                                   read: { istr in
                                       let iceP_returnValue: BaseDict = try BaseDictHelper.read(from: istr)
                                       try istr.readPendingValues()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter _: `BasePrxDict`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `BasePrxDict`
-    func getBasePrxDict(_ iceP_d: BasePrxDict, context: Ice.Context? = nil) throws -> BasePrxDict {
-        return try _impl._invoke(operation: "getBasePrxDict",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     BasePrxDictHelper.write(to: ostr, value: iceP_d)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: BasePrxDict = try BasePrxDictHelper.read(from: istr)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `BasePrxDict`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<BasePrxDict>` - The result of the operation
-    func getBasePrxDictAsync(_ iceP_d: BasePrxDict, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<BasePrxDict> {
-        return _impl._invokeAsync(operation: "getBasePrxDict",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      BasePrxDictHelper.write(to: ostr, value: iceP_d)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: BasePrxDict = try BasePrxDictHelper.read(from: istr)
                                       return iceP_returnValue
                                   },
                                   context: context,
@@ -4431,61 +3836,6 @@ public extension InitialPrx {
                                   mode: .Normal,
                                   read: { istr in
                                       let iceP_returnValue: Swift.Bool = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter _: `N?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `N?`
-    func opN(_ iceP_p1: N?, context: Ice.Context? = nil) throws -> N? {
-        return try _impl._invoke(operation: "opN",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_p1)
-                                     ostr.writePendingValues()
-                                 },
-                                 read: { istr in
-                                     var iceP_returnValue: N?
-                                     try istr.read(N.self) { iceP_returnValue = $0 }
-                                     try istr.readPendingValues()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `N?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<N?>` - The result of the operation
-    func opNAsync(_ iceP_p1: N?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<N?> {
-        return _impl._invokeAsync(operation: "opN",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_p1)
-                                      ostr.writePendingValues()
-                                  },
-                                  read: { istr in
-                                      var iceP_returnValue: N?
-                                      try istr.read(N.self) { iceP_returnValue = $0 }
-                                      try istr.readPendingValues()
                                       return iceP_returnValue
                                   },
                                   context: context,
@@ -4864,47 +4214,6 @@ open class Base: Ice.Value {
         ostr.write(self.theS)
         ostr.write(self.str)
         ostr.endSlice()
-    }
-}
-
-/// :nodoc:
-public class AbstractBase_TypeResolver: Ice.ValueTypeResolver {
-    public override func type() -> Ice.Value.Type {
-        return AbstractBase.self
-    }
-}
-
-public extension Ice.ClassResolver {
-    @objc static func Test_AbstractBase() -> Ice.ValueTypeResolver {
-        return AbstractBase_TypeResolver()
-    }
-}
-
-open class AbstractBase: Base {
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return AbstractBaseTraits.staticId
-    }
-
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return AbstractBaseTraits.staticId
-    }
-
-    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
-        _ = try istr.startSlice()
-        try istr.endSlice()
-        try super._iceReadImpl(from: istr);
-    }
-
-    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: AbstractBaseTraits.staticId, compactId: -1, last: false)
-        ostr.endSlice()
-        super._iceWriteImpl(to: ostr);
     }
 }
 
@@ -5289,96 +4598,6 @@ open class G: Base {
         ostr.startSlice(typeId: GTraits.staticId, compactId: -1, last: false)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
-    }
-}
-
-/// :nodoc:
-public class H_TypeResolver: Ice.ValueTypeResolver {
-    public override func type() -> Ice.Value.Type {
-        return H.self
-    }
-}
-
-public extension Ice.ClassResolver {
-    @objc static func Test_H() -> Ice.ValueTypeResolver {
-        return H_TypeResolver()
-    }
-}
-
-open class H: Ice.Value {
-    public required init() {}
-
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return HTraits.staticId
-    }
-
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return HTraits.staticId
-    }
-
-    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
-        _ = try istr.startSlice()
-        try istr.endSlice()
-    }
-
-    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: HTraits.staticId, compactId: -1, last: true)
-        ostr.endSlice()
-    }
-}
-
-/// :nodoc:
-public class N_TypeResolver: Ice.ValueTypeResolver {
-    public override func type() -> Ice.Value.Type {
-        return N.self
-    }
-}
-
-public extension Ice.ClassResolver {
-    @objc static func Test_N() -> Ice.ValueTypeResolver {
-        return N_TypeResolver()
-    }
-}
-
-open class N: Ice.Value {
-    public var i: Ice.Value? = nil
-
-    public required init() {}
-
-    public init(i: Ice.Value?) {
-        self.i = i
-    }
-
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return NTraits.staticId
-    }
-
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return NTraits.staticId
-    }
-
-    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
-        _ = try istr.startSlice()
-        try istr.read() { self.i = $0 }
-        try istr.endSlice()
-    }
-
-    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: NTraits.staticId, compactId: -1, last: true)
-        ostr.write(self.i)
-        ostr.endSlice()
     }
 }
 
@@ -5931,47 +5150,6 @@ open class M: Ice.Value {
 }
 
 /// :nodoc:
-public class Initial_TypeResolver: Ice.ValueTypeResolver {
-    public override func type() -> Ice.Value.Type {
-        return Initial.self
-    }
-}
-
-public extension Ice.ClassResolver {
-    @objc static func Test_Initial() -> Ice.ValueTypeResolver {
-        return Initial_TypeResolver()
-    }
-}
-
-open class Initial: Ice.Value {
-    public required init() {}
-
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return InitialTraits.staticId
-    }
-
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return InitialTraits.staticId
-    }
-
-    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
-        _ = try istr.startSlice()
-        try istr.endSlice()
-    }
-
-    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: InitialTraits.staticId, compactId: -1, last: true)
-        ostr.endSlice()
-    }
-}
-
-/// :nodoc:
 public class Empty_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return Empty.self
@@ -6156,41 +5334,6 @@ open class CTwoMembers: Ice.Value {
 }
 
 
-/// Dispatcher for `AbstractBaseOperations` servants.
-public struct AbstractBaseDisp: Ice.Disp {
-    public let servant: AbstractBaseOperations
-    private static let defaultObject = Ice.ObjectI<AbstractBaseTraits>()
-
-    public init(_ servant: AbstractBaseOperations) {
-        self.servant = servant
-    }
-
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
-        case "ice_id":
-            return try (servant as? Object ?? AbstractBaseDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
-        case "ice_ids":
-            return try (servant as? Object ?? AbstractBaseDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
-        case "ice_isA":
-            return try (servant as? Object ?? AbstractBaseDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
-        case "ice_ping":
-            return try (servant as? Object ?? AbstractBaseDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
-        case "op":
-            return try servant._iceD_op(incoming: request, current: current)
-        default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
-        }
-    }
-}
-
-public protocol AbstractBaseOperations {
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func op(current: Ice.Current) throws
-}
-
-
 /// Dispatcher for `I` servants.
 public struct IDisp: Ice.Disp {
     public let servant: I
@@ -6249,12 +5392,12 @@ public struct JDisp: Ice.Disp {
 public protocol J: I {}
 
 
-/// Dispatcher for `InitialOperations` servants.
+/// Dispatcher for `Initial` servants.
 public struct InitialDisp: Ice.Disp {
-    public let servant: InitialOperations
+    public let servant: Initial
     private static let defaultObject = Ice.ObjectI<InitialTraits>()
 
-    public init(_ servant: InitialOperations) {
+    public init(_ servant: Initial) {
         self.servant = servant
     }
 
@@ -6273,10 +5416,6 @@ public struct InitialDisp: Ice.Disp {
             return try servant._iceD_getB2(incoming: request, current: current)
         case "getBaseDict":
             return try servant._iceD_getBaseDict(incoming: request, current: current)
-        case "getBasePrxDict":
-            return try servant._iceD_getBasePrxDict(incoming: request, current: current)
-        case "getBasePrxSeq":
-            return try servant._iceD_getBasePrxSeq(incoming: request, current: current)
         case "getBaseSeq":
             return try servant._iceD_getBaseSeq(incoming: request, current: current)
         case "getC":
@@ -6291,16 +5430,10 @@ public struct InitialDisp: Ice.Disp {
             return try servant._iceD_getE(incoming: request, current: current)
         case "getF":
             return try servant._iceD_getF(incoming: request, current: current)
-        case "getH":
-            return try servant._iceD_getH(incoming: request, current: current)
-        case "getI":
-            return try servant._iceD_getI(incoming: request, current: current)
         case "getInnerA":
             return try servant._iceD_getInnerA(incoming: request, current: current)
         case "getInnerSubA":
             return try servant._iceD_getInnerSubA(incoming: request, current: current)
-        case "getJ":
-            return try servant._iceD_getJ(incoming: request, current: current)
         case "getK":
             return try servant._iceD_getK(incoming: request, current: current)
         case "getMB":
@@ -6331,8 +5464,6 @@ public struct InitialDisp: Ice.Disp {
             return try servant._iceD_opF2(incoming: request, current: current)
         case "opM":
             return try servant._iceD_opM(incoming: request, current: current)
-        case "opN":
-            return try servant._iceD_opN(incoming: request, current: current)
         case "opValue":
             return try servant._iceD_opValue(incoming: request, current: current)
         case "opValueMap":
@@ -6343,8 +5474,6 @@ public struct InitialDisp: Ice.Disp {
             return try servant._iceD_setCycle(incoming: request, current: current)
         case "setG":
             return try servant._iceD_setG(incoming: request, current: current)
-        case "setI":
-            return try servant._iceD_setI(incoming: request, current: current)
         case "setRecursive":
             return try servant._iceD_setRecursive(incoming: request, current: current)
         case "shutdown":
@@ -6363,7 +5492,7 @@ public struct InitialDisp: Ice.Disp {
     }
 }
 
-public protocol InitialOperations {
+public protocol Initial {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) throws
@@ -6457,24 +5586,6 @@ public protocol InitialOperations {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.Value?`
-    func getH(current: Ice.Current) throws -> Ice.Value?
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Ice.Value?`
-    func getI(current: Ice.Current) throws -> Ice.Value?
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Ice.Value?`
-    func getJ(current: Ice.Current) throws -> Ice.Value?
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
     /// - returns: `K?`
     func getK(current: Ice.Current) throws -> K?
 
@@ -6531,12 +5642,6 @@ public protocol InitialOperations {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func setG(theG: G?, current: Ice.Current) throws
-
-    ///
-    /// - parameter theI: `Ice.Value?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func setI(theI: Ice.Value?, current: Ice.Current) throws
 
     ///
     /// - parameter inSeq: `BaseSeq`
@@ -6601,14 +5706,6 @@ public protocol InitialOperations {
     func getBaseSeq(s: BaseSeq, current: Ice.Current) throws -> BaseSeq
 
     ///
-    /// - parameter s: `BasePrxSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `BasePrxSeq`
-    func getBasePrxSeq(s: BasePrxSeq, current: Ice.Current) throws -> BasePrxSeq
-
-    ///
     /// - parameter d: `ObjectDict`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
@@ -6631,14 +5728,6 @@ public protocol InitialOperations {
     ///
     /// - returns: `BaseDict`
     func getBaseDict(d: BaseDict, current: Ice.Current) throws -> BaseDict
-
-    ///
-    /// - parameter d: `BasePrxDict`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `BasePrxDict`
-    func getBasePrxDict(d: BasePrxDict, current: Ice.Current) throws -> BasePrxDict
 
     ///
     /// - parameter v1: `M?`
@@ -6681,14 +5770,6 @@ public protocol InitialOperations {
     ///
     /// - returns: `Swift.Bool`
     func hasF3(current: Ice.Current) throws -> Swift.Bool
-
-    ///
-    /// - parameter p1: `N?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `N?`
-    func opN(p1: N?, current: Ice.Current) throws -> N?
 }
 
 
@@ -6771,21 +5852,6 @@ public protocol UnexpectedObjectExceptionTest {
     func op(current: Ice.Current) throws -> Empty?
 }
 
-/// AbstractBase overview.
-///
-/// AbstractBase Methods:
-///
-///  - op: 
-public extension AbstractBaseOperations {
-    func _iceD_op(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        try self.op(current: current)
-
-        return inS.setResult()
-    }
-}
-
 /// I overview.
 public extension I {}
 
@@ -6824,12 +5890,6 @@ public extension J {}
 ///
 ///  - getAll: 
 ///
-///  - getH: 
-///
-///  - getI: 
-///
-///  - getJ: 
-///
 ///  - getK: 
 ///
 ///  - opValue: 
@@ -6843,8 +5903,6 @@ public extension J {}
 ///  - throwEDerived: 
 ///
 ///  - setG: 
-///
-///  - setI: 
 ///
 ///  - opBaseSeq: 
 ///
@@ -6864,15 +5922,11 @@ public extension J {}
 ///
 ///  - getBaseSeq: 
 ///
-///  - getBasePrxSeq: 
-///
 ///  - getObjectDict: 
 ///
 ///  - getObjectPrxDict: 
 ///
 ///  - getBaseDict: 
-///
-///  - getBasePrxDict: 
 ///
 ///  - opM: 
 ///
@@ -6881,9 +5935,7 @@ public extension J {}
 ///  - opF2: 
 ///
 ///  - hasF3: 
-///
-///  - opN: 
-public extension InitialOperations {
+public extension Initial {
     func _iceD_shutdown(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         try inS.readEmptyParams()
 
@@ -7039,39 +6091,6 @@ public extension InitialOperations {
         }
     }
 
-    func _iceD_getH(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        let iceP_returnValue = try self.getH(current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
-        }
-    }
-
-    func _iceD_getI(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        let iceP_returnValue = try self.getI(current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
-        }
-    }
-
-    func _iceD_getJ(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        let iceP_returnValue = try self.getJ(current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
-        }
-    }
-
     func _iceD_getK(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         try inS.readEmptyParams()
 
@@ -7165,19 +6184,6 @@ public extension InitialOperations {
         }
 
         try self.setG(theG: iceP_theG, current: current)
-
-        return inS.setResult()
-    }
-
-    func _iceD_setI(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_theI: Ice.Value? = try inS.read { istr in
-            var iceP_theI: Ice.Value?
-            try istr.read() { iceP_theI = $0 }
-            try istr.readPendingValues()
-            return iceP_theI
-        }
-
-        try self.setI(theI: iceP_theI, current: current)
 
         return inS.setResult()
     }
@@ -7290,19 +6296,6 @@ public extension InitialOperations {
         }
     }
 
-    func _iceD_getBasePrxSeq(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_s: BasePrxSeq = try inS.read { istr in
-            let iceP_s: BasePrxSeq = try BasePrxSeqHelper.read(from: istr)
-            return iceP_s
-        }
-
-        let iceP_returnValue = try self.getBasePrxSeq(s: iceP_s, current: current)
-
-        return inS.setResult{ ostr in
-            BasePrxSeqHelper.write(to: ostr, value: iceP_returnValue)
-        }
-    }
-
     func _iceD_getObjectDict(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         let iceP_d: ObjectDict = try inS.read { istr in
             let iceP_d: ObjectDict = try ObjectDictHelper.read(from: istr)
@@ -7343,19 +6336,6 @@ public extension InitialOperations {
         return inS.setResult{ ostr in
             BaseDictHelper.write(to: ostr, value: iceP_returnValue)
             ostr.writePendingValues()
-        }
-    }
-
-    func _iceD_getBasePrxDict(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_d: BasePrxDict = try inS.read { istr in
-            let iceP_d: BasePrxDict = try BasePrxDictHelper.read(from: istr)
-            return iceP_d
-        }
-
-        let iceP_returnValue = try self.getBasePrxDict(d: iceP_d, current: current)
-
-        return inS.setResult{ ostr in
-            BasePrxDictHelper.write(to: ostr, value: iceP_returnValue)
         }
     }
 
@@ -7414,22 +6394,6 @@ public extension InitialOperations {
 
         return inS.setResult{ ostr in
             ostr.write(iceP_returnValue)
-        }
-    }
-
-    func _iceD_opN(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_p1: N? = try inS.read { istr in
-            var iceP_p1: N?
-            try istr.read(N.self) { iceP_p1 = $0 }
-            try istr.readPendingValues()
-            return iceP_p1
-        }
-
-        let iceP_returnValue = try self.opN(p1: iceP_p1, current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
-            ostr.writePendingValues()
         }
     }
 }

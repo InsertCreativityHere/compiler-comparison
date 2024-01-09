@@ -635,11 +635,6 @@ Ice::Router::~Router()
 {
 }
 
-/// \cond INTERNAL
-ICE_API ::Ice::Object* Ice::upCast(Router* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Ice_Router_ids[2] =
@@ -786,44 +781,9 @@ Ice::Router::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Ice::Router::_iceWriteImpl(OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    StreamWriter< Router, OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Ice::Router::_iceReadImpl(InputStream* istr)
-{
-    istr->startSlice();
-    StreamReader< Router, InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Ice::_icePatchObjectPtr(RouterPtr& handle, const ObjectPtr& v)
-{
-    handle = RouterPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Router::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Ice::RouterFinder::~RouterFinder()
 {
 }
-
-/// \cond INTERNAL
-ICE_API ::Ice::Object* Ice::upCast(RouterFinder* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -927,39 +887,5 @@ Ice::RouterFinder::_iceDispatch(::IceInternal::Incoming& in, const Current& curr
     }
 }
 /// \endcond
-
-/// \cond STREAM
-void
-Ice::RouterFinder::_iceWriteImpl(OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    StreamWriter< RouterFinder, OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Ice::RouterFinder::_iceReadImpl(InputStream* istr)
-{
-    istr->startSlice();
-    StreamReader< RouterFinder, InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Ice::_icePatchObjectPtr(RouterFinderPtr& handle, const ObjectPtr& v)
-{
-    handle = RouterFinderPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(RouterFinder::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-namespace Ice
-{
-}
 
 #endif

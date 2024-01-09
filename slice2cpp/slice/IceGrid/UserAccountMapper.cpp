@@ -339,11 +339,6 @@ IceGrid::UserAccountMapper::~UserAccountMapper()
 {
 }
 
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(UserAccountMapper* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_IceGrid_UserAccountMapper_ids[2] =
@@ -446,36 +441,6 @@ IceGrid::UserAccountMapper::_iceDispatch(::IceInternal::Incoming& in, const ::Ic
             assert(false);
             throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
         }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-IceGrid::UserAccountMapper::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< UserAccountMapper, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::UserAccountMapper::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< UserAccountMapper, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchObjectPtr(UserAccountMapperPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = UserAccountMapperPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(UserAccountMapper::ice_staticId(), v);
     }
 }
 /// \endcond

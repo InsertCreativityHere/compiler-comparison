@@ -191,19 +191,19 @@ open class ServerNotFoundException: UserException {
     }
 }
 
-/// Traits for Slice interface `Locator`.
+/// Traits for Slice interface`Locator`.
 public struct LocatorTraits: SliceTraits {
     public static let staticIds = ["::Ice::Locator", "::Ice::Object"]
     public static let staticId = "::Ice::Locator"
 }
 
-/// Traits for Slice interface `LocatorRegistry`.
+/// Traits for Slice interface`LocatorRegistry`.
 public struct LocatorRegistryTraits: SliceTraits {
     public static let staticIds = ["::Ice::LocatorRegistry", "::Ice::Object"]
     public static let staticId = "::Ice::LocatorRegistry"
 }
 
-/// Traits for Slice interface `LocatorFinder`.
+/// Traits for Slice interface`LocatorFinder`.
 public struct LocatorFinderTraits: SliceTraits {
     public static let staticIds = ["::Ice::LocatorFinder", "::Ice::Object"]
     public static let staticId = "::Ice::LocatorFinder"

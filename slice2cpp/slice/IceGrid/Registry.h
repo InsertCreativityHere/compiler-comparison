@@ -91,7 +91,6 @@ namespace IceGrid
 /**
  * The IceGrid query interface. This interface is accessible to Ice clients who wish to look up well-known
  * objects.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API Query : public virtual ::Ice::Object
 {
@@ -197,7 +196,6 @@ public:
  * The IceGrid registry allows clients create sessions directly with the registry.
  * @see Session
  * @see AdminSession
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API Registry : public virtual ::Ice::Object
 {
@@ -319,7 +317,6 @@ public:
  * registry.
  * @see Query
  * @see Registry
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API Locator : public virtual ::Ice::Locator
 {
@@ -388,7 +385,6 @@ namespace IceGrid
 /**
  * The IceGrid query interface. This interface is accessible to Ice clients who wish to look up well-known
  * objects.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) QueryPrx : public virtual ::Ice::Proxy<QueryPrx, ::Ice::ObjectPrx>
 {
@@ -665,7 +661,6 @@ protected:
  * The IceGrid registry allows clients create sessions directly with the registry.
  * @see Session
  * @see AdminSession
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) RegistryPrx : public virtual ::Ice::Proxy<RegistryPrx, ::Ice::ObjectPrx>
 {
@@ -984,7 +979,6 @@ protected:
  * registry.
  * @see Query
  * @see Registry
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) LocatorPrx : public virtual ::Ice::Proxy<LocatorPrx, ::Ice::LocatorPrx>
 {
@@ -1159,39 +1153,21 @@ ICEGRID_API ::IceProxy::Ice::Object* upCast(Locator*);
 
 namespace IceGrid
 {
-
-class Query;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(Query*);
-/// \endcond
-typedef ::IceInternal::Handle< Query> QueryPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::Query> QueryPrx;
 typedef QueryPrx QueryPrxPtr;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(QueryPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class Registry;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(Registry*);
-/// \endcond
-typedef ::IceInternal::Handle< Registry> RegistryPtr;
+class Query;
+typedef ::IceInternal::Handle< Query> QueryPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::Registry> RegistryPrx;
 typedef RegistryPrx RegistryPrxPtr;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(RegistryPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class Locator;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(Locator*);
-/// \endcond
-typedef ::IceInternal::Handle< Locator> LocatorPtr;
+class Registry;
+typedef ::IceInternal::Handle< Registry> RegistryPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::Locator> LocatorPrx;
 typedef LocatorPrx LocatorPrxPtr;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(LocatorPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class Locator;
+typedef ::IceInternal::Handle< Locator> LocatorPtr;
 
 }
 
@@ -2555,14 +2531,12 @@ namespace IceGrid
 /**
  * The IceGrid query interface. This interface is accessible to Ice clients who wish to look up well-known
  * objects.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API Query : public virtual ::Ice::Object
 {
 public:
 
     typedef QueryPrx ProxyType;
-    typedef QueryPtr PointerType;
 
     virtual ~Query();
     Query() = default;
@@ -2661,39 +2635,18 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const Query& lhs, const Query& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Query& lhs, const Query& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * The IceGrid registry allows clients create sessions directly with the registry.
  * @see Session
  * @see AdminSession
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API Registry : public virtual ::Ice::Object
 {
 public:
 
     typedef RegistryPrx ProxyType;
-    typedef RegistryPtr PointerType;
 
     virtual ~Registry();
     Registry() = default;
@@ -2807,40 +2760,19 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const Registry& lhs, const Registry& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Registry& lhs, const Registry& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * The IceGrid locator interface provides access to the {@link Query} and {@link Registry} object of the IceGrid
  * registry.
  * @see Query
  * @see Registry
- * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API Locator : virtual public ::Ice::Locator
+class ICEGRID_API Locator : public virtual ::Ice::Locator
 {
 public:
 
     typedef LocatorPrx ProxyType;
-    typedef LocatorPtr PointerType;
 
     virtual ~Locator();
     Locator() = default;
@@ -2898,26 +2830,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const Locator& lhs, const Locator& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Locator& lhs, const Locator& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 }
 

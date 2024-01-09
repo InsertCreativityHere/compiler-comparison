@@ -52,12 +52,10 @@ class ProcessPrx;
 
 }
 
-/// \cond STREAM
 namespace Ice
 {
 
 }
-/// \endcond
 
 /// \cond INTERNAL
 namespace Ice
@@ -89,26 +87,18 @@ ICE_API ::IceProxy::Ice::Object* upCast(Process*);
 
 namespace Ice
 {
-
-class Process;
-/// \cond INTERNAL
-ICE_API Object* upCast(Process*);
-/// \endcond
-typedef ::IceInternal::Handle< Process> ProcessPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::Process> ProcessPrx;
 typedef ProcessPrx ProcessPrxPtr;
-/// \cond INTERNAL
-ICE_API void _icePatchObjectPtr(ProcessPtr&, const ObjectPtr&);
-/// \endcond
+
+class Process;
+typedef ::IceInternal::Handle< Process> ProcessPtr;
 
 }
 
-/// \cond STREAM
 namespace Ice
 {
 
 }
-/// \endcond
 
 #endif
 

@@ -15,7 +15,7 @@
 
 package and;
 
-public abstract class _do extends com.zeroc.Ice.Value
+public class _do extends com.zeroc.Ice.Value
 {
     public _do()
     {
@@ -45,7 +45,7 @@ public abstract class _do extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -8926165940023013529L;
+    public static final long serialVersionUID = 7860960698521708458L;
 
     /** @hidden */
     @Override

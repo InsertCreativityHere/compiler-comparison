@@ -161,7 +161,6 @@ namespace IceBox
 /**
  * An Observer interface implemented by admin clients interested in the status of services.
  * @see ServiceManager
- * \headerfile IceBox/IceBox.h
  */
 class ICEBOX_API ServiceObserver : public virtual ::Ice::Object
 {
@@ -225,7 +224,6 @@ public:
 /**
  * Administers a set of {@link Service} instances.
  * @see Service
- * \headerfile IceBox/IceBox.h
  */
 class ICEBOX_API ServiceManager : public virtual ::Ice::Object
 {
@@ -317,7 +315,6 @@ namespace IceBox
 /**
  * An Observer interface implemented by admin clients interested in the status of services.
  * @see ServiceManager
- * \headerfile IceBox/IceBox.h
  */
 class ICE_CLASS(ICEBOX_API) ServiceObserverPrx : public virtual ::Ice::Proxy<ServiceObserverPrx, ::Ice::ObjectPrx>
 {
@@ -434,7 +431,6 @@ protected:
 /**
  * Administers a set of {@link Service} instances.
  * @see Service
- * \headerfile IceBox/IceBox.h
  */
 class ICE_CLASS(ICEBOX_API) ServiceManagerPrx : public virtual ::Ice::Proxy<ServiceManagerPrx, ::Ice::ObjectPrx>
 {
@@ -688,28 +684,16 @@ ICEBOX_API ::IceProxy::Ice::Object* upCast(ServiceManager*);
 
 namespace IceBox
 {
-
-class ServiceObserver;
-/// \cond INTERNAL
-ICEBOX_API ::Ice::Object* upCast(ServiceObserver*);
-/// \endcond
-typedef ::IceInternal::Handle< ServiceObserver> ServiceObserverPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceBox::ServiceObserver> ServiceObserverPrx;
 typedef ServiceObserverPrx ServiceObserverPrxPtr;
-/// \cond INTERNAL
-ICEBOX_API void _icePatchObjectPtr(ServiceObserverPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class ServiceManager;
-/// \cond INTERNAL
-ICEBOX_API ::Ice::Object* upCast(ServiceManager*);
-/// \endcond
-typedef ::IceInternal::Handle< ServiceManager> ServiceManagerPtr;
+class ServiceObserver;
+typedef ::IceInternal::Handle< ServiceObserver> ServiceObserverPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceBox::ServiceManager> ServiceManagerPrx;
 typedef ServiceManagerPrx ServiceManagerPrxPtr;
-/// \cond INTERNAL
-ICEBOX_API void _icePatchObjectPtr(ServiceManagerPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class ServiceManager;
+typedef ::IceInternal::Handle< ServiceManager> ServiceManagerPtr;
 
 }
 
@@ -1430,14 +1414,12 @@ namespace IceBox
 /**
  * An Observer interface implemented by admin clients interested in the status of services.
  * @see ServiceManager
- * \headerfile IceBox/IceBox.h
  */
 class ICEBOX_API ServiceObserver : public virtual ::Ice::Object
 {
 public:
 
     typedef ServiceObserverPrx ProxyType;
-    typedef ServiceObserverPtr PointerType;
 
     virtual ~ServiceObserver();
     ServiceObserver() = default;
@@ -1495,38 +1477,17 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const ServiceObserver& lhs, const ServiceObserver& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const ServiceObserver& lhs, const ServiceObserver& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * Administers a set of {@link Service} instances.
  * @see Service
- * \headerfile IceBox/IceBox.h
  */
 class ICEBOX_API ServiceManager : public virtual ::Ice::Object
 {
 public:
 
     typedef ServiceManagerPrx ProxyType;
-    typedef ServiceManagerPtr PointerType;
 
     virtual ~ServiceManager();
     ServiceManager() = default;
@@ -1607,26 +1568,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const ServiceManager& lhs, const ServiceManager& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const ServiceManager& lhs, const ServiceManager& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 }
 

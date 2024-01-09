@@ -220,7 +220,6 @@ namespace Test\Common
             return '::Test::Common::TestCase';
         }
     }
-    $Test_Common__t_TestCase = IcePHP_defineClass('::Test::Common::TestCase', '\\Test\\Common\\TestCase', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test_Common__t_TestCasePrx = IcePHP_defineProxy('::Test::Common::TestCase', $Ice__t_ObjectPrx, null);
@@ -256,7 +255,6 @@ namespace Test\Common
             return '::Test::Common::Controller';
         }
     }
-    $Test_Common__t_Controller = IcePHP_defineClass('::Test::Common::Controller', '\\Test\\Common\\Controller', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test_Common__t_ControllerPrx = IcePHP_defineProxy('::Test::Common::Controller', $Ice__t_ObjectPrx, null);
@@ -323,7 +321,6 @@ namespace Test\Common
             return '::Test::Common::Process';
         }
     }
-    $Test_Common__t_Process = IcePHP_defineClass('::Test::Common::Process', '\\Test\\Common\\Process', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test_Common__t_ProcessPrx = IcePHP_defineProxy('::Test::Common::Process', $Ice__t_ObjectPrx, null);
@@ -357,7 +354,6 @@ namespace Test\Common
             return '::Test::Common::ProcessController';
         }
     }
-    $Test_Common__t_ProcessController = IcePHP_defineClass('::Test::Common::ProcessController', '\\Test\\Common\\ProcessController', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test_Common__t_ProcessControllerPrx = IcePHP_defineProxy('::Test::Common::ProcessController', $Ice__t_ObjectPrx, null);
@@ -392,7 +388,6 @@ namespace Test\Common
             return '::Test::Common::BrowserProcessController';
         }
     }
-    $Test_Common__t_BrowserProcessController = IcePHP_defineClass('::Test::Common::BrowserProcessController', '\\Test\\Common\\BrowserProcessController', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test_Common__t_BrowserProcessControllerPrx = IcePHP_defineProxy('::Test::Common::BrowserProcessController', $Ice__t_ObjectPrx, array($Test_Common__t_ProcessControllerPrx));
@@ -423,7 +418,6 @@ namespace Test\Common
             return '::Test::Common::ProcessControllerRegistry';
         }
     }
-    $Test_Common__t_ProcessControllerRegistry = IcePHP_defineClass('::Test::Common::ProcessControllerRegistry', '\\Test\\Common\\ProcessControllerRegistry', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test_Common__t_ProcessControllerRegistryPrx = IcePHP_defineProxy('::Test::Common::ProcessControllerRegistry', $Ice__t_ObjectPrx, null);

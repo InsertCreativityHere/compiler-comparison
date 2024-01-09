@@ -38,6 +38,12 @@
 namespace Test
 {
 
+
+}
+
+namespace Test
+{
+
 class DerivedEx : public ::Ice::UserExceptionHelper<DerivedEx, BaseEx>
 {
 public:
@@ -104,6 +110,11 @@ struct StreamReader<::Test::DerivedEx, S>
 #else // C++98 mapping
 
 namespace IceProxy
+{
+
+}
+
+namespace Test
 {
 
 }

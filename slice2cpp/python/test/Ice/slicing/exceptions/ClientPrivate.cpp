@@ -213,40 +213,6 @@ Test::Preserved2::_readImpl(::Ice::InputStream* istr)
 }
 /// \endcond
 
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(PreservedClass* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< PreservedClass>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new PreservedClass;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::PreservedClass::_newInstance() const
-{
-    return new PreservedClass;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::PreservedClass::ice_staticId()
-{
-    return ::Test::PreservedClass::ice_staticId();
-}
-
 Test::PreservedClass::~PreservedClass()
 {
 }

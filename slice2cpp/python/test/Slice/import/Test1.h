@@ -37,6 +37,36 @@
 namespace Test
 {
 
+
+namespace SubA
+{
+
+
+namespace SubSubA1
+{
+
+
+}
+
+}
+
+namespace SubB
+{
+
+
+namespace SubSubB1
+{
+
+
+}
+
+}
+
+}
+
+namespace Test
+{
+
 namespace SubA
 {
 
@@ -64,6 +94,31 @@ constexpr int Value1 = 20;
 }
 
 #else // C++98 mapping
+
+namespace Test
+{
+
+namespace SubA
+{
+
+namespace SubSubA1
+{
+
+}
+
+}
+
+namespace SubB
+{
+
+namespace SubSubB1
+{
+
+}
+
+}
+
+}
 
 namespace Test
 {

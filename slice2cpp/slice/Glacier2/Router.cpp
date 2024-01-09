@@ -920,11 +920,6 @@ Glacier2::Router::~Router()
 {
 }
 
-/// \cond INTERNAL
-GLACIER2_API ::Ice::Object* Glacier2::upCast(Router* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Glacier2_Router_ids[3] =
@@ -1150,36 +1145,6 @@ Glacier2::Router::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current
             assert(false);
             throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
         }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-Glacier2::Router::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Router, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Glacier2::Router::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Router, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Glacier2::_icePatchObjectPtr(RouterPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = RouterPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Router::ice_staticId(), v);
     }
 }
 /// \endcond

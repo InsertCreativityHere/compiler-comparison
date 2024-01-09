@@ -58,8 +58,6 @@ module ::IceGrid
             T_SessionPrx = ::Ice::__declareProxy('::IceGrid::Session')
         end
 
-        T_Session.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_SessionPrx.defineProxy(SessionPrx, nil, [::Glacier2::T_SessionPrx])
 
         SessionPrx_mixin::OP_keepAlive = ::Ice::__defineOperation('keepAlive', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], nil, [])

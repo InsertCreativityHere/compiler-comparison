@@ -3736,40 +3736,6 @@ const ::std::string iceC_Test_MyClass_opCustomCVSS_name = "opCustomCVSS";
 }
 
 /// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(CV* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< CV>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new CV;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::CV::_newInstance() const
-{
-    return new CV;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::CV::ice_staticId()
-{
-    return ::Test::CV::ice_staticId();
-}
-
-/// \cond INTERNAL
 ::IceProxy::Ice::Object* ::IceProxy::Test::upCast(I* p) { return p; }
 
 void
@@ -3801,40 +3767,6 @@ const ::std::string&
 IceProxy::Test::I::ice_staticId()
 {
     return ::Test::I::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(CR* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< CR>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new CR;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::CR::_newInstance() const
-{
-    return new CR;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::CR::ice_staticId()
-{
-    return ::Test::CR::ice_staticId();
 }
 
 /// \cond INTERNAL
@@ -8643,105 +8575,9 @@ IceProxy::Test::MyClass::ice_staticId()
     return ::Test::MyClass::ice_staticId();
 }
 
-Test::CV::~CV()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(CV* p) { return p; }
-
-/// \endcond
-::Ice::ObjectPtr
-Test::CV::ice_clone() const
-{
-    ::Ice::Object* p = new CV(*this);
-    return p;
-}
-
-namespace
-{
-const ::std::string iceC_Test_CV_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::CV"
-};
-
-}
-
-bool
-Test::CV::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_CV_ids, iceC_Test_CV_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::CV::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_CV_ids[0], &iceC_Test_CV_ids[2]);
-}
-
-const ::std::string&
-Test::CV::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::CV::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::CV";
-    return typeId;
-}
-
-/// \cond STREAM
-void
-Test::CV::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< CV, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::CV::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< CV, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::CV> iceC_Test_CV_init("::Test::CV");
-}
-
-::Ice::ValueFactoryPtr
-Test::CV::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::CV::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(CVPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = CVPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(CV::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::I::~I()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(I* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -8778,155 +8614,9 @@ Test::I::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-Test::I::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< I, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::I::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< I, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(IPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = IPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(I::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-Test::CR::~CR()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(CR* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
-::Ice::ObjectPtr
-Test::CR::ice_clone() const
-{
-    ::Ice::Object* p = new CR(*this);
-    return p;
-}
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
-
-namespace
-{
-const ::std::string iceC_Test_CR_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::CR"
-};
-
-}
-
-bool
-Test::CR::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_CR_ids, iceC_Test_CR_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::CR::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_CR_ids[0], &iceC_Test_CR_ids[2]);
-}
-
-const ::std::string&
-Test::CR::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::CR::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::CR";
-    return typeId;
-}
-
-void
-Test::CR::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    if(v)
-    {
-        if((::Test::upCast(v.get())->_iceGcVisit(v_)))
-        {
-            v = 0;
-        }
-    }
-}
-
-/// \cond STREAM
-void
-Test::CR::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< CR, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::CR::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< CR, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::CR> iceC_Test_CR_init("::Test::CR");
-}
-
-::Ice::ValueFactoryPtr
-Test::CR::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::CR::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(CRPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = CRPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(CR::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::MyClass::~MyClass()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(MyClass* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -10845,32 +10535,204 @@ Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 }
 /// \endcond
 
+Test::CV::~CV()
+{
+}
+
+/// \cond INTERNAL
+::Ice::Object* Test::upCast(CV* p) { return p; }
+
+/// \endcond
+::Ice::ObjectPtr
+Test::CV::ice_clone() const
+{
+    ::Ice::Object* p = new CV(*this);
+    return p;
+}
+
+namespace
+{
+const ::std::string iceC_Test_CV_ids[2] =
+{
+    "::Ice::Object",
+    "::Test::CV"
+};
+
+}
+
+bool
+Test::CV::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_Test_CV_ids, iceC_Test_CV_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+Test::CV::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_Test_CV_ids[0], &iceC_Test_CV_ids[2]);
+}
+
+const ::std::string&
+Test::CV::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+Test::CV::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::CV";
+    return typeId;
+}
+
 /// \cond STREAM
 void
-Test::MyClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::CV::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< MyClass, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter< CV, ::Ice::OutputStream>::write(ostr, *this);
     ostr->endSlice();
 }
 
 void
-Test::MyClass::_iceReadImpl(::Ice::InputStream* istr)
+Test::CV::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader< MyClass, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader< CV, ::Ice::InputStream>::read(istr, *this);
     istr->endSlice();
 }
 /// \endcond
 
+namespace
+{
+const ::IceInternal::DefaultValueFactoryInit< ::Test::CV> iceC_Test_CV_init("::Test::CV");
+}
+
+::Ice::ValueFactoryPtr
+Test::CV::ice_factory()
+{
+    return ::IceInternal::factoryTable->getValueFactory(::Test::CV::ice_staticId());
+}
+
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(MyClassPtr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchObjectPtr(CVPtr& handle, const ::Ice::ObjectPtr& v)
 {
-    handle = MyClassPtr::dynamicCast(v);
+    handle = CVPtr::dynamicCast(v);
     if(v && !handle)
     {
-        IceInternal::Ex::throwUOE(MyClass::ice_staticId(), v);
+        IceInternal::Ex::throwUOE(CV::ice_staticId(), v);
+    }
+}
+/// \endcond
+
+Test::CR::~CR()
+{
+}
+
+/// \cond INTERNAL
+::Ice::Object* Test::upCast(CR* p) { return p; }
+
+/// \endcond
+
+#if defined(_MSC_VER)
+#   pragma warning(push)
+#   pragma warning(disable:4589)
+#endif
+::Ice::ObjectPtr
+Test::CR::ice_clone() const
+{
+    ::Ice::Object* p = new CR(*this);
+    return p;
+}
+#if defined(_MSC_VER)
+#   pragma warning(pop)
+#endif
+
+namespace
+{
+const ::std::string iceC_Test_CR_ids[2] =
+{
+    "::Ice::Object",
+    "::Test::CR"
+};
+
+}
+
+bool
+Test::CR::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_Test_CR_ids, iceC_Test_CR_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+Test::CR::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_Test_CR_ids[0], &iceC_Test_CR_ids[2]);
+}
+
+const ::std::string&
+Test::CR::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+Test::CR::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::CR";
+    return typeId;
+}
+
+void
+Test::CR::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
+{
+    if(v)
+    {
+        if((::Test::upCast(v.get())->_iceGcVisit(v_)))
+        {
+            v = 0;
+        }
+    }
+}
+
+/// \cond STREAM
+void
+Test::CR::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter< CR, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::CR::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader< CR, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+/// \endcond
+
+namespace
+{
+const ::IceInternal::DefaultValueFactoryInit< ::Test::CR> iceC_Test_CR_init("::Test::CR");
+}
+
+::Ice::ValueFactoryPtr
+Test::CR::ice_factory()
+{
+    return ::IceInternal::factoryTable->getValueFactory(::Test::CR::ice_staticId());
+}
+
+/// \cond INTERNAL
+void
+Test::_icePatchObjectPtr(CRPtr& handle, const ::Ice::ObjectPtr& v)
+{
+    handle = CRPtr::dynamicCast(v);
+    if(v && !handle)
+    {
+        IceInternal::Ex::throwUOE(CR::ice_staticId(), v);
     }
 }
 /// \endcond

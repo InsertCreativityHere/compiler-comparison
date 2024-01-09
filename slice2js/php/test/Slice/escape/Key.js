@@ -285,7 +285,7 @@
 
     Slice.defineOperations(and.for, and.forPrx, iceC_and__for_ids, 1,
     {
-        "foreach": [, , , , [and.array._helper], [["Ice.Value", true], ["and.echo", true], ["Ice.Value", true], ["and.functionPrx"], ["and.diePrx"], [Ice.ObjectPrx], ["and.enddeclarePrx"], [3], [3]], ,
+        "foreach": [, , , , [and.array._helper], [["and.breakPrx"], ["and.echo", true], ["and.functionPrx"], ["and.diePrx"], ["and.enddeclarePrx"], [3], [3]], ,
         [
             and.endwhile,
             and.endif

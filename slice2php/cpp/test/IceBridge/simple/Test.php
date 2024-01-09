@@ -37,7 +37,6 @@ namespace Test
             return '::Test::Callback';
         }
     }
-    $Test__t_Callback = IcePHP_defineClass('::Test::Callback', '\\Test\\Callback', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_CallbackPrx = IcePHP_defineProxy('::Test::Callback', $Ice__t_ObjectPrx, null);
@@ -71,7 +70,6 @@ namespace Test
             return '::Test::MyClass';
         }
     }
-    $Test__t_MyClass = IcePHP_defineClass('::Test::MyClass', '\\Test\\MyClass', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_MyClassPrx = IcePHP_defineProxy('::Test::MyClass', $Ice__t_ObjectPrx, null);

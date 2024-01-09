@@ -45,24 +45,6 @@ namespace
 
 const ::IceInternal::DefaultValueFactoryInit<::Test::Base> iceC_Test_Base_init("::Test::Base");
 
-const ::IceInternal::DefaultValueFactoryInit<::Test::AbstractBase> iceC_Test_AbstractBase_init("::Test::AbstractBase");
-
-const ::std::string iceC_Test_AbstractBase_ids[3] =
-{
-    "::Ice::Object",
-    "::Test::AbstractBase",
-    "::Test::Base"
-};
-const ::std::string iceC_Test_AbstractBase_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "op"
-};
-const ::std::string iceC_Test_AbstractBase_op_name = "op";
-
 const ::IceInternal::DefaultValueFactoryInit<::Test::A> iceC_Test_A_init("::Test::A");
 
 const ::IceInternal::DefaultValueFactoryInit<::Test::B> iceC_Test_B_init("::Test::B");
@@ -104,10 +86,6 @@ const ::std::string iceC_Test_J_ops[] =
     "ice_ping"
 };
 
-const ::IceInternal::DefaultValueFactoryInit<::Test::H> iceC_Test_H_init("::Test::H");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::N> iceC_Test_N_init("::Test::N");
-
 const ::IceInternal::DefaultValueFactoryInit<::Test::Compact> iceC_Test_Compact_init("::Test::Compact");
 const ::IceInternal::CompactIdInit iceC_Test_Compact_compactIdInit ("::Test::Compact", 1);
 
@@ -134,8 +112,6 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::M> iceC_Test_M_init("::Test
 
 const ::IceInternal::DefaultValueFactoryInit<::Test::F3> iceC_Test_F3_init("::Test::F3");
 
-const ::IceInternal::DefaultValueFactoryInit<::Test::Initial> iceC_Test_Initial_init("::Test::Initial");
-
 const ::std::string iceC_Test_Initial_ids[2] =
 {
     "::Ice::Object",
@@ -154,9 +130,6 @@ const ::std::string iceC_Test_Initial_ops[] =
     "getD1",
     "getE",
     "getF",
-    "getH",
-    "getI",
-    "getJ",
     "getK",
     "getMB",
     "hasF3",
@@ -169,13 +142,11 @@ const ::std::string iceC_Test_Initial_ops[] =
     "opF2",
     "opF3",
     "opM",
-    "opN",
     "opValue",
     "opValueMap",
     "opValueSeq",
     "setCycle",
     "setG",
-    "setI",
     "setRecursive",
     "shutdown",
     "supportsClassGraphDepthMax",
@@ -195,9 +166,6 @@ const ::std::string iceC_Test_Initial_acceptsClassCycles_name = "acceptsClassCyc
 const ::std::string iceC_Test_Initial_getMB_name = "getMB";
 const ::std::string iceC_Test_Initial_getAMDMB_name = "getAMDMB";
 const ::std::string iceC_Test_Initial_getAll_name = "getAll";
-const ::std::string iceC_Test_Initial_getH_name = "getH";
-const ::std::string iceC_Test_Initial_getI_name = "getI";
-const ::std::string iceC_Test_Initial_getJ_name = "getJ";
 const ::std::string iceC_Test_Initial_getK_name = "getK";
 const ::std::string iceC_Test_Initial_opValue_name = "opValue";
 const ::std::string iceC_Test_Initial_opValueSeq_name = "opValueSeq";
@@ -205,7 +173,6 @@ const ::std::string iceC_Test_Initial_opValueMap_name = "opValueMap";
 const ::std::string iceC_Test_Initial_getD1_name = "getD1";
 const ::std::string iceC_Test_Initial_throwEDerived_name = "throwEDerived";
 const ::std::string iceC_Test_Initial_setG_name = "setG";
-const ::std::string iceC_Test_Initial_setI_name = "setI";
 const ::std::string iceC_Test_Initial_opBaseSeq_name = "opBaseSeq";
 const ::std::string iceC_Test_Initial_getCompact_name = "getCompact";
 const ::std::string iceC_Test_Initial_opM_name = "opM";
@@ -213,7 +180,6 @@ const ::std::string iceC_Test_Initial_opF1_name = "opF1";
 const ::std::string iceC_Test_Initial_opF2_name = "opF2";
 const ::std::string iceC_Test_Initial_opF3_name = "opF3";
 const ::std::string iceC_Test_Initial_hasF3_name = "hasF3";
-const ::std::string iceC_Test_Initial_opN_name = "opN";
 
 }
 
@@ -246,84 +212,6 @@ Test::EDerived::ice_staticId()
     static const ::std::string typeId = "::Test::EDerived";
     return typeId;
 }
-
-bool
-Test::AbstractBaseDisp::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_AbstractBase_ids, iceC_Test_AbstractBase_ids + 3, s);
-}
-
-::std::vector<::std::string>
-Test::AbstractBaseDisp::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector<::std::string>(&iceC_Test_AbstractBase_ids[0], &iceC_Test_AbstractBase_ids[3]);
-}
-
-::std::string
-Test::AbstractBaseDisp::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::AbstractBaseDisp::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::AbstractBase";
-    return typeId;
-}
-
-/// \cond INTERNAL
-bool
-Test::AbstractBaseDisp::_iceD_op(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->op(current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::AbstractBaseDisp::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
-{
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_AbstractBase_ops, iceC_Test_AbstractBase_ops + 5, current.operation);
-    if(r.first == r.second)
-    {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-    }
-
-    switch(r.first - iceC_Test_AbstractBase_ops)
-    {
-        case 0:
-        {
-            return _iceD_ice_id(in, current);
-        }
-        case 1:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 2:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 3:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        case 4:
-        {
-            return _iceD_op(in, current);
-        }
-        default:
-        {
-            assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-        }
-    }
-}
-/// \endcond
 
 bool
 Test::I::ice_isA(::std::string s, const ::Ice::Current&) const
@@ -376,25 +264,25 @@ Test::J::ice_staticId()
 }
 
 bool
-Test::InitialDisp::ice_isA(::std::string s, const ::Ice::Current&) const
+Test::Initial::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_Initial_ids, iceC_Test_Initial_ids + 2, s);
 }
 
 ::std::vector<::std::string>
-Test::InitialDisp::ice_ids(const ::Ice::Current&) const
+Test::Initial::ice_ids(const ::Ice::Current&) const
 {
     return ::std::vector<::std::string>(&iceC_Test_Initial_ids[0], &iceC_Test_Initial_ids[2]);
 }
 
 ::std::string
-Test::InitialDisp::ice_id(const ::Ice::Current&) const
+Test::Initial::ice_id(const ::Ice::Current&) const
 {
     return ice_staticId();
 }
 
 const ::std::string&
-Test::InitialDisp::ice_staticId()
+Test::Initial::ice_staticId()
 {
     static const ::std::string typeId = "::Test::Initial";
     return typeId;
@@ -402,7 +290,7 @@ Test::InitialDisp::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
@@ -414,7 +302,7 @@ Test::InitialDisp::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Cur
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_getB1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getB1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
@@ -429,7 +317,7 @@ Test::InitialDisp::_iceD_getB1(::IceInternal::Incoming& inS, const ::Ice::Curren
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_getB2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getB2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
@@ -444,7 +332,7 @@ Test::InitialDisp::_iceD_getB2(::IceInternal::Incoming& inS, const ::Ice::Curren
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_getC(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getC(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
@@ -459,7 +347,7 @@ Test::InitialDisp::_iceD_getC(::IceInternal::Incoming& inS, const ::Ice::Current
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_getD(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getD(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
@@ -474,7 +362,7 @@ Test::InitialDisp::_iceD_getD(::IceInternal::Incoming& inS, const ::Ice::Current
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_getE(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getE(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
@@ -489,7 +377,7 @@ Test::InitialDisp::_iceD_getE(::IceInternal::Incoming& inS, const ::Ice::Current
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_getF(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getF(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
@@ -504,7 +392,7 @@ Test::InitialDisp::_iceD_getF(::IceInternal::Incoming& inS, const ::Ice::Current
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_setRecursive(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_setRecursive(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
@@ -520,7 +408,7 @@ Test::InitialDisp::_iceD_setRecursive(::IceInternal::Incoming& inS, const ::Ice:
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_supportsClassGraphDepthMax(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_supportsClassGraphDepthMax(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
@@ -534,7 +422,7 @@ Test::InitialDisp::_iceD_supportsClassGraphDepthMax(::IceInternal::Incoming& inS
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_setCycle(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_setCycle(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
@@ -550,7 +438,7 @@ Test::InitialDisp::_iceD_setCycle(::IceInternal::Incoming& inS, const ::Ice::Cur
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_acceptsClassCycles(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_acceptsClassCycles(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
@@ -562,7 +450,7 @@ Test::InitialDisp::_iceD_acceptsClassCycles(::IceInternal::Incoming& inS, const 
 }
 /// \endcond
 
-Test::InitialDisp::GetMBMarshaledResult::GetMBMarshaledResult(const ::std::shared_ptr<B>& ret, const ::Ice::Current& current):
+Test::Initial::GetMBMarshaledResult::GetMBMarshaledResult(const ::std::shared_ptr<B>& ret, const ::Ice::Current& current):
     MarshaledResult(current)
 {
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
@@ -573,7 +461,7 @@ Test::InitialDisp::GetMBMarshaledResult::GetMBMarshaledResult(const ::std::share
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_getMB(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getMB(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
@@ -582,7 +470,7 @@ Test::InitialDisp::_iceD_getMB(::IceInternal::Incoming& inS, const ::Ice::Curren
 }
 /// \endcond
 
-Test::InitialDisp::GetAMDMBMarshaledResult::GetAMDMBMarshaledResult(const ::std::shared_ptr<B>& ret, const ::Ice::Current& current):
+Test::Initial::GetAMDMBMarshaledResult::GetAMDMBMarshaledResult(const ::std::shared_ptr<B>& ret, const ::Ice::Current& current):
     MarshaledResult(current)
 {
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
@@ -593,7 +481,7 @@ Test::InitialDisp::GetAMDMBMarshaledResult::GetAMDMBMarshaledResult(const ::std:
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_getAMDMB(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getAMDMB(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
@@ -605,7 +493,7 @@ Test::InitialDisp::_iceD_getAMDMB(::IceInternal::Incoming& inS, const ::Ice::Cur
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_getAll(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getAll(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
@@ -624,52 +512,7 @@ Test::InitialDisp::_iceD_getAll(::IceInternal::Incoming& inS, const ::Ice::Curre
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_getH(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<::Ice::Value> ret = this->getH(current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::InitialDisp::_iceD_getI(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<::Ice::Value> ret = this->getI(current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::InitialDisp::_iceD_getJ(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<::Ice::Value> ret = this->getJ(current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::InitialDisp::_iceD_getK(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getK(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
@@ -684,7 +527,7 @@ Test::InitialDisp::_iceD_getK(::IceInternal::Incoming& inS, const ::Ice::Current
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_opValue(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opValue(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
@@ -704,7 +547,7 @@ Test::InitialDisp::_iceD_opValue(::IceInternal::Incoming& inS, const ::Ice::Curr
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_opValueSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opValueSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
@@ -724,7 +567,7 @@ Test::InitialDisp::_iceD_opValueSeq(::IceInternal::Incoming& inS, const ::Ice::C
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_opValueMap(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opValueMap(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
@@ -744,7 +587,7 @@ Test::InitialDisp::_iceD_opValueMap(::IceInternal::Incoming& inS, const ::Ice::C
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_getD1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getD1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
@@ -763,7 +606,7 @@ Test::InitialDisp::_iceD_getD1(::IceInternal::Incoming& inS, const ::Ice::Curren
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_throwEDerived(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_throwEDerived(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
@@ -775,7 +618,7 @@ Test::InitialDisp::_iceD_throwEDerived(::IceInternal::Incoming& inS, const ::Ice
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_setG(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_setG(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
@@ -791,23 +634,7 @@ Test::InitialDisp::_iceD_setG(::IceInternal::Incoming& inS, const ::Ice::Current
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_setI(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
-    ::std::shared_ptr<::Ice::Value> iceP_theI;
-    istr->readAll(iceP_theI);
-    istr->readPendingValues();
-    inS.endReadParams();
-    this->setI(::std::move(iceP_theI), current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::InitialDisp::_iceD_opBaseSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opBaseSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
@@ -827,7 +654,7 @@ Test::InitialDisp::_iceD_opBaseSeq(::IceInternal::Incoming& inS, const ::Ice::Cu
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_getCompact(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getCompact(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
@@ -842,7 +669,7 @@ Test::InitialDisp::_iceD_getCompact(::IceInternal::Incoming& inS, const ::Ice::C
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_opM(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opM(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
@@ -862,7 +689,7 @@ Test::InitialDisp::_iceD_opM(::IceInternal::Incoming& inS, const ::Ice::Current&
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_opF1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opF1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
@@ -882,7 +709,7 @@ Test::InitialDisp::_iceD_opF1(::IceInternal::Incoming& inS, const ::Ice::Current
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_opF2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opF2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
@@ -900,7 +727,7 @@ Test::InitialDisp::_iceD_opF2(::IceInternal::Incoming& inS, const ::Ice::Current
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_opF3(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opF3(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
@@ -920,7 +747,7 @@ Test::InitialDisp::_iceD_opF3(::IceInternal::Incoming& inS, const ::Ice::Current
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_hasF3(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_hasF3(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     inS.readEmptyParams();
@@ -934,28 +761,9 @@ Test::InitialDisp::_iceD_hasF3(::IceInternal::Incoming& inS, const ::Ice::Curren
 
 /// \cond INTERNAL
 bool
-Test::InitialDisp::_iceD_opN(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
-    ::std::shared_ptr<N> iceP_p1;
-    istr->readAll(iceP_p1);
-    istr->readPendingValues();
-    inS.endReadParams();
-    ::std::shared_ptr<N> ret = this->opN(::std::move(iceP_p1), current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::InitialDisp::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
-{
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Initial_ops, iceC_Test_Initial_ops + 37, current.operation);
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Initial_ops, iceC_Test_Initial_ops + 32, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -1009,105 +817,85 @@ Test::InitialDisp::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curren
         }
         case 11:
         {
-            return _iceD_getH(in, current);
+            return _iceD_getK(in, current);
         }
         case 12:
         {
-            return _iceD_getI(in, current);
+            return _iceD_getMB(in, current);
         }
         case 13:
         {
-            return _iceD_getJ(in, current);
+            return _iceD_hasF3(in, current);
         }
         case 14:
         {
-            return _iceD_getK(in, current);
+            return _iceD_ice_id(in, current);
         }
         case 15:
         {
-            return _iceD_getMB(in, current);
+            return _iceD_ice_ids(in, current);
         }
         case 16:
         {
-            return _iceD_hasF3(in, current);
+            return _iceD_ice_isA(in, current);
         }
         case 17:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_ping(in, current);
         }
         case 18:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_opBaseSeq(in, current);
         }
         case 19:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_opF1(in, current);
         }
         case 20:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_opF2(in, current);
         }
         case 21:
         {
-            return _iceD_opBaseSeq(in, current);
+            return _iceD_opF3(in, current);
         }
         case 22:
         {
-            return _iceD_opF1(in, current);
+            return _iceD_opM(in, current);
         }
         case 23:
         {
-            return _iceD_opF2(in, current);
+            return _iceD_opValue(in, current);
         }
         case 24:
         {
-            return _iceD_opF3(in, current);
+            return _iceD_opValueMap(in, current);
         }
         case 25:
         {
-            return _iceD_opM(in, current);
+            return _iceD_opValueSeq(in, current);
         }
         case 26:
         {
-            return _iceD_opN(in, current);
+            return _iceD_setCycle(in, current);
         }
         case 27:
         {
-            return _iceD_opValue(in, current);
+            return _iceD_setG(in, current);
         }
         case 28:
         {
-            return _iceD_opValueMap(in, current);
+            return _iceD_setRecursive(in, current);
         }
         case 29:
         {
-            return _iceD_opValueSeq(in, current);
+            return _iceD_shutdown(in, current);
         }
         case 30:
         {
-            return _iceD_setCycle(in, current);
-        }
-        case 31:
-        {
-            return _iceD_setG(in, current);
-        }
-        case 32:
-        {
-            return _iceD_setI(in, current);
-        }
-        case 33:
-        {
-            return _iceD_setRecursive(in, current);
-        }
-        case 34:
-        {
-            return _iceD_shutdown(in, current);
-        }
-        case 35:
-        {
             return _iceD_supportsClassGraphDepthMax(in, current);
         }
-        case 36:
+        case 31:
         {
             return _iceD_throwEDerived(in, current);
         }
@@ -1128,17 +916,6 @@ const ::std::string&
 Test::Base::ice_staticId()
 {
     static const ::std::string typeId = "::Test::Base";
-    return typeId;
-}
-
-Test::AbstractBase::~AbstractBase()
-{
-}
-
-const ::std::string&
-Test::AbstractBase::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::AbstractBase";
     return typeId;
 }
 
@@ -1216,28 +993,6 @@ const ::std::string&
 Test::G::ice_staticId()
 {
     static const ::std::string typeId = "::Test::G";
-    return typeId;
-}
-
-Test::H::~H()
-{
-}
-
-const ::std::string&
-Test::H::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::H";
-    return typeId;
-}
-
-Test::N::~N()
-{
-}
-
-const ::std::string&
-Test::N::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::N";
     return typeId;
 }
 
@@ -1349,41 +1104,6 @@ Test::F3::ice_staticId()
 {
     static const ::std::string typeId = "::Test::F3";
     return typeId;
-}
-
-Test::Initial::~Initial()
-{
-}
-
-const ::std::string&
-Test::Initial::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::Initial";
-    return typeId;
-}
-
-/// \cond INTERNAL
-void
-Test::AbstractBasePrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_AbstractBase_op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::AbstractBasePrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<AbstractBasePrx>();
-}
-/// \endcond
-
-const ::std::string&
-Test::AbstractBasePrx::ice_staticId()
-{
-    return AbstractBaseDisp::ice_staticId();
 }
 
 /// \cond INTERNAL
@@ -1638,60 +1358,6 @@ Test::InitialPrx::_iceI_getAll(const ::std::shared_ptr<::IceInternal::OutgoingAs
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_getH(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::Value>>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_Initial_getH_name);
-    outAsync->invoke(iceC_Test_Initial_getH_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::shared_ptr<::Ice::Value> ret;
-            istr->readAll(ret);
-            istr->readPendingValues();
-            return ret;
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::InitialPrx::_iceI_getI(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::Value>>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_Initial_getI_name);
-    outAsync->invoke(iceC_Test_Initial_getI_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::shared_ptr<::Ice::Value> ret;
-            istr->readAll(ret);
-            istr->readPendingValues();
-            return ret;
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::InitialPrx::_iceI_getJ(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::Value>>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_Initial_getJ_name);
-    outAsync->invoke(iceC_Test_Initial_getJ_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::shared_ptr<::Ice::Value> ret;
-            istr->readAll(ret);
-            istr->readPendingValues();
-            return ret;
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
 Test::InitialPrx::_iceI_getK(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::K>>>& outAsync, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_getK_name);
@@ -1836,20 +1502,6 @@ Test::InitialPrx::_iceI_setG(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_setI(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<::Ice::Value>& iceP_theI, const ::Ice::Context& context)
-{
-    outAsync->invoke(iceC_Test_Initial_setI_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_theI);
-            ostr->writePendingValues();
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
 Test::InitialPrx::_iceI_opBaseSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpBaseSeqResult>>& outAsync, const BaseSeq& iceP_inSeq, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_Initial_opBaseSeq_name);
@@ -1986,28 +1638,6 @@ Test::InitialPrx::_iceI_hasF3(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 /// \endcond
 
 /// \cond INTERNAL
-void
-Test::InitialPrx::_iceI_opN(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::N>>>& outAsync, const ::std::shared_ptr<N>& iceP_p1, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_Initial_opN_name);
-    outAsync->invoke(iceC_Test_Initial_opN_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_p1);
-            ostr->writePendingValues();
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::shared_ptr<N> ret;
-            istr->readAll(ret);
-            istr->readPendingValues();
-            return ret;
-        });
-}
-/// \endcond
-
-/// \cond INTERNAL
 ::std::shared_ptr<::Ice::ObjectPrx>
 Test::InitialPrx::_newInstance() const
 {
@@ -2018,7 +1648,7 @@ Test::InitialPrx::_newInstance() const
 const ::std::string&
 Test::InitialPrx::ice_staticId()
 {
-    return InitialDisp::ice_staticId();
+    return Initial::ice_staticId();
 }
 
 namespace Ice
@@ -2029,8 +1659,6 @@ namespace Ice
 
 namespace
 {
-
-const ::std::string iceC_Test_AbstractBase_op_name = "op";
 
 const ::std::string iceC_Test_Initial_shutdown_name = "shutdown";
 
@@ -2060,12 +1688,6 @@ const ::std::string iceC_Test_Initial_getAMDMB_name = "getAMDMB";
 
 const ::std::string iceC_Test_Initial_getAll_name = "getAll";
 
-const ::std::string iceC_Test_Initial_getH_name = "getH";
-
-const ::std::string iceC_Test_Initial_getI_name = "getI";
-
-const ::std::string iceC_Test_Initial_getJ_name = "getJ";
-
 const ::std::string iceC_Test_Initial_getK_name = "getK";
 
 const ::std::string iceC_Test_Initial_opValue_name = "opValue";
@@ -2080,8 +1702,6 @@ const ::std::string iceC_Test_Initial_throwEDerived_name = "throwEDerived";
 
 const ::std::string iceC_Test_Initial_setG_name = "setG";
 
-const ::std::string iceC_Test_Initial_setI_name = "setI";
-
 const ::std::string iceC_Test_Initial_opBaseSeq_name = "opBaseSeq";
 
 const ::std::string iceC_Test_Initial_getCompact_name = "getCompact";
@@ -2095,8 +1715,6 @@ const ::std::string iceC_Test_Initial_opF2_name = "opF2";
 const ::std::string iceC_Test_Initial_opF3_name = "opF3";
 
 const ::std::string iceC_Test_Initial_hasF3_name = "hasF3";
-
-const ::std::string iceC_Test_Initial_opN_name = "opN";
 
 }
 
@@ -2236,335 +1854,6 @@ IceAsync::Test::AMD_Initial_getAMDMB::ice_response(const ::Test::BPtr& ret)
 /// \endcond
 
 /// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(Base* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< Base>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new Base;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::Base::_newInstance() const
-{
-    return new Base;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::Base::ice_staticId()
-{
-    return ::Test::Base::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(AbstractBase* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< AbstractBase>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new AbstractBase;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-::Ice::AsyncResultPtr
-IceProxy::Test::AbstractBase::_iceI_begin_op(const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_AbstractBase_op_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_Test_AbstractBase_op_name, ::Ice::Normal, context);
-        result->writeEmptyParams();
-        result->invoke(iceC_Test_AbstractBase_op_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-void
-IceProxy::Test::AbstractBase::end_op(const ::Ice::AsyncResultPtr& result)
-{
-    _end(result, iceC_Test_AbstractBase_op_name);
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::AbstractBase::_newInstance() const
-{
-    return new AbstractBase;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::AbstractBase::ice_staticId()
-{
-    return ::Test::AbstractBase::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(A* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< A>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new A;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::A::_newInstance() const
-{
-    return new A;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::A::ice_staticId()
-{
-    return ::Test::A::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(B* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< B>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new B;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::B::_newInstance() const
-{
-    return new B;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::B::ice_staticId()
-{
-    return ::Test::B::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(C* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< C>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new C;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::C::_newInstance() const
-{
-    return new C;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::C::ice_staticId()
-{
-    return ::Test::C::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(D* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< D>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new D;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::D::_newInstance() const
-{
-    return new D;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::D::ice_staticId()
-{
-    return ::Test::D::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(E* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< E>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new E;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::E::_newInstance() const
-{
-    return new E;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::E::ice_staticId()
-{
-    return ::Test::E::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(F* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< F>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new F;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::F::_newInstance() const
-{
-    return new F;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::F::ice_staticId()
-{
-    return ::Test::F::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(G* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< G>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new G;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::G::_newInstance() const
-{
-    return new G;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::G::ice_staticId()
-{
-    return ::Test::G::ice_staticId();
-}
-
-/// \cond INTERNAL
 ::IceProxy::Ice::Object* ::IceProxy::Test::upCast(I* p) { return p; }
 
 void
@@ -2630,414 +1919,6 @@ const ::std::string&
 IceProxy::Test::J::ice_staticId()
 {
     return ::Test::J::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(H* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< H>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new H;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::H::_newInstance() const
-{
-    return new H;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::H::ice_staticId()
-{
-    return ::Test::H::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(N* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< N>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new N;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::N::_newInstance() const
-{
-    return new N;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::N::ice_staticId()
-{
-    return ::Test::N::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(Compact* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< Compact>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new Compact;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::Compact::_newInstance() const
-{
-    return new Compact;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::Compact::ice_staticId()
-{
-    return ::Test::Compact::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(CompactExt* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< CompactExt>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new CompactExt;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::CompactExt::_newInstance() const
-{
-    return new CompactExt;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::CompactExt::ice_staticId()
-{
-    return ::Test::CompactExt::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(A1* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< A1>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new A1;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::A1::_newInstance() const
-{
-    return new A1;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::A1::ice_staticId()
-{
-    return ::Test::A1::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(B1* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< B1>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new B1;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::B1::_newInstance() const
-{
-    return new B1;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::B1::ice_staticId()
-{
-    return ::Test::B1::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(D1* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< D1>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new D1;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::D1::_newInstance() const
-{
-    return new D1;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::D1::ice_staticId()
-{
-    return ::Test::D1::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(Recursive* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< Recursive>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new Recursive;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::Recursive::_newInstance() const
-{
-    return new Recursive;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::Recursive::ice_staticId()
-{
-    return ::Test::Recursive::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(K* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< K>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new K;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::K::_newInstance() const
-{
-    return new K;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::K::ice_staticId()
-{
-    return ::Test::K::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(L* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< L>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new L;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::L::_newInstance() const
-{
-    return new L;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::L::ice_staticId()
-{
-    return ::Test::L::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(M* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< M>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new M;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::M::_newInstance() const
-{
-    return new M;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::M::ice_staticId()
-{
-    return ::Test::M::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(F3* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< F3>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new F3;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::F3::_newInstance() const
-{
-    return new F3;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::F3::ice_staticId()
-{
-    return ::Test::F3::ice_staticId();
 }
 
 /// \cond INTERNAL
@@ -3609,129 +2490,6 @@ void IceProxy::Test::Initial::_iceI_end_getAll(::Test::BPtr& iceP_b1, ::Test::BP
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_getH(const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    _checkTwowayOnly(iceC_Test_Initial_getH_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_getH_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_Test_Initial_getH_name, ::Ice::Normal, context);
-        result->writeEmptyParams();
-        result->invoke(iceC_Test_Initial_getH_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-::Test::IPtr
-IceProxy::Test::Initial::end_getH(const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_getH_name);
-    ::Test::IPtr ret;
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(ret);
-    istr->readPendingValues();
-    result->_endReadParams();
-    return ret;
-}
-
-::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_getI(const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    _checkTwowayOnly(iceC_Test_Initial_getI_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_getI_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_Test_Initial_getI_name, ::Ice::Normal, context);
-        result->writeEmptyParams();
-        result->invoke(iceC_Test_Initial_getI_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-::Test::IPtr
-IceProxy::Test::Initial::end_getI(const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_getI_name);
-    ::Test::IPtr ret;
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(ret);
-    istr->readPendingValues();
-    result->_endReadParams();
-    return ret;
-}
-
-::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_getJ(const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    _checkTwowayOnly(iceC_Test_Initial_getJ_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_getJ_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_Test_Initial_getJ_name, ::Ice::Normal, context);
-        result->writeEmptyParams();
-        result->invoke(iceC_Test_Initial_getJ_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-::Test::IPtr
-IceProxy::Test::Initial::end_getJ(const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_getJ_name);
-    ::Test::IPtr ret;
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(ret);
-    istr->readPendingValues();
-    result->_endReadParams();
-    return ret;
-}
-
-::Ice::AsyncResultPtr
 IceProxy::Test::Initial::_iceI_begin_getK(const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_Test_Initial_getK_name, sync);
@@ -4078,32 +2836,6 @@ void
 IceProxy::Test::Initial::end_setG(const ::Ice::AsyncResultPtr& result)
 {
     _end(result, iceC_Test_Initial_setG_name);
-}
-
-::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_setI(const ::Test::IPtr& iceP_theI, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_setI_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_Test_Initial_setI_name, ::Ice::Normal, context);
-        ::Ice::OutputStream* ostr = result->startWriteParams(::Ice::DefaultFormat);
-        ostr->write(iceP_theI);
-        ostr->writePendingValues();
-        result->endWriteParams();
-        result->invoke(iceC_Test_Initial_setI_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-void
-IceProxy::Test::Initial::end_setI(const ::Ice::AsyncResultPtr& result)
-{
-    _end(result, iceC_Test_Initial_setI_name);
 }
 
 ::Ice::AsyncResultPtr
@@ -4514,50 +3246,6 @@ IceProxy::Test::Initial::end_hasF3(const ::Ice::AsyncResultPtr& result)
     return ret;
 }
 
-::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opN(const ::Test::NPtr& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    _checkTwowayOnly(iceC_Test_Initial_opN_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opN_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_Test_Initial_opN_name, ::Ice::Normal, context);
-        ::Ice::OutputStream* ostr = result->startWriteParams(::Ice::DefaultFormat);
-        ostr->write(iceP_p1);
-        ostr->writePendingValues();
-        result->endWriteParams();
-        result->invoke(iceC_Test_Initial_opN_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-::Test::NPtr
-IceProxy::Test::Initial::end_opN(const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opN_name);
-    ::Test::NPtr ret;
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(ret);
-    istr->readPendingValues();
-    result->_endReadParams();
-    return ret;
-}
-
 /// \cond INTERNAL
 ::IceProxy::Ice::Object*
 IceProxy::Test::Initial::_newInstance() const
@@ -4571,6 +3259,780 @@ IceProxy::Test::Initial::ice_staticId()
 {
     return ::Test::Initial::ice_staticId();
 }
+
+Test::I::~I()
+{
+}
+
+namespace
+{
+const ::std::string iceC_Test_I_ids[2] =
+{
+    "::Ice::Object",
+    "::Test::I"
+};
+
+}
+
+bool
+Test::I::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_Test_I_ids, iceC_Test_I_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+Test::I::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_Test_I_ids[0], &iceC_Test_I_ids[2]);
+}
+
+const ::std::string&
+Test::I::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+Test::I::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::I";
+    return typeId;
+}
+
+Test::J::~J()
+{
+}
+
+namespace
+{
+const ::std::string iceC_Test_J_ids[3] =
+{
+    "::Ice::Object",
+    "::Test::I",
+    "::Test::J"
+};
+
+}
+
+bool
+Test::J::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_Test_J_ids, iceC_Test_J_ids + 3, s);
+}
+
+::std::vector< ::std::string>
+Test::J::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_Test_J_ids[0], &iceC_Test_J_ids[3]);
+}
+
+const ::std::string&
+Test::J::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+Test::J::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::J";
+    return typeId;
+}
+
+Test::Initial::~Initial()
+{
+}
+
+namespace
+{
+const ::std::string iceC_Test_Initial_ids[2] =
+{
+    "::Ice::Object",
+    "::Test::Initial"
+};
+
+}
+
+bool
+Test::Initial::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_Test_Initial_ids, iceC_Test_Initial_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+Test::Initial::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_Test_Initial_ids[0], &iceC_Test_Initial_ids[2]);
+}
+
+const ::std::string&
+Test::Initial::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+Test::Initial::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::Initial";
+    return typeId;
+}
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    this->shutdown(current);
+    inS.writeEmptyParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_getB1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    BPtr ret = this->getB1(current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    ostr->writePendingValues();
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_getB2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    BPtr ret = this->getB2(current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    ostr->writePendingValues();
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_getC(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    CPtr ret = this->getC(current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    ostr->writePendingValues();
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_getD(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    DPtr ret = this->getD(current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    ostr->writePendingValues();
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_getE(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    EPtr ret = this->getE(current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    ostr->writePendingValues();
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_getF(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    FPtr ret = this->getF(current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    ostr->writePendingValues();
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_setRecursive(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    RecursivePtr iceP_p;
+    istr->read(iceP_p);
+    istr->readPendingValues();
+    inS.endReadParams();
+    this->setRecursive(iceP_p, current);
+    inS.writeEmptyParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_supportsClassGraphDepthMax(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    bool ret = this->supportsClassGraphDepthMax(current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_setCycle(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    RecursivePtr iceP_r;
+    istr->read(iceP_r);
+    istr->readPendingValues();
+    inS.endReadParams();
+    this->setCycle(iceP_r, current);
+    inS.writeEmptyParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_acceptsClassCycles(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    bool ret = this->acceptsClassCycles(current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_getMB(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    BPtr ret = this->getMB(current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    ostr->writePendingValues();
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_getAMDMB(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    this->getAMDMB_async(new IceAsync::Test::AMD_Initial_getAMDMB(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_getAll(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    BPtr iceP_b1;
+    BPtr iceP_b2;
+    CPtr iceP_theC;
+    DPtr iceP_theD;
+    this->getAll(iceP_b1, iceP_b2, iceP_theC, iceP_theD, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(iceP_b1);
+    ostr->write(iceP_b2);
+    ostr->write(iceP_theC);
+    ostr->write(iceP_theD);
+    ostr->writePendingValues();
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_getK(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    KPtr ret = this->getK(current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    ostr->writePendingValues();
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opValue(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    ::Ice::ValuePtr iceP_v1;
+    istr->read(iceP_v1);
+    istr->readPendingValues();
+    inS.endReadParams();
+    ::Ice::ValuePtr iceP_v2;
+    ::Ice::ValuePtr ret = this->opValue(iceP_v1, iceP_v2, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(iceP_v2);
+    ostr->write(ret);
+    ostr->writePendingValues();
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opValueSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    ValueSeq iceP_v1;
+    istr->read(iceP_v1);
+    istr->readPendingValues();
+    inS.endReadParams();
+    ValueSeq iceP_v2;
+    ValueSeq ret = this->opValueSeq(iceP_v1, iceP_v2, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(iceP_v2);
+    ostr->write(ret);
+    ostr->writePendingValues();
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opValueMap(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    ValueMap iceP_v1;
+    istr->read(iceP_v1);
+    istr->readPendingValues();
+    inS.endReadParams();
+    ValueMap iceP_v2;
+    ValueMap ret = this->opValueMap(iceP_v1, iceP_v2, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(iceP_v2);
+    ostr->write(ret);
+    ostr->writePendingValues();
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_getD1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    D1Ptr iceP_d1;
+    istr->read(iceP_d1);
+    istr->readPendingValues();
+    inS.endReadParams();
+    D1Ptr ret = this->getD1(iceP_d1, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    ostr->writePendingValues();
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_throwEDerived(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    this->throwEDerived(current);
+    inS.writeEmptyParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_setG(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    GPtr iceP_theG;
+    istr->read(iceP_theG);
+    istr->readPendingValues();
+    inS.endReadParams();
+    this->setG(iceP_theG, current);
+    inS.writeEmptyParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opBaseSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    BaseSeq iceP_inSeq;
+    istr->read(iceP_inSeq);
+    istr->readPendingValues();
+    inS.endReadParams();
+    BaseSeq iceP_outSeq;
+    BaseSeq ret = this->opBaseSeq(iceP_inSeq, iceP_outSeq, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(iceP_outSeq);
+    ostr->write(ret);
+    ostr->writePendingValues();
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_getCompact(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    CompactPtr ret = this->getCompact(current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    ostr->writePendingValues();
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opM(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    MPtr iceP_v1;
+    istr->read(iceP_v1);
+    istr->readPendingValues();
+    inS.endReadParams();
+    MPtr iceP_v2;
+    MPtr ret = this->opM(iceP_v1, iceP_v2, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(iceP_v2);
+    ostr->write(ret);
+    ostr->writePendingValues();
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opF1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    F1Ptr iceP_f11;
+    istr->read(iceP_f11);
+    istr->readPendingValues();
+    inS.endReadParams();
+    F1Ptr iceP_f12;
+    F1Ptr ret = this->opF1(iceP_f11, iceP_f12, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(iceP_f12);
+    ostr->write(ret);
+    ostr->writePendingValues();
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opF2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    F2Prx iceP_f21;
+    istr->read(iceP_f21);
+    inS.endReadParams();
+    F2Prx iceP_f22;
+    F2Prx ret = this->opF2(iceP_f21, iceP_f22, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(iceP_f22);
+    ostr->write(ret);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opF3(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    F3Ptr iceP_f31;
+    istr->read(iceP_f31);
+    istr->readPendingValues();
+    inS.endReadParams();
+    F3Ptr iceP_f32;
+    F3Ptr ret = this->opF3(iceP_f31, iceP_f32, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(iceP_f32);
+    ostr->write(ret);
+    ostr->writePendingValues();
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_hasF3(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    bool ret = this->hasF3(current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+namespace
+{
+const ::std::string iceC_Test_Initial_all[] =
+{
+    "acceptsClassCycles",
+    "getAMDMB",
+    "getAll",
+    "getB1",
+    "getB2",
+    "getC",
+    "getCompact",
+    "getD",
+    "getD1",
+    "getE",
+    "getF",
+    "getK",
+    "getMB",
+    "hasF3",
+    "ice_id",
+    "ice_ids",
+    "ice_isA",
+    "ice_ping",
+    "opBaseSeq",
+    "opF1",
+    "opF2",
+    "opF3",
+    "opM",
+    "opValue",
+    "opValueMap",
+    "opValueSeq",
+    "setCycle",
+    "setG",
+    "setRecursive",
+    "shutdown",
+    "supportsClassGraphDepthMax",
+    "throwEDerived"
+};
+
+}
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+{
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Initial_all, iceC_Test_Initial_all + 32, current.operation);
+    if(r.first == r.second)
+    {
+        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+    }
+
+    switch(r.first - iceC_Test_Initial_all)
+    {
+        case 0:
+        {
+            return _iceD_acceptsClassCycles(in, current);
+        }
+        case 1:
+        {
+            return _iceD_getAMDMB(in, current);
+        }
+        case 2:
+        {
+            return _iceD_getAll(in, current);
+        }
+        case 3:
+        {
+            return _iceD_getB1(in, current);
+        }
+        case 4:
+        {
+            return _iceD_getB2(in, current);
+        }
+        case 5:
+        {
+            return _iceD_getC(in, current);
+        }
+        case 6:
+        {
+            return _iceD_getCompact(in, current);
+        }
+        case 7:
+        {
+            return _iceD_getD(in, current);
+        }
+        case 8:
+        {
+            return _iceD_getD1(in, current);
+        }
+        case 9:
+        {
+            return _iceD_getE(in, current);
+        }
+        case 10:
+        {
+            return _iceD_getF(in, current);
+        }
+        case 11:
+        {
+            return _iceD_getK(in, current);
+        }
+        case 12:
+        {
+            return _iceD_getMB(in, current);
+        }
+        case 13:
+        {
+            return _iceD_hasF3(in, current);
+        }
+        case 14:
+        {
+            return _iceD_ice_id(in, current);
+        }
+        case 15:
+        {
+            return _iceD_ice_ids(in, current);
+        }
+        case 16:
+        {
+            return _iceD_ice_isA(in, current);
+        }
+        case 17:
+        {
+            return _iceD_ice_ping(in, current);
+        }
+        case 18:
+        {
+            return _iceD_opBaseSeq(in, current);
+        }
+        case 19:
+        {
+            return _iceD_opF1(in, current);
+        }
+        case 20:
+        {
+            return _iceD_opF2(in, current);
+        }
+        case 21:
+        {
+            return _iceD_opF3(in, current);
+        }
+        case 22:
+        {
+            return _iceD_opM(in, current);
+        }
+        case 23:
+        {
+            return _iceD_opValue(in, current);
+        }
+        case 24:
+        {
+            return _iceD_opValueMap(in, current);
+        }
+        case 25:
+        {
+            return _iceD_opValueSeq(in, current);
+        }
+        case 26:
+        {
+            return _iceD_setCycle(in, current);
+        }
+        case 27:
+        {
+            return _iceD_setG(in, current);
+        }
+        case 28:
+        {
+            return _iceD_setRecursive(in, current);
+        }
+        case 29:
+        {
+            return _iceD_shutdown(in, current);
+        }
+        case 30:
+        {
+            return _iceD_supportsClassGraphDepthMax(in, current);
+        }
+        case 31:
+        {
+            return _iceD_throwEDerived(in, current);
+        }
+        default:
+        {
+            assert(false);
+            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        }
+    }
+}
+/// \endcond
 
 Test::Base::~Base()
 {
@@ -4659,154 +4121,6 @@ Test::_icePatchObjectPtr(BasePtr& handle, const ::Ice::ObjectPtr& v)
     if(v && !handle)
     {
         IceInternal::Ex::throwUOE(Base::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-Test::AbstractBase::~AbstractBase()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(AbstractBase* p) { return p; }
-
-/// \endcond
-::Ice::ObjectPtr
-Test::AbstractBase::ice_clone() const
-{
-    throw ::Ice::CloneNotImplementedException(__FILE__, __LINE__);
-}
-
-namespace
-{
-const ::std::string iceC_Test_AbstractBase_ids[3] =
-{
-    "::Ice::Object",
-    "::Test::AbstractBase",
-    "::Test::Base"
-};
-
-}
-
-bool
-Test::AbstractBase::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_AbstractBase_ids, iceC_Test_AbstractBase_ids + 3, s);
-}
-
-::std::vector< ::std::string>
-Test::AbstractBase::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_AbstractBase_ids[0], &iceC_Test_AbstractBase_ids[3]);
-}
-
-const ::std::string&
-Test::AbstractBase::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::AbstractBase::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::AbstractBase";
-    return typeId;
-}
-
-/// \cond INTERNAL
-bool
-Test::AbstractBase::_iceD_op(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    this->op(current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-namespace
-{
-const ::std::string iceC_Test_AbstractBase_all[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "op"
-};
-
-}
-
-/// \cond INTERNAL
-bool
-Test::AbstractBase::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
-{
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_AbstractBase_all, iceC_Test_AbstractBase_all + 5, current.operation);
-    if(r.first == r.second)
-    {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-    }
-
-    switch(r.first - iceC_Test_AbstractBase_all)
-    {
-        case 0:
-        {
-            return _iceD_ice_id(in, current);
-        }
-        case 1:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 2:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 3:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        case 4:
-        {
-            return _iceD_op(in, current);
-        }
-        default:
-        {
-            assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-        }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-Test::AbstractBase::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< AbstractBase, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    Base::_iceWriteImpl(ostr);
-}
-
-void
-Test::AbstractBase::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< AbstractBase, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    Base::_iceReadImpl(istr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(AbstractBasePtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = AbstractBasePtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(AbstractBase::ice_staticId(), v);
     }
 }
 /// \endcond
@@ -5571,346 +4885,6 @@ Test::_icePatchObjectPtr(GPtr& handle, const ::Ice::ObjectPtr& v)
     if(v && !handle)
     {
         IceInternal::Ex::throwUOE(G::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-Test::I::~I()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(I* p) { return p; }
-
-/// \endcond
-
-namespace
-{
-const ::std::string iceC_Test_I_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::I"
-};
-
-}
-
-bool
-Test::I::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_I_ids, iceC_Test_I_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::I::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_I_ids[0], &iceC_Test_I_ids[2]);
-}
-
-const ::std::string&
-Test::I::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::I::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::I";
-    return typeId;
-}
-
-/// \cond STREAM
-void
-Test::I::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< I, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::I::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< I, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(IPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = IPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(I::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-Test::J::~J()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(J* p) { return p; }
-
-/// \endcond
-
-namespace
-{
-const ::std::string iceC_Test_J_ids[3] =
-{
-    "::Ice::Object",
-    "::Test::I",
-    "::Test::J"
-};
-
-}
-
-bool
-Test::J::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_J_ids, iceC_Test_J_ids + 3, s);
-}
-
-::std::vector< ::std::string>
-Test::J::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_J_ids[0], &iceC_Test_J_ids[3]);
-}
-
-const ::std::string&
-Test::J::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::J::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::J";
-    return typeId;
-}
-
-/// \cond STREAM
-void
-Test::J::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< J, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::J::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< J, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(JPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = JPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(J::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-Test::H::~H()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(H* p) { return p; }
-
-/// \endcond
-::Ice::ObjectPtr
-Test::H::ice_clone() const
-{
-    throw ::Ice::CloneNotImplementedException(__FILE__, __LINE__);
-}
-
-namespace
-{
-const ::std::string iceC_Test_H_ids[3] =
-{
-    "::Ice::Object",
-    "::Test::H",
-    "::Test::I"
-};
-
-}
-
-bool
-Test::H::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_H_ids, iceC_Test_H_ids + 3, s);
-}
-
-::std::vector< ::std::string>
-Test::H::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_H_ids[0], &iceC_Test_H_ids[3]);
-}
-
-const ::std::string&
-Test::H::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::H::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::H";
-    return typeId;
-}
-
-/// \cond STREAM
-void
-Test::H::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< H, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::H::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< H, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(HPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = HPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(H::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-Test::N::~N()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(N* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
-::Ice::ObjectPtr
-Test::N::ice_clone() const
-{
-    ::Ice::Object* p = new N(*this);
-    return p;
-}
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
-
-namespace
-{
-const ::std::string iceC_Test_N_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::N"
-};
-
-}
-
-bool
-Test::N::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_N_ids, iceC_Test_N_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::N::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_N_ids[0], &iceC_Test_N_ids[2]);
-}
-
-const ::std::string&
-Test::N::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::N::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::N";
-    return typeId;
-}
-
-void
-Test::N::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    if(i)
-    {
-        if((::Test::upCast(i.get())->_iceGcVisit(v_)))
-        {
-            i = 0;
-        }
-    }
-}
-
-/// \cond STREAM
-void
-Test::N::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< N, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::N::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< N, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::N> iceC_Test_N_init("::Test::N");
-}
-
-::Ice::ValueFactoryPtr
-Test::N::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::N::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(NPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = NPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(N::ice_staticId(), v);
     }
 }
 /// \endcond
@@ -6961,846 +5935,6 @@ Test::_icePatchObjectPtr(F3Ptr& handle, const ::Ice::ObjectPtr& v)
     if(v && !handle)
     {
         IceInternal::Ex::throwUOE(F3::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-Test::Initial::~Initial()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(Initial* p) { return p; }
-
-/// \endcond
-::Ice::ObjectPtr
-Test::Initial::ice_clone() const
-{
-    throw ::Ice::CloneNotImplementedException(__FILE__, __LINE__);
-}
-
-namespace
-{
-const ::std::string iceC_Test_Initial_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Initial"
-};
-
-}
-
-bool
-Test::Initial::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Initial_ids, iceC_Test_Initial_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::Initial::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_Initial_ids[0], &iceC_Test_Initial_ids[2]);
-}
-
-const ::std::string&
-Test::Initial::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::Initial::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::Initial";
-    return typeId;
-}
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    this->shutdown(current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_getB1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    BPtr ret = this->getB1(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_getB2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    BPtr ret = this->getB2(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_getC(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    CPtr ret = this->getC(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_getD(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    DPtr ret = this->getD(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_getE(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    EPtr ret = this->getE(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_getF(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    FPtr ret = this->getF(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_setRecursive(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    RecursivePtr iceP_p;
-    istr->read(iceP_p);
-    istr->readPendingValues();
-    inS.endReadParams();
-    this->setRecursive(iceP_p, current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_supportsClassGraphDepthMax(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    bool ret = this->supportsClassGraphDepthMax(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_setCycle(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    RecursivePtr iceP_r;
-    istr->read(iceP_r);
-    istr->readPendingValues();
-    inS.endReadParams();
-    this->setCycle(iceP_r, current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_acceptsClassCycles(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    bool ret = this->acceptsClassCycles(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_getMB(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    BPtr ret = this->getMB(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_getAMDMB(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    this->getAMDMB_async(new IceAsync::Test::AMD_Initial_getAMDMB(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_getAll(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    BPtr iceP_b1;
-    BPtr iceP_b2;
-    CPtr iceP_theC;
-    DPtr iceP_theD;
-    this->getAll(iceP_b1, iceP_b2, iceP_theC, iceP_theD, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(iceP_b1);
-    ostr->write(iceP_b2);
-    ostr->write(iceP_theC);
-    ostr->write(iceP_theD);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_getH(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    IPtr ret = this->getH(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_getI(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    IPtr ret = this->getI(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_getJ(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    IPtr ret = this->getJ(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_getK(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    KPtr ret = this->getK(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opValue(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    ::Ice::ValuePtr iceP_v1;
-    istr->read(iceP_v1);
-    istr->readPendingValues();
-    inS.endReadParams();
-    ::Ice::ValuePtr iceP_v2;
-    ::Ice::ValuePtr ret = this->opValue(iceP_v1, iceP_v2, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(iceP_v2);
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opValueSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    ValueSeq iceP_v1;
-    istr->read(iceP_v1);
-    istr->readPendingValues();
-    inS.endReadParams();
-    ValueSeq iceP_v2;
-    ValueSeq ret = this->opValueSeq(iceP_v1, iceP_v2, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(iceP_v2);
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opValueMap(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    ValueMap iceP_v1;
-    istr->read(iceP_v1);
-    istr->readPendingValues();
-    inS.endReadParams();
-    ValueMap iceP_v2;
-    ValueMap ret = this->opValueMap(iceP_v1, iceP_v2, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(iceP_v2);
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_getD1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    D1Ptr iceP_d1;
-    istr->read(iceP_d1);
-    istr->readPendingValues();
-    inS.endReadParams();
-    D1Ptr ret = this->getD1(iceP_d1, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_throwEDerived(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    this->throwEDerived(current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_setG(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    GPtr iceP_theG;
-    istr->read(iceP_theG);
-    istr->readPendingValues();
-    inS.endReadParams();
-    this->setG(iceP_theG, current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_setI(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    IPtr iceP_theI;
-    istr->read(iceP_theI);
-    istr->readPendingValues();
-    inS.endReadParams();
-    this->setI(iceP_theI, current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opBaseSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    BaseSeq iceP_inSeq;
-    istr->read(iceP_inSeq);
-    istr->readPendingValues();
-    inS.endReadParams();
-    BaseSeq iceP_outSeq;
-    BaseSeq ret = this->opBaseSeq(iceP_inSeq, iceP_outSeq, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(iceP_outSeq);
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_getCompact(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    CompactPtr ret = this->getCompact(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opM(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    MPtr iceP_v1;
-    istr->read(iceP_v1);
-    istr->readPendingValues();
-    inS.endReadParams();
-    MPtr iceP_v2;
-    MPtr ret = this->opM(iceP_v1, iceP_v2, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(iceP_v2);
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opF1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    F1Ptr iceP_f11;
-    istr->read(iceP_f11);
-    istr->readPendingValues();
-    inS.endReadParams();
-    F1Ptr iceP_f12;
-    F1Ptr ret = this->opF1(iceP_f11, iceP_f12, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(iceP_f12);
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opF2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    F2Prx iceP_f21;
-    istr->read(iceP_f21);
-    inS.endReadParams();
-    F2Prx iceP_f22;
-    F2Prx ret = this->opF2(iceP_f21, iceP_f22, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(iceP_f22);
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opF3(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    F3Ptr iceP_f31;
-    istr->read(iceP_f31);
-    istr->readPendingValues();
-    inS.endReadParams();
-    F3Ptr iceP_f32;
-    F3Ptr ret = this->opF3(iceP_f31, iceP_f32, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(iceP_f32);
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_hasF3(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    bool ret = this->hasF3(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opN(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    NPtr iceP_p1;
-    istr->read(iceP_p1);
-    istr->readPendingValues();
-    inS.endReadParams();
-    NPtr ret = this->opN(iceP_p1, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-namespace
-{
-const ::std::string iceC_Test_Initial_all[] =
-{
-    "acceptsClassCycles",
-    "getAMDMB",
-    "getAll",
-    "getB1",
-    "getB2",
-    "getC",
-    "getCompact",
-    "getD",
-    "getD1",
-    "getE",
-    "getF",
-    "getH",
-    "getI",
-    "getJ",
-    "getK",
-    "getMB",
-    "hasF3",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "opBaseSeq",
-    "opF1",
-    "opF2",
-    "opF3",
-    "opM",
-    "opN",
-    "opValue",
-    "opValueMap",
-    "opValueSeq",
-    "setCycle",
-    "setG",
-    "setI",
-    "setRecursive",
-    "shutdown",
-    "supportsClassGraphDepthMax",
-    "throwEDerived"
-};
-
-}
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
-{
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Initial_all, iceC_Test_Initial_all + 37, current.operation);
-    if(r.first == r.second)
-    {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-    }
-
-    switch(r.first - iceC_Test_Initial_all)
-    {
-        case 0:
-        {
-            return _iceD_acceptsClassCycles(in, current);
-        }
-        case 1:
-        {
-            return _iceD_getAMDMB(in, current);
-        }
-        case 2:
-        {
-            return _iceD_getAll(in, current);
-        }
-        case 3:
-        {
-            return _iceD_getB1(in, current);
-        }
-        case 4:
-        {
-            return _iceD_getB2(in, current);
-        }
-        case 5:
-        {
-            return _iceD_getC(in, current);
-        }
-        case 6:
-        {
-            return _iceD_getCompact(in, current);
-        }
-        case 7:
-        {
-            return _iceD_getD(in, current);
-        }
-        case 8:
-        {
-            return _iceD_getD1(in, current);
-        }
-        case 9:
-        {
-            return _iceD_getE(in, current);
-        }
-        case 10:
-        {
-            return _iceD_getF(in, current);
-        }
-        case 11:
-        {
-            return _iceD_getH(in, current);
-        }
-        case 12:
-        {
-            return _iceD_getI(in, current);
-        }
-        case 13:
-        {
-            return _iceD_getJ(in, current);
-        }
-        case 14:
-        {
-            return _iceD_getK(in, current);
-        }
-        case 15:
-        {
-            return _iceD_getMB(in, current);
-        }
-        case 16:
-        {
-            return _iceD_hasF3(in, current);
-        }
-        case 17:
-        {
-            return _iceD_ice_id(in, current);
-        }
-        case 18:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 19:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 20:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        case 21:
-        {
-            return _iceD_opBaseSeq(in, current);
-        }
-        case 22:
-        {
-            return _iceD_opF1(in, current);
-        }
-        case 23:
-        {
-            return _iceD_opF2(in, current);
-        }
-        case 24:
-        {
-            return _iceD_opF3(in, current);
-        }
-        case 25:
-        {
-            return _iceD_opM(in, current);
-        }
-        case 26:
-        {
-            return _iceD_opN(in, current);
-        }
-        case 27:
-        {
-            return _iceD_opValue(in, current);
-        }
-        case 28:
-        {
-            return _iceD_opValueMap(in, current);
-        }
-        case 29:
-        {
-            return _iceD_opValueSeq(in, current);
-        }
-        case 30:
-        {
-            return _iceD_setCycle(in, current);
-        }
-        case 31:
-        {
-            return _iceD_setG(in, current);
-        }
-        case 32:
-        {
-            return _iceD_setI(in, current);
-        }
-        case 33:
-        {
-            return _iceD_setRecursive(in, current);
-        }
-        case 34:
-        {
-            return _iceD_shutdown(in, current);
-        }
-        case 35:
-        {
-            return _iceD_supportsClassGraphDepthMax(in, current);
-        }
-        case 36:
-        {
-            return _iceD_throwEDerived(in, current);
-        }
-        default:
-        {
-            assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-        }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-Test::Initial::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Initial, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Initial::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Initial, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(InitialPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = InitialPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Initial::ice_staticId(), v);
     }
 }
 /// \endcond

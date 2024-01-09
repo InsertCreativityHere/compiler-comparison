@@ -17,7 +17,7 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice interface `Interface2`.
+/// Traits for Slice interface`Interface2`.
 public struct Interface2Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Interface2"]
     public static let staticId = "::Test::Interface2"

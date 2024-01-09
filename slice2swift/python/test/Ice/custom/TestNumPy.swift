@@ -47,13 +47,13 @@ public typealias NumPyDoubleSeq2 = [Swift.Double]
 
 public typealias NumPyComplex128Seq = Foundation.Data
 
-/// Traits for Slice class `NumPyD`.
+/// Traits for Slice class`NumPyD`.
 public struct NumPyDTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::NumPy::D"]
     public static let staticId = "::Test::NumPy::D"
 }
 
-/// Traits for Slice interface `NumPyCustom`.
+/// Traits for Slice interface`NumPyCustom`.
 public struct NumPyCustomTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::NumPy::Custom"]
     public static let staticId = "::Test::NumPy::Custom"

@@ -50,6 +50,12 @@
 namespace Ice
 {
 
+
+}
+
+namespace Ice
+{
+
 /**
  * A sequence of bools.
  */
@@ -103,6 +109,11 @@ using ObjectProxySeq = ::std::vector<::std::shared_ptr<ObjectPrx>>;
 }
 
 #else // C++98 mapping
+
+namespace Ice
+{
+
+}
 
 namespace Ice
 {

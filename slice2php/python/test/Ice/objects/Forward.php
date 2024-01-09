@@ -72,7 +72,6 @@ namespace Test
             return '::Test::F2';
         }
     }
-    $Test__t_F2 = IcePHP_defineClass('::Test::F2', '\\Test\\F2', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_F2Prx = IcePHP_defineProxy('::Test::F2', $Ice__t_ObjectPrx, null);

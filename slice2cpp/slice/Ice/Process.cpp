@@ -298,11 +298,6 @@ Ice::Process::~Process()
 {
 }
 
-/// \cond INTERNAL
-ICE_API ::Ice::Object* Ice::upCast(Process* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Ice_Process_ids[2] =
@@ -425,39 +420,5 @@ Ice::Process::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
     }
 }
 /// \endcond
-
-/// \cond STREAM
-void
-Ice::Process::_iceWriteImpl(OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    StreamWriter< Process, OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Ice::Process::_iceReadImpl(InputStream* istr)
-{
-    istr->startSlice();
-    StreamReader< Process, InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Ice::_icePatchObjectPtr(ProcessPtr& handle, const ObjectPtr& v)
-{
-    handle = ProcessPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Process::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-namespace Ice
-{
-}
 
 #endif

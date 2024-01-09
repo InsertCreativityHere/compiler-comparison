@@ -224,10 +224,8 @@ using Ice::operator!=;
 
 }
 
-namespace CCC
+namespace DDD
 {
-
-using ForwardProxySeq = ::std::vector<::std::shared_ptr<::Ice::ObjectPrx>>;
 
 }
 
@@ -716,13 +714,10 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    U(const ::std::shared_ptr<::Ice::Value>& myI, const ::std::shared_ptr<::Test::DDD::IPrx>& myIstar, const ::std::shared_ptr<::Test::DDD::C>& myC, const ::std::shared_ptr<::Ice::ObjectPrx>& myCstar, const ::std::shared_ptr<::Test::DDD::C2>& myC2, const ::std::shared_ptr<::Ice::ObjectPrx>& myC2star) :
-        myI(myI),
+    U(const ::std::shared_ptr<::Test::DDD::IPrx>& myIstar, const ::std::shared_ptr<::Test::DDD::C>& myC, const ::std::shared_ptr<::Test::DDD::C2>& myC2) :
         myIstar(myIstar),
         myC(myC),
-        myCstar(myCstar),
-        myC2(myC2),
-        myC2star(myC2star)
+        myC2(myC2)
     {
     }
 
@@ -730,9 +725,9 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::shared_ptr<::Ice::Value>&, const ::std::shared_ptr<::Test::DDD::IPrx>&, const ::std::shared_ptr<::Test::DDD::C>&, const ::std::shared_ptr<::Ice::ObjectPrx>&, const ::std::shared_ptr<::Test::DDD::C2>&, const ::std::shared_ptr<::Ice::ObjectPrx>&> ice_tuple() const
+    std::tuple<const ::std::shared_ptr<::Test::DDD::IPrx>&, const ::std::shared_ptr<::Test::DDD::C>&, const ::std::shared_ptr<::Test::DDD::C2>&> ice_tuple() const
     {
-        return std::tie(myI, myIstar, myC, myCstar, myC2, myC2star);
+        return std::tie(myIstar, myC, myC2);
     }
 
     /**
@@ -741,12 +736,9 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    ::std::shared_ptr<::Ice::Value> myI;
     ::std::shared_ptr<::Test::DDD::IPrx> myIstar;
     ::std::shared_ptr<::Test::DDD::C> myC;
-    ::std::shared_ptr<::Ice::ObjectPrx> myCstar;
     ::std::shared_ptr<::Test::DDD::C2> myC2;
-    ::std::shared_ptr<::Ice::ObjectPrx> myC2star;
 };
 
 class C2 : public ::Ice::ValueHelper<C2, ::Ice::Value>
@@ -784,21 +776,6 @@ public:
 
 namespace Test
 {
-
-namespace AAA
-{
-
-}
-
-namespace AAA
-{
-
-}
-
-namespace CCC
-{
-
-}
 
 namespace DDD
 {
@@ -1026,7 +1003,7 @@ struct StreamReader<::Test::DDD::U, S>
 {
     static void read(S* istr, ::Test::DDD::U& v)
     {
-        istr->readAll(v.myI, v.myIstar, v.myC, v.myCstar, v.myC2, v.myC2star);
+        istr->readAll(v.myIstar, v.myC, v.myC2);
     }
 };
 
@@ -1112,86 +1089,6 @@ namespace IceProxy
 namespace Test
 {
 
-class C;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< C>&);
-::IceProxy::Ice::Object* upCast(C*);
-/// \endcond
-
-class C2;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< C2>&);
-::IceProxy::Ice::Object* upCast(C2*);
-/// \endcond
-
-class Leaf;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Leaf>&);
-::IceProxy::Ice::Object* upCast(Leaf*);
-/// \endcond
-
-class Node;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Node>&);
-::IceProxy::Ice::Object* upCast(Node*);
-/// \endcond
-
-class CTest;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< CTest>&);
-::IceProxy::Ice::Object* upCast(CTest*);
-/// \endcond
-
-namespace AAA
-{
-
-class B;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< B>&);
-::IceProxy::Ice::Object* upCast(B*);
-/// \endcond
-
-class C;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< C>&);
-::IceProxy::Ice::Object* upCast(C*);
-/// \endcond
-
-}
-
-namespace AAA
-{
-
-class B;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< B>&);
-::IceProxy::Ice::Object* upCast(B*);
-/// \endcond
-
-}
-
-namespace CCC
-{
-
-class Forward;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Forward>&);
-::IceProxy::Ice::Object* upCast(Forward*);
-/// \endcond
-
-}
-
-namespace CCC
-{
-
-class Forward;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Forward>&);
-::IceProxy::Ice::Object* upCast(Forward*);
-/// \endcond
-
-}
-
 namespace DDD
 {
 
@@ -1199,24 +1096,6 @@ class I;
 /// \cond INTERNAL
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< I>&);
 ::IceProxy::Ice::Object* upCast(I*);
-/// \endcond
-
-class C;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< C>&);
-::IceProxy::Ice::Object* upCast(C*);
-/// \endcond
-
-class C2;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< C2>&);
-::IceProxy::Ice::Object* upCast(C2*);
-/// \endcond
-
-class U;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< U>&);
-::IceProxy::Ice::Object* upCast(U*);
 /// \endcond
 
 }
@@ -1233,8 +1112,6 @@ class C;
 ::Ice::Object* upCast(C*);
 /// \endcond
 typedef ::IceInternal::Handle< C> CPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::C> CPrx;
-typedef CPrx CPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(CPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1244,8 +1121,6 @@ class C2;
 ::Ice::Object* upCast(C2*);
 /// \endcond
 typedef ::IceInternal::Handle< C2> C2Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::C2> C2Prx;
-typedef C2Prx C2PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(C2Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1255,8 +1130,6 @@ class Leaf;
 ::Ice::Object* upCast(Leaf*);
 /// \endcond
 typedef ::IceInternal::Handle< Leaf> LeafPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Leaf> LeafPrx;
-typedef LeafPrx LeafPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(LeafPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1266,8 +1139,6 @@ class Node;
 ::Ice::Object* upCast(Node*);
 /// \endcond
 typedef ::IceInternal::Handle< Node> NodePtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Node> NodePrx;
-typedef NodePrx NodePrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(NodePtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1277,8 +1148,6 @@ class CTest;
 ::Ice::Object* upCast(CTest*);
 /// \endcond
 typedef ::IceInternal::Handle< CTest> CTestPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::CTest> CTestPrx;
-typedef CTestPrx CTestPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(CTestPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1291,8 +1160,6 @@ class B;
 ::Ice::Object* upCast(B*);
 /// \endcond
 typedef ::IceInternal::Handle< B> BPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::AAA::B> BPrx;
-typedef BPrx BPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(BPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1302,8 +1169,6 @@ class C;
 ::Ice::Object* upCast(C*);
 /// \endcond
 typedef ::IceInternal::Handle< C> CPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::AAA::C> CPrx;
-typedef CPrx CPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(CPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1318,8 +1183,6 @@ class B;
 ::Ice::Object* upCast(B*);
 /// \endcond
 typedef ::IceInternal::Handle< B> BPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::AAA::B> BPrx;
-typedef BPrx BPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(BPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1334,8 +1197,6 @@ class Forward;
 ::Ice::Object* upCast(Forward*);
 /// \endcond
 typedef ::IceInternal::Handle< Forward> ForwardPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::CCC::Forward> ForwardPrx;
-typedef ForwardPrx ForwardPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(ForwardPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1350,8 +1211,6 @@ class Forward;
 ::Ice::Object* upCast(Forward*);
 /// \endcond
 typedef ::IceInternal::Handle< Forward> ForwardPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::CCC::Forward> ForwardPrx;
-typedef ForwardPrx ForwardPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(ForwardPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1360,25 +1219,17 @@ void _icePatchObjectPtr(ForwardPtr&, const ::Ice::ObjectPtr&);
 
 namespace DDD
 {
-
-class I;
-/// \cond INTERNAL
-::Ice::Object* upCast(I*);
-/// \endcond
-typedef ::IceInternal::Handle< I> IPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::DDD::I> IPrx;
 typedef IPrx IPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(IPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class I;
+typedef ::IceInternal::Handle< I> IPtr;
 
 class C;
 /// \cond INTERNAL
 ::Ice::Object* upCast(C*);
 /// \endcond
 typedef ::IceInternal::Handle< C> CPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::DDD::C> CPrx;
-typedef CPrx CPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(CPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1388,8 +1239,6 @@ class C2;
 ::Ice::Object* upCast(C2*);
 /// \endcond
 typedef ::IceInternal::Handle< C2> C2Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::DDD::C2> C2Prx;
-typedef C2Prx C2PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(C2Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1399,8 +1248,6 @@ class U;
 ::Ice::Object* upCast(U*);
 /// \endcond
 typedef ::IceInternal::Handle< U> UPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::DDD::U> UPrx;
-typedef UPrx UPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(UPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1480,10 +1327,8 @@ struct CStruct
 
 }
 
-namespace CCC
+namespace DDD
 {
-
-typedef ::std::vector<ForwardPrx> ForwardProxySeq;
 
 }
 
@@ -1491,21 +1336,6 @@ typedef ::std::vector<ForwardPrx> ForwardProxySeq;
 
 namespace Test
 {
-
-namespace AAA
-{
-
-}
-
-namespace AAA
-{
-
-}
-
-namespace CCC
-{
-
-}
 
 namespace DDD
 {
@@ -1527,157 +1357,6 @@ namespace IceProxy
 
 namespace Test
 {
-
-class C : public virtual ::Ice::Proxy<C, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class C2 : public virtual ::Ice::Proxy<C2, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class Leaf : public virtual ::Ice::Proxy<Leaf, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class Node : public virtual ::Ice::Proxy<Node, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class CTest : public virtual ::Ice::Proxy<CTest, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-namespace AAA
-{
-
-class C : public virtual ::Ice::Proxy<C, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-}
-
-namespace AAA
-{
-
-class B : public virtual ::Ice::Proxy<B, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-}
-
-namespace CCC
-{
-
-class Forward : public virtual ::Ice::Proxy<Forward, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-}
 
 namespace DDD
 {
@@ -1737,58 +1416,66 @@ protected:
     /// \endcond
 };
 
-class C : public virtual ::Ice::Proxy<C, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class U : public virtual ::Ice::Proxy<U, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class C2 : public virtual ::Ice::Proxy<C2, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
+}
 
 }
+
+}
+
+namespace Test
+{
+
+namespace DDD
+{
+
+class I : public virtual ::Ice::Object
+{
+public:
+
+    typedef IPrx ProxyType;
+
+    virtual ~I();
+    I() = default;
+    I(const I&) = default;
+    I& operator=(const I&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual void op(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
 
 }
 
@@ -1801,7 +1488,6 @@ class C : public virtual ::Ice::Object, public ::IceInternal::GCObject
 {
 public:
 
-    typedef CPrx ProxyType;
     typedef CPtr PointerType;
 
     virtual ~C();
@@ -1896,7 +1582,6 @@ class C2 : public virtual ::Ice::Object, public ::IceInternal::GCObject
 {
 public:
 
-    typedef C2Prx ProxyType;
     typedef C2Ptr PointerType;
 
     virtual ~C2();
@@ -1989,7 +1674,6 @@ class Leaf : public virtual ::Ice::Object
 {
 public:
 
-    typedef LeafPrx ProxyType;
     typedef LeafPtr PointerType;
 
     virtual ~Leaf();
@@ -2079,7 +1763,6 @@ class Node : public virtual ::Ice::Object, public ::IceInternal::GCObject
 {
 public:
 
-    typedef NodePrx ProxyType;
     typedef NodePtr PointerType;
 
     virtual ~Node();
@@ -2174,7 +1857,6 @@ class CTest : public virtual ::Ice::Object, public ::IceInternal::GCObject
 {
 public:
 
-    typedef CTestPrx ProxyType;
     typedef CTestPtr PointerType;
 
     virtual ~CTest();
@@ -2292,7 +1974,6 @@ class C : public virtual ::Ice::Object, public ::IceInternal::GCObject
 {
 public:
 
-    typedef CPrx ProxyType;
     typedef CPtr PointerType;
 
     virtual ~C();
@@ -2402,7 +2083,6 @@ class B : public virtual ::Ice::Object, public ::IceInternal::GCObject
 {
 public:
 
-    typedef BPrx ProxyType;
     typedef BPtr PointerType;
 
     virtual ~B();
@@ -2512,7 +2192,6 @@ class Forward : public virtual ::Ice::Object
 {
 public:
 
-    typedef ForwardPrx ProxyType;
     typedef ForwardPtr PointerType;
 
     virtual ~Forward();
@@ -2591,80 +2270,10 @@ inline bool operator<(const Forward& lhs, const Forward& rhs)
 namespace DDD
 {
 
-class I : public virtual ::Ice::Object
-{
-public:
-
-    typedef IPrx ProxyType;
-    typedef IPtr PointerType;
-
-    virtual ~I();
-    I() = default;
-    I(const I&) = default;
-    I& operator=(const I&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual void op(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const I& lhs, const I& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const I& lhs, const I& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
 class C : public virtual ::Ice::Object
 {
 public:
 
-    typedef CPrx ProxyType;
     typedef CPtr PointerType;
 
     virtual ~C();
@@ -2742,7 +2351,6 @@ class U : public virtual ::Ice::Object, public ::IceInternal::GCObject
 {
 public:
 
-    typedef UPrx ProxyType;
     typedef UPtr PointerType;
 
     virtual ~U();
@@ -2754,13 +2362,10 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    U(const ::Test::DDD::IPtr& myI, const ::Test::DDD::IPrx& myIstar, const ::Test::DDD::CPtr& myC, const ::Test::DDD::CPrx& myCstar, const ::Test::DDD::C2Ptr& myC2, const ::Test::DDD::C2Prx& myC2star) :
-        myI(myI),
+    U(const ::Test::DDD::IPrx& myIstar, const ::Test::DDD::CPtr& myC, const ::Test::DDD::C2Ptr& myC2) :
         myIstar(myIstar),
         myC(myC),
-        myCstar(myCstar),
-        myC2(myC2),
-        myC2star(myC2star)
+        myC2(myC2)
     {
     }
     U(const U&) = default;
@@ -2818,12 +2423,9 @@ protected:
 
 public:
 
-    ::Test::DDD::IPtr myI;
     ::Test::DDD::IPrx myIstar;
     ::Test::DDD::CPtr myC;
-    ::Test::DDD::CPrx myCstar;
     ::Test::DDD::C2Ptr myC2;
-    ::Test::DDD::C2Prx myC2star;
 };
 /// \cond INTERNAL
 static ::Ice::ValueFactoryPtr _iceS_U_init = ::Test::DDD::U::ice_factory();
@@ -2845,7 +2447,6 @@ class C2 : public virtual ::Ice::Object
 {
 public:
 
-    typedef C2Prx ProxyType;
     typedef C2Ptr PointerType;
 
     virtual ~C2();
@@ -3264,12 +2865,9 @@ struct StreamWriter< ::Test::DDD::U, S>
 {
     static void write(S* ostr, const ::Test::DDD::U& v)
     {
-        ostr->write(v.myI);
         ostr->write(v.myIstar);
         ostr->write(v.myC);
-        ostr->write(v.myCstar);
         ostr->write(v.myC2);
-        ostr->write(v.myC2star);
     }
 };
 
@@ -3278,12 +2876,9 @@ struct StreamReader< ::Test::DDD::U, S>
 {
     static void read(S* istr, ::Test::DDD::U& v)
     {
-        istr->read(v.myI);
         istr->read(v.myIstar);
         istr->read(v.myC);
-        istr->read(v.myCstar);
         istr->read(v.myC2);
-        istr->read(v.myC2star);
     }
 };
 
@@ -3292,21 +2887,6 @@ struct StreamReader< ::Test::DDD::U, S>
 
 namespace Test
 {
-
-namespace AAA
-{
-
-}
-
-namespace AAA
-{
-
-}
-
-namespace CCC
-{
-
-}
 
 namespace DDD
 {

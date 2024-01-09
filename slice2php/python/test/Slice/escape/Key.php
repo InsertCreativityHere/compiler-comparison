@@ -72,7 +72,6 @@ namespace _and
             return '::and::del';
         }
     }
-    $and__t_del = IcePHP_defineClass('::and::del', '\\_and\\del', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $and__t_delPrx = IcePHP_defineProxy('::and::del', $Ice__t_ObjectPrx, null);
@@ -103,7 +102,6 @@ namespace _and
             return '::and::exec';
         }
     }
-    $and__t_exec = IcePHP_defineClass('::and::exec', '\\_and\\exec', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $and__t_execPrx = IcePHP_defineProxy('::and::exec', $Ice__t_ObjectPrx, null);
@@ -175,7 +173,6 @@ namespace _and
             return '::and::if';
         }
     }
-    $and__t_if = IcePHP_defineClass('::and::if', '\\_and\\_if', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $and__t_ifPrx = IcePHP_defineProxy('::and::if', $Ice__t_ObjectPrx, array($and__t_execPrx, $and__t_delPrx));
@@ -288,21 +285,18 @@ namespace _and
             return '::and::print';
         }
     }
-    $and__t_print = IcePHP_defineClass('::and::print', '\\_and\\_print', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $and__t_printPrx = IcePHP_defineProxy('::and::print', $Ice__t_ObjectPrx, null);
 
     global $and__t_continue;
     global $and__t_for;
-    global $and__t_if;
     global $and__t_delPrx;
     global $and__t_execPrx;
-    global $Ice__t_ObjectPrx;
     global $and__t_ifPrx;
     global $IcePHP__t_int;
     global $and__t_assert;
-    IcePHP_defineOperation($and__t_printPrx, 'raise', 0, 0, 0, array(array($and__t_continue), array($and__t_for), array($and__t_if), array($and__t_delPrx), array($and__t_execPrx), array($Ice__t_ObjectPrx), array($and__t_ifPrx), array($IcePHP__t_int)), null, array($and__t_assert), array($and__t_is));
+    IcePHP_defineOperation($and__t_printPrx, 'raise', 0, 0, 0, array(array($and__t_continue), array($and__t_for), array($and__t_delPrx), array($and__t_execPrx), array($and__t_ifPrx), array($IcePHP__t_int)), null, array($and__t_assert), array($and__t_is));
 }
 
 namespace _and

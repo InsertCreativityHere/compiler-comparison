@@ -146,8 +146,6 @@ module ::Ice
             T_RemoteLoggerPrx = ::Ice::__declareProxy('::Ice::RemoteLogger')
         end
 
-        T_RemoteLogger.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_RemoteLoggerPrx.defineProxy(RemoteLoggerPrx, nil, [])
 
         RemoteLoggerPrx_mixin::OP_init = ::Ice::__defineOperation('init', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_LogMessageSeq, false, 0]], [], nil, [])
@@ -195,8 +193,6 @@ module ::Ice
             T_LoggerAdmin = ::Ice::__declareClass('::Ice::LoggerAdmin')
             T_LoggerAdminPrx = ::Ice::__declareProxy('::Ice::LoggerAdmin')
         end
-
-        T_LoggerAdmin.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_LoggerAdminPrx.defineProxy(LoggerAdminPrx, nil, [])
 

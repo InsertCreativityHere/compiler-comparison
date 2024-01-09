@@ -492,11 +492,6 @@ Test::Hold::~Hold()
 {
 }
 
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(Hold* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Test_Hold_ids[2] =
@@ -680,39 +675,5 @@ Test::Hold::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& curr
     }
 }
 /// \endcond
-
-/// \cond STREAM
-void
-Test::Hold::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Hold, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Hold::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Hold, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(HoldPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = HoldPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Hold::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-namespace Ice
-{
-}
 
 #endif

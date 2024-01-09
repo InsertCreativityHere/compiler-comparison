@@ -44,8 +44,6 @@ module ::Test
             T_Initial2Prx = ::Ice::__declareProxy('::Test::Initial2')
         end
 
-        T_Initial2.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_Initial2Prx.defineProxy(Initial2Prx, nil, [])
 
         Initial2Prx_mixin::OP_opClassAndUnknownOptional = ::Ice::__defineOperation('opClassAndUnknownOptional', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_A, false, 0], [::Ice::T_Value, true, 1]], [], nil, [])

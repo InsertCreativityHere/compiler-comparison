@@ -17,7 +17,7 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice interface `Server`.
+/// Traits for Slice interface`Server`.
 public struct ServerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Server"]
     public static let staticId = "::Test::Server"
@@ -90,7 +90,7 @@ public struct PropertiesHelper {
     }
 }
 
-/// Traits for Slice interface `ServerFactory`.
+/// Traits for Slice interface`ServerFactory`.
 public struct ServerFactoryTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::ServerFactory"]
     public static let staticId = "::Test::ServerFactory"

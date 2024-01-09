@@ -305,11 +305,6 @@ Test::Priority::~Priority()
 {
 }
 
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(Priority* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Test_Priority_ids[2] =
@@ -429,39 +424,5 @@ Test::Priority::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     }
 }
 /// \endcond
-
-/// \cond STREAM
-void
-Test::Priority::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Priority, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Priority::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Priority, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(PriorityPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = PriorityPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Priority::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-namespace Ice
-{
-}
 
 #endif

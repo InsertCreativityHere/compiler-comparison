@@ -3612,12 +3612,6 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< MyClass>&);
 ::IceProxy::Ice::Object* upCast(MyClass*);
 /// \endcond
 
-class MyClass1;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< MyClass1>&);
-::IceProxy::Ice::Object* upCast(MyClass1*);
-/// \endcond
-
 class MyDerivedClass;
 /// \cond INTERNAL
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< MyDerivedClass>&);
@@ -3630,39 +3624,25 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< MyDerivedClass>
 
 namespace Test
 {
-
-class MyClass;
-/// \cond INTERNAL
-::Ice::Object* upCast(MyClass*);
-/// \endcond
-typedef ::IceInternal::Handle< MyClass> MyClassPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::MyClass> MyClassPrx;
 typedef MyClassPrx MyClassPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(MyClassPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class MyClass;
+typedef ::IceInternal::Handle< MyClass> MyClassPtr;
 
 class MyClass1;
 /// \cond INTERNAL
 ::Ice::Object* upCast(MyClass1*);
 /// \endcond
 typedef ::IceInternal::Handle< MyClass1> MyClass1Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::MyClass1> MyClass1Prx;
-typedef MyClass1Prx MyClass1PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(MyClass1Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-class MyDerivedClass;
-/// \cond INTERNAL
-::Ice::Object* upCast(MyDerivedClass*);
-/// \endcond
-typedef ::IceInternal::Handle< MyDerivedClass> MyDerivedClassPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::MyDerivedClass> MyDerivedClassPrx;
 typedef MyDerivedClassPrx MyDerivedClassPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(MyDerivedClassPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class MyDerivedClass;
+typedef ::IceInternal::Handle< MyDerivedClass> MyDerivedClassPtr;
 
 }
 
@@ -10138,23 +10118,6 @@ protected:
     /// \endcond
 };
 
-class MyClass1 : public virtual ::Ice::Proxy<MyClass1, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
 class MyDerivedClass : public virtual ::Ice::Proxy<MyDerivedClass, ::IceProxy::Test::MyClass>
 {
 public:
@@ -10298,7 +10261,6 @@ class MyClass : public virtual ::Ice::Object
 public:
 
     typedef MyClassPrx ProxyType;
-    typedef MyClassPtr PointerType;
 
     virtual ~MyClass();
     MyClass() = default;
@@ -10686,32 +10648,76 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
+};
 
-protected:
+class MyDerivedClass : public virtual MyClass
+{
+public:
 
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
+    typedef MyDerivedClassPrx ProxyType;
+
+    virtual ~MyDerivedClass();
+    MyDerivedClass() = default;
+    MyDerivedClass(const MyDerivedClass&) = default;
+    MyDerivedClass& operator=(const MyDerivedClass&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual void opDerived_async(const ::Test::AMD_MyDerivedClass_opDerivedPtr& cb, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opDerived(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void opMyClass1_async(const ::Test::AMD_MyDerivedClass_opMyClass1Ptr& cb, const MyClass1Ptr& opMyClass1, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opMyClass1(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void opMyStruct1_async(const ::Test::AMD_MyDerivedClass_opMyStruct1Ptr& cb, const MyStruct1& opMyStruct1, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opMyStruct1(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const MyClass& lhs, const MyClass& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
 }
 
-inline bool operator<(const MyClass& lhs, const MyClass& rhs)
+namespace Test
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 class MyClass1 : public virtual ::Ice::Object
 {
 public:
 
-    typedef MyClass1Prx ProxyType;
     typedef MyClass1Ptr PointerType;
 
     virtual ~MyClass1();
@@ -10796,85 +10802,6 @@ inline bool operator==(const MyClass1& lhs, const MyClass1& rhs)
 }
 
 inline bool operator<(const MyClass1& lhs, const MyClass1& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class MyDerivedClass : virtual public MyClass
-{
-public:
-
-    typedef MyDerivedClassPrx ProxyType;
-    typedef MyDerivedClassPtr PointerType;
-
-    virtual ~MyDerivedClass();
-    MyDerivedClass() = default;
-    MyDerivedClass(const MyDerivedClass&) = default;
-    MyDerivedClass& operator=(const MyDerivedClass&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual void opDerived_async(const ::Test::AMD_MyDerivedClass_opDerivedPtr& cb, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opDerived(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void opMyClass1_async(const ::Test::AMD_MyDerivedClass_opMyClass1Ptr& cb, const MyClass1Ptr& opMyClass1, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opMyClass1(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void opMyStruct1_async(const ::Test::AMD_MyDerivedClass_opMyStruct1Ptr& cb, const MyStruct1& opMyStruct1, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opMyStruct1(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const MyDerivedClass& lhs, const MyDerivedClass& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const MyDerivedClass& lhs, const MyDerivedClass& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
 }

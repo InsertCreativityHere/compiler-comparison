@@ -56,8 +56,6 @@ module ::Glacier2
             T_PermissionsVerifierPrx = ::Ice::__declareProxy('::Glacier2::PermissionsVerifier')
         end
 
-        T_PermissionsVerifier.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_PermissionsVerifierPrx.defineProxy(PermissionsVerifierPrx, nil, [])
 
         PermissionsVerifierPrx_mixin::OP_checkPermissions = ::Ice::__defineOperation('checkPermissions', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, ::Ice::FormatType::SlicedFormat, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_bool, false, 0], [::Glacier2::T_PermissionDeniedException])
@@ -83,8 +81,6 @@ module ::Glacier2
             T_SSLPermissionsVerifier = ::Ice::__declareClass('::Glacier2::SSLPermissionsVerifier')
             T_SSLPermissionsVerifierPrx = ::Ice::__declareProxy('::Glacier2::SSLPermissionsVerifier')
         end
-
-        T_SSLPermissionsVerifier.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_SSLPermissionsVerifierPrx.defineProxy(SSLPermissionsVerifierPrx, nil, [])
 

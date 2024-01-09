@@ -37,6 +37,12 @@
 namespace Core
 {
 
+
+}
+
+namespace Core
+{
+
 class ArgumentException : public ::Ice::UserExceptionHelper<ArgumentException, ::Ice::UserException>
 {
 public:
@@ -77,6 +83,11 @@ namespace Ice
 /// \endcond
 
 #else // C++98 mapping
+
+namespace Core
+{
+
+}
 
 namespace Core
 {

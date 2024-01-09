@@ -36,13 +36,10 @@ module ::Test
             T_EmptyPrx = ::Ice::__declareProxy('::Test::Empty')
         end
 
-        T_Empty.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_EmptyPrx.defineProxy(EmptyPrx, nil, [])
     end
 
     if not defined?(::Test::T_Thrower)
-        T_Thrower = ::Ice::__declareClass('::Test::Thrower')
         T_ThrowerPrx = ::Ice::__declareProxy('::Test::Thrower')
     end
 
@@ -209,8 +206,6 @@ module ::Test
             T_ThrowerPrx = ::Ice::__declareProxy('::Test::Thrower')
         end
 
-        T_Thrower.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_ThrowerPrx.defineProxy(ThrowerPrx, nil, [])
 
         ThrowerPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
@@ -256,8 +251,6 @@ module ::Test
             T_WrongOperationPrx = ::Ice::__declareProxy('::Test::WrongOperation')
         end
 
-        T_WrongOperation.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_WrongOperationPrx.defineProxy(WrongOperationPrx, nil, [])
 
         WrongOperationPrx_mixin::OP_noSuchOperation = ::Ice::__defineOperation('noSuchOperation', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
@@ -295,8 +288,6 @@ module ::Test
             T_Echo = ::Ice::__declareClass('::Test::Echo')
             T_EchoPrx = ::Ice::__declareProxy('::Test::Echo')
         end
-
-        T_Echo.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_EchoPrx.defineProxy(EchoPrx, nil, [])
 

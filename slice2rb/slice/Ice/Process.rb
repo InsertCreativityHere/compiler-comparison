@@ -43,8 +43,6 @@ module ::Ice
             T_ProcessPrx = ::Ice::__declareProxy('::Ice::Process')
         end
 
-        T_Process.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_ProcessPrx.defineProxy(ProcessPrx, nil, [])
 
         ProcessPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])

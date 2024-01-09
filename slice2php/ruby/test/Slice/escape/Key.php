@@ -72,7 +72,6 @@ namespace BEGIN
             return '::BEGIN::break';
         }
     }
-    $BEGIN__t_break = IcePHP_defineClass('::BEGIN::break', '\\BEGIN\\_break', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $BEGIN__t_breakPrx = IcePHP_defineProxy('::BEGIN::break', $Ice__t_ObjectPrx, null);
@@ -151,7 +150,6 @@ namespace BEGIN
             return '::BEGIN::elsif';
         }
     }
-    $BEGIN__t_elsif = IcePHP_defineClass('::BEGIN::elsif', '\\BEGIN\\elsif', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $BEGIN__t_elsifPrx = IcePHP_defineProxy('::BEGIN::elsif', $Ice__t_ObjectPrx, array($BEGIN__t_breakPrx));
@@ -264,17 +262,16 @@ namespace BEGIN
             return '::BEGIN::extend';
         }
     }
-    $BEGIN__t_extend = IcePHP_defineClass('::BEGIN::extend', '\\BEGIN\\extend', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $BEGIN__t_extendPrx = IcePHP_defineProxy('::BEGIN::extend', $Ice__t_ObjectPrx, null);
 
     global $BEGIN__t_display;
-    global $BEGIN__t_elsif;
+    global $BEGIN__t_elsifPrx;
     global $BEGIN__t_breakPrx;
     global $IcePHP__t_int;
     global $BEGIN__t_END;
-    IcePHP_defineOperation($BEGIN__t_extendPrx, 'for', 0, 0, 0, array(array($BEGIN__t_display), array($BEGIN__t_elsif), array($BEGIN__t_breakPrx), array($BEGIN__t_display), array($BEGIN__t_elsif), array($IcePHP__t_int)), null, array($BEGIN__t_END), array($BEGIN__t_nil));
+    IcePHP_defineOperation($BEGIN__t_extendPrx, 'for', 0, 0, 0, array(array($BEGIN__t_display), array($BEGIN__t_elsifPrx), array($BEGIN__t_breakPrx), array($BEGIN__t_display), array($BEGIN__t_elsifPrx), array($IcePHP__t_int)), null, array($BEGIN__t_END), array($BEGIN__t_nil));
 }
 
 namespace BEGIN

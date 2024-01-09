@@ -70,7 +70,6 @@ module ::Test
     end
 
     if not defined?(::Test::T_MyClass)
-        T_MyClass = ::Ice::__declareClass('::Test::MyClass')
         T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
     end
 
@@ -654,8 +653,6 @@ module ::Test
             T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
         end
 
-        T_MyClass.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_MyClassPrx.defineProxy(MyClassPrx, nil, [])
 
         MyClassPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
@@ -824,8 +821,6 @@ module ::Test
             T_MyDerivedClass = ::Ice::__declareClass('::Test::MyDerivedClass')
             T_MyDerivedClassPrx = ::Ice::__declareProxy('::Test::MyDerivedClass')
         end
-
-        T_MyDerivedClass.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_MyDerivedClassPrx.defineProxy(MyDerivedClassPrx, nil, [::Test::T_MyClassPrx])
 

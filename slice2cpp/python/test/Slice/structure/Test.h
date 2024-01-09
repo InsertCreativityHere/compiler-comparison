@@ -157,11 +157,6 @@ static C _iceS_C_init;
 
 }
 
-namespace Test
-{
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -240,22 +235,6 @@ using CPtr = ::std::shared_ptr<C>;
 
 #else // C++98 mapping
 
-namespace IceProxy
-{
-
-namespace Test
-{
-
-class C;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< C>&);
-::IceProxy::Ice::Object* upCast(C*);
-/// \endcond
-
-}
-
-}
-
 namespace Test
 {
 
@@ -264,8 +243,6 @@ class C;
 ::Ice::Object* upCast(C*);
 /// \endcond
 typedef ::IceInternal::Handle< C> CPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::C> CPrx;
-typedef CPrx CPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(CPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -355,43 +332,10 @@ struct S3
 namespace Test
 {
 
-}
-
-namespace IceProxy
-{
-
-namespace Test
-{
-
-class C : public virtual ::Ice::Proxy<C, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-}
-
-}
-
-namespace Test
-{
-
 class C : public virtual ::Ice::Object
 {
 public:
 
-    typedef CPrx ProxyType;
     typedef CPtr PointerType;
 
     virtual ~C();
@@ -599,11 +543,6 @@ struct StreamReader< ::Test::S3, S>
 
 }
 /// \endcond
-
-namespace Test
-{
-
-}
 
 #endif
 

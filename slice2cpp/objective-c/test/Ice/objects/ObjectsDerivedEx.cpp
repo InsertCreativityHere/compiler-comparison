@@ -63,6 +63,11 @@ Test::DerivedEx::ice_staticId()
 namespace
 {
 
+}
+
+namespace
+{
+
 const ::IceInternal::DefaultUserExceptionFactoryInit< ::Test::DerivedEx> iceC_Test_DerivedEx_init("::Test::DerivedEx");
 
 }

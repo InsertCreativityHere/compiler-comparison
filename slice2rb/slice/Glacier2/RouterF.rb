@@ -19,7 +19,6 @@ require 'Ice'
 module ::Glacier2
 
     if not defined?(::Glacier2::T_Router)
-        T_Router = ::Ice::__declareClass('::Glacier2::Router')
         T_RouterPrx = ::Ice::__declareProxy('::Glacier2::Router')
     end
 end

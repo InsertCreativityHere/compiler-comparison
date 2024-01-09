@@ -918,11 +918,6 @@ IceBox::ServiceObserver::~ServiceObserver()
 {
 }
 
-/// \cond INTERNAL
-ICEBOX_API ::Ice::Object* IceBox::upCast(ServiceObserver* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_IceBox_ServiceObserver_ids[2] =
@@ -1047,44 +1042,9 @@ IceBox::ServiceObserver::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::
 }
 /// \endcond
 
-/// \cond STREAM
-void
-IceBox::ServiceObserver::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< ServiceObserver, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceBox::ServiceObserver::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< ServiceObserver, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceBox::_icePatchObjectPtr(ServiceObserverPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = ServiceObserverPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(ServiceObserver::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceBox::ServiceManager::~ServiceManager()
 {
 }
-
-/// \cond INTERNAL
-ICEBOX_API ::Ice::Object* IceBox::upCast(ServiceManager* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1243,36 +1203,6 @@ IceBox::ServiceManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::C
             assert(false);
             throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
         }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-IceBox::ServiceManager::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< ServiceManager, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceBox::ServiceManager::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< ServiceManager, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceBox::_icePatchObjectPtr(ServiceManagerPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = ServiceManagerPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(ServiceManager::ice_staticId(), v);
     }
 }
 /// \endcond

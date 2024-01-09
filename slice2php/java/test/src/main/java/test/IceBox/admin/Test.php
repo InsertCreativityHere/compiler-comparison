@@ -42,7 +42,6 @@ namespace Test
             return '::Test::TestFacet';
         }
     }
-    $Test__t_TestFacet = IcePHP_defineClass('::Test::TestFacet', '\\Test\\TestFacet', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_TestFacetPrx = IcePHP_defineProxy('::Test::TestFacet', $Ice__t_ObjectPrx, null);

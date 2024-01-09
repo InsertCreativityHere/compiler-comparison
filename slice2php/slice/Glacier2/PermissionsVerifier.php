@@ -71,7 +71,6 @@ namespace Glacier2
             return '::Glacier2::PermissionsVerifier';
         }
     }
-    $Glacier2__t_PermissionsVerifier = IcePHP_defineClass('::Glacier2::PermissionsVerifier', '\\Glacier2\\PermissionsVerifier', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Glacier2__t_PermissionsVerifierPrx = IcePHP_defineProxy('::Glacier2::PermissionsVerifier', $Ice__t_ObjectPrx, null);
@@ -103,7 +102,6 @@ namespace Glacier2
             return '::Glacier2::SSLPermissionsVerifier';
         }
     }
-    $Glacier2__t_SSLPermissionsVerifier = IcePHP_defineClass('::Glacier2::SSLPermissionsVerifier', '\\Glacier2\\SSLPermissionsVerifier', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Glacier2__t_SSLPermissionsVerifierPrx = IcePHP_defineProxy('::Glacier2::SSLPermissionsVerifier', $Ice__t_ObjectPrx, null);

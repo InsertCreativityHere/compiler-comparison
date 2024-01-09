@@ -1478,11 +1478,6 @@ Ice::Locator::~Locator()
 {
 }
 
-/// \cond INTERNAL
-ICE_API ::Ice::Object* Ice::upCast(Locator* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Ice_Locator_ids[2] =
@@ -1624,44 +1619,9 @@ Ice::Locator::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Ice::Locator::_iceWriteImpl(OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    StreamWriter< Locator, OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Ice::Locator::_iceReadImpl(InputStream* istr)
-{
-    istr->startSlice();
-    StreamReader< Locator, InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Ice::_icePatchObjectPtr(LocatorPtr& handle, const ObjectPtr& v)
-{
-    handle = LocatorPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Locator::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Ice::LocatorRegistry::~LocatorRegistry()
 {
 }
-
-/// \cond INTERNAL
-ICE_API ::Ice::Object* Ice::upCast(LocatorRegistry* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1812,44 +1772,9 @@ Ice::LocatorRegistry::_iceDispatch(::IceInternal::Incoming& in, const Current& c
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Ice::LocatorRegistry::_iceWriteImpl(OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    StreamWriter< LocatorRegistry, OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Ice::LocatorRegistry::_iceReadImpl(InputStream* istr)
-{
-    istr->startSlice();
-    StreamReader< LocatorRegistry, InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Ice::_icePatchObjectPtr(LocatorRegistryPtr& handle, const ObjectPtr& v)
-{
-    handle = LocatorRegistryPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(LocatorRegistry::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Ice::LocatorFinder::~LocatorFinder()
 {
 }
-
-/// \cond INTERNAL
-ICE_API ::Ice::Object* Ice::upCast(LocatorFinder* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1950,36 +1875,6 @@ Ice::LocatorFinder::_iceDispatch(::IceInternal::Incoming& in, const Current& cur
             assert(false);
             throw OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
         }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-Ice::LocatorFinder::_iceWriteImpl(OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    StreamWriter< LocatorFinder, OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Ice::LocatorFinder::_iceReadImpl(InputStream* istr)
-{
-    istr->startSlice();
-    StreamReader< LocatorFinder, InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Ice::_icePatchObjectPtr(LocatorFinderPtr& handle, const ObjectPtr& v)
-{
-    handle = LocatorFinderPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(LocatorFinder::ice_staticId(), v);
     }
 }
 /// \endcond

@@ -37,7 +37,6 @@ namespace Test
             return '::Test::Echo';
         }
     }
-    $Test__t_Echo = IcePHP_defineClass('::Test::Echo', '\\Test\\_Echo', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_EchoPrx = IcePHP_defineProxy('::Test::Echo', $Ice__t_ObjectPrx, null);

@@ -584,7 +584,7 @@ public struct StringMyClassDHelper {
     }
 }
 
-/// Traits for Slice class `OptionalClass`.
+/// Traits for Slice class`OptionalClass`.
 public struct OptionalClassTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::OptionalClass"]
     public static let staticId = "::Test::OptionalClass"
@@ -1382,7 +1382,7 @@ public struct StringStringDHelper {
     }
 }
 
-/// Traits for Slice class `MyClass`.
+/// Traits for Slice class`MyClass`.
 public struct MyClassTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MyClass"]
     public static let staticId = "::Test::MyClass"
@@ -1434,7 +1434,7 @@ open class MyException: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `MyInterface`.
+/// Traits for Slice interface`MyInterface`.
 public struct MyInterfaceTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MyInterface"]
     public static let staticId = "::Test::MyInterface"

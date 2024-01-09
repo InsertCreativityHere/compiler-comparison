@@ -16,7 +16,7 @@
 import Foundation
 import Ice
 
-/// Traits for Slice class `Point`.
+/// Traits for Slice class`Point`.
 public struct PointTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Point"]
     public static let staticId = "::Test::Point"

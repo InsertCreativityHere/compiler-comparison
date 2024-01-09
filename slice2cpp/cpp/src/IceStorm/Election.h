@@ -1483,39 +1483,21 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Node>&);
 
 namespace IceStormElection
 {
-
-class ReplicaObserver;
-/// \cond INTERNAL
-::Ice::Object* upCast(ReplicaObserver*);
-/// \endcond
-typedef ::IceInternal::Handle< ReplicaObserver> ReplicaObserverPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceStormElection::ReplicaObserver> ReplicaObserverPrx;
 typedef ReplicaObserverPrx ReplicaObserverPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(ReplicaObserverPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class TopicManagerSync;
-/// \cond INTERNAL
-::Ice::Object* upCast(TopicManagerSync*);
-/// \endcond
-typedef ::IceInternal::Handle< TopicManagerSync> TopicManagerSyncPtr;
+class ReplicaObserver;
+typedef ::IceInternal::Handle< ReplicaObserver> ReplicaObserverPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceStormElection::TopicManagerSync> TopicManagerSyncPrx;
 typedef TopicManagerSyncPrx TopicManagerSyncPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(TopicManagerSyncPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class Node;
-/// \cond INTERNAL
-::Ice::Object* upCast(Node*);
-/// \endcond
-typedef ::IceInternal::Handle< Node> NodePtr;
+class TopicManagerSync;
+typedef ::IceInternal::Handle< TopicManagerSync> TopicManagerSyncPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceStormElection::Node> NodePrx;
 typedef NodePrx NodePrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(NodePtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class Node;
+typedef ::IceInternal::Handle< Node> NodePtr;
 
 }
 
@@ -3205,7 +3187,6 @@ class ReplicaObserver : public virtual ::Ice::Object
 public:
 
     typedef ReplicaObserverPrx ProxyType;
-    typedef ReplicaObserverPtr PointerType;
 
     virtual ~ReplicaObserver();
     ReplicaObserver() = default;
@@ -3308,26 +3289,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const ReplicaObserver& lhs, const ReplicaObserver& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const ReplicaObserver& lhs, const ReplicaObserver& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * Interface used to sync topics.
@@ -3337,7 +3299,6 @@ class TopicManagerSync : public virtual ::Ice::Object
 public:
 
     typedef TopicManagerSyncPrx ProxyType;
-    typedef TopicManagerSyncPtr PointerType;
 
     virtual ~TopicManagerSync();
     TopicManagerSync() = default;
@@ -3386,26 +3347,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const TopicManagerSync& lhs, const TopicManagerSync& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const TopicManagerSync& lhs, const TopicManagerSync& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * A replica node.
@@ -3415,7 +3357,6 @@ class Node : public virtual ::Ice::Object
 public:
 
     typedef NodePrx ProxyType;
-    typedef NodePtr PointerType;
 
     virtual ~Node();
     Node() = default;
@@ -3545,26 +3486,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const Node& lhs, const Node& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Node& lhs, const Node& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 }
 

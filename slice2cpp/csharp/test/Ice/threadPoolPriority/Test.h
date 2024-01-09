@@ -45,6 +45,11 @@ class PriorityPrx;
 namespace Test
 {
 
+}
+
+namespace Test
+{
+
 class Priority : public virtual ::Ice::Object
 {
 public:
@@ -171,13 +176,6 @@ protected:
 
 }
 
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
-
 /// \cond INTERNAL
 namespace Test
 {
@@ -208,17 +206,16 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Priority>&);
 
 namespace Test
 {
-
-class Priority;
-/// \cond INTERNAL
-::Ice::Object* upCast(Priority*);
-/// \endcond
-typedef ::IceInternal::Handle< Priority> PriorityPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Priority> PriorityPrx;
 typedef PriorityPrx PriorityPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(PriorityPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class Priority;
+typedef ::IceInternal::Handle< Priority> PriorityPtr;
+
+}
+
+namespace Test
+{
 
 }
 
@@ -354,7 +351,6 @@ class Priority : public virtual ::Ice::Object
 public:
 
     typedef PriorityPrx ProxyType;
-    typedef PriorityPtr PointerType;
 
     virtual ~Priority();
     Priority() = default;
@@ -402,35 +398,9 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const Priority& lhs, const Priority& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
 }
-
-inline bool operator<(const Priority& lhs, const Priority& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 namespace Test
 {

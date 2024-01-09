@@ -249,7 +249,6 @@ namespace IceStorm
             return '::IceStorm::Topic';
         }
     }
-    $IceStorm__t_Topic = IcePHP_defineClass('::IceStorm::Topic', '\\IceStorm\\Topic', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceStorm__t_TopicPrx = IcePHP_defineProxy('::IceStorm::Topic', $Ice__t_ObjectPrx, null);
@@ -365,7 +364,6 @@ namespace IceStorm
             return '::IceStorm::TopicManager';
         }
     }
-    $IceStorm__t_TopicManager = IcePHP_defineClass('::IceStorm::TopicManager', '\\IceStorm\\TopicManager', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceStorm__t_TopicManagerPrx = IcePHP_defineProxy('::IceStorm::TopicManager', $Ice__t_ObjectPrx, null);
@@ -400,7 +398,6 @@ namespace IceStorm
             return '::IceStorm::Finder';
         }
     }
-    $IceStorm__t_Finder = IcePHP_defineClass('::IceStorm::Finder', '\\IceStorm\\Finder', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceStorm__t_FinderPrx = IcePHP_defineProxy('::IceStorm::Finder', $Ice__t_ObjectPrx, null);

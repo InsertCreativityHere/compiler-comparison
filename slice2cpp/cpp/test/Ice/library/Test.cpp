@@ -339,11 +339,6 @@ Test::MyInterface::~MyInterface()
 {
 }
 
-/// \cond INTERNAL
-LIBRARY_TEST_API ::Ice::Object* Test::upCast(MyInterface* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Test_MyInterface_ids[2] =
@@ -444,36 +439,6 @@ Test::MyInterface::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curren
             assert(false);
             throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
         }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-Test::MyInterface::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< MyInterface, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::MyInterface::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< MyInterface, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(MyInterfacePtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = MyInterfacePtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(MyInterface::ice_staticId(), v);
     }
 }
 /// \endcond

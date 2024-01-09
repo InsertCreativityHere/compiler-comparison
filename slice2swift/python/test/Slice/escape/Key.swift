@@ -132,25 +132,25 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice interface `del`.
+/// Traits for Slice interface`del`.
 public struct delTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::and::del"]
     public static let staticId = "::and::del"
 }
 
-/// Traits for Slice interface `exec`.
+/// Traits for Slice interface`exec`.
 public struct execTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::and::exec"]
     public static let staticId = "::and::exec"
 }
 
-/// Traits for Slice class ``for``.
+/// Traits for Slice class``for``.
 public struct forTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::and::for"]
     public static let staticId = "::and::for"
 }
 
-/// Traits for Slice interface ``if``.
+/// Traits for Slice interface``if``.
 public struct ifTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::and::del", "::and::exec", "::and::if"]
     public static let staticId = "::and::if"
@@ -382,7 +382,7 @@ open class not: `is` {
     }
 }
 
-/// Traits for Slice interface `print`.
+/// Traits for Slice interface`print`.
 public struct printTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::and::print"]
     public static let staticId = "::and::print"
@@ -880,13 +880,9 @@ public extension printPrx {
     ///
     /// - parameter return: ``for`?`
     ///
-    /// - parameter try: `Ice.Value?`
-    ///
     /// - parameter while: `delPrx?`
     ///
     /// - parameter yield: `execPrx?`
-    ///
-    /// - parameter lambda: `Ice.ObjectPrx?`
     ///
     /// - parameter or: `ifPrx?`
     ///
@@ -895,16 +891,14 @@ public extension printPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `assert`
-    func raise(else iceP_else: `continue`, return iceP_return: `for`?, try iceP_try: Ice.Value?, while iceP_while: delPrx?, yield iceP_yield: execPrx?, lambda iceP_lambda: Ice.ObjectPrx?, or iceP_or: ifPrx?, global iceP_global: Swift.Int32, context: Ice.Context? = nil) throws -> assert {
+    func raise(else iceP_else: `continue`, return iceP_return: `for`?, while iceP_while: delPrx?, yield iceP_yield: execPrx?, or iceP_or: ifPrx?, global iceP_global: Swift.Int32, context: Ice.Context? = nil) throws -> assert {
         return try _impl._invoke(operation: "raise",
                                  mode: .Normal,
                                  write: { ostr in
                                      ostr.write(iceP_else)
                                      ostr.write(iceP_return)
-                                     ostr.write(iceP_try)
                                      ostr.write(iceP_while)
                                      ostr.write(iceP_yield)
-                                     ostr.write(iceP_lambda)
                                      ostr.write(iceP_or)
                                      ostr.write(iceP_global)
                                      ostr.writePendingValues()
@@ -928,13 +922,9 @@ public extension printPrx {
     ///
     /// - parameter return: ``for`?`
     ///
-    /// - parameter try: `Ice.Value?`
-    ///
     /// - parameter while: `delPrx?`
     ///
     /// - parameter yield: `execPrx?`
-    ///
-    /// - parameter lambda: `Ice.ObjectPrx?`
     ///
     /// - parameter or: `ifPrx?`
     ///
@@ -951,16 +941,14 @@ public extension printPrx {
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
     /// - returns: `PromiseKit.Promise<assert>` - The result of the operation
-    func raiseAsync(else iceP_else: `continue`, return iceP_return: `for`?, try iceP_try: Ice.Value?, while iceP_while: delPrx?, yield iceP_yield: execPrx?, lambda iceP_lambda: Ice.ObjectPrx?, or iceP_or: ifPrx?, global iceP_global: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<assert> {
+    func raiseAsync(else iceP_else: `continue`, return iceP_return: `for`?, while iceP_while: delPrx?, yield iceP_yield: execPrx?, or iceP_or: ifPrx?, global iceP_global: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<assert> {
         return _impl._invokeAsync(operation: "raise",
                                   mode: .Normal,
                                   write: { ostr in
                                       ostr.write(iceP_else)
                                       ostr.write(iceP_return)
-                                      ostr.write(iceP_try)
                                       ostr.write(iceP_while)
                                       ostr.write(iceP_yield)
-                                      ostr.write(iceP_lambda)
                                       ostr.write(iceP_or)
                                       ostr.write(iceP_global)
                                       ostr.writePendingValues()
@@ -1182,13 +1170,9 @@ public protocol print {
     ///
     /// - parameter return: ``for`?`
     ///
-    /// - parameter try: `Ice.Value?`
-    ///
     /// - parameter while: `delPrx?`
     ///
     /// - parameter yield: `execPrx?`
-    ///
-    /// - parameter lambda: `Ice.ObjectPrx?`
     ///
     /// - parameter or: `ifPrx?`
     ///
@@ -1197,7 +1181,7 @@ public protocol print {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `assert`
-    func raise(else: `continue`, return: `for`?, try: Ice.Value?, while: delPrx?, yield: execPrx?, lambda: Ice.ObjectPrx?, or: ifPrx?, global: Swift.Int32, current: Ice.Current) throws -> assert
+    func raise(else: `continue`, return: `for`?, while: delPrx?, yield: execPrx?, or: ifPrx?, global: Swift.Int32, current: Ice.Current) throws -> assert
 }
 
 /// del overview.
@@ -1244,22 +1228,19 @@ public extension `if` {}
 ///  - raise: 
 public extension print {
     func _iceD_raise(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_else, iceP_return, iceP_try, iceP_while, iceP_yield, iceP_lambda, iceP_or, iceP_global): (`continue`, `for`?, Ice.Value?, delPrx?, execPrx?, Ice.ObjectPrx?, ifPrx?, Swift.Int32) = try inS.read { istr in
+        let (iceP_else, iceP_return, iceP_while, iceP_yield, iceP_or, iceP_global): (`continue`, `for`?, delPrx?, execPrx?, ifPrx?, Swift.Int32) = try inS.read { istr in
             let iceP_else: `continue` = try istr.read()
             var iceP_return: `for`?
             try istr.read(for.self) { iceP_return = $0 }
-            var iceP_try: Ice.Value?
-            try istr.read() { iceP_try = $0 }
             let iceP_while: delPrx? = try istr.read(delPrx.self)
             let iceP_yield: execPrx? = try istr.read(execPrx.self)
-            let iceP_lambda: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
             let iceP_or: ifPrx? = try istr.read(ifPrx.self)
             let iceP_global: Swift.Int32 = try istr.read()
             try istr.readPendingValues()
-            return (iceP_else, iceP_return, iceP_try, iceP_while, iceP_yield, iceP_lambda, iceP_or, iceP_global)
+            return (iceP_else, iceP_return, iceP_while, iceP_yield, iceP_or, iceP_global)
         }
 
-        let iceP_returnValue = try self.raise(else: iceP_else, return: iceP_return, try: iceP_try, while: iceP_while, yield: iceP_yield, lambda: iceP_lambda, or: iceP_or, global: iceP_global, current: current)
+        let iceP_returnValue = try self.raise(else: iceP_else, return: iceP_return, while: iceP_while, yield: iceP_yield, or: iceP_or, global: iceP_global, current: current)
 
         return inS.setResult{ ostr in
             ostr.write(iceP_returnValue)

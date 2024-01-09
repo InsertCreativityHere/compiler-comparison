@@ -91,11 +91,6 @@ static Derived _iceS_Derived_init;
 
 }
 
-namespace Test
-{
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -135,17 +130,6 @@ using DerivedPtr = ::std::shared_ptr<Derived>;
 namespace IceProxy
 {
 
-namespace Test
-{
-
-class Derived;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Derived>&);
-::IceProxy::Ice::Object* upCast(Derived*);
-/// \endcond
-
-}
-
 }
 
 namespace Test
@@ -156,8 +140,6 @@ class Derived;
 ::Ice::Object* upCast(Derived*);
 /// \endcond
 typedef ::IceInternal::Handle< Derived> DerivedPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Derived> DerivedPrx;
-typedef DerivedPrx DerivedPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(DerivedPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -171,35 +153,8 @@ namespace IceAsync
 }
 /// \endcond
 
-namespace Test
-{
-
-}
-
 namespace IceProxy
 {
-
-namespace Test
-{
-
-class Derived : public virtual ::Ice::Proxy<Derived, ::IceProxy::Test::Base>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-}
 
 }
 
@@ -210,7 +165,6 @@ class Derived : public Base
 {
 public:
 
-    typedef DerivedPrx ProxyType;
     typedef DerivedPtr PointerType;
 
     virtual ~Derived();
@@ -323,11 +277,6 @@ struct StreamReader< ::Test::Derived, S>
 
 }
 /// \endcond
-
-namespace Test
-{
-
-}
 
 #endif
 

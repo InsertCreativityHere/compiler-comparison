@@ -46,6 +46,11 @@ class SessionPrx;
 namespace Test
 {
 
+}
+
+namespace Test
+{
+
 class Session : public virtual ::Glacier2::Session
 {
 public:
@@ -172,13 +177,6 @@ protected:
 
 }
 
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
-
 /// \cond INTERNAL
 namespace Test
 {
@@ -209,17 +207,16 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Session>&);
 
 namespace Test
 {
-
-class Session;
-/// \cond INTERNAL
-::Ice::Object* upCast(Session*);
-/// \endcond
-typedef ::IceInternal::Handle< Session> SessionPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Session> SessionPrx;
 typedef SessionPrx SessionPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(SessionPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class Session;
+typedef ::IceInternal::Handle< Session> SessionPtr;
+
+}
+
+namespace Test
+{
 
 }
 
@@ -404,12 +401,11 @@ protected:
 namespace Test
 {
 
-class Session : virtual public ::Glacier2::Session
+class Session : public virtual ::Glacier2::Session
 {
 public:
 
     typedef SessionPrx ProxyType;
-    typedef SessionPtr PointerType;
 
     virtual ~Session();
     Session() = default;
@@ -457,35 +453,9 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const Session& lhs, const Session& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
 }
-
-inline bool operator<(const Session& lhs, const Session& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 namespace Test
 {

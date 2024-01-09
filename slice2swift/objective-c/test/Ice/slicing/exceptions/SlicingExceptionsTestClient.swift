@@ -315,13 +315,13 @@ open class KnownPreservedDerived: KnownPreserved {
     }
 }
 
-/// Traits for Slice class `BaseClass`.
+/// Traits for Slice class`BaseClass`.
 public struct BaseClassTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::BaseClass"]
     public static let staticId = "::Test::BaseClass"
 }
 
-/// Traits for Slice class `PreservedClass`.
+/// Traits for Slice class`PreservedClass`.
 public struct PreservedClassTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::BaseClass", "::Test::PreservedClass"]
     public static let staticId = "::Test::PreservedClass"
@@ -425,13 +425,13 @@ open class Preserved2: Preserved1 {
     }
 }
 
-/// Traits for Slice interface `Relay`.
+/// Traits for Slice interface`Relay`.
 public struct RelayTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Relay"]
     public static let staticId = "::Test::Relay"
 }
 
-/// Traits for Slice interface `TestIntf`.
+/// Traits for Slice interface`TestIntf`.
 public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::TestIntf"]
     public static let staticId = "::Test::TestIntf"

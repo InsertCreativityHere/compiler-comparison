@@ -560,11 +560,6 @@ IceDiscovery::LookupReply::~LookupReply()
 {
 }
 
-/// \cond INTERNAL
-::Ice::Object* IceDiscovery::upCast(LookupReply* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_IceDiscovery_LookupReply_ids[2] =
@@ -695,44 +690,9 @@ IceDiscovery::LookupReply::_iceDispatch(::IceInternal::Incoming& in, const ::Ice
 }
 /// \endcond
 
-/// \cond STREAM
-void
-IceDiscovery::LookupReply::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< LookupReply, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceDiscovery::LookupReply::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< LookupReply, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceDiscovery::_icePatchObjectPtr(LookupReplyPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = LookupReplyPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(LookupReply::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceDiscovery::Lookup::~Lookup()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* IceDiscovery::upCast(Lookup* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -865,39 +825,5 @@ IceDiscovery::Lookup::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cur
     }
 }
 /// \endcond
-
-/// \cond STREAM
-void
-IceDiscovery::Lookup::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Lookup, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceDiscovery::Lookup::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Lookup, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceDiscovery::_icePatchObjectPtr(LookupPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = LookupPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Lookup::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-namespace Ice
-{
-}
 
 #endif

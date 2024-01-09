@@ -533,14 +533,14 @@ if 'forPrx' not in _M__and.__dict__:
     _M__and.forPrx = Ice.createTempClass()
     class forPrx(Ice.ObjectPrx):
 
-        def foreach(self, _if, _global, require, include, _return, isset, list, new, static, context=None):
-            return _M__and._for._op_foreach.invoke(self, ((_if, _global, require, include, _return, isset, list, new, static), context))
+        def foreach(self, _if, _global, include, _return, list, new, static, context=None):
+            return _M__and._for._op_foreach.invoke(self, ((_if, _global, include, _return, list, new, static), context))
 
-        def foreachAsync(self, _if, _global, require, include, _return, isset, list, new, static, context=None):
-            return _M__and._for._op_foreach.invokeAsync(self, ((_if, _global, require, include, _return, isset, list, new, static), context))
+        def foreachAsync(self, _if, _global, include, _return, list, new, static, context=None):
+            return _M__and._for._op_foreach.invokeAsync(self, ((_if, _global, include, _return, list, new, static), context))
 
-        def begin_foreach(self, _if, _global, require, include, _return, isset, list, new, static, _response=None, _ex=None, _sent=None, context=None):
-            return _M__and._for._op_foreach.begin(self, ((_if, _global, require, include, _return, isset, list, new, static), _response, _ex, _sent, context))
+        def begin_foreach(self, _if, _global, include, _return, list, new, static, _response=None, _ex=None, _sent=None, context=None):
+            return _M__and._for._op_foreach.begin(self, ((_if, _global, include, _return, list, new, static), _response, _ex, _sent, context))
 
         def end_foreach(self, _r):
             return _M__and._for._op_foreach.end(self, _r)
@@ -574,7 +574,7 @@ if 'forPrx' not in _M__and.__dict__:
         def ice_staticId():
             return '::and::for'
 
-        def foreach(self, _if, _global, require, include, _return, isset, list, new, static, current=None):
+        def foreach(self, _if, _global, include, _return, list, new, static, current=None):
             raise NotImplementedError("servant method 'foreach' not implemented")
 
         def __str__(self):
@@ -585,7 +585,7 @@ if 'forPrx' not in _M__and.__dict__:
     _M__and._t_forDisp = IcePy.defineClass('::and::for', _for, (), None, ())
     _for._ice_type = _M__and._t_forDisp
 
-    _for._op_foreach = IcePy.Operation('foreach', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M__and._t__break, False, 0), ((), _M__and._t_echo, False, 0), ((), _M__and._t_enddeclare, False, 0), ((), _M__and._t_functionPrx, False, 0), ((), _M__and._t_diePrx, False, 0), ((), IcePy._t_ObjectPrx, False, 0), ((), _M__and._t_enddeclarePrx, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M__and._t_array, False, 0), (_M__and._t_endif, _M__and._t_endwhile))
+    _for._op_foreach = IcePy.Operation('foreach', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M__and._t_breakPrx, False, 0), ((), _M__and._t_echo, False, 0), ((), _M__and._t_functionPrx, False, 0), ((), _M__and._t_diePrx, False, 0), ((), _M__and._t_enddeclarePrx, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M__and._t_array, False, 0), (_M__and._t_endif, _M__and._t_endwhile))
 
     _M__and._for = _for
     del _for

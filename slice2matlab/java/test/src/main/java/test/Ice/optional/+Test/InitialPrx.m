@@ -63,10 +63,10 @@
 %   opOneOptionalAsync
 %   opOneOptionalReq
 %   opOneOptionalReqAsync
-%   opOneOptionalProxy
-%   opOneOptionalProxyAsync
-%   opOneOptionalProxyReq
-%   opOneOptionalProxyReqAsync
+%   opMyInterfaceProxy
+%   opMyInterfaceProxyAsync
+%   opMyInterfaceProxyReq
+%   opMyInterfaceProxyReqAsync
 %   opByteSeq
 %   opByteSeqAsync
 %   opByteSeqReq
@@ -1447,31 +1447,37 @@ classdef InitialPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('opOneOptionalReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, p3] = opOneOptionalProxy(obj, p1, varargin)
-            % opOneOptionalProxy
+        function [result, p3] = opMyInterfaceProxy(obj, p1, varargin)
+            % opMyInterfaceProxy
             %
             % Parameters:
-            %   p1 (Test.OneOptionalPrx)
+            %   p1 (Test.MyInterfacePrx)
             %   context (containers.Map) - Optional request context.
             %
             % Returns:
-            %   result (Test.OneOptionalPrx)
-            %   p3 (Test.OneOptionalPrx)
+            %   result (Test.MyInterfacePrx)
+            %   p3 (Test.MyInterfacePrx)
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxyOpt(2, p1);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opOneOptionalProxy', 0, true, os_, true, {}, varargin{:});
+            is_ = obj.iceInvoke('opMyInterfaceProxy', 0, true, os_, true, {}, varargin{:});
             is_.startEncapsulation();
-            result = is_.readProxyOpt(1);
-            p3 = is_.readProxyOpt(3);
+            if is_.readOptional(1, Ice.OptionalFormat.FSize)
+                is_.skip(4);
+                result = Test.MyInterfacePrx.ice_read(is_);
+            end
+            if is_.readOptional(3, Ice.OptionalFormat.FSize)
+                is_.skip(4);
+                p3 = Test.MyInterfacePrx.ice_read(is_);
+            end
             is_.endEncapsulation();
         end
-        function r_ = opOneOptionalProxyAsync(obj, p1, varargin)
-            % opOneOptionalProxyAsync
+        function r_ = opMyInterfaceProxyAsync(obj, p1, varargin)
+            % opMyInterfaceProxyAsync
             %
             % Parameters:
-            %   p1 (Test.OneOptionalPrx)
+            %   p1 (Test.MyInterfacePrx)
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -1481,39 +1487,51 @@ classdef InitialPrx < Ice.ObjectPrx
             obj.iceEndWriteParams(os_);
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
-                result = is_.readProxyOpt(1);
-                p3 = is_.readProxyOpt(3);
+                if is_.readOptional(1, Ice.OptionalFormat.FSize)
+                    is_.skip(4);
+                    result = Test.MyInterfacePrx.ice_read(is_);
+                end
+                if is_.readOptional(3, Ice.OptionalFormat.FSize)
+                    is_.skip(4);
+                    p3 = Test.MyInterfacePrx.ice_read(is_);
+                end
                 is_.endEncapsulation();
                 varargout{1} = result;
                 varargout{2} = p3;
             end
-            r_ = obj.iceInvokeAsync('opOneOptionalProxy', 0, true, os_, 2, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('opMyInterfaceProxy', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, p3] = opOneOptionalProxyReq(obj, p1, varargin)
-            % opOneOptionalProxyReq
+        function [result, p3] = opMyInterfaceProxyReq(obj, p1, varargin)
+            % opMyInterfaceProxyReq
             %
             % Parameters:
-            %   p1 (Test.OneOptionalPrx)
+            %   p1 (Test.MyInterfacePrx)
             %   context (containers.Map) - Optional request context.
             %
             % Returns:
-            %   result (Test.OneOptionalPrx)
-            %   p3 (Test.OneOptionalPrx)
+            %   result (Test.MyInterfacePrx)
+            %   p3 (Test.MyInterfacePrx)
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeProxyOpt(2, p1);
             obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opOneOptionalProxyReq', 0, true, os_, true, {}, varargin{:});
+            is_ = obj.iceInvoke('opMyInterfaceProxyReq', 0, true, os_, true, {}, varargin{:});
             is_.startEncapsulation();
-            result = is_.readProxyOpt(1);
-            p3 = is_.readProxyOpt(3);
+            if is_.readOptional(1, Ice.OptionalFormat.FSize)
+                is_.skip(4);
+                result = Test.MyInterfacePrx.ice_read(is_);
+            end
+            if is_.readOptional(3, Ice.OptionalFormat.FSize)
+                is_.skip(4);
+                p3 = Test.MyInterfacePrx.ice_read(is_);
+            end
             is_.endEncapsulation();
         end
-        function r_ = opOneOptionalProxyReqAsync(obj, p1, varargin)
-            % opOneOptionalProxyReqAsync
+        function r_ = opMyInterfaceProxyReqAsync(obj, p1, varargin)
+            % opMyInterfaceProxyReqAsync
             %
             % Parameters:
-            %   p1 (Test.OneOptionalPrx)
+            %   p1 (Test.MyInterfacePrx)
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -1523,13 +1541,19 @@ classdef InitialPrx < Ice.ObjectPrx
             obj.iceEndWriteParams(os_);
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
-                result = is_.readProxyOpt(1);
-                p3 = is_.readProxyOpt(3);
+                if is_.readOptional(1, Ice.OptionalFormat.FSize)
+                    is_.skip(4);
+                    result = Test.MyInterfacePrx.ice_read(is_);
+                end
+                if is_.readOptional(3, Ice.OptionalFormat.FSize)
+                    is_.skip(4);
+                    p3 = Test.MyInterfacePrx.ice_read(is_);
+                end
                 is_.endEncapsulation();
                 varargout{1} = result;
                 varargout{2} = p3;
             end
-            r_ = obj.iceInvokeAsync('opOneOptionalProxyReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('opMyInterfaceProxyReq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, p3] = opByteSeq(obj, p1, varargin)
             % opByteSeq

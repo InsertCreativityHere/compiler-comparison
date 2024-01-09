@@ -47,6 +47,12 @@
 namespace Ice
 {
 
+
+}
+
+namespace Ice
+{
+
 /**
  * A simple collection of properties, represented as a dictionary of key/value pairs. Both key and value are
  * strings.
@@ -57,6 +63,11 @@ using PropertyDict = ::std::map<::std::string, ::std::string>;
 }
 
 #else // C++98 mapping
+
+namespace Ice
+{
+
+}
 
 namespace Ice
 {

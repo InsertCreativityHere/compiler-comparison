@@ -29,12 +29,6 @@
 %   getAMDMBAsync
 %   getAll
 %   getAllAsync
-%   getH
-%   getHAsync
-%   getI
-%   getIAsync
-%   getJ
-%   getJAsync
 %   getK
 %   getKAsync
 %   opValue
@@ -49,8 +43,6 @@
 %   throwEDerivedAsync
 %   setG
 %   setGAsync
-%   setI
-%   setIAsync
 %   opBaseSeq
 %   opBaseSeqAsync
 %   getCompact
@@ -73,8 +65,6 @@
 %   hasF3Async
 %   opF3
 %   opF3Async
-%   opN
-%   opNAsync
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
 %   uncheckedCast - Downcasts the given proxy to this type without contacting the remote server.
 
@@ -543,108 +533,6 @@ classdef InitialPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('getAll', 0, true, [], 4, @unmarshal, {}, varargin{:});
         end
-        function result = getH(obj, varargin)
-            % getH
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.I)
-            
-            is_ = obj.iceInvoke('getH', 0, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result_h_ = IceInternal.ValueHolder();
-            is_.readValue(@(v) result_h_.set(v), 'Ice.Value');
-            is_.readPendingValues();
-            is_.endEncapsulation();
-            result = result_h_.value;
-        end
-        function r_ = getHAsync(obj, varargin)
-            % getHAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = IceInternal.ValueHolder();
-                is_.readValue(@(v) result.set(v), 'Ice.Value');
-                is_.readPendingValues();
-                is_.endEncapsulation();
-                varargout{1} = result.value;
-            end
-            r_ = obj.iceInvokeAsync('getH', 0, true, [], 1, @unmarshal, {}, varargin{:});
-        end
-        function result = getI(obj, varargin)
-            % getI
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.I)
-            
-            is_ = obj.iceInvoke('getI', 0, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result_h_ = IceInternal.ValueHolder();
-            is_.readValue(@(v) result_h_.set(v), 'Ice.Value');
-            is_.readPendingValues();
-            is_.endEncapsulation();
-            result = result_h_.value;
-        end
-        function r_ = getIAsync(obj, varargin)
-            % getIAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = IceInternal.ValueHolder();
-                is_.readValue(@(v) result.set(v), 'Ice.Value');
-                is_.readPendingValues();
-                is_.endEncapsulation();
-                varargout{1} = result.value;
-            end
-            r_ = obj.iceInvokeAsync('getI', 0, true, [], 1, @unmarshal, {}, varargin{:});
-        end
-        function result = getJ(obj, varargin)
-            % getJ
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.I)
-            
-            is_ = obj.iceInvoke('getJ', 0, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result_h_ = IceInternal.ValueHolder();
-            is_.readValue(@(v) result_h_.set(v), 'Ice.Value');
-            is_.readPendingValues();
-            is_.endEncapsulation();
-            result = result_h_.value;
-        end
-        function r_ = getJAsync(obj, varargin)
-            % getJAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = IceInternal.ValueHolder();
-                is_.readValue(@(v) result.set(v), 'Ice.Value');
-                is_.readPendingValues();
-                is_.endEncapsulation();
-                varargout{1} = result.value;
-            end
-            r_ = obj.iceInvokeAsync('getJ', 0, true, [], 1, @unmarshal, {}, varargin{:});
-        end
         function result = getK(obj, varargin)
             % getK
             %
@@ -916,34 +804,6 @@ classdef InitialPrx < Ice.ObjectPrx
             os_.writePendingValues();
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('setG', 0, false, os_, 0, [], {}, varargin{:});
-        end
-        function setI(obj, theI, varargin)
-            % setI
-            %
-            % Parameters:
-            %   theI (Test.I)
-            %   context (containers.Map) - Optional request context.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeValue(theI);
-            os_.writePendingValues();
-            obj.iceEndWriteParams(os_);
-            obj.iceInvoke('setI', 0, false, os_, false, {}, varargin{:});
-        end
-        function r_ = setIAsync(obj, theI, varargin)
-            % setIAsync
-            %
-            % Parameters:
-            %   theI (Test.I)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeValue(theI);
-            os_.writePendingValues();
-            obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('setI', 0, false, os_, 0, [], {}, varargin{:});
         end
         function [result, outSeq] = opBaseSeq(obj, inSeq, varargin)
             % opBaseSeq
@@ -1357,50 +1217,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{2} = f32.value;
             end
             r_ = obj.iceInvokeAsync('opF3', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function result = opN(obj, p1, varargin)
-            % opN
-            %
-            % Parameters:
-            %   p1 (Test.N)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.N)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeValue(p1);
-            os_.writePendingValues();
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opN', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result_h_ = IceInternal.ValueHolder();
-            is_.readValue(@(v) result_h_.set(v), 'Test.N');
-            is_.readPendingValues();
-            is_.endEncapsulation();
-            result = result_h_.value;
-        end
-        function r_ = opNAsync(obj, p1, varargin)
-            % opNAsync
-            %
-            % Parameters:
-            %   p1 (Test.N)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeValue(p1);
-            os_.writePendingValues();
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = IceInternal.ValueHolder();
-                is_.readValue(@(v) result.set(v), 'Test.N');
-                is_.readPendingValues();
-                is_.endEncapsulation();
-                varargout{1} = result.value;
-            end
-            r_ = obj.iceInvokeAsync('opN', 0, true, os_, 1, @unmarshal, {}, varargin{:});
         end
     end
     methods(Static)

@@ -52,12 +52,10 @@ class RouterPrx;
 
 }
 
-/// \cond STREAM
-namespace Ice
+namespace Glacier2
 {
 
 }
-/// \endcond
 
 /// \cond INTERNAL
 namespace Glacier2
@@ -89,26 +87,18 @@ GLACIER2_API ::IceProxy::Ice::Object* upCast(Router*);
 
 namespace Glacier2
 {
-
-class Router;
-/// \cond INTERNAL
-GLACIER2_API ::Ice::Object* upCast(Router*);
-/// \endcond
-typedef ::IceInternal::Handle< Router> RouterPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Glacier2::Router> RouterPrx;
 typedef RouterPrx RouterPrxPtr;
-/// \cond INTERNAL
-GLACIER2_API void _icePatchObjectPtr(RouterPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class Router;
+typedef ::IceInternal::Handle< Router> RouterPtr;
 
 }
 
-/// \cond STREAM
-namespace Ice
+namespace Glacier2
 {
 
 }
-/// \endcond
 
 #endif
 

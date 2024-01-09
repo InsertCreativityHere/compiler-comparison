@@ -1898,11 +1898,6 @@ Glacier2::Session::~Session()
 {
 }
 
-/// \cond INTERNAL
-GLACIER2_API ::Ice::Object* Glacier2::upCast(Session* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Glacier2_Session_ids[2] =
@@ -2004,44 +1999,9 @@ Glacier2::Session::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curren
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Glacier2::Session::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Session, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Glacier2::Session::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Session, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Glacier2::_icePatchObjectPtr(SessionPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = SessionPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Session::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Glacier2::StringSet::~StringSet()
 {
 }
-
-/// \cond INTERNAL
-GLACIER2_API ::Ice::Object* Glacier2::upCast(StringSet* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -2186,44 +2146,9 @@ Glacier2::StringSet::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Glacier2::StringSet::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< StringSet, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Glacier2::StringSet::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< StringSet, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Glacier2::_icePatchObjectPtr(StringSetPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = StringSetPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(StringSet::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Glacier2::IdentitySet::~IdentitySet()
 {
 }
-
-/// \cond INTERNAL
-GLACIER2_API ::Ice::Object* Glacier2::upCast(IdentitySet* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -2368,44 +2293,9 @@ Glacier2::IdentitySet::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Glacier2::IdentitySet::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< IdentitySet, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Glacier2::IdentitySet::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< IdentitySet, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Glacier2::_icePatchObjectPtr(IdentitySetPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = IdentitySetPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(IdentitySet::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Glacier2::SessionControl::~SessionControl()
 {
 }
-
-/// \cond INTERNAL
-GLACIER2_API ::Ice::Object* Glacier2::upCast(SessionControl* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -2584,44 +2474,9 @@ Glacier2::SessionControl::_iceDispatch(::IceInternal::Incoming& in, const ::Ice:
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Glacier2::SessionControl::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< SessionControl, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Glacier2::SessionControl::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< SessionControl, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Glacier2::_icePatchObjectPtr(SessionControlPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = SessionControlPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(SessionControl::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Glacier2::SessionManager::~SessionManager()
 {
 }
-
-/// \cond INTERNAL
-GLACIER2_API ::Ice::Object* Glacier2::upCast(SessionManager* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -2732,44 +2587,9 @@ Glacier2::SessionManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice:
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Glacier2::SessionManager::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< SessionManager, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Glacier2::SessionManager::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< SessionManager, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Glacier2::_icePatchObjectPtr(SessionManagerPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = SessionManagerPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(SessionManager::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Glacier2::SSLSessionManager::~SSLSessionManager()
 {
 }
-
-/// \cond INTERNAL
-GLACIER2_API ::Ice::Object* Glacier2::upCast(SSLSessionManager* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -2876,36 +2696,6 @@ Glacier2::SSLSessionManager::_iceDispatch(::IceInternal::Incoming& in, const ::I
             assert(false);
             throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
         }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-Glacier2::SSLSessionManager::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< SSLSessionManager, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Glacier2::SSLSessionManager::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< SSLSessionManager, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Glacier2::_icePatchObjectPtr(SSLSessionManagerPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = SSLSessionManagerPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(SSLSessionManager::ice_staticId(), v);
     }
 }
 /// \endcond

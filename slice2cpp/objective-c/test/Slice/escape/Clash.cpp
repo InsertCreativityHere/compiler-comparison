@@ -1116,48 +1116,9 @@ IceProxy::Clash::Intf::ice_staticId()
     return ::Clash::Intf::ice_staticId();
 }
 
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Clash::upCast(Cls* p) { return p; }
-
-void
-::IceProxy::Clash::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< Cls>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new Cls;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Clash::Cls::_newInstance() const
-{
-    return new Cls;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Clash::Cls::ice_staticId()
-{
-    return ::Clash::Cls::ice_staticId();
-}
-
 Clash::Intf::~Intf()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Clash::upCast(Intf* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1531,36 +1492,6 @@ Clash::Intf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cur
             assert(false);
             throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
         }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-Clash::Intf::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Intf, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Clash::Intf::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Intf, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Clash::_icePatchObjectPtr(IntfPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = IntfPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Intf::ice_staticId(), v);
     }
 }
 /// \endcond

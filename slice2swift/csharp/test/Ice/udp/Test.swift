@@ -17,7 +17,7 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice interface `PingReply`.
+/// Traits for Slice interface`PingReply`.
 public struct PingReplyTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::PingReply"]
     public static let staticId = "::Test::PingReply"
@@ -25,7 +25,7 @@ public struct PingReplyTraits: Ice.SliceTraits {
 
 public typealias ByteSeq = Foundation.Data
 
-/// Traits for Slice interface `TestIntf`.
+/// Traits for Slice interface`TestIntf`.
 public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::TestIntf"]
     public static let staticId = "::Test::TestIntf"

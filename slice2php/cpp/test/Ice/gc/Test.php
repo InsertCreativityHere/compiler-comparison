@@ -695,17 +695,6 @@ namespace Test\CCC
 
 namespace Test\CCC
 {
-    global $Test_CCC__t_ForwardProxySeq;
-
-    if(!isset($Test_CCC__t_ForwardProxySeq))
-    {
-        global $Ice__t_ObjectPrx;
-        $Test_CCC__t_ForwardProxySeq = IcePHP_defineSequence('::Test::CCC::ForwardProxySeq', $Ice__t_ObjectPrx);
-    }
-}
-
-namespace Test\CCC
-{
     global $Test_CCC__t_Forward;
     class Forward extends \Ice\Value
     {
@@ -756,7 +745,6 @@ namespace Test\DDD
             return '::Test::DDD::I';
         }
     }
-    $Test_DDD__t_I = IcePHP_defineClass('::Test::DDD::I', '\\Test\\DDD\\I', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test_DDD__t_IPrx = IcePHP_defineProxy('::Test::DDD::I', $Ice__t_ObjectPrx, null);
@@ -808,14 +796,11 @@ namespace Test\DDD
     global $Test_DDD__t_U;
     class U extends \Ice\Value
     {
-        public function __construct($myI=null, $myIstar=null, $myC=null, $myCstar=null, $myC2=null, $myC2star=null)
+        public function __construct($myIstar=null, $myC=null, $myC2=null)
         {
-            $this->myI = $myI;
             $this->myIstar = $myIstar;
             $this->myC = $myC;
-            $this->myCstar = $myCstar;
             $this->myC2 = $myC2;
-            $this->myC2star = $myC2star;
         }
 
         public function ice_id()
@@ -834,29 +819,21 @@ namespace Test\DDD
             return IcePHP_stringify($this, $Test_DDD__t_U);
         }
 
-        public $myI;
         public $myIstar;
         public $myC;
-        public $myCstar;
         public $myC2;
-        public $myC2star;
     }
 
     $Test_DDD__t_U = IcePHP_declareClass('::Test::DDD::U');
 
     global $Ice__t_Value;
-    global $Test_DDD__t_I;
     global $Test_DDD__t_IPrx;
     global $Test_DDD__t_C;
-    global $Ice__t_ObjectPrx;
     global $Test_DDD__t_C2;
     $Test_DDD__t_U = IcePHP_defineClass('::Test::DDD::U', '\\Test\\DDD\\U', -1, false, false, $Ice__t_Value, array(
-        array('myI', $Test_DDD__t_I, false, 0),
         array('myIstar', $Test_DDD__t_IPrx, false, 0),
         array('myC', $Test_DDD__t_C, false, 0),
-        array('myCstar', $Ice__t_ObjectPrx, false, 0),
-        array('myC2', $Test_DDD__t_C2, false, 0),
-        array('myC2star', $Ice__t_ObjectPrx, false, 0)));
+        array('myC2', $Test_DDD__t_C2, false, 0)));
 }
 
 namespace Test\DDD

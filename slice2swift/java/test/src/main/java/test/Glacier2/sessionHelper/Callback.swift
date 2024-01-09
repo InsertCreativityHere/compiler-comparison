@@ -63,13 +63,13 @@ open class CallbackException: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `CallbackReceiver`.
+/// Traits for Slice interface`CallbackReceiver`.
 public struct CallbackReceiverTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::CallbackReceiver"]
     public static let staticId = "::Test::CallbackReceiver"
 }
 
-/// Traits for Slice interface `Callback`.
+/// Traits for Slice interface`Callback`.
 public struct CallbackTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Callback"]
     public static let staticId = "::Test::Callback"

@@ -160,7 +160,6 @@ namespace IceMX
 /**
  * The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
  * of an application that enabled the Ice administrative facility and configured some metrics views.
- * \headerfile Ice/Ice.h
  */
 class ICE_API MetricsAdmin : public virtual ::Ice::Object
 {
@@ -810,7 +809,6 @@ namespace IceMX
 /**
  * The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
  * of an application that enabled the Ice administrative facility and configured some metrics views.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) MetricsAdminPrx : public virtual ::Ice::Proxy<MetricsAdminPrx, ::Ice::ObjectPrx>
 {
@@ -1333,58 +1331,10 @@ namespace IceProxy
 namespace IceMX
 {
 
-class Metrics;
-/// \cond INTERNAL
-ICE_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Metrics>&);
-ICE_API ::IceProxy::Ice::Object* upCast(Metrics*);
-/// \endcond
-
 class MetricsAdmin;
 /// \cond INTERNAL
 ICE_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< MetricsAdmin>&);
 ICE_API ::IceProxy::Ice::Object* upCast(MetricsAdmin*);
-/// \endcond
-
-class ThreadMetrics;
-/// \cond INTERNAL
-ICE_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< ThreadMetrics>&);
-ICE_API ::IceProxy::Ice::Object* upCast(ThreadMetrics*);
-/// \endcond
-
-class DispatchMetrics;
-/// \cond INTERNAL
-ICE_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< DispatchMetrics>&);
-ICE_API ::IceProxy::Ice::Object* upCast(DispatchMetrics*);
-/// \endcond
-
-class ChildInvocationMetrics;
-/// \cond INTERNAL
-ICE_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< ChildInvocationMetrics>&);
-ICE_API ::IceProxy::Ice::Object* upCast(ChildInvocationMetrics*);
-/// \endcond
-
-class CollocatedMetrics;
-/// \cond INTERNAL
-ICE_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< CollocatedMetrics>&);
-ICE_API ::IceProxy::Ice::Object* upCast(CollocatedMetrics*);
-/// \endcond
-
-class RemoteMetrics;
-/// \cond INTERNAL
-ICE_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< RemoteMetrics>&);
-ICE_API ::IceProxy::Ice::Object* upCast(RemoteMetrics*);
-/// \endcond
-
-class InvocationMetrics;
-/// \cond INTERNAL
-ICE_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< InvocationMetrics>&);
-ICE_API ::IceProxy::Ice::Object* upCast(InvocationMetrics*);
-/// \endcond
-
-class ConnectionMetrics;
-/// \cond INTERNAL
-ICE_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< ConnectionMetrics>&);
-ICE_API ::IceProxy::Ice::Object* upCast(ConnectionMetrics*);
 /// \endcond
 
 }
@@ -1399,30 +1349,20 @@ class Metrics;
 ICE_API ::Ice::Object* upCast(Metrics*);
 /// \endcond
 typedef ::IceInternal::Handle< Metrics> MetricsPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceMX::Metrics> MetricsPrx;
-typedef MetricsPrx MetricsPrxPtr;
 /// \cond INTERNAL
 ICE_API void _icePatchObjectPtr(MetricsPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-class MetricsAdmin;
-/// \cond INTERNAL
-ICE_API ::Ice::Object* upCast(MetricsAdmin*);
-/// \endcond
-typedef ::IceInternal::Handle< MetricsAdmin> MetricsAdminPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceMX::MetricsAdmin> MetricsAdminPrx;
 typedef MetricsAdminPrx MetricsAdminPrxPtr;
-/// \cond INTERNAL
-ICE_API void _icePatchObjectPtr(MetricsAdminPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class MetricsAdmin;
+typedef ::IceInternal::Handle< MetricsAdmin> MetricsAdminPtr;
 
 class ThreadMetrics;
 /// \cond INTERNAL
 ICE_API ::Ice::Object* upCast(ThreadMetrics*);
 /// \endcond
 typedef ::IceInternal::Handle< ThreadMetrics> ThreadMetricsPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceMX::ThreadMetrics> ThreadMetricsPrx;
-typedef ThreadMetricsPrx ThreadMetricsPrxPtr;
 /// \cond INTERNAL
 ICE_API void _icePatchObjectPtr(ThreadMetricsPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1432,8 +1372,6 @@ class DispatchMetrics;
 ICE_API ::Ice::Object* upCast(DispatchMetrics*);
 /// \endcond
 typedef ::IceInternal::Handle< DispatchMetrics> DispatchMetricsPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceMX::DispatchMetrics> DispatchMetricsPrx;
-typedef DispatchMetricsPrx DispatchMetricsPrxPtr;
 /// \cond INTERNAL
 ICE_API void _icePatchObjectPtr(DispatchMetricsPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1443,8 +1381,6 @@ class ChildInvocationMetrics;
 ICE_API ::Ice::Object* upCast(ChildInvocationMetrics*);
 /// \endcond
 typedef ::IceInternal::Handle< ChildInvocationMetrics> ChildInvocationMetricsPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceMX::ChildInvocationMetrics> ChildInvocationMetricsPrx;
-typedef ChildInvocationMetricsPrx ChildInvocationMetricsPrxPtr;
 /// \cond INTERNAL
 ICE_API void _icePatchObjectPtr(ChildInvocationMetricsPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1454,8 +1390,6 @@ class CollocatedMetrics;
 ICE_API ::Ice::Object* upCast(CollocatedMetrics*);
 /// \endcond
 typedef ::IceInternal::Handle< CollocatedMetrics> CollocatedMetricsPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceMX::CollocatedMetrics> CollocatedMetricsPrx;
-typedef CollocatedMetricsPrx CollocatedMetricsPrxPtr;
 /// \cond INTERNAL
 ICE_API void _icePatchObjectPtr(CollocatedMetricsPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1465,8 +1399,6 @@ class RemoteMetrics;
 ICE_API ::Ice::Object* upCast(RemoteMetrics*);
 /// \endcond
 typedef ::IceInternal::Handle< RemoteMetrics> RemoteMetricsPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceMX::RemoteMetrics> RemoteMetricsPrx;
-typedef RemoteMetricsPrx RemoteMetricsPrxPtr;
 /// \cond INTERNAL
 ICE_API void _icePatchObjectPtr(RemoteMetricsPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1476,8 +1408,6 @@ class InvocationMetrics;
 ICE_API ::Ice::Object* upCast(InvocationMetrics*);
 /// \endcond
 typedef ::IceInternal::Handle< InvocationMetrics> InvocationMetricsPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceMX::InvocationMetrics> InvocationMetricsPrx;
-typedef InvocationMetricsPrx InvocationMetricsPrxPtr;
 /// \cond INTERNAL
 ICE_API void _icePatchObjectPtr(InvocationMetricsPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1487,8 +1417,6 @@ class ConnectionMetrics;
 ICE_API ::Ice::Object* upCast(ConnectionMetrics*);
 /// \endcond
 typedef ::IceInternal::Handle< ConnectionMetrics> ConnectionMetricsPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceMX::ConnectionMetrics> ConnectionMetricsPrx;
-typedef ConnectionMetricsPrx ConnectionMetricsPrxPtr;
 /// \cond INTERNAL
 ICE_API void _icePatchObjectPtr(ConnectionMetricsPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1635,23 +1563,6 @@ namespace IceProxy
 
 namespace IceMX
 {
-
-class ICE_CLASS(ICE_API) Metrics : public virtual ::Ice::Proxy<Metrics, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    ICE_MEMBER(ICE_API) virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
 
 class ICE_CLASS(ICE_API) MetricsAdmin : public virtual ::Ice::Proxy<MetricsAdmin, ::IceProxy::Ice::Object>
 {
@@ -2222,126 +2133,135 @@ protected:
     /// \endcond
 };
 
-class ICE_CLASS(ICE_API) ThreadMetrics : public virtual ::Ice::Proxy<ThreadMetrics, ::IceProxy::IceMX::Metrics>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    ICE_MEMBER(ICE_API) virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class ICE_CLASS(ICE_API) DispatchMetrics : public virtual ::Ice::Proxy<DispatchMetrics, ::IceProxy::IceMX::Metrics>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    ICE_MEMBER(ICE_API) virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class ICE_CLASS(ICE_API) ChildInvocationMetrics : public virtual ::Ice::Proxy<ChildInvocationMetrics, ::IceProxy::IceMX::Metrics>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    ICE_MEMBER(ICE_API) virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class ICE_CLASS(ICE_API) CollocatedMetrics : public virtual ::Ice::Proxy<CollocatedMetrics, ::IceProxy::IceMX::ChildInvocationMetrics>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    ICE_MEMBER(ICE_API) virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class ICE_CLASS(ICE_API) RemoteMetrics : public virtual ::Ice::Proxy<RemoteMetrics, ::IceProxy::IceMX::ChildInvocationMetrics>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    ICE_MEMBER(ICE_API) virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class ICE_CLASS(ICE_API) InvocationMetrics : public virtual ::Ice::Proxy<InvocationMetrics, ::IceProxy::IceMX::Metrics>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    ICE_MEMBER(ICE_API) virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class ICE_CLASS(ICE_API) ConnectionMetrics : public virtual ::Ice::Proxy<ConnectionMetrics, ::IceProxy::IceMX::Metrics>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    ICE_MEMBER(ICE_API) virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
+}
 
 }
+
+namespace IceMX
+{
+
+/**
+ * The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
+ * of an application that enabled the Ice administrative facility and configured some metrics views.
+ */
+class ICE_API MetricsAdmin : public virtual ::Ice::Object
+{
+public:
+
+    typedef MetricsAdminPrx ProxyType;
+
+    virtual ~MetricsAdmin();
+    MetricsAdmin() = default;
+    MetricsAdmin(const MetricsAdmin&) = default;
+    MetricsAdmin& operator=(const MetricsAdmin&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /**
+     * Get the names of enabled and disabled metrics.
+     * @param disabledViews The names of the disabled views.
+     * @param current The Current object for the invocation.
+     * @return The name of the enabled views.
+     */
+    virtual ::Ice::StringSeq getMetricsViewNames(::Ice::StringSeq& disabledViews, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getMetricsViewNames(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Enables a metrics view.
+     * @param name The metrics view name.
+     * @param current The Current object for the invocation.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
+     */
+    virtual void enableMetricsView(const ::std::string& name, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_enableMetricsView(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Disable a metrics view.
+     * @param name The metrics view name.
+     * @param current The Current object for the invocation.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
+     */
+    virtual void disableMetricsView(const ::std::string& name, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_disableMetricsView(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
+     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
+     * the invocation latency for this operation.
+     * @param view The name of the metrics view.
+     * @param timestamp The local time of the process when the metrics object were retrieved.
+     * @param current The Current object for the invocation.
+     * @return The metrics view data.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
+     */
+    virtual MetricsView getMetricsView(const ::std::string& view, ::Ice::Long& timestamp, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getMetricsView(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Get the metrics failures associated with the given view and map.
+     * @param view The name of the metrics view.
+     * @param map The name of the metrics map.
+     * @param current The Current object for the invocation.
+     * @return The metrics failures associated with the map.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
+     */
+    virtual MetricsFailuresSeq getMapMetricsFailures(const ::std::string& view, const ::std::string& map, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getMapMetricsFailures(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /**
+     * Get the metrics failure associated for the given metrics.
+     * @param view The name of the metrics view.
+     * @param map The name of the metrics map.
+     * @param id The ID of the metrics.
+     * @param current The Current object for the invocation.
+     * @return The metrics failures associated with the metrics.
+     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
+     */
+    virtual MetricsFailures getMetricsFailures(const ::std::string& view, const ::std::string& map, const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getMetricsFailures(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
 
 }
 
@@ -2356,7 +2276,6 @@ class ICE_API Metrics : public virtual ::Ice::Object
 {
 public:
 
-    typedef MetricsPrx ProxyType;
     typedef MetricsPtr PointerType;
 
     virtual ~Metrics();
@@ -2478,150 +2397,6 @@ inline bool operator<(const Metrics& lhs, const Metrics& rhs)
 /// \endcond
 
 /**
- * The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
- * of an application that enabled the Ice administrative facility and configured some metrics views.
- * \headerfile Ice/Ice.h
- */
-class ICE_API MetricsAdmin : public virtual ::Ice::Object
-{
-public:
-
-    typedef MetricsAdminPrx ProxyType;
-    typedef MetricsAdminPtr PointerType;
-
-    virtual ~MetricsAdmin();
-    MetricsAdmin() = default;
-    MetricsAdmin(const MetricsAdmin&) = default;
-    MetricsAdmin& operator=(const MetricsAdmin&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Get the names of enabled and disabled metrics.
-     * @param disabledViews The names of the disabled views.
-     * @param current The Current object for the invocation.
-     * @return The name of the enabled views.
-     */
-    virtual ::Ice::StringSeq getMetricsViewNames(::Ice::StringSeq& disabledViews, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getMetricsViewNames(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Enables a metrics view.
-     * @param name The metrics view name.
-     * @param current The Current object for the invocation.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
-     */
-    virtual void enableMetricsView(const ::std::string& name, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_enableMetricsView(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Disable a metrics view.
-     * @param name The metrics view name.
-     * @param current The Current object for the invocation.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
-     */
-    virtual void disableMetricsView(const ::std::string& name, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_disableMetricsView(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
-     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
-     * the invocation latency for this operation.
-     * @param view The name of the metrics view.
-     * @param timestamp The local time of the process when the metrics object were retrieved.
-     * @param current The Current object for the invocation.
-     * @return The metrics view data.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
-     */
-    virtual MetricsView getMetricsView(const ::std::string& view, ::Ice::Long& timestamp, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getMetricsView(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Get the metrics failures associated with the given view and map.
-     * @param view The name of the metrics view.
-     * @param map The name of the metrics map.
-     * @param current The Current object for the invocation.
-     * @return The metrics failures associated with the map.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
-     */
-    virtual MetricsFailuresSeq getMapMetricsFailures(const ::std::string& view, const ::std::string& map, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getMapMetricsFailures(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /**
-     * Get the metrics failure associated for the given metrics.
-     * @param view The name of the metrics view.
-     * @param map The name of the metrics map.
-     * @param id The ID of the metrics.
-     * @param current The Current object for the invocation.
-     * @return The metrics failures associated with the metrics.
-     * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
-     */
-    virtual MetricsFailures getMetricsFailures(const ::std::string& view, const ::std::string& map, const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getMetricsFailures(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const MetricsAdmin& lhs, const MetricsAdmin& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const MetricsAdmin& lhs, const MetricsAdmin& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-/**
  * Provides information on the number of threads currently in use and their activity.
  * \headerfile Ice/Ice.h
  */
@@ -2629,7 +2404,6 @@ class ICE_API ThreadMetrics : public Metrics
 {
 public:
 
-    typedef ThreadMetricsPrx ProxyType;
     typedef ThreadMetricsPtr PointerType;
 
     virtual ~ThreadMetrics();
@@ -2750,7 +2524,6 @@ class ICE_API DispatchMetrics : public Metrics
 {
 public:
 
-    typedef DispatchMetricsPrx ProxyType;
     typedef DispatchMetricsPtr PointerType;
 
     virtual ~DispatchMetrics();
@@ -2872,7 +2645,6 @@ class ICE_API ChildInvocationMetrics : public Metrics
 {
 public:
 
-    typedef ChildInvocationMetricsPrx ProxyType;
     typedef ChildInvocationMetricsPtr PointerType;
 
     virtual ~ChildInvocationMetrics();
@@ -2986,7 +2758,6 @@ class ICE_API CollocatedMetrics : public ChildInvocationMetrics
 {
 public:
 
-    typedef CollocatedMetricsPrx ProxyType;
     typedef CollocatedMetricsPtr PointerType;
 
     virtual ~CollocatedMetrics();
@@ -3084,7 +2855,6 @@ class ICE_API RemoteMetrics : public ChildInvocationMetrics
 {
 public:
 
-    typedef RemoteMetricsPrx ProxyType;
     typedef RemoteMetricsPtr PointerType;
 
     virtual ~RemoteMetrics();
@@ -3181,7 +2951,6 @@ class ICE_API InvocationMetrics : public Metrics, public ::IceInternal::GCObject
 {
 public:
 
-    typedef InvocationMetricsPrx ProxyType;
     typedef InvocationMetricsPtr PointerType;
 
     virtual ~InvocationMetrics();
@@ -3311,7 +3080,6 @@ class ICE_API ConnectionMetrics : public Metrics
 {
 public:
 
-    typedef ConnectionMetricsPrx ProxyType;
     typedef ConnectionMetricsPtr PointerType;
 
     virtual ~ConnectionMetrics();

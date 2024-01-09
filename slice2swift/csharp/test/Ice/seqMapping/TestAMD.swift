@@ -1317,7 +1317,7 @@ public struct SStructSDHelper {
     }
 }
 
-/// Traits for Slice class `CV`.
+/// Traits for Slice class`CV`.
 public struct CVTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::CV"]
     public static let staticId = "::Test::CV"
@@ -1455,7 +1455,7 @@ public struct LCVSHelper {
     }
 }
 
-/// Traits for Slice interface `I`.
+/// Traits for Slice interface`I`.
 public struct ITraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::I"]
     public static let staticId = "::Test::I"
@@ -1791,7 +1791,7 @@ public struct SIPrxSHelper {
     }
 }
 
-/// Traits for Slice class `CR`.
+/// Traits for Slice class`CR`.
 public struct CRTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::CR"]
     public static let staticId = "::Test::CR"
@@ -2519,7 +2519,7 @@ public struct CustomCVSSHelper {
     }
 }
 
-/// Traits for Slice interface `MyClass`.
+/// Traits for Slice interface`MyClass`.
 public struct MyClassTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MyClass"]
     public static let staticId = "::Test::MyClass"

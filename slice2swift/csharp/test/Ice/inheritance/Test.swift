@@ -17,55 +17,31 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice interface `MAIA`.
+/// Traits for Slice interface`MAIA`.
 public struct MAIATraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MA::IA"]
     public static let staticId = "::Test::MA::IA"
 }
 
-/// Traits for Slice class `MACA`.
-public struct MACATraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MA::CA"]
-    public static let staticId = "::Test::MA::CA"
-}
-
-/// Traits for Slice interface `MBIB1`.
+/// Traits for Slice interface`MBIB1`.
 public struct MBIB1Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MA::IA", "::Test::MB::IB1"]
     public static let staticId = "::Test::MB::IB1"
 }
 
-/// Traits for Slice interface `MBIB2`.
+/// Traits for Slice interface`MBIB2`.
 public struct MBIB2Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MA::IA", "::Test::MB::IB2"]
     public static let staticId = "::Test::MB::IB2"
 }
 
-/// Traits for Slice class `MBCB`.
-public struct MBCBTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MA::CA", "::Test::MB::CB"]
-    public static let staticId = "::Test::MB::CB"
-}
-
-/// Traits for Slice interface `MAIC`.
+/// Traits for Slice interface`MAIC`.
 public struct MAICTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MA::IA", "::Test::MA::IC", "::Test::MB::IB1", "::Test::MB::IB2"]
     public static let staticId = "::Test::MA::IC"
 }
 
-/// Traits for Slice class `MACC`.
-public struct MACCTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MA::CA", "::Test::MA::CC", "::Test::MB::CB"]
-    public static let staticId = "::Test::MA::CC"
-}
-
-/// Traits for Slice class `MACD`.
-public struct MACDTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::MA::CA", "::Test::MA::CC", "::Test::MA::CD", "::Test::MA::IA", "::Test::MB::CB", "::Test::MB::IB1", "::Test::MB::IB2"]
-    public static let staticId = "::Test::MA::CD"
-}
-
-/// Traits for Slice interface `Initial`.
+/// Traits for Slice interface`Initial`.
 public struct InitialTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Initial"]
     public static let staticId = "::Test::Initial"
@@ -202,146 +178,6 @@ public extension MAIAPrx {
                                   },
                                   read: { istr in
                                       let iceP_returnValue: MAIAPrx? = try istr.read(MAIAPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-}
-
-/// MACAPrx overview.
-///
-/// MACAPrx Methods:
-///
-///  - caop: 
-///
-///  - caopAsync: 
-public protocol MACAPrx: Ice.ObjectPrx {}
-
-private final class MACAPrxI: Ice.ObjectPrxI, MACAPrx {
-    public override class func ice_staticId() -> Swift.String {
-        return MACATraits.staticId
-    }
-}
-
-/// Casts a proxy to the requested type. This call contacts the server and verifies that the object
-/// implements this type.
-///
-/// It will throw a local exception if a communication error occurs. You can optionally supply a
-/// facet name and a context map.
-///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
-///
-/// - parameter type: `MACAPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `MACAPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: MACAPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> MACAPrx? {
-    return try MACAPrxI.checkedCast(prx: prx, facet: facet, context: context) as MACAPrxI?
-}
-
-/// Downcasts the given proxy to this type without contacting the remote server.
-///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
-///
-/// - parameter type: `MACAPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `MACAPrx` - A proxy with the requested type
-public func uncheckedCast(prx: Ice.ObjectPrx, type: MACAPrx.Protocol, facet: Swift.String? = nil) -> MACAPrx {
-    return MACAPrxI.uncheckedCast(prx: prx, facet: facet) as MACAPrxI
-}
-
-/// Returns the Slice type id of the interface or class associated with this proxy type.
-///
-/// parameter type: `MACAPrx.Protocol` -  The proxy type to retrieve the type id.
-///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
-public func ice_staticId(_ type: MACAPrx.Protocol) -> Swift.String {
-    return MACATraits.staticId
-}
-
-/// Extension to `Ice.InputStream` class to support reading proxy of type
-/// `MACAPrx`.
-public extension Ice.InputStream {
-    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
-    ///
-    /// - parameter type: `MACAPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `MACAPrx?` - The extracted proxy
-    func read(_ type: MACAPrx.Protocol) throws -> MACAPrx? {
-        return try read() as MACAPrxI?
-    }
-    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter type: `MACAPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `MACAPrx` - The extracted proxy.
-    func read(tag: Swift.Int32, type: MACAPrx.Protocol) throws -> MACAPrx? {
-        return try read(tag: tag) as MACAPrxI?
-    }
-}
-
-/// MACAPrx overview.
-///
-/// MACAPrx Methods:
-///
-///  - caop: 
-///
-///  - caopAsync: 
-public extension MACAPrx {
-    ///
-    /// - parameter _: `MACAPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MACAPrx?`
-    func caop(_ iceP_p: MACAPrx?, context: Ice.Context? = nil) throws -> MACAPrx? {
-        return try _impl._invoke(operation: "caop",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_p)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: MACAPrx? = try istr.read(MACAPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `MACAPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<MACAPrx?>` - The result of the operation
-    func caopAsync(_ iceP_p: MACAPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<MACAPrx?> {
-        return _impl._invokeAsync(operation: "caop",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_p)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: MACAPrx? = try istr.read(MACAPrx.self)
                                       return iceP_returnValue
                                   },
                                   context: context,
@@ -631,146 +467,6 @@ public extension MBIB2Prx {
     }
 }
 
-/// MBCBPrx overview.
-///
-/// MBCBPrx Methods:
-///
-///  - cbop: 
-///
-///  - cbopAsync: 
-public protocol MBCBPrx: MACAPrx {}
-
-private final class MBCBPrxI: Ice.ObjectPrxI, MBCBPrx {
-    public override class func ice_staticId() -> Swift.String {
-        return MBCBTraits.staticId
-    }
-}
-
-/// Casts a proxy to the requested type. This call contacts the server and verifies that the object
-/// implements this type.
-///
-/// It will throw a local exception if a communication error occurs. You can optionally supply a
-/// facet name and a context map.
-///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
-///
-/// - parameter type: `MBCBPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `MBCBPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: MBCBPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> MBCBPrx? {
-    return try MBCBPrxI.checkedCast(prx: prx, facet: facet, context: context) as MBCBPrxI?
-}
-
-/// Downcasts the given proxy to this type without contacting the remote server.
-///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
-///
-/// - parameter type: `MBCBPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `MBCBPrx` - A proxy with the requested type
-public func uncheckedCast(prx: Ice.ObjectPrx, type: MBCBPrx.Protocol, facet: Swift.String? = nil) -> MBCBPrx {
-    return MBCBPrxI.uncheckedCast(prx: prx, facet: facet) as MBCBPrxI
-}
-
-/// Returns the Slice type id of the interface or class associated with this proxy type.
-///
-/// parameter type: `MBCBPrx.Protocol` -  The proxy type to retrieve the type id.
-///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
-public func ice_staticId(_ type: MBCBPrx.Protocol) -> Swift.String {
-    return MBCBTraits.staticId
-}
-
-/// Extension to `Ice.InputStream` class to support reading proxy of type
-/// `MBCBPrx`.
-public extension Ice.InputStream {
-    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
-    ///
-    /// - parameter type: `MBCBPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `MBCBPrx?` - The extracted proxy
-    func read(_ type: MBCBPrx.Protocol) throws -> MBCBPrx? {
-        return try read() as MBCBPrxI?
-    }
-    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter type: `MBCBPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `MBCBPrx` - The extracted proxy.
-    func read(tag: Swift.Int32, type: MBCBPrx.Protocol) throws -> MBCBPrx? {
-        return try read(tag: tag) as MBCBPrxI?
-    }
-}
-
-/// MBCBPrx overview.
-///
-/// MBCBPrx Methods:
-///
-///  - cbop: 
-///
-///  - cbopAsync: 
-public extension MBCBPrx {
-    ///
-    /// - parameter _: `MBCBPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MBCBPrx?`
-    func cbop(_ iceP_p: MBCBPrx?, context: Ice.Context? = nil) throws -> MBCBPrx? {
-        return try _impl._invoke(operation: "cbop",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_p)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: MBCBPrx? = try istr.read(MBCBPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `MBCBPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<MBCBPrx?>` - The result of the operation
-    func cbopAsync(_ iceP_p: MBCBPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<MBCBPrx?> {
-        return _impl._invokeAsync(operation: "cbop",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_p)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: MBCBPrx? = try istr.read(MBCBPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-}
-
 /// MAICPrx overview.
 ///
 /// MAICPrx Methods:
@@ -911,286 +607,6 @@ public extension MAICPrx {
     }
 }
 
-/// MACCPrx overview.
-///
-/// MACCPrx Methods:
-///
-///  - ccop: 
-///
-///  - ccopAsync: 
-public protocol MACCPrx: MBCBPrx {}
-
-private final class MACCPrxI: Ice.ObjectPrxI, MACCPrx {
-    public override class func ice_staticId() -> Swift.String {
-        return MACCTraits.staticId
-    }
-}
-
-/// Casts a proxy to the requested type. This call contacts the server and verifies that the object
-/// implements this type.
-///
-/// It will throw a local exception if a communication error occurs. You can optionally supply a
-/// facet name and a context map.
-///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
-///
-/// - parameter type: `MACCPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `MACCPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: MACCPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> MACCPrx? {
-    return try MACCPrxI.checkedCast(prx: prx, facet: facet, context: context) as MACCPrxI?
-}
-
-/// Downcasts the given proxy to this type without contacting the remote server.
-///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
-///
-/// - parameter type: `MACCPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `MACCPrx` - A proxy with the requested type
-public func uncheckedCast(prx: Ice.ObjectPrx, type: MACCPrx.Protocol, facet: Swift.String? = nil) -> MACCPrx {
-    return MACCPrxI.uncheckedCast(prx: prx, facet: facet) as MACCPrxI
-}
-
-/// Returns the Slice type id of the interface or class associated with this proxy type.
-///
-/// parameter type: `MACCPrx.Protocol` -  The proxy type to retrieve the type id.
-///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
-public func ice_staticId(_ type: MACCPrx.Protocol) -> Swift.String {
-    return MACCTraits.staticId
-}
-
-/// Extension to `Ice.InputStream` class to support reading proxy of type
-/// `MACCPrx`.
-public extension Ice.InputStream {
-    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
-    ///
-    /// - parameter type: `MACCPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `MACCPrx?` - The extracted proxy
-    func read(_ type: MACCPrx.Protocol) throws -> MACCPrx? {
-        return try read() as MACCPrxI?
-    }
-    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter type: `MACCPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `MACCPrx` - The extracted proxy.
-    func read(tag: Swift.Int32, type: MACCPrx.Protocol) throws -> MACCPrx? {
-        return try read(tag: tag) as MACCPrxI?
-    }
-}
-
-/// MACCPrx overview.
-///
-/// MACCPrx Methods:
-///
-///  - ccop: 
-///
-///  - ccopAsync: 
-public extension MACCPrx {
-    ///
-    /// - parameter _: `MACCPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MACCPrx?`
-    func ccop(_ iceP_p: MACCPrx?, context: Ice.Context? = nil) throws -> MACCPrx? {
-        return try _impl._invoke(operation: "ccop",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_p)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: MACCPrx? = try istr.read(MACCPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `MACCPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<MACCPrx?>` - The result of the operation
-    func ccopAsync(_ iceP_p: MACCPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<MACCPrx?> {
-        return _impl._invokeAsync(operation: "ccop",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_p)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: MACCPrx? = try istr.read(MACCPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-}
-
-/// MACDPrx overview.
-///
-/// MACDPrx Methods:
-///
-///  - cdop: 
-///
-///  - cdopAsync: 
-public protocol MACDPrx: MACCPrx, MBIB1Prx, MBIB2Prx {}
-
-private final class MACDPrxI: Ice.ObjectPrxI, MACDPrx {
-    public override class func ice_staticId() -> Swift.String {
-        return MACDTraits.staticId
-    }
-}
-
-/// Casts a proxy to the requested type. This call contacts the server and verifies that the object
-/// implements this type.
-///
-/// It will throw a local exception if a communication error occurs. You can optionally supply a
-/// facet name and a context map.
-///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
-///
-/// - parameter type: `MACDPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `MACDPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: MACDPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> MACDPrx? {
-    return try MACDPrxI.checkedCast(prx: prx, facet: facet, context: context) as MACDPrxI?
-}
-
-/// Downcasts the given proxy to this type without contacting the remote server.
-///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
-///
-/// - parameter type: `MACDPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `MACDPrx` - A proxy with the requested type
-public func uncheckedCast(prx: Ice.ObjectPrx, type: MACDPrx.Protocol, facet: Swift.String? = nil) -> MACDPrx {
-    return MACDPrxI.uncheckedCast(prx: prx, facet: facet) as MACDPrxI
-}
-
-/// Returns the Slice type id of the interface or class associated with this proxy type.
-///
-/// parameter type: `MACDPrx.Protocol` -  The proxy type to retrieve the type id.
-///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
-public func ice_staticId(_ type: MACDPrx.Protocol) -> Swift.String {
-    return MACDTraits.staticId
-}
-
-/// Extension to `Ice.InputStream` class to support reading proxy of type
-/// `MACDPrx`.
-public extension Ice.InputStream {
-    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
-    ///
-    /// - parameter type: `MACDPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `MACDPrx?` - The extracted proxy
-    func read(_ type: MACDPrx.Protocol) throws -> MACDPrx? {
-        return try read() as MACDPrxI?
-    }
-    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter type: `MACDPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `MACDPrx` - The extracted proxy.
-    func read(tag: Swift.Int32, type: MACDPrx.Protocol) throws -> MACDPrx? {
-        return try read(tag: tag) as MACDPrxI?
-    }
-}
-
-/// MACDPrx overview.
-///
-/// MACDPrx Methods:
-///
-///  - cdop: 
-///
-///  - cdopAsync: 
-public extension MACDPrx {
-    ///
-    /// - parameter _: `MACDPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MACDPrx?`
-    func cdop(_ iceP_p: MACDPrx?, context: Ice.Context? = nil) throws -> MACDPrx? {
-        return try _impl._invoke(operation: "cdop",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_p)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: MACDPrx? = try istr.read(MACDPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `MACDPrx?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<MACDPrx?>` - The result of the operation
-    func cdopAsync(_ iceP_p: MACDPrx?, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<MACDPrx?> {
-        return _impl._invokeAsync(operation: "cdop",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_p)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: MACDPrx? = try istr.read(MACDPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-}
-
 /// InitialPrx overview.
 ///
 /// InitialPrx Methods:
@@ -1198,22 +614,6 @@ public extension MACDPrx {
 ///  - shutdown: 
 ///
 ///  - shutdownAsync: 
-///
-///  - caop: 
-///
-///  - caopAsync: 
-///
-///  - cbop: 
-///
-///  - cbopAsync: 
-///
-///  - ccop: 
-///
-///  - ccopAsync: 
-///
-///  - cdop: 
-///
-///  - cdopAsync: 
 ///
 ///  - iaop: 
 ///
@@ -1313,22 +713,6 @@ public extension Ice.InputStream {
 ///
 ///  - shutdownAsync: 
 ///
-///  - caop: 
-///
-///  - caopAsync: 
-///
-///  - cbop: 
-///
-///  - cbopAsync: 
-///
-///  - ccop: 
-///
-///  - ccopAsync: 
-///
-///  - cdop: 
-///
-///  - cdopAsync: 
-///
 ///  - iaop: 
 ///
 ///  - iaopAsync: 
@@ -1368,162 +752,6 @@ public extension InitialPrx {
     func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "shutdown",
                                   mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MACAPrx?`
-    func caop(context: Ice.Context? = nil) throws -> MACAPrx? {
-        return try _impl._invoke(operation: "caop",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: MACAPrx? = try istr.read(MACAPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<MACAPrx?>` - The result of the operation
-    func caopAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<MACAPrx?> {
-        return _impl._invokeAsync(operation: "caop",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: MACAPrx? = try istr.read(MACAPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MBCBPrx?`
-    func cbop(context: Ice.Context? = nil) throws -> MBCBPrx? {
-        return try _impl._invoke(operation: "cbop",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: MBCBPrx? = try istr.read(MBCBPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<MBCBPrx?>` - The result of the operation
-    func cbopAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<MBCBPrx?> {
-        return _impl._invokeAsync(operation: "cbop",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: MBCBPrx? = try istr.read(MBCBPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MACCPrx?`
-    func ccop(context: Ice.Context? = nil) throws -> MACCPrx? {
-        return try _impl._invoke(operation: "ccop",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: MACCPrx? = try istr.read(MACCPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<MACCPrx?>` - The result of the operation
-    func ccopAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<MACCPrx?> {
-        return _impl._invokeAsync(operation: "ccop",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: MACCPrx? = try istr.read(MACCPrx.self)
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `MACDPrx?`
-    func cdop(context: Ice.Context? = nil) throws -> MACDPrx? {
-        return try _impl._invoke(operation: "cdop",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: MACDPrx? = try istr.read(MACDPrx.self)
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<MACDPrx?>` - The result of the operation
-    func cdopAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<MACDPrx?> {
-        return _impl._invokeAsync(operation: "cdop",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: MACDPrx? = try istr.read(MACDPrx.self)
-                                      return iceP_returnValue
-                                  },
                                   context: context,
                                   sentOn: sentOn,
                                   sentFlags: sentFlags,
@@ -1687,170 +915,6 @@ public extension InitialPrx {
     }
 }
 
-/// :nodoc:
-public class MACA_TypeResolver: Ice.ValueTypeResolver {
-    public override func type() -> Ice.Value.Type {
-        return MACA.self
-    }
-}
-
-public extension Ice.ClassResolver {
-    @objc static func Test_MA_CA() -> Ice.ValueTypeResolver {
-        return MACA_TypeResolver()
-    }
-}
-
-open class MACA: Ice.Value {
-    public required init() {}
-
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MACATraits.staticId
-    }
-
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MACATraits.staticId
-    }
-
-    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
-        _ = try istr.startSlice()
-        try istr.endSlice()
-    }
-
-    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MACATraits.staticId, compactId: -1, last: true)
-        ostr.endSlice()
-    }
-}
-
-/// :nodoc:
-public class MBCB_TypeResolver: Ice.ValueTypeResolver {
-    public override func type() -> Ice.Value.Type {
-        return MBCB.self
-    }
-}
-
-public extension Ice.ClassResolver {
-    @objc static func Test_MB_CB() -> Ice.ValueTypeResolver {
-        return MBCB_TypeResolver()
-    }
-}
-
-open class MBCB: MACA {
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MBCBTraits.staticId
-    }
-
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MBCBTraits.staticId
-    }
-
-    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
-        _ = try istr.startSlice()
-        try istr.endSlice()
-        try super._iceReadImpl(from: istr);
-    }
-
-    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MBCBTraits.staticId, compactId: -1, last: false)
-        ostr.endSlice()
-        super._iceWriteImpl(to: ostr);
-    }
-}
-
-/// :nodoc:
-public class MACC_TypeResolver: Ice.ValueTypeResolver {
-    public override func type() -> Ice.Value.Type {
-        return MACC.self
-    }
-}
-
-public extension Ice.ClassResolver {
-    @objc static func Test_MA_CC() -> Ice.ValueTypeResolver {
-        return MACC_TypeResolver()
-    }
-}
-
-open class MACC: MBCB {
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MACCTraits.staticId
-    }
-
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MACCTraits.staticId
-    }
-
-    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
-        _ = try istr.startSlice()
-        try istr.endSlice()
-        try super._iceReadImpl(from: istr);
-    }
-
-    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MACCTraits.staticId, compactId: -1, last: false)
-        ostr.endSlice()
-        super._iceWriteImpl(to: ostr);
-    }
-}
-
-/// :nodoc:
-public class MACD_TypeResolver: Ice.ValueTypeResolver {
-    public override func type() -> Ice.Value.Type {
-        return MACD.self
-    }
-}
-
-public extension Ice.ClassResolver {
-    @objc static func Test_MA_CD() -> Ice.ValueTypeResolver {
-        return MACD_TypeResolver()
-    }
-}
-
-open class MACD: MACC {
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return MACDTraits.staticId
-    }
-
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return MACDTraits.staticId
-    }
-
-    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
-        _ = try istr.startSlice()
-        try istr.endSlice()
-        try super._iceReadImpl(from: istr);
-    }
-
-    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: MACDTraits.staticId, compactId: -1, last: false)
-        ostr.endSlice()
-        super._iceWriteImpl(to: ostr);
-    }
-}
-
 
 /// Dispatcher for `MAIA` servants.
 public struct MAIADisp: Ice.Disp {
@@ -1888,45 +952,6 @@ public protocol MAIA {
     ///
     /// - returns: `MAIAPrx?`
     func iaop(p: MAIAPrx?, current: Ice.Current) throws -> MAIAPrx?
-}
-
-
-/// Dispatcher for `MACAOperations` servants.
-public struct MACADisp: Ice.Disp {
-    public let servant: MACAOperations
-    private static let defaultObject = Ice.ObjectI<MACATraits>()
-
-    public init(_ servant: MACAOperations) {
-        self.servant = servant
-    }
-
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
-        case "caop":
-            return try servant._iceD_caop(incoming: request, current: current)
-        case "ice_id":
-            return try (servant as? Object ?? MACADisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
-        case "ice_ids":
-            return try (servant as? Object ?? MACADisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
-        case "ice_isA":
-            return try (servant as? Object ?? MACADisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
-        case "ice_ping":
-            return try (servant as? Object ?? MACADisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
-        default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
-        }
-    }
-}
-
-public protocol MACAOperations {
-    ///
-    /// - parameter p: `MACAPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `MACAPrx?`
-    func caop(p: MACAPrx?, current: Ice.Current) throws -> MACAPrx?
 }
 
 
@@ -2012,47 +1037,6 @@ public protocol MBIB2: MAIA {
 }
 
 
-/// Dispatcher for `MBCBOperations` servants.
-public struct MBCBDisp: Ice.Disp {
-    public let servant: MBCBOperations
-    private static let defaultObject = Ice.ObjectI<MBCBTraits>()
-
-    public init(_ servant: MBCBOperations) {
-        self.servant = servant
-    }
-
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
-        case "caop":
-            return try servant._iceD_caop(incoming: request, current: current)
-        case "cbop":
-            return try servant._iceD_cbop(incoming: request, current: current)
-        case "ice_id":
-            return try (servant as? Object ?? MBCBDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
-        case "ice_ids":
-            return try (servant as? Object ?? MBCBDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
-        case "ice_isA":
-            return try (servant as? Object ?? MBCBDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
-        case "ice_ping":
-            return try (servant as? Object ?? MBCBDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
-        default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
-        }
-    }
-}
-
-public protocol MBCBOperations: MACAOperations {
-    ///
-    /// - parameter p: `MBCBPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `MBCBPrx?`
-    func cbop(p: MBCBPrx?, current: Ice.Current) throws -> MBCBPrx?
-}
-
-
 /// Dispatcher for `MAIC` servants.
 public struct MAICDisp: Ice.Disp {
     public let servant: MAIC
@@ -2098,100 +1082,6 @@ public protocol MAIC: MBIB1, MBIB2 {
 }
 
 
-/// Dispatcher for `MACCOperations` servants.
-public struct MACCDisp: Ice.Disp {
-    public let servant: MACCOperations
-    private static let defaultObject = Ice.ObjectI<MACCTraits>()
-
-    public init(_ servant: MACCOperations) {
-        self.servant = servant
-    }
-
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
-        case "caop":
-            return try servant._iceD_caop(incoming: request, current: current)
-        case "cbop":
-            return try servant._iceD_cbop(incoming: request, current: current)
-        case "ccop":
-            return try servant._iceD_ccop(incoming: request, current: current)
-        case "ice_id":
-            return try (servant as? Object ?? MACCDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
-        case "ice_ids":
-            return try (servant as? Object ?? MACCDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
-        case "ice_isA":
-            return try (servant as? Object ?? MACCDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
-        case "ice_ping":
-            return try (servant as? Object ?? MACCDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
-        default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
-        }
-    }
-}
-
-public protocol MACCOperations: MBCBOperations {
-    ///
-    /// - parameter p: `MACCPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `MACCPrx?`
-    func ccop(p: MACCPrx?, current: Ice.Current) throws -> MACCPrx?
-}
-
-
-/// Dispatcher for `MACDOperations` servants.
-public struct MACDDisp: Ice.Disp {
-    public let servant: MACDOperations
-    private static let defaultObject = Ice.ObjectI<MACDTraits>()
-
-    public init(_ servant: MACDOperations) {
-        self.servant = servant
-    }
-
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
-        case "caop":
-            return try servant._iceD_caop(incoming: request, current: current)
-        case "cbop":
-            return try servant._iceD_cbop(incoming: request, current: current)
-        case "ccop":
-            return try servant._iceD_ccop(incoming: request, current: current)
-        case "cdop":
-            return try servant._iceD_cdop(incoming: request, current: current)
-        case "iaop":
-            return try servant._iceD_iaop(incoming: request, current: current)
-        case "ib1op":
-            return try servant._iceD_ib1op(incoming: request, current: current)
-        case "ib2op":
-            return try servant._iceD_ib2op(incoming: request, current: current)
-        case "ice_id":
-            return try (servant as? Object ?? MACDDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
-        case "ice_ids":
-            return try (servant as? Object ?? MACDDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
-        case "ice_isA":
-            return try (servant as? Object ?? MACDDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
-        case "ice_ping":
-            return try (servant as? Object ?? MACDDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
-        default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
-        }
-    }
-}
-
-public protocol MACDOperations: MACCOperations, MBIB1, MBIB2 {
-    ///
-    /// - parameter p: `MACDPrx?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `MACDPrx?`
-    func cdop(p: MACDPrx?, current: Ice.Current) throws -> MACDPrx?
-}
-
-
 /// Dispatcher for `Initial` servants.
 public struct InitialDisp: Ice.Disp {
     public let servant: Initial
@@ -2204,14 +1094,6 @@ public struct InitialDisp: Ice.Disp {
     public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         request.startOver()
         switch current.operation {
-        case "caop":
-            return try servant._iceD_caop(incoming: request, current: current)
-        case "cbop":
-            return try servant._iceD_cbop(incoming: request, current: current)
-        case "ccop":
-            return try servant._iceD_ccop(incoming: request, current: current)
-        case "cdop":
-            return try servant._iceD_cdop(incoming: request, current: current)
         case "iaop":
             return try servant._iceD_iaop(incoming: request, current: current)
         case "ib1op":
@@ -2240,30 +1122,6 @@ public protocol Initial {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func shutdown(current: Ice.Current) throws
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `MACAPrx?`
-    func caop(current: Ice.Current) throws -> MACAPrx?
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `MBCBPrx?`
-    func cbop(current: Ice.Current) throws -> MBCBPrx?
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `MACCPrx?`
-    func ccop(current: Ice.Current) throws -> MACCPrx?
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `MACDPrx?`
-    func cdop(current: Ice.Current) throws -> MACDPrx?
 
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
@@ -2303,26 +1161,6 @@ public extension MAIA {
         }
 
         let iceP_returnValue = try self.iaop(p: iceP_p, current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
-        }
-    }
-}
-
-/// MACA overview.
-///
-/// MACA Methods:
-///
-///  - caop: 
-public extension MACAOperations {
-    func _iceD_caop(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_p: MACAPrx? = try inS.read { istr in
-            let iceP_p: MACAPrx? = try istr.read(MACAPrx.self)
-            return iceP_p
-        }
-
-        let iceP_returnValue = try self.caop(p: iceP_p, current: current)
 
         return inS.setResult{ ostr in
             ostr.write(iceP_returnValue)
@@ -2370,26 +1208,6 @@ public extension MBIB2 {
     }
 }
 
-/// MBCB overview.
-///
-/// MBCB Methods:
-///
-///  - cbop: 
-public extension MBCBOperations {
-    func _iceD_cbop(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_p: MBCBPrx? = try inS.read { istr in
-            let iceP_p: MBCBPrx? = try istr.read(MBCBPrx.self)
-            return iceP_p
-        }
-
-        let iceP_returnValue = try self.cbop(p: iceP_p, current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
-        }
-    }
-}
-
 /// MAIC overview.
 ///
 /// MAIC Methods:
@@ -2410,59 +1228,11 @@ public extension MAIC {
     }
 }
 
-/// MACC overview.
-///
-/// MACC Methods:
-///
-///  - ccop: 
-public extension MACCOperations {
-    func _iceD_ccop(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_p: MACCPrx? = try inS.read { istr in
-            let iceP_p: MACCPrx? = try istr.read(MACCPrx.self)
-            return iceP_p
-        }
-
-        let iceP_returnValue = try self.ccop(p: iceP_p, current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
-        }
-    }
-}
-
-/// MACD overview.
-///
-/// MACD Methods:
-///
-///  - cdop: 
-public extension MACDOperations {
-    func _iceD_cdop(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_p: MACDPrx? = try inS.read { istr in
-            let iceP_p: MACDPrx? = try istr.read(MACDPrx.self)
-            return iceP_p
-        }
-
-        let iceP_returnValue = try self.cdop(p: iceP_p, current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
-        }
-    }
-}
-
 /// Initial overview.
 ///
 /// Initial Methods:
 ///
 ///  - shutdown: 
-///
-///  - caop: 
-///
-///  - cbop: 
-///
-///  - ccop: 
-///
-///  - cdop: 
 ///
 ///  - iaop: 
 ///
@@ -2478,46 +1248,6 @@ public extension Initial {
         try self.shutdown(current: current)
 
         return inS.setResult()
-    }
-
-    func _iceD_caop(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        let iceP_returnValue = try self.caop(current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
-        }
-    }
-
-    func _iceD_cbop(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        let iceP_returnValue = try self.cbop(current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
-        }
-    }
-
-    func _iceD_ccop(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        let iceP_returnValue = try self.ccop(current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
-        }
-    }
-
-    func _iceD_cdop(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        let iceP_returnValue = try self.cdop(current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
-        }
     }
 
     func _iceD_iaop(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {

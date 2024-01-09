@@ -298,7 +298,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual END _cpp_for(::std::shared_ptr<display> freeze, ::std::shared_ptr<::Ice::Value> hash, ::std::shared_ptr<breakPrx> _cpp_if, ::std::shared_ptr<display> inspect, ::std::shared_ptr<::Ice::Value> method, int methods, const ::Ice::Current& current) = 0;
+    virtual END _cpp_for(::std::shared_ptr<display> freeze, ::std::shared_ptr<elsifPrx> hash, ::std::shared_ptr<breakPrx> _cpp_if, ::std::shared_ptr<display> inspect, ::std::shared_ptr<elsifPrx> method, int methods, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_for(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -512,20 +512,20 @@ class extendPrx : public virtual ::Ice::Proxy<extendPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    END _cpp_for(const ::std::shared_ptr<display>& freeze, const ::std::shared_ptr<::Ice::Value>& hash, const ::std::shared_ptr<breakPrx>& _cpp_if, const ::std::shared_ptr<display>& inspect, const ::std::shared_ptr<::Ice::Value>& method, int methods, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    END _cpp_for(const ::std::shared_ptr<display>& freeze, const ::std::shared_ptr<elsifPrx>& hash, const ::std::shared_ptr<breakPrx>& _cpp_if, const ::std::shared_ptr<display>& inspect, const ::std::shared_ptr<elsifPrx>& method, int methods, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _makePromiseOutgoing<::BEGIN::END>(true, this, &extendPrx::_iceI_for, freeze, hash, _cpp_if, inspect, method, methods, context).get();
     }
 
     template<template<typename> class P = ::std::promise>
-    auto forAsync(const ::std::shared_ptr<display>& freeze, const ::std::shared_ptr<::Ice::Value>& hash, const ::std::shared_ptr<breakPrx>& _cpp_if, const ::std::shared_ptr<display>& inspect, const ::std::shared_ptr<::Ice::Value>& method, int methods, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    auto forAsync(const ::std::shared_ptr<display>& freeze, const ::std::shared_ptr<elsifPrx>& hash, const ::std::shared_ptr<breakPrx>& _cpp_if, const ::std::shared_ptr<display>& inspect, const ::std::shared_ptr<elsifPrx>& method, int methods, const ::Ice::Context& context = ::Ice::noExplicitContext)
         -> decltype(::std::declval<P<::BEGIN::END>>().get_future())
     {
         return _makePromiseOutgoing<::BEGIN::END, P>(false, this, &extendPrx::_iceI_for, freeze, hash, _cpp_if, inspect, method, methods, context);
     }
 
     ::std::function<void()>
-    forAsync(const ::std::shared_ptr<display>& freeze, const ::std::shared_ptr<::Ice::Value>& hash, const ::std::shared_ptr<breakPrx>& _cpp_if, const ::std::shared_ptr<display>& inspect, const ::std::shared_ptr<::Ice::Value>& method, int methods,
+    forAsync(const ::std::shared_ptr<display>& freeze, const ::std::shared_ptr<elsifPrx>& hash, const ::std::shared_ptr<breakPrx>& _cpp_if, const ::std::shared_ptr<display>& inspect, const ::std::shared_ptr<elsifPrx>& method, int methods,
              ::std::function<void(::BEGIN::END)> response,
              ::std::function<void(::std::exception_ptr)> ex = nullptr,
              ::std::function<void(bool)> sent = nullptr,
@@ -535,7 +535,7 @@ public:
     }
 
     /// \cond INTERNAL
-    void _iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::BEGIN::END>>&, const ::std::shared_ptr<display>&, const ::std::shared_ptr<::Ice::Value>&, const ::std::shared_ptr<breakPrx>&, const ::std::shared_ptr<display>&, const ::std::shared_ptr<::Ice::Value>&, int, const ::Ice::Context&);
+    void _iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::BEGIN::END>>&, const ::std::shared_ptr<display>&, const ::std::shared_ptr<elsifPrx>&, const ::std::shared_ptr<breakPrx>&, const ::std::shared_ptr<display>&, const ::std::shared_ptr<elsifPrx>&, int, const ::Ice::Context&);
     /// \endcond
 
     /**
@@ -658,12 +658,6 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< _cpp_break>&);
 ::IceProxy::Ice::Object* upCast(_cpp_break*);
 /// \endcond
 
-class display;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< display>&);
-::IceProxy::Ice::Object* upCast(display*);
-/// \endcond
-
 class elsif;
 /// \cond INTERNAL
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< elsif>&);
@@ -682,50 +676,30 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< extend>&);
 
 namespace BEGIN
 {
-
-class _cpp_break;
-/// \cond INTERNAL
-::Ice::Object* upCast(_cpp_break*);
-/// \endcond
-typedef ::IceInternal::Handle< _cpp_break> breakPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::BEGIN::_cpp_break> breakPrx;
 typedef breakPrx breakPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(breakPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class _cpp_break;
+typedef ::IceInternal::Handle< _cpp_break> breakPtr;
 
 class display;
 /// \cond INTERNAL
 ::Ice::Object* upCast(display*);
 /// \endcond
 typedef ::IceInternal::Handle< display> displayPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::BEGIN::display> displayPrx;
-typedef displayPrx displayPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(displayPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-class elsif;
-/// \cond INTERNAL
-::Ice::Object* upCast(elsif*);
-/// \endcond
-typedef ::IceInternal::Handle< elsif> elsifPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::BEGIN::elsif> elsifPrx;
 typedef elsifPrx elsifPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(elsifPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class extend;
-/// \cond INTERNAL
-::Ice::Object* upCast(extend*);
-/// \endcond
-typedef ::IceInternal::Handle< extend> extendPtr;
+class elsif;
+typedef ::IceInternal::Handle< elsif> elsifPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::BEGIN::extend> extendPrx;
 typedef extendPrx extendPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(extendPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class extend;
+typedef ::IceInternal::Handle< extend> extendPtr;
 
 }
 
@@ -1096,23 +1070,6 @@ protected:
     /// \endcond
 };
 
-class display : public virtual ::Ice::Proxy<display, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
 class elsif : public virtual ::Ice::Proxy<elsif, ::IceProxy::BEGIN::_cpp_break>
 {
 public:
@@ -1134,32 +1091,32 @@ class extend : public virtual ::Ice::Proxy<extend, ::IceProxy::Ice::Object>
 {
 public:
 
-    ::BEGIN::END _cpp_for(const ::BEGIN::displayPtr& freeze, const ::BEGIN::elsifPtr& hash, const ::BEGIN::breakPrx& _cpp_if, const ::BEGIN::displayPtr& inspect, const ::BEGIN::elsifPtr& method, ::Ice::Int methods, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::BEGIN::END _cpp_for(const ::BEGIN::displayPtr& freeze, const ::BEGIN::elsifPrx& hash, const ::BEGIN::breakPrx& _cpp_if, const ::BEGIN::displayPtr& inspect, const ::BEGIN::elsifPrx& method, ::Ice::Int methods, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return end_for(_iceI_begin_for(freeze, hash, _cpp_if, inspect, method, methods, context, ::IceInternal::dummyCallback, 0, true));
     }
 
-    ::Ice::AsyncResultPtr begin_for(const ::BEGIN::displayPtr& freeze, const ::BEGIN::elsifPtr& hash, const ::BEGIN::breakPrx& _cpp_if, const ::BEGIN::displayPtr& inspect, const ::BEGIN::elsifPtr& method, ::Ice::Int methods, const ::Ice::Context& context = ::Ice::noExplicitContext)
+    ::Ice::AsyncResultPtr begin_for(const ::BEGIN::displayPtr& freeze, const ::BEGIN::elsifPrx& hash, const ::BEGIN::breakPrx& _cpp_if, const ::BEGIN::displayPtr& inspect, const ::BEGIN::elsifPrx& method, ::Ice::Int methods, const ::Ice::Context& context = ::Ice::noExplicitContext)
     {
         return _iceI_begin_for(freeze, hash, _cpp_if, inspect, method, methods, context, ::IceInternal::dummyCallback, 0);
     }
 
-    ::Ice::AsyncResultPtr begin_for(const ::BEGIN::displayPtr& freeze, const ::BEGIN::elsifPtr& hash, const ::BEGIN::breakPrx& _cpp_if, const ::BEGIN::displayPtr& inspect, const ::BEGIN::elsifPtr& method, ::Ice::Int methods, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_for(const ::BEGIN::displayPtr& freeze, const ::BEGIN::elsifPrx& hash, const ::BEGIN::breakPrx& _cpp_if, const ::BEGIN::displayPtr& inspect, const ::BEGIN::elsifPrx& method, ::Ice::Int methods, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_for(freeze, hash, _cpp_if, inspect, method, methods, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_for(const ::BEGIN::displayPtr& freeze, const ::BEGIN::elsifPtr& hash, const ::BEGIN::breakPrx& _cpp_if, const ::BEGIN::displayPtr& inspect, const ::BEGIN::elsifPtr& method, ::Ice::Int methods, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_for(const ::BEGIN::displayPtr& freeze, const ::BEGIN::elsifPrx& hash, const ::BEGIN::breakPrx& _cpp_if, const ::BEGIN::displayPtr& inspect, const ::BEGIN::elsifPrx& method, ::Ice::Int methods, const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_for(freeze, hash, _cpp_if, inspect, method, methods, context, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_for(const ::BEGIN::displayPtr& freeze, const ::BEGIN::elsifPtr& hash, const ::BEGIN::breakPrx& _cpp_if, const ::BEGIN::displayPtr& inspect, const ::BEGIN::elsifPtr& method, ::Ice::Int methods, const ::BEGIN::Callback_extend_forPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_for(const ::BEGIN::displayPtr& freeze, const ::BEGIN::elsifPrx& hash, const ::BEGIN::breakPrx& _cpp_if, const ::BEGIN::displayPtr& inspect, const ::BEGIN::elsifPrx& method, ::Ice::Int methods, const ::BEGIN::Callback_extend_forPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_for(freeze, hash, _cpp_if, inspect, method, methods, ::Ice::noExplicitContext, cb, cookie);
     }
 
-    ::Ice::AsyncResultPtr begin_for(const ::BEGIN::displayPtr& freeze, const ::BEGIN::elsifPtr& hash, const ::BEGIN::breakPrx& _cpp_if, const ::BEGIN::displayPtr& inspect, const ::BEGIN::elsifPtr& method, ::Ice::Int methods, const ::Ice::Context& context, const ::BEGIN::Callback_extend_forPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
+    ::Ice::AsyncResultPtr begin_for(const ::BEGIN::displayPtr& freeze, const ::BEGIN::elsifPrx& hash, const ::BEGIN::breakPrx& _cpp_if, const ::BEGIN::displayPtr& inspect, const ::BEGIN::elsifPrx& method, ::Ice::Int methods, const ::Ice::Context& context, const ::BEGIN::Callback_extend_forPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
     {
         return _iceI_begin_for(freeze, hash, _cpp_if, inspect, method, methods, context, cb, cookie);
     }
@@ -1168,7 +1125,7 @@ public:
 
 private:
 
-    ::Ice::AsyncResultPtr _iceI_begin_for(const ::BEGIN::displayPtr&, const ::BEGIN::elsifPtr&, const ::BEGIN::breakPrx&, const ::BEGIN::displayPtr&, const ::BEGIN::elsifPtr&, ::Ice::Int, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
+    ::Ice::AsyncResultPtr _iceI_begin_for(const ::BEGIN::displayPtr&, const ::BEGIN::elsifPrx&, const ::BEGIN::breakPrx&, const ::BEGIN::displayPtr&, const ::BEGIN::elsifPrx&, ::Ice::Int, const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
 
 public:
 
@@ -1197,7 +1154,6 @@ class _cpp_break : public virtual ::Ice::Object
 public:
 
     typedef breakPrx ProxyType;
-    typedef breakPtr PointerType;
 
     virtual ~_cpp_break();
     _cpp_break() = default;
@@ -1255,32 +1211,110 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
+};
 
-protected:
+class elsif : public virtual _cpp_break
+{
+public:
 
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
+    typedef elsifPrx ProxyType;
+
+    virtual ~elsif();
+    elsif() = default;
+    elsif(const elsif&) = default;
+    elsif& operator=(const elsif&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const _cpp_break& lhs, const _cpp_break& rhs)
+class extend : public virtual ::Ice::Object
 {
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
+public:
+
+    typedef extendPrx ProxyType;
+
+    virtual ~extend();
+    extend() = default;
+    extend(const extend&) = default;
+    extend& operator=(const extend&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual END _cpp_for(const displayPtr& freeze, const elsifPrx& hash, const breakPrx& _cpp_if, const displayPtr& inspect, const elsifPrx& method, ::Ice::Int methods, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_for(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
+
 }
 
-inline bool operator<(const _cpp_break& lhs, const _cpp_break& rhs)
+namespace BEGIN
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 class display : public virtual ::Ice::Object
 {
 public:
 
-    typedef displayPrx ProxyType;
     typedef displayPtr PointerType;
 
     virtual ~display();
@@ -1367,139 +1401,6 @@ inline bool operator==(const display& lhs, const display& rhs)
 }
 
 inline bool operator<(const display& lhs, const display& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class elsif : virtual public _cpp_break
-{
-public:
-
-    typedef elsifPrx ProxyType;
-    typedef elsifPtr PointerType;
-
-    virtual ~elsif();
-    elsif() = default;
-    elsif(const elsif&) = default;
-    elsif& operator=(const elsif&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const elsif& lhs, const elsif& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const elsif& lhs, const elsif& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class extend : public virtual ::Ice::Object
-{
-public:
-
-    typedef extendPrx ProxyType;
-    typedef extendPtr PointerType;
-
-    virtual ~extend();
-    extend() = default;
-    extend(const extend&) = default;
-    extend& operator=(const extend&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual END _cpp_for(const displayPtr& freeze, const elsifPtr& hash, const breakPrx& _cpp_if, const displayPtr& inspect, const elsifPtr& method, ::Ice::Int methods, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_for(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const extend& lhs, const extend& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const extend& lhs, const extend& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
 }

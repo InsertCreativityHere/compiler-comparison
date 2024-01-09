@@ -304,8 +304,6 @@ module ::Test
             T_IPrx = ::Ice::__declareProxy('::Test::I')
         end
 
-        T_I.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_IPrx.defineProxy(IPrx, nil, [])
 
         IPrx_mixin::OP_opS = ::Ice::__defineOperation('opS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_S, false, 0]], [[::Test::T_S, false, 0]], [::Test::T_S, false, 0], [])
@@ -471,8 +469,6 @@ module ::Test
                     T_IPrx = ::Ice::__declareProxy('::Test::Inner::Inner2::I')
                 end
 
-                T_I.defineClass(::Ice::Value, -1, false, true, nil, [])
-
                 T_IPrx.defineProxy(IPrx, nil, [])
 
                 IPrx_mixin::OP_opS = ::Ice::__defineOperation('opS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_S, false, 0]], [[::Test::Inner::Inner2::T_S, false, 0]], [::Test::Inner::Inner2::T_S, false, 0], [])
@@ -574,8 +570,6 @@ module ::Test
                 T_IPrx = ::Ice::__declareProxy('::Test::Inner::I')
             end
 
-            T_I.defineClass(::Ice::Value, -1, false, true, nil, [])
-
             T_IPrx.defineProxy(IPrx, nil, [])
 
             IPrx_mixin::OP_opS = ::Ice::__defineOperation('opS', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Inner::Inner2::T_S, false, 0]], [[::Test::Inner::Inner2::T_S, false, 0]], [::Test::Inner::Inner2::T_S, false, 0], [])
@@ -647,8 +641,6 @@ module ::Inner
                     T_I = ::Ice::__declareClass('::Inner::Test::Inner2::I')
                     T_IPrx = ::Ice::__declareProxy('::Inner::Test::Inner2::I')
                 end
-
-                T_I.defineClass(::Ice::Value, -1, false, true, nil, [])
 
                 T_IPrx.defineProxy(IPrx, nil, [])
 

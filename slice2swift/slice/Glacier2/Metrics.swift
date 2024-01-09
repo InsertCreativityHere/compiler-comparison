@@ -16,7 +16,7 @@
 import Foundation
 import Ice
 
-/// Traits for Slice class `MXSessionMetrics`.
+/// Traits for Slice class`MXSessionMetrics`.
 public struct MXSessionMetricsTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceMX::Metrics", "::IceMX::SessionMetrics"]
     public static let staticId = "::IceMX::SessionMetrics"

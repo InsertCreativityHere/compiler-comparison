@@ -530,7 +530,6 @@ namespace IceGrid
 /**
  * The IceGrid administrative interface. <p class="Warning">Allowing access to this interface is a security risk!
  * Please see the IceGrid documentation for further information.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API Admin : public virtual ::Ice::Object
 {
@@ -1188,7 +1187,6 @@ public:
 
 /**
  * This interface provides access to IceGrid log file contents.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API FileIterator : public virtual ::Ice::Object
 {
@@ -1267,7 +1265,6 @@ public:
 
 /**
  * This interface allows applications to monitor changes the state of the registry.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API RegistryObserver : public virtual ::Ice::Object
 {
@@ -1342,7 +1339,6 @@ public:
 /**
  * The node observer interface. Observers should implement this interface to receive information about the state of
  * the IceGrid nodes.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API NodeObserver : public virtual ::Ice::Object
 {
@@ -1439,7 +1435,6 @@ public:
 /**
  * The database observer interface. Observers should implement this interface to receive information about the state
  * of the IceGrid registry database.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API ApplicationObserver : public virtual ::Ice::Object
 {
@@ -1528,7 +1523,6 @@ public:
 
 /**
  * This interface allows applications to monitor the state of object adapters that are registered with IceGrid.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API AdapterObserver : public virtual ::Ice::Object
 {
@@ -1613,7 +1607,6 @@ public:
 
 /**
  * This interface allows applications to monitor IceGrid well-known objects.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API ObjectObserver : public virtual ::Ice::Object
 {
@@ -1702,7 +1695,6 @@ public:
  * sessions are created either via the {@link Registry} object or via the registry admin <code>SessionManager</code>
  * object.
  * @see Registry
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API AdminSession : public virtual ::Glacier2::Session
 {
@@ -1963,7 +1955,6 @@ namespace IceGrid
 /**
  * The IceGrid administrative interface. <p class="Warning">Allowing access to this interface is a security risk!
  * Please see the IceGrid documentation for further information.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) AdminPrx : public virtual ::Ice::Proxy<AdminPrx, ::Ice::ObjectPrx>
 {
@@ -4302,7 +4293,6 @@ protected:
 
 /**
  * This interface provides access to IceGrid log file contents.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) FileIteratorPrx : public virtual ::Ice::Proxy<FileIteratorPrx, ::Ice::ObjectPrx>
 {
@@ -4428,7 +4418,6 @@ protected:
 
 /**
  * This interface allows applications to monitor changes the state of the registry.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) RegistryObserverPrx : public virtual ::Ice::Proxy<RegistryObserverPrx, ::Ice::ObjectPrx>
 {
@@ -4594,7 +4583,6 @@ protected:
 /**
  * The node observer interface. Observers should implement this interface to receive information about the state of
  * the IceGrid nodes.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) NodeObserverPrx : public virtual ::Ice::Proxy<NodeObserverPrx, ::Ice::ObjectPrx>
 {
@@ -4858,7 +4846,6 @@ protected:
 /**
  * The database observer interface. Observers should implement this interface to receive information about the state
  * of the IceGrid registry database.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) ApplicationObserverPrx : public virtual ::Ice::Proxy<ApplicationObserverPrx, ::Ice::ObjectPrx>
 {
@@ -5084,7 +5071,6 @@ protected:
 
 /**
  * This interface allows applications to monitor the state of object adapters that are registered with IceGrid.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) AdapterObserverPrx : public virtual ::Ice::Proxy<AdapterObserverPrx, ::Ice::ObjectPrx>
 {
@@ -5298,7 +5284,6 @@ protected:
 
 /**
  * This interface allows applications to monitor IceGrid well-known objects.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) ObjectObserverPrx : public virtual ::Ice::Proxy<ObjectObserverPrx, ::Ice::ObjectPrx>
 {
@@ -5518,7 +5503,6 @@ protected:
  * sessions are created either via the {@link Registry} object or via the registry admin <code>SessionManager</code>
  * object.
  * @see Registry
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) AdminSessionPrx : public virtual ::Ice::Proxy<AdminSessionPrx, ::Glacier2::SessionPrx>
 {
@@ -6629,94 +6613,46 @@ ICEGRID_API ::IceProxy::Ice::Object* upCast(AdminSession*);
 
 namespace IceGrid
 {
-
-class Admin;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(Admin*);
-/// \endcond
-typedef ::IceInternal::Handle< Admin> AdminPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::Admin> AdminPrx;
 typedef AdminPrx AdminPrxPtr;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(AdminPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class FileIterator;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(FileIterator*);
-/// \endcond
-typedef ::IceInternal::Handle< FileIterator> FileIteratorPtr;
+class Admin;
+typedef ::IceInternal::Handle< Admin> AdminPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::FileIterator> FileIteratorPrx;
 typedef FileIteratorPrx FileIteratorPrxPtr;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(FileIteratorPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class RegistryObserver;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(RegistryObserver*);
-/// \endcond
-typedef ::IceInternal::Handle< RegistryObserver> RegistryObserverPtr;
+class FileIterator;
+typedef ::IceInternal::Handle< FileIterator> FileIteratorPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::RegistryObserver> RegistryObserverPrx;
 typedef RegistryObserverPrx RegistryObserverPrxPtr;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(RegistryObserverPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class NodeObserver;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(NodeObserver*);
-/// \endcond
-typedef ::IceInternal::Handle< NodeObserver> NodeObserverPtr;
+class RegistryObserver;
+typedef ::IceInternal::Handle< RegistryObserver> RegistryObserverPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::NodeObserver> NodeObserverPrx;
 typedef NodeObserverPrx NodeObserverPrxPtr;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(NodeObserverPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class ApplicationObserver;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(ApplicationObserver*);
-/// \endcond
-typedef ::IceInternal::Handle< ApplicationObserver> ApplicationObserverPtr;
+class NodeObserver;
+typedef ::IceInternal::Handle< NodeObserver> NodeObserverPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::ApplicationObserver> ApplicationObserverPrx;
 typedef ApplicationObserverPrx ApplicationObserverPrxPtr;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(ApplicationObserverPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class AdapterObserver;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(AdapterObserver*);
-/// \endcond
-typedef ::IceInternal::Handle< AdapterObserver> AdapterObserverPtr;
+class ApplicationObserver;
+typedef ::IceInternal::Handle< ApplicationObserver> ApplicationObserverPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::AdapterObserver> AdapterObserverPrx;
 typedef AdapterObserverPrx AdapterObserverPrxPtr;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(AdapterObserverPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class ObjectObserver;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(ObjectObserver*);
-/// \endcond
-typedef ::IceInternal::Handle< ObjectObserver> ObjectObserverPtr;
+class AdapterObserver;
+typedef ::IceInternal::Handle< AdapterObserver> AdapterObserverPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::ObjectObserver> ObjectObserverPrx;
 typedef ObjectObserverPrx ObjectObserverPrxPtr;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(ObjectObserverPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class AdminSession;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(AdminSession*);
-/// \endcond
-typedef ::IceInternal::Handle< AdminSession> AdminSessionPtr;
+class ObjectObserver;
+typedef ::IceInternal::Handle< ObjectObserver> ObjectObserverPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::AdminSession> AdminSessionPrx;
 typedef AdminSessionPrx AdminSessionPrxPtr;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(AdminSessionPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class AdminSession;
+typedef ::IceInternal::Handle< AdminSession> AdminSessionPtr;
 
 }
 
@@ -16073,14 +16009,12 @@ namespace IceGrid
 /**
  * The IceGrid administrative interface. <p class="Warning">Allowing access to this interface is a security risk!
  * Please see the IceGrid documentation for further information.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API Admin : public virtual ::Ice::Object
 {
 public:
 
     typedef AdminPrx ProxyType;
-    typedef AdminPtr PointerType;
 
     virtual ~Admin();
     Admin() = default;
@@ -16729,37 +16663,16 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const Admin& lhs, const Admin& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Admin& lhs, const Admin& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * This interface provides access to IceGrid log file contents.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API FileIterator : public virtual ::Ice::Object
 {
 public:
 
     typedef FileIteratorPrx ProxyType;
-    typedef FileIteratorPtr PointerType;
 
     virtual ~FileIterator();
     FileIterator() = default;
@@ -16822,37 +16735,16 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const FileIterator& lhs, const FileIterator& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const FileIterator& lhs, const FileIterator& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * This interface allows applications to monitor changes the state of the registry.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API RegistryObserver : public virtual ::Ice::Object
 {
 public:
 
     typedef RegistryObserverPrx ProxyType;
-    typedef RegistryObserverPtr PointerType;
 
     virtual ~RegistryObserver();
     RegistryObserver() = default;
@@ -16921,38 +16813,17 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const RegistryObserver& lhs, const RegistryObserver& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const RegistryObserver& lhs, const RegistryObserver& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * The node observer interface. Observers should implement this interface to receive information about the state of
  * the IceGrid nodes.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API NodeObserver : public virtual ::Ice::Object
 {
 public:
 
     typedef NodeObserverPrx ProxyType;
-    typedef NodeObserverPtr PointerType;
 
     virtual ~NodeObserver();
     NodeObserver() = default;
@@ -17043,38 +16914,17 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const NodeObserver& lhs, const NodeObserver& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const NodeObserver& lhs, const NodeObserver& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * The database observer interface. Observers should implement this interface to receive information about the state
  * of the IceGrid registry database.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API ApplicationObserver : public virtual ::Ice::Object
 {
 public:
 
     typedef ApplicationObserverPrx ProxyType;
-    typedef ApplicationObserverPtr PointerType;
 
     virtual ~ApplicationObserver();
     ApplicationObserver() = default;
@@ -17158,37 +17008,16 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const ApplicationObserver& lhs, const ApplicationObserver& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const ApplicationObserver& lhs, const ApplicationObserver& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * This interface allows applications to monitor the state of object adapters that are registered with IceGrid.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API AdapterObserver : public virtual ::Ice::Object
 {
 public:
 
     typedef AdapterObserverPrx ProxyType;
-    typedef AdapterObserverPtr PointerType;
 
     virtual ~AdapterObserver();
     AdapterObserver() = default;
@@ -17268,37 +17097,16 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const AdapterObserver& lhs, const AdapterObserver& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const AdapterObserver& lhs, const AdapterObserver& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * This interface allows applications to monitor IceGrid well-known objects.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API ObjectObserver : public virtual ::Ice::Object
 {
 public:
 
     typedef ObjectObserverPrx ProxyType;
-    typedef ObjectObserverPtr PointerType;
 
     virtual ~ObjectObserver();
     ObjectObserver() = default;
@@ -17379,40 +17187,19 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const ObjectObserver& lhs, const ObjectObserver& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const ObjectObserver& lhs, const ObjectObserver& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
  * sessions are created either via the {@link Registry} object or via the registry admin <code>SessionManager</code>
  * object.
  * @see Registry
- * \headerfile IceGrid/IceGrid.h
  */
-class ICEGRID_API AdminSession : virtual public ::Glacier2::Session
+class ICEGRID_API AdminSession : public virtual ::Glacier2::Session
 {
 public:
 
     typedef AdminSessionPrx ProxyType;
-    typedef AdminSessionPtr PointerType;
 
     virtual ~AdminSession();
     AdminSession() = default;
@@ -17662,26 +17449,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const AdminSession& lhs, const AdminSession& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const AdminSession& lhs, const AdminSession& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 }
 

@@ -771,40 +771,6 @@ namespace Ice.stream
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public sealed class MyInterfaceSHelper
-        {
-            public static void write(global::Ice.OutputStream ostr, global::Ice.Value[] v)
-            {
-                if(v == null)
-                {
-                    ostr.writeSize(0);
-                }
-                else
-                {
-                    ostr.writeSize(v.Length);
-                    for(int ix = 0; ix < v.Length; ++ix)
-                    {
-                        ostr.writeValue(v[ix]);
-                    }
-                }
-            }
-
-            public static global::Ice.Value[] read(global::Ice.InputStream istr)
-            {
-                global::Ice.Value[] v;
-                {
-                    int szx = istr.readAndCheckSeqSize(1);
-                    v = new global::Ice.Value[szx];
-                    for(int ix = 0; ix < szx; ++ix)
-                    {
-                        istr.readValue(global::IceInternal.Patcher.arrayReadValue<global::Ice.Value>(v, ix));
-                    }
-                }
-                return v;
-            }
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         public sealed class BoolSSHelper
         {
             public static void write(global::Ice.OutputStream ostr, bool[][] v)
@@ -1145,40 +1111,6 @@ namespace Ice.stream
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public sealed class MyInterfaceSSHelper
-        {
-            public static void write(global::Ice.OutputStream ostr, global::Ice.Value[][] v)
-            {
-                if(v == null)
-                {
-                    ostr.writeSize(0);
-                }
-                else
-                {
-                    ostr.writeSize(v.Length);
-                    for(int ix = 0; ix < v.Length; ++ix)
-                    {
-                        MyInterfaceSHelper.write(ostr, v[ix]);
-                    }
-                }
-            }
-
-            public static global::Ice.Value[][] read(global::Ice.InputStream istr)
-            {
-                global::Ice.Value[][] v;
-                {
-                    int szx = istr.readAndCheckSeqSize(1);
-                    v = new global::Ice.Value[szx][];
-                    for(int ix = 0; ix < szx; ++ix)
-                    {
-                        v[ix] = MyInterfaceSHelper.read(istr);
-                    }
-                }
-                return v;
-            }
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         public sealed class ByteBoolDHelper
         {
             public static void write(global::Ice.OutputStream ostr,
@@ -1498,40 +1430,6 @@ namespace Ice.stream
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public sealed class MyClassProxyListHelper
-        {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<global::Ice.ObjectPrx> v)
-            {
-                if(v == null)
-                {
-                    ostr.writeSize(0);
-                }
-                else
-                {
-                    ostr.writeSize(v.Count);
-                    for(int ix = 0; ix < v.Count; ++ix)
-                    {
-                        ostr.writeProxy(v[ix]);
-                    }
-                }
-            }
-
-            public static global::System.Collections.Generic.List<global::Ice.ObjectPrx> read(global::Ice.InputStream istr)
-            {
-                global::System.Collections.Generic.List<global::Ice.ObjectPrx> v;
-                int v_lenx = istr.readAndCheckSeqSize(2);
-                v = new global::System.Collections.Generic.List<global::Ice.ObjectPrx>(v_lenx);
-                for(int ix = 0; ix < v_lenx; ++ix)
-                {
-                    global::Ice.ObjectPrx val = new global::Ice.ObjectPrxHelperBase();
-                    val = istr.readProxy();
-                    v.Add(val);
-                }
-                return v;
-            }
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         public sealed class MyInterfaceProxyListHelper
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.List<MyInterfacePrx> v)
@@ -1740,41 +1638,6 @@ namespace Ice.stream
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public sealed class MyClassProxyStackHelper
-        {
-            public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> v)
-            {
-                if(v == null)
-                {
-                    ostr.writeSize(0);
-                }
-                else
-                {
-                    ostr.writeSize(v.Count);
-                    global::Ice.ObjectPrx[] v_tmp = v.ToArray();
-                    for(int ix = 0; ix < v_tmp.Length; ++ix)
-                    {
-                        ostr.writeProxy(v_tmp[ix]);
-                    }
-                }
-            }
-
-            public static global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> read(global::Ice.InputStream istr)
-            {
-                global::System.Collections.Generic.Stack<global::Ice.ObjectPrx> v;
-                int v_lenx = istr.readAndCheckSeqSize(2);
-                global::Ice.ObjectPrx[] v_tmp = new global::Ice.ObjectPrx[v_lenx];
-                for(int ix = 0; ix < v_lenx; ++ix)
-                {
-                    v_tmp[ix] = istr.readProxy();
-                }
-                global::System.Array.Reverse(v_tmp);
-                v = new global::System.Collections.Generic.Stack<global::Ice.ObjectPrx>(v_tmp);
-                return v;
-            }
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         public sealed class MyInterfaceProxyStackHelper
         {
             public static void write(global::Ice.OutputStream ostr, global::System.Collections.Generic.Stack<MyInterfacePrx> v)
@@ -1871,40 +1734,6 @@ namespace Ice.stream
                     for(int ix = 0; ix < szx; ++ix)
                     {
                         istr.readValue(global::IceInternal.Patcher.arrayReadValue<MyClass>(v, ix));
-                    }
-                }
-                return v;
-            }
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public sealed class MyInterfaceStackHelper
-        {
-            public static void write(global::Ice.OutputStream ostr, global::Ice.Value[] v)
-            {
-                if(v == null)
-                {
-                    ostr.writeSize(0);
-                }
-                else
-                {
-                    ostr.writeSize(v.Length);
-                    for(int ix = 0; ix < v.Length; ++ix)
-                    {
-                        ostr.writeValue(v[ix]);
-                    }
-                }
-            }
-
-            public static global::Ice.Value[] read(global::Ice.InputStream istr)
-            {
-                global::Ice.Value[] v;
-                {
-                    int szx = istr.readAndCheckSeqSize(1);
-                    v = new global::Ice.Value[szx];
-                    for(int ix = 0; ix < szx; ++ix)
-                    {
-                        istr.readValue(global::IceInternal.Patcher.arrayReadValue<global::Ice.Value>(v, ix));
                     }
                 }
                 return v;

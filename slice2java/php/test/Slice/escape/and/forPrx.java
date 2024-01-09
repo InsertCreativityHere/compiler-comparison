@@ -17,20 +17,20 @@ package and;
 
 public interface forPrx extends com.zeroc.Ice.ObjectPrx
 {
-    default array foreach(com.zeroc.Ice.Value _if, echo global, com.zeroc.Ice.Value require, functionPrx include, diePrx _return, com.zeroc.Ice.ObjectPrx isset, enddeclarePrx list, int _new, int _static)
+    default array foreach(breakPrx _if, echo global, functionPrx include, diePrx _return, enddeclarePrx list, int _new, int _static)
         throws endwhile,
                endif
     {
-        return foreach(_if, global, require, include, _return, isset, list, _new, _static, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        return foreach(_if, global, include, _return, list, _new, _static, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default array foreach(com.zeroc.Ice.Value _if, echo global, com.zeroc.Ice.Value require, functionPrx include, diePrx _return, com.zeroc.Ice.ObjectPrx isset, enddeclarePrx list, int _new, int _static, java.util.Map<String, String> context)
+    default array foreach(breakPrx _if, echo global, functionPrx include, diePrx _return, enddeclarePrx list, int _new, int _static, java.util.Map<String, String> context)
         throws endwhile,
                endif
     {
         try
         {
-            return _iceI_foreachAsync(_if, global, require, include, _return, isset, list, _new, _static, context, true).waitForResponseOrUserEx();
+            return _iceI_foreachAsync(_if, global, include, _return, list, _new, _static, context, true).waitForResponseOrUserEx();
         }
         catch(endwhile ex)
         {
@@ -46,24 +46,22 @@ public interface forPrx extends com.zeroc.Ice.ObjectPrx
         }
     }
 
-    default java.util.concurrent.CompletableFuture<array> foreachAsync(com.zeroc.Ice.Value _if, echo global, com.zeroc.Ice.Value require, functionPrx include, diePrx _return, com.zeroc.Ice.ObjectPrx isset, enddeclarePrx list, int _new, int _static)
+    default java.util.concurrent.CompletableFuture<array> foreachAsync(breakPrx _if, echo global, functionPrx include, diePrx _return, enddeclarePrx list, int _new, int _static)
     {
-        return _iceI_foreachAsync(_if, global, require, include, _return, isset, list, _new, _static, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_foreachAsync(_if, global, include, _return, list, _new, _static, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<array> foreachAsync(com.zeroc.Ice.Value _if, echo global, com.zeroc.Ice.Value require, functionPrx include, diePrx _return, com.zeroc.Ice.ObjectPrx isset, enddeclarePrx list, int _new, int _static, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<array> foreachAsync(breakPrx _if, echo global, functionPrx include, diePrx _return, enddeclarePrx list, int _new, int _static, java.util.Map<String, String> context)
     {
-        return _iceI_foreachAsync(_if, global, require, include, _return, isset, list, _new, _static, context, false);
+        return _iceI_foreachAsync(_if, global, include, _return, list, _new, _static, context, false);
     }
 
     /**
      * @hidden
      * @param iceP_if -
      * @param iceP_global -
-     * @param iceP_require -
      * @param iceP_include -
      * @param iceP_return -
-     * @param iceP_isset -
      * @param iceP_list -
      * @param iceP_new -
      * @param iceP_static -
@@ -71,16 +69,14 @@ public interface forPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<array> _iceI_foreachAsync(com.zeroc.Ice.Value iceP_if, echo iceP_global, com.zeroc.Ice.Value iceP_require, functionPrx iceP_include, diePrx iceP_return, com.zeroc.Ice.ObjectPrx iceP_isset, enddeclarePrx iceP_list, int iceP_new, int iceP_static, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<array> _iceI_foreachAsync(breakPrx iceP_if, echo iceP_global, functionPrx iceP_include, diePrx iceP_return, enddeclarePrx iceP_list, int iceP_new, int iceP_static, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<array> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "foreach", null, sync, _iceE_foreach);
         f.invoke(true, context, null, ostr -> {
-                     ostr.writeValue(iceP_if);
+                     ostr.writeProxy(iceP_if);
                      ostr.writeValue(iceP_global);
-                     ostr.writeValue(iceP_require);
                      ostr.writeProxy(iceP_include);
                      ostr.writeProxy(iceP_return);
-                     ostr.writeProxy(iceP_isset);
                      ostr.writeProxy(iceP_list);
                      ostr.writeInt(iceP_new);
                      ostr.writeInt(iceP_static);

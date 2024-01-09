@@ -44,30 +44,6 @@
         "iaop": [, , , , ["Test.MA.IAPrx"], [["Test.MA.IAPrx"]], , , , ]
     });
 
-    const iceC_Test_MA_CA_ids = [
-        "::Ice::Object",
-        "::Test::MA::CA"
-    ];
-
-    Test.MA.CA = class extends Ice.Value
-    {
-    };
-
-    Slice.defineValue(Test.MA.CA, iceC_Test_MA_CA_ids[1], false);
-
-    Test.MA.CADisp = class extends Ice.Object
-    {
-    };
-
-    Test.MA.CAPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.MA.CADisp, Test.MA.CAPrx, iceC_Test_MA_CA_ids, 1,
-    {
-        "caop": [, , , , ["Test.MA.CAPrx"], [["Test.MA.CAPrx"]], , , , ]
-    });
-
     Test.MB = _ModuleRegistry.module("Test.MB");
 
     const iceC_Test_MB_IB1_ids = [
@@ -130,31 +106,6 @@
         "ib2op": [, , , , ["Test.MB.IB2Prx"], [["Test.MB.IB2Prx"]], , , , ]
     });
 
-    const iceC_Test_MB_CB_ids = [
-        "::Ice::Object",
-        "::Test::MA::CA",
-        "::Test::MB::CB"
-    ];
-
-    Test.MB.CB = class extends Test.MA.CA
-    {
-    };
-
-    Slice.defineValue(Test.MB.CB, iceC_Test_MB_CB_ids[2], false);
-
-    Test.MB.CBDisp = class extends Test.MA.CADisp
-    {
-    };
-
-    Test.MB.CBPrx = class extends Test.MA.CAPrx
-    {
-    };
-
-    Slice.defineOperations(Test.MB.CBDisp, Test.MB.CBPrx, iceC_Test_MB_CB_ids, 2,
-    {
-        "cbop": [, , , , ["Test.MB.CBPrx"], [["Test.MB.CBPrx"]], , , , ]
-    });
-
     const iceC_Test_MA_IC_ids = [
         "::Ice::Object",
         "::Test::MA::IA",
@@ -189,75 +140,6 @@
         "icop": [, , , , ["Test.MA.ICPrx"], [["Test.MA.ICPrx"]], , , , ]
     });
 
-    const iceC_Test_MA_CC_ids = [
-        "::Ice::Object",
-        "::Test::MA::CA",
-        "::Test::MA::CC",
-        "::Test::MB::CB"
-    ];
-
-    Test.MA.CC = class extends Test.MB.CB
-    {
-    };
-
-    Slice.defineValue(Test.MA.CC, iceC_Test_MA_CC_ids[2], false);
-
-    Test.MA.CCDisp = class extends Test.MB.CBDisp
-    {
-    };
-
-    Test.MA.CCPrx = class extends Test.MB.CBPrx
-    {
-    };
-
-    Slice.defineOperations(Test.MA.CCDisp, Test.MA.CCPrx, iceC_Test_MA_CC_ids, 2,
-    {
-        "ccop": [, , , , ["Test.MA.CCPrx"], [["Test.MA.CCPrx"]], , , , ]
-    });
-
-    const iceC_Test_MA_CD_ids = [
-        "::Ice::Object",
-        "::Test::MA::CA",
-        "::Test::MA::CC",
-        "::Test::MA::CD",
-        "::Test::MA::IA",
-        "::Test::MB::CB",
-        "::Test::MB::IB1",
-        "::Test::MB::IB2"
-    ];
-
-    Test.MA.CD = class extends Test.MA.CC
-    {
-    };
-
-    Slice.defineValue(Test.MA.CD, iceC_Test_MA_CD_ids[3], false);
-
-    Test.MA.CDDisp = class extends Test.MA.CCDisp
-    {
-        static get _iceImplements()
-        {
-            return [
-                Test.MB.IB1,
-                Test.MB.IB2
-            ];
-        }
-    };
-
-    Test.MA.CDPrx = class extends Test.MA.CCPrx
-    {
-        static get _implements()
-        {
-            return [
-                Test.MB.IB1Prx,
-                Test.MB.IB2Prx];
-        }
-    };
-
-    Slice.defineOperations(Test.MA.CDDisp, Test.MA.CDPrx, iceC_Test_MA_CD_ids, 3,
-    {
-        "cdop": [, , , , ["Test.MA.CDPrx"], [["Test.MA.CDPrx"]], , , , ]
-    });
-
     const iceC_Test_Initial_ids = [
         "::Ice::Object",
         "::Test::Initial"
@@ -274,10 +156,6 @@
     Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, 1,
     {
         "shutdown": [, , , , , , , , , ],
-        "caop": [, , , , ["Test.MA.CAPrx"], , , , , ],
-        "cbop": [, , , , ["Test.MB.CBPrx"], , , , , ],
-        "ccop": [, , , , ["Test.MA.CCPrx"], , , , , ],
-        "cdop": [, , , , ["Test.MA.CDPrx"], , , , , ],
         "iaop": [, , , , ["Test.MA.IAPrx"], , , , , ],
         "ib1op": [, , , , ["Test.MB.IB1Prx"], , , , , ],
         "ib2op": [, , , , ["Test.MB.IB2Prx"], , , , , ],

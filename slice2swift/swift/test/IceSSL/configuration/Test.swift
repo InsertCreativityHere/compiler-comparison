@@ -17,7 +17,7 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice interface `SSLServer`.
+/// Traits for Slice interface`SSLServer`.
 public struct SSLServerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Server"]
     public static let staticId = "::Test::Server"
@@ -90,7 +90,7 @@ public struct SSLPropertiesHelper {
     }
 }
 
-/// Traits for Slice interface `SSLServerFactory`.
+/// Traits for Slice interface`SSLServerFactory`.
 public struct SSLServerFactoryTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::ServerFactory"]
     public static let staticId = "::Test::ServerFactory"

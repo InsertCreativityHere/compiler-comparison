@@ -77,8 +77,6 @@ module ::Test
             T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
         end
 
-        T_Initial.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_InitialPrx.defineProxy(InitialPrx, nil, [])
 
         InitialPrx_mixin::OP_getNoNamespaceC2AsC1 = ::Ice::__defineOperation('getNoNamespaceC2AsC1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::NoNamespace::T_C1, false, 0], [])

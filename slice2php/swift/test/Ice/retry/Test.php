@@ -37,7 +37,6 @@ namespace Test
             return '::Test::Retry';
         }
     }
-    $Test__t_Retry = IcePHP_defineClass('::Test::Retry', '\\Test\\Retry', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_RetryPrx = IcePHP_defineProxy('::Test::Retry', $Ice__t_ObjectPrx, null);

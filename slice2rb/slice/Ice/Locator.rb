@@ -20,7 +20,6 @@ require 'Identity.rb'
 module ::Ice
 
     if not defined?(::Ice::T_Process)
-        T_Process = ::Ice::__declareClass('::Ice::Process')
         T_ProcessPrx = ::Ice::__declareProxy('::Ice::Process')
     end
 
@@ -90,7 +89,6 @@ module ::Ice
     end
 
     if not defined?(::Ice::T_LocatorRegistry)
-        T_LocatorRegistry = ::Ice::__declareClass('::Ice::LocatorRegistry')
         T_LocatorRegistryPrx = ::Ice::__declareProxy('::Ice::LocatorRegistry')
     end
 
@@ -122,8 +120,6 @@ module ::Ice
             T_Locator = ::Ice::__declareClass('::Ice::Locator')
             T_LocatorPrx = ::Ice::__declareProxy('::Ice::Locator')
         end
-
-        T_Locator.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_LocatorPrx.defineProxy(LocatorPrx, nil, [])
 
@@ -161,8 +157,6 @@ module ::Ice
             T_LocatorRegistryPrx = ::Ice::__declareProxy('::Ice::LocatorRegistry')
         end
 
-        T_LocatorRegistry.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_LocatorRegistryPrx.defineProxy(LocatorRegistryPrx, nil, [])
 
         LocatorRegistryPrx_mixin::OP_setAdapterDirectProxy = ::Ice::__defineOperation('setAdapterDirectProxy', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, true, nil, [[::Ice::T_string, false, 0], [::Ice::T_ObjectPrx, false, 0]], [], nil, [::Ice::T_AdapterNotFoundException, ::Ice::T_AdapterAlreadyActiveException])
@@ -190,8 +184,6 @@ module ::Ice
             T_LocatorFinder = ::Ice::__declareClass('::Ice::LocatorFinder')
             T_LocatorFinderPrx = ::Ice::__declareProxy('::Ice::LocatorFinder')
         end
-
-        T_LocatorFinder.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_LocatorFinderPrx.defineProxy(LocatorFinderPrx, nil, [])
 

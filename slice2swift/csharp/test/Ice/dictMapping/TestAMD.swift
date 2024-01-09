@@ -559,7 +559,7 @@ public struct NDGSSHelper {
     }
 }
 
-/// Traits for Slice interface `MyClass`.
+/// Traits for Slice interface`MyClass`.
 public struct MyClassTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MyClass"]
     public static let staticId = "::Test::MyClass"

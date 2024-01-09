@@ -495,19 +495,17 @@ _cpp_and::_cpp_for::_iceD_foreach(::IceInternal::Incoming& inS, const ::Ice::Cur
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    ::std::shared_ptr<::Ice::Value> iceP_if;
+    ::std::shared_ptr<breakPrx> iceP_if;
     ::std::shared_ptr<::and::echo> iceP_global;
-    ::std::shared_ptr<::Ice::Value> iceP_require;
     ::std::shared_ptr<functionPrx> iceP_include;
     ::std::shared_ptr<diePrx> iceP_return;
-    ::std::shared_ptr<::Ice::ObjectPrx> iceP_isset;
     ::std::shared_ptr<enddeclarePrx> iceP_list;
     int iceP_new;
     int iceP_static;
-    istr->readAll(iceP_if, iceP_global, iceP_require, iceP_include, iceP_return, iceP_isset, iceP_list, iceP_new, iceP_static);
+    istr->readAll(iceP_if, iceP_global, iceP_include, iceP_return, iceP_list, iceP_new, iceP_static);
     istr->readPendingValues();
     inS.endReadParams();
-    array ret = this->foreach(::std::move(iceP_if), ::std::move(iceP_global), ::std::move(iceP_require), ::std::move(iceP_include), ::std::move(iceP_return), ::std::move(iceP_isset), ::std::move(iceP_list), iceP_new, iceP_static, current);
+    array ret = this->foreach(::std::move(iceP_if), ::std::move(iceP_global), ::std::move(iceP_include), ::std::move(iceP_return), ::std::move(iceP_list), iceP_new, iceP_static, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();
@@ -662,13 +660,13 @@ _cpp_and::enddeclarePrx::ice_staticId()
 
 /// \cond INTERNAL
 void
-_cpp_and::forPrx::_iceI_foreach(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::_cpp_and::array>>& outAsync, const ::std::shared_ptr<::Ice::Value>& iceP_if, const ::std::shared_ptr<echo>& iceP_global, const ::std::shared_ptr<::Ice::Value>& iceP_require, const ::std::shared_ptr<functionPrx>& iceP_include, const ::std::shared_ptr<diePrx>& iceP_return, const ::std::shared_ptr<::Ice::ObjectPrx>& iceP_isset, const ::std::shared_ptr<enddeclarePrx>& iceP_list, int iceP_new, int iceP_static, const ::Ice::Context& context)
+_cpp_and::forPrx::_iceI_foreach(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::_cpp_and::array>>& outAsync, const ::std::shared_ptr<breakPrx>& iceP_if, const ::std::shared_ptr<echo>& iceP_global, const ::std::shared_ptr<functionPrx>& iceP_include, const ::std::shared_ptr<diePrx>& iceP_return, const ::std::shared_ptr<enddeclarePrx>& iceP_list, int iceP_new, int iceP_static, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_and_for_foreach_name);
     outAsync->invoke(iceC_and_for_foreach_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
-            ostr->writeAll(iceP_if, iceP_global, iceP_require, iceP_include, iceP_return, iceP_isset, iceP_list, iceP_new, iceP_static);
+            ostr->writeAll(iceP_if, iceP_global, iceP_include, iceP_return, iceP_list, iceP_new, iceP_static);
             ostr->writePendingValues();
         },
         [](const ::Ice::UserException& ex)
@@ -1042,40 +1040,6 @@ IceProxy::_cpp_and::die::ice_staticId()
     return ::_cpp_and::die::ice_staticId();
 }
 
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::_cpp_and::upCast(echo* p) { return p; }
-
-void
-::IceProxy::_cpp_and::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< echo>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new echo;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::_cpp_and::echo::_newInstance() const
-{
-    return new echo;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::_cpp_and::echo::ice_staticId()
-{
-    return ::_cpp_and::echo::ice_staticId();
-}
-
 ::IceProxy::_cpp_and::_enddeclareBase::~_enddeclareBase()
 {
 }
@@ -1135,7 +1099,7 @@ void
 /// \endcond
 
 ::Ice::AsyncResultPtr
-IceProxy::_cpp_and::_cpp_for::_iceI_begin_foreach(const ::_cpp_and::breakPtr& iceP_if, const ::_cpp_and::echoPtr& iceP_global, const ::_cpp_and::enddeclarePtr& iceP_require, const ::_cpp_and::functionPrx& iceP_include, const ::_cpp_and::diePrx& iceP_return, const ::_cpp_and::echoPrx& iceP_isset, const ::_cpp_and::enddeclarePrx& iceP_list, ::Ice::Int iceP_new, ::Ice::Int iceP_static, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::_cpp_and::_cpp_for::_iceI_begin_foreach(const ::_cpp_and::breakPrx& iceP_if, const ::_cpp_and::echoPtr& iceP_global, const ::_cpp_and::functionPrx& iceP_include, const ::_cpp_and::diePrx& iceP_return, const ::_cpp_and::enddeclarePrx& iceP_list, ::Ice::Int iceP_new, ::Ice::Int iceP_static, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_and_for_foreach_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_and_for_foreach_name, del, cookie, sync);
@@ -1145,10 +1109,8 @@ IceProxy::_cpp_and::_cpp_for::_iceI_begin_foreach(const ::_cpp_and::breakPtr& ic
         ::Ice::OutputStream* ostr = result->startWriteParams(::Ice::DefaultFormat);
         ostr->write(iceP_if);
         ostr->write(iceP_global);
-        ostr->write(iceP_require);
         ostr->write(iceP_include);
         ostr->write(iceP_return);
-        ostr->write(iceP_isset);
         ostr->write(iceP_list);
         ostr->write(iceP_new);
         ostr->write(iceP_static);
@@ -1210,11 +1172,6 @@ IceProxy::_cpp_and::_cpp_for::ice_staticId()
 _cpp_and::_cpp_break::~_cpp_break()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* _cpp_and::upCast(_cpp_break* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1323,44 +1280,9 @@ _cpp_and::_cpp_break::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cur
 }
 /// \endcond
 
-/// \cond STREAM
-void
-_cpp_and::_cpp_break::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< _cpp_break, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-_cpp_and::_cpp_break::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< _cpp_break, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-_cpp_and::_icePatchObjectPtr(breakPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = breakPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(_cpp_break::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 _cpp_and::function::~function()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* _cpp_and::upCast(function* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1468,44 +1390,9 @@ _cpp_and::function::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curre
 }
 /// \endcond
 
-/// \cond STREAM
-void
-_cpp_and::function::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< function, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-_cpp_and::function::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< function, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-_cpp_and::_icePatchObjectPtr(functionPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = functionPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(function::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 _cpp_and::die::~die()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* _cpp_and::upCast(die* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1608,135 +1495,9 @@ _cpp_and::die::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 }
 /// \endcond
 
-/// \cond STREAM
-void
-_cpp_and::die::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< die, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-_cpp_and::die::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< die, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-_cpp_and::_icePatchObjectPtr(diePtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = diePtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(die::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-_cpp_and::echo::~echo()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* _cpp_and::upCast(echo* p) { return p; }
-
-/// \endcond
-::Ice::ObjectPtr
-_cpp_and::echo::ice_clone() const
-{
-    ::Ice::Object* p = new echo(*this);
-    return p;
-}
-
-namespace
-{
-const ::std::string iceC_and_echo_ids[2] =
-{
-    "::Ice::Object",
-    "::and::echo"
-};
-
-}
-
-bool
-_cpp_and::echo::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_and_echo_ids, iceC_and_echo_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-_cpp_and::echo::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_and_echo_ids[0], &iceC_and_echo_ids[2]);
-}
-
-const ::std::string&
-_cpp_and::echo::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-_cpp_and::echo::ice_staticId()
-{
-    static const ::std::string typeId = "::and::echo";
-    return typeId;
-}
-
-/// \cond STREAM
-void
-_cpp_and::echo::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< echo, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-_cpp_and::echo::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< echo, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::_cpp_and::echo> iceC_and_echo_init("::and::echo");
-}
-
-::Ice::ValueFactoryPtr
-_cpp_and::echo::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::_cpp_and::echo::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-_cpp_and::_icePatchObjectPtr(echoPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = echoPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(echo::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 _cpp_and::enddeclare::~enddeclare()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* _cpp_and::upCast(enddeclare* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1834,44 +1595,9 @@ _cpp_and::enddeclare::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cur
 }
 /// \endcond
 
-/// \cond STREAM
-void
-_cpp_and::enddeclare::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< enddeclare, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-_cpp_and::enddeclare::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< enddeclare, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-_cpp_and::_icePatchObjectPtr(enddeclarePtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = enddeclarePtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(enddeclare::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 _cpp_and::_cpp_for::~_cpp_for()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* _cpp_and::upCast(_cpp_for* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1914,27 +1640,23 @@ _cpp_and::_cpp_for::_iceD_foreach(::IceInternal::Incoming& inS, const ::Ice::Cur
 {
     _iceCheckMode(::Ice::Normal, current.mode);
     ::Ice::InputStream* istr = inS.startReadParams();
-    ::and::breakPtr iceP_if;
+    breakPrx iceP_if;
     ::and::echoPtr iceP_global;
-    ::and::enddeclarePtr iceP_require;
     functionPrx iceP_include;
     diePrx iceP_return;
-    echoPrx iceP_isset;
     enddeclarePrx iceP_list;
     ::Ice::Int iceP_new;
     ::Ice::Int iceP_static;
     istr->read(iceP_if);
     istr->read(iceP_global);
-    istr->read(iceP_require);
     istr->read(iceP_include);
     istr->read(iceP_return);
-    istr->read(iceP_isset);
     istr->read(iceP_list);
     istr->read(iceP_new);
     istr->read(iceP_static);
     istr->readPendingValues();
     inS.endReadParams();
-    array ret = this->foreach(iceP_if, iceP_global, iceP_require, iceP_include, iceP_return, iceP_isset, iceP_list, iceP_new, iceP_static, current);
+    array ret = this->foreach(iceP_if, iceP_global, iceP_include, iceP_return, iceP_list, iceP_new, iceP_static, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(ret);
     inS.endWriteParams();
@@ -1996,32 +1718,93 @@ _cpp_and::_cpp_for::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curre
 }
 /// \endcond
 
+_cpp_and::echo::~echo()
+{
+}
+
+/// \cond INTERNAL
+::Ice::Object* _cpp_and::upCast(echo* p) { return p; }
+
+/// \endcond
+::Ice::ObjectPtr
+_cpp_and::echo::ice_clone() const
+{
+    ::Ice::Object* p = new echo(*this);
+    return p;
+}
+
+namespace
+{
+const ::std::string iceC_and_echo_ids[2] =
+{
+    "::Ice::Object",
+    "::and::echo"
+};
+
+}
+
+bool
+_cpp_and::echo::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_and_echo_ids, iceC_and_echo_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+_cpp_and::echo::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_and_echo_ids[0], &iceC_and_echo_ids[2]);
+}
+
+const ::std::string&
+_cpp_and::echo::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+_cpp_and::echo::ice_staticId()
+{
+    static const ::std::string typeId = "::and::echo";
+    return typeId;
+}
+
 /// \cond STREAM
 void
-_cpp_and::_cpp_for::_iceWriteImpl(::Ice::OutputStream* ostr) const
+_cpp_and::echo::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< _cpp_for, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter< echo, ::Ice::OutputStream>::write(ostr, *this);
     ostr->endSlice();
 }
 
 void
-_cpp_and::_cpp_for::_iceReadImpl(::Ice::InputStream* istr)
+_cpp_and::echo::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader< _cpp_for, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader< echo, ::Ice::InputStream>::read(istr, *this);
     istr->endSlice();
 }
 /// \endcond
 
+namespace
+{
+const ::IceInternal::DefaultValueFactoryInit< ::_cpp_and::echo> iceC_and_echo_init("::and::echo");
+}
+
+::Ice::ValueFactoryPtr
+_cpp_and::echo::ice_factory()
+{
+    return ::IceInternal::factoryTable->getValueFactory(::_cpp_and::echo::ice_staticId());
+}
+
 /// \cond INTERNAL
 void
-_cpp_and::_icePatchObjectPtr(forPtr& handle, const ::Ice::ObjectPtr& v)
+_cpp_and::_icePatchObjectPtr(echoPtr& handle, const ::Ice::ObjectPtr& v)
 {
-    handle = forPtr::dynamicCast(v);
+    handle = echoPtr::dynamicCast(v);
     if(v && !handle)
     {
-        IceInternal::Ex::throwUOE(_cpp_for::ice_staticId(), v);
+        IceInternal::Ex::throwUOE(echo::ice_staticId(), v);
     }
 }
 /// \endcond

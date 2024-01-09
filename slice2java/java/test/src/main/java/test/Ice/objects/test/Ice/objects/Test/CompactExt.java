@@ -34,7 +34,7 @@ public class CompactExt extends Compact
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 421980258971975700L;
+    public static final long serialVersionUID = 1114530669189998439L;
 
     /** @hidden */
     @Override

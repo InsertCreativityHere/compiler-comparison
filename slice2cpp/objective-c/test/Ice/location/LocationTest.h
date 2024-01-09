@@ -54,6 +54,11 @@ class TestIntfPrx;
 namespace Test
 {
 
+}
+
+namespace Test
+{
+
 class TestLocatorRegistry : public virtual ::Ice::LocatorRegistry
 {
 public:
@@ -627,13 +632,6 @@ protected:
 
 }
 
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
-
 /// \cond INTERNAL
 namespace Test
 {
@@ -700,61 +698,36 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< TestIntf>&);
 
 namespace Test
 {
-
-class TestLocatorRegistry;
-/// \cond INTERNAL
-::Ice::Object* upCast(TestLocatorRegistry*);
-/// \endcond
-typedef ::IceInternal::Handle< TestLocatorRegistry> TestLocatorRegistryPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestLocatorRegistry> TestLocatorRegistryPrx;
 typedef TestLocatorRegistryPrx TestLocatorRegistryPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(TestLocatorRegistryPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class TestLocator;
-/// \cond INTERNAL
-::Ice::Object* upCast(TestLocator*);
-/// \endcond
-typedef ::IceInternal::Handle< TestLocator> TestLocatorPtr;
+class TestLocatorRegistry;
+typedef ::IceInternal::Handle< TestLocatorRegistry> TestLocatorRegistryPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestLocator> TestLocatorPrx;
 typedef TestLocatorPrx TestLocatorPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(TestLocatorPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class ServerManager;
-/// \cond INTERNAL
-::Ice::Object* upCast(ServerManager*);
-/// \endcond
-typedef ::IceInternal::Handle< ServerManager> ServerManagerPtr;
+class TestLocator;
+typedef ::IceInternal::Handle< TestLocator> TestLocatorPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::ServerManager> ServerManagerPrx;
 typedef ServerManagerPrx ServerManagerPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(ServerManagerPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class Hello;
-/// \cond INTERNAL
-::Ice::Object* upCast(Hello*);
-/// \endcond
-typedef ::IceInternal::Handle< Hello> HelloPtr;
+class ServerManager;
+typedef ::IceInternal::Handle< ServerManager> ServerManagerPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Hello> HelloPrx;
 typedef HelloPrx HelloPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(HelloPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class TestIntf;
-/// \cond INTERNAL
-::Ice::Object* upCast(TestIntf*);
-/// \endcond
-typedef ::IceInternal::Handle< TestIntf> TestIntfPtr;
+class Hello;
+typedef ::IceInternal::Handle< Hello> HelloPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestIntf> TestIntfPrx;
 typedef TestIntfPrx TestIntfPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(TestIntfPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class TestIntf;
+typedef ::IceInternal::Handle< TestIntf> TestIntfPtr;
+
+}
+
+namespace Test
+{
 
 }
 
@@ -1282,12 +1255,11 @@ protected:
 namespace Test
 {
 
-class TestLocatorRegistry : virtual public ::Ice::LocatorRegistry
+class TestLocatorRegistry : public virtual ::Ice::LocatorRegistry
 {
 public:
 
     typedef TestLocatorRegistryPrx ProxyType;
-    typedef TestLocatorRegistryPtr PointerType;
 
     virtual ~TestLocatorRegistry();
     TestLocatorRegistry() = default;
@@ -1330,33 +1302,13 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const TestLocatorRegistry& lhs, const TestLocatorRegistry& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const TestLocatorRegistry& lhs, const TestLocatorRegistry& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class TestLocator : virtual public ::Ice::Locator
+class TestLocator : public virtual ::Ice::Locator
 {
 public:
 
     typedef TestLocatorPrx ProxyType;
-    typedef TestLocatorPtr PointerType;
 
     virtual ~TestLocator();
     TestLocator() = default;
@@ -1399,33 +1351,13 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const TestLocator& lhs, const TestLocator& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const TestLocator& lhs, const TestLocator& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 class ServerManager : public virtual ::Ice::Object
 {
 public:
 
     typedef ServerManagerPrx ProxyType;
-    typedef ServerManagerPtr PointerType;
 
     virtual ~ServerManager();
     ServerManager() = default;
@@ -1473,33 +1405,13 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const ServerManager& lhs, const ServerManager& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const ServerManager& lhs, const ServerManager& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 class Hello : public virtual ::Ice::Object
 {
 public:
 
     typedef HelloPrx ProxyType;
-    typedef HelloPtr PointerType;
 
     virtual ~Hello();
     Hello() = default;
@@ -1542,33 +1454,13 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const Hello& lhs, const Hello& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Hello& lhs, const Hello& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 class TestIntf : public virtual ::Ice::Object
 {
 public:
 
     typedef TestIntfPrx ProxyType;
-    typedef TestIntfPtr PointerType;
 
     virtual ~TestIntf();
     TestIntf() = default;
@@ -1626,35 +1518,9 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const TestIntf& lhs, const TestIntf& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
 }
-
-inline bool operator<(const TestIntf& lhs, const TestIntf& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 namespace Test
 {

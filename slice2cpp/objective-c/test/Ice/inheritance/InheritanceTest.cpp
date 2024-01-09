@@ -58,23 +58,6 @@ const ::std::string iceC_Test_MA_IA_ops[] =
 };
 const ::std::string iceC_Test_MA_IA_iaop_name = "iaop";
 
-const ::IceInternal::DefaultValueFactoryInit<::Test::MA::CA> iceC_Test_MA_CA_init("::Test::MA::CA");
-
-const ::std::string iceC_Test_MA_CA_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::MA::CA"
-};
-const ::std::string iceC_Test_MA_CA_ops[] =
-{
-    "caop",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Test_MA_CA_caop_name = "caop";
-
 const ::std::string iceC_Test_MB_IB1_ids[3] =
 {
     "::Ice::Object",
@@ -109,25 +92,6 @@ const ::std::string iceC_Test_MB_IB2_ops[] =
 };
 const ::std::string iceC_Test_MB_IB2_ib2op_name = "ib2op";
 
-const ::IceInternal::DefaultValueFactoryInit<::Test::MB::CB> iceC_Test_MB_CB_init("::Test::MB::CB");
-
-const ::std::string iceC_Test_MB_CB_ids[3] =
-{
-    "::Ice::Object",
-    "::Test::MA::CA",
-    "::Test::MB::CB"
-};
-const ::std::string iceC_Test_MB_CB_ops[] =
-{
-    "caop",
-    "cbop",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Test_MB_CB_cbop_name = "cbop";
-
 const ::std::string iceC_Test_MA_IC_ids[5] =
 {
     "::Ice::Object",
@@ -149,56 +113,6 @@ const ::std::string iceC_Test_MA_IC_ops[] =
 };
 const ::std::string iceC_Test_MA_IC_icop_name = "icop";
 
-const ::IceInternal::DefaultValueFactoryInit<::Test::MA::CC> iceC_Test_MA_CC_init("::Test::MA::CC");
-
-const ::std::string iceC_Test_MA_CC_ids[4] =
-{
-    "::Ice::Object",
-    "::Test::MA::CA",
-    "::Test::MA::CC",
-    "::Test::MB::CB"
-};
-const ::std::string iceC_Test_MA_CC_ops[] =
-{
-    "caop",
-    "cbop",
-    "ccop",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Test_MA_CC_ccop_name = "ccop";
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MA::CD> iceC_Test_MA_CD_init("::Test::MA::CD");
-
-const ::std::string iceC_Test_MA_CD_ids[8] =
-{
-    "::Ice::Object",
-    "::Test::MA::CA",
-    "::Test::MA::CC",
-    "::Test::MA::CD",
-    "::Test::MA::IA",
-    "::Test::MB::CB",
-    "::Test::MB::IB1",
-    "::Test::MB::IB2"
-};
-const ::std::string iceC_Test_MA_CD_ops[] =
-{
-    "caop",
-    "cbop",
-    "ccop",
-    "cdop",
-    "iaop",
-    "ib1op",
-    "ib2op",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Test_MA_CD_cdop_name = "cdop";
-
 const ::std::string iceC_Test_Initial_ids[2] =
 {
     "::Ice::Object",
@@ -206,10 +120,6 @@ const ::std::string iceC_Test_Initial_ids[2] =
 };
 const ::std::string iceC_Test_Initial_ops[] =
 {
-    "caop",
-    "cbop",
-    "ccop",
-    "cdop",
     "iaop",
     "ib1op",
     "ib2op",
@@ -221,10 +131,6 @@ const ::std::string iceC_Test_Initial_ops[] =
     "shutdown"
 };
 const ::std::string iceC_Test_Initial_shutdown_name = "shutdown";
-const ::std::string iceC_Test_Initial_caop_name = "caop";
-const ::std::string iceC_Test_Initial_cbop_name = "cbop";
-const ::std::string iceC_Test_Initial_ccop_name = "ccop";
-const ::std::string iceC_Test_Initial_cdop_name = "cdop";
 const ::std::string iceC_Test_Initial_iaop_name = "iaop";
 const ::std::string iceC_Test_Initial_ib1op_name = "ib1op";
 const ::std::string iceC_Test_Initial_ib2op_name = "ib2op";
@@ -289,89 +195,6 @@ Test::MA::IA::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cu
         case 0:
         {
             return _iceD_iaop(in, current);
-        }
-        case 1:
-        {
-            return _iceD_ice_id(in, current);
-        }
-        case 2:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 3:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 4:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        default:
-        {
-            assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-        }
-    }
-}
-/// \endcond
-
-bool
-Test::MA::CADisp::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MA_CA_ids, iceC_Test_MA_CA_ids + 2, s);
-}
-
-::std::vector<::std::string>
-Test::MA::CADisp::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector<::std::string>(&iceC_Test_MA_CA_ids[0], &iceC_Test_MA_CA_ids[2]);
-}
-
-::std::string
-Test::MA::CADisp::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::MA::CADisp::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::MA::CA";
-    return typeId;
-}
-
-/// \cond INTERNAL
-bool
-Test::MA::CADisp::_iceD_caop(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
-    ::std::shared_ptr<CAPrx> iceP_p;
-    istr->readAll(iceP_p);
-    inS.endReadParams();
-    ::std::shared_ptr<CAPrx> ret = this->caop(::std::move(iceP_p), current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::MA::CADisp::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
-{
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MA_CA_ops, iceC_Test_MA_CA_ops + 5, current.operation);
-    if(r.first == r.second)
-    {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-    }
-
-    switch(r.first - iceC_Test_MA_CA_ops)
-    {
-        case 0:
-        {
-            return _iceD_caop(in, current);
         }
         case 1:
         {
@@ -573,93 +396,6 @@ Test::MB::IB2::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 /// \endcond
 
 bool
-Test::MB::CBDisp::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MB_CB_ids, iceC_Test_MB_CB_ids + 3, s);
-}
-
-::std::vector<::std::string>
-Test::MB::CBDisp::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector<::std::string>(&iceC_Test_MB_CB_ids[0], &iceC_Test_MB_CB_ids[3]);
-}
-
-::std::string
-Test::MB::CBDisp::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::MB::CBDisp::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::MB::CB";
-    return typeId;
-}
-
-/// \cond INTERNAL
-bool
-Test::MB::CBDisp::_iceD_cbop(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
-    ::std::shared_ptr<CBPrx> iceP_p;
-    istr->readAll(iceP_p);
-    inS.endReadParams();
-    ::std::shared_ptr<CBPrx> ret = this->cbop(::std::move(iceP_p), current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::MB::CBDisp::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
-{
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MB_CB_ops, iceC_Test_MB_CB_ops + 6, current.operation);
-    if(r.first == r.second)
-    {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-    }
-
-    switch(r.first - iceC_Test_MB_CB_ops)
-    {
-        case 0:
-        {
-            return _iceD_caop(in, current);
-        }
-        case 1:
-        {
-            return _iceD_cbop(in, current);
-        }
-        case 2:
-        {
-            return _iceD_ice_id(in, current);
-        }
-        case 3:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 4:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 5:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        default:
-        {
-            assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-        }
-    }
-}
-/// \endcond
-
-bool
 Test::MA::IC::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_MA_IC_ids, iceC_Test_MA_IC_ids + 5, s);
@@ -755,204 +491,6 @@ Test::MA::IC::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cu
 /// \endcond
 
 bool
-Test::MA::CCDisp::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MA_CC_ids, iceC_Test_MA_CC_ids + 4, s);
-}
-
-::std::vector<::std::string>
-Test::MA::CCDisp::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector<::std::string>(&iceC_Test_MA_CC_ids[0], &iceC_Test_MA_CC_ids[4]);
-}
-
-::std::string
-Test::MA::CCDisp::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::MA::CCDisp::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::MA::CC";
-    return typeId;
-}
-
-/// \cond INTERNAL
-bool
-Test::MA::CCDisp::_iceD_ccop(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
-    ::std::shared_ptr<CCPrx> iceP_p;
-    istr->readAll(iceP_p);
-    inS.endReadParams();
-    ::std::shared_ptr<CCPrx> ret = this->ccop(::std::move(iceP_p), current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::MA::CCDisp::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
-{
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MA_CC_ops, iceC_Test_MA_CC_ops + 7, current.operation);
-    if(r.first == r.second)
-    {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-    }
-
-    switch(r.first - iceC_Test_MA_CC_ops)
-    {
-        case 0:
-        {
-            return _iceD_caop(in, current);
-        }
-        case 1:
-        {
-            return _iceD_cbop(in, current);
-        }
-        case 2:
-        {
-            return _iceD_ccop(in, current);
-        }
-        case 3:
-        {
-            return _iceD_ice_id(in, current);
-        }
-        case 4:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 5:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 6:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        default:
-        {
-            assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-        }
-    }
-}
-/// \endcond
-
-bool
-Test::MA::CDDisp::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MA_CD_ids, iceC_Test_MA_CD_ids + 8, s);
-}
-
-::std::vector<::std::string>
-Test::MA::CDDisp::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector<::std::string>(&iceC_Test_MA_CD_ids[0], &iceC_Test_MA_CD_ids[8]);
-}
-
-::std::string
-Test::MA::CDDisp::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::MA::CDDisp::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::MA::CD";
-    return typeId;
-}
-
-/// \cond INTERNAL
-bool
-Test::MA::CDDisp::_iceD_cdop(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
-    ::std::shared_ptr<CDPrx> iceP_p;
-    istr->readAll(iceP_p);
-    inS.endReadParams();
-    ::std::shared_ptr<CDPrx> ret = this->cdop(::std::move(iceP_p), current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::MA::CDDisp::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
-{
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MA_CD_ops, iceC_Test_MA_CD_ops + 11, current.operation);
-    if(r.first == r.second)
-    {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-    }
-
-    switch(r.first - iceC_Test_MA_CD_ops)
-    {
-        case 0:
-        {
-            return _iceD_caop(in, current);
-        }
-        case 1:
-        {
-            return _iceD_cbop(in, current);
-        }
-        case 2:
-        {
-            return _iceD_ccop(in, current);
-        }
-        case 3:
-        {
-            return _iceD_cdop(in, current);
-        }
-        case 4:
-        {
-            return _iceD_iaop(in, current);
-        }
-        case 5:
-        {
-            return _iceD_ib1op(in, current);
-        }
-        case 6:
-        {
-            return _iceD_ib2op(in, current);
-        }
-        case 7:
-        {
-            return _iceD_ice_id(in, current);
-        }
-        case 8:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 9:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 10:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        default:
-        {
-            assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-        }
-    }
-}
-/// \endcond
-
-bool
 Test::Initial::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_Test_Initial_ids, iceC_Test_Initial_ids + 2, s);
@@ -985,62 +523,6 @@ Test::Initial::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current
     inS.readEmptyParams();
     this->shutdown(current);
     inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_caop(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<::Test::MA::CAPrx> ret = this->caop(current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_cbop(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<::Test::MB::CBPrx> ret = this->cbop(current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_ccop(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<::Test::MA::CCPrx> ret = this->ccop(current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_cdop(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<::Test::MA::CDPrx> ret = this->cdop(current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll(ret);
-    inS.endWriteParams();
     return true;
 }
 /// \endcond
@@ -1105,7 +587,7 @@ Test::Initial::_iceD_icop(::IceInternal::Incoming& inS, const ::Ice::Current& cu
 bool
 Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Initial_ops, iceC_Test_Initial_ops + 13, current.operation);
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Initial_ops, iceC_Test_Initial_ops + 9, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -1115,53 +597,37 @@ Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     {
         case 0:
         {
-            return _iceD_caop(in, current);
+            return _iceD_iaop(in, current);
         }
         case 1:
         {
-            return _iceD_cbop(in, current);
+            return _iceD_ib1op(in, current);
         }
         case 2:
         {
-            return _iceD_ccop(in, current);
+            return _iceD_ib2op(in, current);
         }
         case 3:
         {
-            return _iceD_cdop(in, current);
+            return _iceD_ice_id(in, current);
         }
         case 4:
         {
-            return _iceD_iaop(in, current);
+            return _iceD_ice_ids(in, current);
         }
         case 5:
         {
-            return _iceD_ib1op(in, current);
+            return _iceD_ice_isA(in, current);
         }
         case 6:
         {
-            return _iceD_ib2op(in, current);
+            return _iceD_ice_ping(in, current);
         }
         case 7:
         {
-            return _iceD_ice_id(in, current);
-        }
-        case 8:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 9:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 10:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        case 11:
-        {
             return _iceD_icop(in, current);
         }
-        case 12:
+        case 8:
         {
             return _iceD_shutdown(in, current);
         }
@@ -1173,50 +639,6 @@ Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     }
 }
 /// \endcond
-
-Test::MA::CA::~CA()
-{
-}
-
-const ::std::string&
-Test::MA::CA::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::MA::CA";
-    return typeId;
-}
-
-Test::MB::CB::~CB()
-{
-}
-
-const ::std::string&
-Test::MB::CB::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::MB::CB";
-    return typeId;
-}
-
-Test::MA::CC::~CC()
-{
-}
-
-const ::std::string&
-Test::MA::CC::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::MA::CC";
-    return typeId;
-}
-
-Test::MA::CD::~CD()
-{
-}
-
-const ::std::string&
-Test::MA::CD::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::MA::CD";
-    return typeId;
-}
 
 /// \cond INTERNAL
 void
@@ -1244,34 +666,6 @@ const ::std::string&
 Test::MA::IAPrx::ice_staticId()
 {
     return IA::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-Test::MA::CAPrx::_iceI_caop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MA::CAPrx>>>& outAsync, const ::std::shared_ptr<CAPrx>& iceP_p, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_MA_CA_caop_name);
-    outAsync->invoke(iceC_Test_MA_CA_caop_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_p);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::MA::CAPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<CAPrx>();
-}
-/// \endcond
-
-const ::std::string&
-Test::MA::CAPrx::ice_staticId()
-{
-    return CADisp::ice_staticId();
 }
 
 /// \cond INTERNAL
@@ -1332,34 +726,6 @@ Test::MB::IB2Prx::ice_staticId()
 
 /// \cond INTERNAL
 void
-Test::MB::CBPrx::_iceI_cbop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MB::CBPrx>>>& outAsync, const ::std::shared_ptr<CBPrx>& iceP_p, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_MB_CB_cbop_name);
-    outAsync->invoke(iceC_Test_MB_CB_cbop_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_p);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::MB::CBPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<CBPrx>();
-}
-/// \endcond
-
-const ::std::string&
-Test::MB::CBPrx::ice_staticId()
-{
-    return CBDisp::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
 Test::MA::ICPrx::_iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MA::ICPrx>>>& outAsync, const ::std::shared_ptr<ICPrx>& iceP_p, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_Test_MA_IC_icop_name);
@@ -1388,109 +754,9 @@ Test::MA::ICPrx::ice_staticId()
 
 /// \cond INTERNAL
 void
-Test::MA::CCPrx::_iceI_ccop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MA::CCPrx>>>& outAsync, const ::std::shared_ptr<CCPrx>& iceP_p, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_MA_CC_ccop_name);
-    outAsync->invoke(iceC_Test_MA_CC_ccop_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_p);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::MA::CCPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<CCPrx>();
-}
-/// \endcond
-
-const ::std::string&
-Test::MA::CCPrx::ice_staticId()
-{
-    return CCDisp::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
-Test::MA::CDPrx::_iceI_cdop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MA::CDPrx>>>& outAsync, const ::std::shared_ptr<CDPrx>& iceP_p, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_MA_CD_cdop_name);
-    outAsync->invoke(iceC_Test_MA_CD_cdop_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_p);
-        },
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-Test::MA::CDPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<CDPrx>();
-}
-/// \endcond
-
-const ::std::string&
-Test::MA::CDPrx::ice_staticId()
-{
-    return CDDisp::ice_staticId();
-}
-
-/// \cond INTERNAL
-void
 Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
 {
     outAsync->invoke(iceC_Test_Initial_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::InitialPrx::_iceI_caop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MA::CAPrx>>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_Initial_caop_name);
-    outAsync->invoke(iceC_Test_Initial_caop_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::InitialPrx::_iceI_cbop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MB::CBPrx>>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_Initial_cbop_name);
-    outAsync->invoke(iceC_Test_Initial_cbop_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::InitialPrx::_iceI_ccop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MA::CCPrx>>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_Initial_ccop_name);
-    outAsync->invoke(iceC_Test_Initial_ccop_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::InitialPrx::_iceI_cdop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::MA::CDPrx>>>& outAsync, const ::Ice::Context& context)
-{
-    _checkTwowayOnly(iceC_Test_Initial_cdop_name);
-    outAsync->invoke(iceC_Test_Initial_cdop_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -1564,8 +830,6 @@ namespace
 
 const ::std::string iceC_Test_MA_IA_iaop_name = "iaop";
 
-const ::std::string iceC_Test_MA_CA_caop_name = "caop";
-
 }
 
 namespace
@@ -1575,8 +839,6 @@ const ::std::string iceC_Test_MB_IB1_ib1op_name = "ib1op";
 
 const ::std::string iceC_Test_MB_IB2_ib2op_name = "ib2op";
 
-const ::std::string iceC_Test_MB_CB_cbop_name = "cbop";
-
 }
 
 namespace
@@ -1584,21 +846,9 @@ namespace
 
 const ::std::string iceC_Test_MA_IC_icop_name = "icop";
 
-const ::std::string iceC_Test_MA_CC_ccop_name = "ccop";
-
-const ::std::string iceC_Test_MA_CD_cdop_name = "cdop";
-
 }
 
 const ::std::string iceC_Test_Initial_shutdown_name = "shutdown";
-
-const ::std::string iceC_Test_Initial_caop_name = "caop";
-
-const ::std::string iceC_Test_Initial_cbop_name = "cbop";
-
-const ::std::string iceC_Test_Initial_ccop_name = "ccop";
-
-const ::std::string iceC_Test_Initial_cdop_name = "cdop";
 
 const ::std::string iceC_Test_Initial_iaop_name = "iaop";
 
@@ -1684,82 +934,6 @@ const ::std::string&
 IceProxy::Test::MA::IA::ice_staticId()
 {
     return ::Test::MA::IA::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::MA::upCast(CA* p) { return p; }
-
-void
-::IceProxy::Test::MA::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< CA>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new CA;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-::Ice::AsyncResultPtr
-IceProxy::Test::MA::CA::_iceI_begin_caop(const ::Test::MA::CAPrx& iceP_p, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    _checkTwowayOnly(iceC_Test_MA_CA_caop_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_MA_CA_caop_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_Test_MA_CA_caop_name, ::Ice::Normal, context);
-        ::Ice::OutputStream* ostr = result->startWriteParams(::Ice::DefaultFormat);
-        ostr->write(iceP_p);
-        result->endWriteParams();
-        result->invoke(iceC_Test_MA_CA_caop_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-::Test::MA::CAPrx
-IceProxy::Test::MA::CA::end_caop(const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_MA_CA_caop_name);
-    ::Test::MA::CAPrx ret;
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(ret);
-    result->_endReadParams();
-    return ret;
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::MA::CA::_newInstance() const
-{
-    return new CA;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::MA::CA::ice_staticId()
-{
-    return ::Test::MA::CA::ice_staticId();
 }
 
 /// \cond INTERNAL
@@ -1914,82 +1088,6 @@ IceProxy::Test::MB::IB2::ice_staticId()
     return ::Test::MB::IB2::ice_staticId();
 }
 
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::MB::upCast(CB* p) { return p; }
-
-void
-::IceProxy::Test::MB::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< CB>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new CB;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-::Ice::AsyncResultPtr
-IceProxy::Test::MB::CB::_iceI_begin_cbop(const ::Test::MB::CBPrx& iceP_p, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    _checkTwowayOnly(iceC_Test_MB_CB_cbop_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_MB_CB_cbop_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_Test_MB_CB_cbop_name, ::Ice::Normal, context);
-        ::Ice::OutputStream* ostr = result->startWriteParams(::Ice::DefaultFormat);
-        ostr->write(iceP_p);
-        result->endWriteParams();
-        result->invoke(iceC_Test_MB_CB_cbop_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-::Test::MB::CBPrx
-IceProxy::Test::MB::CB::end_cbop(const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_MB_CB_cbop_name);
-    ::Test::MB::CBPrx ret;
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(ret);
-    result->_endReadParams();
-    return ret;
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::MB::CB::_newInstance() const
-{
-    return new CB;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::MB::CB::ice_staticId()
-{
-    return ::Test::MB::CB::ice_staticId();
-}
-
 ::IceProxy::Test::MA::_ICBase::~_ICBase()
 {
 }
@@ -2071,162 +1169,6 @@ IceProxy::Test::MA::IC::ice_staticId()
 }
 
 /// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::MA::upCast(CC* p) { return p; }
-
-void
-::IceProxy::Test::MA::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< CC>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new CC;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-::Ice::AsyncResultPtr
-IceProxy::Test::MA::CC::_iceI_begin_ccop(const ::Test::MA::CCPrx& iceP_p, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    _checkTwowayOnly(iceC_Test_MA_CC_ccop_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_MA_CC_ccop_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_Test_MA_CC_ccop_name, ::Ice::Normal, context);
-        ::Ice::OutputStream* ostr = result->startWriteParams(::Ice::DefaultFormat);
-        ostr->write(iceP_p);
-        result->endWriteParams();
-        result->invoke(iceC_Test_MA_CC_ccop_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-::Test::MA::CCPrx
-IceProxy::Test::MA::CC::end_ccop(const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_MA_CC_ccop_name);
-    ::Test::MA::CCPrx ret;
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(ret);
-    result->_endReadParams();
-    return ret;
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::MA::CC::_newInstance() const
-{
-    return new CC;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::MA::CC::ice_staticId()
-{
-    return ::Test::MA::CC::ice_staticId();
-}
-
-::IceProxy::Test::MA::_CDBase::~_CDBase()
-{
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::MA::upCast(CD* p) { return p; }
-
-void
-::IceProxy::Test::MA::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< CD>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new CD;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-::Ice::AsyncResultPtr
-IceProxy::Test::MA::CD::_iceI_begin_cdop(const ::Test::MA::CDPrx& iceP_p, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    _checkTwowayOnly(iceC_Test_MA_CD_cdop_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_MA_CD_cdop_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_Test_MA_CD_cdop_name, ::Ice::Normal, context);
-        ::Ice::OutputStream* ostr = result->startWriteParams(::Ice::DefaultFormat);
-        ostr->write(iceP_p);
-        result->endWriteParams();
-        result->invoke(iceC_Test_MA_CD_cdop_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-::Test::MA::CDPrx
-IceProxy::Test::MA::CD::end_cdop(const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_MA_CD_cdop_name);
-    ::Test::MA::CDPrx ret;
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(ret);
-    result->_endReadParams();
-    return ret;
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::MA::CD::_newInstance() const
-{
-    return new CD;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::MA::CD::ice_staticId()
-{
-    return ::Test::MA::CD::ice_staticId();
-}
-
-/// \cond INTERNAL
 ::IceProxy::Ice::Object* ::IceProxy::Test::upCast(Initial* p) { return p; }
 
 void
@@ -2267,166 +1209,6 @@ void
 IceProxy::Test::Initial::end_shutdown(const ::Ice::AsyncResultPtr& result)
 {
     _end(result, iceC_Test_Initial_shutdown_name);
-}
-
-::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_caop(const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    _checkTwowayOnly(iceC_Test_Initial_caop_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_caop_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_Test_Initial_caop_name, ::Ice::Normal, context);
-        result->writeEmptyParams();
-        result->invoke(iceC_Test_Initial_caop_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-::Test::MA::CAPrx
-IceProxy::Test::Initial::end_caop(const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_caop_name);
-    ::Test::MA::CAPrx ret;
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(ret);
-    result->_endReadParams();
-    return ret;
-}
-
-::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_cbop(const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    _checkTwowayOnly(iceC_Test_Initial_cbop_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_cbop_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_Test_Initial_cbop_name, ::Ice::Normal, context);
-        result->writeEmptyParams();
-        result->invoke(iceC_Test_Initial_cbop_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-::Test::MB::CBPrx
-IceProxy::Test::Initial::end_cbop(const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_cbop_name);
-    ::Test::MB::CBPrx ret;
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(ret);
-    result->_endReadParams();
-    return ret;
-}
-
-::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_ccop(const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    _checkTwowayOnly(iceC_Test_Initial_ccop_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_ccop_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_Test_Initial_ccop_name, ::Ice::Normal, context);
-        result->writeEmptyParams();
-        result->invoke(iceC_Test_Initial_ccop_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-::Test::MA::CCPrx
-IceProxy::Test::Initial::end_ccop(const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_ccop_name);
-    ::Test::MA::CCPrx ret;
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(ret);
-    result->_endReadParams();
-    return ret;
-}
-
-::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_cdop(const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
-{
-    _checkTwowayOnly(iceC_Test_Initial_cdop_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_cdop_name, del, cookie, sync);
-    try
-    {
-        result->prepare(iceC_Test_Initial_cdop_name, ::Ice::Normal, context);
-        result->writeEmptyParams();
-        result->invoke(iceC_Test_Initial_cdop_name);
-    }
-    catch(const ::Ice::Exception& ex)
-    {
-        result->abort(ex);
-    }
-    return result;
-}
-
-::Test::MA::CDPrx
-IceProxy::Test::Initial::end_cdop(const ::Ice::AsyncResultPtr& result)
-{
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_cdop_name);
-    ::Test::MA::CDPrx ret;
-    if(!result->_waitForResponse())
-    {
-        try
-        {
-            result->_throwUserException();
-        }
-        catch(const ::Ice::UserException& ex)
-        {
-            throw ::Ice::UnknownUserException(__FILE__, __LINE__, ex.ice_id());
-        }
-    }
-    ::Ice::InputStream* istr = result->_startReadParams();
-    istr->read(ret);
-    result->_endReadParams();
-    return ret;
 }
 
 ::Ice::AsyncResultPtr
@@ -2607,11 +1389,6 @@ Test::MA::IA::~IA()
 {
 }
 
-/// \cond INTERNAL
-::Ice::Object* Test::MA::upCast(IA* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Test_MA_IA_ids[2] =
@@ -2718,194 +1495,9 @@ Test::MA::IA::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cu
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::MA::IA::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< IA, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::MA::IA::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< IA, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MA::_icePatchObjectPtr(IAPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = IAPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(IA::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-Test::MA::CA::~CA()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::MA::upCast(CA* p) { return p; }
-
-/// \endcond
-::Ice::ObjectPtr
-Test::MA::CA::ice_clone() const
-{
-    throw ::Ice::CloneNotImplementedException(__FILE__, __LINE__);
-}
-
-namespace
-{
-const ::std::string iceC_Test_MA_CA_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::MA::CA"
-};
-
-}
-
-bool
-Test::MA::CA::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MA_CA_ids, iceC_Test_MA_CA_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::MA::CA::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_MA_CA_ids[0], &iceC_Test_MA_CA_ids[2]);
-}
-
-const ::std::string&
-Test::MA::CA::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::MA::CA::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::MA::CA";
-    return typeId;
-}
-
-/// \cond INTERNAL
-bool
-Test::MA::CA::_iceD_caop(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    CAPrx iceP_p;
-    istr->read(iceP_p);
-    inS.endReadParams();
-    CAPrx ret = this->caop(iceP_p, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-namespace
-{
-const ::std::string iceC_Test_MA_CA_all[] =
-{
-    "caop",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-
-}
-
-/// \cond INTERNAL
-bool
-Test::MA::CA::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
-{
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MA_CA_all, iceC_Test_MA_CA_all + 5, current.operation);
-    if(r.first == r.second)
-    {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-    }
-
-    switch(r.first - iceC_Test_MA_CA_all)
-    {
-        case 0:
-        {
-            return _iceD_caop(in, current);
-        }
-        case 1:
-        {
-            return _iceD_ice_id(in, current);
-        }
-        case 2:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 3:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 4:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        default:
-        {
-            assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-        }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-Test::MA::CA::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< CA, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::MA::CA::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< CA, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MA::_icePatchObjectPtr(CAPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = CAPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(CA::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::MB::IB1::~IB1()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::MB::upCast(IB1* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -3019,44 +1611,9 @@ Test::MB::IB1::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::MB::IB1::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< IB1, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::MB::IB1::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< IB1, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MB::_icePatchObjectPtr(IB1Ptr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = IB1Ptr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(IB1::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::MB::IB2::~IB2()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::MB::upCast(IB2* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -3170,202 +1727,9 @@ Test::MB::IB2::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::MB::IB2::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< IB2, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::MB::IB2::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< IB2, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MB::_icePatchObjectPtr(IB2Ptr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = IB2Ptr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(IB2::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-Test::MB::CB::~CB()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::MB::upCast(CB* p) { return p; }
-
-/// \endcond
-::Ice::ObjectPtr
-Test::MB::CB::ice_clone() const
-{
-    throw ::Ice::CloneNotImplementedException(__FILE__, __LINE__);
-}
-
-namespace
-{
-const ::std::string iceC_Test_MB_CB_ids[3] =
-{
-    "::Ice::Object",
-    "::Test::MA::CA",
-    "::Test::MB::CB"
-};
-
-}
-
-bool
-Test::MB::CB::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MB_CB_ids, iceC_Test_MB_CB_ids + 3, s);
-}
-
-::std::vector< ::std::string>
-Test::MB::CB::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_MB_CB_ids[0], &iceC_Test_MB_CB_ids[3]);
-}
-
-const ::std::string&
-Test::MB::CB::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::MB::CB::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::MB::CB";
-    return typeId;
-}
-
-/// \cond INTERNAL
-bool
-Test::MB::CB::_iceD_cbop(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    CBPrx iceP_p;
-    istr->read(iceP_p);
-    inS.endReadParams();
-    CBPrx ret = this->cbop(iceP_p, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-namespace
-{
-const ::std::string iceC_Test_MB_CB_all[] =
-{
-    "caop",
-    "cbop",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-
-}
-
-/// \cond INTERNAL
-bool
-Test::MB::CB::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
-{
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MB_CB_all, iceC_Test_MB_CB_all + 6, current.operation);
-    if(r.first == r.second)
-    {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-    }
-
-    switch(r.first - iceC_Test_MB_CB_all)
-    {
-        case 0:
-        {
-            return _iceD_caop(in, current);
-        }
-        case 1:
-        {
-            return _iceD_cbop(in, current);
-        }
-        case 2:
-        {
-            return _iceD_ice_id(in, current);
-        }
-        case 3:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 4:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 5:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        default:
-        {
-            assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-        }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-Test::MB::CB::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< CB, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    ::Test::MA::CA::_iceWriteImpl(ostr);
-}
-
-void
-Test::MB::CB::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< CB, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    ::Test::MA::CA::_iceReadImpl(istr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MB::_icePatchObjectPtr(CBPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = CBPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(CB::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::MA::IC::~IC()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::MA::upCast(IC* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -3491,396 +1855,9 @@ Test::MA::IC::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cu
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::MA::IC::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< IC, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::MA::IC::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< IC, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MA::_icePatchObjectPtr(ICPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = ICPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(IC::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-Test::MA::CC::~CC()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::MA::upCast(CC* p) { return p; }
-
-/// \endcond
-::Ice::ObjectPtr
-Test::MA::CC::ice_clone() const
-{
-    throw ::Ice::CloneNotImplementedException(__FILE__, __LINE__);
-}
-
-namespace
-{
-const ::std::string iceC_Test_MA_CC_ids[4] =
-{
-    "::Ice::Object",
-    "::Test::MA::CA",
-    "::Test::MA::CC",
-    "::Test::MB::CB"
-};
-
-}
-
-bool
-Test::MA::CC::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MA_CC_ids, iceC_Test_MA_CC_ids + 4, s);
-}
-
-::std::vector< ::std::string>
-Test::MA::CC::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_MA_CC_ids[0], &iceC_Test_MA_CC_ids[4]);
-}
-
-const ::std::string&
-Test::MA::CC::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::MA::CC::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::MA::CC";
-    return typeId;
-}
-
-/// \cond INTERNAL
-bool
-Test::MA::CC::_iceD_ccop(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    CCPrx iceP_p;
-    istr->read(iceP_p);
-    inS.endReadParams();
-    CCPrx ret = this->ccop(iceP_p, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-namespace
-{
-const ::std::string iceC_Test_MA_CC_all[] =
-{
-    "caop",
-    "cbop",
-    "ccop",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-
-}
-
-/// \cond INTERNAL
-bool
-Test::MA::CC::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
-{
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MA_CC_all, iceC_Test_MA_CC_all + 7, current.operation);
-    if(r.first == r.second)
-    {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-    }
-
-    switch(r.first - iceC_Test_MA_CC_all)
-    {
-        case 0:
-        {
-            return _iceD_caop(in, current);
-        }
-        case 1:
-        {
-            return _iceD_cbop(in, current);
-        }
-        case 2:
-        {
-            return _iceD_ccop(in, current);
-        }
-        case 3:
-        {
-            return _iceD_ice_id(in, current);
-        }
-        case 4:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 5:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 6:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        default:
-        {
-            assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-        }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-Test::MA::CC::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< CC, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    ::Test::MB::CB::_iceWriteImpl(ostr);
-}
-
-void
-Test::MA::CC::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< CC, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    ::Test::MB::CB::_iceReadImpl(istr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MA::_icePatchObjectPtr(CCPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = CCPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(CC::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-Test::MA::CD::~CD()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::MA::upCast(CD* p) { return p; }
-
-/// \endcond
-::Ice::ObjectPtr
-Test::MA::CD::ice_clone() const
-{
-    throw ::Ice::CloneNotImplementedException(__FILE__, __LINE__);
-}
-
-namespace
-{
-const ::std::string iceC_Test_MA_CD_ids[8] =
-{
-    "::Ice::Object",
-    "::Test::MA::CA",
-    "::Test::MA::CC",
-    "::Test::MA::CD",
-    "::Test::MA::IA",
-    "::Test::MB::CB",
-    "::Test::MB::IB1",
-    "::Test::MB::IB2"
-};
-
-}
-
-bool
-Test::MA::CD::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MA_CD_ids, iceC_Test_MA_CD_ids + 8, s);
-}
-
-::std::vector< ::std::string>
-Test::MA::CD::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_MA_CD_ids[0], &iceC_Test_MA_CD_ids[8]);
-}
-
-const ::std::string&
-Test::MA::CD::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::MA::CD::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::MA::CD";
-    return typeId;
-}
-
-/// \cond INTERNAL
-bool
-Test::MA::CD::_iceD_cdop(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    CDPrx iceP_p;
-    istr->read(iceP_p);
-    inS.endReadParams();
-    CDPrx ret = this->cdop(iceP_p, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-namespace
-{
-const ::std::string iceC_Test_MA_CD_all[] =
-{
-    "caop",
-    "cbop",
-    "ccop",
-    "cdop",
-    "iaop",
-    "ib1op",
-    "ib2op",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-
-}
-
-/// \cond INTERNAL
-bool
-Test::MA::CD::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
-{
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MA_CD_all, iceC_Test_MA_CD_all + 11, current.operation);
-    if(r.first == r.second)
-    {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-    }
-
-    switch(r.first - iceC_Test_MA_CD_all)
-    {
-        case 0:
-        {
-            return _iceD_caop(in, current);
-        }
-        case 1:
-        {
-            return _iceD_cbop(in, current);
-        }
-        case 2:
-        {
-            return _iceD_ccop(in, current);
-        }
-        case 3:
-        {
-            return _iceD_cdop(in, current);
-        }
-        case 4:
-        {
-            return _iceD_iaop(in, current);
-        }
-        case 5:
-        {
-            return _iceD_ib1op(in, current);
-        }
-        case 6:
-        {
-            return _iceD_ib2op(in, current);
-        }
-        case 7:
-        {
-            return _iceD_ice_id(in, current);
-        }
-        case 8:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 9:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 10:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        default:
-        {
-            assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-        }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-Test::MA::CD::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< CD, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    CC::_iceWriteImpl(ostr);
-}
-
-void
-Test::MA::CD::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< CD, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    CC::_iceReadImpl(istr);
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::MA::_icePatchObjectPtr(CDPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = CDPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(CD::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::Initial::~Initial()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(Initial* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -3925,62 +1902,6 @@ Test::Initial::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current
     inS.readEmptyParams();
     this->shutdown(current);
     inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_caop(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    ::Test::MA::CAPrx ret = this->caop(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_cbop(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    ::Test::MB::CBPrx ret = this->cbop(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_ccop(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    ::Test::MA::CCPrx ret = this->ccop(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_cdop(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    ::Test::MA::CDPrx ret = this->cdop(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    inS.endWriteParams();
     return true;
 }
 /// \endcond
@@ -4045,10 +1966,6 @@ namespace
 {
 const ::std::string iceC_Test_Initial_all[] =
 {
-    "caop",
-    "cbop",
-    "ccop",
-    "cdop",
     "iaop",
     "ib1op",
     "ib2op",
@@ -4066,7 +1983,7 @@ const ::std::string iceC_Test_Initial_all[] =
 bool
 Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Initial_all, iceC_Test_Initial_all + 13, current.operation);
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Initial_all, iceC_Test_Initial_all + 9, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -4076,53 +1993,37 @@ Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     {
         case 0:
         {
-            return _iceD_caop(in, current);
+            return _iceD_iaop(in, current);
         }
         case 1:
         {
-            return _iceD_cbop(in, current);
+            return _iceD_ib1op(in, current);
         }
         case 2:
         {
-            return _iceD_ccop(in, current);
+            return _iceD_ib2op(in, current);
         }
         case 3:
         {
-            return _iceD_cdop(in, current);
+            return _iceD_ice_id(in, current);
         }
         case 4:
         {
-            return _iceD_iaop(in, current);
+            return _iceD_ice_ids(in, current);
         }
         case 5:
         {
-            return _iceD_ib1op(in, current);
+            return _iceD_ice_isA(in, current);
         }
         case 6:
         {
-            return _iceD_ib2op(in, current);
+            return _iceD_ice_ping(in, current);
         }
         case 7:
         {
-            return _iceD_ice_id(in, current);
-        }
-        case 8:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 9:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 10:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        case 11:
-        {
             return _iceD_icop(in, current);
         }
-        case 12:
+        case 8:
         {
             return _iceD_shutdown(in, current);
         }
@@ -4134,39 +2035,5 @@ Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     }
 }
 /// \endcond
-
-/// \cond STREAM
-void
-Test::Initial::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Initial, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Initial::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Initial, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(InitialPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = InitialPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Initial::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-namespace Ice
-{
-}
 
 #endif

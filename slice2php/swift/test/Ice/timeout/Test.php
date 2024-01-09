@@ -48,7 +48,6 @@ namespace Test
             return '::Test::Timeout';
         }
     }
-    $Test__t_Timeout = IcePHP_defineClass('::Test::Timeout', '\\Test\\Timeout', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_TimeoutPrx = IcePHP_defineProxy('::Test::Timeout', $Ice__t_ObjectPrx, null);
@@ -82,7 +81,6 @@ namespace Test
             return '::Test::Controller';
         }
     }
-    $Test__t_Controller = IcePHP_defineClass('::Test::Controller', '\\Test\\Controller', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_ControllerPrx = IcePHP_defineProxy('::Test::Controller', $Ice__t_ObjectPrx, null);

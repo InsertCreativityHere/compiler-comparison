@@ -1309,6 +1309,11 @@ Test::WrongOperationPrx::ice_staticId()
 namespace
 {
 
+namespace
+{
+
+}
+
 const ::std::string iceC_Test_Thrower_shutdown_name = "shutdown";
 
 const ::std::string iceC_Test_Thrower_supportsUndeclaredExceptions_name = "supportsUndeclaredExceptions";
@@ -3103,11 +3108,6 @@ Test::Empty::~Empty()
 {
 }
 
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(Empty* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Test_Empty_ids[2] =
@@ -3143,44 +3143,9 @@ Test::Empty::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-Test::Empty::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Empty, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Empty::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Empty, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(EmptyPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = EmptyPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Empty::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::Thrower::~Thrower()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(Thrower* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -3694,44 +3659,9 @@ Test::Thrower::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::Thrower::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Thrower, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Thrower::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Thrower, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(ThrowerPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = ThrowerPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Thrower::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::WrongOperation::~WrongOperation()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(WrongOperation* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -3829,36 +3759,6 @@ Test::WrongOperation::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cur
             assert(false);
             throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
         }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-Test::WrongOperation::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< WrongOperation, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::WrongOperation::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< WrongOperation, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(WrongOperationPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = WrongOperationPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(WrongOperation::ice_staticId(), v);
     }
 }
 /// \endcond

@@ -17,7 +17,7 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice interface `Event`.
+/// Traits for Slice interface`Event`.
 public struct EventTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Event"]
     public static let staticId = "::Test::Event"

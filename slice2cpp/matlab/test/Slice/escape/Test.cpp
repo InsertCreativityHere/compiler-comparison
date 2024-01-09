@@ -488,142 +488,6 @@ classdef::_cpp_break::global::_readImpl(::Ice::InputStream* istr)
 /// \endcond
 
 /// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::classdef::_cpp_break::upCast(logical* p) { return p; }
-
-void
-::IceProxy::classdef::_cpp_break::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< logical>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new logical;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::classdef::_cpp_break::logical::_newInstance() const
-{
-    return new logical;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::classdef::_cpp_break::logical::ice_staticId()
-{
-    return ::classdef::_cpp_break::logical::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::classdef::_cpp_break::upCast(_cpp_xor* p) { return p; }
-
-void
-::IceProxy::classdef::_cpp_break::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< _cpp_xor>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new _cpp_xor;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::classdef::_cpp_break::_cpp_xor::_newInstance() const
-{
-    return new _cpp_xor;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::classdef::_cpp_break::_cpp_xor::ice_staticId()
-{
-    return ::classdef::_cpp_break::_cpp_xor::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::classdef::_cpp_break::upCast(_cpp_try* p) { return p; }
-
-void
-::IceProxy::classdef::_cpp_break::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< _cpp_try>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new _cpp_try;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::classdef::_cpp_break::_cpp_try::_newInstance() const
-{
-    return new _cpp_try;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::classdef::_cpp_break::_cpp_try::ice_staticId()
-{
-    return ::classdef::_cpp_break::_cpp_try::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::classdef::_cpp_break::upCast(properties* p) { return p; }
-
-void
-::IceProxy::classdef::_cpp_break::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< properties>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new properties;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::classdef::_cpp_break::properties::_newInstance() const
-{
-    return new properties;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::classdef::_cpp_break::properties::ice_staticId()
-{
-    return ::classdef::_cpp_break::properties::ice_staticId();
-}
-
-/// \cond INTERNAL
 ::IceProxy::Ice::Object* ::IceProxy::classdef::_cpp_break::upCast(elseif* p) { return p; }
 
 void
@@ -748,6 +612,162 @@ IceProxy::classdef::_cpp_break::elseif::ice_staticId()
 {
     return ::classdef::_cpp_break::elseif::ice_staticId();
 }
+
+classdef::_cpp_break::elseif::~elseif()
+{
+}
+
+namespace
+{
+const ::std::string iceC_classdef_break_elseif_ids[2] =
+{
+    "::Ice::Object",
+    "::classdef::break::elseif"
+};
+
+}
+
+bool
+classdef::_cpp_break::elseif::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_classdef_break_elseif_ids, iceC_classdef_break_elseif_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+classdef::_cpp_break::elseif::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_classdef_break_elseif_ids[0], &iceC_classdef_break_elseif_ids[2]);
+}
+
+const ::std::string&
+classdef::_cpp_break::elseif::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+classdef::_cpp_break::elseif::ice_staticId()
+{
+    static const ::std::string typeId = "::classdef::break::elseif";
+    return typeId;
+}
+
+/// \cond INTERNAL
+bool
+classdef::_cpp_break::elseif::_iceD_events(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    this->events(current);
+    inS.writeEmptyParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+classdef::_cpp_break::elseif::_iceD_function(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    this->function(current);
+    inS.writeEmptyParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+classdef::_cpp_break::elseif::_iceD_delete(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    this->_cpp_delete(current);
+    inS.writeEmptyParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+classdef::_cpp_break::elseif::_iceD_checkedCast(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    this->checkedCast(current);
+    inS.writeEmptyParams();
+    return true;
+}
+/// \endcond
+
+namespace
+{
+const ::std::string iceC_classdef_break_elseif_all[] =
+{
+    "checkedCast",
+    "delete",
+    "events",
+    "function",
+    "ice_id",
+    "ice_ids",
+    "ice_isA",
+    "ice_ping"
+};
+
+}
+
+/// \cond INTERNAL
+bool
+classdef::_cpp_break::elseif::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+{
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_classdef_break_elseif_all, iceC_classdef_break_elseif_all + 8, current.operation);
+    if(r.first == r.second)
+    {
+        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+    }
+
+    switch(r.first - iceC_classdef_break_elseif_all)
+    {
+        case 0:
+        {
+            return _iceD_checkedCast(in, current);
+        }
+        case 1:
+        {
+            return _iceD_delete(in, current);
+        }
+        case 2:
+        {
+            return _iceD_events(in, current);
+        }
+        case 3:
+        {
+            return _iceD_function(in, current);
+        }
+        case 4:
+        {
+            return _iceD_ice_id(in, current);
+        }
+        case 5:
+        {
+            return _iceD_ice_ids(in, current);
+        }
+        case 6:
+        {
+            return _iceD_ice_isA(in, current);
+        }
+        case 7:
+        {
+            return _iceD_ice_ping(in, current);
+        }
+        default:
+        {
+            assert(false);
+            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        }
+    }
+}
+/// \endcond
 
 classdef::_cpp_break::logical::~logical()
 {
@@ -1135,197 +1155,6 @@ classdef::_cpp_break::_icePatchObjectPtr(propertiesPtr& handle, const ::Ice::Obj
     if(v && !handle)
     {
         IceInternal::Ex::throwUOE(properties::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-classdef::_cpp_break::elseif::~elseif()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* classdef::_cpp_break::upCast(elseif* p) { return p; }
-
-/// \endcond
-
-namespace
-{
-const ::std::string iceC_classdef_break_elseif_ids[2] =
-{
-    "::Ice::Object",
-    "::classdef::break::elseif"
-};
-
-}
-
-bool
-classdef::_cpp_break::elseif::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_classdef_break_elseif_ids, iceC_classdef_break_elseif_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-classdef::_cpp_break::elseif::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_classdef_break_elseif_ids[0], &iceC_classdef_break_elseif_ids[2]);
-}
-
-const ::std::string&
-classdef::_cpp_break::elseif::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-classdef::_cpp_break::elseif::ice_staticId()
-{
-    static const ::std::string typeId = "::classdef::break::elseif";
-    return typeId;
-}
-
-/// \cond INTERNAL
-bool
-classdef::_cpp_break::elseif::_iceD_events(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    this->events(current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-classdef::_cpp_break::elseif::_iceD_function(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    this->function(current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-classdef::_cpp_break::elseif::_iceD_delete(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    this->_cpp_delete(current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-classdef::_cpp_break::elseif::_iceD_checkedCast(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    this->checkedCast(current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-namespace
-{
-const ::std::string iceC_classdef_break_elseif_all[] =
-{
-    "checkedCast",
-    "delete",
-    "events",
-    "function",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-
-}
-
-/// \cond INTERNAL
-bool
-classdef::_cpp_break::elseif::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
-{
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_classdef_break_elseif_all, iceC_classdef_break_elseif_all + 8, current.operation);
-    if(r.first == r.second)
-    {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-    }
-
-    switch(r.first - iceC_classdef_break_elseif_all)
-    {
-        case 0:
-        {
-            return _iceD_checkedCast(in, current);
-        }
-        case 1:
-        {
-            return _iceD_delete(in, current);
-        }
-        case 2:
-        {
-            return _iceD_events(in, current);
-        }
-        case 3:
-        {
-            return _iceD_function(in, current);
-        }
-        case 4:
-        {
-            return _iceD_ice_id(in, current);
-        }
-        case 5:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 6:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 7:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        default:
-        {
-            assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-        }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-classdef::_cpp_break::elseif::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< elseif, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-classdef::_cpp_break::elseif::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< elseif, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-classdef::_cpp_break::_icePatchObjectPtr(elseifPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = elseifPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(elseif::ice_staticId(), v);
     }
 }
 /// \endcond

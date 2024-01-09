@@ -79,11 +79,6 @@ static Point _iceS_Point_init;
 
 }
 
-namespace Test
-{
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -102,22 +97,6 @@ using PointPtr = ::std::shared_ptr<Point>;
 
 #else // C++98 mapping
 
-namespace IceProxy
-{
-
-namespace Test
-{
-
-class Point;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Point>&);
-::IceProxy::Ice::Object* upCast(Point*);
-/// \endcond
-
-}
-
-}
-
 namespace Test
 {
 
@@ -126,43 +105,9 @@ class Point;
 ::Ice::Object* upCast(Point*);
 /// \endcond
 typedef ::IceInternal::Handle< Point> PointPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Point> PointPrx;
-typedef PointPrx PointPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(PointPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-}
-
-namespace Test
-{
-
-}
-
-namespace IceProxy
-{
-
-namespace Test
-{
-
-class Point : public virtual ::Ice::Proxy<Point, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-}
 
 }
 
@@ -173,7 +118,6 @@ class Point : public virtual ::Ice::Object
 {
 public:
 
-    typedef PointPrx ProxyType;
     typedef PointPtr PointerType;
 
     virtual ~Point();
@@ -255,11 +199,6 @@ namespace Ice
 
 }
 /// \endcond
-
-namespace Test
-{
-
-}
 
 #endif
 

@@ -207,13 +207,13 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice class `breaklogical`.
+/// Traits for Slice class`breaklogical`.
 public struct breaklogicalTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::classdef::break::logical"]
     public static let staticId = "::classdef::break::logical"
 }
 
-/// Traits for Slice class `breakxor`.
+/// Traits for Slice class`breakxor`.
 public struct breakxorTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::classdef::break::logical", "::classdef::break::xor"]
     public static let staticId = "::classdef::break::xor"
@@ -352,13 +352,13 @@ public struct breakswitchHelper {
     }
 }
 
-/// Traits for Slice class `breaktry`.
+/// Traits for Slice class`breaktry`.
 public struct breaktryTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::classdef::break::try"]
     public static let staticId = "::classdef::break::try"
 }
 
-/// Traits for Slice class `breakproperties`.
+/// Traits for Slice class`breakproperties`.
 public struct breakpropertiesTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::classdef::break::properties", "::classdef::break::try"]
     public static let staticId = "::classdef::break::properties"
@@ -477,7 +477,7 @@ open class breakglobal: breakpersistent {
     }
 }
 
-/// Traits for Slice interface `breakelseif`.
+/// Traits for Slice interface`breakelseif`.
 public struct breakelseifTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::classdef::break::elseif"]
     public static let staticId = "::classdef::break::elseif"

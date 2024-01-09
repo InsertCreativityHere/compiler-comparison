@@ -51,8 +51,6 @@ module ::Test
             T_CallbackPrx = ::Ice::__declareProxy('::Test::Callback')
         end
 
-        T_Callback.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_CallbackPrx.defineProxy(CallbackPrx, nil, [])
 
         CallbackPrx_mixin::OP_ping = ::Ice::__defineOperation('ping', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
@@ -133,8 +131,6 @@ module ::Test
             T_MyClass = ::Ice::__declareClass('::Test::MyClass')
             T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
         end
-
-        T_MyClass.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_MyClassPrx.defineProxy(MyClassPrx, nil, [])
 

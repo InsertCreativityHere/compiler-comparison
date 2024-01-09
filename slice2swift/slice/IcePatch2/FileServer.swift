@@ -199,7 +199,7 @@ open class FileSizeRangeException: FileAccessException {
     }
 }
 
-/// Traits for Slice interface `FileServer`.
+/// Traits for Slice interface`FileServer`.
 public struct FileServerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IcePatch2::FileServer"]
     public static let staticId = "::IcePatch2::FileServer"

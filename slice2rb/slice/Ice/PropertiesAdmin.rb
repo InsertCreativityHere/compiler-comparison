@@ -48,8 +48,6 @@ module ::Ice
             T_PropertiesAdminPrx = ::Ice::__declareProxy('::Ice::PropertiesAdmin')
         end
 
-        T_PropertiesAdmin.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_PropertiesAdminPrx.defineProxy(PropertiesAdminPrx, nil, [])
 
         PropertiesAdminPrx_mixin::OP_getProperty = ::Ice::__defineOperation('getProperty', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_string, false, 0], [])

@@ -37,7 +37,6 @@ namespace Test
             return '::Test::Backend';
         }
     }
-    $Test__t_Backend = IcePHP_defineClass('::Test::Backend', '\\Test\\Backend', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_BackendPrx = IcePHP_defineProxy('::Test::Backend', $Ice__t_ObjectPrx, null);

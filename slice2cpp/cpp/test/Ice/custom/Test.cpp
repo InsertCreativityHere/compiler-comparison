@@ -2442,40 +2442,6 @@ const ::std::string iceC_Test_TestIntf_shutdown_name = "shutdown";
 }
 
 /// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(C* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< C>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new C;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::C::_newInstance() const
-{
-    return new C;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::C::ice_staticId()
-{
-    return ::Test::C::ice_staticId();
-}
-
-/// \cond INTERNAL
 ::IceProxy::Ice::Object* ::IceProxy::Test::upCast(D* p) { return p; }
 
 void
@@ -2507,40 +2473,6 @@ const ::std::string&
 IceProxy::Test::D::ice_staticId()
 {
     return ::Test::D::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(DictClass* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< DictClass>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new DictClass;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::DictClass::_newInstance() const
-{
-    return new DictClass;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::DictClass::ice_staticId()
-{
-    return ::Test::DictClass::ice_staticId();
 }
 
 /// \cond INTERNAL
@@ -5163,105 +5095,9 @@ IceProxy::Test::TestIntf::ice_staticId()
     return ::Test::TestIntf::ice_staticId();
 }
 
-Test::C::~C()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(C* p) { return p; }
-
-/// \endcond
-::Ice::ObjectPtr
-Test::C::ice_clone() const
-{
-    ::Ice::Object* p = new C(*this);
-    return p;
-}
-
-namespace
-{
-const ::std::string iceC_Test_C_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::C"
-};
-
-}
-
-bool
-Test::C::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_C_ids, iceC_Test_C_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::C::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_C_ids[0], &iceC_Test_C_ids[2]);
-}
-
-const ::std::string&
-Test::C::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::C::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::C";
-    return typeId;
-}
-
-/// \cond STREAM
-void
-Test::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< C, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::C::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< C, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::C> iceC_Test_C_init("::Test::C");
-}
-
-::Ice::ValueFactoryPtr
-Test::C::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::C::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(CPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = CPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(C::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::D::~D()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(D* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -5298,135 +5134,9 @@ Test::D::ice_staticId()
     return typeId;
 }
 
-/// \cond STREAM
-void
-Test::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< D, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::D::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< D, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(DPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = DPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(D::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-Test::DictClass::~DictClass()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(DictClass* p) { return p; }
-
-/// \endcond
-::Ice::ObjectPtr
-Test::DictClass::ice_clone() const
-{
-    ::Ice::Object* p = new DictClass(*this);
-    return p;
-}
-
-namespace
-{
-const ::std::string iceC_Test_DictClass_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::DictClass"
-};
-
-}
-
-bool
-Test::DictClass::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_DictClass_ids, iceC_Test_DictClass_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::DictClass::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_DictClass_ids[0], &iceC_Test_DictClass_ids[2]);
-}
-
-const ::std::string&
-Test::DictClass::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::DictClass::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::DictClass";
-    return typeId;
-}
-
-/// \cond STREAM
-void
-Test::DictClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< DictClass, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::DictClass::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< DictClass, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::DictClass> iceC_Test_DictClass_init("::Test::DictClass");
-}
-
-::Ice::ValueFactoryPtr
-Test::DictClass::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::DictClass::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(DictClassPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = DictClassPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(DictClass::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::TestIntf::~TestIntf()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(TestIntf* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -6559,32 +6269,184 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
 }
 /// \endcond
 
+Test::C::~C()
+{
+}
+
+/// \cond INTERNAL
+::Ice::Object* Test::upCast(C* p) { return p; }
+
+/// \endcond
+::Ice::ObjectPtr
+Test::C::ice_clone() const
+{
+    ::Ice::Object* p = new C(*this);
+    return p;
+}
+
+namespace
+{
+const ::std::string iceC_Test_C_ids[2] =
+{
+    "::Ice::Object",
+    "::Test::C"
+};
+
+}
+
+bool
+Test::C::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_Test_C_ids, iceC_Test_C_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+Test::C::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_Test_C_ids[0], &iceC_Test_C_ids[2]);
+}
+
+const ::std::string&
+Test::C::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+Test::C::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::C";
+    return typeId;
+}
+
 /// \cond STREAM
 void
-Test::TestIntf::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< TestIntf, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter< C, ::Ice::OutputStream>::write(ostr, *this);
     ostr->endSlice();
 }
 
 void
-Test::TestIntf::_iceReadImpl(::Ice::InputStream* istr)
+Test::C::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader< TestIntf, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader< C, ::Ice::InputStream>::read(istr, *this);
     istr->endSlice();
 }
 /// \endcond
 
+namespace
+{
+const ::IceInternal::DefaultValueFactoryInit< ::Test::C> iceC_Test_C_init("::Test::C");
+}
+
+::Ice::ValueFactoryPtr
+Test::C::ice_factory()
+{
+    return ::IceInternal::factoryTable->getValueFactory(::Test::C::ice_staticId());
+}
+
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(TestIntfPtr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchObjectPtr(CPtr& handle, const ::Ice::ObjectPtr& v)
 {
-    handle = TestIntfPtr::dynamicCast(v);
+    handle = CPtr::dynamicCast(v);
     if(v && !handle)
     {
-        IceInternal::Ex::throwUOE(TestIntf::ice_staticId(), v);
+        IceInternal::Ex::throwUOE(C::ice_staticId(), v);
+    }
+}
+/// \endcond
+
+Test::DictClass::~DictClass()
+{
+}
+
+/// \cond INTERNAL
+::Ice::Object* Test::upCast(DictClass* p) { return p; }
+
+/// \endcond
+::Ice::ObjectPtr
+Test::DictClass::ice_clone() const
+{
+    ::Ice::Object* p = new DictClass(*this);
+    return p;
+}
+
+namespace
+{
+const ::std::string iceC_Test_DictClass_ids[2] =
+{
+    "::Ice::Object",
+    "::Test::DictClass"
+};
+
+}
+
+bool
+Test::DictClass::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_Test_DictClass_ids, iceC_Test_DictClass_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+Test::DictClass::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_Test_DictClass_ids[0], &iceC_Test_DictClass_ids[2]);
+}
+
+const ::std::string&
+Test::DictClass::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+Test::DictClass::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::DictClass";
+    return typeId;
+}
+
+/// \cond STREAM
+void
+Test::DictClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter< DictClass, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::DictClass::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader< DictClass, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+/// \endcond
+
+namespace
+{
+const ::IceInternal::DefaultValueFactoryInit< ::Test::DictClass> iceC_Test_DictClass_init("::Test::DictClass");
+}
+
+::Ice::ValueFactoryPtr
+Test::DictClass::ice_factory()
+{
+    return ::IceInternal::factoryTable->getValueFactory(::Test::DictClass::ice_staticId());
+}
+
+/// \cond INTERNAL
+void
+Test::_icePatchObjectPtr(DictClassPtr& handle, const ::Ice::ObjectPtr& v)
+{
+    handle = DictClassPtr::dynamicCast(v);
+    if(v && !handle)
+    {
+        IceInternal::Ex::throwUOE(DictClass::ice_staticId(), v);
     }
 }
 /// \endcond

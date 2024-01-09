@@ -637,11 +637,6 @@ Test::CallbackReceiver::~CallbackReceiver()
 {
 }
 
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(CallbackReceiver* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Test_CallbackReceiver_ids[2] =
@@ -766,44 +761,9 @@ Test::CallbackReceiver::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::C
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::CallbackReceiver::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< CallbackReceiver, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::CallbackReceiver::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< CallbackReceiver, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(CallbackReceiverPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = CallbackReceiverPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(CallbackReceiver::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::Callback::~Callback()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(Callback* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -945,39 +905,5 @@ Test::Callback::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     }
 }
 /// \endcond
-
-/// \cond STREAM
-void
-Test::Callback::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Callback, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Callback::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Callback, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(CallbackPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = CallbackPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Callback::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-namespace Ice
-{
-}
 
 #endif

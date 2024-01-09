@@ -39,6 +39,12 @@
 namespace IceStorm
 {
 
+
+}
+
+namespace IceStorm
+{
+
 /**
  * Used to store persistent information for Topic federation.
  */
@@ -103,6 +109,11 @@ struct StreamReader<::IceStorm::LinkRecord, S>
 #else // C++98 mapping
 
 namespace IceProxy
+{
+
+}
+
+namespace IceStorm
 {
 
 }

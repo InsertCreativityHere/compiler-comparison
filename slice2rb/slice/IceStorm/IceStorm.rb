@@ -21,7 +21,6 @@ require 'Metrics.rb'
 module ::IceStorm
 
     if not defined?(::IceStorm::T_Topic)
-        T_Topic = ::Ice::__declareClass('::IceStorm::Topic')
         T_TopicPrx = ::Ice::__declareProxy('::IceStorm::Topic')
     end
 
@@ -206,8 +205,6 @@ module ::IceStorm
             T_TopicPrx = ::Ice::__declareProxy('::IceStorm::Topic')
         end
 
-        T_Topic.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_TopicPrx.defineProxy(TopicPrx, nil, [])
 
         TopicPrx_mixin::OP_getName = ::Ice::__defineOperation('getName', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_string, false, 0], [])
@@ -287,8 +284,6 @@ module ::IceStorm
             T_TopicManagerPrx = ::Ice::__declareProxy('::IceStorm::TopicManager')
         end
 
-        T_TopicManager.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_TopicManagerPrx.defineProxy(TopicManagerPrx, nil, [])
 
         TopicManagerPrx_mixin::OP_create = ::Ice::__defineOperation('create', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], [::IceStorm::T_TopicPrx, false, 0], [::IceStorm::T_TopicExists])
@@ -316,8 +311,6 @@ module ::IceStorm
             T_Finder = ::Ice::__declareClass('::IceStorm::Finder')
             T_FinderPrx = ::Ice::__declareProxy('::IceStorm::Finder')
         end
-
-        T_Finder.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_FinderPrx.defineProxy(FinderPrx, nil, [])
 

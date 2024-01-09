@@ -114,7 +114,6 @@ namespace IceBox
             return '::IceBox::ServiceObserver';
         }
     }
-    $IceBox__t_ServiceObserver = IcePHP_defineClass('::IceBox::ServiceObserver', '\\IceBox\\ServiceObserver', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceBox__t_ServiceObserverPrx = IcePHP_defineProxy('::IceBox::ServiceObserver', $Ice__t_ObjectPrx, null);
@@ -146,7 +145,6 @@ namespace IceBox
             return '::IceBox::ServiceManager';
         }
     }
-    $IceBox__t_ServiceManager = IcePHP_defineClass('::IceBox::ServiceManager', '\\IceBox\\ServiceManager', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceBox__t_ServiceManagerPrx = IcePHP_defineProxy('::IceBox::ServiceManager', $Ice__t_ObjectPrx, null);

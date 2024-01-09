@@ -61,7 +61,6 @@ namespace Test
             return '::Test::Hello';
         }
     }
-    $Test__t_Hello = IcePHP_defineClass('::Test::Hello', '\\Test\\Hello', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_HelloPrx = IcePHP_defineProxy('::Test::Hello', $Ice__t_ObjectPrx, null);

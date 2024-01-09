@@ -16,7 +16,7 @@
 import Foundation
 import Ice
 
-/// Traits for Slice class `C1`.
+/// Traits for Slice class`C1`.
 public struct C1Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::LocalTest::C1"]
     public static let staticId = "::LocalTest::C1"
@@ -909,49 +909,49 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice class `CB1`.
+/// Traits for Slice class`CB1`.
 public struct CB1Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::LocalTest::CB1"]
     public static let staticId = "::LocalTest::CB1"
 }
 
-/// Traits for Slice class `CB2`.
+/// Traits for Slice class`CB2`.
 public struct CB2Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::LocalTest::CB2"]
     public static let staticId = "::LocalTest::CB2"
 }
 
-/// Traits for Slice class `CB3`.
+/// Traits for Slice class`CB3`.
 public struct CB3Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::LocalTest::CB3"]
     public static let staticId = "::LocalTest::CB3"
 }
 
-/// Traits for Slice class `CB4`.
+/// Traits for Slice class`CB4`.
 public struct CB4Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::LocalTest::CB4"]
     public static let staticId = "::LocalTest::CB4"
 }
 
-/// Traits for Slice class `CB5`.
+/// Traits for Slice class`CB5`.
 public struct CB5Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::LocalTest::CB5"]
     public static let staticId = "::LocalTest::CB5"
 }
 
-/// Traits for Slice class `CB6`.
+/// Traits for Slice class`CB6`.
 public struct CB6Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::LocalTest::CB6"]
     public static let staticId = "::LocalTest::CB6"
 }
 
-/// Traits for Slice class `CB7`.
+/// Traits for Slice class`CB7`.
 public struct CB7Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::LocalTest::CB7"]
     public static let staticId = "::LocalTest::CB7"
 }
 
-/// Traits for Slice class `CB8`.
+/// Traits for Slice class`CB8`.
 public struct CB8Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::LocalTest::CB8"]
     public static let staticId = "::LocalTest::CB8"
@@ -1297,7 +1297,7 @@ public struct S1DictDictHelper {
     }
 }
 
-/// Traits for Slice class `Opt`.
+/// Traits for Slice class`Opt`.
 public struct OptTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::LocalTest::Opt"]
     public static let staticId = "::LocalTest::Opt"

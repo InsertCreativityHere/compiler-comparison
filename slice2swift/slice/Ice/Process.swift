@@ -16,7 +16,7 @@
 import Foundation
 import PromiseKit
 
-/// Traits for Slice interface `Process`.
+/// Traits for Slice interface`Process`.
 public struct ProcessTraits: SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Ice::Process"]
     public static let staticId = "::Ice::Process"

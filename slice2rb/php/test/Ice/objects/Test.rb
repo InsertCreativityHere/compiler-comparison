@@ -71,48 +71,12 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::AbstractBase_Mixin)
-
-        module ::Test::AbstractBase_Mixin
-        end
-        class AbstractBase < ::Test::Base
-
-            def initialize(theS=::Test::S.new, str='')
-                super(theS, str)
-            end
-        end
-        module AbstractBasePrx_mixin
-
-            def op(context=nil)
-                AbstractBasePrx_mixin::OP_op.invoke(self, [], context)
-            end
-        end
-
-        class AbstractBasePrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
-            include AbstractBasePrx_mixin
-        end
-
-        if not defined?(::Test::T_AbstractBase)
-            T_AbstractBase = ::Ice::__declareClass('::Test::AbstractBase')
-            T_AbstractBasePrx = ::Ice::__declareProxy('::Test::AbstractBase')
-        end
-
-        T_AbstractBase.defineClass(AbstractBase, -1, false, false, ::Test::T_Base, [])
-
-        T_AbstractBasePrx.defineProxy(AbstractBasePrx, nil, [])
-
-        AbstractBasePrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-    end
-
     if not defined?(::Test::T_B)
         T_B = ::Ice::__declareClass('::Test::B')
-        T_BPrx = ::Ice::__declareProxy('::Test::B')
     end
 
     if not defined?(::Test::T_C)
         T_C = ::Ice::__declareClass('::Test::C')
-        T_CPrx = ::Ice::__declareProxy('::Test::C')
     end
 
     if not defined?(::Test::A_Mixin)
@@ -305,8 +269,6 @@ module ::Test
             T_IPrx = ::Ice::__declareProxy('::Test::I')
         end
 
-        T_I.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_IPrx.defineProxy(IPrx, nil, [])
     end
 
@@ -328,43 +290,7 @@ module ::Test
             T_JPrx = ::Ice::__declareProxy('::Test::J')
         end
 
-        T_J.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_JPrx.defineProxy(JPrx, nil, [::Test::T_IPrx])
-    end
-
-    if not defined?(::Test::H_Mixin)
-
-        module ::Test::H_Mixin
-        end
-        class H < ::Ice::Value
-        end
-
-        if not defined?(::Test::T_H)
-            T_H = ::Ice::__declareClass('::Test::H')
-        end
-
-        T_H.defineClass(H, -1, false, false, nil, [])
-    end
-
-    if not defined?(::Test::N_Mixin)
-
-        module ::Test::N_Mixin
-        end
-        class N < ::Ice::Value
-
-            def initialize(i=nil)
-                @i = i
-            end
-
-            attr_accessor :i
-        end
-
-        if not defined?(::Test::T_N)
-            T_N = ::Ice::__declareClass('::Test::N')
-        end
-
-        T_N.defineClass(N, -1, false, false, nil, [['i', ::Test::T_I, false, 0]])
     end
 
     if not defined?(::Test::T_BaseSeq)
@@ -373,7 +299,6 @@ module ::Test
 
     if not defined?(::Test::T_CompactExt)
         T_CompactExt = ::Ice::__declareClass('::Test::CompactExt')
-        T_CompactExtPrx = ::Ice::__declareProxy('::Test::CompactExt')
     end
 
     if not defined?(::Test::Compact_Mixin)
@@ -586,11 +511,9 @@ module ::Test
 
     if not defined?(::Test::T_F1)
         T_F1 = ::Ice::__declareClass('::Test::F1')
-        T_F1Prx = ::Ice::__declareProxy('::Test::F1')
     end
 
     if not defined?(::Test::T_F2)
-        T_F2 = ::Ice::__declareClass('::Test::F2')
         T_F2Prx = ::Ice::__declareProxy('::Test::F2')
     end
 
@@ -680,18 +603,6 @@ module ::Test
                 InitialPrx_mixin::OP_getAll.invoke(self, [], context)
             end
 
-            def getH(context=nil)
-                InitialPrx_mixin::OP_getH.invoke(self, [], context)
-            end
-
-            def getI(context=nil)
-                InitialPrx_mixin::OP_getI.invoke(self, [], context)
-            end
-
-            def getJ(context=nil)
-                InitialPrx_mixin::OP_getJ.invoke(self, [], context)
-            end
-
             def getK(context=nil)
                 InitialPrx_mixin::OP_getK.invoke(self, [], context)
             end
@@ -720,10 +631,6 @@ module ::Test
                 InitialPrx_mixin::OP_setG.invoke(self, [theG], context)
             end
 
-            def setI(theI, context=nil)
-                InitialPrx_mixin::OP_setI.invoke(self, [theI], context)
-            end
-
             def opBaseSeq(inSeq, context=nil)
                 InitialPrx_mixin::OP_opBaseSeq.invoke(self, [inSeq], context)
             end
@@ -747,10 +654,6 @@ module ::Test
             def hasF3(context=nil)
                 InitialPrx_mixin::OP_hasF3.invoke(self, [], context)
             end
-
-            def opN(p1, context=nil)
-                InitialPrx_mixin::OP_opN.invoke(self, [p1], context)
-            end
         end
 
         class InitialPrx < ::Ice::ObjectPrx
@@ -762,8 +665,6 @@ module ::Test
             T_Initial = ::Ice::__declareClass('::Test::Initial')
             T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
         end
-
-        T_Initial.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_InitialPrx.defineProxy(InitialPrx, nil, [])
 
@@ -781,9 +682,6 @@ module ::Test
         InitialPrx_mixin::OP_getMB = ::Ice::__defineOperation('getMB', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_B, false, 0], [])
         InitialPrx_mixin::OP_getAMDMB = ::Ice::__defineOperation('getAMDMB', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], [::Test::T_B, false, 0], [])
         InitialPrx_mixin::OP_getAll = ::Ice::__defineOperation('getAll', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [[::Test::T_B, false, 0], [::Test::T_B, false, 0], [::Test::T_C, false, 0], [::Test::T_D, false, 0]], nil, [])
-        InitialPrx_mixin::OP_getH = ::Ice::__defineOperation('getH', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_I, false, 0], [])
-        InitialPrx_mixin::OP_getI = ::Ice::__defineOperation('getI', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_I, false, 0], [])
-        InitialPrx_mixin::OP_getJ = ::Ice::__defineOperation('getJ', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_I, false, 0], [])
         InitialPrx_mixin::OP_getK = ::Ice::__defineOperation('getK', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_K, false, 0], [])
         InitialPrx_mixin::OP_opValue = ::Ice::__defineOperation('opValue', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_Value, false, 0]], [[::Ice::T_Value, false, 0]], [::Ice::T_Value, false, 0], [])
         InitialPrx_mixin::OP_opValueSeq = ::Ice::__defineOperation('opValueSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ValueSeq, false, 0]], [[::Test::T_ValueSeq, false, 0]], [::Test::T_ValueSeq, false, 0], [])
@@ -791,14 +689,12 @@ module ::Test
         InitialPrx_mixin::OP_getD1 = ::Ice::__defineOperation('getD1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_D1, false, 0]], [], [::Test::T_D1, false, 0], [])
         InitialPrx_mixin::OP_throwEDerived = ::Ice::__defineOperation('throwEDerived', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [::Test::T_EDerived])
         InitialPrx_mixin::OP_setG = ::Ice::__defineOperation('setG', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_G, false, 0]], [], nil, [])
-        InitialPrx_mixin::OP_setI = ::Ice::__defineOperation('setI', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_I, false, 0]], [], nil, [])
         InitialPrx_mixin::OP_opBaseSeq = ::Ice::__defineOperation('opBaseSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_BaseSeq, false, 0]], [[::Test::T_BaseSeq, false, 0]], [::Test::T_BaseSeq, false, 0], [])
         InitialPrx_mixin::OP_getCompact = ::Ice::__defineOperation('getCompact', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_Compact, false, 0], [])
         InitialPrx_mixin::OP_opF1 = ::Ice::__defineOperation('opF1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_F1, false, 0]], [[::Test::T_F1, false, 0]], [::Test::T_F1, false, 0], [])
         InitialPrx_mixin::OP_opF2 = ::Ice::__defineOperation('opF2', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_F2Prx, false, 0]], [[::Test::T_F2Prx, false, 0]], [::Test::T_F2Prx, false, 0], [])
         InitialPrx_mixin::OP_opF3 = ::Ice::__defineOperation('opF3', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_F3, false, 0]], [[::Test::T_F3, false, 0]], [::Test::T_F3, false, 0], [])
         InitialPrx_mixin::OP_hasF3 = ::Ice::__defineOperation('hasF3', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
-        InitialPrx_mixin::OP_opN = ::Ice::__defineOperation('opN', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_N, false, 0]], [], [::Test::T_N, false, 0], [])
     end
 
     if not defined?(::Test::Empty_Mixin)
@@ -849,8 +745,6 @@ module ::Test
             T_UnexpectedObjectExceptionTest = ::Ice::__declareClass('::Test::UnexpectedObjectExceptionTest')
             T_UnexpectedObjectExceptionTestPrx = ::Ice::__declareProxy('::Test::UnexpectedObjectExceptionTest')
         end
-
-        T_UnexpectedObjectExceptionTest.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_UnexpectedObjectExceptionTestPrx.defineProxy(UnexpectedObjectExceptionTestPrx, nil, [])
 

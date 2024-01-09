@@ -228,8 +228,6 @@ module ::IceGrid
             T_AdapterPrx = ::Ice::__declareProxy('::IceGrid::Adapter')
         end
 
-        T_Adapter.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_AdapterPrx.defineProxy(AdapterPrx, nil, [])
 
         AdapterPrx_mixin::OP_activate = ::Ice::__defineOperation('activate', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
@@ -281,8 +279,6 @@ module ::IceGrid
             T_FileReader = ::Ice::__declareClass('::IceGrid::FileReader')
             T_FileReaderPrx = ::Ice::__declareProxy('::IceGrid::FileReader')
         end
-
-        T_FileReader.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_FileReaderPrx.defineProxy(FileReaderPrx, nil, [])
 
@@ -348,8 +344,6 @@ module ::IceGrid
             T_ServerPrx = ::Ice::__declareProxy('::IceGrid::Server')
         end
 
-        T_Server.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_ServerPrx.defineProxy(ServerPrx, nil, [::IceGrid::T_FileReaderPrx])
 
         ServerPrx_mixin::OP_start = ::Ice::__defineOperation('start', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [::IceGrid::T_ServerStartException])
@@ -365,7 +359,6 @@ module ::IceGrid
     end
 
     if not defined?(::IceGrid::T_InternalRegistry)
-        T_InternalRegistry = ::Ice::__declareClass('::IceGrid::InternalRegistry')
         T_InternalRegistryPrx = ::Ice::__declareProxy('::IceGrid::InternalRegistry')
     end
 
@@ -402,8 +395,6 @@ module ::IceGrid
             T_ReplicaObserverPrx = ::Ice::__declareProxy('::IceGrid::ReplicaObserver')
         end
 
-        T_ReplicaObserver.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_ReplicaObserverPrx.defineProxy(ReplicaObserverPrx, nil, [])
 
         ReplicaObserverPrx_mixin::OP_replicaInit = ::Ice::__defineOperation('replicaInit', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_InternalRegistryPrxSeq, false, 0]], [], nil, [])
@@ -435,8 +426,6 @@ module ::IceGrid
             T_PatcherFeedback = ::Ice::__declareClass('::IceGrid::PatcherFeedback')
             T_PatcherFeedbackPrx = ::Ice::__declareProxy('::IceGrid::PatcherFeedback')
         end
-
-        T_PatcherFeedback.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_PatcherFeedbackPrx.defineProxy(PatcherFeedbackPrx, nil, [])
 
@@ -506,8 +495,6 @@ module ::IceGrid
             T_Node = ::Ice::__declareClass('::IceGrid::Node')
             T_NodePrx = ::Ice::__declareProxy('::IceGrid::Node')
         end
-
-        T_Node.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_NodePrx.defineProxy(NodePrx, nil, [::IceGrid::T_FileReaderPrx, ::IceGrid::T_ReplicaObserverPrx])
 
@@ -589,8 +576,6 @@ module ::IceGrid
             T_NodeSession = ::Ice::__declareClass('::IceGrid::NodeSession')
             T_NodeSessionPrx = ::Ice::__declareProxy('::IceGrid::NodeSession')
         end
-
-        T_NodeSession.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_NodeSessionPrx.defineProxy(NodeSessionPrx, nil, [])
 
@@ -689,8 +674,6 @@ module ::IceGrid
             T_DatabaseObserverPrx = ::Ice::__declareProxy('::IceGrid::DatabaseObserver')
         end
 
-        T_DatabaseObserver.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_DatabaseObserverPrx.defineProxy(DatabaseObserverPrx, nil, [::IceGrid::T_ApplicationObserverPrx, ::IceGrid::T_ObjectObserverPrx, ::IceGrid::T_AdapterObserverPrx])
     end
 
@@ -746,8 +729,6 @@ module ::IceGrid
             T_ReplicaSession = ::Ice::__declareClass('::IceGrid::ReplicaSession')
             T_ReplicaSessionPrx = ::Ice::__declareProxy('::IceGrid::ReplicaSession')
         end
-
-        T_ReplicaSession.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_ReplicaSessionPrx.defineProxy(ReplicaSessionPrx, nil, [])
 
@@ -874,8 +855,6 @@ module ::IceGrid
             T_InternalRegistry = ::Ice::__declareClass('::IceGrid::InternalRegistry')
             T_InternalRegistryPrx = ::Ice::__declareProxy('::IceGrid::InternalRegistry')
         end
-
-        T_InternalRegistry.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_InternalRegistryPrx.defineProxy(InternalRegistryPrx, nil, [::IceGrid::T_FileReaderPrx])
 

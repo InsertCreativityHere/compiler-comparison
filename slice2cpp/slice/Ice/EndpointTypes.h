@@ -47,6 +47,12 @@
 namespace Ice
 {
 
+
+}
+
+namespace Ice
+{
+
 /**
  * Uniquely identifies TCP endpoints.
  */
@@ -95,6 +101,11 @@ constexpr short iAPSEndpointType = 9;
 }
 
 #else // C++98 mapping
+
+namespace Ice
+{
+
+}
 
 namespace Ice
 {

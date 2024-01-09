@@ -187,11 +187,6 @@ public:
 
 }
 
-namespace IceMX
-{
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -251,23 +246,6 @@ using SubscriberMetricsPtr = ::std::shared_ptr<SubscriberMetrics>;
 namespace IceProxy
 {
 
-namespace IceMX
-{
-
-class TopicMetrics;
-/// \cond INTERNAL
-ICESTORM_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< TopicMetrics>&);
-ICESTORM_API ::IceProxy::Ice::Object* upCast(TopicMetrics*);
-/// \endcond
-
-class SubscriberMetrics;
-/// \cond INTERNAL
-ICESTORM_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< SubscriberMetrics>&);
-ICESTORM_API ::IceProxy::Ice::Object* upCast(SubscriberMetrics*);
-/// \endcond
-
-}
-
 }
 
 namespace IceMX
@@ -278,8 +256,6 @@ class TopicMetrics;
 ICESTORM_API ::Ice::Object* upCast(TopicMetrics*);
 /// \endcond
 typedef ::IceInternal::Handle< TopicMetrics> TopicMetricsPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceMX::TopicMetrics> TopicMetricsPrx;
-typedef TopicMetricsPrx TopicMetricsPrxPtr;
 /// \cond INTERNAL
 ICESTORM_API void _icePatchObjectPtr(TopicMetricsPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -289,60 +265,14 @@ class SubscriberMetrics;
 ICESTORM_API ::Ice::Object* upCast(SubscriberMetrics*);
 /// \endcond
 typedef ::IceInternal::Handle< SubscriberMetrics> SubscriberMetricsPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceMX::SubscriberMetrics> SubscriberMetricsPrx;
-typedef SubscriberMetricsPrx SubscriberMetricsPrxPtr;
 /// \cond INTERNAL
 ICESTORM_API void _icePatchObjectPtr(SubscriberMetricsPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
 
 }
 
-namespace IceMX
-{
-
-}
-
 namespace IceProxy
 {
-
-namespace IceMX
-{
-
-class ICE_CLASS(ICESTORM_API) TopicMetrics : public virtual ::Ice::Proxy<TopicMetrics, ::IceProxy::IceMX::Metrics>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    ICE_MEMBER(ICESTORM_API) static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    ICE_MEMBER(ICESTORM_API) virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class ICE_CLASS(ICESTORM_API) SubscriberMetrics : public virtual ::Ice::Proxy<SubscriberMetrics, ::IceProxy::IceMX::Metrics>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    ICE_MEMBER(ICESTORM_API) static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    ICE_MEMBER(ICESTORM_API) virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-}
 
 }
 
@@ -357,7 +287,6 @@ class ICESTORM_API TopicMetrics : public Metrics
 {
 public:
 
-    typedef TopicMetricsPrx ProxyType;
     typedef TopicMetricsPtr PointerType;
 
     virtual ~TopicMetrics();
@@ -470,7 +399,6 @@ class ICESTORM_API SubscriberMetrics : public Metrics
 {
 public:
 
-    typedef SubscriberMetricsPrx ProxyType;
     typedef SubscriberMetricsPtr PointerType;
 
     virtual ~SubscriberMetrics();
@@ -632,11 +560,6 @@ struct StreamReader< ::IceMX::SubscriberMetrics, S>
 
 }
 /// \endcond
-
-namespace IceMX
-{
-
-}
 
 #endif
 

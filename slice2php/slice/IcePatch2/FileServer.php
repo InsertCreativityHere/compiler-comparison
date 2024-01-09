@@ -131,7 +131,6 @@ namespace IcePatch2
             return '::IcePatch2::FileServer';
         }
     }
-    $IcePatch2__t_FileServer = IcePHP_defineClass('::IcePatch2::FileServer', '\\IcePatch2\\FileServer', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IcePatch2__t_FileServerPrx = IcePHP_defineProxy('::IcePatch2::FileServer', $Ice__t_ObjectPrx, null);

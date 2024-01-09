@@ -55,8 +55,6 @@ module ::Test
             T_RetryPrx = ::Ice::__declareProxy('::Test::Retry')
         end
 
-        T_Retry.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_RetryPrx.defineProxy(RetryPrx, nil, [])
 
         RetryPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0]], [], nil, [])

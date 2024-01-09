@@ -434,11 +434,6 @@ public:
 
 }
 
-namespace Test
-{
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -607,53 +602,6 @@ using PSUnknown2Ptr = ::std::shared_ptr<PSUnknown2>;
 namespace IceProxy
 {
 
-namespace Test
-{
-
-class SBSUnknownDerived;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< SBSUnknownDerived>&);
-::IceProxy::Ice::Object* upCast(SBSUnknownDerived*);
-/// \endcond
-
-class SUnknown;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< SUnknown>&);
-::IceProxy::Ice::Object* upCast(SUnknown*);
-/// \endcond
-
-class D2;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< D2>&);
-::IceProxy::Ice::Object* upCast(D2*);
-/// \endcond
-
-class D4;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< D4>&);
-::IceProxy::Ice::Object* upCast(D4*);
-/// \endcond
-
-class MyClass;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< MyClass>&);
-::IceProxy::Ice::Object* upCast(MyClass*);
-/// \endcond
-
-class PSUnknown;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< PSUnknown>&);
-::IceProxy::Ice::Object* upCast(PSUnknown*);
-/// \endcond
-
-class PSUnknown2;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< PSUnknown2>&);
-::IceProxy::Ice::Object* upCast(PSUnknown2*);
-/// \endcond
-
-}
-
 }
 
 namespace Test
@@ -664,8 +612,6 @@ class SBSUnknownDerived;
 ::Ice::Object* upCast(SBSUnknownDerived*);
 /// \endcond
 typedef ::IceInternal::Handle< SBSUnknownDerived> SBSUnknownDerivedPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::SBSUnknownDerived> SBSUnknownDerivedPrx;
-typedef SBSUnknownDerivedPrx SBSUnknownDerivedPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(SBSUnknownDerivedPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -675,8 +621,6 @@ class SUnknown;
 ::Ice::Object* upCast(SUnknown*);
 /// \endcond
 typedef ::IceInternal::Handle< SUnknown> SUnknownPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::SUnknown> SUnknownPrx;
-typedef SUnknownPrx SUnknownPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(SUnknownPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -686,8 +630,6 @@ class D2;
 ::Ice::Object* upCast(D2*);
 /// \endcond
 typedef ::IceInternal::Handle< D2> D2Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::D2> D2Prx;
-typedef D2Prx D2PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(D2Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -697,8 +639,6 @@ class D4;
 ::Ice::Object* upCast(D4*);
 /// \endcond
 typedef ::IceInternal::Handle< D4> D4Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::D4> D4Prx;
-typedef D4Prx D4PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(D4Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -708,8 +648,6 @@ class MyClass;
 ::Ice::Object* upCast(MyClass*);
 /// \endcond
 typedef ::IceInternal::Handle< MyClass> MyClassPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::MyClass> MyClassPrx;
-typedef MyClassPrx MyClassPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(MyClassPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -719,8 +657,6 @@ class PSUnknown;
 ::Ice::Object* upCast(PSUnknown*);
 /// \endcond
 typedef ::IceInternal::Handle< PSUnknown> PSUnknownPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::PSUnknown> PSUnknownPrx;
-typedef PSUnknownPrx PSUnknownPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(PSUnknownPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -730,8 +666,6 @@ class PSUnknown2;
 ::Ice::Object* upCast(PSUnknown2*);
 /// \endcond
 typedef ::IceInternal::Handle< PSUnknown2> PSUnknown2Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::PSUnknown2> PSUnknown2Prx;
-typedef PSUnknown2Prx PSUnknown2PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(PSUnknown2Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -833,137 +767,8 @@ namespace IceAsync
 }
 /// \endcond
 
-namespace Test
-{
-
-}
-
 namespace IceProxy
 {
-
-namespace Test
-{
-
-class SBSUnknownDerived : public virtual ::Ice::Proxy<SBSUnknownDerived, ::IceProxy::Test::SBase>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class SUnknown : public virtual ::Ice::Proxy<SUnknown, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class D2 : public virtual ::Ice::Proxy<D2, ::IceProxy::Test::B>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class D4 : public virtual ::Ice::Proxy<D4, ::IceProxy::Test::B>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class MyClass : public virtual ::Ice::Proxy<MyClass, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class PSUnknown : public virtual ::Ice::Proxy<PSUnknown, ::IceProxy::Test::Preserved>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class PSUnknown2 : public virtual ::Ice::Proxy<PSUnknown2, ::IceProxy::Test::Preserved>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-}
 
 }
 
@@ -974,7 +779,6 @@ class SBSUnknownDerived : public SBase
 {
 public:
 
-    typedef SBSUnknownDerivedPrx ProxyType;
     typedef SBSUnknownDerivedPtr PointerType;
 
     virtual ~SBSUnknownDerived();
@@ -1065,7 +869,6 @@ class SUnknown : public virtual ::Ice::Object, public ::IceInternal::GCObject
 {
 public:
 
-    typedef SUnknownPrx ProxyType;
     typedef SUnknownPtr PointerType;
 
     virtual ~SUnknown();
@@ -1160,7 +963,6 @@ class D2 : public B
 {
 public:
 
-    typedef D2Prx ProxyType;
     typedef D2Ptr PointerType;
 
     virtual ~D2();
@@ -1256,7 +1058,6 @@ class D4 : public B
 {
 public:
 
-    typedef D4Prx ProxyType;
     typedef D4Ptr PointerType;
 
     virtual ~D4();
@@ -1352,7 +1153,6 @@ class MyClass : public virtual ::Ice::Object
 {
 public:
 
-    typedef MyClassPrx ProxyType;
     typedef MyClassPtr PointerType;
 
     virtual ~MyClass();
@@ -1442,7 +1242,6 @@ class PSUnknown : public Preserved
 {
 public:
 
-    typedef PSUnknownPrx ProxyType;
     typedef PSUnknownPtr PointerType;
 
     virtual ~PSUnknown();
@@ -1540,7 +1339,6 @@ class PSUnknown2 : public Preserved
 {
 public:
 
-    typedef PSUnknown2Prx ProxyType;
     typedef PSUnknown2Ptr PointerType;
 
     virtual ~PSUnknown2();
@@ -1824,11 +1622,6 @@ struct StreamReader< ::Test::PSUnknownException, S>
 
 }
 /// \endcond
-
-namespace Test
-{
-
-}
 
 #endif
 

@@ -195,13 +195,13 @@ open class D: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `Thrower`.
+/// Traits for Slice interface`Thrower`.
 public struct ThrowerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Thrower"]
     public static let staticId = "::Test::Thrower"
 }
 
-/// Traits for Slice interface `WrongOperation`.
+/// Traits for Slice interface`WrongOperation`.
 public struct WrongOperationTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::WrongOperation"]
     public static let staticId = "::Test::WrongOperation"

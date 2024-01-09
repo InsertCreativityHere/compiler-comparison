@@ -102,6 +102,16 @@ enum class CloseMode : unsigned char
     GracefullyWithWait
 };
 
+namespace Outer
+{
+
+namespace Inner
+{
+
+}
+
+}
+
 }
 
 namespace Test
@@ -1059,56 +1069,32 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< TestIntf>&);
 
 namespace Test
 {
-
-class PingReply;
-/// \cond INTERNAL
-::Ice::Object* upCast(PingReply*);
-/// \endcond
-typedef ::IceInternal::Handle< PingReply> PingReplyPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::PingReply> PingReplyPrx;
 typedef PingReplyPrx PingReplyPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(PingReplyPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class TestIntf;
-/// \cond INTERNAL
-::Ice::Object* upCast(TestIntf*);
-/// \endcond
-typedef ::IceInternal::Handle< TestIntf> TestIntfPtr;
+class PingReply;
+typedef ::IceInternal::Handle< PingReply> PingReplyPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestIntf> TestIntfPrx;
 typedef TestIntfPrx TestIntfPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(TestIntfPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class TestIntfController;
-/// \cond INTERNAL
-::Ice::Object* upCast(TestIntfController*);
-/// \endcond
-typedef ::IceInternal::Handle< TestIntfController> TestIntfControllerPtr;
+class TestIntf;
+typedef ::IceInternal::Handle< TestIntf> TestIntfPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestIntfController> TestIntfControllerPrx;
 typedef TestIntfControllerPrx TestIntfControllerPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(TestIntfControllerPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class TestIntfController;
+typedef ::IceInternal::Handle< TestIntfController> TestIntfControllerPtr;
 
 namespace Outer
 {
 
 namespace Inner
 {
-
-class TestIntf;
-/// \cond INTERNAL
-::Ice::Object* upCast(TestIntf*);
-/// \endcond
-typedef ::IceInternal::Handle< TestIntf> TestIntfPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Outer::Inner::TestIntf> TestIntfPrx;
 typedef TestIntfPrx TestIntfPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(TestIntfPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class TestIntf;
+typedef ::IceInternal::Handle< TestIntf> TestIntfPtr;
 
 }
 
@@ -1160,6 +1146,16 @@ enum CloseMode
     Gracefully,
     GracefullyWithWait
 };
+
+namespace Outer
+{
+
+namespace Inner
+{
+
+}
+
+}
 
 }
 
@@ -2206,7 +2202,6 @@ class PingReply : public virtual ::Ice::Object
 public:
 
     typedef PingReplyPrx ProxyType;
-    typedef PingReplyPtr PointerType;
 
     virtual ~PingReply();
     PingReply() = default;
@@ -2249,33 +2244,13 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const PingReply& lhs, const PingReply& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const PingReply& lhs, const PingReply& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 class TestIntf : public virtual ::Ice::Object
 {
 public:
 
     typedef TestIntfPrx ProxyType;
-    typedef TestIntfPtr PointerType;
 
     virtual ~TestIntf();
     TestIntf() = default;
@@ -2388,33 +2363,13 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const TestIntf& lhs, const TestIntf& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const TestIntf& lhs, const TestIntf& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 class TestIntfController : public virtual ::Ice::Object
 {
 public:
 
     typedef TestIntfControllerPrx ProxyType;
-    typedef TestIntfControllerPtr PointerType;
 
     virtual ~TestIntfController();
     TestIntfController() = default;
@@ -2462,26 +2417,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const TestIntfController& lhs, const TestIntfController& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const TestIntfController& lhs, const TestIntfController& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 namespace Outer
 {
@@ -2494,7 +2430,6 @@ class TestIntf : public virtual ::Ice::Object
 public:
 
     typedef TestIntfPrx ProxyType;
-    typedef TestIntfPtr PointerType;
 
     virtual ~TestIntf();
     TestIntf() = default;
@@ -2537,26 +2472,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const TestIntf& lhs, const TestIntf& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const TestIntf& lhs, const TestIntf& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 }
 

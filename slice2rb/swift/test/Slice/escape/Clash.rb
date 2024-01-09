@@ -83,8 +83,6 @@ module ::Clash
             T_IntfPrx = ::Ice::__declareProxy('::Clash::Intf')
         end
 
-        T_Intf.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_IntfPrx.defineProxy(IntfPrx, nil, [])
 
         IntfPrx_mixin::OP_context = ::Ice::__defineOperation('context', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])

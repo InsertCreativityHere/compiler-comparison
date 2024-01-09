@@ -326,11 +326,6 @@ static SPreservedClass _iceS_SPreservedClass_init;
 
 }
 
-namespace Test
-{
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -478,17 +473,6 @@ using SPreservedClassPtr = ::std::shared_ptr<SPreservedClass>;
 namespace IceProxy
 {
 
-namespace Test
-{
-
-class SPreservedClass;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< SPreservedClass>&);
-::IceProxy::Ice::Object* upCast(SPreservedClass*);
-/// \endcond
-
-}
-
 }
 
 namespace Test
@@ -499,8 +483,6 @@ class SPreservedClass;
 ::Ice::Object* upCast(SPreservedClass*);
 /// \endcond
 typedef ::IceInternal::Handle< SPreservedClass> SPreservedClassPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::SPreservedClass> SPreservedClassPrx;
-typedef SPreservedClassPrx SPreservedClassPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(SPreservedClassPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -749,35 +731,8 @@ namespace IceAsync
 }
 /// \endcond
 
-namespace Test
-{
-
-}
-
 namespace IceProxy
 {
-
-namespace Test
-{
-
-class SPreservedClass : public virtual ::Ice::Proxy<SPreservedClass, ::IceProxy::Test::BaseClass>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-}
 
 }
 
@@ -788,7 +743,6 @@ class SPreservedClass : public BaseClass
 {
 public:
 
-    typedef SPreservedClassPrx ProxyType;
     typedef SPreservedClassPtr PointerType;
 
     virtual ~SPreservedClass();
@@ -1045,11 +999,6 @@ struct StreamReader< ::Test::SPreserved2, S>
 
 }
 /// \endcond
-
-namespace Test
-{
-
-}
 
 #endif
 

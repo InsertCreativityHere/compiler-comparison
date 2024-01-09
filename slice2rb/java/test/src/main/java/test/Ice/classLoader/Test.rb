@@ -80,8 +80,6 @@ module ::Test
             T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
         end
 
-        T_Initial.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_InitialPrx.defineProxy(InitialPrx, nil, [])
 
         InitialPrx_mixin::OP_getConcreteClass = ::Ice::__defineOperation('getConcreteClass', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_ConcreteClass, false, 0], [])

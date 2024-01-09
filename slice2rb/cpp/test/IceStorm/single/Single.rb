@@ -39,8 +39,6 @@ module ::Test
             T_SinglePrx = ::Ice::__declareProxy('::Test::Single')
         end
 
-        T_Single.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_SinglePrx.defineProxy(SinglePrx, nil, [])
 
         SinglePrx_mixin::OP_event = ::Ice::__defineOperation('event', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])

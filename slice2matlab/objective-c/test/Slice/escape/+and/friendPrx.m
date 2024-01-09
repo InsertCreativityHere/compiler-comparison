@@ -13,19 +13,17 @@
 
 classdef friendPrx < Ice.ObjectPrx
     methods
-        function result = goto(obj, if_, d, inline, private, mutable, namespace, new, not, operator, or, protected, public, register, varargin)
+        function result = goto(obj, if_, d, inline, mutable, namespace, new, not, or, protected, public, register, varargin)
             % goto
             %
             % Parameters:
             %   if_ (and.continue_)
             %   d (and.auto)
             %   inline (and.delete)
-            %   private (and.switch_)
             %   mutable (and.do)
             %   namespace (and.breakPrx)
             %   new (and.charPrx)
             %   not (and.switchPrx)
-            %   operator (and.doPrx)
             %   or (int32)
             %   protected (int32)
             %   public (int32)
@@ -38,12 +36,10 @@ classdef friendPrx < Ice.ObjectPrx
             and.continue_.ice_write(os_, if_);
             and.auto.ice_write(os_, d);
             and.delete.ice_write(os_, inline);
-            os_.writeValue(private);
             os_.writeValue(mutable);
             os_.writeProxy(namespace);
             os_.writeProxy(new);
             os_.writeProxy(not);
-            os_.writeProxy(operator);
             os_.writeInt(or);
             os_.writeInt(protected);
             os_.writeInt(public);
@@ -55,19 +51,17 @@ classdef friendPrx < Ice.ObjectPrx
             result = and.auto.ice_read(is_);
             is_.endEncapsulation();
         end
-        function r_ = gotoAsync(obj, if_, d, inline, private, mutable, namespace, new, not, operator, or, protected, public, register, varargin)
+        function r_ = gotoAsync(obj, if_, d, inline, mutable, namespace, new, not, or, protected, public, register, varargin)
             % gotoAsync
             %
             % Parameters:
             %   if_ (and.continue_)
             %   d (and.auto)
             %   inline (and.delete)
-            %   private (and.switch_)
             %   mutable (and.do)
             %   namespace (and.breakPrx)
             %   new (and.charPrx)
             %   not (and.switchPrx)
-            %   operator (and.doPrx)
             %   or (int32)
             %   protected (int32)
             %   public (int32)
@@ -80,12 +74,10 @@ classdef friendPrx < Ice.ObjectPrx
             and.continue_.ice_write(os_, if_);
             and.auto.ice_write(os_, d);
             and.delete.ice_write(os_, inline);
-            os_.writeValue(private);
             os_.writeValue(mutable);
             os_.writeProxy(namespace);
             os_.writeProxy(new);
             os_.writeProxy(not);
-            os_.writeProxy(operator);
             os_.writeInt(or);
             os_.writeInt(protected);
             os_.writeInt(public);

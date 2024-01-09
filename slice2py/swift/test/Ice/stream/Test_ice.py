@@ -242,9 +242,6 @@ if '_t_SmallStructS' not in _M_Test.__dict__:
 if '_t_MyClassS' not in _M_Test.__dict__:
     _M_Test._t_MyClassS = IcePy.defineSequence('::Test::MyClassS', (), _M_Test._t_MyClass)
 
-if '_t_MyInterfaceS' not in _M_Test.__dict__:
-    _M_Test._t_MyInterfaceS = IcePy.defineSequence('::Test::MyInterfaceS', (), _M_Test._t_MyInterface)
-
 if '_t_BoolSS' not in _M_Test.__dict__:
     _M_Test._t_BoolSS = IcePy.defineSequence('::Test::BoolSS', (), _M_Ice._t_BoolSeq)
 
@@ -277,9 +274,6 @@ if '_t_SmallStructSS' not in _M_Test.__dict__:
 
 if '_t_MyClassSS' not in _M_Test.__dict__:
     _M_Test._t_MyClassSS = IcePy.defineSequence('::Test::MyClassSS', (), _M_Test._t_MyClassS)
-
-if '_t_MyInterfaceSS' not in _M_Test.__dict__:
-    _M_Test._t_MyInterfaceSS = IcePy.defineSequence('::Test::MyInterfaceSS', (), _M_Test._t_MyInterfaceS)
 
 if '_t_ByteBoolD' not in _M_Test.__dict__:
     _M_Test._t_ByteBoolD = IcePy.defineDictionary('::Test::ByteBoolD', (), IcePy._t_byte, IcePy._t_bool)

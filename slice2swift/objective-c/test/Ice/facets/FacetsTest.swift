@@ -17,55 +17,55 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice interface `Empty`.
+/// Traits for Slice interface`Empty`.
 public struct EmptyTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Empty"]
     public static let staticId = "::Test::Empty"
 }
 
-/// Traits for Slice interface `A`.
+/// Traits for Slice interface`A`.
 public struct ATraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::A"]
     public static let staticId = "::Test::A"
 }
 
-/// Traits for Slice interface `B`.
+/// Traits for Slice interface`B`.
 public struct BTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::A", "::Test::B"]
     public static let staticId = "::Test::B"
 }
 
-/// Traits for Slice interface `C`.
+/// Traits for Slice interface`C`.
 public struct CTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::A", "::Test::C"]
     public static let staticId = "::Test::C"
 }
 
-/// Traits for Slice interface `D`.
+/// Traits for Slice interface`D`.
 public struct DTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::A", "::Test::B", "::Test::C", "::Test::D"]
     public static let staticId = "::Test::D"
 }
 
-/// Traits for Slice interface `E`.
+/// Traits for Slice interface`E`.
 public struct ETraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::E"]
     public static let staticId = "::Test::E"
 }
 
-/// Traits for Slice interface `F`.
+/// Traits for Slice interface`F`.
 public struct FTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::E", "::Test::F"]
     public static let staticId = "::Test::F"
 }
 
-/// Traits for Slice interface `G`.
+/// Traits for Slice interface`G`.
 public struct GTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::G"]
     public static let staticId = "::Test::G"
 }
 
-/// Traits for Slice interface `H`.
+/// Traits for Slice interface`H`.
 public struct HTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::G", "::Test::H"]
     public static let staticId = "::Test::H"

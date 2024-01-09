@@ -17,7 +17,7 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice class `C`.
+/// Traits for Slice class`C`.
 public struct CTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::C"]
     public static let staticId = "::Test::C"
@@ -493,19 +493,19 @@ public struct S2SeqHelper {
     }
 }
 
-/// Traits for Slice class `C2`.
+/// Traits for Slice class`C2`.
 public struct C2Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::C2"]
     public static let staticId = "::Test::C2"
 }
 
-/// Traits for Slice class `Leaf`.
+/// Traits for Slice class`Leaf`.
 public struct LeafTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Leaf"]
     public static let staticId = "::Test::Leaf"
 }
 
-/// Traits for Slice class `Node`.
+/// Traits for Slice class`Node`.
 public struct NodeTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Node"]
     public static let staticId = "::Test::Node"
@@ -964,7 +964,7 @@ public struct CDictDictHelper {
     }
 }
 
-/// Traits for Slice class `CTest`.
+/// Traits for Slice class`CTest`.
 public struct CTestTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::CTest"]
     public static let staticId = "::Test::CTest"
@@ -1172,7 +1172,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice class `AAAC`.
+/// Traits for Slice class`AAAC`.
 public struct AAACTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::AAA::C"]
     public static let staticId = "::Test::AAA::C"
@@ -1380,103 +1380,37 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice class `AAAB`.
+/// Traits for Slice class`AAAB`.
 public struct AAABTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::AAA::B"]
     public static let staticId = "::Test::AAA::B"
 }
 
-public typealias CCCForwardProxySeq = [Ice.ObjectPrx?]
-
-/// Helper class to read and write `CCCForwardProxySeq` sequence values from
-/// `Ice.InputStream` and `Ice.OutputStream`.
-public struct CCCForwardProxySeqHelper {
-    /// Read a `CCCForwardProxySeq` sequence from the stream.
-    ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
-    ///
-    /// - returns: `CCCForwardProxySeq` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream) throws -> CCCForwardProxySeq {
-        let sz = try istr.readAndCheckSeqSize(minSize: 2)
-        var v = CCCForwardProxySeq()
-        v.reserveCapacity(sz)
-        for _ in 0 ..< sz {
-            let j: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-            v.append(j)
-        }
-        return v
-    }
-    /// Read an optional `CCCForwardProxySeq?` sequence from the stream.
-    ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
-    ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `CCCForwardProxySeq` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> CCCForwardProxySeq? {
-        guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
-            return nil
-        }
-        try istr.skip(4)
-        return try read(from: istr)
-    }
-
-    /// Wite a `CCCForwardProxySeq` sequence to the stream.
-    ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `CCCForwardProxySeq` - The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream, value v: CCCForwardProxySeq) {
-        ostr.write(size: v.count)
-        for item in v {
-            ostr.write(item)
-        }
-    }
-
-    /// Wite an optional `CCCForwardProxySeq?` sequence to the stream.
-    ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `CCCForwardProxySeq` The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: CCCForwardProxySeq?) {
-        guard let val = v else {
-            return
-        }
-        if ostr.writeOptional(tag: tag, format: .FSize) {
-            let pos = ostr.startSize()
-            write(to: ostr, value: val)
-            ostr.endSize(position: pos)
-        }
-    }
-}
-
-/// Traits for Slice class `CCCForward`.
+/// Traits for Slice class`CCCForward`.
 public struct CCCForwardTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::CCC::Forward"]
     public static let staticId = "::Test::CCC::Forward"
 }
 
-/// Traits for Slice interface `DDDI`.
+/// Traits for Slice interface`DDDI`.
 public struct DDDITraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::DDD::I"]
     public static let staticId = "::Test::DDD::I"
 }
 
-/// Traits for Slice class `DDDC`.
+/// Traits for Slice class`DDDC`.
 public struct DDDCTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::DDD::C"]
     public static let staticId = "::Test::DDD::C"
 }
 
-/// Traits for Slice class `DDDU`.
+/// Traits for Slice class`DDDU`.
 public struct DDDUTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::DDD::U"]
     public static let staticId = "::Test::DDD::U"
 }
 
-/// Traits for Slice class `DDDC2`.
+/// Traits for Slice class`DDDC2`.
 public struct DDDC2Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::DDD::C2"]
     public static let staticId = "::Test::DDD::C2"
@@ -2141,22 +2075,16 @@ public extension Ice.ClassResolver {
 }
 
 open class DDDU: Ice.Value {
-    public var myI: Ice.Value? = nil
     public var myIstar: DDDIPrx? = nil
     public var myC: DDDC? = nil
-    public var myCstar: Ice.ObjectPrx? = nil
     public var myC2: DDDC2? = nil
-    public var myC2star: Ice.ObjectPrx? = nil
 
     public required init() {}
 
-    public init(myI: Ice.Value?, myIstar: DDDIPrx?, myC: DDDC?, myCstar: Ice.ObjectPrx?, myC2: DDDC2?, myC2star: Ice.ObjectPrx?) {
-        self.myI = myI
+    public init(myIstar: DDDIPrx?, myC: DDDC?, myC2: DDDC2?) {
         self.myIstar = myIstar
         self.myC = myC
-        self.myCstar = myCstar
         self.myC2 = myC2
-        self.myC2star = myC2star
     }
 
     /// Returns the Slice type ID of the most-derived interface supported by this object.
@@ -2175,23 +2103,17 @@ open class DDDU: Ice.Value {
 
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
-        try istr.read() { self.myI = $0 }
         self.myIstar = try istr.read(DDDIPrx.self)
         try istr.read(DDDC.self) { self.myC = $0 }
-        self.myCstar = try istr.read(Ice.ObjectPrx.self)
         try istr.read(DDDC2.self) { self.myC2 = $0 }
-        self.myC2star = try istr.read(Ice.ObjectPrx.self)
         try istr.endSlice()
     }
 
     open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
         ostr.startSlice(typeId: DDDUTraits.staticId, compactId: -1, last: true)
-        ostr.write(self.myI)
         ostr.write(self.myIstar)
         ostr.write(self.myC)
-        ostr.write(self.myCstar)
         ostr.write(self.myC2)
-        ostr.write(self.myC2star)
         ostr.endSlice()
     }
 }

@@ -45,6 +45,21 @@ namespace
 
 const ::IceInternal::DefaultValueFactoryInit<::Test::OneOptional> iceC_Test_OneOptional_init("::Test::OneOptional");
 
+const ::std::string iceC_Test_MyInterface_ids[2] =
+{
+    "::Ice::Object",
+    "::Test::MyInterface"
+};
+const ::std::string iceC_Test_MyInterface_ops[] =
+{
+    "ice_id",
+    "ice_ids",
+    "ice_isA",
+    "ice_ping",
+    "op"
+};
+const ::std::string iceC_Test_MyInterface_op_name = "op";
+
 const ::IceInternal::DefaultValueFactoryInit<::Test::MultiOptional> iceC_Test_MultiOptional_init("::Test::MultiOptional");
 
 const ::IceInternal::DefaultValueFactoryInit<::Test::A> iceC_Test_A_init("::Test::A");
@@ -133,9 +148,9 @@ const ::std::string iceC_Test_Initial_ops[] =
     "opMStruct2",
     "opMyEnum",
     "opMyEnumReq",
+    "opMyInterfaceProxy",
+    "opMyInterfaceProxyReq",
     "opOneOptional",
-    "opOneOptionalProxy",
-    "opOneOptionalProxyReq",
     "opOneOptionalReq",
     "opOptionalException",
     "opRequiredException",
@@ -203,8 +218,8 @@ const ::std::string iceC_Test_Initial_opVarStruct_name = "opVarStruct";
 const ::std::string iceC_Test_Initial_opVarStructReq_name = "opVarStructReq";
 const ::std::string iceC_Test_Initial_opOneOptional_name = "opOneOptional";
 const ::std::string iceC_Test_Initial_opOneOptionalReq_name = "opOneOptionalReq";
-const ::std::string iceC_Test_Initial_opOneOptionalProxy_name = "opOneOptionalProxy";
-const ::std::string iceC_Test_Initial_opOneOptionalProxyReq_name = "opOneOptionalProxyReq";
+const ::std::string iceC_Test_Initial_opMyInterfaceProxy_name = "opMyInterfaceProxy";
+const ::std::string iceC_Test_Initial_opMyInterfaceProxyReq_name = "opMyInterfaceProxyReq";
 const ::std::string iceC_Test_Initial_opByteSeq_name = "opByteSeq";
 const ::std::string iceC_Test_Initial_opByteSeqReq_name = "opByteSeqReq";
 const ::std::string iceC_Test_Initial_opBoolSeq_name = "opBoolSeq";
@@ -298,6 +313,84 @@ bool
 Test::RequiredException::_usesClasses() const
 {
     return true;
+}
+/// \endcond
+
+bool
+Test::MyInterface::ice_isA(::std::string s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_Test_MyInterface_ids, iceC_Test_MyInterface_ids + 2, s);
+}
+
+::std::vector<::std::string>
+Test::MyInterface::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector<::std::string>(&iceC_Test_MyInterface_ids[0], &iceC_Test_MyInterface_ids[2]);
+}
+
+::std::string
+Test::MyInterface::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+Test::MyInterface::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::MyInterface";
+    return typeId;
+}
+
+/// \cond INTERNAL
+bool
+Test::MyInterface::_iceD_op(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
+    inS.readEmptyParams();
+    this->op(current);
+    inS.writeEmptyParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::MyInterface::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+{
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MyInterface_ops, iceC_Test_MyInterface_ops + 5, current.operation);
+    if(r.first == r.second)
+    {
+        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+    }
+
+    switch(r.first - iceC_Test_MyInterface_ops)
+    {
+        case 0:
+        {
+            return _iceD_ice_id(in, current);
+        }
+        case 1:
+        {
+            return _iceD_ice_ids(in, current);
+        }
+        case 2:
+        {
+            return _iceD_ice_isA(in, current);
+        }
+        case 3:
+        {
+            return _iceD_ice_ping(in, current);
+        }
+        case 4:
+        {
+            return _iceD_op(in, current);
+        }
+        default:
+        {
+            assert(false);
+            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        }
+    }
 }
 /// \endcond
 
@@ -878,15 +971,15 @@ Test::Initial::_iceD_opOneOptionalReq(::IceInternal::Incoming& inS, const ::Ice:
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opOneOptionalProxy(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opMyInterfaceProxy(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    std::optional<::std::shared_ptr<::Ice::ObjectPrx>> iceP_p1;
+    std::optional<::std::shared_ptr<MyInterfacePrx>> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
-    std::optional<::std::shared_ptr<::Ice::ObjectPrx>> iceP_p3;
-    std::optional<::std::shared_ptr<::Ice::ObjectPrx>> ret = this->opOneOptionalProxy(::std::move(iceP_p1), iceP_p3, current);
+    std::optional<::std::shared_ptr<MyInterfacePrx>> iceP_p3;
+    std::optional<::std::shared_ptr<MyInterfacePrx>> ret = this->opMyInterfaceProxy(::std::move(iceP_p1), iceP_p3, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 3}, ret, iceP_p3);
     inS.endWriteParams();
@@ -896,15 +989,15 @@ Test::Initial::_iceD_opOneOptionalProxy(::IceInternal::Incoming& inS, const ::Ic
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opOneOptionalProxyReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opMyInterfaceProxyReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    std::optional<::std::shared_ptr<::Ice::ObjectPrx>> iceP_p1;
+    std::optional<::std::shared_ptr<MyInterfacePrx>> iceP_p1;
     istr->readAll({2}, iceP_p1);
     inS.endReadParams();
-    std::optional<::std::shared_ptr<::Ice::ObjectPrx>> iceP_p3;
-    std::optional<::std::shared_ptr<::Ice::ObjectPrx>> ret = this->opOneOptionalProxyReq(::std::move(iceP_p1), iceP_p3, current);
+    std::optional<::std::shared_ptr<MyInterfacePrx>> iceP_p3;
+    std::optional<::std::shared_ptr<MyInterfacePrx>> ret = this->opMyInterfaceProxyReq(::std::move(iceP_p1), iceP_p3, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll({1, 3}, ret, iceP_p3);
     inS.endWriteParams();
@@ -2058,15 +2151,15 @@ Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
         }
         case 51:
         {
-            return _iceD_opOneOptional(in, current);
+            return _iceD_opMyInterfaceProxy(in, current);
         }
         case 52:
         {
-            return _iceD_opOneOptionalProxy(in, current);
+            return _iceD_opMyInterfaceProxyReq(in, current);
         }
         case 53:
         {
-            return _iceD_opOneOptionalProxyReq(in, current);
+            return _iceD_opOneOptional(in, current);
         }
         case 54:
         {
@@ -2382,6 +2475,30 @@ Test::Recursive::ice_staticId()
 {
     static const ::std::string typeId = "::Test::Recursive";
     return typeId;
+}
+
+/// \cond INTERNAL
+void
+Test::MyInterfacePrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context)
+{
+    outAsync->invoke(iceC_Test_MyInterface_op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+/// \endcond
+
+/// \cond INTERNAL
+::std::shared_ptr<::Ice::ObjectPrx>
+Test::MyInterfacePrx::_newInstance() const
+{
+    return ::IceInternal::createProxy<MyInterfacePrx>();
+}
+/// \endcond
+
+const ::std::string&
+Test::MyInterfacePrx::ice_staticId()
+{
+    return MyInterface::ice_staticId();
 }
 
 /// \cond INTERNAL
@@ -3019,10 +3136,10 @@ Test::InitialPrx::_iceI_opOneOptionalReq(const ::std::shared_ptr<::IceInternal::
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opOneOptionalProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpOneOptionalProxyResult>>& outAsync, const std::optional<::std::shared_ptr<::Ice::ObjectPrx>>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opMyInterfaceProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMyInterfaceProxyResult>>& outAsync, const std::optional<::std::shared_ptr<MyInterfacePrx>>& iceP_p1, const ::Ice::Context& context)
 {
-    _checkTwowayOnly(iceC_Test_Initial_opOneOptionalProxy_name);
-    outAsync->invoke(iceC_Test_Initial_opOneOptionalProxy_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    _checkTwowayOnly(iceC_Test_Initial_opMyInterfaceProxy_name);
+    outAsync->invoke(iceC_Test_Initial_opMyInterfaceProxy_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({2}, iceP_p1);
@@ -3030,7 +3147,7 @@ Test::InitialPrx::_iceI_opOneOptionalProxy(const ::std::shared_ptr<::IceInternal
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            Initial::OpOneOptionalProxyResult v;
+            Initial::OpMyInterfaceProxyResult v;
             istr->readAll({1, 3}, v.returnValue, v.p3);
             return v;
         });
@@ -3039,10 +3156,10 @@ Test::InitialPrx::_iceI_opOneOptionalProxy(const ::std::shared_ptr<::IceInternal
 
 /// \cond INTERNAL
 void
-Test::InitialPrx::_iceI_opOneOptionalProxyReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpOneOptionalProxyReqResult>>& outAsync, const std::optional<::std::shared_ptr<::Ice::ObjectPrx>>& iceP_p1, const ::Ice::Context& context)
+Test::InitialPrx::_iceI_opMyInterfaceProxyReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Initial::OpMyInterfaceProxyReqResult>>& outAsync, const std::optional<::std::shared_ptr<MyInterfacePrx>>& iceP_p1, const ::Ice::Context& context)
 {
-    _checkTwowayOnly(iceC_Test_Initial_opOneOptionalProxyReq_name);
-    outAsync->invoke(iceC_Test_Initial_opOneOptionalProxyReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    _checkTwowayOnly(iceC_Test_Initial_opMyInterfaceProxyReq_name);
+    outAsync->invoke(iceC_Test_Initial_opMyInterfaceProxyReq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({2}, iceP_p1);
@@ -3050,7 +3167,7 @@ Test::InitialPrx::_iceI_opOneOptionalProxyReq(const ::std::shared_ptr<::IceInter
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            Initial::OpOneOptionalProxyReqResult v;
+            Initial::OpMyInterfaceProxyReqResult v;
             istr->readAll({1, 3}, v.returnValue, v.p3);
             return v;
         });
@@ -4043,6 +4160,8 @@ namespace Ice
 namespace
 {
 
+const ::std::string iceC_Test_MyInterface_op_name = "op";
+
 const ::std::string iceC_Test_Initial_shutdown_name = "shutdown";
 
 const ::std::string iceC_Test_Initial_pingPong_name = "pingPong";
@@ -4105,9 +4224,9 @@ const ::std::string iceC_Test_Initial_opOneOptional_name = "opOneOptional";
 
 const ::std::string iceC_Test_Initial_opOneOptionalReq_name = "opOneOptionalReq";
 
-const ::std::string iceC_Test_Initial_opOneOptionalProxy_name = "opOneOptionalProxy";
+const ::std::string iceC_Test_Initial_opMyInterfaceProxy_name = "opMyInterfaceProxy";
 
-const ::std::string iceC_Test_Initial_opOneOptionalProxyReq_name = "opOneOptionalProxyReq";
+const ::std::string iceC_Test_Initial_opMyInterfaceProxyReq_name = "opMyInterfaceProxyReq";
 
 const ::std::string iceC_Test_Initial_opByteSeq_name = "opByteSeq";
 
@@ -4405,10 +4524,10 @@ Test::RequiredException::_readImpl(::Ice::InputStream* istr)
 /// \endcond
 
 /// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(OneOptional* p) { return p; }
+::IceProxy::Ice::Object* ::IceProxy::Test::upCast(MyInterface* p) { return p; }
 
 void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< OneOptional>& v)
+::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< MyInterface>& v)
 {
     ::Ice::ObjectPrx proxy;
     istr->read(proxy);
@@ -4418,432 +4537,47 @@ void
     }
     else
     {
-        v = new OneOptional;
+        v = new MyInterface;
         v->_copyFrom(proxy);
     }
 }
 /// \endcond
 
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::OneOptional::_newInstance() const
+::Ice::AsyncResultPtr
+IceProxy::Test::MyInterface::_iceI_begin_op(const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
-    return new OneOptional;
+    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_MyInterface_op_name, del, cookie, sync);
+    try
+    {
+        result->prepare(iceC_Test_MyInterface_op_name, ::Ice::Normal, context);
+        result->writeEmptyParams();
+        result->invoke(iceC_Test_MyInterface_op_name);
+    }
+    catch(const ::Ice::Exception& ex)
+    {
+        result->abort(ex);
+    }
+    return result;
 }
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::OneOptional::ice_staticId()
-{
-    return ::Test::OneOptional::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(MultiOptional* p) { return p; }
 
 void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< MultiOptional>& v)
+IceProxy::Test::MyInterface::end_op(const ::Ice::AsyncResultPtr& result)
 {
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new MultiOptional;
-        v->_copyFrom(proxy);
-    }
+    _end(result, iceC_Test_MyInterface_op_name);
 }
-/// \endcond
 
 /// \cond INTERNAL
 ::IceProxy::Ice::Object*
-IceProxy::Test::MultiOptional::_newInstance() const
+IceProxy::Test::MyInterface::_newInstance() const
 {
-    return new MultiOptional;
+    return new MyInterface;
 }
 /// \endcond
 
 const ::std::string&
-IceProxy::Test::MultiOptional::ice_staticId()
+IceProxy::Test::MyInterface::ice_staticId()
 {
-    return ::Test::MultiOptional::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(A* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< A>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new A;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::A::_newInstance() const
-{
-    return new A;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::A::ice_staticId()
-{
-    return ::Test::A::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(B* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< B>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new B;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::B::_newInstance() const
-{
-    return new B;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::B::ice_staticId()
-{
-    return ::Test::B::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(C* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< C>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new C;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::C::_newInstance() const
-{
-    return new C;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::C::ice_staticId()
-{
-    return ::Test::C::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(WD* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< WD>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new WD;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::WD::_newInstance() const
-{
-    return new WD;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::WD::ice_staticId()
-{
-    return ::Test::WD::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(OptionalWithCustom* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< OptionalWithCustom>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new OptionalWithCustom;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::OptionalWithCustom::_newInstance() const
-{
-    return new OptionalWithCustom;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::OptionalWithCustom::ice_staticId()
-{
-    return ::Test::OptionalWithCustom::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(E* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< E>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new E;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::E::_newInstance() const
-{
-    return new E;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::E::ice_staticId()
-{
-    return ::Test::E::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(F* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< F>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new F;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::F::_newInstance() const
-{
-    return new F;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::F::ice_staticId()
-{
-    return ::Test::F::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(G1* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< G1>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new G1;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::G1::_newInstance() const
-{
-    return new G1;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::G1::ice_staticId()
-{
-    return ::Test::G1::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(G2* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< G2>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new G2;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::G2::_newInstance() const
-{
-    return new G2;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::G2::ice_staticId()
-{
-    return ::Test::G2::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(G* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< G>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new G;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::G::_newInstance() const
-{
-    return new G;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::G::ice_staticId()
-{
-    return ::Test::G::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(Recursive* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< Recursive>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new Recursive;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::Recursive::_newInstance() const
-{
-    return new Recursive;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::Recursive::ice_staticId()
-{
-    return ::Test::Recursive::ice_staticId();
+    return ::Test::MyInterface::ice_staticId();
 }
 
 /// \cond INTERNAL
@@ -6704,17 +6438,17 @@ void IceProxy::Test::Initial::_iceI_end_opOneOptionalReq(std::optional< ::Test::
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opOneOptionalProxy(const std::optional< ::Test::OneOptionalPrx>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opMyInterfaceProxy(const std::optional< ::Test::MyInterfacePrx>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
-    _checkTwowayOnly(iceC_Test_Initial_opOneOptionalProxy_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opOneOptionalProxy_name, del, cookie, sync);
+    _checkTwowayOnly(iceC_Test_Initial_opMyInterfaceProxy_name, sync);
+    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opMyInterfaceProxy_name, del, cookie, sync);
     try
     {
-        result->prepare(iceC_Test_Initial_opOneOptionalProxy_name, ::Ice::Normal, context);
+        result->prepare(iceC_Test_Initial_opMyInterfaceProxy_name, ::Ice::Normal, context);
         ::Ice::OutputStream* ostr = result->startWriteParams(::Ice::DefaultFormat);
         ostr->write(2, iceP_p1);
         result->endWriteParams();
-        result->invoke(iceC_Test_Initial_opOneOptionalProxy_name);
+        result->invoke(iceC_Test_Initial_opMyInterfaceProxy_name);
     }
     catch(const ::Ice::Exception& ex)
     {
@@ -6723,11 +6457,11 @@ IceProxy::Test::Initial::_iceI_begin_opOneOptionalProxy(const std::optional< ::T
     return result;
 }
 
-std::optional< ::Test::OneOptionalPrx>
-IceProxy::Test::Initial::end_opOneOptionalProxy(std::optional< ::Test::OneOptionalPrx>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::MyInterfacePrx>
+IceProxy::Test::Initial::end_opMyInterfaceProxy(std::optional< ::Test::MyInterfacePrx>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opOneOptionalProxy_name);
-    std::optional< ::Test::OneOptionalPrx> ret;
+    ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opMyInterfaceProxy_name);
+    std::optional< ::Test::MyInterfacePrx> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -6746,9 +6480,9 @@ IceProxy::Test::Initial::end_opOneOptionalProxy(std::optional< ::Test::OneOption
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opOneOptionalProxy(std::optional< ::Test::OneOptionalPrx>& iceP_p3, std::optional< ::Test::OneOptionalPrx>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opMyInterfaceProxy(std::optional< ::Test::MyInterfacePrx>& iceP_p3, std::optional< ::Test::MyInterfacePrx>& ret, const ::Ice::AsyncResultPtr& result)
 {
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opOneOptionalProxy_name);
+    ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opMyInterfaceProxy_name);
     if(!result->_waitForResponse())
     {
         try
@@ -6767,17 +6501,17 @@ void IceProxy::Test::Initial::_iceI_end_opOneOptionalProxy(std::optional< ::Test
 }
 
 ::Ice::AsyncResultPtr
-IceProxy::Test::Initial::_iceI_begin_opOneOptionalProxyReq(const std::optional< ::Test::OneOptionalPrx>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::Test::Initial::_iceI_begin_opMyInterfaceProxyReq(const std::optional< ::Test::MyInterfacePrx>& iceP_p1, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
-    _checkTwowayOnly(iceC_Test_Initial_opOneOptionalProxyReq_name, sync);
-    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opOneOptionalProxyReq_name, del, cookie, sync);
+    _checkTwowayOnly(iceC_Test_Initial_opMyInterfaceProxyReq_name, sync);
+    ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_Test_Initial_opMyInterfaceProxyReq_name, del, cookie, sync);
     try
     {
-        result->prepare(iceC_Test_Initial_opOneOptionalProxyReq_name, ::Ice::Normal, context);
+        result->prepare(iceC_Test_Initial_opMyInterfaceProxyReq_name, ::Ice::Normal, context);
         ::Ice::OutputStream* ostr = result->startWriteParams(::Ice::DefaultFormat);
         ostr->write(2, iceP_p1);
         result->endWriteParams();
-        result->invoke(iceC_Test_Initial_opOneOptionalProxyReq_name);
+        result->invoke(iceC_Test_Initial_opMyInterfaceProxyReq_name);
     }
     catch(const ::Ice::Exception& ex)
     {
@@ -6786,11 +6520,11 @@ IceProxy::Test::Initial::_iceI_begin_opOneOptionalProxyReq(const std::optional< 
     return result;
 }
 
-std::optional< ::Test::OneOptionalPrx>
-IceProxy::Test::Initial::end_opOneOptionalProxyReq(std::optional< ::Test::OneOptionalPrx>& iceP_p3, const ::Ice::AsyncResultPtr& result)
+std::optional< ::Test::MyInterfacePrx>
+IceProxy::Test::Initial::end_opMyInterfaceProxyReq(std::optional< ::Test::MyInterfacePrx>& iceP_p3, const ::Ice::AsyncResultPtr& result)
 {
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opOneOptionalProxyReq_name);
-    std::optional< ::Test::OneOptionalPrx> ret;
+    ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opMyInterfaceProxyReq_name);
+    std::optional< ::Test::MyInterfacePrx> ret;
     if(!result->_waitForResponse())
     {
         try
@@ -6809,9 +6543,9 @@ IceProxy::Test::Initial::end_opOneOptionalProxyReq(std::optional< ::Test::OneOpt
     return ret;
 }
 
-void IceProxy::Test::Initial::_iceI_end_opOneOptionalProxyReq(std::optional< ::Test::OneOptionalPrx>& iceP_p3, std::optional< ::Test::OneOptionalPrx>& ret, const ::Ice::AsyncResultPtr& result)
+void IceProxy::Test::Initial::_iceI_end_opMyInterfaceProxyReq(std::optional< ::Test::MyInterfacePrx>& iceP_p3, std::optional< ::Test::MyInterfacePrx>& ret, const ::Ice::AsyncResultPtr& result)
 {
-    ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opOneOptionalProxyReq_name);
+    ::Ice::AsyncResult::_check(result, this, iceC_Test_Initial_opMyInterfaceProxyReq_name);
     if(!result->_waitForResponse())
     {
         try
@@ -9775,6 +9509,2174 @@ IceProxy::Test::Initial::ice_staticId()
     return ::Test::Initial::ice_staticId();
 }
 
+Test::MyInterface::~MyInterface()
+{
+}
+
+namespace
+{
+const ::std::string iceC_Test_MyInterface_ids[2] =
+{
+    "::Ice::Object",
+    "::Test::MyInterface"
+};
+
+}
+
+bool
+Test::MyInterface::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_Test_MyInterface_ids, iceC_Test_MyInterface_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+Test::MyInterface::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_Test_MyInterface_ids[0], &iceC_Test_MyInterface_ids[2]);
+}
+
+const ::std::string&
+Test::MyInterface::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+Test::MyInterface::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::MyInterface";
+    return typeId;
+}
+
+/// \cond INTERNAL
+bool
+Test::MyInterface::_iceD_op(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    this->op(current);
+    inS.writeEmptyParams();
+    return true;
+}
+/// \endcond
+
+namespace
+{
+const ::std::string iceC_Test_MyInterface_all[] =
+{
+    "ice_id",
+    "ice_ids",
+    "ice_isA",
+    "ice_ping",
+    "op"
+};
+
+}
+
+/// \cond INTERNAL
+bool
+Test::MyInterface::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+{
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MyInterface_all, iceC_Test_MyInterface_all + 5, current.operation);
+    if(r.first == r.second)
+    {
+        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+    }
+
+    switch(r.first - iceC_Test_MyInterface_all)
+    {
+        case 0:
+        {
+            return _iceD_ice_id(in, current);
+        }
+        case 1:
+        {
+            return _iceD_ice_ids(in, current);
+        }
+        case 2:
+        {
+            return _iceD_ice_isA(in, current);
+        }
+        case 3:
+        {
+            return _iceD_ice_ping(in, current);
+        }
+        case 4:
+        {
+            return _iceD_op(in, current);
+        }
+        default:
+        {
+            assert(false);
+            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        }
+    }
+}
+/// \endcond
+
+Test::Initial::~Initial()
+{
+}
+
+namespace
+{
+const ::std::string iceC_Test_Initial_ids[2] =
+{
+    "::Ice::Object",
+    "::Test::Initial"
+};
+
+}
+
+bool
+Test::Initial::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_Test_Initial_ids, iceC_Test_Initial_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+Test::Initial::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_Test_Initial_ids[0], &iceC_Test_Initial_ids[2]);
+}
+
+const ::std::string&
+Test::Initial::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+Test::Initial::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::Initial";
+    return typeId;
+}
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    this->shutdown(current);
+    inS.writeEmptyParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_pingPong(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    ::Ice::ObjectPtr iceP_o;
+    istr->read(iceP_o);
+    istr->readPendingValues();
+    inS.endReadParams();
+    ::Ice::ObjectPtr ret = this->pingPong(iceP_o, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    ostr->writePendingValues();
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opOptionalException(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional< ::Ice::Int> iceP_a;
+    std::optional< ::std::string> iceP_b;
+    std::optional<OneOptionalPtr> iceP_o;
+    istr->read(1, iceP_a);
+    istr->read(2, iceP_b);
+    istr->read(3, iceP_o);
+    inS.endReadParams();
+    this->opOptionalException(iceP_a, iceP_b, iceP_o, current);
+    inS.writeEmptyParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opDerivedException(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional< ::Ice::Int> iceP_a;
+    std::optional< ::std::string> iceP_b;
+    std::optional<OneOptionalPtr> iceP_o;
+    istr->read(1, iceP_a);
+    istr->read(2, iceP_b);
+    istr->read(3, iceP_o);
+    inS.endReadParams();
+    this->opDerivedException(iceP_a, iceP_b, iceP_o, current);
+    inS.writeEmptyParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opRequiredException(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional< ::Ice::Int> iceP_a;
+    std::optional< ::std::string> iceP_b;
+    std::optional<OneOptionalPtr> iceP_o;
+    istr->read(1, iceP_a);
+    istr->read(2, iceP_b);
+    istr->read(3, iceP_o);
+    inS.endReadParams();
+    this->opRequiredException(iceP_a, iceP_b, iceP_o, current);
+    inS.writeEmptyParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opByte(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional< ::Ice::Byte> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional< ::Ice::Byte> iceP_p3;
+    std::optional< ::Ice::Byte> ret = this->opByte(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opByteReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional< ::Ice::Byte> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional< ::Ice::Byte> iceP_p3;
+    std::optional< ::Ice::Byte> ret = this->opByteReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opBool(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<bool> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<bool> iceP_p3;
+    std::optional<bool> ret = this->opBool(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opBoolReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<bool> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<bool> iceP_p3;
+    std::optional<bool> ret = this->opBoolReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opShort(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional< ::Ice::Short> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional< ::Ice::Short> iceP_p3;
+    std::optional< ::Ice::Short> ret = this->opShort(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opShortReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional< ::Ice::Short> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional< ::Ice::Short> iceP_p3;
+    std::optional< ::Ice::Short> ret = this->opShortReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opInt(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional< ::Ice::Int> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional< ::Ice::Int> iceP_p3;
+    std::optional< ::Ice::Int> ret = this->opInt(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opIntReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional< ::Ice::Int> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional< ::Ice::Int> iceP_p3;
+    std::optional< ::Ice::Int> ret = this->opIntReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opLong(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional< ::Ice::Long> iceP_p1;
+    istr->read(1, iceP_p1);
+    inS.endReadParams();
+    std::optional< ::Ice::Long> iceP_p3;
+    std::optional< ::Ice::Long> ret = this->opLong(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(2, iceP_p3);
+    ostr->write(3, ret);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opLongReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional< ::Ice::Long> iceP_p1;
+    istr->read(1, iceP_p1);
+    inS.endReadParams();
+    std::optional< ::Ice::Long> iceP_p3;
+    std::optional< ::Ice::Long> ret = this->opLongReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(2, iceP_p3);
+    ostr->write(3, ret);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opFloat(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional< ::Ice::Float> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional< ::Ice::Float> iceP_p3;
+    std::optional< ::Ice::Float> ret = this->opFloat(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opFloatReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional< ::Ice::Float> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional< ::Ice::Float> iceP_p3;
+    std::optional< ::Ice::Float> ret = this->opFloatReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opDouble(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional< ::Ice::Double> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional< ::Ice::Double> iceP_p3;
+    std::optional< ::Ice::Double> ret = this->opDouble(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opDoubleReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional< ::Ice::Double> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional< ::Ice::Double> iceP_p3;
+    std::optional< ::Ice::Double> ret = this->opDoubleReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opString(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional< ::std::string> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional< ::std::string> iceP_p3;
+    std::optional< ::std::string> ret = this->opString(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opStringReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional< ::std::string> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional< ::std::string> iceP_p3;
+    std::optional< ::std::string> ret = this->opStringReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opMyEnum(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<MyEnum> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<MyEnum> iceP_p3;
+    std::optional<MyEnum> ret = this->opMyEnum(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opMyEnumReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<MyEnum> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<MyEnum> iceP_p3;
+    std::optional<MyEnum> ret = this->opMyEnumReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opSmallStruct(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<SmallStruct> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<SmallStruct> iceP_p3;
+    std::optional<SmallStruct> ret = this->opSmallStruct(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opSmallStructReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<SmallStruct> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<SmallStruct> iceP_p3;
+    std::optional<SmallStruct> ret = this->opSmallStructReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opFixedStruct(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<FixedStruct> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<FixedStruct> iceP_p3;
+    std::optional<FixedStruct> ret = this->opFixedStruct(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opFixedStructReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<FixedStruct> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<FixedStruct> iceP_p3;
+    std::optional<FixedStruct> ret = this->opFixedStructReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opVarStruct(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<VarStruct> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<VarStruct> iceP_p3;
+    std::optional<VarStruct> ret = this->opVarStruct(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opVarStructReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<VarStruct> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<VarStruct> iceP_p3;
+    std::optional<VarStruct> ret = this->opVarStructReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opOneOptional(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<OneOptionalPtr> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<OneOptionalPtr> iceP_p3;
+    std::optional<OneOptionalPtr> ret = this->opOneOptional(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opOneOptionalReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<OneOptionalPtr> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<OneOptionalPtr> iceP_p3;
+    std::optional<OneOptionalPtr> ret = this->opOneOptionalReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opMyInterfaceProxy(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<MyInterfacePrx> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<MyInterfacePrx> iceP_p3;
+    std::optional<MyInterfacePrx> ret = this->opMyInterfaceProxy(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opMyInterfaceProxyReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<MyInterfacePrx> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<MyInterfacePrx> iceP_p3;
+    std::optional<MyInterfacePrx> ret = this->opMyInterfaceProxyReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opByteSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<ByteSeq> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<ByteSeq> iceP_p3;
+    std::optional<ByteSeq> ret = this->opByteSeq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opByteSeqReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<ByteSeq> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<ByteSeq> iceP_p3;
+    std::optional<ByteSeq> ret = this->opByteSeqReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opBoolSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<BoolSeq> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<BoolSeq> iceP_p3;
+    std::optional<BoolSeq> ret = this->opBoolSeq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opBoolSeqReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<BoolSeq> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<BoolSeq> iceP_p3;
+    std::optional<BoolSeq> ret = this->opBoolSeqReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opShortSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<ShortSeq> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<ShortSeq> iceP_p3;
+    std::optional<ShortSeq> ret = this->opShortSeq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opShortSeqReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<ShortSeq> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<ShortSeq> iceP_p3;
+    std::optional<ShortSeq> ret = this->opShortSeqReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opIntSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<IntSeq> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<IntSeq> iceP_p3;
+    std::optional<IntSeq> ret = this->opIntSeq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opIntSeqReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<IntSeq> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<IntSeq> iceP_p3;
+    std::optional<IntSeq> ret = this->opIntSeqReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opLongSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<LongSeq> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<LongSeq> iceP_p3;
+    std::optional<LongSeq> ret = this->opLongSeq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opLongSeqReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<LongSeq> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<LongSeq> iceP_p3;
+    std::optional<LongSeq> ret = this->opLongSeqReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opFloatSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<FloatSeq> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<FloatSeq> iceP_p3;
+    std::optional<FloatSeq> ret = this->opFloatSeq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opFloatSeqReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<FloatSeq> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<FloatSeq> iceP_p3;
+    std::optional<FloatSeq> ret = this->opFloatSeqReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opDoubleSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<DoubleSeq> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<DoubleSeq> iceP_p3;
+    std::optional<DoubleSeq> ret = this->opDoubleSeq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opDoubleSeqReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<DoubleSeq> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<DoubleSeq> iceP_p3;
+    std::optional<DoubleSeq> ret = this->opDoubleSeqReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opStringSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<StringSeq> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<StringSeq> iceP_p3;
+    std::optional<StringSeq> ret = this->opStringSeq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opStringSeqReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<StringSeq> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<StringSeq> iceP_p3;
+    std::optional<StringSeq> ret = this->opStringSeqReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opSmallStructSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<SmallStructSeq> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<SmallStructSeq> iceP_p3;
+    std::optional<SmallStructSeq> ret = this->opSmallStructSeq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opSmallStructSeqReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<SmallStructSeq> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<SmallStructSeq> iceP_p3;
+    std::optional<SmallStructSeq> ret = this->opSmallStructSeqReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opSmallStructList(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<SmallStructList> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<SmallStructList> iceP_p3;
+    std::optional<SmallStructList> ret = this->opSmallStructList(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opSmallStructListReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<SmallStructList> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<SmallStructList> iceP_p3;
+    std::optional<SmallStructList> ret = this->opSmallStructListReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opFixedStructSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<FixedStructSeq> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<FixedStructSeq> iceP_p3;
+    std::optional<FixedStructSeq> ret = this->opFixedStructSeq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opFixedStructSeqReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<FixedStructSeq> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<FixedStructSeq> iceP_p3;
+    std::optional<FixedStructSeq> ret = this->opFixedStructSeqReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opFixedStructList(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<FixedStructList> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<FixedStructList> iceP_p3;
+    std::optional<FixedStructList> ret = this->opFixedStructList(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opFixedStructListReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<FixedStructList> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<FixedStructList> iceP_p3;
+    std::optional<FixedStructList> ret = this->opFixedStructListReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opVarStructSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<VarStructSeq> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<VarStructSeq> iceP_p3;
+    std::optional<VarStructSeq> ret = this->opVarStructSeq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opVarStructSeqReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<VarStructSeq> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<VarStructSeq> iceP_p3;
+    std::optional<VarStructSeq> ret = this->opVarStructSeqReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opSerializable(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<Serializable> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<Serializable> iceP_p3;
+    std::optional<Serializable> ret = this->opSerializable(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opSerializableReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<Serializable> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<Serializable> iceP_p3;
+    std::optional<Serializable> ret = this->opSerializableReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opIntIntDict(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<IntIntDict> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<IntIntDict> iceP_p3;
+    std::optional<IntIntDict> ret = this->opIntIntDict(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opIntIntDictReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<IntIntDict> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<IntIntDict> iceP_p3;
+    std::optional<IntIntDict> ret = this->opIntIntDictReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opStringIntDict(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<StringIntDict> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<StringIntDict> iceP_p3;
+    std::optional<StringIntDict> ret = this->opStringIntDict(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opStringIntDictReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<StringIntDict> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<StringIntDict> iceP_p3;
+    std::optional<StringIntDict> ret = this->opStringIntDictReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opIntOneOptionalDict(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<IntOneOptionalDict> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<IntOneOptionalDict> iceP_p3;
+    std::optional<IntOneOptionalDict> ret = this->opIntOneOptionalDict(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opIntOneOptionalDictReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<IntOneOptionalDict> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<IntOneOptionalDict> iceP_p3;
+    std::optional<IntOneOptionalDict> ret = this->opIntOneOptionalDictReq(iceP_p1, iceP_p3, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p3);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opClassAndUnknownOptional(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    APtr iceP_p;
+    istr->read(iceP_p);
+    istr->readPendingValues();
+    inS.endReadParams();
+    this->opClassAndUnknownOptional(iceP_p, current);
+    inS.writeEmptyParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_sendOptionalClass(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    bool iceP_req;
+    std::optional<OneOptionalPtr> iceP_o;
+    istr->read(iceP_req);
+    istr->read(1, iceP_o);
+    inS.endReadParams();
+    this->sendOptionalClass(iceP_req, iceP_o, current);
+    inS.writeEmptyParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_returnOptionalClass(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    bool iceP_req;
+    istr->read(iceP_req);
+    inS.endReadParams();
+    std::optional<OneOptionalPtr> iceP_o;
+    this->returnOptionalClass(iceP_req, iceP_o, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, iceP_o);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opG(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    GPtr iceP_g;
+    istr->read(iceP_g);
+    istr->readPendingValues();
+    inS.endReadParams();
+    GPtr ret = this->opG(iceP_g, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    ostr->writePendingValues();
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opVoid(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    this->opVoid(current);
+    inS.writeEmptyParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opMStruct1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    std::optional<SmallStruct> ret = this->opMStruct1(current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opMStruct2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<SmallStruct> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<SmallStruct> iceP_p2;
+    std::optional<SmallStruct> ret = this->opMStruct2(iceP_p1, iceP_p2, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p2);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opMSeq1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    std::optional<StringSeq> ret = this->opMSeq1(current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opMSeq2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<StringSeq> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<StringSeq> iceP_p2;
+    std::optional<StringSeq> ret = this->opMSeq2(iceP_p1, iceP_p2, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p2);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opMDict1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    std::optional<StringIntDict> ret = this->opMDict1(current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opMDict2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<StringIntDict> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<StringIntDict> iceP_p2;
+    std::optional<StringIntDict> ret = this->opMDict2(iceP_p1, iceP_p2, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p2);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opMG1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    std::optional<GPtr> ret = this->opMG1(current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_opMG2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    std::optional<GPtr> iceP_p1;
+    istr->read(2, iceP_p1);
+    inS.endReadParams();
+    std::optional<GPtr> iceP_p2;
+    std::optional<GPtr> ret = this->opMG2(iceP_p1, iceP_p2, current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(1, ret);
+    ostr->write(3, iceP_p2);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_supportsRequiredParams(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    bool ret = this->supportsRequiredParams(current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_supportsJavaSerializable(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    bool ret = this->supportsJavaSerializable(current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_supportsCsharpSerializable(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    bool ret = this->supportsCsharpSerializable(current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_supportsCppStringView(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    bool ret = this->supportsCppStringView(current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_supportsNullOptional(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    bool ret = this->supportsNullOptional(current);
+    ::Ice::OutputStream* ostr = inS.startWriteParams();
+    ostr->write(ret);
+    inS.endWriteParams();
+    return true;
+}
+/// \endcond
+
+namespace
+{
+const ::std::string iceC_Test_Initial_all[] =
+{
+    "ice_id",
+    "ice_ids",
+    "ice_isA",
+    "ice_ping",
+    "opBool",
+    "opBoolReq",
+    "opBoolSeq",
+    "opBoolSeqReq",
+    "opByte",
+    "opByteReq",
+    "opByteSeq",
+    "opByteSeqReq",
+    "opClassAndUnknownOptional",
+    "opDerivedException",
+    "opDouble",
+    "opDoubleReq",
+    "opDoubleSeq",
+    "opDoubleSeqReq",
+    "opFixedStruct",
+    "opFixedStructList",
+    "opFixedStructListReq",
+    "opFixedStructReq",
+    "opFixedStructSeq",
+    "opFixedStructSeqReq",
+    "opFloat",
+    "opFloatReq",
+    "opFloatSeq",
+    "opFloatSeqReq",
+    "opG",
+    "opInt",
+    "opIntIntDict",
+    "opIntIntDictReq",
+    "opIntOneOptionalDict",
+    "opIntOneOptionalDictReq",
+    "opIntReq",
+    "opIntSeq",
+    "opIntSeqReq",
+    "opLong",
+    "opLongReq",
+    "opLongSeq",
+    "opLongSeqReq",
+    "opMDict1",
+    "opMDict2",
+    "opMG1",
+    "opMG2",
+    "opMSeq1",
+    "opMSeq2",
+    "opMStruct1",
+    "opMStruct2",
+    "opMyEnum",
+    "opMyEnumReq",
+    "opMyInterfaceProxy",
+    "opMyInterfaceProxyReq",
+    "opOneOptional",
+    "opOneOptionalReq",
+    "opOptionalException",
+    "opRequiredException",
+    "opSerializable",
+    "opSerializableReq",
+    "opShort",
+    "opShortReq",
+    "opShortSeq",
+    "opShortSeqReq",
+    "opSmallStruct",
+    "opSmallStructList",
+    "opSmallStructListReq",
+    "opSmallStructReq",
+    "opSmallStructSeq",
+    "opSmallStructSeqReq",
+    "opString",
+    "opStringIntDict",
+    "opStringIntDictReq",
+    "opStringReq",
+    "opStringSeq",
+    "opStringSeqReq",
+    "opVarStruct",
+    "opVarStructReq",
+    "opVarStructSeq",
+    "opVarStructSeqReq",
+    "opVoid",
+    "pingPong",
+    "returnOptionalClass",
+    "sendOptionalClass",
+    "shutdown",
+    "supportsCppStringView",
+    "supportsCsharpSerializable",
+    "supportsJavaSerializable",
+    "supportsNullOptional",
+    "supportsRequiredParams"
+};
+
+}
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+{
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Initial_all, iceC_Test_Initial_all + 89, current.operation);
+    if(r.first == r.second)
+    {
+        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+    }
+
+    switch(r.first - iceC_Test_Initial_all)
+    {
+        case 0:
+        {
+            return _iceD_ice_id(in, current);
+        }
+        case 1:
+        {
+            return _iceD_ice_ids(in, current);
+        }
+        case 2:
+        {
+            return _iceD_ice_isA(in, current);
+        }
+        case 3:
+        {
+            return _iceD_ice_ping(in, current);
+        }
+        case 4:
+        {
+            return _iceD_opBool(in, current);
+        }
+        case 5:
+        {
+            return _iceD_opBoolReq(in, current);
+        }
+        case 6:
+        {
+            return _iceD_opBoolSeq(in, current);
+        }
+        case 7:
+        {
+            return _iceD_opBoolSeqReq(in, current);
+        }
+        case 8:
+        {
+            return _iceD_opByte(in, current);
+        }
+        case 9:
+        {
+            return _iceD_opByteReq(in, current);
+        }
+        case 10:
+        {
+            return _iceD_opByteSeq(in, current);
+        }
+        case 11:
+        {
+            return _iceD_opByteSeqReq(in, current);
+        }
+        case 12:
+        {
+            return _iceD_opClassAndUnknownOptional(in, current);
+        }
+        case 13:
+        {
+            return _iceD_opDerivedException(in, current);
+        }
+        case 14:
+        {
+            return _iceD_opDouble(in, current);
+        }
+        case 15:
+        {
+            return _iceD_opDoubleReq(in, current);
+        }
+        case 16:
+        {
+            return _iceD_opDoubleSeq(in, current);
+        }
+        case 17:
+        {
+            return _iceD_opDoubleSeqReq(in, current);
+        }
+        case 18:
+        {
+            return _iceD_opFixedStruct(in, current);
+        }
+        case 19:
+        {
+            return _iceD_opFixedStructList(in, current);
+        }
+        case 20:
+        {
+            return _iceD_opFixedStructListReq(in, current);
+        }
+        case 21:
+        {
+            return _iceD_opFixedStructReq(in, current);
+        }
+        case 22:
+        {
+            return _iceD_opFixedStructSeq(in, current);
+        }
+        case 23:
+        {
+            return _iceD_opFixedStructSeqReq(in, current);
+        }
+        case 24:
+        {
+            return _iceD_opFloat(in, current);
+        }
+        case 25:
+        {
+            return _iceD_opFloatReq(in, current);
+        }
+        case 26:
+        {
+            return _iceD_opFloatSeq(in, current);
+        }
+        case 27:
+        {
+            return _iceD_opFloatSeqReq(in, current);
+        }
+        case 28:
+        {
+            return _iceD_opG(in, current);
+        }
+        case 29:
+        {
+            return _iceD_opInt(in, current);
+        }
+        case 30:
+        {
+            return _iceD_opIntIntDict(in, current);
+        }
+        case 31:
+        {
+            return _iceD_opIntIntDictReq(in, current);
+        }
+        case 32:
+        {
+            return _iceD_opIntOneOptionalDict(in, current);
+        }
+        case 33:
+        {
+            return _iceD_opIntOneOptionalDictReq(in, current);
+        }
+        case 34:
+        {
+            return _iceD_opIntReq(in, current);
+        }
+        case 35:
+        {
+            return _iceD_opIntSeq(in, current);
+        }
+        case 36:
+        {
+            return _iceD_opIntSeqReq(in, current);
+        }
+        case 37:
+        {
+            return _iceD_opLong(in, current);
+        }
+        case 38:
+        {
+            return _iceD_opLongReq(in, current);
+        }
+        case 39:
+        {
+            return _iceD_opLongSeq(in, current);
+        }
+        case 40:
+        {
+            return _iceD_opLongSeqReq(in, current);
+        }
+        case 41:
+        {
+            return _iceD_opMDict1(in, current);
+        }
+        case 42:
+        {
+            return _iceD_opMDict2(in, current);
+        }
+        case 43:
+        {
+            return _iceD_opMG1(in, current);
+        }
+        case 44:
+        {
+            return _iceD_opMG2(in, current);
+        }
+        case 45:
+        {
+            return _iceD_opMSeq1(in, current);
+        }
+        case 46:
+        {
+            return _iceD_opMSeq2(in, current);
+        }
+        case 47:
+        {
+            return _iceD_opMStruct1(in, current);
+        }
+        case 48:
+        {
+            return _iceD_opMStruct2(in, current);
+        }
+        case 49:
+        {
+            return _iceD_opMyEnum(in, current);
+        }
+        case 50:
+        {
+            return _iceD_opMyEnumReq(in, current);
+        }
+        case 51:
+        {
+            return _iceD_opMyInterfaceProxy(in, current);
+        }
+        case 52:
+        {
+            return _iceD_opMyInterfaceProxyReq(in, current);
+        }
+        case 53:
+        {
+            return _iceD_opOneOptional(in, current);
+        }
+        case 54:
+        {
+            return _iceD_opOneOptionalReq(in, current);
+        }
+        case 55:
+        {
+            return _iceD_opOptionalException(in, current);
+        }
+        case 56:
+        {
+            return _iceD_opRequiredException(in, current);
+        }
+        case 57:
+        {
+            return _iceD_opSerializable(in, current);
+        }
+        case 58:
+        {
+            return _iceD_opSerializableReq(in, current);
+        }
+        case 59:
+        {
+            return _iceD_opShort(in, current);
+        }
+        case 60:
+        {
+            return _iceD_opShortReq(in, current);
+        }
+        case 61:
+        {
+            return _iceD_opShortSeq(in, current);
+        }
+        case 62:
+        {
+            return _iceD_opShortSeqReq(in, current);
+        }
+        case 63:
+        {
+            return _iceD_opSmallStruct(in, current);
+        }
+        case 64:
+        {
+            return _iceD_opSmallStructList(in, current);
+        }
+        case 65:
+        {
+            return _iceD_opSmallStructListReq(in, current);
+        }
+        case 66:
+        {
+            return _iceD_opSmallStructReq(in, current);
+        }
+        case 67:
+        {
+            return _iceD_opSmallStructSeq(in, current);
+        }
+        case 68:
+        {
+            return _iceD_opSmallStructSeqReq(in, current);
+        }
+        case 69:
+        {
+            return _iceD_opString(in, current);
+        }
+        case 70:
+        {
+            return _iceD_opStringIntDict(in, current);
+        }
+        case 71:
+        {
+            return _iceD_opStringIntDictReq(in, current);
+        }
+        case 72:
+        {
+            return _iceD_opStringReq(in, current);
+        }
+        case 73:
+        {
+            return _iceD_opStringSeq(in, current);
+        }
+        case 74:
+        {
+            return _iceD_opStringSeqReq(in, current);
+        }
+        case 75:
+        {
+            return _iceD_opVarStruct(in, current);
+        }
+        case 76:
+        {
+            return _iceD_opVarStructReq(in, current);
+        }
+        case 77:
+        {
+            return _iceD_opVarStructSeq(in, current);
+        }
+        case 78:
+        {
+            return _iceD_opVarStructSeqReq(in, current);
+        }
+        case 79:
+        {
+            return _iceD_opVoid(in, current);
+        }
+        case 80:
+        {
+            return _iceD_pingPong(in, current);
+        }
+        case 81:
+        {
+            return _iceD_returnOptionalClass(in, current);
+        }
+        case 82:
+        {
+            return _iceD_sendOptionalClass(in, current);
+        }
+        case 83:
+        {
+            return _iceD_shutdown(in, current);
+        }
+        case 84:
+        {
+            return _iceD_supportsCppStringView(in, current);
+        }
+        case 85:
+        {
+            return _iceD_supportsCsharpSerializable(in, current);
+        }
+        case 86:
+        {
+            return _iceD_supportsJavaSerializable(in, current);
+        }
+        case 87:
+        {
+            return _iceD_supportsNullOptional(in, current);
+        }
+        case 88:
+        {
+            return _iceD_supportsRequiredParams(in, current);
+        }
+        default:
+        {
+            assert(false);
+            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        }
+    }
+}
+/// \endcond
+
 Test::OneOptional::~OneOptional()
 {
 }
@@ -11175,2104 +13077,6 @@ Test::_icePatchObjectPtr(RecursivePtr& handle, const ::Ice::ObjectPtr& v)
     if(v && !handle)
     {
         IceInternal::Ex::throwUOE(Recursive::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-Test::Initial::~Initial()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(Initial* p) { return p; }
-
-/// \endcond
-
-namespace
-{
-const ::std::string iceC_Test_Initial_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Initial"
-};
-
-}
-
-bool
-Test::Initial::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Initial_ids, iceC_Test_Initial_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::Initial::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_Initial_ids[0], &iceC_Test_Initial_ids[2]);
-}
-
-const ::std::string&
-Test::Initial::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::Initial::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::Initial";
-    return typeId;
-}
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    this->shutdown(current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_pingPong(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    ::Ice::ObjectPtr iceP_o;
-    istr->read(iceP_o);
-    istr->readPendingValues();
-    inS.endReadParams();
-    ::Ice::ObjectPtr ret = this->pingPong(iceP_o, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opOptionalException(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional< ::Ice::Int> iceP_a;
-    std::optional< ::std::string> iceP_b;
-    std::optional<OneOptionalPtr> iceP_o;
-    istr->read(1, iceP_a);
-    istr->read(2, iceP_b);
-    istr->read(3, iceP_o);
-    inS.endReadParams();
-    this->opOptionalException(iceP_a, iceP_b, iceP_o, current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opDerivedException(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional< ::Ice::Int> iceP_a;
-    std::optional< ::std::string> iceP_b;
-    std::optional<OneOptionalPtr> iceP_o;
-    istr->read(1, iceP_a);
-    istr->read(2, iceP_b);
-    istr->read(3, iceP_o);
-    inS.endReadParams();
-    this->opDerivedException(iceP_a, iceP_b, iceP_o, current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opRequiredException(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional< ::Ice::Int> iceP_a;
-    std::optional< ::std::string> iceP_b;
-    std::optional<OneOptionalPtr> iceP_o;
-    istr->read(1, iceP_a);
-    istr->read(2, iceP_b);
-    istr->read(3, iceP_o);
-    inS.endReadParams();
-    this->opRequiredException(iceP_a, iceP_b, iceP_o, current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opByte(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional< ::Ice::Byte> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional< ::Ice::Byte> iceP_p3;
-    std::optional< ::Ice::Byte> ret = this->opByte(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opByteReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional< ::Ice::Byte> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional< ::Ice::Byte> iceP_p3;
-    std::optional< ::Ice::Byte> ret = this->opByteReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opBool(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<bool> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<bool> iceP_p3;
-    std::optional<bool> ret = this->opBool(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opBoolReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<bool> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<bool> iceP_p3;
-    std::optional<bool> ret = this->opBoolReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opShort(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional< ::Ice::Short> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional< ::Ice::Short> iceP_p3;
-    std::optional< ::Ice::Short> ret = this->opShort(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opShortReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional< ::Ice::Short> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional< ::Ice::Short> iceP_p3;
-    std::optional< ::Ice::Short> ret = this->opShortReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opInt(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional< ::Ice::Int> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional< ::Ice::Int> iceP_p3;
-    std::optional< ::Ice::Int> ret = this->opInt(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opIntReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional< ::Ice::Int> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional< ::Ice::Int> iceP_p3;
-    std::optional< ::Ice::Int> ret = this->opIntReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opLong(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional< ::Ice::Long> iceP_p1;
-    istr->read(1, iceP_p1);
-    inS.endReadParams();
-    std::optional< ::Ice::Long> iceP_p3;
-    std::optional< ::Ice::Long> ret = this->opLong(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(2, iceP_p3);
-    ostr->write(3, ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opLongReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional< ::Ice::Long> iceP_p1;
-    istr->read(1, iceP_p1);
-    inS.endReadParams();
-    std::optional< ::Ice::Long> iceP_p3;
-    std::optional< ::Ice::Long> ret = this->opLongReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(2, iceP_p3);
-    ostr->write(3, ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opFloat(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional< ::Ice::Float> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional< ::Ice::Float> iceP_p3;
-    std::optional< ::Ice::Float> ret = this->opFloat(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opFloatReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional< ::Ice::Float> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional< ::Ice::Float> iceP_p3;
-    std::optional< ::Ice::Float> ret = this->opFloatReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opDouble(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional< ::Ice::Double> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional< ::Ice::Double> iceP_p3;
-    std::optional< ::Ice::Double> ret = this->opDouble(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opDoubleReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional< ::Ice::Double> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional< ::Ice::Double> iceP_p3;
-    std::optional< ::Ice::Double> ret = this->opDoubleReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opString(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional< ::std::string> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional< ::std::string> iceP_p3;
-    std::optional< ::std::string> ret = this->opString(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opStringReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional< ::std::string> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional< ::std::string> iceP_p3;
-    std::optional< ::std::string> ret = this->opStringReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opMyEnum(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<MyEnum> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<MyEnum> iceP_p3;
-    std::optional<MyEnum> ret = this->opMyEnum(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opMyEnumReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<MyEnum> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<MyEnum> iceP_p3;
-    std::optional<MyEnum> ret = this->opMyEnumReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opSmallStruct(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<SmallStruct> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<SmallStruct> iceP_p3;
-    std::optional<SmallStruct> ret = this->opSmallStruct(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opSmallStructReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<SmallStruct> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<SmallStruct> iceP_p3;
-    std::optional<SmallStruct> ret = this->opSmallStructReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opFixedStruct(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<FixedStruct> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<FixedStruct> iceP_p3;
-    std::optional<FixedStruct> ret = this->opFixedStruct(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opFixedStructReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<FixedStruct> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<FixedStruct> iceP_p3;
-    std::optional<FixedStruct> ret = this->opFixedStructReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opVarStruct(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<VarStruct> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<VarStruct> iceP_p3;
-    std::optional<VarStruct> ret = this->opVarStruct(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opVarStructReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<VarStruct> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<VarStruct> iceP_p3;
-    std::optional<VarStruct> ret = this->opVarStructReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opOneOptional(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<OneOptionalPtr> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<OneOptionalPtr> iceP_p3;
-    std::optional<OneOptionalPtr> ret = this->opOneOptional(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opOneOptionalReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<OneOptionalPtr> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<OneOptionalPtr> iceP_p3;
-    std::optional<OneOptionalPtr> ret = this->opOneOptionalReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opOneOptionalProxy(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<OneOptionalPrx> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<OneOptionalPrx> iceP_p3;
-    std::optional<OneOptionalPrx> ret = this->opOneOptionalProxy(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opOneOptionalProxyReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<OneOptionalPrx> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<OneOptionalPrx> iceP_p3;
-    std::optional<OneOptionalPrx> ret = this->opOneOptionalProxyReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opByteSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<ByteSeq> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<ByteSeq> iceP_p3;
-    std::optional<ByteSeq> ret = this->opByteSeq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opByteSeqReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<ByteSeq> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<ByteSeq> iceP_p3;
-    std::optional<ByteSeq> ret = this->opByteSeqReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opBoolSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<BoolSeq> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<BoolSeq> iceP_p3;
-    std::optional<BoolSeq> ret = this->opBoolSeq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opBoolSeqReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<BoolSeq> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<BoolSeq> iceP_p3;
-    std::optional<BoolSeq> ret = this->opBoolSeqReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opShortSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<ShortSeq> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<ShortSeq> iceP_p3;
-    std::optional<ShortSeq> ret = this->opShortSeq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opShortSeqReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<ShortSeq> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<ShortSeq> iceP_p3;
-    std::optional<ShortSeq> ret = this->opShortSeqReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opIntSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<IntSeq> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<IntSeq> iceP_p3;
-    std::optional<IntSeq> ret = this->opIntSeq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opIntSeqReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<IntSeq> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<IntSeq> iceP_p3;
-    std::optional<IntSeq> ret = this->opIntSeqReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opLongSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<LongSeq> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<LongSeq> iceP_p3;
-    std::optional<LongSeq> ret = this->opLongSeq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opLongSeqReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<LongSeq> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<LongSeq> iceP_p3;
-    std::optional<LongSeq> ret = this->opLongSeqReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opFloatSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<FloatSeq> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<FloatSeq> iceP_p3;
-    std::optional<FloatSeq> ret = this->opFloatSeq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opFloatSeqReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<FloatSeq> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<FloatSeq> iceP_p3;
-    std::optional<FloatSeq> ret = this->opFloatSeqReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opDoubleSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<DoubleSeq> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<DoubleSeq> iceP_p3;
-    std::optional<DoubleSeq> ret = this->opDoubleSeq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opDoubleSeqReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<DoubleSeq> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<DoubleSeq> iceP_p3;
-    std::optional<DoubleSeq> ret = this->opDoubleSeqReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opStringSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<StringSeq> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<StringSeq> iceP_p3;
-    std::optional<StringSeq> ret = this->opStringSeq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opStringSeqReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<StringSeq> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<StringSeq> iceP_p3;
-    std::optional<StringSeq> ret = this->opStringSeqReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opSmallStructSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<SmallStructSeq> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<SmallStructSeq> iceP_p3;
-    std::optional<SmallStructSeq> ret = this->opSmallStructSeq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opSmallStructSeqReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<SmallStructSeq> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<SmallStructSeq> iceP_p3;
-    std::optional<SmallStructSeq> ret = this->opSmallStructSeqReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opSmallStructList(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<SmallStructList> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<SmallStructList> iceP_p3;
-    std::optional<SmallStructList> ret = this->opSmallStructList(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opSmallStructListReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<SmallStructList> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<SmallStructList> iceP_p3;
-    std::optional<SmallStructList> ret = this->opSmallStructListReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opFixedStructSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<FixedStructSeq> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<FixedStructSeq> iceP_p3;
-    std::optional<FixedStructSeq> ret = this->opFixedStructSeq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opFixedStructSeqReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<FixedStructSeq> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<FixedStructSeq> iceP_p3;
-    std::optional<FixedStructSeq> ret = this->opFixedStructSeqReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opFixedStructList(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<FixedStructList> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<FixedStructList> iceP_p3;
-    std::optional<FixedStructList> ret = this->opFixedStructList(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opFixedStructListReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<FixedStructList> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<FixedStructList> iceP_p3;
-    std::optional<FixedStructList> ret = this->opFixedStructListReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opVarStructSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<VarStructSeq> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<VarStructSeq> iceP_p3;
-    std::optional<VarStructSeq> ret = this->opVarStructSeq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opVarStructSeqReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<VarStructSeq> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<VarStructSeq> iceP_p3;
-    std::optional<VarStructSeq> ret = this->opVarStructSeqReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opSerializable(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<Serializable> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<Serializable> iceP_p3;
-    std::optional<Serializable> ret = this->opSerializable(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opSerializableReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<Serializable> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<Serializable> iceP_p3;
-    std::optional<Serializable> ret = this->opSerializableReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opIntIntDict(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<IntIntDict> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<IntIntDict> iceP_p3;
-    std::optional<IntIntDict> ret = this->opIntIntDict(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opIntIntDictReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<IntIntDict> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<IntIntDict> iceP_p3;
-    std::optional<IntIntDict> ret = this->opIntIntDictReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opStringIntDict(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<StringIntDict> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<StringIntDict> iceP_p3;
-    std::optional<StringIntDict> ret = this->opStringIntDict(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opStringIntDictReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<StringIntDict> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<StringIntDict> iceP_p3;
-    std::optional<StringIntDict> ret = this->opStringIntDictReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opIntOneOptionalDict(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<IntOneOptionalDict> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<IntOneOptionalDict> iceP_p3;
-    std::optional<IntOneOptionalDict> ret = this->opIntOneOptionalDict(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opIntOneOptionalDictReq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<IntOneOptionalDict> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<IntOneOptionalDict> iceP_p3;
-    std::optional<IntOneOptionalDict> ret = this->opIntOneOptionalDictReq(iceP_p1, iceP_p3, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opClassAndUnknownOptional(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    APtr iceP_p;
-    istr->read(iceP_p);
-    istr->readPendingValues();
-    inS.endReadParams();
-    this->opClassAndUnknownOptional(iceP_p, current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_sendOptionalClass(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    bool iceP_req;
-    std::optional<OneOptionalPtr> iceP_o;
-    istr->read(iceP_req);
-    istr->read(1, iceP_o);
-    inS.endReadParams();
-    this->sendOptionalClass(iceP_req, iceP_o, current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_returnOptionalClass(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    bool iceP_req;
-    istr->read(iceP_req);
-    inS.endReadParams();
-    std::optional<OneOptionalPtr> iceP_o;
-    this->returnOptionalClass(iceP_req, iceP_o, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, iceP_o);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opG(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    GPtr iceP_g;
-    istr->read(iceP_g);
-    istr->readPendingValues();
-    inS.endReadParams();
-    GPtr ret = this->opG(iceP_g, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    ostr->writePendingValues();
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opVoid(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    this->opVoid(current);
-    inS.writeEmptyParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opMStruct1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    std::optional<SmallStruct> ret = this->opMStruct1(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opMStruct2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<SmallStruct> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<SmallStruct> iceP_p2;
-    std::optional<SmallStruct> ret = this->opMStruct2(iceP_p1, iceP_p2, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p2);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opMSeq1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    std::optional<StringSeq> ret = this->opMSeq1(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opMSeq2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<StringSeq> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<StringSeq> iceP_p2;
-    std::optional<StringSeq> ret = this->opMSeq2(iceP_p1, iceP_p2, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p2);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opMDict1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    std::optional<StringIntDict> ret = this->opMDict1(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opMDict2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<StringIntDict> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<StringIntDict> iceP_p2;
-    std::optional<StringIntDict> ret = this->opMDict2(iceP_p1, iceP_p2, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p2);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opMG1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    std::optional<GPtr> ret = this->opMG1(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_opMG2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    std::optional<GPtr> iceP_p1;
-    istr->read(2, iceP_p1);
-    inS.endReadParams();
-    std::optional<GPtr> iceP_p2;
-    std::optional<GPtr> ret = this->opMG2(iceP_p1, iceP_p2, current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(1, ret);
-    ostr->write(3, iceP_p2);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_supportsRequiredParams(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    bool ret = this->supportsRequiredParams(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_supportsJavaSerializable(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    bool ret = this->supportsJavaSerializable(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_supportsCsharpSerializable(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    bool ret = this->supportsCsharpSerializable(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_supportsCppStringView(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    bool ret = this->supportsCppStringView(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_supportsNullOptional(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    bool ret = this->supportsNullOptional(current);
-    ::Ice::OutputStream* ostr = inS.startWriteParams();
-    ostr->write(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-namespace
-{
-const ::std::string iceC_Test_Initial_all[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "opBool",
-    "opBoolReq",
-    "opBoolSeq",
-    "opBoolSeqReq",
-    "opByte",
-    "opByteReq",
-    "opByteSeq",
-    "opByteSeqReq",
-    "opClassAndUnknownOptional",
-    "opDerivedException",
-    "opDouble",
-    "opDoubleReq",
-    "opDoubleSeq",
-    "opDoubleSeqReq",
-    "opFixedStruct",
-    "opFixedStructList",
-    "opFixedStructListReq",
-    "opFixedStructReq",
-    "opFixedStructSeq",
-    "opFixedStructSeqReq",
-    "opFloat",
-    "opFloatReq",
-    "opFloatSeq",
-    "opFloatSeqReq",
-    "opG",
-    "opInt",
-    "opIntIntDict",
-    "opIntIntDictReq",
-    "opIntOneOptionalDict",
-    "opIntOneOptionalDictReq",
-    "opIntReq",
-    "opIntSeq",
-    "opIntSeqReq",
-    "opLong",
-    "opLongReq",
-    "opLongSeq",
-    "opLongSeqReq",
-    "opMDict1",
-    "opMDict2",
-    "opMG1",
-    "opMG2",
-    "opMSeq1",
-    "opMSeq2",
-    "opMStruct1",
-    "opMStruct2",
-    "opMyEnum",
-    "opMyEnumReq",
-    "opOneOptional",
-    "opOneOptionalProxy",
-    "opOneOptionalProxyReq",
-    "opOneOptionalReq",
-    "opOptionalException",
-    "opRequiredException",
-    "opSerializable",
-    "opSerializableReq",
-    "opShort",
-    "opShortReq",
-    "opShortSeq",
-    "opShortSeqReq",
-    "opSmallStruct",
-    "opSmallStructList",
-    "opSmallStructListReq",
-    "opSmallStructReq",
-    "opSmallStructSeq",
-    "opSmallStructSeqReq",
-    "opString",
-    "opStringIntDict",
-    "opStringIntDictReq",
-    "opStringReq",
-    "opStringSeq",
-    "opStringSeqReq",
-    "opVarStruct",
-    "opVarStructReq",
-    "opVarStructSeq",
-    "opVarStructSeqReq",
-    "opVoid",
-    "pingPong",
-    "returnOptionalClass",
-    "sendOptionalClass",
-    "shutdown",
-    "supportsCppStringView",
-    "supportsCsharpSerializable",
-    "supportsJavaSerializable",
-    "supportsNullOptional",
-    "supportsRequiredParams"
-};
-
-}
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
-{
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Initial_all, iceC_Test_Initial_all + 89, current.operation);
-    if(r.first == r.second)
-    {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-    }
-
-    switch(r.first - iceC_Test_Initial_all)
-    {
-        case 0:
-        {
-            return _iceD_ice_id(in, current);
-        }
-        case 1:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 2:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 3:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        case 4:
-        {
-            return _iceD_opBool(in, current);
-        }
-        case 5:
-        {
-            return _iceD_opBoolReq(in, current);
-        }
-        case 6:
-        {
-            return _iceD_opBoolSeq(in, current);
-        }
-        case 7:
-        {
-            return _iceD_opBoolSeqReq(in, current);
-        }
-        case 8:
-        {
-            return _iceD_opByte(in, current);
-        }
-        case 9:
-        {
-            return _iceD_opByteReq(in, current);
-        }
-        case 10:
-        {
-            return _iceD_opByteSeq(in, current);
-        }
-        case 11:
-        {
-            return _iceD_opByteSeqReq(in, current);
-        }
-        case 12:
-        {
-            return _iceD_opClassAndUnknownOptional(in, current);
-        }
-        case 13:
-        {
-            return _iceD_opDerivedException(in, current);
-        }
-        case 14:
-        {
-            return _iceD_opDouble(in, current);
-        }
-        case 15:
-        {
-            return _iceD_opDoubleReq(in, current);
-        }
-        case 16:
-        {
-            return _iceD_opDoubleSeq(in, current);
-        }
-        case 17:
-        {
-            return _iceD_opDoubleSeqReq(in, current);
-        }
-        case 18:
-        {
-            return _iceD_opFixedStruct(in, current);
-        }
-        case 19:
-        {
-            return _iceD_opFixedStructList(in, current);
-        }
-        case 20:
-        {
-            return _iceD_opFixedStructListReq(in, current);
-        }
-        case 21:
-        {
-            return _iceD_opFixedStructReq(in, current);
-        }
-        case 22:
-        {
-            return _iceD_opFixedStructSeq(in, current);
-        }
-        case 23:
-        {
-            return _iceD_opFixedStructSeqReq(in, current);
-        }
-        case 24:
-        {
-            return _iceD_opFloat(in, current);
-        }
-        case 25:
-        {
-            return _iceD_opFloatReq(in, current);
-        }
-        case 26:
-        {
-            return _iceD_opFloatSeq(in, current);
-        }
-        case 27:
-        {
-            return _iceD_opFloatSeqReq(in, current);
-        }
-        case 28:
-        {
-            return _iceD_opG(in, current);
-        }
-        case 29:
-        {
-            return _iceD_opInt(in, current);
-        }
-        case 30:
-        {
-            return _iceD_opIntIntDict(in, current);
-        }
-        case 31:
-        {
-            return _iceD_opIntIntDictReq(in, current);
-        }
-        case 32:
-        {
-            return _iceD_opIntOneOptionalDict(in, current);
-        }
-        case 33:
-        {
-            return _iceD_opIntOneOptionalDictReq(in, current);
-        }
-        case 34:
-        {
-            return _iceD_opIntReq(in, current);
-        }
-        case 35:
-        {
-            return _iceD_opIntSeq(in, current);
-        }
-        case 36:
-        {
-            return _iceD_opIntSeqReq(in, current);
-        }
-        case 37:
-        {
-            return _iceD_opLong(in, current);
-        }
-        case 38:
-        {
-            return _iceD_opLongReq(in, current);
-        }
-        case 39:
-        {
-            return _iceD_opLongSeq(in, current);
-        }
-        case 40:
-        {
-            return _iceD_opLongSeqReq(in, current);
-        }
-        case 41:
-        {
-            return _iceD_opMDict1(in, current);
-        }
-        case 42:
-        {
-            return _iceD_opMDict2(in, current);
-        }
-        case 43:
-        {
-            return _iceD_opMG1(in, current);
-        }
-        case 44:
-        {
-            return _iceD_opMG2(in, current);
-        }
-        case 45:
-        {
-            return _iceD_opMSeq1(in, current);
-        }
-        case 46:
-        {
-            return _iceD_opMSeq2(in, current);
-        }
-        case 47:
-        {
-            return _iceD_opMStruct1(in, current);
-        }
-        case 48:
-        {
-            return _iceD_opMStruct2(in, current);
-        }
-        case 49:
-        {
-            return _iceD_opMyEnum(in, current);
-        }
-        case 50:
-        {
-            return _iceD_opMyEnumReq(in, current);
-        }
-        case 51:
-        {
-            return _iceD_opOneOptional(in, current);
-        }
-        case 52:
-        {
-            return _iceD_opOneOptionalProxy(in, current);
-        }
-        case 53:
-        {
-            return _iceD_opOneOptionalProxyReq(in, current);
-        }
-        case 54:
-        {
-            return _iceD_opOneOptionalReq(in, current);
-        }
-        case 55:
-        {
-            return _iceD_opOptionalException(in, current);
-        }
-        case 56:
-        {
-            return _iceD_opRequiredException(in, current);
-        }
-        case 57:
-        {
-            return _iceD_opSerializable(in, current);
-        }
-        case 58:
-        {
-            return _iceD_opSerializableReq(in, current);
-        }
-        case 59:
-        {
-            return _iceD_opShort(in, current);
-        }
-        case 60:
-        {
-            return _iceD_opShortReq(in, current);
-        }
-        case 61:
-        {
-            return _iceD_opShortSeq(in, current);
-        }
-        case 62:
-        {
-            return _iceD_opShortSeqReq(in, current);
-        }
-        case 63:
-        {
-            return _iceD_opSmallStruct(in, current);
-        }
-        case 64:
-        {
-            return _iceD_opSmallStructList(in, current);
-        }
-        case 65:
-        {
-            return _iceD_opSmallStructListReq(in, current);
-        }
-        case 66:
-        {
-            return _iceD_opSmallStructReq(in, current);
-        }
-        case 67:
-        {
-            return _iceD_opSmallStructSeq(in, current);
-        }
-        case 68:
-        {
-            return _iceD_opSmallStructSeqReq(in, current);
-        }
-        case 69:
-        {
-            return _iceD_opString(in, current);
-        }
-        case 70:
-        {
-            return _iceD_opStringIntDict(in, current);
-        }
-        case 71:
-        {
-            return _iceD_opStringIntDictReq(in, current);
-        }
-        case 72:
-        {
-            return _iceD_opStringReq(in, current);
-        }
-        case 73:
-        {
-            return _iceD_opStringSeq(in, current);
-        }
-        case 74:
-        {
-            return _iceD_opStringSeqReq(in, current);
-        }
-        case 75:
-        {
-            return _iceD_opVarStruct(in, current);
-        }
-        case 76:
-        {
-            return _iceD_opVarStructReq(in, current);
-        }
-        case 77:
-        {
-            return _iceD_opVarStructSeq(in, current);
-        }
-        case 78:
-        {
-            return _iceD_opVarStructSeqReq(in, current);
-        }
-        case 79:
-        {
-            return _iceD_opVoid(in, current);
-        }
-        case 80:
-        {
-            return _iceD_pingPong(in, current);
-        }
-        case 81:
-        {
-            return _iceD_returnOptionalClass(in, current);
-        }
-        case 82:
-        {
-            return _iceD_sendOptionalClass(in, current);
-        }
-        case 83:
-        {
-            return _iceD_shutdown(in, current);
-        }
-        case 84:
-        {
-            return _iceD_supportsCppStringView(in, current);
-        }
-        case 85:
-        {
-            return _iceD_supportsCsharpSerializable(in, current);
-        }
-        case 86:
-        {
-            return _iceD_supportsJavaSerializable(in, current);
-        }
-        case 87:
-        {
-            return _iceD_supportsNullOptional(in, current);
-        }
-        case 88:
-        {
-            return _iceD_supportsRequiredParams(in, current);
-        }
-        default:
-        {
-            assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-        }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-Test::Initial::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Initial, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Initial::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Initial, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(InitialPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = InitialPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Initial::ice_staticId(), v);
     }
 }
 /// \endcond

@@ -38,6 +38,18 @@
 namespace Demo
 {
 
+
+namespace gx
+{
+
+
+}
+
+}
+
+namespace Demo
+{
+
 namespace gx
 {
 
@@ -99,6 +111,16 @@ struct StreamReader<::Demo::gx::Circle, S>
 /// \endcond
 
 #else // C++98 mapping
+
+namespace Demo
+{
+
+namespace gx
+{
+
+}
+
+}
 
 namespace Demo
 {

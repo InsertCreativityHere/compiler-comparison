@@ -64,8 +64,6 @@ module ::Test
             T_HelloPrx = ::Ice::__declareProxy('::Test::Hello')
         end
 
-        T_Hello.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_HelloPrx.defineProxy(HelloPrx, nil, [])
 
         HelloPrx_mixin::OP_sayHello = ::Ice::__defineOperation('sayHello', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])

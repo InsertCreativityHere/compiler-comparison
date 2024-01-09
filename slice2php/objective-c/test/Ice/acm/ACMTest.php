@@ -37,7 +37,6 @@ namespace Test
             return '::Test::TestIntf';
         }
     }
-    $Test__t_TestIntf = IcePHP_defineClass('::Test::TestIntf', '\\Test\\TestIntf', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_TestIntfPrx = IcePHP_defineProxy('::Test::TestIntf', $Ice__t_ObjectPrx, null);
@@ -72,7 +71,6 @@ namespace Test
             return '::Test::RemoteObjectAdapter';
         }
     }
-    $Test__t_RemoteObjectAdapter = IcePHP_defineClass('::Test::RemoteObjectAdapter', '\\Test\\RemoteObjectAdapter', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_RemoteObjectAdapterPrx = IcePHP_defineProxy('::Test::RemoteObjectAdapter', $Ice__t_ObjectPrx, null);
@@ -106,7 +104,6 @@ namespace Test
             return '::Test::RemoteCommunicator';
         }
     }
-    $Test__t_RemoteCommunicator = IcePHP_defineClass('::Test::RemoteCommunicator', '\\Test\\RemoteCommunicator', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_RemoteCommunicatorPrx = IcePHP_defineProxy('::Test::RemoteCommunicator', $Ice__t_ObjectPrx, null);

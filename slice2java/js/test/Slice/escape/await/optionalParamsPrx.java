@@ -17,32 +17,32 @@ package await;
 
 public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
 {
-    default java.util.Optional<_break> _for(var _goto, com.zeroc.Ice.Value _if, java.util.Map<java.lang.String, _break> internal, String namespace, explicitPrx _null)
+    default java.util.Optional<_break> _for(var _goto, explicitPrx _if, java.util.Map<java.lang.String, _break> internal, String namespace, explicitPrx _null)
     {
         return _for(_goto, _if, internal, namespace, _null, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default java.util.Optional<_break> _for(var _goto, com.zeroc.Ice.Value _if, java.util.Map<java.lang.String, _break> internal, String namespace, explicitPrx _null, java.util.Map<String, String> context)
+    default java.util.Optional<_break> _for(var _goto, explicitPrx _if, java.util.Map<java.lang.String, _break> internal, String namespace, explicitPrx _null, java.util.Map<String, String> context)
     {
         return _iceI_forAsync(_goto, _if, internal, namespace, _null, context, true).waitForResponse();
     }
 
-    default java.util.Optional<_break> _for(java.util.Optional<var> _goto, java.util.Optional<com.zeroc.Ice.Value> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null)
+    default java.util.Optional<_break> _for(java.util.Optional<var> _goto, java.util.Optional<explicitPrx> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null)
     {
         return _for(_goto, _if, internal, namespace, _null, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default java.util.Optional<_break> _for(java.util.Optional<var> _goto, java.util.Optional<com.zeroc.Ice.Value> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null, java.util.Map<String, String> context)
+    default java.util.Optional<_break> _for(java.util.Optional<var> _goto, java.util.Optional<explicitPrx> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null, java.util.Map<String, String> context)
     {
         return _iceI_forAsync(_goto, _if, internal, namespace, _null, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<java.util.Optional<_break>> forAsync(var _goto, com.zeroc.Ice.Value _if, java.util.Map<java.lang.String, _break> internal, String namespace, explicitPrx _null)
+    default java.util.concurrent.CompletableFuture<java.util.Optional<_break>> forAsync(var _goto, explicitPrx _if, java.util.Map<java.lang.String, _break> internal, String namespace, explicitPrx _null)
     {
         return _iceI_forAsync(_goto, _if, internal, namespace, _null, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<java.util.Optional<_break>> forAsync(var _goto, com.zeroc.Ice.Value _if, java.util.Map<java.lang.String, _break> internal, String namespace, explicitPrx _null, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<java.util.Optional<_break>> forAsync(var _goto, explicitPrx _if, java.util.Map<java.lang.String, _break> internal, String namespace, explicitPrx _null, java.util.Map<String, String> context)
     {
         return _iceI_forAsync(_goto, _if, internal, namespace, _null, context, false);
     }
@@ -58,12 +58,12 @@ public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.util.Optional<_break>> _iceI_forAsync(var iceP_goto, com.zeroc.Ice.Value iceP_if, java.util.Map<java.lang.String, _break> iceP_internal, String iceP_namespace, explicitPrx iceP_null, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<java.util.Optional<_break>> _iceI_forAsync(var iceP_goto, explicitPrx iceP_if, java.util.Map<java.lang.String, _break> iceP_internal, String iceP_namespace, explicitPrx iceP_null, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.util.Optional<_break>> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "for", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      var.ice_write(ostr, 2, iceP_goto);
-                     ostr.writeValue(3, iceP_if);
+                     ostr.writeProxy(3, iceP_if);
                      whileHelper.write(ostr, 5, iceP_internal);
                      ostr.writeString(7, iceP_namespace);
                      ostr.writeProxy(8, iceP_null);
@@ -75,12 +75,12 @@ public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default java.util.concurrent.CompletableFuture<java.util.Optional<_break>> forAsync(java.util.Optional<var> _goto, java.util.Optional<com.zeroc.Ice.Value> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null)
+    default java.util.concurrent.CompletableFuture<java.util.Optional<_break>> forAsync(java.util.Optional<var> _goto, java.util.Optional<explicitPrx> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null)
     {
         return _iceI_forAsync(_goto, _if, internal, namespace, _null, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<java.util.Optional<_break>> forAsync(java.util.Optional<var> _goto, java.util.Optional<com.zeroc.Ice.Value> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<java.util.Optional<_break>> forAsync(java.util.Optional<var> _goto, java.util.Optional<explicitPrx> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null, java.util.Map<String, String> context)
     {
         return _iceI_forAsync(_goto, _if, internal, namespace, _null, context, false);
     }
@@ -96,12 +96,12 @@ public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.util.Optional<_break>> _iceI_forAsync(java.util.Optional<var> iceP_goto, java.util.Optional<com.zeroc.Ice.Value> iceP_if, java.util.Optional<java.util.Map<java.lang.String, _break>> iceP_internal, java.util.Optional<java.lang.String> iceP_namespace, java.util.Optional<explicitPrx> iceP_null, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<java.util.Optional<_break>> _iceI_forAsync(java.util.Optional<var> iceP_goto, java.util.Optional<explicitPrx> iceP_if, java.util.Optional<java.util.Map<java.lang.String, _break>> iceP_internal, java.util.Optional<java.lang.String> iceP_namespace, java.util.Optional<explicitPrx> iceP_null, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.util.Optional<_break>> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "for", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      var.ice_write(ostr, 2, iceP_goto);
-                     ostr.writeValue(3, iceP_if);
+                     ostr.writeProxy(3, iceP_if);
                      whileHelper.write(ostr, 5, iceP_internal);
                      ostr.writeString(7, iceP_namespace);
                      ostr.writeProxy(8, iceP_null);
@@ -113,32 +113,32 @@ public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default java.util.Optional<_break> _continue(var _goto, com.zeroc.Ice.Value _if, java.util.Map<java.lang.String, _break> internal, String namespace, explicitPrx _null)
+    default java.util.Optional<_break> _continue(var _goto, explicitPrx _if, java.util.Map<java.lang.String, _break> internal, String namespace, explicitPrx _null)
     {
         return _continue(_goto, _if, internal, namespace, _null, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default java.util.Optional<_break> _continue(var _goto, com.zeroc.Ice.Value _if, java.util.Map<java.lang.String, _break> internal, String namespace, explicitPrx _null, java.util.Map<String, String> context)
+    default java.util.Optional<_break> _continue(var _goto, explicitPrx _if, java.util.Map<java.lang.String, _break> internal, String namespace, explicitPrx _null, java.util.Map<String, String> context)
     {
         return _iceI_continueAsync(_goto, _if, internal, namespace, _null, context, true).waitForResponse();
     }
 
-    default java.util.Optional<_break> _continue(java.util.Optional<var> _goto, java.util.Optional<com.zeroc.Ice.Value> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null)
+    default java.util.Optional<_break> _continue(java.util.Optional<var> _goto, java.util.Optional<explicitPrx> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null)
     {
         return _continue(_goto, _if, internal, namespace, _null, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default java.util.Optional<_break> _continue(java.util.Optional<var> _goto, java.util.Optional<com.zeroc.Ice.Value> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null, java.util.Map<String, String> context)
+    default java.util.Optional<_break> _continue(java.util.Optional<var> _goto, java.util.Optional<explicitPrx> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null, java.util.Map<String, String> context)
     {
         return _iceI_continueAsync(_goto, _if, internal, namespace, _null, context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<java.util.Optional<_break>> continueAsync(var _goto, com.zeroc.Ice.Value _if, java.util.Map<java.lang.String, _break> internal, String namespace, explicitPrx _null)
+    default java.util.concurrent.CompletableFuture<java.util.Optional<_break>> continueAsync(var _goto, explicitPrx _if, java.util.Map<java.lang.String, _break> internal, String namespace, explicitPrx _null)
     {
         return _iceI_continueAsync(_goto, _if, internal, namespace, _null, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<java.util.Optional<_break>> continueAsync(var _goto, com.zeroc.Ice.Value _if, java.util.Map<java.lang.String, _break> internal, String namespace, explicitPrx _null, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<java.util.Optional<_break>> continueAsync(var _goto, explicitPrx _if, java.util.Map<java.lang.String, _break> internal, String namespace, explicitPrx _null, java.util.Map<String, String> context)
     {
         return _iceI_continueAsync(_goto, _if, internal, namespace, _null, context, false);
     }
@@ -154,12 +154,12 @@ public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.util.Optional<_break>> _iceI_continueAsync(var iceP_goto, com.zeroc.Ice.Value iceP_if, java.util.Map<java.lang.String, _break> iceP_internal, String iceP_namespace, explicitPrx iceP_null, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<java.util.Optional<_break>> _iceI_continueAsync(var iceP_goto, explicitPrx iceP_if, java.util.Map<java.lang.String, _break> iceP_internal, String iceP_namespace, explicitPrx iceP_null, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.util.Optional<_break>> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "continue", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      var.ice_write(ostr, 2, iceP_goto);
-                     ostr.writeValue(3, iceP_if);
+                     ostr.writeProxy(3, iceP_if);
                      whileHelper.write(ostr, 5, iceP_internal);
                      ostr.writeString(7, iceP_namespace);
                      ostr.writeProxy(8, iceP_null);
@@ -171,12 +171,12 @@ public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default java.util.concurrent.CompletableFuture<java.util.Optional<_break>> continueAsync(java.util.Optional<var> _goto, java.util.Optional<com.zeroc.Ice.Value> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null)
+    default java.util.concurrent.CompletableFuture<java.util.Optional<_break>> continueAsync(java.util.Optional<var> _goto, java.util.Optional<explicitPrx> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null)
     {
         return _iceI_continueAsync(_goto, _if, internal, namespace, _null, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<java.util.Optional<_break>> continueAsync(java.util.Optional<var> _goto, java.util.Optional<com.zeroc.Ice.Value> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<java.util.Optional<_break>> continueAsync(java.util.Optional<var> _goto, java.util.Optional<explicitPrx> _if, java.util.Optional<java.util.Map<java.lang.String, _break>> internal, java.util.Optional<java.lang.String> namespace, java.util.Optional<explicitPrx> _null, java.util.Map<String, String> context)
     {
         return _iceI_continueAsync(_goto, _if, internal, namespace, _null, context, false);
     }
@@ -192,12 +192,12 @@ public interface optionalParamsPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.util.Optional<_break>> _iceI_continueAsync(java.util.Optional<var> iceP_goto, java.util.Optional<com.zeroc.Ice.Value> iceP_if, java.util.Optional<java.util.Map<java.lang.String, _break>> iceP_internal, java.util.Optional<java.lang.String> iceP_namespace, java.util.Optional<explicitPrx> iceP_null, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<java.util.Optional<_break>> _iceI_continueAsync(java.util.Optional<var> iceP_goto, java.util.Optional<explicitPrx> iceP_if, java.util.Optional<java.util.Map<java.lang.String, _break>> iceP_internal, java.util.Optional<java.lang.String> iceP_namespace, java.util.Optional<explicitPrx> iceP_null, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<java.util.Optional<_break>> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "continue", null, sync, null);
         f.invoke(true, context, null, ostr -> {
                      var.ice_write(ostr, 2, iceP_goto);
-                     ostr.writeValue(3, iceP_if);
+                     ostr.writeProxy(3, iceP_if);
                      whileHelper.write(ostr, 5, iceP_internal);
                      ostr.writeString(7, iceP_namespace);
                      ostr.writeProxy(8, iceP_null);

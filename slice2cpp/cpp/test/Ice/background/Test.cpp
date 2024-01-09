@@ -1127,11 +1127,6 @@ Test::Background::~Background()
 {
 }
 
-/// \cond INTERNAL
-TEST_API ::Ice::Object* Test::upCast(Background* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Test_Background_ids[2] =
@@ -1270,44 +1265,9 @@ Test::Background::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::Background::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Background, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Background::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Background, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(BackgroundPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = BackgroundPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Background::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::BackgroundController::~BackgroundController()
 {
 }
-
-/// \cond INTERNAL
-TEST_API ::Ice::Object* Test::upCast(BackgroundController* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1606,39 +1566,5 @@ Test::BackgroundController::_iceDispatch(::IceInternal::Incoming& in, const ::Ic
     }
 }
 /// \endcond
-
-/// \cond STREAM
-void
-Test::BackgroundController::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< BackgroundController, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::BackgroundController::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< BackgroundController, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(BackgroundControllerPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = BackgroundControllerPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(BackgroundController::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-namespace Ice
-{
-}
 
 #endif

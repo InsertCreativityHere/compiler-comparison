@@ -1646,11 +1646,6 @@ IceStormElection::ReplicaObserver::~ReplicaObserver()
 {
 }
 
-/// \cond INTERNAL
-::Ice::Object* IceStormElection::upCast(ReplicaObserver* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_IceStormElection_ReplicaObserver_ids[2] =
@@ -1849,44 +1844,9 @@ IceStormElection::ReplicaObserver::_iceDispatch(::IceInternal::Incoming& in, con
 }
 /// \endcond
 
-/// \cond STREAM
-void
-IceStormElection::ReplicaObserver::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< ReplicaObserver, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceStormElection::ReplicaObserver::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< ReplicaObserver, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceStormElection::_icePatchObjectPtr(ReplicaObserverPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = ReplicaObserverPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(ReplicaObserver::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceStormElection::TopicManagerSync::~TopicManagerSync()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* IceStormElection::upCast(TopicManagerSync* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1994,44 +1954,9 @@ IceStormElection::TopicManagerSync::_iceDispatch(::IceInternal::Incoming& in, co
 }
 /// \endcond
 
-/// \cond STREAM
-void
-IceStormElection::TopicManagerSync::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< TopicManagerSync, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceStormElection::TopicManagerSync::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< TopicManagerSync, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceStormElection::_icePatchObjectPtr(TopicManagerSyncPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = TopicManagerSyncPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(TopicManagerSync::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceStormElection::Node::~Node()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* IceStormElection::upCast(Node* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -2293,36 +2218,6 @@ IceStormElection::Node::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::C
             assert(false);
             throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
         }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-IceStormElection::Node::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Node, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceStormElection::Node::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Node, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceStormElection::_icePatchObjectPtr(NodePtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = NodePtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Node::ice_staticId(), v);
     }
 }
 /// \endcond

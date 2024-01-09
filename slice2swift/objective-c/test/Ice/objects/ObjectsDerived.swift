@@ -16,7 +16,7 @@
 import Foundation
 import Ice
 
-/// Traits for Slice class `Derived`.
+/// Traits for Slice class`Derived`.
 public struct DerivedTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Base", "::Test::Derived"]
     public static let staticId = "::Test::Derived"

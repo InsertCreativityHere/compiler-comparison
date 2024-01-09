@@ -39,8 +39,6 @@ module ::Test
             T_ControllerPrx = ::Ice::__declareProxy('::Test::Controller')
         end
 
-        T_Controller.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_ControllerPrx.defineProxy(ControllerPrx, nil, [])
 
         ControllerPrx_mixin::OP_stop = ::Ice::__defineOperation('stop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])

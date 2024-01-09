@@ -37,7 +37,6 @@ namespace Test
             return '::Test::TestIntf';
         }
     }
-    $Test__t_TestIntf = IcePHP_defineClass('::Test::TestIntf', '\\Test\\TestIntf', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_TestIntfPrx = IcePHP_defineProxy('::Test::TestIntf', $Ice__t_ObjectPrx, null);
@@ -71,7 +70,6 @@ namespace Test
             return '::Test::Cleaner';
         }
     }
-    $Test__t_Cleaner = IcePHP_defineClass('::Test::Cleaner', '\\Test\\Cleaner', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_CleanerPrx = IcePHP_defineProxy('::Test::Cleaner', $Ice__t_ObjectPrx, null);

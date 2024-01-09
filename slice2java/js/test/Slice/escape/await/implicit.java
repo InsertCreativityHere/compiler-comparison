@@ -17,7 +17,7 @@ package await;
 
 public interface implicit extends com.zeroc.Ice.Object
 {
-    var in(_break internal, delete is, com.zeroc.Ice.Value lock, casePrx namespace, typeofPrx _new, delete _null, explicitPrx operator, int override, int params, int _private, com.zeroc.Ice.Current current)
+    var in(_break internal, delete is, explicitPrx lock, casePrx namespace, typeofPrx _new, delete _null, explicitPrx operator, int override, int params, int _private, com.zeroc.Ice.Current current)
         throws fixed,
                foreach;
 
@@ -60,7 +60,7 @@ public interface implicit extends com.zeroc.Ice.Object
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
         _break iceP_internal;
         final com.zeroc.IceInternal.Holder<delete> icePP_is = new com.zeroc.IceInternal.Holder<>();
-        final com.zeroc.IceInternal.Holder<com.zeroc.Ice.Value> icePP_lock = new com.zeroc.IceInternal.Holder<>();
+        explicitPrx iceP_lock;
         casePrx iceP_namespace;
         typeofPrx iceP_new;
         final com.zeroc.IceInternal.Holder<delete> icePP_null = new com.zeroc.IceInternal.Holder<>();
@@ -70,7 +70,7 @@ public interface implicit extends com.zeroc.Ice.Object
         int iceP_private;
         iceP_internal = _break.ice_read(istr);
         istr.readValue(v -> icePP_is.value = v, delete.class);
-        istr.readValue(v -> icePP_lock.value = v, com.zeroc.Ice.Value.class);
+        iceP_lock = explicitPrx.uncheckedCast(istr.readProxy());
         iceP_namespace = casePrx.uncheckedCast(istr.readProxy());
         iceP_new = typeofPrx.uncheckedCast(istr.readProxy());
         istr.readValue(v -> icePP_null.value = v, delete.class);
@@ -81,7 +81,6 @@ public interface implicit extends com.zeroc.Ice.Object
         istr.readPendingValues();
         inS.endReadParams();
         delete iceP_is = icePP_is.value;
-        com.zeroc.Ice.Value iceP_lock = icePP_lock.value;
         delete iceP_null = icePP_null.value;
         var ret = obj.in(iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private, current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();

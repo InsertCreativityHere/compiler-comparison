@@ -39,6 +39,12 @@
 namespace IceStorm
 {
 
+
+}
+
+namespace IceStorm
+{
+
 /**
  * The key for persistent subscribers, or topics.
  * If the subscriber identity is empty then the record is used as a place holder for the creation of a topic,
@@ -164,6 +170,11 @@ struct StreamReader<::IceStorm::SubscriberRecord, S>
 #else // C++98 mapping
 
 namespace IceProxy
+{
+
+}
+
+namespace IceStorm
 {
 
 }

@@ -519,11 +519,6 @@ Test::Hello::~Hello()
 {
 }
 
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(Hello* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Test_Hello_ids[2] =
@@ -682,36 +677,6 @@ Test::Hello::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cur
             assert(false);
             throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
         }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-Test::Hello::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Hello, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Hello::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Hello, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(HelloPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = HelloPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Hello::ice_staticId(), v);
     }
 }
 /// \endcond

@@ -55,8 +55,6 @@ module ::Test
             T_HoldPrx = ::Ice::__declareProxy('::Test::Hold')
         end
 
-        T_Hold.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_HoldPrx.defineProxy(HoldPrx, nil, [])
 
         HoldPrx_mixin::OP_putOnHold = ::Ice::__defineOperation('putOnHold', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])

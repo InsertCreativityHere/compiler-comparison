@@ -51,7 +51,7 @@ open class BadEncodingException: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `MyObject`.
+/// Traits for Slice interface`MyObject`.
 public struct MyObjectTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::MyObject"]
     public static let staticId = "::Test::MyObject"

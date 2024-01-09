@@ -37,6 +37,12 @@
 namespace Test
 {
 
+
+namespace Nested
+{
+
+
+}
 class Base;
 class Derived;
 class ClassNoDefaultsBase;
@@ -673,11 +679,6 @@ public:
 
 }
 
-namespace Test
-{
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -915,50 +916,19 @@ using ClassNoDefaultsPtr = ::std::shared_ptr<ClassNoDefaults>;
 
 #else // C++98 mapping
 
-namespace IceProxy
-{
-
 namespace Test
 {
 
-class Base;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Base>&);
-::IceProxy::Ice::Object* upCast(Base*);
-/// \endcond
-
-class Derived;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Derived>&);
-::IceProxy::Ice::Object* upCast(Derived*);
-/// \endcond
-
-class ClassNoDefaultsBase;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< ClassNoDefaultsBase>&);
-::IceProxy::Ice::Object* upCast(ClassNoDefaultsBase*);
-/// \endcond
-
-class ClassNoDefaults;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< ClassNoDefaults>&);
-::IceProxy::Ice::Object* upCast(ClassNoDefaults*);
-/// \endcond
-
-}
-
-}
-
-namespace Test
+namespace Nested
 {
+
+}
 
 class Base;
 /// \cond INTERNAL
 ::Ice::Object* upCast(Base*);
 /// \endcond
 typedef ::IceInternal::Handle< Base> BasePtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Base> BasePrx;
-typedef BasePrx BasePrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(BasePtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -968,8 +938,6 @@ class Derived;
 ::Ice::Object* upCast(Derived*);
 /// \endcond
 typedef ::IceInternal::Handle< Derived> DerivedPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Derived> DerivedPrx;
-typedef DerivedPrx DerivedPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(DerivedPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -979,8 +947,6 @@ class ClassNoDefaultsBase;
 ::Ice::Object* upCast(ClassNoDefaultsBase*);
 /// \endcond
 typedef ::IceInternal::Handle< ClassNoDefaultsBase> ClassNoDefaultsBasePtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::ClassNoDefaultsBase> ClassNoDefaultsBasePrx;
-typedef ClassNoDefaultsBasePrx ClassNoDefaultsBasePrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(ClassNoDefaultsBasePtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -990,8 +956,6 @@ class ClassNoDefaults;
 ::Ice::Object* upCast(ClassNoDefaults*);
 /// \endcond
 typedef ::IceInternal::Handle< ClassNoDefaults> ClassNoDefaultsPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::ClassNoDefaults> ClassNoDefaultsPrx;
-typedef ClassNoDefaultsPrx ClassNoDefaultsPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(ClassNoDefaultsPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1552,94 +1516,10 @@ protected:
 namespace Test
 {
 
-}
-
-namespace IceProxy
-{
-
-namespace Test
-{
-
-class Base : public virtual ::Ice::Proxy<Base, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class Derived : public virtual ::Ice::Proxy<Derived, ::IceProxy::Test::Base>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class ClassNoDefaultsBase : public virtual ::Ice::Proxy<ClassNoDefaultsBase, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class ClassNoDefaults : public virtual ::Ice::Proxy<ClassNoDefaults, ::IceProxy::Test::ClassNoDefaultsBase>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-}
-
-}
-
-namespace Test
-{
-
 class Base : public virtual ::Ice::Object
 {
 public:
 
-    typedef BasePrx ProxyType;
     typedef BasePtr PointerType;
 
     virtual ~Base();
@@ -1775,7 +1655,6 @@ class Derived : public Base
 {
 public:
 
-    typedef DerivedPrx ProxyType;
     typedef DerivedPtr PointerType;
 
     virtual ~Derived();
@@ -1883,7 +1762,6 @@ class ClassNoDefaultsBase : public virtual ::Ice::Object
 {
 public:
 
-    typedef ClassNoDefaultsBasePrx ProxyType;
     typedef ClassNoDefaultsBasePtr PointerType;
 
     virtual ~ClassNoDefaultsBase();
@@ -1977,7 +1855,6 @@ class ClassNoDefaults : public ClassNoDefaultsBase
 {
 public:
 
-    typedef ClassNoDefaultsPrx ProxyType;
     typedef ClassNoDefaultsPtr PointerType;
 
     virtual ~ClassNoDefaults();
@@ -2630,11 +2507,6 @@ struct StreamReader< ::Test::ClassNoDefaults, S>
 
 }
 /// \endcond
-
-namespace Test
-{
-
-}
 
 #endif
 

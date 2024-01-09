@@ -17,7 +17,7 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice class `ConcreteClass`.
+/// Traits for Slice class`ConcreteClass`.
 public struct ConcreteClassTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::ConcreteClass"]
     public static let staticId = "::Test::ConcreteClass"
@@ -57,7 +57,7 @@ open class E: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `Initial`.
+/// Traits for Slice interface`Initial`.
 public struct InitialTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Initial"]
     public static let staticId = "::Test::Initial"

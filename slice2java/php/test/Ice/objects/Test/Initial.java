@@ -371,12 +371,6 @@ public interface Initial extends com.zeroc.Ice.Object
 
     Initial.GetAllResult getAll(com.zeroc.Ice.Current current);
 
-    com.zeroc.Ice.Value getH(com.zeroc.Ice.Current current);
-
-    com.zeroc.Ice.Value getI(com.zeroc.Ice.Current current);
-
-    com.zeroc.Ice.Value getJ(com.zeroc.Ice.Current current);
-
     K getK(com.zeroc.Ice.Current current);
 
     Initial.OpValueResult opValue(com.zeroc.Ice.Value v1, com.zeroc.Ice.Current current);
@@ -392,8 +386,6 @@ public interface Initial extends com.zeroc.Ice.Object
 
     void setG(G theG, com.zeroc.Ice.Current current);
 
-    void setI(com.zeroc.Ice.Value theI, com.zeroc.Ice.Current current);
-
     Initial.OpBaseSeqResult opBaseSeq(Base[] inSeq, com.zeroc.Ice.Current current);
 
     Compact getCompact(com.zeroc.Ice.Current current);
@@ -405,8 +397,6 @@ public interface Initial extends com.zeroc.Ice.Object
     Initial.OpF3Result opF3(F3 f31, com.zeroc.Ice.Current current);
 
     boolean hasF3(com.zeroc.Ice.Current current);
-
-    N opN(N p1, com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -692,63 +682,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getH(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        com.zeroc.Ice.Value ret = obj.getH(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeValue(ret);
-        ostr.writePendingValues();
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getI(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        com.zeroc.Ice.Value ret = obj.getI(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeValue(ret);
-        ostr.writePendingValues();
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getJ(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        com.zeroc.Ice.Value ret = obj.getJ(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeValue(ret);
-        ostr.writePendingValues();
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getK(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -899,26 +832,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_setI(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        final com.zeroc.IceInternal.Holder<com.zeroc.Ice.Value> icePP_theI = new com.zeroc.IceInternal.Holder<>();
-        istr.readValue(v -> icePP_theI.value = v, com.zeroc.Ice.Value.class);
-        istr.readPendingValues();
-        inS.endReadParams();
-        com.zeroc.Ice.Value iceP_theI = icePP_theI.value;
-        obj.setI(iceP_theI, current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opBaseSeq(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -1041,30 +954,6 @@ public interface Initial extends com.zeroc.Ice.Object
         return inS.setResult(ostr);
     }
 
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opN(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        final com.zeroc.IceInternal.Holder<N> icePP_p1 = new com.zeroc.IceInternal.Holder<>();
-        istr.readValue(v -> icePP_p1.value = v, N.class);
-        istr.readPendingValues();
-        inS.endReadParams();
-        N iceP_p1 = icePP_p1.value;
-        N ret = obj.opN(iceP_p1, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeValue(ret);
-        ostr.writePendingValues();
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
     /** @hidden */
     final static String[] _iceOps =
     {
@@ -1079,9 +968,6 @@ public interface Initial extends com.zeroc.Ice.Object
         "getD1",
         "getE",
         "getF",
-        "getH",
-        "getI",
-        "getJ",
         "getK",
         "getMB",
         "hasF3",
@@ -1093,13 +979,11 @@ public interface Initial extends com.zeroc.Ice.Object
         "opF1",
         "opF2",
         "opF3",
-        "opN",
         "opValue",
         "opValueMap",
         "opValueSeq",
         "setCycle",
         "setG",
-        "setI",
         "setRecursive",
         "shutdown",
         "supportsClassGraphDepthMax",
@@ -1165,101 +1049,81 @@ public interface Initial extends com.zeroc.Ice.Object
             }
             case 11:
             {
-                return _iceD_getH(this, in, current);
+                return _iceD_getK(this, in, current);
             }
             case 12:
             {
-                return _iceD_getI(this, in, current);
+                return _iceD_getMB(this, in, current);
             }
             case 13:
             {
-                return _iceD_getJ(this, in, current);
+                return _iceD_hasF3(this, in, current);
             }
             case 14:
             {
-                return _iceD_getK(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
             }
             case 15:
             {
-                return _iceD_getMB(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
             }
             case 16:
             {
-                return _iceD_hasF3(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
             }
             case 17:
             {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
             }
             case 18:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+                return _iceD_opBaseSeq(this, in, current);
             }
             case 19:
             {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+                return _iceD_opF1(this, in, current);
             }
             case 20:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+                return _iceD_opF2(this, in, current);
             }
             case 21:
             {
-                return _iceD_opBaseSeq(this, in, current);
+                return _iceD_opF3(this, in, current);
             }
             case 22:
             {
-                return _iceD_opF1(this, in, current);
+                return _iceD_opValue(this, in, current);
             }
             case 23:
             {
-                return _iceD_opF2(this, in, current);
+                return _iceD_opValueMap(this, in, current);
             }
             case 24:
             {
-                return _iceD_opF3(this, in, current);
+                return _iceD_opValueSeq(this, in, current);
             }
             case 25:
             {
-                return _iceD_opN(this, in, current);
+                return _iceD_setCycle(this, in, current);
             }
             case 26:
             {
-                return _iceD_opValue(this, in, current);
+                return _iceD_setG(this, in, current);
             }
             case 27:
             {
-                return _iceD_opValueMap(this, in, current);
+                return _iceD_setRecursive(this, in, current);
             }
             case 28:
             {
-                return _iceD_opValueSeq(this, in, current);
+                return _iceD_shutdown(this, in, current);
             }
             case 29:
             {
-                return _iceD_setCycle(this, in, current);
-            }
-            case 30:
-            {
-                return _iceD_setG(this, in, current);
-            }
-            case 31:
-            {
-                return _iceD_setI(this, in, current);
-            }
-            case 32:
-            {
-                return _iceD_setRecursive(this, in, current);
-            }
-            case 33:
-            {
-                return _iceD_shutdown(this, in, current);
-            }
-            case 34:
-            {
                 return _iceD_supportsClassGraphDepthMax(this, in, current);
             }
-            case 35:
+            case 30:
             {
                 return _iceD_throwEDerived(this, in, current);
             }

@@ -18,13 +18,13 @@ import Ice
 import PromiseKit
 import Glacier2
 
-/// Traits for Slice interface `gxCanvas`.
+/// Traits for Slice interface`gxCanvas`.
 public struct gxCanvasTraits: Ice.SliceTraits {
     public static let staticIds = ["::Demo::gx::Canvas", "::Ice::Object"]
     public static let staticId = "::Demo::gx::Canvas"
 }
 
-/// Traits for Slice interface `gxSession`.
+/// Traits for Slice interface`gxSession`.
 public struct gxSessionTraits: Ice.SliceTraits {
     public static let staticIds = ["::Demo::gx::Session", "::Glacier2::Session", "::Ice::Object"]
     public static let staticId = "::Demo::gx::Session"

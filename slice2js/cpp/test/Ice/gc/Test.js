@@ -463,8 +463,6 @@
 
     Test.CCC = _ModuleRegistry.module("Test.CCC");
 
-    Slice.defineSequence(Test.CCC, "ForwardProxySeqHelper", "Ice.ObjectPrx", false);
-
     const iceC_Test_CCC_Forward_ids = [
         "::Ice::Object",
         "::Test::CCC::Forward"
@@ -514,20 +512,45 @@
 
     Test.DDD.U = class extends Ice.Value
     {
-        constructor(myI = null, myIstar = null, myC = null, myCstar = null, myC2 = null, myC2star = null)
+        constructor(myIstar = null, myC = null, myC2 = null)
         {
             super();
-            this.myI = myI;
             this.myIstar = myIstar;
             this.myC = myC;
-            this.myCstar = myCstar;
             this.myC2 = myC2;
-            this.myC2star = myC2star;
         }
 
         _iceWriteMemberImpl(ostr)
         {
-            ostr.writeValue(this.myI);
             Test.DDD.IPrx.write(ostr, this.myIstar);
             ostr.writeValue(this.myC);
-            
+            ostr.writeValue(this.myC2);
+        }
+
+        _iceReadMemberImpl(istr)
+        {
+            this.myIstar = Test.DDD.IPrx.read(istr, this.myIstar);
+            istr.readValue(obj => this.myC = obj, Test.DDD.C);
+            istr.readValue(obj => this.myC2 = obj, Test.DDD.C2);
+        }
+    };
+
+    Slice.defineValue(Test.DDD.U, iceC_Test_DDD_U_ids[1], false);
+
+    const iceC_Test_DDD_C2_ids = [
+        "::Ice::Object",
+        "::Test::DDD::C2"
+    ];
+
+    Test.DDD.C2 = class extends Ice.Value
+    {
+    };
+
+    Slice.defineValue(Test.DDD.C2, iceC_Test_DDD_C2_ids[1], false);
+    exports.Test = Test;
+}
+(typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,
+ typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? require :
+ (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self.Ice._require : window.Ice._require,
+ typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? exports :
+ (typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope) ? self : window));

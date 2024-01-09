@@ -481,37 +481,23 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< MyClass>&);
 ::IceProxy::Ice::Object* upCast(MyClass*);
 /// \endcond
 
-class Baz;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Baz>&);
-::IceProxy::Ice::Object* upCast(Baz*);
-/// \endcond
-
 }
 
 }
 
 namespace Test
 {
-
-class MyClass;
-/// \cond INTERNAL
-::Ice::Object* upCast(MyClass*);
-/// \endcond
-typedef ::IceInternal::Handle< MyClass> MyClassPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::MyClass> MyClassPrx;
 typedef MyClassPrx MyClassPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(MyClassPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class MyClass;
+typedef ::IceInternal::Handle< MyClass> MyClassPtr;
 
 class Baz;
 /// \cond INTERNAL
 ::Ice::Object* upCast(Baz*);
 /// \endcond
 typedef ::IceInternal::Handle< Baz> BazPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Baz> BazPrx;
-typedef BazPrx BazPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(BazPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -809,23 +795,6 @@ protected:
     /// \endcond
 };
 
-class Baz : public virtual ::Ice::Proxy<Baz, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
 }
 
 }
@@ -838,7 +807,6 @@ class MyClass : public virtual ::Ice::Object
 public:
 
     typedef MyClassPrx ProxyType;
-    typedef MyClassPtr PointerType;
 
     virtual ~MyClass();
     MyClass() = default;
@@ -896,32 +864,17 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const MyClass& lhs, const MyClass& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
 }
 
-inline bool operator<(const MyClass& lhs, const MyClass& rhs)
+namespace Test
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 class Baz : public virtual ::Ice::Object
 {
 public:
 
-    typedef BazPrx ProxyType;
     typedef BazPtr PointerType;
 
     virtual ~Baz();

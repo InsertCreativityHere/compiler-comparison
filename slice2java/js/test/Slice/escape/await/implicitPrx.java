@@ -17,14 +17,14 @@ package await;
 
 public interface implicitPrx extends com.zeroc.Ice.ObjectPrx
 {
-    default var in(_break internal, delete is, com.zeroc.Ice.Value lock, casePrx namespace, typeofPrx _new, delete _null, explicitPrx operator, int override, int params, int _private)
+    default var in(_break internal, delete is, explicitPrx lock, casePrx namespace, typeofPrx _new, delete _null, explicitPrx operator, int override, int params, int _private)
         throws foreach,
                fixed
     {
         return in(internal, is, lock, namespace, _new, _null, operator, override, params, _private, com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default var in(_break internal, delete is, com.zeroc.Ice.Value lock, casePrx namespace, typeofPrx _new, delete _null, explicitPrx operator, int override, int params, int _private, java.util.Map<String, String> context)
+    default var in(_break internal, delete is, explicitPrx lock, casePrx namespace, typeofPrx _new, delete _null, explicitPrx operator, int override, int params, int _private, java.util.Map<String, String> context)
         throws foreach,
                fixed
     {
@@ -46,12 +46,12 @@ public interface implicitPrx extends com.zeroc.Ice.ObjectPrx
         }
     }
 
-    default java.util.concurrent.CompletableFuture<var> inAsync(_break internal, delete is, com.zeroc.Ice.Value lock, casePrx namespace, typeofPrx _new, delete _null, explicitPrx operator, int override, int params, int _private)
+    default java.util.concurrent.CompletableFuture<var> inAsync(_break internal, delete is, explicitPrx lock, casePrx namespace, typeofPrx _new, delete _null, explicitPrx operator, int override, int params, int _private)
     {
         return _iceI_inAsync(internal, is, lock, namespace, _new, _null, operator, override, params, _private, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<var> inAsync(_break internal, delete is, com.zeroc.Ice.Value lock, casePrx namespace, typeofPrx _new, delete _null, explicitPrx operator, int override, int params, int _private, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<var> inAsync(_break internal, delete is, explicitPrx lock, casePrx namespace, typeofPrx _new, delete _null, explicitPrx operator, int override, int params, int _private, java.util.Map<String, String> context)
     {
         return _iceI_inAsync(internal, is, lock, namespace, _new, _null, operator, override, params, _private, context, false);
     }
@@ -72,13 +72,13 @@ public interface implicitPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<var> _iceI_inAsync(_break iceP_internal, delete iceP_is, com.zeroc.Ice.Value iceP_lock, casePrx iceP_namespace, typeofPrx iceP_new, delete iceP_null, explicitPrx iceP_operator, int iceP_override, int iceP_params, int iceP_private, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<var> _iceI_inAsync(_break iceP_internal, delete iceP_is, explicitPrx iceP_lock, casePrx iceP_namespace, typeofPrx iceP_new, delete iceP_null, explicitPrx iceP_operator, int iceP_override, int iceP_params, int iceP_private, java.util.Map<String, String> context, boolean sync)
     {
         com.zeroc.IceInternal.OutgoingAsync<var> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "in", null, sync, _iceE_in);
         f.invoke(true, context, null, ostr -> {
                      _break.ice_write(ostr, iceP_internal);
                      ostr.writeValue(iceP_is);
-                     ostr.writeValue(iceP_lock);
+                     ostr.writeProxy(iceP_lock);
                      ostr.writeProxy(iceP_namespace);
                      ostr.writeProxy(iceP_new);
                      ostr.writeValue(iceP_null);

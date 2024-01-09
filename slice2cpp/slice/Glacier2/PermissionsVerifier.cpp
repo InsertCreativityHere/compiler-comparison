@@ -680,11 +680,6 @@ Glacier2::PermissionsVerifier::~PermissionsVerifier()
 {
 }
 
-/// \cond INTERNAL
-GLACIER2_API ::Ice::Object* Glacier2::upCast(PermissionsVerifier* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Glacier2_PermissionsVerifier_ids[2] =
@@ -796,44 +791,9 @@ Glacier2::PermissionsVerifier::_iceDispatch(::IceInternal::Incoming& in, const :
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Glacier2::PermissionsVerifier::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< PermissionsVerifier, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Glacier2::PermissionsVerifier::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< PermissionsVerifier, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Glacier2::_icePatchObjectPtr(PermissionsVerifierPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = PermissionsVerifierPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(PermissionsVerifier::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Glacier2::SSLPermissionsVerifier::~SSLPermissionsVerifier()
 {
 }
-
-/// \cond INTERNAL
-GLACIER2_API ::Ice::Object* Glacier2::upCast(SSLPermissionsVerifier* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -940,36 +900,6 @@ Glacier2::SSLPermissionsVerifier::_iceDispatch(::IceInternal::Incoming& in, cons
             assert(false);
             throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
         }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-Glacier2::SSLPermissionsVerifier::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< SSLPermissionsVerifier, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Glacier2::SSLPermissionsVerifier::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< SSLPermissionsVerifier, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Glacier2::_icePatchObjectPtr(SSLPermissionsVerifierPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = SSLPermissionsVerifierPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(SSLPermissionsVerifier::ice_staticId(), v);
     }
 }
 /// \endcond

@@ -658,8 +658,6 @@ module ::IceGrid
             T_AdminPrx = ::Ice::__declareProxy('::IceGrid::Admin')
         end
 
-        T_Admin.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_AdminPrx.defineProxy(AdminPrx, nil, [])
 
         AdminPrx_mixin::OP_addApplication = ::Ice::__defineOperation('addApplication', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_ApplicationDescriptor, false, 0]], [], nil, [::IceGrid::T_AccessDeniedException, ::IceGrid::T_DeploymentException])
@@ -735,8 +733,6 @@ module ::IceGrid
             T_FileIterator = ::Ice::__declareClass('::IceGrid::FileIterator')
             T_FileIteratorPrx = ::Ice::__declareProxy('::IceGrid::FileIterator')
         end
-
-        T_FileIterator.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_FileIteratorPrx.defineProxy(FileIteratorPrx, nil, [])
 
@@ -898,8 +894,6 @@ module ::IceGrid
             T_RegistryObserverPrx = ::Ice::__declareProxy('::IceGrid::RegistryObserver')
         end
 
-        T_RegistryObserver.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_RegistryObserverPrx.defineProxy(RegistryObserverPrx, nil, [])
 
         RegistryObserverPrx_mixin::OP_registryInit = ::Ice::__defineOperation('registryInit', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_RegistryInfoSeq, false, 0]], [], nil, [])
@@ -948,8 +942,6 @@ module ::IceGrid
             T_NodeObserverPrx = ::Ice::__declareProxy('::IceGrid::NodeObserver')
         end
 
-        T_NodeObserver.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_NodeObserverPrx.defineProxy(NodeObserverPrx, nil, [])
 
         NodeObserverPrx_mixin::OP_nodeInit = ::Ice::__defineOperation('nodeInit', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_NodeDynamicInfoSeq, false, 0]], [], nil, [])
@@ -992,8 +984,6 @@ module ::IceGrid
             T_ApplicationObserverPrx = ::Ice::__declareProxy('::IceGrid::ApplicationObserver')
         end
 
-        T_ApplicationObserver.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_ApplicationObserverPrx.defineProxy(ApplicationObserverPrx, nil, [])
 
         ApplicationObserverPrx_mixin::OP_applicationInit = ::Ice::__defineOperation('applicationInit', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::IceGrid::T_ApplicationInfoSeq, false, 0]], [], nil, [])
@@ -1035,8 +1025,6 @@ module ::IceGrid
             T_AdapterObserverPrx = ::Ice::__declareProxy('::IceGrid::AdapterObserver')
         end
 
-        T_AdapterObserver.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_AdapterObserverPrx.defineProxy(AdapterObserverPrx, nil, [])
 
         AdapterObserverPrx_mixin::OP_adapterInit = ::Ice::__defineOperation('adapterInit', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_AdapterInfoSeq, false, 0]], [], nil, [])
@@ -1077,8 +1065,6 @@ module ::IceGrid
             T_ObjectObserver = ::Ice::__declareClass('::IceGrid::ObjectObserver')
             T_ObjectObserverPrx = ::Ice::__declareProxy('::IceGrid::ObjectObserver')
         end
-
-        T_ObjectObserver.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_ObjectObserverPrx.defineProxy(ObjectObserverPrx, nil, [])
 
@@ -1165,8 +1151,6 @@ module ::IceGrid
             T_AdminSession = ::Ice::__declareClass('::IceGrid::AdminSession')
             T_AdminSessionPrx = ::Ice::__declareProxy('::IceGrid::AdminSession')
         end
-
-        T_AdminSession.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_AdminSessionPrx.defineProxy(AdminSessionPrx, nil, [::Glacier2::T_SessionPrx])
 

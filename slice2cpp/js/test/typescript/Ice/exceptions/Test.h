@@ -1325,50 +1325,26 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Echo>&);
 
 namespace Test
 {
-
-class Empty;
-/// \cond INTERNAL
-::Ice::Object* upCast(Empty*);
-/// \endcond
-typedef ::IceInternal::Handle< Empty> EmptyPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Empty> EmptyPrx;
 typedef EmptyPrx EmptyPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(EmptyPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class Thrower;
-/// \cond INTERNAL
-::Ice::Object* upCast(Thrower*);
-/// \endcond
-typedef ::IceInternal::Handle< Thrower> ThrowerPtr;
+class Empty;
+typedef ::IceInternal::Handle< Empty> EmptyPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Thrower> ThrowerPrx;
 typedef ThrowerPrx ThrowerPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(ThrowerPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class WrongOperation;
-/// \cond INTERNAL
-::Ice::Object* upCast(WrongOperation*);
-/// \endcond
-typedef ::IceInternal::Handle< WrongOperation> WrongOperationPtr;
+class Thrower;
+typedef ::IceInternal::Handle< Thrower> ThrowerPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::WrongOperation> WrongOperationPrx;
 typedef WrongOperationPrx WrongOperationPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(WrongOperationPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class Echo;
-/// \cond INTERNAL
-::Ice::Object* upCast(Echo*);
-/// \endcond
-typedef ::IceInternal::Handle< Echo> EchoPtr;
+class WrongOperation;
+typedef ::IceInternal::Handle< WrongOperation> WrongOperationPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Echo> EchoPrx;
 typedef EchoPrx EchoPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(EchoPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class Echo;
+typedef ::IceInternal::Handle< Echo> EchoPtr;
 
 }
 
@@ -2770,7 +2746,6 @@ class Empty : public virtual ::Ice::Object
 public:
 
     typedef EmptyPrx ProxyType;
-    typedef EmptyPtr PointerType;
 
     virtual ~Empty();
     Empty() = default;
@@ -2804,33 +2779,13 @@ public:
      * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const Empty& lhs, const Empty& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Empty& lhs, const Empty& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 class Thrower : public virtual ::Ice::Object
 {
 public:
 
     typedef ThrowerPrx ProxyType;
-    typedef ThrowerPtr PointerType;
 
     virtual ~Thrower();
     Thrower() = default;
@@ -2968,33 +2923,13 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const Thrower& lhs, const Thrower& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Thrower& lhs, const Thrower& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 class WrongOperation : public virtual ::Ice::Object
 {
 public:
 
     typedef WrongOperationPrx ProxyType;
-    typedef WrongOperationPtr PointerType;
 
     virtual ~WrongOperation();
     WrongOperation() = default;
@@ -3037,33 +2972,13 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const WrongOperation& lhs, const WrongOperation& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const WrongOperation& lhs, const WrongOperation& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 class Echo : public virtual ::Ice::Object
 {
 public:
 
     typedef EchoPrx ProxyType;
-    typedef EchoPtr PointerType;
 
     virtual ~Echo();
     Echo() = default;
@@ -3121,26 +3036,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const Echo& lhs, const Echo& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Echo& lhs, const Echo& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 }
 

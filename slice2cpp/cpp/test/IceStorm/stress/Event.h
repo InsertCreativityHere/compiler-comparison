@@ -45,6 +45,11 @@ class EventPrx;
 namespace Test
 {
 
+}
+
+namespace Test
+{
+
 class Event : public virtual ::Ice::Object
 {
 public:
@@ -142,13 +147,6 @@ protected:
 
 }
 
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
-
 /// \cond INTERNAL
 namespace Test
 {
@@ -179,17 +177,16 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Event>&);
 
 namespace Test
 {
-
-class Event;
-/// \cond INTERNAL
-::Ice::Object* upCast(Event*);
-/// \endcond
-typedef ::IceInternal::Handle< Event> EventPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Event> EventPrx;
 typedef EventPrx EventPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(EventPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class Event;
+typedef ::IceInternal::Handle< Event> EventPtr;
+
+}
+
+namespace Test
+{
 
 }
 
@@ -279,7 +276,6 @@ class Event : public virtual ::Ice::Object
 public:
 
     typedef EventPrx ProxyType;
-    typedef EventPtr PointerType;
 
     virtual ~Event();
     Event() = default;
@@ -322,35 +318,9 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const Event& lhs, const Event& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
 }
-
-inline bool operator<(const Event& lhs, const Event& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 namespace Test
 {

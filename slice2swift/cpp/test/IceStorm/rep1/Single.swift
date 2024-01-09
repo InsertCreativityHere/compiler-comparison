@@ -17,7 +17,7 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice interface `Single`.
+/// Traits for Slice interface`Single`.
 public struct SingleTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Single"]
     public static let staticId = "::Test::Single"

@@ -157,8 +157,6 @@ module ::Test
                 T_TestCasePrx = ::Ice::__declareProxy('::Test::Common::TestCase')
             end
 
-            T_TestCase.defineClass(::Ice::Value, -1, false, true, nil, [])
-
             T_TestCasePrx.defineProxy(TestCasePrx, nil, [])
 
             TestCasePrx_mixin::OP_startServerSide = ::Ice::__defineOperation('startServerSide', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::Common::T_Config, false, 0]], [], [::Ice::T_string, false, 0], [::Test::Common::T_TestCaseFailedException])
@@ -199,8 +197,6 @@ module ::Test
                 T_Controller = ::Ice::__declareClass('::Test::Common::Controller')
                 T_ControllerPrx = ::Ice::__declareProxy('::Test::Common::Controller')
             end
-
-            T_Controller.defineClass(::Ice::Value, -1, false, true, nil, [])
 
             T_ControllerPrx.defineProxy(ControllerPrx, nil, [])
 
@@ -255,8 +251,6 @@ module ::Test
                 T_ProcessPrx = ::Ice::__declareProxy('::Test::Common::Process')
             end
 
-            T_Process.defineClass(::Ice::Value, -1, false, true, nil, [])
-
             T_ProcessPrx.defineProxy(ProcessPrx, nil, [])
 
             ProcessPrx_mixin::OP_waitReady = ::Ice::__defineOperation('waitReady', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [::Test::Common::T_ProcessFailedException])
@@ -289,8 +283,6 @@ module ::Test
                 T_ProcessControllerPrx = ::Ice::__declareProxy('::Test::Common::ProcessController')
             end
 
-            T_ProcessController.defineClass(::Ice::Value, -1, false, true, nil, [])
-
             T_ProcessControllerPrx.defineProxy(ProcessControllerPrx, nil, [])
 
             ProcessControllerPrx_mixin::OP_start = ::Ice::__defineOperation('start', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Test::Common::T_StringSeq, false, 0]], [], [::Test::Common::T_ProcessPrx, false, 0], [::Test::Common::T_ProcessFailedException])
@@ -319,8 +311,6 @@ module ::Test
                 T_BrowserProcessControllerPrx = ::Ice::__declareProxy('::Test::Common::BrowserProcessController')
             end
 
-            T_BrowserProcessController.defineClass(::Ice::Value, -1, false, true, nil, [])
-
             T_BrowserProcessControllerPrx.defineProxy(BrowserProcessControllerPrx, nil, [::Test::Common::T_ProcessControllerPrx])
 
             BrowserProcessControllerPrx_mixin::OP_redirect = ::Ice::__defineOperation('redirect', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [])
@@ -346,8 +336,6 @@ module ::Test
                 T_ProcessControllerRegistry = ::Ice::__declareClass('::Test::Common::ProcessControllerRegistry')
                 T_ProcessControllerRegistryPrx = ::Ice::__declareProxy('::Test::Common::ProcessControllerRegistry')
             end
-
-            T_ProcessControllerRegistry.defineClass(::Ice::Value, -1, false, true, nil, [])
 
             T_ProcessControllerRegistryPrx.defineProxy(ProcessControllerRegistryPrx, nil, [])
 

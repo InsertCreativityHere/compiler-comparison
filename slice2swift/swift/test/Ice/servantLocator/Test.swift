@@ -85,13 +85,13 @@ open class TestImpossibleException: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `TestIntf`.
+/// Traits for Slice interface`TestIntf`.
 public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::TestIntf"]
     public static let staticId = "::Test::TestIntf"
 }
 
-/// Traits for Slice interface `TestActivation`.
+/// Traits for Slice interface`TestActivation`.
 public struct TestActivationTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::TestActivation"]
     public static let staticId = "::Test::TestActivation"

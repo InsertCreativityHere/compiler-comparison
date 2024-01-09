@@ -687,33 +687,21 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< WstringClass>&)
 
 namespace Test1
 {
-
-class WstringClass;
-/// \cond INTERNAL
-::Ice::Object* upCast(WstringClass*);
-/// \endcond
-typedef ::IceInternal::Handle< WstringClass> WstringClassPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test1::WstringClass> WstringClassPrx;
 typedef WstringClassPrx WstringClassPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(WstringClassPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class WstringClass;
+typedef ::IceInternal::Handle< WstringClass> WstringClassPtr;
 
 }
 
 namespace Test2
 {
-
-class WstringClass;
-/// \cond INTERNAL
-::Ice::Object* upCast(WstringClass*);
-/// \endcond
-typedef ::IceInternal::Handle< WstringClass> WstringClassPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test2::WstringClass> WstringClassPrx;
 typedef WstringClassPrx WstringClassPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(WstringClassPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class WstringClass;
+typedef ::IceInternal::Handle< WstringClass> WstringClassPtr;
 
 }
 
@@ -1276,7 +1264,6 @@ class WstringClass : public virtual ::Ice::Object
 public:
 
     typedef WstringClassPrx ProxyType;
-    typedef WstringClassPtr PointerType;
 
     virtual ~WstringClass();
     WstringClass() = default;
@@ -1329,26 +1316,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const WstringClass& lhs, const WstringClass& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const WstringClass& lhs, const WstringClass& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 }
 
@@ -1360,7 +1328,6 @@ class WstringClass : public virtual ::Ice::Object
 public:
 
     typedef WstringClassPrx ProxyType;
-    typedef WstringClassPtr PointerType;
 
     virtual ~WstringClass();
     WstringClass() = default;
@@ -1413,26 +1380,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const WstringClass& lhs, const WstringClass& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const WstringClass& lhs, const WstringClass& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 }
 

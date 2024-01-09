@@ -3083,346 +3083,6 @@ IceAsync::Test::AMD_TestIntf_shutdown::ice_response()
 /// \endcond
 
 /// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(SBase* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< SBase>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new SBase;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::SBase::_newInstance() const
-{
-    return new SBase;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::SBase::ice_staticId()
-{
-    return ::Test::SBase::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(SBSKnownDerived* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< SBSKnownDerived>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new SBSKnownDerived;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::SBSKnownDerived::_newInstance() const
-{
-    return new SBSKnownDerived;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::SBSKnownDerived::ice_staticId()
-{
-    return ::Test::SBSKnownDerived::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(B* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< B>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new B;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::B::_newInstance() const
-{
-    return new B;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::B::ice_staticId()
-{
-    return ::Test::B::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(D1* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< D1>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new D1;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::D1::_newInstance() const
-{
-    return new D1;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::D1::ice_staticId()
-{
-    return ::Test::D1::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(SS1* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< SS1>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new SS1;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::SS1::_newInstance() const
-{
-    return new SS1;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::SS1::ice_staticId()
-{
-    return ::Test::SS1::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(SS2* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< SS2>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new SS2;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::SS2::_newInstance() const
-{
-    return new SS2;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::SS2::ice_staticId()
-{
-    return ::Test::SS2::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(PBase* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< PBase>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new PBase;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::PBase::_newInstance() const
-{
-    return new PBase;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::PBase::ice_staticId()
-{
-    return ::Test::PBase::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(Preserved* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< Preserved>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new Preserved;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::Preserved::_newInstance() const
-{
-    return new Preserved;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::Preserved::ice_staticId()
-{
-    return ::Test::Preserved::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(PDerived* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< PDerived>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new PDerived;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::PDerived::_newInstance() const
-{
-    return new PDerived;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::PDerived::ice_staticId()
-{
-    return ::Test::PDerived::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(PNode* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< PNode>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new PNode;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::PNode::_newInstance() const
-{
-    return new PNode;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::PNode::ice_staticId()
-{
-    return ::Test::PNode::ice_staticId();
-}
-
-/// \cond INTERNAL
 ::IceProxy::Ice::Object* ::IceProxy::Test::upCast(TestIntf* p) { return p; }
 
 void
@@ -5081,73 +4741,762 @@ IceProxy::Test::TestIntf::ice_staticId()
     return ::Test::TestIntf::ice_staticId();
 }
 
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(Hidden* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< Hidden>& v)
+Test::TestIntf::~TestIntf()
 {
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new Hidden;
-        v->_copyFrom(proxy);
-    }
 }
-/// \endcond
 
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::Hidden::_newInstance() const
+namespace
 {
-    return new Hidden;
+const ::std::string iceC_Test_TestIntf_ids[2] =
+{
+    "::Ice::Object",
+    "::Test::TestIntf"
+};
+
 }
-/// \endcond
+
+bool
+Test::TestIntf::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_Test_TestIntf_ids, iceC_Test_TestIntf_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+Test::TestIntf::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_Test_TestIntf_ids[0], &iceC_Test_TestIntf_ids[2]);
+}
 
 const ::std::string&
-IceProxy::Test::Hidden::ice_staticId()
+Test::TestIntf::ice_id(const ::Ice::Current&) const
 {
-    return ::Test::Hidden::ice_staticId();
+    return ice_staticId();
 }
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(Forward* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< Forward>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new Forward;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::Forward::_newInstance() const
-{
-    return new Forward;
-}
-/// \endcond
 
 const ::std::string&
-IceProxy::Test::Forward::ice_staticId()
+Test::TestIntf::ice_staticId()
 {
-    return ::Test::Forward::ice_staticId();
+    static const ::std::string typeId = "::Test::TestIntf";
+    return typeId;
 }
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_SBaseAsObject(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->SBaseAsObject_async(new IceAsync::Test::AMD_TestIntf_SBaseAsObject(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_SBaseAsSBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->SBaseAsSBase_async(new IceAsync::Test::AMD_TestIntf_SBaseAsSBase(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_SBSKnownDerivedAsSBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->SBSKnownDerivedAsSBase_async(new IceAsync::Test::AMD_TestIntf_SBSKnownDerivedAsSBase(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_SBSKnownDerivedAsSBSKnownDerived(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->SBSKnownDerivedAsSBSKnownDerived_async(new IceAsync::Test::AMD_TestIntf_SBSKnownDerivedAsSBSKnownDerived(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_SBSUnknownDerivedAsSBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->SBSUnknownDerivedAsSBase_async(new IceAsync::Test::AMD_TestIntf_SBSUnknownDerivedAsSBase(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_SBSUnknownDerivedAsSBaseCompact(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::CompactFormat);
+    this->SBSUnknownDerivedAsSBaseCompact_async(new IceAsync::Test::AMD_TestIntf_SBSUnknownDerivedAsSBaseCompact(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_SUnknownAsObject(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->SUnknownAsObject_async(new IceAsync::Test::AMD_TestIntf_SUnknownAsObject(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_checkSUnknown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    ::Ice::ObjectPtr iceP_o;
+    istr->read(iceP_o);
+    istr->readPendingValues();
+    inS.endReadParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->checkSUnknown_async(new IceAsync::Test::AMD_TestIntf_checkSUnknown(inS), iceP_o, current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_oneElementCycle(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->oneElementCycle_async(new IceAsync::Test::AMD_TestIntf_oneElementCycle(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_twoElementCycle(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->twoElementCycle_async(new IceAsync::Test::AMD_TestIntf_twoElementCycle(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_D1AsB(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->D1AsB_async(new IceAsync::Test::AMD_TestIntf_D1AsB(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_D1AsD1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->D1AsD1_async(new IceAsync::Test::AMD_TestIntf_D1AsD1(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_D2AsB(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->D2AsB_async(new IceAsync::Test::AMD_TestIntf_D2AsB(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_paramTest1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->paramTest1_async(new IceAsync::Test::AMD_TestIntf_paramTest1(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_paramTest2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->paramTest2_async(new IceAsync::Test::AMD_TestIntf_paramTest2(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_paramTest3(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->paramTest3_async(new IceAsync::Test::AMD_TestIntf_paramTest3(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_paramTest4(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->paramTest4_async(new IceAsync::Test::AMD_TestIntf_paramTest4(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_returnTest1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->returnTest1_async(new IceAsync::Test::AMD_TestIntf_returnTest1(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_returnTest2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->returnTest2_async(new IceAsync::Test::AMD_TestIntf_returnTest2(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_returnTest3(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    BPtr iceP_p1;
+    BPtr iceP_p2;
+    istr->read(iceP_p1);
+    istr->read(iceP_p2);
+    istr->readPendingValues();
+    inS.endReadParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->returnTest3_async(new IceAsync::Test::AMD_TestIntf_returnTest3(inS), iceP_p1, iceP_p2, current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_sequenceTest(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    SS1Ptr iceP_p1;
+    SS2Ptr iceP_p2;
+    istr->read(iceP_p1);
+    istr->read(iceP_p2);
+    istr->readPendingValues();
+    inS.endReadParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->sequenceTest_async(new IceAsync::Test::AMD_TestIntf_sequenceTest(inS), iceP_p1, iceP_p2, current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_dictionaryTest(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    BDict iceP_bin;
+    istr->read(iceP_bin);
+    istr->readPendingValues();
+    inS.endReadParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->dictionaryTest_async(new IceAsync::Test::AMD_TestIntf_dictionaryTest(inS), iceP_bin, current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_exchangePBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    PBasePtr iceP_pb;
+    istr->read(iceP_pb);
+    istr->readPendingValues();
+    inS.endReadParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->exchangePBase_async(new IceAsync::Test::AMD_TestIntf_exchangePBase(inS), iceP_pb, current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_PBSUnknownAsPreserved(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->PBSUnknownAsPreserved_async(new IceAsync::Test::AMD_TestIntf_PBSUnknownAsPreserved(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_checkPBSUnknown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    PreservedPtr iceP_p;
+    istr->read(iceP_p);
+    istr->readPendingValues();
+    inS.endReadParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->checkPBSUnknown_async(new IceAsync::Test::AMD_TestIntf_checkPBSUnknown(inS), iceP_p, current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_PBSUnknownAsPreservedWithGraph(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->PBSUnknownAsPreservedWithGraph_async(new IceAsync::Test::AMD_TestIntf_PBSUnknownAsPreservedWithGraph(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_checkPBSUnknownWithGraph(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    PreservedPtr iceP_p;
+    istr->read(iceP_p);
+    istr->readPendingValues();
+    inS.endReadParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->checkPBSUnknownWithGraph_async(new IceAsync::Test::AMD_TestIntf_checkPBSUnknownWithGraph(inS), iceP_p, current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_PBSUnknown2AsPreservedWithGraph(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->PBSUnknown2AsPreservedWithGraph_async(new IceAsync::Test::AMD_TestIntf_PBSUnknown2AsPreservedWithGraph(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_checkPBSUnknown2WithGraph(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    PreservedPtr iceP_p;
+    istr->read(iceP_p);
+    istr->readPendingValues();
+    inS.endReadParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->checkPBSUnknown2WithGraph_async(new IceAsync::Test::AMD_TestIntf_checkPBSUnknown2WithGraph(inS), iceP_p, current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_exchangePNode(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    ::Ice::InputStream* istr = inS.startReadParams();
+    PNodePtr iceP_pn;
+    istr->read(iceP_pn);
+    istr->readPendingValues();
+    inS.endReadParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->exchangePNode_async(new IceAsync::Test::AMD_TestIntf_exchangePNode(inS), iceP_pn, current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_throwBaseAsBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->throwBaseAsBase_async(new IceAsync::Test::AMD_TestIntf_throwBaseAsBase(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_throwDerivedAsBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->throwDerivedAsBase_async(new IceAsync::Test::AMD_TestIntf_throwDerivedAsBase(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_throwDerivedAsDerived(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->throwDerivedAsDerived_async(new IceAsync::Test::AMD_TestIntf_throwDerivedAsDerived(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_throwUnknownDerivedAsBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->throwUnknownDerivedAsBase_async(new IceAsync::Test::AMD_TestIntf_throwUnknownDerivedAsBase(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_throwPreservedException(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->throwPreservedException_async(new IceAsync::Test::AMD_TestIntf_throwPreservedException(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_useForward(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->useForward_async(new IceAsync::Test::AMD_TestIntf_useForward(inS), current);
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+{
+    _iceCheckMode(::Ice::Normal, current.mode);
+    inS.readEmptyParams();
+    inS.setFormat(::Ice::SlicedFormat);
+    this->shutdown_async(new IceAsync::Test::AMD_TestIntf_shutdown(inS), current);
+    return false;
+}
+/// \endcond
+
+namespace
+{
+const ::std::string iceC_Test_TestIntf_all[] =
+{
+    "D1AsB",
+    "D1AsD1",
+    "D2AsB",
+    "PBSUnknown2AsPreservedWithGraph",
+    "PBSUnknownAsPreserved",
+    "PBSUnknownAsPreservedWithGraph",
+    "SBSKnownDerivedAsSBSKnownDerived",
+    "SBSKnownDerivedAsSBase",
+    "SBSUnknownDerivedAsSBase",
+    "SBSUnknownDerivedAsSBaseCompact",
+    "SBaseAsObject",
+    "SBaseAsSBase",
+    "SUnknownAsObject",
+    "checkPBSUnknown",
+    "checkPBSUnknown2WithGraph",
+    "checkPBSUnknownWithGraph",
+    "checkSUnknown",
+    "dictionaryTest",
+    "exchangePBase",
+    "exchangePNode",
+    "ice_id",
+    "ice_ids",
+    "ice_isA",
+    "ice_ping",
+    "oneElementCycle",
+    "paramTest1",
+    "paramTest2",
+    "paramTest3",
+    "paramTest4",
+    "returnTest1",
+    "returnTest2",
+    "returnTest3",
+    "sequenceTest",
+    "shutdown",
+    "throwBaseAsBase",
+    "throwDerivedAsBase",
+    "throwDerivedAsDerived",
+    "throwPreservedException",
+    "throwUnknownDerivedAsBase",
+    "twoElementCycle",
+    "useForward"
+};
+
+}
+
+/// \cond INTERNAL
+bool
+Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+{
+    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_TestIntf_all, iceC_Test_TestIntf_all + 41, current.operation);
+    if(r.first == r.second)
+    {
+        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+    }
+
+    switch(r.first - iceC_Test_TestIntf_all)
+    {
+        case 0:
+        {
+            return _iceD_D1AsB(in, current);
+        }
+        case 1:
+        {
+            return _iceD_D1AsD1(in, current);
+        }
+        case 2:
+        {
+            return _iceD_D2AsB(in, current);
+        }
+        case 3:
+        {
+            return _iceD_PBSUnknown2AsPreservedWithGraph(in, current);
+        }
+        case 4:
+        {
+            return _iceD_PBSUnknownAsPreserved(in, current);
+        }
+        case 5:
+        {
+            return _iceD_PBSUnknownAsPreservedWithGraph(in, current);
+        }
+        case 6:
+        {
+            return _iceD_SBSKnownDerivedAsSBSKnownDerived(in, current);
+        }
+        case 7:
+        {
+            return _iceD_SBSKnownDerivedAsSBase(in, current);
+        }
+        case 8:
+        {
+            return _iceD_SBSUnknownDerivedAsSBase(in, current);
+        }
+        case 9:
+        {
+            return _iceD_SBSUnknownDerivedAsSBaseCompact(in, current);
+        }
+        case 10:
+        {
+            return _iceD_SBaseAsObject(in, current);
+        }
+        case 11:
+        {
+            return _iceD_SBaseAsSBase(in, current);
+        }
+        case 12:
+        {
+            return _iceD_SUnknownAsObject(in, current);
+        }
+        case 13:
+        {
+            return _iceD_checkPBSUnknown(in, current);
+        }
+        case 14:
+        {
+            return _iceD_checkPBSUnknown2WithGraph(in, current);
+        }
+        case 15:
+        {
+            return _iceD_checkPBSUnknownWithGraph(in, current);
+        }
+        case 16:
+        {
+            return _iceD_checkSUnknown(in, current);
+        }
+        case 17:
+        {
+            return _iceD_dictionaryTest(in, current);
+        }
+        case 18:
+        {
+            return _iceD_exchangePBase(in, current);
+        }
+        case 19:
+        {
+            return _iceD_exchangePNode(in, current);
+        }
+        case 20:
+        {
+            return _iceD_ice_id(in, current);
+        }
+        case 21:
+        {
+            return _iceD_ice_ids(in, current);
+        }
+        case 22:
+        {
+            return _iceD_ice_isA(in, current);
+        }
+        case 23:
+        {
+            return _iceD_ice_ping(in, current);
+        }
+        case 24:
+        {
+            return _iceD_oneElementCycle(in, current);
+        }
+        case 25:
+        {
+            return _iceD_paramTest1(in, current);
+        }
+        case 26:
+        {
+            return _iceD_paramTest2(in, current);
+        }
+        case 27:
+        {
+            return _iceD_paramTest3(in, current);
+        }
+        case 28:
+        {
+            return _iceD_paramTest4(in, current);
+        }
+        case 29:
+        {
+            return _iceD_returnTest1(in, current);
+        }
+        case 30:
+        {
+            return _iceD_returnTest2(in, current);
+        }
+        case 31:
+        {
+            return _iceD_returnTest3(in, current);
+        }
+        case 32:
+        {
+            return _iceD_sequenceTest(in, current);
+        }
+        case 33:
+        {
+            return _iceD_shutdown(in, current);
+        }
+        case 34:
+        {
+            return _iceD_throwBaseAsBase(in, current);
+        }
+        case 35:
+        {
+            return _iceD_throwDerivedAsBase(in, current);
+        }
+        case 36:
+        {
+            return _iceD_throwDerivedAsDerived(in, current);
+        }
+        case 37:
+        {
+            return _iceD_throwPreservedException(in, current);
+        }
+        case 38:
+        {
+            return _iceD_throwUnknownDerivedAsBase(in, current);
+        }
+        case 39:
+        {
+            return _iceD_twoElementCycle(in, current);
+        }
+        case 40:
+        {
+            return _iceD_useForward(in, current);
+        }
+        default:
+        {
+            assert(false);
+            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        }
+    }
+}
+/// \endcond
 
 Test::SBase::~SBase()
 {
@@ -6257,798 +6606,6 @@ Test::_icePatchObjectPtr(PNodePtr& handle, const ::Ice::ObjectPtr& v)
     if(v && !handle)
     {
         IceInternal::Ex::throwUOE(PNode::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-Test::TestIntf::~TestIntf()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(TestIntf* p) { return p; }
-
-/// \endcond
-
-namespace
-{
-const ::std::string iceC_Test_TestIntf_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::TestIntf"
-};
-
-}
-
-bool
-Test::TestIntf::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_TestIntf_ids, iceC_Test_TestIntf_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::TestIntf::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_TestIntf_ids[0], &iceC_Test_TestIntf_ids[2]);
-}
-
-const ::std::string&
-Test::TestIntf::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::TestIntf::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::TestIntf";
-    return typeId;
-}
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_SBaseAsObject(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->SBaseAsObject_async(new IceAsync::Test::AMD_TestIntf_SBaseAsObject(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_SBaseAsSBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->SBaseAsSBase_async(new IceAsync::Test::AMD_TestIntf_SBaseAsSBase(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_SBSKnownDerivedAsSBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->SBSKnownDerivedAsSBase_async(new IceAsync::Test::AMD_TestIntf_SBSKnownDerivedAsSBase(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_SBSKnownDerivedAsSBSKnownDerived(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->SBSKnownDerivedAsSBSKnownDerived_async(new IceAsync::Test::AMD_TestIntf_SBSKnownDerivedAsSBSKnownDerived(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_SBSUnknownDerivedAsSBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->SBSUnknownDerivedAsSBase_async(new IceAsync::Test::AMD_TestIntf_SBSUnknownDerivedAsSBase(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_SBSUnknownDerivedAsSBaseCompact(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::CompactFormat);
-    this->SBSUnknownDerivedAsSBaseCompact_async(new IceAsync::Test::AMD_TestIntf_SBSUnknownDerivedAsSBaseCompact(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_SUnknownAsObject(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->SUnknownAsObject_async(new IceAsync::Test::AMD_TestIntf_SUnknownAsObject(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_checkSUnknown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    ::Ice::ObjectPtr iceP_o;
-    istr->read(iceP_o);
-    istr->readPendingValues();
-    inS.endReadParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->checkSUnknown_async(new IceAsync::Test::AMD_TestIntf_checkSUnknown(inS), iceP_o, current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_oneElementCycle(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->oneElementCycle_async(new IceAsync::Test::AMD_TestIntf_oneElementCycle(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_twoElementCycle(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->twoElementCycle_async(new IceAsync::Test::AMD_TestIntf_twoElementCycle(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_D1AsB(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->D1AsB_async(new IceAsync::Test::AMD_TestIntf_D1AsB(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_D1AsD1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->D1AsD1_async(new IceAsync::Test::AMD_TestIntf_D1AsD1(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_D2AsB(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->D2AsB_async(new IceAsync::Test::AMD_TestIntf_D2AsB(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_paramTest1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->paramTest1_async(new IceAsync::Test::AMD_TestIntf_paramTest1(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_paramTest2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->paramTest2_async(new IceAsync::Test::AMD_TestIntf_paramTest2(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_paramTest3(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->paramTest3_async(new IceAsync::Test::AMD_TestIntf_paramTest3(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_paramTest4(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->paramTest4_async(new IceAsync::Test::AMD_TestIntf_paramTest4(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_returnTest1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->returnTest1_async(new IceAsync::Test::AMD_TestIntf_returnTest1(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_returnTest2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->returnTest2_async(new IceAsync::Test::AMD_TestIntf_returnTest2(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_returnTest3(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    BPtr iceP_p1;
-    BPtr iceP_p2;
-    istr->read(iceP_p1);
-    istr->read(iceP_p2);
-    istr->readPendingValues();
-    inS.endReadParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->returnTest3_async(new IceAsync::Test::AMD_TestIntf_returnTest3(inS), iceP_p1, iceP_p2, current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_sequenceTest(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    SS1Ptr iceP_p1;
-    SS2Ptr iceP_p2;
-    istr->read(iceP_p1);
-    istr->read(iceP_p2);
-    istr->readPendingValues();
-    inS.endReadParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->sequenceTest_async(new IceAsync::Test::AMD_TestIntf_sequenceTest(inS), iceP_p1, iceP_p2, current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_dictionaryTest(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    BDict iceP_bin;
-    istr->read(iceP_bin);
-    istr->readPendingValues();
-    inS.endReadParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->dictionaryTest_async(new IceAsync::Test::AMD_TestIntf_dictionaryTest(inS), iceP_bin, current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_exchangePBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    PBasePtr iceP_pb;
-    istr->read(iceP_pb);
-    istr->readPendingValues();
-    inS.endReadParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->exchangePBase_async(new IceAsync::Test::AMD_TestIntf_exchangePBase(inS), iceP_pb, current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_PBSUnknownAsPreserved(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->PBSUnknownAsPreserved_async(new IceAsync::Test::AMD_TestIntf_PBSUnknownAsPreserved(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_checkPBSUnknown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    PreservedPtr iceP_p;
-    istr->read(iceP_p);
-    istr->readPendingValues();
-    inS.endReadParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->checkPBSUnknown_async(new IceAsync::Test::AMD_TestIntf_checkPBSUnknown(inS), iceP_p, current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_PBSUnknownAsPreservedWithGraph(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->PBSUnknownAsPreservedWithGraph_async(new IceAsync::Test::AMD_TestIntf_PBSUnknownAsPreservedWithGraph(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_checkPBSUnknownWithGraph(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    PreservedPtr iceP_p;
-    istr->read(iceP_p);
-    istr->readPendingValues();
-    inS.endReadParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->checkPBSUnknownWithGraph_async(new IceAsync::Test::AMD_TestIntf_checkPBSUnknownWithGraph(inS), iceP_p, current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_PBSUnknown2AsPreservedWithGraph(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->PBSUnknown2AsPreservedWithGraph_async(new IceAsync::Test::AMD_TestIntf_PBSUnknown2AsPreservedWithGraph(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_checkPBSUnknown2WithGraph(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    PreservedPtr iceP_p;
-    istr->read(iceP_p);
-    istr->readPendingValues();
-    inS.endReadParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->checkPBSUnknown2WithGraph_async(new IceAsync::Test::AMD_TestIntf_checkPBSUnknown2WithGraph(inS), iceP_p, current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_exchangePNode(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    ::Ice::InputStream* istr = inS.startReadParams();
-    PNodePtr iceP_pn;
-    istr->read(iceP_pn);
-    istr->readPendingValues();
-    inS.endReadParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->exchangePNode_async(new IceAsync::Test::AMD_TestIntf_exchangePNode(inS), iceP_pn, current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_throwBaseAsBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->throwBaseAsBase_async(new IceAsync::Test::AMD_TestIntf_throwBaseAsBase(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_throwDerivedAsBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->throwDerivedAsBase_async(new IceAsync::Test::AMD_TestIntf_throwDerivedAsBase(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_throwDerivedAsDerived(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->throwDerivedAsDerived_async(new IceAsync::Test::AMD_TestIntf_throwDerivedAsDerived(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_throwUnknownDerivedAsBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->throwUnknownDerivedAsBase_async(new IceAsync::Test::AMD_TestIntf_throwUnknownDerivedAsBase(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_throwPreservedException(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->throwPreservedException_async(new IceAsync::Test::AMD_TestIntf_throwPreservedException(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_useForward(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->useForward_async(new IceAsync::Test::AMD_TestIntf_useForward(inS), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::SlicedFormat);
-    this->shutdown_async(new IceAsync::Test::AMD_TestIntf_shutdown(inS), current);
-    return false;
-}
-/// \endcond
-
-namespace
-{
-const ::std::string iceC_Test_TestIntf_all[] =
-{
-    "D1AsB",
-    "D1AsD1",
-    "D2AsB",
-    "PBSUnknown2AsPreservedWithGraph",
-    "PBSUnknownAsPreserved",
-    "PBSUnknownAsPreservedWithGraph",
-    "SBSKnownDerivedAsSBSKnownDerived",
-    "SBSKnownDerivedAsSBase",
-    "SBSUnknownDerivedAsSBase",
-    "SBSUnknownDerivedAsSBaseCompact",
-    "SBaseAsObject",
-    "SBaseAsSBase",
-    "SUnknownAsObject",
-    "checkPBSUnknown",
-    "checkPBSUnknown2WithGraph",
-    "checkPBSUnknownWithGraph",
-    "checkSUnknown",
-    "dictionaryTest",
-    "exchangePBase",
-    "exchangePNode",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "oneElementCycle",
-    "paramTest1",
-    "paramTest2",
-    "paramTest3",
-    "paramTest4",
-    "returnTest1",
-    "returnTest2",
-    "returnTest3",
-    "sequenceTest",
-    "shutdown",
-    "throwBaseAsBase",
-    "throwDerivedAsBase",
-    "throwDerivedAsDerived",
-    "throwPreservedException",
-    "throwUnknownDerivedAsBase",
-    "twoElementCycle",
-    "useForward"
-};
-
-}
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
-{
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_TestIntf_all, iceC_Test_TestIntf_all + 41, current.operation);
-    if(r.first == r.second)
-    {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-    }
-
-    switch(r.first - iceC_Test_TestIntf_all)
-    {
-        case 0:
-        {
-            return _iceD_D1AsB(in, current);
-        }
-        case 1:
-        {
-            return _iceD_D1AsD1(in, current);
-        }
-        case 2:
-        {
-            return _iceD_D2AsB(in, current);
-        }
-        case 3:
-        {
-            return _iceD_PBSUnknown2AsPreservedWithGraph(in, current);
-        }
-        case 4:
-        {
-            return _iceD_PBSUnknownAsPreserved(in, current);
-        }
-        case 5:
-        {
-            return _iceD_PBSUnknownAsPreservedWithGraph(in, current);
-        }
-        case 6:
-        {
-            return _iceD_SBSKnownDerivedAsSBSKnownDerived(in, current);
-        }
-        case 7:
-        {
-            return _iceD_SBSKnownDerivedAsSBase(in, current);
-        }
-        case 8:
-        {
-            return _iceD_SBSUnknownDerivedAsSBase(in, current);
-        }
-        case 9:
-        {
-            return _iceD_SBSUnknownDerivedAsSBaseCompact(in, current);
-        }
-        case 10:
-        {
-            return _iceD_SBaseAsObject(in, current);
-        }
-        case 11:
-        {
-            return _iceD_SBaseAsSBase(in, current);
-        }
-        case 12:
-        {
-            return _iceD_SUnknownAsObject(in, current);
-        }
-        case 13:
-        {
-            return _iceD_checkPBSUnknown(in, current);
-        }
-        case 14:
-        {
-            return _iceD_checkPBSUnknown2WithGraph(in, current);
-        }
-        case 15:
-        {
-            return _iceD_checkPBSUnknownWithGraph(in, current);
-        }
-        case 16:
-        {
-            return _iceD_checkSUnknown(in, current);
-        }
-        case 17:
-        {
-            return _iceD_dictionaryTest(in, current);
-        }
-        case 18:
-        {
-            return _iceD_exchangePBase(in, current);
-        }
-        case 19:
-        {
-            return _iceD_exchangePNode(in, current);
-        }
-        case 20:
-        {
-            return _iceD_ice_id(in, current);
-        }
-        case 21:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 22:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 23:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        case 24:
-        {
-            return _iceD_oneElementCycle(in, current);
-        }
-        case 25:
-        {
-            return _iceD_paramTest1(in, current);
-        }
-        case 26:
-        {
-            return _iceD_paramTest2(in, current);
-        }
-        case 27:
-        {
-            return _iceD_paramTest3(in, current);
-        }
-        case 28:
-        {
-            return _iceD_paramTest4(in, current);
-        }
-        case 29:
-        {
-            return _iceD_returnTest1(in, current);
-        }
-        case 30:
-        {
-            return _iceD_returnTest2(in, current);
-        }
-        case 31:
-        {
-            return _iceD_returnTest3(in, current);
-        }
-        case 32:
-        {
-            return _iceD_sequenceTest(in, current);
-        }
-        case 33:
-        {
-            return _iceD_shutdown(in, current);
-        }
-        case 34:
-        {
-            return _iceD_throwBaseAsBase(in, current);
-        }
-        case 35:
-        {
-            return _iceD_throwDerivedAsBase(in, current);
-        }
-        case 36:
-        {
-            return _iceD_throwDerivedAsDerived(in, current);
-        }
-        case 37:
-        {
-            return _iceD_throwPreservedException(in, current);
-        }
-        case 38:
-        {
-            return _iceD_throwUnknownDerivedAsBase(in, current);
-        }
-        case 39:
-        {
-            return _iceD_twoElementCycle(in, current);
-        }
-        case 40:
-        {
-            return _iceD_useForward(in, current);
-        }
-        default:
-        {
-            assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-        }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-Test::TestIntf::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< TestIntf, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::TestIntf::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< TestIntf, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(TestIntfPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = TestIntfPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(TestIntf::ice_staticId(), v);
     }
 }
 /// \endcond

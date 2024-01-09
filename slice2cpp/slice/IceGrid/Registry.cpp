@@ -1523,11 +1523,6 @@ IceGrid::Query::~Query()
 {
 }
 
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(Query* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_IceGrid_Query_ids[2] =
@@ -1724,44 +1719,9 @@ IceGrid::Query::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
 }
 /// \endcond
 
-/// \cond STREAM
-void
-IceGrid::Query::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Query, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::Query::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Query, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchObjectPtr(QueryPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = QueryPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Query::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::Registry::~Registry()
 {
 }
-
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(Registry* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1971,44 +1931,9 @@ IceGrid::Registry::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curren
 }
 /// \endcond
 
-/// \cond STREAM
-void
-IceGrid::Registry::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Registry, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::Registry::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Registry, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchObjectPtr(RegistryPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = RegistryPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Registry::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceGrid::Locator::~Locator()
 {
 }
-
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(Locator* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -2144,36 +2069,6 @@ IceGrid::Locator::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current
             assert(false);
             throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
         }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-IceGrid::Locator::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Locator, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::Locator::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Locator, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchObjectPtr(LocatorPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = LocatorPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Locator::ice_staticId(), v);
     }
 }
 /// \endcond

@@ -2004,11 +2004,6 @@ IceStorm::Topic::~Topic()
 {
 }
 
-/// \cond INTERNAL
-ICESTORM_API ::Ice::Object* IceStorm::upCast(Topic* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_IceStorm_Topic_ids[2] =
@@ -2291,44 +2286,9 @@ IceStorm::Topic::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current&
 }
 /// \endcond
 
-/// \cond STREAM
-void
-IceStorm::Topic::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Topic, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceStorm::Topic::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Topic, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceStorm::_icePatchObjectPtr(TopicPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = TopicPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Topic::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceStorm::TopicManager::~TopicManager()
 {
 }
-
-/// \cond INTERNAL
-ICESTORM_API ::Ice::Object* IceStorm::upCast(TopicManager* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -2477,44 +2437,9 @@ IceStorm::TopicManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::C
 }
 /// \endcond
 
-/// \cond STREAM
-void
-IceStorm::TopicManager::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< TopicManager, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceStorm::TopicManager::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< TopicManager, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceStorm::_icePatchObjectPtr(TopicManagerPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = TopicManagerPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(TopicManager::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceStorm::Finder::~Finder()
 {
 }
-
-/// \cond INTERNAL
-ICESTORM_API ::Ice::Object* IceStorm::upCast(Finder* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -2615,36 +2540,6 @@ IceStorm::Finder::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current
             assert(false);
             throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
         }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-IceStorm::Finder::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Finder, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceStorm::Finder::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Finder, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceStorm::_icePatchObjectPtr(FinderPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = FinderPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Finder::ice_staticId(), v);
     }
 }
 /// \endcond

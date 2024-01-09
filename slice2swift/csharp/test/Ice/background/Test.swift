@@ -17,13 +17,13 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice interface `Background`.
+/// Traits for Slice interface`Background`.
 public struct BackgroundTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Background"]
     public static let staticId = "::Test::Background"
 }
 
-/// Traits for Slice interface `BackgroundController`.
+/// Traits for Slice interface`BackgroundController`.
 public struct BackgroundControllerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::BackgroundController"]
     public static let staticId = "::Test::BackgroundController"

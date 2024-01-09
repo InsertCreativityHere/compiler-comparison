@@ -112,35 +112,6 @@
         }
     };
 
-    const iceC_Test_AbstractBase_ids = [
-        "::Ice::Object",
-        "::Test::AbstractBase",
-        "::Test::Base"
-    ];
-
-    Test.AbstractBase = class extends Test.Base
-    {
-        constructor(theS, str)
-        {
-            super(theS, str);
-        }
-    };
-
-    Slice.defineValue(Test.AbstractBase, iceC_Test_AbstractBase_ids[1], false);
-
-    Test.AbstractBaseDisp = class extends Ice.Object
-    {
-    };
-
-    Test.AbstractBasePrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.AbstractBaseDisp, Test.AbstractBasePrx, iceC_Test_AbstractBase_ids, 1,
-    {
-        "op": [, , , , , , , , , ]
-    });
-
     const iceC_Test_A_ids = [
         "::Ice::Object",
         "::Test::A"
@@ -388,44 +359,6 @@
     };
 
     Slice.defineOperations(Test.J, Test.JPrx, iceC_Test_J_ids, 2);
-
-    const iceC_Test_H_ids = [
-        "::Ice::Object",
-        "::Test::H",
-        "::Test::I"
-    ];
-
-    Test.H = class extends Ice.Value
-    {
-    };
-
-    Slice.defineValue(Test.H, iceC_Test_H_ids[1], false);
-
-    const iceC_Test_N_ids = [
-        "::Ice::Object",
-        "::Test::N"
-    ];
-
-    Test.N = class extends Ice.Value
-    {
-        constructor(i = null)
-        {
-            super();
-            this.i = i;
-        }
-
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeValue(this.i);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            istr.readValue(obj => this.i = obj, Ice.Value);
-        }
-    };
-
-    Slice.defineValue(Test.N, iceC_Test_N_ids[1], false);
 
     const iceC_Test_Compact_ids = [
         "::Ice::Object",
@@ -748,15 +681,11 @@
 
     Slice.defineSequence(Test, "BaseSeqHelper", "Ice.ObjectHelper", false, "Test.Base");
 
-    Slice.defineSequence(Test, "BasePrxSeqHelper", "Ice.ObjectPrx", false);
-
     Slice.defineDictionary(Test, "ObjectDict", "ObjectDictHelper", "Ice.StringHelper", "Ice.ObjectHelper", false, undefined, "Ice.Value");
 
     Slice.defineDictionary(Test, "ObjectPrxDict", "ObjectPrxDictHelper", "Ice.StringHelper", "Ice.ObjectPrx", false, undefined, undefined);
 
     Slice.defineDictionary(Test, "BaseDict", "BaseDictHelper", "Ice.StringHelper", "Ice.ObjectHelper", false, undefined, "Test.Base");
-
-    Slice.defineDictionary(Test, "BasePrxDict", "BasePrxDictHelper", "Ice.StringHelper", "Ice.ObjectPrx", false, undefined, undefined);
 
     const iceC_Test_Recursive_ids = [
         "::Ice::Object",
@@ -901,13 +830,7 @@
         "::Test::Initial"
     ];
 
-    Test.Initial = class extends Ice.Value
-    {
-    };
-
-    Slice.defineValue(Test.Initial, iceC_Test_Initial_ids[1], false);
-
-    Test.InitialDisp = class extends Ice.Object
+    Test.Initial = class extends Ice.Object
     {
     };
 
@@ -915,7 +838,7 @@
     {
     };
 
-    Slice.defineOperations(Test.InitialDisp, Test.InitialPrx, iceC_Test_Initial_ids, 1,
+    Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, 1,
     {
         "shutdown": [, , , , , , , , , ],
         "getB1": [, , , , ["Test.B", true], , , , , true],
@@ -931,9 +854,6 @@
         "getMB": [, , , , ["Test.B", true], , , , , true],
         "getAMDMB": [, , , , ["Test.B", true], , , , , true],
         "getAll": [, , , , , , [["Test.B", true], ["Test.B", true], ["Test.C", true], ["Test.D", true]], , , true],
-        "getH": [, , , , ["Ice.Value", true], , , , , true],
-        "getI": [, , , , ["Ice.Value", true], , , , , true],
-        "getJ": [, , , , ["Ice.Value", true], , , , , true],
         "getK": [, , , , ["Test.K", true], , , , , true],
         "opValue": [, , , , [10, true], [[10, true]], [[10, true]], , true, true],
         "opValueSeq": [, , , , ["Test.ValueSeqHelper"], [["Test.ValueSeqHelper"]], [["Test.ValueSeqHelper"]], , true, true],
@@ -944,7 +864,6 @@
             Test.EDerived
         ], , ],
         "setG": [, , , , , [["Test.G", true]], , , true, ],
-        "setI": [, , , , , [["Ice.Value", true]], , , true, ],
         "opBaseSeq": [, , , , ["Test.BaseSeqHelper"], [["Test.BaseSeqHelper"]], [["Test.BaseSeqHelper"]], , true, true],
         "getCompact": [, , , , ["Test.Compact", true], , , , , true],
         "getInnerA": [, , , , ["Test.Inner.A", true], , , , , true],
@@ -960,16 +879,13 @@
         "getObjectSeq": [, , , , ["Test.ObjectSeqHelper"], [["Test.ObjectSeqHelper"]], , , true, true],
         "getObjectPrxSeq": [, , , , ["Test.ObjectPrxSeqHelper"], [["Test.ObjectPrxSeqHelper"]], , , , ],
         "getBaseSeq": [, , , , ["Test.BaseSeqHelper"], [["Test.BaseSeqHelper"]], , , true, true],
-        "getBasePrxSeq": [, , , , ["Test.BasePrxSeqHelper"], [["Test.BasePrxSeqHelper"]], , , , ],
         "getObjectDict": [, , , , ["Test.ObjectDictHelper"], [["Test.ObjectDictHelper"]], , , true, true],
         "getObjectPrxDict": [, , , , ["Test.ObjectPrxDictHelper"], [["Test.ObjectPrxDictHelper"]], , , , ],
         "getBaseDict": [, , , , ["Test.BaseDictHelper"], [["Test.BaseDictHelper"]], , , true, true],
-        "getBasePrxDict": [, , , , ["Test.BasePrxDictHelper"], [["Test.BasePrxDictHelper"]], , , , ],
         "opM": [, , , , ["Test.M", true], [["Test.M", true]], [["Test.M", true]], , true, true],
         "opF1": [, , , , ["Test.F1", true], [["Test.F1", true]], [["Test.F1", true]], , true, true],
         "opF2": [, , , , ["Test.F2Prx"], [["Test.F2Prx"]], [["Test.F2Prx"]], , , ],
-        "hasF3": [, , , , [1], , , , , ],
-        "opN": [, , , , ["Test.N", true], [["Test.N", true]], , , true, true]
+        "hasF3": [, , , , [1], , , , , ]
     });
 
     const iceC_Test_TestIntf_ids = [

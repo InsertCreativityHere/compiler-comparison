@@ -154,8 +154,6 @@ module ::IceMX
             T_MetricsAdminPrx = ::Ice::__declareProxy('::IceMX::MetricsAdmin')
         end
 
-        T_MetricsAdmin.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_MetricsAdminPrx.defineProxy(MetricsAdminPrx, nil, [])
 
         MetricsAdminPrx_mixin::OP_getMetricsViewNames = ::Ice::__defineOperation('getMetricsViewNames', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [[::Ice::T_StringSeq, false, 0]], [::Ice::T_StringSeq, false, 0], [])

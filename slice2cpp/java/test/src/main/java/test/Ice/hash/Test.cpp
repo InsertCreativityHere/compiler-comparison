@@ -69,40 +69,6 @@ namespace
 
 }
 
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(Pen* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< Pen>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new Pen;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::Pen::_newInstance() const
-{
-    return new Pen;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::Pen::ice_staticId()
-{
-    return ::Test::Pen::ice_staticId();
-}
-
 Test::Pen::~Pen()
 {
 }

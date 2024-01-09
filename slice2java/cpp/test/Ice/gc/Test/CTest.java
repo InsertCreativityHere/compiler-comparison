@@ -82,7 +82,7 @@ public class CTest extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 3352806657901122417L;
+    public static final long serialVersionUID = -8295884281754295102L;
 
     /** @hidden */
     @Override

@@ -2100,74 +2100,6 @@ Test::Preserved2::_readImpl(::Ice::InputStream* istr)
 /// \endcond
 
 /// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(BaseClass* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< BaseClass>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new BaseClass;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::BaseClass::_newInstance() const
-{
-    return new BaseClass;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::BaseClass::ice_staticId()
-{
-    return ::Test::BaseClass::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(PreservedClass* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< PreservedClass>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new PreservedClass;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::PreservedClass::_newInstance() const
-{
-    return new PreservedClass;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::PreservedClass::ice_staticId()
-{
-    return ::Test::PreservedClass::ice_staticId();
-}
-
-/// \cond INTERNAL
 ::IceProxy::Ice::Object* ::IceProxy::Test::upCast(Relay* p) { return p; }
 
 void
@@ -3306,246 +3238,9 @@ IceProxy::Test::TestIntf::ice_staticId()
     return ::Test::TestIntf::ice_staticId();
 }
 
-Test::BaseClass::~BaseClass()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(BaseClass* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
-::Ice::ObjectPtr
-Test::BaseClass::ice_clone() const
-{
-    ::Ice::Object* p = new BaseClass(*this);
-    return p;
-}
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
-
-namespace
-{
-const ::std::string iceC_Test_BaseClass_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::BaseClass"
-};
-
-}
-
-bool
-Test::BaseClass::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_BaseClass_ids, iceC_Test_BaseClass_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::BaseClass::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_BaseClass_ids[0], &iceC_Test_BaseClass_ids[2]);
-}
-
-const ::std::string&
-Test::BaseClass::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::BaseClass::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::BaseClass";
-    return typeId;
-}
-
-void
-Test::BaseClass::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
-{
-    if(_iceSlicedData)
-    {
-        _iceSlicedData->_iceGcVisitMembers(v_);
-    }
-}
-
-::Ice::SlicedDataPtr
-Test::BaseClass::ice_getSlicedData() const
-{
-    return _iceSlicedData;
-}
-
-void
-Test::BaseClass::_iceWrite(::Ice::OutputStream*ostr) const
-{
-    ostr->startValue(_iceSlicedData);
-    _iceWriteImpl(ostr);
-    ostr->endValue();
-}
-
-void
-Test::BaseClass::_iceRead(::Ice::InputStream* istr)
-{
-    istr->startValue();
-    _iceReadImpl(istr);
-    _iceSlicedData = istr->endValue(true);
-}
-
-/// \cond STREAM
-void
-Test::BaseClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< BaseClass, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::BaseClass::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< BaseClass, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::BaseClass> iceC_Test_BaseClass_init("::Test::BaseClass");
-}
-
-::Ice::ValueFactoryPtr
-Test::BaseClass::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::BaseClass::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(BaseClassPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = BaseClassPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(BaseClass::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-Test::PreservedClass::~PreservedClass()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(PreservedClass* p) { return p; }
-
-/// \endcond
-
-#if defined(_MSC_VER)
-#   pragma warning(push)
-#   pragma warning(disable:4589)
-#endif
-::Ice::ObjectPtr
-Test::PreservedClass::ice_clone() const
-{
-    ::Ice::Object* p = new PreservedClass(*this);
-    return p;
-}
-#if defined(_MSC_VER)
-#   pragma warning(pop)
-#endif
-
-namespace
-{
-const ::std::string iceC_Test_PreservedClass_ids[3] =
-{
-    "::Ice::Object",
-    "::Test::BaseClass",
-    "::Test::PreservedClass"
-};
-
-}
-
-bool
-Test::PreservedClass::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_PreservedClass_ids, iceC_Test_PreservedClass_ids + 3, s);
-}
-
-::std::vector< ::std::string>
-Test::PreservedClass::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_PreservedClass_ids[0], &iceC_Test_PreservedClass_ids[3]);
-}
-
-const ::std::string&
-Test::PreservedClass::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::PreservedClass::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::PreservedClass";
-    return typeId;
-}
-
-/// \cond STREAM
-void
-Test::PreservedClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter< PreservedClass, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-    BaseClass::_iceWriteImpl(ostr);
-}
-
-void
-Test::PreservedClass::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< PreservedClass, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-    BaseClass::_iceReadImpl(istr);
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::PreservedClass> iceC_Test_PreservedClass_init("::Test::PreservedClass");
-}
-
-::Ice::ValueFactoryPtr
-Test::PreservedClass::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::PreservedClass::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(PreservedClassPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = PreservedClassPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(PreservedClass::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::Relay::~Relay()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(Relay* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -3703,44 +3398,9 @@ Test::Relay::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cur
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::Relay::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Relay, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Relay::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Relay, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(RelayPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = RelayPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Relay::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::TestIntf::~TestIntf()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(TestIntf* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -4252,32 +3912,234 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
 }
 /// \endcond
 
+Test::BaseClass::~BaseClass()
+{
+}
+
+/// \cond INTERNAL
+::Ice::Object* Test::upCast(BaseClass* p) { return p; }
+
+/// \endcond
+
+#if defined(_MSC_VER)
+#   pragma warning(push)
+#   pragma warning(disable:4589)
+#endif
+::Ice::ObjectPtr
+Test::BaseClass::ice_clone() const
+{
+    ::Ice::Object* p = new BaseClass(*this);
+    return p;
+}
+#if defined(_MSC_VER)
+#   pragma warning(pop)
+#endif
+
+namespace
+{
+const ::std::string iceC_Test_BaseClass_ids[2] =
+{
+    "::Ice::Object",
+    "::Test::BaseClass"
+};
+
+}
+
+bool
+Test::BaseClass::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_Test_BaseClass_ids, iceC_Test_BaseClass_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+Test::BaseClass::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_Test_BaseClass_ids[0], &iceC_Test_BaseClass_ids[2]);
+}
+
+const ::std::string&
+Test::BaseClass::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+Test::BaseClass::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::BaseClass";
+    return typeId;
+}
+
+void
+Test::BaseClass::_iceGcVisitMembers(::IceInternal::GCVisitor& v_)
+{
+    if(_iceSlicedData)
+    {
+        _iceSlicedData->_iceGcVisitMembers(v_);
+    }
+}
+
+::Ice::SlicedDataPtr
+Test::BaseClass::ice_getSlicedData() const
+{
+    return _iceSlicedData;
+}
+
+void
+Test::BaseClass::_iceWrite(::Ice::OutputStream*ostr) const
+{
+    ostr->startValue(_iceSlicedData);
+    _iceWriteImpl(ostr);
+    ostr->endValue();
+}
+
+void
+Test::BaseClass::_iceRead(::Ice::InputStream* istr)
+{
+    istr->startValue();
+    _iceReadImpl(istr);
+    _iceSlicedData = istr->endValue(true);
+}
+
 /// \cond STREAM
 void
-Test::TestIntf::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::BaseClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< TestIntf, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter< BaseClass, ::Ice::OutputStream>::write(ostr, *this);
     ostr->endSlice();
 }
 
 void
-Test::TestIntf::_iceReadImpl(::Ice::InputStream* istr)
+Test::BaseClass::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader< TestIntf, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader< BaseClass, ::Ice::InputStream>::read(istr, *this);
     istr->endSlice();
 }
 /// \endcond
 
+namespace
+{
+const ::IceInternal::DefaultValueFactoryInit< ::Test::BaseClass> iceC_Test_BaseClass_init("::Test::BaseClass");
+}
+
+::Ice::ValueFactoryPtr
+Test::BaseClass::ice_factory()
+{
+    return ::IceInternal::factoryTable->getValueFactory(::Test::BaseClass::ice_staticId());
+}
+
 /// \cond INTERNAL
 void
-Test::_icePatchObjectPtr(TestIntfPtr& handle, const ::Ice::ObjectPtr& v)
+Test::_icePatchObjectPtr(BaseClassPtr& handle, const ::Ice::ObjectPtr& v)
 {
-    handle = TestIntfPtr::dynamicCast(v);
+    handle = BaseClassPtr::dynamicCast(v);
     if(v && !handle)
     {
-        IceInternal::Ex::throwUOE(TestIntf::ice_staticId(), v);
+        IceInternal::Ex::throwUOE(BaseClass::ice_staticId(), v);
+    }
+}
+/// \endcond
+
+Test::PreservedClass::~PreservedClass()
+{
+}
+
+/// \cond INTERNAL
+::Ice::Object* Test::upCast(PreservedClass* p) { return p; }
+
+/// \endcond
+
+#if defined(_MSC_VER)
+#   pragma warning(push)
+#   pragma warning(disable:4589)
+#endif
+::Ice::ObjectPtr
+Test::PreservedClass::ice_clone() const
+{
+    ::Ice::Object* p = new PreservedClass(*this);
+    return p;
+}
+#if defined(_MSC_VER)
+#   pragma warning(pop)
+#endif
+
+namespace
+{
+const ::std::string iceC_Test_PreservedClass_ids[3] =
+{
+    "::Ice::Object",
+    "::Test::BaseClass",
+    "::Test::PreservedClass"
+};
+
+}
+
+bool
+Test::PreservedClass::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_Test_PreservedClass_ids, iceC_Test_PreservedClass_ids + 3, s);
+}
+
+::std::vector< ::std::string>
+Test::PreservedClass::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_Test_PreservedClass_ids[0], &iceC_Test_PreservedClass_ids[3]);
+}
+
+const ::std::string&
+Test::PreservedClass::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+Test::PreservedClass::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::PreservedClass";
+    return typeId;
+}
+
+/// \cond STREAM
+void
+Test::PreservedClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter< PreservedClass, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    BaseClass::_iceWriteImpl(ostr);
+}
+
+void
+Test::PreservedClass::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader< PreservedClass, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    BaseClass::_iceReadImpl(istr);
+}
+/// \endcond
+
+namespace
+{
+const ::IceInternal::DefaultValueFactoryInit< ::Test::PreservedClass> iceC_Test_PreservedClass_init("::Test::PreservedClass");
+}
+
+::Ice::ValueFactoryPtr
+Test::PreservedClass::ice_factory()
+{
+    return ::IceInternal::factoryTable->getValueFactory(::Test::PreservedClass::ice_staticId());
+}
+
+/// \cond INTERNAL
+void
+Test::_icePatchObjectPtr(PreservedClassPtr& handle, const ::Ice::ObjectPtr& v)
+{
+    handle = PreservedClassPtr::dynamicCast(v);
+    if(v && !handle)
+    {
+        IceInternal::Ex::throwUOE(PreservedClass::ice_staticId(), v);
     }
 }
 /// \endcond

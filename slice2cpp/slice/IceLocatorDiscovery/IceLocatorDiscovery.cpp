@@ -426,11 +426,6 @@ IceLocatorDiscovery::LookupReply::~LookupReply()
 {
 }
 
-/// \cond INTERNAL
-::Ice::Object* IceLocatorDiscovery::upCast(LookupReply* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_IceLocatorDiscovery_LookupReply_ids[2] =
@@ -535,44 +530,9 @@ IceLocatorDiscovery::LookupReply::_iceDispatch(::IceInternal::Incoming& in, cons
 }
 /// \endcond
 
-/// \cond STREAM
-void
-IceLocatorDiscovery::LookupReply::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< LookupReply, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceLocatorDiscovery::LookupReply::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< LookupReply, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceLocatorDiscovery::_icePatchObjectPtr(LookupReplyPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = LookupReplyPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(LookupReply::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceLocatorDiscovery::Lookup::~Lookup()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* IceLocatorDiscovery::upCast(Lookup* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -679,39 +639,5 @@ IceLocatorDiscovery::Lookup::_iceDispatch(::IceInternal::Incoming& in, const ::I
     }
 }
 /// \endcond
-
-/// \cond STREAM
-void
-IceLocatorDiscovery::Lookup::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Lookup, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceLocatorDiscovery::Lookup::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Lookup, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceLocatorDiscovery::_icePatchObjectPtr(LookupPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = LookupPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Lookup::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-namespace Ice
-{
-}
 
 #endif

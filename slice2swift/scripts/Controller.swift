@@ -21,13 +21,13 @@ public typealias CommonBoolSeq = [Swift.Bool]
 
 public typealias CommonStringSeq = [Swift.String]
 
-/// Traits for Slice class `CommonConfig`.
+/// Traits for Slice class`CommonConfig`.
 public struct CommonConfigTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Common::Config"]
     public static let staticId = "::Test::Common::Config"
 }
 
-/// Traits for Slice class `CommonOptionOverrides`.
+/// Traits for Slice class`CommonOptionOverrides`.
 public struct CommonOptionOverridesTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Common::OptionOverrides"]
     public static let staticId = "::Test::Common::OptionOverrides"
@@ -117,13 +117,13 @@ open class CommonTestCaseFailedException: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `CommonTestCase`.
+/// Traits for Slice interface`CommonTestCase`.
 public struct CommonTestCaseTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Common::TestCase"]
     public static let staticId = "::Test::Common::TestCase"
 }
 
-/// Traits for Slice interface `CommonController`.
+/// Traits for Slice interface`CommonController`.
 public struct CommonControllerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Common::Controller"]
     public static let staticId = "::Test::Common::Controller"
@@ -171,25 +171,25 @@ open class CommonProcessFailedException: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `CommonProcess`.
+/// Traits for Slice interface`CommonProcess`.
 public struct CommonProcessTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Common::Process"]
     public static let staticId = "::Test::Common::Process"
 }
 
-/// Traits for Slice interface `CommonProcessController`.
+/// Traits for Slice interface`CommonProcessController`.
 public struct CommonProcessControllerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Common::ProcessController"]
     public static let staticId = "::Test::Common::ProcessController"
 }
 
-/// Traits for Slice interface `CommonBrowserProcessController`.
+/// Traits for Slice interface`CommonBrowserProcessController`.
 public struct CommonBrowserProcessControllerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Common::BrowserProcessController", "::Test::Common::ProcessController"]
     public static let staticId = "::Test::Common::BrowserProcessController"
 }
 
-/// Traits for Slice interface `CommonProcessControllerRegistry`.
+/// Traits for Slice interface`CommonProcessControllerRegistry`.
 public struct CommonProcessControllerRegistryTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Common::ProcessControllerRegistry"]
     public static let staticId = "::Test::Common::ProcessControllerRegistry"

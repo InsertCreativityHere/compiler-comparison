@@ -43,8 +43,6 @@ module ::Test
             T_PriorityPrx = ::Ice::__declareProxy('::Test::Priority')
         end
 
-        T_Priority.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_PriorityPrx.defineProxy(PriorityPrx, nil, [])
 
         PriorityPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])

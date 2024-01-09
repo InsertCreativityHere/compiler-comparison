@@ -326,6 +326,11 @@ IceGrid::FileNotAvailableException::ice_staticId()
 namespace
 {
 
+}
+
+namespace
+{
+
 const ::IceInternal::DefaultUserExceptionFactoryInit< ::IceGrid::ApplicationNotExistException> iceC_IceGrid_ApplicationNotExistException_init("::IceGrid::ApplicationNotExistException");
 
 }

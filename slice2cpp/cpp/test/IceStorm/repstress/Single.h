@@ -45,6 +45,11 @@ class SinglePrx;
 namespace Test
 {
 
+}
+
+namespace Test
+{
+
 class Single : public virtual ::Ice::Object
 {
 public:
@@ -142,13 +147,6 @@ protected:
 
 }
 
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
-
 /// \cond INTERNAL
 namespace Test
 {
@@ -179,17 +177,16 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Single>&);
 
 namespace Test
 {
-
-class Single;
-/// \cond INTERNAL
-::Ice::Object* upCast(Single*);
-/// \endcond
-typedef ::IceInternal::Handle< Single> SinglePtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Single> SinglePrx;
 typedef SinglePrx SinglePrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(SinglePtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class Single;
+typedef ::IceInternal::Handle< Single> SinglePtr;
+
+}
+
+namespace Test
+{
 
 }
 
@@ -279,7 +276,6 @@ class Single : public virtual ::Ice::Object
 public:
 
     typedef SinglePrx ProxyType;
-    typedef SinglePtr PointerType;
 
     virtual ~Single();
     Single() = default;
@@ -322,35 +318,9 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const Single& lhs, const Single& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
 }
-
-inline bool operator<(const Single& lhs, const Single& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 namespace Test
 {

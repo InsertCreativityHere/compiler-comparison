@@ -51,8 +51,6 @@ module ::Test
             T_EchoPrx = ::Ice::__declareProxy('::Test::Echo')
         end
 
-        T_Echo.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_EchoPrx.defineProxy(EchoPrx, nil, [])
 
         EchoPrx_mixin::OP_setConnection = ::Ice::__defineOperation('setConnection', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])

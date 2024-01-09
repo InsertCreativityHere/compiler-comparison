@@ -203,8 +203,6 @@ module ::Test
                 T_CustomPrx = ::Ice::__declareProxy('::Test::NumPy::Custom')
             end
 
-            T_Custom.defineClass(::Ice::Value, -1, false, true, nil, [])
-
             T_CustomPrx.defineProxy(CustomPrx, nil, [])
 
             CustomPrx_mixin::OP_opBoolSeq = ::Ice::__defineOperation('opBoolSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::NumPy::T_BoolSeq1, false, 0]], [[::Test::NumPy::T_BoolSeq2, false, 0]], [::Test::NumPy::T_BoolSeq1, false, 0], [])

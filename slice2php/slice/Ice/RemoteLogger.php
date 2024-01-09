@@ -113,7 +113,6 @@ namespace Ice
             return '::Ice::RemoteLogger';
         }
     }
-    $Ice__t_RemoteLogger = IcePHP_defineClass('::Ice::RemoteLogger', '\\Ice\\RemoteLogger', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Ice__t_RemoteLoggerPrx = IcePHP_defineProxy('::Ice::RemoteLogger', $Ice__t_ObjectPrx, null);
@@ -171,7 +170,6 @@ namespace Ice
             return '::Ice::LoggerAdmin';
         }
     }
-    $Ice__t_LoggerAdmin = IcePHP_defineClass('::Ice::LoggerAdmin', '\\Ice\\LoggerAdmin', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Ice__t_LoggerAdminPrx = IcePHP_defineProxy('::Ice::LoggerAdmin', $Ice__t_ObjectPrx, null);

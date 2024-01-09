@@ -48,8 +48,6 @@ module ::Test
             T_BackgroundPrx = ::Ice::__declareProxy('::Test::Background')
         end
 
-        T_Background.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_BackgroundPrx.defineProxy(BackgroundPrx, nil, [])
 
         BackgroundPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
@@ -113,8 +111,6 @@ module ::Test
             T_BackgroundController = ::Ice::__declareClass('::Test::BackgroundController')
             T_BackgroundControllerPrx = ::Ice::__declareProxy('::Test::BackgroundController')
         end
-
-        T_BackgroundController.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_BackgroundControllerPrx.defineProxy(BackgroundControllerPrx, nil, [])
 

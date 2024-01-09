@@ -164,31 +164,31 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice interface ``break``.
+/// Traits for Slice interface``break``.
 public struct breakTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::and::break"]
     public static let staticId = "::and::break"
 }
 
-/// Traits for Slice interface `function`.
+/// Traits for Slice interface`function`.
 public struct functionTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::and::function"]
     public static let staticId = "::and::function"
 }
 
-/// Traits for Slice interface `die`.
+/// Traits for Slice interface`die`.
 public struct dieTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::and::die"]
     public static let staticId = "::and::die"
 }
 
-/// Traits for Slice class `echo`.
+/// Traits for Slice class`echo`.
 public struct echoTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::and::echo"]
     public static let staticId = "::and::echo"
 }
 
-/// Traits for Slice interface `enddeclare`.
+/// Traits for Slice interface`enddeclare`.
 public struct enddeclareTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::and::die", "::and::enddeclare", "::and::function"]
     public static let staticId = "::and::enddeclare"
@@ -420,7 +420,7 @@ open class endwhile: endif {
     }
 }
 
-/// Traits for Slice interface ``for``.
+/// Traits for Slice interface``for``.
 public struct forTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::and::for"]
     public static let staticId = "::and::for"
@@ -998,17 +998,13 @@ public extension Ice.InputStream {
 ///  - foreachAsync: 
 public extension forPrx {
     ///
-    /// - parameter if: `Ice.Value?`
+    /// - parameter if: `breakPrx?`
     ///
     /// - parameter global: `echo?`
-    ///
-    /// - parameter require: `Ice.Value?`
     ///
     /// - parameter include: `functionPrx?`
     ///
     /// - parameter return: `diePrx?`
-    ///
-    /// - parameter isset: `Ice.ObjectPrx?`
     ///
     /// - parameter list: `enddeclarePrx?`
     ///
@@ -1019,16 +1015,14 @@ public extension forPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `array`
-    func foreach(if iceP_if: Ice.Value?, global iceP_global: echo?, require iceP_require: Ice.Value?, include iceP_include: functionPrx?, return iceP_return: diePrx?, isset iceP_isset: Ice.ObjectPrx?, list iceP_list: enddeclarePrx?, new iceP_new: Swift.Int32, static iceP_static: Swift.Int32, context: Ice.Context? = nil) throws -> array {
+    func foreach(if iceP_if: breakPrx?, global iceP_global: echo?, include iceP_include: functionPrx?, return iceP_return: diePrx?, list iceP_list: enddeclarePrx?, new iceP_new: Swift.Int32, static iceP_static: Swift.Int32, context: Ice.Context? = nil) throws -> array {
         return try _impl._invoke(operation: "foreach",
                                  mode: .Normal,
                                  write: { ostr in
                                      ostr.write(iceP_if)
                                      ostr.write(iceP_global)
-                                     ostr.write(iceP_require)
                                      ostr.write(iceP_include)
                                      ostr.write(iceP_return)
-                                     ostr.write(iceP_isset)
                                      ostr.write(iceP_list)
                                      ostr.write(iceP_new)
                                      ostr.write(iceP_static)
@@ -1051,17 +1045,13 @@ public extension forPrx {
     }
 
     ///
-    /// - parameter if: `Ice.Value?`
+    /// - parameter if: `breakPrx?`
     ///
     /// - parameter global: `echo?`
-    ///
-    /// - parameter require: `Ice.Value?`
     ///
     /// - parameter include: `functionPrx?`
     ///
     /// - parameter return: `diePrx?`
-    ///
-    /// - parameter isset: `Ice.ObjectPrx?`
     ///
     /// - parameter list: `enddeclarePrx?`
     ///
@@ -1080,16 +1070,14 @@ public extension forPrx {
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
     /// - returns: `PromiseKit.Promise<array>` - The result of the operation
-    func foreachAsync(if iceP_if: Ice.Value?, global iceP_global: echo?, require iceP_require: Ice.Value?, include iceP_include: functionPrx?, return iceP_return: diePrx?, isset iceP_isset: Ice.ObjectPrx?, list iceP_list: enddeclarePrx?, new iceP_new: Swift.Int32, static iceP_static: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<array> {
+    func foreachAsync(if iceP_if: breakPrx?, global iceP_global: echo?, include iceP_include: functionPrx?, return iceP_return: diePrx?, list iceP_list: enddeclarePrx?, new iceP_new: Swift.Int32, static iceP_static: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<array> {
         return _impl._invokeAsync(operation: "foreach",
                                   mode: .Normal,
                                   write: { ostr in
                                       ostr.write(iceP_if)
                                       ostr.write(iceP_global)
-                                      ostr.write(iceP_require)
                                       ostr.write(iceP_include)
                                       ostr.write(iceP_return)
-                                      ostr.write(iceP_isset)
                                       ostr.write(iceP_list)
                                       ostr.write(iceP_new)
                                       ostr.write(iceP_static)
@@ -1353,17 +1341,13 @@ public struct forDisp: Ice.Disp {
 
 public protocol `for` {
     ///
-    /// - parameter if: `Ice.Value?`
+    /// - parameter if: `breakPrx?`
     ///
     /// - parameter global: `echo?`
-    ///
-    /// - parameter require: `Ice.Value?`
     ///
     /// - parameter include: `functionPrx?`
     ///
     /// - parameter return: `diePrx?`
-    ///
-    /// - parameter isset: `Ice.ObjectPrx?`
     ///
     /// - parameter list: `enddeclarePrx?`
     ///
@@ -1374,7 +1358,7 @@ public protocol `for` {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `array`
-    func foreach(if: Ice.Value?, global: echo?, require: Ice.Value?, include: functionPrx?, return: diePrx?, isset: Ice.ObjectPrx?, list: enddeclarePrx?, new: Swift.Int32, static: Swift.Int32, current: Ice.Current) throws -> array
+    func foreach(if: breakPrx?, global: echo?, include: functionPrx?, return: diePrx?, list: enddeclarePrx?, new: Swift.Int32, static: Swift.Int32, current: Ice.Current) throws -> array
 }
 
 /// break overview.
@@ -1441,24 +1425,20 @@ public extension enddeclare {}
 ///  - foreach: 
 public extension `for` {
     func _iceD_foreach(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_if, iceP_global, iceP_require, iceP_include, iceP_return, iceP_isset, iceP_list, iceP_new, iceP_static): (Ice.Value?, echo?, Ice.Value?, functionPrx?, diePrx?, Ice.ObjectPrx?, enddeclarePrx?, Swift.Int32, Swift.Int32) = try inS.read { istr in
-            var iceP_if: Ice.Value?
-            try istr.read() { iceP_if = $0 }
+        let (iceP_if, iceP_global, iceP_include, iceP_return, iceP_list, iceP_new, iceP_static): (breakPrx?, echo?, functionPrx?, diePrx?, enddeclarePrx?, Swift.Int32, Swift.Int32) = try inS.read { istr in
+            let iceP_if: breakPrx? = try istr.read(breakPrx.self)
             var iceP_global: echo?
             try istr.read(echo.self) { iceP_global = $0 }
-            var iceP_require: Ice.Value?
-            try istr.read() { iceP_require = $0 }
             let iceP_include: functionPrx? = try istr.read(functionPrx.self)
             let iceP_return: diePrx? = try istr.read(diePrx.self)
-            let iceP_isset: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
             let iceP_list: enddeclarePrx? = try istr.read(enddeclarePrx.self)
             let iceP_new: Swift.Int32 = try istr.read()
             let iceP_static: Swift.Int32 = try istr.read()
             try istr.readPendingValues()
-            return (iceP_if, iceP_global, iceP_require, iceP_include, iceP_return, iceP_isset, iceP_list, iceP_new, iceP_static)
+            return (iceP_if, iceP_global, iceP_include, iceP_return, iceP_list, iceP_new, iceP_static)
         }
 
-        let iceP_returnValue = try self.foreach(if: iceP_if, global: iceP_global, require: iceP_require, include: iceP_include, return: iceP_return, isset: iceP_isset, list: iceP_list, new: iceP_new, static: iceP_static, current: current)
+        let iceP_returnValue = try self.foreach(if: iceP_if, global: iceP_global, include: iceP_include, return: iceP_return, list: iceP_list, new: iceP_new, static: iceP_static, current: current)
 
         return inS.setResult{ ostr in
             ostr.write(iceP_returnValue)

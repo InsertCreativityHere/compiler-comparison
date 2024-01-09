@@ -94,6 +94,21 @@ namespace Test
         #endregion
     }
 
+    [global::System.Runtime.InteropServices.ComVisible(false)]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
+    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
+    public partial interface MyInterface : global::Ice.Object, MyInterfaceOperations_
+    {
+    }
+
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public enum MyEnum
     {
@@ -632,7 +647,7 @@ namespace Test
         public global::Ice.Optional<MyEnum> i;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public global::Ice.Optional<global::Ice.ObjectPrx> j;
+        public global::Ice.Optional<MyInterfacePrx> j;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         public global::Ice.Optional<MultiOptional> k;
@@ -671,7 +686,7 @@ namespace Test
         public global::Ice.Optional<OneOptional[]> oos;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public global::Ice.Optional<global::Ice.ObjectPrx[]> oops;
+        public global::Ice.Optional<MyInterfacePrx[]> mips;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyEnum>> ied;
@@ -686,7 +701,7 @@ namespace Test
         public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, OneOptional>> iood;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, global::Ice.ObjectPrx>> ioopd;
+        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyInterfacePrx>> imipd;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         public global::Ice.Optional<bool[]> bos;
@@ -712,7 +727,7 @@ namespace Test
             this.g = new global::Ice.Optional<double>();
             this.h = new global::Ice.Optional<string>();
             this.i = new global::Ice.Optional<MyEnum>();
-            this.j = new global::Ice.Optional<global::Ice.ObjectPrx>();
+            this.j = new global::Ice.Optional<MyInterfacePrx>();
             this.k = new global::Ice.Optional<MultiOptional>();
             this.bs = new global::Ice.Optional<byte[]>();
             this.ss = new global::Ice.Optional<string[]>();
@@ -725,19 +740,19 @@ namespace Test
             this.fss = new global::Ice.Optional<FixedStruct[]>();
             this.vss = new global::Ice.Optional<VarStruct[]>();
             this.oos = new global::Ice.Optional<OneOptional[]>();
-            this.oops = new global::Ice.Optional<global::Ice.ObjectPrx[]>();
+            this.mips = new global::Ice.Optional<MyInterfacePrx[]>();
             this.ied = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyEnum>>();
             this.ifsd = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, FixedStruct>>();
             this.ivsd = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, VarStruct>>();
             this.iood = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, OneOptional>>();
-            this.ioopd = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, global::Ice.ObjectPrx>>();
+            this.imipd = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyInterfacePrx>>();
             this.bos = new global::Ice.Optional<bool[]>();
             this.ser = new global::Ice.Optional<byte[]>();
             ice_initialize();
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public MultiOptional(global::Ice.Optional<byte> a, global::Ice.Optional<bool> b, global::Ice.Optional<short> c, global::Ice.Optional<int> d, global::Ice.Optional<long> e, global::Ice.Optional<float> f, global::Ice.Optional<double> g, global::Ice.Optional<string> h, global::Ice.Optional<MyEnum> i, global::Ice.Optional<global::Ice.ObjectPrx> j, global::Ice.Optional<MultiOptional> k, global::Ice.Optional<byte[]> bs, global::Ice.Optional<string[]> ss, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> iid, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, int>> sid, global::Ice.Optional<FixedStruct> fs, global::Ice.Optional<VarStruct> vs, global::Ice.Optional<short[]> shs, global::Ice.Optional<MyEnum[]> es, global::Ice.Optional<FixedStruct[]> fss, global::Ice.Optional<VarStruct[]> vss, global::Ice.Optional<OneOptional[]> oos, global::Ice.Optional<global::Ice.ObjectPrx[]> oops, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyEnum>> ied, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, FixedStruct>> ifsd, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, VarStruct>> ivsd, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, OneOptional>> iood, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, global::Ice.ObjectPrx>> ioopd, global::Ice.Optional<bool[]> bos, global::Ice.Optional<byte[]> ser)
+        public MultiOptional(global::Ice.Optional<byte> a, global::Ice.Optional<bool> b, global::Ice.Optional<short> c, global::Ice.Optional<int> d, global::Ice.Optional<long> e, global::Ice.Optional<float> f, global::Ice.Optional<double> g, global::Ice.Optional<string> h, global::Ice.Optional<MyEnum> i, global::Ice.Optional<MyInterfacePrx> j, global::Ice.Optional<MultiOptional> k, global::Ice.Optional<byte[]> bs, global::Ice.Optional<string[]> ss, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, int>> iid, global::Ice.Optional<global::System.Collections.Generic.Dictionary<string, int>> sid, global::Ice.Optional<FixedStruct> fs, global::Ice.Optional<VarStruct> vs, global::Ice.Optional<short[]> shs, global::Ice.Optional<MyEnum[]> es, global::Ice.Optional<FixedStruct[]> fss, global::Ice.Optional<VarStruct[]> vss, global::Ice.Optional<OneOptional[]> oos, global::Ice.Optional<MyInterfacePrx[]> mips, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyEnum>> ied, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, FixedStruct>> ifsd, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, VarStruct>> ivsd, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, OneOptional>> iood, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyInterfacePrx>> imipd, global::Ice.Optional<bool[]> bos, global::Ice.Optional<byte[]> ser)
         {
             this.a = a;
             this.b = b;
@@ -761,12 +776,12 @@ namespace Test
             this.fss = fss;
             this.vss = vss;
             this.oos = oos;
-            this.oops = oops;
+            this.mips = mips;
             this.ied = ied;
             this.ifsd = ifsd;
             this.ivsd = ivsd;
             this.iood = iood;
-            this.ioopd = ioopd;
+            this.imipd = imipd;
             this.bos = bos;
             this.ser = ser;
             ice_initialize();
@@ -808,7 +823,7 @@ namespace Test
             if(j.HasValue && ostr_.writeOptional(10, global::Ice.OptionalFormat.FSize))
             {
                 int pos = ostr_.startSize();
-                ostr_.writeProxy(j.Value);
+                MyInterfacePrxHelper.write(ostr_, j.Value);
                 ostr_.endSize(pos);
             }
             ostr_.writeValue(11, k);
@@ -860,10 +875,10 @@ namespace Test
                 OneOptionalSeqHelper.write(ostr_, oos.Value);
                 ostr_.endSize(pos);
             }
-            if(oops.HasValue && ostr_.writeOptional(23, global::Ice.OptionalFormat.FSize))
+            if(mips.HasValue && ostr_.writeOptional(23, global::Ice.OptionalFormat.FSize))
             {
                 int pos = ostr_.startSize();
-                OneOptionalPrxSeqHelper.write(ostr_, oops.Value);
+                MyInterfacePrxSeqHelper.write(ostr_, mips.Value);
                 ostr_.endSize(pos);
             }
             if(ied.HasValue && ostr_.writeOptional(24, global::Ice.OptionalFormat.FSize))
@@ -889,10 +904,10 @@ namespace Test
                 IntOneOptionalDictHelper.write(ostr_, iood.Value);
                 ostr_.endSize(pos);
             }
-            if(ioopd.HasValue && ostr_.writeOptional(28, global::Ice.OptionalFormat.FSize))
+            if(imipd.HasValue && ostr_.writeOptional(28, global::Ice.OptionalFormat.FSize))
             {
                 int pos = ostr_.startSize();
-                IntOneOptionalPrxDictHelper.write(ostr_, ioopd.Value);
+                IntMyInterfacePrxDictHelper.write(ostr_, imipd.Value);
                 ostr_.endSize(pos);
             }
             ostr_.writeBoolSeq(29, bos);
@@ -925,13 +940,13 @@ namespace Test
             if(istr_.readOptional(10, global::Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
-                global::Ice.ObjectPrx tmpVal;
-                tmpVal = istr_.readProxy();
-                j = new global::Ice.Optional<global::Ice.ObjectPrx>(tmpVal);
+                MyInterfacePrx tmpVal;
+                tmpVal = MyInterfacePrxHelper.read(istr_);
+                j = new global::Ice.Optional<MyInterfacePrx>(tmpVal);
             }
             else
             {
-                j = new global::Ice.Optional<global::Ice.ObjectPrx>();
+                j = new global::Ice.Optional<MyInterfacePrx>();
             }
             istr_.readValue(11, (MultiOptional v) => { this.k = v; });
             if(istr_.readOptional(12, global::Ice.OptionalFormat.VSize))
@@ -1057,13 +1072,13 @@ namespace Test
             if(istr_.readOptional(23, global::Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
-                global::Ice.ObjectPrx[] tmpVal;
-                tmpVal = OneOptionalPrxSeqHelper.read(istr_);
-                oops = new global::Ice.Optional<global::Ice.ObjectPrx[]>(tmpVal);
+                MyInterfacePrx[] tmpVal;
+                tmpVal = MyInterfacePrxSeqHelper.read(istr_);
+                mips = new global::Ice.Optional<MyInterfacePrx[]>(tmpVal);
             }
             else
             {
-                oops = new global::Ice.Optional<global::Ice.ObjectPrx[]>();
+                mips = new global::Ice.Optional<MyInterfacePrx[]>();
             }
             if(istr_.readOptional(24, global::Ice.OptionalFormat.FSize))
             {
@@ -1112,13 +1127,13 @@ namespace Test
             if(istr_.readOptional(28, global::Ice.OptionalFormat.FSize))
             {
                 istr_.skip(4);
-                global::System.Collections.Generic.Dictionary<int, global::Ice.ObjectPrx> tmpVal = new global::System.Collections.Generic.Dictionary<int, global::Ice.ObjectPrx>();
-                tmpVal = IntOneOptionalPrxDictHelper.read(istr_);
-                ioopd = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, global::Ice.ObjectPrx>>(tmpVal);
+                global::System.Collections.Generic.Dictionary<int, MyInterfacePrx> tmpVal = new global::System.Collections.Generic.Dictionary<int, MyInterfacePrx>();
+                tmpVal = IntMyInterfacePrxDictHelper.read(istr_);
+                imipd = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyInterfacePrx>>(tmpVal);
             }
             else
             {
-                ioopd = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, global::Ice.ObjectPrx>>();
+                imipd = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, MyInterfacePrx>>();
             }
             if(istr_.readOptional(29, global::Ice.OptionalFormat.VSize))
             {
@@ -2455,6 +2470,9 @@ namespace Test
 namespace Test
 {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public delegate void Callback_MyInterface_op();
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public delegate void Callback_Initial_shutdown();
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -2548,10 +2566,10 @@ namespace Test
     public delegate void Callback_Initial_opOneOptionalReq(global::Ice.Optional<OneOptional> ret, global::Ice.Optional<OneOptional> p3);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    public delegate void Callback_Initial_opOneOptionalProxy(global::Ice.Optional<global::Ice.ObjectPrx> ret, global::Ice.Optional<global::Ice.ObjectPrx> p3);
+    public delegate void Callback_Initial_opMyInterfaceProxy(global::Ice.Optional<MyInterfacePrx> ret, global::Ice.Optional<MyInterfacePrx> p3);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    public delegate void Callback_Initial_opOneOptionalProxyReq(global::Ice.Optional<global::Ice.ObjectPrx> ret, global::Ice.Optional<global::Ice.ObjectPrx> p3);
+    public delegate void Callback_Initial_opMyInterfaceProxyReq(global::Ice.Optional<MyInterfacePrx> ret, global::Ice.Optional<MyInterfacePrx> p3);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public delegate void Callback_Initial_opByteSeq(global::Ice.Optional<byte[]> ret, global::Ice.Optional<byte[]> p3);
@@ -3024,28 +3042,28 @@ namespace Test
         public global::Ice.Optional<OneOptional> p3;
     }
 
-    public struct Initial_OpOneOptionalProxyResult
+    public struct Initial_OpMyInterfaceProxyResult
     {
-        public Initial_OpOneOptionalProxyResult(global::Ice.Optional<global::Ice.ObjectPrx> returnValue, global::Ice.Optional<global::Ice.ObjectPrx> p3)
+        public Initial_OpMyInterfaceProxyResult(global::Ice.Optional<MyInterfacePrx> returnValue, global::Ice.Optional<MyInterfacePrx> p3)
         {
             this.returnValue = returnValue;
             this.p3 = p3;
         }
 
-        public global::Ice.Optional<global::Ice.ObjectPrx> returnValue;
-        public global::Ice.Optional<global::Ice.ObjectPrx> p3;
+        public global::Ice.Optional<MyInterfacePrx> returnValue;
+        public global::Ice.Optional<MyInterfacePrx> p3;
     }
 
-    public struct Initial_OpOneOptionalProxyReqResult
+    public struct Initial_OpMyInterfaceProxyReqResult
     {
-        public Initial_OpOneOptionalProxyReqResult(global::Ice.Optional<global::Ice.ObjectPrx> returnValue, global::Ice.Optional<global::Ice.ObjectPrx> p3)
+        public Initial_OpMyInterfaceProxyReqResult(global::Ice.Optional<MyInterfacePrx> returnValue, global::Ice.Optional<MyInterfacePrx> p3)
         {
             this.returnValue = returnValue;
             this.p3 = p3;
         }
 
-        public global::Ice.Optional<global::Ice.ObjectPrx> returnValue;
-        public global::Ice.Optional<global::Ice.ObjectPrx> p3;
+        public global::Ice.Optional<MyInterfacePrx> returnValue;
+        public global::Ice.Optional<MyInterfacePrx> p3;
     }
 
     public struct Initial_OpByteSeqResult
@@ -3723,6 +3741,22 @@ namespace Test
 namespace Test
 {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public interface MyInterfacePrx : global::Ice.ObjectPrx
+    {
+        void op(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+
+        global::System.Threading.Tasks.Task opAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+
+        global::Ice.AsyncResult<Callback_MyInterface_op> begin_op(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+
+        global::Ice.AsyncResult begin_op(global::Ice.AsyncCallback callback, object cookie);
+
+        global::Ice.AsyncResult begin_op(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
+
+        void end_op(global::Ice.AsyncResult asyncResult);
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface InitialPrx : global::Ice.ObjectPrx
     {
         void shutdown(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -4097,29 +4131,29 @@ namespace Test
 
         global::Ice.Optional<OneOptional> end_opOneOptionalReq(out global::Ice.Optional<OneOptional> p3, global::Ice.AsyncResult asyncResult);
 
-        global::Ice.Optional<global::Ice.ObjectPrx> opOneOptionalProxy(global::Ice.Optional<global::Ice.ObjectPrx> p1, out global::Ice.Optional<global::Ice.ObjectPrx> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::Ice.Optional<MyInterfacePrx> opMyInterfaceProxy(global::Ice.Optional<MyInterfacePrx> p1, out global::Ice.Optional<MyInterfacePrx> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::System.Threading.Tasks.Task<Initial_OpOneOptionalProxyResult> opOneOptionalProxyAsync(global::Ice.Optional<global::Ice.ObjectPrx> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<Initial_OpMyInterfaceProxyResult> opMyInterfaceProxyAsync(global::Ice.Optional<MyInterfacePrx> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_Initial_opOneOptionalProxy> begin_opOneOptionalProxy(global::Ice.Optional<global::Ice.ObjectPrx> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::Ice.AsyncResult<Callback_Initial_opMyInterfaceProxy> begin_opMyInterfaceProxy(global::Ice.Optional<MyInterfacePrx> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::Ice.AsyncResult begin_opOneOptionalProxy(global::Ice.Optional<global::Ice.ObjectPrx> p1, global::Ice.AsyncCallback callback, object cookie);
+        global::Ice.AsyncResult begin_opMyInterfaceProxy(global::Ice.Optional<MyInterfacePrx> p1, global::Ice.AsyncCallback callback, object cookie);
 
-        global::Ice.AsyncResult begin_opOneOptionalProxy(global::Ice.Optional<global::Ice.ObjectPrx> p1, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
+        global::Ice.AsyncResult begin_opMyInterfaceProxy(global::Ice.Optional<MyInterfacePrx> p1, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
-        global::Ice.Optional<global::Ice.ObjectPrx> end_opOneOptionalProxy(out global::Ice.Optional<global::Ice.ObjectPrx> p3, global::Ice.AsyncResult asyncResult);
+        global::Ice.Optional<MyInterfacePrx> end_opMyInterfaceProxy(out global::Ice.Optional<MyInterfacePrx> p3, global::Ice.AsyncResult asyncResult);
 
-        global::Ice.Optional<global::Ice.ObjectPrx> opOneOptionalProxyReq(global::Ice.Optional<global::Ice.ObjectPrx> p1, out global::Ice.Optional<global::Ice.ObjectPrx> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::Ice.Optional<MyInterfacePrx> opMyInterfaceProxyReq(global::Ice.Optional<MyInterfacePrx> p1, out global::Ice.Optional<MyInterfacePrx> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::System.Threading.Tasks.Task<Initial_OpOneOptionalProxyReqResult> opOneOptionalProxyReqAsync(global::Ice.Optional<global::Ice.ObjectPrx> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<Initial_OpMyInterfaceProxyReqResult> opMyInterfaceProxyReqAsync(global::Ice.Optional<MyInterfacePrx> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_Initial_opOneOptionalProxyReq> begin_opOneOptionalProxyReq(global::Ice.Optional<global::Ice.ObjectPrx> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::Ice.AsyncResult<Callback_Initial_opMyInterfaceProxyReq> begin_opMyInterfaceProxyReq(global::Ice.Optional<MyInterfacePrx> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::Ice.AsyncResult begin_opOneOptionalProxyReq(global::Ice.Optional<global::Ice.ObjectPrx> p1, global::Ice.AsyncCallback callback, object cookie);
+        global::Ice.AsyncResult begin_opMyInterfaceProxyReq(global::Ice.Optional<MyInterfacePrx> p1, global::Ice.AsyncCallback callback, object cookie);
 
-        global::Ice.AsyncResult begin_opOneOptionalProxyReq(global::Ice.Optional<global::Ice.ObjectPrx> p1, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
+        global::Ice.AsyncResult begin_opMyInterfaceProxyReq(global::Ice.Optional<MyInterfacePrx> p1, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
-        global::Ice.Optional<global::Ice.ObjectPrx> end_opOneOptionalProxyReq(out global::Ice.Optional<global::Ice.ObjectPrx> p3, global::Ice.AsyncResult asyncResult);
+        global::Ice.Optional<MyInterfacePrx> end_opMyInterfaceProxyReq(out global::Ice.Optional<MyInterfacePrx> p3, global::Ice.AsyncResult asyncResult);
 
         global::Ice.Optional<byte[]> opByteSeq(global::Ice.Optional<byte[]> p1, out global::Ice.Optional<byte[]> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
@@ -4750,6 +4784,13 @@ namespace Test
 namespace Test
 {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public interface MyInterfaceOperations_
+    {
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+        void op(global::Ice.Current current = null);
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface InitialOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
@@ -4846,10 +4887,10 @@ namespace Test
         global::Ice.Optional<OneOptional> opOneOptionalReq(global::Ice.Optional<OneOptional> p1, out global::Ice.Optional<OneOptional> p3, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        global::Ice.Optional<global::Ice.ObjectPrx> opOneOptionalProxy(global::Ice.Optional<global::Ice.ObjectPrx> p1, out global::Ice.Optional<global::Ice.ObjectPrx> p3, global::Ice.Current current = null);
+        global::Ice.Optional<MyInterfacePrx> opMyInterfaceProxy(global::Ice.Optional<MyInterfacePrx> p1, out global::Ice.Optional<MyInterfacePrx> p3, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        global::Ice.Optional<global::Ice.ObjectPrx> opOneOptionalProxyReq(global::Ice.Optional<global::Ice.ObjectPrx> p1, out global::Ice.Optional<global::Ice.ObjectPrx> p3, global::Ice.Current current = null);
+        global::Ice.Optional<MyInterfacePrx> opMyInterfaceProxyReq(global::Ice.Optional<MyInterfacePrx> p1, out global::Ice.Optional<MyInterfacePrx> p3, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
         global::Ice.Optional<byte[]> opByteSeq(global::Ice.Optional<byte[]> p1, out global::Ice.Optional<byte[]> p3, global::Ice.Current current = null);
@@ -5011,6 +5052,240 @@ namespace Test
 
 namespace Test
 {
+    [global::System.Runtime.InteropServices.ComVisible(false)]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public sealed class MyInterfacePrxHelper : global::Ice.ObjectPrxHelperBase, MyInterfacePrx
+    {
+        public MyInterfacePrxHelper()
+        {
+        }
+
+        #region Synchronous operations
+
+        public void op(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        {
+            try
+            {
+                _iceI_opAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
+            }
+            catch(global::System.AggregateException ex_)
+            {
+                throw ex_.InnerException;
+            }
+        }
+
+        #endregion
+
+        #region Async Task operations
+
+        public global::System.Threading.Tasks.Task opAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        {
+            return _iceI_opAsync(context, progress, cancel, false);
+        }
+
+        private global::System.Threading.Tasks.Task _iceI_opAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        {
+            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
+            _iceI_op(context, synchronous, completed);
+            return completed.Task;
+        }
+
+        private const string _op_name = "op";
+
+        private void _iceI_op(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        {
+            var outAsync = getOutgoingAsync<object>(completed);
+            outAsync.invoke(
+                _op_name,
+                global::Ice.OperationMode.Normal,
+                global::Ice.FormatType.DefaultFormat,
+                context,
+                synchronous);
+        }
+
+        #endregion
+
+        #region Asynchronous operations
+
+        public global::Ice.AsyncResult<Callback_MyInterface_op> begin_op(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        {
+            return begin_op(context, null, null, false);
+        }
+
+        public global::Ice.AsyncResult begin_op(global::Ice.AsyncCallback callback, object cookie)
+        {
+            return begin_op(new global::Ice.OptionalContext(), callback, cookie, false);
+        }
+
+        public global::Ice.AsyncResult begin_op(global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
+        {
+            return begin_op(context, callback, cookie, false);
+        }
+
+        public void end_op(global::Ice.AsyncResult asyncResult)
+        {
+            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _op_name);
+            ((global::IceInternal.OutgoingAsyncT<object>)resultI_.OutgoingAsync).getResult(resultI_.wait());
+        }
+
+        private global::Ice.AsyncResult<Callback_MyInterface_op> begin_op(global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+        {
+            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_MyInterface_op, object>(
+                (Callback_MyInterface_op cb, object ret) =>
+                {
+                    if(cb != null)
+                    {
+                        cb.Invoke();
+                    }
+                },
+                this, _op_name, cookie, completedCallback);
+            _iceI_op(context, synchronous, completed);
+            return completed;
+        }
+
+        #endregion
+
+        #region Checked and unchecked cast operations
+
+        public static MyInterfacePrx checkedCast(global::Ice.ObjectPrx b)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            MyInterfacePrx r = b as MyInterfacePrx;
+            if((r == null) && b.ice_isA(ice_staticId()))
+            {
+                MyInterfacePrxHelper h = new MyInterfacePrxHelper();
+                h.iceCopyFrom(b);
+                r = h;
+            }
+            return r;
+        }
+
+        public static MyInterfacePrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            MyInterfacePrx r = b as MyInterfacePrx;
+            if((r == null) && b.ice_isA(ice_staticId(), ctx))
+            {
+                MyInterfacePrxHelper h = new MyInterfacePrxHelper();
+                h.iceCopyFrom(b);
+                r = h;
+            }
+            return r;
+        }
+
+        public static MyInterfacePrx checkedCast(global::Ice.ObjectPrx b, string f)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            try
+            {
+                if(bb.ice_isA(ice_staticId()))
+                {
+                    MyInterfacePrxHelper h = new MyInterfacePrxHelper();
+                    h.iceCopyFrom(bb);
+                    return h;
+                }
+            }
+            catch(global::Ice.FacetNotExistException)
+            {
+            }
+            return null;
+        }
+
+        public static MyInterfacePrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            try
+            {
+                if(bb.ice_isA(ice_staticId(), ctx))
+                {
+                    MyInterfacePrxHelper h = new MyInterfacePrxHelper();
+                    h.iceCopyFrom(bb);
+                    return h;
+                }
+            }
+            catch(global::Ice.FacetNotExistException)
+            {
+            }
+            return null;
+        }
+
+        public static MyInterfacePrx uncheckedCast(global::Ice.ObjectPrx b)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            MyInterfacePrx r = b as MyInterfacePrx;
+            if(r == null)
+            {
+                MyInterfacePrxHelper h = new MyInterfacePrxHelper();
+                h.iceCopyFrom(b);
+                r = h;
+            }
+            return r;
+        }
+
+        public static MyInterfacePrx uncheckedCast(global::Ice.ObjectPrx b, string f)
+        {
+            if(b == null)
+            {
+                return null;
+            }
+            global::Ice.ObjectPrx bb = b.ice_facet(f);
+            MyInterfacePrxHelper h = new MyInterfacePrxHelper();
+            h.iceCopyFrom(bb);
+            return h;
+        }
+
+        private static readonly string[] _ids =
+        {
+            "::Ice::Object",
+            "::Test::MyInterface"
+        };
+
+        public static string ice_staticId()
+        {
+            return _ids[1];
+        }
+
+        #endregion
+
+        #region Marshaling support
+
+        public static void write(global::Ice.OutputStream ostr, MyInterfacePrx v)
+        {
+            ostr.writeProxy(v);
+        }
+
+        public static MyInterfacePrx read(global::Ice.InputStream istr)
+        {
+            global::Ice.ObjectPrx proxy = istr.readProxy();
+            if(proxy != null)
+            {
+                MyInterfacePrxHelper result = new MyInterfacePrxHelper();
+                result.iceCopyFrom(proxy);
+                return result;
+            }
+            return null;
+        }
+
+        #endregion
+    }
+
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public sealed class ByteSeqHelper
     {
@@ -5379,9 +5654,9 @@ namespace Test
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    public sealed class OneOptionalPrxSeqHelper
+    public sealed class MyInterfacePrxSeqHelper
     {
-        public static void write(global::Ice.OutputStream ostr, global::Ice.ObjectPrx[] v)
+        public static void write(global::Ice.OutputStream ostr, MyInterfacePrx[] v)
         {
             if(v == null)
             {
@@ -5392,19 +5667,21 @@ namespace Test
                 ostr.writeSize(v.Length);
                 for(int ix = 0; ix < v.Length; ++ix)
                 {
-                    ostr.writeProxy(v[ix]);
+                    MyInterfacePrxHelper.write(ostr, v[ix]);
                 }
             }
         }
 
-        public static global::Ice.ObjectPrx[] read(global::Ice.InputStream istr)
+        public static MyInterfacePrx[] read(global::Ice.InputStream istr)
         {
-            global::Ice.ObjectPrx[] v;
-            int v_lenx = istr.readAndCheckSeqSize(2);
-            v = new global::Ice.ObjectPrx[v_lenx];
-            for(int ix = 0; ix < v_lenx; ++ix)
+            MyInterfacePrx[] v;
             {
-                v[ix] = istr.readProxy();
+                int szx = istr.readAndCheckSeqSize(2);
+                v = new MyInterfacePrx[szx];
+                for(int ix = 0; ix < szx; ++ix)
+                {
+                    v[ix] = MyInterfacePrxHelper.read(istr);
+                }
             }
             return v;
         }
@@ -5649,10 +5926,10 @@ namespace Test
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    public sealed class IntOneOptionalPrxDictHelper
+    public sealed class IntMyInterfacePrxDictHelper
     {
         public static void write(global::Ice.OutputStream ostr,
-                                 global::System.Collections.Generic.Dictionary<int, global::Ice.ObjectPrx> v)
+                                 global::System.Collections.Generic.Dictionary<int, MyInterfacePrx> v)
         {
             if(v == null)
             {
@@ -5661,24 +5938,24 @@ namespace Test
             else
             {
                 ostr.writeSize(v.Count);
-                foreach(global::System.Collections.Generic.KeyValuePair<int, global::Ice.ObjectPrx> e in v)
+                foreach(global::System.Collections.Generic.KeyValuePair<int, MyInterfacePrx> e in v)
                 {
                     ostr.writeInt(e.Key);
-                    ostr.writeProxy(e.Value);
+                    MyInterfacePrxHelper.write(ostr, e.Value);
                 }
             }
         }
 
-        public static global::System.Collections.Generic.Dictionary<int, global::Ice.ObjectPrx> read(global::Ice.InputStream istr)
+        public static global::System.Collections.Generic.Dictionary<int, MyInterfacePrx> read(global::Ice.InputStream istr)
         {
             int sz = istr.readSize();
-            global::System.Collections.Generic.Dictionary<int, global::Ice.ObjectPrx> r = new global::System.Collections.Generic.Dictionary<int, global::Ice.ObjectPrx>();
+            global::System.Collections.Generic.Dictionary<int, MyInterfacePrx> r = new global::System.Collections.Generic.Dictionary<int, MyInterfacePrx>();
             for(int i = 0; i < sz; ++i)
             {
                 int k;
                 k = istr.readInt();
-                global::Ice.ObjectPrx v;
-                v = istr.readProxy();
+                MyInterfacePrx v;
+                v = MyInterfacePrxHelper.read(istr);
                 r[k] = v;
             }
             return r;
@@ -6153,11 +6430,11 @@ namespace Test
             }
         }
 
-        public global::Ice.Optional<global::Ice.ObjectPrx> opOneOptionalProxy(global::Ice.Optional<global::Ice.ObjectPrx> p1, out global::Ice.Optional<global::Ice.ObjectPrx> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Ice.Optional<MyInterfacePrx> opMyInterfaceProxy(global::Ice.Optional<MyInterfacePrx> p1, out global::Ice.Optional<MyInterfacePrx> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
-                var result_ = _iceI_opOneOptionalProxyAsync(p1, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                var result_ = _iceI_opMyInterfaceProxyAsync(p1, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 p3 = result_.p3;
                 return result_.returnValue;
             }
@@ -6167,11 +6444,11 @@ namespace Test
             }
         }
 
-        public global::Ice.Optional<global::Ice.ObjectPrx> opOneOptionalProxyReq(global::Ice.Optional<global::Ice.ObjectPrx> p1, out global::Ice.Optional<global::Ice.ObjectPrx> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Ice.Optional<MyInterfacePrx> opMyInterfaceProxyReq(global::Ice.Optional<MyInterfacePrx> p1, out global::Ice.Optional<MyInterfacePrx> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
-                var result_ = _iceI_opOneOptionalProxyReqAsync(p1, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                var result_ = _iceI_opMyInterfaceProxyReqAsync(p1, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 p3 = result_.p3;
                 return result_.returnValue;
             }
@@ -8260,26 +8537,26 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<Initial_OpOneOptionalProxyResult> opOneOptionalProxyAsync(global::Ice.Optional<global::Ice.ObjectPrx> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<Initial_OpMyInterfaceProxyResult> opMyInterfaceProxyAsync(global::Ice.Optional<MyInterfacePrx> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
-            return _iceI_opOneOptionalProxyAsync(p1, context, progress, cancel, false);
+            return _iceI_opMyInterfaceProxyAsync(p1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<Initial_OpOneOptionalProxyResult> _iceI_opOneOptionalProxyAsync(global::Ice.Optional<global::Ice.ObjectPrx> iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Initial_OpMyInterfaceProxyResult> _iceI_opMyInterfaceProxyAsync(global::Ice.Optional<MyInterfacePrx> iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            iceCheckTwowayOnly(_opOneOptionalProxy_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<Initial_OpOneOptionalProxyResult>(progress, cancel);
-            _iceI_opOneOptionalProxy(iceP_p1, context, synchronous, completed);
+            iceCheckTwowayOnly(_opMyInterfaceProxy_name);
+            var completed = new global::IceInternal.OperationTaskCompletionCallback<Initial_OpMyInterfaceProxyResult>(progress, cancel);
+            _iceI_opMyInterfaceProxy(iceP_p1, context, synchronous, completed);
             return completed.Task;
         }
 
-        private const string _opOneOptionalProxy_name = "opOneOptionalProxy";
+        private const string _opMyInterfaceProxy_name = "opMyInterfaceProxy";
 
-        private void _iceI_opOneOptionalProxy(global::Ice.Optional<global::Ice.ObjectPrx> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opMyInterfaceProxy(global::Ice.Optional<MyInterfacePrx> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<Initial_OpOneOptionalProxyResult>(completed);
+            var outAsync = getOutgoingAsync<Initial_OpMyInterfaceProxyResult>(completed);
             outAsync.invoke(
-                _opOneOptionalProxy_name,
+                _opMyInterfaceProxy_name,
                 global::Ice.OperationMode.Normal,
                 global::Ice.FormatType.DefaultFormat,
                 context,
@@ -8289,59 +8566,59 @@ namespace Test
                     if(iceP_p1.HasValue && ostr.writeOptional(2, global::Ice.OptionalFormat.FSize))
                     {
                         int pos = ostr.startSize();
-                        ostr.writeProxy(iceP_p1.Value);
+                        MyInterfacePrxHelper.write(ostr, iceP_p1.Value);
                         ostr.endSize(pos);
                     }
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    Initial_OpOneOptionalProxyResult ret = new Initial_OpOneOptionalProxyResult();
+                    Initial_OpMyInterfaceProxyResult ret = new Initial_OpMyInterfaceProxyResult();
                     if(istr.readOptional(1, global::Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
-                        global::Ice.ObjectPrx tmpVal;
-                        tmpVal = istr.readProxy();
-                        ret.returnValue = new global::Ice.Optional<global::Ice.ObjectPrx>(tmpVal);
+                        MyInterfacePrx tmpVal;
+                        tmpVal = MyInterfacePrxHelper.read(istr);
+                        ret.returnValue = new global::Ice.Optional<MyInterfacePrx>(tmpVal);
                     }
                     else
                     {
-                        ret.returnValue = new global::Ice.Optional<global::Ice.ObjectPrx>();
+                        ret.returnValue = new global::Ice.Optional<MyInterfacePrx>();
                     }
                     if(istr.readOptional(3, global::Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
-                        global::Ice.ObjectPrx tmpVal;
-                        tmpVal = istr.readProxy();
-                        ret.p3 = new global::Ice.Optional<global::Ice.ObjectPrx>(tmpVal);
+                        MyInterfacePrx tmpVal;
+                        tmpVal = MyInterfacePrxHelper.read(istr);
+                        ret.p3 = new global::Ice.Optional<MyInterfacePrx>(tmpVal);
                     }
                     else
                     {
-                        ret.p3 = new global::Ice.Optional<global::Ice.ObjectPrx>();
+                        ret.p3 = new global::Ice.Optional<MyInterfacePrx>();
                     }
                     return ret;
                 });
         }
 
-        public global::System.Threading.Tasks.Task<Initial_OpOneOptionalProxyReqResult> opOneOptionalProxyReqAsync(global::Ice.Optional<global::Ice.ObjectPrx> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<Initial_OpMyInterfaceProxyReqResult> opMyInterfaceProxyReqAsync(global::Ice.Optional<MyInterfacePrx> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
-            return _iceI_opOneOptionalProxyReqAsync(p1, context, progress, cancel, false);
+            return _iceI_opMyInterfaceProxyReqAsync(p1, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<Initial_OpOneOptionalProxyReqResult> _iceI_opOneOptionalProxyReqAsync(global::Ice.Optional<global::Ice.ObjectPrx> iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<Initial_OpMyInterfaceProxyReqResult> _iceI_opMyInterfaceProxyReqAsync(global::Ice.Optional<MyInterfacePrx> iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
-            iceCheckTwowayOnly(_opOneOptionalProxyReq_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<Initial_OpOneOptionalProxyReqResult>(progress, cancel);
-            _iceI_opOneOptionalProxyReq(iceP_p1, context, synchronous, completed);
+            iceCheckTwowayOnly(_opMyInterfaceProxyReq_name);
+            var completed = new global::IceInternal.OperationTaskCompletionCallback<Initial_OpMyInterfaceProxyReqResult>(progress, cancel);
+            _iceI_opMyInterfaceProxyReq(iceP_p1, context, synchronous, completed);
             return completed.Task;
         }
 
-        private const string _opOneOptionalProxyReq_name = "opOneOptionalProxyReq";
+        private const string _opMyInterfaceProxyReq_name = "opMyInterfaceProxyReq";
 
-        private void _iceI_opOneOptionalProxyReq(global::Ice.Optional<global::Ice.ObjectPrx> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_opMyInterfaceProxyReq(global::Ice.Optional<MyInterfacePrx> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
         {
-            var outAsync = getOutgoingAsync<Initial_OpOneOptionalProxyReqResult>(completed);
+            var outAsync = getOutgoingAsync<Initial_OpMyInterfaceProxyReqResult>(completed);
             outAsync.invoke(
-                _opOneOptionalProxyReq_name,
+                _opMyInterfaceProxyReq_name,
                 global::Ice.OperationMode.Normal,
                 global::Ice.FormatType.DefaultFormat,
                 context,
@@ -8351,34 +8628,34 @@ namespace Test
                     if(iceP_p1.HasValue && ostr.writeOptional(2, global::Ice.OptionalFormat.FSize))
                     {
                         int pos = ostr.startSize();
-                        ostr.writeProxy(iceP_p1.Value);
+                        MyInterfacePrxHelper.write(ostr, iceP_p1.Value);
                         ostr.endSize(pos);
                     }
                 },
                 read: (global::Ice.InputStream istr) =>
                 {
-                    Initial_OpOneOptionalProxyReqResult ret = new Initial_OpOneOptionalProxyReqResult();
+                    Initial_OpMyInterfaceProxyReqResult ret = new Initial_OpMyInterfaceProxyReqResult();
                     if(istr.readOptional(1, global::Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
-                        global::Ice.ObjectPrx tmpVal;
-                        tmpVal = istr.readProxy();
-                        ret.returnValue = new global::Ice.Optional<global::Ice.ObjectPrx>(tmpVal);
+                        MyInterfacePrx tmpVal;
+                        tmpVal = MyInterfacePrxHelper.read(istr);
+                        ret.returnValue = new global::Ice.Optional<MyInterfacePrx>(tmpVal);
                     }
                     else
                     {
-                        ret.returnValue = new global::Ice.Optional<global::Ice.ObjectPrx>();
+                        ret.returnValue = new global::Ice.Optional<MyInterfacePrx>();
                     }
                     if(istr.readOptional(3, global::Ice.OptionalFormat.FSize))
                     {
                         istr.skip(4);
-                        global::Ice.ObjectPrx tmpVal;
-                        tmpVal = istr.readProxy();
-                        ret.p3 = new global::Ice.Optional<global::Ice.ObjectPrx>(tmpVal);
+                        MyInterfacePrx tmpVal;
+                        tmpVal = MyInterfacePrxHelper.read(istr);
+                        ret.p3 = new global::Ice.Optional<MyInterfacePrx>(tmpVal);
                     }
                     else
                     {
-                        ret.p3 = new global::Ice.Optional<global::Ice.ObjectPrx>();
+                        ret.p3 = new global::Ice.Optional<MyInterfacePrx>();
                     }
                     return ret;
                 });
@@ -12291,83 +12568,83 @@ namespace Test
             return completed;
         }
 
-        public global::Ice.AsyncResult<Callback_Initial_opOneOptionalProxy> begin_opOneOptionalProxy(global::Ice.Optional<global::Ice.ObjectPrx> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Ice.AsyncResult<Callback_Initial_opMyInterfaceProxy> begin_opMyInterfaceProxy(global::Ice.Optional<MyInterfacePrx> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
-            return begin_opOneOptionalProxy(p1, context, null, null, false);
+            return begin_opMyInterfaceProxy(p1, context, null, null, false);
         }
 
-        public global::Ice.AsyncResult begin_opOneOptionalProxy(global::Ice.Optional<global::Ice.ObjectPrx> p1, global::Ice.AsyncCallback callback, object cookie)
+        public global::Ice.AsyncResult begin_opMyInterfaceProxy(global::Ice.Optional<MyInterfacePrx> p1, global::Ice.AsyncCallback callback, object cookie)
         {
-            return begin_opOneOptionalProxy(p1, new global::Ice.OptionalContext(), callback, cookie, false);
+            return begin_opMyInterfaceProxy(p1, new global::Ice.OptionalContext(), callback, cookie, false);
         }
 
-        public global::Ice.AsyncResult begin_opOneOptionalProxy(global::Ice.Optional<global::Ice.ObjectPrx> p1, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
+        public global::Ice.AsyncResult begin_opMyInterfaceProxy(global::Ice.Optional<MyInterfacePrx> p1, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
         {
-            return begin_opOneOptionalProxy(p1, context, callback, cookie, false);
+            return begin_opMyInterfaceProxy(p1, context, callback, cookie, false);
         }
 
-        public global::Ice.Optional<global::Ice.ObjectPrx> end_opOneOptionalProxy(out global::Ice.Optional<global::Ice.ObjectPrx> p3, global::Ice.AsyncResult asyncResult)
+        public global::Ice.Optional<MyInterfacePrx> end_opMyInterfaceProxy(out global::Ice.Optional<MyInterfacePrx> p3, global::Ice.AsyncResult asyncResult)
         {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _opOneOptionalProxy_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<Initial_OpOneOptionalProxyResult>)resultI_.OutgoingAsync;
+            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _opMyInterfaceProxy_name);
+            var outgoing_ = (global::IceInternal.OutgoingAsyncT<Initial_OpMyInterfaceProxyResult>)resultI_.OutgoingAsync;
             var result_ = outgoing_.getResult(resultI_.wait());
             p3 = result_.p3;
             return result_.returnValue;
         }
 
-        private global::Ice.AsyncResult<Callback_Initial_opOneOptionalProxy> begin_opOneOptionalProxy(global::Ice.Optional<global::Ice.ObjectPrx> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+        private global::Ice.AsyncResult<Callback_Initial_opMyInterfaceProxy> begin_opMyInterfaceProxy(global::Ice.Optional<MyInterfacePrx> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
         {
-            iceCheckAsyncTwowayOnly(_opOneOptionalProxy_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Initial_opOneOptionalProxy, Initial_OpOneOptionalProxyResult>(
-                (Callback_Initial_opOneOptionalProxy cb, Initial_OpOneOptionalProxyResult ret) =>
+            iceCheckAsyncTwowayOnly(_opMyInterfaceProxy_name);
+            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Initial_opMyInterfaceProxy, Initial_OpMyInterfaceProxyResult>(
+                (Callback_Initial_opMyInterfaceProxy cb, Initial_OpMyInterfaceProxyResult ret) =>
                 {
                     if(cb != null)
                     {
                         cb.Invoke(ret.returnValue, ret.p3);
                     }
                 },
-                this, _opOneOptionalProxy_name, cookie, completedCallback);
-            _iceI_opOneOptionalProxy(iceP_p1, context, synchronous, completed);
+                this, _opMyInterfaceProxy_name, cookie, completedCallback);
+            _iceI_opMyInterfaceProxy(iceP_p1, context, synchronous, completed);
             return completed;
         }
 
-        public global::Ice.AsyncResult<Callback_Initial_opOneOptionalProxyReq> begin_opOneOptionalProxyReq(global::Ice.Optional<global::Ice.ObjectPrx> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Ice.AsyncResult<Callback_Initial_opMyInterfaceProxyReq> begin_opMyInterfaceProxyReq(global::Ice.Optional<MyInterfacePrx> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
-            return begin_opOneOptionalProxyReq(p1, context, null, null, false);
+            return begin_opMyInterfaceProxyReq(p1, context, null, null, false);
         }
 
-        public global::Ice.AsyncResult begin_opOneOptionalProxyReq(global::Ice.Optional<global::Ice.ObjectPrx> p1, global::Ice.AsyncCallback callback, object cookie)
+        public global::Ice.AsyncResult begin_opMyInterfaceProxyReq(global::Ice.Optional<MyInterfacePrx> p1, global::Ice.AsyncCallback callback, object cookie)
         {
-            return begin_opOneOptionalProxyReq(p1, new global::Ice.OptionalContext(), callback, cookie, false);
+            return begin_opMyInterfaceProxyReq(p1, new global::Ice.OptionalContext(), callback, cookie, false);
         }
 
-        public global::Ice.AsyncResult begin_opOneOptionalProxyReq(global::Ice.Optional<global::Ice.ObjectPrx> p1, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
+        public global::Ice.AsyncResult begin_opMyInterfaceProxyReq(global::Ice.Optional<MyInterfacePrx> p1, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
         {
-            return begin_opOneOptionalProxyReq(p1, context, callback, cookie, false);
+            return begin_opMyInterfaceProxyReq(p1, context, callback, cookie, false);
         }
 
-        public global::Ice.Optional<global::Ice.ObjectPrx> end_opOneOptionalProxyReq(out global::Ice.Optional<global::Ice.ObjectPrx> p3, global::Ice.AsyncResult asyncResult)
+        public global::Ice.Optional<MyInterfacePrx> end_opMyInterfaceProxyReq(out global::Ice.Optional<MyInterfacePrx> p3, global::Ice.AsyncResult asyncResult)
         {
-            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _opOneOptionalProxyReq_name);
-            var outgoing_ = (global::IceInternal.OutgoingAsyncT<Initial_OpOneOptionalProxyReqResult>)resultI_.OutgoingAsync;
+            var resultI_ = global::IceInternal.AsyncResultI.check(asyncResult, this, _opMyInterfaceProxyReq_name);
+            var outgoing_ = (global::IceInternal.OutgoingAsyncT<Initial_OpMyInterfaceProxyReqResult>)resultI_.OutgoingAsync;
             var result_ = outgoing_.getResult(resultI_.wait());
             p3 = result_.p3;
             return result_.returnValue;
         }
 
-        private global::Ice.AsyncResult<Callback_Initial_opOneOptionalProxyReq> begin_opOneOptionalProxyReq(global::Ice.Optional<global::Ice.ObjectPrx> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+        private global::Ice.AsyncResult<Callback_Initial_opMyInterfaceProxyReq> begin_opMyInterfaceProxyReq(global::Ice.Optional<MyInterfacePrx> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
         {
-            iceCheckAsyncTwowayOnly(_opOneOptionalProxyReq_name);
-            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Initial_opOneOptionalProxyReq, Initial_OpOneOptionalProxyReqResult>(
-                (Callback_Initial_opOneOptionalProxyReq cb, Initial_OpOneOptionalProxyReqResult ret) =>
+            iceCheckAsyncTwowayOnly(_opMyInterfaceProxyReq_name);
+            var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_Initial_opMyInterfaceProxyReq, Initial_OpMyInterfaceProxyReqResult>(
+                (Callback_Initial_opMyInterfaceProxyReq cb, Initial_OpMyInterfaceProxyReqResult ret) =>
                 {
                     if(cb != null)
                     {
                         cb.Invoke(ret.returnValue, ret.p3);
                     }
                 },
-                this, _opOneOptionalProxyReq_name, cookie, completedCallback);
-            _iceI_opOneOptionalProxyReq(iceP_p1, context, synchronous, completed);
+                this, _opMyInterfaceProxyReq_name, cookie, completedCallback);
+            _iceI_opMyInterfaceProxyReq(iceP_p1, context, synchronous, completed);
             return completed;
         }
 
@@ -14565,6 +14842,107 @@ namespace Test
 {
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
+    public abstract class MyInterfaceDisp_ : global::Ice.ObjectImpl, MyInterface
+    {
+        #region Slice operations
+
+        public abstract void op(global::Ice.Current current = null);
+
+        #endregion
+
+        #region Slice type-related members
+
+        private static readonly string[] _ids =
+        {
+            "::Ice::Object",
+            "::Test::MyInterface"
+        };
+
+        public override bool ice_isA(string s, global::Ice.Current current = null)
+        {
+            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
+        }
+
+        public override string[] ice_ids(global::Ice.Current current = null)
+        {
+            return _ids;
+        }
+
+        public override string ice_id(global::Ice.Current current = null)
+        {
+            return _ids[1];
+        }
+
+        public static new string ice_staticId()
+        {
+            return _ids[1];
+        }
+
+        #endregion
+
+        #region Operation dispatch
+
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
+        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        iceD_op(MyInterface obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        {
+            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
+            inS.readEmptyParams();
+            obj.op(current);
+            return inS.setResult(inS.writeEmptyParams());
+        }
+
+        private static readonly string[] _all =
+        {
+            "ice_id",
+            "ice_ids",
+            "ice_isA",
+            "ice_ping",
+            "op"
+        };
+
+        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
+        iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
+        {
+            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
+            if(pos < 0)
+            {
+                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
+            }
+
+            switch(pos)
+            {
+                case 0:
+                {
+                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
+                }
+                case 1:
+                {
+                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
+                }
+                case 2:
+                {
+                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
+                }
+                case 3:
+                {
+                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
+                }
+                case 4:
+                {
+                    return iceD_op(this, inS, current);
+                }
+            }
+
+            global::System.Diagnostics.Debug.Assert(false);
+            throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
+        }
+
+        #endregion
+    }
+
+    [global::System.Runtime.InteropServices.ComVisible(false)]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public abstract class InitialDisp_ : global::Ice.ObjectImpl, Initial
     {
         #region Slice operations
@@ -14631,9 +15009,9 @@ namespace Test
 
         public abstract global::Ice.Optional<OneOptional> opOneOptionalReq(global::Ice.Optional<OneOptional> p1, out global::Ice.Optional<OneOptional> p3, global::Ice.Current current = null);
 
-        public abstract global::Ice.Optional<global::Ice.ObjectPrx> opOneOptionalProxy(global::Ice.Optional<global::Ice.ObjectPrx> p1, out global::Ice.Optional<global::Ice.ObjectPrx> p3, global::Ice.Current current = null);
+        public abstract global::Ice.Optional<MyInterfacePrx> opMyInterfaceProxy(global::Ice.Optional<MyInterfacePrx> p1, out global::Ice.Optional<MyInterfacePrx> p3, global::Ice.Current current = null);
 
-        public abstract global::Ice.Optional<global::Ice.ObjectPrx> opOneOptionalProxyReq(global::Ice.Optional<global::Ice.ObjectPrx> p1, out global::Ice.Optional<global::Ice.ObjectPrx> p3, global::Ice.Current current = null);
+        public abstract global::Ice.Optional<MyInterfacePrx> opMyInterfaceProxyReq(global::Ice.Optional<MyInterfacePrx> p1, out global::Ice.Optional<MyInterfacePrx> p3, global::Ice.Current current = null);
 
         public abstract global::Ice.Optional<byte[]> opByteSeq(global::Ice.Optional<byte[]> p1, out global::Ice.Optional<byte[]> p3, global::Ice.Current current = null);
 
@@ -15465,36 +15843,36 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opOneOptionalProxy(Initial obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opMyInterfaceProxy(Initial obj, global::IceInternal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Optional<global::Ice.ObjectPrx> iceP_p1;
+            global::Ice.Optional<MyInterfacePrx> iceP_p1;
             if(istr.readOptional(2, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
-                global::Ice.ObjectPrx tmpVal;
-                tmpVal = istr.readProxy();
-                iceP_p1 = new global::Ice.Optional<global::Ice.ObjectPrx>(tmpVal);
+                MyInterfacePrx tmpVal;
+                tmpVal = MyInterfacePrxHelper.read(istr);
+                iceP_p1 = new global::Ice.Optional<MyInterfacePrx>(tmpVal);
             }
             else
             {
-                iceP_p1 = new global::Ice.Optional<global::Ice.ObjectPrx>();
+                iceP_p1 = new global::Ice.Optional<MyInterfacePrx>();
             }
             inS.endReadParams();
-            global::Ice.Optional<global::Ice.ObjectPrx> iceP_p3;
-            var ret = obj.opOneOptionalProxy(iceP_p1, out iceP_p3, current);
+            global::Ice.Optional<MyInterfacePrx> iceP_p3;
+            var ret = obj.opMyInterfaceProxy(iceP_p1, out iceP_p3, current);
             var ostr = inS.startWriteParams();
             if(ret.HasValue && ostr.writeOptional(1, global::Ice.OptionalFormat.FSize))
             {
                 int pos = ostr.startSize();
-                ostr.writeProxy(ret.Value);
+                MyInterfacePrxHelper.write(ostr, ret.Value);
                 ostr.endSize(pos);
             }
             if(iceP_p3.HasValue && ostr.writeOptional(3, global::Ice.OptionalFormat.FSize))
             {
                 int pos = ostr.startSize();
-                ostr.writeProxy(iceP_p3.Value);
+                MyInterfacePrxHelper.write(ostr, iceP_p3.Value);
                 ostr.endSize(pos);
             }
             inS.endWriteParams(ostr);
@@ -15503,36 +15881,36 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opOneOptionalProxyReq(Initial obj, global::IceInternal.Incoming inS, global::Ice.Current current)
+        iceD_opMyInterfaceProxyReq(Initial obj, global::IceInternal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
             var istr = inS.startReadParams();
-            global::Ice.Optional<global::Ice.ObjectPrx> iceP_p1;
+            global::Ice.Optional<MyInterfacePrx> iceP_p1;
             if(istr.readOptional(2, global::Ice.OptionalFormat.FSize))
             {
                 istr.skip(4);
-                global::Ice.ObjectPrx tmpVal;
-                tmpVal = istr.readProxy();
-                iceP_p1 = new global::Ice.Optional<global::Ice.ObjectPrx>(tmpVal);
+                MyInterfacePrx tmpVal;
+                tmpVal = MyInterfacePrxHelper.read(istr);
+                iceP_p1 = new global::Ice.Optional<MyInterfacePrx>(tmpVal);
             }
             else
             {
-                iceP_p1 = new global::Ice.Optional<global::Ice.ObjectPrx>();
+                iceP_p1 = new global::Ice.Optional<MyInterfacePrx>();
             }
             inS.endReadParams();
-            global::Ice.Optional<global::Ice.ObjectPrx> iceP_p3;
-            var ret = obj.opOneOptionalProxyReq(iceP_p1, out iceP_p3, current);
+            global::Ice.Optional<MyInterfacePrx> iceP_p3;
+            var ret = obj.opMyInterfaceProxyReq(iceP_p1, out iceP_p3, current);
             var ostr = inS.startWriteParams();
             if(ret.HasValue && ostr.writeOptional(1, global::Ice.OptionalFormat.FSize))
             {
                 int pos = ostr.startSize();
-                ostr.writeProxy(ret.Value);
+                MyInterfacePrxHelper.write(ostr, ret.Value);
                 ostr.endSize(pos);
             }
             if(iceP_p3.HasValue && ostr.writeOptional(3, global::Ice.OptionalFormat.FSize))
             {
                 int pos = ostr.startSize();
-                ostr.writeProxy(iceP_p3.Value);
+                MyInterfacePrxHelper.write(ostr, iceP_p3.Value);
                 ostr.endSize(pos);
             }
             inS.endWriteParams(ostr);
@@ -16921,9 +17299,9 @@ namespace Test
             "opMStruct2",
             "opMyEnum",
             "opMyEnumReq",
+            "opMyInterfaceProxy",
+            "opMyInterfaceProxyReq",
             "opOneOptional",
-            "opOneOptionalProxy",
-            "opOneOptionalProxyReq",
             "opOneOptionalReq",
             "opOptionalException",
             "opRequiredException",
@@ -17178,15 +17556,15 @@ namespace Test
                 }
                 case 51:
                 {
-                    return iceD_opOneOptional(this, inS, current);
+                    return iceD_opMyInterfaceProxy(this, inS, current);
                 }
                 case 52:
                 {
-                    return iceD_opOneOptionalProxy(this, inS, current);
+                    return iceD_opMyInterfaceProxyReq(this, inS, current);
                 }
                 case 53:
                 {
-                    return iceD_opOneOptionalProxyReq(this, inS, current);
+                    return iceD_opOneOptional(this, inS, current);
                 }
                 case 54:
                 {

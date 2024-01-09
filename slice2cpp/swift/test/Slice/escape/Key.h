@@ -625,12 +625,6 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< func>&);
 ::IceProxy::Ice::Object* upCast(func*);
 /// \endcond
 
-class _cpp_switch;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< _cpp_switch>&);
-::IceProxy::Ice::Object* upCast(_cpp_switch*);
-/// \endcond
-
 class _cpp_do;
 /// \cond INTERNAL
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< _cpp_do>&);
@@ -643,50 +637,30 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< _cpp_do>&);
 
 namespace _cpp_and
 {
-
-class _cpp_break;
-/// \cond INTERNAL
-::Ice::Object* upCast(_cpp_break*);
-/// \endcond
-typedef ::IceInternal::Handle< _cpp_break> breakPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::_cpp_break> breakPrx;
 typedef breakPrx breakPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(breakPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class func;
-/// \cond INTERNAL
-::Ice::Object* upCast(func*);
-/// \endcond
-typedef ::IceInternal::Handle< func> funcPtr;
+class _cpp_break;
+typedef ::IceInternal::Handle< _cpp_break> breakPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::func> funcPrx;
 typedef funcPrx funcPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(funcPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class func;
+typedef ::IceInternal::Handle< func> funcPtr;
 
 class _cpp_switch;
 /// \cond INTERNAL
 ::Ice::Object* upCast(_cpp_switch*);
 /// \endcond
 typedef ::IceInternal::Handle< _cpp_switch> switchPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::_cpp_switch> switchPrx;
-typedef switchPrx switchPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(switchPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-class _cpp_do;
-/// \cond INTERNAL
-::Ice::Object* upCast(_cpp_do*);
-/// \endcond
-typedef ::IceInternal::Handle< _cpp_do> doPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::_cpp_and::_cpp_do> doPrx;
 typedef doPrx doPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(doPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class _cpp_do;
+typedef ::IceInternal::Handle< _cpp_do> doPtr;
 
 }
 
@@ -1117,23 +1091,6 @@ protected:
     /// \endcond
 };
 
-class _cpp_switch : public virtual ::Ice::Proxy<_cpp_switch, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
 /// \cond INTERNAL
 class _doBase : public virtual ::IceProxy::_cpp_and::func, 
                 public virtual ::IceProxy::_cpp_and::_cpp_break
@@ -1177,7 +1134,6 @@ class _cpp_break : public virtual ::Ice::Object
 public:
 
     typedef breakPrx ProxyType;
-    typedef breakPtr PointerType;
 
     virtual ~_cpp_break();
     _cpp_break() = default;
@@ -1220,33 +1176,13 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const _cpp_break& lhs, const _cpp_break& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const _cpp_break& lhs, const _cpp_break& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 class func : public virtual ::Ice::Object
 {
 public:
 
     typedef funcPrx ProxyType;
-    typedef funcPtr PointerType;
 
     virtual ~func();
     func() = default;
@@ -1289,32 +1225,62 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
+};
 
-protected:
+class _cpp_do : public virtual func,
+                public virtual _cpp_break
+{
+public:
 
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
+    typedef doPrx ProxyType;
+
+    virtual ~_cpp_do();
+    _cpp_do() = default;
+    _cpp_do(const _cpp_do&) = default;
+    _cpp_do& operator=(const _cpp_do&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const func& lhs, const func& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
 }
 
-inline bool operator<(const func& lhs, const func& rhs)
+namespace _cpp_and
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 class _cpp_switch : public virtual ::Ice::Object
 {
 public:
 
-    typedef switchPrx ProxyType;
     typedef switchPtr PointerType;
 
     virtual ~_cpp_switch();
@@ -1399,71 +1365,6 @@ inline bool operator==(const _cpp_switch& lhs, const _cpp_switch& rhs)
 }
 
 inline bool operator<(const _cpp_switch& lhs, const _cpp_switch& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class _cpp_do : virtual public func,
-                virtual public _cpp_break
-{
-public:
-
-    typedef doPrx ProxyType;
-    typedef doPtr PointerType;
-
-    virtual ~_cpp_do();
-    _cpp_do() = default;
-    _cpp_do(const _cpp_do&) = default;
-    _cpp_do& operator=(const _cpp_do&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const _cpp_do& lhs, const _cpp_do& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const _cpp_do& lhs, const _cpp_do& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
 }

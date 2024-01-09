@@ -82,13 +82,13 @@ open class PermissionDeniedException: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `PermissionsVerifier`.
+/// Traits for Slice interface`PermissionsVerifier`.
 public struct PermissionsVerifierTraits: Ice.SliceTraits {
     public static let staticIds = ["::Glacier2::PermissionsVerifier", "::Ice::Object"]
     public static let staticId = "::Glacier2::PermissionsVerifier"
 }
 
-/// Traits for Slice interface `SSLPermissionsVerifier`.
+/// Traits for Slice interface`SSLPermissionsVerifier`.
 public struct SSLPermissionsVerifierTraits: Ice.SliceTraits {
     public static let staticIds = ["::Glacier2::SSLPermissionsVerifier", "::Ice::Object"]
     public static let staticId = "::Glacier2::SSLPermissionsVerifier"

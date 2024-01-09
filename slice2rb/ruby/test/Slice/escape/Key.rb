@@ -128,8 +128,6 @@ module ::BEGIN_
             T_BreakPrx = ::Ice::__declareProxy('::BEGIN::break')
         end
 
-        T_Break.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_BreakPrx.defineProxy(BreakPrx, nil, [])
 
         BreakPrx_mixin::OP_case = ::Ice::__defineOperation('case', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
@@ -183,8 +181,6 @@ module ::BEGIN_
             T_Elsif = ::Ice::__declareClass('::BEGIN::elsif')
             T_ElsifPrx = ::Ice::__declareProxy('::BEGIN::elsif')
         end
-
-        T_Elsif.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_ElsifPrx.defineProxy(ElsifPrx, nil, [::BEGIN_::T_BreakPrx])
     end
@@ -255,11 +251,9 @@ module ::BEGIN_
             T_ExtendPrx = ::Ice::__declareProxy('::BEGIN::extend')
         end
 
-        T_Extend.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_ExtendPrx.defineProxy(ExtendPrx, nil, [])
 
-        ExtendPrx_mixin::OP_for = ::Ice::__defineOperation('for', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::BEGIN_::T_Display, false, 0], [::BEGIN_::T_Elsif, false, 0], [::BEGIN_::T_BreakPrx, false, 0], [::BEGIN_::T_Display, false, 0], [::BEGIN_::T_Elsif, false, 0], [::Ice::T_int, false, 0]], [], [::BEGIN_::T_END_, false, 0], [::BEGIN_::T_Nil])
+        ExtendPrx_mixin::OP_for = ::Ice::__defineOperation('for', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::BEGIN_::T_Display, false, 0], [::BEGIN_::T_ElsifPrx, false, 0], [::BEGIN_::T_BreakPrx, false, 0], [::BEGIN_::T_Display, false, 0], [::BEGIN_::T_ElsifPrx, false, 0], [::Ice::T_int, false, 0]], [], [::BEGIN_::T_END_, false, 0], [::BEGIN_::T_Nil])
     end
 
     Redo = 1

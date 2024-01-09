@@ -261,7 +261,6 @@ namespace Test\NumPy
             return '::Test::NumPy::Custom';
         }
     }
-    $Test_NumPy__t_Custom = IcePHP_defineClass('::Test::NumPy::Custom', '\\Test\\NumPy\\Custom', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test_NumPy__t_CustomPrx = IcePHP_defineProxy('::Test::NumPy::Custom', $Ice__t_ObjectPrx, null);

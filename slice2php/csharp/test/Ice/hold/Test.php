@@ -37,7 +37,6 @@ namespace Test
             return '::Test::Hold';
         }
     }
-    $Test__t_Hold = IcePHP_defineClass('::Test::Hold', '\\Test\\Hold', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_HoldPrx = IcePHP_defineProxy('::Test::Hold', $Ice__t_ObjectPrx, null);

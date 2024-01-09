@@ -76,35 +76,6 @@ Test.Base = class extends Ice.Value
 
 Slice.defineValue(Test.Base, iceC_Test_Base_ids[1], false);
 
-const iceC_Test_AbstractBase_ids = [
-    "::Ice::Object",
-    "::Test::AbstractBase",
-    "::Test::Base"
-];
-
-Test.AbstractBase = class extends Test.Base
-{
-    constructor(theS, str)
-    {
-        super(theS, str);
-    }
-};
-
-Slice.defineValue(Test.AbstractBase, iceC_Test_AbstractBase_ids[1], false);
-
-Test.AbstractBaseDisp = class extends Ice.Object
-{
-};
-
-Test.AbstractBasePrx = class extends Ice.ObjectPrx
-{
-};
-
-Slice.defineOperations(Test.AbstractBaseDisp, Test.AbstractBasePrx, iceC_Test_AbstractBase_ids, 1,
-{
-    "op": [, , , , , , , , , ]
-});
-
 const iceC_Test_A_ids = [
     "::Ice::Object",
     "::Test::A"
@@ -357,43 +328,6 @@ Test.JPrx = class extends Ice.ObjectPrx
 Slice.defineOperations(Test.J, Test.JPrx, iceC_Test_J_ids, 2,
 {
     "doJ": [, , , , , , , , , ]
-});
-
-const iceC_Test_H_ids = [
-    "::Ice::Object",
-    "::Test::H",
-    "::Test::I"
-];
-
-Test.H = class extends Ice.Value
-{
-};
-
-Slice.defineValue(Test.H, iceC_Test_H_ids[1], false);
-
-Test.HDisp = class extends Ice.Object
-{
-    static get _iceImplements()
-    {
-        return [
-            Test.I
-        ];
-    }
-};
-
-Test.HPrx = class extends Ice.ObjectPrx
-{
-    static get _implements()
-    {
-        return [
-            Test.IPrx];
-    }
-};
-
-Slice.defineOperations(Test.HDisp, Test.HPrx, iceC_Test_H_ids, 1,
-{
-    "doH": [, , , , , , , , , ],
-    "doH2": [, , , , , , , , , ]
 });
 
 Slice.defineSequence(Test, "BaseSeqHelper", "Ice.ObjectHelper", false, "Test.Base");
@@ -907,9 +841,6 @@ Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, 1,
     "getMB": [, , , , ["Test.B", true], , , , , true],
     "getAMDMB": [, , , , ["Test.B", true], , , , , true],
     "getAll": [, , , , , , [["Test.B", true], ["Test.B", true], ["Test.C", true], ["Test.D", true]], , , true],
-    "getH": [, , , , ["Ice.Value", true], , , , , true],
-    "getI": [, , , , ["Ice.Value", true], , , , , true],
-    "getJ": [, , , , ["Ice.Value", true], , , , , true],
     "getK": [, , , , ["Test.K", true], , , , , true],
     "opValue": [, , , , [10, true], [[10, true]], [[10, true]], , true, true],
     "opValueSeq": [, , , , ["Test.ValueSeqHelper"], [["Test.ValueSeqHelper"]], [["Test.ValueSeqHelper"]], , true, true],
@@ -920,7 +851,6 @@ Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, 1,
         Test.EDerived
     ], , ],
     "setG": [, , , , , [["Test.G", true]], , , true, ],
-    "setI": [, , , , , [["Ice.Value", true]], , , true, ],
     "opBaseSeq": [, , , , ["Test.BaseSeqHelper"], [["Test.BaseSeqHelper"]], [["Test.BaseSeqHelper"]], , true, true],
     "getCompact": [, , , , ["Test.Compact", true], , , , , true],
     "getInnerA": [, , , , ["Test.Inner.A", true], , , , , true],

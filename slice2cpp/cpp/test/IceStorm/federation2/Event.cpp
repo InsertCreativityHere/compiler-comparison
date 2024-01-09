@@ -240,11 +240,6 @@ Test::Event::~Event()
 {
 }
 
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(Event* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Test_Event_ids[2] =
@@ -348,39 +343,5 @@ Test::Event::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cur
     }
 }
 /// \endcond
-
-/// \cond STREAM
-void
-Test::Event::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Event, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Event::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Event, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(EventPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = EventPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Event::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-namespace Ice
-{
-}
 
 #endif

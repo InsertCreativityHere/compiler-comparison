@@ -748,11 +748,6 @@ Test::Backend::~Backend()
 {
 }
 
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(Backend* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Test_Backend_ids[2] =
@@ -871,44 +866,9 @@ Test::Backend::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::Backend::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Backend, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Backend::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Backend, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(BackendPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = BackendPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Backend::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::TestController::~TestController()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(TestController* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1036,44 +996,9 @@ Test::TestController::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cur
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::TestController::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< TestController, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::TestController::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< TestController, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(TestControllerPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = TestControllerPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(TestController::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::TestSession::~TestSession()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(TestSession* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1178,36 +1103,6 @@ Test::TestSession::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curren
             assert(false);
             throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
         }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-Test::TestSession::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< TestSession, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::TestSession::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< TestSession, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(TestSessionPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = TestSessionPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(TestSession::ice_staticId(), v);
     }
 }
 /// \endcond

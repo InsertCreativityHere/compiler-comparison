@@ -50,6 +50,24 @@
 
     Slice.defineValue(Test.OneOptional, iceC_Test_OneOptional_ids[1], false);
 
+    const iceC_Test_MyInterface_ids = [
+        "::Ice::Object",
+        "::Test::MyInterface"
+    ];
+
+    Test.MyInterface = class extends Ice.Object
+    {
+    };
+
+    Test.MyInterfacePrx = class extends Ice.ObjectPrx
+    {
+    };
+
+    Slice.defineOperations(Test.MyInterface, Test.MyInterfacePrx, iceC_Test_MyInterface_ids, 1,
+    {
+        "op": [, , , , , , , , , ]
+    });
+
     Test.MyEnum = Slice.defineEnum([
         ['MyEnumMember', 0]]);
 
@@ -183,7 +201,7 @@
 
     Slice.defineSequence(Test, "OneOptionalSeqHelper", "Ice.ObjectHelper", false, "Test.OneOptional");
 
-    Slice.defineSequence(Test, "OneOptionalPrxSeqHelper", "Ice.ObjectPrx", false);
+    Slice.defineSequence(Test, "MyInterfacePrxSeqHelper", "Test.MyInterfacePrx", false);
 
     Slice.defineSequence(Test, "SerializableHelper", "Ice.ByteHelper", true);
 
@@ -199,7 +217,7 @@
 
     Slice.defineDictionary(Test, "IntOneOptionalDict", "IntOneOptionalDictHelper", "Ice.IntHelper", "Ice.ObjectHelper", false, undefined, "Test.OneOptional");
 
-    Slice.defineDictionary(Test, "IntOneOptionalPrxDict", "IntOneOptionalPrxDictHelper", "Ice.IntHelper", "Ice.ObjectPrx", false, undefined, undefined);
+    Slice.defineDictionary(Test, "IntMyInterfacePrxDict", "IntMyInterfacePrxDictHelper", "Ice.IntHelper", "Test.MyInterfacePrx", false, undefined, undefined);
 
     Slice.defineDictionary(Test, "IntStringDict", "IntStringDictHelper", "Ice.IntHelper", "Ice.StringHelper", false, undefined, undefined);
 
@@ -210,7 +228,7 @@
 
     Test.MultiOptional = class extends Ice.Value
     {
-        constructor(a = undefined, b = undefined, c = undefined, d = undefined, e = undefined, f = undefined, g = undefined, h = undefined, i = undefined, j = undefined, k = undefined, bs = undefined, ss = undefined, iid = undefined, sid = undefined, fs = undefined, vs = undefined, shs = undefined, es = undefined, fss = undefined, vss = undefined, oos = undefined, oops = undefined, ied = undefined, ifsd = undefined, ivsd = undefined, iood = undefined, ioopd = undefined, bos = undefined, ser = undefined)
+        constructor(a = undefined, b = undefined, c = undefined, d = undefined, e = undefined, f = undefined, g = undefined, h = undefined, i = undefined, j = undefined, k = undefined, bs = undefined, ss = undefined, iid = undefined, sid = undefined, fs = undefined, vs = undefined, shs = undefined, es = undefined, fss = undefined, vss = undefined, oos = undefined, mips = undefined, ied = undefined, ifsd = undefined, ivsd = undefined, iood = undefined, imipd = undefined, bos = undefined, ser = undefined)
         {
             super();
             this.a = a;
@@ -235,12 +253,12 @@
             this.fss = fss;
             this.vss = vss;
             this.oos = oos;
-            this.oops = oops;
+            this.mips = mips;
             this.ied = ied;
             this.ifsd = ifsd;
             this.ivsd = ivsd;
             this.iood = iood;
-            this.ioopd = ioopd;
+            this.imipd = imipd;
             this.bos = bos;
             this.ser = ser;
         }
@@ -256,7 +274,7 @@
             Ice.DoubleHelper.writeOptional(ostr, 7, this.g);
             Ice.StringHelper.writeOptional(ostr, 8, this.h);
             Test.MyEnum._writeOpt(ostr, 9, this.i);
-            Ice.ObjectPrx.writeOptional(ostr, 10, this.j);
+            Test.MyInterfacePrx.writeOptional(ostr, 10, this.j);
             ostr.writeOptionalValue(11, this.k);
             Test.ByteSeqHelper.writeOptional(ostr, 12, this.bs);
             Test.StringSeqHelper.writeOptional(ostr, 13, this.ss);
@@ -269,12 +287,12 @@
             Test.FixedStructSeqHelper.writeOptional(ostr, 20, this.fss);
             Test.VarStructSeqHelper.writeOptional(ostr, 21, this.vss);
             Test.OneOptionalSeqHelper.writeOptional(ostr, 22, this.oos);
-            Test.OneOptionalPrxSeqHelper.writeOptional(ostr, 23, this.oops);
+            Test.MyInterfacePrxSeqHelper.writeOptional(ostr, 23, this.mips);
             Test.IntEnumDictHelper.writeOptional(ostr, 24, this.ied);
             Test.IntFixedStructDictHelper.writeOptional(ostr, 25, this.ifsd);
             Test.IntVarStructDictHelper.writeOptional(ostr, 26, this.ivsd);
             Test.IntOneOptionalDictHelper.writeOptional(ostr, 27, this.iood);
-            Test.IntOneOptionalPrxDictHelper.writeOptional(ostr, 28, this.ioopd);
+            Test.IntMyInterfacePrxDictHelper.writeOptional(ostr, 28, this.imipd);
             Test.BoolSeqHelper.writeOptional(ostr, 29, this.bos);
             Test.SerializableHelper.writeOptional(ostr, 30, this.ser);
         }
@@ -290,7 +308,7 @@
             this.g = Ice.DoubleHelper.readOptional(istr, 7);
             this.h = Ice.StringHelper.readOptional(istr, 8);
             this.i = Test.MyEnum._readOpt(istr, 9);
-            this.j = Ice.ObjectPrx.readOptional(istr, 10);
+            this.j = Test.MyInterfacePrx.readOptional(istr, 10);
             istr.readOptionalValue(11, obj => this.k = obj, Test.MultiOptional);
             this.bs = Test.ByteSeqHelper.readOptional(istr, 12);
             this.ss = Test.StringSeqHelper.readOptional(istr, 13);
@@ -303,12 +321,12 @@
             this.fss = Test.FixedStructSeqHelper.readOptional(istr, 20);
             this.vss = Test.VarStructSeqHelper.readOptional(istr, 21);
             this.oos = Test.OneOptionalSeqHelper.readOptional(istr, 22);
-            this.oops = Test.OneOptionalPrxSeqHelper.readOptional(istr, 23);
+            this.mips = Test.MyInterfacePrxSeqHelper.readOptional(istr, 23);
             this.ied = Test.IntEnumDictHelper.readOptional(istr, 24);
             this.ifsd = Test.IntFixedStructDictHelper.readOptional(istr, 25);
             this.ivsd = Test.IntVarStructDictHelper.readOptional(istr, 26);
             this.iood = Test.IntOneOptionalDictHelper.readOptional(istr, 27);
-            this.ioopd = Test.IntOneOptionalPrxDictHelper.readOptional(istr, 28);
+            this.imipd = Test.IntMyInterfacePrxDictHelper.readOptional(istr, 28);
             this.bos = Test.BoolSeqHelper.readOptional(istr, 29);
             this.ser = Test.SerializableHelper.readOptional(istr, 30);
         }
@@ -812,7 +830,7 @@
         "opFixedStruct": [, , , , [Test.FixedStruct, , 1], [[Test.FixedStruct, , 2]], [[Test.FixedStruct, , 3]], , , ],
         "opVarStruct": [, , , , [Test.VarStruct, , 1], [[Test.VarStruct, , 2]], [[Test.VarStruct, , 3]], , , ],
         "opOneOptional": [, , , , ["Test.OneOptional", true, 1], [["Test.OneOptional", true, 2]], [["Test.OneOptional", true, 3]], , , ],
-        "opOneOptionalProxy": [, , , , [Ice.ObjectPrx, , 1], [[Ice.ObjectPrx, , 2]], [[Ice.ObjectPrx, , 3]], , , ],
+        "opMyInterfaceProxy": [, , , , ["Test.MyInterfacePrx", , 1], [["Test.MyInterfacePrx", , 2]], [["Test.MyInterfacePrx", , 3]], , , ],
         "opByteSeq": [, , , , ["Test.ByteSeqHelper", , 1], [["Test.ByteSeqHelper", , 2]], [["Test.ByteSeqHelper", , 3]], , , ],
         "opBoolSeq": [, , , , ["Test.BoolSeqHelper", , 1], [["Test.BoolSeqHelper", , 2]], [["Test.BoolSeqHelper", , 3]], , , ],
         "opShortSeq": [, , , , ["Test.ShortSeqHelper", , 1], [["Test.ShortSeqHelper", , 2]], [["Test.ShortSeqHelper", , 3]], , , ],

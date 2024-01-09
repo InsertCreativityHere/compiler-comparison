@@ -184,6 +184,11 @@ namespace Ice
 namespace
 {
 
+namespace
+{
+
+}
+
 }
 
 namespace
@@ -536,176 +541,6 @@ Test::ExceptionNoDefaults::_readImpl(::Ice::InputStream* istr)
     ExceptionNoDefaultsBase::_readImpl(istr);
 }
 /// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(Base* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< Base>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new Base;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::Base::_newInstance() const
-{
-    return new Base;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::Base::ice_staticId()
-{
-    return ::Test::Base::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(Derived* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< Derived>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new Derived;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::Derived::_newInstance() const
-{
-    return new Derived;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::Derived::ice_staticId()
-{
-    return ::Test::Derived::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(ClassProperty* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< ClassProperty>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new ClassProperty;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::ClassProperty::_newInstance() const
-{
-    return new ClassProperty;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::ClassProperty::ice_staticId()
-{
-    return ::Test::ClassProperty::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(ClassNoDefaultsBase* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< ClassNoDefaultsBase>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new ClassNoDefaultsBase;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::ClassNoDefaultsBase::_newInstance() const
-{
-    return new ClassNoDefaultsBase;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::ClassNoDefaultsBase::ice_staticId()
-{
-    return ::Test::ClassNoDefaultsBase::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(ClassNoDefaults* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< ClassNoDefaults>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new ClassNoDefaults;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::ClassNoDefaults::_newInstance() const
-{
-    return new ClassNoDefaults;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::ClassNoDefaults::ice_staticId()
-{
-    return ::Test::ClassNoDefaults::ice_staticId();
-}
 
 Test::Base::~Base()
 {

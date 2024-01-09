@@ -37,7 +37,6 @@ namespace Test
             return '::Test::Single';
         }
     }
-    $Test__t_Single = IcePHP_defineClass('::Test::Single', '\\Test\\Single', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_SinglePrx = IcePHP_defineProxy('::Test::Single', $Ice__t_ObjectPrx, null);

@@ -17,13 +17,13 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice class `D`.
+/// Traits for Slice class`D`.
 public struct DTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::A", "::Test::B", "::Test::D"]
     public static let staticId = "::Test::D"
 }
 
-/// Traits for Slice interface `Initial2`.
+/// Traits for Slice interface`Initial2`.
 public struct Initial2Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Initial2"]
     public static let staticId = "::Test::Initial2"

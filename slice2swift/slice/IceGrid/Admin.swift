@@ -1055,13 +1055,13 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice interface `Admin`.
+/// Traits for Slice interface`Admin`.
 public struct AdminTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::Admin"]
     public static let staticId = "::IceGrid::Admin"
 }
 
-/// Traits for Slice interface `FileIterator`.
+/// Traits for Slice interface`FileIterator`.
 public struct FileIteratorTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::FileIterator"]
     public static let staticId = "::IceGrid::FileIterator"
@@ -1417,7 +1417,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice interface `RegistryObserver`.
+/// Traits for Slice interface`RegistryObserver`.
 public struct RegistryObserverTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::RegistryObserver"]
     public static let staticId = "::IceGrid::RegistryObserver"
@@ -1490,31 +1490,31 @@ public struct NodeDynamicInfoSeqHelper {
     }
 }
 
-/// Traits for Slice interface `NodeObserver`.
+/// Traits for Slice interface`NodeObserver`.
 public struct NodeObserverTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::NodeObserver"]
     public static let staticId = "::IceGrid::NodeObserver"
 }
 
-/// Traits for Slice interface `ApplicationObserver`.
+/// Traits for Slice interface`ApplicationObserver`.
 public struct ApplicationObserverTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::ApplicationObserver"]
     public static let staticId = "::IceGrid::ApplicationObserver"
 }
 
-/// Traits for Slice interface `AdapterObserver`.
+/// Traits for Slice interface`AdapterObserver`.
 public struct AdapterObserverTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::AdapterObserver"]
     public static let staticId = "::IceGrid::AdapterObserver"
 }
 
-/// Traits for Slice interface `ObjectObserver`.
+/// Traits for Slice interface`ObjectObserver`.
 public struct ObjectObserverTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::ObjectObserver"]
     public static let staticId = "::IceGrid::ObjectObserver"
 }
 
-/// Traits for Slice interface `AdminSession`.
+/// Traits for Slice interface`AdminSession`.
 public struct AdminSessionTraits: Ice.SliceTraits {
     public static let staticIds = ["::Glacier2::Session", "::Ice::Object", "::IceGrid::AdminSession"]
     public static let staticId = "::IceGrid::AdminSession"

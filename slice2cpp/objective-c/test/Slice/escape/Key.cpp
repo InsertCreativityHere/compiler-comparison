@@ -94,27 +94,6 @@ const ::std::string iceC_and_switch_foo3_name = "foo3";
 
 const ::IceInternal::DefaultValueFactoryInit<::_cpp_and::_cpp_do> iceC_and_do_init("::and::do");
 
-const ::std::string iceC_and_do_ids[5] =
-{
-    "::Ice::Object",
-    "::and::break",
-    "::and::char",
-    "::and::do",
-    "::and::switch"
-};
-const ::std::string iceC_and_do_ops[] =
-{
-    "case",
-    "explicit",
-    "foo",
-    "foo2",
-    "foo3",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-
 const ::IceInternal::DefaultUserExceptionFactoryInit<::_cpp_and::_cpp_return> iceC_and_return_init("::and::return");
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::_cpp_and::_cpp_sizeof> iceC_and_sizeof_init("::and::sizeof");
@@ -452,88 +431,6 @@ _cpp_and::_cpp_switch::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
 /// \endcond
 
 bool
-_cpp_and::doDisp::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_and_do_ids, iceC_and_do_ids + 5, s);
-}
-
-::std::vector<::std::string>
-_cpp_and::doDisp::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector<::std::string>(&iceC_and_do_ids[0], &iceC_and_do_ids[5]);
-}
-
-::std::string
-_cpp_and::doDisp::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-_cpp_and::doDisp::ice_staticId()
-{
-    static const ::std::string typeId = "::and::do";
-    return typeId;
-}
-
-/// \cond INTERNAL
-bool
-_cpp_and::doDisp::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
-{
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_and_do_ops, iceC_and_do_ops + 9, current.operation);
-    if(r.first == r.second)
-    {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-    }
-
-    switch(r.first - iceC_and_do_ops)
-    {
-        case 0:
-        {
-            return _iceD_case(in, current);
-        }
-        case 1:
-        {
-            return _iceD_explicit(in, current);
-        }
-        case 2:
-        {
-            return _iceD_foo(in, current);
-        }
-        case 3:
-        {
-            return _iceD_foo2(in, current);
-        }
-        case 4:
-        {
-            return _iceD_foo3(in, current);
-        }
-        case 5:
-        {
-            return _iceD_ice_id(in, current);
-        }
-        case 6:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 7:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 8:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        default:
-        {
-            assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-        }
-    }
-}
-/// \endcond
-
-bool
 _cpp_and::_cpp_friend::ice_isA(::std::string s, const ::Ice::Current&) const
 {
     return ::std::binary_search(iceC_and_friend_ids, iceC_and_friend_ids + 2, s);
@@ -567,20 +464,18 @@ _cpp_and::_cpp_friend::_iceD_goto(::IceInternal::Incoming& inS, const ::Ice::Cur
     _cpp_continue iceP_if;
     _cpp_auto iceP_d;
     _cpp_delete iceP_inline;
-    ::std::shared_ptr<::Ice::Value> iceP_private;
     ::std::shared_ptr<::and::do> iceP_mutable;
     ::std::shared_ptr<breakPrx> iceP_namespace;
     ::std::shared_ptr<charPrx> iceP_new;
     ::std::shared_ptr<switchPrx> iceP_not;
-    ::std::shared_ptr<doPrx> iceP_operator;
     int iceP_or;
     int iceP_protected;
     int iceP_public;
     int iceP_register;
-    istr->readAll(iceP_if, iceP_d, iceP_inline, iceP_private, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_operator, iceP_or, iceP_protected, iceP_public, iceP_register);
+    istr->readAll(iceP_if, iceP_d, iceP_inline, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_or, iceP_protected, iceP_public, iceP_register);
     istr->readPendingValues();
     inS.endReadParams();
-    _cpp_auto ret = this->_cpp_goto(iceP_if, ::std::move(iceP_d), ::std::move(iceP_inline), ::std::move(iceP_private), ::std::move(iceP_mutable), ::std::move(iceP_namespace), ::std::move(iceP_new), ::std::move(iceP_not), ::std::move(iceP_operator), iceP_or, iceP_protected, iceP_public, iceP_register, current);
+    _cpp_auto ret = this->_cpp_goto(iceP_if, ::std::move(iceP_d), ::std::move(iceP_inline), ::std::move(iceP_mutable), ::std::move(iceP_namespace), ::std::move(iceP_new), ::std::move(iceP_not), iceP_or, iceP_protected, iceP_public, iceP_register, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);
     inS.endWriteParams();
@@ -779,28 +674,14 @@ _cpp_and::switchPrx::ice_staticId()
 }
 
 /// \cond INTERNAL
-::std::shared_ptr<::Ice::ObjectPrx>
-_cpp_and::doPrx::_newInstance() const
-{
-    return ::IceInternal::createProxy<doPrx>();
-}
-/// \endcond
-
-const ::std::string&
-_cpp_and::doPrx::ice_staticId()
-{
-    return doDisp::ice_staticId();
-}
-
-/// \cond INTERNAL
 void
-_cpp_and::friendPrx::_iceI_goto(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::_cpp_and::_cpp_auto>>& outAsync, _cpp_continue iceP_if, const _cpp_auto& iceP_d, const _cpp_delete& iceP_inline, const ::std::shared_ptr<::Ice::Value>& iceP_private, const ::std::shared_ptr<_cpp_do>& iceP_mutable, const ::std::shared_ptr<breakPrx>& iceP_namespace, const ::std::shared_ptr<charPrx>& iceP_new, const ::std::shared_ptr<switchPrx>& iceP_not, const ::std::shared_ptr<doPrx>& iceP_operator, int iceP_or, int iceP_protected, int iceP_public, int iceP_register, const ::Ice::Context& context)
+_cpp_and::friendPrx::_iceI_goto(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::_cpp_and::_cpp_auto>>& outAsync, _cpp_continue iceP_if, const _cpp_auto& iceP_d, const _cpp_delete& iceP_inline, const ::std::shared_ptr<_cpp_do>& iceP_mutable, const ::std::shared_ptr<breakPrx>& iceP_namespace, const ::std::shared_ptr<charPrx>& iceP_new, const ::std::shared_ptr<switchPrx>& iceP_not, int iceP_or, int iceP_protected, int iceP_public, int iceP_register, const ::Ice::Context& context)
 {
     _checkTwowayOnly(iceC_and_friend_goto_name);
     outAsync->invoke(iceC_and_friend_goto_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
-            ostr->writeAll(iceP_if, iceP_d, iceP_inline, iceP_private, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_operator, iceP_or, iceP_protected, iceP_public, iceP_register);
+            ostr->writeAll(iceP_if, iceP_d, iceP_inline, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_or, iceP_protected, iceP_public, iceP_register);
             ostr->writePendingValues();
         },
         [](const ::Ice::UserException& ex)
@@ -1345,44 +1226,6 @@ IceProxy::_cpp_and::_cpp_switch::ice_staticId()
     return ::_cpp_and::_cpp_switch::ice_staticId();
 }
 
-::IceProxy::_cpp_and::_doBase::~_doBase()
-{
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::_cpp_and::upCast(_cpp_do* p) { return p; }
-
-void
-::IceProxy::_cpp_and::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< _cpp_do>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new _cpp_do;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::_cpp_and::_cpp_do::_newInstance() const
-{
-    return new _cpp_do;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::_cpp_and::_cpp_do::ice_staticId()
-{
-    return ::_cpp_and::_cpp_do::ice_staticId();
-}
-
 /// \cond INTERNAL
 ::IceProxy::Ice::Object* ::IceProxy::_cpp_and::upCast(_cpp_friend* p) { return p; }
 
@@ -1404,7 +1247,7 @@ void
 /// \endcond
 
 ::Ice::AsyncResultPtr
-IceProxy::_cpp_and::_cpp_friend::_iceI_begin_goto(::_cpp_and::_cpp_continue iceP_if, const ::_cpp_and::_cpp_auto& iceP_d, const ::_cpp_and::deletePtr& iceP_inline, const ::_cpp_and::switchPtr& iceP_private, const ::_cpp_and::doPtr& iceP_mutable, const ::_cpp_and::breakPrx& iceP_namespace, const ::_cpp_and::charPrx& iceP_new, const ::_cpp_and::switchPrx& iceP_not, const ::_cpp_and::doPrx& iceP_operator, ::Ice::Int iceP_or, ::Ice::Int iceP_protected, ::Ice::Int iceP_public, ::Ice::Int iceP_register, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
+IceProxy::_cpp_and::_cpp_friend::_iceI_begin_goto(::_cpp_and::_cpp_continue iceP_if, const ::_cpp_and::_cpp_auto& iceP_d, const ::_cpp_and::deletePtr& iceP_inline, const ::_cpp_and::doPtr& iceP_mutable, const ::_cpp_and::breakPrx& iceP_namespace, const ::_cpp_and::charPrx& iceP_new, const ::_cpp_and::switchPrx& iceP_not, ::Ice::Int iceP_or, ::Ice::Int iceP_protected, ::Ice::Int iceP_public, ::Ice::Int iceP_register, const ::Ice::Context& context, const ::IceInternal::CallbackBasePtr& del, const ::Ice::LocalObjectPtr& cookie, bool sync)
 {
     _checkTwowayOnly(iceC_and_friend_goto_name, sync);
     ::IceInternal::OutgoingAsyncPtr result = new ::IceInternal::CallbackOutgoing(this, iceC_and_friend_goto_name, del, cookie, sync);
@@ -1415,12 +1258,10 @@ IceProxy::_cpp_and::_cpp_friend::_iceI_begin_goto(::_cpp_and::_cpp_continue iceP
         ostr->write(iceP_if);
         ostr->write(iceP_d);
         ostr->write(iceP_inline);
-        ostr->write(iceP_private);
         ostr->write(iceP_mutable);
         ostr->write(iceP_namespace);
         ostr->write(iceP_new);
         ostr->write(iceP_not);
-        ostr->write(iceP_operator);
         ostr->write(iceP_or);
         ostr->write(iceP_protected);
         ostr->write(iceP_public);
@@ -1519,11 +1360,6 @@ IceProxy::_cpp_and::_cpp_friend::ice_staticId()
 _cpp_and::_cpp_break::~_cpp_break()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* _cpp_and::upCast(_cpp_break* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1632,44 +1468,9 @@ _cpp_and::_cpp_break::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cur
 }
 /// \endcond
 
-/// \cond STREAM
-void
-_cpp_and::_cpp_break::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< _cpp_break, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-_cpp_and::_cpp_break::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< _cpp_break, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-_cpp_and::_icePatchObjectPtr(breakPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = breakPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(_cpp_break::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 _cpp_and::_cpp_char::~_cpp_char()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* _cpp_and::upCast(_cpp_char* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1772,44 +1573,9 @@ _cpp_and::_cpp_char::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
 }
 /// \endcond
 
-/// \cond STREAM
-void
-_cpp_and::_cpp_char::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< _cpp_char, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-_cpp_and::_cpp_char::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< _cpp_char, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-_cpp_and::_icePatchObjectPtr(charPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = charPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(_cpp_char::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 _cpp_and::_cpp_switch::~_cpp_switch()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* _cpp_and::upCast(_cpp_switch* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1966,200 +1732,9 @@ _cpp_and::_cpp_switch::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
 }
 /// \endcond
 
-/// \cond STREAM
-void
-_cpp_and::_cpp_switch::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< _cpp_switch, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-_cpp_and::_cpp_switch::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< _cpp_switch, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-_cpp_and::_icePatchObjectPtr(switchPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = switchPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(_cpp_switch::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-_cpp_and::_cpp_do::~_cpp_do()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* _cpp_and::upCast(_cpp_do* p) { return p; }
-
-/// \endcond
-::Ice::ObjectPtr
-_cpp_and::_cpp_do::ice_clone() const
-{
-    throw ::Ice::CloneNotImplementedException(__FILE__, __LINE__);
-}
-
-namespace
-{
-const ::std::string iceC_and_do_ids[5] =
-{
-    "::Ice::Object",
-    "::and::break",
-    "::and::char",
-    "::and::do",
-    "::and::switch"
-};
-
-}
-
-bool
-_cpp_and::_cpp_do::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_and_do_ids, iceC_and_do_ids + 5, s);
-}
-
-::std::vector< ::std::string>
-_cpp_and::_cpp_do::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_and_do_ids[0], &iceC_and_do_ids[5]);
-}
-
-const ::std::string&
-_cpp_and::_cpp_do::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-_cpp_and::_cpp_do::ice_staticId()
-{
-    static const ::std::string typeId = "::and::do";
-    return typeId;
-}
-
-namespace
-{
-const ::std::string iceC_and_do_all[] =
-{
-    "case",
-    "explicit",
-    "foo",
-    "foo2",
-    "foo3",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-
-}
-
-/// \cond INTERNAL
-bool
-_cpp_and::_cpp_do::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
-{
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_and_do_all, iceC_and_do_all + 9, current.operation);
-    if(r.first == r.second)
-    {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-    }
-
-    switch(r.first - iceC_and_do_all)
-    {
-        case 0:
-        {
-            return _iceD_case(in, current);
-        }
-        case 1:
-        {
-            return _iceD_explicit(in, current);
-        }
-        case 2:
-        {
-            return _iceD_foo(in, current);
-        }
-        case 3:
-        {
-            return _iceD_foo2(in, current);
-        }
-        case 4:
-        {
-            return _iceD_foo3(in, current);
-        }
-        case 5:
-        {
-            return _iceD_ice_id(in, current);
-        }
-        case 6:
-        {
-            return _iceD_ice_ids(in, current);
-        }
-        case 7:
-        {
-            return _iceD_ice_isA(in, current);
-        }
-        case 8:
-        {
-            return _iceD_ice_ping(in, current);
-        }
-        default:
-        {
-            assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
-        }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-_cpp_and::_cpp_do::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< _cpp_do, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-_cpp_and::_cpp_do::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< _cpp_do, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-_cpp_and::_icePatchObjectPtr(doPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = doPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(_cpp_do::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 _cpp_and::_cpp_friend::~_cpp_friend()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* _cpp_and::upCast(_cpp_friend* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -2205,12 +1780,10 @@ _cpp_and::_cpp_friend::_iceD_goto(::IceInternal::Incoming& inS, const ::Ice::Cur
     _cpp_continue iceP_if;
     _cpp_auto iceP_d;
     deletePtr iceP_inline;
-    ::and::switchPtr iceP_private;
     ::and::doPtr iceP_mutable;
     breakPrx iceP_namespace;
     charPrx iceP_new;
     switchPrx iceP_not;
-    doPrx iceP_operator;
     ::Ice::Int iceP_or;
     ::Ice::Int iceP_protected;
     ::Ice::Int iceP_public;
@@ -2218,19 +1791,17 @@ _cpp_and::_cpp_friend::_iceD_goto(::IceInternal::Incoming& inS, const ::Ice::Cur
     istr->read(iceP_if);
     istr->read(iceP_d);
     istr->read(iceP_inline);
-    istr->read(iceP_private);
     istr->read(iceP_mutable);
     istr->read(iceP_namespace);
     istr->read(iceP_new);
     istr->read(iceP_not);
-    istr->read(iceP_operator);
     istr->read(iceP_or);
     istr->read(iceP_protected);
     istr->read(iceP_public);
     istr->read(iceP_register);
     istr->readPendingValues();
     inS.endReadParams();
-    _cpp_auto ret = this->_cpp_goto(iceP_if, iceP_d, iceP_inline, iceP_private, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_operator, iceP_or, iceP_protected, iceP_public, iceP_register, current);
+    _cpp_auto ret = this->_cpp_goto(iceP_if, iceP_d, iceP_inline, iceP_mutable, iceP_namespace, iceP_new, iceP_not, iceP_or, iceP_protected, iceP_public, iceP_register, current);
     ::Ice::OutputStream* ostr = inS.startWriteParams();
     ostr->write(ret);
     inS.endWriteParams();
@@ -2334,32 +1905,93 @@ _cpp_and::_cpp_friend::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
 }
 /// \endcond
 
+_cpp_and::_cpp_do::~_cpp_do()
+{
+}
+
+/// \cond INTERNAL
+::Ice::Object* _cpp_and::upCast(_cpp_do* p) { return p; }
+
+/// \endcond
+::Ice::ObjectPtr
+_cpp_and::_cpp_do::ice_clone() const
+{
+    ::Ice::Object* p = new _cpp_do(*this);
+    return p;
+}
+
+namespace
+{
+const ::std::string iceC_and_do_ids[2] =
+{
+    "::Ice::Object",
+    "::and::do"
+};
+
+}
+
+bool
+_cpp_and::_cpp_do::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_and_do_ids, iceC_and_do_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+_cpp_and::_cpp_do::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_and_do_ids[0], &iceC_and_do_ids[2]);
+}
+
+const ::std::string&
+_cpp_and::_cpp_do::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+_cpp_and::_cpp_do::ice_staticId()
+{
+    static const ::std::string typeId = "::and::do";
+    return typeId;
+}
+
 /// \cond STREAM
 void
-_cpp_and::_cpp_friend::_iceWriteImpl(::Ice::OutputStream* ostr) const
+_cpp_and::_cpp_do::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< _cpp_friend, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter< _cpp_do, ::Ice::OutputStream>::write(ostr, *this);
     ostr->endSlice();
 }
 
 void
-_cpp_and::_cpp_friend::_iceReadImpl(::Ice::InputStream* istr)
+_cpp_and::_cpp_do::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader< _cpp_friend, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader< _cpp_do, ::Ice::InputStream>::read(istr, *this);
     istr->endSlice();
 }
 /// \endcond
 
+namespace
+{
+const ::IceInternal::DefaultValueFactoryInit< ::_cpp_and::_cpp_do> iceC_and_do_init("::and::do");
+}
+
+::Ice::ValueFactoryPtr
+_cpp_and::_cpp_do::ice_factory()
+{
+    return ::IceInternal::factoryTable->getValueFactory(::_cpp_and::_cpp_do::ice_staticId());
+}
+
 /// \cond INTERNAL
 void
-_cpp_and::_icePatchObjectPtr(friendPtr& handle, const ::Ice::ObjectPtr& v)
+_cpp_and::_icePatchObjectPtr(doPtr& handle, const ::Ice::ObjectPtr& v)
 {
-    handle = friendPtr::dynamicCast(v);
+    handle = doPtr::dynamicCast(v);
     if(v && !handle)
     {
-        IceInternal::Ex::throwUOE(_cpp_friend::ice_staticId(), v);
+        IceInternal::Ex::throwUOE(_cpp_do::ice_staticId(), v);
     }
 }
 /// \endcond

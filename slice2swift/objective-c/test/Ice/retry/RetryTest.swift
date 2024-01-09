@@ -17,7 +17,7 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice interface `Retry`.
+/// Traits for Slice interface`Retry`.
 public struct RetryTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Retry"]
     public static let staticId = "::Test::Retry"

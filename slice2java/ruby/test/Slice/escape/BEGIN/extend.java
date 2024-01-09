@@ -17,7 +17,7 @@ package BEGIN;
 
 public interface extend extends com.zeroc.Ice.Object
 {
-    END _for(display freeze, com.zeroc.Ice.Value hash, breakPrx _if, display inspect, com.zeroc.Ice.Value method, int methods, com.zeroc.Ice.Current current)
+    END _for(display freeze, elsifPrx hash, breakPrx _if, display inspect, elsifPrx method, int methods, com.zeroc.Ice.Current current)
         throws nil;
 
     /** @hidden */
@@ -58,23 +58,21 @@ public interface extend extends com.zeroc.Ice.Object
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
         final com.zeroc.IceInternal.Holder<display> icePP_freeze = new com.zeroc.IceInternal.Holder<>();
-        final com.zeroc.IceInternal.Holder<com.zeroc.Ice.Value> icePP_hash = new com.zeroc.IceInternal.Holder<>();
+        elsifPrx iceP_hash;
         breakPrx iceP_if;
         final com.zeroc.IceInternal.Holder<display> icePP_inspect = new com.zeroc.IceInternal.Holder<>();
-        final com.zeroc.IceInternal.Holder<com.zeroc.Ice.Value> icePP_method = new com.zeroc.IceInternal.Holder<>();
+        elsifPrx iceP_method;
         int iceP_methods;
         istr.readValue(v -> icePP_freeze.value = v, display.class);
-        istr.readValue(v -> icePP_hash.value = v, com.zeroc.Ice.Value.class);
+        iceP_hash = elsifPrx.uncheckedCast(istr.readProxy());
         iceP_if = breakPrx.uncheckedCast(istr.readProxy());
         istr.readValue(v -> icePP_inspect.value = v, display.class);
-        istr.readValue(v -> icePP_method.value = v, com.zeroc.Ice.Value.class);
+        iceP_method = elsifPrx.uncheckedCast(istr.readProxy());
         iceP_methods = istr.readInt();
         istr.readPendingValues();
         inS.endReadParams();
         display iceP_freeze = icePP_freeze.value;
-        com.zeroc.Ice.Value iceP_hash = icePP_hash.value;
         display iceP_inspect = icePP_inspect.value;
-        com.zeroc.Ice.Value iceP_method = icePP_method.value;
         END ret = obj._for(iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods, current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
         END.ice_write(ostr, ret);

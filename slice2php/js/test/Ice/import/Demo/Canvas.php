@@ -44,7 +44,6 @@ namespace Demo\gx
             return '::Demo::gx::Canvas';
         }
     }
-    $Demo_gx__t_Canvas = IcePHP_defineClass('::Demo::gx::Canvas', '\\Demo\\gx\\Canvas', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Demo_gx__t_CanvasPrx = IcePHP_defineProxy('::Demo::gx::Canvas', $Ice__t_ObjectPrx, null);
@@ -77,7 +76,6 @@ namespace Demo\gx
             return '::Demo::gx::Session';
         }
     }
-    $Demo_gx__t_Session = IcePHP_defineClass('::Demo::gx::Session', '\\Demo\\gx\\Session', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Demo_gx__t_SessionPrx = IcePHP_defineProxy('::Demo::gx::Session', $Ice__t_ObjectPrx, array($Glacier2__t_SessionPrx));

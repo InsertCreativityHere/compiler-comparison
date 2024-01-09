@@ -1084,11 +1084,6 @@ Test::TestIntf::~TestIntf()
 {
 }
 
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(TestIntf* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Test_TestIntf_ids[2] =
@@ -1267,44 +1262,9 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::TestIntf::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< TestIntf, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::TestIntf::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< TestIntf, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(TestIntfPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = TestIntfPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(TestIntf::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::RemoteObjectAdapter::~RemoteObjectAdapter()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(RemoteObjectAdapter* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1460,44 +1420,9 @@ Test::RemoteObjectAdapter::_iceDispatch(::IceInternal::Incoming& in, const ::Ice
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::RemoteObjectAdapter::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< RemoteObjectAdapter, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::RemoteObjectAdapter::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< RemoteObjectAdapter, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(RemoteObjectAdapterPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = RemoteObjectAdapterPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(RemoteObjectAdapter::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::RemoteCommunicator::~RemoteCommunicator()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(RemoteCommunicator* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1625,39 +1550,5 @@ Test::RemoteCommunicator::_iceDispatch(::IceInternal::Incoming& in, const ::Ice:
     }
 }
 /// \endcond
-
-/// \cond STREAM
-void
-Test::RemoteCommunicator::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< RemoteCommunicator, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::RemoteCommunicator::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< RemoteCommunicator, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(RemoteCommunicatorPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = RemoteCommunicatorPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(RemoteCommunicator::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-namespace Ice
-{
-}
 
 #endif

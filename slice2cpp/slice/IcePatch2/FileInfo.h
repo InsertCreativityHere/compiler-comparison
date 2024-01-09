@@ -49,6 +49,12 @@
 namespace IcePatch2
 {
 
+
+}
+
+namespace IcePatch2
+{
+
 /**
  * Basic information about a single file.
  * \headerfile IcePatch2/IcePatch2.h
@@ -176,6 +182,11 @@ struct StreamReader<::IcePatch2::LargeFileInfo, S>
 /// \endcond
 
 #else // C++98 mapping
+
+namespace IcePatch2
+{
+
+}
 
 namespace IcePatch2
 {

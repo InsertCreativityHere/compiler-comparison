@@ -481,40 +481,6 @@ Test::SPreserved2::_readImpl(::Ice::InputStream* istr)
 }
 /// \endcond
 
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(SPreservedClass* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< SPreservedClass>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new SPreservedClass;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::SPreservedClass::_newInstance() const
-{
-    return new SPreservedClass;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::SPreservedClass::ice_staticId()
-{
-    return ::Test::SPreservedClass::ice_staticId();
-}
-
 Test::SPreservedClass::~SPreservedClass()
 {
 }

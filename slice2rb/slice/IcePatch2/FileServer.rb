@@ -107,8 +107,6 @@ module ::IcePatch2
             T_FileServerPrx = ::Ice::__declareProxy('::IcePatch2::FileServer')
         end
 
-        T_FileServer.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_FileServerPrx.defineProxy(FileServerPrx, nil, [])
 
         FileServerPrx_mixin::OP_getFileInfoSeq = ::Ice::__defineOperation('getFileInfoSeq', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_int, false, 0]], [], [::IcePatch2::T_FileInfoSeq, false, 0], [::IcePatch2::T_PartitionOutOfRangeException, ::IcePatch2::T_FileSizeRangeException])

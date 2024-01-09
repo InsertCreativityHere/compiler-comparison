@@ -70,7 +70,6 @@ module ::Test
     end
 
     if not defined?(::Test::T_MyClass)
-        T_MyClass = ::Ice::__declareClass('::Test::MyClass')
         T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
     end
 
@@ -671,8 +670,6 @@ module ::Test
             T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
         end
 
-        T_MyClass.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_MyClassPrx.defineProxy(MyClassPrx, nil, [])
 
         MyClassPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
@@ -843,8 +840,6 @@ module ::Test
             T_MyDerivedClassPrx = ::Ice::__declareProxy('::Test::MyDerivedClass')
         end
 
-        T_MyDerivedClass.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_MyDerivedClassPrx.defineProxy(MyDerivedClassPrx, nil, [::Test::T_MyClassPrx])
 
         MyDerivedClassPrx_mixin::OP_opDerived = ::Ice::__defineOperation('opDerived', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
@@ -1001,94 +996,6 @@ module ::Test2
             T_MyDerivedClassPrx = ::Ice::__declareProxy('::Test2::MyDerivedClass')
         end
 
-        T_MyDerivedClass.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_MyDerivedClassPrx.defineProxy(MyDerivedClassPrx, nil, [::Test::T_MyClassPrx])
-    end
-end
-
-module ::M
-
-    if not defined?(::M::A_Mixin)
-
-        module ::M::A_Mixin
-        end
-        class A < ::Ice::Value
-
-            def initialize(x=0)
-                @x = x
-            end
-
-            attr_accessor :x
-        end
-
-        if not defined?(::M::T_A)
-            T_A = ::Ice::__declareClass('::M::A')
-        end
-
-        T_A.defineClass(A, -1, false, false, nil, [['x', ::Ice::T_int, false, 0]])
-    end
-
-    if not defined?(::M::Intf_Mixin)
-
-        module ::M::Intf_Mixin
-        end
-        module IntfPrx_mixin
-
-            def opIntf(context=nil)
-                IntfPrx_mixin::OP_opIntf.invoke(self, [], context)
-            end
-        end
-
-        class IntfPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
-            include IntfPrx_mixin
-        end
-
-        if not defined?(::M::T_IntfPrx)
-            T_Intf = ::Ice::__declareClass('::M::Intf')
-            T_IntfPrx = ::Ice::__declareProxy('::M::Intf')
-        end
-
-        T_Intf.defineClass(::Ice::Value, -1, false, true, nil, [])
-
-        T_IntfPrx.defineProxy(IntfPrx, nil, [])
-
-        IntfPrx_mixin::OP_opIntf = ::Ice::__defineOperation('opIntf', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-    end
-
-    if not defined?(::M::B_Mixin)
-
-        module ::M::B_Mixin
-        end
-        class B < ::M::A
-
-            def initialize(x=0)
-                super(x)
-            end
-        end
-        module BPrx_mixin
-            include ::M::IntfPrx_mixin
-
-            def opB(context=nil)
-                BPrx_mixin::OP_opB.invoke(self, [], context)
-            end
-        end
-
-        class BPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
-            include BPrx_mixin
-        end
-
-        if not defined?(::M::T_B)
-            T_B = ::Ice::__declareClass('::M::B')
-            T_BPrx = ::Ice::__declareProxy('::M::B')
-        end
-
-        T_B.defineClass(B, -1, false, false, ::M::T_A, [])
-
-        T_BPrx.defineProxy(BPrx, nil, [::M::T_IntfPrx])
-
-        BPrx_mixin::OP_opB = ::Ice::__defineOperation('opB', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
 end

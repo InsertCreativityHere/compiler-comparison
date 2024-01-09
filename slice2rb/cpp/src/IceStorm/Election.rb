@@ -114,8 +114,6 @@ module ::IceStormElection
             T_ReplicaObserverPrx = ::Ice::__declareProxy('::IceStormElection::ReplicaObserver')
         end
 
-        T_ReplicaObserver.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_ReplicaObserverPrx.defineProxy(ReplicaObserverPrx, nil, [])
 
         ReplicaObserverPrx_mixin::OP_init = ::Ice::__defineOperation('init', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceStormElection::T_LogUpdate, false, 0], [::IceStormElection::T_TopicContentSeq, false, 0]], [], nil, [::IceStormElection::T_ObserverInconsistencyException])
@@ -145,8 +143,6 @@ module ::IceStormElection
             T_TopicManagerSync = ::Ice::__declareClass('::IceStormElection::TopicManagerSync')
             T_TopicManagerSyncPrx = ::Ice::__declareProxy('::IceStormElection::TopicManagerSync')
         end
-
-        T_TopicManagerSync.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_TopicManagerSyncPrx.defineProxy(TopicManagerSyncPrx, nil, [])
 
@@ -205,7 +201,6 @@ module ::IceStormElection
     end
 
     if not defined?(::IceStormElection::T_Node)
-        T_Node = ::Ice::__declareClass('::IceStormElection::Node')
         T_NodePrx = ::Ice::__declareProxy('::IceStormElection::Node')
     end
 
@@ -390,8 +385,6 @@ module ::IceStormElection
             T_Node = ::Ice::__declareClass('::IceStormElection::Node')
             T_NodePrx = ::Ice::__declareProxy('::IceStormElection::Node')
         end
-
-        T_Node.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_NodePrx.defineProxy(NodePrx, nil, [])
 

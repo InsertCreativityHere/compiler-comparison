@@ -68,7 +68,6 @@ namespace Glacier2
             return '::Glacier2::Router';
         }
     }
-    $Glacier2__t_Router = IcePHP_defineClass('::Glacier2::Router', '\\Glacier2\\Router', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Glacier2__t_RouterPrx = IcePHP_defineProxy('::Glacier2::Router', $Ice__t_ObjectPrx, array($Ice__t_RouterPrx));

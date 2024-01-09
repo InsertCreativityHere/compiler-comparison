@@ -47,6 +47,11 @@ class Initial2Prx;
 namespace Test
 {
 
+}
+
+namespace Test
+{
+
 class Initial2 : public virtual ::Ice::Object
 {
 public:
@@ -275,12 +280,6 @@ namespace IceProxy
 namespace Test
 {
 
-class D;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< D>&);
-::IceProxy::Ice::Object* upCast(D*);
-/// \endcond
-
 class Initial2;
 /// \cond INTERNAL
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Initial2>&);
@@ -299,22 +298,19 @@ class D;
 ::Ice::Object* upCast(D*);
 /// \endcond
 typedef ::IceInternal::Handle< D> DPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::D> DPrx;
-typedef DPrx DPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(DPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-class Initial2;
-/// \cond INTERNAL
-::Ice::Object* upCast(Initial2*);
-/// \endcond
-typedef ::IceInternal::Handle< Initial2> Initial2Ptr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Initial2> Initial2Prx;
 typedef Initial2Prx Initial2PrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(Initial2Ptr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class Initial2;
+typedef ::IceInternal::Handle< Initial2> Initial2Ptr;
+
+}
+
+namespace Test
+{
 
 }
 
@@ -344,23 +340,6 @@ namespace IceProxy
 
 namespace Test
 {
-
-class D : public virtual ::Ice::Proxy<D, ::IceProxy::Test::B>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
 
 class Initial2 : public virtual ::Ice::Proxy<Initial2, ::IceProxy::Ice::Object>
 {
@@ -462,11 +441,69 @@ protected:
 namespace Test
 {
 
+class Initial2 : public virtual ::Ice::Object
+{
+public:
+
+    typedef Initial2Prx ProxyType;
+
+    virtual ~Initial2();
+    Initial2() = default;
+    Initial2(const Initial2&) = default;
+    Initial2& operator=(const Initial2&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual void opClassAndUnknownOptional(const APtr& p, const std::optional< ::Ice::ObjectPtr>& o, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opClassAndUnknownOptional(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void opVoid(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& v, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opVoid(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
+
+}
+
+namespace Test
+{
+
 class D : public B
 {
 public:
 
-    typedef DPrx ProxyType;
     typedef DPtr PointerType;
 
     virtual ~D();
@@ -555,80 +592,6 @@ inline bool operator==(const D& lhs, const D& rhs)
 }
 
 inline bool operator<(const D& lhs, const D& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class Initial2 : public virtual ::Ice::Object
-{
-public:
-
-    typedef Initial2Prx ProxyType;
-    typedef Initial2Ptr PointerType;
-
-    virtual ~Initial2();
-    Initial2() = default;
-    Initial2(const Initial2&) = default;
-    Initial2& operator=(const Initial2&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual void opClassAndUnknownOptional(const APtr& p, const std::optional< ::Ice::ObjectPtr>& o, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opClassAndUnknownOptional(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void opVoid(const std::optional< ::Ice::Int>& a, const std::optional< ::std::string>& v, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opVoid(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const Initial2& lhs, const Initial2& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Initial2& lhs, const Initial2& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
 }

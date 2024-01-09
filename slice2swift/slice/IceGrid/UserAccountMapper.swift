@@ -52,7 +52,7 @@ open class UserAccountNotFoundException: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `UserAccountMapper`.
+/// Traits for Slice interface`UserAccountMapper`.
 public struct UserAccountMapperTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::UserAccountMapper"]
     public static let staticId = "::IceGrid::UserAccountMapper"

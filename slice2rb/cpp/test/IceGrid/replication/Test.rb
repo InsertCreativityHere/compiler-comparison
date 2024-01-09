@@ -35,8 +35,6 @@ module ::Test
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 
-        T_TestIntf.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
     end
 end

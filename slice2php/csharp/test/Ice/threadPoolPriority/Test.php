@@ -37,7 +37,6 @@ namespace Test
             return '::Test::Priority';
         }
     }
-    $Test__t_Priority = IcePHP_defineClass('::Test::Priority', '\\Test\\Priority', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_PriorityPrx = IcePHP_defineProxy('::Test::Priority', $Ice__t_ObjectPrx, null);

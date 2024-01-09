@@ -45,6 +45,11 @@ class TestIntfPrx;
 namespace Test
 {
 
+}
+
+namespace Test
+{
+
 class TestIntf : public virtual ::Ice::Object
 {
 public:
@@ -231,13 +236,6 @@ protected:
 
 }
 
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
-
 /// \cond INTERNAL
 namespace Test
 {
@@ -268,17 +266,16 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< TestIntf>&);
 
 namespace Test
 {
-
-class TestIntf;
-/// \cond INTERNAL
-::Ice::Object* upCast(TestIntf*);
-/// \endcond
-typedef ::IceInternal::Handle< TestIntf> TestIntfPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestIntf> TestIntfPrx;
 typedef TestIntfPrx TestIntfPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(TestIntfPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class TestIntf;
+typedef ::IceInternal::Handle< TestIntf> TestIntfPtr;
+
+}
+
+namespace Test
+{
 
 }
 
@@ -506,7 +503,6 @@ class TestIntf : public virtual ::Ice::Object
 public:
 
     typedef TestIntfPrx ProxyType;
-    typedef TestIntfPtr PointerType;
 
     virtual ~TestIntf();
     TestIntf() = default;
@@ -564,35 +560,9 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const TestIntf& lhs, const TestIntf& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
 }
-
-inline bool operator<(const TestIntf& lhs, const TestIntf& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 namespace Test
 {

@@ -54,12 +54,10 @@ class LocatorRegistryPrx;
 
 }
 
-/// \cond STREAM
 namespace Ice
 {
 
 }
-/// \endcond
 
 /// \cond INTERNAL
 namespace Ice
@@ -100,37 +98,23 @@ ICE_API ::IceProxy::Ice::Object* upCast(LocatorRegistry*);
 
 namespace Ice
 {
-
-class Locator;
-/// \cond INTERNAL
-ICE_API Object* upCast(Locator*);
-/// \endcond
-typedef ::IceInternal::Handle< Locator> LocatorPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::Locator> LocatorPrx;
 typedef LocatorPrx LocatorPrxPtr;
-/// \cond INTERNAL
-ICE_API void _icePatchObjectPtr(LocatorPtr&, const ObjectPtr&);
-/// \endcond
 
-class LocatorRegistry;
-/// \cond INTERNAL
-ICE_API Object* upCast(LocatorRegistry*);
-/// \endcond
-typedef ::IceInternal::Handle< LocatorRegistry> LocatorRegistryPtr;
+class Locator;
+typedef ::IceInternal::Handle< Locator> LocatorPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::LocatorRegistry> LocatorRegistryPrx;
 typedef LocatorRegistryPrx LocatorRegistryPrxPtr;
-/// \cond INTERNAL
-ICE_API void _icePatchObjectPtr(LocatorRegistryPtr&, const ObjectPtr&);
-/// \endcond
+
+class LocatorRegistry;
+typedef ::IceInternal::Handle< LocatorRegistry> LocatorRegistryPtr;
 
 }
 
-/// \cond STREAM
 namespace Ice
 {
 
 }
-/// \endcond
 
 #endif
 

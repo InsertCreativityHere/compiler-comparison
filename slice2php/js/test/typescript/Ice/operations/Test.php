@@ -660,7 +660,6 @@ namespace Test
             return '::Test::MyClass';
         }
     }
-    $Test__t_MyClass = IcePHP_defineClass('::Test::MyClass', '\\Test\\MyClass', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_MyClassPrx = IcePHP_defineProxy('::Test::MyClass', $Ice__t_ObjectPrx, null);
@@ -886,7 +885,6 @@ namespace Test
             return '::Test::MyDerivedClass';
         }
     }
-    $Test__t_MyDerivedClass = IcePHP_defineClass('::Test::MyDerivedClass', '\\Test\\MyDerivedClass', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_MyDerivedClassPrx = IcePHP_defineProxy('::Test::MyDerivedClass', $Ice__t_ObjectPrx, array($Test__t_MyClassPrx));
@@ -920,7 +918,6 @@ namespace Test
             return '::Test::Echo';
         }
     }
-    $Test__t_Echo = IcePHP_defineClass('::Test::Echo', '\\Test\\_Echo', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_EchoPrx = IcePHP_defineProxy('::Test::Echo', $Ice__t_ObjectPrx, null);
@@ -1203,7 +1200,6 @@ namespace Test2
             return '::Test2::MyDerivedClass';
         }
     }
-    $Test2__t_MyDerivedClass = IcePHP_defineClass('::Test2::MyDerivedClass', '\\Test2\\MyDerivedClass', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test2__t_MyDerivedClassPrx = IcePHP_defineProxy('::Test2::MyDerivedClass', $Ice__t_ObjectPrx, array($Test__t_MyClassPrx));

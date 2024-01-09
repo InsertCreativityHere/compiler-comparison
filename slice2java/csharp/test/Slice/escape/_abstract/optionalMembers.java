@@ -24,14 +24,13 @@ public class optionalMembers extends com.zeroc.Ice.Value
         this.namespace = "";
     }
 
-    public optionalMembers(_break _for, as _goto, com.zeroc.Ice.Value _if, java.util.Map<java.lang.String, _break> internal, String namespace, explicitPrx _null)
+    public optionalMembers(_break _for, as _goto, explicitPrx _if, java.util.Map<java.lang.String, _break> internal, String namespace)
     {
         set_for(_for);
         set_goto(_goto);
         set_if(_if);
         setInternal(internal);
         setNamespace(namespace);
-        set_null(_null);
     }
 
     private _break _for;
@@ -140,10 +139,10 @@ public class optionalMembers extends com.zeroc.Ice.Value
         }
     }
 
-    private com.zeroc.Ice.Value _if;
+    private explicitPrx _if;
     private boolean _if;
 
-    public com.zeroc.Ice.Value getIf()
+    public explicitPrx getIf()
     {
         if(!_if)
         {
@@ -152,7 +151,7 @@ public class optionalMembers extends com.zeroc.Ice.Value
         return _if;
     }
 
-    public void setIf(com.zeroc.Ice.Value _if)
+    public void setIf(explicitPrx _if)
     {
         _if = true;
         this._if = _if;
@@ -168,7 +167,7 @@ public class optionalMembers extends com.zeroc.Ice.Value
         _if = false;
     }
 
-    public void optionalIf(java.util.Optional<com.zeroc.Ice.Value> v)
+    public void optionalIf(java.util.Optional<explicitPrx> v)
     {
         if(v == null || !v.isPresent())
         {
@@ -181,11 +180,11 @@ public class optionalMembers extends com.zeroc.Ice.Value
         }
     }
 
-    public java.util.Optional<com.zeroc.Ice.Value> optionalIf()
+    public java.util.Optional<explicitPrx> optionalIf()
     {
         if(_if)
         {
-            return java.util.Optional.ofNullable(_if);
+            return java.util.Optional.of(_if);
         }
         else
         {
@@ -299,59 +298,6 @@ public class optionalMembers extends com.zeroc.Ice.Value
         }
     }
 
-    private explicitPrx _null;
-    private boolean _null;
-
-    public explicitPrx getNull()
-    {
-        if(!_null)
-        {
-            throw new java.util.NoSuchElementException("_null is not set");
-        }
-        return _null;
-    }
-
-    public void setNull(explicitPrx _null)
-    {
-        _null = true;
-        this._null = _null;
-    }
-
-    public boolean hasNull()
-    {
-        return _null;
-    }
-
-    public void clearNull()
-    {
-        _null = false;
-    }
-
-    public void optionalNull(java.util.Optional<explicitPrx> v)
-    {
-        if(v == null || !v.isPresent())
-        {
-            _null = false;
-        }
-        else
-        {
-            _null = true;
-            _null = v.get();
-        }
-    }
-
-    public java.util.Optional<explicitPrx> optionalNull()
-    {
-        if(_null)
-        {
-            return java.util.Optional.of(_null);
-        }
-        else
-        {
-            return java.util.Optional.empty();
-        }
-    }
-
     public optionalMembers clone()
     {
         return (optionalMembers)super.clone();
@@ -369,7 +315,7 @@ public class optionalMembers extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 5691744168970242948L;
+    public static final long serialVersionUID = -525545794878467989L;
 
     /** @hidden */
     @Override
@@ -386,7 +332,7 @@ public class optionalMembers extends com.zeroc.Ice.Value
         }
         if(_if)
         {
-            ostr_.writeValue(3, _if);
+            ostr_.writeProxy(3, _if);
         }
         if(_internal)
         {
@@ -395,10 +341,6 @@ public class optionalMembers extends com.zeroc.Ice.Value
         if(_namespace)
         {
             ostr_.writeString(7, namespace);
-        }
-        if(_null)
-        {
-            ostr_.writeProxy(8, _null);
         }
         ostr_.endSlice();
     }
@@ -417,9 +359,10 @@ public class optionalMembers extends com.zeroc.Ice.Value
         {
             _goto = as.ice_read(istr_);
         }
-        if(_if = istr_.readOptional(3, com.zeroc.Ice.OptionalFormat.Class))
+        if(_if = istr_.readOptional(3, com.zeroc.Ice.OptionalFormat.FSize))
         {
-            istr_.readValue(v -> _if = v, com.zeroc.Ice.Value.class);
+            istr_.skip(4);
+            _if = explicitPrx.uncheckedCast(istr_.readProxy());
         }
         if(_internal = istr_.readOptional(5, com.zeroc.Ice.OptionalFormat.FSize))
         {
@@ -429,11 +372,6 @@ public class optionalMembers extends com.zeroc.Ice.Value
         if(_namespace = istr_.readOptional(7, com.zeroc.Ice.OptionalFormat.VSize))
         {
             namespace = istr_.readString();
-        }
-        if(_null = istr_.readOptional(8, com.zeroc.Ice.OptionalFormat.FSize))
-        {
-            istr_.skip(4);
-            _null = explicitPrx.uncheckedCast(istr_.readProxy());
         }
         istr_.endSlice();
     }

@@ -219,17 +219,6 @@ namespace Test
 
 namespace Test
 {
-    global $Test__t_MyInterfaceS;
-
-    if(!isset($Test__t_MyInterfaceS))
-    {
-        global $Test__t_MyInterface;
-        $Test__t_MyInterfaceS = IcePHP_defineSequence('::Test::MyInterfaceS', $Test__t_MyInterface);
-    }
-}
-
-namespace Test
-{
     global $Test__t_BoolSS;
 
     if(!isset($Test__t_BoolSS))
@@ -346,17 +335,6 @@ namespace Test
     {
         global $Test__t_MyClassS;
         $Test__t_MyClassSS = IcePHP_defineSequence('::Test::MyClassSS', $Test__t_MyClassS);
-    }
-}
-
-namespace Test
-{
-    global $Test__t_MyInterfaceSS;
-
-    if(!isset($Test__t_MyInterfaceSS))
-    {
-        global $Test__t_MyInterfaceS;
-        $Test__t_MyInterfaceSS = IcePHP_defineSequence('::Test::MyInterfaceSS', $Test__t_MyInterfaceS);
     }
 }
 
@@ -528,7 +506,6 @@ namespace Test
             return '::Test::MyInterface';
         }
     }
-    $Test__t_MyInterface = IcePHP_defineClass('::Test::MyInterface', '\\Test\\MyInterface', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_MyInterfacePrx = IcePHP_defineProxy('::Test::MyInterface', $Ice__t_ObjectPrx, null);

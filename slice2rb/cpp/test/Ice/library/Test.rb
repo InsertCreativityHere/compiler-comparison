@@ -55,8 +55,6 @@ module ::Test
             T_MyInterfacePrx = ::Ice::__declareProxy('::Test::MyInterface')
         end
 
-        T_MyInterface.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_MyInterfacePrx.defineProxy(MyInterfacePrx, nil, [])
 
         MyInterfacePrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0]], [], nil, [::Test::T_UserError])

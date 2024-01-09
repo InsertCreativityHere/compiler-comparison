@@ -16,37 +16,37 @@
 import Foundation
 import Ice
 
-/// Traits for Slice class `D3`.
+/// Traits for Slice class`D3`.
 public struct D3Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::B", "::Test::D3"]
     public static let staticId = "::Test::D3"
 }
 
-/// Traits for Slice class `PCUnknown`.
+/// Traits for Slice class`PCUnknown`.
 public struct PCUnknownTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::PBase", "::Test::PCUnknown"]
     public static let staticId = "::Test::PCUnknown"
 }
 
-/// Traits for Slice class `PCDerived`.
+/// Traits for Slice class`PCDerived`.
 public struct PCDerivedTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::PBase", "::Test::PCDerived", "::Test::PDerived", "::Test::Preserved"]
     public static let staticId = "::Test::PCDerived"
 }
 
-/// Traits for Slice class `PCDerived2`.
+/// Traits for Slice class`PCDerived2`.
 public struct PCDerived2Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::PBase", "::Test::PCDerived", "::Test::PCDerived2", "::Test::PDerived", "::Test::Preserved"]
     public static let staticId = "::Test::PCDerived2"
 }
 
-/// Traits for Slice class `PCDerived3`.
+/// Traits for Slice class`PCDerived3`.
 public struct PCDerived3Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::PBase", "::Test::PCDerived", "::Test::PCDerived2", "::Test::PCDerived3", "::Test::PDerived", "::Test::Preserved"]
     public static let staticId = "::Test::PCDerived3"
 }
 
-/// Traits for Slice class `CompactPCDerived`.
+/// Traits for Slice class`CompactPCDerived`.
 public struct CompactPCDerivedTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::CompactPCDerived", "::Test::CompactPDerived", "::Test::PBase", "::Test::Preserved"]
     public static let staticId = "::Test::CompactPCDerived"

@@ -769,7 +769,6 @@ namespace Test
             return '::Test::I';
         }
     }
-    $Test__t_I = IcePHP_defineClass('::Test::I', '\\Test\\I', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_IPrx = IcePHP_defineProxy('::Test::I', $Ice__t_ObjectPrx, null);
@@ -1023,7 +1022,6 @@ namespace Test
             return '::Test::MyClass';
         }
     }
-    $Test__t_MyClass = IcePHP_defineClass('::Test::MyClass', '\\Test\\MyClass', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_MyClassPrx = IcePHP_defineProxy('::Test::MyClass', $Ice__t_ObjectPrx, null);

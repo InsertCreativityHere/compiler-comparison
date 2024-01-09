@@ -1808,40 +1808,6 @@ namespace Test
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    public sealed class MyInterfaceSHelper
-    {
-        public static void write(global::Ice.OutputStream ostr, global::Ice.Value[] v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    ostr.writeValue(v[ix]);
-                }
-            }
-        }
-
-        public static global::Ice.Value[] read(global::Ice.InputStream istr)
-        {
-            global::Ice.Value[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new global::Ice.Value[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    istr.readValue(global::IceInternal.Patcher.arrayReadValue<global::Ice.Value>(v, ix));
-                }
-            }
-            return v;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public sealed class BoolSSHelper
     {
         public static void write(global::Ice.OutputStream ostr, bool[][] v)
@@ -2209,40 +2175,6 @@ namespace Test
                 for(int ix = 0; ix < szx; ++ix)
                 {
                     v[ix] = MyClassSHelper.read(istr);
-                }
-            }
-            return v;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-    public sealed class MyInterfaceSSHelper
-    {
-        public static void write(global::Ice.OutputStream ostr, global::Ice.Value[][] v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    MyInterfaceSHelper.write(ostr, v[ix]);
-                }
-            }
-        }
-
-        public static global::Ice.Value[][] read(global::Ice.InputStream istr)
-        {
-            global::Ice.Value[][] v;
-            {
-                int szx = istr.readAndCheckSeqSize(1);
-                v = new global::Ice.Value[szx][];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = MyInterfaceSHelper.read(istr);
                 }
             }
             return v;

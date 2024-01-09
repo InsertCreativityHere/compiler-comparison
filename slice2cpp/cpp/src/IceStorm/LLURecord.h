@@ -37,6 +37,12 @@
 namespace IceStormElection
 {
 
+
+}
+
+namespace IceStormElection
+{
+
 /**
  * A struct used for marking the last log update.
  */
@@ -95,6 +101,11 @@ struct StreamReader<::IceStormElection::LogUpdate, S>
 /// \endcond
 
 #else // C++98 mapping
+
+namespace IceStormElection
+{
+
+}
 
 namespace IceStormElection
 {

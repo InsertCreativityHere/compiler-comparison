@@ -37,7 +37,6 @@ namespace Test
             return '::Test::Interface2';
         }
     }
-    $Test__t_Interface2 = IcePHP_defineClass('::Test::Interface2', '\\Test\\Interface2', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_Interface2Prx = IcePHP_defineProxy('::Test::Interface2', $Ice__t_ObjectPrx, null);

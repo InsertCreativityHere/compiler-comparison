@@ -72,7 +72,6 @@ namespace _abstract
             return '::abstract::case';
         }
     }
-    $abstract__t_case = IcePHP_defineClass('::abstract::case', '\\_abstract\\_case', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $abstract__t_casePrx = IcePHP_defineProxy('::abstract::case', $Ice__t_ObjectPrx, null);
@@ -103,7 +102,6 @@ namespace _abstract
             return '::abstract::decimal';
         }
     }
-    $abstract__t_decimal = IcePHP_defineClass('::abstract::decimal', '\\_abstract\\decimal', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $abstract__t_decimalPrx = IcePHP_defineProxy('::abstract::decimal', $Ice__t_ObjectPrx, null);
@@ -175,7 +173,6 @@ namespace _abstract
             return '::abstract::explicit';
         }
     }
-    $abstract__t_explicit = IcePHP_defineClass('::abstract::explicit', '\\_abstract\\explicit', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $abstract__t_explicitPrx = IcePHP_defineProxy('::abstract::explicit', $Ice__t_ObjectPrx, array($abstract__t_decimalPrx, $abstract__t_casePrx));
@@ -198,14 +195,13 @@ namespace _abstract
     global $abstract__t_optionalMembers;
     class optionalMembers extends \Ice\Value
     {
-        public function __construct($_for=\Ice\None, $_goto=\Ice\None, $_if=\Ice\None, $internal=\Ice\None, $_namespace=\Ice\None, $null=\Ice\None)
+        public function __construct($_for=\Ice\None, $_goto=\Ice\None, $_if=\Ice\None, $internal=\Ice\None, $_namespace=\Ice\None)
         {
             $this->_for = is_null($_for) ? new \_abstract\_break : $_for;
             $this->_goto = $_goto;
             $this->_if = $_if;
             $this->internal = $internal;
             $this->_namespace = $_namespace;
-            $this->null = $null;
         }
 
         public function ice_id()
@@ -229,25 +225,20 @@ namespace _abstract
         public $_if;
         public $internal;
         public $_namespace;
-        public $null;
     }
-
-    $abstract__t_optionalMembers = IcePHP_declareClass('::abstract::optionalMembers');
 
     global $Ice__t_Value;
     global $abstract__t_break;
     global $abstract__t_as;
-    global $abstract__t_explicit;
+    global $abstract__t_explicitPrx;
     global $abstract__t_while;
     global $IcePHP__t_string;
-    global $abstract__t_explicitPrx;
     $abstract__t_optionalMembers = IcePHP_defineClass('::abstract::optionalMembers', '\\_abstract\\optionalMembers', -1, false, false, $Ice__t_Value, array(
         array('_for', $abstract__t_break, true, 1),
         array('_goto', $abstract__t_as, true, 2),
-        array('_if', $abstract__t_explicit, true, 3),
+        array('_if', $abstract__t_explicitPrx, true, 3),
         array('internal', $abstract__t_while, true, 5),
-        array('_namespace', $IcePHP__t_string, true, 7),
-        array('null', $abstract__t_explicitPrx, true, 8)));
+        array('_namespace', $IcePHP__t_string, true, 7)));
 }
 
 namespace _abstract
@@ -272,21 +263,19 @@ namespace _abstract
             return '::abstract::optionalParams';
         }
     }
-    $abstract__t_optionalParams = IcePHP_defineClass('::abstract::optionalParams', '\\_abstract\\optionalParams', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $abstract__t_optionalParamsPrx = IcePHP_defineProxy('::abstract::optionalParams', $Ice__t_ObjectPrx, null);
 
     global $abstract__t_as;
-    global $abstract__t_explicit;
+    global $abstract__t_explicitPrx;
     global $abstract__t_while;
     global $IcePHP__t_string;
-    global $abstract__t_explicitPrx;
     global $abstract__t_break;
-    IcePHP_defineOperation($abstract__t_optionalParamsPrx, 'for', 0, 0, 0, array(array($abstract__t_as, 2), array($abstract__t_explicit, 3), array($abstract__t_while, 5), array($IcePHP__t_string, 7), array($abstract__t_explicitPrx, 8)), null, array($abstract__t_break, 1), null);
-    IcePHP_defineOperation($abstract__t_optionalParamsPrx, 'continue', 0, 0, 0, array(array($abstract__t_as, 2), array($abstract__t_explicit, 3), array($abstract__t_while, 5), array($IcePHP__t_string, 7), array($abstract__t_explicitPrx, 8)), null, array($abstract__t_break, 1), null);
-    IcePHP_defineOperation($abstract__t_optionalParamsPrx, 'in', 0, 0, 0, null, array(array($abstract__t_as, 2), array($abstract__t_explicit, 3), array($abstract__t_while, 5), array($IcePHP__t_string, 7), array($abstract__t_explicitPrx, 8)), array($abstract__t_break, 1), null);
-    IcePHP_defineOperation($abstract__t_optionalParamsPrx, 'foreach', 0, 0, 0, null, array(array($abstract__t_as, 2), array($abstract__t_explicit, 3), array($abstract__t_while, 5), array($IcePHP__t_string, 7), array($abstract__t_explicitPrx, 8)), array($abstract__t_break, 1), null);
+    IcePHP_defineOperation($abstract__t_optionalParamsPrx, 'for', 0, 0, 0, array(array($abstract__t_as, 2), array($abstract__t_explicitPrx, 3), array($abstract__t_while, 5), array($IcePHP__t_string, 7)), null, array($abstract__t_break, 1), null);
+    IcePHP_defineOperation($abstract__t_optionalParamsPrx, 'continue', 0, 0, 0, array(array($abstract__t_as, 2), array($abstract__t_explicitPrx, 3), array($abstract__t_while, 5), array($IcePHP__t_string, 7)), null, array($abstract__t_break, 1), null);
+    IcePHP_defineOperation($abstract__t_optionalParamsPrx, 'in', 0, 0, 0, null, array(array($abstract__t_as, 2), array($abstract__t_explicitPrx, 3), array($abstract__t_while, 5), array($IcePHP__t_string, 7)), array($abstract__t_break, 1), null);
+    IcePHP_defineOperation($abstract__t_optionalParamsPrx, 'foreach', 0, 0, 0, null, array(array($abstract__t_as, 2), array($abstract__t_explicitPrx, 3), array($abstract__t_while, 5), array($IcePHP__t_string, 7)), array($abstract__t_break, 1), null);
 }
 
 namespace _abstract
@@ -444,20 +433,18 @@ namespace _abstract
             return '::abstract::implicit';
         }
     }
-    $abstract__t_implicit = IcePHP_defineClass('::abstract::implicit', '\\_abstract\\implicit', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $abstract__t_implicitPrx = IcePHP_defineProxy('::abstract::implicit', $Ice__t_ObjectPrx, null);
 
     global $abstract__t_break;
     global $abstract__t_delegate;
-    global $abstract__t_explicit;
+    global $abstract__t_explicitPrx;
     global $abstract__t_casePrx;
     global $abstract__t_decimalPrx;
-    global $abstract__t_explicitPrx;
     global $IcePHP__t_int;
     global $abstract__t_as;
-    IcePHP_defineOperation($abstract__t_implicitPrx, 'in', 0, 0, 0, array(array($abstract__t_break), array($abstract__t_delegate), array($abstract__t_explicit), array($abstract__t_casePrx), array($abstract__t_decimalPrx), array($abstract__t_delegate), array($abstract__t_explicitPrx), array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int)), null, array($abstract__t_as), array($abstract__t_fixed, $abstract__t_foreach));
+    IcePHP_defineOperation($abstract__t_implicitPrx, 'in', 0, 0, 0, array(array($abstract__t_break), array($abstract__t_delegate), array($abstract__t_explicitPrx), array($abstract__t_casePrx), array($abstract__t_decimalPrx), array($abstract__t_delegate), array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int)), null, array($abstract__t_as), array($abstract__t_fixed, $abstract__t_foreach));
 }
 
 namespace _abstract
@@ -498,7 +485,6 @@ namespace abstract\System
             return '::abstract::System::Test';
         }
     }
-    $abstract_System__t_Test = IcePHP_defineClass('::abstract::System::Test', '\\_abstract\\System\\Test', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $abstract_System__t_TestPrx = IcePHP_defineProxy('::abstract::System::Test', $Ice__t_ObjectPrx, null);
@@ -528,7 +514,6 @@ namespace System
             return '::System::Test';
         }
     }
-    $System__t_Test = IcePHP_defineClass('::System::Test', '\\System\\Test', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $System__t_TestPrx = IcePHP_defineProxy('::System::Test', $Ice__t_ObjectPrx, null);

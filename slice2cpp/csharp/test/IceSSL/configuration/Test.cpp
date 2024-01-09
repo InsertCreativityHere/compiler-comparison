@@ -674,11 +674,6 @@ Test::Server::~Server()
 {
 }
 
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(Server* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Test_Server_ids[2] =
@@ -822,44 +817,9 @@ Test::Server::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cu
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::Server::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Server, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Server::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Server, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(ServerPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = ServerPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Server::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::ServerFactory::~ServerFactory()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(ServerFactory* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1003,39 +963,5 @@ Test::ServerFactory::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
     }
 }
 /// \endcond
-
-/// \cond STREAM
-void
-Test::ServerFactory::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< ServerFactory, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::ServerFactory::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< ServerFactory, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(ServerFactoryPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = ServerFactoryPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(ServerFactory::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-namespace Ice
-{
-}
 
 #endif

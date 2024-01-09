@@ -349,8 +349,6 @@ module ::Test
             T_IPrx = ::Ice::__declareProxy('::Test::I')
         end
 
-        T_I.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_IPrx.defineProxy(IPrx, nil, [])
     end
 
@@ -808,8 +806,6 @@ module ::Test
             T_MyClass = ::Ice::__declareClass('::Test::MyClass')
             T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
         end
-
-        T_MyClass.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_MyClassPrx.defineProxy(MyClassPrx, nil, [])
 

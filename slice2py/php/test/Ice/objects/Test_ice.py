@@ -131,91 +131,6 @@ if 'Base' not in _M_Test.__dict__:
     _M_Test.Base = Base
     del Base
 
-if 'AbstractBase' not in _M_Test.__dict__:
-    _M_Test.AbstractBase = Ice.createTempClass()
-    class AbstractBase(_M_Test.Base):
-        def __init__(self, theS=Ice._struct_marker, str=''):
-            _M_Test.Base.__init__(self, theS, str)
-
-        def ice_id(self):
-            return '::Test::AbstractBase'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::AbstractBase'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_AbstractBase)
-
-        __repr__ = __str__
-
-    _M_Test._t_AbstractBase = IcePy.defineValue('::Test::AbstractBase', AbstractBase, -1, (), False, False, _M_Test._t_Base, ())
-    AbstractBase._ice_type = _M_Test._t_AbstractBase
-
-    _M_Test.AbstractBase = AbstractBase
-    del AbstractBase
-
-if 'AbstractBasePrx' not in _M_Test.__dict__:
-    _M_Test.AbstractBasePrx = Ice.createTempClass()
-    class AbstractBasePrx(Ice.ObjectPrx):
-
-        def op(self, context=None):
-            return _M_Test.AbstractBaseDisp._op_op.invoke(self, ((), context))
-
-        def opAsync(self, context=None):
-            return _M_Test.AbstractBaseDisp._op_op.invokeAsync(self, ((), context))
-
-        def begin_op(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.AbstractBaseDisp._op_op.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_op(self, _r):
-            return _M_Test.AbstractBaseDisp._op_op.end(self, _r)
-
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.AbstractBasePrx.ice_checkedCast(proxy, '::Test::AbstractBase', facetOrContext, context)
-
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.AbstractBasePrx.ice_uncheckedCast(proxy, facet)
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::AbstractBase'
-    _M_Test._t_AbstractBasePrx = IcePy.defineProxy('::Test::AbstractBase', AbstractBasePrx)
-
-    _M_Test.AbstractBasePrx = AbstractBasePrx
-    del AbstractBasePrx
-
-    _M_Test.AbstractBaseDisp = Ice.createTempClass()
-    class AbstractBaseDisp(Ice.Object):
-
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::AbstractBase', '::Test::Base')
-
-        def ice_id(self, current=None):
-            return '::Test::AbstractBase'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::AbstractBase'
-
-        def op(self, current=None):
-            raise NotImplementedError("servant method 'op' not implemented")
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_AbstractBaseDisp)
-
-        __repr__ = __str__
-
-    _M_Test._t_AbstractBaseDisp = IcePy.defineClass('::Test::AbstractBase', AbstractBaseDisp, (), None, ())
-    AbstractBaseDisp._ice_type = _M_Test._t_AbstractBaseDisp
-
-    AbstractBaseDisp._op_op = IcePy.Operation('op', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-
-    _M_Test.AbstractBaseDisp = AbstractBaseDisp
-    del AbstractBaseDisp
-
 if 'B' not in _M_Test.__dict__:
     _M_Test._t_B = IcePy.declareValue('::Test::B')
 
@@ -520,56 +435,6 @@ if 'JPrx' not in _M_Test.__dict__:
 
     _M_Test.J = J
     del J
-
-if 'H' not in _M_Test.__dict__:
-    _M_Test.H = Ice.createTempClass()
-    class H(Ice.Value):
-        def __init__(self):
-            pass
-
-        def ice_id(self):
-            return '::Test::H'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::H'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_H)
-
-        __repr__ = __str__
-
-    _M_Test._t_H = IcePy.defineValue('::Test::H', H, -1, (), False, False, None, ())
-    H._ice_type = _M_Test._t_H
-
-    _M_Test.H = H
-    del H
-
-if 'N' not in _M_Test.__dict__:
-    _M_Test.N = Ice.createTempClass()
-    class N(Ice.Value):
-        def __init__(self, i=None):
-            self.i = i
-
-        def ice_id(self):
-            return '::Test::N'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::N'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_N)
-
-        __repr__ = __str__
-
-    _M_Test._t_N = IcePy.declareValue('::Test::N')
-
-    _M_Test._t_N = IcePy.defineValue('::Test::N', N, -1, (), False, False, None, (('i', (), _M_Test._t_I, False, 0),))
-    N._ice_type = _M_Test._t_N
-
-    _M_Test.N = N
-    del N
 
 if '_t_BaseSeq' not in _M_Test.__dict__:
     _M_Test._t_BaseSeq = IcePy.defineSequence('::Test::BaseSeq', (), _M_Test._t_Base)
@@ -1052,42 +917,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def end_getAll(self, _r):
             return _M_Test.Initial._op_getAll.end(self, _r)
 
-        def getH(self, context=None):
-            return _M_Test.Initial._op_getH.invoke(self, ((), context))
-
-        def getHAsync(self, context=None):
-            return _M_Test.Initial._op_getH.invokeAsync(self, ((), context))
-
-        def begin_getH(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_getH.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getH(self, _r):
-            return _M_Test.Initial._op_getH.end(self, _r)
-
-        def getI(self, context=None):
-            return _M_Test.Initial._op_getI.invoke(self, ((), context))
-
-        def getIAsync(self, context=None):
-            return _M_Test.Initial._op_getI.invokeAsync(self, ((), context))
-
-        def begin_getI(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_getI.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getI(self, _r):
-            return _M_Test.Initial._op_getI.end(self, _r)
-
-        def getJ(self, context=None):
-            return _M_Test.Initial._op_getJ.invoke(self, ((), context))
-
-        def getJAsync(self, context=None):
-            return _M_Test.Initial._op_getJ.invokeAsync(self, ((), context))
-
-        def begin_getJ(self, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_getJ.begin(self, ((), _response, _ex, _sent, context))
-
-        def end_getJ(self, _r):
-            return _M_Test.Initial._op_getJ.end(self, _r)
-
         def getK(self, context=None):
             return _M_Test.Initial._op_getK.invoke(self, ((), context))
 
@@ -1172,18 +1001,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def end_setG(self, _r):
             return _M_Test.Initial._op_setG.end(self, _r)
 
-        def setI(self, theI, context=None):
-            return _M_Test.Initial._op_setI.invoke(self, ((theI, ), context))
-
-        def setIAsync(self, theI, context=None):
-            return _M_Test.Initial._op_setI.invokeAsync(self, ((theI, ), context))
-
-        def begin_setI(self, theI, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_setI.begin(self, ((theI, ), _response, _ex, _sent, context))
-
-        def end_setI(self, _r):
-            return _M_Test.Initial._op_setI.end(self, _r)
-
         def opBaseSeq(self, inSeq, context=None):
             return _M_Test.Initial._op_opBaseSeq.invoke(self, ((inSeq, ), context))
 
@@ -1255,18 +1072,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
 
         def end_hasF3(self, _r):
             return _M_Test.Initial._op_hasF3.end(self, _r)
-
-        def opN(self, p1, context=None):
-            return _M_Test.Initial._op_opN.invoke(self, ((p1, ), context))
-
-        def opNAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opN.invokeAsync(self, ((p1, ), context))
-
-        def begin_opN(self, p1, _response=None, _ex=None, _sent=None, context=None):
-            return _M_Test.Initial._op_opN.begin(self, ((p1, ), _response, _ex, _sent, context))
-
-        def end_opN(self, _r):
-            return _M_Test.Initial._op_opN.end(self, _r)
 
         @staticmethod
         def checkedCast(proxy, facetOrContext=None, context=None):
@@ -1365,15 +1170,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def getAll(self, current=None):
             raise NotImplementedError("servant method 'getAll' not implemented")
 
-        def getH(self, current=None):
-            raise NotImplementedError("servant method 'getH' not implemented")
-
-        def getI(self, current=None):
-            raise NotImplementedError("servant method 'getI' not implemented")
-
-        def getJ(self, current=None):
-            raise NotImplementedError("servant method 'getJ' not implemented")
-
         def getK(self, current=None):
             raise NotImplementedError("servant method 'getK' not implemented")
 
@@ -1395,9 +1191,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def setG(self, theG, current=None):
             raise NotImplementedError("servant method 'setG' not implemented")
 
-        def setI(self, theI, current=None):
-            raise NotImplementedError("servant method 'setI' not implemented")
-
         def opBaseSeq(self, inSeq, current=None):
             raise NotImplementedError("servant method 'opBaseSeq' not implemented")
 
@@ -1415,9 +1208,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
 
         def hasF3(self, current=None):
             raise NotImplementedError("servant method 'hasF3' not implemented")
-
-        def opN(self, p1, current=None):
-            raise NotImplementedError("servant method 'opN' not implemented")
 
         def __str__(self):
             return IcePy.stringify(self, _M_Test._t_InitialDisp)
@@ -1441,9 +1231,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
     Initial._op_getMB = IcePy.Operation('getMB', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_B, False, 0), ())
     Initial._op_getAMDMB = IcePy.Operation('getAMDMB', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (), ((), _M_Test._t_B, False, 0), ())
     Initial._op_getAll = IcePy.Operation('getAll', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (((), _M_Test._t_B, False, 0), ((), _M_Test._t_B, False, 0), ((), _M_Test._t_C, False, 0), ((), _M_Test._t_D, False, 0)), None, ())
-    Initial._op_getH = IcePy.Operation('getH', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_I, False, 0), ())
-    Initial._op_getI = IcePy.Operation('getI', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_I, False, 0), ())
-    Initial._op_getJ = IcePy.Operation('getJ', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_I, False, 0), ())
     Initial._op_getK = IcePy.Operation('getK', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_K, False, 0), ())
     Initial._op_opValue = IcePy.Operation('opValue', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_Value, False, 0),), (((), IcePy._t_Value, False, 0),), ((), IcePy._t_Value, False, 0), ())
     Initial._op_opValueSeq = IcePy.Operation('opValueSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_ValueSeq, False, 0),), (((), _M_Test._t_ValueSeq, False, 0),), ((), _M_Test._t_ValueSeq, False, 0), ())
@@ -1451,14 +1238,12 @@ if 'InitialPrx' not in _M_Test.__dict__:
     Initial._op_getD1 = IcePy.Operation('getD1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_D1, False, 0),), (), ((), _M_Test._t_D1, False, 0), ())
     Initial._op_throwEDerived = IcePy.Operation('throwEDerived', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, (_M_Test._t_EDerived,))
     Initial._op_setG = IcePy.Operation('setG', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_G, False, 0),), (), None, ())
-    Initial._op_setI = IcePy.Operation('setI', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_I, False, 0),), (), None, ())
     Initial._op_opBaseSeq = IcePy.Operation('opBaseSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_BaseSeq, False, 0),), (((), _M_Test._t_BaseSeq, False, 0),), ((), _M_Test._t_BaseSeq, False, 0), ())
     Initial._op_getCompact = IcePy.Operation('getCompact', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Test._t_Compact, False, 0), ())
     Initial._op_opF1 = IcePy.Operation('opF1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_F1, False, 0),), (((), _M_Test._t_F1, False, 0),), ((), _M_Test._t_F1, False, 0), ())
     Initial._op_opF2 = IcePy.Operation('opF2', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_F2Prx, False, 0),), (((), _M_Test._t_F2Prx, False, 0),), ((), _M_Test._t_F2Prx, False, 0), ())
     Initial._op_opF3 = IcePy.Operation('opF3', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_F3, False, 0),), (((), _M_Test._t_F3, False, 0),), ((), _M_Test._t_F3, False, 0), ())
     Initial._op_hasF3 = IcePy.Operation('hasF3', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
-    Initial._op_opN = IcePy.Operation('opN', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_N, False, 0),), (), ((), _M_Test._t_N, False, 0), ())
 
     _M_Test.Initial = Initial
     del Initial

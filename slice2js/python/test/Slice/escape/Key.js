@@ -240,7 +240,7 @@
 
     Slice.defineOperations(and.print, and.printPrx, iceC_and_print_ids, 1,
     {
-        "raise": [, , , , [and.assert._helper], [[and._continue], ["and._for", true], ["Ice.Value", true], ["and.delPrx"], ["and.execPrx"], [Ice.ObjectPrx], ["and.ifPrx"], [3]], ,
+        "raise": [, , , , [and.assert._helper], [[and._continue], ["and._for", true], ["and.delPrx"], ["and.execPrx"], ["and.ifPrx"], [3]], ,
         [
             and.is
         ], true, ]

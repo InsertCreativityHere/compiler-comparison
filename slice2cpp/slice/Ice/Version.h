@@ -49,6 +49,12 @@
 namespace Ice
 {
 
+
+}
+
+namespace Ice
+{
+
 /**
  * A version structure for the protocol version.
  * \headerfile Ice/Ice.h
@@ -138,6 +144,11 @@ struct StreamReader<::Ice::EncodingVersion, S>
 /// \endcond
 
 #else // C++98 mapping
+
+namespace Ice
+{
+
+}
 
 namespace Ice
 {

@@ -17,7 +17,7 @@ classdef implicitPrx < Ice.ObjectPrx
             % Parameters:
             %   internal (await.break_)
             %   is (await.delete)
-            %   lock (await.explicit)
+            %   lock (await.explicitPrx)
             %   namespace (await.casePrx)
             %   new (await.typeofPrx)
             %   null (await.delete)
@@ -32,7 +32,7 @@ classdef implicitPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             await.break_.ice_write(os_, internal);
             os_.writeValue(is);
-            os_.writeValue(lock);
+            os_.writeProxy(lock);
             os_.writeProxy(namespace);
             os_.writeProxy(new);
             os_.writeValue(null);
@@ -53,7 +53,7 @@ classdef implicitPrx < Ice.ObjectPrx
             % Parameters:
             %   internal (await.break_)
             %   is (await.delete)
-            %   lock (await.explicit)
+            %   lock (await.explicitPrx)
             %   namespace (await.casePrx)
             %   new (await.typeofPrx)
             %   null (await.delete)
@@ -68,7 +68,7 @@ classdef implicitPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             await.break_.ice_write(os_, internal);
             os_.writeValue(is);
-            os_.writeValue(lock);
+            os_.writeProxy(lock);
             os_.writeProxy(namespace);
             os_.writeProxy(new);
             os_.writeValue(null);

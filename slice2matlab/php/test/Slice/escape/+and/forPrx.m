@@ -11,16 +11,14 @@
 
 classdef forPrx < Ice.ObjectPrx
     methods
-        function result = foreach(obj, if_, global_, require, include, return_, isset, list, new, static, varargin)
+        function result = foreach(obj, if_, global_, include, return_, list, new, static, varargin)
             % foreach
             %
             % Parameters:
-            %   if_ (and.break_)
+            %   if_ (and.breakPrx)
             %   global_ (and.echo)
-            %   require (and.enddeclare)
             %   include (and.functionPrx)
             %   return_ (and.diePrx)
-            %   isset (and.echoPrx)
             %   list (and.enddeclarePrx)
             %   new (int32)
             %   static (int32)
@@ -29,12 +27,10 @@ classdef forPrx < Ice.ObjectPrx
             % Returns (and.array)
             
             os_ = obj.iceStartWriteParams([]);
-            os_.writeValue(if_);
+            os_.writeProxy(if_);
             os_.writeValue(global_);
-            os_.writeValue(require);
             os_.writeProxy(include);
             os_.writeProxy(return_);
-            os_.writeProxy(isset);
             os_.writeProxy(list);
             os_.writeInt(new);
             os_.writeInt(static);
@@ -45,16 +41,14 @@ classdef forPrx < Ice.ObjectPrx
             result = and.array.ice_read(is_);
             is_.endEncapsulation();
         end
-        function r_ = foreachAsync(obj, if_, global_, require, include, return_, isset, list, new, static, varargin)
+        function r_ = foreachAsync(obj, if_, global_, include, return_, list, new, static, varargin)
             % foreachAsync
             %
             % Parameters:
-            %   if_ (and.break_)
+            %   if_ (and.breakPrx)
             %   global_ (and.echo)
-            %   require (and.enddeclare)
             %   include (and.functionPrx)
             %   return_ (and.diePrx)
-            %   isset (and.echoPrx)
             %   list (and.enddeclarePrx)
             %   new (int32)
             %   static (int32)
@@ -63,12 +57,10 @@ classdef forPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
             os_ = obj.iceStartWriteParams([]);
-            os_.writeValue(if_);
+            os_.writeProxy(if_);
             os_.writeValue(global_);
-            os_.writeValue(require);
             os_.writeProxy(include);
             os_.writeProxy(return_);
-            os_.writeProxy(isset);
             os_.writeProxy(list);
             os_.writeInt(new);
             os_.writeInt(static);

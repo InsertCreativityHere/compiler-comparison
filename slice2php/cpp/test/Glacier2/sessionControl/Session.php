@@ -42,7 +42,6 @@ namespace Test
             return '::Test::Session';
         }
     }
-    $Test__t_Session = IcePHP_defineClass('::Test::Session', '\\Test\\Session', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_SessionPrx = IcePHP_defineProxy('::Test::Session', $Ice__t_ObjectPrx, array($Glacier2__t_SessionPrx));

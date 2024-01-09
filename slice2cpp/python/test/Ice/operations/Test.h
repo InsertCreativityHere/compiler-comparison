@@ -54,17 +54,6 @@ class MyDerivedClassPrx;
 
 }
 
-namespace M
-{
-
-class A;
-class Intf;
-class IntfPrx;
-class B;
-class BPrx;
-
-}
-
 namespace Test
 {
 
@@ -142,8 +131,6 @@ using DoubleSS = ::std::vector<DoubleS>;
 using StringSS = ::std::vector<StringS>;
 
 using MyEnumSS = ::std::vector<MyEnumS>;
-
-using MyClassSS = ::std::vector<MyClassS>;
 
 using StringSSS = ::std::vector<StringSS>;
 
@@ -314,6 +301,11 @@ using Ice::operator>;
 using Ice::operator>=;
 using Ice::operator==;
 using Ice::operator!=;
+
+}
+
+namespace Test2
+{
 
 }
 
@@ -1311,99 +1303,6 @@ public:
 
 }
 
-namespace M
-{
-
-class Intf : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = IntfPrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual void opIntf(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opIntf(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
-
-class BDisp : public virtual Intf
-{
-public:
-
-    using ProxyType = BPrx;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual void opB(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opB(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
-    /// \endcond
-};
-
-}
-
 namespace Test
 {
 
@@ -1453,87 +1352,6 @@ public:
 /// \cond INTERNAL
 static MyClass1 _iceS_MyClass1_init;
 /// \endcond
-
-}
-
-namespace M
-{
-
-class A : public ::Ice::ValueHelper<A, ::Ice::Value>
-{
-public:
-
-    virtual ~A();
-
-    A() = default;
-
-    A(const A&) = default;
-    A(A&&) = default;
-    A& operator=(const A&) = default;
-    A& operator=(A&&) = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    explicit A(int x) :
-        x(x)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const int&> ice_tuple() const
-    {
-        return std::tie(x);
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    int x;
-};
-
-class B : public ::Ice::ValueHelper<B, A>
-{
-public:
-
-    virtual ~B();
-
-    B() = default;
-
-    B(const B&) = default;
-    B(B&&) = default;
-    B& operator=(const B&) = default;
-    B& operator=(B&&) = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    explicit B(int x) :
-        Ice::ValueHelper<B, A>(x)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const int&> ice_tuple() const
-    {
-        return std::tie(x);
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-};
 
 }
 
@@ -3802,101 +3620,6 @@ protected:
 
 }
 
-namespace M
-{
-
-class IntfPrx : public virtual ::Ice::Proxy<IntfPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    void opIntf(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_opIntf, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opIntfAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &IntfPrx::_iceI_opIntf, context);
-    }
-
-    ::std::function<void()>
-    opIntfAsync(::std::function<void()> response,
-                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                ::std::function<void(bool)> sent = nullptr,
-                const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &M::IntfPrx::_iceI_opIntf, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opIntf(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-
-    /// \cond INTERNAL
-    IntfPrx() = default;
-    friend ::std::shared_ptr<IntfPrx> IceInternal::createProxy<IntfPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
-    /// \endcond
-};
-
-class BPrx : public virtual ::Ice::Proxy<BPrx, IntfPrx>
-{
-public:
-
-    void opB(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        _makePromiseOutgoing<void>(true, this, &BPrx::_iceI_opB, context).get();
-    }
-
-    template<template<typename> class P = ::std::promise>
-    auto opBAsync(const ::Ice::Context& context = ::Ice::noExplicitContext)
-        -> decltype(::std::declval<P<void>>().get_future())
-    {
-        return _makePromiseOutgoing<void, P>(false, this, &BPrx::_iceI_opB, context);
-    }
-
-    ::std::function<void()>
-    opBAsync(::std::function<void()> response,
-             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-             ::std::function<void(bool)> sent = nullptr,
-             const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &M::BPrx::_iceI_opB, context);
-    }
-
-    /// \cond INTERNAL
-    void _iceI_opB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&);
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this class.
-     * @return The fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-
-    /// \cond INTERNAL
-    BPrx() = default;
-    friend ::std::shared_ptr<BPrx> IceInternal::createProxy<BPrx>();
-
-    virtual ::std::shared_ptr<::Ice::ObjectPrx> _newInstance() const override;
-    /// \endcond
-};
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -3991,45 +3714,6 @@ struct StreamReader<::Test::MyClass1, S>
 }
 /// \endcond
 
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
-
-/// \cond STREAM
-namespace Ice
-{
-
-template<typename S>
-struct StreamReader<::M::A, S>
-{
-    static void read(S* istr, ::M::A& v)
-    {
-        istr->readAll(v.x);
-    }
-};
-
-template<typename S>
-struct StreamWriter<::M::B, S>
-{
-    static void write(S*, const ::M::B&)
-    {
-    }
-};
-
-template<typename S>
-struct StreamReader<::M::B, S>
-{
-    static void read(S*, ::M::B&)
-    {
-    }
-};
-
-}
-/// \endcond
-
 /// \cond INTERNAL
 namespace Test
 {
@@ -4055,21 +3739,6 @@ using MyDerivedClassPrxPtr = ::std::shared_ptr<MyDerivedClassPrx>;
 }
 /// \endcond
 
-/// \cond INTERNAL
-namespace M
-{
-
-using APtr = ::std::shared_ptr<A>;
-
-using IntfPtr = ::std::shared_ptr<Intf>;
-using IntfPrxPtr = ::std::shared_ptr<IntfPrx>;
-
-using BPtr = ::std::shared_ptr<B>;
-using BPrxPtr = ::std::shared_ptr<BPrx>;
-
-}
-/// \endcond
-
 #else // C++98 mapping
 
 namespace IceProxy
@@ -4084,12 +3753,6 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< MyClass>&);
 ::IceProxy::Ice::Object* upCast(MyClass*);
 /// \endcond
 
-class MyClass1;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< MyClass1>&);
-::IceProxy::Ice::Object* upCast(MyClass1*);
-/// \endcond
-
 class MyDerivedClass;
 /// \cond INTERNAL
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< MyDerivedClass>&);
@@ -4105,29 +3768,6 @@ class MyDerivedClass;
 /// \cond INTERNAL
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< MyDerivedClass>&);
 ::IceProxy::Ice::Object* upCast(MyDerivedClass*);
-/// \endcond
-
-}
-
-namespace M
-{
-
-class A;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< A>&);
-::IceProxy::Ice::Object* upCast(A*);
-/// \endcond
-
-class Intf;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Intf>&);
-::IceProxy::Ice::Object* upCast(Intf*);
-/// \endcond
-
-class B;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< B>&);
-::IceProxy::Ice::Object* upCast(B*);
 /// \endcond
 
 }
@@ -4136,93 +3776,35 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< B>&);
 
 namespace Test
 {
-
-class MyClass;
-/// \cond INTERNAL
-::Ice::Object* upCast(MyClass*);
-/// \endcond
-typedef ::IceInternal::Handle< MyClass> MyClassPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::MyClass> MyClassPrx;
 typedef MyClassPrx MyClassPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(MyClassPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class MyClass;
+typedef ::IceInternal::Handle< MyClass> MyClassPtr;
 
 class MyClass1;
 /// \cond INTERNAL
 ::Ice::Object* upCast(MyClass1*);
 /// \endcond
 typedef ::IceInternal::Handle< MyClass1> MyClass1Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::MyClass1> MyClass1Prx;
-typedef MyClass1Prx MyClass1PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(MyClass1Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-class MyDerivedClass;
-/// \cond INTERNAL
-::Ice::Object* upCast(MyDerivedClass*);
-/// \endcond
-typedef ::IceInternal::Handle< MyDerivedClass> MyDerivedClassPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::MyDerivedClass> MyDerivedClassPrx;
 typedef MyDerivedClassPrx MyDerivedClassPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(MyDerivedClassPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class MyDerivedClass;
+typedef ::IceInternal::Handle< MyDerivedClass> MyDerivedClassPtr;
 
 }
 
 namespace Test2
 {
-
-class MyDerivedClass;
-/// \cond INTERNAL
-::Ice::Object* upCast(MyDerivedClass*);
-/// \endcond
-typedef ::IceInternal::Handle< MyDerivedClass> MyDerivedClassPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test2::MyDerivedClass> MyDerivedClassPrx;
 typedef MyDerivedClassPrx MyDerivedClassPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(MyDerivedClassPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-}
-
-namespace M
-{
-
-class A;
-/// \cond INTERNAL
-::Ice::Object* upCast(A*);
-/// \endcond
-typedef ::IceInternal::Handle< A> APtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::M::A> APrx;
-typedef APrx APrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(APtr&, const ::Ice::ObjectPtr&);
-/// \endcond
-
-class Intf;
-/// \cond INTERNAL
-::Ice::Object* upCast(Intf*);
-/// \endcond
-typedef ::IceInternal::Handle< Intf> IntfPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::M::Intf> IntfPrx;
-typedef IntfPrx IntfPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(IntfPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
-
-class B;
-/// \cond INTERNAL
-::Ice::Object* upCast(B*);
-/// \endcond
-typedef ::IceInternal::Handle< B> BPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::M::B> BPrx;
-typedef BPrx BPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(BPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+class MyDerivedClass;
+typedef ::IceInternal::Handle< MyDerivedClass> MyDerivedClassPtr;
 
 }
 
@@ -4332,8 +3914,6 @@ typedef ::std::vector<DoubleS> DoubleSS;
 typedef ::std::vector<StringS> StringSS;
 
 typedef ::std::vector<MyEnumS> MyEnumSS;
-
-typedef ::std::vector<MyClassS> MyClassSS;
 
 typedef ::std::vector<StringSS> StringSSS;
 
@@ -4538,6 +4118,11 @@ const ::std::string su0 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\
 const ::std::string su1 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203";
 
 const ::std::string su2 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203";
+
+}
+
+namespace Test2
+{
 
 }
 
@@ -5140,27 +4725,6 @@ typedef ::IceUtil::Handle< Callback_MyDerivedClass_opMyStruct1_Base> Callback_My
 
 namespace Test2
 {
-
-}
-
-namespace M
-{
-
-/**
- * Base class for asynchronous callback wrapper classes used for calls to
- * IceProxy::M::Intf::begin_opIntf.
- * Create a wrapper instance by calling ::M::newCallback_Intf_opIntf.
- */
-class Callback_Intf_opIntf_Base : public virtual ::IceInternal::CallbackBase { };
-typedef ::IceUtil::Handle< Callback_Intf_opIntf_Base> Callback_Intf_opIntfPtr;
-
-/**
- * Base class for asynchronous callback wrapper classes used for calls to
- * IceProxy::M::B::begin_opB.
- * Create a wrapper instance by calling ::M::newCallback_B_opB.
- */
-class Callback_B_opB_Base : public virtual ::IceInternal::CallbackBase { };
-typedef ::IceUtil::Handle< Callback_B_opB_Base> Callback_B_opBPtr;
 
 }
 
@@ -8065,23 +7629,6 @@ protected:
     /// \endcond
 };
 
-class MyClass1 : public virtual ::Ice::Proxy<MyClass1, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
 class MyDerivedClass : public virtual ::Ice::Proxy<MyDerivedClass, ::IceProxy::Test::MyClass>
 {
 public:
@@ -8237,152 +7784,6 @@ protected:
 
 }
 
-namespace M
-{
-
-class A : public virtual ::Ice::Proxy<A, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class Intf : public virtual ::Ice::Proxy<Intf, ::IceProxy::Ice::Object>
-{
-public:
-
-    void opIntf(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        end_opIntf(_iceI_begin_opIntf(context, ::IceInternal::dummyCallback, 0, true));
-    }
-
-    ::Ice::AsyncResultPtr begin_opIntf(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _iceI_begin_opIntf(context, ::IceInternal::dummyCallback, 0);
-    }
-
-    ::Ice::AsyncResultPtr begin_opIntf(const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_opIntf(::Ice::noExplicitContext, cb, cookie);
-    }
-
-    ::Ice::AsyncResultPtr begin_opIntf(const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_opIntf(context, cb, cookie);
-    }
-
-    ::Ice::AsyncResultPtr begin_opIntf(const ::M::Callback_Intf_opIntfPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_opIntf(::Ice::noExplicitContext, cb, cookie);
-    }
-
-    ::Ice::AsyncResultPtr begin_opIntf(const ::Ice::Context& context, const ::M::Callback_Intf_opIntfPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_opIntf(context, cb, cookie);
-    }
-
-    void end_opIntf(const ::Ice::AsyncResultPtr& result);
-
-private:
-
-    ::Ice::AsyncResultPtr _iceI_begin_opIntf(const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
-
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-/// \cond INTERNAL
-class _BBase : public virtual ::IceProxy::M::A, 
-               public virtual ::IceProxy::M::Intf
-{
-public:
-
-    virtual ~_BBase();
-
-protected:
-
-    virtual Object* _newInstance() const = 0;
-};
-/// \endcond
-
-class B : public virtual ::Ice::Proxy<B, _BBase>
-{
-public:
-
-    void opB(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        end_opB(_iceI_begin_opB(context, ::IceInternal::dummyCallback, 0, true));
-    }
-
-    ::Ice::AsyncResultPtr begin_opB(const ::Ice::Context& context = ::Ice::noExplicitContext)
-    {
-        return _iceI_begin_opB(context, ::IceInternal::dummyCallback, 0);
-    }
-
-    ::Ice::AsyncResultPtr begin_opB(const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_opB(::Ice::noExplicitContext, cb, cookie);
-    }
-
-    ::Ice::AsyncResultPtr begin_opB(const ::Ice::Context& context, const ::Ice::CallbackPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_opB(context, cb, cookie);
-    }
-
-    ::Ice::AsyncResultPtr begin_opB(const ::M::Callback_B_opBPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_opB(::Ice::noExplicitContext, cb, cookie);
-    }
-
-    ::Ice::AsyncResultPtr begin_opB(const ::Ice::Context& context, const ::M::Callback_B_opBPtr& cb, const ::Ice::LocalObjectPtr& cookie = 0)
-    {
-        return _iceI_begin_opB(context, cb, cookie);
-    }
-
-    void end_opB(const ::Ice::AsyncResultPtr& result);
-
-private:
-
-    ::Ice::AsyncResultPtr _iceI_begin_opB(const ::Ice::Context&, const ::IceInternal::CallbackBasePtr&, const ::Ice::LocalObjectPtr& cookie = 0, bool sync = false);
-
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-}
-
 }
 
 namespace Test
@@ -8393,7 +7794,6 @@ class MyClass : public virtual ::Ice::Object
 public:
 
     typedef MyClassPrx ProxyType;
-    typedef MyClassPtr PointerType;
 
     virtual ~MyClass();
     MyClass() = default;
@@ -8786,32 +8186,129 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
+};
 
-protected:
+class MyDerivedClass : public virtual MyClass
+{
+public:
 
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
+    typedef MyDerivedClassPrx ProxyType;
+
+    virtual ~MyDerivedClass();
+    MyDerivedClass() = default;
+    MyDerivedClass(const MyDerivedClass&) = default;
+    MyDerivedClass& operator=(const MyDerivedClass&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual void opDerived(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opDerived(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual MyClass1Ptr opMyClass1(const MyClass1Ptr& opMyClass1, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opMyClass1(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual MyStruct1 opMyStruct1(const MyStruct1& opMyStruct1, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_opMyStruct1(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const MyClass& lhs, const MyClass& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
 }
 
-inline bool operator<(const MyClass& lhs, const MyClass& rhs)
+namespace Test2
 {
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
+
+/**
+ * Makes sure that proxy operations are correctly generated when extending an interface from
+ * a different module (ICE-7639).
+ */
+class MyDerivedClass : public virtual ::Test::MyClass
+{
+public:
+
+    typedef MyDerivedClassPrx ProxyType;
+
+    virtual ~MyDerivedClass();
+    MyDerivedClass() = default;
+    MyDerivedClass(const MyDerivedClass&) = default;
+    MyDerivedClass& operator=(const MyDerivedClass&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
+
 }
-/// \endcond
+
+namespace Test
+{
 
 class MyClass1 : public virtual ::Ice::Object
 {
 public:
 
-    typedef MyClass1Prx ProxyType;
     typedef MyClass1Ptr PointerType;
 
     virtual ~MyClass1();
@@ -8896,409 +8393,6 @@ inline bool operator==(const MyClass1& lhs, const MyClass1& rhs)
 }
 
 inline bool operator<(const MyClass1& lhs, const MyClass1& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class MyDerivedClass : virtual public MyClass
-{
-public:
-
-    typedef MyDerivedClassPrx ProxyType;
-    typedef MyDerivedClassPtr PointerType;
-
-    virtual ~MyDerivedClass();
-    MyDerivedClass() = default;
-    MyDerivedClass(const MyDerivedClass&) = default;
-    MyDerivedClass& operator=(const MyDerivedClass&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual void opDerived(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opDerived(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual MyClass1Ptr opMyClass1(const MyClass1Ptr& opMyClass1, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opMyClass1(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual MyStruct1 opMyStruct1(const MyStruct1& opMyStruct1, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opMyStruct1(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const MyDerivedClass& lhs, const MyDerivedClass& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const MyDerivedClass& lhs, const MyDerivedClass& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-}
-
-namespace Test2
-{
-
-/**
- * Makes sure that proxy operations are correctly generated when extending an interface from
- * a different module (ICE-7639).
- */
-class MyDerivedClass : virtual public ::Test::MyClass
-{
-public:
-
-    typedef MyDerivedClassPrx ProxyType;
-    typedef MyDerivedClassPtr PointerType;
-
-    virtual ~MyDerivedClass();
-    MyDerivedClass() = default;
-    MyDerivedClass(const MyDerivedClass&) = default;
-    MyDerivedClass& operator=(const MyDerivedClass&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const MyDerivedClass& lhs, const MyDerivedClass& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const MyDerivedClass& lhs, const MyDerivedClass& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-}
-
-namespace M
-{
-
-class A : public virtual ::Ice::Object
-{
-public:
-
-    typedef APrx ProxyType;
-    typedef APtr PointerType;
-
-    virtual ~A();
-
-    A()
-    {
-    }
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    explicit A(::Ice::Int x) :
-        x(x)
-    {
-    }
-    A(const A&) = default;
-    A& operator=(const A&) = default;
-
-    /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
-     */
-    virtual ::Ice::ObjectPtr ice_clone() const;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    /**
-     * Obtains a value factory that instantiates this class.
-     * @return The value factory.
-     */
-    static ::Ice::ValueFactoryPtr ice_factory();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-
-public:
-
-    ::Ice::Int x;
-};
-/// \cond INTERNAL
-static ::Ice::ValueFactoryPtr _iceS_A_init = ::M::A::ice_factory();
-/// \endcond
-
-/// \cond INTERNAL
-inline bool operator==(const A& lhs, const A& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const A& lhs, const A& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class Intf : public virtual ::Ice::Object
-{
-public:
-
-    typedef IntfPrx ProxyType;
-    typedef IntfPtr PointerType;
-
-    virtual ~Intf();
-    Intf() = default;
-    Intf(const Intf&) = default;
-    Intf& operator=(const Intf&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual void opIntf(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opIntf(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const Intf& lhs, const Intf& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Intf& lhs, const Intf& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class B : public A,
-          virtual public Intf
-{
-public:
-
-    typedef BPrx ProxyType;
-    typedef BPtr PointerType;
-
-    virtual ~B();
-
-    B()
-    {
-    }
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    explicit B(::Ice::Int x) :
-        ::M::A(x)
-    {
-    }
-    B(const B&) = default;
-    B& operator=(const B&) = default;
-
-    /**
-     * Polymorphically clones this object.
-     * @return A shallow copy of this object.
-     */
-    virtual ::Ice::ObjectPtr ice_clone() const;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual void opB(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opB(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const B& lhs, const B& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const B& lhs, const B& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
 }
@@ -9453,38 +8547,6 @@ struct StreamReader< ::Test::MyClass1, S>
         istr->read(v.tesT);
         istr->read(v.myClass);
         istr->read(v.myClass1);
-    }
-};
-
-}
-/// \endcond
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
-
-/// \cond STREAM
-namespace Ice
-{
-
-template<typename S>
-struct StreamWriter< ::M::A, S>
-{
-    static void write(S* ostr, const ::M::A& v)
-    {
-        ostr->write(v.x);
-    }
-};
-
-template<typename S>
-struct StreamReader< ::M::A, S>
-{
-    static void read(S* istr, ::M::A& v)
-    {
-        istr->read(v.x);
     }
 };
 
@@ -20884,323 +19946,6 @@ newCallback_MyDerivedClass_opMyStruct1(T* instance, void (T::*cb)(const MyStruct
 
 namespace Test2
 {
-
-}
-
-namespace M
-{
-
-/**
- * Type-safe asynchronous callback wrapper class used for calls to
- * IceProxy::M::Intf::begin_opIntf.
- * Create a wrapper instance by calling ::M::newCallback_Intf_opIntf.
- */
-template<class T>
-class CallbackNC_Intf_opIntf : public Callback_Intf_opIntf_Base, public ::IceInternal::OnewayCallbackNC<T>
-{
-public:
-
-    typedef IceUtil::Handle<T> TPtr;
-
-    typedef void (T::*Exception)(const ::Ice::Exception&);
-    typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)();
-
-    CallbackNC_Intf_opIntf(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
-        : ::IceInternal::OnewayCallbackNC<T>(obj, cb, excb, sentcb)
-    {
-    }
-};
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::M::Intf::begin_opIntf.
- */
-template<class T> Callback_Intf_opIntfPtr
-newCallback_Intf_opIntf(const IceUtil::Handle<T>& instance, void (T::*cb)(), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
-{
-    return new CallbackNC_Intf_opIntf<T>(instance, cb, excb, sentcb);
-}
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * @param instance The callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::M::Intf::begin_opIntf.
- */
-template<class T> Callback_Intf_opIntfPtr
-newCallback_Intf_opIntf(const IceUtil::Handle<T>& instance, void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
-{
-    return new CallbackNC_Intf_opIntf<T>(instance, 0, excb, sentcb);
-}
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::M::Intf::begin_opIntf.
- */
-template<class T> Callback_Intf_opIntfPtr
-newCallback_Intf_opIntf(T* instance, void (T::*cb)(), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
-{
-    return new CallbackNC_Intf_opIntf<T>(instance, cb, excb, sentcb);
-}
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * @param instance The callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::M::Intf::begin_opIntf.
- */
-template<class T> Callback_Intf_opIntfPtr
-newCallback_Intf_opIntf(T* instance, void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
-{
-    return new CallbackNC_Intf_opIntf<T>(instance, 0, excb, sentcb);
-}
-
-/**
- * Type-safe asynchronous callback wrapper class with cookie support used for calls to
- * IceProxy::M::Intf::begin_opIntf.
- * Create a wrapper instance by calling ::M::newCallback_Intf_opIntf.
- */
-template<class T, typename CT>
-class Callback_Intf_opIntf : public Callback_Intf_opIntf_Base, public ::IceInternal::OnewayCallback<T, CT>
-{
-public:
-
-    typedef IceUtil::Handle<T> TPtr;
-
-    typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
-    typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const CT&);
-
-    Callback_Intf_opIntf(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
-        : ::IceInternal::OnewayCallback<T, CT>(obj, cb, excb, sentcb)
-    {
-    }
-};
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * Use this overload when your callback methods receive a cookie value.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::M::Intf::begin_opIntf.
- */
-template<class T, typename CT> Callback_Intf_opIntfPtr
-newCallback_Intf_opIntf(const IceUtil::Handle<T>& instance, void (T::*cb)(const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
-{
-    return new Callback_Intf_opIntf<T, CT>(instance, cb, excb, sentcb);
-}
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * Use this overload when your callback methods receive a cookie value.
- * @param instance The callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::M::Intf::begin_opIntf.
- */
-template<class T, typename CT> Callback_Intf_opIntfPtr
-newCallback_Intf_opIntf(const IceUtil::Handle<T>& instance, void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
-{
-    return new Callback_Intf_opIntf<T, CT>(instance, 0, excb, sentcb);
-}
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * Use this overload when your callback methods receive a cookie value.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::M::Intf::begin_opIntf.
- */
-template<class T, typename CT> Callback_Intf_opIntfPtr
-newCallback_Intf_opIntf(T* instance, void (T::*cb)(const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
-{
-    return new Callback_Intf_opIntf<T, CT>(instance, cb, excb, sentcb);
-}
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * Use this overload when your callback methods receive a cookie value.
- * @param instance The callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::M::Intf::begin_opIntf.
- */
-template<class T, typename CT> Callback_Intf_opIntfPtr
-newCallback_Intf_opIntf(T* instance, void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
-{
-    return new Callback_Intf_opIntf<T, CT>(instance, 0, excb, sentcb);
-}
-
-/**
- * Type-safe asynchronous callback wrapper class used for calls to
- * IceProxy::M::B::begin_opB.
- * Create a wrapper instance by calling ::M::newCallback_B_opB.
- */
-template<class T>
-class CallbackNC_B_opB : public Callback_B_opB_Base, public ::IceInternal::OnewayCallbackNC<T>
-{
-public:
-
-    typedef IceUtil::Handle<T> TPtr;
-
-    typedef void (T::*Exception)(const ::Ice::Exception&);
-    typedef void (T::*Sent)(bool);
-    typedef void (T::*Response)();
-
-    CallbackNC_B_opB(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
-        : ::IceInternal::OnewayCallbackNC<T>(obj, cb, excb, sentcb)
-    {
-    }
-};
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::M::B::begin_opB.
- */
-template<class T> Callback_B_opBPtr
-newCallback_B_opB(const IceUtil::Handle<T>& instance, void (T::*cb)(), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
-{
-    return new CallbackNC_B_opB<T>(instance, cb, excb, sentcb);
-}
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * @param instance The callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::M::B::begin_opB.
- */
-template<class T> Callback_B_opBPtr
-newCallback_B_opB(const IceUtil::Handle<T>& instance, void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
-{
-    return new CallbackNC_B_opB<T>(instance, 0, excb, sentcb);
-}
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::M::B::begin_opB.
- */
-template<class T> Callback_B_opBPtr
-newCallback_B_opB(T* instance, void (T::*cb)(), void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
-{
-    return new CallbackNC_B_opB<T>(instance, cb, excb, sentcb);
-}
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * @param instance The callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::M::B::begin_opB.
- */
-template<class T> Callback_B_opBPtr
-newCallback_B_opB(T* instance, void (T::*excb)(const ::Ice::Exception&), void (T::*sentcb)(bool) = 0)
-{
-    return new CallbackNC_B_opB<T>(instance, 0, excb, sentcb);
-}
-
-/**
- * Type-safe asynchronous callback wrapper class with cookie support used for calls to
- * IceProxy::M::B::begin_opB.
- * Create a wrapper instance by calling ::M::newCallback_B_opB.
- */
-template<class T, typename CT>
-class Callback_B_opB : public Callback_B_opB_Base, public ::IceInternal::OnewayCallback<T, CT>
-{
-public:
-
-    typedef IceUtil::Handle<T> TPtr;
-
-    typedef void (T::*Exception)(const ::Ice::Exception& , const CT&);
-    typedef void (T::*Sent)(bool , const CT&);
-    typedef void (T::*Response)(const CT&);
-
-    Callback_B_opB(const TPtr& obj, Response cb, Exception excb, Sent sentcb)
-        : ::IceInternal::OnewayCallback<T, CT>(obj, cb, excb, sentcb)
-    {
-    }
-};
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * Use this overload when your callback methods receive a cookie value.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::M::B::begin_opB.
- */
-template<class T, typename CT> Callback_B_opBPtr
-newCallback_B_opB(const IceUtil::Handle<T>& instance, void (T::*cb)(const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
-{
-    return new Callback_B_opB<T, CT>(instance, cb, excb, sentcb);
-}
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * Use this overload when your callback methods receive a cookie value.
- * @param instance The callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::M::B::begin_opB.
- */
-template<class T, typename CT> Callback_B_opBPtr
-newCallback_B_opB(const IceUtil::Handle<T>& instance, void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
-{
-    return new Callback_B_opB<T, CT>(instance, 0, excb, sentcb);
-}
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * Use this overload when your callback methods receive a cookie value.
- * @param instance The callback object.
- * @param cb The success method of the callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::M::B::begin_opB.
- */
-template<class T, typename CT> Callback_B_opBPtr
-newCallback_B_opB(T* instance, void (T::*cb)(const CT&), void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
-{
-    return new Callback_B_opB<T, CT>(instance, cb, excb, sentcb);
-}
-
-/**
- * Creates a callback wrapper instance that delegates to your object.
- * Use this overload when your callback methods receive a cookie value.
- * @param instance The callback object.
- * @param excb The exception method of the callback object.
- * @param sentcb The sent method of the callback object.
- * @return An object that can be passed to an asynchronous invocation of IceProxy::M::B::begin_opB.
- */
-template<class T, typename CT> Callback_B_opBPtr
-newCallback_B_opB(T* instance, void (T::*excb)(const ::Ice::Exception&, const CT&), void (T::*sentcb)(bool, const CT&) = 0)
-{
-    return new Callback_B_opB<T, CT>(instance, 0, excb, sentcb);
-}
 
 }
 

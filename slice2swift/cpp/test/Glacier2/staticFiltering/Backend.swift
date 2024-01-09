@@ -17,7 +17,7 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice interface `Backend`.
+/// Traits for Slice interface`Backend`.
 public struct BackendTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Backend"]
     public static let staticId = "::Test::Backend"

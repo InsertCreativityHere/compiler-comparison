@@ -22,7 +22,7 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             %
             % Parameters:
             %   goto (await.var)
-            %   if_ (await.explicit)
+            %   if_ (await.explicitPrx)
             %   internal (containers.Map)
             %   namespace (char)
             %   null (await.explicitPrx)
@@ -32,7 +32,7 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             
             os_ = obj.iceStartWriteParams([]);
             await.var.ice_writeOpt(os_, 2, goto);
-            os_.writeValueOpt(3, if_);
+            os_.writeProxyOpt(3, if_);
             await.while_.writeOpt(os_, 5, internal);
             os_.writeStringOpt(7, namespace);
             os_.writeProxyOpt(8, null);
@@ -47,7 +47,7 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             %
             % Parameters:
             %   goto (await.var)
-            %   if_ (await.explicit)
+            %   if_ (await.explicitPrx)
             %   internal (containers.Map)
             %   namespace (char)
             %   null (await.explicitPrx)
@@ -57,7 +57,7 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             
             os_ = obj.iceStartWriteParams([]);
             await.var.ice_writeOpt(os_, 2, goto);
-            os_.writeValueOpt(3, if_);
+            os_.writeProxyOpt(3, if_);
             await.while_.writeOpt(os_, 5, internal);
             os_.writeStringOpt(7, namespace);
             os_.writeProxyOpt(8, null);
@@ -75,7 +75,7 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             %
             % Parameters:
             %   goto (await.var)
-            %   if_ (await.explicit)
+            %   if_ (await.explicitPrx)
             %   internal (containers.Map)
             %   namespace (char)
             %   null (await.explicitPrx)
@@ -85,7 +85,7 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             
             os_ = obj.iceStartWriteParams([]);
             await.var.ice_writeOpt(os_, 2, goto);
-            os_.writeValueOpt(3, if_);
+            os_.writeProxyOpt(3, if_);
             await.while_.writeOpt(os_, 5, internal);
             os_.writeStringOpt(7, namespace);
             os_.writeProxyOpt(8, null);
@@ -100,7 +100,7 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             %
             % Parameters:
             %   goto (await.var)
-            %   if_ (await.explicit)
+            %   if_ (await.explicitPrx)
             %   internal (containers.Map)
             %   namespace (char)
             %   null (await.explicitPrx)
@@ -110,7 +110,7 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             
             os_ = obj.iceStartWriteParams([]);
             await.var.ice_writeOpt(os_, 2, goto);
-            os_.writeValueOpt(3, if_);
+            os_.writeProxyOpt(3, if_);
             await.while_.writeOpt(os_, 5, internal);
             os_.writeStringOpt(7, namespace);
             os_.writeProxyOpt(8, null);
@@ -132,7 +132,7 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             % Returns:
             %   result (await.break_)
             %   goto (await.var)
-            %   if_ (await.explicit)
+            %   if_ (await.explicitPrx)
             %   internal (containers.Map)
             %   namespace (char)
             %   null (await.explicitPrx)
@@ -141,8 +141,10 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             is_.startEncapsulation();
             result = await.break_.ice_readOpt(is_, 1);
             goto = await.var.ice_readOpt(is_, 2);
-            if__h_ = IceInternal.ValueHolder();
-            is_.readValueOpt(3, @(v) if__h_.set(v), 'Ice.Value');
+            if is_.readOptional(3, Ice.OptionalFormat.FSize)
+                is_.skip(4);
+                if_ = await.explicitPrx.ice_read(is_);
+            end
             internal = await.while_.readOpt(is_, 5);
             namespace = is_.readStringOpt(7);
             if is_.readOptional(8, Ice.OptionalFormat.FSize)
@@ -150,7 +152,6 @@ classdef optionalParamsPrx < Ice.ObjectPrx
                 null = await.explicitPrx.ice_read(is_);
             end
             is_.endEncapsulation();
-            if_ = if__h_.value;
         end
         function r_ = inAsync(obj, varargin)
             % inAsync
@@ -164,8 +165,10 @@ classdef optionalParamsPrx < Ice.ObjectPrx
                 is_.startEncapsulation();
                 result = await.break_.ice_readOpt(is_, 1);
                 goto = await.var.ice_readOpt(is_, 2);
-                if_ = IceInternal.ValueHolder();
-                is_.readValueOpt(3, @(v) if_.set(v), 'Ice.Value');
+                if is_.readOptional(3, Ice.OptionalFormat.FSize)
+                    is_.skip(4);
+                    if_ = await.explicitPrx.ice_read(is_);
+                end
                 internal = await.while_.readOpt(is_, 5);
                 namespace = is_.readStringOpt(7);
                 if is_.readOptional(8, Ice.OptionalFormat.FSize)
@@ -175,7 +178,7 @@ classdef optionalParamsPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
                 varargout{2} = goto;
-                varargout{3} = if_.value;
+                varargout{3} = if_;
                 varargout{4} = internal;
                 varargout{5} = namespace;
                 varargout{6} = null;
@@ -191,7 +194,7 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             % Returns:
             %   result (await.break_)
             %   goto (await.var)
-            %   if_ (await.explicit)
+            %   if_ (await.explicitPrx)
             %   internal (containers.Map)
             %   namespace (char)
             %   null (await.explicitPrx)
@@ -200,8 +203,10 @@ classdef optionalParamsPrx < Ice.ObjectPrx
             is_.startEncapsulation();
             result = await.break_.ice_readOpt(is_, 1);
             goto = await.var.ice_readOpt(is_, 2);
-            if__h_ = IceInternal.ValueHolder();
-            is_.readValueOpt(3, @(v) if__h_.set(v), 'Ice.Value');
+            if is_.readOptional(3, Ice.OptionalFormat.FSize)
+                is_.skip(4);
+                if_ = await.explicitPrx.ice_read(is_);
+            end
             internal = await.while_.readOpt(is_, 5);
             namespace = is_.readStringOpt(7);
             if is_.readOptional(8, Ice.OptionalFormat.FSize)
@@ -209,7 +214,6 @@ classdef optionalParamsPrx < Ice.ObjectPrx
                 null = await.explicitPrx.ice_read(is_);
             end
             is_.endEncapsulation();
-            if_ = if__h_.value;
         end
         function r_ = foreachAsync(obj, varargin)
             % foreachAsync
@@ -223,8 +227,10 @@ classdef optionalParamsPrx < Ice.ObjectPrx
                 is_.startEncapsulation();
                 result = await.break_.ice_readOpt(is_, 1);
                 goto = await.var.ice_readOpt(is_, 2);
-                if_ = IceInternal.ValueHolder();
-                is_.readValueOpt(3, @(v) if_.set(v), 'Ice.Value');
+                if is_.readOptional(3, Ice.OptionalFormat.FSize)
+                    is_.skip(4);
+                    if_ = await.explicitPrx.ice_read(is_);
+                end
                 internal = await.while_.readOpt(is_, 5);
                 namespace = is_.readStringOpt(7);
                 if is_.readOptional(8, Ice.OptionalFormat.FSize)
@@ -234,7 +240,7 @@ classdef optionalParamsPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
                 varargout{2} = goto;
-                varargout{3} = if_.value;
+                varargout{3} = if_;
                 varargout{4} = internal;
                 varargout{5} = namespace;
                 varargout{6} = null;

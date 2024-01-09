@@ -656,11 +656,6 @@ IceGrid::Session::~Session()
 {
 }
 
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* IceGrid::upCast(Session* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_IceGrid_Session_ids[3] =
@@ -845,39 +840,5 @@ IceGrid::Session::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current
     }
 }
 /// \endcond
-
-/// \cond STREAM
-void
-IceGrid::Session::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Session, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::Session::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Session, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceGrid::_icePatchObjectPtr(SessionPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = SessionPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Session::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-namespace Ice
-{
-}
 
 #endif

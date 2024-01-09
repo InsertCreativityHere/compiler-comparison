@@ -72,7 +72,6 @@ namespace _abstract
             return '::abstract::catch';
         }
     }
-    $abstract__t_catch = IcePHP_defineClass('::abstract::catch', '\\_abstract\\_catch', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $abstract__t_catchPrx = IcePHP_defineProxy('::abstract::catch', $Ice__t_ObjectPrx, null);
@@ -103,7 +102,6 @@ namespace _abstract
             return '::abstract::default';
         }
     }
-    $abstract__t_default = IcePHP_defineClass('::abstract::default', '\\_abstract\\_default', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $abstract__t_defaultPrx = IcePHP_defineProxy('::abstract::default', $Ice__t_ObjectPrx, null);
@@ -175,7 +173,6 @@ namespace _abstract
             return '::abstract::finalize';
         }
     }
-    $abstract__t_finalize = IcePHP_defineClass('::abstract::finalize', '\\_abstract\\finalize', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $abstract__t_finalizePrx = IcePHP_defineProxy('::abstract::finalize', $Ice__t_ObjectPrx, array($abstract__t_defaultPrx, $abstract__t_catchPrx));
@@ -288,21 +285,18 @@ namespace _abstract
             return '::abstract::new';
         }
     }
-    $abstract__t_new = IcePHP_defineClass('::abstract::new', '\\_abstract\\_new', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $abstract__t_newPrx = IcePHP_defineProxy('::abstract::new', $Ice__t_ObjectPrx, null);
 
     global $abstract__t_break;
     global $abstract__t_else;
-    global $abstract__t_finalize;
-    global $Ice__t_ObjectPrx;
     global $abstract__t_finalizePrx;
     global $abstract__t_catchPrx;
     global $abstract__t_defaultPrx;
     global $IcePHP__t_int;
     global $abstract__t_assert;
-    IcePHP_defineOperation($abstract__t_newPrx, 'notify', 0, 0, 0, array(array($abstract__t_break), array($abstract__t_else), array($abstract__t_finalize), array($Ice__t_ObjectPrx), array($abstract__t_finalizePrx), array($abstract__t_catchPrx), array($abstract__t_defaultPrx), array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int)), null, array($abstract__t_assert), array($abstract__t_hashCode, $abstract__t_import));
+    IcePHP_defineOperation($abstract__t_newPrx, 'notify', 0, 0, 0, array(array($abstract__t_break), array($abstract__t_else), array($abstract__t_finalizePrx), array($abstract__t_catchPrx), array($abstract__t_defaultPrx), array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int)), null, array($abstract__t_assert), array($abstract__t_hashCode, $abstract__t_import));
 }
 
 namespace _abstract

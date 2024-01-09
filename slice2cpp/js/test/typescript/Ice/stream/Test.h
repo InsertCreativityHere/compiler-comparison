@@ -82,8 +82,6 @@ using MyEnumS = ::std::vector<MyEnum>;
 
 using MyClassS = ::std::vector<::std::shared_ptr<MyClass>>;
 
-using MyInterfaceS = ::std::vector<::std::shared_ptr<::Ice::Value>>;
-
 using BoolSS = ::std::vector<::Ice::BoolSeq>;
 
 using ByteSS = ::std::vector<::Ice::ByteSeq>;
@@ -103,8 +101,6 @@ using StringSS = ::std::vector<::Ice::StringSeq>;
 using MyEnumSS = ::std::vector<MyEnumS>;
 
 using MyClassSS = ::std::vector<MyClassS>;
-
-using MyInterfaceSS = ::std::vector<MyInterfaceS>;
 
 using ByteBoolD = ::std::map<::Ice::Byte, bool>;
 
@@ -447,22 +443,10 @@ namespace IceProxy
 namespace Test
 {
 
-class MyClass;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< MyClass>&);
-::IceProxy::Ice::Object* upCast(MyClass*);
-/// \endcond
-
 class MyInterface;
 /// \cond INTERNAL
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< MyInterface>&);
 ::IceProxy::Ice::Object* upCast(MyInterface*);
-/// \endcond
-
-class OptionalClass;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< OptionalClass>&);
-::IceProxy::Ice::Object* upCast(OptionalClass*);
 /// \endcond
 
 }
@@ -477,30 +461,20 @@ class MyClass;
 ::Ice::Object* upCast(MyClass*);
 /// \endcond
 typedef ::IceInternal::Handle< MyClass> MyClassPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::MyClass> MyClassPrx;
-typedef MyClassPrx MyClassPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(MyClassPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-class MyInterface;
-/// \cond INTERNAL
-::Ice::Object* upCast(MyInterface*);
-/// \endcond
-typedef ::IceInternal::Handle< MyInterface> MyInterfacePtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::MyInterface> MyInterfacePrx;
 typedef MyInterfacePrx MyInterfacePrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(MyInterfacePtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class MyInterface;
+typedef ::IceInternal::Handle< MyInterface> MyInterfacePtr;
 
 class OptionalClass;
 /// \cond INTERNAL
 ::Ice::Object* upCast(OptionalClass*);
 /// \endcond
 typedef ::IceInternal::Handle< OptionalClass> OptionalClassPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::OptionalClass> OptionalClassPrx;
-typedef OptionalClassPrx OptionalClassPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(OptionalClassPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -535,8 +509,6 @@ typedef ::std::vector<MyEnum> MyEnumS;
 
 typedef ::std::vector<MyClassPtr> MyClassS;
 
-typedef ::std::vector<MyInterfacePtr> MyInterfaceS;
-
 typedef ::std::vector< ::Ice::BoolSeq> BoolSS;
 
 typedef ::std::vector< ::Ice::ByteSeq> ByteSS;
@@ -556,8 +528,6 @@ typedef ::std::vector< ::Ice::StringSeq> StringSS;
 typedef ::std::vector<MyEnumS> MyEnumSS;
 
 typedef ::std::vector<MyClassS> MyClassSS;
-
-typedef ::std::vector<MyInterfaceS> MyInterfaceSS;
 
 typedef ::std::map< ::Ice::Byte, bool> ByteBoolD;
 
@@ -627,40 +597,6 @@ namespace IceProxy
 namespace Test
 {
 
-class OptionalClass : public virtual ::Ice::Proxy<OptionalClass, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class MyClass : public virtual ::Ice::Proxy<MyClass, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
 class MyInterface : public virtual ::Ice::Proxy<MyInterface, ::IceProxy::Ice::Object>
 {
 public:
@@ -685,11 +621,55 @@ protected:
 namespace Test
 {
 
+class MyInterface : public virtual ::Ice::Object
+{
+public:
+
+    typedef MyInterfacePrx ProxyType;
+
+    virtual ~MyInterface();
+    MyInterface() = default;
+    MyInterface(const MyInterface&) = default;
+    MyInterface& operator=(const MyInterface&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+};
+
+}
+
+namespace Test
+{
+
 class OptionalClass : public virtual ::Ice::Object
 {
 public:
 
-    typedef OptionalClassPrx ProxyType;
     typedef OptionalClassPtr PointerType;
 
     virtual ~OptionalClass();
@@ -785,7 +765,6 @@ class MyClass : public virtual ::Ice::Object, public ::IceInternal::GCObject
 {
 public:
 
-    typedef MyClassPrx ProxyType;
     typedef MyClassPtr PointerType;
 
     virtual ~MyClass();
@@ -895,66 +874,6 @@ inline bool operator==(const MyClass& lhs, const MyClass& rhs)
 }
 
 inline bool operator<(const MyClass& lhs, const MyClass& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class MyInterface : public virtual ::Ice::Object
-{
-public:
-
-    typedef MyInterfacePrx ProxyType;
-    typedef MyInterfacePtr PointerType;
-
-    virtual ~MyInterface();
-    MyInterface() = default;
-    MyInterface(const MyInterface&) = default;
-    MyInterface& operator=(const MyInterface&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const MyInterface& lhs, const MyInterface& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const MyInterface& lhs, const MyInterface& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
 }

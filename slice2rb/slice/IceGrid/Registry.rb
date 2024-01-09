@@ -109,8 +109,6 @@ module ::IceGrid
             T_QueryPrx = ::Ice::__declareProxy('::IceGrid::Query')
         end
 
-        T_Query.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_QueryPrx.defineProxy(QueryPrx, nil, [])
 
         QueryPrx_mixin::OP_findObjectById = ::Ice::__defineOperation('findObjectById', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_Identity, false, 0]], [], [::Ice::T_ObjectPrx, false, 0], [])
@@ -161,8 +159,6 @@ module ::IceGrid
             T_RegistryPrx = ::Ice::__declareProxy('::IceGrid::Registry')
         end
 
-        T_Registry.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_RegistryPrx.defineProxy(RegistryPrx, nil, [])
 
         RegistryPrx_mixin::OP_createSession = ::Ice::__defineOperation('createSession', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], [::IceGrid::T_SessionPrx, false, 0], [::IceGrid::T_PermissionDeniedException])
@@ -198,8 +194,6 @@ module ::IceGrid
             T_Locator = ::Ice::__declareClass('::IceGrid::Locator')
             T_LocatorPrx = ::Ice::__declareProxy('::IceGrid::Locator')
         end
-
-        T_Locator.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_LocatorPrx.defineProxy(LocatorPrx, nil, [::Ice::T_LocatorPrx])
 

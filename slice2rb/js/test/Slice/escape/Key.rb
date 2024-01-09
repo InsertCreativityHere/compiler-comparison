@@ -116,8 +116,6 @@ module ::Await
             T_CasePrx = ::Ice::__declareProxy('::await::case')
         end
 
-        T_Case.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_CasePrx.defineProxy(CasePrx, nil, [])
 
         CasePrx_mixin::OP_catch = ::Ice::__defineOperation('catch', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
@@ -143,8 +141,6 @@ module ::Await
             T_Typeof = ::Ice::__declareClass('::await::typeof')
             T_TypeofPrx = ::Ice::__declareProxy('::await::typeof')
         end
-
-        T_Typeof.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_TypeofPrx.defineProxy(TypeofPrx, nil, [])
 
@@ -196,8 +192,6 @@ module ::Await
             T_ExplicitPrx = ::Ice::__declareProxy('::await::explicit')
         end
 
-        T_Explicit.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_ExplicitPrx.defineProxy(ExplicitPrx, nil, [::Await::T_TypeofPrx, ::Await::T_CasePrx])
     end
 
@@ -230,7 +224,7 @@ module ::Await
         T_Package.defineClass(Package, -1, false, false, nil, [
             ['_for', ::Await::T_Break, true, 1],
             ['goto', ::Await::T_Var, true, 2],
-            ['_if', ::Await::T_Explicit, true, 3],
+            ['_if', ::Await::T_ExplicitPrx, true, 3],
             ['internal', ::Await::T_While, true, 5],
             ['debugger', ::Ice::T_string, true, 7],
             ['null', ::Await::T_ExplicitPrx, true, 8]
@@ -270,14 +264,12 @@ module ::Await
             T_OptionalParamsPrx = ::Ice::__declareProxy('::await::optionalParams')
         end
 
-        T_OptionalParams.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_OptionalParamsPrx.defineProxy(OptionalParamsPrx, nil, [])
 
-        OptionalParamsPrx_mixin::OP_for = ::Ice::__defineOperation('for', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Await::T_Var, true, 2], [::Await::T_Explicit, true, 3], [::Await::T_While, true, 5], [::Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [], [::Await::T_Break, true, 1], [])
-        OptionalParamsPrx_mixin::OP_continue = ::Ice::__defineOperation('continue', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Await::T_Var, true, 2], [::Await::T_Explicit, true, 3], [::Await::T_While, true, 5], [::Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [], [::Await::T_Break, true, 1], [])
-        OptionalParamsPrx_mixin::OP_in = ::Ice::__defineOperation('in', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [[::Await::T_Var, true, 2], [::Await::T_Explicit, true, 3], [::Await::T_While, true, 5], [::Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [::Await::T_Break, true, 1], [])
-        OptionalParamsPrx_mixin::OP_foreach = ::Ice::__defineOperation('foreach', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [[::Await::T_Var, true, 2], [::Await::T_Explicit, true, 3], [::Await::T_While, true, 5], [::Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [::Await::T_Break, true, 1], [])
+        OptionalParamsPrx_mixin::OP_for = ::Ice::__defineOperation('for', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Await::T_Var, true, 2], [::Await::T_ExplicitPrx, true, 3], [::Await::T_While, true, 5], [::Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [], [::Await::T_Break, true, 1], [])
+        OptionalParamsPrx_mixin::OP_continue = ::Ice::__defineOperation('continue', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Await::T_Var, true, 2], [::Await::T_ExplicitPrx, true, 3], [::Await::T_While, true, 5], [::Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [], [::Await::T_Break, true, 1], [])
+        OptionalParamsPrx_mixin::OP_in = ::Ice::__defineOperation('in', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [[::Await::T_Var, true, 2], [::Await::T_ExplicitPrx, true, 3], [::Await::T_While, true, 5], [::Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [::Await::T_Break, true, 1], [])
+        OptionalParamsPrx_mixin::OP_foreach = ::Ice::__defineOperation('foreach', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [[::Await::T_Var, true, 2], [::Await::T_ExplicitPrx, true, 3], [::Await::T_While, true, 5], [::Ice::T_string, true, 7], [::Await::T_ExplicitPrx, true, 8]], [::Await::T_Break, true, 1], [])
     end
 
     if not defined?(::Await::Fixed)
@@ -384,11 +376,9 @@ module ::Await
             T_ImplicitPrx = ::Ice::__declareProxy('::await::implicit')
         end
 
-        T_Implicit.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_ImplicitPrx.defineProxy(ImplicitPrx, nil, [])
 
-        ImplicitPrx_mixin::OP_in = ::Ice::__defineOperation('in', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Await::T_Break, false, 0], [::Await::T_Delete, false, 0], [::Await::T_Explicit, false, 0], [::Await::T_CasePrx, false, 0], [::Await::T_TypeofPrx, false, 0], [::Await::T_Delete, false, 0], [::Await::T_ExplicitPrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Await::T_Var, false, 0], [::Await::T_Fixed, ::Await::T_Foreach])
+        ImplicitPrx_mixin::OP_in = ::Ice::__defineOperation('in', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Await::T_Break, false, 0], [::Await::T_Delete, false, 0], [::Await::T_ExplicitPrx, false, 0], [::Await::T_CasePrx, false, 0], [::Await::T_TypeofPrx, false, 0], [::Await::T_Delete, false, 0], [::Await::T_ExplicitPrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Await::T_Var, false, 0], [::Await::T_Fixed, ::Await::T_Foreach])
     end
 
     Protected = 0
@@ -417,8 +407,6 @@ module ::Await
                 T_Test = ::Ice::__declareClass('::await::System::Test')
                 T_TestPrx = ::Ice::__declareProxy('::await::System::Test')
             end
-
-            T_Test.defineClass(::Ice::Value, -1, false, true, nil, [])
 
             T_TestPrx.defineProxy(TestPrx, nil, [])
 
@@ -449,8 +437,6 @@ module ::System
             T_Test = ::Ice::__declareClass('::System::Test')
             T_TestPrx = ::Ice::__declareProxy('::System::Test')
         end
-
-        T_Test.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_TestPrx.defineProxy(TestPrx, nil, [])
 

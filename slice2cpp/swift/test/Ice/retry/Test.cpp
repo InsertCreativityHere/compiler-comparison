@@ -541,11 +541,6 @@ Test::Retry::~Retry()
 {
 }
 
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(Retry* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Test_Retry_ids[2] =
@@ -742,39 +737,5 @@ Test::Retry::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cur
     }
 }
 /// \endcond
-
-/// \cond STREAM
-void
-Test::Retry::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Retry, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Retry::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Retry, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(RetryPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = RetryPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Retry::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-namespace Ice
-{
-}
 
 #endif

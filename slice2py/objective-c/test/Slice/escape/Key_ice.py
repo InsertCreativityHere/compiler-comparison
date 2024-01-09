@@ -445,50 +445,6 @@ if 'do' not in _M__and.__dict__:
     _M__and.do = do
     del do
 
-if 'doPrx' not in _M__and.__dict__:
-    _M__and.doPrx = Ice.createTempClass()
-    class doPrx(_M__and.charPrx, _M__and.breakPrx, _M__and.switchPrx):
-
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M__and.doPrx.ice_checkedCast(proxy, '::and::do', facetOrContext, context)
-
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M__and.doPrx.ice_uncheckedCast(proxy, facet)
-
-        @staticmethod
-        def ice_staticId():
-            return '::and::do'
-    _M__and._t_doPrx = IcePy.defineProxy('::and::do', doPrx)
-
-    _M__and.doPrx = doPrx
-    del doPrx
-
-    _M__and.doDisp = Ice.createTempClass()
-    class doDisp(_M__and.char, _M__and._break, _M__and.switch):
-
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::and::break', '::and::char', '::and::do', '::and::switch')
-
-        def ice_id(self, current=None):
-            return '::and::do'
-
-        @staticmethod
-        def ice_staticId():
-            return '::and::do'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M__and._t_doDisp)
-
-        __repr__ = __str__
-
-    _M__and._t_doDisp = IcePy.defineClass('::and::do', doDisp, (), None, (_M__and._t_charDisp, _M__and._t_breakDisp, _M__and._t_switchDisp))
-    doDisp._ice_type = _M__and._t_doDisp
-
-    _M__and.doDisp = doDisp
-    del doDisp
-
 if '_t_extern' not in _M__and.__dict__:
     _M__and._t_extern = IcePy.defineSequence('::and::extern', (), _M__and._t_auto)
 
@@ -544,14 +500,14 @@ if 'friendPrx' not in _M__and.__dict__:
     _M__and.friendPrx = Ice.createTempClass()
     class friendPrx(Ice.ObjectPrx):
 
-        def goto(self, _if, d, inline, private, mutable, namespace, new, _not, operator, _or, protected, public, register, context=None):
-            return _M__and.friend._op_goto.invoke(self, ((_if, d, inline, private, mutable, namespace, new, _not, operator, _or, protected, public, register), context))
+        def goto(self, _if, d, inline, mutable, namespace, new, _not, _or, protected, public, register, context=None):
+            return _M__and.friend._op_goto.invoke(self, ((_if, d, inline, mutable, namespace, new, _not, _or, protected, public, register), context))
 
-        def gotoAsync(self, _if, d, inline, private, mutable, namespace, new, _not, operator, _or, protected, public, register, context=None):
-            return _M__and.friend._op_goto.invokeAsync(self, ((_if, d, inline, private, mutable, namespace, new, _not, operator, _or, protected, public, register), context))
+        def gotoAsync(self, _if, d, inline, mutable, namespace, new, _not, _or, protected, public, register, context=None):
+            return _M__and.friend._op_goto.invokeAsync(self, ((_if, d, inline, mutable, namespace, new, _not, _or, protected, public, register), context))
 
-        def begin_goto(self, _if, d, inline, private, mutable, namespace, new, _not, operator, _or, protected, public, register, _response=None, _ex=None, _sent=None, context=None):
-            return _M__and.friend._op_goto.begin(self, ((_if, d, inline, private, mutable, namespace, new, _not, operator, _or, protected, public, register), _response, _ex, _sent, context))
+        def begin_goto(self, _if, d, inline, mutable, namespace, new, _not, _or, protected, public, register, _response=None, _ex=None, _sent=None, context=None):
+            return _M__and.friend._op_goto.begin(self, ((_if, d, inline, mutable, namespace, new, _not, _or, protected, public, register), _response, _ex, _sent, context))
 
         def end_goto(self, _r):
             return _M__and.friend._op_goto.end(self, _r)
@@ -597,7 +553,7 @@ if 'friendPrx' not in _M__and.__dict__:
         def ice_staticId():
             return '::and::friend'
 
-        def goto(self, _if, d, inline, private, mutable, namespace, new, _not, operator, _or, protected, public, register, current=None):
+        def goto(self, _if, d, inline, mutable, namespace, new, _not, _or, protected, public, register, current=None):
             raise NotImplementedError("servant method 'goto' not implemented")
 
         def objc(self, bycopy, byref, id, IMP, _in, inout, nil, NO, oneway, SEL, super, YES, current=None):
@@ -611,7 +567,7 @@ if 'friendPrx' not in _M__and.__dict__:
     _M__and._t_friendDisp = IcePy.defineClass('::and::friend', friend, (), None, ())
     friend._ice_type = _M__and._t_friendDisp
 
-    friend._op_goto = IcePy.Operation('goto', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M__and._t__continue, False, 0), ((), _M__and._t_auto, False, 0), ((), _M__and._t_delete, False, 0), ((), _M__and._t_switch, False, 0), ((), _M__and._t_do, False, 0), ((), _M__and._t_breakPrx, False, 0), ((), _M__and._t_charPrx, False, 0), ((), _M__and._t_switchPrx, False, 0), ((), _M__and._t_doPrx, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M__and._t_auto, False, 0), (_M__and._t__return, _M__and._t_sizeof))
+    friend._op_goto = IcePy.Operation('goto', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M__and._t__continue, False, 0), ((), _M__and._t_auto, False, 0), ((), _M__and._t_delete, False, 0), ((), _M__and._t_do, False, 0), ((), _M__and._t_breakPrx, False, 0), ((), _M__and._t_charPrx, False, 0), ((), _M__and._t_switchPrx, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M__and._t_auto, False, 0), (_M__and._t__return, _M__and._t_sizeof))
     friend._op_objc = IcePy.Operation('objc', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), None, ())
 
     _M__and.friend = friend

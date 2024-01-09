@@ -34,7 +34,7 @@ public class Point extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 5154169133118073991L;
+    public static final long serialVersionUID = 3823632730535542740L;
 
     /** @hidden */
     @Override

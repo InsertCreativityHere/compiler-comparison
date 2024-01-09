@@ -649,7 +649,6 @@ namespace Test
             return '::Test::MyClass';
         }
     }
-    $Test__t_MyClass = IcePHP_defineClass('::Test::MyClass', '\\Test\\MyClass', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_MyClassPrx = IcePHP_defineProxy('::Test::MyClass', $Ice__t_ObjectPrx, null);
@@ -874,7 +873,6 @@ namespace Test
             return '::Test::MyDerivedClass';
         }
     }
-    $Test__t_MyDerivedClass = IcePHP_defineClass('::Test::MyDerivedClass', '\\Test\\MyDerivedClass', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_MyDerivedClassPrx = IcePHP_defineProxy('::Test::MyDerivedClass', $Ice__t_ObjectPrx, array($Test__t_MyClassPrx));
@@ -1156,129 +1154,8 @@ namespace Test2
             return '::Test2::MyDerivedClass';
         }
     }
-    $Test2__t_MyDerivedClass = IcePHP_defineClass('::Test2::MyDerivedClass', '\\Test2\\MyDerivedClass', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test2__t_MyDerivedClassPrx = IcePHP_defineProxy('::Test2::MyDerivedClass', $Ice__t_ObjectPrx, array($Test__t_MyClassPrx));
-}
-
-namespace M
-{
-    global $M__t_A;
-    class A extends \Ice\Value
-    {
-        public function __construct($x=0)
-        {
-            $this->x = $x;
-        }
-
-        public function ice_id()
-        {
-            return '::M::A';
-        }
-
-        public static function ice_staticId()
-        {
-            return '::M::A';
-        }
-
-        public function __toString(): string
-        {
-            global $M__t_A;
-            return IcePHP_stringify($this, $M__t_A);
-        }
-
-        public $x;
-    }
-
-    global $Ice__t_Value;
-    global $IcePHP__t_int;
-    $M__t_A = IcePHP_defineClass('::M::A', '\\M\\A', -1, false, false, $Ice__t_Value, array(
-        array('x', $IcePHP__t_int, false, 0)));
-}
-
-namespace M
-{
-    global $M__t_Intf;
-    global $M__t_IntfPrx;
-
-    class IntfPrxHelper
-    {
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
-        {
-            return $proxy->ice_checkedCast('::M::Intf', $facetOrContext, $context);
-        }
-
-        public static function uncheckedCast($proxy, $facet=null)
-        {
-            return $proxy->ice_uncheckedCast('::M::Intf', $facet);
-        }
-
-        public static function ice_staticId()
-        {
-            return '::M::Intf';
-        }
-    }
-    $M__t_Intf = IcePHP_defineClass('::M::Intf', '\\M\\Intf', -1, false, true, null, null);
-
-    global $Ice__t_ObjectPrx;
-    $M__t_IntfPrx = IcePHP_defineProxy('::M::Intf', $Ice__t_ObjectPrx, null);
-
-    IcePHP_defineOperation($M__t_IntfPrx, 'opIntf', 0, 0, 0, null, null, null, null);
-}
-
-namespace M
-{
-    global $M__t_B;
-    global $M__t_BPrx;
-    class B extends \M\A
-    {
-        public function __construct($x=0)
-        {
-            parent::__construct($x);
-        }
-
-        public function ice_id()
-        {
-            return '::M::B';
-        }
-
-        public static function ice_staticId()
-        {
-            return '::M::B';
-        }
-
-        public function __toString(): string
-        {
-            global $M__t_B;
-            return IcePHP_stringify($this, $M__t_B);
-        }
-    }
-
-    class BPrxHelper
-    {
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
-        {
-            return $proxy->ice_checkedCast('::M::B', $facetOrContext, $context);
-        }
-
-        public static function uncheckedCast($proxy, $facet=null)
-        {
-            return $proxy->ice_uncheckedCast('::M::B', $facet);
-        }
-
-        public static function ice_staticId()
-        {
-            return '::M::B';
-        }
-    }
-
-    global $M__t_A;
-    $M__t_B = IcePHP_defineClass('::M::B', '\\M\\B', -1, false, false, $M__t_A, null);
-
-    global $Ice__t_ObjectPrx;
-    $M__t_BPrx = IcePHP_defineProxy('::M::B', $Ice__t_ObjectPrx, array($M__t_IntfPrx));
-
-    IcePHP_defineOperation($M__t_BPrx, 'opB', 0, 0, 0, null, null, null, null);
 }
 ?>

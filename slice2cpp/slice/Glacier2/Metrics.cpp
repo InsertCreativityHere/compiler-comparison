@@ -68,40 +68,6 @@ namespace
 
 }
 
-/// \cond INTERNAL
-GLACIER2_API ::IceProxy::Ice::Object* ::IceProxy::IceMX::upCast(SessionMetrics* p) { return p; }
-
-void
-::IceProxy::IceMX::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< SessionMetrics>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new SessionMetrics;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::IceMX::SessionMetrics::_newInstance() const
-{
-    return new SessionMetrics;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::IceMX::SessionMetrics::ice_staticId()
-{
-    return ::IceMX::SessionMetrics::ice_staticId();
-}
-
 IceMX::SessionMetrics::~SessionMetrics()
 {
 }

@@ -116,8 +116,6 @@ module ::Abstract
             T_CasePrx = ::Ice::__declareProxy('::abstract::case')
         end
 
-        T_Case.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_CasePrx.defineProxy(CasePrx, nil, [])
 
         CasePrx_mixin::OP_catch = ::Ice::__defineOperation('catch', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
@@ -143,8 +141,6 @@ module ::Abstract
             T_Decimal = ::Ice::__declareClass('::abstract::decimal')
             T_DecimalPrx = ::Ice::__declareProxy('::abstract::decimal')
         end
-
-        T_Decimal.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_DecimalPrx.defineProxy(DecimalPrx, nil, [])
 
@@ -196,8 +192,6 @@ module ::Abstract
             T_ExplicitPrx = ::Ice::__declareProxy('::abstract::explicit')
         end
 
-        T_Explicit.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_ExplicitPrx.defineProxy(ExplicitPrx, nil, [::Abstract::T_DecimalPrx, ::Abstract::T_CasePrx])
     end
 
@@ -211,16 +205,15 @@ module ::Abstract
         end
         class OptionalMembers < ::Ice::Value
 
-            def initialize(_for=::Ice::Unset, goto=::Ice::Unset, _if=::Ice::Unset, internal=::Ice::Unset, namespace=::Ice::Unset, null=::Ice::Unset)
+            def initialize(_for=::Ice::Unset, goto=::Ice::Unset, _if=::Ice::Unset, internal=::Ice::Unset, namespace=::Ice::Unset)
                 @_for = _for
                 @goto = goto
                 @_if = _if
                 @internal = internal
                 @namespace = namespace
-                @null = null
             end
 
-            attr_accessor :_for, :goto, :_if, :internal, :namespace, :null
+            attr_accessor :_for, :goto, :_if, :internal, :namespace
         end
 
         if not defined?(::Abstract::T_OptionalMembers)
@@ -230,10 +223,9 @@ module ::Abstract
         T_OptionalMembers.defineClass(OptionalMembers, -1, false, false, nil, [
             ['_for', ::Abstract::T_Break, true, 1],
             ['goto', ::Abstract::T_As, true, 2],
-            ['_if', ::Abstract::T_Explicit, true, 3],
+            ['_if', ::Abstract::T_ExplicitPrx, true, 3],
             ['internal', ::Abstract::T_While, true, 5],
-            ['namespace', ::Ice::T_string, true, 7],
-            ['null', ::Abstract::T_ExplicitPrx, true, 8]
+            ['namespace', ::Ice::T_string, true, 7]
         ])
     end
 
@@ -243,12 +235,12 @@ module ::Abstract
         end
         module OptionalParamsPrx_mixin
 
-            def _for(goto, _if, internal, namespace, null, context=nil)
-                OptionalParamsPrx_mixin::OP_for.invoke(self, [goto, _if, internal, namespace, null], context)
+            def _for(goto, _if, internal, namespace, context=nil)
+                OptionalParamsPrx_mixin::OP_for.invoke(self, [goto, _if, internal, namespace], context)
             end
 
-            def continue(goto, _if, internal, namespace, null, context=nil)
-                OptionalParamsPrx_mixin::OP_continue.invoke(self, [goto, _if, internal, namespace, null], context)
+            def continue(goto, _if, internal, namespace, context=nil)
+                OptionalParamsPrx_mixin::OP_continue.invoke(self, [goto, _if, internal, namespace], context)
             end
 
             def _in(context=nil)
@@ -270,14 +262,12 @@ module ::Abstract
             T_OptionalParamsPrx = ::Ice::__declareProxy('::abstract::optionalParams')
         end
 
-        T_OptionalParams.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_OptionalParamsPrx.defineProxy(OptionalParamsPrx, nil, [])
 
-        OptionalParamsPrx_mixin::OP_for = ::Ice::__defineOperation('for', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Abstract::T_As, true, 2], [::Abstract::T_Explicit, true, 3], [::Abstract::T_While, true, 5], [::Ice::T_string, true, 7], [::Abstract::T_ExplicitPrx, true, 8]], [], [::Abstract::T_Break, true, 1], [])
-        OptionalParamsPrx_mixin::OP_continue = ::Ice::__defineOperation('continue', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Abstract::T_As, true, 2], [::Abstract::T_Explicit, true, 3], [::Abstract::T_While, true, 5], [::Ice::T_string, true, 7], [::Abstract::T_ExplicitPrx, true, 8]], [], [::Abstract::T_Break, true, 1], [])
-        OptionalParamsPrx_mixin::OP_in = ::Ice::__defineOperation('in', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [[::Abstract::T_As, true, 2], [::Abstract::T_Explicit, true, 3], [::Abstract::T_While, true, 5], [::Ice::T_string, true, 7], [::Abstract::T_ExplicitPrx, true, 8]], [::Abstract::T_Break, true, 1], [])
-        OptionalParamsPrx_mixin::OP_foreach = ::Ice::__defineOperation('foreach', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [[::Abstract::T_As, true, 2], [::Abstract::T_Explicit, true, 3], [::Abstract::T_While, true, 5], [::Ice::T_string, true, 7], [::Abstract::T_ExplicitPrx, true, 8]], [::Abstract::T_Break, true, 1], [])
+        OptionalParamsPrx_mixin::OP_for = ::Ice::__defineOperation('for', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Abstract::T_As, true, 2], [::Abstract::T_ExplicitPrx, true, 3], [::Abstract::T_While, true, 5], [::Ice::T_string, true, 7]], [], [::Abstract::T_Break, true, 1], [])
+        OptionalParamsPrx_mixin::OP_continue = ::Ice::__defineOperation('continue', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Abstract::T_As, true, 2], [::Abstract::T_ExplicitPrx, true, 3], [::Abstract::T_While, true, 5], [::Ice::T_string, true, 7]], [], [::Abstract::T_Break, true, 1], [])
+        OptionalParamsPrx_mixin::OP_in = ::Ice::__defineOperation('in', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [[::Abstract::T_As, true, 2], [::Abstract::T_ExplicitPrx, true, 3], [::Abstract::T_While, true, 5], [::Ice::T_string, true, 7]], [::Abstract::T_Break, true, 1], [])
+        OptionalParamsPrx_mixin::OP_foreach = ::Ice::__defineOperation('foreach', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [[::Abstract::T_As, true, 2], [::Abstract::T_ExplicitPrx, true, 3], [::Abstract::T_While, true, 5], [::Ice::T_string, true, 7]], [::Abstract::T_Break, true, 1], [])
     end
 
     if not defined?(::Abstract::Fixed)
@@ -369,8 +359,8 @@ module ::Abstract
         end
         module ImplicitPrx_mixin
 
-            def _in(internal, is, lock, namespace, _new, null, operator, override, params, private, context=nil)
-                ImplicitPrx_mixin::OP_in.invoke(self, [internal, is, lock, namespace, _new, null, operator, override, params, private], context)
+            def _in(internal, is, lock, namespace, _new, null, override, params, private, context=nil)
+                ImplicitPrx_mixin::OP_in.invoke(self, [internal, is, lock, namespace, _new, null, override, params, private], context)
             end
         end
 
@@ -384,11 +374,9 @@ module ::Abstract
             T_ImplicitPrx = ::Ice::__declareProxy('::abstract::implicit')
         end
 
-        T_Implicit.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_ImplicitPrx.defineProxy(ImplicitPrx, nil, [])
 
-        ImplicitPrx_mixin::OP_in = ::Ice::__defineOperation('in', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Abstract::T_Break, false, 0], [::Abstract::T_Delegate, false, 0], [::Abstract::T_Explicit, false, 0], [::Abstract::T_CasePrx, false, 0], [::Abstract::T_DecimalPrx, false, 0], [::Abstract::T_Delegate, false, 0], [::Abstract::T_ExplicitPrx, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Abstract::T_As, false, 0], [::Abstract::T_Fixed, ::Abstract::T_Foreach])
+        ImplicitPrx_mixin::OP_in = ::Ice::__defineOperation('in', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Abstract::T_Break, false, 0], [::Abstract::T_Delegate, false, 0], [::Abstract::T_ExplicitPrx, false, 0], [::Abstract::T_CasePrx, false, 0], [::Abstract::T_DecimalPrx, false, 0], [::Abstract::T_Delegate, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Abstract::T_As, false, 0], [::Abstract::T_Fixed, ::Abstract::T_Foreach])
     end
 
     Protected = 0
@@ -417,8 +405,6 @@ module ::Abstract
                 T_Test = ::Ice::__declareClass('::abstract::System::Test')
                 T_TestPrx = ::Ice::__declareProxy('::abstract::System::Test')
             end
-
-            T_Test.defineClass(::Ice::Value, -1, false, true, nil, [])
 
             T_TestPrx.defineProxy(TestPrx, nil, [])
 
@@ -449,8 +435,6 @@ module ::System
             T_Test = ::Ice::__declareClass('::System::Test')
             T_TestPrx = ::Ice::__declareProxy('::System::Test')
         end
-
-        T_Test.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_TestPrx.defineProxy(TestPrx, nil, [])
 

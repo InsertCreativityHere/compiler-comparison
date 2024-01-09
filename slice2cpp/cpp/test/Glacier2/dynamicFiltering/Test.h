@@ -519,39 +519,21 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< TestSession>&);
 
 namespace Test
 {
-
-class Backend;
-/// \cond INTERNAL
-::Ice::Object* upCast(Backend*);
-/// \endcond
-typedef ::IceInternal::Handle< Backend> BackendPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Backend> BackendPrx;
 typedef BackendPrx BackendPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(BackendPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class TestController;
-/// \cond INTERNAL
-::Ice::Object* upCast(TestController*);
-/// \endcond
-typedef ::IceInternal::Handle< TestController> TestControllerPtr;
+class Backend;
+typedef ::IceInternal::Handle< Backend> BackendPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestController> TestControllerPrx;
 typedef TestControllerPrx TestControllerPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(TestControllerPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class TestSession;
-/// \cond INTERNAL
-::Ice::Object* upCast(TestSession*);
-/// \endcond
-typedef ::IceInternal::Handle< TestSession> TestSessionPtr;
+class TestController;
+typedef ::IceInternal::Handle< TestController> TestControllerPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::TestSession> TestSessionPrx;
 typedef TestSessionPrx TestSessionPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(TestSessionPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class TestSession;
+typedef ::IceInternal::Handle< TestSession> TestSessionPtr;
 
 }
 
@@ -992,7 +974,6 @@ class Backend : public virtual ::Ice::Object
 public:
 
     typedef BackendPrx ProxyType;
-    typedef BackendPtr PointerType;
 
     virtual ~Backend();
     Backend() = default;
@@ -1040,26 +1021,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const Backend& lhs, const Backend& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Backend& lhs, const Backend& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * The test controller interface permits coordination between the test
@@ -1073,7 +1035,6 @@ class TestController : public virtual ::Ice::Object
 public:
 
     typedef TestControllerPrx ProxyType;
-    typedef TestControllerPtr PointerType;
 
     virtual ~TestController();
     TestController() = default;
@@ -1121,33 +1082,13 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const TestController& lhs, const TestController& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const TestController& lhs, const TestController& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class TestSession : virtual public ::Glacier2::Session
+class TestSession : public virtual ::Glacier2::Session
 {
 public:
 
     typedef TestSessionPrx ProxyType;
-    typedef TestSessionPtr PointerType;
 
     virtual ~TestSession();
     TestSession() = default;
@@ -1190,26 +1131,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const TestSession& lhs, const TestSession& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const TestSession& lhs, const TestSession& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 }
 

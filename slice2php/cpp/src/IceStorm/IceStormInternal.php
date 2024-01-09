@@ -92,7 +92,6 @@ namespace IceStorm
             return '::IceStorm::TopicLink';
         }
     }
-    $IceStorm__t_TopicLink = IcePHP_defineClass('::IceStorm::TopicLink', '\\IceStorm\\TopicLink', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceStorm__t_TopicLinkPrx = IcePHP_defineProxy('::IceStorm::TopicLink', $Ice__t_ObjectPrx, null);
@@ -147,7 +146,6 @@ namespace IceStorm
             return '::IceStorm::TopicInternal';
         }
     }
-    $IceStorm__t_TopicInternal = IcePHP_defineClass('::IceStorm::TopicInternal', '\\IceStorm\\TopicInternal', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceStorm__t_TopicInternalPrx = IcePHP_defineProxy('::IceStorm::TopicInternal', $Ice__t_ObjectPrx, array($IceStorm__t_TopicPrx));
@@ -180,7 +178,6 @@ namespace IceStorm
             return '::IceStorm::TopicManagerInternal';
         }
     }
-    $IceStorm__t_TopicManagerInternal = IcePHP_defineClass('::IceStorm::TopicManagerInternal', '\\IceStorm\\TopicManagerInternal', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceStorm__t_TopicManagerInternalPrx = IcePHP_defineProxy('::IceStorm::TopicManagerInternal', $Ice__t_ObjectPrx, array($IceStorm__t_TopicManagerPrx));

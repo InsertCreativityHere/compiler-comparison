@@ -1312,11 +1312,6 @@ public:
 
 }
 
-namespace IceGrid
-{
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -1732,82 +1727,6 @@ using BoxedDistributionDescriptorPtr = ::std::shared_ptr<BoxedDistributionDescri
 
 #else // C++98 mapping
 
-namespace IceProxy
-{
-
-namespace IceGrid
-{
-
-class CommunicatorDescriptor;
-/// \cond INTERNAL
-ICEGRID_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< CommunicatorDescriptor>&);
-ICEGRID_API ::IceProxy::Ice::Object* upCast(CommunicatorDescriptor*);
-/// \endcond
-
-class ServerDescriptor;
-/// \cond INTERNAL
-ICEGRID_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< ServerDescriptor>&);
-ICEGRID_API ::IceProxy::Ice::Object* upCast(ServerDescriptor*);
-/// \endcond
-
-class ServiceDescriptor;
-/// \cond INTERNAL
-ICEGRID_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< ServiceDescriptor>&);
-ICEGRID_API ::IceProxy::Ice::Object* upCast(ServiceDescriptor*);
-/// \endcond
-
-class IceBoxDescriptor;
-/// \cond INTERNAL
-ICEGRID_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< IceBoxDescriptor>&);
-ICEGRID_API ::IceProxy::Ice::Object* upCast(IceBoxDescriptor*);
-/// \endcond
-
-class LoadBalancingPolicy;
-/// \cond INTERNAL
-ICEGRID_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< LoadBalancingPolicy>&);
-ICEGRID_API ::IceProxy::Ice::Object* upCast(LoadBalancingPolicy*);
-/// \endcond
-
-class RandomLoadBalancingPolicy;
-/// \cond INTERNAL
-ICEGRID_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< RandomLoadBalancingPolicy>&);
-ICEGRID_API ::IceProxy::Ice::Object* upCast(RandomLoadBalancingPolicy*);
-/// \endcond
-
-class OrderedLoadBalancingPolicy;
-/// \cond INTERNAL
-ICEGRID_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< OrderedLoadBalancingPolicy>&);
-ICEGRID_API ::IceProxy::Ice::Object* upCast(OrderedLoadBalancingPolicy*);
-/// \endcond
-
-class RoundRobinLoadBalancingPolicy;
-/// \cond INTERNAL
-ICEGRID_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< RoundRobinLoadBalancingPolicy>&);
-ICEGRID_API ::IceProxy::Ice::Object* upCast(RoundRobinLoadBalancingPolicy*);
-/// \endcond
-
-class AdaptiveLoadBalancingPolicy;
-/// \cond INTERNAL
-ICEGRID_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< AdaptiveLoadBalancingPolicy>&);
-ICEGRID_API ::IceProxy::Ice::Object* upCast(AdaptiveLoadBalancingPolicy*);
-/// \endcond
-
-class BoxedString;
-/// \cond INTERNAL
-ICEGRID_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< BoxedString>&);
-ICEGRID_API ::IceProxy::Ice::Object* upCast(BoxedString*);
-/// \endcond
-
-class BoxedDistributionDescriptor;
-/// \cond INTERNAL
-ICEGRID_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< BoxedDistributionDescriptor>&);
-ICEGRID_API ::IceProxy::Ice::Object* upCast(BoxedDistributionDescriptor*);
-/// \endcond
-
-}
-
-}
-
 namespace IceGrid
 {
 
@@ -1816,8 +1735,6 @@ class CommunicatorDescriptor;
 ICEGRID_API ::Ice::Object* upCast(CommunicatorDescriptor*);
 /// \endcond
 typedef ::IceInternal::Handle< CommunicatorDescriptor> CommunicatorDescriptorPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::CommunicatorDescriptor> CommunicatorDescriptorPrx;
-typedef CommunicatorDescriptorPrx CommunicatorDescriptorPrxPtr;
 /// \cond INTERNAL
 ICEGRID_API void _icePatchObjectPtr(CommunicatorDescriptorPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1827,8 +1744,6 @@ class ServerDescriptor;
 ICEGRID_API ::Ice::Object* upCast(ServerDescriptor*);
 /// \endcond
 typedef ::IceInternal::Handle< ServerDescriptor> ServerDescriptorPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::ServerDescriptor> ServerDescriptorPrx;
-typedef ServerDescriptorPrx ServerDescriptorPrxPtr;
 /// \cond INTERNAL
 ICEGRID_API void _icePatchObjectPtr(ServerDescriptorPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1838,8 +1753,6 @@ class ServiceDescriptor;
 ICEGRID_API ::Ice::Object* upCast(ServiceDescriptor*);
 /// \endcond
 typedef ::IceInternal::Handle< ServiceDescriptor> ServiceDescriptorPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::ServiceDescriptor> ServiceDescriptorPrx;
-typedef ServiceDescriptorPrx ServiceDescriptorPrxPtr;
 /// \cond INTERNAL
 ICEGRID_API void _icePatchObjectPtr(ServiceDescriptorPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1849,8 +1762,6 @@ class IceBoxDescriptor;
 ICEGRID_API ::Ice::Object* upCast(IceBoxDescriptor*);
 /// \endcond
 typedef ::IceInternal::Handle< IceBoxDescriptor> IceBoxDescriptorPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::IceBoxDescriptor> IceBoxDescriptorPrx;
-typedef IceBoxDescriptorPrx IceBoxDescriptorPrxPtr;
 /// \cond INTERNAL
 ICEGRID_API void _icePatchObjectPtr(IceBoxDescriptorPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1860,8 +1771,6 @@ class LoadBalancingPolicy;
 ICEGRID_API ::Ice::Object* upCast(LoadBalancingPolicy*);
 /// \endcond
 typedef ::IceInternal::Handle< LoadBalancingPolicy> LoadBalancingPolicyPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::LoadBalancingPolicy> LoadBalancingPolicyPrx;
-typedef LoadBalancingPolicyPrx LoadBalancingPolicyPrxPtr;
 /// \cond INTERNAL
 ICEGRID_API void _icePatchObjectPtr(LoadBalancingPolicyPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1871,8 +1780,6 @@ class RandomLoadBalancingPolicy;
 ICEGRID_API ::Ice::Object* upCast(RandomLoadBalancingPolicy*);
 /// \endcond
 typedef ::IceInternal::Handle< RandomLoadBalancingPolicy> RandomLoadBalancingPolicyPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::RandomLoadBalancingPolicy> RandomLoadBalancingPolicyPrx;
-typedef RandomLoadBalancingPolicyPrx RandomLoadBalancingPolicyPrxPtr;
 /// \cond INTERNAL
 ICEGRID_API void _icePatchObjectPtr(RandomLoadBalancingPolicyPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1882,8 +1789,6 @@ class OrderedLoadBalancingPolicy;
 ICEGRID_API ::Ice::Object* upCast(OrderedLoadBalancingPolicy*);
 /// \endcond
 typedef ::IceInternal::Handle< OrderedLoadBalancingPolicy> OrderedLoadBalancingPolicyPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::OrderedLoadBalancingPolicy> OrderedLoadBalancingPolicyPrx;
-typedef OrderedLoadBalancingPolicyPrx OrderedLoadBalancingPolicyPrxPtr;
 /// \cond INTERNAL
 ICEGRID_API void _icePatchObjectPtr(OrderedLoadBalancingPolicyPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1893,8 +1798,6 @@ class RoundRobinLoadBalancingPolicy;
 ICEGRID_API ::Ice::Object* upCast(RoundRobinLoadBalancingPolicy*);
 /// \endcond
 typedef ::IceInternal::Handle< RoundRobinLoadBalancingPolicy> RoundRobinLoadBalancingPolicyPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::RoundRobinLoadBalancingPolicy> RoundRobinLoadBalancingPolicyPrx;
-typedef RoundRobinLoadBalancingPolicyPrx RoundRobinLoadBalancingPolicyPrxPtr;
 /// \cond INTERNAL
 ICEGRID_API void _icePatchObjectPtr(RoundRobinLoadBalancingPolicyPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1904,8 +1807,6 @@ class AdaptiveLoadBalancingPolicy;
 ICEGRID_API ::Ice::Object* upCast(AdaptiveLoadBalancingPolicy*);
 /// \endcond
 typedef ::IceInternal::Handle< AdaptiveLoadBalancingPolicy> AdaptiveLoadBalancingPolicyPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::AdaptiveLoadBalancingPolicy> AdaptiveLoadBalancingPolicyPrx;
-typedef AdaptiveLoadBalancingPolicyPrx AdaptiveLoadBalancingPolicyPrxPtr;
 /// \cond INTERNAL
 ICEGRID_API void _icePatchObjectPtr(AdaptiveLoadBalancingPolicyPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1915,8 +1816,6 @@ class BoxedString;
 ICEGRID_API ::Ice::Object* upCast(BoxedString*);
 /// \endcond
 typedef ::IceInternal::Handle< BoxedString> BoxedStringPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::BoxedString> BoxedStringPrx;
-typedef BoxedStringPrx BoxedStringPrxPtr;
 /// \cond INTERNAL
 ICEGRID_API void _icePatchObjectPtr(BoxedStringPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1926,8 +1825,6 @@ class BoxedDistributionDescriptor;
 ICEGRID_API ::Ice::Object* upCast(BoxedDistributionDescriptor*);
 /// \endcond
 typedef ::IceInternal::Handle< BoxedDistributionDescriptor> BoxedDistributionDescriptorPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::BoxedDistributionDescriptor> BoxedDistributionDescriptorPrx;
-typedef BoxedDistributionDescriptorPrx BoxedDistributionDescriptorPrxPtr;
 /// \cond INTERNAL
 ICEGRID_API void _icePatchObjectPtr(BoxedDistributionDescriptorPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -2895,208 +2792,6 @@ struct ApplicationUpdateDescriptor
 namespace IceGrid
 {
 
-}
-
-namespace IceProxy
-{
-
-namespace IceGrid
-{
-
-class ICE_CLASS(ICEGRID_API) CommunicatorDescriptor : public virtual ::Ice::Proxy<CommunicatorDescriptor, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    ICE_MEMBER(ICEGRID_API) virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class ICE_CLASS(ICEGRID_API) ServerDescriptor : public virtual ::Ice::Proxy<ServerDescriptor, ::IceProxy::IceGrid::CommunicatorDescriptor>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    ICE_MEMBER(ICEGRID_API) virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class ICE_CLASS(ICEGRID_API) ServiceDescriptor : public virtual ::Ice::Proxy<ServiceDescriptor, ::IceProxy::IceGrid::CommunicatorDescriptor>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    ICE_MEMBER(ICEGRID_API) virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class ICE_CLASS(ICEGRID_API) IceBoxDescriptor : public virtual ::Ice::Proxy<IceBoxDescriptor, ::IceProxy::IceGrid::ServerDescriptor>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    ICE_MEMBER(ICEGRID_API) virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class ICE_CLASS(ICEGRID_API) LoadBalancingPolicy : public virtual ::Ice::Proxy<LoadBalancingPolicy, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    ICE_MEMBER(ICEGRID_API) virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class ICE_CLASS(ICEGRID_API) RandomLoadBalancingPolicy : public virtual ::Ice::Proxy<RandomLoadBalancingPolicy, ::IceProxy::IceGrid::LoadBalancingPolicy>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    ICE_MEMBER(ICEGRID_API) virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class ICE_CLASS(ICEGRID_API) OrderedLoadBalancingPolicy : public virtual ::Ice::Proxy<OrderedLoadBalancingPolicy, ::IceProxy::IceGrid::LoadBalancingPolicy>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    ICE_MEMBER(ICEGRID_API) virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class ICE_CLASS(ICEGRID_API) RoundRobinLoadBalancingPolicy : public virtual ::Ice::Proxy<RoundRobinLoadBalancingPolicy, ::IceProxy::IceGrid::LoadBalancingPolicy>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    ICE_MEMBER(ICEGRID_API) virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class ICE_CLASS(ICEGRID_API) AdaptiveLoadBalancingPolicy : public virtual ::Ice::Proxy<AdaptiveLoadBalancingPolicy, ::IceProxy::IceGrid::LoadBalancingPolicy>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    ICE_MEMBER(ICEGRID_API) virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class ICE_CLASS(ICEGRID_API) BoxedString : public virtual ::Ice::Proxy<BoxedString, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    ICE_MEMBER(ICEGRID_API) virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class ICE_CLASS(ICEGRID_API) BoxedDistributionDescriptor : public virtual ::Ice::Proxy<BoxedDistributionDescriptor, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    ICE_MEMBER(ICEGRID_API) virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-}
-
-}
-
-namespace IceGrid
-{
-
 /**
  * A communicator descriptor.
  * \headerfile IceGrid/IceGrid.h
@@ -3105,7 +2800,6 @@ class ICEGRID_API CommunicatorDescriptor : public virtual ::Ice::Object
 {
 public:
 
-    typedef CommunicatorDescriptorPrx ProxyType;
     typedef CommunicatorDescriptorPtr PointerType;
 
     virtual ~CommunicatorDescriptor();
@@ -3221,7 +2915,6 @@ class ICEGRID_API ServerDescriptor : public CommunicatorDescriptor
 {
 public:
 
-    typedef ServerDescriptorPrx ProxyType;
     typedef ServerDescriptorPtr PointerType;
 
     virtual ~ServerDescriptor();
@@ -3398,7 +3091,6 @@ class ICEGRID_API ServiceDescriptor : public CommunicatorDescriptor
 {
 public:
 
-    typedef ServiceDescriptorPrx ProxyType;
     typedef ServiceDescriptorPtr PointerType;
 
     virtual ~ServiceDescriptor();
@@ -3507,7 +3199,6 @@ class ICEGRID_API IceBoxDescriptor : public ServerDescriptor, public ::IceIntern
 {
 public:
 
-    typedef IceBoxDescriptorPrx ProxyType;
     typedef IceBoxDescriptorPtr PointerType;
 
     virtual ~IceBoxDescriptor();
@@ -3626,7 +3317,6 @@ class ICEGRID_API LoadBalancingPolicy : public virtual ::Ice::Object
 {
 public:
 
-    typedef LoadBalancingPolicyPrx ProxyType;
     typedef LoadBalancingPolicyPtr PointerType;
 
     virtual ~LoadBalancingPolicy();
@@ -3724,7 +3414,6 @@ class ICEGRID_API RandomLoadBalancingPolicy : public LoadBalancingPolicy
 {
 public:
 
-    typedef RandomLoadBalancingPolicyPrx ProxyType;
     typedef RandomLoadBalancingPolicyPtr PointerType;
 
     virtual ~RandomLoadBalancingPolicy();
@@ -3815,7 +3504,6 @@ class ICEGRID_API OrderedLoadBalancingPolicy : public LoadBalancingPolicy
 {
 public:
 
-    typedef OrderedLoadBalancingPolicyPrx ProxyType;
     typedef OrderedLoadBalancingPolicyPtr PointerType;
 
     virtual ~OrderedLoadBalancingPolicy();
@@ -3906,7 +3594,6 @@ class ICEGRID_API RoundRobinLoadBalancingPolicy : public LoadBalancingPolicy
 {
 public:
 
-    typedef RoundRobinLoadBalancingPolicyPrx ProxyType;
     typedef RoundRobinLoadBalancingPolicyPtr PointerType;
 
     virtual ~RoundRobinLoadBalancingPolicy();
@@ -3997,7 +3684,6 @@ class ICEGRID_API AdaptiveLoadBalancingPolicy : public LoadBalancingPolicy
 {
 public:
 
-    typedef AdaptiveLoadBalancingPolicyPrx ProxyType;
     typedef AdaptiveLoadBalancingPolicyPtr PointerType;
 
     virtual ~AdaptiveLoadBalancingPolicy();
@@ -4098,7 +3784,6 @@ class ICEGRID_API BoxedString : public virtual ::Ice::Object
 {
 public:
 
-    typedef BoxedStringPrx ProxyType;
     typedef BoxedStringPtr PointerType;
 
     virtual ~BoxedString();
@@ -4196,7 +3881,6 @@ class ICEGRID_API BoxedDistributionDescriptor : public virtual ::Ice::Object
 {
 public:
 
-    typedef BoxedDistributionDescriptorPrx ProxyType;
     typedef BoxedDistributionDescriptorPtr PointerType;
 
     virtual ~BoxedDistributionDescriptor();
@@ -4932,11 +4616,6 @@ struct StreamReader< ::IceGrid::ApplicationUpdateDescriptor, S>
 
 }
 /// \endcond
-
-namespace IceGrid
-{
-
-}
 
 #endif
 

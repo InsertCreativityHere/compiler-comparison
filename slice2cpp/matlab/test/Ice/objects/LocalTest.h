@@ -616,11 +616,6 @@ public:
 
 }
 
-namespace LocalTest
-{
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -909,76 +904,6 @@ using OptPtr = ::std::shared_ptr<Opt>;
 
 #else // C++98 mapping
 
-namespace IceProxy
-{
-
-namespace LocalTest
-{
-
-class C1;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< C1>&);
-::IceProxy::Ice::Object* upCast(C1*);
-/// \endcond
-
-class CB1;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< CB1>&);
-::IceProxy::Ice::Object* upCast(CB1*);
-/// \endcond
-
-class CB2;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< CB2>&);
-::IceProxy::Ice::Object* upCast(CB2*);
-/// \endcond
-
-class CB3;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< CB3>&);
-::IceProxy::Ice::Object* upCast(CB3*);
-/// \endcond
-
-class CB4;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< CB4>&);
-::IceProxy::Ice::Object* upCast(CB4*);
-/// \endcond
-
-class CB5;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< CB5>&);
-::IceProxy::Ice::Object* upCast(CB5*);
-/// \endcond
-
-class CB6;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< CB6>&);
-::IceProxy::Ice::Object* upCast(CB6*);
-/// \endcond
-
-class CB7;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< CB7>&);
-::IceProxy::Ice::Object* upCast(CB7*);
-/// \endcond
-
-class CB8;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< CB8>&);
-::IceProxy::Ice::Object* upCast(CB8*);
-/// \endcond
-
-class Opt;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Opt>&);
-::IceProxy::Ice::Object* upCast(Opt*);
-/// \endcond
-
-}
-
-}
-
 namespace LocalTest
 {
 
@@ -987,8 +912,6 @@ class C1;
 ::Ice::Object* upCast(C1*);
 /// \endcond
 typedef ::IceInternal::Handle< C1> C1Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::LocalTest::C1> C1Prx;
-typedef C1Prx C1PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(C1Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -998,8 +921,6 @@ class CB1;
 ::Ice::Object* upCast(CB1*);
 /// \endcond
 typedef ::IceInternal::Handle< CB1> CB1Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::LocalTest::CB1> CB1Prx;
-typedef CB1Prx CB1PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(CB1Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1009,8 +930,6 @@ class CB2;
 ::Ice::Object* upCast(CB2*);
 /// \endcond
 typedef ::IceInternal::Handle< CB2> CB2Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::LocalTest::CB2> CB2Prx;
-typedef CB2Prx CB2PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(CB2Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1020,8 +939,6 @@ class CB3;
 ::Ice::Object* upCast(CB3*);
 /// \endcond
 typedef ::IceInternal::Handle< CB3> CB3Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::LocalTest::CB3> CB3Prx;
-typedef CB3Prx CB3PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(CB3Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1031,8 +948,6 @@ class CB4;
 ::Ice::Object* upCast(CB4*);
 /// \endcond
 typedef ::IceInternal::Handle< CB4> CB4Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::LocalTest::CB4> CB4Prx;
-typedef CB4Prx CB4PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(CB4Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1042,8 +957,6 @@ class CB5;
 ::Ice::Object* upCast(CB5*);
 /// \endcond
 typedef ::IceInternal::Handle< CB5> CB5Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::LocalTest::CB5> CB5Prx;
-typedef CB5Prx CB5PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(CB5Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1053,8 +966,6 @@ class CB6;
 ::Ice::Object* upCast(CB6*);
 /// \endcond
 typedef ::IceInternal::Handle< CB6> CB6Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::LocalTest::CB6> CB6Prx;
-typedef CB6Prx CB6PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(CB6Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1064,8 +975,6 @@ class CB7;
 ::Ice::Object* upCast(CB7*);
 /// \endcond
 typedef ::IceInternal::Handle< CB7> CB7Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::LocalTest::CB7> CB7Prx;
-typedef CB7Prx CB7PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(CB7Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1075,8 +984,6 @@ class CB8;
 ::Ice::Object* upCast(CB8*);
 /// \endcond
 typedef ::IceInternal::Handle< CB8> CB8Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::LocalTest::CB8> CB8Prx;
-typedef CB8Prx CB8PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(CB8Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1086,8 +993,6 @@ class Opt;
 ::Ice::Object* upCast(Opt*);
 /// \endcond
 typedef ::IceInternal::Handle< Opt> OptPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::LocalTest::Opt> OptPrx;
-typedef OptPrx OptPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(OptPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1227,196 +1132,10 @@ typedef ::std::map< ::Ice::Int, S1Dict> S1DictDict;
 namespace LocalTest
 {
 
-}
-
-namespace IceProxy
-{
-
-namespace LocalTest
-{
-
-class C1 : public virtual ::Ice::Proxy<C1, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class CB1 : public virtual ::Ice::Proxy<CB1, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class CB2 : public virtual ::Ice::Proxy<CB2, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class CB3 : public virtual ::Ice::Proxy<CB3, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class CB4 : public virtual ::Ice::Proxy<CB4, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class CB5 : public virtual ::Ice::Proxy<CB5, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class CB6 : public virtual ::Ice::Proxy<CB6, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class CB7 : public virtual ::Ice::Proxy<CB7, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class CB8 : public virtual ::Ice::Proxy<CB8, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class Opt : public virtual ::Ice::Proxy<Opt, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-}
-
-}
-
-namespace LocalTest
-{
-
 class C1 : public virtual ::Ice::Object
 {
 public:
 
-    typedef C1Prx ProxyType;
     typedef C1Ptr PointerType;
 
     virtual ~C1();
@@ -1506,7 +1225,6 @@ class CB1 : public virtual ::Ice::Object, public ::IceInternal::GCObject
 {
 public:
 
-    typedef CB1Prx ProxyType;
     typedef CB1Ptr PointerType;
 
     virtual ~CB1();
@@ -1599,7 +1317,6 @@ class CB2 : public virtual ::Ice::Object, public ::IceInternal::GCObject
 {
 public:
 
-    typedef CB2Prx ProxyType;
     typedef CB2Ptr PointerType;
 
     virtual ~CB2();
@@ -1692,7 +1409,6 @@ class CB3 : public virtual ::Ice::Object, public ::IceInternal::GCObject
 {
 public:
 
-    typedef CB3Prx ProxyType;
     typedef CB3Ptr PointerType;
 
     virtual ~CB3();
@@ -1785,7 +1501,6 @@ class CB4 : public virtual ::Ice::Object, public ::IceInternal::GCObject
 {
 public:
 
-    typedef CB4Prx ProxyType;
     typedef CB4Ptr PointerType;
 
     virtual ~CB4();
@@ -1878,7 +1593,6 @@ class CB5 : public virtual ::Ice::Object, public ::IceInternal::GCObject
 {
 public:
 
-    typedef CB5Prx ProxyType;
     typedef CB5Ptr PointerType;
 
     virtual ~CB5();
@@ -1971,7 +1685,6 @@ class CB6 : public virtual ::Ice::Object, public ::IceInternal::GCObject
 {
 public:
 
-    typedef CB6Prx ProxyType;
     typedef CB6Ptr PointerType;
 
     virtual ~CB6();
@@ -2064,7 +1777,6 @@ class CB7 : public virtual ::Ice::Object, public ::IceInternal::GCObject
 {
 public:
 
-    typedef CB7Prx ProxyType;
     typedef CB7Ptr PointerType;
 
     virtual ~CB7();
@@ -2157,7 +1869,6 @@ class CB8 : public virtual ::Ice::Object, public ::IceInternal::GCObject
 {
 public:
 
-    typedef CB8Prx ProxyType;
     typedef CB8Ptr PointerType;
 
     virtual ~CB8();
@@ -2254,7 +1965,6 @@ class Opt : public virtual ::Ice::Object, public ::IceInternal::GCObject
 {
 public:
 
-    typedef OptPrx ProxyType;
     typedef OptPtr PointerType;
 
     virtual ~Opt();
@@ -2779,11 +2489,6 @@ struct StreamReader< ::LocalTest::Opt, S>
 
 }
 /// \endcond
-
-namespace LocalTest
-{
-
-}
 
 #endif
 

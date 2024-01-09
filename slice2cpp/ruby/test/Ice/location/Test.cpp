@@ -963,11 +963,6 @@ Test::TestLocatorRegistry::~TestLocatorRegistry()
 {
 }
 
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(TestLocatorRegistry* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Test_TestLocatorRegistry_ids[3] =
@@ -1088,44 +1083,9 @@ Test::TestLocatorRegistry::_iceDispatch(::IceInternal::Incoming& in, const ::Ice
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::TestLocatorRegistry::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< TestLocatorRegistry, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::TestLocatorRegistry::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< TestLocatorRegistry, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(TestLocatorRegistryPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = TestLocatorRegistryPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(TestLocatorRegistry::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::ServerManager::~ServerManager()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(ServerManager* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1245,44 +1205,9 @@ Test::ServerManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::ServerManager::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< ServerManager, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::ServerManager::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< ServerManager, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(ServerManagerPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = ServerManagerPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(ServerManager::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::Hello::~Hello()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(Hello* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1385,44 +1310,9 @@ Test::Hello::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cur
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::Hello::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Hello, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Hello::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Hello, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(HelloPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = HelloPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Hello::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::TestIntf::~TestIntf()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(TestIntf* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1560,39 +1450,5 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     }
 }
 /// \endcond
-
-/// \cond STREAM
-void
-Test::TestIntf::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< TestIntf, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::TestIntf::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< TestIntf, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(TestIntfPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = TestIntfPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(TestIntf::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-namespace Ice
-{
-}
 
 #endif

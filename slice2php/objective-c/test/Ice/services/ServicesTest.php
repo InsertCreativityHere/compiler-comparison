@@ -37,7 +37,6 @@ namespace Test
             return '::Test::Clock';
         }
     }
-    $Test__t_Clock = IcePHP_defineClass('::Test::Clock', '\\Test\\Clock', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_ClockPrx = IcePHP_defineProxy('::Test::Clock', $Ice__t_ObjectPrx, null);

@@ -122,13 +122,13 @@ open class NoSuchServiceException: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `ServiceObserver`.
+/// Traits for Slice interface`ServiceObserver`.
 public struct ServiceObserverTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceBox::ServiceObserver"]
     public static let staticId = "::IceBox::ServiceObserver"
 }
 
-/// Traits for Slice interface `ServiceManager`.
+/// Traits for Slice interface`ServiceManager`.
 public struct ServiceManagerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceBox::ServiceManager"]
     public static let staticId = "::IceBox::ServiceManager"

@@ -40,8 +40,6 @@ module ::Test
             T_TestFacetPrx = ::Ice::__declareProxy('::Test::TestFacet')
         end
 
-        T_TestFacet.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_TestFacetPrx.defineProxy(TestFacetPrx, nil, [])
 
         TestFacetPrx_mixin::OP_getChanges = ::Ice::__defineOperation('getChanges', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_PropertyDict, false, 0], [])

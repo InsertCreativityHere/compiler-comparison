@@ -64,8 +64,6 @@ module ::Test
             T_MyClassPrx = ::Ice::__declareProxy('::Test::MyClass')
         end
 
-        T_MyClass.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_MyClassPrx.defineProxy(MyClassPrx, nil, [])
 
         MyClassPrx_mixin::OP_opOneway = ::Ice::__defineOperation('opOneway', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])

@@ -49,6 +49,12 @@
 namespace Glacier2
 {
 
+
+}
+
+namespace Glacier2
+{
+
 /**
  * Information taken from an SSL connection used for permissions verification.
  * @see PermissionsVerifier
@@ -125,6 +131,11 @@ struct StreamReader<::Glacier2::SSLInfo, S>
 /// \endcond
 
 #else // C++98 mapping
+
+namespace Glacier2
+{
+
+}
 
 namespace Glacier2
 {

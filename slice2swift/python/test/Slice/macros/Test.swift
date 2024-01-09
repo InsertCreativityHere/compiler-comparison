@@ -16,13 +16,13 @@
 import Foundation
 import Ice
 
-/// Traits for Slice class ``Default``.
+/// Traits for Slice class``Default``.
 public struct DefaultTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Default"]
     public static let staticId = "::Test::Default"
 }
 
-/// Traits for Slice class `NoDefault`.
+/// Traits for Slice class`NoDefault`.
 public struct NoDefaultTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::NoDefault"]
     public static let staticId = "::Test::NoDefault"

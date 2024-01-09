@@ -160,9 +160,6 @@ if '_t_MyEnumS' not in _M_Test.__dict__:
 if '_t_MyClassS' not in _M_Test.__dict__:
     _M_Test._t_MyClassS = IcePy.defineSequence('::Test::MyClassS', (), _M_Test._t_MyClass)
 
-if '_t_MyInterfaceS' not in _M_Test.__dict__:
-    _M_Test._t_MyInterfaceS = IcePy.defineSequence('::Test::MyInterfaceS', (), _M_Test._t_MyInterface)
-
 if '_t_BoolSS' not in _M_Test.__dict__:
     _M_Test._t_BoolSS = IcePy.defineSequence('::Test::BoolSS', (), _M_Ice._t_BoolSeq)
 
@@ -192,9 +189,6 @@ if '_t_MyEnumSS' not in _M_Test.__dict__:
 
 if '_t_MyClassSS' not in _M_Test.__dict__:
     _M_Test._t_MyClassSS = IcePy.defineSequence('::Test::MyClassSS', (), _M_Test._t_MyClassS)
-
-if '_t_MyInterfaceSS' not in _M_Test.__dict__:
-    _M_Test._t_MyInterfaceSS = IcePy.defineSequence('::Test::MyInterfaceSS', (), _M_Test._t_MyInterfaceS)
 
 if '_t_ByteBoolD' not in _M_Test.__dict__:
     _M_Test._t_ByteBoolD = IcePy.defineDictionary('::Test::ByteBoolD', (), IcePy._t_byte, IcePy._t_bool)
@@ -226,9 +220,6 @@ if '_t_SmallStructList' not in _M_Test.__dict__:
 if '_t_MyClassList' not in _M_Test.__dict__:
     _M_Test._t_MyClassList = IcePy.defineSequence('::Test::MyClassList', (), _M_Test._t_MyClass)
 
-if '_t_MyClassProxyList' not in _M_Test.__dict__:
-    _M_Test._t_MyClassProxyList = IcePy.defineSequence('::Test::MyClassProxyList', (), IcePy._t_ObjectPrx)
-
 if '_t_MyInterfaceProxyList' not in _M_Test.__dict__:
     _M_Test._t_MyInterfaceProxyList = IcePy.defineSequence('::Test::MyInterfaceProxyList', (), _M_Test._t_MyInterfacePrx)
 
@@ -253,9 +244,6 @@ if '_t_FloatStack' not in _M_Test.__dict__:
 if '_t_SmallStructStack' not in _M_Test.__dict__:
     _M_Test._t_SmallStructStack = IcePy.defineSequence('::Test::SmallStructStack', (), _M_Test._t_SmallStruct)
 
-if '_t_MyClassProxyStack' not in _M_Test.__dict__:
-    _M_Test._t_MyClassProxyStack = IcePy.defineSequence('::Test::MyClassProxyStack', (), IcePy._t_ObjectPrx)
-
 if '_t_MyInterfaceProxyStack' not in _M_Test.__dict__:
     _M_Test._t_MyInterfaceProxyStack = IcePy.defineSequence('::Test::MyInterfaceProxyStack', (), _M_Test._t_MyInterfacePrx)
 
@@ -264,9 +252,6 @@ if '_t_ObjectStack' not in _M_Test.__dict__:
 
 if '_t_MyClassStack' not in _M_Test.__dict__:
     _M_Test._t_MyClassStack = IcePy.defineSequence('::Test::MyClassStack', (), _M_Test._t_MyClass)
-
-if '_t_MyInterfaceStack' not in _M_Test.__dict__:
-    _M_Test._t_MyInterfaceStack = IcePy.defineSequence('::Test::MyInterfaceStack', (), _M_Test._t_MyInterface)
 
 if '_t_DoubleQueue' not in _M_Test.__dict__:
     _M_Test._t_DoubleQueue = IcePy.defineSequence('::Test::DoubleQueue', (), IcePy._t_double)

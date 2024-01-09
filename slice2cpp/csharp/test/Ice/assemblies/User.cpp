@@ -215,40 +215,6 @@ const ::std::string iceC_User_Registry_getUserInfo_name = "getUserInfo";
 }
 
 /// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::User::upCast(UserInfo* p) { return p; }
-
-void
-::IceProxy::User::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< UserInfo>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new UserInfo;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::User::UserInfo::_newInstance() const
-{
-    return new UserInfo;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::User::UserInfo::ice_staticId()
-{
-    return ::User::UserInfo::ice_staticId();
-}
-
-/// \cond INTERNAL
 ::IceProxy::Ice::Object* ::IceProxy::User::upCast(Registry* p) { return p; }
 
 void
@@ -329,105 +295,9 @@ IceProxy::User::Registry::ice_staticId()
     return ::User::Registry::ice_staticId();
 }
 
-User::UserInfo::~UserInfo()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* User::upCast(UserInfo* p) { return p; }
-
-/// \endcond
-::Ice::ObjectPtr
-User::UserInfo::ice_clone() const
-{
-    ::Ice::Object* p = new UserInfo(*this);
-    return p;
-}
-
-namespace
-{
-const ::std::string iceC_User_UserInfo_ids[2] =
-{
-    "::Ice::Object",
-    "::User::UserInfo"
-};
-
-}
-
-bool
-User::UserInfo::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_User_UserInfo_ids, iceC_User_UserInfo_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-User::UserInfo::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_User_UserInfo_ids[0], &iceC_User_UserInfo_ids[2]);
-}
-
-const ::std::string&
-User::UserInfo::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-User::UserInfo::ice_staticId()
-{
-    static const ::std::string typeId = "::User::UserInfo";
-    return typeId;
-}
-
-/// \cond STREAM
-void
-User::UserInfo::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< UserInfo, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-User::UserInfo::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< UserInfo, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::User::UserInfo> iceC_User_UserInfo_init("::User::UserInfo");
-}
-
-::Ice::ValueFactoryPtr
-User::UserInfo::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::User::UserInfo::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-User::_icePatchObjectPtr(UserInfoPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = UserInfoPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(UserInfo::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 User::Registry::~Registry()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* User::upCast(Registry* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -536,32 +406,93 @@ User::Registry::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
 }
 /// \endcond
 
+User::UserInfo::~UserInfo()
+{
+}
+
+/// \cond INTERNAL
+::Ice::Object* User::upCast(UserInfo* p) { return p; }
+
+/// \endcond
+::Ice::ObjectPtr
+User::UserInfo::ice_clone() const
+{
+    ::Ice::Object* p = new UserInfo(*this);
+    return p;
+}
+
+namespace
+{
+const ::std::string iceC_User_UserInfo_ids[2] =
+{
+    "::Ice::Object",
+    "::User::UserInfo"
+};
+
+}
+
+bool
+User::UserInfo::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_User_UserInfo_ids, iceC_User_UserInfo_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+User::UserInfo::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_User_UserInfo_ids[0], &iceC_User_UserInfo_ids[2]);
+}
+
+const ::std::string&
+User::UserInfo::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+User::UserInfo::ice_staticId()
+{
+    static const ::std::string typeId = "::User::UserInfo";
+    return typeId;
+}
+
 /// \cond STREAM
 void
-User::Registry::_iceWriteImpl(::Ice::OutputStream* ostr) const
+User::UserInfo::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Registry, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter< UserInfo, ::Ice::OutputStream>::write(ostr, *this);
     ostr->endSlice();
 }
 
 void
-User::Registry::_iceReadImpl(::Ice::InputStream* istr)
+User::UserInfo::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader< Registry, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader< UserInfo, ::Ice::InputStream>::read(istr, *this);
     istr->endSlice();
 }
 /// \endcond
 
+namespace
+{
+const ::IceInternal::DefaultValueFactoryInit< ::User::UserInfo> iceC_User_UserInfo_init("::User::UserInfo");
+}
+
+::Ice::ValueFactoryPtr
+User::UserInfo::ice_factory()
+{
+    return ::IceInternal::factoryTable->getValueFactory(::User::UserInfo::ice_staticId());
+}
+
 /// \cond INTERNAL
 void
-User::_icePatchObjectPtr(RegistryPtr& handle, const ::Ice::ObjectPtr& v)
+User::_icePatchObjectPtr(UserInfoPtr& handle, const ::Ice::ObjectPtr& v)
 {
-    handle = RegistryPtr::dynamicCast(v);
+    handle = UserInfoPtr::dynamicCast(v);
     if(v && !handle)
     {
-        IceInternal::Ex::throwUOE(Registry::ice_staticId(), v);
+        IceInternal::Ex::throwUOE(UserInfo::ice_staticId(), v);
     }
 }
 /// \endcond

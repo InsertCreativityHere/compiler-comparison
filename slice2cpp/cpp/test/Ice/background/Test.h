@@ -58,6 +58,11 @@ class BackgroundControllerPrx;
 namespace Test
 {
 
+}
+
+namespace Test
+{
+
 class TEST_API Background : public virtual ::Ice::Object
 {
 public:
@@ -613,13 +618,6 @@ protected:
 
 }
 
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
-
 /// \cond INTERNAL
 namespace Test
 {
@@ -659,28 +657,21 @@ TEST_API ::IceProxy::Ice::Object* upCast(BackgroundController*);
 
 namespace Test
 {
-
-class Background;
-/// \cond INTERNAL
-TEST_API ::Ice::Object* upCast(Background*);
-/// \endcond
-typedef ::IceInternal::Handle< Background> BackgroundPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Background> BackgroundPrx;
 typedef BackgroundPrx BackgroundPrxPtr;
-/// \cond INTERNAL
-TEST_API void _icePatchObjectPtr(BackgroundPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class BackgroundController;
-/// \cond INTERNAL
-TEST_API ::Ice::Object* upCast(BackgroundController*);
-/// \endcond
-typedef ::IceInternal::Handle< BackgroundController> BackgroundControllerPtr;
+class Background;
+typedef ::IceInternal::Handle< Background> BackgroundPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::BackgroundController> BackgroundControllerPrx;
 typedef BackgroundControllerPrx BackgroundControllerPrxPtr;
-/// \cond INTERNAL
-TEST_API void _icePatchObjectPtr(BackgroundControllerPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class BackgroundController;
+typedef ::IceInternal::Handle< BackgroundController> BackgroundControllerPtr;
+
+}
+
+namespace Test
+{
 
 }
 
@@ -1385,7 +1376,6 @@ class TEST_API Background : public virtual ::Ice::Object
 public:
 
     typedef BackgroundPrx ProxyType;
-    typedef BackgroundPtr PointerType;
 
     virtual ~Background();
     Background() = default;
@@ -1438,33 +1428,13 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const Background& lhs, const Background& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Background& lhs, const Background& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 class TEST_API BackgroundController : public virtual ::Ice::Object
 {
 public:
 
     typedef BackgroundControllerPrx ProxyType;
-    typedef BackgroundControllerPtr PointerType;
 
     virtual ~BackgroundController();
     BackgroundController() = default;
@@ -1557,35 +1527,9 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const BackgroundController& lhs, const BackgroundController& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
 }
-
-inline bool operator<(const BackgroundController& lhs, const BackgroundController& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 namespace Test
 {

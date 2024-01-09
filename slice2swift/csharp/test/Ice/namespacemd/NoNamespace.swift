@@ -16,13 +16,13 @@
 import Foundation
 import Ice
 
-/// Traits for Slice class `C1`.
+/// Traits for Slice class`C1`.
 public struct C1Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::NoNamespace::C1"]
     public static let staticId = "::NoNamespace::C1"
 }
 
-/// Traits for Slice class `C2`.
+/// Traits for Slice class`C2`.
 public struct C2Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::NoNamespace::C1", "::NoNamespace::C2"]
     public static let staticId = "::NoNamespace::C2"

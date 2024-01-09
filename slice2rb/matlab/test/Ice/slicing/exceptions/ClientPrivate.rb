@@ -172,8 +172,6 @@ module ::Test
             T_RelayPrx = ::Ice::__declareProxy('::Test::Relay')
         end
 
-        T_Relay.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_RelayPrx.defineProxy(RelayPrx, nil, [])
 
         RelayPrx_mixin::OP_knownPreservedAsBase = ::Ice::__defineOperation('knownPreservedAsBase', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [], [], nil, [::Test::T_Base])
@@ -290,8 +288,6 @@ module ::Test
             T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
-
-        T_TestIntf.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 

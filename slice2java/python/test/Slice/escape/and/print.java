@@ -17,7 +17,7 @@ package and;
 
 public interface print extends com.zeroc.Ice.Object
 {
-    _assert raise(_continue _else, _for _return, com.zeroc.Ice.Value _try, delPrx _while, execPrx yield, com.zeroc.Ice.ObjectPrx lambda, ifPrx or, int global, com.zeroc.Ice.Current current)
+    _assert raise(_continue _else, _for _return, delPrx _while, execPrx yield, ifPrx or, int global, com.zeroc.Ice.Current current)
         throws is;
 
     /** @hidden */
@@ -59,25 +59,20 @@ public interface print extends com.zeroc.Ice.Object
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
         _continue iceP_else;
         final com.zeroc.IceInternal.Holder<_for> icePP_return = new com.zeroc.IceInternal.Holder<>();
-        final com.zeroc.IceInternal.Holder<com.zeroc.Ice.Value> icePP_try = new com.zeroc.IceInternal.Holder<>();
         delPrx iceP_while;
         execPrx iceP_yield;
-        com.zeroc.Ice.ObjectPrx iceP_lambda;
         ifPrx iceP_or;
         int iceP_global;
         iceP_else = _continue.ice_read(istr);
         istr.readValue(v -> icePP_return.value = v, _for.class);
-        istr.readValue(v -> icePP_try.value = v, com.zeroc.Ice.Value.class);
         iceP_while = delPrx.uncheckedCast(istr.readProxy());
         iceP_yield = execPrx.uncheckedCast(istr.readProxy());
-        iceP_lambda = com.zeroc.Ice.ObjectPrx.uncheckedCast(istr.readProxy());
         iceP_or = ifPrx.uncheckedCast(istr.readProxy());
         iceP_global = istr.readInt();
         istr.readPendingValues();
         inS.endReadParams();
         _for iceP_return = icePP_return.value;
-        com.zeroc.Ice.Value iceP_try = icePP_try.value;
-        _assert ret = obj.raise(iceP_else, iceP_return, iceP_try, iceP_while, iceP_yield, iceP_lambda, iceP_or, iceP_global, current);
+        _assert ret = obj.raise(iceP_else, iceP_return, iceP_while, iceP_yield, iceP_or, iceP_global, current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
         _assert.ice_write(ostr, ret);
         inS.endWriteParams(ostr);

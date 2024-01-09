@@ -61,7 +61,7 @@ open class ParseException: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `FileParser`.
+/// Traits for Slice interface`FileParser`.
 public struct FileParserTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::FileParser"]
     public static let staticId = "::IceGrid::FileParser"

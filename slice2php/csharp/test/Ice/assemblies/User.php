@@ -72,7 +72,6 @@ namespace User
             return '::User::Registry';
         }
     }
-    $User__t_Registry = IcePHP_defineClass('::User::Registry', '\\User\\Registry', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $User__t_RegistryPrx = IcePHP_defineProxy('::User::Registry', $Ice__t_ObjectPrx, null);

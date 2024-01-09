@@ -336,8 +336,6 @@ module ::Test
             T_CustomPrx = ::Ice::__declareProxy('::Test::Custom')
         end
 
-        T_Custom.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_CustomPrx.defineProxy(CustomPrx, nil, [])
 
         CustomPrx_mixin::OP_opByteString1 = ::Ice::__defineOperation('opByteString1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteString, false, 0]], [[::Test::T_ByteString, false, 0]], [::Test::T_ByteString, false, 0], [])

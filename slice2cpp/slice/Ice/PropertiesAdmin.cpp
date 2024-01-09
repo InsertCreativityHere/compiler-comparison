@@ -405,11 +405,6 @@ Ice::PropertiesAdmin::~PropertiesAdmin()
 {
 }
 
-/// \cond INTERNAL
-ICE_API ::Ice::Object* Ice::upCast(PropertiesAdmin* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Ice_PropertiesAdmin_ids[2] =
@@ -557,39 +552,5 @@ Ice::PropertiesAdmin::_iceDispatch(::IceInternal::Incoming& in, const Current& c
     }
 }
 /// \endcond
-
-/// \cond STREAM
-void
-Ice::PropertiesAdmin::_iceWriteImpl(OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    StreamWriter< PropertiesAdmin, OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Ice::PropertiesAdmin::_iceReadImpl(InputStream* istr)
-{
-    istr->startSlice();
-    StreamReader< PropertiesAdmin, InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Ice::_icePatchObjectPtr(PropertiesAdminPtr& handle, const ObjectPtr& v)
-{
-    handle = PropertiesAdminPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(PropertiesAdmin::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-namespace Ice
-{
-}
 
 #endif

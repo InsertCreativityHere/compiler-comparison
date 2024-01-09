@@ -3,14 +3,6 @@
 % InitialPrx Methods:
 %   shutdown
 %   shutdownAsync
-%   caop
-%   caopAsync
-%   cbop
-%   cbopAsync
-%   ccop
-%   ccopAsync
-%   cdop
-%   cdopAsync
 %   iaop
 %   iaopAsync
 %   ib1op
@@ -44,122 +36,6 @@ classdef InitialPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
             r_ = obj.iceInvokeAsync('shutdown', 0, false, [], 0, [], {}, varargin{:});
-        end
-        function result = caop(obj, varargin)
-            % caop
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.MA.CAPrx)
-            
-            is_ = obj.iceInvoke('caop', 0, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = Test.MA.CAPrx.ice_read(is_);
-            is_.endEncapsulation();
-        end
-        function r_ = caopAsync(obj, varargin)
-            % caopAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = Test.MA.CAPrx.ice_read(is_);
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('caop', 0, true, [], 1, @unmarshal, {}, varargin{:});
-        end
-        function result = cbop(obj, varargin)
-            % cbop
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.MB.CBPrx)
-            
-            is_ = obj.iceInvoke('cbop', 0, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = Test.MB.CBPrx.ice_read(is_);
-            is_.endEncapsulation();
-        end
-        function r_ = cbopAsync(obj, varargin)
-            % cbopAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = Test.MB.CBPrx.ice_read(is_);
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('cbop', 0, true, [], 1, @unmarshal, {}, varargin{:});
-        end
-        function result = ccop(obj, varargin)
-            % ccop
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.MA.CCPrx)
-            
-            is_ = obj.iceInvoke('ccop', 0, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = Test.MA.CCPrx.ice_read(is_);
-            is_.endEncapsulation();
-        end
-        function r_ = ccopAsync(obj, varargin)
-            % ccopAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = Test.MA.CCPrx.ice_read(is_);
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('ccop', 0, true, [], 1, @unmarshal, {}, varargin{:});
-        end
-        function result = cdop(obj, varargin)
-            % cdop
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.MA.CDPrx)
-            
-            is_ = obj.iceInvoke('cdop', 0, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = Test.MA.CDPrx.ice_read(is_);
-            is_.endEncapsulation();
-        end
-        function r_ = cdopAsync(obj, varargin)
-            % cdopAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = Test.MA.CDPrx.ice_read(is_);
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('cdop', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = iaop(obj, varargin)
             % iaop

@@ -132,25 +132,25 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice interface ``catch``.
+/// Traits for Slice interface``catch``.
 public struct catchTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::abstract::catch"]
     public static let staticId = "::abstract::catch"
 }
 
-/// Traits for Slice interface ``default``.
+/// Traits for Slice interface``default``.
 public struct defaultTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::abstract::default"]
     public static let staticId = "::abstract::default"
 }
 
-/// Traits for Slice class ``else``.
+/// Traits for Slice class``else``.
 public struct elseTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::abstract::else"]
     public static let staticId = "::abstract::else"
 }
 
-/// Traits for Slice interface `finalize`.
+/// Traits for Slice interface`finalize`.
 public struct finalizeTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::abstract::catch", "::abstract::default", "::abstract::finalize"]
     public static let staticId = "::abstract::finalize"
@@ -382,7 +382,7 @@ open class `import`: hashCode {
     }
 }
 
-/// Traits for Slice interface `new`.
+/// Traits for Slice interface`new`.
 public struct newTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::abstract::new"]
     public static let staticId = "::abstract::new"
@@ -846,11 +846,7 @@ public extension newPrx {
     ///
     /// - parameter null: ``else`?`
     ///
-    /// - parameter package: `Ice.Value?`
-    ///
-    /// - parameter private: `Ice.ObjectPrx?`
-    ///
-    /// - parameter protected: `finalizePrx?`
+    /// - parameter package: `finalizePrx?`
     ///
     /// - parameter public: `catchPrx?`
     ///
@@ -865,15 +861,13 @@ public extension newPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `assert`
-    func notify(notifyAll iceP_notifyAll: `break`, null iceP_null: `else`?, package iceP_package: Ice.Value?, private iceP_private: Ice.ObjectPrx?, protected iceP_protected: finalizePrx?, public iceP_public: catchPrx?, return iceP_return: defaultPrx?, static iceP_static: Swift.Int32, strictfp iceP_strictfp: Swift.Int32, super iceP_super: Swift.Int32, context: Ice.Context? = nil) throws -> assert {
+    func notify(notifyAll iceP_notifyAll: `break`, null iceP_null: `else`?, package iceP_package: finalizePrx?, public iceP_public: catchPrx?, return iceP_return: defaultPrx?, static iceP_static: Swift.Int32, strictfp iceP_strictfp: Swift.Int32, super iceP_super: Swift.Int32, context: Ice.Context? = nil) throws -> assert {
         return try _impl._invoke(operation: "notify",
                                  mode: .Normal,
                                  write: { ostr in
                                      ostr.write(iceP_notifyAll)
                                      ostr.write(iceP_null)
                                      ostr.write(iceP_package)
-                                     ostr.write(iceP_private)
-                                     ostr.write(iceP_protected)
                                      ostr.write(iceP_public)
                                      ostr.write(iceP_return)
                                      ostr.write(iceP_static)
@@ -902,11 +896,7 @@ public extension newPrx {
     ///
     /// - parameter null: ``else`?`
     ///
-    /// - parameter package: `Ice.Value?`
-    ///
-    /// - parameter private: `Ice.ObjectPrx?`
-    ///
-    /// - parameter protected: `finalizePrx?`
+    /// - parameter package: `finalizePrx?`
     ///
     /// - parameter public: `catchPrx?`
     ///
@@ -929,15 +919,13 @@ public extension newPrx {
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
     /// - returns: `PromiseKit.Promise<assert>` - The result of the operation
-    func notifyAsync(notifyAll iceP_notifyAll: `break`, null iceP_null: `else`?, package iceP_package: Ice.Value?, private iceP_private: Ice.ObjectPrx?, protected iceP_protected: finalizePrx?, public iceP_public: catchPrx?, return iceP_return: defaultPrx?, static iceP_static: Swift.Int32, strictfp iceP_strictfp: Swift.Int32, super iceP_super: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<assert> {
+    func notifyAsync(notifyAll iceP_notifyAll: `break`, null iceP_null: `else`?, package iceP_package: finalizePrx?, public iceP_public: catchPrx?, return iceP_return: defaultPrx?, static iceP_static: Swift.Int32, strictfp iceP_strictfp: Swift.Int32, super iceP_super: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<assert> {
         return _impl._invokeAsync(operation: "notify",
                                   mode: .Normal,
                                   write: { ostr in
                                       ostr.write(iceP_notifyAll)
                                       ostr.write(iceP_null)
                                       ostr.write(iceP_package)
-                                      ostr.write(iceP_private)
-                                      ostr.write(iceP_protected)
                                       ostr.write(iceP_public)
                                       ostr.write(iceP_return)
                                       ostr.write(iceP_static)
@@ -1164,11 +1152,7 @@ public protocol new {
     ///
     /// - parameter null: ``else`?`
     ///
-    /// - parameter package: `Ice.Value?`
-    ///
-    /// - parameter private: `Ice.ObjectPrx?`
-    ///
-    /// - parameter protected: `finalizePrx?`
+    /// - parameter package: `finalizePrx?`
     ///
     /// - parameter public: `catchPrx?`
     ///
@@ -1183,7 +1167,7 @@ public protocol new {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `assert`
-    func notify(notifyAll: `break`, null: `else`?, package: Ice.Value?, private: Ice.ObjectPrx?, protected: finalizePrx?, public: catchPrx?, return: defaultPrx?, static: Swift.Int32, strictfp: Swift.Int32, super: Swift.Int32, current: Ice.Current) throws -> assert
+    func notify(notifyAll: `break`, null: `else`?, package: finalizePrx?, public: catchPrx?, return: defaultPrx?, static: Swift.Int32, strictfp: Swift.Int32, super: Swift.Int32, current: Ice.Current) throws -> assert
 }
 
 /// catch overview.
@@ -1230,24 +1214,21 @@ public extension finalize {}
 ///  - notify: 
 public extension new {
     func _iceD_notify(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_notifyAll, iceP_null, iceP_package, iceP_private, iceP_protected, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super): (`break`, `else`?, Ice.Value?, Ice.ObjectPrx?, finalizePrx?, catchPrx?, defaultPrx?, Swift.Int32, Swift.Int32, Swift.Int32) = try inS.read { istr in
+        let (iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super): (`break`, `else`?, finalizePrx?, catchPrx?, defaultPrx?, Swift.Int32, Swift.Int32, Swift.Int32) = try inS.read { istr in
             let iceP_notifyAll: `break` = try istr.read()
             var iceP_null: `else`?
             try istr.read(else.self) { iceP_null = $0 }
-            var iceP_package: Ice.Value?
-            try istr.read() { iceP_package = $0 }
-            let iceP_private: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
-            let iceP_protected: finalizePrx? = try istr.read(finalizePrx.self)
+            let iceP_package: finalizePrx? = try istr.read(finalizePrx.self)
             let iceP_public: catchPrx? = try istr.read(catchPrx.self)
             let iceP_return: defaultPrx? = try istr.read(defaultPrx.self)
             let iceP_static: Swift.Int32 = try istr.read()
             let iceP_strictfp: Swift.Int32 = try istr.read()
             let iceP_super: Swift.Int32 = try istr.read()
             try istr.readPendingValues()
-            return (iceP_notifyAll, iceP_null, iceP_package, iceP_private, iceP_protected, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super)
+            return (iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super)
         }
 
-        let iceP_returnValue = try self.notify(notifyAll: iceP_notifyAll, null: iceP_null, package: iceP_package, private: iceP_private, protected: iceP_protected, public: iceP_public, return: iceP_return, static: iceP_static, strictfp: iceP_strictfp, super: iceP_super, current: current)
+        let iceP_returnValue = try self.notify(notifyAll: iceP_notifyAll, null: iceP_null, package: iceP_package, public: iceP_public, return: iceP_return, static: iceP_static, strictfp: iceP_strictfp, super: iceP_super, current: current)
 
         return inS.setResult{ ostr in
             ostr.write(iceP_returnValue)

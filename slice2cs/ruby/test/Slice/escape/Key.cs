@@ -555,15 +555,15 @@ namespace BEGIN
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface extendPrx : global::Ice.ObjectPrx
     {
-        END @for(display freeze, global::Ice.Value hash, breakPrx @if, display inspect, global::Ice.Value method, int methods, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        END @for(display freeze, elsifPrx hash, breakPrx @if, display inspect, elsifPrx method, int methods, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::System.Threading.Tasks.Task<END> forAsync(display freeze, global::Ice.Value hash, breakPrx @if, display inspect, global::Ice.Value method, int methods, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<END> forAsync(display freeze, elsifPrx hash, breakPrx @if, display inspect, elsifPrx method, int methods, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_extend_for> begin_for(display freeze, global::Ice.Value hash, breakPrx @if, display inspect, global::Ice.Value method, int methods, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::Ice.AsyncResult<Callback_extend_for> begin_for(display freeze, elsifPrx hash, breakPrx @if, display inspect, elsifPrx method, int methods, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::Ice.AsyncResult begin_for(display freeze, global::Ice.Value hash, breakPrx @if, display inspect, global::Ice.Value method, int methods, global::Ice.AsyncCallback callback, object cookie);
+        global::Ice.AsyncResult begin_for(display freeze, elsifPrx hash, breakPrx @if, display inspect, elsifPrx method, int methods, global::Ice.AsyncCallback callback, object cookie);
 
-        global::Ice.AsyncResult begin_for(display freeze, global::Ice.Value hash, breakPrx @if, display inspect, global::Ice.Value method, int methods, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
+        global::Ice.AsyncResult begin_for(display freeze, elsifPrx hash, breakPrx @if, display inspect, elsifPrx method, int methods, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         END end_for(global::Ice.AsyncResult asyncResult);
     }
@@ -596,7 +596,7 @@ namespace BEGIN
     public interface extendOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        END @for(display freeze, global::Ice.Value hash, breakPrx @if, display inspect, global::Ice.Value method, int methods, global::Ice.Current current = null);
+        END @for(display freeze, elsifPrx hash, breakPrx @if, display inspect, elsifPrx method, int methods, global::Ice.Current current = null);
     }
 }
 
@@ -1600,7 +1600,7 @@ namespace BEGIN
 
         #region Synchronous operations
 
-        public END @for(display freeze, global::Ice.Value hash, breakPrx @if, display inspect, global::Ice.Value method, int methods, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public END @for(display freeze, elsifPrx hash, breakPrx @if, display inspect, elsifPrx method, int methods, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
@@ -1616,12 +1616,12 @@ namespace BEGIN
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<END> forAsync(display freeze, global::Ice.Value hash, breakPrx @if, display inspect, global::Ice.Value method, int methods, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<END> forAsync(display freeze, elsifPrx hash, breakPrx @if, display inspect, elsifPrx method, int methods, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_forAsync(freeze, hash, @if, inspect, method, methods, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<END> _iceI_forAsync(display iceP_freeze, global::Ice.Value iceP_hash, breakPrx iceP_if, display iceP_inspect, global::Ice.Value iceP_method, int iceP_methods, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<END> _iceI_forAsync(display iceP_freeze, elsifPrx iceP_hash, breakPrx iceP_if, display iceP_inspect, elsifPrx iceP_method, int iceP_methods, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_for_name);
             var completed = new global::IceInternal.OperationTaskCompletionCallback<END>(progress, cancel);
@@ -1631,7 +1631,7 @@ namespace BEGIN
 
         private const string _for_name = "for";
 
-        private void _iceI_for(display iceP_freeze, global::Ice.Value iceP_hash, breakPrx iceP_if, display iceP_inspect, global::Ice.Value iceP_method, int iceP_methods, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_for(display iceP_freeze, elsifPrx iceP_hash, breakPrx iceP_if, display iceP_inspect, elsifPrx iceP_method, int iceP_methods, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<END>(completed);
             outAsync.invoke(
@@ -1643,10 +1643,10 @@ namespace BEGIN
                 write: (global::Ice.OutputStream ostr) =>
                 {
                     ostr.writeValue(iceP_freeze);
-                    ostr.writeValue(iceP_hash);
+                    elsifPrxHelper.write(ostr, iceP_hash);
                     breakPrxHelper.write(ostr, iceP_if);
                     ostr.writeValue(iceP_inspect);
-                    ostr.writeValue(iceP_method);
+                    elsifPrxHelper.write(ostr, iceP_method);
                     ostr.writeInt(iceP_methods);
                     ostr.writePendingValues();
                 },
@@ -1676,17 +1676,17 @@ namespace BEGIN
 
         #region Asynchronous operations
 
-        public global::Ice.AsyncResult<Callback_extend_for> begin_for(display freeze, global::Ice.Value hash, breakPrx @if, display inspect, global::Ice.Value method, int methods, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Ice.AsyncResult<Callback_extend_for> begin_for(display freeze, elsifPrx hash, breakPrx @if, display inspect, elsifPrx method, int methods, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             return begin_for(freeze, hash, @if, inspect, method, methods, context, null, null, false);
         }
 
-        public global::Ice.AsyncResult begin_for(display freeze, global::Ice.Value hash, breakPrx @if, display inspect, global::Ice.Value method, int methods, global::Ice.AsyncCallback callback, object cookie)
+        public global::Ice.AsyncResult begin_for(display freeze, elsifPrx hash, breakPrx @if, display inspect, elsifPrx method, int methods, global::Ice.AsyncCallback callback, object cookie)
         {
             return begin_for(freeze, hash, @if, inspect, method, methods, new global::Ice.OptionalContext(), callback, cookie, false);
         }
 
-        public global::Ice.AsyncResult begin_for(display freeze, global::Ice.Value hash, breakPrx @if, display inspect, global::Ice.Value method, int methods, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
+        public global::Ice.AsyncResult begin_for(display freeze, elsifPrx hash, breakPrx @if, display inspect, elsifPrx method, int methods, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
         {
             return begin_for(freeze, hash, @if, inspect, method, methods, context, callback, cookie, false);
         }
@@ -1698,7 +1698,7 @@ namespace BEGIN
             return outgoing_.getResult(resultI_.wait());
         }
 
-        private global::Ice.AsyncResult<Callback_extend_for> begin_for(display iceP_freeze, global::Ice.Value iceP_hash, breakPrx iceP_if, display iceP_inspect, global::Ice.Value iceP_method, int iceP_methods, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+        private global::Ice.AsyncResult<Callback_extend_for> begin_for(display iceP_freeze, elsifPrx iceP_hash, breakPrx iceP_if, display iceP_inspect, elsifPrx iceP_method, int iceP_methods, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
         {
             iceCheckAsyncTwowayOnly(_for_name);
             var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_extend_for, END>(
@@ -2132,7 +2132,7 @@ namespace BEGIN
     {
         #region Slice operations
 
-        public abstract END @for(display freeze, global::Ice.Value hash, breakPrx @if, display inspect, global::Ice.Value method, int methods, global::Ice.Current current = null);
+        public abstract END @for(display freeze, elsifPrx hash, breakPrx @if, display inspect, elsifPrx method, int methods, global::Ice.Current current = null);
 
         #endregion
 
@@ -2176,19 +2176,17 @@ namespace BEGIN
             var istr = inS.startReadParams();
             display iceP_freeze;
             iceP_freeze = null;
-            global::Ice.Value iceP_hash;
-            iceP_hash = null;
+            elsifPrx iceP_hash;
             breakPrx iceP_if;
             display iceP_inspect;
             iceP_inspect = null;
-            global::Ice.Value iceP_method;
-            iceP_method = null;
+            elsifPrx iceP_method;
             int iceP_methods;
             istr.readValue((display v) => {iceP_freeze = v; });
-            istr.readValue((global::Ice.Value v) => {iceP_hash = v; });
+            iceP_hash = elsifPrxHelper.read(istr);
             iceP_if = breakPrxHelper.read(istr);
             istr.readValue((display v) => {iceP_inspect = v; });
-            istr.readValue((global::Ice.Value v) => {iceP_method = v; });
+            iceP_method = elsifPrxHelper.read(istr);
             iceP_methods = istr.readInt();
             istr.readPendingValues();
             inS.endReadParams();

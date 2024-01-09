@@ -204,7 +204,7 @@ open class UnknownMostDerived2: UnknownIntermediate {
     }
 }
 
-/// Traits for Slice class `SPreservedClass`.
+/// Traits for Slice class`SPreservedClass`.
 public struct SPreservedClassTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::BaseClass", "::Test::SPreservedClass"]
     public static let staticId = "::Test::SPreservedClass"

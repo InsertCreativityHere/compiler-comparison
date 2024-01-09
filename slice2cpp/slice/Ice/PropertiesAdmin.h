@@ -56,9 +56,13 @@ class PropertiesAdminPrx;
 namespace Ice
 {
 
+}
+
+namespace Ice
+{
+
 /**
  * The PropertiesAdmin interface provides remote access to the properties of a communicator.
- * \headerfile Ice/Ice.h
  */
 class ICE_API PropertiesAdmin : public virtual Object
 {
@@ -142,7 +146,6 @@ namespace Ice
 
 /**
  * The PropertiesAdmin interface provides remote access to the properties of a communicator.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) PropertiesAdminPrx : public virtual Proxy<PropertiesAdminPrx, ObjectPrx>
 {
@@ -318,13 +321,6 @@ protected:
 
 }
 
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
-
 /// \cond INTERNAL
 namespace Ice
 {
@@ -355,17 +351,16 @@ ICE_API ::IceProxy::Ice::Object* upCast(PropertiesAdmin*);
 
 namespace Ice
 {
-
-class PropertiesAdmin;
-/// \cond INTERNAL
-ICE_API Object* upCast(PropertiesAdmin*);
-/// \endcond
-typedef ::IceInternal::Handle< PropertiesAdmin> PropertiesAdminPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::PropertiesAdmin> PropertiesAdminPrx;
 typedef PropertiesAdminPrx PropertiesAdminPrxPtr;
-/// \cond INTERNAL
-ICE_API void _icePatchObjectPtr(PropertiesAdminPtr&, const ObjectPtr&);
-/// \endcond
+
+class PropertiesAdmin;
+typedef ::IceInternal::Handle< PropertiesAdmin> PropertiesAdminPtr;
+
+}
+
+namespace Ice
+{
 
 }
 
@@ -707,14 +702,12 @@ namespace Ice
 
 /**
  * The PropertiesAdmin interface provides remote access to the properties of a communicator.
- * \headerfile Ice/Ice.h
  */
 class ICE_API PropertiesAdmin : public virtual Object
 {
 public:
 
     typedef PropertiesAdminPrx ProxyType;
-    typedef PropertiesAdminPtr PointerType;
 
     virtual ~PropertiesAdmin();
     PropertiesAdmin() = default;
@@ -788,35 +781,9 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(OutputStream*) const;
-    virtual void _iceReadImpl(InputStream*);
-    /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const PropertiesAdmin& lhs, const PropertiesAdmin& rhs)
-{
-    return static_cast<const Object&>(lhs) == static_cast<const Object&>(rhs);
 }
-
-inline bool operator<(const PropertiesAdmin& lhs, const PropertiesAdmin& rhs)
-{
-    return static_cast<const Object&>(lhs) < static_cast<const Object&>(rhs);
-}
-/// \endcond
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 namespace Ice
 {

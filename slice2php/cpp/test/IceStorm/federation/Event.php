@@ -37,7 +37,6 @@ namespace Test
             return '::Test::Event';
         }
     }
-    $Test__t_Event = IcePHP_defineClass('::Test::Event', '\\Test\\Event', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_EventPrx = IcePHP_defineProxy('::Test::Event', $Ice__t_ObjectPrx, null);

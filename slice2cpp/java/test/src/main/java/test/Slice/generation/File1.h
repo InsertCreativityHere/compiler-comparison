@@ -52,6 +52,11 @@ class Class1;
 namespace Test
 {
 
+}
+
+namespace Test
+{
+
 class Interface1 : public virtual ::Ice::Object
 {
 public:
@@ -186,18 +191,6 @@ protected:
 
 }
 
-namespace Test2
-{
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
-
 /// \cond STREAM
 namespace Ice
 {
@@ -240,32 +233,15 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Interface1>&);
 
 }
 
-namespace Test2
-{
-
-class Class1;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Class1>&);
-::IceProxy::Ice::Object* upCast(Class1*);
-/// \endcond
-
-}
-
 }
 
 namespace Test
 {
-
-class Interface1;
-/// \cond INTERNAL
-::Ice::Object* upCast(Interface1*);
-/// \endcond
-typedef ::IceInternal::Handle< Interface1> Interface1Ptr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Interface1> Interface1Prx;
 typedef Interface1Prx Interface1PrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(Interface1Ptr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class Interface1;
+typedef ::IceInternal::Handle< Interface1> Interface1Ptr;
 
 }
 
@@ -277,11 +253,14 @@ class Class1;
 ::Ice::Object* upCast(Class1*);
 /// \endcond
 typedef ::IceInternal::Handle< Class1> Class1Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test2::Class1> Class1Prx;
-typedef Class1Prx Class1PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(Class1Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
+
+}
+
+namespace Test
+{
 
 }
 
@@ -295,11 +274,6 @@ namespace Test
  */
 class Callback_Interface1_method_Base : public virtual ::IceInternal::CallbackBase { };
 typedef ::IceUtil::Handle< Callback_Interface1_method_Base> Callback_Interface1_methodPtr;
-
-}
-
-namespace Test2
-{
 
 }
 
@@ -366,28 +340,6 @@ protected:
 
 }
 
-namespace Test2
-{
-
-class Class1 : public virtual ::Ice::Proxy<Class1, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-}
-
 }
 
 namespace Test
@@ -398,7 +350,6 @@ class Interface1 : public virtual ::Ice::Object
 public:
 
     typedef Interface1Prx ProxyType;
-    typedef Interface1Ptr PointerType;
 
     virtual ~Interface1();
     Interface1() = default;
@@ -441,26 +392,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const Interface1& lhs, const Interface1& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Interface1& lhs, const Interface1& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 }
 
@@ -471,7 +403,6 @@ class Class1 : public virtual ::Ice::Object
 {
 public:
 
-    typedef Class1Prx ProxyType;
     typedef Class1Ptr PointerType;
 
     virtual ~Class1();
@@ -546,13 +477,6 @@ inline bool operator<(const Class1& lhs, const Class1& rhs)
 /// \endcond
 
 }
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 /// \cond STREAM
 namespace Ice
@@ -719,11 +643,6 @@ newCallback_Interface1_method(T* instance, void (T::*excb)(const ::Ice::Exceptio
 {
     return new Callback_Interface1_method<T, CT>(instance, 0, excb, sentcb);
 }
-
-}
-
-namespace Test2
-{
 
 }
 

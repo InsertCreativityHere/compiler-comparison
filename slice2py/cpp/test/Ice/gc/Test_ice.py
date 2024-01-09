@@ -522,9 +522,6 @@ __name__ = 'Test.CCC'
 if 'Forward' not in _M_Test.CCC.__dict__:
     _M_Test.CCC._t_Forward = IcePy.declareValue('::Test::CCC::Forward')
 
-if '_t_ForwardProxySeq' not in _M_Test.CCC.__dict__:
-    _M_Test.CCC._t_ForwardProxySeq = IcePy.defineSequence('::Test::CCC::ForwardProxySeq', (), IcePy._t_ObjectPrx)
-
 # End of module Test.CCC
 
 __name__ = 'Test'
@@ -657,13 +654,10 @@ if 'C2' not in _M_Test.DDD.__dict__:
 if 'U' not in _M_Test.DDD.__dict__:
     _M_Test.DDD.U = Ice.createTempClass()
     class U(Ice.Value):
-        def __init__(self, myI=None, myIstar=None, myC=None, myCstar=None, myC2=None, myC2star=None):
-            self.myI = myI
+        def __init__(self, myIstar=None, myC=None, myC2=None):
             self.myIstar = myIstar
             self.myC = myC
-            self.myCstar = myCstar
             self.myC2 = myC2
-            self.myC2star = myC2star
 
         def ice_id(self):
             return '::Test::DDD::U'
@@ -680,12 +674,9 @@ if 'U' not in _M_Test.DDD.__dict__:
     _M_Test.DDD._t_U = IcePy.declareValue('::Test::DDD::U')
 
     _M_Test.DDD._t_U = IcePy.defineValue('::Test::DDD::U', U, -1, (), False, False, None, (
-        ('myI', (), _M_Test.DDD._t_I, False, 0),
         ('myIstar', (), _M_Test.DDD._t_IPrx, False, 0),
         ('myC', (), _M_Test.DDD._t_C, False, 0),
-        ('myCstar', (), IcePy._t_ObjectPrx, False, 0),
-        ('myC2', (), _M_Test.DDD._t_C2, False, 0),
-        ('myC2star', (), IcePy._t_ObjectPrx, False, 0)
+        ('myC2', (), _M_Test.DDD._t_C2, False, 0)
     ))
     U._ice_type = _M_Test.DDD._t_U
 

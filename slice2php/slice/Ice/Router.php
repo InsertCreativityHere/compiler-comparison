@@ -42,7 +42,6 @@ namespace Ice
             return '::Ice::Router';
         }
     }
-    $Ice__t_Router = IcePHP_defineClass('::Ice::Router', '\\Ice\\Router', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Ice__t_RouterPrx = IcePHP_defineProxy('::Ice::Router', $Ice__t_ObjectPrx, null);
@@ -77,7 +76,6 @@ namespace Ice
             return '::Ice::RouterFinder';
         }
     }
-    $Ice__t_RouterFinder = IcePHP_defineClass('::Ice::RouterFinder', '\\Ice\\RouterFinder', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Ice__t_RouterFinderPrx = IcePHP_defineProxy('::Ice::RouterFinder', $Ice__t_ObjectPrx, null);

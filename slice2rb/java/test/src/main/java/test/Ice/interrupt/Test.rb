@@ -69,8 +69,6 @@ module ::Test
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 
-        T_TestIntf.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
         TestIntfPrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
@@ -121,8 +119,6 @@ module ::Test
             T_TestIntfController = ::Ice::__declareClass('::Test::TestIntfController')
             T_TestIntfControllerPrx = ::Ice::__declareProxy('::Test::TestIntfController')
         end
-
-        T_TestIntfController.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_TestIntfControllerPrx.defineProxy(TestIntfControllerPrx, nil, [])
 

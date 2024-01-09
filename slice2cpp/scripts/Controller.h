@@ -1251,18 +1251,6 @@ namespace Test
 namespace Common
 {
 
-class Config;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Config>&);
-::IceProxy::Ice::Object* upCast(Config*);
-/// \endcond
-
-class OptionOverrides;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< OptionOverrides>&);
-::IceProxy::Ice::Object* upCast(OptionOverrides*);
-/// \endcond
-
 class TestCase;
 /// \cond INTERNAL
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< TestCase>&);
@@ -1316,8 +1304,6 @@ class Config;
 ::Ice::Object* upCast(Config*);
 /// \endcond
 typedef ::IceInternal::Handle< Config> ConfigPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Common::Config> ConfigPrx;
-typedef ConfigPrx ConfigPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(ConfigPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
@@ -1327,77 +1313,39 @@ class OptionOverrides;
 ::Ice::Object* upCast(OptionOverrides*);
 /// \endcond
 typedef ::IceInternal::Handle< OptionOverrides> OptionOverridesPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Common::OptionOverrides> OptionOverridesPrx;
-typedef OptionOverridesPrx OptionOverridesPrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(OptionOverridesPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-class TestCase;
-/// \cond INTERNAL
-::Ice::Object* upCast(TestCase*);
-/// \endcond
-typedef ::IceInternal::Handle< TestCase> TestCasePtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Common::TestCase> TestCasePrx;
 typedef TestCasePrx TestCasePrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(TestCasePtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class Controller;
-/// \cond INTERNAL
-::Ice::Object* upCast(Controller*);
-/// \endcond
-typedef ::IceInternal::Handle< Controller> ControllerPtr;
+class TestCase;
+typedef ::IceInternal::Handle< TestCase> TestCasePtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Common::Controller> ControllerPrx;
 typedef ControllerPrx ControllerPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(ControllerPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class Process;
-/// \cond INTERNAL
-::Ice::Object* upCast(Process*);
-/// \endcond
-typedef ::IceInternal::Handle< Process> ProcessPtr;
+class Controller;
+typedef ::IceInternal::Handle< Controller> ControllerPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Common::Process> ProcessPrx;
 typedef ProcessPrx ProcessPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(ProcessPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class ProcessController;
-/// \cond INTERNAL
-::Ice::Object* upCast(ProcessController*);
-/// \endcond
-typedef ::IceInternal::Handle< ProcessController> ProcessControllerPtr;
+class Process;
+typedef ::IceInternal::Handle< Process> ProcessPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Common::ProcessController> ProcessControllerPrx;
 typedef ProcessControllerPrx ProcessControllerPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(ProcessControllerPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class BrowserProcessController;
-/// \cond INTERNAL
-::Ice::Object* upCast(BrowserProcessController*);
-/// \endcond
-typedef ::IceInternal::Handle< BrowserProcessController> BrowserProcessControllerPtr;
+class ProcessController;
+typedef ::IceInternal::Handle< ProcessController> ProcessControllerPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Common::BrowserProcessController> BrowserProcessControllerPrx;
 typedef BrowserProcessControllerPrx BrowserProcessControllerPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(BrowserProcessControllerPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class ProcessControllerRegistry;
-/// \cond INTERNAL
-::Ice::Object* upCast(ProcessControllerRegistry*);
-/// \endcond
-typedef ::IceInternal::Handle< ProcessControllerRegistry> ProcessControllerRegistryPtr;
+class BrowserProcessController;
+typedef ::IceInternal::Handle< BrowserProcessController> BrowserProcessControllerPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Common::ProcessControllerRegistry> ProcessControllerRegistryPrx;
 typedef ProcessControllerRegistryPrx ProcessControllerRegistryPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(ProcessControllerRegistryPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class ProcessControllerRegistry;
+typedef ::IceInternal::Handle< ProcessControllerRegistry> ProcessControllerRegistryPtr;
 
 }
 
@@ -1670,40 +1618,6 @@ namespace Test
 
 namespace Common
 {
-
-class Config : public virtual ::Ice::Proxy<Config, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-class OptionOverrides : public virtual ::Ice::Proxy<OptionOverrides, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
 
 class TestCase : public virtual ::Ice::Proxy<TestCase, ::IceProxy::Ice::Object>
 {
@@ -2389,11 +2303,359 @@ namespace Test
 namespace Common
 {
 
+class TestCase : public virtual ::Ice::Object
+{
+public:
+
+    typedef TestCasePrx ProxyType;
+
+    virtual ~TestCase();
+    TestCase() = default;
+    TestCase(const TestCase&) = default;
+    TestCase& operator=(const TestCase&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual ::std::string startServerSide(const ConfigPtr& config, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_startServerSide(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual ::std::string stopServerSide(bool success, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_stopServerSide(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual ::std::string runClientSide(const ::std::string& host, const ConfigPtr& config, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_runClientSide(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual void destroy(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_destroy(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
+
+class Controller : public virtual ::Ice::Object
+{
+public:
+
+    typedef ControllerPrx ProxyType;
+
+    virtual ~Controller();
+    Controller() = default;
+    Controller(const Controller&) = default;
+    Controller& operator=(const Controller&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual TestCasePrx runTestCase(const ::std::string& mapping, const ::std::string& testsuite, const ::std::string& testcase, const ::std::string& cross, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_runTestCase(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual OptionOverridesPtr getOptionOverrides(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getOptionOverrides(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual StringSeq getTestSuites(const ::std::string& mapping, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getTestSuites(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual ::std::string getHost(const ::std::string& protocol, bool ipv6, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getHost(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
+
+class Process : public virtual ::Ice::Object
+{
+public:
+
+    typedef ProcessPrx ProxyType;
+
+    virtual ~Process();
+    Process() = default;
+    Process(const Process&) = default;
+    Process& operator=(const Process&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual void waitReady(::Ice::Int timeout, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_waitReady(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual ::Ice::Int waitSuccess(::Ice::Int timeout, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_waitSuccess(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual ::std::string terminate(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_terminate(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
+
+class ProcessController : public virtual ::Ice::Object
+{
+public:
+
+    typedef ProcessControllerPrx ProxyType;
+
+    virtual ~ProcessController();
+    ProcessController() = default;
+    ProcessController(const ProcessController&) = default;
+    ProcessController& operator=(const ProcessController&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual ProcessPrx start(const ::std::string& testsuite, const ::std::string& exe, const StringSeq& args, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_start(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    virtual ::std::string getHost(const ::std::string& protocol, bool ipv6, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_getHost(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
+
+class BrowserProcessController : public virtual ProcessController
+{
+public:
+
+    typedef BrowserProcessControllerPrx ProxyType;
+
+    virtual ~BrowserProcessController();
+    BrowserProcessController() = default;
+    BrowserProcessController(const BrowserProcessController&) = default;
+    BrowserProcessController& operator=(const BrowserProcessController&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual void redirect(const ::std::string& url, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_redirect(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
+
+class ProcessControllerRegistry : public virtual ::Ice::Object
+{
+public:
+
+    typedef ProcessControllerRegistryPrx ProxyType;
+
+    virtual ~ProcessControllerRegistry();
+    ProcessControllerRegistry() = default;
+    ProcessControllerRegistry(const ProcessControllerRegistry&) = default;
+    ProcessControllerRegistry& operator=(const ProcessControllerRegistry&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual void setProcessController(const ProcessControllerPrx& controller, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_setProcessController(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
+
+}
+
+}
+
+namespace Test
+{
+
+namespace Common
+{
+
 class Config : public virtual ::Ice::Object
 {
 public:
 
-    typedef ConfigPrx ProxyType;
     typedef ConfigPtr PointerType;
 
     virtual ~Config();
@@ -2495,7 +2757,6 @@ class OptionOverrides : public virtual ::Ice::Object
 {
 public:
 
-    typedef OptionOverridesPrx ProxyType;
     typedef OptionOverridesPtr PointerType;
 
     virtual ~OptionOverrides();
@@ -2584,465 +2845,6 @@ inline bool operator==(const OptionOverrides& lhs, const OptionOverrides& rhs)
 }
 
 inline bool operator<(const OptionOverrides& lhs, const OptionOverrides& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class TestCase : public virtual ::Ice::Object
-{
-public:
-
-    typedef TestCasePrx ProxyType;
-    typedef TestCasePtr PointerType;
-
-    virtual ~TestCase();
-    TestCase() = default;
-    TestCase(const TestCase&) = default;
-    TestCase& operator=(const TestCase&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual ::std::string startServerSide(const ConfigPtr& config, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_startServerSide(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::std::string stopServerSide(bool success, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_stopServerSide(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::std::string runClientSide(const ::std::string& host, const ConfigPtr& config, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_runClientSide(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void destroy(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_destroy(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const TestCase& lhs, const TestCase& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const TestCase& lhs, const TestCase& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class Controller : public virtual ::Ice::Object
-{
-public:
-
-    typedef ControllerPrx ProxyType;
-    typedef ControllerPtr PointerType;
-
-    virtual ~Controller();
-    Controller() = default;
-    Controller(const Controller&) = default;
-    Controller& operator=(const Controller&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual TestCasePrx runTestCase(const ::std::string& mapping, const ::std::string& testsuite, const ::std::string& testcase, const ::std::string& cross, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_runTestCase(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual OptionOverridesPtr getOptionOverrides(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getOptionOverrides(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual StringSeq getTestSuites(const ::std::string& mapping, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getTestSuites(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::std::string getHost(const ::std::string& protocol, bool ipv6, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getHost(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const Controller& lhs, const Controller& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Controller& lhs, const Controller& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class Process : public virtual ::Ice::Object
-{
-public:
-
-    typedef ProcessPrx ProxyType;
-    typedef ProcessPtr PointerType;
-
-    virtual ~Process();
-    Process() = default;
-    Process(const Process&) = default;
-    Process& operator=(const Process&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual void waitReady(::Ice::Int timeout, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_waitReady(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::Ice::Int waitSuccess(::Ice::Int timeout, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_waitSuccess(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::std::string terminate(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_terminate(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const Process& lhs, const Process& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Process& lhs, const Process& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class ProcessController : public virtual ::Ice::Object
-{
-public:
-
-    typedef ProcessControllerPrx ProxyType;
-    typedef ProcessControllerPtr PointerType;
-
-    virtual ~ProcessController();
-    ProcessController() = default;
-    ProcessController(const ProcessController&) = default;
-    ProcessController& operator=(const ProcessController&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual ProcessPrx start(const ::std::string& testsuite, const ::std::string& exe, const StringSeq& args, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_start(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual ::std::string getHost(const ::std::string& protocol, bool ipv6, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_getHost(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const ProcessController& lhs, const ProcessController& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const ProcessController& lhs, const ProcessController& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class BrowserProcessController : virtual public ProcessController
-{
-public:
-
-    typedef BrowserProcessControllerPrx ProxyType;
-    typedef BrowserProcessControllerPtr PointerType;
-
-    virtual ~BrowserProcessController();
-    BrowserProcessController() = default;
-    BrowserProcessController(const BrowserProcessController&) = default;
-    BrowserProcessController& operator=(const BrowserProcessController&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual void redirect(const ::std::string& url, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_redirect(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const BrowserProcessController& lhs, const BrowserProcessController& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const BrowserProcessController& lhs, const BrowserProcessController& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class ProcessControllerRegistry : public virtual ::Ice::Object
-{
-public:
-
-    typedef ProcessControllerRegistryPrx ProxyType;
-    typedef ProcessControllerRegistryPtr PointerType;
-
-    virtual ~ProcessControllerRegistry();
-    ProcessControllerRegistry() = default;
-    ProcessControllerRegistry(const ProcessControllerRegistry&) = default;
-    ProcessControllerRegistry& operator=(const ProcessControllerRegistry&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual void setProcessController(const ProcessControllerPrx& controller, const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_setProcessController(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const ProcessControllerRegistry& lhs, const ProcessControllerRegistry& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const ProcessControllerRegistry& lhs, const ProcessControllerRegistry& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
 }

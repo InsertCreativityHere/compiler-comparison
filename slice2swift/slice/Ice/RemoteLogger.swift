@@ -291,7 +291,7 @@ public struct LogMessageSeqHelper {
     }
 }
 
-/// Traits for Slice interface `RemoteLogger`.
+/// Traits for Slice interface`RemoteLogger`.
 public struct RemoteLoggerTraits: SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Ice::RemoteLogger"]
     public static let staticId = "::Ice::RemoteLogger"
@@ -332,7 +332,7 @@ open class RemoteLoggerAlreadyAttachedException: UserException {
     }
 }
 
-/// Traits for Slice interface `LoggerAdmin`.
+/// Traits for Slice interface`LoggerAdmin`.
 public struct LoggerAdminTraits: SliceTraits {
     public static let staticIds = ["::Ice::LoggerAdmin", "::Ice::Object"]
     public static let staticId = "::Ice::LoggerAdmin"

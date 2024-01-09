@@ -17,7 +17,7 @@ package _abstract;
 
 public interface implicit extends com.zeroc.Ice.Object
 {
-    as in(_break internal, delegate is, com.zeroc.Ice.Value lock, casePrx namespace, decimalPrx _new, delegate _null, explicitPrx operator, int override, int params, int _private, com.zeroc.Ice.Current current)
+    as in(_break internal, delegate is, explicitPrx lock, casePrx namespace, decimalPrx _new, delegate _null, int override, int params, int _private, com.zeroc.Ice.Current current)
         throws fixed,
                foreach;
 
@@ -60,30 +60,27 @@ public interface implicit extends com.zeroc.Ice.Object
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
         _break iceP_internal;
         final com.zeroc.IceInternal.Holder<delegate> icePP_is = new com.zeroc.IceInternal.Holder<>();
-        final com.zeroc.IceInternal.Holder<com.zeroc.Ice.Value> icePP_lock = new com.zeroc.IceInternal.Holder<>();
+        explicitPrx iceP_lock;
         casePrx iceP_namespace;
         decimalPrx iceP_new;
         final com.zeroc.IceInternal.Holder<delegate> icePP_null = new com.zeroc.IceInternal.Holder<>();
-        explicitPrx iceP_operator;
         int iceP_override;
         int iceP_params;
         int iceP_private;
         iceP_internal = _break.ice_read(istr);
         istr.readValue(v -> icePP_is.value = v, delegate.class);
-        istr.readValue(v -> icePP_lock.value = v, com.zeroc.Ice.Value.class);
+        iceP_lock = explicitPrx.uncheckedCast(istr.readProxy());
         iceP_namespace = casePrx.uncheckedCast(istr.readProxy());
         iceP_new = decimalPrx.uncheckedCast(istr.readProxy());
         istr.readValue(v -> icePP_null.value = v, delegate.class);
-        iceP_operator = explicitPrx.uncheckedCast(istr.readProxy());
         iceP_override = istr.readInt();
         iceP_params = istr.readInt();
         iceP_private = istr.readInt();
         istr.readPendingValues();
         inS.endReadParams();
         delegate iceP_is = icePP_is.value;
-        com.zeroc.Ice.Value iceP_lock = icePP_lock.value;
         delegate iceP_null = icePP_null.value;
-        as ret = obj.in(iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private, current);
+        as ret = obj.in(iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_override, iceP_params, iceP_private, current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
         as.ice_write(ostr, ret);
         inS.endWriteParams(ostr);

@@ -72,7 +72,6 @@ namespace await
             return '::await::case';
         }
     }
-    $await__t_case = IcePHP_defineClass('::await::case', '\\await\\_case', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $await__t_casePrx = IcePHP_defineProxy('::await::case', $Ice__t_ObjectPrx, null);
@@ -103,7 +102,6 @@ namespace await
             return '::await::typeof';
         }
     }
-    $await__t_typeof = IcePHP_defineClass('::await::typeof', '\\await\\typeof', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $await__t_typeofPrx = IcePHP_defineProxy('::await::typeof', $Ice__t_ObjectPrx, null);
@@ -175,7 +173,6 @@ namespace await
             return '::await::explicit';
         }
     }
-    $await__t_explicit = IcePHP_defineClass('::await::explicit', '\\await\\explicit', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $await__t_explicitPrx = IcePHP_defineProxy('::await::explicit', $Ice__t_ObjectPrx, array($await__t_typeofPrx, $await__t_casePrx));
@@ -232,19 +229,16 @@ namespace await
         public $null;
     }
 
-    $await__t_package = IcePHP_declareClass('::await::package');
-
     global $Ice__t_Value;
     global $await__t_break;
     global $await__t_var;
-    global $await__t_explicit;
+    global $await__t_explicitPrx;
     global $await__t_while;
     global $IcePHP__t_string;
-    global $await__t_explicitPrx;
     $await__t_package = IcePHP_defineClass('::await::package', '\\await\\package', -1, false, false, $Ice__t_Value, array(
         array('_for', $await__t_break, true, 1),
         array('_goto', $await__t_var, true, 2),
-        array('_if', $await__t_explicit, true, 3),
+        array('_if', $await__t_explicitPrx, true, 3),
         array('internal', $await__t_while, true, 5),
         array('debugger', $IcePHP__t_string, true, 7),
         array('null', $await__t_explicitPrx, true, 8)));
@@ -272,21 +266,19 @@ namespace await
             return '::await::optionalParams';
         }
     }
-    $await__t_optionalParams = IcePHP_defineClass('::await::optionalParams', '\\await\\optionalParams', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $await__t_optionalParamsPrx = IcePHP_defineProxy('::await::optionalParams', $Ice__t_ObjectPrx, null);
 
     global $await__t_var;
-    global $await__t_explicit;
+    global $await__t_explicitPrx;
     global $await__t_while;
     global $IcePHP__t_string;
-    global $await__t_explicitPrx;
     global $await__t_break;
-    IcePHP_defineOperation($await__t_optionalParamsPrx, 'for', 0, 0, 0, array(array($await__t_var, 2), array($await__t_explicit, 3), array($await__t_while, 5), array($IcePHP__t_string, 7), array($await__t_explicitPrx, 8)), null, array($await__t_break, 1), null);
-    IcePHP_defineOperation($await__t_optionalParamsPrx, 'continue', 0, 0, 0, array(array($await__t_var, 2), array($await__t_explicit, 3), array($await__t_while, 5), array($IcePHP__t_string, 7), array($await__t_explicitPrx, 8)), null, array($await__t_break, 1), null);
-    IcePHP_defineOperation($await__t_optionalParamsPrx, 'in', 0, 0, 0, null, array(array($await__t_var, 2), array($await__t_explicit, 3), array($await__t_while, 5), array($IcePHP__t_string, 7), array($await__t_explicitPrx, 8)), array($await__t_break, 1), null);
-    IcePHP_defineOperation($await__t_optionalParamsPrx, 'foreach', 0, 0, 0, null, array(array($await__t_var, 2), array($await__t_explicit, 3), array($await__t_while, 5), array($IcePHP__t_string, 7), array($await__t_explicitPrx, 8)), array($await__t_break, 1), null);
+    IcePHP_defineOperation($await__t_optionalParamsPrx, 'for', 0, 0, 0, array(array($await__t_var, 2), array($await__t_explicitPrx, 3), array($await__t_while, 5), array($IcePHP__t_string, 7), array($await__t_explicitPrx, 8)), null, array($await__t_break, 1), null);
+    IcePHP_defineOperation($await__t_optionalParamsPrx, 'continue', 0, 0, 0, array(array($await__t_var, 2), array($await__t_explicitPrx, 3), array($await__t_while, 5), array($IcePHP__t_string, 7), array($await__t_explicitPrx, 8)), null, array($await__t_break, 1), null);
+    IcePHP_defineOperation($await__t_optionalParamsPrx, 'in', 0, 0, 0, null, array(array($await__t_var, 2), array($await__t_explicitPrx, 3), array($await__t_while, 5), array($IcePHP__t_string, 7), array($await__t_explicitPrx, 8)), array($await__t_break, 1), null);
+    IcePHP_defineOperation($await__t_optionalParamsPrx, 'foreach', 0, 0, 0, null, array(array($await__t_var, 2), array($await__t_explicitPrx, 3), array($await__t_while, 5), array($IcePHP__t_string, 7), array($await__t_explicitPrx, 8)), array($await__t_break, 1), null);
 }
 
 namespace await
@@ -444,20 +436,18 @@ namespace await
             return '::await::implicit';
         }
     }
-    $await__t_implicit = IcePHP_defineClass('::await::implicit', '\\await\\implicit', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $await__t_implicitPrx = IcePHP_defineProxy('::await::implicit', $Ice__t_ObjectPrx, null);
 
     global $await__t_break;
     global $await__t_delete;
-    global $await__t_explicit;
+    global $await__t_explicitPrx;
     global $await__t_casePrx;
     global $await__t_typeofPrx;
-    global $await__t_explicitPrx;
     global $IcePHP__t_int;
     global $await__t_var;
-    IcePHP_defineOperation($await__t_implicitPrx, 'in', 0, 0, 0, array(array($await__t_break), array($await__t_delete), array($await__t_explicit), array($await__t_casePrx), array($await__t_typeofPrx), array($await__t_delete), array($await__t_explicitPrx), array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int)), null, array($await__t_var), array($await__t_fixed, $await__t_foreach));
+    IcePHP_defineOperation($await__t_implicitPrx, 'in', 0, 0, 0, array(array($await__t_break), array($await__t_delete), array($await__t_explicitPrx), array($await__t_casePrx), array($await__t_typeofPrx), array($await__t_delete), array($await__t_explicitPrx), array($IcePHP__t_int), array($IcePHP__t_int), array($IcePHP__t_int)), null, array($await__t_var), array($await__t_fixed, $await__t_foreach));
 }
 
 namespace await
@@ -498,7 +488,6 @@ namespace await\System
             return '::await::System::Test';
         }
     }
-    $await_System__t_Test = IcePHP_defineClass('::await::System::Test', '\\await\\System\\Test', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $await_System__t_TestPrx = IcePHP_defineProxy('::await::System::Test', $Ice__t_ObjectPrx, null);
@@ -528,7 +517,6 @@ namespace System
             return '::System::Test';
         }
     }
-    $System__t_Test = IcePHP_defineClass('::System::Test', '\\System\\Test', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $System__t_TestPrx = IcePHP_defineProxy('::System::Test', $Ice__t_ObjectPrx, null);

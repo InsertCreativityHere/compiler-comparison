@@ -38,6 +38,12 @@
 namespace Test
 {
 
+
+}
+
+namespace Test
+{
+
 class ExtendedPermissionDeniedException : public ::Ice::UserExceptionHelper<ExtendedPermissionDeniedException, ::Glacier2::PermissionDeniedException>
 {
 public:
@@ -105,6 +111,11 @@ struct StreamReader<::Test::ExtendedPermissionDeniedException, S>
 #else // C++98 mapping
 
 namespace IceProxy
+{
+
+}
+
+namespace Test
 {
 
 }

@@ -53,7 +53,7 @@ open class SessionNotExistException: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `Router`.
+/// Traits for Slice interface`Router`.
 public struct RouterTraits: Ice.SliceTraits {
     public static let staticIds = ["::Glacier2::Router", "::Ice::Object", "::Ice::Router"]
     public static let staticId = "::Glacier2::Router"

@@ -1140,11 +1140,6 @@ IcePatch2::FileServer::~FileServer()
 {
 }
 
-/// \cond INTERNAL
-ICEPATCH2_API ::Ice::Object* IcePatch2::upCast(FileServer* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_IcePatch2_FileServer_ids[2] =
@@ -1353,36 +1348,6 @@ IcePatch2::FileServer::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
             assert(false);
             throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
         }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-IcePatch2::FileServer::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< FileServer, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IcePatch2::FileServer::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< FileServer, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IcePatch2::_icePatchObjectPtr(FileServerPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = FileServerPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(FileServer::ice_staticId(), v);
     }
 }
 /// \endcond

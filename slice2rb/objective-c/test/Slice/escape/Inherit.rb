@@ -222,8 +222,6 @@ module ::Test
             T_Intf1Prx = ::Ice::__declareProxy('::Test::Intf1')
         end
 
-        T_Intf1.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_Intf1Prx.defineProxy(Intf1Prx, nil, [])
 
         Intf1Prx_mixin::OP_isa = ::Ice::__defineOperation('isa', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
@@ -329,8 +327,6 @@ module ::Test
             T_Intf2 = ::Ice::__declareClass('::Test::Intf2')
             T_Intf2Prx = ::Ice::__declareProxy('::Test::Intf2')
         end
-
-        T_Intf2.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_Intf2Prx.defineProxy(Intf2Prx, nil, [])
 

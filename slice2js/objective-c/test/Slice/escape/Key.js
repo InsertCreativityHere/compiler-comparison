@@ -135,10 +135,7 @@
 
     const iceC_and__do_ids = [
         "::Ice::Object",
-        "::and::break",
-        "::and::char",
-        "::and::do",
-        "::and::switch"
+        "::and::do"
     ];
 
     and._do = class extends Ice.Value
@@ -160,32 +157,7 @@
         }
     };
 
-    Slice.defineValue(and._do, iceC_and__do_ids[3], false);
-
-    and.doDisp = class extends Ice.Object
-    {
-        static get _iceImplements()
-        {
-            return [
-                and.char,
-                and.break,
-                and.switch
-            ];
-        }
-    };
-
-    and.doPrx = class extends Ice.ObjectPrx
-    {
-        static get _implements()
-        {
-            return [
-                and.charPrx,
-                and.breakPrx,
-                and.switchPrx];
-        }
-    };
-
-    Slice.defineOperations(and.doDisp, and.doPrx, iceC_and__do_ids, 3);
+    Slice.defineValue(and._do, iceC_and__do_ids[1], false);
 
     Slice.defineSequence(and, "externHelper", "and.auto", true);
 
@@ -277,7 +249,7 @@
 
     Slice.defineOperations(and.friend, and.friendPrx, iceC_and_friend_ids, 1,
     {
-        "goto": [, , , , [and.auto], [[and._continue._helper], [and.auto], [and._delete], ["Ice.Value", true], ["and._do", true], ["and.breakPrx"], ["and.charPrx"], ["and.switchPrx"], ["and.doPrx"], [3], [3], [3], [3]], ,
+        "goto": [, , , , [and.auto], [[and._continue._helper], [and.auto], [and._delete], ["and._do", true], ["and.breakPrx"], ["and.charPrx"], ["and.switchPrx"], [3], [3], [3], [3]], ,
         [
             and.sizeof,
             and._return

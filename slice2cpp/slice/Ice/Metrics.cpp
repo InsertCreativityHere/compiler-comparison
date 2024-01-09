@@ -626,40 +626,6 @@ IceMX::UnknownMetricsView::_readImpl(::Ice::InputStream* istr)
 /// \endcond
 
 /// \cond INTERNAL
-ICE_API ::IceProxy::Ice::Object* ::IceProxy::IceMX::upCast(Metrics* p) { return p; }
-
-void
-::IceProxy::IceMX::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< Metrics>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new Metrics;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::IceMX::Metrics::_newInstance() const
-{
-    return new Metrics;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::IceMX::Metrics::ice_staticId()
-{
-    return ::IceMX::Metrics::ice_staticId();
-}
-
-/// \cond INTERNAL
 ICE_API ::IceProxy::Ice::Object* ::IceProxy::IceMX::upCast(MetricsAdmin* p) { return p; }
 
 void
@@ -1006,343 +972,9 @@ IceProxy::IceMX::MetricsAdmin::ice_staticId()
     return ::IceMX::MetricsAdmin::ice_staticId();
 }
 
-/// \cond INTERNAL
-ICE_API ::IceProxy::Ice::Object* ::IceProxy::IceMX::upCast(ThreadMetrics* p) { return p; }
-
-void
-::IceProxy::IceMX::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< ThreadMetrics>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new ThreadMetrics;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::IceMX::ThreadMetrics::_newInstance() const
-{
-    return new ThreadMetrics;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::IceMX::ThreadMetrics::ice_staticId()
-{
-    return ::IceMX::ThreadMetrics::ice_staticId();
-}
-
-/// \cond INTERNAL
-ICE_API ::IceProxy::Ice::Object* ::IceProxy::IceMX::upCast(DispatchMetrics* p) { return p; }
-
-void
-::IceProxy::IceMX::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< DispatchMetrics>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new DispatchMetrics;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::IceMX::DispatchMetrics::_newInstance() const
-{
-    return new DispatchMetrics;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::IceMX::DispatchMetrics::ice_staticId()
-{
-    return ::IceMX::DispatchMetrics::ice_staticId();
-}
-
-/// \cond INTERNAL
-ICE_API ::IceProxy::Ice::Object* ::IceProxy::IceMX::upCast(ChildInvocationMetrics* p) { return p; }
-
-void
-::IceProxy::IceMX::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< ChildInvocationMetrics>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new ChildInvocationMetrics;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::IceMX::ChildInvocationMetrics::_newInstance() const
-{
-    return new ChildInvocationMetrics;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::IceMX::ChildInvocationMetrics::ice_staticId()
-{
-    return ::IceMX::ChildInvocationMetrics::ice_staticId();
-}
-
-/// \cond INTERNAL
-ICE_API ::IceProxy::Ice::Object* ::IceProxy::IceMX::upCast(CollocatedMetrics* p) { return p; }
-
-void
-::IceProxy::IceMX::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< CollocatedMetrics>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new CollocatedMetrics;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::IceMX::CollocatedMetrics::_newInstance() const
-{
-    return new CollocatedMetrics;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::IceMX::CollocatedMetrics::ice_staticId()
-{
-    return ::IceMX::CollocatedMetrics::ice_staticId();
-}
-
-/// \cond INTERNAL
-ICE_API ::IceProxy::Ice::Object* ::IceProxy::IceMX::upCast(RemoteMetrics* p) { return p; }
-
-void
-::IceProxy::IceMX::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< RemoteMetrics>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new RemoteMetrics;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::IceMX::RemoteMetrics::_newInstance() const
-{
-    return new RemoteMetrics;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::IceMX::RemoteMetrics::ice_staticId()
-{
-    return ::IceMX::RemoteMetrics::ice_staticId();
-}
-
-/// \cond INTERNAL
-ICE_API ::IceProxy::Ice::Object* ::IceProxy::IceMX::upCast(InvocationMetrics* p) { return p; }
-
-void
-::IceProxy::IceMX::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< InvocationMetrics>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new InvocationMetrics;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::IceMX::InvocationMetrics::_newInstance() const
-{
-    return new InvocationMetrics;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::IceMX::InvocationMetrics::ice_staticId()
-{
-    return ::IceMX::InvocationMetrics::ice_staticId();
-}
-
-/// \cond INTERNAL
-ICE_API ::IceProxy::Ice::Object* ::IceProxy::IceMX::upCast(ConnectionMetrics* p) { return p; }
-
-void
-::IceProxy::IceMX::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< ConnectionMetrics>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new ConnectionMetrics;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::IceMX::ConnectionMetrics::_newInstance() const
-{
-    return new ConnectionMetrics;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::IceMX::ConnectionMetrics::ice_staticId()
-{
-    return ::IceMX::ConnectionMetrics::ice_staticId();
-}
-
-IceMX::Metrics::~Metrics()
-{
-}
-
-/// \cond INTERNAL
-ICE_API ::Ice::Object* IceMX::upCast(Metrics* p) { return p; }
-
-/// \endcond
-::Ice::ObjectPtr
-IceMX::Metrics::ice_clone() const
-{
-    ::Ice::Object* p = new Metrics(*this);
-    return p;
-}
-
-namespace
-{
-const ::std::string iceC_IceMX_Metrics_ids[2] =
-{
-    "::Ice::Object",
-    "::IceMX::Metrics"
-};
-
-}
-
-bool
-IceMX::Metrics::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceMX_Metrics_ids, iceC_IceMX_Metrics_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-IceMX::Metrics::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_IceMX_Metrics_ids[0], &iceC_IceMX_Metrics_ids[2]);
-}
-
-const ::std::string&
-IceMX::Metrics::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-IceMX::Metrics::ice_staticId()
-{
-    static const ::std::string typeId = "::IceMX::Metrics";
-    return typeId;
-}
-
-/// \cond STREAM
-void
-IceMX::Metrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Metrics, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceMX::Metrics::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Metrics, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::IceMX::Metrics> iceC_IceMX_Metrics_init("::IceMX::Metrics");
-}
-
-::Ice::ValueFactoryPtr
-IceMX::Metrics::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::IceMX::Metrics::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-IceMX::_icePatchObjectPtr(MetricsPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = MetricsPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Metrics::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 IceMX::MetricsAdmin::~MetricsAdmin()
 {
 }
-
-/// \cond INTERNAL
-ICE_API ::Ice::Object* IceMX::upCast(MetricsAdmin* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1570,32 +1202,93 @@ IceMX::MetricsAdmin::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
 }
 /// \endcond
 
+IceMX::Metrics::~Metrics()
+{
+}
+
+/// \cond INTERNAL
+ICE_API ::Ice::Object* IceMX::upCast(Metrics* p) { return p; }
+
+/// \endcond
+::Ice::ObjectPtr
+IceMX::Metrics::ice_clone() const
+{
+    ::Ice::Object* p = new Metrics(*this);
+    return p;
+}
+
+namespace
+{
+const ::std::string iceC_IceMX_Metrics_ids[2] =
+{
+    "::Ice::Object",
+    "::IceMX::Metrics"
+};
+
+}
+
+bool
+IceMX::Metrics::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_IceMX_Metrics_ids, iceC_IceMX_Metrics_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+IceMX::Metrics::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_IceMX_Metrics_ids[0], &iceC_IceMX_Metrics_ids[2]);
+}
+
+const ::std::string&
+IceMX::Metrics::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+IceMX::Metrics::ice_staticId()
+{
+    static const ::std::string typeId = "::IceMX::Metrics";
+    return typeId;
+}
+
 /// \cond STREAM
 void
-IceMX::MetricsAdmin::_iceWriteImpl(::Ice::OutputStream* ostr) const
+IceMX::Metrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< MetricsAdmin, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter< Metrics, ::Ice::OutputStream>::write(ostr, *this);
     ostr->endSlice();
 }
 
 void
-IceMX::MetricsAdmin::_iceReadImpl(::Ice::InputStream* istr)
+IceMX::Metrics::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader< MetricsAdmin, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader< Metrics, ::Ice::InputStream>::read(istr, *this);
     istr->endSlice();
 }
 /// \endcond
 
+namespace
+{
+const ::IceInternal::DefaultValueFactoryInit< ::IceMX::Metrics> iceC_IceMX_Metrics_init("::IceMX::Metrics");
+}
+
+::Ice::ValueFactoryPtr
+IceMX::Metrics::ice_factory()
+{
+    return ::IceInternal::factoryTable->getValueFactory(::IceMX::Metrics::ice_staticId());
+}
+
 /// \cond INTERNAL
 void
-IceMX::_icePatchObjectPtr(MetricsAdminPtr& handle, const ::Ice::ObjectPtr& v)
+IceMX::_icePatchObjectPtr(MetricsPtr& handle, const ::Ice::ObjectPtr& v)
 {
-    handle = MetricsAdminPtr::dynamicCast(v);
+    handle = MetricsPtr::dynamicCast(v);
     if(v && !handle)
     {
-        IceInternal::Ex::throwUOE(MetricsAdmin::ice_staticId(), v);
+        IceInternal::Ex::throwUOE(Metrics::ice_staticId(), v);
     }
 }
 /// \endcond

@@ -207,7 +207,7 @@ public struct SSeqHelper {
     }
 }
 
-/// Traits for Slice class `C`.
+/// Traits for Slice class`C`.
 public struct CTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::C"]
     public static let staticId = "::Test::C"
@@ -608,7 +608,7 @@ public struct S1MapHelper {
     }
 }
 
-/// Traits for Slice class `C1`.
+/// Traits for Slice class`C1`.
 public struct C1Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::C1"]
     public static let staticId = "::Test::C1"
@@ -693,13 +693,13 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice class `C2`.
+/// Traits for Slice class`C2`.
 public struct C2Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::C2"]
     public static let staticId = "::Test::C2"
 }
 
-/// Traits for Slice interface `I`.
+/// Traits for Slice interface`I`.
 public struct ITraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::I"]
     public static let staticId = "::Test::I"
@@ -1087,7 +1087,7 @@ public struct InnerInner2SSeqHelper {
     }
 }
 
-/// Traits for Slice class `InnerInner2C`.
+/// Traits for Slice class`InnerInner2C`.
 public struct InnerInner2CTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Inner::Inner2::C"]
     public static let staticId = "::Test::Inner::Inner2::C"
@@ -1235,7 +1235,7 @@ public struct InnerInner2CSeqHelper {
     }
 }
 
-/// Traits for Slice interface `InnerInner2I`.
+/// Traits for Slice interface`InnerInner2I`.
 public struct InnerInner2ITraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Inner::Inner2::I"]
     public static let staticId = "::Test::Inner::Inner2::I"
@@ -1374,7 +1374,7 @@ public struct InnerInner2ISeqHelper {
     }
 }
 
-/// Traits for Slice class `InnerC`.
+/// Traits for Slice class`InnerC`.
 public struct InnerCTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Inner::C"]
     public static let staticId = "::Test::Inner::C"
@@ -1653,7 +1653,7 @@ public struct InnerCSeqHelper {
     }
 }
 
-/// Traits for Slice interface `InnerI`.
+/// Traits for Slice interface`InnerI`.
 public struct InnerITraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Inner::I"]
     public static let staticId = "::Test::Inner::I"
@@ -1792,7 +1792,7 @@ public struct InnerISeqHelper {
     }
 }
 
-/// Traits for Slice interface `InnerTestInner2I`.
+/// Traits for Slice interface`InnerTestInner2I`.
 public struct InnerTestInner2ITraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Inner::Test::Inner2::I"]
     public static let staticId = "::Inner::Test::Inner2::I"

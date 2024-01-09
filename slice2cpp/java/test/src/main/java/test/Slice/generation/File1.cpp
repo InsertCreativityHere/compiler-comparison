@@ -246,48 +246,9 @@ IceProxy::Test::Interface1::ice_staticId()
     return ::Test::Interface1::ice_staticId();
 }
 
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test2::upCast(Class1* p) { return p; }
-
-void
-::IceProxy::Test2::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< Class1>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new Class1;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test2::Class1::_newInstance() const
-{
-    return new Class1;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test2::Class1::ice_staticId()
-{
-    return ::Test2::Class1::ice_staticId();
-}
-
 Test::Interface1::~Interface1()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(Interface1* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -390,36 +351,6 @@ Test::Interface1::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test::Interface1::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Interface1, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Interface1::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< Interface1, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(Interface1Ptr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = Interface1Ptr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(Interface1::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test2::Class1::~Class1()
 {
 }
@@ -510,10 +441,6 @@ Test2::_icePatchObjectPtr(Class1Ptr& handle, const ::Ice::ObjectPtr& v)
     }
 }
 /// \endcond
-
-namespace Ice
-{
-}
 
 namespace Ice
 {

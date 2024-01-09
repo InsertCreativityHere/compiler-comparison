@@ -38,6 +38,12 @@
 namespace IceGrid
 {
 
+
+}
+
+namespace IceGrid
+{
+
 using StringLongDict = ::std::map<::std::string, long long int>;
 
 struct AllData
@@ -94,6 +100,11 @@ struct StreamReader<::IceGrid::AllData, S>
 #else // C++98 mapping
 
 namespace IceProxy
+{
+
+}
+
+namespace IceGrid
 {
 
 }

@@ -25,7 +25,7 @@ public class MultiOptional extends com.zeroc.Ice.Value
         this.vs = new VarStruct();
     }
 
-    public MultiOptional(byte a, boolean b, short c, int d, long e, float f, double g, String h, MyEnum i, com.zeroc.Ice.ObjectPrx j, MultiOptional k, byte[] bs, String[] ss, java.util.Map<java.lang.Integer, java.lang.Integer> iid, java.util.Map<java.lang.String, java.lang.Integer> sid, FixedStruct fs, VarStruct vs, short[] shs, MyEnum[] es, FixedStruct[] fss, VarStruct[] vss, OneOptional[] oos, com.zeroc.Ice.ObjectPrx[] oops, java.util.Map<java.lang.Integer, MyEnum> ied, java.util.Map<java.lang.Integer, FixedStruct> ifsd, java.util.Map<java.lang.Integer, VarStruct> ivsd, java.util.Map<java.lang.Integer, OneOptional> iood, java.util.Map<java.lang.Integer, com.zeroc.Ice.ObjectPrx> ioopd, boolean[] bos)
+    public MultiOptional(byte a, boolean b, short c, int d, long e, float f, double g, String h, MyEnum i, MyInterfacePrx j, MultiOptional k, byte[] bs, String[] ss, java.util.Map<java.lang.Integer, java.lang.Integer> iid, java.util.Map<java.lang.String, java.lang.Integer> sid, FixedStruct fs, VarStruct vs, short[] shs, MyEnum[] es, FixedStruct[] fss, VarStruct[] vss, OneOptional[] oos, MyInterfacePrx[] mips, java.util.Map<java.lang.Integer, MyEnum> ied, java.util.Map<java.lang.Integer, FixedStruct> ifsd, java.util.Map<java.lang.Integer, VarStruct> ivsd, java.util.Map<java.lang.Integer, OneOptional> iood, java.util.Map<java.lang.Integer, MyInterfacePrx> imipd, boolean[] bos)
     {
         setA(a);
         setB(b);
@@ -49,12 +49,12 @@ public class MultiOptional extends com.zeroc.Ice.Value
         setFss(fss);
         setVss(vss);
         setOos(oos);
-        setOops(oops);
+        setMips(mips);
         setIed(ied);
         setIfsd(ifsd);
         setIvsd(ivsd);
         setIood(iood);
-        setIoopd(ioopd);
+        setImipd(imipd);
         setBos(bos);
     }
 
@@ -544,10 +544,10 @@ public class MultiOptional extends com.zeroc.Ice.Value
         }
     }
 
-    private com.zeroc.Ice.ObjectPrx j;
+    private MyInterfacePrx j;
     private boolean _j;
 
-    public com.zeroc.Ice.ObjectPrx getJ()
+    public MyInterfacePrx getJ()
     {
         if(!_j)
         {
@@ -556,7 +556,7 @@ public class MultiOptional extends com.zeroc.Ice.Value
         return j;
     }
 
-    public void setJ(com.zeroc.Ice.ObjectPrx j)
+    public void setJ(MyInterfacePrx j)
     {
         _j = true;
         this.j = j;
@@ -572,7 +572,7 @@ public class MultiOptional extends com.zeroc.Ice.Value
         _j = false;
     }
 
-    public void optionalJ(java.util.Optional<com.zeroc.Ice.ObjectPrx> v)
+    public void optionalJ(java.util.Optional<MyInterfacePrx> v)
     {
         if(v == null || !v.isPresent())
         {
@@ -585,7 +585,7 @@ public class MultiOptional extends com.zeroc.Ice.Value
         }
     }
 
-    public java.util.Optional<com.zeroc.Ice.ObjectPrx> optionalJ()
+    public java.util.Optional<MyInterfacePrx> optionalJ()
     {
         if(_j)
         {
@@ -1359,52 +1359,52 @@ public class MultiOptional extends com.zeroc.Ice.Value
         this.oos[index] = val;
     }
 
-    private com.zeroc.Ice.ObjectPrx[] oops;
-    private boolean _oops;
+    private MyInterfacePrx[] mips;
+    private boolean _mips;
 
-    public com.zeroc.Ice.ObjectPrx[] getOops()
+    public MyInterfacePrx[] getMips()
     {
-        if(!_oops)
+        if(!_mips)
         {
-            throw new java.util.NoSuchElementException("oops is not set");
+            throw new java.util.NoSuchElementException("mips is not set");
         }
-        return oops;
+        return mips;
     }
 
-    public void setOops(com.zeroc.Ice.ObjectPrx[] oops)
+    public void setMips(MyInterfacePrx[] mips)
     {
-        _oops = true;
-        this.oops = oops;
+        _mips = true;
+        this.mips = mips;
     }
 
-    public boolean hasOops()
+    public boolean hasMips()
     {
-        return _oops;
+        return _mips;
     }
 
-    public void clearOops()
+    public void clearMips()
     {
-        _oops = false;
+        _mips = false;
     }
 
-    public void optionalOops(java.util.Optional<com.zeroc.Ice.ObjectPrx[]> v)
+    public void optionalMips(java.util.Optional<MyInterfacePrx[]> v)
     {
         if(v == null || !v.isPresent())
         {
-            _oops = false;
+            _mips = false;
         }
         else
         {
-            _oops = true;
-            oops = v.get();
+            _mips = true;
+            mips = v.get();
         }
     }
 
-    public java.util.Optional<com.zeroc.Ice.ObjectPrx[]> optionalOops()
+    public java.util.Optional<MyInterfacePrx[]> optionalMips()
     {
-        if(_oops)
+        if(_mips)
         {
-            return java.util.Optional.of(oops);
+            return java.util.Optional.of(mips);
         }
         else
         {
@@ -1412,22 +1412,22 @@ public class MultiOptional extends com.zeroc.Ice.Value
         }
     }
 
-    public com.zeroc.Ice.ObjectPrx getOops(int index)
+    public MyInterfacePrx getMips(int index)
     {
-        if(!_oops)
+        if(!_mips)
         {
-            throw new java.util.NoSuchElementException("oops is not set");
+            throw new java.util.NoSuchElementException("mips is not set");
         }
-        return this.oops[index];
+        return this.mips[index];
     }
 
-    public void setOops(int index, com.zeroc.Ice.ObjectPrx val)
+    public void setMips(int index, MyInterfacePrx val)
     {
-        if(!_oops)
+        if(!_mips)
         {
-            throw new java.util.NoSuchElementException("oops is not set");
+            throw new java.util.NoSuchElementException("mips is not set");
         }
-        this.oops[index] = val;
+        this.mips[index] = val;
     }
 
     private java.util.Map<java.lang.Integer, MyEnum> ied;
@@ -1642,52 +1642,52 @@ public class MultiOptional extends com.zeroc.Ice.Value
         }
     }
 
-    private java.util.Map<java.lang.Integer, com.zeroc.Ice.ObjectPrx> ioopd;
-    private boolean _ioopd;
+    private java.util.Map<java.lang.Integer, MyInterfacePrx> imipd;
+    private boolean _imipd;
 
-    public java.util.Map<java.lang.Integer, com.zeroc.Ice.ObjectPrx> getIoopd()
+    public java.util.Map<java.lang.Integer, MyInterfacePrx> getImipd()
     {
-        if(!_ioopd)
+        if(!_imipd)
         {
-            throw new java.util.NoSuchElementException("ioopd is not set");
+            throw new java.util.NoSuchElementException("imipd is not set");
         }
-        return ioopd;
+        return imipd;
     }
 
-    public void setIoopd(java.util.Map<java.lang.Integer, com.zeroc.Ice.ObjectPrx> ioopd)
+    public void setImipd(java.util.Map<java.lang.Integer, MyInterfacePrx> imipd)
     {
-        _ioopd = true;
-        this.ioopd = ioopd;
+        _imipd = true;
+        this.imipd = imipd;
     }
 
-    public boolean hasIoopd()
+    public boolean hasImipd()
     {
-        return _ioopd;
+        return _imipd;
     }
 
-    public void clearIoopd()
+    public void clearImipd()
     {
-        _ioopd = false;
+        _imipd = false;
     }
 
-    public void optionalIoopd(java.util.Optional<java.util.Map<java.lang.Integer, com.zeroc.Ice.ObjectPrx>> v)
+    public void optionalImipd(java.util.Optional<java.util.Map<java.lang.Integer, MyInterfacePrx>> v)
     {
         if(v == null || !v.isPresent())
         {
-            _ioopd = false;
+            _imipd = false;
         }
         else
         {
-            _ioopd = true;
-            ioopd = v.get();
+            _imipd = true;
+            imipd = v.get();
         }
     }
 
-    public java.util.Optional<java.util.Map<java.lang.Integer, com.zeroc.Ice.ObjectPrx>> optionalIoopd()
+    public java.util.Optional<java.util.Map<java.lang.Integer, MyInterfacePrx>> optionalImipd()
     {
-        if(_ioopd)
+        if(_imipd)
         {
-            return java.util.Optional.of(ioopd);
+            return java.util.Optional.of(imipd);
         }
         else
         {
@@ -1783,7 +1783,7 @@ public class MultiOptional extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 9113372124180371092L;
+    public static final long serialVersionUID = 5989864278894222183L;
 
     /** @hidden */
     @Override
@@ -1878,9 +1878,9 @@ public class MultiOptional extends com.zeroc.Ice.Value
         {
             OneOptionalSeqHelper.write(ostr_, 22, oos);
         }
-        if(_oops)
+        if(_mips)
         {
-            OneOptionalPrxSeqHelper.write(ostr_, 23, oops);
+            MyInterfacePrxSeqHelper.write(ostr_, 23, mips);
         }
         if(_ied)
         {
@@ -1898,9 +1898,9 @@ public class MultiOptional extends com.zeroc.Ice.Value
         {
             IntOneOptionalDictHelper.write(ostr_, 27, iood);
         }
-        if(_ioopd)
+        if(_imipd)
         {
-            IntOneOptionalPrxDictHelper.write(ostr_, 28, ioopd);
+            IntMyInterfacePrxDictHelper.write(ostr_, 28, imipd);
         }
         if(_bos)
         {
@@ -1953,7 +1953,7 @@ public class MultiOptional extends com.zeroc.Ice.Value
         if(_j = istr_.readOptional(10, com.zeroc.Ice.OptionalFormat.FSize))
         {
             istr_.skip(4);
-            j = com.zeroc.Ice.ObjectPrx.uncheckedCast(istr_.readProxy());
+            j = MyInterfacePrx.uncheckedCast(istr_.readProxy());
         }
         if(_k = istr_.readOptional(11, com.zeroc.Ice.OptionalFormat.Class))
         {
@@ -2013,10 +2013,10 @@ public class MultiOptional extends com.zeroc.Ice.Value
             istr_.skip(4);
             oos = OneOptionalSeqHelper.read(istr_);
         }
-        if(_oops = istr_.readOptional(23, com.zeroc.Ice.OptionalFormat.FSize))
+        if(_mips = istr_.readOptional(23, com.zeroc.Ice.OptionalFormat.FSize))
         {
             istr_.skip(4);
-            oops = OneOptionalPrxSeqHelper.read(istr_);
+            mips = MyInterfacePrxSeqHelper.read(istr_);
         }
         if(_ied = istr_.readOptional(24, com.zeroc.Ice.OptionalFormat.FSize))
         {
@@ -2038,10 +2038,10 @@ public class MultiOptional extends com.zeroc.Ice.Value
             istr_.skip(4);
             iood = IntOneOptionalDictHelper.read(istr_);
         }
-        if(_ioopd = istr_.readOptional(28, com.zeroc.Ice.OptionalFormat.FSize))
+        if(_imipd = istr_.readOptional(28, com.zeroc.Ice.OptionalFormat.FSize))
         {
             istr_.skip(4);
-            ioopd = IntOneOptionalPrxDictHelper.read(istr_);
+            imipd = IntMyInterfacePrxDictHelper.read(istr_);
         }
         if(_bos = istr_.readOptional(29, com.zeroc.Ice.OptionalFormat.VSize))
         {

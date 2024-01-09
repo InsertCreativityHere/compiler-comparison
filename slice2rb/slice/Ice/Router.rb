@@ -48,8 +48,6 @@ module ::Ice
             T_RouterPrx = ::Ice::__declareProxy('::Ice::Router')
         end
 
-        T_Router.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_RouterPrx.defineProxy(RouterPrx, nil, [])
 
         RouterPrx_mixin::OP_getClientProxy = ::Ice::__defineOperation('getClientProxy', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [[::Ice::T_bool, true, 1]], [::Ice::T_ObjectPrx, false, 0], [])
@@ -77,8 +75,6 @@ module ::Ice
             T_RouterFinder = ::Ice::__declareClass('::Ice::RouterFinder')
             T_RouterFinderPrx = ::Ice::__declareProxy('::Ice::RouterFinder')
         end
-
-        T_RouterFinder.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_RouterFinderPrx.defineProxy(RouterFinderPrx, nil, [])
 

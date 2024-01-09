@@ -82,37 +82,37 @@ open class CannotCreateSessionException: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `Session`.
+/// Traits for Slice interface`Session`.
 public struct SessionTraits: Ice.SliceTraits {
     public static let staticIds = ["::Glacier2::Session", "::Ice::Object"]
     public static let staticId = "::Glacier2::Session"
 }
 
-/// Traits for Slice interface `StringSet`.
+/// Traits for Slice interface`StringSet`.
 public struct StringSetTraits: Ice.SliceTraits {
     public static let staticIds = ["::Glacier2::StringSet", "::Ice::Object"]
     public static let staticId = "::Glacier2::StringSet"
 }
 
-/// Traits for Slice interface `IdentitySet`.
+/// Traits for Slice interface`IdentitySet`.
 public struct IdentitySetTraits: Ice.SliceTraits {
     public static let staticIds = ["::Glacier2::IdentitySet", "::Ice::Object"]
     public static let staticId = "::Glacier2::IdentitySet"
 }
 
-/// Traits for Slice interface `SessionControl`.
+/// Traits for Slice interface`SessionControl`.
 public struct SessionControlTraits: Ice.SliceTraits {
     public static let staticIds = ["::Glacier2::SessionControl", "::Ice::Object"]
     public static let staticId = "::Glacier2::SessionControl"
 }
 
-/// Traits for Slice interface `SessionManager`.
+/// Traits for Slice interface`SessionManager`.
 public struct SessionManagerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Glacier2::SessionManager", "::Ice::Object"]
     public static let staticId = "::Glacier2::SessionManager"
 }
 
-/// Traits for Slice interface `SSLSessionManager`.
+/// Traits for Slice interface`SSLSessionManager`.
 public struct SSLSessionManagerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Glacier2::SSLSessionManager", "::Ice::Object"]
     public static let staticId = "::Glacier2::SSLSessionManager"

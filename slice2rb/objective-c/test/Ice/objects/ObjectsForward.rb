@@ -59,8 +59,6 @@ module ::Test
             T_F2Prx = ::Ice::__declareProxy('::Test::F2')
         end
 
-        T_F2.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_F2Prx.defineProxy(F2Prx, nil, [])
 
         F2Prx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])

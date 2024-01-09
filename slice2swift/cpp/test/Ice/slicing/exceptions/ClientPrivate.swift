@@ -16,7 +16,7 @@
 import Foundation
 import Ice
 
-/// Traits for Slice class `PreservedClass`.
+/// Traits for Slice class`PreservedClass`.
 public struct PreservedClassTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::BaseClass", "::Test::PreservedClass"]
     public static let staticId = "::Test::PreservedClass"

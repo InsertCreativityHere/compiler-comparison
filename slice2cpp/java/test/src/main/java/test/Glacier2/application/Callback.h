@@ -47,6 +47,11 @@ class CallbackPrx;
 namespace Test
 {
 
+}
+
+namespace Test
+{
+
 class CallbackReceiver : public virtual ::Ice::Object
 {
 public:
@@ -263,13 +268,6 @@ protected:
 
 }
 
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
-
 /// \cond INTERNAL
 namespace Test
 {
@@ -309,28 +307,21 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Callback>&);
 
 namespace Test
 {
-
-class CallbackReceiver;
-/// \cond INTERNAL
-::Ice::Object* upCast(CallbackReceiver*);
-/// \endcond
-typedef ::IceInternal::Handle< CallbackReceiver> CallbackReceiverPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::CallbackReceiver> CallbackReceiverPrx;
 typedef CallbackReceiverPrx CallbackReceiverPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(CallbackReceiverPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class Callback;
-/// \cond INTERNAL
-::Ice::Object* upCast(Callback*);
-/// \endcond
-typedef ::IceInternal::Handle< Callback> CallbackPtr;
+class CallbackReceiver;
+typedef ::IceInternal::Handle< CallbackReceiver> CallbackReceiverPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Callback> CallbackPrx;
 typedef CallbackPrx CallbackPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(CallbackPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class Callback;
+typedef ::IceInternal::Handle< Callback> CallbackPtr;
+
+}
+
+namespace Test
+{
 
 }
 
@@ -529,7 +520,6 @@ class CallbackReceiver : public virtual ::Ice::Object
 public:
 
     typedef CallbackReceiverPrx ProxyType;
-    typedef CallbackReceiverPtr PointerType;
 
     virtual ~CallbackReceiver();
     CallbackReceiver() = default;
@@ -572,33 +562,13 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const CallbackReceiver& lhs, const CallbackReceiver& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const CallbackReceiver& lhs, const CallbackReceiver& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 class Callback : public virtual ::Ice::Object
 {
 public:
 
     typedef CallbackPrx ProxyType;
-    typedef CallbackPtr PointerType;
 
     virtual ~Callback();
     Callback() = default;
@@ -646,35 +616,9 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const Callback& lhs, const Callback& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
 }
-
-inline bool operator<(const Callback& lhs, const Callback& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 namespace Test
 {

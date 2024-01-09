@@ -58,8 +58,6 @@ module ::Glacier2
             T_SessionPrx = ::Ice::__declareProxy('::Glacier2::Session')
         end
 
-        T_Session.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_SessionPrx.defineProxy(SessionPrx, nil, [])
 
         SessionPrx_mixin::OP_destroy = ::Ice::__defineOperation('destroy', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
@@ -93,8 +91,6 @@ module ::Glacier2
             T_StringSet = ::Ice::__declareClass('::Glacier2::StringSet')
             T_StringSetPrx = ::Ice::__declareProxy('::Glacier2::StringSet')
         end
-
-        T_StringSet.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_StringSetPrx.defineProxy(StringSetPrx, nil, [])
 
@@ -131,8 +127,6 @@ module ::Glacier2
             T_IdentitySet = ::Ice::__declareClass('::Glacier2::IdentitySet')
             T_IdentitySetPrx = ::Ice::__declareProxy('::Glacier2::IdentitySet')
         end
-
-        T_IdentitySet.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_IdentitySetPrx.defineProxy(IdentitySetPrx, nil, [])
 
@@ -178,8 +172,6 @@ module ::Glacier2
             T_SessionControlPrx = ::Ice::__declareProxy('::Glacier2::SessionControl')
         end
 
-        T_SessionControl.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_SessionControlPrx.defineProxy(SessionControlPrx, nil, [])
 
         SessionControlPrx_mixin::OP_categories = ::Ice::__defineOperation('categories', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Glacier2::T_StringSetPrx, false, 0], [])
@@ -210,8 +202,6 @@ module ::Glacier2
             T_SessionManagerPrx = ::Ice::__declareProxy('::Glacier2::SessionManager')
         end
 
-        T_SessionManager.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_SessionManagerPrx.defineProxy(SessionManagerPrx, nil, [])
 
         SessionManagerPrx_mixin::OP_create = ::Ice::__defineOperation('create', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, ::Ice::FormatType::SlicedFormat, [[::Ice::T_string, false, 0], [::Glacier2::T_SessionControlPrx, false, 0]], [], [::Glacier2::T_SessionPrx, false, 0], [::Glacier2::T_CannotCreateSessionException])
@@ -237,8 +227,6 @@ module ::Glacier2
             T_SSLSessionManager = ::Ice::__declareClass('::Glacier2::SSLSessionManager')
             T_SSLSessionManagerPrx = ::Ice::__declareProxy('::Glacier2::SSLSessionManager')
         end
-
-        T_SSLSessionManager.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_SSLSessionManagerPrx.defineProxy(SSLSessionManagerPrx, nil, [])
 

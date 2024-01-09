@@ -146,8 +146,6 @@ module ::And
             T_BreakPrx = ::Ice::__declareProxy('::and::break')
         end
 
-        T_Break.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_BreakPrx.defineProxy(BreakPrx, nil, [])
 
         BreakPrx_mixin::OP_case = ::Ice::__defineOperation('case', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_int, false, 0]], [[::Ice::T_int, false, 0]], nil, [])
@@ -173,8 +171,6 @@ module ::And
             T_Func = ::Ice::__declareClass('::and::func')
             T_FuncPrx = ::Ice::__declareProxy('::and::func')
         end
-
-        T_Func.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_FuncPrx.defineProxy(FuncPrx, nil, [])
 
@@ -225,8 +221,6 @@ module ::And
             T_Do = ::Ice::__declareClass('::and::do')
             T_DoPrx = ::Ice::__declareProxy('::and::do')
         end
-
-        T_Do.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_DoPrx.defineProxy(DoPrx, nil, [::And::T_FuncPrx, ::And::T_BreakPrx])
     end

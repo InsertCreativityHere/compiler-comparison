@@ -363,13 +363,6 @@ protected:
 
 }
 
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
-
 /// \cond INTERNAL
 namespace Test
 {
@@ -409,28 +402,16 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< ServerFactory>&
 
 namespace Test
 {
-
-class Server;
-/// \cond INTERNAL
-::Ice::Object* upCast(Server*);
-/// \endcond
-typedef ::IceInternal::Handle< Server> ServerPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::Server> ServerPrx;
 typedef ServerPrx ServerPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(ServerPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class ServerFactory;
-/// \cond INTERNAL
-::Ice::Object* upCast(ServerFactory*);
-/// \endcond
-typedef ::IceInternal::Handle< ServerFactory> ServerFactoryPtr;
+class Server;
+typedef ::IceInternal::Handle< Server> ServerPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::ServerFactory> ServerFactoryPrx;
 typedef ServerFactoryPrx ServerFactoryPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(ServerFactoryPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class ServerFactory;
+typedef ::IceInternal::Handle< ServerFactory> ServerFactoryPtr;
 
 }
 
@@ -774,7 +755,6 @@ class Server : public virtual ::Ice::Object
 public:
 
     typedef ServerPrx ProxyType;
-    typedef ServerPtr PointerType;
 
     virtual ~Server();
     Server() = default;
@@ -827,33 +807,13 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const Server& lhs, const Server& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const Server& lhs, const Server& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 class ServerFactory : public virtual ::Ice::Object
 {
 public:
 
     typedef ServerFactoryPrx ProxyType;
-    typedef ServerFactoryPtr PointerType;
 
     virtual ~ServerFactory();
     ServerFactory() = default;
@@ -906,35 +866,9 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const ServerFactory& lhs, const ServerFactory& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
 }
-
-inline bool operator<(const ServerFactory& lhs, const ServerFactory& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 namespace Test
 {

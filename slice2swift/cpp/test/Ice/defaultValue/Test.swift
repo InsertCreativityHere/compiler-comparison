@@ -600,13 +600,13 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice class `Base`.
+/// Traits for Slice class`Base`.
 public struct BaseTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Base"]
     public static let staticId = "::Test::Base"
 }
 
-/// Traits for Slice class `Derived`.
+/// Traits for Slice class`Derived`.
 public struct DerivedTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Base", "::Test::Derived"]
     public static let staticId = "::Test::Derived"

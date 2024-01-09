@@ -61,7 +61,6 @@ namespace IceGrid
             return '::IceGrid::UserAccountMapper';
         }
     }
-    $IceGrid__t_UserAccountMapper = IcePHP_defineClass('::IceGrid::UserAccountMapper', '\\IceGrid\\UserAccountMapper', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceGrid__t_UserAccountMapperPrx = IcePHP_defineProxy('::IceGrid::UserAccountMapper', $Ice__t_ObjectPrx, null);

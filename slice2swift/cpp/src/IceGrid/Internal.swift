@@ -17,7 +17,7 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice class `InternalDbEnvDescriptor`.
+/// Traits for Slice class`InternalDbEnvDescriptor`.
 public struct InternalDbEnvDescriptorTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::InternalDbEnvDescriptor"]
     public static let staticId = "::IceGrid::InternalDbEnvDescriptor"
@@ -89,7 +89,7 @@ public struct InternalDbEnvDescriptorSeqHelper {
     }
 }
 
-/// Traits for Slice class `InternalAdapterDescriptor`.
+/// Traits for Slice class`InternalAdapterDescriptor`.
 public struct InternalAdapterDescriptorTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::InternalAdapterDescriptor"]
     public static let staticId = "::IceGrid::InternalAdapterDescriptor"
@@ -161,7 +161,7 @@ public struct InternalAdapterDescriptorSeqHelper {
     }
 }
 
-/// Traits for Slice class `InternalDistributionDescriptor`.
+/// Traits for Slice class`InternalDistributionDescriptor`.
 public struct InternalDistributionDescriptorTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::InternalDistributionDescriptor"]
     public static let staticId = "::IceGrid::InternalDistributionDescriptor"
@@ -234,7 +234,7 @@ public struct PropertyDescriptorSeqDictHelper {
     }
 }
 
-/// Traits for Slice class `InternalServerDescriptor`.
+/// Traits for Slice class`InternalServerDescriptor`.
 public struct InternalServerDescriptorTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::InternalServerDescriptor"]
     public static let staticId = "::IceGrid::InternalServerDescriptor"
@@ -318,7 +318,7 @@ open class AdapterNotActiveException: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `Adapter`.
+/// Traits for Slice interface`Adapter`.
 public struct AdapterTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::Adapter"]
     public static let staticId = "::IceGrid::Adapter"
@@ -434,13 +434,13 @@ public struct AdapterPrxDictHelper {
     }
 }
 
-/// Traits for Slice interface `FileReader`.
+/// Traits for Slice interface`FileReader`.
 public struct FileReaderTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::FileReader"]
     public static let staticId = "::IceGrid::FileReader"
 }
 
-/// Traits for Slice interface `Server`.
+/// Traits for Slice interface`Server`.
 public struct ServerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::FileReader", "::IceGrid::Server"]
     public static let staticId = "::IceGrid::Server"
@@ -512,19 +512,19 @@ public struct InternalRegistryPrxSeqHelper {
     }
 }
 
-/// Traits for Slice interface `ReplicaObserver`.
+/// Traits for Slice interface`ReplicaObserver`.
 public struct ReplicaObserverTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::ReplicaObserver"]
     public static let staticId = "::IceGrid::ReplicaObserver"
 }
 
-/// Traits for Slice interface `PatcherFeedback`.
+/// Traits for Slice interface`PatcherFeedback`.
 public struct PatcherFeedbackTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::PatcherFeedback"]
     public static let staticId = "::IceGrid::PatcherFeedback"
 }
 
-/// Traits for Slice interface `Node`.
+/// Traits for Slice interface`Node`.
 public struct NodeTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::FileReader", "::IceGrid::Node", "::IceGrid::ReplicaObserver"]
     public static let staticId = "::IceGrid::Node"
@@ -631,7 +631,7 @@ open class NodeActiveException: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `NodeSession`.
+/// Traits for Slice interface`NodeSession`.
 public struct NodeSessionTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::NodeSession"]
     public static let staticId = "::IceGrid::NodeSession"
@@ -736,7 +736,7 @@ public extension Ice.OutputStream {
     }
 }
 
-/// Traits for Slice interface `DatabaseObserver`.
+/// Traits for Slice interface`DatabaseObserver`.
 public struct DatabaseObserverTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::AdapterObserver", "::IceGrid::ApplicationObserver", "::IceGrid::DatabaseObserver", "::IceGrid::ObjectObserver"]
     public static let staticId = "::IceGrid::DatabaseObserver"
@@ -809,25 +809,25 @@ public struct StringLongDictHelper {
     }
 }
 
-/// Traits for Slice interface `ReplicaSession`.
+/// Traits for Slice interface`ReplicaSession`.
 public struct ReplicaSessionTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::ReplicaSession"]
     public static let staticId = "::IceGrid::ReplicaSession"
 }
 
-/// Traits for Slice class `InternalNodeInfo`.
+/// Traits for Slice class`InternalNodeInfo`.
 public struct InternalNodeInfoTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::InternalNodeInfo"]
     public static let staticId = "::IceGrid::InternalNodeInfo"
 }
 
-/// Traits for Slice class `InternalReplicaInfo`.
+/// Traits for Slice class`InternalReplicaInfo`.
 public struct InternalReplicaInfoTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::InternalReplicaInfo"]
     public static let staticId = "::IceGrid::InternalReplicaInfo"
 }
 
-/// Traits for Slice interface `InternalRegistry`.
+/// Traits for Slice interface`InternalRegistry`.
 public struct InternalRegistryTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::FileReader", "::IceGrid::InternalRegistry"]
     public static let staticId = "::IceGrid::InternalRegistry"

@@ -71,7 +71,6 @@ namespace IceGrid
             return '::IceGrid::FileParser';
         }
     }
-    $IceGrid__t_FileParser = IcePHP_defineClass('::IceGrid::FileParser', '\\IceGrid\\FileParser', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $IceGrid__t_FileParserPrx = IcePHP_defineProxy('::IceGrid::FileParser', $Ice__t_ObjectPrx, null);

@@ -73,7 +73,6 @@ namespace Glacier2
             return '::Glacier2::Session';
         }
     }
-    $Glacier2__t_Session = IcePHP_defineClass('::Glacier2::Session', '\\Glacier2\\Session', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Glacier2__t_SessionPrx = IcePHP_defineProxy('::Glacier2::Session', $Ice__t_ObjectPrx, null);
@@ -103,7 +102,6 @@ namespace Glacier2
             return '::Glacier2::StringSet';
         }
     }
-    $Glacier2__t_StringSet = IcePHP_defineClass('::Glacier2::StringSet', '\\Glacier2\\StringSet', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Glacier2__t_StringSetPrx = IcePHP_defineProxy('::Glacier2::StringSet', $Ice__t_ObjectPrx, null);
@@ -136,7 +134,6 @@ namespace Glacier2
             return '::Glacier2::IdentitySet';
         }
     }
-    $Glacier2__t_IdentitySet = IcePHP_defineClass('::Glacier2::IdentitySet', '\\Glacier2\\IdentitySet', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Glacier2__t_IdentitySetPrx = IcePHP_defineProxy('::Glacier2::IdentitySet', $Ice__t_ObjectPrx, null);
@@ -169,7 +166,6 @@ namespace Glacier2
             return '::Glacier2::SessionControl';
         }
     }
-    $Glacier2__t_SessionControl = IcePHP_defineClass('::Glacier2::SessionControl', '\\Glacier2\\SessionControl', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Glacier2__t_SessionControlPrx = IcePHP_defineProxy('::Glacier2::SessionControl', $Ice__t_ObjectPrx, null);
@@ -206,7 +202,6 @@ namespace Glacier2
             return '::Glacier2::SessionManager';
         }
     }
-    $Glacier2__t_SessionManager = IcePHP_defineClass('::Glacier2::SessionManager', '\\Glacier2\\SessionManager', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Glacier2__t_SessionManagerPrx = IcePHP_defineProxy('::Glacier2::SessionManager', $Ice__t_ObjectPrx, null);
@@ -239,7 +234,6 @@ namespace Glacier2
             return '::Glacier2::SSLSessionManager';
         }
     }
-    $Glacier2__t_SSLSessionManager = IcePHP_defineClass('::Glacier2::SSLSessionManager', '\\Glacier2\\SSLSessionManager', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Glacier2__t_SSLSessionManagerPrx = IcePHP_defineProxy('::Glacier2::SSLSessionManager', $Ice__t_ObjectPrx, null);

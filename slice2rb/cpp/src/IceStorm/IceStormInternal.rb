@@ -90,8 +90,6 @@ module ::IceStorm
             T_TopicLinkPrx = ::Ice::__declareProxy('::IceStorm::TopicLink')
         end
 
-        T_TopicLink.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_TopicLinkPrx.defineProxy(TopicLinkPrx, nil, [])
 
         TopicLinkPrx_mixin::OP_forward = ::Ice::__defineOperation('forward', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceStorm::T_EventDataSeq, false, 0]], [], nil, [])
@@ -136,8 +134,6 @@ module ::IceStorm
             T_TopicInternalPrx = ::Ice::__declareProxy('::IceStorm::TopicInternal')
         end
 
-        T_TopicInternal.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_TopicInternalPrx.defineProxy(TopicInternalPrx, nil, [::IceStorm::T_TopicPrx])
 
         TopicInternalPrx_mixin::OP_getLinkProxy = ::Ice::__defineOperation('getLinkProxy', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceStorm::T_TopicLinkPrx, false, 0], [])
@@ -165,8 +161,6 @@ module ::IceStorm
             T_TopicManagerInternal = ::Ice::__declareClass('::IceStorm::TopicManagerInternal')
             T_TopicManagerInternalPrx = ::Ice::__declareProxy('::IceStorm::TopicManagerInternal')
         end
-
-        T_TopicManagerInternal.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_TopicManagerInternalPrx.defineProxy(TopicManagerInternalPrx, nil, [::IceStorm::T_TopicManagerPrx])
 

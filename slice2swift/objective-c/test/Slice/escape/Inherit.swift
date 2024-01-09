@@ -146,19 +146,19 @@ open class Exception1: Ice.UserException {
     }
 }
 
-/// Traits for Slice class `Class1`.
+/// Traits for Slice class`Class1`.
 public struct Class1Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Class1"]
     public static let staticId = "::Test::Class1"
 }
 
-/// Traits for Slice interface `Intf1`.
+/// Traits for Slice interface`Intf1`.
 public struct Intf1Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Intf1"]
     public static let staticId = "::Test::Intf1"
 }
 
-/// Traits for Slice interface `Intf2`.
+/// Traits for Slice interface`Intf2`.
 public struct Intf2Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Intf2"]
     public static let staticId = "::Test::Intf2"

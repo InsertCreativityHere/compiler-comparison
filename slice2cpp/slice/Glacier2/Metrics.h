@@ -151,11 +151,6 @@ static SessionMetrics _iceS_SessionMetrics_init;
 
 }
 
-namespace IceMX
-{
-
-}
-
 /// \cond STREAM
 namespace Ice
 {
@@ -195,17 +190,6 @@ using SessionMetricsPtr = ::std::shared_ptr<SessionMetrics>;
 namespace IceProxy
 {
 
-namespace IceMX
-{
-
-class SessionMetrics;
-/// \cond INTERNAL
-GLACIER2_API void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< SessionMetrics>&);
-GLACIER2_API ::IceProxy::Ice::Object* upCast(SessionMetrics*);
-/// \endcond
-
-}
-
 }
 
 namespace IceMX
@@ -216,43 +200,14 @@ class SessionMetrics;
 GLACIER2_API ::Ice::Object* upCast(SessionMetrics*);
 /// \endcond
 typedef ::IceInternal::Handle< SessionMetrics> SessionMetricsPtr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::IceMX::SessionMetrics> SessionMetricsPrx;
-typedef SessionMetricsPrx SessionMetricsPrxPtr;
 /// \cond INTERNAL
 GLACIER2_API void _icePatchObjectPtr(SessionMetricsPtr&, const ::Ice::ObjectPtr&);
 /// \endcond
 
 }
 
-namespace IceMX
-{
-
-}
-
 namespace IceProxy
 {
-
-namespace IceMX
-{
-
-class ICE_CLASS(GLACIER2_API) SessionMetrics : public virtual ::Ice::Proxy<SessionMetrics, ::IceProxy::IceMX::Metrics>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    ICE_MEMBER(GLACIER2_API) static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    ICE_MEMBER(GLACIER2_API) virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
-
-}
 
 }
 
@@ -267,7 +222,6 @@ class GLACIER2_API SessionMetrics : public Metrics
 {
 public:
 
-    typedef SessionMetricsPrx ProxyType;
     typedef SessionMetricsPtr PointerType;
 
     virtual ~SessionMetrics();
@@ -445,11 +399,6 @@ struct StreamReader< ::IceMX::SessionMetrics, S>
 
 }
 /// \endcond
-
-namespace IceMX
-{
-
-}
 
 #endif
 

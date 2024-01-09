@@ -11,17 +11,16 @@
 
 classdef implicitPrx < Ice.ObjectPrx
     methods
-        function result = in(obj, internal, is, lock, namespace, new, null, operator, override, params, private, varargin)
+        function result = in(obj, internal, is, lock, namespace, new, null, override, params, private, varargin)
             % in
             %
             % Parameters:
             %   internal (abstract.break_)
             %   is (abstract.delegate)
-            %   lock (abstract.explicit)
+            %   lock (abstract.explicitPrx)
             %   namespace (abstract.casePrx)
             %   new (abstract.decimalPrx)
             %   null (abstract.delegate)
-            %   operator (abstract.explicitPrx)
             %   override (int32)
             %   params (int32)
             %   private (int32)
@@ -32,11 +31,10 @@ classdef implicitPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             abstract.break_.ice_write(os_, internal);
             os_.writeValue(is);
-            os_.writeValue(lock);
+            os_.writeProxy(lock);
             os_.writeProxy(namespace);
             os_.writeProxy(new);
             os_.writeValue(null);
-            os_.writeProxy(operator);
             os_.writeInt(override);
             os_.writeInt(params);
             os_.writeInt(private);
@@ -47,17 +45,16 @@ classdef implicitPrx < Ice.ObjectPrx
             result = abstract.as.ice_read(is_);
             is_.endEncapsulation();
         end
-        function r_ = inAsync(obj, internal, is, lock, namespace, new, null, operator, override, params, private, varargin)
+        function r_ = inAsync(obj, internal, is, lock, namespace, new, null, override, params, private, varargin)
             % inAsync
             %
             % Parameters:
             %   internal (abstract.break_)
             %   is (abstract.delegate)
-            %   lock (abstract.explicit)
+            %   lock (abstract.explicitPrx)
             %   namespace (abstract.casePrx)
             %   new (abstract.decimalPrx)
             %   null (abstract.delegate)
-            %   operator (abstract.explicitPrx)
             %   override (int32)
             %   params (int32)
             %   private (int32)
@@ -68,11 +65,10 @@ classdef implicitPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             abstract.break_.ice_write(os_, internal);
             os_.writeValue(is);
-            os_.writeValue(lock);
+            os_.writeProxy(lock);
             os_.writeProxy(namespace);
             os_.writeProxy(new);
             os_.writeValue(null);
-            os_.writeProxy(operator);
             os_.writeInt(override);
             os_.writeInt(params);
             os_.writeInt(private);

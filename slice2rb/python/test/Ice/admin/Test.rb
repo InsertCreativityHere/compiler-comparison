@@ -56,8 +56,6 @@ module ::Test
             T_RemoteCommunicatorPrx = ::Ice::__declareProxy('::Test::RemoteCommunicator')
         end
 
-        T_RemoteCommunicator.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_RemoteCommunicatorPrx.defineProxy(RemoteCommunicatorPrx, nil, [])
 
         RemoteCommunicatorPrx_mixin::OP_getAdmin = ::Ice::__defineOperation('getAdmin', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
@@ -92,8 +90,6 @@ module ::Test
             T_RemoteCommunicatorFactoryPrx = ::Ice::__declareProxy('::Test::RemoteCommunicatorFactory')
         end
 
-        T_RemoteCommunicatorFactory.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_RemoteCommunicatorFactoryPrx.defineProxy(RemoteCommunicatorFactoryPrx, nil, [])
 
         RemoteCommunicatorFactoryPrx_mixin::OP_createCommunicator = ::Ice::__defineOperation('createCommunicator', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_PropertyDict, false, 0]], [], [::Test::T_RemoteCommunicatorPrx, false, 0], [])
@@ -120,8 +116,6 @@ module ::Test
             T_TestFacet = ::Ice::__declareClass('::Test::TestFacet')
             T_TestFacetPrx = ::Ice::__declareProxy('::Test::TestFacet')
         end
-
-        T_TestFacet.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_TestFacetPrx.defineProxy(TestFacetPrx, nil, [])
 

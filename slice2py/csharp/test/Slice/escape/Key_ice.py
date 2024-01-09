@@ -329,13 +329,12 @@ if '_t__while' not in _M_abstract.__dict__:
 if 'optionalMembers' not in _M_abstract.__dict__:
     _M_abstract.optionalMembers = Ice.createTempClass()
     class optionalMembers(Ice.Value):
-        def __init__(self, _for=Ice.Unset, goto=Ice.Unset, _if=Ice.Unset, internal=Ice.Unset, namespace=Ice.Unset, null=Ice.Unset):
+        def __init__(self, _for=Ice.Unset, goto=Ice.Unset, _if=Ice.Unset, internal=Ice.Unset, namespace=Ice.Unset):
             self._for = _for
             self.goto = goto
             self._if = _if
             self.internal = internal
             self.namespace = namespace
-            self.null = null
 
         def ice_id(self):
             return '::abstract::optionalMembers'
@@ -349,15 +348,12 @@ if 'optionalMembers' not in _M_abstract.__dict__:
 
         __repr__ = __str__
 
-    _M_abstract._t_optionalMembers = IcePy.declareValue('::abstract::optionalMembers')
-
     _M_abstract._t_optionalMembers = IcePy.defineValue('::abstract::optionalMembers', optionalMembers, -1, (), False, False, None, (
         ('_for', (), _M_abstract._t__break, True, 1),
         ('goto', (), _M_abstract._t__as, True, 2),
-        ('_if', (), _M_abstract._t_explicit, True, 3),
+        ('_if', (), _M_abstract._t_explicitPrx, True, 3),
         ('internal', (), _M_abstract._t__while, True, 5),
-        ('namespace', (), IcePy._t_string, True, 7),
-        ('null', (), _M_abstract._t_explicitPrx, True, 8)
+        ('namespace', (), IcePy._t_string, True, 7)
     ))
     optionalMembers._ice_type = _M_abstract._t_optionalMembers
 
@@ -370,26 +366,26 @@ if 'optionalParamsPrx' not in _M_abstract.__dict__:
     _M_abstract.optionalParamsPrx = Ice.createTempClass()
     class optionalParamsPrx(Ice.ObjectPrx):
 
-        def _for(self, goto=Ice.Unset, _if=Ice.Unset, internal=Ice.Unset, namespace=Ice.Unset, null=Ice.Unset, context=None):
-            return _M_abstract.optionalParams._op_for.invoke(self, ((goto, _if, internal, namespace, null), context))
+        def _for(self, goto=Ice.Unset, _if=Ice.Unset, internal=Ice.Unset, namespace=Ice.Unset, context=None):
+            return _M_abstract.optionalParams._op_for.invoke(self, ((goto, _if, internal, namespace), context))
 
-        def forAsync(self, goto, _if, internal, namespace, null, context=None):
-            return _M_abstract.optionalParams._op_for.invokeAsync(self, ((goto, _if, internal, namespace, null), context))
+        def forAsync(self, goto, _if, internal, namespace, context=None):
+            return _M_abstract.optionalParams._op_for.invokeAsync(self, ((goto, _if, internal, namespace), context))
 
-        def begin_for(self, goto, _if, internal, namespace, null, _response=None, _ex=None, _sent=None, context=None):
-            return _M_abstract.optionalParams._op_for.begin(self, ((goto, _if, internal, namespace, null), _response, _ex, _sent, context))
+        def begin_for(self, goto, _if, internal, namespace, _response=None, _ex=None, _sent=None, context=None):
+            return _M_abstract.optionalParams._op_for.begin(self, ((goto, _if, internal, namespace), _response, _ex, _sent, context))
 
         def end_for(self, _r):
             return _M_abstract.optionalParams._op_for.end(self, _r)
 
-        def _continue(self, goto=Ice.Unset, _if=Ice.Unset, internal=Ice.Unset, namespace=Ice.Unset, null=Ice.Unset, context=None):
-            return _M_abstract.optionalParams._op_continue.invoke(self, ((goto, _if, internal, namespace, null), context))
+        def _continue(self, goto=Ice.Unset, _if=Ice.Unset, internal=Ice.Unset, namespace=Ice.Unset, context=None):
+            return _M_abstract.optionalParams._op_continue.invoke(self, ((goto, _if, internal, namespace), context))
 
-        def continueAsync(self, goto, _if, internal, namespace, null, context=None):
-            return _M_abstract.optionalParams._op_continue.invokeAsync(self, ((goto, _if, internal, namespace, null), context))
+        def continueAsync(self, goto, _if, internal, namespace, context=None):
+            return _M_abstract.optionalParams._op_continue.invokeAsync(self, ((goto, _if, internal, namespace), context))
 
-        def begin_continue(self, goto, _if, internal, namespace, null, _response=None, _ex=None, _sent=None, context=None):
-            return _M_abstract.optionalParams._op_continue.begin(self, ((goto, _if, internal, namespace, null), _response, _ex, _sent, context))
+        def begin_continue(self, goto, _if, internal, namespace, _response=None, _ex=None, _sent=None, context=None):
+            return _M_abstract.optionalParams._op_continue.begin(self, ((goto, _if, internal, namespace), _response, _ex, _sent, context))
 
         def end_continue(self, _r):
             return _M_abstract.optionalParams._op_continue.end(self, _r)
@@ -447,10 +443,10 @@ if 'optionalParamsPrx' not in _M_abstract.__dict__:
         def ice_staticId():
             return '::abstract::optionalParams'
 
-        def _for(self, goto, _if, internal, namespace, null, current=None):
+        def _for(self, goto, _if, internal, namespace, current=None):
             raise NotImplementedError("servant method '_for' not implemented")
 
-        def _continue(self, goto, _if, internal, namespace, null, current=None):
+        def _continue(self, goto, _if, internal, namespace, current=None):
             raise NotImplementedError("servant method '_continue' not implemented")
 
         def _in(self, current=None):
@@ -467,10 +463,10 @@ if 'optionalParamsPrx' not in _M_abstract.__dict__:
     _M_abstract._t_optionalParamsDisp = IcePy.defineClass('::abstract::optionalParams', optionalParams, (), None, ())
     optionalParams._ice_type = _M_abstract._t_optionalParamsDisp
 
-    optionalParams._op_for = IcePy.Operation('for', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_abstract._t__as, True, 2), ((), _M_abstract._t_explicit, True, 3), ((), _M_abstract._t__while, True, 5), ((), IcePy._t_string, True, 7), ((), _M_abstract._t_explicitPrx, True, 8)), (), ((), _M_abstract._t__break, True, 1), ())
-    optionalParams._op_continue = IcePy.Operation('continue', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_abstract._t__as, True, 2), ((), _M_abstract._t_explicit, True, 3), ((), _M_abstract._t__while, True, 5), ((), IcePy._t_string, True, 7), ((), _M_abstract._t_explicitPrx, True, 8)), (), ((), _M_abstract._t__break, True, 1), ())
-    optionalParams._op_in = IcePy.Operation('in', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (((), _M_abstract._t__as, True, 2), ((), _M_abstract._t_explicit, True, 3), ((), _M_abstract._t__while, True, 5), ((), IcePy._t_string, True, 7), ((), _M_abstract._t_explicitPrx, True, 8)), ((), _M_abstract._t__break, True, 1), ())
-    optionalParams._op_foreach = IcePy.Operation('foreach', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (((), _M_abstract._t__as, True, 2), ((), _M_abstract._t_explicit, True, 3), ((), _M_abstract._t__while, True, 5), ((), IcePy._t_string, True, 7), ((), _M_abstract._t_explicitPrx, True, 8)), ((), _M_abstract._t__break, True, 1), ())
+    optionalParams._op_for = IcePy.Operation('for', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_abstract._t__as, True, 2), ((), _M_abstract._t_explicitPrx, True, 3), ((), _M_abstract._t__while, True, 5), ((), IcePy._t_string, True, 7)), (), ((), _M_abstract._t__break, True, 1), ())
+    optionalParams._op_continue = IcePy.Operation('continue', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_abstract._t__as, True, 2), ((), _M_abstract._t_explicitPrx, True, 3), ((), _M_abstract._t__while, True, 5), ((), IcePy._t_string, True, 7)), (), ((), _M_abstract._t__break, True, 1), ())
+    optionalParams._op_in = IcePy.Operation('in', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (((), _M_abstract._t__as, True, 2), ((), _M_abstract._t_explicitPrx, True, 3), ((), _M_abstract._t__while, True, 5), ((), IcePy._t_string, True, 7)), ((), _M_abstract._t__break, True, 1), ())
+    optionalParams._op_foreach = IcePy.Operation('foreach', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (((), _M_abstract._t__as, True, 2), ((), _M_abstract._t_explicitPrx, True, 3), ((), _M_abstract._t__while, True, 5), ((), IcePy._t_string, True, 7)), ((), _M_abstract._t__break, True, 1), ())
 
     _M_abstract.optionalParams = optionalParams
     del optionalParams
@@ -573,14 +569,14 @@ if 'implicitPrx' not in _M_abstract.__dict__:
     _M_abstract.implicitPrx = Ice.createTempClass()
     class implicitPrx(Ice.ObjectPrx):
 
-        def _in(self, internal, _is, lock, namespace, new, null, operator, override, params, private, context=None):
-            return _M_abstract.implicit._op_in.invoke(self, ((internal, _is, lock, namespace, new, null, operator, override, params, private), context))
+        def _in(self, internal, _is, lock, namespace, new, null, override, params, private, context=None):
+            return _M_abstract.implicit._op_in.invoke(self, ((internal, _is, lock, namespace, new, null, override, params, private), context))
 
-        def inAsync(self, internal, _is, lock, namespace, new, null, operator, override, params, private, context=None):
-            return _M_abstract.implicit._op_in.invokeAsync(self, ((internal, _is, lock, namespace, new, null, operator, override, params, private), context))
+        def inAsync(self, internal, _is, lock, namespace, new, null, override, params, private, context=None):
+            return _M_abstract.implicit._op_in.invokeAsync(self, ((internal, _is, lock, namespace, new, null, override, params, private), context))
 
-        def begin_in(self, internal, _is, lock, namespace, new, null, operator, override, params, private, _response=None, _ex=None, _sent=None, context=None):
-            return _M_abstract.implicit._op_in.begin(self, ((internal, _is, lock, namespace, new, null, operator, override, params, private), _response, _ex, _sent, context))
+        def begin_in(self, internal, _is, lock, namespace, new, null, override, params, private, _response=None, _ex=None, _sent=None, context=None):
+            return _M_abstract.implicit._op_in.begin(self, ((internal, _is, lock, namespace, new, null, override, params, private), _response, _ex, _sent, context))
 
         def end_in(self, _r):
             return _M_abstract.implicit._op_in.end(self, _r)
@@ -614,7 +610,7 @@ if 'implicitPrx' not in _M_abstract.__dict__:
         def ice_staticId():
             return '::abstract::implicit'
 
-        def _in(self, internal, _is, lock, namespace, new, null, operator, override, params, private, current=None):
+        def _in(self, internal, _is, lock, namespace, new, null, override, params, private, current=None):
             raise NotImplementedError("servant method '_in' not implemented")
 
         def __str__(self):
@@ -625,7 +621,7 @@ if 'implicitPrx' not in _M_abstract.__dict__:
     _M_abstract._t_implicitDisp = IcePy.defineClass('::abstract::implicit', implicit, (), None, ())
     implicit._ice_type = _M_abstract._t_implicitDisp
 
-    implicit._op_in = IcePy.Operation('in', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_abstract._t__break, False, 0), ((), _M_abstract._t_delegate, False, 0), ((), _M_abstract._t_explicit, False, 0), ((), _M_abstract._t_casePrx, False, 0), ((), _M_abstract._t_decimalPrx, False, 0), ((), _M_abstract._t_delegate, False, 0), ((), _M_abstract._t_explicitPrx, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M_abstract._t__as, False, 0), (_M_abstract._t_fixed, _M_abstract._t_foreach))
+    implicit._op_in = IcePy.Operation('in', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_abstract._t__break, False, 0), ((), _M_abstract._t_delegate, False, 0), ((), _M_abstract._t_explicitPrx, False, 0), ((), _M_abstract._t_casePrx, False, 0), ((), _M_abstract._t_decimalPrx, False, 0), ((), _M_abstract._t_delegate, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M_abstract._t__as, False, 0), (_M_abstract._t_fixed, _M_abstract._t_foreach))
 
     _M_abstract.implicit = implicit
     del implicit

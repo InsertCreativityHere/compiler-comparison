@@ -19,14 +19,6 @@ public interface Initial extends com.zeroc.Ice.Object
 {
     void shutdown(com.zeroc.Ice.Current current);
 
-    test.Ice.inheritance.Test.MA.CAPrx caop(com.zeroc.Ice.Current current);
-
-    test.Ice.inheritance.Test.MB.CBPrx cbop(com.zeroc.Ice.Current current);
-
-    test.Ice.inheritance.Test.MA.CCPrx ccop(com.zeroc.Ice.Current current);
-
-    test.Ice.inheritance.Test.MA.CDPrx cdop(com.zeroc.Ice.Current current);
-
     test.Ice.inheritance.Test.MA.IAPrx iaop(com.zeroc.Ice.Current current);
 
     test.Ice.inheritance.Test.MB.IB1Prx ib1op(com.zeroc.Ice.Current current);
@@ -72,78 +64,6 @@ public interface Initial extends com.zeroc.Ice.Object
         inS.readEmptyParams();
         obj.shutdown(current);
         return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_caop(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        test.Ice.inheritance.Test.MA.CAPrx ret = obj.caop(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeProxy(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_cbop(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        test.Ice.inheritance.Test.MB.CBPrx ret = obj.cbop(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeProxy(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_ccop(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        test.Ice.inheritance.Test.MA.CCPrx ret = obj.ccop(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeProxy(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_cdop(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        test.Ice.inheritance.Test.MA.CDPrx ret = obj.cdop(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeProxy(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
     }
 
     /**
@@ -221,10 +141,6 @@ public interface Initial extends com.zeroc.Ice.Object
     /** @hidden */
     final static String[] _iceOps =
     {
-        "caop",
-        "cbop",
-        "ccop",
-        "cdop",
         "iaop",
         "ib1op",
         "ib2op",
@@ -251,53 +167,37 @@ public interface Initial extends com.zeroc.Ice.Object
         {
             case 0:
             {
-                return _iceD_caop(this, in, current);
+                return _iceD_iaop(this, in, current);
             }
             case 1:
             {
-                return _iceD_cbop(this, in, current);
+                return _iceD_ib1op(this, in, current);
             }
             case 2:
             {
-                return _iceD_ccop(this, in, current);
+                return _iceD_ib2op(this, in, current);
             }
             case 3:
             {
-                return _iceD_cdop(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
             }
             case 4:
             {
-                return _iceD_iaop(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
             }
             case 5:
             {
-                return _iceD_ib1op(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
             }
             case 6:
             {
-                return _iceD_ib2op(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
             }
             case 7:
             {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            }
-            case 8:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            }
-            case 9:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
-            }
-            case 10:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
-            }
-            case 11:
-            {
                 return _iceD_icop(this, in, current);
             }
-            case 12:
+            case 8:
             {
                 return _iceD_shutdown(this, in, current);
             }

@@ -16,10 +16,10 @@ classdef extendPrx < Ice.ObjectPrx
             %
             % Parameters:
             %   freeze (BEGIN.display)
-            %   hash (BEGIN.elsif)
+            %   hash (BEGIN.elsifPrx)
             %   if_ (BEGIN.breakPrx)
             %   inspect (BEGIN.display)
-            %   method (BEGIN.elsif)
+            %   method (BEGIN.elsifPrx)
             %   methods_ (int32)
             %   context (containers.Map) - Optional request context.
             %
@@ -27,10 +27,10 @@ classdef extendPrx < Ice.ObjectPrx
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeValue(freeze);
-            os_.writeValue(hash);
+            os_.writeProxy(hash);
             os_.writeProxy(if_);
             os_.writeValue(inspect);
-            os_.writeValue(method);
+            os_.writeProxy(method);
             os_.writeInt(methods_);
             os_.writePendingValues();
             obj.iceEndWriteParams(os_);
@@ -44,10 +44,10 @@ classdef extendPrx < Ice.ObjectPrx
             %
             % Parameters:
             %   freeze (BEGIN.display)
-            %   hash (BEGIN.elsif)
+            %   hash (BEGIN.elsifPrx)
             %   if_ (BEGIN.breakPrx)
             %   inspect (BEGIN.display)
-            %   method (BEGIN.elsif)
+            %   method (BEGIN.elsifPrx)
             %   methods_ (int32)
             %   context (containers.Map) - Optional request context.
             %
@@ -55,10 +55,10 @@ classdef extendPrx < Ice.ObjectPrx
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeValue(freeze);
-            os_.writeValue(hash);
+            os_.writeProxy(hash);
             os_.writeProxy(if_);
             os_.writeValue(inspect);
-            os_.writeValue(method);
+            os_.writeProxy(method);
             os_.writeInt(methods_);
             os_.writePendingValues();
             obj.iceEndWriteParams(os_);

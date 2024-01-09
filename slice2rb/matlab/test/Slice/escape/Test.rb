@@ -328,8 +328,6 @@ module ::Classdef
                 T_ElseifPrx = ::Ice::__declareProxy('::classdef::break::elseif')
             end
 
-            T_Elseif.defineClass(::Ice::Value, -1, false, true, nil, [])
-
             T_ElseifPrx.defineProxy(ElseifPrx, nil, [])
 
             ElseifPrx_mixin::OP_events = ::Ice::__defineOperation('events', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])

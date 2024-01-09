@@ -106,6 +106,11 @@ namespace Ice
 namespace
 {
 
+namespace
+{
+
+}
+
 }
 
 namespace
@@ -262,74 +267,6 @@ Test::DerivedEx::_readImpl(::Ice::InputStream* istr)
     BaseEx::_readImpl(istr);
 }
 /// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(Base* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< Base>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new Base;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::Base::_newInstance() const
-{
-    return new Base;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::Base::ice_staticId()
-{
-    return ::Test::Base::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(Derived* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< Derived>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new Derived;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::Derived::_newInstance() const
-{
-    return new Derived;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::Derived::ice_staticId()
-{
-    return ::Test::Derived::ice_staticId();
-}
 
 Test::Base::~Base()
 {

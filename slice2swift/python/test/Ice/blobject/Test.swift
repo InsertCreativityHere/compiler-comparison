@@ -51,7 +51,7 @@ open class UE: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `Hello`.
+/// Traits for Slice interface`Hello`.
 public struct HelloTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Hello"]
     public static let staticId = "::Test::Hello"

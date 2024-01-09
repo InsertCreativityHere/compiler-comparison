@@ -636,39 +636,21 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< TopicManagerInt
 
 namespace IceStorm
 {
-
-class TopicLink;
-/// \cond INTERNAL
-::Ice::Object* upCast(TopicLink*);
-/// \endcond
-typedef ::IceInternal::Handle< TopicLink> TopicLinkPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceStorm::TopicLink> TopicLinkPrx;
 typedef TopicLinkPrx TopicLinkPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(TopicLinkPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class TopicInternal;
-/// \cond INTERNAL
-::Ice::Object* upCast(TopicInternal*);
-/// \endcond
-typedef ::IceInternal::Handle< TopicInternal> TopicInternalPtr;
+class TopicLink;
+typedef ::IceInternal::Handle< TopicLink> TopicLinkPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceStorm::TopicInternal> TopicInternalPrx;
 typedef TopicInternalPrx TopicInternalPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(TopicInternalPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class TopicManagerInternal;
-/// \cond INTERNAL
-::Ice::Object* upCast(TopicManagerInternal*);
-/// \endcond
-typedef ::IceInternal::Handle< TopicManagerInternal> TopicManagerInternalPtr;
+class TopicInternal;
+typedef ::IceInternal::Handle< TopicInternal> TopicInternalPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceStorm::TopicManagerInternal> TopicManagerInternalPrx;
 typedef TopicManagerInternalPrx TopicManagerInternalPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(TopicManagerInternalPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class TopicManagerInternal;
+typedef ::IceInternal::Handle< TopicManagerInternal> TopicManagerInternalPtr;
 
 }
 
@@ -1179,7 +1161,6 @@ class TopicLink : public virtual ::Ice::Object
 public:
 
     typedef TopicLinkPrx ProxyType;
-    typedef TopicLinkPtr PointerType;
 
     virtual ~TopicLink();
     TopicLink() = default;
@@ -1227,37 +1208,17 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const TopicLink& lhs, const TopicLink& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const TopicLink& lhs, const TopicLink& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * Internal operations for a topic.
  * @see Topic
  */
-class TopicInternal : virtual public Topic
+class TopicInternal : public virtual Topic
 {
 public:
 
     typedef TopicInternalPrx ProxyType;
-    typedef TopicInternalPtr PointerType;
 
     virtual ~TopicInternal();
     TopicInternal() = default;
@@ -1316,37 +1277,17 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const TopicInternal& lhs, const TopicInternal& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const TopicInternal& lhs, const TopicInternal& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * Internal operations for a topic manager.
  * @see TopicManager
  */
-class TopicManagerInternal : virtual public TopicManager
+class TopicManagerInternal : public virtual TopicManager
 {
 public:
 
     typedef TopicManagerInternalPrx ProxyType;
-    typedef TopicManagerInternalPtr PointerType;
 
     virtual ~TopicManagerInternal();
     TopicManagerInternal() = default;
@@ -1394,26 +1335,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const TopicManagerInternal& lhs, const TopicManagerInternal& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const TopicManagerInternal& lhs, const TopicManagerInternal& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 }
 

@@ -243,17 +243,11 @@ LIBRARY_TEST_API ::IceProxy::Ice::Object* upCast(MyInterface*);
 
 namespace Test
 {
-
-class MyInterface;
-/// \cond INTERNAL
-LIBRARY_TEST_API ::Ice::Object* upCast(MyInterface*);
-/// \endcond
-typedef ::IceInternal::Handle< MyInterface> MyInterfacePtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::MyInterface> MyInterfacePrx;
 typedef MyInterfacePrx MyInterfacePrxPtr;
-/// \cond INTERNAL
-LIBRARY_TEST_API void _icePatchObjectPtr(MyInterfacePtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class MyInterface;
+typedef ::IceInternal::Handle< MyInterface> MyInterfacePtr;
 
 }
 
@@ -389,7 +383,6 @@ class LIBRARY_TEST_API MyInterface : public virtual ::Ice::Object
 public:
 
     typedef MyInterfacePrx ProxyType;
-    typedef MyInterfacePtr PointerType;
 
     virtual ~MyInterface();
     MyInterface() = default;
@@ -432,26 +425,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const MyInterface& lhs, const MyInterface& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const MyInterface& lhs, const MyInterface& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 }
 

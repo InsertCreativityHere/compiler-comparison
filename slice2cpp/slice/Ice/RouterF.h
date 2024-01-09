@@ -52,12 +52,10 @@ class RouterPrx;
 
 }
 
-/// \cond STREAM
 namespace Ice
 {
 
 }
-/// \endcond
 
 /// \cond INTERNAL
 namespace Ice
@@ -89,26 +87,18 @@ ICE_API ::IceProxy::Ice::Object* upCast(Router*);
 
 namespace Ice
 {
-
-class Router;
-/// \cond INTERNAL
-ICE_API Object* upCast(Router*);
-/// \endcond
-typedef ::IceInternal::Handle< Router> RouterPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::Router> RouterPrx;
 typedef RouterPrx RouterPrxPtr;
-/// \cond INTERNAL
-ICE_API void _icePatchObjectPtr(RouterPtr&, const ObjectPtr&);
-/// \endcond
+
+class Router;
+typedef ::IceInternal::Handle< Router> RouterPtr;
 
 }
 
-/// \cond STREAM
 namespace Ice
 {
 
 }
-/// \endcond
 
 #endif
 

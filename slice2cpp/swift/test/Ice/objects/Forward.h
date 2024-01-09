@@ -46,6 +46,11 @@ class F2Prx;
 namespace Test
 {
 
+}
+
+namespace Test
+{
+
 class F2 : public virtual ::Ice::Object
 {
 public:
@@ -226,12 +231,6 @@ namespace IceProxy
 namespace Test
 {
 
-class F1;
-/// \cond INTERNAL
-void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< F1>&);
-::IceProxy::Ice::Object* upCast(F1*);
-/// \endcond
-
 class F2;
 /// \cond INTERNAL
 void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< F2>&);
@@ -250,22 +249,19 @@ class F1;
 ::Ice::Object* upCast(F1*);
 /// \endcond
 typedef ::IceInternal::Handle< F1> F1Ptr;
-typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::F1> F1Prx;
-typedef F1Prx F1PrxPtr;
 /// \cond INTERNAL
 void _icePatchObjectPtr(F1Ptr&, const ::Ice::ObjectPtr&);
 /// \endcond
-
-class F2;
-/// \cond INTERNAL
-::Ice::Object* upCast(F2*);
-/// \endcond
-typedef ::IceInternal::Handle< F2> F2Ptr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Test::F2> F2Prx;
 typedef F2Prx F2PrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(F2Ptr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class F2;
+typedef ::IceInternal::Handle< F2> F2Ptr;
+
+}
+
+namespace Test
+{
 
 }
 
@@ -287,23 +283,6 @@ namespace IceProxy
 
 namespace Test
 {
-
-class F1 : public virtual ::Ice::Proxy<F1, ::IceProxy::Ice::Object>
-{
-public:
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-protected:
-    /// \cond INTERNAL
-
-    virtual ::IceProxy::Ice::Object* _newInstance() const;
-    /// \endcond
-};
 
 class F2 : public virtual ::Ice::Proxy<F2, ::IceProxy::Ice::Object>
 {
@@ -367,11 +346,64 @@ protected:
 namespace Test
 {
 
+class F2 : public virtual ::Ice::Object
+{
+public:
+
+    typedef F2Prx ProxyType;
+
+    virtual ~F2();
+    F2() = default;
+    F2(const F2&) = default;
+    F2& operator=(const F2&) = default;
+
+    /**
+     * Determines whether this object supports an interface with the given Slice type ID.
+     * @param id The fully-scoped Slice type ID.
+     * @param current The Current object for the invocation.
+     * @return True if this object supports the interface, false, otherwise.
+     */
+    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
+
+    /**
+     * Obtains the Slice type ID corresponding to this class.
+     * @return A fully-scoped type ID.
+     */
+    static const ::std::string& ice_staticId();
+
+    virtual void op(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
+    /// \cond INTERNAL
+    bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+
+    /// \cond INTERNAL
+    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    /// \endcond
+};
+
+}
+
+namespace Test
+{
+
 class F1 : public virtual ::Ice::Object
 {
 public:
 
-    typedef F1Prx ProxyType;
     typedef F1Ptr PointerType;
 
     virtual ~F1();
@@ -452,75 +484,6 @@ inline bool operator==(const F1& lhs, const F1& rhs)
 }
 
 inline bool operator<(const F1& lhs, const F1& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-class F2 : public virtual ::Ice::Object
-{
-public:
-
-    typedef F2Prx ProxyType;
-    typedef F2Ptr PointerType;
-
-    virtual ~F2();
-    F2() = default;
-    F2(const F2&) = default;
-    F2& operator=(const F2&) = default;
-
-    /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    virtual bool ice_isA(const ::std::string& id, const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    virtual ::std::vector< ::std::string> ice_ids(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    virtual const ::std::string& ice_id(const ::Ice::Current& current = ::Ice::emptyCurrent) const;
-
-    /**
-     * Obtains the Slice type ID corresponding to this class.
-     * @return A fully-scoped type ID.
-     */
-    static const ::std::string& ice_staticId();
-
-    virtual void op(const ::Ice::Current& current = ::Ice::emptyCurrent) = 0;
-    /// \cond INTERNAL
-    bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
-};
-
-/// \cond INTERNAL
-inline bool operator==(const F2& lhs, const F2& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const F2& lhs, const F2& rhs)
 {
     return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
 }

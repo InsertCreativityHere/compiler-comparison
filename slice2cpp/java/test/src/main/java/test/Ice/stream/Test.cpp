@@ -214,74 +214,6 @@ Test::MyException::_readImpl(::Ice::InputStream* istr)
 /// \endcond
 
 /// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(OptionalClass* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< OptionalClass>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new OptionalClass;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::OptionalClass::_newInstance() const
-{
-    return new OptionalClass;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::OptionalClass::ice_staticId()
-{
-    return ::Test::OptionalClass::ice_staticId();
-}
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::upCast(MyClass* p) { return p; }
-
-void
-::IceProxy::Test::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< MyClass>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new MyClass;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::MyClass::_newInstance() const
-{
-    return new MyClass;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::MyClass::ice_staticId()
-{
-    return ::Test::MyClass::ice_staticId();
-}
-
-/// \cond INTERNAL
 ::IceProxy::Ice::Object* ::IceProxy::Test::upCast(MyInterface* p) { return p; }
 
 void
@@ -313,6 +245,45 @@ const ::std::string&
 IceProxy::Test::MyInterface::ice_staticId()
 {
     return ::Test::MyInterface::ice_staticId();
+}
+
+Test::MyInterface::~MyInterface()
+{
+}
+
+namespace
+{
+const ::std::string iceC_Test_MyInterface_ids[2] =
+{
+    "::Ice::Object",
+    "::Test::MyInterface"
+};
+
+}
+
+bool
+Test::MyInterface::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_Test_MyInterface_ids, iceC_Test_MyInterface_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+Test::MyInterface::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_Test_MyInterface_ids[0], &iceC_Test_MyInterface_ids[2]);
+}
+
+const ::std::string&
+Test::MyInterface::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+Test::MyInterface::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::MyInterface";
+    return typeId;
 }
 
 Test::OptionalClass::~OptionalClass()
@@ -614,80 +585,6 @@ Test::_icePatchObjectPtr(MyClassPtr& handle, const ::Ice::ObjectPtr& v)
     if(v && !handle)
     {
         IceInternal::Ex::throwUOE(MyClass::ice_staticId(), v);
-    }
-}
-/// \endcond
-
-Test::MyInterface::~MyInterface()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::upCast(MyInterface* p) { return p; }
-
-/// \endcond
-
-namespace
-{
-const ::std::string iceC_Test_MyInterface_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::MyInterface"
-};
-
-}
-
-bool
-Test::MyInterface::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MyInterface_ids, iceC_Test_MyInterface_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::MyInterface::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_MyInterface_ids[0], &iceC_Test_MyInterface_ids[2]);
-}
-
-const ::std::string&
-Test::MyInterface::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::MyInterface::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::MyInterface";
-    return typeId;
-}
-
-/// \cond STREAM
-void
-Test::MyInterface::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< MyInterface, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::MyInterface::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< MyInterface, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test::_icePatchObjectPtr(MyInterfacePtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = MyInterfacePtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(MyInterface::ice_staticId(), v);
     }
 }
 /// \endcond

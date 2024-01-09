@@ -19,7 +19,6 @@ require 'Ice'
 module ::Ice
 
     if not defined?(::Ice::T_Router)
-        T_Router = ::Ice::__declareClass('::Ice::Router')
         T_RouterPrx = ::Ice::__declareProxy('::Ice::Router')
     end
 end

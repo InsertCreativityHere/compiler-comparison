@@ -35,8 +35,6 @@ module ::Test
             T_EmptyPrx = ::Ice::__declareProxy('::Test::Empty')
         end
 
-        T_Empty.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_EmptyPrx.defineProxy(EmptyPrx, nil, [])
     end
 
@@ -60,8 +58,6 @@ module ::Test
             T_A = ::Ice::__declareClass('::Test::A')
             T_APrx = ::Ice::__declareProxy('::Test::A')
         end
-
-        T_A.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_APrx.defineProxy(APrx, nil, [])
 
@@ -90,8 +86,6 @@ module ::Test
             T_BPrx = ::Ice::__declareProxy('::Test::B')
         end
 
-        T_B.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_BPrx.defineProxy(BPrx, nil, [::Test::T_APrx])
 
         BPrx_mixin::OP_callB = ::Ice::__defineOperation('callB', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
@@ -118,8 +112,6 @@ module ::Test
             T_C = ::Ice::__declareClass('::Test::C')
             T_CPrx = ::Ice::__declareProxy('::Test::C')
         end
-
-        T_C.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_CPrx.defineProxy(CPrx, nil, [::Test::T_APrx])
 
@@ -149,8 +141,6 @@ module ::Test
             T_DPrx = ::Ice::__declareProxy('::Test::D')
         end
 
-        T_D.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_DPrx.defineProxy(DPrx, nil, [::Test::T_BPrx, ::Test::T_CPrx])
 
         DPrx_mixin::OP_callD = ::Ice::__defineOperation('callD', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
@@ -176,8 +166,6 @@ module ::Test
             T_E = ::Ice::__declareClass('::Test::E')
             T_EPrx = ::Ice::__declareProxy('::Test::E')
         end
-
-        T_E.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_EPrx.defineProxy(EPrx, nil, [])
 
@@ -205,8 +193,6 @@ module ::Test
             T_F = ::Ice::__declareClass('::Test::F')
             T_FPrx = ::Ice::__declareProxy('::Test::F')
         end
-
-        T_F.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_FPrx.defineProxy(FPrx, nil, [::Test::T_EPrx])
 
@@ -238,8 +224,6 @@ module ::Test
             T_GPrx = ::Ice::__declareProxy('::Test::G')
         end
 
-        T_G.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_GPrx.defineProxy(GPrx, nil, [])
 
         GPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
@@ -267,8 +251,6 @@ module ::Test
             T_H = ::Ice::__declareClass('::Test::H')
             T_HPrx = ::Ice::__declareProxy('::Test::H')
         end
-
-        T_H.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_HPrx.defineProxy(HPrx, nil, [::Test::T_GPrx])
 
@@ -307,8 +289,6 @@ module ::Test
             T_Echo = ::Ice::__declareClass('::Test::Echo')
             T_EchoPrx = ::Ice::__declareProxy('::Test::Echo')
         end
-
-        T_Echo.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_EchoPrx.defineProxy(EchoPrx, nil, [])
 

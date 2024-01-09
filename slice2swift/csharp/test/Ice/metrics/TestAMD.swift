@@ -53,13 +53,13 @@ open class UserEx: Ice.UserException {
 
 public typealias ByteSeq = Foundation.Data
 
-/// Traits for Slice interface `Metrics`.
+/// Traits for Slice interface`Metrics`.
 public struct MetricsTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Metrics"]
     public static let staticId = "::Test::Metrics"
 }
 
-/// Traits for Slice interface `Controller`.
+/// Traits for Slice interface`Controller`.
 public struct ControllerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Controller"]
     public static let staticId = "::Test::Controller"

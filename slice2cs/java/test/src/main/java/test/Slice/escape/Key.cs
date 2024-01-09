@@ -604,15 +604,15 @@ namespace @abstract
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface newPrx : global::Ice.ObjectPrx
     {
-        assert notify(@break notifyAll, @else @null, global::Ice.Value package, global::Ice.ObjectPrx @private, finalizePrx @protected, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        assert notify(@break notifyAll, @else @null, finalizePrx package, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::System.Threading.Tasks.Task<assert> notifyAsync(@break notifyAll, @else @null, global::Ice.Value package, global::Ice.ObjectPrx @private, finalizePrx @protected, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<assert> notifyAsync(@break notifyAll, @else @null, finalizePrx package, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_new_notify> begin_notify(@break notifyAll, @else @null, global::Ice.Value package, global::Ice.ObjectPrx @private, finalizePrx @protected, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::Ice.AsyncResult<Callback_new_notify> begin_notify(@break notifyAll, @else @null, finalizePrx package, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::Ice.AsyncResult begin_notify(@break notifyAll, @else @null, global::Ice.Value package, global::Ice.ObjectPrx @private, finalizePrx @protected, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.AsyncCallback callback, object cookie);
+        global::Ice.AsyncResult begin_notify(@break notifyAll, @else @null, finalizePrx package, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.AsyncCallback callback, object cookie);
 
-        global::Ice.AsyncResult begin_notify(@break notifyAll, @else @null, global::Ice.Value package, global::Ice.ObjectPrx @private, finalizePrx @protected, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
+        global::Ice.AsyncResult begin_notify(@break notifyAll, @else @null, finalizePrx package, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         assert end_notify(global::Ice.AsyncResult asyncResult);
     }
@@ -643,7 +643,7 @@ namespace @abstract
     public interface newOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        assert notify(@break notifyAll, @else @null, global::Ice.Value package, global::Ice.ObjectPrx @private, finalizePrx @protected, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.Current current = null);
+        assert notify(@break notifyAll, @else @null, finalizePrx package, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.Current current = null);
     }
 }
 
@@ -1533,11 +1533,11 @@ namespace @abstract
 
         #region Synchronous operations
 
-        public assert notify(@break notifyAll, @else @null, global::Ice.Value package, global::Ice.ObjectPrx @private, finalizePrx @protected, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public assert notify(@break notifyAll, @else @null, finalizePrx package, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
-                return _iceI_notifyAsync(notifyAll, @null, package, @private, @protected, @public, @return, @static, strictfp, super, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                return _iceI_notifyAsync(notifyAll, @null, package, @public, @return, @static, strictfp, super, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch(global::System.AggregateException ex_)
             {
@@ -1549,22 +1549,22 @@ namespace @abstract
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<assert> notifyAsync(@break notifyAll, @else @null, global::Ice.Value package, global::Ice.ObjectPrx @private, finalizePrx @protected, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<assert> notifyAsync(@break notifyAll, @else @null, finalizePrx package, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
-            return _iceI_notifyAsync(notifyAll, @null, package, @private, @protected, @public, @return, @static, strictfp, super, context, progress, cancel, false);
+            return _iceI_notifyAsync(notifyAll, @null, package, @public, @return, @static, strictfp, super, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<assert> _iceI_notifyAsync(@break iceP_notifyAll, @else iceP_null, global::Ice.Value iceP_package, global::Ice.ObjectPrx iceP_private, finalizePrx iceP_protected, catchPrx iceP_public, defaultPrx iceP_return, int iceP_static, int iceP_strictfp, int iceP_super, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<assert> _iceI_notifyAsync(@break iceP_notifyAll, @else iceP_null, finalizePrx iceP_package, catchPrx iceP_public, defaultPrx iceP_return, int iceP_static, int iceP_strictfp, int iceP_super, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_notify_name);
             var completed = new global::IceInternal.OperationTaskCompletionCallback<assert>(progress, cancel);
-            _iceI_notify(iceP_notifyAll, iceP_null, iceP_package, iceP_private, iceP_protected, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, context, synchronous, completed);
+            _iceI_notify(iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _notify_name = "notify";
 
-        private void _iceI_notify(@break iceP_notifyAll, @else iceP_null, global::Ice.Value iceP_package, global::Ice.ObjectPrx iceP_private, finalizePrx iceP_protected, catchPrx iceP_public, defaultPrx iceP_return, int iceP_static, int iceP_strictfp, int iceP_super, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_notify(@break iceP_notifyAll, @else iceP_null, finalizePrx iceP_package, catchPrx iceP_public, defaultPrx iceP_return, int iceP_static, int iceP_strictfp, int iceP_super, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<assert>(completed);
             outAsync.invoke(
@@ -1577,9 +1577,7 @@ namespace @abstract
                 {
                     iceP_notifyAll.ice_writeMembers(ostr);
                     ostr.writeValue(iceP_null);
-                    ostr.writeValue(iceP_package);
-                    ostr.writeProxy(iceP_private);
-                    finalizePrxHelper.write(ostr, iceP_protected);
+                    finalizePrxHelper.write(ostr, iceP_package);
                     catchPrxHelper.write(ostr, iceP_public);
                     defaultPrxHelper.write(ostr, iceP_return);
                     ostr.writeInt(iceP_static);
@@ -1617,19 +1615,19 @@ namespace @abstract
 
         #region Asynchronous operations
 
-        public global::Ice.AsyncResult<Callback_new_notify> begin_notify(@break notifyAll, @else @null, global::Ice.Value package, global::Ice.ObjectPrx @private, finalizePrx @protected, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Ice.AsyncResult<Callback_new_notify> begin_notify(@break notifyAll, @else @null, finalizePrx package, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
-            return begin_notify(notifyAll, @null, package, @private, @protected, @public, @return, @static, strictfp, super, context, null, null, false);
+            return begin_notify(notifyAll, @null, package, @public, @return, @static, strictfp, super, context, null, null, false);
         }
 
-        public global::Ice.AsyncResult begin_notify(@break notifyAll, @else @null, global::Ice.Value package, global::Ice.ObjectPrx @private, finalizePrx @protected, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.AsyncCallback callback, object cookie)
+        public global::Ice.AsyncResult begin_notify(@break notifyAll, @else @null, finalizePrx package, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.AsyncCallback callback, object cookie)
         {
-            return begin_notify(notifyAll, @null, package, @private, @protected, @public, @return, @static, strictfp, super, new global::Ice.OptionalContext(), callback, cookie, false);
+            return begin_notify(notifyAll, @null, package, @public, @return, @static, strictfp, super, new global::Ice.OptionalContext(), callback, cookie, false);
         }
 
-        public global::Ice.AsyncResult begin_notify(@break notifyAll, @else @null, global::Ice.Value package, global::Ice.ObjectPrx @private, finalizePrx @protected, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
+        public global::Ice.AsyncResult begin_notify(@break notifyAll, @else @null, finalizePrx package, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
         {
-            return begin_notify(notifyAll, @null, package, @private, @protected, @public, @return, @static, strictfp, super, context, callback, cookie, false);
+            return begin_notify(notifyAll, @null, package, @public, @return, @static, strictfp, super, context, callback, cookie, false);
         }
 
         public assert end_notify(global::Ice.AsyncResult asyncResult)
@@ -1639,7 +1637,7 @@ namespace @abstract
             return outgoing_.getResult(resultI_.wait());
         }
 
-        private global::Ice.AsyncResult<Callback_new_notify> begin_notify(@break iceP_notifyAll, @else iceP_null, global::Ice.Value iceP_package, global::Ice.ObjectPrx iceP_private, finalizePrx iceP_protected, catchPrx iceP_public, defaultPrx iceP_return, int iceP_static, int iceP_strictfp, int iceP_super, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+        private global::Ice.AsyncResult<Callback_new_notify> begin_notify(@break iceP_notifyAll, @else iceP_null, finalizePrx iceP_package, catchPrx iceP_public, defaultPrx iceP_return, int iceP_static, int iceP_strictfp, int iceP_super, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
         {
             iceCheckAsyncTwowayOnly(_notify_name);
             var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_new_notify, assert>(
@@ -1651,7 +1649,7 @@ namespace @abstract
                     }
                 },
                 this, _notify_name, cookie, completedCallback);
-            _iceI_notify(iceP_notifyAll, iceP_null, iceP_package, iceP_private, iceP_protected, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, context, synchronous, completed);
+            _iceI_notify(iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, context, synchronous, completed);
             return completed;
         }
 
@@ -2111,7 +2109,7 @@ namespace @abstract
     {
         #region Slice operations
 
-        public abstract assert notify(@break notifyAll, @else @null, global::Ice.Value package, global::Ice.ObjectPrx @private, finalizePrx @protected, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.Current current = null);
+        public abstract assert notify(@break notifyAll, @else @null, finalizePrx package, catchPrx @public, defaultPrx @return, int @static, int strictfp, int super, global::Ice.Current current = null);
 
         #endregion
 
@@ -2157,10 +2155,7 @@ namespace @abstract
             iceP_notifyAll = new @break();
             @else iceP_null;
             iceP_null = null;
-            global::Ice.Value iceP_package;
-            iceP_package = null;
-            global::Ice.ObjectPrx iceP_private;
-            finalizePrx iceP_protected;
+            finalizePrx iceP_package;
             catchPrx iceP_public;
             defaultPrx iceP_return;
             int iceP_static;
@@ -2168,9 +2163,7 @@ namespace @abstract
             int iceP_super;
             iceP_notifyAll.ice_readMembers(istr);
             istr.readValue((@else v) => {iceP_null = v; });
-            istr.readValue((global::Ice.Value v) => {iceP_package = v; });
-            iceP_private = istr.readProxy();
-            iceP_protected = finalizePrxHelper.read(istr);
+            iceP_package = finalizePrxHelper.read(istr);
             iceP_public = catchPrxHelper.read(istr);
             iceP_return = defaultPrxHelper.read(istr);
             iceP_static = istr.readInt();
@@ -2178,7 +2171,7 @@ namespace @abstract
             iceP_super = istr.readInt();
             istr.readPendingValues();
             inS.endReadParams();
-            var ret = obj.notify(iceP_notifyAll, iceP_null, iceP_package, iceP_private, iceP_protected, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, current);
+            var ret = obj.notify(iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, current);
             var ostr = inS.startWriteParams();
             ostr.writeEnum((int)ret, 0);
             inS.endWriteParams(ostr);

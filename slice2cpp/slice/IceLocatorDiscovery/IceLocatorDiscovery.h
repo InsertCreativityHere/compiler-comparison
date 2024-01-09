@@ -48,11 +48,15 @@ class LookupPrx;
 namespace IceLocatorDiscovery
 {
 
+}
+
+namespace IceLocatorDiscovery
+{
+
 /**
  * The Ice lookup reply interface must be implemented by clients which are searching for Ice locators. Ice locator
  * implementations invoke on this interface to provide their locator proxy.
  * @see Lookup
- * \headerfile IceLocatorDiscovery/IceLocatorDiscovery.h
  */
 class LookupReply : public virtual ::Ice::Object
 {
@@ -109,7 +113,6 @@ public:
  * Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
  * Clients typically make a multicast findLocator request to find the locator proxy.
  * @see LookupReply
- * \headerfile IceLocatorDiscovery/IceLocatorDiscovery.h
  */
 class Lookup : public virtual ::Ice::Object
 {
@@ -171,7 +174,6 @@ namespace IceLocatorDiscovery
  * The Ice lookup reply interface must be implemented by clients which are searching for Ice locators. Ice locator
  * implementations invoke on this interface to provide their locator proxy.
  * @see Lookup
- * \headerfile IceLocatorDiscovery/IceLocatorDiscovery.h
  */
 class LookupReplyPrx : public virtual ::Ice::Proxy<LookupReplyPrx, ::Ice::ObjectPrx>
 {
@@ -245,7 +247,6 @@ protected:
  * Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
  * Clients typically make a multicast findLocator request to find the locator proxy.
  * @see LookupReply
- * \headerfile IceLocatorDiscovery/IceLocatorDiscovery.h
  */
 class LookupPrx : public virtual ::Ice::Proxy<LookupPrx, ::Ice::ObjectPrx>
 {
@@ -321,13 +322,6 @@ protected:
 
 }
 
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
-
 /// \cond INTERNAL
 namespace IceLocatorDiscovery
 {
@@ -367,28 +361,21 @@ void _readProxy(::Ice::InputStream*, ::IceInternal::ProxyHandle< Lookup>&);
 
 namespace IceLocatorDiscovery
 {
-
-class LookupReply;
-/// \cond INTERNAL
-::Ice::Object* upCast(LookupReply*);
-/// \endcond
-typedef ::IceInternal::Handle< LookupReply> LookupReplyPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceLocatorDiscovery::LookupReply> LookupReplyPrx;
 typedef LookupReplyPrx LookupReplyPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(LookupReplyPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
 
-class Lookup;
-/// \cond INTERNAL
-::Ice::Object* upCast(Lookup*);
-/// \endcond
-typedef ::IceInternal::Handle< Lookup> LookupPtr;
+class LookupReply;
+typedef ::IceInternal::Handle< LookupReply> LookupReplyPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceLocatorDiscovery::Lookup> LookupPrx;
 typedef LookupPrx LookupPrxPtr;
-/// \cond INTERNAL
-void _icePatchObjectPtr(LookupPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class Lookup;
+typedef ::IceInternal::Handle< Lookup> LookupPtr;
+
+}
+
+namespace IceLocatorDiscovery
+{
 
 }
 
@@ -649,14 +636,12 @@ namespace IceLocatorDiscovery
  * The Ice lookup reply interface must be implemented by clients which are searching for Ice locators. Ice locator
  * implementations invoke on this interface to provide their locator proxy.
  * @see Lookup
- * \headerfile IceLocatorDiscovery/IceLocatorDiscovery.h
  */
 class LookupReply : public virtual ::Ice::Object
 {
 public:
 
     typedef LookupReplyPrx ProxyType;
-    typedef LookupReplyPtr PointerType;
 
     virtual ~LookupReply();
     LookupReply() = default;
@@ -704,26 +689,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const LookupReply& lhs, const LookupReply& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const LookupReply& lhs, const LookupReply& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 /**
  * The Ice lookup interface is implemented by Ice locator implementations and can be used by clients to find
@@ -731,14 +697,12 @@ inline bool operator<(const LookupReply& lhs, const LookupReply& rhs)
  * Ice locator implementations provide a well-known `Ice/LocatorLookup' object accessible through UDP multicast.
  * Clients typically make a multicast findLocator request to find the locator proxy.
  * @see LookupReply
- * \headerfile IceLocatorDiscovery/IceLocatorDiscovery.h
  */
 class Lookup : public virtual ::Ice::Object
 {
 public:
 
     typedef LookupPrx ProxyType;
-    typedef LookupPtr PointerType;
 
     virtual ~Lookup();
     Lookup() = default;
@@ -788,35 +752,9 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const Lookup& lhs, const Lookup& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
 }
-
-inline bool operator<(const Lookup& lhs, const Lookup& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 namespace IceLocatorDiscovery
 {

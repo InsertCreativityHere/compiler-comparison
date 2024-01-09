@@ -20,7 +20,6 @@
 const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
 require("../Ice/Object");
 require("../Ice/Value");
-require("../Ice/ObjectPrx");
 require("../Ice/Struct");
 require("../Ice/Long");
 require("../Ice/HashMap");

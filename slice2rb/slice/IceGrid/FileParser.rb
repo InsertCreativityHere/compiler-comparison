@@ -56,8 +56,6 @@ module ::IceGrid
             T_FileParserPrx = ::Ice::__declareProxy('::IceGrid::FileParser')
         end
 
-        T_FileParser.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_FileParserPrx.defineProxy(FileParserPrx, nil, [])
 
         FileParserPrx_mixin::OP_parse = ::Ice::__defineOperation('parse', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_string, false, 0], [::IceGrid::T_AdminPrx, false, 0]], [], [::IceGrid::T_ApplicationDescriptor, false, 0], [::IceGrid::T_ParseException])

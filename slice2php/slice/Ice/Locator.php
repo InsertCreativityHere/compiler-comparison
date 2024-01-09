@@ -184,7 +184,6 @@ namespace Ice
             return '::Ice::Locator';
         }
     }
-    $Ice__t_Locator = IcePHP_defineClass('::Ice::Locator', '\\Ice\\Locator', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Ice__t_LocatorPrx = IcePHP_defineProxy('::Ice::Locator', $Ice__t_ObjectPrx, null);
@@ -220,7 +219,6 @@ namespace Ice
             return '::Ice::LocatorRegistry';
         }
     }
-    $Ice__t_LocatorRegistry = IcePHP_defineClass('::Ice::LocatorRegistry', '\\Ice\\LocatorRegistry', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Ice__t_LocatorRegistryPrx = IcePHP_defineProxy('::Ice::LocatorRegistry', $Ice__t_ObjectPrx, null);
@@ -255,7 +253,6 @@ namespace Ice
             return '::Ice::LocatorFinder';
         }
     }
-    $Ice__t_LocatorFinder = IcePHP_defineClass('::Ice::LocatorFinder', '\\Ice\\LocatorFinder', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Ice__t_LocatorFinderPrx = IcePHP_defineProxy('::Ice::LocatorFinder', $Ice__t_ObjectPrx, null);

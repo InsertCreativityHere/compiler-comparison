@@ -561,15 +561,15 @@ namespace and
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
     public interface printPrx : global::Ice.ObjectPrx
     {
-        assert raise(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        assert raise(@continue @else, @for @return, delPrx @while, execPrx yield, ifPrx or, int global, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::System.Threading.Tasks.Task<assert> raiseAsync(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task<assert> raiseAsync(@continue @else, @for @return, delPrx @while, execPrx yield, ifPrx or, int global, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.AsyncResult<Callback_print_raise> begin_raise(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        global::Ice.AsyncResult<Callback_print_raise> begin_raise(@continue @else, @for @return, delPrx @while, execPrx yield, ifPrx or, int global, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
-        global::Ice.AsyncResult begin_raise(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.AsyncCallback callback, object cookie);
+        global::Ice.AsyncResult begin_raise(@continue @else, @for @return, delPrx @while, execPrx yield, ifPrx or, int global, global::Ice.AsyncCallback callback, object cookie);
 
-        global::Ice.AsyncResult begin_raise(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
+        global::Ice.AsyncResult begin_raise(@continue @else, @for @return, delPrx @while, execPrx yield, ifPrx or, int global, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie);
 
         assert end_raise(global::Ice.AsyncResult asyncResult);
     }
@@ -600,7 +600,7 @@ namespace and
     public interface printOperations_
     {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        assert raise(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.Current current = null);
+        assert raise(@continue @else, @for @return, delPrx @while, execPrx yield, ifPrx or, int global, global::Ice.Current current = null);
     }
 }
 
@@ -1490,11 +1490,11 @@ namespace and
 
         #region Synchronous operations
 
-        public assert raise(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public assert raise(@continue @else, @for @return, delPrx @while, execPrx yield, ifPrx or, int global, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
-                return _iceI_raiseAsync(@else, @return, @try, @while, yield, lambda, or, global, context, null, global::System.Threading.CancellationToken.None, true).Result;
+                return _iceI_raiseAsync(@else, @return, @while, yield, or, global, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch(global::System.AggregateException ex_)
             {
@@ -1506,22 +1506,22 @@ namespace and
 
         #region Async Task operations
 
-        public global::System.Threading.Tasks.Task<assert> raiseAsync(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task<assert> raiseAsync(@continue @else, @for @return, delPrx @while, execPrx yield, ifPrx or, int global, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
-            return _iceI_raiseAsync(@else, @return, @try, @while, yield, lambda, or, global, context, progress, cancel, false);
+            return _iceI_raiseAsync(@else, @return, @while, yield, or, global, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task<assert> _iceI_raiseAsync(@continue iceP_else, @for iceP_return, global::Ice.Value iceP_try, delPrx iceP_while, execPrx iceP_yield, global::Ice.ObjectPrx iceP_lambda, ifPrx iceP_or, int iceP_global, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task<assert> _iceI_raiseAsync(@continue iceP_else, @for iceP_return, delPrx iceP_while, execPrx iceP_yield, ifPrx iceP_or, int iceP_global, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_raise_name);
             var completed = new global::IceInternal.OperationTaskCompletionCallback<assert>(progress, cancel);
-            _iceI_raise(iceP_else, iceP_return, iceP_try, iceP_while, iceP_yield, iceP_lambda, iceP_or, iceP_global, context, synchronous, completed);
+            _iceI_raise(iceP_else, iceP_return, iceP_while, iceP_yield, iceP_or, iceP_global, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _raise_name = "raise";
 
-        private void _iceI_raise(@continue iceP_else, @for iceP_return, global::Ice.Value iceP_try, delPrx iceP_while, execPrx iceP_yield, global::Ice.ObjectPrx iceP_lambda, ifPrx iceP_or, int iceP_global, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_raise(@continue iceP_else, @for iceP_return, delPrx iceP_while, execPrx iceP_yield, ifPrx iceP_or, int iceP_global, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<assert>(completed);
             outAsync.invoke(
@@ -1534,10 +1534,8 @@ namespace and
                 {
                     iceP_else.ice_writeMembers(ostr);
                     ostr.writeValue(iceP_return);
-                    ostr.writeValue(iceP_try);
                     delPrxHelper.write(ostr, iceP_while);
                     execPrxHelper.write(ostr, iceP_yield);
-                    ostr.writeProxy(iceP_lambda);
                     ifPrxHelper.write(ostr, iceP_or);
                     ostr.writeInt(iceP_global);
                     ostr.writePendingValues();
@@ -1568,19 +1566,19 @@ namespace and
 
         #region Asynchronous operations
 
-        public global::Ice.AsyncResult<Callback_print_raise> begin_raise(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public global::Ice.AsyncResult<Callback_print_raise> begin_raise(@continue @else, @for @return, delPrx @while, execPrx yield, ifPrx or, int global, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
-            return begin_raise(@else, @return, @try, @while, yield, lambda, or, global, context, null, null, false);
+            return begin_raise(@else, @return, @while, yield, or, global, context, null, null, false);
         }
 
-        public global::Ice.AsyncResult begin_raise(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.AsyncCallback callback, object cookie)
+        public global::Ice.AsyncResult begin_raise(@continue @else, @for @return, delPrx @while, execPrx yield, ifPrx or, int global, global::Ice.AsyncCallback callback, object cookie)
         {
-            return begin_raise(@else, @return, @try, @while, yield, lambda, or, global, new global::Ice.OptionalContext(), callback, cookie, false);
+            return begin_raise(@else, @return, @while, yield, or, global, new global::Ice.OptionalContext(), callback, cookie, false);
         }
 
-        public global::Ice.AsyncResult begin_raise(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
+        public global::Ice.AsyncResult begin_raise(@continue @else, @for @return, delPrx @while, execPrx yield, ifPrx or, int global, global::Ice.OptionalContext context, global::Ice.AsyncCallback callback, object cookie)
         {
-            return begin_raise(@else, @return, @try, @while, yield, lambda, or, global, context, callback, cookie, false);
+            return begin_raise(@else, @return, @while, yield, or, global, context, callback, cookie, false);
         }
 
         public assert end_raise(global::Ice.AsyncResult asyncResult)
@@ -1590,7 +1588,7 @@ namespace and
             return outgoing_.getResult(resultI_.wait());
         }
 
-        private global::Ice.AsyncResult<Callback_print_raise> begin_raise(@continue iceP_else, @for iceP_return, global::Ice.Value iceP_try, delPrx iceP_while, execPrx iceP_yield, global::Ice.ObjectPrx iceP_lambda, ifPrx iceP_or, int iceP_global, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
+        private global::Ice.AsyncResult<Callback_print_raise> begin_raise(@continue iceP_else, @for iceP_return, delPrx iceP_while, execPrx iceP_yield, ifPrx iceP_or, int iceP_global, global::System.Collections.Generic.Dictionary<string, string> context, global::Ice.AsyncCallback completedCallback, object cookie, bool synchronous)
         {
             iceCheckAsyncTwowayOnly(_raise_name);
             var completed = new global::IceInternal.OperationAsyncResultCompletionCallback<Callback_print_raise, assert>(
@@ -1602,7 +1600,7 @@ namespace and
                     }
                 },
                 this, _raise_name, cookie, completedCallback);
-            _iceI_raise(iceP_else, iceP_return, iceP_try, iceP_while, iceP_yield, iceP_lambda, iceP_or, iceP_global, context, synchronous, completed);
+            _iceI_raise(iceP_else, iceP_return, iceP_while, iceP_yield, iceP_or, iceP_global, context, synchronous, completed);
             return completed;
         }
 
@@ -2062,7 +2060,7 @@ namespace and
     {
         #region Slice operations
 
-        public abstract assert raise(@continue @else, @for @return, global::Ice.Value @try, delPrx @while, execPrx yield, global::Ice.ObjectPrx lambda, ifPrx or, int global, global::Ice.Current current = null);
+        public abstract assert raise(@continue @else, @for @return, delPrx @while, execPrx yield, ifPrx or, int global, global::Ice.Current current = null);
 
         #endregion
 
@@ -2108,24 +2106,19 @@ namespace and
             iceP_else = new @continue();
             @for iceP_return;
             iceP_return = null;
-            global::Ice.Value iceP_try;
-            iceP_try = null;
             delPrx iceP_while;
             execPrx iceP_yield;
-            global::Ice.ObjectPrx iceP_lambda;
             ifPrx iceP_or;
             int iceP_global;
             iceP_else.ice_readMembers(istr);
             istr.readValue((@for v) => {iceP_return = v; });
-            istr.readValue((global::Ice.Value v) => {iceP_try = v; });
             iceP_while = delPrxHelper.read(istr);
             iceP_yield = execPrxHelper.read(istr);
-            iceP_lambda = istr.readProxy();
             iceP_or = ifPrxHelper.read(istr);
             iceP_global = istr.readInt();
             istr.readPendingValues();
             inS.endReadParams();
-            var ret = obj.raise(iceP_else, iceP_return, iceP_try, iceP_while, iceP_yield, iceP_lambda, iceP_or, iceP_global, current);
+            var ret = obj.raise(iceP_else, iceP_return, iceP_while, iceP_yield, iceP_or, iceP_global, current);
             var ostr = inS.startWriteParams();
             ostr.writeEnum((int)ret, 0);
             inS.endWriteParams(ostr);

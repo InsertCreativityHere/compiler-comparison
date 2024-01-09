@@ -435,7 +435,7 @@ open class BadQoS: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `Topic`.
+/// Traits for Slice interface`Topic`.
 public struct TopicTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceStorm::Topic"]
     public static let staticId = "::IceStorm::Topic"
@@ -597,13 +597,13 @@ open class NoSuchTopic: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `TopicManager`.
+/// Traits for Slice interface`TopicManager`.
 public struct TopicManagerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceStorm::TopicManager"]
     public static let staticId = "::IceStorm::TopicManager"
 }
 
-/// Traits for Slice interface `Finder`.
+/// Traits for Slice interface`Finder`.
 public struct FinderTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceStorm::Finder"]
     public static let staticId = "::IceStorm::Finder"

@@ -84,7 +84,7 @@ public struct MXStringIntDictHelper {
     }
 }
 
-/// Traits for Slice class `MXMetrics`.
+/// Traits for Slice class`MXMetrics`.
 public struct MXMetricsTraits: SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceMX::Metrics"]
     public static let staticId = "::IceMX::Metrics"
@@ -396,49 +396,49 @@ open class MXUnknownMetricsView: UserException {
     }
 }
 
-/// Traits for Slice interface `MXMetricsAdmin`.
+/// Traits for Slice interface`MXMetricsAdmin`.
 public struct MXMetricsAdminTraits: SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceMX::MetricsAdmin"]
     public static let staticId = "::IceMX::MetricsAdmin"
 }
 
-/// Traits for Slice class `MXThreadMetrics`.
+/// Traits for Slice class`MXThreadMetrics`.
 public struct MXThreadMetricsTraits: SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceMX::Metrics", "::IceMX::ThreadMetrics"]
     public static let staticId = "::IceMX::ThreadMetrics"
 }
 
-/// Traits for Slice class `MXDispatchMetrics`.
+/// Traits for Slice class`MXDispatchMetrics`.
 public struct MXDispatchMetricsTraits: SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceMX::DispatchMetrics", "::IceMX::Metrics"]
     public static let staticId = "::IceMX::DispatchMetrics"
 }
 
-/// Traits for Slice class `MXChildInvocationMetrics`.
+/// Traits for Slice class`MXChildInvocationMetrics`.
 public struct MXChildInvocationMetricsTraits: SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceMX::ChildInvocationMetrics", "::IceMX::Metrics"]
     public static let staticId = "::IceMX::ChildInvocationMetrics"
 }
 
-/// Traits for Slice class `MXCollocatedMetrics`.
+/// Traits for Slice class`MXCollocatedMetrics`.
 public struct MXCollocatedMetricsTraits: SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceMX::ChildInvocationMetrics", "::IceMX::CollocatedMetrics", "::IceMX::Metrics"]
     public static let staticId = "::IceMX::CollocatedMetrics"
 }
 
-/// Traits for Slice class `MXRemoteMetrics`.
+/// Traits for Slice class`MXRemoteMetrics`.
 public struct MXRemoteMetricsTraits: SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceMX::ChildInvocationMetrics", "::IceMX::Metrics", "::IceMX::RemoteMetrics"]
     public static let staticId = "::IceMX::RemoteMetrics"
 }
 
-/// Traits for Slice class `MXInvocationMetrics`.
+/// Traits for Slice class`MXInvocationMetrics`.
 public struct MXInvocationMetricsTraits: SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceMX::InvocationMetrics", "::IceMX::Metrics"]
     public static let staticId = "::IceMX::InvocationMetrics"
 }
 
-/// Traits for Slice class `MXConnectionMetrics`.
+/// Traits for Slice class`MXConnectionMetrics`.
 public struct MXConnectionMetricsTraits: SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceMX::ConnectionMetrics", "::IceMX::Metrics"]
     public static let staticId = "::IceMX::ConnectionMetrics"

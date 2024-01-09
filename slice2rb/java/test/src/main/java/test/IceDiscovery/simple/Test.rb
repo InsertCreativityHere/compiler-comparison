@@ -39,8 +39,6 @@ module ::Test
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 
-        T_TestIntf.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
         TestIntfPrx_mixin::OP_getAdapterId = ::Ice::__defineOperation('getAdapterId', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_string, false, 0], [])
@@ -82,8 +80,6 @@ module ::Test
             T_Controller = ::Ice::__declareClass('::Test::Controller')
             T_ControllerPrx = ::Ice::__declareProxy('::Test::Controller')
         end
-
-        T_Controller.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_ControllerPrx.defineProxy(ControllerPrx, nil, [])
 

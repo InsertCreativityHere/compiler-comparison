@@ -58,10 +58,14 @@ class RouterFinderPrx;
 namespace Ice
 {
 
+}
+
+namespace Ice
+{
+
 /**
  * The Ice router interface. Routers can be set either globally with {@link Communicator#setDefaultRouter}, or with
  * <code>ice_router</code> on specific proxies.
- * \headerfile Ice/Ice.h
  */
 class ICE_API Router : public virtual Object
 {
@@ -153,7 +157,6 @@ public:
  * This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
  * through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
  * just the endpoint information of the service.
- * \headerfile Ice/Ice.h
  */
 class ICE_API RouterFinder : public virtual Object
 {
@@ -213,7 +216,6 @@ namespace Ice
 /**
  * The Ice router interface. Routers can be set either globally with {@link Communicator#setDefaultRouter}, or with
  * <code>ice_router</code> on specific proxies.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) RouterPrx : public virtual Proxy<RouterPrx, ObjectPrx>
 {
@@ -385,7 +387,6 @@ protected:
  * This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
  * through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
  * just the endpoint information of the service.
- * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) RouterFinderPrx : public virtual Proxy<RouterFinderPrx, ObjectPrx>
 {
@@ -455,13 +456,6 @@ protected:
 
 }
 
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
-
 /// \cond INTERNAL
 namespace Ice
 {
@@ -501,28 +495,21 @@ ICE_API ::IceProxy::Ice::Object* upCast(RouterFinder*);
 
 namespace Ice
 {
-
-class Router;
-/// \cond INTERNAL
-ICE_API Object* upCast(Router*);
-/// \endcond
-typedef ::IceInternal::Handle< Router> RouterPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::Router> RouterPrx;
 typedef RouterPrx RouterPrxPtr;
-/// \cond INTERNAL
-ICE_API void _icePatchObjectPtr(RouterPtr&, const ObjectPtr&);
-/// \endcond
 
-class RouterFinder;
-/// \cond INTERNAL
-ICE_API Object* upCast(RouterFinder*);
-/// \endcond
-typedef ::IceInternal::Handle< RouterFinder> RouterFinderPtr;
+class Router;
+typedef ::IceInternal::Handle< Router> RouterPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::Ice::RouterFinder> RouterFinderPrx;
 typedef RouterFinderPrx RouterFinderPrxPtr;
-/// \cond INTERNAL
-ICE_API void _icePatchObjectPtr(RouterFinderPtr&, const ObjectPtr&);
-/// \endcond
+
+class RouterFinder;
+typedef ::IceInternal::Handle< RouterFinder> RouterFinderPtr;
+
+}
+
+namespace Ice
+{
 
 }
 
@@ -959,14 +946,12 @@ namespace Ice
 /**
  * The Ice router interface. Routers can be set either globally with {@link Communicator#setDefaultRouter}, or with
  * <code>ice_router</code> on specific proxies.
- * \headerfile Ice/Ice.h
  */
 class ICE_API Router : public virtual Object
 {
 public:
 
     typedef RouterPrx ProxyType;
-    typedef RouterPtr PointerType;
 
     virtual ~Router();
     Router() = default;
@@ -1040,39 +1025,18 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(OutputStream*) const;
-    virtual void _iceReadImpl(InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const Router& lhs, const Router& rhs)
-{
-    return static_cast<const Object&>(lhs) == static_cast<const Object&>(rhs);
-}
-
-inline bool operator<(const Router& lhs, const Router& rhs)
-{
-    return static_cast<const Object&>(lhs) < static_cast<const Object&>(rhs);
-}
-/// \endcond
 
 /**
  * This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
  * through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
  * just the endpoint information of the service.
- * \headerfile Ice/Ice.h
  */
 class ICE_API RouterFinder : public virtual Object
 {
 public:
 
     typedef RouterFinderPrx ProxyType;
-    typedef RouterFinderPtr PointerType;
 
     virtual ~RouterFinder();
     RouterFinder() = default;
@@ -1121,35 +1085,9 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(OutputStream*) const;
-    virtual void _iceReadImpl(InputStream*);
-    /// \endcond
 };
 
-/// \cond INTERNAL
-inline bool operator==(const RouterFinder& lhs, const RouterFinder& rhs)
-{
-    return static_cast<const Object&>(lhs) == static_cast<const Object&>(rhs);
 }
-
-inline bool operator<(const RouterFinder& lhs, const RouterFinder& rhs)
-{
-    return static_cast<const Object&>(lhs) < static_cast<const Object&>(rhs);
-}
-/// \endcond
-
-}
-
-/// \cond STREAM
-namespace Ice
-{
-
-}
-/// \endcond
 
 namespace Ice
 {

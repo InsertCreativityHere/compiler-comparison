@@ -83,8 +83,6 @@ module ::IceBox
             T_ServiceObserverPrx = ::Ice::__declareProxy('::IceBox::ServiceObserver')
         end
 
-        T_ServiceObserver.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_ServiceObserverPrx.defineProxy(ServiceObserverPrx, nil, [])
 
         ServiceObserverPrx_mixin::OP_servicesStarted = ::Ice::__defineOperation('servicesStarted', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_StringSeq, false, 0]], [], nil, [])
@@ -123,8 +121,6 @@ module ::IceBox
             T_ServiceManager = ::Ice::__declareClass('::IceBox::ServiceManager')
             T_ServiceManagerPrx = ::Ice::__declareProxy('::IceBox::ServiceManager')
         end
-
-        T_ServiceManager.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_ServiceManagerPrx.defineProxy(ServiceManagerPrx, nil, [])
 

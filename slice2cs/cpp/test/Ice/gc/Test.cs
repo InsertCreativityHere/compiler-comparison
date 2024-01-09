@@ -1748,22 +1748,13 @@ namespace Test
             #region Slice data members
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public global::Ice.Value myI;
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
             public IPrx myIstar;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
             public C myC;
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public global::Ice.ObjectPrx myCstar;
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
             public C2 myC2;
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public global::Ice.ObjectPrx myC2star;
 
             #endregion
 
@@ -1778,14 +1769,11 @@ namespace Test
             }
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-            public U(global::Ice.Value myI, IPrx myIstar, C myC, global::Ice.ObjectPrx myCstar, C2 myC2, global::Ice.ObjectPrx myC2star)
+            public U(IPrx myIstar, C myC, C2 myC2)
             {
-                this.myI = myI;
                 this.myIstar = myIstar;
                 this.myC = myC;
-                this.myCstar = myCstar;
                 this.myC2 = myC2;
-                this.myC2star = myC2star;
                 ice_initialize();
             }
 
@@ -1810,12 +1798,9 @@ namespace Test
             protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
             {
                 ostr_.startSlice(ice_staticId(), -1, true);
-                ostr_.writeValue(myI);
                 IPrxHelper.write(ostr_, myIstar);
                 ostr_.writeValue(myC);
-                ostr_.writeProxy(myCstar);
                 ostr_.writeValue(myC2);
-                ostr_.writeProxy(myC2star);
                 ostr_.endSlice();
             }
 
@@ -1823,12 +1808,9 @@ namespace Test
             protected override void iceReadImpl(global::Ice.InputStream istr_)
             {
                 istr_.startSlice();
-                istr_.readValue((global::Ice.Value v) => { this.myI = v; });
                 myIstar = IPrxHelper.read(istr_);
                 istr_.readValue((C v) => { this.myC = v; });
-                myCstar = istr_.readProxy();
                 istr_.readValue((C2 v) => { this.myC2 = v; });
-                myC2star = istr_.readProxy();
                 istr_.endSlice();
             }
 
@@ -2434,41 +2416,6 @@ namespace Test
                     istr.readValue((C v) => { r[k] = v; });
                 }
                 return r;
-            }
-        }
-    }
-
-    namespace CCC
-    {
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.7.10")]
-        public sealed class ForwardProxySeqHelper
-        {
-            public static void write(global::Ice.OutputStream ostr, global::Ice.ObjectPrx[] v)
-            {
-                if(v == null)
-                {
-                    ostr.writeSize(0);
-                }
-                else
-                {
-                    ostr.writeSize(v.Length);
-                    for(int ix = 0; ix < v.Length; ++ix)
-                    {
-                        ostr.writeProxy(v[ix]);
-                    }
-                }
-            }
-
-            public static global::Ice.ObjectPrx[] read(global::Ice.InputStream istr)
-            {
-                global::Ice.ObjectPrx[] v;
-                int v_lenx = istr.readAndCheckSeqSize(2);
-                v = new global::Ice.ObjectPrx[v_lenx];
-                for(int ix = 0; ix < v_lenx; ++ix)
-                {
-                    v[ix] = istr.readProxy();
-                }
-                return v;
             }
         }
     }

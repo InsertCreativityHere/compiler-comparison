@@ -97,7 +97,6 @@ namespace _and
             return '::and::break';
         }
     }
-    $and__t_break = IcePHP_defineClass('::and::break', '\\_and\\_break', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $and__t_breakPrx = IcePHP_defineProxy('::and::break', $Ice__t_ObjectPrx, null);
@@ -128,7 +127,6 @@ namespace _and
             return '::and::func';
         }
     }
-    $and__t_func = IcePHP_defineClass('::and::func', '\\_and\\func', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $and__t_funcPrx = IcePHP_defineProxy('::and::func', $Ice__t_ObjectPrx, null);
@@ -200,7 +198,6 @@ namespace _and
             return '::and::do';
         }
     }
-    $and__t_do = IcePHP_defineClass('::and::do', '\\_and\\_do', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $and__t_doPrx = IcePHP_defineProxy('::and::do', $Ice__t_ObjectPrx, array($and__t_funcPrx, $and__t_breakPrx));

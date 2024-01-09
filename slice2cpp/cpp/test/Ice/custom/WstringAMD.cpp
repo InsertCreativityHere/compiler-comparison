@@ -1201,11 +1201,6 @@ Test1::WstringClass::~WstringClass()
 {
 }
 
-/// \cond INTERNAL
-::Ice::Object* Test1::upCast(WstringClass* p) { return p; }
-
-/// \endcond
-
 namespace
 {
 const ::std::string iceC_Test1_WstringClass_ids[2] =
@@ -1347,44 +1342,9 @@ Test1::WstringClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
 }
 /// \endcond
 
-/// \cond STREAM
-void
-Test1::WstringClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< WstringClass, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test1::WstringClass::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< WstringClass, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test1::_icePatchObjectPtr(WstringClassPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = WstringClassPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(WstringClass::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test2::WstringClass::~WstringClass()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test2::upCast(WstringClass* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -1523,36 +1483,6 @@ Test2::WstringClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
             assert(false);
             throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
         }
-    }
-}
-/// \endcond
-
-/// \cond STREAM
-void
-Test2::WstringClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< WstringClass, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test2::WstringClass::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< WstringClass, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-Test2::_icePatchObjectPtr(WstringClassPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = WstringClassPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(WstringClass::ice_staticId(), v);
     }
 }
 /// \endcond

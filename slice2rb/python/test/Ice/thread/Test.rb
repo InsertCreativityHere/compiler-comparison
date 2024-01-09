@@ -40,8 +40,6 @@ module ::Test
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
 
-        T_TestIntf.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 
         TestIntfPrx_mixin::OP_sleep = ::Ice::__defineOperation('sleep', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], nil, [])
@@ -88,8 +86,6 @@ module ::Test
             T_RemoteCommunicatorPrx = ::Ice::__declareProxy('::Test::RemoteCommunicator')
         end
 
-        T_RemoteCommunicator.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_RemoteCommunicatorPrx.defineProxy(RemoteCommunicatorPrx, nil, [])
 
         RemoteCommunicatorPrx_mixin::OP_getObject = ::Ice::__defineOperation('getObject', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Test::T_TestIntfPrx, false, 0], [])
@@ -124,8 +120,6 @@ module ::Test
             T_RemoteCommunicatorFactory = ::Ice::__declareClass('::Test::RemoteCommunicatorFactory')
             T_RemoteCommunicatorFactoryPrx = ::Ice::__declareProxy('::Test::RemoteCommunicatorFactory')
         end
-
-        T_RemoteCommunicatorFactory.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_RemoteCommunicatorFactoryPrx.defineProxy(RemoteCommunicatorFactoryPrx, nil, [])
 

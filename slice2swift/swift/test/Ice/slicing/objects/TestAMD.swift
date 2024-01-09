@@ -17,25 +17,25 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice class `SBase`.
+/// Traits for Slice class`SBase`.
 public struct SBaseTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::SBase"]
     public static let staticId = "::Test::SBase"
 }
 
-/// Traits for Slice class `SBSKnownDerived`.
+/// Traits for Slice class`SBSKnownDerived`.
 public struct SBSKnownDerivedTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::SBSKnownDerived", "::Test::SBase"]
     public static let staticId = "::Test::SBSKnownDerived"
 }
 
-/// Traits for Slice class `B`.
+/// Traits for Slice class`B`.
 public struct BTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::B"]
     public static let staticId = "::Test::B"
 }
 
-/// Traits for Slice class `D1`.
+/// Traits for Slice class`D1`.
 public struct D1Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::B", "::Test::D1"]
     public static let staticId = "::Test::D1"
@@ -107,13 +107,13 @@ public struct BSeqHelper {
     }
 }
 
-/// Traits for Slice class `SS1`.
+/// Traits for Slice class`SS1`.
 public struct SS1Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::SS1"]
     public static let staticId = "::Test::SS1"
 }
 
-/// Traits for Slice class `SS2`.
+/// Traits for Slice class`SS2`.
 public struct SS2Traits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::SS2"]
     public static let staticId = "::Test::SS2"
@@ -360,7 +360,7 @@ open class DerivedException: BaseException {
     }
 }
 
-/// Traits for Slice class `PBase`.
+/// Traits for Slice class`PBase`.
 public struct PBaseTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::PBase"]
     public static let staticId = "::Test::PBase"
@@ -432,19 +432,19 @@ public struct PBaseSeqHelper {
     }
 }
 
-/// Traits for Slice class `Preserved`.
+/// Traits for Slice class`Preserved`.
 public struct PreservedTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::PBase", "::Test::Preserved"]
     public static let staticId = "::Test::Preserved"
 }
 
-/// Traits for Slice class `PDerived`.
+/// Traits for Slice class`PDerived`.
 public struct PDerivedTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::PBase", "::Test::PDerived", "::Test::Preserved"]
     public static let staticId = "::Test::PDerived"
 }
 
-/// Traits for Slice class `PNode`.
+/// Traits for Slice class`PNode`.
 public struct PNodeTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::PNode"]
     public static let staticId = "::Test::PNode"
@@ -506,19 +506,19 @@ open class PreservedException: Ice.UserException {
     }
 }
 
-/// Traits for Slice interface `TestIntf`.
+/// Traits for Slice interface`TestIntf`.
 public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::TestIntf"]
     public static let staticId = "::Test::TestIntf"
 }
 
-/// Traits for Slice class `Hidden`.
+/// Traits for Slice class`Hidden`.
 public struct HiddenTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Hidden"]
     public static let staticId = "::Test::Hidden"
 }
 
-/// Traits for Slice class `Forward`.
+/// Traits for Slice class`Forward`.
 public struct ForwardTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Forward"]
     public static let staticId = "::Test::Forward"

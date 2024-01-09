@@ -378,7 +378,6 @@ namespace classdef\break
             return '::classdef::break::elseif';
         }
     }
-    $classdef_break__t_elseif = IcePHP_defineClass('::classdef::break::elseif', '\\classdef\\_break\\_elseif', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $classdef_break__t_elseifPrx = IcePHP_defineProxy('::classdef::break::elseif', $Ice__t_ObjectPrx, null);

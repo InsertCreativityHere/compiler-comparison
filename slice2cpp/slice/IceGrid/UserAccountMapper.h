@@ -97,7 +97,6 @@ namespace IceGrid
 
 /**
  * A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API UserAccountMapper : public virtual ::Ice::Object
 {
@@ -160,7 +159,6 @@ namespace IceGrid
 
 /**
  * A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICE_CLASS(ICEGRID_API) UserAccountMapperPrx : public virtual ::Ice::Proxy<UserAccountMapperPrx, ::Ice::ObjectPrx>
 {
@@ -278,17 +276,11 @@ ICEGRID_API ::IceProxy::Ice::Object* upCast(UserAccountMapper*);
 
 namespace IceGrid
 {
-
-class UserAccountMapper;
-/// \cond INTERNAL
-ICEGRID_API ::Ice::Object* upCast(UserAccountMapper*);
-/// \endcond
-typedef ::IceInternal::Handle< UserAccountMapper> UserAccountMapperPtr;
 typedef ::IceInternal::ProxyHandle< ::IceProxy::IceGrid::UserAccountMapper> UserAccountMapperPrx;
 typedef UserAccountMapperPrx UserAccountMapperPrxPtr;
-/// \cond INTERNAL
-ICEGRID_API void _icePatchObjectPtr(UserAccountMapperPtr&, const ::Ice::ObjectPtr&);
-/// \endcond
+
+class UserAccountMapper;
+typedef ::IceInternal::Handle< UserAccountMapper> UserAccountMapperPtr;
 
 }
 
@@ -486,14 +478,12 @@ namespace IceGrid
 
 /**
  * A user account mapper object is used by IceGrid nodes to map session identifiers to user accounts.
- * \headerfile IceGrid/IceGrid.h
  */
 class ICEGRID_API UserAccountMapper : public virtual ::Ice::Object
 {
 public:
 
     typedef UserAccountMapperPrx ProxyType;
-    typedef UserAccountMapperPtr PointerType;
 
     virtual ~UserAccountMapper();
     UserAccountMapper() = default;
@@ -546,26 +536,7 @@ public:
     /// \cond INTERNAL
     virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
-
-protected:
-
-    /// \cond STREAM
-    virtual void _iceWriteImpl(::Ice::OutputStream*) const;
-    virtual void _iceReadImpl(::Ice::InputStream*);
-    /// \endcond
 };
-
-/// \cond INTERNAL
-inline bool operator==(const UserAccountMapper& lhs, const UserAccountMapper& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) == static_cast<const ::Ice::Object&>(rhs);
-}
-
-inline bool operator<(const UserAccountMapper& lhs, const UserAccountMapper& rhs)
-{
-    return static_cast<const ::Ice::Object&>(lhs) < static_cast<const ::Ice::Object&>(rhs);
-}
-/// \endcond
 
 }
 

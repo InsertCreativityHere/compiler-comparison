@@ -349,12 +349,10 @@ if 'package' not in _M__await.__dict__:
 
         __repr__ = __str__
 
-    _M__await._t_package = IcePy.declareValue('::await::package')
-
     _M__await._t_package = IcePy.defineValue('::await::package', package, -1, (), False, False, None, (
         ('_for', (), _M__await._t__break, True, 1),
         ('goto', (), _M__await._t_var, True, 2),
-        ('_if', (), _M__await._t_explicit, True, 3),
+        ('_if', (), _M__await._t_explicitPrx, True, 3),
         ('internal', (), _M__await._t__while, True, 5),
         ('debugger', (), IcePy._t_string, True, 7),
         ('null', (), _M__await._t_explicitPrx, True, 8)
@@ -467,10 +465,10 @@ if 'optionalParamsPrx' not in _M__await.__dict__:
     _M__await._t_optionalParamsDisp = IcePy.defineClass('::await::optionalParams', optionalParams, (), None, ())
     optionalParams._ice_type = _M__await._t_optionalParamsDisp
 
-    optionalParams._op_for = IcePy.Operation('for', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M__await._t_var, True, 2), ((), _M__await._t_explicit, True, 3), ((), _M__await._t__while, True, 5), ((), IcePy._t_string, True, 7), ((), _M__await._t_explicitPrx, True, 8)), (), ((), _M__await._t__break, True, 1), ())
-    optionalParams._op_continue = IcePy.Operation('continue', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M__await._t_var, True, 2), ((), _M__await._t_explicit, True, 3), ((), _M__await._t__while, True, 5), ((), IcePy._t_string, True, 7), ((), _M__await._t_explicitPrx, True, 8)), (), ((), _M__await._t__break, True, 1), ())
-    optionalParams._op_in = IcePy.Operation('in', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (((), _M__await._t_var, True, 2), ((), _M__await._t_explicit, True, 3), ((), _M__await._t__while, True, 5), ((), IcePy._t_string, True, 7), ((), _M__await._t_explicitPrx, True, 8)), ((), _M__await._t__break, True, 1), ())
-    optionalParams._op_foreach = IcePy.Operation('foreach', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (((), _M__await._t_var, True, 2), ((), _M__await._t_explicit, True, 3), ((), _M__await._t__while, True, 5), ((), IcePy._t_string, True, 7), ((), _M__await._t_explicitPrx, True, 8)), ((), _M__await._t__break, True, 1), ())
+    optionalParams._op_for = IcePy.Operation('for', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M__await._t_var, True, 2), ((), _M__await._t_explicitPrx, True, 3), ((), _M__await._t__while, True, 5), ((), IcePy._t_string, True, 7), ((), _M__await._t_explicitPrx, True, 8)), (), ((), _M__await._t__break, True, 1), ())
+    optionalParams._op_continue = IcePy.Operation('continue', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M__await._t_var, True, 2), ((), _M__await._t_explicitPrx, True, 3), ((), _M__await._t__while, True, 5), ((), IcePy._t_string, True, 7), ((), _M__await._t_explicitPrx, True, 8)), (), ((), _M__await._t__break, True, 1), ())
+    optionalParams._op_in = IcePy.Operation('in', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (((), _M__await._t_var, True, 2), ((), _M__await._t_explicitPrx, True, 3), ((), _M__await._t__while, True, 5), ((), IcePy._t_string, True, 7), ((), _M__await._t_explicitPrx, True, 8)), ((), _M__await._t__break, True, 1), ())
+    optionalParams._op_foreach = IcePy.Operation('foreach', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (), (((), _M__await._t_var, True, 2), ((), _M__await._t_explicitPrx, True, 3), ((), _M__await._t__while, True, 5), ((), IcePy._t_string, True, 7), ((), _M__await._t_explicitPrx, True, 8)), ((), _M__await._t__break, True, 1), ())
 
     _M__await.optionalParams = optionalParams
     del optionalParams
@@ -625,7 +623,7 @@ if 'implicitPrx' not in _M__await.__dict__:
     _M__await._t_implicitDisp = IcePy.defineClass('::await::implicit', implicit, (), None, ())
     implicit._ice_type = _M__await._t_implicitDisp
 
-    implicit._op_in = IcePy.Operation('in', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M__await._t__break, False, 0), ((), _M__await._t_delete, False, 0), ((), _M__await._t_explicit, False, 0), ((), _M__await._t_casePrx, False, 0), ((), _M__await._t_typeofPrx, False, 0), ((), _M__await._t_delete, False, 0), ((), _M__await._t_explicitPrx, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M__await._t_var, False, 0), (_M__await._t_fixed, _M__await._t_foreach))
+    implicit._op_in = IcePy.Operation('in', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M__await._t__break, False, 0), ((), _M__await._t_delete, False, 0), ((), _M__await._t_explicitPrx, False, 0), ((), _M__await._t_casePrx, False, 0), ((), _M__await._t_typeofPrx, False, 0), ((), _M__await._t_delete, False, 0), ((), _M__await._t_explicitPrx, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M__await._t_var, False, 0), (_M__await._t_fixed, _M__await._t_foreach))
 
     _M__await.implicit = implicit
     del implicit

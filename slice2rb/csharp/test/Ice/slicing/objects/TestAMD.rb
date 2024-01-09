@@ -234,7 +234,6 @@ module ::Test
 
     if not defined?(::Test::T_Forward)
         T_Forward = ::Ice::__declareClass('::Test::Forward')
-        T_ForwardPrx = ::Ice::__declareProxy('::Test::Forward')
     end
 
     if not defined?(::Test::PBase_Mixin)
@@ -500,8 +499,6 @@ module ::Test
             T_TestIntf = ::Ice::__declareClass('::Test::TestIntf')
             T_TestIntfPrx = ::Ice::__declareProxy('::Test::TestIntf')
         end
-
-        T_TestIntf.defineClass(::Ice::Value, -1, false, true, nil, [])
 
         T_TestIntfPrx.defineProxy(TestIntfPrx, nil, [])
 

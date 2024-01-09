@@ -38,6 +38,32 @@ module ::Test
         T_OneOptional.defineClass(OneOptional, -1, false, false, nil, [['a', ::Ice::T_int, true, 1]])
     end
 
+    if not defined?(::Test::MyInterface_Mixin)
+
+        module ::Test::MyInterface_Mixin
+        end
+        module MyInterfacePrx_mixin
+
+            def op(context=nil)
+                MyInterfacePrx_mixin::OP_op.invoke(self, [], context)
+            end
+        end
+
+        class MyInterfacePrx < ::Ice::ObjectPrx
+            include ::Ice::Proxy_mixin
+            include MyInterfacePrx_mixin
+        end
+
+        if not defined?(::Test::T_MyInterfacePrx)
+            T_MyInterface = ::Ice::__declareClass('::Test::MyInterface')
+            T_MyInterfacePrx = ::Ice::__declareProxy('::Test::MyInterface')
+        end
+
+        T_MyInterfacePrx.defineProxy(MyInterfacePrx, nil, [])
+
+        MyInterfacePrx_mixin::OP_op = ::Ice::__defineOperation('op', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+    end
+
     if not defined?(::Test::MyEnum)
         class MyEnum
             include Comparable
@@ -262,8 +288,8 @@ module ::Test
         T_OneOptionalSeq = ::Ice::__defineSequence('::Test::OneOptionalSeq', ::Test::T_OneOptional)
     end
 
-    if not defined?(::Test::T_OneOptionalPrxSeq)
-        T_OneOptionalPrxSeq = ::Ice::__defineSequence('::Test::OneOptionalPrxSeq', ::Ice::T_ObjectPrx)
+    if not defined?(::Test::T_MyInterfacePrxSeq)
+        T_MyInterfacePrxSeq = ::Ice::__defineSequence('::Test::MyInterfacePrxSeq', ::Test::T_MyInterfacePrx)
     end
 
     if not defined?(::Test::T_IntIntDict)
@@ -290,8 +316,8 @@ module ::Test
         T_IntOneOptionalDict = ::Ice::__defineDictionary('::Test::IntOneOptionalDict', ::Ice::T_int, ::Test::T_OneOptional)
     end
 
-    if not defined?(::Test::T_IntOneOptionalPrxDict)
-        T_IntOneOptionalPrxDict = ::Ice::__defineDictionary('::Test::IntOneOptionalPrxDict', ::Ice::T_int, ::Ice::T_ObjectPrx)
+    if not defined?(::Test::T_IntMyInterfacePrxDict)
+        T_IntMyInterfacePrxDict = ::Ice::__defineDictionary('::Test::IntMyInterfacePrxDict', ::Ice::T_int, ::Test::T_MyInterfacePrx)
     end
 
     if not defined?(::Test::MultiOptional_Mixin)
@@ -300,7 +326,7 @@ module ::Test
         end
         class MultiOptional < ::Ice::Value
 
-            def initialize(a=::Ice::Unset, b=::Ice::Unset, c=::Ice::Unset, d=::Ice::Unset, e=::Ice::Unset, f=::Ice::Unset, g=::Ice::Unset, h=::Ice::Unset, i=::Ice::Unset, j=::Ice::Unset, k=::Ice::Unset, bs=::Ice::Unset, ss=::Ice::Unset, iid=::Ice::Unset, sid=::Ice::Unset, fs=::Ice::Unset, vs=::Ice::Unset, shs=::Ice::Unset, es=::Ice::Unset, fss=::Ice::Unset, vss=::Ice::Unset, oos=::Ice::Unset, oops=::Ice::Unset, ied=::Ice::Unset, ifsd=::Ice::Unset, ivsd=::Ice::Unset, iood=::Ice::Unset, ioopd=::Ice::Unset, bos=::Ice::Unset)
+            def initialize(a=::Ice::Unset, b=::Ice::Unset, c=::Ice::Unset, d=::Ice::Unset, e=::Ice::Unset, f=::Ice::Unset, g=::Ice::Unset, h=::Ice::Unset, i=::Ice::Unset, j=::Ice::Unset, k=::Ice::Unset, bs=::Ice::Unset, ss=::Ice::Unset, iid=::Ice::Unset, sid=::Ice::Unset, fs=::Ice::Unset, vs=::Ice::Unset, shs=::Ice::Unset, es=::Ice::Unset, fss=::Ice::Unset, vss=::Ice::Unset, oos=::Ice::Unset, mips=::Ice::Unset, ied=::Ice::Unset, ifsd=::Ice::Unset, ivsd=::Ice::Unset, iood=::Ice::Unset, imipd=::Ice::Unset, bos=::Ice::Unset)
                 @a = a
                 @b = b
                 @c = c
@@ -323,16 +349,16 @@ module ::Test
                 @fss = fss
                 @vss = vss
                 @oos = oos
-                @oops = oops
+                @mips = mips
                 @ied = ied
                 @ifsd = ifsd
                 @ivsd = ivsd
                 @iood = iood
-                @ioopd = ioopd
+                @imipd = imipd
                 @bos = bos
             end
 
-            attr_accessor :a, :b, :c, :d, :e, :f, :g, :h, :i, :j, :k, :bs, :ss, :iid, :sid, :fs, :vs, :shs, :es, :fss, :vss, :oos, :oops, :ied, :ifsd, :ivsd, :iood, :ioopd, :bos
+            attr_accessor :a, :b, :c, :d, :e, :f, :g, :h, :i, :j, :k, :bs, :ss, :iid, :sid, :fs, :vs, :shs, :es, :fss, :vss, :oos, :mips, :ied, :ifsd, :ivsd, :iood, :imipd, :bos
         end
 
         if not defined?(::Test::T_MultiOptional)
@@ -349,7 +375,7 @@ module ::Test
             ['g', ::Ice::T_double, true, 7],
             ['h', ::Ice::T_string, true, 8],
             ['i', ::Test::T_MyEnum, true, 9],
-            ['j', ::Ice::T_ObjectPrx, true, 10],
+            ['j', ::Test::T_MyInterfacePrx, true, 10],
             ['k', ::Test::T_MultiOptional, true, 11],
             ['bs', ::Test::T_ByteSeq, true, 12],
             ['ss', ::Test::T_StringSeq, true, 13],
@@ -362,12 +388,12 @@ module ::Test
             ['fss', ::Test::T_FixedStructSeq, true, 20],
             ['vss', ::Test::T_VarStructSeq, true, 21],
             ['oos', ::Test::T_OneOptionalSeq, true, 22],
-            ['oops', ::Test::T_OneOptionalPrxSeq, true, 23],
+            ['mips', ::Test::T_MyInterfacePrxSeq, true, 23],
             ['ied', ::Test::T_IntEnumDict, true, 24],
             ['ifsd', ::Test::T_IntFixedStructDict, true, 25],
             ['ivsd', ::Test::T_IntVarStructDict, true, 26],
             ['iood', ::Test::T_IntOneOptionalDict, true, 27],
-            ['ioopd', ::Test::T_IntOneOptionalPrxDict, true, 28],
+            ['imipd', ::Test::T_IntMyInterfacePrxDict, true, 28],
             ['bos', ::Test::T_BoolSeq, true, 29]
         ])
     end
@@ -682,7 +708,6 @@ module ::Test
 
     if not defined?(::Test::T_Recursive)
         T_Recursive = ::Ice::__declareClass('::Test::Recursive')
-        T_RecursivePrx = ::Ice::__declareProxy('::Test::Recursive')
     end
 
     if not defined?(::Test::T_RecursiveSeq)
@@ -787,8 +812,8 @@ module ::Test
                 InitialPrx_mixin::OP_opOneOptional.invoke(self, [p1], context)
             end
 
-            def opOneOptionalProxy(p1, context=nil)
-                InitialPrx_mixin::OP_opOneOptionalProxy.invoke(self, [p1], context)
+            def opMyInterfaceProxy(p1, context=nil)
+                InitialPrx_mixin::OP_opMyInterfaceProxy.invoke(self, [p1], context)
             end
 
             def opByteSeq(p1, context=nil)
@@ -934,8 +959,6 @@ module ::Test
             T_InitialPrx = ::Ice::__declareProxy('::Test::Initial')
         end
 
-        T_Initial.defineClass(::Ice::Value, -1, false, true, nil, [])
-
         T_InitialPrx.defineProxy(InitialPrx, nil, [])
 
         InitialPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [])
@@ -956,7 +979,7 @@ module ::Test
         InitialPrx_mixin::OP_opFixedStruct = ::Ice::__defineOperation('opFixedStruct', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_FixedStruct, true, 2]], [[::Test::T_FixedStruct, true, 3]], [::Test::T_FixedStruct, true, 1], [])
         InitialPrx_mixin::OP_opVarStruct = ::Ice::__defineOperation('opVarStruct', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_VarStruct, true, 2]], [[::Test::T_VarStruct, true, 3]], [::Test::T_VarStruct, true, 1], [])
         InitialPrx_mixin::OP_opOneOptional = ::Ice::__defineOperation('opOneOptional', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_OneOptional, true, 2]], [[::Test::T_OneOptional, true, 3]], [::Test::T_OneOptional, true, 1], [])
-        InitialPrx_mixin::OP_opOneOptionalProxy = ::Ice::__defineOperation('opOneOptionalProxy', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_ObjectPrx, true, 2]], [[::Ice::T_ObjectPrx, true, 3]], [::Ice::T_ObjectPrx, true, 1], [])
+        InitialPrx_mixin::OP_opMyInterfaceProxy = ::Ice::__defineOperation('opMyInterfaceProxy', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_MyInterfacePrx, true, 2]], [[::Test::T_MyInterfacePrx, true, 3]], [::Test::T_MyInterfacePrx, true, 1], [])
         InitialPrx_mixin::OP_opByteSeq = ::Ice::__defineOperation('opByteSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_ByteSeq, true, 2]], [[::Test::T_ByteSeq, true, 3]], [::Test::T_ByteSeq, true, 1], [])
         InitialPrx_mixin::OP_opBoolSeq = ::Ice::__defineOperation('opBoolSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_BoolSeq, true, 2]], [[::Test::T_BoolSeq, true, 3]], [::Test::T_BoolSeq, true, 1], [])
         InitialPrx_mixin::OP_opShortSeq = ::Ice::__defineOperation('opShortSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_ShortSeq, true, 2]], [[::Test::T_ShortSeq, true, 3]], [::Test::T_ShortSeq, true, 1], [])

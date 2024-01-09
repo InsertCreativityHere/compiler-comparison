@@ -17,19 +17,19 @@ import Foundation
 import Ice
 import PromiseKit
 
-/// Traits for Slice interface `RemoteCommunicator`.
+/// Traits for Slice interface`RemoteCommunicator`.
 public struct RemoteCommunicatorTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::RemoteCommunicator"]
     public static let staticId = "::Test::RemoteCommunicator"
 }
 
-/// Traits for Slice interface `RemoteCommunicatorFactory`.
+/// Traits for Slice interface`RemoteCommunicatorFactory`.
 public struct RemoteCommunicatorFactoryTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::RemoteCommunicatorFactory"]
     public static let staticId = "::Test::RemoteCommunicatorFactory"
 }
 
-/// Traits for Slice interface `TestFacet`.
+/// Traits for Slice interface`TestFacet`.
 public struct TestFacetTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::TestFacet"]
     public static let staticId = "::Test::TestFacet"

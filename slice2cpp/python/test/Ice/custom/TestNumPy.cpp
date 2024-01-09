@@ -864,40 +864,6 @@ const ::std::string iceC_Test_NumPy_Custom_shutdown_name = "shutdown";
 }
 
 /// \cond INTERNAL
-::IceProxy::Ice::Object* ::IceProxy::Test::NumPy::upCast(D* p) { return p; }
-
-void
-::IceProxy::Test::NumPy::_readProxy(::Ice::InputStream* istr, ::IceInternal::ProxyHandle< D>& v)
-{
-    ::Ice::ObjectPrx proxy;
-    istr->read(proxy);
-    if(!proxy)
-    {
-        v = 0;
-    }
-    else
-    {
-        v = new D;
-        v->_copyFrom(proxy);
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-::IceProxy::Ice::Object*
-IceProxy::Test::NumPy::D::_newInstance() const
-{
-    return new D;
-}
-/// \endcond
-
-const ::std::string&
-IceProxy::Test::NumPy::D::ice_staticId()
-{
-    return ::Test::NumPy::D::ice_staticId();
-}
-
-/// \cond INTERNAL
 ::IceProxy::Ice::Object* ::IceProxy::Test::NumPy::upCast(Custom* p) { return p; }
 
 void
@@ -1801,105 +1767,9 @@ IceProxy::Test::NumPy::Custom::ice_staticId()
     return ::Test::NumPy::Custom::ice_staticId();
 }
 
-Test::NumPy::D::~D()
-{
-}
-
-/// \cond INTERNAL
-::Ice::Object* Test::NumPy::upCast(D* p) { return p; }
-
-/// \endcond
-::Ice::ObjectPtr
-Test::NumPy::D::ice_clone() const
-{
-    ::Ice::Object* p = new D(*this);
-    return p;
-}
-
-namespace
-{
-const ::std::string iceC_Test_NumPy_D_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::NumPy::D"
-};
-
-}
-
-bool
-Test::NumPy::D::ice_isA(const ::std::string& s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_NumPy_D_ids, iceC_Test_NumPy_D_ids + 2, s);
-}
-
-::std::vector< ::std::string>
-Test::NumPy::D::ice_ids(const ::Ice::Current&) const
-{
-    return ::std::vector< ::std::string>(&iceC_Test_NumPy_D_ids[0], &iceC_Test_NumPy_D_ids[2]);
-}
-
-const ::std::string&
-Test::NumPy::D::ice_id(const ::Ice::Current&) const
-{
-    return ice_staticId();
-}
-
-const ::std::string&
-Test::NumPy::D::ice_staticId()
-{
-    static const ::std::string typeId = "::Test::NumPy::D";
-    return typeId;
-}
-
-/// \cond STREAM
-void
-Test::NumPy::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< D, ::Ice::OutputStream>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::NumPy::D::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader< D, ::Ice::InputStream>::read(istr, *this);
-    istr->endSlice();
-}
-/// \endcond
-
-namespace
-{
-const ::IceInternal::DefaultValueFactoryInit< ::Test::NumPy::D> iceC_Test_NumPy_D_init("::Test::NumPy::D");
-}
-
-::Ice::ValueFactoryPtr
-Test::NumPy::D::ice_factory()
-{
-    return ::IceInternal::factoryTable->getValueFactory(::Test::NumPy::D::ice_staticId());
-}
-
-/// \cond INTERNAL
-void
-Test::NumPy::_icePatchObjectPtr(DPtr& handle, const ::Ice::ObjectPtr& v)
-{
-    handle = DPtr::dynamicCast(v);
-    if(v && !handle)
-    {
-        IceInternal::Ex::throwUOE(D::ice_staticId(), v);
-    }
-}
-/// \endcond
-
 Test::NumPy::Custom::~Custom()
 {
 }
-
-/// \cond INTERNAL
-::Ice::Object* Test::NumPy::upCast(Custom* p) { return p; }
-
-/// \endcond
 
 namespace
 {
@@ -2368,32 +2238,93 @@ Test::NumPy::Custom::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
 }
 /// \endcond
 
+Test::NumPy::D::~D()
+{
+}
+
+/// \cond INTERNAL
+::Ice::Object* Test::NumPy::upCast(D* p) { return p; }
+
+/// \endcond
+::Ice::ObjectPtr
+Test::NumPy::D::ice_clone() const
+{
+    ::Ice::Object* p = new D(*this);
+    return p;
+}
+
+namespace
+{
+const ::std::string iceC_Test_NumPy_D_ids[2] =
+{
+    "::Ice::Object",
+    "::Test::NumPy::D"
+};
+
+}
+
+bool
+Test::NumPy::D::ice_isA(const ::std::string& s, const ::Ice::Current&) const
+{
+    return ::std::binary_search(iceC_Test_NumPy_D_ids, iceC_Test_NumPy_D_ids + 2, s);
+}
+
+::std::vector< ::std::string>
+Test::NumPy::D::ice_ids(const ::Ice::Current&) const
+{
+    return ::std::vector< ::std::string>(&iceC_Test_NumPy_D_ids[0], &iceC_Test_NumPy_D_ids[2]);
+}
+
+const ::std::string&
+Test::NumPy::D::ice_id(const ::Ice::Current&) const
+{
+    return ice_staticId();
+}
+
+const ::std::string&
+Test::NumPy::D::ice_staticId()
+{
+    static const ::std::string typeId = "::Test::NumPy::D";
+    return typeId;
+}
+
 /// \cond STREAM
 void
-Test::NumPy::Custom::_iceWriteImpl(::Ice::OutputStream* ostr) const
+Test::NumPy::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter< Custom, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter< D, ::Ice::OutputStream>::write(ostr, *this);
     ostr->endSlice();
 }
 
 void
-Test::NumPy::Custom::_iceReadImpl(::Ice::InputStream* istr)
+Test::NumPy::D::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader< Custom, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader< D, ::Ice::InputStream>::read(istr, *this);
     istr->endSlice();
 }
 /// \endcond
 
+namespace
+{
+const ::IceInternal::DefaultValueFactoryInit< ::Test::NumPy::D> iceC_Test_NumPy_D_init("::Test::NumPy::D");
+}
+
+::Ice::ValueFactoryPtr
+Test::NumPy::D::ice_factory()
+{
+    return ::IceInternal::factoryTable->getValueFactory(::Test::NumPy::D::ice_staticId());
+}
+
 /// \cond INTERNAL
 void
-Test::NumPy::_icePatchObjectPtr(CustomPtr& handle, const ::Ice::ObjectPtr& v)
+Test::NumPy::_icePatchObjectPtr(DPtr& handle, const ::Ice::ObjectPtr& v)
 {
-    handle = CustomPtr::dynamicCast(v);
+    handle = DPtr::dynamicCast(v);
     if(v && !handle)
     {
-        IceInternal::Ex::throwUOE(Custom::ice_staticId(), v);
+        IceInternal::Ex::throwUOE(D::ice_staticId(), v);
     }
 }
 /// \endcond

@@ -42,7 +42,6 @@ namespace Test
             return '::Test::Backend';
         }
     }
-    $Test__t_Backend = IcePHP_defineClass('::Test::Backend', '\\Test\\Backend', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_BackendPrx = IcePHP_defineProxy('::Test::Backend', $Ice__t_ObjectPrx, null);
@@ -128,7 +127,6 @@ namespace Test
             return '::Test::TestController';
         }
     }
-    $Test__t_TestController = IcePHP_defineClass('::Test::TestController', '\\Test\\TestController', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_TestControllerPrx = IcePHP_defineProxy('::Test::TestController', $Ice__t_ObjectPrx, null);
@@ -161,7 +159,6 @@ namespace Test
             return '::Test::TestSession';
         }
     }
-    $Test__t_TestSession = IcePHP_defineClass('::Test::TestSession', '\\Test\\TestSession', -1, false, true, null, null);
 
     global $Ice__t_ObjectPrx;
     $Test__t_TestSessionPrx = IcePHP_defineProxy('::Test::TestSession', $Ice__t_ObjectPrx, array($Glacier2__t_SessionPrx));

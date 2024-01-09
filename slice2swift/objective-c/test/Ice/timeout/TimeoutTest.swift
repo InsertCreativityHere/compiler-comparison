@@ -19,13 +19,13 @@ import PromiseKit
 
 public typealias ByteSeq = Foundation.Data
 
-/// Traits for Slice interface `Timeout`.
+/// Traits for Slice interface`Timeout`.
 public struct TimeoutTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Timeout"]
     public static let staticId = "::Test::Timeout"
 }
 
-/// Traits for Slice interface `Controller`.
+/// Traits for Slice interface`Controller`.
 public struct ControllerTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Controller"]
     public static let staticId = "::Test::Controller"
